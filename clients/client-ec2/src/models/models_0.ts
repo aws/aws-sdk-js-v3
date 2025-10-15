@@ -147,6 +147,7 @@ export type AcceleratorType = (typeof AcceleratorType)[keyof typeof AcceleratorT
  */
 export const ResourceType = {
   capacity_block: "capacity-block",
+  capacity_manager_data_export: "capacity-manager-data-export",
   capacity_reservation: "capacity-reservation",
   capacity_reservation_fleet: "capacity-reservation-fleet",
   carrier_gateway: "carrier-gateway",
@@ -3457,7 +3458,7 @@ export interface AllocateAddressResult {
   AllocationId?: string | undefined;
 
   /**
-   * <p>The ID of an address pool.</p>
+   * <p>The ID of an address pool that you own.</p>
    * @public
    */
   PublicIpv4Pool?: string | undefined;
@@ -3488,14 +3489,14 @@ export interface AllocateAddressResult {
   CustomerOwnedIpv4Pool?: string | undefined;
 
   /**
-   * <p>The carrier IP address. This option is only available for network interfaces that reside
+   * <p>The carrier IP address. Available only for network interfaces that reside
    *       in a subnet in a Wavelength Zone.</p>
    * @public
    */
   CarrierIp?: string | undefined;
 
   /**
-   * <p>The Elastic IP address.</p>
+   * <p>The Amazon-owned IP address. Not available when using an address pool that you own.</p>
    * @public
    */
   PublicIp?: string | undefined;

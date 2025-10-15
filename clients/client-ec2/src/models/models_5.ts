@@ -117,13 +117,291 @@ import {
   InstanceStorageInfo,
   InstanceTypeHypervisor,
   MediaAcceleratorInfo,
-  MemoryInfo,
-  NetworkInfo,
-  NeuronDeviceInfo,
   PermissionGroup,
   ProductCode,
   VirtualizationType,
 } from "./models_4";
+
+/**
+ * <p>Describes the memory for the instance type.</p>
+ * @public
+ */
+export interface MemoryInfo {
+  /**
+   * <p>The size of the memory, in MiB.</p>
+   * @public
+   */
+  SizeInMiB?: number | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const BandwidthWeightingType = {
+  DEFAULT: "default",
+  EBS_1: "ebs-1",
+  VPC_1: "vpc-1",
+} as const;
+
+/**
+ * @public
+ */
+export type BandwidthWeightingType = (typeof BandwidthWeightingType)[keyof typeof BandwidthWeightingType];
+
+/**
+ * <p>Describes the Elastic Fabric Adapters for the instance type.</p>
+ * @public
+ */
+export interface EfaInfo {
+  /**
+   * <p>The maximum number of Elastic Fabric Adapters for the instance type.</p>
+   * @public
+   */
+  MaximumEfaInterfaces?: number | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const EnaSupport = {
+  required: "required",
+  supported: "supported",
+  unsupported: "unsupported",
+} as const;
+
+/**
+ * @public
+ */
+export type EnaSupport = (typeof EnaSupport)[keyof typeof EnaSupport];
+
+/**
+ * @public
+ * @enum
+ */
+export const FlexibleEnaQueuesSupport = {
+  SUPPORTED: "supported",
+  UNSUPPORTED: "unsupported",
+} as const;
+
+/**
+ * @public
+ */
+export type FlexibleEnaQueuesSupport = (typeof FlexibleEnaQueuesSupport)[keyof typeof FlexibleEnaQueuesSupport];
+
+/**
+ * <p>Describes the network card support of the instance type.</p>
+ * @public
+ */
+export interface NetworkCardInfo {
+  /**
+   * <p>The index of the network card.</p>
+   * @public
+   */
+  NetworkCardIndex?: number | undefined;
+
+  /**
+   * <p>The network performance of the network card.</p>
+   * @public
+   */
+  NetworkPerformance?: string | undefined;
+
+  /**
+   * <p>The maximum number of network interfaces for the network card.</p>
+   * @public
+   */
+  MaximumNetworkInterfaces?: number | undefined;
+
+  /**
+   * <p>The baseline network performance of the network card, in Gbps.</p>
+   * @public
+   */
+  BaselineBandwidthInGbps?: number | undefined;
+
+  /**
+   * <p>The peak (burst) network performance of the network card, in Gbps.</p>
+   * @public
+   */
+  PeakBandwidthInGbps?: number | undefined;
+
+  /**
+   * <p>The default number of the ENA queues for each interface.</p>
+   * @public
+   */
+  DefaultEnaQueueCountPerInterface?: number | undefined;
+
+  /**
+   * <p>The maximum number of the ENA queues.</p>
+   * @public
+   */
+  MaximumEnaQueueCount?: number | undefined;
+
+  /**
+   * <p>The maximum number of the ENA queues for each interface.</p>
+   * @public
+   */
+  MaximumEnaQueueCountPerInterface?: number | undefined;
+}
+
+/**
+ * <p>Describes the networking features of the instance type.</p>
+ * @public
+ */
+export interface NetworkInfo {
+  /**
+   * <p>The network performance.</p>
+   * @public
+   */
+  NetworkPerformance?: string | undefined;
+
+  /**
+   * <p>The maximum number of network interfaces for the instance type.</p>
+   * @public
+   */
+  MaximumNetworkInterfaces?: number | undefined;
+
+  /**
+   * <p>The maximum number of physical network cards that can be allocated to the instance.</p>
+   * @public
+   */
+  MaximumNetworkCards?: number | undefined;
+
+  /**
+   * <p>The index of the default network card, starting at 0.</p>
+   * @public
+   */
+  DefaultNetworkCardIndex?: number | undefined;
+
+  /**
+   * <p>Describes the network cards for the instance type.</p>
+   * @public
+   */
+  NetworkCards?: NetworkCardInfo[] | undefined;
+
+  /**
+   * <p>The maximum number of IPv4 addresses per network interface.</p>
+   * @public
+   */
+  Ipv4AddressesPerInterface?: number | undefined;
+
+  /**
+   * <p>The maximum number of IPv6 addresses per network interface.</p>
+   * @public
+   */
+  Ipv6AddressesPerInterface?: number | undefined;
+
+  /**
+   * <p>Indicates whether IPv6 is supported.</p>
+   * @public
+   */
+  Ipv6Supported?: boolean | undefined;
+
+  /**
+   * <p>Indicates whether Elastic Network Adapter (ENA) is supported.</p>
+   * @public
+   */
+  EnaSupport?: EnaSupport | undefined;
+
+  /**
+   * <p>Indicates whether Elastic Fabric Adapter (EFA) is supported.</p>
+   * @public
+   */
+  EfaSupported?: boolean | undefined;
+
+  /**
+   * <p>Describes the Elastic Fabric Adapters for the instance type.</p>
+   * @public
+   */
+  EfaInfo?: EfaInfo | undefined;
+
+  /**
+   * <p>Indicates whether the instance type automatically encrypts in-transit traffic between
+   *    instances.</p>
+   * @public
+   */
+  EncryptionInTransitSupported?: boolean | undefined;
+
+  /**
+   * <p>Indicates whether the instance type supports ENA Express. ENA Express uses Amazon Web Services Scalable Reliable Datagram (SRD) technology to increase the maximum bandwidth used per stream
+   *    and minimize tail latency of network traffic between EC2 instances.</p>
+   * @public
+   */
+  EnaSrdSupported?: boolean | undefined;
+
+  /**
+   * <p>A list of valid settings for configurable bandwidth weighting for the instance type, if
+   *    supported.</p>
+   * @public
+   */
+  BandwidthWeightings?: BandwidthWeightingType[] | undefined;
+
+  /**
+   * <p>Indicates whether changing the number of ENA queues is supported.</p>
+   * @public
+   */
+  FlexibleEnaQueuesSupport?: FlexibleEnaQueuesSupport | undefined;
+}
+
+/**
+ * <p>Describes the cores available to the neuron accelerator.</p>
+ * @public
+ */
+export interface NeuronDeviceCoreInfo {
+  /**
+   * <p>The number of cores available to the neuron accelerator.</p>
+   * @public
+   */
+  Count?: number | undefined;
+
+  /**
+   * <p>The version of the neuron accelerator.</p>
+   * @public
+   */
+  Version?: number | undefined;
+}
+
+/**
+ * <p>Describes the memory available to the neuron accelerator.</p>
+ * @public
+ */
+export interface NeuronDeviceMemoryInfo {
+  /**
+   * <p>The size of the memory available to the neuron accelerator, in MiB.</p>
+   * @public
+   */
+  SizeInMiB?: number | undefined;
+}
+
+/**
+ * <p>Describes the neuron accelerators for the instance type.</p>
+ * @public
+ */
+export interface NeuronDeviceInfo {
+  /**
+   * <p>The number of neuron accelerators for the instance type.</p>
+   * @public
+   */
+  Count?: number | undefined;
+
+  /**
+   * <p>The name of the neuron accelerator.</p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>Describes the cores available to each neuron accelerator.</p>
+   * @public
+   */
+  CoreInfo?: NeuronDeviceCoreInfo | undefined;
+
+  /**
+   * <p>Describes the memory available to each neuron accelerator.</p>
+   * @public
+   */
+  MemoryInfo?: NeuronDeviceMemoryInfo | undefined;
+}
 
 /**
  * <p>Describes the neuron accelerators for the instance type.</p>
@@ -12291,306 +12569,6 @@ export interface DescribeVolumeStatusRequest {
    * @public
    */
   Filters?: Filter[] | undefined;
-}
-
-/**
- * <p>Describes a volume status operation code.</p>
- * @public
- */
-export interface VolumeStatusAction {
-  /**
-   * <p>The code identifying the operation, for example, <code>enable-volume-io</code>.</p>
-   * @public
-   */
-  Code?: string | undefined;
-
-  /**
-   * <p>A description of the operation.</p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p>The ID of the event associated with this operation.</p>
-   * @public
-   */
-  EventId?: string | undefined;
-
-  /**
-   * <p>The event type associated with this operation.</p>
-   * @public
-   */
-  EventType?: string | undefined;
-}
-
-/**
- * <p>Information about the instances to which the volume is attached.</p>
- * @public
- */
-export interface VolumeStatusAttachmentStatus {
-  /**
-   * <p>The maximum IOPS supported by the attached instance.</p>
-   * @public
-   */
-  IoPerformance?: string | undefined;
-
-  /**
-   * <p>The ID of the attached instance.</p>
-   * @public
-   */
-  InstanceId?: string | undefined;
-}
-
-/**
- * <p>Describes a volume status event.</p>
- * @public
- */
-export interface VolumeStatusEvent {
-  /**
-   * <p>A description of the event.</p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p>The ID of this event.</p>
-   * @public
-   */
-  EventId?: string | undefined;
-
-  /**
-   * <p>The type of this event.</p>
-   * @public
-   */
-  EventType?: string | undefined;
-
-  /**
-   * <p>The latest end time of the event.</p>
-   * @public
-   */
-  NotAfter?: Date | undefined;
-
-  /**
-   * <p>The earliest start time of the event.</p>
-   * @public
-   */
-  NotBefore?: Date | undefined;
-
-  /**
-   * <p>The ID of the instance associated with the event.</p>
-   * @public
-   */
-  InstanceId?: string | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const InitializationType = {
-  default: "default",
-  provisioned_rate: "provisioned-rate",
-  volume_copy: "volume-copy",
-} as const;
-
-/**
- * @public
- */
-export type InitializationType = (typeof InitializationType)[keyof typeof InitializationType];
-
-/**
- * <p>Information about the volume initialization. For more information, see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/initalize-volume.html">Initialize Amazon EBS volumes</a>.</p>
- * @public
- */
-export interface InitializationStatusDetails {
-  /**
-   * <p>The method used for volume initialization. Possible values include:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>default</code> - Volume initialized using the default volume initialization
-   *           rate or fast snapshot restore.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>provisioned-rate</code> - Volume initialized using an Amazon EBS Provisioned
-   *           Rate for Volume Initialization.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>volume-copy</code> - Volume copy initialized at the rate for volume copies.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  InitializationType?: InitializationType | undefined;
-
-  /**
-   * <p>The current volume initialization progress as a percentage (0-100). Returns <code>100</code>
-   *       when volume initialization has completed.</p>
-   * @public
-   */
-  Progress?: number | undefined;
-
-  /**
-   * <p>The estimated remaining time, in seconds, for volume initialization to complete. Returns
-   *       <code>0</code> when volume initialization has completed.</p>
-   *          <p>Only available for volumes created with Amazon EBS Provisioned Rate for Volume Initialization.</p>
-   * @public
-   */
-  EstimatedTimeToCompleteInSeconds?: number | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const VolumeStatusName = {
-  initialization_state: "initialization-state",
-  io_enabled: "io-enabled",
-  io_performance: "io-performance",
-} as const;
-
-/**
- * @public
- */
-export type VolumeStatusName = (typeof VolumeStatusName)[keyof typeof VolumeStatusName];
-
-/**
- * <p>Describes a volume status.</p>
- * @public
- */
-export interface VolumeStatusDetails {
-  /**
-   * <p>The name of the volume status.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>io-enabled</code> - Indicates the volume I/O status. For more
-   *           information, see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/monitoring-volume-checks.html">Amazon EBS volume
-   *             status checks</a>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>io-performance</code> - Indicates the volume performance status.
-   *           For more information, see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/monitoring-volume-checks.html">Amazon EBS volume
-   *             status checks</a>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>initialization-state</code> - Indicates the status of the volume
-   *           initialization process. For more information, see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/initalize-volume.html">Initialize Amazon EBS volumes</a>.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  Name?: VolumeStatusName | undefined;
-
-  /**
-   * <p>The intended status of the volume status.</p>
-   * @public
-   */
-  Status?: string | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const VolumeStatusInfoStatus = {
-  impaired: "impaired",
-  insufficient_data: "insufficient-data",
-  ok: "ok",
-  warning: "warning",
-} as const;
-
-/**
- * @public
- */
-export type VolumeStatusInfoStatus = (typeof VolumeStatusInfoStatus)[keyof typeof VolumeStatusInfoStatus];
-
-/**
- * <p>Describes the status of a volume.</p>
- * @public
- */
-export interface VolumeStatusInfo {
-  /**
-   * <p>The details of the volume status.</p>
-   * @public
-   */
-  Details?: VolumeStatusDetails[] | undefined;
-
-  /**
-   * <p>The status of the volume.</p>
-   * @public
-   */
-  Status?: VolumeStatusInfoStatus | undefined;
-}
-
-/**
- * <p>Describes the volume status.</p>
- * @public
- */
-export interface VolumeStatusItem {
-  /**
-   * <p>The details of the operation.</p>
-   * @public
-   */
-  Actions?: VolumeStatusAction[] | undefined;
-
-  /**
-   * <p>The Availability Zone of the volume.</p>
-   * @public
-   */
-  AvailabilityZone?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the Outpost.</p>
-   * @public
-   */
-  OutpostArn?: string | undefined;
-
-  /**
-   * <p>A list of events associated with the volume.</p>
-   * @public
-   */
-  Events?: VolumeStatusEvent[] | undefined;
-
-  /**
-   * <p>The volume ID.</p>
-   * @public
-   */
-  VolumeId?: string | undefined;
-
-  /**
-   * <p>The volume status.</p>
-   * @public
-   */
-  VolumeStatus?: VolumeStatusInfo | undefined;
-
-  /**
-   * <p>Information about the instances to which the volume is attached.</p>
-   * @public
-   */
-  AttachmentStatuses?: VolumeStatusAttachmentStatus[] | undefined;
-
-  /**
-   * <p>Information about the volume initialization. It can take up to 5 minutes
-   *       for the volume initialization information to be updated.</p>
-   *          <p>Only available for volumes created from snapshots. Not available for empty
-   *       volumes created without a snapshot.</p>
-   *          <p>For more information, see
-   *       <a href="https://docs.aws.amazon.com/ebs/latest/userguide/initalize-volume.html">
-   *         Initialize Amazon EBS volumes</a>.</p>
-   * @public
-   */
-  InitializationStatusDetails?: InitializationStatusDetails | undefined;
-
-  /**
-   * <p>The ID of the Availability Zone.</p>
-   * @public
-   */
-  AvailabilityZoneId?: string | undefined;
 }
 
 /**

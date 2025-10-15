@@ -2,6 +2,7 @@
 import { SENSITIVE_STRING } from "@smithy/smithy-client";
 
 import {
+  AddedPrincipal,
   AddressAttribute,
   AddressAttributeName,
   ByoipCidr,
@@ -55,8 +56,19 @@ import {
   CapacityBlock,
   CapacityBlockExtension,
   Filter,
+  IKEVersionsRequestListValue,
   InstanceTagNotificationAttribute,
   IpamPoolCidr,
+  PayerResponsibility,
+  Phase1DHGroupNumbersRequestListValue,
+  Phase1EncryptionAlgorithmsRequestListValue,
+  Phase1IntegrityAlgorithmsRequestListValue,
+  Phase2DHGroupNumbersRequestListValue,
+  Phase2EncryptionAlgorithmsRequestListValue,
+  Phase2IntegrityAlgorithmsRequestListValue,
+  VpnConnection,
+  VpnConnectionFilterSensitiveLog,
+  VpnTunnelLogOptionsSpecification,
 } from "./models_3";
 
 import {
@@ -71,6 +83,7 @@ import {
   InstanceMetadataProtocolState,
   InstanceMetadataTagsState,
   InstanceState,
+  Monitoring,
   TpmSupportValues,
 } from "./models_4";
 
@@ -89,9 +102,1011 @@ import {
   SpotPlacement,
 } from "./models_5";
 
-import { Purchase } from "./models_6";
+import { CapacityManagerStatus, Purchase } from "./models_6";
 
-import { AsnAuthorizationContext, CapacityReservationSpecification, InstanceMonitoring, Status } from "./models_7";
+import { CapacityReservationSpecification } from "./models_7";
+
+/**
+ * @public
+ */
+export interface ModifyVpcEndpointServicePayerResponsibilityRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The ID of the service.</p>
+   * @public
+   */
+  ServiceId: string | undefined;
+
+  /**
+   * <p>The entity that is responsible for the endpoint costs. The default is the endpoint owner.
+   *             If you set the payer responsibility to the service owner, you cannot set it back to the
+   *             endpoint owner.</p>
+   * @public
+   */
+  PayerResponsibility: PayerResponsibility | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ModifyVpcEndpointServicePayerResponsibilityResult {
+  /**
+   * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
+   * @public
+   */
+  ReturnValue?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ModifyVpcEndpointServicePermissionsRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The ID of the service.</p>
+   * @public
+   */
+  ServiceId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Names (ARN) of the principals.
+   * 	        Permissions are granted to the principals in this list.
+   * 	        To grant permissions to all principals, specify an asterisk (*).</p>
+   * @public
+   */
+  AddAllowedPrincipals?: string[] | undefined;
+
+  /**
+   * <p>The Amazon Resource Names (ARN) of the principals.
+   * 	        Permissions are revoked for principals in this list.</p>
+   * @public
+   */
+  RemoveAllowedPrincipals?: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ModifyVpcEndpointServicePermissionsResult {
+  /**
+   * <p>Information about the added principals.</p>
+   * @public
+   */
+  AddedPrincipals?: AddedPrincipal[] | undefined;
+
+  /**
+   * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
+   * @public
+   */
+  ReturnValue?: boolean | undefined;
+}
+
+/**
+ * <p>The VPC peering connection options.</p>
+ * @public
+ */
+export interface PeeringConnectionOptionsRequest {
+  /**
+   * <p>If true, enables a local VPC to resolve public DNS hostnames to private IP addresses
+   *         when queried from instances in the peer VPC.</p>
+   * @public
+   */
+  AllowDnsResolutionFromRemoteVpc?: boolean | undefined;
+
+  /**
+   * <p>Deprecated.</p>
+   * @public
+   */
+  AllowEgressFromLocalClassicLinkToRemoteVpc?: boolean | undefined;
+
+  /**
+   * <p>Deprecated.</p>
+   * @public
+   */
+  AllowEgressFromLocalVpcToRemoteClassicLink?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ModifyVpcPeeringConnectionOptionsRequest {
+  /**
+   * <p>The VPC peering connection options for the accepter VPC.</p>
+   * @public
+   */
+  AccepterPeeringConnectionOptions?: PeeringConnectionOptionsRequest | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The VPC peering connection options for the requester VPC.</p>
+   * @public
+   */
+  RequesterPeeringConnectionOptions?: PeeringConnectionOptionsRequest | undefined;
+
+  /**
+   * <p>The ID of the VPC peering connection.</p>
+   * @public
+   */
+  VpcPeeringConnectionId: string | undefined;
+}
+
+/**
+ * <p>Describes the VPC peering connection options.</p>
+ * @public
+ */
+export interface PeeringConnectionOptions {
+  /**
+   * <p>If true, the public DNS hostnames of instances in the specified VPC resolve to private
+   *             IP addresses when queried from instances in the peer VPC.</p>
+   * @public
+   */
+  AllowDnsResolutionFromRemoteVpc?: boolean | undefined;
+
+  /**
+   * <p>Deprecated.</p>
+   * @public
+   */
+  AllowEgressFromLocalClassicLinkToRemoteVpc?: boolean | undefined;
+
+  /**
+   * <p>Deprecated.</p>
+   * @public
+   */
+  AllowEgressFromLocalVpcToRemoteClassicLink?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ModifyVpcPeeringConnectionOptionsResult {
+  /**
+   * <p>Information about the VPC peering connection options for the accepter VPC.</p>
+   * @public
+   */
+  AccepterPeeringConnectionOptions?: PeeringConnectionOptions | undefined;
+
+  /**
+   * <p>Information about the VPC peering connection options for the requester VPC.</p>
+   * @public
+   */
+  RequesterPeeringConnectionOptions?: PeeringConnectionOptions | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const VpcTenancy = {
+  default: "default",
+} as const;
+
+/**
+ * @public
+ */
+export type VpcTenancy = (typeof VpcTenancy)[keyof typeof VpcTenancy];
+
+/**
+ * @public
+ */
+export interface ModifyVpcTenancyRequest {
+  /**
+   * <p>The ID of the VPC.</p>
+   * @public
+   */
+  VpcId: string | undefined;
+
+  /**
+   * <p>The instance tenancy attribute for the VPC. </p>
+   * @public
+   */
+  InstanceTenancy: VpcTenancy | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ModifyVpcTenancyResult {
+  /**
+   * <p>Returns <code>true</code> if the request succeeds; otherwise, returns an
+   *             error.</p>
+   * @public
+   */
+  ReturnValue?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ModifyVpnConnectionRequest {
+  /**
+   * <p>The ID of the VPN connection.</p>
+   * @public
+   */
+  VpnConnectionId: string | undefined;
+
+  /**
+   * <p>The ID of the transit gateway.</p>
+   * @public
+   */
+  TransitGatewayId?: string | undefined;
+
+  /**
+   * <p>The ID of the customer gateway at your end of the VPN connection.</p>
+   * @public
+   */
+  CustomerGatewayId?: string | undefined;
+
+  /**
+   * <p>The ID of the virtual private gateway at the Amazon Web Services side of the VPN
+   *             connection.</p>
+   * @public
+   */
+  VpnGatewayId?: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually
+   *             making the request, and provides an error response. If you have the required
+   *             permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is
+   *                 <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ModifyVpnConnectionResult {
+  /**
+   * <p>Information about the VPN connection.</p>
+   * @public
+   */
+  VpnConnection?: VpnConnection | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ModifyVpnConnectionOptionsRequest {
+  /**
+   * <p>The ID of the Site-to-Site VPN connection. </p>
+   * @public
+   */
+  VpnConnectionId: string | undefined;
+
+  /**
+   * <p>The IPv4 CIDR on the customer gateway (on-premises) side of the VPN connection.</p>
+   *          <p>Default: <code>0.0.0.0/0</code>
+   *          </p>
+   * @public
+   */
+  LocalIpv4NetworkCidr?: string | undefined;
+
+  /**
+   * <p>The IPv4 CIDR on the Amazon Web Services side of the VPN connection.</p>
+   *          <p>Default: <code>0.0.0.0/0</code>
+   *          </p>
+   * @public
+   */
+  RemoteIpv4NetworkCidr?: string | undefined;
+
+  /**
+   * <p>The IPv6 CIDR on the customer gateway (on-premises) side of the VPN connection.</p>
+   *          <p>Default: <code>::/0</code>
+   *          </p>
+   * @public
+   */
+  LocalIpv6NetworkCidr?: string | undefined;
+
+  /**
+   * <p>The IPv6 CIDR on the Amazon Web Services side of the VPN connection.</p>
+   *          <p>Default: <code>::/0</code>
+   *          </p>
+   * @public
+   */
+  RemoteIpv6NetworkCidr?: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ModifyVpnConnectionOptionsResult {
+  /**
+   * <p>Information about the VPN connection.</p>
+   * @public
+   */
+  VpnConnection?: VpnConnection | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ModifyVpnTunnelCertificateRequest {
+  /**
+   * <p>The ID of the Amazon Web Services Site-to-Site VPN connection.</p>
+   * @public
+   */
+  VpnConnectionId: string | undefined;
+
+  /**
+   * <p>The external IP address of the VPN tunnel.</p>
+   * @public
+   */
+  VpnTunnelOutsideIpAddress: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually
+   *             making the request, and provides an error response. If you have the required
+   *             permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is
+   *                 <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ModifyVpnTunnelCertificateResult {
+  /**
+   * <p>Information about the VPN connection.</p>
+   * @public
+   */
+  VpnConnection?: VpnConnection | undefined;
+}
+
+/**
+ * <p>The Amazon Web Services Site-to-Site VPN tunnel options to modify.</p>
+ * @public
+ */
+export interface ModifyVpnTunnelOptionsSpecification {
+  /**
+   * <p>The range of inside IPv4 addresses for the tunnel. Any specified CIDR blocks must be
+   *             unique across all VPN connections that use the same virtual private gateway. </p>
+   *          <p>Constraints: A size /30 CIDR block from the <code>169.254.0.0/16</code> range. The
+   *             following CIDR blocks are reserved and cannot be used:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>169.254.0.0/30</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>169.254.1.0/30</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>169.254.2.0/30</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>169.254.3.0/30</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>169.254.4.0/30</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>169.254.5.0/30</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>169.254.169.252/30</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  TunnelInsideCidr?: string | undefined;
+
+  /**
+   * <p>The range of inside IPv6 addresses for the tunnel. Any specified CIDR blocks must be
+   *             unique across all VPN connections that use the same transit gateway.</p>
+   *          <p>Constraints: A size /126 CIDR block from the local <code>fd00::/8</code> range.</p>
+   * @public
+   */
+  TunnelInsideIpv6Cidr?: string | undefined;
+
+  /**
+   * <p>The pre-shared key (PSK) to establish initial authentication between the virtual
+   *             private gateway and the customer gateway.</p>
+   *          <p>Constraints: Allowed characters are alphanumeric characters, periods (.), and
+   *             underscores (_). Must be between 8 and 64 characters in length and cannot start with
+   *             zero (0).</p>
+   * @public
+   */
+  PreSharedKey?: string | undefined;
+
+  /**
+   * <p>The lifetime for phase 1 of the IKE negotiation, in seconds.</p>
+   *          <p>Constraints: A value between 900 and 28,800.</p>
+   *          <p>Default: <code>28800</code>
+   *          </p>
+   * @public
+   */
+  Phase1LifetimeSeconds?: number | undefined;
+
+  /**
+   * <p>The lifetime for phase 2 of the IKE negotiation, in seconds.</p>
+   *          <p>Constraints: A value between 900 and 3,600. The value must be less than the value for
+   *                 <code>Phase1LifetimeSeconds</code>.</p>
+   *          <p>Default: <code>3600</code>
+   *          </p>
+   * @public
+   */
+  Phase2LifetimeSeconds?: number | undefined;
+
+  /**
+   * <p>The margin time, in seconds, before the phase 2 lifetime expires, during which the
+   *                 Amazon Web Services side of the VPN connection performs an IKE rekey. The exact time
+   *             of the rekey is randomly selected based on the value for
+   *                 <code>RekeyFuzzPercentage</code>.</p>
+   *          <p>Constraints: A value between 60 and half of <code>Phase2LifetimeSeconds</code>.</p>
+   *          <p>Default: <code>270</code>
+   *          </p>
+   * @public
+   */
+  RekeyMarginTimeSeconds?: number | undefined;
+
+  /**
+   * <p>The percentage of the rekey window (determined by <code>RekeyMarginTimeSeconds</code>)
+   *             during which the rekey time is randomly selected.</p>
+   *          <p>Constraints: A value between 0 and 100.</p>
+   *          <p>Default: <code>100</code>
+   *          </p>
+   * @public
+   */
+  RekeyFuzzPercentage?: number | undefined;
+
+  /**
+   * <p>The number of packets in an IKE replay window.</p>
+   *          <p>Constraints: A value between 64 and 2048.</p>
+   *          <p>Default: <code>1024</code>
+   *          </p>
+   * @public
+   */
+  ReplayWindowSize?: number | undefined;
+
+  /**
+   * <p>The number of seconds after which a DPD timeout occurs. A DPD timeout of 40 seconds means that the VPN endpoint will consider the peer dead 30 seconds after the first failed keep-alive.</p>
+   *          <p>Constraints: A value greater than or equal to 30.</p>
+   *          <p>Default: <code>40</code>
+   *          </p>
+   * @public
+   */
+  DPDTimeoutSeconds?: number | undefined;
+
+  /**
+   * <p>The action to take after DPD timeout occurs. Specify <code>restart</code> to restart
+   *             the IKE initiation. Specify <code>clear</code> to end the IKE session.</p>
+   *          <p>Valid Values: <code>clear</code> | <code>none</code> | <code>restart</code>
+   *          </p>
+   *          <p>Default: <code>clear</code>
+   *          </p>
+   * @public
+   */
+  DPDTimeoutAction?: string | undefined;
+
+  /**
+   * <p>One or more encryption algorithms that are permitted for the VPN tunnel for phase 1
+   *             IKE negotiations.</p>
+   *          <p>Valid values: <code>AES128</code> | <code>AES256</code> | <code>AES128-GCM-16</code> |
+   *                 <code>AES256-GCM-16</code>
+   *          </p>
+   * @public
+   */
+  Phase1EncryptionAlgorithms?: Phase1EncryptionAlgorithmsRequestListValue[] | undefined;
+
+  /**
+   * <p>One or more encryption algorithms that are permitted for the VPN tunnel for phase 2
+   *             IKE negotiations.</p>
+   *          <p>Valid values: <code>AES128</code> | <code>AES256</code> | <code>AES128-GCM-16</code> |
+   *                 <code>AES256-GCM-16</code>
+   *          </p>
+   * @public
+   */
+  Phase2EncryptionAlgorithms?: Phase2EncryptionAlgorithmsRequestListValue[] | undefined;
+
+  /**
+   * <p>One or more integrity algorithms that are permitted for the VPN tunnel for phase 1 IKE
+   *             negotiations.</p>
+   *          <p>Valid values: <code>SHA1</code> | <code>SHA2-256</code> | <code>SHA2-384</code> |
+   *                 <code>SHA2-512</code>
+   *          </p>
+   * @public
+   */
+  Phase1IntegrityAlgorithms?: Phase1IntegrityAlgorithmsRequestListValue[] | undefined;
+
+  /**
+   * <p>One or more integrity algorithms that are permitted for the VPN tunnel for phase 2 IKE
+   *             negotiations.</p>
+   *          <p>Valid values: <code>SHA1</code> | <code>SHA2-256</code> | <code>SHA2-384</code> |
+   *                 <code>SHA2-512</code>
+   *          </p>
+   * @public
+   */
+  Phase2IntegrityAlgorithms?: Phase2IntegrityAlgorithmsRequestListValue[] | undefined;
+
+  /**
+   * <p>One or more Diffie-Hellman group numbers that are permitted for the VPN tunnel for
+   *             phase 1 IKE negotiations.</p>
+   *          <p>Valid values: <code>2</code> | <code>14</code> | <code>15</code> | <code>16</code> |
+   *                 <code>17</code> | <code>18</code> | <code>19</code> | <code>20</code> |
+   *                 <code>21</code> | <code>22</code> | <code>23</code> | <code>24</code>
+   *          </p>
+   * @public
+   */
+  Phase1DHGroupNumbers?: Phase1DHGroupNumbersRequestListValue[] | undefined;
+
+  /**
+   * <p>One or more Diffie-Hellman group numbers that are permitted for the VPN tunnel for
+   *             phase 2 IKE negotiations.</p>
+   *          <p>Valid values: <code>2</code> | <code>5</code> | <code>14</code> | <code>15</code> |
+   *                 <code>16</code> | <code>17</code> | <code>18</code> | <code>19</code> |
+   *                 <code>20</code> | <code>21</code> | <code>22</code> | <code>23</code> |
+   *                 <code>24</code>
+   *          </p>
+   * @public
+   */
+  Phase2DHGroupNumbers?: Phase2DHGroupNumbersRequestListValue[] | undefined;
+
+  /**
+   * <p>The IKE versions that are permitted for the VPN tunnel.</p>
+   *          <p>Valid values: <code>ikev1</code> | <code>ikev2</code>
+   *          </p>
+   * @public
+   */
+  IKEVersions?: IKEVersionsRequestListValue[] | undefined;
+
+  /**
+   * <p>The action to take when the establishing the tunnel for the VPN connection. By
+   *             default, your customer gateway device must initiate the IKE negotiation and bring up the
+   *             tunnel. Specify <code>start</code> for Amazon Web Services to initiate the IKE
+   *             negotiation.</p>
+   *          <p>Valid Values: <code>add</code> | <code>start</code>
+   *          </p>
+   *          <p>Default: <code>add</code>
+   *          </p>
+   * @public
+   */
+  StartupAction?: string | undefined;
+
+  /**
+   * <p>Options for logging VPN tunnel activity.</p>
+   * @public
+   */
+  LogOptions?: VpnTunnelLogOptionsSpecification | undefined;
+
+  /**
+   * <p>Turn on or off tunnel endpoint lifecycle control feature.</p>
+   * @public
+   */
+  EnableTunnelLifecycleControl?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ModifyVpnTunnelOptionsRequest {
+  /**
+   * <p>The ID of the Amazon Web Services Site-to-Site VPN connection.</p>
+   * @public
+   */
+  VpnConnectionId: string | undefined;
+
+  /**
+   * <p>The external IP address of the VPN tunnel.</p>
+   * @public
+   */
+  VpnTunnelOutsideIpAddress: string | undefined;
+
+  /**
+   * <p>The tunnel options to modify.</p>
+   * @public
+   */
+  TunnelOptions: ModifyVpnTunnelOptionsSpecification | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually
+   *             making the request, and provides an error response. If you have the required
+   *             permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is
+   *                 <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>Choose whether or not to trigger immediate tunnel replacement. This is only applicable when turning on or off <code>EnableTunnelLifecycleControl</code>.</p>
+   *          <p>Valid values: <code>True</code> | <code>False</code>
+   *          </p>
+   * @public
+   */
+  SkipTunnelReplacement?: boolean | undefined;
+
+  /**
+   * <p>Specifies the storage mode for the pre-shared key (PSK). Valid values are <code>Standard</code> (stored in Site-to-Site VPN service) or <code>SecretsManager</code> (stored in Amazon Web Services Secrets Manager).</p>
+   * @public
+   */
+  PreSharedKeyStorage?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ModifyVpnTunnelOptionsResult {
+  /**
+   * <p>Information about the VPN connection.</p>
+   * @public
+   */
+  VpnConnection?: VpnConnection | undefined;
+}
+
+/**
+ * @public
+ */
+export interface MonitorInstancesRequest {
+  /**
+   * <p>The IDs of the instances.</p>
+   * @public
+   */
+  InstanceIds: string[] | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the operation, without actually making the
+   *   request, and provides an error response. If you have the required permissions, the error response is
+   *   <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * <p>Describes the monitoring of an instance.</p>
+ * @public
+ */
+export interface InstanceMonitoring {
+  /**
+   * <p>The ID of the instance.</p>
+   * @public
+   */
+  InstanceId?: string | undefined;
+
+  /**
+   * <p>The monitoring for the instance.</p>
+   * @public
+   */
+  Monitoring?: Monitoring | undefined;
+}
+
+/**
+ * @public
+ */
+export interface MonitorInstancesResult {
+  /**
+   * <p>The monitoring information.</p>
+   * @public
+   */
+  InstanceMonitorings?: InstanceMonitoring[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface MoveAddressToVpcRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The Elastic IP address.</p>
+   * @public
+   */
+  PublicIp: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const Status = {
+  inClassic: "InClassic",
+  inVpc: "InVpc",
+  moveInProgress: "MoveInProgress",
+} as const;
+
+/**
+ * @public
+ */
+export type Status = (typeof Status)[keyof typeof Status];
+
+/**
+ * @public
+ */
+export interface MoveAddressToVpcResult {
+  /**
+   * <p>The allocation ID for the Elastic IP address.</p>
+   * @public
+   */
+  AllocationId?: string | undefined;
+
+  /**
+   * <p>The status of the move of the IP address.</p>
+   * @public
+   */
+  Status?: Status | undefined;
+}
+
+/**
+ * @public
+ */
+export interface MoveByoipCidrToIpamRequest {
+  /**
+   * <p>A check for whether you have the required permissions for the action without actually making the request
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The BYOIP CIDR.</p>
+   * @public
+   */
+  Cidr: string | undefined;
+
+  /**
+   * <p>The IPAM pool ID.</p>
+   * @public
+   */
+  IpamPoolId: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services account ID of the owner of the IPAM pool.</p>
+   * @public
+   */
+  IpamPoolOwner: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface MoveByoipCidrToIpamResult {
+  /**
+   * <p>The BYOIP CIDR.</p>
+   * @public
+   */
+  ByoipCidr?: ByoipCidr | undefined;
+}
+
+/**
+ * @public
+ */
+export interface MoveCapacityReservationInstancesRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensure Idempotency</a>.</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
+
+  /**
+   * <p> The ID of the Capacity Reservation from which you want to move capacity. </p>
+   * @public
+   */
+  SourceCapacityReservationId: string | undefined;
+
+  /**
+   * <p> The ID of the Capacity Reservation that you want to move capacity into. </p>
+   * @public
+   */
+  DestinationCapacityReservationId: string | undefined;
+
+  /**
+   * <p>The number of instances that you want to move from the source Capacity Reservation.
+   * 		</p>
+   * @public
+   */
+  InstanceCount: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface MoveCapacityReservationInstancesResult {
+  /**
+   * <p> Information about the source Capacity Reservation. </p>
+   * @public
+   */
+  SourceCapacityReservation?: CapacityReservation | undefined;
+
+  /**
+   * <p> Information about the destination Capacity Reservation. </p>
+   * @public
+   */
+  DestinationCapacityReservation?: CapacityReservation | undefined;
+
+  /**
+   * <p> The number of instances that were moved from the source Capacity Reservation to the
+   * 			destination Capacity Reservation. </p>
+   * @public
+   */
+  InstanceCount?: number | undefined;
+}
+
+/**
+ * <p>Provides authorization for Amazon to bring a specific IP address range to a specific
+ *           Amazon Web Services account using bring your own IP addresses (BYOIP). For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-byoip.html#prepare-for-byoip">Configuring your BYOIP address range</a> in the <i>Amazon EC2 User Guide</i>.</p>
+ * @public
+ */
+export interface CidrAuthorizationContext {
+  /**
+   * <p>The plain-text authorization message for the prefix and account.</p>
+   * @public
+   */
+  Message: string | undefined;
+
+  /**
+   * <p>The signed authorization message for the prefix and account.</p>
+   * @public
+   */
+  Signature: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ProvisionByoipCidrRequest {
+  /**
+   * <p>The public IPv4 or IPv6 address range, in CIDR notation. The most specific IPv4 prefix that you can
+   *           specify is /24. The most specific IPv6 address range that you can bring is /48 for CIDRs that are publicly advertisable and /56 for CIDRs that are not publicly advertisable. The address range cannot overlap with another address range that you've
+   *          brought to this or another Region.</p>
+   * @public
+   */
+  Cidr: string | undefined;
+
+  /**
+   * <p>A signed document that proves that you are authorized to bring the specified IP address
+   *          range to Amazon using BYOIP.</p>
+   * @public
+   */
+  CidrAuthorizationContext?: CidrAuthorizationContext | undefined;
+
+  /**
+   * <p>(IPv6 only) Indicate whether the address range will be publicly advertised to the
+   *             internet.</p>
+   *          <p>Default: true</p>
+   * @public
+   */
+  PubliclyAdvertisable?: boolean | undefined;
+
+  /**
+   * <p>A description for the address range and the address pool.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The tags to apply to the address pool.</p>
+   * @public
+   */
+  PoolTagSpecifications?: TagSpecification[] | undefined;
+
+  /**
+   * <p>Reserved.</p>
+   * @public
+   */
+  MultiRegion?: boolean | undefined;
+
+  /**
+   * <p>If you have <a href="https://docs.aws.amazon.com/local-zones/latest/ug/how-local-zones-work.html">Local Zones</a> enabled, you can choose a network border group for Local Zones when you provision and advertise a BYOIPv4 CIDR. Choose the network border group carefully as the EIP and the Amazon Web Services resource it is associated with must reside in the same network border group.</p>
+   *          <p>You can provision BYOIP address ranges to and advertise them in the following Local Zone network border groups:</p>
+   *          <ul>
+   *             <li>
+   *                <p>us-east-1-dfw-2</p>
+   *             </li>
+   *             <li>
+   *                <p>us-west-2-lax-1</p>
+   *             </li>
+   *             <li>
+   *                <p>us-west-2-phx-2</p>
+   *             </li>
+   *          </ul>
+   *          <note>
+   *             <p>You cannot provision or advertise BYOIPv6 address ranges in Local Zones at this time.</p>
+   *          </note>
+   * @public
+   */
+  NetworkBorderGroup?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ProvisionByoipCidrResult {
+  /**
+   * <p>Information about the address range.</p>
+   * @public
+   */
+  ByoipCidr?: ByoipCidr | undefined;
+}
+
+/**
+ * <p>Provides authorization for Amazon to bring an Autonomous System Number (ASN) to a specific Amazon Web Services account using bring your own ASN (BYOASN).
+ *             For details on the format of the message and signature, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/tutorials-byoasn.html">Tutorial: Bring your ASN to IPAM</a> in the <i>Amazon VPC IPAM guide</i>.</p>
+ * @public
+ */
+export interface AsnAuthorizationContext {
+  /**
+   * <p>The authorization context's message.</p>
+   * @public
+   */
+  Message: string | undefined;
+
+  /**
+   * <p>The authorization context's signature.</p>
+   * @public
+   */
+  Signature: string | undefined;
+}
 
 /**
  * @public
@@ -5261,6 +6276,57 @@ export interface UnmonitorInstancesResult {
 }
 
 /**
+ * @public
+ */
+export interface UpdateCapacityManagerOrganizationsAccessRequest {
+  /**
+   * <p>
+   *     Specifies whether to enable or disable cross-account access for Amazon Web Services Organizations. When enabled, Capacity Manager aggregates data from all accounts in your organization.
+   * </p>
+   * @public
+   */
+  OrganizationsAccess: boolean | undefined;
+
+  /**
+   * <p>
+   * Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If
+   * you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.
+   * </p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>
+   * Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.
+   * </p>
+   * @public
+   */
+  ClientToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateCapacityManagerOrganizationsAccessResult {
+  /**
+   * <p>
+   * The current status of Capacity Manager after the update operation.
+   * </p>
+   * @public
+   */
+  CapacityManagerStatus?: CapacityManagerStatus | undefined;
+
+  /**
+   * <p>
+   * The updated Organizations access setting indicating whether cross-account data aggregation is enabled.
+   * </p>
+   * @public
+   */
+  OrganizationsAccess?: boolean | undefined;
+}
+
+/**
  * <p>Describes the description of a security group rule.</p>
  *          <p>You can use this when you want to update the security group rule description for either an inbound or outbound rule.</p>
  * @public
@@ -5415,6 +6481,56 @@ export interface WithdrawByoipCidrResult {
    */
   ByoipCidr?: ByoipCidr | undefined;
 }
+
+/**
+ * @internal
+ */
+export const ModifyVpnConnectionResultFilterSensitiveLog = (obj: ModifyVpnConnectionResult): any => ({
+  ...obj,
+  ...(obj.VpnConnection && { VpnConnection: VpnConnectionFilterSensitiveLog(obj.VpnConnection) }),
+});
+
+/**
+ * @internal
+ */
+export const ModifyVpnConnectionOptionsResultFilterSensitiveLog = (obj: ModifyVpnConnectionOptionsResult): any => ({
+  ...obj,
+  ...(obj.VpnConnection && { VpnConnection: VpnConnectionFilterSensitiveLog(obj.VpnConnection) }),
+});
+
+/**
+ * @internal
+ */
+export const ModifyVpnTunnelCertificateResultFilterSensitiveLog = (obj: ModifyVpnTunnelCertificateResult): any => ({
+  ...obj,
+  ...(obj.VpnConnection && { VpnConnection: VpnConnectionFilterSensitiveLog(obj.VpnConnection) }),
+});
+
+/**
+ * @internal
+ */
+export const ModifyVpnTunnelOptionsSpecificationFilterSensitiveLog = (
+  obj: ModifyVpnTunnelOptionsSpecification
+): any => ({
+  ...obj,
+  ...(obj.PreSharedKey && { PreSharedKey: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ModifyVpnTunnelOptionsRequestFilterSensitiveLog = (obj: ModifyVpnTunnelOptionsRequest): any => ({
+  ...obj,
+  ...(obj.TunnelOptions && { TunnelOptions: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ModifyVpnTunnelOptionsResultFilterSensitiveLog = (obj: ModifyVpnTunnelOptionsResult): any => ({
+  ...obj,
+  ...(obj.VpnConnection && { VpnConnection: VpnConnectionFilterSensitiveLog(obj.VpnConnection) }),
+});
 
 /**
  * @internal

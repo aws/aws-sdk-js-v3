@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { MonitorInstancesRequest, MonitorInstancesResult } from "../models/models_7";
+import { MonitorInstancesRequest, MonitorInstancesResult } from "../models/models_8";
 import { de_MonitorInstancesCommand, se_MonitorInstancesCommand } from "../protocols/Aws_ec2";
 
 /**

@@ -43,8 +43,7 @@ import {
 } from "./models_1";
 
 import {
-  DnsOptionsSpecification,
-  DnsRecordIpType,
+  InternetGatewayExclusionMode,
   LocalGatewayRoute,
   LocalGatewayRouteTable,
   LocalGatewayRouteTableVirtualInterfaceGroupAssociation,
@@ -67,8 +66,128 @@ import {
   TransitGatewayRouteTableAnnouncement,
   VerifiedAccessEndpoint,
   VerifiedAccessGroup,
-  VpcBlockPublicAccessExclusion,
+  VpcBlockPublicAccessExclusionState,
 } from "./models_2";
+
+/**
+ * <p>A VPC BPA exclusion is a mode that can be applied to a single VPC or subnet that exempts it from the account’s BPA mode and will allow bidirectional or egress-only access. You can create BPA exclusions for VPCs and subnets even when BPA is not enabled on the account to ensure that there is no traffic disruption to the exclusions when VPC BPA is turned on. To learn more about VPC BPA, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/security-vpc-bpa.html">Block public access to VPCs and subnets</a> in the <i>Amazon VPC User Guide</i>.</p>
+ * @public
+ */
+export interface VpcBlockPublicAccessExclusion {
+  /**
+   * <p>The ID of the exclusion.</p>
+   * @public
+   */
+  ExclusionId?: string | undefined;
+
+  /**
+   * <p>The exclusion mode for internet gateway traffic.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>allow-bidirectional</code>: Allow all internet traffic to and from the excluded VPCs and subnets.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>allow-egress</code>: Allow outbound internet traffic from the excluded VPCs and subnets. Block inbound internet traffic to the excluded VPCs and subnets. Only applies when VPC Block Public Access is set to Bidirectional.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  InternetGatewayExclusionMode?: InternetGatewayExclusionMode | undefined;
+
+  /**
+   * <p>The ARN of the exclusion.</p>
+   * @public
+   */
+  ResourceArn?: string | undefined;
+
+  /**
+   * <p>The state of the exclusion.</p>
+   * @public
+   */
+  State?: VpcBlockPublicAccessExclusionState | undefined;
+
+  /**
+   * <p>The reason for the current exclusion state.</p>
+   * @public
+   */
+  Reason?: string | undefined;
+
+  /**
+   * <p>When the exclusion was created.</p>
+   * @public
+   */
+  CreationTimestamp?: Date | undefined;
+
+  /**
+   * <p>When the exclusion was last updated.</p>
+   * @public
+   */
+  LastUpdateTimestamp?: Date | undefined;
+
+  /**
+   * <p>When the exclusion was deleted.</p>
+   * @public
+   */
+  DeletionTimestamp?: Date | undefined;
+
+  /**
+   * <p>
+   *             <code>tag</code> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value.
+   *     For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateVpcBlockPublicAccessExclusionResult {
+  /**
+   * <p>Details about an exclusion.</p>
+   * @public
+   */
+  VpcBlockPublicAccessExclusion?: VpcBlockPublicAccessExclusion | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const DnsRecordIpType = {
+  dualstack: "dualstack",
+  ipv4: "ipv4",
+  ipv6: "ipv6",
+  service_defined: "service-defined",
+} as const;
+
+/**
+ * @public
+ */
+export type DnsRecordIpType = (typeof DnsRecordIpType)[keyof typeof DnsRecordIpType];
+
+/**
+ * <p>Describes the DNS options for an endpoint.</p>
+ * @public
+ */
+export interface DnsOptionsSpecification {
+  /**
+   * <p>The DNS records created for the endpoint.</p>
+   * @public
+   */
+  DnsRecordIpType?: DnsRecordIpType | undefined;
+
+  /**
+   * <p>Indicates whether to enable private DNS only for inbound endpoints. This option is
+   *           available only for services that support both gateway and interface endpoints. It routes
+   *           traffic that originates from the VPC to the gateway endpoint and traffic that originates
+   *           from on-premises to the interface endpoint.</p>
+   * @public
+   */
+  PrivateDnsOnlyForInboundResolverEndpoint?: boolean | undefined;
+}
 
 /**
  * <p>Describes the configuration of a subnet for a VPC endpoint.</p>
@@ -2312,6 +2431,41 @@ export interface CreateVpnGatewayResult {
 /**
  * @public
  */
+export interface DeleteCapacityManagerDataExportRequest {
+  /**
+   * <p>
+   * The unique identifier of the data export configuration to delete.
+   * </p>
+   * @public
+   */
+  CapacityManagerDataExportId: string | undefined;
+
+  /**
+   * <p>
+   * Checks whether you have the required permissions for the action, without actually making the request, and provides an error response.
+   * If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.
+   * </p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteCapacityManagerDataExportResult {
+  /**
+   * <p>
+   * The unique identifier of the deleted data export configuration.
+   * </p>
+   * @public
+   */
+  CapacityManagerDataExportId?: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface DeleteCarrierGatewayRequest {
   /**
    * <p>The ID of the carrier gateway.</p>
@@ -3788,7 +3942,7 @@ export interface DeleteNetworkInterfacePermissionRequest {
  */
 export interface DeleteNetworkInterfacePermissionResult {
   /**
-   * <p>Returns <code>true</code> if the request succeeds, otherwise returns an error.</p>
+   * <p>Is <code>true</code> if the request succeeds and an error otherwise.</p>
    * @public
    */
   Return?: boolean | undefined;
@@ -7224,185 +7378,6 @@ export interface CapacityBlock {
    * @public
    */
   Tags?: Tag[] | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeCapacityBlocksResult {
-  /**
-   * <p>The Capacity Blocks.</p>
-   * @public
-   */
-  CapacityBlocks?: CapacityBlock[] | undefined;
-
-  /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeCapacityBlockStatusRequest {
-  /**
-   * <p>The ID of the Capacity Block.</p>
-   * @public
-   */
-  CapacityBlockIds?: string[] | undefined;
-
-  /**
-   * <p>The token to use to retrieve the next page of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of items to return for this request. To get the next page of items, make another request with the token returned in the output. For more information,
-   *     see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>One or more filters. </p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>interconnect-status</code> - The status of the interconnect for the Capacity Block (<code>ok</code> | <code>impaired</code> | <code>insufficient-data</code>).</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  Filters?: Filter[] | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-}
-
-/**
- * <p>Describes the availability of capacity for a Capacity Reservation.</p>
- * @public
- */
-export interface CapacityReservationStatus {
-  /**
-   * <p>The ID of the Capacity Reservation.</p>
-   * @public
-   */
-  CapacityReservationId?: string | undefined;
-
-  /**
-   * <p>The combined amount of <code>Available</code> and <code>Unavailable</code> capacity in the Capacity Reservation.</p>
-   * @public
-   */
-  TotalCapacity?: number | undefined;
-
-  /**
-   * <p>The remaining capacity. Indicates the amount of resources that can be launched into the Capacity Reservation.</p>
-   * @public
-   */
-  TotalAvailableCapacity?: number | undefined;
-
-  /**
-   * <p>The used capacity. Indicates that the capacity is in use by resources that are running in the Capacity Reservation.</p>
-   * @public
-   */
-  TotalUnavailableCapacity?: number | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const CapacityBlockInterconnectStatus = {
-  impaired: "impaired",
-  insufficient_data: "insufficient-data",
-  ok: "ok",
-} as const;
-
-/**
- * @public
- */
-export type CapacityBlockInterconnectStatus =
-  (typeof CapacityBlockInterconnectStatus)[keyof typeof CapacityBlockInterconnectStatus];
-
-/**
- * <p>Describes the availability of capacity for a Capacity Block.</p>
- * @public
- */
-export interface CapacityBlockStatus {
-  /**
-   * <p>The ID of the Capacity Block.</p>
-   * @public
-   */
-  CapacityBlockId?: string | undefined;
-
-  /**
-   * <p>The status of the high-bandwidth accelerator interconnect. Possible states include:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>ok</code> the accelerator interconnect is healthy.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>impaired</code> - accelerator interconnect communication is impaired.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>insufficient-data</code> - insufficient data to determine accelerator interconnect status.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  InterconnectStatus?: CapacityBlockInterconnectStatus | undefined;
-
-  /**
-   * <p>The combined amount of <code>Available</code> and <code>Unavailable</code> capacity in the Capacity Block.</p>
-   * @public
-   */
-  TotalCapacity?: number | undefined;
-
-  /**
-   * <p>The remaining capacity. Indicates the number of resources that can be launched into the Capacity Block.</p>
-   * @public
-   */
-  TotalAvailableCapacity?: number | undefined;
-
-  /**
-   * <p>The unavailable capacity. Indicates the instance capacity that is unavailable for use
-   * 			due to a system status check failure.</p>
-   * @public
-   */
-  TotalUnavailableCapacity?: number | undefined;
-
-  /**
-   * <p>The availability of capacity for the Capacity Block reservations.</p>
-   * @public
-   */
-  CapacityReservationStatuses?: CapacityReservationStatus[] | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeCapacityBlockStatusResult {
-  /**
-   * <p>The availability of capacity for a Capacity Block.</p>
-   * @public
-   */
-  CapacityBlockStatuses?: CapacityBlockStatus[] | undefined;
-
-  /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
 }
 
 /**

@@ -256,6 +256,10 @@ import { CopyImageCommandInput, CopyImageCommandOutput } from "./commands/CopyIm
 import { CopySnapshotCommandInput, CopySnapshotCommandOutput } from "./commands/CopySnapshotCommand";
 import { CopyVolumesCommandInput, CopyVolumesCommandOutput } from "./commands/CopyVolumesCommand";
 import {
+  CreateCapacityManagerDataExportCommandInput,
+  CreateCapacityManagerDataExportCommandOutput,
+} from "./commands/CreateCapacityManagerDataExportCommand";
+import {
   CreateCapacityReservationBySplittingCommandInput,
   CreateCapacityReservationBySplittingCommandOutput,
 } from "./commands/CreateCapacityReservationBySplittingCommand";
@@ -552,6 +556,10 @@ import {
   CreateVpnConnectionRouteCommandOutput,
 } from "./commands/CreateVpnConnectionRouteCommand";
 import { CreateVpnGatewayCommandInput, CreateVpnGatewayCommandOutput } from "./commands/CreateVpnGatewayCommand";
+import {
+  DeleteCapacityManagerDataExportCommandInput,
+  DeleteCapacityManagerDataExportCommandOutput,
+} from "./commands/DeleteCapacityManagerDataExportCommand";
 import {
   DeleteCarrierGatewayCommandInput,
   DeleteCarrierGatewayCommandOutput,
@@ -893,6 +901,10 @@ import {
   DescribeCapacityBlockStatusCommandInput,
   DescribeCapacityBlockStatusCommandOutput,
 } from "./commands/DescribeCapacityBlockStatusCommand";
+import {
+  DescribeCapacityManagerDataExportsCommandInput,
+  DescribeCapacityManagerDataExportsCommandOutput,
+} from "./commands/DescribeCapacityManagerDataExportsCommand";
 import {
   DescribeCapacityReservationBillingRequestsCommandInput,
   DescribeCapacityReservationBillingRequestsCommandOutput,
@@ -1493,6 +1505,10 @@ import {
   DisableAwsNetworkPerformanceMetricSubscriptionCommandOutput,
 } from "./commands/DisableAwsNetworkPerformanceMetricSubscriptionCommand";
 import {
+  DisableCapacityManagerCommandInput,
+  DisableCapacityManagerCommandOutput,
+} from "./commands/DisableCapacityManagerCommand";
+import {
   DisableEbsEncryptionByDefaultCommandInput,
   DisableEbsEncryptionByDefaultCommandOutput,
 } from "./commands/DisableEbsEncryptionByDefaultCommand";
@@ -1631,6 +1647,10 @@ import {
   EnableAwsNetworkPerformanceMetricSubscriptionCommandOutput,
 } from "./commands/EnableAwsNetworkPerformanceMetricSubscriptionCommand";
 import {
+  EnableCapacityManagerCommandInput,
+  EnableCapacityManagerCommandOutput,
+} from "./commands/EnableCapacityManagerCommand";
+import {
   EnableEbsEncryptionByDefaultCommandInput,
   EnableEbsEncryptionByDefaultCommandOutput,
 } from "./commands/EnableEbsEncryptionByDefaultCommand";
@@ -1726,6 +1746,18 @@ import {
   GetAwsNetworkPerformanceDataCommandInput,
   GetAwsNetworkPerformanceDataCommandOutput,
 } from "./commands/GetAwsNetworkPerformanceDataCommand";
+import {
+  GetCapacityManagerAttributesCommandInput,
+  GetCapacityManagerAttributesCommandOutput,
+} from "./commands/GetCapacityManagerAttributesCommand";
+import {
+  GetCapacityManagerMetricDataCommandInput,
+  GetCapacityManagerMetricDataCommandOutput,
+} from "./commands/GetCapacityManagerMetricDataCommand";
+import {
+  GetCapacityManagerMetricDimensionsCommandInput,
+  GetCapacityManagerMetricDimensionsCommandOutput,
+} from "./commands/GetCapacityManagerMetricDimensionsCommand";
 import {
   GetCapacityReservationUsageCommandInput,
   GetCapacityReservationUsageCommandOutput,
@@ -2429,6 +2461,10 @@ import {
 import { UnlockSnapshotCommandInput, UnlockSnapshotCommandOutput } from "./commands/UnlockSnapshotCommand";
 import { UnmonitorInstancesCommandInput, UnmonitorInstancesCommandOutput } from "./commands/UnmonitorInstancesCommand";
 import {
+  UpdateCapacityManagerOrganizationsAccessCommandInput,
+  UpdateCapacityManagerOrganizationsAccessCommandOutput,
+} from "./commands/UpdateCapacityManagerOrganizationsAccessCommand";
+import {
   UpdateSecurityGroupRuleDescriptionsEgressCommandInput,
   UpdateSecurityGroupRuleDescriptionsEgressCommandOutput,
 } from "./commands/UpdateSecurityGroupRuleDescriptionsEgressCommand";
@@ -2513,6 +2549,7 @@ export type ServiceInputTypes =
   | CopyImageCommandInput
   | CopySnapshotCommandInput
   | CopyVolumesCommandInput
+  | CreateCapacityManagerDataExportCommandInput
   | CreateCapacityReservationBySplittingCommandInput
   | CreateCapacityReservationCommandInput
   | CreateCapacityReservationFleetCommandInput
@@ -2606,6 +2643,7 @@ export type ServiceInputTypes =
   | CreateVpnConnectionCommandInput
   | CreateVpnConnectionRouteCommandInput
   | CreateVpnGatewayCommandInput
+  | DeleteCapacityManagerDataExportCommandInput
   | DeleteCarrierGatewayCommandInput
   | DeleteClientVpnEndpointCommandInput
   | DeleteClientVpnRouteCommandInput
@@ -2710,6 +2748,7 @@ export type ServiceInputTypes =
   | DescribeCapacityBlockOfferingsCommandInput
   | DescribeCapacityBlockStatusCommandInput
   | DescribeCapacityBlocksCommandInput
+  | DescribeCapacityManagerDataExportsCommandInput
   | DescribeCapacityReservationBillingRequestsCommandInput
   | DescribeCapacityReservationFleetsCommandInput
   | DescribeCapacityReservationsCommandInput
@@ -2877,6 +2916,7 @@ export type ServiceInputTypes =
   | DisableAddressTransferCommandInput
   | DisableAllowedImagesSettingsCommandInput
   | DisableAwsNetworkPerformanceMetricSubscriptionCommandInput
+  | DisableCapacityManagerCommandInput
   | DisableEbsEncryptionByDefaultCommandInput
   | DisableFastLaunchCommandInput
   | DisableFastSnapshotRestoresCommandInput
@@ -2913,6 +2953,7 @@ export type ServiceInputTypes =
   | EnableAddressTransferCommandInput
   | EnableAllowedImagesSettingsCommandInput
   | EnableAwsNetworkPerformanceMetricSubscriptionCommandInput
+  | EnableCapacityManagerCommandInput
   | EnableEbsEncryptionByDefaultCommandInput
   | EnableFastLaunchCommandInput
   | EnableFastSnapshotRestoresCommandInput
@@ -2940,6 +2981,9 @@ export type ServiceInputTypes =
   | GetAssociatedEnclaveCertificateIamRolesCommandInput
   | GetAssociatedIpv6PoolCidrsCommandInput
   | GetAwsNetworkPerformanceDataCommandInput
+  | GetCapacityManagerAttributesCommandInput
+  | GetCapacityManagerMetricDataCommandInput
+  | GetCapacityManagerMetricDimensionsCommandInput
   | GetCapacityReservationUsageCommandInput
   | GetCoipPoolUsageCommandInput
   | GetConsoleOutputCommandInput
@@ -3144,6 +3188,7 @@ export type ServiceInputTypes =
   | UnassignPrivateNatGatewayAddressCommandInput
   | UnlockSnapshotCommandInput
   | UnmonitorInstancesCommandInput
+  | UpdateCapacityManagerOrganizationsAccessCommandInput
   | UpdateSecurityGroupRuleDescriptionsEgressCommandInput
   | UpdateSecurityGroupRuleDescriptionsIngressCommandInput
   | WithdrawByoipCidrCommandInput;
@@ -3213,6 +3258,7 @@ export type ServiceOutputTypes =
   | CopyImageCommandOutput
   | CopySnapshotCommandOutput
   | CopyVolumesCommandOutput
+  | CreateCapacityManagerDataExportCommandOutput
   | CreateCapacityReservationBySplittingCommandOutput
   | CreateCapacityReservationCommandOutput
   | CreateCapacityReservationFleetCommandOutput
@@ -3306,6 +3352,7 @@ export type ServiceOutputTypes =
   | CreateVpnConnectionCommandOutput
   | CreateVpnConnectionRouteCommandOutput
   | CreateVpnGatewayCommandOutput
+  | DeleteCapacityManagerDataExportCommandOutput
   | DeleteCarrierGatewayCommandOutput
   | DeleteClientVpnEndpointCommandOutput
   | DeleteClientVpnRouteCommandOutput
@@ -3410,6 +3457,7 @@ export type ServiceOutputTypes =
   | DescribeCapacityBlockOfferingsCommandOutput
   | DescribeCapacityBlockStatusCommandOutput
   | DescribeCapacityBlocksCommandOutput
+  | DescribeCapacityManagerDataExportsCommandOutput
   | DescribeCapacityReservationBillingRequestsCommandOutput
   | DescribeCapacityReservationFleetsCommandOutput
   | DescribeCapacityReservationsCommandOutput
@@ -3577,6 +3625,7 @@ export type ServiceOutputTypes =
   | DisableAddressTransferCommandOutput
   | DisableAllowedImagesSettingsCommandOutput
   | DisableAwsNetworkPerformanceMetricSubscriptionCommandOutput
+  | DisableCapacityManagerCommandOutput
   | DisableEbsEncryptionByDefaultCommandOutput
   | DisableFastLaunchCommandOutput
   | DisableFastSnapshotRestoresCommandOutput
@@ -3613,6 +3662,7 @@ export type ServiceOutputTypes =
   | EnableAddressTransferCommandOutput
   | EnableAllowedImagesSettingsCommandOutput
   | EnableAwsNetworkPerformanceMetricSubscriptionCommandOutput
+  | EnableCapacityManagerCommandOutput
   | EnableEbsEncryptionByDefaultCommandOutput
   | EnableFastLaunchCommandOutput
   | EnableFastSnapshotRestoresCommandOutput
@@ -3640,6 +3690,9 @@ export type ServiceOutputTypes =
   | GetAssociatedEnclaveCertificateIamRolesCommandOutput
   | GetAssociatedIpv6PoolCidrsCommandOutput
   | GetAwsNetworkPerformanceDataCommandOutput
+  | GetCapacityManagerAttributesCommandOutput
+  | GetCapacityManagerMetricDataCommandOutput
+  | GetCapacityManagerMetricDimensionsCommandOutput
   | GetCapacityReservationUsageCommandOutput
   | GetCoipPoolUsageCommandOutput
   | GetConsoleOutputCommandOutput
@@ -3844,6 +3897,7 @@ export type ServiceOutputTypes =
   | UnassignPrivateNatGatewayAddressCommandOutput
   | UnlockSnapshotCommandOutput
   | UnmonitorInstancesCommandOutput
+  | UpdateCapacityManagerOrganizationsAccessCommandOutput
   | UpdateSecurityGroupRuleDescriptionsEgressCommandOutput
   | UpdateSecurityGroupRuleDescriptionsIngressCommandOutput
   | WithdrawByoipCidrCommandOutput;

@@ -227,6 +227,10 @@ import { CopyImageCommandInput, CopyImageCommandOutput } from "../commands/CopyI
 import { CopySnapshotCommandInput, CopySnapshotCommandOutput } from "../commands/CopySnapshotCommand";
 import { CopyVolumesCommandInput, CopyVolumesCommandOutput } from "../commands/CopyVolumesCommand";
 import {
+  CreateCapacityManagerDataExportCommandInput,
+  CreateCapacityManagerDataExportCommandOutput,
+} from "../commands/CreateCapacityManagerDataExportCommand";
+import {
   CreateCapacityReservationBySplittingCommandInput,
   CreateCapacityReservationBySplittingCommandOutput,
 } from "../commands/CreateCapacityReservationBySplittingCommand";
@@ -523,6 +527,10 @@ import {
   CreateVpnConnectionRouteCommandOutput,
 } from "../commands/CreateVpnConnectionRouteCommand";
 import { CreateVpnGatewayCommandInput, CreateVpnGatewayCommandOutput } from "../commands/CreateVpnGatewayCommand";
+import {
+  DeleteCapacityManagerDataExportCommandInput,
+  DeleteCapacityManagerDataExportCommandOutput,
+} from "../commands/DeleteCapacityManagerDataExportCommand";
 import {
   DeleteCarrierGatewayCommandInput,
   DeleteCarrierGatewayCommandOutput,
@@ -864,6 +872,10 @@ import {
   DescribeCapacityBlockStatusCommandInput,
   DescribeCapacityBlockStatusCommandOutput,
 } from "../commands/DescribeCapacityBlockStatusCommand";
+import {
+  DescribeCapacityManagerDataExportsCommandInput,
+  DescribeCapacityManagerDataExportsCommandOutput,
+} from "../commands/DescribeCapacityManagerDataExportsCommand";
 import {
   DescribeCapacityReservationBillingRequestsCommandInput,
   DescribeCapacityReservationBillingRequestsCommandOutput,
@@ -1464,6 +1476,10 @@ import {
   DisableAwsNetworkPerformanceMetricSubscriptionCommandOutput,
 } from "../commands/DisableAwsNetworkPerformanceMetricSubscriptionCommand";
 import {
+  DisableCapacityManagerCommandInput,
+  DisableCapacityManagerCommandOutput,
+} from "../commands/DisableCapacityManagerCommand";
+import {
   DisableEbsEncryptionByDefaultCommandInput,
   DisableEbsEncryptionByDefaultCommandOutput,
 } from "../commands/DisableEbsEncryptionByDefaultCommand";
@@ -1602,6 +1618,10 @@ import {
   EnableAwsNetworkPerformanceMetricSubscriptionCommandOutput,
 } from "../commands/EnableAwsNetworkPerformanceMetricSubscriptionCommand";
 import {
+  EnableCapacityManagerCommandInput,
+  EnableCapacityManagerCommandOutput,
+} from "../commands/EnableCapacityManagerCommand";
+import {
   EnableEbsEncryptionByDefaultCommandInput,
   EnableEbsEncryptionByDefaultCommandOutput,
 } from "../commands/EnableEbsEncryptionByDefaultCommand";
@@ -1697,6 +1717,18 @@ import {
   GetAwsNetworkPerformanceDataCommandInput,
   GetAwsNetworkPerformanceDataCommandOutput,
 } from "../commands/GetAwsNetworkPerformanceDataCommand";
+import {
+  GetCapacityManagerAttributesCommandInput,
+  GetCapacityManagerAttributesCommandOutput,
+} from "../commands/GetCapacityManagerAttributesCommand";
+import {
+  GetCapacityManagerMetricDataCommandInput,
+  GetCapacityManagerMetricDataCommandOutput,
+} from "../commands/GetCapacityManagerMetricDataCommand";
+import {
+  GetCapacityManagerMetricDimensionsCommandInput,
+  GetCapacityManagerMetricDimensionsCommandOutput,
+} from "../commands/GetCapacityManagerMetricDimensionsCommand";
 import {
   GetCapacityReservationUsageCommandInput,
   GetCapacityReservationUsageCommandOutput,
@@ -2400,6 +2432,10 @@ import {
 import { UnlockSnapshotCommandInput, UnlockSnapshotCommandOutput } from "../commands/UnlockSnapshotCommand";
 import { UnmonitorInstancesCommandInput, UnmonitorInstancesCommandOutput } from "../commands/UnmonitorInstancesCommand";
 import {
+  UpdateCapacityManagerOrganizationsAccessCommandInput,
+  UpdateCapacityManagerOrganizationsAccessCommandOutput,
+} from "../commands/UpdateCapacityManagerOrganizationsAccessCommand";
+import {
   UpdateSecurityGroupRuleDescriptionsEgressCommandInput,
   UpdateSecurityGroupRuleDescriptionsEgressCommandOutput,
 } from "../commands/UpdateSecurityGroupRuleDescriptionsEgressCommand";
@@ -2665,7 +2701,6 @@ import {
   CapacityReservationCommitmentInfo,
   CapacityReservationOptionsRequest,
   CapacityReservationTarget,
-  CapacityReservationTargetResponse,
   CarrierGateway,
   CertificateAuthenticationRequest,
   ClientConnectOptions,
@@ -2689,6 +2724,8 @@ import {
   CpuManufacturer,
   CpuPerformanceFactor,
   CpuPerformanceFactorRequest,
+  CreateCapacityManagerDataExportRequest,
+  CreateCapacityManagerDataExportResult,
   CreateCapacityReservationBySplittingRequest,
   CreateCapacityReservationBySplittingResult,
   CreateCapacityReservationFleetRequest,
@@ -2751,7 +2788,6 @@ import {
   CreateLaunchTemplateRequest,
   CreateLaunchTemplateResult,
   CreateLaunchTemplateVersionRequest,
-  CreditSpecification,
   CreditSpecificationRequest,
   CustomerGateway,
   DestinationOptionsRequest,
@@ -2809,8 +2845,6 @@ import {
   LaunchTemplateBlockDeviceMapping,
   LaunchTemplateBlockDeviceMappingRequest,
   LaunchTemplateCapacityReservationSpecificationRequest,
-  LaunchTemplateCapacityReservationSpecificationResponse,
-  LaunchTemplateCpuOptions,
   LaunchTemplateCpuOptionsRequest,
   LaunchTemplateEbsBlockDevice,
   LaunchTemplateEbsBlockDeviceRequest,
@@ -2872,6 +2906,7 @@ import {
 import {
   AttachmentEnaSrdSpecification,
   AttachmentEnaSrdUdpSpecification,
+  CapacityReservationTargetResponse,
   ConnectionTrackingConfiguration,
   ConnectionTrackingSpecification,
   CreateLaunchTemplateVersionResult,
@@ -2990,10 +3025,9 @@ import {
   CreateVerifiedAccessTrustProviderResult,
   CreateVolumeRequest,
   CreateVpcBlockPublicAccessExclusionRequest,
-  CreateVpcBlockPublicAccessExclusionResult,
   CreateVpcRequest,
   CreateVpcResult,
-  DnsOptionsSpecification,
+  CreditSpecification,
   ElasticGpuSpecificationResponse,
   FilterPortRange,
   GroupIdentifier,
@@ -3003,6 +3037,8 @@ import {
   Ipv4PrefixSpecificationResponse,
   Ipv6PrefixSpecification,
   Ipv6PrefixSpecificationResponse,
+  LaunchTemplateCapacityReservationSpecificationResponse,
+  LaunchTemplateCpuOptions,
   LaunchTemplateElasticInferenceAcceleratorResponse,
   LaunchTemplateEnaSrdSpecification,
   LaunchTemplateEnaSrdUdpSpecification,
@@ -3104,7 +3140,6 @@ import {
   VerifiedAccessEndpointStatus,
   VerifiedAccessGroup,
   VerifiedAccessSseSpecificationRequest,
-  VpcBlockPublicAccessExclusion,
 } from "../models/models_2";
 import {
   AvailabilityZone,
@@ -3114,11 +3149,10 @@ import {
   CapacityBlockExtension,
   CapacityBlockExtensionOffering,
   CapacityBlockOffering,
-  CapacityBlockStatus,
-  CapacityReservationStatus,
   CloudWatchLogOptions,
   CloudWatchLogOptionsSpecification,
   ConnectionNotification,
+  CreateVpcBlockPublicAccessExclusionResult,
   CreateVpcEndpointConnectionNotificationRequest,
   CreateVpcEndpointConnectionNotificationResult,
   CreateVpcEndpointRequest,
@@ -3132,6 +3166,8 @@ import {
   CreateVpnConnectionRouteRequest,
   CreateVpnGatewayRequest,
   CreateVpnGatewayResult,
+  DeleteCapacityManagerDataExportRequest,
+  DeleteCapacityManagerDataExportResult,
   DeleteCarrierGatewayRequest,
   DeleteCarrierGatewayResult,
   DeleteClientVpnEndpointRequest,
@@ -3327,11 +3363,9 @@ import {
   DescribeCapacityBlockOfferingsRequest,
   DescribeCapacityBlockOfferingsResult,
   DescribeCapacityBlocksRequest,
-  DescribeCapacityBlocksResult,
-  DescribeCapacityBlockStatusRequest,
-  DescribeCapacityBlockStatusResult,
   DnsEntry,
   DnsOptions,
+  DnsOptionsSpecification,
   FailedQueuedPurchaseDeletion,
   Filter,
   IdFormat,
@@ -3369,6 +3403,7 @@ import {
   TransitGatewayMulticastDeregisteredGroupSources,
   TunnelOption,
   VgwTelemetry,
+  VpcBlockPublicAccessExclusion,
   VpcEndpoint,
   VpnConnection,
   VpnConnectionOptions,
@@ -3384,12 +3419,14 @@ import {
   AttributeBooleanValue,
   AuthorizationRule,
   AvailableCapacity,
-  BandwidthWeightingType,
+  CapacityBlockStatus,
+  CapacityManagerDataExportResponse,
   CapacityReservationBillingRequest,
   CapacityReservationFleet,
   CapacityReservationInfo,
   CapacityReservationOptions,
   CapacityReservationSpecificationResponse,
+  CapacityReservationStatus,
   CertificateAuthentication,
   ClassicLinkInstance,
   ClientConnectResponseOptions,
@@ -3406,6 +3443,11 @@ import {
   ConversionTask,
   CpuOptions,
   DeclarativePoliciesReport,
+  DescribeCapacityBlocksResult,
+  DescribeCapacityBlockStatusRequest,
+  DescribeCapacityBlockStatusResult,
+  DescribeCapacityManagerDataExportsRequest,
+  DescribeCapacityManagerDataExportsResult,
   DescribeCapacityReservationBillingRequestsRequest,
   DescribeCapacityReservationBillingRequestsResult,
   DescribeCapacityReservationFleetsRequest,
@@ -3519,7 +3561,6 @@ import {
   EbsOptimizedInfo,
   EbsStatusDetails,
   EbsStatusSummary,
-  EfaInfo,
   ElasticGpuAssociation,
   ElasticGpuHealth,
   ElasticGpus,
@@ -3600,13 +3641,7 @@ import {
   MediaAcceleratorInfo,
   MediaDeviceInfo,
   MediaDeviceMemoryInfo,
-  MemoryInfo,
   Monitoring,
-  NetworkCardInfo,
-  NetworkInfo,
-  NeuronDeviceCoreInfo,
-  NeuronDeviceInfo,
-  NeuronDeviceMemoryInfo,
   OnDemandOptions,
   PciId,
   PrivateDnsNameOptionsResponse,
@@ -3624,6 +3659,7 @@ import {
 } from "../models/models_4";
 import {
   ArchitectureType,
+  BandwidthWeightingType,
   BootModeType,
   ClassicLoadBalancer,
   ClassicLoadBalancersConfig,
@@ -3810,8 +3846,8 @@ import {
   DescribeVolumesRequest,
   DescribeVolumesResult,
   DescribeVolumeStatusRequest,
+  EfaInfo,
   HistoryRecord,
-  InitializationStatusDetails,
   InstanceNetworkInterfaceSpecification,
   InstanceTypeInfo,
   Ipv6Pool,
@@ -3823,9 +3859,15 @@ import {
   LocalGateway,
   LockedSnapshotsInfo,
   MacHost,
+  MemoryInfo,
   MovingAddressStatus,
+  NetworkCardInfo,
+  NetworkInfo,
   NetworkInsightsAccessScopeAnalysis,
   NetworkInsightsAnalysis,
+  NeuronDeviceCoreInfo,
+  NeuronDeviceInfo,
+  NeuronDeviceMemoryInfo,
   NeuronInfo,
   NitroTpmInfo,
   OutpostLag,
@@ -3888,17 +3930,13 @@ import {
   VerifiedAccessLogs,
   VerifiedAccessLogS3Destination,
   VolumeModification,
-  VolumeStatusAction,
-  VolumeStatusAttachmentStatus,
-  VolumeStatusDetails,
-  VolumeStatusEvent,
-  VolumeStatusInfo,
-  VolumeStatusItem,
 } from "../models/models_5";
 import {
   AssociatedRole,
   AthenaIntegration,
   AttributeSummary,
+  CapacityManagerCondition,
+  CapacityManagerDimension,
   CapacityReservationGroup,
   ClassicLinkDnsSupport,
   ClientCertificateRevocationListStatus,
@@ -3948,12 +3986,15 @@ import {
   DetachVerifiedAccessTrustProviderResult,
   DetachVolumeRequest,
   DetachVpnGatewayRequest,
+  DimensionCondition,
   DisableAddressTransferRequest,
   DisableAddressTransferResult,
   DisableAllowedImagesSettingsRequest,
   DisableAllowedImagesSettingsResult,
   DisableAwsNetworkPerformanceMetricSubscriptionRequest,
   DisableAwsNetworkPerformanceMetricSubscriptionResult,
+  DisableCapacityManagerRequest,
+  DisableCapacityManagerResult,
   DisableEbsEncryptionByDefaultRequest,
   DisableEbsEncryptionByDefaultResult,
   DisableFastLaunchRequest,
@@ -4027,6 +4068,8 @@ import {
   EnableAllowedImagesSettingsResult,
   EnableAwsNetworkPerformanceMetricSubscriptionRequest,
   EnableAwsNetworkPerformanceMetricSubscriptionResult,
+  EnableCapacityManagerRequest,
+  EnableCapacityManagerResult,
   EnableEbsEncryptionByDefaultRequest,
   EnableEbsEncryptionByDefaultResult,
   EnableFastLaunchRequest,
@@ -4086,6 +4129,12 @@ import {
   GetAssociatedIpv6PoolCidrsResult,
   GetAwsNetworkPerformanceDataRequest,
   GetAwsNetworkPerformanceDataResult,
+  GetCapacityManagerAttributesRequest,
+  GetCapacityManagerAttributesResult,
+  GetCapacityManagerMetricDataRequest,
+  GetCapacityManagerMetricDataResult,
+  GetCapacityManagerMetricDimensionsRequest,
+  GetCapacityManagerMetricDimensionsResult,
   GetCapacityReservationUsageRequest,
   GetCapacityReservationUsageResult,
   GetCoipPoolUsageRequest,
@@ -4121,6 +4170,50 @@ import {
   GetIpamAddressHistoryRequest,
   GetIpamAddressHistoryResult,
   GetIpamDiscoveredAccountsRequest,
+  GroupBy,
+  ImageCriterion,
+  InitializationStatusDetails,
+  InstanceEventWindowDisassociationRequest,
+  InstanceFamilyCreditSpecification,
+  InstanceMetadataDefaultsResponse,
+  InstanceTypeInfoFromInstanceRequirements,
+  InstanceUsage,
+  IntegrateServices,
+  IpamAddressHistoryRecord,
+  Ipv6CidrAssociation,
+  Metric,
+  MetricDataResult,
+  MetricPoint,
+  MetricValue,
+  PrivateDnsDetails,
+  Purchase,
+  RegionalSummary,
+  RouteServerPropagation,
+  ServiceDetail,
+  TransitGatewayPropagation,
+  VerifiedAccessInstanceOpenVpnClientConfiguration,
+  VerifiedAccessInstanceOpenVpnClientConfigurationRoute,
+  VerifiedAccessInstanceUserTrustProviderClientConfiguration,
+  VolumeStatusAction,
+  VolumeStatusAttachmentStatus,
+  VolumeStatusDetails,
+  VolumeStatusEvent,
+  VolumeStatusInfo,
+  VolumeStatusItem,
+  VpcBlockPublicAccessOptions,
+  VpcClassicLink,
+  VpcEndpointAssociation,
+  VpcEndpointConnection,
+} from "../models/models_6";
+import {
+  BlobAttributeValue,
+  CapacityReservationSpecification,
+  ClientData,
+  CreateVolumePermissionModifications,
+  DiskImage,
+  DiskImageDetail,
+  DnsServersOptionsModifyStructure,
+  EbsInstanceBlockDeviceSpecification,
   GetIpamDiscoveredAccountsResult,
   GetIpamDiscoveredPublicAddressesRequest,
   GetIpamDiscoveredPublicAddressesResult,
@@ -4137,51 +4230,6 @@ import {
   GetManagedPrefixListAssociationsRequest,
   GetManagedPrefixListAssociationsResult,
   GetManagedPrefixListEntriesRequest,
-  ImageCriterion,
-  InstanceEventWindowDisassociationRequest,
-  InstanceFamilyCreditSpecification,
-  InstanceMetadataDefaultsResponse,
-  InstanceTypeInfoFromInstanceRequirements,
-  InstanceUsage,
-  IntegrateServices,
-  IpamAddressHistoryRecord,
-  IpamDiscoveredAccount,
-  IpamDiscoveredPublicAddress,
-  IpamDiscoveredResourceCidr,
-  IpamDiscoveryFailureReason,
-  IpamPublicAddressSecurityGroup,
-  IpamPublicAddressTag,
-  IpamPublicAddressTags,
-  IpamResourceCidr,
-  Ipv6CidrAssociation,
-  MetricPoint,
-  PrefixListAssociation,
-  PrefixListEntry,
-  PrivateDnsDetails,
-  Purchase,
-  RegionalSummary,
-  RouteServerPropagation,
-  ServiceDetail,
-  TransitGatewayPropagation,
-  VerifiedAccessInstanceOpenVpnClientConfiguration,
-  VerifiedAccessInstanceOpenVpnClientConfigurationRoute,
-  VerifiedAccessInstanceUserTrustProviderClientConfiguration,
-  VpcBlockPublicAccessOptions,
-  VpcClassicLink,
-  VpcEndpointAssociation,
-  VpcEndpointConnection,
-} from "../models/models_6";
-import {
-  AsnAuthorizationContext,
-  BlobAttributeValue,
-  CapacityReservationSpecification,
-  CidrAuthorizationContext,
-  ClientData,
-  CreateVolumePermissionModifications,
-  DiskImage,
-  DiskImageDetail,
-  DnsServersOptionsModifyStructure,
-  EbsInstanceBlockDeviceSpecification,
   GetManagedPrefixListEntriesResult,
   GetNetworkInsightsAccessScopeAnalysisFindingsRequest,
   GetNetworkInsightsAccessScopeAnalysisFindingsResult,
@@ -4251,8 +4299,15 @@ import {
   ImportVolumeResult,
   InstanceBlockDeviceMappingSpecification,
   InstanceCreditSpecificationRequest,
-  InstanceMonitoring,
   InstanceRequirementsWithMetadataRequest,
+  IpamDiscoveredAccount,
+  IpamDiscoveredPublicAddress,
+  IpamDiscoveredResourceCidr,
+  IpamDiscoveryFailureReason,
+  IpamPublicAddressSecurityGroup,
+  IpamPublicAddressTag,
+  IpamPublicAddressTags,
+  IpamResourceCidr,
   LaunchPermissionModifications,
   ListImagesInRecycleBinRequest,
   ListImagesInRecycleBinResult,
@@ -4392,36 +4447,9 @@ import {
   ModifyVpcEndpointResult,
   ModifyVpcEndpointServiceConfigurationRequest,
   ModifyVpcEndpointServiceConfigurationResult,
-  ModifyVpcEndpointServicePayerResponsibilityRequest,
-  ModifyVpcEndpointServicePayerResponsibilityResult,
-  ModifyVpcEndpointServicePermissionsRequest,
-  ModifyVpcEndpointServicePermissionsResult,
-  ModifyVpcPeeringConnectionOptionsRequest,
-  ModifyVpcPeeringConnectionOptionsResult,
-  ModifyVpcTenancyRequest,
-  ModifyVpcTenancyResult,
-  ModifyVpnConnectionOptionsRequest,
-  ModifyVpnConnectionOptionsResult,
-  ModifyVpnConnectionRequest,
-  ModifyVpnConnectionResult,
-  ModifyVpnTunnelCertificateRequest,
-  ModifyVpnTunnelCertificateResult,
-  ModifyVpnTunnelOptionsRequest,
-  ModifyVpnTunnelOptionsResult,
-  ModifyVpnTunnelOptionsSpecification,
-  MonitorInstancesRequest,
-  MonitorInstancesResult,
-  MoveAddressToVpcRequest,
-  MoveAddressToVpcResult,
-  MoveByoipCidrToIpamRequest,
-  MoveByoipCidrToIpamResult,
-  MoveCapacityReservationInstancesRequest,
-  MoveCapacityReservationInstancesResult,
   NetworkInterfaceAttachmentChanges,
-  PeeringConnectionOptions,
-  PeeringConnectionOptionsRequest,
-  ProvisionByoipCidrRequest,
-  ProvisionByoipCidrResult,
+  PrefixListAssociation,
+  PrefixListEntry,
   RemoveIpamOperatingRegion,
   RemoveIpamOrganizationalUnitExclusion,
   RemovePrefixListEntry,
@@ -4460,6 +4488,8 @@ import {
   VpnConnectionDeviceType,
 } from "../models/models_7";
 import {
+  AsnAuthorizationContext,
+  CidrAuthorizationContext,
   CpuOptionsRequest,
   CreationDateConditionRequest,
   DeprecationTimeConditionRequest,
@@ -4470,12 +4500,42 @@ import {
   InstanceMaintenanceOptionsRequest,
   InstanceMarketOptionsRequest,
   InstanceMetadataOptionsRequest,
+  InstanceMonitoring,
   InstanceNetworkPerformanceOptionsRequest,
   InstanceStateChange,
   IpamCidrAuthorizationContext,
   LaunchTemplateSpecification,
   LicenseConfigurationRequest,
+  ModifyVpcEndpointServicePayerResponsibilityRequest,
+  ModifyVpcEndpointServicePayerResponsibilityResult,
+  ModifyVpcEndpointServicePermissionsRequest,
+  ModifyVpcEndpointServicePermissionsResult,
+  ModifyVpcPeeringConnectionOptionsRequest,
+  ModifyVpcPeeringConnectionOptionsResult,
+  ModifyVpcTenancyRequest,
+  ModifyVpcTenancyResult,
+  ModifyVpnConnectionOptionsRequest,
+  ModifyVpnConnectionOptionsResult,
+  ModifyVpnConnectionRequest,
+  ModifyVpnConnectionResult,
+  ModifyVpnTunnelCertificateRequest,
+  ModifyVpnTunnelCertificateResult,
+  ModifyVpnTunnelOptionsRequest,
+  ModifyVpnTunnelOptionsResult,
+  ModifyVpnTunnelOptionsSpecification,
+  MonitorInstancesRequest,
+  MonitorInstancesResult,
+  MoveAddressToVpcRequest,
+  MoveAddressToVpcResult,
+  MoveByoipCidrToIpamRequest,
+  MoveByoipCidrToIpamResult,
+  MoveCapacityReservationInstancesRequest,
+  MoveCapacityReservationInstancesResult,
+  PeeringConnectionOptions,
+  PeeringConnectionOptionsRequest,
   PrivateDnsNameOptionsRequest,
+  ProvisionByoipCidrRequest,
+  ProvisionByoipCidrResult,
   ProvisionIpamByoasnRequest,
   ProvisionIpamByoasnResult,
   ProvisionIpamPoolCidrRequest,
@@ -4619,6 +4679,8 @@ import {
   UnlockSnapshotResult,
   UnmonitorInstancesRequest,
   UnmonitorInstancesResult,
+  UpdateCapacityManagerOrganizationsAccessRequest,
+  UpdateCapacityManagerOrganizationsAccessResult,
   UpdateSecurityGroupRuleDescriptionsEgressRequest,
   UpdateSecurityGroupRuleDescriptionsEgressResult,
   UpdateSecurityGroupRuleDescriptionsIngressRequest,
@@ -5659,6 +5721,23 @@ export const se_CopyVolumesCommand = async (
   body = buildFormUrlencodedString({
     ...se_CopyVolumesRequest(input, context),
     [_A]: _CV,
+    [_V]: _,
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_ec2CreateCapacityManagerDataExportCommand
+ */
+export const se_CreateCapacityManagerDataExportCommand = async (
+  input: CreateCapacityManagerDataExportCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = SHARED_HEADERS;
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...se_CreateCapacityManagerDataExportRequest(input, context),
+    [_A]: _CCMDE,
     [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -7240,6 +7319,23 @@ export const se_CreateVpnGatewayCommand = async (
   body = buildFormUrlencodedString({
     ...se_CreateVpnGatewayRequest(input, context),
     [_A]: _CVG,
+    [_V]: _,
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_ec2DeleteCapacityManagerDataExportCommand
+ */
+export const se_DeleteCapacityManagerDataExportCommand = async (
+  input: DeleteCapacityManagerDataExportCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = SHARED_HEADERS;
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...se_DeleteCapacityManagerDataExportRequest(input, context),
+    [_A]: _DCMDE,
     [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -9008,6 +9104,23 @@ export const se_DescribeCapacityBlockStatusCommand = async (
   body = buildFormUrlencodedString({
     ...se_DescribeCapacityBlockStatusRequest(input, context),
     [_A]: _DCBS,
+    [_V]: _,
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_ec2DescribeCapacityManagerDataExportsCommand
+ */
+export const se_DescribeCapacityManagerDataExportsCommand = async (
+  input: DescribeCapacityManagerDataExportsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = SHARED_HEADERS;
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...se_DescribeCapacityManagerDataExportsRequest(input, context),
+    [_A]: _DCMDEe,
     [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -11853,6 +11966,23 @@ export const se_DisableAwsNetworkPerformanceMetricSubscriptionCommand = async (
 };
 
 /**
+ * serializeAws_ec2DisableCapacityManagerCommand
+ */
+export const se_DisableCapacityManagerCommand = async (
+  input: DisableCapacityManagerCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = SHARED_HEADERS;
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...se_DisableCapacityManagerRequest(input, context),
+    [_A]: _DCM,
+    [_V]: _,
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_ec2DisableEbsEncryptionByDefaultCommand
  */
 export const se_DisableEbsEncryptionByDefaultCommand = async (
@@ -12465,6 +12595,23 @@ export const se_EnableAwsNetworkPerformanceMetricSubscriptionCommand = async (
 };
 
 /**
+ * serializeAws_ec2EnableCapacityManagerCommand
+ */
+export const se_EnableCapacityManagerCommand = async (
+  input: EnableCapacityManagerCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = SHARED_HEADERS;
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...se_EnableCapacityManagerRequest(input, context),
+    [_A]: _ECM,
+    [_V]: _,
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_ec2EnableEbsEncryptionByDefaultCommand
  */
 export const se_EnableEbsEncryptionByDefaultCommand = async (
@@ -12918,6 +13065,57 @@ export const se_GetAwsNetworkPerformanceDataCommand = async (
   body = buildFormUrlencodedString({
     ...se_GetAwsNetworkPerformanceDataRequest(input, context),
     [_A]: _GANPD,
+    [_V]: _,
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_ec2GetCapacityManagerAttributesCommand
+ */
+export const se_GetCapacityManagerAttributesCommand = async (
+  input: GetCapacityManagerAttributesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = SHARED_HEADERS;
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...se_GetCapacityManagerAttributesRequest(input, context),
+    [_A]: _GCMA,
+    [_V]: _,
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_ec2GetCapacityManagerMetricDataCommand
+ */
+export const se_GetCapacityManagerMetricDataCommand = async (
+  input: GetCapacityManagerMetricDataCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = SHARED_HEADERS;
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...se_GetCapacityManagerMetricDataRequest(input, context),
+    [_A]: _GCMMD,
+    [_V]: _,
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_ec2GetCapacityManagerMetricDimensionsCommand
+ */
+export const se_GetCapacityManagerMetricDimensionsCommand = async (
+  input: GetCapacityManagerMetricDimensionsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = SHARED_HEADERS;
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...se_GetCapacityManagerMetricDimensionsRequest(input, context),
+    [_A]: _GCMMDe,
     [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -16392,6 +16590,23 @@ export const se_UnmonitorInstancesCommand = async (
 };
 
 /**
+ * serializeAws_ec2UpdateCapacityManagerOrganizationsAccessCommand
+ */
+export const se_UpdateCapacityManagerOrganizationsAccessCommand = async (
+  input: UpdateCapacityManagerOrganizationsAccessCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = SHARED_HEADERS;
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...se_UpdateCapacityManagerOrganizationsAccessRequest(input, context),
+    [_A]: _UCMOA,
+    [_V]: _,
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_ec2UpdateSecurityGroupRuleDescriptionsEgressCommand
  */
 export const se_UpdateSecurityGroupRuleDescriptionsEgressCommand = async (
@@ -17644,6 +17859,26 @@ export const de_CopyVolumesCommand = async (
   let contents: any = {};
   contents = de_CopyVolumesResult(data, context);
   const response: CopyVolumesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_ec2CreateCapacityManagerDataExportCommand
+ */
+export const de_CreateCapacityManagerDataExportCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateCapacityManagerDataExportCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_CreateCapacityManagerDataExportResult(data, context);
+  const response: CreateCapacityManagerDataExportCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
@@ -19495,6 +19730,26 @@ export const de_CreateVpnGatewayCommand = async (
   let contents: any = {};
   contents = de_CreateVpnGatewayResult(data, context);
   const response: CreateVpnGatewayCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_ec2DeleteCapacityManagerDataExportCommand
+ */
+export const de_DeleteCapacityManagerDataExportCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteCapacityManagerDataExportCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DeleteCapacityManagerDataExportResult(data, context);
+  const response: DeleteCapacityManagerDataExportCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
@@ -21521,6 +21776,26 @@ export const de_DescribeCapacityBlockStatusCommand = async (
   let contents: any = {};
   contents = de_DescribeCapacityBlockStatusResult(data, context);
   const response: DescribeCapacityBlockStatusCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_ec2DescribeCapacityManagerDataExportsCommand
+ */
+export const de_DescribeCapacityManagerDataExportsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeCapacityManagerDataExportsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeCapacityManagerDataExportsResult(data, context);
+  const response: DescribeCapacityManagerDataExportsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
@@ -24859,6 +25134,26 @@ export const de_DisableAwsNetworkPerformanceMetricSubscriptionCommand = async (
 };
 
 /**
+ * deserializeAws_ec2DisableCapacityManagerCommand
+ */
+export const de_DisableCapacityManagerCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DisableCapacityManagerCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DisableCapacityManagerResult(data, context);
+  const response: DisableCapacityManagerCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
  * deserializeAws_ec2DisableEbsEncryptionByDefaultCommand
  */
 export const de_DisableEbsEncryptionByDefaultCommand = async (
@@ -25570,6 +25865,26 @@ export const de_EnableAwsNetworkPerformanceMetricSubscriptionCommand = async (
 };
 
 /**
+ * deserializeAws_ec2EnableCapacityManagerCommand
+ */
+export const de_EnableCapacityManagerCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<EnableCapacityManagerCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_EnableCapacityManagerResult(data, context);
+  const response: EnableCapacityManagerCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
  * deserializeAws_ec2EnableEbsEncryptionByDefaultCommand
  */
 export const de_EnableEbsEncryptionByDefaultCommand = async (
@@ -26097,6 +26412,66 @@ export const de_GetAwsNetworkPerformanceDataCommand = async (
   let contents: any = {};
   contents = de_GetAwsNetworkPerformanceDataResult(data, context);
   const response: GetAwsNetworkPerformanceDataCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_ec2GetCapacityManagerAttributesCommand
+ */
+export const de_GetCapacityManagerAttributesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetCapacityManagerAttributesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_GetCapacityManagerAttributesResult(data, context);
+  const response: GetCapacityManagerAttributesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_ec2GetCapacityManagerMetricDataCommand
+ */
+export const de_GetCapacityManagerMetricDataCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetCapacityManagerMetricDataCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_GetCapacityManagerMetricDataResult(data, context);
+  const response: GetCapacityManagerMetricDataCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_ec2GetCapacityManagerMetricDimensionsCommand
+ */
+export const de_GetCapacityManagerMetricDimensionsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetCapacityManagerMetricDimensionsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_GetCapacityManagerMetricDimensionsResult(data, context);
+  const response: GetCapacityManagerMetricDimensionsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
@@ -30124,6 +30499,26 @@ export const de_UnmonitorInstancesCommand = async (
 };
 
 /**
+ * deserializeAws_ec2UpdateCapacityManagerOrganizationsAccessCommand
+ */
+export const de_UpdateCapacityManagerOrganizationsAccessCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateCapacityManagerOrganizationsAccessCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_UpdateCapacityManagerOrganizationsAccessResult(data, context);
+  const response: UpdateCapacityManagerOrganizationsAccessCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
  * deserializeAws_ec2UpdateSecurityGroupRuleDescriptionsEgressCommand
  */
 export const de_UpdateSecurityGroupRuleDescriptionsEgressCommand = async (
@@ -32218,6 +32613,56 @@ const se_CapacityBlockIds = (input: string[], context: __SerdeContext): any => {
 };
 
 /**
+ * serializeAws_ec2CapacityManagerCondition
+ */
+const se_CapacityManagerCondition = (input: CapacityManagerCondition, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input[_DCi] != null) {
+    const memberEntries = se_DimensionCondition(input[_DCi], context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `DimensionCondition.${key}`;
+      entries[loc] = value;
+    });
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_ec2CapacityManagerConditionSet
+ */
+const se_CapacityManagerConditionSet = (input: CapacityManagerCondition[], context: __SerdeContext): any => {
+  const entries: any = {};
+  let counter = 1;
+  for (const entry of input) {
+    if (entry === null) {
+      continue;
+    }
+    const memberEntries = se_CapacityManagerCondition(entry, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      entries[`Item.${counter}.${key}`] = value;
+    });
+    counter++;
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_ec2CapacityManagerDataExportIdSet
+ */
+const se_CapacityManagerDataExportIdSet = (input: string[], context: __SerdeContext): any => {
+  const entries: any = {};
+  let counter = 1;
+  for (const entry of input) {
+    if (entry === null) {
+      continue;
+    }
+    entries[`Item.${counter}`] = entry;
+    counter++;
+  }
+  return entries;
+};
+
+/**
  * serializeAws_ec2CapacityReservationFleetIdSet
  */
 const se_CapacityReservationFleetIdSet = (input: string[], context: __SerdeContext): any => {
@@ -32563,6 +33008,22 @@ const se_CoipPoolIdSet = (input: string[], context: __SerdeContext): any => {
 };
 
 /**
+ * serializeAws_ec2ConditionValueList
+ */
+const se_ConditionValueList = (input: string[], context: __SerdeContext): any => {
+  const entries: any = {};
+  let counter = 1;
+  for (const entry of input) {
+    if (entry === null) {
+      continue;
+    }
+    entries[`Item.${counter}`] = entry;
+    counter++;
+  }
+  return entries;
+};
+
+/**
  * serializeAws_ec2ConfirmProductInstanceRequest
  */
 const se_ConfirmProductInstanceRequest = (input: ConfirmProductInstanceRequest, context: __SerdeContext): any => {
@@ -32878,6 +33339,45 @@ const se_CpuPerformanceFactorRequest = (input: CpuPerformanceFactorRequest, cont
     const memberEntries = se_PerformanceFactorReferenceSetRequest(input[_R], context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Reference.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_ec2CreateCapacityManagerDataExportRequest
+ */
+const se_CreateCapacityManagerDataExportRequest = (
+  input: CreateCapacityManagerDataExportRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input[_SBN] != null) {
+    entries[_SBN] = input[_SBN];
+  }
+  if (input[_SBP] != null) {
+    entries[_SBP] = input[_SBP];
+  }
+  if (input[_Sc] != null) {
+    entries[_Sc] = input[_Sc];
+  }
+  if (input[_OF] != null) {
+    entries[_OF] = input[_OF];
+  }
+  if (input[_CTl] === undefined) {
+    input[_CTl] = generateIdempotencyToken();
+  }
+  if (input[_CTl] != null) {
+    entries[_CTl] = input[_CTl];
+  }
+  if (input[_DRr] != null) {
+    entries[_DRr] = input[_DRr];
+  }
+  if (input[_TS] != null) {
+    const memberEntries = se_TagSpecificationList(input[_TS], context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `TagSpecification.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
     });
   }
@@ -36255,8 +36755,8 @@ const se_CreateVerifiedAccessNativeApplicationOidcOptions = (
   if (input[_CSl] != null) {
     entries[_CSl] = input[_CSl];
   }
-  if (input[_Sc] != null) {
-    entries[_Sc] = input[_Sc];
+  if (input[_Sco] != null) {
+    entries[_Sco] = input[_Sco];
   }
   return entries;
 };
@@ -36304,8 +36804,8 @@ const se_CreateVerifiedAccessTrustProviderOidcOptions = (
   if (input[_CSl] != null) {
     entries[_CSl] = input[_CSl];
   }
-  if (input[_Sc] != null) {
-    entries[_Sc] = input[_Sc];
+  if (input[_Sco] != null) {
+    entries[_Sco] = input[_Sco];
   }
   return entries;
 };
@@ -36966,6 +37466,23 @@ const se_DedicatedHostIdList = (input: string[], context: __SerdeContext): any =
     }
     entries[`Item.${counter}`] = entry;
     counter++;
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_ec2DeleteCapacityManagerDataExportRequest
+ */
+const se_DeleteCapacityManagerDataExportRequest = (
+  input: DeleteCapacityManagerDataExportRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input[_CMDEI] != null) {
+    entries[_CMDEI] = input[_CMDEI];
+  }
+  if (input[_DRr] != null) {
+    entries[_DRr] = input[_DRr];
   }
   return entries;
 };
@@ -38941,6 +39458,40 @@ const se_DescribeCapacityBlockStatusRequest = (
   }
   if (input[_DRr] != null) {
     entries[_DRr] = input[_DRr];
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_ec2DescribeCapacityManagerDataExportsRequest
+ */
+const se_DescribeCapacityManagerDataExportsRequest = (
+  input: DescribeCapacityManagerDataExportsRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input[_CMDEIa] != null) {
+    const memberEntries = se_CapacityManagerDataExportIdSet(input[_CMDEIa], context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `CapacityManagerDataExportId.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  if (input[_MR] != null) {
+    entries[_MR] = input[_MR];
+  }
+  if (input[_NT] != null) {
+    entries[_NT] = input[_NT];
+  }
+  if (input[_DRr] != null) {
+    entries[_DRr] = input[_DRr];
+  }
+  if (input[_Fi] != null) {
+    const memberEntries = se_FilterList(input[_Fi], context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
   }
   return entries;
 };
@@ -44101,6 +44652,27 @@ const se_DhcpOptionsIdStringList = (input: string[], context: __SerdeContext): a
 };
 
 /**
+ * serializeAws_ec2DimensionCondition
+ */
+const se_DimensionCondition = (input: DimensionCondition, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input[_Di] != null) {
+    entries[_Di] = input[_Di];
+  }
+  if (input[_Com] != null) {
+    entries[_Com] = input[_Com];
+  }
+  if (input[_Val] != null) {
+    const memberEntries = se_ConditionValueList(input[_Val], context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `Value.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  return entries;
+};
+
+/**
  * serializeAws_ec2DirectoryServiceAuthenticationRequest
  */
 const se_DirectoryServiceAuthenticationRequest = (
@@ -44164,6 +44736,23 @@ const se_DisableAwsNetworkPerformanceMetricSubscriptionRequest = (
   }
   if (input[_DRr] != null) {
     entries[_DRr] = input[_DRr];
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_ec2DisableCapacityManagerRequest
+ */
+const se_DisableCapacityManagerRequest = (input: DisableCapacityManagerRequest, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input[_DRr] != null) {
+    entries[_DRr] = input[_DRr];
+  }
+  if (input[_CTl] === undefined) {
+    input[_CTl] = generateIdempotencyToken();
+  }
+  if (input[_CTl] != null) {
+    entries[_CTl] = input[_CTl];
   }
   return entries;
 };
@@ -45104,6 +45693,26 @@ const se_EnableAwsNetworkPerformanceMetricSubscriptionRequest = (
   }
   if (input[_DRr] != null) {
     entries[_DRr] = input[_DRr];
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_ec2EnableCapacityManagerRequest
+ */
+const se_EnableCapacityManagerRequest = (input: EnableCapacityManagerRequest, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input[_OAr] != null) {
+    entries[_OAr] = input[_OAr];
+  }
+  if (input[_DRr] != null) {
+    entries[_DRr] = input[_DRr];
+  }
+  if (input[_CTl] === undefined) {
+    input[_CTl] = generateIdempotencyToken();
+  }
+  if (input[_CTl] != null) {
+    entries[_CTl] = input[_CTl];
   }
   return entries;
 };
@@ -46223,6 +46832,117 @@ const se_GetAwsNetworkPerformanceDataRequest = (
   }
   if (input[_ETn] != null) {
     entries[_ETn] = __serializeDateTime(input[_ETn]);
+  }
+  if (input[_MR] != null) {
+    entries[_MR] = input[_MR];
+  }
+  if (input[_NT] != null) {
+    entries[_NT] = input[_NT];
+  }
+  if (input[_DRr] != null) {
+    entries[_DRr] = input[_DRr];
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_ec2GetCapacityManagerAttributesRequest
+ */
+const se_GetCapacityManagerAttributesRequest = (
+  input: GetCapacityManagerAttributesRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input[_DRr] != null) {
+    entries[_DRr] = input[_DRr];
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_ec2GetCapacityManagerMetricDataRequest
+ */
+const se_GetCapacityManagerMetricDataRequest = (
+  input: GetCapacityManagerMetricDataRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input[_MN] != null) {
+    const memberEntries = se_MetricSet(input[_MN], context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `MetricName.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  if (input[_STt] != null) {
+    entries[_STt] = __serializeDateTime(input[_STt]);
+  }
+  if (input[_ETn] != null) {
+    entries[_ETn] = __serializeDateTime(input[_ETn]);
+  }
+  if (input[_Per] != null) {
+    entries[_Per] = input[_Per];
+  }
+  if (input[_GB] != null) {
+    const memberEntries = se_GroupBySet(input[_GB], context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `GroupBy.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  if (input[_FB] != null) {
+    const memberEntries = se_CapacityManagerConditionSet(input[_FB], context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `FilterBy.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  if (input[_MR] != null) {
+    entries[_MR] = input[_MR];
+  }
+  if (input[_NT] != null) {
+    entries[_NT] = input[_NT];
+  }
+  if (input[_DRr] != null) {
+    entries[_DRr] = input[_DRr];
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_ec2GetCapacityManagerMetricDimensionsRequest
+ */
+const se_GetCapacityManagerMetricDimensionsRequest = (
+  input: GetCapacityManagerMetricDimensionsRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input[_GB] != null) {
+    const memberEntries = se_GroupBySet(input[_GB], context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `GroupBy.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  if (input[_FB] != null) {
+    const memberEntries = se_CapacityManagerConditionSet(input[_FB], context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `FilterBy.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  if (input[_STt] != null) {
+    entries[_STt] = __serializeDateTime(input[_STt]);
+  }
+  if (input[_ETn] != null) {
+    entries[_ETn] = __serializeDateTime(input[_ETn]);
+  }
+  if (input[_MN] != null) {
+    const memberEntries = se_MetricSet(input[_MN], context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `MetricName.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
   }
   if (input[_MR] != null) {
     entries[_MR] = input[_MR];
@@ -47459,6 +48179,22 @@ const se_GetVpnTunnelReplacementStatusRequest = (
 };
 
 /**
+ * serializeAws_ec2GroupBySet
+ */
+const se_GroupBySet = (input: GroupBy[], context: __SerdeContext): any => {
+  const entries: any = {};
+  let counter = 1;
+  for (const entry of input) {
+    if (entry === null) {
+      continue;
+    }
+    entries[`Item.${counter}`] = entry;
+    counter++;
+  }
+  return entries;
+};
+
+/**
  * serializeAws_ec2GroupIdentifier
  */
 const se_GroupIdentifier = (input: GroupIdentifier, context: __SerdeContext): any => {
@@ -48004,8 +48740,8 @@ const se_ImportImageRequest = (input: ImportImageRequest, context: __SerdeContex
   if (input[_De] != null) {
     entries[_De] = input[_De];
   }
-  if (input[_DCi] != null) {
-    const memberEntries = se_ImageDiskContainerList(input[_DCi], context);
+  if (input[_DCis] != null) {
+    const memberEntries = se_ImageDiskContainerList(input[_DCis], context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `DiskContainer.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -48188,8 +48924,8 @@ const se_ImportSnapshotRequest = (input: ImportSnapshotRequest, context: __Serde
   if (input[_De] != null) {
     entries[_De] = input[_De];
   }
-  if (input[_DCis] != null) {
-    const memberEntries = se_SnapshotDiskContainer(input[_DCis], context);
+  if (input[_DCisk] != null) {
+    const memberEntries = se_SnapshotDiskContainer(input[_DCisk], context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `DiskContainer.${key}`;
       entries[loc] = value;
@@ -49621,8 +50357,8 @@ const se_KeyPairIdStringList = (input: string[], context: __SerdeContext): any =
  */
 const se_LaunchPermission = (input: LaunchPermission, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input[_OAr] != null) {
-    entries[_OAr] = input[_OAr];
+  if (input[_OArg] != null) {
+    entries[_OArg] = input[_OArg];
   }
   if (input[_OUA] != null) {
     entries[_OUA] = input[_OUA];
@@ -50843,6 +51579,22 @@ const se_MemoryMiBRequest = (input: MemoryMiBRequest, context: __SerdeContext): 
 };
 
 /**
+ * serializeAws_ec2MetricSet
+ */
+const se_MetricSet = (input: Metric[], context: __SerdeContext): any => {
+  const entries: any = {};
+  let counter = 1;
+  for (const entry of input) {
+    if (entry === null) {
+      continue;
+    }
+    entries[`Item.${counter}`] = entry;
+    counter++;
+  }
+  return entries;
+};
+
+/**
  * serializeAws_ec2ModifyAddressAttributeRequest
  */
 const se_ModifyAddressAttributeRequest = (input: ModifyAddressAttributeRequest, context: __SerdeContext): any => {
@@ -51252,8 +52004,8 @@ const se_ModifyImageAttributeRequest = (input: ModifyImageAttributeRequest, cont
   if (input[_Va] != null) {
     entries[_Va] = input[_Va];
   }
-  if (input[_OArg] != null) {
-    const memberEntries = se_OrganizationArnStringList(input[_OArg], context);
+  if (input[_OArga] != null) {
+    const memberEntries = se_OrganizationArnStringList(input[_OArga], context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `OrganizationArn.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -52971,8 +53723,8 @@ const se_ModifyVerifiedAccessNativeApplicationOidcOptions = (
   if (input[_CSl] != null) {
     entries[_CSl] = input[_CSl];
   }
-  if (input[_Sc] != null) {
-    entries[_Sc] = input[_Sc];
+  if (input[_Sco] != null) {
+    entries[_Sco] = input[_Sco];
   }
   return entries;
 };
@@ -53017,8 +53769,8 @@ const se_ModifyVerifiedAccessTrustProviderOidcOptions = (
   if (input[_CSl] != null) {
     entries[_CSl] = input[_CSl];
   }
-  if (input[_Sc] != null) {
-    entries[_Sc] = input[_Sc];
+  if (input[_Sco] != null) {
+    entries[_Sco] = input[_Sco];
   }
   return entries;
 };
@@ -56556,8 +57308,8 @@ const se_ReservedInstancesConfiguration = (input: ReservedInstancesConfiguration
   if (input[_Pla] != null) {
     entries[_Pla] = input[_Pla];
   }
-  if (input[_Sc] != null) {
-    entries[_Sc] = input[_Sc];
+  if (input[_Sco] != null) {
+    entries[_Sco] = input[_Sco];
   }
   if (input[_AZI] != null) {
     entries[_AZI] = input[_AZI];
@@ -59697,6 +60449,29 @@ const se_UnmonitorInstancesRequest = (input: UnmonitorInstancesRequest, context:
 };
 
 /**
+ * serializeAws_ec2UpdateCapacityManagerOrganizationsAccessRequest
+ */
+const se_UpdateCapacityManagerOrganizationsAccessRequest = (
+  input: UpdateCapacityManagerOrganizationsAccessRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input[_OAr] != null) {
+    entries[_OAr] = input[_OAr];
+  }
+  if (input[_DRr] != null) {
+    entries[_DRr] = input[_DRr];
+  }
+  if (input[_CTl] === undefined) {
+    input[_CTl] = generateIdempotencyToken();
+  }
+  if (input[_CTl] != null) {
+    entries[_CTl] = input[_CTl];
+  }
+  return entries;
+};
+
+/**
  * serializeAws_ec2UpdateSecurityGroupRuleDescriptionsEgressRequest
  */
 const se_UpdateSecurityGroupRuleDescriptionsEgressRequest = (
@@ -60939,7 +61714,7 @@ const de_AdditionalDetail = (output: any, context: __SerdeContext): AdditionalDe
     contents[_ADT] = __expectString(output[_aDT]);
   }
   if (output[_c] != null) {
-    contents[_Com] = de_AnalysisComponent(output[_c], context);
+    contents[_Comp] = de_AnalysisComponent(output[_c], context);
   }
   if (output[_vES] != null) {
     contents[_VESp] = de_AnalysisComponent(output[_vES], context);
@@ -61438,7 +62213,7 @@ const de_AnalysisSecurityGroupRule = (output: any, context: __SerdeContext): Ana
     contents[_C] = __expectString(output[_ci]);
   }
   if (output[_di] != null) {
-    contents[_Di] = __expectString(output[_di]);
+    contents[_Dir] = __expectString(output[_di]);
   }
   if (output[_sGI] != null) {
     contents[_SGIe] = __expectString(output[_sGI]);
@@ -63102,6 +63877,125 @@ const de_CapacityBlockStatusSet = (output: any, context: __SerdeContext): Capaci
 };
 
 /**
+ * deserializeAws_ec2CapacityManagerDataExportResponse
+ */
+const de_CapacityManagerDataExportResponse = (
+  output: any,
+  context: __SerdeContext
+): CapacityManagerDataExportResponse => {
+  const contents: any = {};
+  if (output[_cMDEI] != null) {
+    contents[_CMDEI] = __expectString(output[_cMDEI]);
+  }
+  if (output[_sBN] != null) {
+    contents[_SBN] = __expectString(output[_sBN]);
+  }
+  if (output[_sBP] != null) {
+    contents[_SBP] = __expectString(output[_sBP]);
+  }
+  if (output[_sc] != null) {
+    contents[_Sc] = __expectString(output[_sc]);
+  }
+  if (output[_oF] != null) {
+    contents[_OF] = __expectString(output[_oF]);
+  }
+  if (output[_cTr] != null) {
+    contents[_CTr] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_cTr]));
+  }
+  if (output[_lDS] != null) {
+    contents[_LDS] = __expectString(output[_lDS]);
+  }
+  if (output[_lDSM] != null) {
+    contents[_LDSM] = __expectString(output[_lDSM]);
+  }
+  if (output[_lDSLU] != null) {
+    contents[_LDSLU] = __expectString(output[_lDSLU]);
+  }
+  if (output[_lDT] != null) {
+    contents[_LDTa] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_lDT]));
+  }
+  if (String(output.tagSet).trim() === "") {
+    contents[_Ta] = [];
+  } else if (output[_tS] != null && output[_tS][_i] != null) {
+    contents[_Ta] = de_TagList(__getArrayIfSingleItem(output[_tS][_i]), context);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_ec2CapacityManagerDataExportResponseSet
+ */
+const de_CapacityManagerDataExportResponseSet = (
+  output: any,
+  context: __SerdeContext
+): CapacityManagerDataExportResponse[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_CapacityManagerDataExportResponse(entry, context);
+    });
+};
+
+/**
+ * deserializeAws_ec2CapacityManagerDimension
+ */
+const de_CapacityManagerDimension = (output: any, context: __SerdeContext): CapacityManagerDimension => {
+  const contents: any = {};
+  if (output[_rR] != null) {
+    contents[_RRe] = __expectString(output[_rR]);
+  }
+  if (output[_aZI] != null) {
+    contents[_AZI] = __expectString(output[_aZI]);
+  }
+  if (output[_aIc] != null) {
+    contents[_AIcc] = __expectString(output[_aIc]);
+  }
+  if (output[_iF] != null) {
+    contents[_IF] = __expectString(output[_iF]);
+  }
+  if (output[_iT] != null) {
+    contents[_IT] = __expectString(output[_iT]);
+  }
+  if (output[_iPn] != null) {
+    contents[_IPn] = __expectString(output[_iPn]);
+  }
+  if (output[_rAe] != null) {
+    contents[_RAes] = __expectString(output[_rAe]);
+  }
+  if (output[_rI] != null) {
+    contents[_RIese] = __expectString(output[_rI]);
+  }
+  if (output[_rT] != null) {
+    contents[_RTes] = __expectString(output[_rT]);
+  }
+  if (output[_rCT] != null) {
+    contents[_RCT] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_rCT]));
+  }
+  if (output[_rST] != null) {
+    contents[_RSTe] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_rST]));
+  }
+  if (output[_rET] != null) {
+    contents[_RET] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_rET]));
+  }
+  if (output[_rEDT] != null) {
+    contents[_REDT] = __expectString(output[_rEDT]);
+  }
+  if (output[_t] != null) {
+    contents[_Te] = __expectString(output[_t]);
+  }
+  if (output[_rS] != null) {
+    contents[_RSes] = __expectString(output[_rS]);
+  }
+  if (output[_rIMC] != null) {
+    contents[_RIMC] = __expectString(output[_rIMC]);
+  }
+  if (output[_rUFO] != null) {
+    contents[_RUFO] = __expectString(output[_rUFO]);
+  }
+  return contents;
+};
+
+/**
  * deserializeAws_ec2CapacityReservation
  */
 const de_CapacityReservation = (output: any, context: __SerdeContext): CapacityReservation => {
@@ -64429,8 +65323,22 @@ const de_CpuPerformanceFactor = (output: any, context: __SerdeContext): CpuPerfo
   const contents: any = {};
   if (String(output.referenceSet).trim() === "") {
     contents[_R] = [];
-  } else if (output[_rS] != null && output[_rS][_i] != null) {
-    contents[_R] = de_PerformanceFactorReferenceSet(__getArrayIfSingleItem(output[_rS][_i]), context);
+  } else if (output[_rSe] != null && output[_rSe][_i] != null) {
+    contents[_R] = de_PerformanceFactorReferenceSet(__getArrayIfSingleItem(output[_rSe][_i]), context);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_ec2CreateCapacityManagerDataExportResult
+ */
+const de_CreateCapacityManagerDataExportResult = (
+  output: any,
+  context: __SerdeContext
+): CreateCapacityManagerDataExportResult => {
+  const contents: any = {};
+  if (output[_cMDEI] != null) {
+    contents[_CMDEI] = __expectString(output[_cMDEI]);
   }
   return contents;
 };
@@ -64789,8 +65697,8 @@ const de_CreateImageResult = (output: any, context: __SerdeContext): CreateImage
  */
 const de_CreateImageUsageReportResult = (output: any, context: __SerdeContext): CreateImageUsageReportResult => {
   const contents: any = {};
-  if (output[_rI] != null) {
-    contents[_RIep] = __expectString(output[_rI]);
+  if (output[_rIe] != null) {
+    contents[_RIep] = __expectString(output[_rIe]);
   }
   return contents;
 };
@@ -65844,8 +66752,8 @@ const de_DataResponses = (output: any, context: __SerdeContext): DataResponse[] 
  */
 const de_DeclarativePoliciesReport = (output: any, context: __SerdeContext): DeclarativePoliciesReport => {
   const contents: any = {};
-  if (output[_rI] != null) {
-    contents[_RIep] = __expectString(output[_rI]);
+  if (output[_rIe] != null) {
+    contents[_RIep] = __expectString(output[_rIe]);
   }
   if (output[_sB] != null) {
     contents[_SB] = __expectString(output[_sB]);
@@ -65893,6 +66801,20 @@ const de_DedicatedHostIdList = (output: any, context: __SerdeContext): string[] 
     .map((entry: any) => {
       return __expectString(entry) as any;
     });
+};
+
+/**
+ * deserializeAws_ec2DeleteCapacityManagerDataExportResult
+ */
+const de_DeleteCapacityManagerDataExportResult = (
+  output: any,
+  context: __SerdeContext
+): DeleteCapacityManagerDataExportResult => {
+  const contents: any = {};
+  if (output[_cMDEI] != null) {
+    contents[_CMDEI] = __expectString(output[_cMDEI]);
+  }
+  return contents;
 };
 
 /**
@@ -67285,6 +68207,25 @@ const de_DescribeCapacityBlockStatusResult = (
 };
 
 /**
+ * deserializeAws_ec2DescribeCapacityManagerDataExportsResult
+ */
+const de_DescribeCapacityManagerDataExportsResult = (
+  output: any,
+  context: __SerdeContext
+): DescribeCapacityManagerDataExportsResult => {
+  const contents: any = {};
+  if (String(output.capacityManagerDataExportSet).trim() === "") {
+    contents[_CMDE] = [];
+  } else if (output[_cMDES] != null && output[_cMDES][_i] != null) {
+    contents[_CMDE] = de_CapacityManagerDataExportResponseSet(__getArrayIfSingleItem(output[_cMDES][_i]), context);
+  }
+  if (output[_nTe] != null) {
+    contents[_NT] = __expectString(output[_nTe]);
+  }
+  return contents;
+};
+
+/**
  * deserializeAws_ec2DescribeCapacityReservationBillingRequestsResult
  */
 const de_DescribeCapacityReservationBillingRequestsResult = (
@@ -67534,8 +68475,8 @@ const de_DescribeDeclarativePoliciesReportsResult = (
   }
   if (String(output.reportSet).trim() === "") {
     contents[_Rep] = [];
-  } else if (output[_rSe] != null && output[_rSe][_i] != null) {
-    contents[_Rep] = de_DeclarativePoliciesReportList(__getArrayIfSingleItem(output[_rSe][_i]), context);
+  } else if (output[_rSep] != null && output[_rSep][_i] != null) {
+    contents[_Rep] = de_DeclarativePoliciesReportList(__getArrayIfSingleItem(output[_rSep][_i]), context);
   }
   return contents;
 };
@@ -68977,8 +69918,8 @@ const de_DescribeRegionsResult = (output: any, context: __SerdeContext): Describ
   const contents: any = {};
   if (String(output.regionInfo).trim() === "") {
     contents[_Reg] = [];
-  } else if (output[_rIe] != null && output[_rIe][_i] != null) {
-    contents[_Reg] = de_RegionList(__getArrayIfSingleItem(output[_rIe][_i]), context);
+  } else if (output[_rIeg] != null && output[_rIeg][_i] != null) {
+    contents[_Reg] = de_RegionList(__getArrayIfSingleItem(output[_rIeg][_i]), context);
   }
   return contents;
 };
@@ -69062,9 +70003,9 @@ const de_DescribeReservedInstancesOfferingsResult = (
 const de_DescribeReservedInstancesResult = (output: any, context: __SerdeContext): DescribeReservedInstancesResult => {
   const contents: any = {};
   if (String(output.reservedInstancesSet).trim() === "") {
-    contents[_RIese] = [];
+    contents[_RIeser] = [];
   } else if (output[_rIS] != null && output[_rIS][_i] != null) {
-    contents[_RIese] = de_ReservedInstancesList(__getArrayIfSingleItem(output[_rIS][_i]), context);
+    contents[_RIeser] = de_ReservedInstancesList(__getArrayIfSingleItem(output[_rIS][_i]), context);
   }
   return contents;
 };
@@ -70432,6 +71373,20 @@ const de_DisableAwsNetworkPerformanceMetricSubscriptionResult = (
 };
 
 /**
+ * deserializeAws_ec2DisableCapacityManagerResult
+ */
+const de_DisableCapacityManagerResult = (output: any, context: __SerdeContext): DisableCapacityManagerResult => {
+  const contents: any = {};
+  if (output[_cMS] != null) {
+    contents[_CMS] = __expectString(output[_cMS]);
+  }
+  if (output[_oAr] != null) {
+    contents[_OAr] = __parseBoolean(output[_oAr]);
+  }
+  return contents;
+};
+
+/**
  * deserializeAws_ec2DisableEbsEncryptionByDefaultResult
  */
 const de_DisableEbsEncryptionByDefaultResult = (
@@ -71616,6 +72571,20 @@ const de_EnableAwsNetworkPerformanceMetricSubscriptionResult = (
 };
 
 /**
+ * deserializeAws_ec2EnableCapacityManagerResult
+ */
+const de_EnableCapacityManagerResult = (output: any, context: __SerdeContext): EnableCapacityManagerResult => {
+  const contents: any = {};
+  if (output[_cMS] != null) {
+    contents[_CMS] = __expectString(output[_cMS]);
+  }
+  if (output[_oAr] != null) {
+    contents[_OAr] = __parseBoolean(output[_oAr]);
+  }
+  return contents;
+};
+
+/**
  * deserializeAws_ec2EnableEbsEncryptionByDefaultResult
  */
 const de_EnableEbsEncryptionByDefaultResult = (
@@ -72104,7 +73073,7 @@ const de_Explanation = (output: any, context: __SerdeContext): Explanation => {
     contents[_Ci] = de_ValueStringList(__getArrayIfSingleItem(output[_cS][_i]), context);
   }
   if (output[_c] != null) {
-    contents[_Com] = de_AnalysisComponent(output[_c], context);
+    contents[_Comp] = de_AnalysisComponent(output[_c], context);
   }
   if (output[_cGu] != null) {
     contents[_CGu] = de_AnalysisComponent(output[_cGu], context);
@@ -72116,7 +73085,7 @@ const de_Explanation = (output: any, context: __SerdeContext): Explanation => {
     contents[_DVest] = de_AnalysisComponent(output[_dV], context);
   }
   if (output[_di] != null) {
-    contents[_Di] = __expectString(output[_di]);
+    contents[_Dir] = __expectString(output[_di]);
   }
   if (output[_eCx] != null) {
     contents[_ECx] = __expectString(output[_eCx]);
@@ -72658,7 +73627,7 @@ const de_FirewallStatefulRule = (output: any, context: __SerdeContext): Firewall
     contents[_RAu] = __expectString(output[_rA]);
   }
   if (output[_di] != null) {
-    contents[_Di] = __expectString(output[_di]);
+    contents[_Dir] = __expectString(output[_di]);
   }
   return contents;
 };
@@ -72950,8 +73919,8 @@ const de_FleetSet = (output: any, context: __SerdeContext): FleetData[] => {
  */
 const de_FleetSpotCapacityRebalance = (output: any, context: __SerdeContext): FleetSpotCapacityRebalance => {
   const contents: any = {};
-  if (output[_rSep] != null) {
-    contents[_RS] = __expectString(output[_rSep]);
+  if (output[_rSepl] != null) {
+    contents[_RS] = __expectString(output[_rSepl]);
   }
   if (output[_tD] != null) {
     contents[_TDe] = __strictParseInt32(output[_tD]) as number;
@@ -73005,8 +73974,8 @@ const de_FlowLog = (output: any, context: __SerdeContext): FlowLog => {
   if (output[_tT] != null) {
     contents[_TT] = __expectString(output[_tT]);
   }
-  if (output[_lDT] != null) {
-    contents[_LDT] = __expectString(output[_lDT]);
+  if (output[_lDTo] != null) {
+    contents[_LDT] = __expectString(output[_lDTo]);
   }
   if (output[_lD] != null) {
     contents[_LD] = __expectString(output[_lD]);
@@ -73296,6 +74265,76 @@ const de_GetAwsNetworkPerformanceDataResult = (
 };
 
 /**
+ * deserializeAws_ec2GetCapacityManagerAttributesResult
+ */
+const de_GetCapacityManagerAttributesResult = (
+  output: any,
+  context: __SerdeContext
+): GetCapacityManagerAttributesResult => {
+  const contents: any = {};
+  if (output[_cMS] != null) {
+    contents[_CMS] = __expectString(output[_cMS]);
+  }
+  if (output[_oAr] != null) {
+    contents[_OAr] = __parseBoolean(output[_oAr]);
+  }
+  if (output[_dEC] != null) {
+    contents[_DEC] = __strictParseInt32(output[_dEC]) as number;
+  }
+  if (output[_iSng] != null) {
+    contents[_ISng] = __expectString(output[_iSng]);
+  }
+  if (output[_iSM] != null) {
+    contents[_ISM] = __expectString(output[_iSM]);
+  }
+  if (output[_eDTa] != null) {
+    contents[_EDTa] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_eDTa]));
+  }
+  if (output[_lDTa] != null) {
+    contents[_LDTat] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_lDTa]));
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_ec2GetCapacityManagerMetricDataResult
+ */
+const de_GetCapacityManagerMetricDataResult = (
+  output: any,
+  context: __SerdeContext
+): GetCapacityManagerMetricDataResult => {
+  const contents: any = {};
+  if (String(output.metricDataResultSet).trim() === "") {
+    contents[_MDR] = [];
+  } else if (output[_mDRS] != null && output[_mDRS][_i] != null) {
+    contents[_MDR] = de_MetricDataResultSet(__getArrayIfSingleItem(output[_mDRS][_i]), context);
+  }
+  if (output[_nTe] != null) {
+    contents[_NT] = __expectString(output[_nTe]);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_ec2GetCapacityManagerMetricDimensionsResult
+ */
+const de_GetCapacityManagerMetricDimensionsResult = (
+  output: any,
+  context: __SerdeContext
+): GetCapacityManagerMetricDimensionsResult => {
+  const contents: any = {};
+  if (String(output.metricDimensionResultSet).trim() === "") {
+    contents[_MDRe] = [];
+  } else if (output[_mDRSe] != null && output[_mDRSe][_i] != null) {
+    contents[_MDRe] = de_MetricDimensionResultSet(__getArrayIfSingleItem(output[_mDRSe][_i]), context);
+  }
+  if (output[_nTe] != null) {
+    contents[_NT] = __expectString(output[_nTe]);
+  }
+  return contents;
+};
+
+/**
  * deserializeAws_ec2GetCapacityReservationUsageResult
  */
 const de_GetCapacityReservationUsageResult = (
@@ -73390,8 +74429,8 @@ const de_GetDeclarativePoliciesReportSummaryResult = (
   context: __SerdeContext
 ): GetDeclarativePoliciesReportSummaryResult => {
   const contents: any = {};
-  if (output[_rI] != null) {
-    contents[_RIep] = __expectString(output[_rI]);
+  if (output[_rIe] != null) {
+    contents[_RIep] = __expectString(output[_rIe]);
   }
   if (output[_sB] != null) {
     contents[_SB] = __expectString(output[_sB]);
@@ -75156,8 +76195,8 @@ const de_ImageUsageReport = (output: any, context: __SerdeContext): ImageUsageRe
   if (output[_iIma] != null) {
     contents[_IIma] = __expectString(output[_iIma]);
   }
-  if (output[_rI] != null) {
-    contents[_RIep] = __expectString(output[_rI]);
+  if (output[_rIe] != null) {
+    contents[_RIep] = __expectString(output[_rIe]);
   }
   if (String(output.resourceTypeSet).trim() === "") {
     contents[_RTe] = [];
@@ -75197,8 +76236,8 @@ const de_ImageUsageReportEntry = (output: any, context: __SerdeContext): ImageUs
   if (output[_rTe] != null) {
     contents[_RT] = __expectString(output[_rTe]);
   }
-  if (output[_rI] != null) {
-    contents[_RIep] = __expectString(output[_rI]);
+  if (output[_rIe] != null) {
+    contents[_RIep] = __expectString(output[_rIe]);
   }
   if (output[_uCs] != null) {
     contents[_UCs] = __strictParseLong(output[_uCs]) as number;
@@ -75209,8 +76248,8 @@ const de_ImageUsageReportEntry = (output: any, context: __SerdeContext): ImageUs
   if (output[_iIma] != null) {
     contents[_IIma] = __expectString(output[_iIma]);
   }
-  if (output[_rCT] != null) {
-    contents[_RCT] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_rCT]));
+  if (output[_rCTe] != null) {
+    contents[_RCTe] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_rCTe]));
   }
   return contents;
 };
@@ -76922,8 +77961,8 @@ const de_InstanceRequirements = (output: any, context: __SerdeContext): Instance
   }
   if (String(output.cpuManufacturerSet).trim() === "") {
     contents[_CM] = [];
-  } else if (output[_cMS] != null && output[_cMS][_i] != null) {
-    contents[_CM] = de_CpuManufacturerSet(__getArrayIfSingleItem(output[_cMS][_i]), context);
+  } else if (output[_cMSp] != null && output[_cMSp][_i] != null) {
+    contents[_CM] = de_CpuManufacturerSet(__getArrayIfSingleItem(output[_cMSp][_i]), context);
   }
   if (output[_mGBPVC] != null) {
     contents[_MGBPVC] = de_MemoryGiBPerVCpu(output[_mGBPVC], context);
@@ -78950,8 +79989,8 @@ const de_LastError = (output: any, context: __SerdeContext): LastError => {
  */
 const de_LaunchPermission = (output: any, context: __SerdeContext): LaunchPermission => {
   const contents: any = {};
-  if (output[_oAr] != null) {
-    contents[_OAr] = __expectString(output[_oAr]);
+  if (output[_oArg] != null) {
+    contents[_OArg] = __expectString(output[_oArg]);
   }
   if (output[_oUA] != null) {
     contents[_OUA] = __expectString(output[_oUA]);
@@ -80598,6 +81637,47 @@ const de_MemoryMiB = (output: any, context: __SerdeContext): MemoryMiB => {
 };
 
 /**
+ * deserializeAws_ec2MetricDataResult
+ */
+const de_MetricDataResult = (output: any, context: __SerdeContext): MetricDataResult => {
+  const contents: any = {};
+  if (output[_dim] != null) {
+    contents[_Di] = de_CapacityManagerDimension(output[_dim], context);
+  }
+  if (output[_ti] != null) {
+    contents[_Tim] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_ti]));
+  }
+  if (String(output.metricValueSet).trim() === "") {
+    contents[_MVe] = [];
+  } else if (output[_mVS] != null && output[_mVS][_i] != null) {
+    contents[_MVe] = de_MetricValueSet(__getArrayIfSingleItem(output[_mVS][_i]), context);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_ec2MetricDataResultSet
+ */
+const de_MetricDataResultSet = (output: any, context: __SerdeContext): MetricDataResult[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_MetricDataResult(entry, context);
+    });
+};
+
+/**
+ * deserializeAws_ec2MetricDimensionResultSet
+ */
+const de_MetricDimensionResultSet = (output: any, context: __SerdeContext): CapacityManagerDimension[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_CapacityManagerDimension(entry, context);
+    });
+};
+
+/**
  * deserializeAws_ec2MetricPoint
  */
 const de_MetricPoint = (output: any, context: __SerdeContext): MetricPoint => {
@@ -80625,6 +81705,31 @@ const de_MetricPoints = (output: any, context: __SerdeContext): MetricPoint[] =>
     .filter((e: any) => e != null)
     .map((entry: any) => {
       return de_MetricPoint(entry, context);
+    });
+};
+
+/**
+ * deserializeAws_ec2MetricValue
+ */
+const de_MetricValue = (output: any, context: __SerdeContext): MetricValue => {
+  const contents: any = {};
+  if (output[_met] != null) {
+    contents[_Met] = __expectString(output[_met]);
+  }
+  if (output[_v] != null) {
+    contents[_Va] = __strictParseFloat(output[_v]) as number;
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_ec2MetricValueSet
+ */
+const de_MetricValueSet = (output: any, context: __SerdeContext): MetricValue[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_MetricValue(entry, context);
     });
 };
 
@@ -81700,8 +82805,8 @@ const de_NativeApplicationOidcOptions = (output: any, context: __SerdeContext): 
   if (output[_cIli] != null) {
     contents[_CIl] = __expectString(output[_cIli]);
   }
-  if (output[_sc] != null) {
-    contents[_Sc] = __expectString(output[_sc]);
+  if (output[_sco] != null) {
+    contents[_Sco] = __expectString(output[_sco]);
   }
   return contents;
 };
@@ -82683,8 +83788,8 @@ const de_OidcOptions = (output: any, context: __SerdeContext): OidcOptions => {
   if (output[_cSl] != null) {
     contents[_CSl] = __expectString(output[_cSl]);
   }
-  if (output[_sc] != null) {
-    contents[_Sc] = __expectString(output[_sc]);
+  if (output[_sco] != null) {
+    contents[_Sco] = __expectString(output[_sco]);
   }
   return contents;
 };
@@ -82833,7 +83938,7 @@ const de_PathComponent = (output: any, context: __SerdeContext): PathComponent =
     contents[_ATtta] = de_AnalysisComponent(output[_aTtt], context);
   }
   if (output[_c] != null) {
-    contents[_Com] = de_AnalysisComponent(output[_c], context);
+    contents[_Comp] = de_AnalysisComponent(output[_c], context);
   }
   if (output[_dV] != null) {
     contents[_DVest] = de_AnalysisComponent(output[_dV], context);
@@ -84506,8 +85611,8 @@ const de_RequestSpotInstancesResult = (output: any, context: __SerdeContext): Re
  */
 const de_Reservation = (output: any, context: __SerdeContext): Reservation => {
   const contents: any = {};
-  if (output[_rIese] != null) {
-    contents[_RIeser] = __expectString(output[_rIese]);
+  if (output[_rI] != null) {
+    contents[_RIese] = __expectString(output[_rI]);
   }
   if (output[_oI] != null) {
     contents[_OIwn] = __expectString(output[_oI]);
@@ -84609,8 +85714,8 @@ const de_ReservedInstances = (output: any, context: __SerdeContext): ReservedIns
   } else if (output[_rCec] != null && output[_rCec][_i] != null) {
     contents[_RCec] = de_RecurringChargesList(__getArrayIfSingleItem(output[_rCec][_i]), context);
   }
-  if (output[_sc] != null) {
-    contents[_Sc] = __expectString(output[_sc]);
+  if (output[_sco] != null) {
+    contents[_Sco] = __expectString(output[_sco]);
   }
   if (String(output.tagSet).trim() === "") {
     contents[_Ta] = [];
@@ -84673,8 +85778,8 @@ const de_ReservedInstancesConfiguration = (output: any, context: __SerdeContext)
   if (output[_pl] != null) {
     contents[_Pla] = __expectString(output[_pl]);
   }
-  if (output[_sc] != null) {
-    contents[_Sc] = __expectString(output[_sc]);
+  if (output[_sco] != null) {
+    contents[_Sco] = __expectString(output[_sco]);
   }
   if (output[_aZI] != null) {
     contents[_AZI] = __expectString(output[_aZI]);
@@ -84873,8 +85978,8 @@ const de_ReservedInstancesOffering = (output: any, context: __SerdeContext): Res
   } else if (output[_rCec] != null && output[_rCec][_i] != null) {
     contents[_RCec] = de_RecurringChargesList(__getArrayIfSingleItem(output[_rCec][_i]), context);
   }
-  if (output[_sc] != null) {
-    contents[_Sc] = __expectString(output[_sc]);
+  if (output[_sco] != null) {
+    contents[_Sco] = __expectString(output[_sco]);
   }
   if (output[_aZI] != null) {
     contents[_AZI] = __expectString(output[_aZI]);
@@ -85235,8 +86340,8 @@ const de_RestoreSnapshotTierResult = (output: any, context: __SerdeContext): Res
   if (output[_sIn] != null) {
     contents[_SIn] = __expectString(output[_sIn]);
   }
-  if (output[_rST] != null) {
-    contents[_RSTe] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_rST]));
+  if (output[_rSTe] != null) {
+    contents[_RSTes] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_rSTe]));
   }
   if (output[_rD] != null) {
     contents[_RD] = __strictParseInt32(output[_rD]) as number;
@@ -86750,8 +87855,8 @@ const de_Snapshot = (output: any, context: __SerdeContext): Snapshot => {
   if (output[_sTt] != null) {
     contents[_STto] = __expectString(output[_sTt]);
   }
-  if (output[_rET] != null) {
-    contents[_RET] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_rET]));
+  if (output[_rETe] != null) {
+    contents[_RETe] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_rETe]));
   }
   if (output[_sTs] != null) {
     contents[_STs] = __expectString(output[_sTs]);
@@ -87045,8 +88150,8 @@ const de_SnapshotTierStatus = (output: any, context: __SerdeContext): SnapshotTi
   if (output[_aCT] != null) {
     contents[_ACT] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_aCT]));
   }
-  if (output[_rET] != null) {
-    contents[_RET] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_rET]));
+  if (output[_rETe] != null) {
+    contents[_RETe] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_rETe]));
   }
   return contents;
 };
@@ -87067,8 +88172,8 @@ const de_snapshotTierStatusSet = (output: any, context: __SerdeContext): Snapsho
  */
 const de_SpotCapacityRebalance = (output: any, context: __SerdeContext): SpotCapacityRebalance => {
   const contents: any = {};
-  if (output[_rSep] != null) {
-    contents[_RS] = __expectString(output[_rSep]);
+  if (output[_rSepl] != null) {
+    contents[_RS] = __expectString(output[_rSepl]);
   }
   if (output[_tD] != null) {
     contents[_TDe] = __strictParseInt32(output[_tD]) as number;
@@ -87524,8 +88629,8 @@ const de_SpotPlacementScore = (output: any, context: __SerdeContext): SpotPlacem
   if (output[_aZI] != null) {
     contents[_AZI] = __expectString(output[_aZI]);
   }
-  if (output[_sco] != null) {
-    contents[_Sco] = __strictParseInt32(output[_sco]) as number;
+  if (output[_scor] != null) {
+    contents[_Scor] = __strictParseInt32(output[_scor]) as number;
   }
   return contents;
 };
@@ -87670,8 +88775,8 @@ const de_StartDeclarativePoliciesReportResult = (
   context: __SerdeContext
 ): StartDeclarativePoliciesReportResult => {
   const contents: any = {};
-  if (output[_rI] != null) {
-    contents[_RIep] = __expectString(output[_rI]);
+  if (output[_rIe] != null) {
+    contents[_RIep] = __expectString(output[_rIe]);
   }
   return contents;
 };
@@ -90367,6 +91472,23 @@ const de_UnsuccessfulItemSet = (output: any, context: __SerdeContext): Unsuccess
 };
 
 /**
+ * deserializeAws_ec2UpdateCapacityManagerOrganizationsAccessResult
+ */
+const de_UpdateCapacityManagerOrganizationsAccessResult = (
+  output: any,
+  context: __SerdeContext
+): UpdateCapacityManagerOrganizationsAccessResult => {
+  const contents: any = {};
+  if (output[_cMS] != null) {
+    contents[_CMS] = __expectString(output[_cMS]);
+  }
+  if (output[_oAr] != null) {
+    contents[_OAr] = __parseBoolean(output[_oAr]);
+  }
+  return contents;
+};
+
+/**
  * deserializeAws_ec2UpdateSecurityGroupRuleDescriptionsEgressResult
  */
 const de_UpdateSecurityGroupRuleDescriptionsEgressResult = (
@@ -91829,8 +92951,8 @@ const de_VpcBlockPublicAccessExclusion = (output: any, context: __SerdeContext):
   if (output[_iGEM] != null) {
     contents[_IGEM] = __expectString(output[_iGEM]);
   }
-  if (output[_rAe] != null) {
-    contents[_RAes] = __expectString(output[_rAe]);
+  if (output[_rAes] != null) {
+    contents[_RAeso] = __expectString(output[_rAes]);
   }
   if (output[_st] != null) {
     contents[_Stat] = __expectString(output[_st]);
@@ -93012,6 +94134,7 @@ const _CCB = "ClientCidrBlock";
 const _CCC = "CreateCoipCidr";
 const _CCG = "CreateCarrierGateway";
 const _CCGr = "CreateCustomerGateway";
+const _CCMDE = "CreateCapacityManagerDataExport";
 const _CCO = "ClientConnectOptions";
 const _CCP = "CreateCoipPool";
 const _CCR = "CancelCapacityReservation";
@@ -93115,8 +94238,12 @@ const _CLS = "CloudwatchLogStream";
 const _CLT = "CreateLaunchTemplate";
 const _CLTV = "CreateLaunchTemplateVersion";
 const _CM = "CpuManufacturers";
+const _CMDE = "CapacityManagerDataExports";
+const _CMDEI = "CapacityManagerDataExportId";
+const _CMDEIa = "CapacityManagerDataExportIds";
 const _CMKE = "CustomerManagedKeyEnabled";
 const _CMPL = "CreateManagedPrefixList";
+const _CMS = "CapacityManagerStatus";
 const _CMSIPMT = "CreateMacSystemIntegrityProtectionModificationTask";
 const _CN = "CommonName";
 const _CNA = "CreateNetworkAcl";
@@ -93264,7 +94391,8 @@ const _Ch = "Checksum";
 const _Ci = "Cidrs";
 const _Co = "Comment";
 const _Cod = "Code";
-const _Com = "Component";
+const _Com = "Comparison";
+const _Comp = "Component";
 const _Con = "Context";
 const _Conf = "Configured";
 const _Confi = "Config";
@@ -93316,6 +94444,9 @@ const _DCGes = "DescribeCarrierGateways";
 const _DCGesc = "DescribeCustomerGateways";
 const _DCLI = "DescribeClassicLinkInstances";
 const _DCLV = "DetachClassicLinkVpc";
+const _DCM = "DisableCapacityManager";
+const _DCMDE = "DeleteCapacityManagerDataExport";
+const _DCMDEe = "DescribeCapacityManagerDataExports";
 const _DCP = "DeleteCoipPool";
 const _DCPe = "DescribeCoipPools";
 const _DCR = "DescribeCapacityReservations";
@@ -93336,12 +94467,14 @@ const _DCVTNi = "DisassociateClientVpnTargetNetwork";
 const _DCe = "DestinationCidr";
 const _DCef = "DefaultCores";
 const _DCh = "DhcpConfigurations";
-const _DCi = "DiskContainers";
-const _DCis = "DiskContainer";
+const _DCi = "DimensionCondition";
+const _DCis = "DiskContainers";
+const _DCisk = "DiskContainer";
 const _DDO = "DeleteDhcpOptions";
 const _DDOe = "DescribeDhcpOptions";
 const _DDPR = "DescribeDeclarativePoliciesReports";
 const _DE = "DnsEntries";
+const _DEC = "DataExportCount";
 const _DECIR = "DisassociateEnclaveCertificateIamRole";
 const _DEEBD = "DisableEbsEncryptionByDefault";
 const _DEG = "DescribeElasticGpus";
@@ -93695,7 +94828,8 @@ const _Dea = "Deadline";
 const _Des = "Destinations";
 const _Det = "Details";
 const _Dev = "Device";
-const _Di = "Direction";
+const _Di = "Dimension";
+const _Dir = "Direction";
 const _Dis = "Disks";
 const _Do = "Domain";
 const _Du = "Duration";
@@ -93710,6 +94844,7 @@ const _EAx = "ExclusionsAllowed";
 const _EB = "EgressBytes";
 const _EBV = "ExcludeBootVolume";
 const _EC = "ErrorCode";
+const _ECM = "EnableCapacityManager";
 const _ECTP = "ExcessCapacityTerminationPolicy";
 const _ECVCC = "ExportClientVpnClientConfiguration";
 const _ECVCCRL = "ExportClientVpnClientCertificateRevocationList";
@@ -93721,6 +94856,7 @@ const _EDP = "EndpointDomainPrefix";
 const _EDR = "EndDateRange";
 const _EDS = "EnableDnsSupport";
 const _EDT = "EndDateType";
+const _EDTa = "EarliestDatapointTimestamp";
 const _EDVI = "ExcludeDataVolumeIds";
 const _EDf = "EffectiveDate";
 const _EDn = "EnableDns64";
@@ -93850,6 +94986,7 @@ const _FA = "FederatedAuthentication";
 const _FAD = "FilterAtDestination";
 const _FAS = "FilterAtSource";
 const _FAi = "FirstAddress";
+const _FB = "FilterBy";
 const _FC = "FulfilledCapacity";
 const _FCR = "FleetCapacityReservations";
 const _FCa = "FailureCode";
@@ -93912,6 +95049,10 @@ const _GAIS = "GetAllowedImagesSettings";
 const _GANPD = "GetAwsNetworkPerformanceData";
 const _GAS = "GatewayAssociationState";
 const _GAVTS = "GetActiveVpnTunnelStatus";
+const _GB = "GroupBy";
+const _GCMA = "GetCapacityManagerAttributes";
+const _GCMMD = "GetCapacityManagerMetricData";
+const _GCMMDe = "GetCapacityManagerMetricDimensions";
 const _GCO = "GetConsoleOutput";
 const _GCPU = "GetCoipPoolUsage";
 const _GCRU = "GetCapacityReservationUsage";
@@ -94179,6 +95320,7 @@ const _ISI = "IpamScopeId";
 const _ISIn = "InstanceStorageInfo";
 const _ISIp = "IpamScopeIds";
 const _ISL = "InputStorageLocation";
+const _ISM = "IngestionStatusMessage";
 const _ISS = "InstanceStorageSupported";
 const _IST = "ImportSnapshotTasks";
 const _ISTp = "IpamScopeType";
@@ -94186,6 +95328,7 @@ const _ISg = "Igmpv2Support";
 const _ISm = "ImdsSupport";
 const _ISmp = "ImpairedSince";
 const _ISn = "InstanceSpecification";
+const _ISng = "IngestionStatus";
 const _ISns = "InstanceStatuses";
 const _ISnst = "InstanceState";
 const _ISnsta = "InstanceStatus";
@@ -94271,8 +95414,13 @@ const _LCA = "LicenseConfigurationArn";
 const _LCO = "LockCreatedOn";
 const _LCo = "LoggingConfiguration";
 const _LD = "LogDestination";
+const _LDS = "LatestDeliveryStatus";
+const _LDSLU = "LatestDeliveryS3LocationUri";
+const _LDSM = "LatestDeliveryStatusMessage";
 const _LDST = "LockDurationStartTime";
 const _LDT = "LogDestinationType";
+const _LDTa = "LatestDeliveryTime";
+const _LDTat = "LatestDatapointTimestamp";
 const _LDo = "LockDuration";
 const _LE = "LogEnabled";
 const _LEO = "LockExpiresOn";
@@ -94393,6 +95541,8 @@ const _MDA = "MulticastDomainAssociations";
 const _MDCS = "ModifyDefaultCreditSpecification";
 const _MDDS = "MaxDrainDurationSeconds";
 const _MDK = "MetaDataKey";
+const _MDR = "MetricDataResults";
+const _MDRe = "MetricDimensionResults";
 const _MDSC = "MaximumDaysSinceCreated";
 const _MDSD = "MaximumDaysSinceDeprecated";
 const _MDV = "MetaDataValue";
@@ -94445,6 +95595,7 @@ const _MMT = "MacModificationTask";
 const _MMTI = "MacModificationTaskIds";
 const _MMTIa = "MacModificationTaskId";
 const _MMTa = "MacModificationTasks";
+const _MN = "MetricNames";
 const _MNC = "MaximumNetworkCards";
 const _MNI = "MaximumNetworkInterfaces";
 const _MNIA = "ModifyNetworkInterfaceAttribute";
@@ -94519,6 +95670,7 @@ const _MVT = "ModifyVpcTenancy";
 const _MVTC = "ModifyVpnTunnelCertificate";
 const _MVTO = "ModifyVpnTunnelOptions";
 const _MVa = "MaxVersion";
+const _MVe = "MetricValues";
 const _MVi = "MinVersion";
 const _Ma = "Max";
 const _Mai = "Main";
@@ -94616,8 +95768,9 @@ const _NTe = "NetworkType";
 const _Na = "Nameservers";
 const _O = "Operator";
 const _OA = "OutpostArn";
-const _OAr = "OrganizationArn";
-const _OArg = "OrganizationArns";
+const _OAr = "OrganizationsAccess";
+const _OArg = "OrganizationArn";
+const _OArga = "OrganizationArns";
 const _OAw = "OwnerAlias";
 const _OC = "OfferingClass";
 const _OD = "OccurrenceDays";
@@ -94629,6 +95782,7 @@ const _ODO = "OnDemandOptions";
 const _ODS = "OccurrenceDaySet";
 const _ODTC = "OnDemandTargetCapacity";
 const _OEP = "OrganizationsEntityPath";
+const _OF = "OutputFormat";
 const _OH = "OutboundHeader";
 const _OI = "OfferingId";
 const _OIA = "OutsideIpAddress";
@@ -94865,7 +96019,8 @@ const _RAP = "RemoveAllowedPrincipals";
 const _RART = "RemoveAllocationResourceTags";
 const _RATC = "RestoreAddressToClassic";
 const _RAe = "ResolveAlias";
-const _RAes = "ResourceArn";
+const _RAes = "ReservationArn";
+const _RAeso = "ResourceArn";
 const _RAo = "RoleArn";
 const _RAu = "RuleAction";
 const _RB = "RequestedBy";
@@ -94877,7 +96032,8 @@ const _RCA = "ResourceConfigurationArn";
 const _RCGA = "ResourceConfigurationGroupArn";
 const _RCRBO = "RejectCapacityReservationBillingOwnership";
 const _RCS = "ResourceComplianceStatus";
-const _RCT = "ReportCreationTime";
+const _RCT = "ReservationCreateTimestamp";
+const _RCTe = "ReportCreationTime";
 const _RCVI = "RevokeClientVpnIngress";
 const _RCe = "ReasonCodes";
 const _RCec = "RecurringCharges";
@@ -94894,7 +96050,9 @@ const _RDT = "RootDeviceType";
 const _RE = "RdsEndpoint";
 const _RED = "RemoveEndDate";
 const _REDKKI = "ResetEbsDefaultKmsKeyId";
-const _RET = "RestoreExpiryTime";
+const _REDT = "ReservationEndDateType";
+const _RET = "ReservationEndTimestamp";
+const _RETe = "RestoreExpiryTime";
 const _REe = "RemoveEntries";
 const _REes = "ResponseError";
 const _REeso = "ResourceExclusions";
@@ -94925,6 +96083,7 @@ const _RIIese = "ReservedInstanceId";
 const _RIL = "ReservedInstancesListings";
 const _RILI = "ReservedInstancesListingId";
 const _RIM = "ReservedInstancesModifications";
+const _RIMC = "ReservationInstanceMatchCriteria";
 const _RIMI = "ReservedInstancesModificationIds";
 const _RIMIe = "ReservedInstancesModificationId";
 const _RINC = "RemoteIpv4NetworkCidr";
@@ -94944,8 +96103,8 @@ const _RIep = "ReportId";
 const _RIepo = "ReportIds";
 const _RIeq = "RequesterId";
 const _RIes = "ResourceIds";
-const _RIese = "ReservedInstances";
-const _RIeser = "ReservationId";
+const _RIese = "ReservationId";
+const _RIeser = "ReservedInstances";
 const _RIeso = "ResourceId";
 const _RIu = "RunInstances";
 const _RM = "ReasonMessage";
@@ -95015,9 +96174,11 @@ const _RSPou = "RouteServerPropagation";
 const _RSPout = "RouteServerPropagations";
 const _RSR = "RemoveSupportedRegions";
 const _RST = "RestoreSnapshotTier";
-const _RSTe = "RestoreStartTime";
+const _RSTe = "ReservationStartTimestamp";
+const _RSTes = "RestoreStartTime";
 const _RSe = "ResourceStatement";
 const _RSeg = "RegionalSummaries";
+const _RSes = "ReservationState";
 const _RSo = "RouteServer";
 const _RSou = "RouteServers";
 const _RSout = "RouteStatus";
@@ -95044,6 +96205,7 @@ const _RTeso = "ResourceTag";
 const _RTesou = "ResourceTags";
 const _RTo = "RouteTable";
 const _RTou = "RouteTables";
+const _RUFO = "ReservationUnusedFinancialOwner";
 const _RUI = "ReplaceUnhealthyInstances";
 const _RUV = "RemainingUpfrontValue";
 const _RV = "ReturnValue";
@@ -95083,6 +96245,8 @@ const _SAub = "SubnetArn";
 const _SAup = "SupportedArchitectures";
 const _SB = "S3Bucket";
 const _SBM = "SupportedBootModes";
+const _SBN = "S3BucketName";
+const _SBP = "S3BucketPrefix";
 const _SC = "SubnetConfigurations";
 const _SCA = "ServerCertificateArn";
 const _SCAE = "SerialConsoleAccessEnabled";
@@ -95271,9 +96435,10 @@ const _SVo = "SourceVpc";
 const _SVu = "SupportedVersions";
 const _SWD = "StartWeekDay";
 const _S_ = "S3";
-const _Sc = "Scope";
-const _Sco = "Score";
+const _Sc = "Schedule";
+const _Sco = "Scope";
 const _Scop = "Scopes";
+const _Scor = "Score";
 const _Se = "Service";
 const _Set = "Settings";
 const _Si = "Signature";
@@ -95450,6 +96615,7 @@ const _To = "To";
 const _U = "Url";
 const _UB = "UserBucket";
 const _UC = "UltraserverCount";
+const _UCMOA = "UpdateCapacityManagerOrganizationsAccess";
 const _UCs = "UsageCount";
 const _UD = "UserData";
 const _UDLTV = "UnsuccessfullyDeletedLaunchTemplateVersions";
@@ -95869,8 +97035,11 @@ const _cLBO = "clientLoginBannerOptions";
 const _cLDS = "classicLinkDnsSupported";
 const _cLE = "classicLinkEnabled";
 const _cLO = "connectionLogOptions";
+const _cMDEI = "capacityManagerDataExportId";
+const _cMDES = "capacityManagerDataExportSet";
 const _cMKE = "customerManagedKeyEnabled";
-const _cMS = "cpuManufacturerSet";
+const _cMS = "capacityManagerStatus";
+const _cMSp = "cpuManufacturerSet";
 const _cN = "commonName";
 const _cNA = "coreNetworkArn";
 const _cNAA = "coreNetworkAttachmentArn";
@@ -95970,6 +97139,7 @@ const _dCR = "destinationCapacityReservation";
 const _dCS = "dhcpConfigurationSet";
 const _dCe = "defaultCores";
 const _dE = "dnsEntry";
+const _dEC = "dataExportCount";
 const _dEKI = "dataEncryptionKeyId";
 const _dEQCPI = "defaultEnaQueueCountPerInterface";
 const _dES = "dnsEntrySet";
@@ -96052,6 +97222,7 @@ const _def = "default";
 const _det = "details";
 const _dev = "device";
 const _di = "direction";
+const _dim = "dimension";
 const _dis = "disks";
 const _do = "domain";
 const _du = "duration";
@@ -96069,6 +97240,7 @@ const _eD = "endDate";
 const _eDH = "enableDnsHostnames";
 const _eDS = "enableDnsSupport";
 const _eDT = "endDateType";
+const _eDTa = "earliestDatapointTimestamp";
 const _eDf = "effectiveDate";
 const _eDn = "enableDns64";
 const _eDnd = "endpointDomain";
@@ -96396,6 +97568,7 @@ const _iSA = "ipamScopeArn";
 const _iSD = "initializationStatusDetails";
 const _iSI = "instanceStorageInfo";
 const _iSIp = "ipamScopeId";
+const _iSM = "ingestionStatusMessage";
 const _iSS = "instanceStatusSet";
 const _iSSn = "instanceStorageSupported";
 const _iSSp = "ipamScopeSet";
@@ -96408,6 +97581,7 @@ const _iSmag = "imageSet";
 const _iSmd = "imdsSupport";
 const _iSmp = "impairedSince";
 const _iSn = "instancesSet";
+const _iSng = "ingestionStatus";
 const _iSns = "instanceSet";
 const _iSnst = "instanceState";
 const _iSnsta = "instanceStatus";
@@ -96486,8 +97660,13 @@ const _lCA = "licenseConfigurationArn";
 const _lCO = "lockCreatedOn";
 const _lCS = "loggingConfigurationSet";
 const _lD = "logDestination";
+const _lDS = "latestDeliveryStatus";
+const _lDSLU = "latestDeliveryS3LocationUri";
+const _lDSM = "latestDeliveryStatusMessage";
 const _lDST = "lockDurationStartTime";
-const _lDT = "logDestinationType";
+const _lDT = "latestDeliveryTime";
+const _lDTa = "latestDatapointTimestamp";
+const _lDTo = "logDestinationType";
 const _lDo = "lockDuration";
 const _lE = "logEnabled";
 const _lEO = "lockExpiresOn";
@@ -96577,6 +97756,8 @@ const _mCOIOL = "mapCustomerOwnedIpOnLaunch";
 const _mD = "maintenanceDetails";
 const _mDA = "multicastDomainAssociations";
 const _mDK = "metaDataKey";
+const _mDRS = "metricDataResultSet";
+const _mDRSe = "metricDimensionResultSet";
 const _mDSC = "maximumDaysSinceCreated";
 const _mDSD = "maximumDaysSinceDeprecated";
 const _mDV = "metaDataValue";
@@ -96627,6 +97808,7 @@ const _mTIMB = "maximumThroughputInMBps";
 const _mTP = "maxTotalPrice";
 const _mTe = "memberType";
 const _mVE = "managesVpcEndpoints";
+const _mVS = "metricValueSet";
 const _ma = "max";
 const _mai = "main";
 const _man = "manufacturer";
@@ -96714,7 +97896,8 @@ const _nTS = "nitroTpmSupport";
 const _nTe = "nextToken";
 const _o = "origin";
 const _oA = "outpostArn";
-const _oAr = "organizationArn";
+const _oAr = "organizationsAccess";
+const _oArg = "organizationArn";
 const _oAw = "ownerAlias";
 const _oC = "offeringClass";
 const _oDAS = "onDemandAllocationStrategy";
@@ -96725,6 +97908,7 @@ const _oDO = "onDemandOptions";
 const _oDS = "occurrenceDaySet";
 const _oDTC = "onDemandTargetCapacity";
 const _oEP = "organizationsEntityPath";
+const _oF = "outputFormat";
 const _oH = "outboundHeader";
 const _oI = "ownerId";
 const _oIA = "outsideIpAddress";
@@ -96913,7 +98097,8 @@ const _pur = "purchase";
 const _r = "return";
 const _rA = "ruleAction";
 const _rAE = "remoteAccessEnabled";
-const _rAe = "resourceArn";
+const _rAe = "reservationArn";
+const _rAes = "resourceArn";
 const _rB = "requestedBy";
 const _rBET = "recycleBinEnterTime";
 const _rBETe = "recycleBinExitTime";
@@ -96921,7 +98106,8 @@ const _rC = "returnCode";
 const _rCA = "resourceConfigurationArn";
 const _rCGA = "resourceConfigurationGroupArn";
 const _rCS = "resourceComplianceStatus";
-const _rCT = "reportCreationTime";
+const _rCT = "reservationCreateTimestamp";
+const _rCTe = "reportCreationTime";
 const _rCe = "resourceCidr";
 const _rCec = "recurringCharges";
 const _rD = "restoreDuration";
@@ -96934,7 +98120,9 @@ const _rDPA = "rdsDbProxyArn";
 const _rDS = "resourceDiscoveryStatus";
 const _rDT = "rootDeviceType";
 const _rE = "responseError";
-const _rET = "restoreExpiryTime";
+const _rEDT = "reservationEndDateType";
+const _rET = "reservationEndTimestamp";
+const _rETe = "restoreExpiryTime";
 const _rEd = "rdsEndpoint";
 const _rEe = "regionEndpoint";
 const _rEes = "resourceExclusions";
@@ -96946,12 +98134,13 @@ const _rGROPS = "ruleGroupRuleOptionsPairSet";
 const _rGT = "ruleGroupType";
 const _rGTPS = "ruleGroupTypePairSet";
 const _rHS = "requireHibernateSupport";
-const _rI = "reportId";
+const _rI = "reservationId";
 const _rIDS = "routeInstallationDetailSet";
 const _rII = "reservedInstancesId";
 const _rIIe = "reservedInstanceId";
 const _rILI = "reservedInstancesListingId";
 const _rILS = "reservedInstancesListingsSet";
+const _rIMC = "reservationInstanceMatchCriteria";
 const _rIMI = "reservedInstancesModificationId";
 const _rIMS = "reservedInstancesModificationsSet";
 const _rINC = "remoteIpv4NetworkCidr";
@@ -96964,10 +98153,10 @@ const _rISo = "routeInstallationStatus";
 const _rIVR = "reservedInstanceValueRollup";
 const _rIVS = "reservedInstanceValueSet";
 const _rIa = "ramdiskId";
-const _rIe = "regionInfo";
+const _rIe = "reportId";
+const _rIeg = "regionInfo";
 const _rIeq = "requesterId";
 const _rIes = "resourceId";
-const _rIese = "reservationId";
 const _rM = "rebootMigration";
 const _rMGM = "registeredMulticastGroupMembers";
 const _rMGS = "registeredMulticastGroupSources";
@@ -96991,7 +98180,7 @@ const _rR = "resourceRegion";
 const _rRVT = "replaceRootVolumeTask";
 const _rRVTI = "replaceRootVolumeTaskId";
 const _rRVTS = "replaceRootVolumeTaskSet";
-const _rS = "referenceSet";
+const _rS = "reservationState";
 const _rSA = "routeServerAssociation";
 const _rSAS = "routeServerAssociationSet";
 const _rSE = "routeServerEndpoint";
@@ -97006,9 +98195,11 @@ const _rSPSo = "routeServerPropagationSet";
 const _rSPo = "routeServerPropagation";
 const _rSS = "regionalSummarySet";
 const _rSSo = "routeServerSet";
-const _rST = "restoreStartTime";
-const _rSe = "reportSet";
-const _rSep = "replacementStrategy";
+const _rST = "reservationStartTimestamp";
+const _rSTe = "restoreStartTime";
+const _rSe = "referenceSet";
+const _rSep = "reportSet";
+const _rSepl = "replacementStrategy";
 const _rSes = "reservationSet";
 const _rSeso = "resourceStatement";
 const _rSesou = "resourceSet";
@@ -97030,6 +98221,7 @@ const _rTe = "resourceType";
 const _rTel = "releaseTime";
 const _rTeq = "requestTime";
 const _rTo = "routeTable";
+const _rUFO = "reservationUnusedFinancialOwner";
 const _rUI = "replaceUnhealthyInstances";
 const _rUV = "remainingUpfrontValue";
 const _rV = "returnValue";
@@ -97057,6 +98249,8 @@ const _sAu = "supportedArchitectures";
 const _sAub = "subnetArn";
 const _sB = "s3Bucket";
 const _sBM = "supportedBootModes";
+const _sBN = "s3BucketName";
+const _sBP = "s3BucketPrefix";
 const _sC = "serviceConfiguration";
 const _sCA = "serverCertificateArn";
 const _sCAE = "serialConsoleAccessEnabled";
@@ -97212,9 +98406,10 @@ const _sVh = "shellVersion";
 const _sVu = "supportedVersions";
 const _sWD = "startWeekDay";
 const _s_ = "s3";
-const _sc = "scope";
-const _sco = "score";
+const _sc = "schedule";
+const _sco = "scope";
 const _scop = "scopes";
+const _scor = "score";
 const _se = "service";
 const _si = "size";
 const _so = "sockets";

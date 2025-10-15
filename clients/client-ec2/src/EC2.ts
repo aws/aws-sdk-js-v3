@@ -300,6 +300,11 @@ import {
 } from "./commands/CopySnapshotCommand";
 import { CopyVolumesCommand, CopyVolumesCommandInput, CopyVolumesCommandOutput } from "./commands/CopyVolumesCommand";
 import {
+  CreateCapacityManagerDataExportCommand,
+  CreateCapacityManagerDataExportCommandInput,
+  CreateCapacityManagerDataExportCommandOutput,
+} from "./commands/CreateCapacityManagerDataExportCommand";
+import {
   CreateCapacityReservationBySplittingCommand,
   CreateCapacityReservationBySplittingCommandInput,
   CreateCapacityReservationBySplittingCommandOutput,
@@ -740,6 +745,11 @@ import {
   CreateVpnGatewayCommandInput,
   CreateVpnGatewayCommandOutput,
 } from "./commands/CreateVpnGatewayCommand";
+import {
+  DeleteCapacityManagerDataExportCommand,
+  DeleteCapacityManagerDataExportCommandInput,
+  DeleteCapacityManagerDataExportCommandOutput,
+} from "./commands/DeleteCapacityManagerDataExportCommand";
 import {
   DeleteCarrierGatewayCommand,
   DeleteCarrierGatewayCommandInput,
@@ -1244,6 +1254,11 @@ import {
   DescribeCapacityBlockStatusCommandInput,
   DescribeCapacityBlockStatusCommandOutput,
 } from "./commands/DescribeCapacityBlockStatusCommand";
+import {
+  DescribeCapacityManagerDataExportsCommand,
+  DescribeCapacityManagerDataExportsCommandInput,
+  DescribeCapacityManagerDataExportsCommandOutput,
+} from "./commands/DescribeCapacityManagerDataExportsCommand";
 import {
   DescribeCapacityReservationBillingRequestsCommand,
   DescribeCapacityReservationBillingRequestsCommandInput,
@@ -2080,6 +2095,11 @@ import {
   DisableAwsNetworkPerformanceMetricSubscriptionCommandOutput,
 } from "./commands/DisableAwsNetworkPerformanceMetricSubscriptionCommand";
 import {
+  DisableCapacityManagerCommand,
+  DisableCapacityManagerCommandInput,
+  DisableCapacityManagerCommandOutput,
+} from "./commands/DisableCapacityManagerCommand";
+import {
   DisableEbsEncryptionByDefaultCommand,
   DisableEbsEncryptionByDefaultCommandInput,
   DisableEbsEncryptionByDefaultCommandOutput,
@@ -2260,6 +2280,11 @@ import {
   EnableAwsNetworkPerformanceMetricSubscriptionCommandOutput,
 } from "./commands/EnableAwsNetworkPerformanceMetricSubscriptionCommand";
 import {
+  EnableCapacityManagerCommand,
+  EnableCapacityManagerCommandInput,
+  EnableCapacityManagerCommandOutput,
+} from "./commands/EnableCapacityManagerCommand";
+import {
   EnableEbsEncryptionByDefaultCommand,
   EnableEbsEncryptionByDefaultCommandInput,
   EnableEbsEncryptionByDefaultCommandOutput,
@@ -2386,6 +2411,21 @@ import {
   GetAwsNetworkPerformanceDataCommandInput,
   GetAwsNetworkPerformanceDataCommandOutput,
 } from "./commands/GetAwsNetworkPerformanceDataCommand";
+import {
+  GetCapacityManagerAttributesCommand,
+  GetCapacityManagerAttributesCommandInput,
+  GetCapacityManagerAttributesCommandOutput,
+} from "./commands/GetCapacityManagerAttributesCommand";
+import {
+  GetCapacityManagerMetricDataCommand,
+  GetCapacityManagerMetricDataCommandInput,
+  GetCapacityManagerMetricDataCommandOutput,
+} from "./commands/GetCapacityManagerMetricDataCommand";
+import {
+  GetCapacityManagerMetricDimensionsCommand,
+  GetCapacityManagerMetricDimensionsCommandInput,
+  GetCapacityManagerMetricDimensionsCommandOutput,
+} from "./commands/GetCapacityManagerMetricDimensionsCommand";
 import {
   GetCapacityReservationUsageCommand,
   GetCapacityReservationUsageCommandInput,
@@ -3391,6 +3431,11 @@ import {
   UnmonitorInstancesCommandOutput,
 } from "./commands/UnmonitorInstancesCommand";
 import {
+  UpdateCapacityManagerOrganizationsAccessCommand,
+  UpdateCapacityManagerOrganizationsAccessCommandInput,
+  UpdateCapacityManagerOrganizationsAccessCommandOutput,
+} from "./commands/UpdateCapacityManagerOrganizationsAccessCommand";
+import {
   UpdateSecurityGroupRuleDescriptionsEgressCommand,
   UpdateSecurityGroupRuleDescriptionsEgressCommandInput,
   UpdateSecurityGroupRuleDescriptionsEgressCommandOutput,
@@ -3469,6 +3514,7 @@ const commands = {
   CopyImageCommand,
   CopySnapshotCommand,
   CopyVolumesCommand,
+  CreateCapacityManagerDataExportCommand,
   CreateCapacityReservationCommand,
   CreateCapacityReservationBySplittingCommand,
   CreateCapacityReservationFleetCommand,
@@ -3562,6 +3608,7 @@ const commands = {
   CreateVpnConnectionCommand,
   CreateVpnConnectionRouteCommand,
   CreateVpnGatewayCommand,
+  DeleteCapacityManagerDataExportCommand,
   DeleteCarrierGatewayCommand,
   DeleteClientVpnEndpointCommand,
   DeleteClientVpnRouteCommand,
@@ -3666,6 +3713,7 @@ const commands = {
   DescribeCapacityBlockOfferingsCommand,
   DescribeCapacityBlocksCommand,
   DescribeCapacityBlockStatusCommand,
+  DescribeCapacityManagerDataExportsCommand,
   DescribeCapacityReservationBillingRequestsCommand,
   DescribeCapacityReservationFleetsCommand,
   DescribeCapacityReservationsCommand,
@@ -3833,6 +3881,7 @@ const commands = {
   DisableAddressTransferCommand,
   DisableAllowedImagesSettingsCommand,
   DisableAwsNetworkPerformanceMetricSubscriptionCommand,
+  DisableCapacityManagerCommand,
   DisableEbsEncryptionByDefaultCommand,
   DisableFastLaunchCommand,
   DisableFastSnapshotRestoresCommand,
@@ -3869,6 +3918,7 @@ const commands = {
   EnableAddressTransferCommand,
   EnableAllowedImagesSettingsCommand,
   EnableAwsNetworkPerformanceMetricSubscriptionCommand,
+  EnableCapacityManagerCommand,
   EnableEbsEncryptionByDefaultCommand,
   EnableFastLaunchCommand,
   EnableFastSnapshotRestoresCommand,
@@ -3896,6 +3946,9 @@ const commands = {
   GetAssociatedEnclaveCertificateIamRolesCommand,
   GetAssociatedIpv6PoolCidrsCommand,
   GetAwsNetworkPerformanceDataCommand,
+  GetCapacityManagerAttributesCommand,
+  GetCapacityManagerMetricDataCommand,
+  GetCapacityManagerMetricDimensionsCommand,
   GetCapacityReservationUsageCommand,
   GetCoipPoolUsageCommand,
   GetConsoleOutputCommand,
@@ -4100,6 +4153,7 @@ const commands = {
   UnassignPrivateNatGatewayAddressCommand,
   UnlockSnapshotCommand,
   UnmonitorInstancesCommand,
+  UpdateCapacityManagerOrganizationsAccessCommand,
   UpdateSecurityGroupRuleDescriptionsEgressCommand,
   UpdateSecurityGroupRuleDescriptionsIngressCommand,
   WithdrawByoipCidrCommand,
@@ -5105,6 +5159,23 @@ export interface EC2 {
     args: CopyVolumesCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CopyVolumesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateCapacityManagerDataExportCommand}
+   */
+  createCapacityManagerDataExport(
+    args: CreateCapacityManagerDataExportCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateCapacityManagerDataExportCommandOutput>;
+  createCapacityManagerDataExport(
+    args: CreateCapacityManagerDataExportCommandInput,
+    cb: (err: any, data?: CreateCapacityManagerDataExportCommandOutput) => void
+  ): void;
+  createCapacityManagerDataExport(
+    args: CreateCapacityManagerDataExportCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateCapacityManagerDataExportCommandOutput) => void
   ): void;
 
   /**
@@ -6623,6 +6694,23 @@ export interface EC2 {
     args: CreateVpnGatewayCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateVpnGatewayCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteCapacityManagerDataExportCommand}
+   */
+  deleteCapacityManagerDataExport(
+    args: DeleteCapacityManagerDataExportCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteCapacityManagerDataExportCommandOutput>;
+  deleteCapacityManagerDataExport(
+    args: DeleteCapacityManagerDataExportCommandInput,
+    cb: (err: any, data?: DeleteCapacityManagerDataExportCommandOutput) => void
+  ): void;
+  deleteCapacityManagerDataExport(
+    args: DeleteCapacityManagerDataExportCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteCapacityManagerDataExportCommandOutput) => void
   ): void;
 
   /**
@@ -8336,6 +8424,24 @@ export interface EC2 {
     args: DescribeCapacityBlockStatusCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeCapacityBlockStatusCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeCapacityManagerDataExportsCommand}
+   */
+  describeCapacityManagerDataExports(): Promise<DescribeCapacityManagerDataExportsCommandOutput>;
+  describeCapacityManagerDataExports(
+    args: DescribeCapacityManagerDataExportsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeCapacityManagerDataExportsCommandOutput>;
+  describeCapacityManagerDataExports(
+    args: DescribeCapacityManagerDataExportsCommandInput,
+    cb: (err: any, data?: DescribeCapacityManagerDataExportsCommandOutput) => void
+  ): void;
+  describeCapacityManagerDataExports(
+    args: DescribeCapacityManagerDataExportsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeCapacityManagerDataExportsCommandOutput) => void
   ): void;
 
   /**
@@ -11271,6 +11377,24 @@ export interface EC2 {
   ): void;
 
   /**
+   * @see {@link DisableCapacityManagerCommand}
+   */
+  disableCapacityManager(): Promise<DisableCapacityManagerCommandOutput>;
+  disableCapacityManager(
+    args: DisableCapacityManagerCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DisableCapacityManagerCommandOutput>;
+  disableCapacityManager(
+    args: DisableCapacityManagerCommandInput,
+    cb: (err: any, data?: DisableCapacityManagerCommandOutput) => void
+  ): void;
+  disableCapacityManager(
+    args: DisableCapacityManagerCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DisableCapacityManagerCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DisableEbsEncryptionByDefaultCommand}
    */
   disableEbsEncryptionByDefault(): Promise<DisableEbsEncryptionByDefaultCommandOutput>;
@@ -11884,6 +12008,24 @@ export interface EC2 {
   ): void;
 
   /**
+   * @see {@link EnableCapacityManagerCommand}
+   */
+  enableCapacityManager(): Promise<EnableCapacityManagerCommandOutput>;
+  enableCapacityManager(
+    args: EnableCapacityManagerCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<EnableCapacityManagerCommandOutput>;
+  enableCapacityManager(
+    args: EnableCapacityManagerCommandInput,
+    cb: (err: any, data?: EnableCapacityManagerCommandOutput) => void
+  ): void;
+  enableCapacityManager(
+    args: EnableCapacityManagerCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: EnableCapacityManagerCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link EnableEbsEncryptionByDefaultCommand}
    */
   enableEbsEncryptionByDefault(): Promise<EnableEbsEncryptionByDefaultCommandOutput>;
@@ -12331,6 +12473,58 @@ export interface EC2 {
     args: GetAwsNetworkPerformanceDataCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetAwsNetworkPerformanceDataCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetCapacityManagerAttributesCommand}
+   */
+  getCapacityManagerAttributes(): Promise<GetCapacityManagerAttributesCommandOutput>;
+  getCapacityManagerAttributes(
+    args: GetCapacityManagerAttributesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetCapacityManagerAttributesCommandOutput>;
+  getCapacityManagerAttributes(
+    args: GetCapacityManagerAttributesCommandInput,
+    cb: (err: any, data?: GetCapacityManagerAttributesCommandOutput) => void
+  ): void;
+  getCapacityManagerAttributes(
+    args: GetCapacityManagerAttributesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetCapacityManagerAttributesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetCapacityManagerMetricDataCommand}
+   */
+  getCapacityManagerMetricData(
+    args: GetCapacityManagerMetricDataCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetCapacityManagerMetricDataCommandOutput>;
+  getCapacityManagerMetricData(
+    args: GetCapacityManagerMetricDataCommandInput,
+    cb: (err: any, data?: GetCapacityManagerMetricDataCommandOutput) => void
+  ): void;
+  getCapacityManagerMetricData(
+    args: GetCapacityManagerMetricDataCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetCapacityManagerMetricDataCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetCapacityManagerMetricDimensionsCommand}
+   */
+  getCapacityManagerMetricDimensions(
+    args: GetCapacityManagerMetricDimensionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetCapacityManagerMetricDimensionsCommandOutput>;
+  getCapacityManagerMetricDimensions(
+    args: GetCapacityManagerMetricDimensionsCommandInput,
+    cb: (err: any, data?: GetCapacityManagerMetricDimensionsCommandOutput) => void
+  ): void;
+  getCapacityManagerMetricDimensions(
+    args: GetCapacityManagerMetricDimensionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetCapacityManagerMetricDimensionsCommandOutput) => void
   ): void;
 
   /**
@@ -15710,6 +15904,23 @@ export interface EC2 {
     args: UnmonitorInstancesCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UnmonitorInstancesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateCapacityManagerOrganizationsAccessCommand}
+   */
+  updateCapacityManagerOrganizationsAccess(
+    args: UpdateCapacityManagerOrganizationsAccessCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateCapacityManagerOrganizationsAccessCommandOutput>;
+  updateCapacityManagerOrganizationsAccess(
+    args: UpdateCapacityManagerOrganizationsAccessCommandInput,
+    cb: (err: any, data?: UpdateCapacityManagerOrganizationsAccessCommandOutput) => void
+  ): void;
+  updateCapacityManagerOrganizationsAccess(
+    args: UpdateCapacityManagerOrganizationsAccessCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateCapacityManagerOrganizationsAccessCommandOutput) => void
   ): void;
 
   /**

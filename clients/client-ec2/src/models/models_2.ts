@@ -36,8 +36,9 @@ import {
 
 import {
   _InstanceType,
+  AmdSevSnpSpecification,
+  CapacityReservationPreference,
   ConnectionTrackingSpecificationRequest,
-  CreditSpecification,
   HostnameType,
   InstanceBandwidthWeighting,
   InstanceInterruptionBehavior,
@@ -46,8 +47,6 @@ import {
   Ipv6PrefixSpecificationRequest,
   LaunchTemplateAutoRecoveryState,
   LaunchTemplateBlockDeviceMapping,
-  LaunchTemplateCapacityReservationSpecificationResponse,
-  LaunchTemplateCpuOptions,
   LaunchTemplateHttpTokensState,
   LaunchTemplateInstanceMetadataEndpointState,
   LaunchTemplateInstanceMetadataProtocolIpv6,
@@ -68,6 +67,97 @@ import {
   VolumeType,
   Vpc,
 } from "./models_1";
+
+/**
+ * <p>Describes a target Capacity Reservation or Capacity Reservation group.</p>
+ * @public
+ */
+export interface CapacityReservationTargetResponse {
+  /**
+   * <p>The ID of the targeted Capacity Reservation.</p>
+   * @public
+   */
+  CapacityReservationId?: string | undefined;
+
+  /**
+   * <p>The ARN of the targeted Capacity Reservation group.</p>
+   * @public
+   */
+  CapacityReservationResourceGroupArn?: string | undefined;
+}
+
+/**
+ * <p>Information about the Capacity Reservation targeting option.</p>
+ * @public
+ */
+export interface LaunchTemplateCapacityReservationSpecificationResponse {
+  /**
+   * <p>Indicates the instance's Capacity Reservation preferences. Possible preferences
+   *             include:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>open</code> - The instance can run in any <code>open</code> Capacity
+   *                     Reservation that has matching attributes (instance type, platform, Availability
+   *                     Zone).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>none</code> - The instance avoids running in a Capacity Reservation even
+   *                     if one is available. The instance runs in On-Demand capacity.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  CapacityReservationPreference?: CapacityReservationPreference | undefined;
+
+  /**
+   * <p>Information about the target Capacity Reservation or Capacity Reservation
+   *             group.</p>
+   * @public
+   */
+  CapacityReservationTarget?: CapacityReservationTargetResponse | undefined;
+}
+
+/**
+ * <p>The CPU options for the instance.</p>
+ * @public
+ */
+export interface LaunchTemplateCpuOptions {
+  /**
+   * <p>The number of CPU cores for the instance.</p>
+   * @public
+   */
+  CoreCount?: number | undefined;
+
+  /**
+   * <p>The number of threads per CPU core.</p>
+   * @public
+   */
+  ThreadsPerCore?: number | undefined;
+
+  /**
+   * <p>Indicates whether the instance is enabled for AMD SEV-SNP. For more information, see
+   *                 <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/sev-snp.html">AMD SEV-SNP
+   *                 for Amazon EC2 instances</a>.</p>
+   * @public
+   */
+  AmdSevSnp?: AmdSevSnpSpecification | undefined;
+}
+
+/**
+ * <p>Describes the credit option for CPU usage of a T instance.</p>
+ * @public
+ */
+export interface CreditSpecification {
+  /**
+   * <p>The credit option for CPU usage of a T instance.</p>
+   *          <p>Valid values: <code>standard</code> | <code>unlimited</code>
+   *          </p>
+   * @public
+   */
+  CpuCredits?: string | undefined;
+}
 
 /**
  * <p>Deprecated.</p>
@@ -10615,126 +10705,6 @@ export const VpcBlockPublicAccessExclusionState = {
  */
 export type VpcBlockPublicAccessExclusionState =
   (typeof VpcBlockPublicAccessExclusionState)[keyof typeof VpcBlockPublicAccessExclusionState];
-
-/**
- * <p>A VPC BPA exclusion is a mode that can be applied to a single VPC or subnet that exempts it from the account’s BPA mode and will allow bidirectional or egress-only access. You can create BPA exclusions for VPCs and subnets even when BPA is not enabled on the account to ensure that there is no traffic disruption to the exclusions when VPC BPA is turned on. To learn more about VPC BPA, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/security-vpc-bpa.html">Block public access to VPCs and subnets</a> in the <i>Amazon VPC User Guide</i>.</p>
- * @public
- */
-export interface VpcBlockPublicAccessExclusion {
-  /**
-   * <p>The ID of the exclusion.</p>
-   * @public
-   */
-  ExclusionId?: string | undefined;
-
-  /**
-   * <p>The exclusion mode for internet gateway traffic.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>allow-bidirectional</code>: Allow all internet traffic to and from the excluded VPCs and subnets.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>allow-egress</code>: Allow outbound internet traffic from the excluded VPCs and subnets. Block inbound internet traffic to the excluded VPCs and subnets. Only applies when VPC Block Public Access is set to Bidirectional.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  InternetGatewayExclusionMode?: InternetGatewayExclusionMode | undefined;
-
-  /**
-   * <p>The ARN of the exclusion.</p>
-   * @public
-   */
-  ResourceArn?: string | undefined;
-
-  /**
-   * <p>The state of the exclusion.</p>
-   * @public
-   */
-  State?: VpcBlockPublicAccessExclusionState | undefined;
-
-  /**
-   * <p>The reason for the current exclusion state.</p>
-   * @public
-   */
-  Reason?: string | undefined;
-
-  /**
-   * <p>When the exclusion was created.</p>
-   * @public
-   */
-  CreationTimestamp?: Date | undefined;
-
-  /**
-   * <p>When the exclusion was last updated.</p>
-   * @public
-   */
-  LastUpdateTimestamp?: Date | undefined;
-
-  /**
-   * <p>When the exclusion was deleted.</p>
-   * @public
-   */
-  DeletionTimestamp?: Date | undefined;
-
-  /**
-   * <p>
-   *             <code>tag</code> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value.
-   *     For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>
-   * @public
-   */
-  Tags?: Tag[] | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateVpcBlockPublicAccessExclusionResult {
-  /**
-   * <p>Details about an exclusion.</p>
-   * @public
-   */
-  VpcBlockPublicAccessExclusion?: VpcBlockPublicAccessExclusion | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const DnsRecordIpType = {
-  dualstack: "dualstack",
-  ipv4: "ipv4",
-  ipv6: "ipv6",
-  service_defined: "service-defined",
-} as const;
-
-/**
- * @public
- */
-export type DnsRecordIpType = (typeof DnsRecordIpType)[keyof typeof DnsRecordIpType];
-
-/**
- * <p>Describes the DNS options for an endpoint.</p>
- * @public
- */
-export interface DnsOptionsSpecification {
-  /**
-   * <p>The DNS records created for the endpoint.</p>
-   * @public
-   */
-  DnsRecordIpType?: DnsRecordIpType | undefined;
-
-  /**
-   * <p>Indicates whether to enable private DNS only for inbound endpoints. This option is
-   *           available only for services that support both gateway and interface endpoints. It routes
-   *           traffic that originates from the VPC to the gateway endpoint and traffic that originates
-   *           from on-premises to the interface endpoint.</p>
-   * @public
-   */
-  PrivateDnsOnlyForInboundResolverEndpoint?: boolean | undefined;
-}
 
 /**
  * @internal

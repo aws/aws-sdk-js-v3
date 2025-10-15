@@ -9,7 +9,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import {
   ModifyVpcEndpointServicePayerResponsibilityRequest,
   ModifyVpcEndpointServicePayerResponsibilityResult,
-} from "../models/models_7";
+} from "../models/models_8";
 import {
   de_ModifyVpcEndpointServicePayerResponsibilityCommand,
   se_ModifyVpcEndpointServicePayerResponsibilityCommand,

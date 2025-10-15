@@ -71,7 +71,7 @@ export interface DescribeHostReservationsCommandOutput extends DescribeHostReser
  * //       OfferingId: "STRING_VALUE",
  * //       PaymentOption: "AllUpfront" || "PartialUpfront" || "NoUpfront",
  * //       Start: new Date("TIMESTAMP"),
- * //       State: "payment-pending" || "payment-failed" || "active" || "retired",
+ * //       State: "active" || "expired" || "cancelled" || "scheduled" || "pending" || "failed" || "delayed" || "unsupported" || "payment-pending" || "payment-failed" || "retired",
  * //       UpfrontPrice: "STRING_VALUE",
  * //       Tags: [ // TagList
  * //         { // Tag

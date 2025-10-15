@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { GetIpamPoolAllocationsRequest, GetIpamPoolAllocationsResult } from "../models/models_6";
+import { GetIpamPoolAllocationsRequest, GetIpamPoolAllocationsResult } from "../models/models_7";
 import { de_GetIpamPoolAllocationsCommand, se_GetIpamPoolAllocationsCommand } from "../protocols/Aws_ec2";
 
 /**

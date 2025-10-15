@@ -16,9 +16,10 @@ export * from "./DescribeCapacityBlockStatusPaginator";
 
 export * from "./DescribeCapacityBlocksPaginator";
 
-export * from "./DescribeCapacityReservationBillingRequestsPaginator";
+export * from "./DescribeCapacityManagerDataExportsPaginator";
 // smithy-typescript generated code
 export * from "./Interfaces";
+export * from "./DescribeCapacityReservationBillingRequestsPaginator";
 export * from "./DescribeCapacityReservationFleetsPaginator";
 export * from "./DescribeCapacityReservationsPaginator";
 export * from "./DescribeCarrierGatewaysPaginator";
@@ -139,6 +140,8 @@ export * from "./DescribeVpcPeeringConnectionsPaginator";
 export * from "./DescribeVpcsPaginator";
 export * from "./GetAssociatedIpv6PoolCidrsPaginator";
 export * from "./GetAwsNetworkPerformanceDataPaginator";
+export * from "./GetCapacityManagerMetricDataPaginator";
+export * from "./GetCapacityManagerMetricDimensionsPaginator";
 export * from "./GetGroupsForCapacityReservationPaginator";
 export * from "./GetInstanceTypesFromInstanceRequirementsPaginator";
 export * from "./GetIpamAddressHistoryPaginator";

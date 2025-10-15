@@ -13,7 +13,6 @@ import {
   DeviceTrustProviderType,
   IamInstanceProfileAssociation,
   InstanceEventWindow,
-  IpamPoolAllocation,
   IpamResourceDiscoveryAssociation,
   NatGatewayAddress,
   RouteServerAssociation,
@@ -39,24 +38,15 @@ import {
   DiskImageFormat,
   InstanceRequirementsRequest,
   IpAddressType,
-  IpamResourceTag,
-  RequestIpamResourceTag,
   SSEType,
   Vpc,
 } from "./models_1";
-
-import {
-  ResponseLaunchTemplateData,
-  ResponseLaunchTemplateDataFilterSensitiveLog,
-  VpcBlockPublicAccessExclusion,
-} from "./models_2";
 
 import {
   ConnectionNotification,
   DnsEntry,
   DnsNameState,
   Filter,
-  IpamPoolCidr,
   MetricType,
   PayerResponsibility,
   PeriodType,
@@ -65,6 +55,7 @@ import {
   ServiceTypeDetail,
   State,
   StatisticType,
+  VpcBlockPublicAccessExclusion,
   VpcEndpoint,
   VpnConnection,
   VpnConnectionFilterSensitiveLog,
@@ -83,10 +74,311 @@ import {
   InstanceMetadataEndpointState,
   InstanceMetadataTagsState,
   PaymentOption,
+  ReservationState,
   VirtualizationType,
 } from "./models_4";
 
-import { ArchitectureType, VolumeStatusItem } from "./models_5";
+import { ArchitectureType } from "./models_5";
+
+/**
+ * <p>Describes a volume status operation code.</p>
+ * @public
+ */
+export interface VolumeStatusAction {
+  /**
+   * <p>The code identifying the operation, for example, <code>enable-volume-io</code>.</p>
+   * @public
+   */
+  Code?: string | undefined;
+
+  /**
+   * <p>A description of the operation.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The ID of the event associated with this operation.</p>
+   * @public
+   */
+  EventId?: string | undefined;
+
+  /**
+   * <p>The event type associated with this operation.</p>
+   * @public
+   */
+  EventType?: string | undefined;
+}
+
+/**
+ * <p>Information about the instances to which the volume is attached.</p>
+ * @public
+ */
+export interface VolumeStatusAttachmentStatus {
+  /**
+   * <p>The maximum IOPS supported by the attached instance.</p>
+   * @public
+   */
+  IoPerformance?: string | undefined;
+
+  /**
+   * <p>The ID of the attached instance.</p>
+   * @public
+   */
+  InstanceId?: string | undefined;
+}
+
+/**
+ * <p>Describes a volume status event.</p>
+ * @public
+ */
+export interface VolumeStatusEvent {
+  /**
+   * <p>A description of the event.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The ID of this event.</p>
+   * @public
+   */
+  EventId?: string | undefined;
+
+  /**
+   * <p>The type of this event.</p>
+   * @public
+   */
+  EventType?: string | undefined;
+
+  /**
+   * <p>The latest end time of the event.</p>
+   * @public
+   */
+  NotAfter?: Date | undefined;
+
+  /**
+   * <p>The earliest start time of the event.</p>
+   * @public
+   */
+  NotBefore?: Date | undefined;
+
+  /**
+   * <p>The ID of the instance associated with the event.</p>
+   * @public
+   */
+  InstanceId?: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const InitializationType = {
+  default: "default",
+  provisioned_rate: "provisioned-rate",
+  volume_copy: "volume-copy",
+} as const;
+
+/**
+ * @public
+ */
+export type InitializationType = (typeof InitializationType)[keyof typeof InitializationType];
+
+/**
+ * <p>Information about the volume initialization. For more information, see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/initalize-volume.html">Initialize Amazon EBS volumes</a>.</p>
+ * @public
+ */
+export interface InitializationStatusDetails {
+  /**
+   * <p>The method used for volume initialization. Possible values include:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>default</code> - Volume initialized using the default volume initialization
+   *           rate or fast snapshot restore.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>provisioned-rate</code> - Volume initialized using an Amazon EBS Provisioned
+   *           Rate for Volume Initialization.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>volume-copy</code> - Volume copy initialized at the rate for volume copies.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  InitializationType?: InitializationType | undefined;
+
+  /**
+   * <p>The current volume initialization progress as a percentage (0-100). Returns <code>100</code>
+   *       when volume initialization has completed.</p>
+   * @public
+   */
+  Progress?: number | undefined;
+
+  /**
+   * <p>The estimated remaining time, in seconds, for volume initialization to complete. Returns
+   *       <code>0</code> when volume initialization has completed.</p>
+   *          <p>Only available for volumes created with Amazon EBS Provisioned Rate for Volume Initialization.</p>
+   * @public
+   */
+  EstimatedTimeToCompleteInSeconds?: number | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const VolumeStatusName = {
+  initialization_state: "initialization-state",
+  io_enabled: "io-enabled",
+  io_performance: "io-performance",
+} as const;
+
+/**
+ * @public
+ */
+export type VolumeStatusName = (typeof VolumeStatusName)[keyof typeof VolumeStatusName];
+
+/**
+ * <p>Describes a volume status.</p>
+ * @public
+ */
+export interface VolumeStatusDetails {
+  /**
+   * <p>The name of the volume status.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>io-enabled</code> - Indicates the volume I/O status. For more
+   *           information, see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/monitoring-volume-checks.html">Amazon EBS volume
+   *             status checks</a>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>io-performance</code> - Indicates the volume performance status.
+   *           For more information, see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/monitoring-volume-checks.html">Amazon EBS volume
+   *             status checks</a>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>initialization-state</code> - Indicates the status of the volume
+   *           initialization process. For more information, see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/initalize-volume.html">Initialize Amazon EBS volumes</a>.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Name?: VolumeStatusName | undefined;
+
+  /**
+   * <p>The intended status of the volume status.</p>
+   * @public
+   */
+  Status?: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const VolumeStatusInfoStatus = {
+  impaired: "impaired",
+  insufficient_data: "insufficient-data",
+  ok: "ok",
+  warning: "warning",
+} as const;
+
+/**
+ * @public
+ */
+export type VolumeStatusInfoStatus = (typeof VolumeStatusInfoStatus)[keyof typeof VolumeStatusInfoStatus];
+
+/**
+ * <p>Describes the status of a volume.</p>
+ * @public
+ */
+export interface VolumeStatusInfo {
+  /**
+   * <p>The details of the volume status.</p>
+   * @public
+   */
+  Details?: VolumeStatusDetails[] | undefined;
+
+  /**
+   * <p>The status of the volume.</p>
+   * @public
+   */
+  Status?: VolumeStatusInfoStatus | undefined;
+}
+
+/**
+ * <p>Describes the volume status.</p>
+ * @public
+ */
+export interface VolumeStatusItem {
+  /**
+   * <p>The details of the operation.</p>
+   * @public
+   */
+  Actions?: VolumeStatusAction[] | undefined;
+
+  /**
+   * <p>The Availability Zone of the volume.</p>
+   * @public
+   */
+  AvailabilityZone?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Outpost.</p>
+   * @public
+   */
+  OutpostArn?: string | undefined;
+
+  /**
+   * <p>A list of events associated with the volume.</p>
+   * @public
+   */
+  Events?: VolumeStatusEvent[] | undefined;
+
+  /**
+   * <p>The volume ID.</p>
+   * @public
+   */
+  VolumeId?: string | undefined;
+
+  /**
+   * <p>The volume status.</p>
+   * @public
+   */
+  VolumeStatus?: VolumeStatusInfo | undefined;
+
+  /**
+   * <p>Information about the instances to which the volume is attached.</p>
+   * @public
+   */
+  AttachmentStatuses?: VolumeStatusAttachmentStatus[] | undefined;
+
+  /**
+   * <p>Information about the volume initialization. It can take up to 5 minutes
+   *       for the volume initialization information to be updated.</p>
+   *          <p>Only available for volumes created from snapshots. Not available for empty
+   *       volumes created without a snapshot.</p>
+   *          <p>For more information, see
+   *       <a href="https://docs.aws.amazon.com/ebs/latest/userguide/initalize-volume.html">
+   *         Initialize Amazon EBS volumes</a>.</p>
+   * @public
+   */
+  InitializationStatusDetails?: InitializationStatusDetails | undefined;
+
+  /**
+   * <p>The ID of the Availability Zone.</p>
+   * @public
+   */
+  AvailabilityZoneId?: string | undefined;
+}
 
 /**
  * @public
@@ -2228,6 +2520,63 @@ export interface DisableAwsNetworkPerformanceMetricSubscriptionResult {
 /**
  * @public
  */
+export interface DisableCapacityManagerRequest {
+  /**
+   * <p>
+   * Checks whether you have the required permissions for the action, without actually making the request, and provides an error response.
+   * If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.
+   * </p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>
+   * Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.
+   * </p>
+   * @public
+   */
+  ClientToken?: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const CapacityManagerStatus = {
+  DISABLED: "disabled",
+  ENABLED: "enabled",
+} as const;
+
+/**
+ * @public
+ */
+export type CapacityManagerStatus = (typeof CapacityManagerStatus)[keyof typeof CapacityManagerStatus];
+
+/**
+ * @public
+ */
+export interface DisableCapacityManagerResult {
+  /**
+   * <p>
+   * The current status of Capacity Manager after the disable operation.
+   * </p>
+   * @public
+   */
+  CapacityManagerStatus?: CapacityManagerStatus | undefined;
+
+  /**
+   * <p>
+   *     Indicates whether Organizations access is enabled. This will be <code>false</code> after disabling Capacity Manager.
+   * </p>
+   * @public
+   */
+  OrganizationsAccess?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
 export interface DisableEbsEncryptionByDefaultRequest {
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
@@ -3594,7 +3943,7 @@ export interface DisassociateTrunkInterfaceRequest {
  */
 export interface DisassociateTrunkInterfaceResult {
   /**
-   * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
+   * <p>Is <code>true</code> if the request succeeds and an error otherwise.</p>
    * @public
    */
   Return?: boolean | undefined;
@@ -3757,6 +4106,57 @@ export interface EnableAwsNetworkPerformanceMetricSubscriptionResult {
    * @public
    */
   Output?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface EnableCapacityManagerRequest {
+  /**
+   * <p>
+   * Specifies whether to enable cross-account access for Amazon Web Services Organizations. When enabled, Capacity Manager can aggregate data from all accounts in your organization. Default is false.
+   * </p>
+   * @public
+   */
+  OrganizationsAccess?: boolean | undefined;
+
+  /**
+   * <p>
+   * Checks whether you have the required permissions for the action, without actually making the request, and provides an error response.
+   * If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.
+   * </p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>
+   * Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.
+   * </p>
+   * @public
+   */
+  ClientToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface EnableCapacityManagerResult {
+  /**
+   * <p>
+   * The current status of Capacity Manager after the enable operation.
+   * </p>
+   * @public
+   */
+  CapacityManagerStatus?: CapacityManagerStatus | undefined;
+
+  /**
+   * <p>
+   * Indicates whether Organizations access is enabled for cross-account data aggregation.
+   * </p>
+   * @public
+   */
+  OrganizationsAccess?: boolean | undefined;
 }
 
 /**
@@ -5586,6 +5986,706 @@ export interface GetAwsNetworkPerformanceDataResult {
 /**
  * @public
  */
+export interface GetCapacityManagerAttributesRequest {
+  /**
+   * <p>
+   * Checks whether you have the required permissions for the action, without actually making the request, and provides an error response.
+   * If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.
+   * </p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const IngestionStatus = {
+  INGESTION_COMPLETE: "ingestion-complete",
+  INGESTION_FAILED: "ingestion-failed",
+  INITIAL_INGESTION_IN_PROGRESS: "initial-ingestion-in-progress",
+} as const;
+
+/**
+ * @public
+ */
+export type IngestionStatus = (typeof IngestionStatus)[keyof typeof IngestionStatus];
+
+/**
+ * @public
+ */
+export interface GetCapacityManagerAttributesResult {
+  /**
+   * <p>
+   * The current status of Capacity Manager.
+   * </p>
+   * @public
+   */
+  CapacityManagerStatus?: CapacityManagerStatus | undefined;
+
+  /**
+   * <p>
+   * Indicates whether Organizations access is enabled for cross-account data aggregation.
+   * </p>
+   * @public
+   */
+  OrganizationsAccess?: boolean | undefined;
+
+  /**
+   * <p>
+   * The number of active data export configurations for this account. This count includes all data exports regardless of their current delivery status.
+   * </p>
+   * @public
+   */
+  DataExportCount?: number | undefined;
+
+  /**
+   * <p>
+   * The current data ingestion status. Initial ingestion may take several hours after enabling Capacity Manager.
+   * </p>
+   * @public
+   */
+  IngestionStatus?: IngestionStatus | undefined;
+
+  /**
+   * <p>
+   * A descriptive message providing additional details about the current ingestion status. This may include error information if ingestion has
+   * failed or progress details during initial setup.
+   * </p>
+   * @public
+   */
+  IngestionStatusMessage?: string | undefined;
+
+  /**
+   * <p>
+   * The timestamp of the earliest data point available in Capacity Manager, in milliseconds since epoch. This indicates how far back historical data is available for queries.
+   * </p>
+   * @public
+   */
+  EarliestDatapointTimestamp?: Date | undefined;
+
+  /**
+   * <p>
+   * The timestamp of the most recent data point ingested by Capacity Manager, in milliseconds since epoch. This indicates how current your capacity data is.
+   * </p>
+   * @public
+   */
+  LatestDatapointTimestamp?: Date | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const Comparison = {
+  EQUALS: "equals",
+  IN: "in",
+} as const;
+
+/**
+ * @public
+ */
+export type Comparison = (typeof Comparison)[keyof typeof Comparison];
+
+/**
+ * @public
+ * @enum
+ */
+export const FilterByDimension = {
+  ACCOUNT_ID: "account-id",
+  AVAILABILITY_ZONE_ID: "availability-zone-id",
+  INSTANCE_FAMILY: "instance-family",
+  INSTANCE_PLATFORM: "instance-platform",
+  INSTANCE_TYPE: "instance-type",
+  RESERVATION_ARN: "reservation-arn",
+  RESERVATION_CREATE_TIMESTAMP: "reservation-create-timestamp",
+  RESERVATION_END_DATE_TYPE: "reservation-end-date-type",
+  RESERVATION_END_TIMESTAMP: "reservation-end-timestamp",
+  RESERVATION_ID: "reservation-id",
+  RESERVATION_INSTANCE_MATCH_CRITERIA: "reservation-instance-match-criteria",
+  RESERVATION_START_TIMESTAMP: "reservation-start-timestamp",
+  RESERVATION_STATE: "reservation-state",
+  RESERVATION_TYPE: "reservation-type",
+  RESERVATION_UNUSED_FINANCIAL_OWNER: "reservation-unused-financial-owner",
+  RESOURCE_REGION: "resource-region",
+  TENANCY: "tenancy",
+} as const;
+
+/**
+ * @public
+ */
+export type FilterByDimension = (typeof FilterByDimension)[keyof typeof FilterByDimension];
+
+/**
+ * <p>
+ * Specifies a condition for filtering capacity data based on dimension values. Used to create precise filters for metric queries and dimension lookups.
+ * </p>
+ * @public
+ */
+export interface DimensionCondition {
+  /**
+   * <p>
+   * The name of the dimension to filter by.
+   * </p>
+   * @public
+   */
+  Dimension?: FilterByDimension | undefined;
+
+  /**
+   * <p>
+   * The comparison operator to use for the filter.
+   * </p>
+   * @public
+   */
+  Comparison?: Comparison | undefined;
+
+  /**
+   * <p>
+   * The list of values to match against the specified dimension. For 'equals' comparison, only the first value is used. For 'in' comparison, any matching value will satisfy the condition.
+   * </p>
+   * @public
+   */
+  Values?: string[] | undefined;
+}
+
+/**
+ * <p>
+ * Represents a filter condition for Capacity Manager queries. Contains dimension-based filtering criteria used to narrow down metric data and dimension results.
+ * </p>
+ * @public
+ */
+export interface CapacityManagerCondition {
+  /**
+   * <p>
+   * The dimension-based condition that specifies how to filter the data based on dimension values.
+   * </p>
+   * @public
+   */
+  DimensionCondition?: DimensionCondition | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const GroupBy = {
+  ACCOUNT_ID: "account-id",
+  AVAILABILITY_ZONE_ID: "availability-zone-id",
+  INSTANCE_FAMILY: "instance-family",
+  INSTANCE_PLATFORM: "instance-platform",
+  INSTANCE_TYPE: "instance-type",
+  RESERVATION_ARN: "reservation-arn",
+  RESERVATION_CREATE_TIMESTAMP: "reservation-create-timestamp",
+  RESERVATION_END_DATE_TYPE: "reservation-end-date-type",
+  RESERVATION_END_TIMESTAMP: "reservation-end-timestamp",
+  RESERVATION_ID: "reservation-id",
+  RESERVATION_INSTANCE_MATCH_CRITERIA: "reservation-instance-match-criteria",
+  RESERVATION_START_TIMESTAMP: "reservation-start-timestamp",
+  RESERVATION_STATE: "reservation-state",
+  RESERVATION_TYPE: "reservation-type",
+  RESERVATION_UNUSED_FINANCIAL_OWNER: "reservation-unused-financial-owner",
+  RESOURCE_REGION: "resource-region",
+  TENANCY: "tenancy",
+} as const;
+
+/**
+ * @public
+ */
+export type GroupBy = (typeof GroupBy)[keyof typeof GroupBy];
+
+/**
+ * @public
+ * @enum
+ */
+export const Metric = {
+  RESERVATION_AVG_COMMITTED_SIZE_INST: "reservation-avg-committed-size-inst",
+  RESERVATION_AVG_COMMITTED_SIZE_VCPU: "reservation-avg-committed-size-vcpu",
+  RESERVATION_AVG_FUTURE_SIZE_INST: "reservation-avg-future-size-inst",
+  RESERVATION_AVG_FUTURE_SIZE_VCPU: "reservation-avg-future-size-vcpu",
+  RESERVATION_AVG_UTILIZATION_INST: "reservation-avg-utilization-inst",
+  RESERVATION_AVG_UTILIZATION_VCPU: "reservation-avg-utilization-vcpu",
+  RESERVATION_MAX_COMMITTED_SIZE_INST: "reservation-max-committed-size-inst",
+  RESERVATION_MAX_COMMITTED_SIZE_VCPU: "reservation-max-committed-size-vcpu",
+  RESERVATION_MAX_FUTURE_SIZE_INST: "reservation-max-future-size-inst",
+  RESERVATION_MAX_FUTURE_SIZE_VCPU: "reservation-max-future-size-vcpu",
+  RESERVATION_MAX_SIZE_INST: "reservation-max-size-inst",
+  RESERVATION_MAX_SIZE_VCPU: "reservation-max-size-vcpu",
+  RESERVATION_MAX_UNUSED_SIZE_INST: "reservation-max-unused-size-inst",
+  RESERVATION_MAX_UNUSED_SIZE_VCPU: "reservation-max-unused-size-vcpu",
+  RESERVATION_MAX_UTILIZATION: "reservation-max-utilization",
+  RESERVATION_MIN_COMMITTED_SIZE_INST: "reservation-min-committed-size-inst",
+  RESERVATION_MIN_COMMITTED_SIZE_VCPU: "reservation-min-committed-size-vcpu",
+  RESERVATION_MIN_FUTURE_SIZE_INST: "reservation-min-future-size-inst",
+  RESERVATION_MIN_FUTURE_SIZE_VCPU: "reservation-min-future-size-vcpu",
+  RESERVATION_MIN_SIZE_INST: "reservation-min-size-inst",
+  RESERVATION_MIN_SIZE_VCPU: "reservation-min-size-vcpu",
+  RESERVATION_MIN_UNUSED_SIZE_INST: "reservation-min-unused-size-inst",
+  RESERVATION_MIN_UNUSED_SIZE_VCPU: "reservation-min-unused-size-vcpu",
+  RESERVATION_MIN_UTILIZATION: "reservation-min-utilization",
+  RESERVATION_TOTAL_CAPACITY_HRS_INST: "reservation-total-capacity-hrs-inst",
+  RESERVATION_TOTAL_CAPACITY_HRS_VCPU: "reservation-total-capacity-hrs-vcpu",
+  RESERVATION_TOTAL_COUNT: "reservation-total-count",
+  RESERVATION_TOTAL_ESTIMATED_COST: "reservation-total-estimated-cost",
+  RESERVATION_UNUSED_TOTAL_CAPACITY_HRS_INST: "reservation-unused-total-capacity-hrs-inst",
+  RESERVATION_UNUSED_TOTAL_CAPACITY_HRS_VCPU: "reservation-unused-total-capacity-hrs-vcpu",
+  RESERVATION_UNUSED_TOTAL_ESTIMATED_COST: "reservation-unused-total-estimated-cost",
+  RESERVED_TOTAL_ESTIMATED_COST: "reserved-total-estimated-cost",
+  RESERVED_TOTAL_USAGE_HRS_INST: "reserved-total-usage-hrs-inst",
+  RESERVED_TOTAL_USAGE_HRS_VCPU: "reserved-total-usage-hrs-vcpu",
+  SPOT_AVG_RUN_TIME_BEFORE_INTERRUPTION_INST: "spot-avg-run-time-before-interruption-inst",
+  SPOT_MAX_RUN_TIME_BEFORE_INTERRUPTION_INST: "spot-max-run-time-before-interruption-inst",
+  SPOT_MIN_RUN_TIME_BEFORE_INTERRUPTION_INST: "spot-min-run-time-before-interruption-inst",
+  SPOT_TOTAL_ESTIMATED_COST: "spot-total-estimated-cost",
+  SPOT_TOTAL_USAGE_HRS_INST: "spot-total-usage-hrs-inst",
+  SPOT_TOTAL_USAGE_HRS_VCPU: "spot-total-usage-hrs-vcpu",
+  UNRESERVED_TOTAL_ESTIMATED_COST: "unreserved-total-estimated-cost",
+  UNRESERVED_TOTAL_USAGE_HRS_INST: "unreserved-total-usage-hrs-inst",
+  UNRESERVED_TOTAL_USAGE_HRS_VCPU: "unreserved-total-usage-hrs-vcpu",
+} as const;
+
+/**
+ * @public
+ */
+export type Metric = (typeof Metric)[keyof typeof Metric];
+
+/**
+ * @public
+ */
+export interface GetCapacityManagerMetricDataRequest {
+  /**
+   * <p>
+   * The names of the metrics to retrieve. Maximum of 10 metrics per request.
+   * </p>
+   * @public
+   */
+  MetricNames: Metric[] | undefined;
+
+  /**
+   * <p>
+   * The start time for the metric data query, in ISO 8601 format. The time range (end time - start time) must be a multiple of the specified period.
+   * </p>
+   * @public
+   */
+  StartTime: Date | undefined;
+
+  /**
+   * <p>
+   * The end time for the metric data query, in ISO 8601 format. If the end time is beyond the latest ingested data, it will be automatically adjusted to the latest available data point.
+   * </p>
+   * @public
+   */
+  EndTime: Date | undefined;
+
+  /**
+   * <p>
+   * The granularity, in seconds, of the returned data points.
+   * </p>
+   * @public
+   */
+  Period: number | undefined;
+
+  /**
+   * <p>
+   * The dimensions by which to group the metric data. This determines how the data is aggregated and returned.
+   * </p>
+   * @public
+   */
+  GroupBy?: GroupBy[] | undefined;
+
+  /**
+   * <p>
+   * Conditions to filter the metric data. Each filter specifies a dimension, comparison operator ('equals', 'in'), and values to match against.
+   * </p>
+   * @public
+   */
+  FilterBy?: CapacityManagerCondition[] | undefined;
+
+  /**
+   * <p>
+   * The maximum number of data points to return. Valid range is 1 to 100,000. Use with NextToken for pagination of large result sets.
+   * </p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>
+   * The token for the next page of results. Use this value in a subsequent call to retrieve additional data points.
+   * </p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>
+   * Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have
+   * the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.
+   * </p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ReservationEndDateType = {
+  LIMITED: "limited",
+  UNLIMITED: "unlimited",
+} as const;
+
+/**
+ * @public
+ */
+export type ReservationEndDateType = (typeof ReservationEndDateType)[keyof typeof ReservationEndDateType];
+
+/**
+ * @public
+ * @enum
+ */
+export const ReservationType = {
+  CAPACITY_BLOCK: "capacity-block",
+  ODCR: "odcr",
+} as const;
+
+/**
+ * @public
+ */
+export type ReservationType = (typeof ReservationType)[keyof typeof ReservationType];
+
+/**
+ * @public
+ * @enum
+ */
+export const CapacityTenancy = {
+  DEDICATED: "dedicated",
+  DEFAULT: "default",
+} as const;
+
+/**
+ * @public
+ */
+export type CapacityTenancy = (typeof CapacityTenancy)[keyof typeof CapacityTenancy];
+
+/**
+ * <p>
+ * Represents dimension values for capacity metrics, including resource identifiers, geographic information, and reservation details used for grouping and filtering capacity data.
+ * </p>
+ * @public
+ */
+export interface CapacityManagerDimension {
+  /**
+   * <p>
+   *     The Amazon Web Services Region where the capacity resource is located.
+   * </p>
+   * @public
+   */
+  ResourceRegion?: string | undefined;
+
+  /**
+   * <p>
+   * The unique identifier of the Availability Zone where the capacity resource is located.
+   * </p>
+   * @public
+   */
+  AvailabilityZoneId?: string | undefined;
+
+  /**
+   * <p>
+   *     The Amazon Web Services account ID that owns the capacity resource.
+   * </p>
+   * @public
+   */
+  AccountId?: string | undefined;
+
+  /**
+   * <p>
+   * The EC2 instance family of the capacity resource.
+   * </p>
+   * @public
+   */
+  InstanceFamily?: string | undefined;
+
+  /**
+   * <p>
+   * The specific EC2 instance type of the capacity resource.
+   * </p>
+   * @public
+   */
+  InstanceType?: string | undefined;
+
+  /**
+   * <p>
+   * The platform or operating system of the instance.
+   * </p>
+   * @public
+   */
+  InstancePlatform?: string | undefined;
+
+  /**
+   * <p>
+   *     The Amazon Resource Name (ARN) of the capacity reservation. This provides a unique identifier that can be used across Amazon Web Services services to reference the specific reservation.
+   * </p>
+   * @public
+   */
+  ReservationArn?: string | undefined;
+
+  /**
+   * <p>
+   * The unique identifier of the capacity reservation.
+   * </p>
+   * @public
+   */
+  ReservationId?: string | undefined;
+
+  /**
+   * <p>
+   * The type of capacity reservation.
+   * </p>
+   * @public
+   */
+  ReservationType?: ReservationType | undefined;
+
+  /**
+   * <p>
+   * The timestamp when the capacity reservation was originally created, in milliseconds since epoch. This differs from the start timestamp as
+   * reservations can be created before they become active.
+   * </p>
+   * @public
+   */
+  ReservationCreateTimestamp?: Date | undefined;
+
+  /**
+   * <p>
+   * The timestamp when the capacity reservation becomes active and available for use, in milliseconds since epoch. This is when the reservation begins providing capacity.
+   * </p>
+   * @public
+   */
+  ReservationStartTimestamp?: Date | undefined;
+
+  /**
+   * <p>
+   * The timestamp when the capacity reservation expires and is no longer available, in milliseconds since epoch. After this time, the reservation will not provide any capacity.
+   * </p>
+   * @public
+   */
+  ReservationEndTimestamp?: Date | undefined;
+
+  /**
+   * <p>
+   * The type of end date for the capacity reservation. This indicates whether the reservation has a fixed end date, is open-ended, or follows a specific termination pattern.
+   * </p>
+   * @public
+   */
+  ReservationEndDateType?: ReservationEndDateType | undefined;
+
+  /**
+   * <p>
+   * The tenancy of the EC2 instances associated with this capacity dimension. Valid values are 'default' for shared tenancy, 'dedicated' for dedicated instances, or 'host' for dedicated hosts.
+   * </p>
+   * @public
+   */
+  Tenancy?: CapacityTenancy | undefined;
+
+  /**
+   * <p>
+   * The current state of the capacity reservation.
+   * </p>
+   * @public
+   */
+  ReservationState?: ReservationState | undefined;
+
+  /**
+   * <p>
+   * The instance matching criteria for the capacity reservation, determining how instances are matched to the reservation.
+   * </p>
+   * @public
+   */
+  ReservationInstanceMatchCriteria?: string | undefined;
+
+  /**
+   * <p>
+   *         The Amazon Web Services account ID that is financially responsible for unused capacity reservation costs.
+   *     </p>
+   * @public
+   */
+  ReservationUnusedFinancialOwner?: string | undefined;
+}
+
+/**
+ * <p>
+ * Represents a single metric value with its associated statistic, such as the sum or average of unused capacity hours.
+ * </p>
+ * @public
+ */
+export interface MetricValue {
+  /**
+   * <p>
+   * The name of the metric.
+   * </p>
+   * @public
+   */
+  Metric?: Metric | undefined;
+
+  /**
+   * <p>
+   * The numerical value of the metric for the specified statistic and time period.
+   * </p>
+   * @public
+   */
+  Value?: number | undefined;
+}
+
+/**
+ * <p>
+ * Contains a single data point from a capacity metrics query, including the dimension values, timestamp, and metric values for that specific combination.
+ * </p>
+ * @public
+ */
+export interface MetricDataResult {
+  /**
+   * <p>
+   * The dimension values that identify this specific data point, such as account ID, region, and instance family.
+   * </p>
+   * @public
+   */
+  Dimension?: CapacityManagerDimension | undefined;
+
+  /**
+   * <p>
+   * The timestamp for this data point, indicating when the capacity usage occurred.
+   * </p>
+   * @public
+   */
+  Timestamp?: Date | undefined;
+
+  /**
+   * <p>
+   * The metric values and statistics for this data point, containing the actual capacity usage numbers.
+   * </p>
+   * @public
+   */
+  MetricValues?: MetricValue[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetCapacityManagerMetricDataResult {
+  /**
+   * <p>
+   * The metric data points returned by the query. Each result contains dimension values, timestamp, and metric values with their associated statistics.
+   * </p>
+   * @public
+   */
+  MetricDataResults?: MetricDataResult[] | undefined;
+
+  /**
+   * <p>
+   * The token to use to retrieve the next page of results. This value is null when there are no more results to return.
+   * </p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetCapacityManagerMetricDimensionsRequest {
+  /**
+   * <p>
+   * The dimensions to group by when retrieving available dimension values. This determines which dimension combinations are returned. Required parameter.
+   * </p>
+   * @public
+   */
+  GroupBy: GroupBy[] | undefined;
+
+  /**
+   * <p>
+   * Conditions to filter which dimension values are returned. Each filter specifies a dimension, comparison operator, and values to match against.
+   * </p>
+   * @public
+   */
+  FilterBy?: CapacityManagerCondition[] | undefined;
+
+  /**
+   * <p>
+   * The start time for the dimension query, in ISO 8601 format. Only dimensions with data in this time range will be returned.
+   * </p>
+   * @public
+   */
+  StartTime: Date | undefined;
+
+  /**
+   * <p>
+   * The end time for the dimension query, in ISO 8601 format. Only dimensions with data in this time range will be returned.
+   * </p>
+   * @public
+   */
+  EndTime: Date | undefined;
+
+  /**
+   * <p>
+   * The metric names to use as an additional filter when retrieving dimensions. Only dimensions that have data for these
+   * metrics will be returned. Required parameter with maximum size of 1 for v1.
+   * </p>
+   * @public
+   */
+  MetricNames: Metric[] | undefined;
+
+  /**
+   * <p>
+   * The maximum number of dimension combinations to return. Valid range is 1 to 1000. Use with NextToken for pagination.
+   * </p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>
+   * The token for the next page of results. Use this value in a subsequent call to retrieve additional dimension values.
+   * </p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>
+   * Checks whether you have the required permissions for the action, without actually making the request, and provides
+   * an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.
+   * </p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetCapacityManagerMetricDimensionsResult {
+  /**
+   * <p>
+   * The available dimension combinations that have data within the specified time range and filters.
+   * </p>
+   * @public
+   */
+  MetricDimensionResults?: CapacityManagerDimension[] | undefined;
+
+  /**
+   * <p>
+   * The token to use to retrieve the next page of results. This value is null when there are no more results to return.
+   * </p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface GetCapacityReservationUsageRequest {
   /**
    * <p>The ID of the Capacity Reservation.</p>
@@ -7100,1108 +8200,6 @@ export interface GetIpamDiscoveredAccountsRequest {
 }
 
 /**
- * @public
- * @enum
- */
-export const IpamDiscoveryFailureCode = {
-  assume_role_failure: "assume-role-failure",
-  throttling_failure: "throttling-failure",
-  unauthorized_failure: "unauthorized-failure",
-} as const;
-
-/**
- * @public
- */
-export type IpamDiscoveryFailureCode = (typeof IpamDiscoveryFailureCode)[keyof typeof IpamDiscoveryFailureCode];
-
-/**
- * <p>The discovery failure reason.</p>
- * @public
- */
-export interface IpamDiscoveryFailureReason {
-  /**
-   * <p>The discovery failure code.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>assume-role-failure</code> - IPAM could not assume the Amazon Web Services IAM service-linked role. This could be because of any of the following:</p>
-   *                <ul>
-   *                   <li>
-   *                      <p>SLR has not been created yet and IPAM is still creating it.</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>You have opted-out of the IPAM home Region.</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>Account you are using as your IPAM account has been suspended.</p>
-   *                   </li>
-   *                </ul>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>throttling-failure</code> - IPAM account is already using the allotted transactions per second and IPAM is receiving a throttling error when assuming the Amazon Web Services IAM SLR.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>unauthorized-failure</code> - Amazon Web Services account making the request is not authorized. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/errors-overview.html">AuthFailure</a> in the <i>Amazon Elastic Compute Cloud API Reference</i>.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  Code?: IpamDiscoveryFailureCode | undefined;
-
-  /**
-   * <p>The discovery failure message.</p>
-   * @public
-   */
-  Message?: string | undefined;
-}
-
-/**
- * <p>An IPAM discovered account. A discovered account is an Amazon Web Services account that is monitored under a resource discovery. If you have integrated IPAM with Amazon Web Services Organizations, all accounts in the organization are discovered accounts.</p>
- * @public
- */
-export interface IpamDiscoveredAccount {
-  /**
-   * <p>The account ID.</p>
-   * @public
-   */
-  AccountId?: string | undefined;
-
-  /**
-   * <p>The Amazon Web Services Region that the account information is returned from.
-   *          An account can be discovered in multiple regions and will have a separate discovered account for each Region.</p>
-   * @public
-   */
-  DiscoveryRegion?: string | undefined;
-
-  /**
-   * <p>The resource discovery failure reason.</p>
-   * @public
-   */
-  FailureReason?: IpamDiscoveryFailureReason | undefined;
-
-  /**
-   * <p>The last attempted resource discovery time.</p>
-   * @public
-   */
-  LastAttemptedDiscoveryTime?: Date | undefined;
-
-  /**
-   * <p>The last successful resource discovery time.</p>
-   * @public
-   */
-  LastSuccessfulDiscoveryTime?: Date | undefined;
-
-  /**
-   * <p>The ID of an Organizational Unit in Amazon Web Services Organizations.</p>
-   * @public
-   */
-  OrganizationalUnitId?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetIpamDiscoveredAccountsResult {
-  /**
-   * <p>Discovered accounts.</p>
-   * @public
-   */
-  IpamDiscoveredAccounts?: IpamDiscoveredAccount[] | undefined;
-
-  /**
-   * <p>Specify the pagination token from a previous request to retrieve the next page of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetIpamDiscoveredPublicAddressesRequest {
-  /**
-   * <p>A check for whether you have the required permissions for the action without actually making the request
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>An IPAM resource discovery ID.</p>
-   * @public
-   */
-  IpamResourceDiscoveryId: string | undefined;
-
-  /**
-   * <p>The Amazon Web Services Region for the IP address.</p>
-   * @public
-   */
-  AddressRegion: string | undefined;
-
-  /**
-   * <p>Filters.</p>
-   * @public
-   */
-  Filters?: Filter[] | undefined;
-
-  /**
-   * <p>The token for the next page of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of IPAM discovered public addresses to return in one page of results.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const IpamPublicAddressType = {
-  AMAZON_OWNED_CONTIG: "amazon-owned-contig",
-  AMAZON_OWNED_EIP: "amazon-owned-eip",
-  BYOIP: "byoip",
-  EC2_PUBLIC_IP: "ec2-public-ip",
-  SERVICE_MANAGED_BYOIP: "service-managed-byoip",
-  SERVICE_MANAGED_IP: "service-managed-ip",
-} as const;
-
-/**
- * @public
- */
-export type IpamPublicAddressType = (typeof IpamPublicAddressType)[keyof typeof IpamPublicAddressType];
-
-/**
- * @public
- * @enum
- */
-export const IpamPublicAddressAssociationStatus = {
-  ASSOCIATED: "associated",
-  DISASSOCIATED: "disassociated",
-} as const;
-
-/**
- * @public
- */
-export type IpamPublicAddressAssociationStatus =
-  (typeof IpamPublicAddressAssociationStatus)[keyof typeof IpamPublicAddressAssociationStatus];
-
-/**
- * <p>The security group that the resource with the public IP address is in.</p>
- * @public
- */
-export interface IpamPublicAddressSecurityGroup {
-  /**
-   * <p>The security group's name.</p>
-   * @public
-   */
-  GroupName?: string | undefined;
-
-  /**
-   * <p>The security group's ID.</p>
-   * @public
-   */
-  GroupId?: string | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const IpamPublicAddressAwsService = {
-  AGA: "global-accelerator",
-  DMS: "database-migration-service",
-  EC2_LB: "load-balancer",
-  ECS: "elastic-container-service",
-  NAT_GATEWAY: "nat-gateway",
-  OTHER: "other",
-  RDS: "relational-database-service",
-  REDSHIFT: "redshift",
-  S2S_VPN: "site-to-site-vpn",
-} as const;
-
-/**
- * @public
- */
-export type IpamPublicAddressAwsService =
-  (typeof IpamPublicAddressAwsService)[keyof typeof IpamPublicAddressAwsService];
-
-/**
- * <p>A tag for a public IP address discovered by IPAM.</p>
- * @public
- */
-export interface IpamPublicAddressTag {
-  /**
-   * <p>The tag's key.</p>
-   * @public
-   */
-  Key?: string | undefined;
-
-  /**
-   * <p>The tag's value.</p>
-   * @public
-   */
-  Value?: string | undefined;
-}
-
-/**
- * <p>Tags for a public IP address discovered by IPAM.</p>
- * @public
- */
-export interface IpamPublicAddressTags {
-  /**
-   * <p>Tags for an Elastic IP address.</p>
-   * @public
-   */
-  EipTags?: IpamPublicAddressTag[] | undefined;
-}
-
-/**
- * <p>A public IP Address discovered by IPAM.</p>
- * @public
- */
-export interface IpamDiscoveredPublicAddress {
-  /**
-   * <p>The resource discovery ID.</p>
-   * @public
-   */
-  IpamResourceDiscoveryId?: string | undefined;
-
-  /**
-   * <p>The Region of the resource the IP address is assigned to.</p>
-   * @public
-   */
-  AddressRegion?: string | undefined;
-
-  /**
-   * <p>The IP address.</p>
-   * @public
-   */
-  Address?: string | undefined;
-
-  /**
-   * <p>The ID of the owner of the resource the IP address is assigned to.</p>
-   * @public
-   */
-  AddressOwnerId?: string | undefined;
-
-  /**
-   * <p>The allocation ID of the resource the IP address is assigned to.</p>
-   * @public
-   */
-  AddressAllocationId?: string | undefined;
-
-  /**
-   * <p>The association status.</p>
-   * @public
-   */
-  AssociationStatus?: IpamPublicAddressAssociationStatus | undefined;
-
-  /**
-   * <p>The IP address type.</p>
-   * @public
-   */
-  AddressType?: IpamPublicAddressType | undefined;
-
-  /**
-   * <p>The Amazon Web Services service associated with the IP address.</p>
-   * @public
-   */
-  Service?: IpamPublicAddressAwsService | undefined;
-
-  /**
-   * <p>The resource ARN or ID.</p>
-   * @public
-   */
-  ServiceResource?: string | undefined;
-
-  /**
-   * <p>The ID of the VPC that the resource with the assigned IP address is in.</p>
-   * @public
-   */
-  VpcId?: string | undefined;
-
-  /**
-   * <p>The ID of the subnet that the resource with the assigned IP address is in.</p>
-   * @public
-   */
-  SubnetId?: string | undefined;
-
-  /**
-   * <p>The ID of the public IPv4 pool that the resource with the assigned IP address is from.</p>
-   * @public
-   */
-  PublicIpv4PoolId?: string | undefined;
-
-  /**
-   * <p>The network interface ID of the resource with the assigned IP address.</p>
-   * @public
-   */
-  NetworkInterfaceId?: string | undefined;
-
-  /**
-   * <p>The description of the network interface that IP address is assigned to.</p>
-   * @public
-   */
-  NetworkInterfaceDescription?: string | undefined;
-
-  /**
-   * <p>The instance ID of the instance the assigned IP address is assigned to.</p>
-   * @public
-   */
-  InstanceId?: string | undefined;
-
-  /**
-   * <p>Tags associated with the IP address.</p>
-   * @public
-   */
-  Tags?: IpamPublicAddressTags | undefined;
-
-  /**
-   * <p>The Availability Zone (AZ) or Local Zone (LZ) network border group that the resource that the IP address is assigned to is in. Defaults to an AZ network border group. For more information on available Local Zones, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-byoip.html#byoip-zone-avail">Local Zone availability</a> in the <i>Amazon EC2 User Guide</i>.</p>
-   * @public
-   */
-  NetworkBorderGroup?: string | undefined;
-
-  /**
-   * <p>Security groups associated with the resource that the IP address is assigned to.</p>
-   * @public
-   */
-  SecurityGroups?: IpamPublicAddressSecurityGroup[] | undefined;
-
-  /**
-   * <p>The last successful resource discovery time.</p>
-   * @public
-   */
-  SampleTime?: Date | undefined;
-}
-
-/**
- * @public
- */
-export interface GetIpamDiscoveredPublicAddressesResult {
-  /**
-   * <p>IPAM discovered public addresses.</p>
-   * @public
-   */
-  IpamDiscoveredPublicAddresses?: IpamDiscoveredPublicAddress[] | undefined;
-
-  /**
-   * <p>The oldest successful resource discovery time.</p>
-   * @public
-   */
-  OldestSampleTime?: Date | undefined;
-
-  /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetIpamDiscoveredResourceCidrsRequest {
-  /**
-   * <p>A check for whether you have the required permissions for the action without actually making the request
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>A resource discovery ID.</p>
-   * @public
-   */
-  IpamResourceDiscoveryId: string | undefined;
-
-  /**
-   * <p>A resource Region.</p>
-   * @public
-   */
-  ResourceRegion: string | undefined;
-
-  /**
-   * <p>Filters.</p>
-   * @public
-   */
-  Filters?: Filter[] | undefined;
-
-  /**
-   * <p>Specify the pagination token from a previous request to retrieve the next page of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of discovered resource CIDRs to return in one page of results.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const IpamResourceCidrIpSource = {
-  amazon: "amazon",
-  byoip: "byoip",
-  none: "none",
-} as const;
-
-/**
- * @public
- */
-export type IpamResourceCidrIpSource = (typeof IpamResourceCidrIpSource)[keyof typeof IpamResourceCidrIpSource];
-
-/**
- * @public
- * @enum
- */
-export const IpamNetworkInterfaceAttachmentStatus = {
-  available: "available",
-  in_use: "in-use",
-} as const;
-
-/**
- * @public
- */
-export type IpamNetworkInterfaceAttachmentStatus =
-  (typeof IpamNetworkInterfaceAttachmentStatus)[keyof typeof IpamNetworkInterfaceAttachmentStatus];
-
-/**
- * @public
- * @enum
- */
-export const IpamResourceType = {
-  eip: "eip",
-  eni: "eni",
-  ipv6_pool: "ipv6-pool",
-  public_ipv4_pool: "public-ipv4-pool",
-  subnet: "subnet",
-  vpc: "vpc",
-} as const;
-
-/**
- * @public
- */
-export type IpamResourceType = (typeof IpamResourceType)[keyof typeof IpamResourceType];
-
-/**
- * <p>An IPAM discovered resource CIDR. A discovered resource is a resource CIDR monitored under a resource discovery. The following resources can be discovered: VPCs, Public IPv4 pools, VPC subnets, and Elastic IP addresses. The discovered resource CIDR is the IP address range in CIDR notation that is associated with the resource.</p>
- * @public
- */
-export interface IpamDiscoveredResourceCidr {
-  /**
-   * <p>The resource discovery ID.</p>
-   * @public
-   */
-  IpamResourceDiscoveryId?: string | undefined;
-
-  /**
-   * <p>The resource Region.</p>
-   * @public
-   */
-  ResourceRegion?: string | undefined;
-
-  /**
-   * <p>The resource ID.</p>
-   * @public
-   */
-  ResourceId?: string | undefined;
-
-  /**
-   * <p>The resource owner ID.</p>
-   * @public
-   */
-  ResourceOwnerId?: string | undefined;
-
-  /**
-   * <p>The resource CIDR.</p>
-   * @public
-   */
-  ResourceCidr?: string | undefined;
-
-  /**
-   * <p>The source that allocated the IP address space. <code>byoip</code> or <code>amazon</code> indicates public IP address space allocated by Amazon or space that you have allocated with Bring your own IP (BYOIP). <code>none</code> indicates private space.</p>
-   * @public
-   */
-  IpSource?: IpamResourceCidrIpSource | undefined;
-
-  /**
-   * <p>The resource type.</p>
-   * @public
-   */
-  ResourceType?: IpamResourceType | undefined;
-
-  /**
-   * <p>The resource tags.</p>
-   * @public
-   */
-  ResourceTags?: IpamResourceTag[] | undefined;
-
-  /**
-   * <p>The percentage of IP address space in use. To convert the decimal to a percentage, multiply the decimal by 100. Note the following:</p>
-   *          <ul>
-   *             <li>
-   *                <p>For resources that are VPCs, this is the percentage of IP address space in the VPC that's taken up by subnet CIDRs.
-   *          </p>
-   *             </li>
-   *             <li>
-   *                <p>For resources that are subnets, if the subnet has an IPv4 CIDR provisioned to it, this is the percentage of IPv4 address space in the subnet that's in use. If the subnet has an IPv6 CIDR provisioned to it, the percentage of IPv6 address space in use is not represented. The percentage of IPv6 address space in use cannot currently be calculated.
-   *          </p>
-   *             </li>
-   *             <li>
-   *                <p>For resources that are public IPv4 pools, this is the percentage of IP address space in the pool that's been allocated to Elastic IP addresses (EIPs).
-   *          </p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  IpUsage?: number | undefined;
-
-  /**
-   * <p>The VPC ID.</p>
-   * @public
-   */
-  VpcId?: string | undefined;
-
-  /**
-   * <p>The subnet ID.</p>
-   * @public
-   */
-  SubnetId?: string | undefined;
-
-  /**
-   * <p>For elastic network interfaces, this is the status of whether or not the elastic network interface is attached.</p>
-   * @public
-   */
-  NetworkInterfaceAttachmentStatus?: IpamNetworkInterfaceAttachmentStatus | undefined;
-
-  /**
-   * <p>The last successful resource discovery time.</p>
-   * @public
-   */
-  SampleTime?: Date | undefined;
-
-  /**
-   * <p>The Availability Zone ID.</p>
-   * @public
-   */
-  AvailabilityZoneId?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetIpamDiscoveredResourceCidrsResult {
-  /**
-   * <p>Discovered resource CIDRs.</p>
-   * @public
-   */
-  IpamDiscoveredResourceCidrs?: IpamDiscoveredResourceCidr[] | undefined;
-
-  /**
-   * <p>Specify the pagination token from a previous request to retrieve the next page of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetIpamPoolAllocationsRequest {
-  /**
-   * <p>A check for whether you have the required permissions for the action without actually making the request
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The ID of the IPAM pool you want to see the allocations for.</p>
-   * @public
-   */
-  IpamPoolId: string | undefined;
-
-  /**
-   * <p>The ID of the allocation.</p>
-   * @public
-   */
-  IpamPoolAllocationId?: string | undefined;
-
-  /**
-   * <p>One or more filters for the request. For more information about filtering, see <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-filter.html">Filtering CLI output</a>.</p>
-   * @public
-   */
-  Filters?: Filter[] | undefined;
-
-  /**
-   * <p>The maximum number of results you would like returned per page.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>The token for the next page of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetIpamPoolAllocationsResult {
-  /**
-   * <p>The IPAM pool allocations you want information on.</p>
-   * @public
-   */
-  IpamPoolAllocations?: IpamPoolAllocation[] | undefined;
-
-  /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetIpamPoolCidrsRequest {
-  /**
-   * <p>A check for whether you have the required permissions for the action without actually making the request
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The ID of the IPAM pool you want the CIDR for.</p>
-   * @public
-   */
-  IpamPoolId: string | undefined;
-
-  /**
-   * <p>One or more filters for the request. For more information about filtering, see <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-filter.html">Filtering CLI output</a>.</p>
-   * @public
-   */
-  Filters?: Filter[] | undefined;
-
-  /**
-   * <p>The maximum number of results to return in the request.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>The token for the next page of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetIpamPoolCidrsResult {
-  /**
-   * <p>Information about the CIDRs provisioned to an IPAM pool.</p>
-   * @public
-   */
-  IpamPoolCidrs?: IpamPoolCidr[] | undefined;
-
-  /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetIpamResourceCidrsRequest {
-  /**
-   * <p>A check for whether you have the required permissions for the action without actually making the request
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>One or more filters for the request. For more information about filtering, see <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-filter.html">Filtering CLI output</a>.</p>
-   * @public
-   */
-  Filters?: Filter[] | undefined;
-
-  /**
-   * <p>The maximum number of results to return in the request.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>The token for the next page of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The ID of the scope that the resource is in.</p>
-   * @public
-   */
-  IpamScopeId: string | undefined;
-
-  /**
-   * <p>The ID of the IPAM pool that the resource is in.</p>
-   * @public
-   */
-  IpamPoolId?: string | undefined;
-
-  /**
-   * <p>The ID of the resource.</p>
-   * @public
-   */
-  ResourceId?: string | undefined;
-
-  /**
-   * <p>The resource type.</p>
-   * @public
-   */
-  ResourceType?: IpamResourceType | undefined;
-
-  /**
-   * <p>The resource tag.</p>
-   * @public
-   */
-  ResourceTag?: RequestIpamResourceTag | undefined;
-
-  /**
-   * <p>The ID of the Amazon Web Services account that owns the resource.</p>
-   * @public
-   */
-  ResourceOwner?: string | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const IpamManagementState = {
-  ignored: "ignored",
-  managed: "managed",
-  unmanaged: "unmanaged",
-} as const;
-
-/**
- * @public
- */
-export type IpamManagementState = (typeof IpamManagementState)[keyof typeof IpamManagementState];
-
-/**
- * <p>The CIDR for an IPAM resource.</p>
- * @public
- */
-export interface IpamResourceCidr {
-  /**
-   * <p>The IPAM ID for an IPAM resource.</p>
-   * @public
-   */
-  IpamId?: string | undefined;
-
-  /**
-   * <p>The scope ID for an IPAM resource.</p>
-   * @public
-   */
-  IpamScopeId?: string | undefined;
-
-  /**
-   * <p>The pool ID for an IPAM resource.</p>
-   * @public
-   */
-  IpamPoolId?: string | undefined;
-
-  /**
-   * <p>The Amazon Web Services Region for an IPAM resource.</p>
-   * @public
-   */
-  ResourceRegion?: string | undefined;
-
-  /**
-   * <p>The Amazon Web Services account number of the owner of an IPAM resource.</p>
-   * @public
-   */
-  ResourceOwnerId?: string | undefined;
-
-  /**
-   * <p>The ID of an IPAM resource.</p>
-   * @public
-   */
-  ResourceId?: string | undefined;
-
-  /**
-   * <p>The name of an IPAM resource.</p>
-   * @public
-   */
-  ResourceName?: string | undefined;
-
-  /**
-   * <p>The CIDR for an IPAM resource.</p>
-   * @public
-   */
-  ResourceCidr?: string | undefined;
-
-  /**
-   * <p>The type of IPAM resource.</p>
-   * @public
-   */
-  ResourceType?: IpamResourceType | undefined;
-
-  /**
-   * <p>The tags for an IPAM resource.</p>
-   * @public
-   */
-  ResourceTags?: IpamResourceTag[] | undefined;
-
-  /**
-   * <p>The percentage of IP address space in use. To convert the decimal to a percentage, multiply the decimal by 100. Note the following:</p>
-   *          <ul>
-   *             <li>
-   *                <p>For resources that are VPCs, this is the percentage of IP address space in the VPC that's taken up by subnet CIDRs.
-   *          </p>
-   *             </li>
-   *             <li>
-   *                <p>For resources that are subnets, if the subnet has an IPv4 CIDR provisioned to it, this is the percentage of IPv4 address space in the subnet that's in use. If the subnet has an IPv6 CIDR provisioned to it, the percentage of IPv6 address space in use is not represented. The percentage of IPv6 address space in use cannot currently be calculated.
-   *          </p>
-   *             </li>
-   *             <li>
-   *                <p>For resources that are public IPv4 pools, this is the percentage of IP address space in the pool that's been allocated to Elastic IP addresses (EIPs).
-   *          </p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  IpUsage?: number | undefined;
-
-  /**
-   * <p>The compliance status of the IPAM resource. For more information on compliance statuses, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/monitor-cidr-compliance-ipam.html">Monitor CIDR usage by resource</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
-   * @public
-   */
-  ComplianceStatus?: IpamComplianceStatus | undefined;
-
-  /**
-   * <p>The management state of the resource. For more information about management states, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/monitor-cidr-compliance-ipam.html">Monitor CIDR usage by resource</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
-   * @public
-   */
-  ManagementState?: IpamManagementState | undefined;
-
-  /**
-   * <p>The overlap status of an IPAM resource. The overlap status tells you if the CIDR for a resource overlaps with another CIDR in the scope. For more information on overlap statuses, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/monitor-cidr-compliance-ipam.html">Monitor CIDR usage by resource</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
-   * @public
-   */
-  OverlapStatus?: IpamOverlapStatus | undefined;
-
-  /**
-   * <p>The ID of a VPC.</p>
-   * @public
-   */
-  VpcId?: string | undefined;
-
-  /**
-   * <p>The Availability Zone ID.</p>
-   * @public
-   */
-  AvailabilityZoneId?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetIpamResourceCidrsResult {
-  /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The resource CIDRs.</p>
-   * @public
-   */
-  IpamResourceCidrs?: IpamResourceCidr[] | undefined;
-}
-
-/**
- * @public
- */
-export interface GetLaunchTemplateDataRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually
-   *             making the request, and provides an error response. If you have the required
-   *             permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is
-   *                 <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The ID of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetLaunchTemplateDataResult {
-  /**
-   * <p>The instance data.</p>
-   * @public
-   */
-  LaunchTemplateData?: ResponseLaunchTemplateData | undefined;
-}
-
-/**
- * @public
- */
-export interface GetManagedPrefixListAssociationsRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The ID of the prefix list.</p>
-   * @public
-   */
-  PrefixListId: string | undefined;
-
-  /**
-   * <p>The maximum number of results to return with a single call.
-   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>The token for the next page of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * <p>Describes the resource with which a prefix list is associated.</p>
- * @public
- */
-export interface PrefixListAssociation {
-  /**
-   * <p>The ID of the resource.</p>
-   * @public
-   */
-  ResourceId?: string | undefined;
-
-  /**
-   * <p>The owner of the resource.</p>
-   * @public
-   */
-  ResourceOwner?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetManagedPrefixListAssociationsResult {
-  /**
-   * <p>Information about the associations.</p>
-   * @public
-   */
-  PrefixListAssociations?: PrefixListAssociation[] | undefined;
-
-  /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetManagedPrefixListEntriesRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The ID of the prefix list.</p>
-   * @public
-   */
-  PrefixListId: string | undefined;
-
-  /**
-   * <p>The version of the prefix list for which to return the entries. The default is the current version.</p>
-   * @public
-   */
-  TargetVersion?: number | undefined;
-
-  /**
-   * <p>The maximum number of results to return with a single call.
-   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>The token for the next page of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * <p>Describes a prefix list entry.</p>
- * @public
- */
-export interface PrefixListEntry {
-  /**
-   * <p>The CIDR block.</p>
-   * @public
-   */
-  Cidr?: string | undefined;
-
-  /**
-   * <p>The description.</p>
-   * @public
-   */
-  Description?: string | undefined;
-}
-
-/**
  * @internal
  */
 export const DescribeVpnConnectionsResultFilterSensitiveLog = (obj: DescribeVpnConnectionsResult): any => ({
@@ -8253,14 +8251,4 @@ export const ExportVerifiedAccessInstanceClientConfigurationResultFilterSensitiv
 export const GetInstanceTpmEkPubResultFilterSensitiveLog = (obj: GetInstanceTpmEkPubResult): any => ({
   ...obj,
   ...(obj.KeyValue && { KeyValue: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const GetLaunchTemplateDataResultFilterSensitiveLog = (obj: GetLaunchTemplateDataResult): any => ({
-  ...obj,
-  ...(obj.LaunchTemplateData && {
-    LaunchTemplateData: ResponseLaunchTemplateDataFilterSensitiveLog(obj.LaunchTemplateData),
-  }),
 });

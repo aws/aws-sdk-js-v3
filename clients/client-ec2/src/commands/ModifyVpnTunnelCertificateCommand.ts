@@ -10,7 +10,7 @@ import {
   ModifyVpnTunnelCertificateRequest,
   ModifyVpnTunnelCertificateResult,
   ModifyVpnTunnelCertificateResultFilterSensitiveLog,
-} from "../models/models_7";
+} from "../models/models_8";
 import { de_ModifyVpnTunnelCertificateCommand, se_ModifyVpnTunnelCertificateCommand } from "../protocols/Aws_ec2";
 
 /**

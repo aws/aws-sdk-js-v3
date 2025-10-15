@@ -767,6 +767,108 @@ export interface CopyVolumesResult {
  * @public
  * @enum
  */
+export const OutputFormat = {
+  CSV: "csv",
+  PARQUET: "parquet",
+} as const;
+
+/**
+ * @public
+ */
+export type OutputFormat = (typeof OutputFormat)[keyof typeof OutputFormat];
+
+/**
+ * @public
+ * @enum
+ */
+export const Schedule = {
+  HOURLY: "hourly",
+} as const;
+
+/**
+ * @public
+ */
+export type Schedule = (typeof Schedule)[keyof typeof Schedule];
+
+/**
+ * @public
+ */
+export interface CreateCapacityManagerDataExportRequest {
+  /**
+   * <p>
+   * The name of the S3 bucket where the capacity data export files will be delivered. The bucket must exist and you must have write permissions to it.
+   * </p>
+   * @public
+   */
+  S3BucketName: string | undefined;
+
+  /**
+   * <p>
+   * The S3 key prefix for the exported data files. This allows you to organize exports in a specific folder structure within your bucket. If not specified, files are placed at the bucket root.
+   * </p>
+   * @public
+   */
+  S3BucketPrefix?: string | undefined;
+
+  /**
+   * <p>
+   * The frequency at which data exports are generated.
+   * </p>
+   * @public
+   */
+  Schedule: Schedule | undefined;
+
+  /**
+   * <p>
+   * The file format for the exported data. Parquet format is recommended for large datasets and better compression.
+   * </p>
+   * @public
+   */
+  OutputFormat: OutputFormat | undefined;
+
+  /**
+   * <p>
+   * Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see Ensure Idempotency.
+   * </p>
+   * @public
+   */
+  ClientToken?: string | undefined;
+
+  /**
+   * <p>
+   * Checks whether you have the required permissions for the action, without actually making the request, and provides an error response.
+   * If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.
+   * </p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>
+   * The tags to apply to the data export configuration. You can tag the export for organization and cost tracking purposes.
+   * </p>
+   * @public
+   */
+  TagSpecifications?: TagSpecification[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateCapacityManagerDataExportResult {
+  /**
+   * <p>
+   * The unique identifier for the created data export configuration. Use this ID to reference the export in other API calls.
+   * </p>
+   * @public
+   */
+  CapacityManagerDataExportId?: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
 export const CapacityReservationDeliveryPreference = {
   FIXED: "fixed",
   INCREMENTAL: "incremental",
@@ -8563,10 +8665,12 @@ export interface EbsBlockDevice {
   Encrypted?: boolean | undefined;
 
   /**
-   * <p>Specifies the Amazon EBS Provisioned Rate for Volume Initialization (volume initialization rate), in MiB/s, at which to download
-   *             the snapshot blocks from Amazon S3 to the volume. This is also known as
-   *             <i>volume initialization</i>. Specifying a volume initialization rate ensures that
-   *             the volume is initialized at a predictable and consistent rate after creation.</p>
+   * <p>Specifies the Amazon EBS Provisioned Rate for Volume Initialization (volume initialization rate), in MiB/s, at which to download the snapshot
+   *             blocks from Amazon S3 to the volume. This is also known as <i>volume
+   *                 initialization</i>. Specifying a volume initialization rate ensures that the volume is initialized
+   *             at a predictable and consistent rate after creation. For more information, see
+   *             <a href="https://docs.aws.amazon.com/ebs/latest/userguide/initalize-volume.html">Initialize
+   *                 Amazon EBS volumes</a> in the <i>Amazon EC2 User Guide</i>.</p>
    *          <p>This parameter is supported only for volumes created from snapshots. Omit this parameter
    *             if:</p>
    *          <ul>
@@ -8583,9 +8687,8 @@ export interface EbsBlockDevice {
    *                <p>You want to create a volume that is initialized at the default rate.</p>
    *             </li>
    *          </ul>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/initalize-volume.html">
-   *             Initialize Amazon EBS volumes</a> in the <i>Amazon EC2 User Guide</i>.</p>
-   *          <p>This parameter is not supported when using <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateImage.html">CreateImage</a>.</p>
+   *          <p>This parameter is not supported when using <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateImage.html">CreateImage</a>
+   *             and <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeImages.html">DescribeImages</a>.</p>
    *          <p>Valid range: 100 - 300 MiB/s</p>
    * @public
    */
@@ -9071,7 +9174,7 @@ export type Ec2InstanceConnectEndpointState =
   (typeof Ec2InstanceConnectEndpointState)[keyof typeof Ec2InstanceConnectEndpointState];
 
 /**
- * <p>The EC2 Instance Connect Endpoint.</p>
+ * <p>Describes an EC2 Instance Connect Endpoint.</p>
  * @public
  */
 export interface Ec2InstanceConnectEndpoint {
@@ -9151,16 +9254,19 @@ export interface Ec2InstanceConnectEndpoint {
   SubnetId?: string | undefined;
 
   /**
-   * <p>Indicates whether your client's IP address is preserved as the source. The value is <code>true</code> or <code>false</code>.</p>
+   * <p>Indicates whether your client's IP address is preserved as the source when you connect to a resource.
+   *             The following are the possible values.</p>
    *          <ul>
    *             <li>
-   *                <p>If <code>true</code>, your client's IP address is used when you connect to a resource.</p>
+   *                <p>
+   *                   <code>true</code> - Use the IP address of the client. Your instance must have an IPv4 address.</p>
    *             </li>
    *             <li>
-   *                <p>If <code>false</code>, the elastic network interface IP address is used when you connect to a resource.</p>
+   *                <p>
+   *                   <code>false</code> - Use the IP address of the network interface.</p>
    *             </li>
    *          </ul>
-   *          <p>Default: <code>true</code>
+   *          <p>Default: <code>false</code>
    *          </p>
    * @public
    */
@@ -12904,97 +13010,6 @@ export interface LaunchTemplateBlockDeviceMapping {
    * @public
    */
   NoDevice?: string | undefined;
-}
-
-/**
- * <p>Describes a target Capacity Reservation or Capacity Reservation group.</p>
- * @public
- */
-export interface CapacityReservationTargetResponse {
-  /**
-   * <p>The ID of the targeted Capacity Reservation.</p>
-   * @public
-   */
-  CapacityReservationId?: string | undefined;
-
-  /**
-   * <p>The ARN of the targeted Capacity Reservation group.</p>
-   * @public
-   */
-  CapacityReservationResourceGroupArn?: string | undefined;
-}
-
-/**
- * <p>Information about the Capacity Reservation targeting option.</p>
- * @public
- */
-export interface LaunchTemplateCapacityReservationSpecificationResponse {
-  /**
-   * <p>Indicates the instance's Capacity Reservation preferences. Possible preferences
-   *             include:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>open</code> - The instance can run in any <code>open</code> Capacity
-   *                     Reservation that has matching attributes (instance type, platform, Availability
-   *                     Zone).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>none</code> - The instance avoids running in a Capacity Reservation even
-   *                     if one is available. The instance runs in On-Demand capacity.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  CapacityReservationPreference?: CapacityReservationPreference | undefined;
-
-  /**
-   * <p>Information about the target Capacity Reservation or Capacity Reservation
-   *             group.</p>
-   * @public
-   */
-  CapacityReservationTarget?: CapacityReservationTargetResponse | undefined;
-}
-
-/**
- * <p>The CPU options for the instance.</p>
- * @public
- */
-export interface LaunchTemplateCpuOptions {
-  /**
-   * <p>The number of CPU cores for the instance.</p>
-   * @public
-   */
-  CoreCount?: number | undefined;
-
-  /**
-   * <p>The number of threads per CPU core.</p>
-   * @public
-   */
-  ThreadsPerCore?: number | undefined;
-
-  /**
-   * <p>Indicates whether the instance is enabled for AMD SEV-SNP. For more information, see
-   *                 <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/sev-snp.html">AMD SEV-SNP
-   *                 for Amazon EC2 instances</a>.</p>
-   * @public
-   */
-  AmdSevSnp?: AmdSevSnpSpecification | undefined;
-}
-
-/**
- * <p>Describes the credit option for CPU usage of a T instance.</p>
- * @public
- */
-export interface CreditSpecification {
-  /**
-   * <p>The credit option for CPU usage of a T instance.</p>
-   *          <p>Valid values: <code>standard</code> | <code>unlimited</code>
-   *          </p>
-   * @public
-   */
-  CpuCredits?: string | undefined;
 }
 
 /**

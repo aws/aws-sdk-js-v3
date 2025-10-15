@@ -10,7 +10,7 @@ import {
   ModifyVpnConnectionOptionsRequest,
   ModifyVpnConnectionOptionsResult,
   ModifyVpnConnectionOptionsResultFilterSensitiveLog,
-} from "../models/models_7";
+} from "../models/models_8";
 import { de_ModifyVpnConnectionOptionsCommand, se_ModifyVpnConnectionOptionsCommand } from "../protocols/Aws_ec2";
 
 /**

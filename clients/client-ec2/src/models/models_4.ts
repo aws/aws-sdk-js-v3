@@ -26,7 +26,6 @@ import {
   BlockDeviceMapping,
   CapacityReservation,
   CapacityReservationPreference,
-  CapacityReservationTargetResponse,
   CapacityReservationTenancy,
   CarrierGateway,
   ClientVpnAuthenticationType,
@@ -58,8 +57,10 @@ import {
   LaunchTemplateAndOverridesResponse,
   LogDestinationType,
   OperatorResponse,
+  OutputFormat,
   Placement,
   PlatformValues,
+  Schedule,
   SpotAllocationStrategy,
   SpotInstanceInterruptionBehavior,
   TargetCapacityUnitType,
@@ -68,9 +69,374 @@ import {
   TransportProtocol,
 } from "./models_1";
 
-import { GroupIdentifier, InstanceIpv6Address, NetworkInterfaceStatus, StateReason } from "./models_2";
+import {
+  CapacityReservationTargetResponse,
+  GroupIdentifier,
+  InstanceIpv6Address,
+  NetworkInterfaceStatus,
+  StateReason,
+} from "./models_2";
 
-import { Filter, FleetStateCode, IdFormat, InstanceTagNotificationAttribute } from "./models_3";
+import { CapacityBlock, Filter, FleetStateCode, IdFormat, InstanceTagNotificationAttribute } from "./models_3";
+
+/**
+ * @public
+ */
+export interface DescribeCapacityBlocksResult {
+  /**
+   * <p>The Capacity Blocks.</p>
+   * @public
+   */
+  CapacityBlocks?: CapacityBlock[] | undefined;
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeCapacityBlockStatusRequest {
+  /**
+   * <p>The ID of the Capacity Block.</p>
+   * @public
+   */
+  CapacityBlockIds?: string[] | undefined;
+
+  /**
+   * <p>The token to use to retrieve the next page of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of items to return for this request. To get the next page of items, make another request with the token returned in the output. For more information,
+   *     see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>One or more filters. </p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>interconnect-status</code> - The status of the interconnect for the Capacity Block (<code>ok</code> | <code>impaired</code> | <code>insufficient-data</code>).</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Filters?: Filter[] | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * <p>Describes the availability of capacity for a Capacity Reservation.</p>
+ * @public
+ */
+export interface CapacityReservationStatus {
+  /**
+   * <p>The ID of the Capacity Reservation.</p>
+   * @public
+   */
+  CapacityReservationId?: string | undefined;
+
+  /**
+   * <p>The combined amount of <code>Available</code> and <code>Unavailable</code> capacity in the Capacity Reservation.</p>
+   * @public
+   */
+  TotalCapacity?: number | undefined;
+
+  /**
+   * <p>The remaining capacity. Indicates the amount of resources that can be launched into the Capacity Reservation.</p>
+   * @public
+   */
+  TotalAvailableCapacity?: number | undefined;
+
+  /**
+   * <p>The used capacity. Indicates that the capacity is in use by resources that are running in the Capacity Reservation.</p>
+   * @public
+   */
+  TotalUnavailableCapacity?: number | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const CapacityBlockInterconnectStatus = {
+  impaired: "impaired",
+  insufficient_data: "insufficient-data",
+  ok: "ok",
+} as const;
+
+/**
+ * @public
+ */
+export type CapacityBlockInterconnectStatus =
+  (typeof CapacityBlockInterconnectStatus)[keyof typeof CapacityBlockInterconnectStatus];
+
+/**
+ * <p>Describes the availability of capacity for a Capacity Block.</p>
+ * @public
+ */
+export interface CapacityBlockStatus {
+  /**
+   * <p>The ID of the Capacity Block.</p>
+   * @public
+   */
+  CapacityBlockId?: string | undefined;
+
+  /**
+   * <p>The status of the high-bandwidth accelerator interconnect. Possible states include:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ok</code> the accelerator interconnect is healthy.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>impaired</code> - accelerator interconnect communication is impaired.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>insufficient-data</code> - insufficient data to determine accelerator interconnect status.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  InterconnectStatus?: CapacityBlockInterconnectStatus | undefined;
+
+  /**
+   * <p>The combined amount of <code>Available</code> and <code>Unavailable</code> capacity in the Capacity Block.</p>
+   * @public
+   */
+  TotalCapacity?: number | undefined;
+
+  /**
+   * <p>The remaining capacity. Indicates the number of resources that can be launched into the Capacity Block.</p>
+   * @public
+   */
+  TotalAvailableCapacity?: number | undefined;
+
+  /**
+   * <p>The unavailable capacity. Indicates the instance capacity that is unavailable for use
+   * 			due to a system status check failure.</p>
+   * @public
+   */
+  TotalUnavailableCapacity?: number | undefined;
+
+  /**
+   * <p>The availability of capacity for the Capacity Block reservations.</p>
+   * @public
+   */
+  CapacityReservationStatuses?: CapacityReservationStatus[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeCapacityBlockStatusResult {
+  /**
+   * <p>The availability of capacity for a Capacity Block.</p>
+   * @public
+   */
+  CapacityBlockStatuses?: CapacityBlockStatus[] | undefined;
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeCapacityManagerDataExportsRequest {
+  /**
+   * <p>
+   * The IDs of the data export configurations to describe. If not specified, all export configurations are returned.
+   * </p>
+   * @public
+   */
+  CapacityManagerDataExportIds?: string[] | undefined;
+
+  /**
+   * <p>
+   * The maximum number of results to return in a single call. If not specified, up to 1000 results are returned.
+   * </p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>
+   * The token for the next page of results. Use this value in a subsequent call to retrieve additional results.
+   * </p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>
+   * Checks whether you have the required permissions for the action, without actually making the request, and provides an error response.
+   * If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.
+   * </p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>
+   * One or more filters to narrow the results. Supported filters include export status, creation date, and S3 bucket name.
+   * </p>
+   * @public
+   */
+  Filters?: Filter[] | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const CapacityManagerDataExportStatus = {
+  DELIVERED: "delivered",
+  FAILED: "failed",
+  IN_PROGRESS: "in-progress",
+  PENDING: "pending",
+} as const;
+
+/**
+ * @public
+ */
+export type CapacityManagerDataExportStatus =
+  (typeof CapacityManagerDataExportStatus)[keyof typeof CapacityManagerDataExportStatus];
+
+/**
+ * <p>
+ * Contains information about a Capacity Manager data export configuration, including export settings, delivery status, and recent export activity.
+ * </p>
+ * @public
+ */
+export interface CapacityManagerDataExportResponse {
+  /**
+   * <p>
+   * The unique identifier for the data export configuration.
+   * </p>
+   * @public
+   */
+  CapacityManagerDataExportId?: string | undefined;
+
+  /**
+   * <p>
+   * The name of the S3 bucket where export files are delivered.
+   * </p>
+   * @public
+   */
+  S3BucketName?: string | undefined;
+
+  /**
+   * <p>
+   * The S3 key prefix used for organizing export files within the bucket.
+   * </p>
+   * @public
+   */
+  S3BucketPrefix?: string | undefined;
+
+  /**
+   * <p>
+   * The frequency at which data exports are generated.
+   * </p>
+   * @public
+   */
+  Schedule?: Schedule | undefined;
+
+  /**
+   * <p>
+   * The file format of the exported data.
+   * </p>
+   * @public
+   */
+  OutputFormat?: OutputFormat | undefined;
+
+  /**
+   * <p>
+   * The timestamp when the data export configuration was created.
+   * </p>
+   * @public
+   */
+  CreateTime?: Date | undefined;
+
+  /**
+   * <p>
+   * The status of the most recent export delivery.
+   * </p>
+   * @public
+   */
+  LatestDeliveryStatus?: CapacityManagerDataExportStatus | undefined;
+
+  /**
+   * <p>
+   * A message describing the status of the most recent export delivery, including any error details if the delivery failed.
+   * </p>
+   * @public
+   */
+  LatestDeliveryStatusMessage?: string | undefined;
+
+  /**
+   * <p>
+   * The S3 URI of the most recently delivered export file.
+   * </p>
+   * @public
+   */
+  LatestDeliveryS3LocationUri?: string | undefined;
+
+  /**
+   * <p>
+   * The timestamp when the most recent export was delivered to S3.
+   * </p>
+   * @public
+   */
+  LatestDeliveryTime?: Date | undefined;
+
+  /**
+   * <p>
+   * The tags associated with the data export configuration.
+   * </p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeCapacityManagerDataExportsResult {
+  /**
+   * <p>
+   * Information about the data export configurations, including export settings, delivery status, and recent activity.
+   * </p>
+   * @public
+   */
+  CapacityManagerDataExports?: CapacityManagerDataExportResponse[] | undefined;
+
+  /**
+   * <p>
+   * The token to use to retrieve the next page of results. This value is null when there are no more results to return.
+   * </p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
 
 /**
  * @public
@@ -5263,9 +5629,16 @@ export interface DescribeHostReservationsRequest {
  */
 export const ReservationState = {
   ACTIVE: "active",
+  CANCELLED: "cancelled",
+  DELAYED: "delayed",
+  EXPIRED: "expired",
+  FAILED: "failed",
   PAYMENT_FAILED: "payment-failed",
   PAYMENT_PENDING: "payment-pending",
+  PENDING: "pending",
   RETIRED: "retired",
+  SCHEDULED: "scheduled",
+  UNSUPPORTED: "unsupported",
 } as const;
 
 /**
@@ -11152,21 +11525,21 @@ export interface DescribeInstanceTopologyRequest {
    *                <p>
    *                   <code>availability-zone</code> - The name of the Availability Zone (for
    *                     example, <code>us-west-2a</code>) or Local Zone (for example,
-   *                         <code>us-west-2-lax-1b</code>) that the instance is in.</p>
+   *                     <code>us-west-2-lax-1b</code>) that the instance is in.</p>
    *             </li>
    *             <li>
    *                <p>
    *                   <code>instance-type</code> - The instance type (for example,
-   *                         <code>p4d.24xlarge</code>) or instance family (for example,
-   *                         <code>p4d*</code>). You can use the <code>*</code> wildcard to match zero or
+   *                     <code>p4d.24xlarge</code>) or instance family (for example,
+   *                     <code>p4d*</code>). You can use the <code>*</code> wildcard to match zero or
    *                     more characters, or the <code>?</code> wildcard to match zero or one
    *                     character.</p>
    *             </li>
    *             <li>
    *                <p>
    *                   <code>zone-id</code> - The ID of the Availability Zone (for example,
-   *                         <code>usw2-az2</code>) or Local Zone (for example,
-   *                         <code>usw2-lax1-az1</code>) that the instance is in.</p>
+   *                     <code>usw2-az2</code>) or Local Zone (for example,
+   *                     <code>usw2-lax1-az1</code>) that the instance is in.</p>
    *             </li>
    *          </ul>
    * @public
@@ -12209,287 +12582,6 @@ export interface MediaAcceleratorInfo {
    * @public
    */
   TotalMediaMemoryInMiB?: number | undefined;
-}
-
-/**
- * <p>Describes the memory for the instance type.</p>
- * @public
- */
-export interface MemoryInfo {
-  /**
-   * <p>The size of the memory, in MiB.</p>
-   * @public
-   */
-  SizeInMiB?: number | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const BandwidthWeightingType = {
-  DEFAULT: "default",
-  EBS_1: "ebs-1",
-  VPC_1: "vpc-1",
-} as const;
-
-/**
- * @public
- */
-export type BandwidthWeightingType = (typeof BandwidthWeightingType)[keyof typeof BandwidthWeightingType];
-
-/**
- * <p>Describes the Elastic Fabric Adapters for the instance type.</p>
- * @public
- */
-export interface EfaInfo {
-  /**
-   * <p>The maximum number of Elastic Fabric Adapters for the instance type.</p>
-   * @public
-   */
-  MaximumEfaInterfaces?: number | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const EnaSupport = {
-  required: "required",
-  supported: "supported",
-  unsupported: "unsupported",
-} as const;
-
-/**
- * @public
- */
-export type EnaSupport = (typeof EnaSupport)[keyof typeof EnaSupport];
-
-/**
- * @public
- * @enum
- */
-export const FlexibleEnaQueuesSupport = {
-  SUPPORTED: "supported",
-  UNSUPPORTED: "unsupported",
-} as const;
-
-/**
- * @public
- */
-export type FlexibleEnaQueuesSupport = (typeof FlexibleEnaQueuesSupport)[keyof typeof FlexibleEnaQueuesSupport];
-
-/**
- * <p>Describes the network card support of the instance type.</p>
- * @public
- */
-export interface NetworkCardInfo {
-  /**
-   * <p>The index of the network card.</p>
-   * @public
-   */
-  NetworkCardIndex?: number | undefined;
-
-  /**
-   * <p>The network performance of the network card.</p>
-   * @public
-   */
-  NetworkPerformance?: string | undefined;
-
-  /**
-   * <p>The maximum number of network interfaces for the network card.</p>
-   * @public
-   */
-  MaximumNetworkInterfaces?: number | undefined;
-
-  /**
-   * <p>The baseline network performance of the network card, in Gbps.</p>
-   * @public
-   */
-  BaselineBandwidthInGbps?: number | undefined;
-
-  /**
-   * <p>The peak (burst) network performance of the network card, in Gbps.</p>
-   * @public
-   */
-  PeakBandwidthInGbps?: number | undefined;
-
-  /**
-   * <p>The default number of the ENA queues for each interface.</p>
-   * @public
-   */
-  DefaultEnaQueueCountPerInterface?: number | undefined;
-
-  /**
-   * <p>The maximum number of the ENA queues.</p>
-   * @public
-   */
-  MaximumEnaQueueCount?: number | undefined;
-
-  /**
-   * <p>The maximum number of the ENA queues for each interface.</p>
-   * @public
-   */
-  MaximumEnaQueueCountPerInterface?: number | undefined;
-}
-
-/**
- * <p>Describes the networking features of the instance type.</p>
- * @public
- */
-export interface NetworkInfo {
-  /**
-   * <p>The network performance.</p>
-   * @public
-   */
-  NetworkPerformance?: string | undefined;
-
-  /**
-   * <p>The maximum number of network interfaces for the instance type.</p>
-   * @public
-   */
-  MaximumNetworkInterfaces?: number | undefined;
-
-  /**
-   * <p>The maximum number of physical network cards that can be allocated to the instance.</p>
-   * @public
-   */
-  MaximumNetworkCards?: number | undefined;
-
-  /**
-   * <p>The index of the default network card, starting at 0.</p>
-   * @public
-   */
-  DefaultNetworkCardIndex?: number | undefined;
-
-  /**
-   * <p>Describes the network cards for the instance type.</p>
-   * @public
-   */
-  NetworkCards?: NetworkCardInfo[] | undefined;
-
-  /**
-   * <p>The maximum number of IPv4 addresses per network interface.</p>
-   * @public
-   */
-  Ipv4AddressesPerInterface?: number | undefined;
-
-  /**
-   * <p>The maximum number of IPv6 addresses per network interface.</p>
-   * @public
-   */
-  Ipv6AddressesPerInterface?: number | undefined;
-
-  /**
-   * <p>Indicates whether IPv6 is supported.</p>
-   * @public
-   */
-  Ipv6Supported?: boolean | undefined;
-
-  /**
-   * <p>Indicates whether Elastic Network Adapter (ENA) is supported.</p>
-   * @public
-   */
-  EnaSupport?: EnaSupport | undefined;
-
-  /**
-   * <p>Indicates whether Elastic Fabric Adapter (EFA) is supported.</p>
-   * @public
-   */
-  EfaSupported?: boolean | undefined;
-
-  /**
-   * <p>Describes the Elastic Fabric Adapters for the instance type.</p>
-   * @public
-   */
-  EfaInfo?: EfaInfo | undefined;
-
-  /**
-   * <p>Indicates whether the instance type automatically encrypts in-transit traffic between
-   *    instances.</p>
-   * @public
-   */
-  EncryptionInTransitSupported?: boolean | undefined;
-
-  /**
-   * <p>Indicates whether the instance type supports ENA Express. ENA Express uses Amazon Web Services Scalable Reliable Datagram (SRD) technology to increase the maximum bandwidth used per stream
-   *    and minimize tail latency of network traffic between EC2 instances.</p>
-   * @public
-   */
-  EnaSrdSupported?: boolean | undefined;
-
-  /**
-   * <p>A list of valid settings for configurable bandwidth weighting for the instance type, if
-   *    supported.</p>
-   * @public
-   */
-  BandwidthWeightings?: BandwidthWeightingType[] | undefined;
-
-  /**
-   * <p>Indicates whether changing the number of ENA queues is supported.</p>
-   * @public
-   */
-  FlexibleEnaQueuesSupport?: FlexibleEnaQueuesSupport | undefined;
-}
-
-/**
- * <p>Describes the cores available to the neuron accelerator.</p>
- * @public
- */
-export interface NeuronDeviceCoreInfo {
-  /**
-   * <p>The number of cores available to the neuron accelerator.</p>
-   * @public
-   */
-  Count?: number | undefined;
-
-  /**
-   * <p>The version of the neuron accelerator.</p>
-   * @public
-   */
-  Version?: number | undefined;
-}
-
-/**
- * <p>Describes the memory available to the neuron accelerator.</p>
- * @public
- */
-export interface NeuronDeviceMemoryInfo {
-  /**
-   * <p>The size of the memory available to the neuron accelerator, in MiB.</p>
-   * @public
-   */
-  SizeInMiB?: number | undefined;
-}
-
-/**
- * <p>Describes the neuron accelerators for the instance type.</p>
- * @public
- */
-export interface NeuronDeviceInfo {
-  /**
-   * <p>The number of neuron accelerators for the instance type.</p>
-   * @public
-   */
-  Count?: number | undefined;
-
-  /**
-   * <p>The name of the neuron accelerator.</p>
-   * @public
-   */
-  Name?: string | undefined;
-
-  /**
-   * <p>Describes the cores available to each neuron accelerator.</p>
-   * @public
-   */
-  CoreInfo?: NeuronDeviceCoreInfo | undefined;
-
-  /**
-   * <p>Describes the memory available to each neuron accelerator.</p>
-   * @public
-   */
-  MemoryInfo?: NeuronDeviceMemoryInfo | undefined;
 }
 
 /**

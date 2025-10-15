@@ -9,7 +9,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import {
   ModifyVpcEndpointServicePermissionsRequest,
   ModifyVpcEndpointServicePermissionsResult,
-} from "../models/models_7";
+} from "../models/models_8";
 import {
   de_ModifyVpcEndpointServicePermissionsCommand,
   se_ModifyVpcEndpointServicePermissionsCommand,

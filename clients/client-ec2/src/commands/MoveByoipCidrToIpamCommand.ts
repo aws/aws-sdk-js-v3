@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { MoveByoipCidrToIpamRequest, MoveByoipCidrToIpamResult } from "../models/models_7";
+import { MoveByoipCidrToIpamRequest, MoveByoipCidrToIpamResult } from "../models/models_8";
 import { de_MoveByoipCidrToIpamCommand, se_MoveByoipCidrToIpamCommand } from "../protocols/Aws_ec2";
 
 /**
