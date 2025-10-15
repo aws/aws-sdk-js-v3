@@ -638,14 +638,14 @@ export interface CopyDBClusterSnapshotMessage {
    *          <p>Constraints:</p>
    *          <ul>
    *             <li>
-   *                <p>Must specify a valid system snapshot in the
+   *                <p>Must specify a valid cluster snapshot in the
    *                     <i>available</i> state.</p>
    *             </li>
    *             <li>
-   *                <p>If the source snapshot is in the same Amazon Web Services Region as the copy, specify a valid snapshot identifier.</p>
+   *                <p>If the source cluster snapshot is in the same Amazon Web Services Region as the copy, specify a valid snapshot identifier.</p>
    *             </li>
    *             <li>
-   *                <p>If the source snapshot is in a different Amazon Web Services Region than the copy, specify a valid cluster snapshot ARN.</p>
+   *                <p>If the source cluster snapshot is in a different Amazon Web Services Region or owned by another Amazon Web Services account, specify the snapshot ARN.</p>
    *             </li>
    *          </ul>
    *          <p>Example: <code>my-cluster-snapshot1</code>
@@ -1236,7 +1236,7 @@ export interface CreateDBClusterMessage {
    *          <p>Default value is <code>standard </code>
    *          </p>
    *          <note>
-   *             <p>When you create a DocumentDB DB cluster with the storage type set to <code>iopt1</code>, the storage type is returned
+   *             <p>When you create an Amazon DocumentDB cluster with the storage type set to <code>iopt1</code>, the storage type is returned
    *                     in the response. The storage type isn't returned when you set it to <code>standard</code>.</p>
    *          </note>
    * @public
@@ -1268,6 +1268,17 @@ export interface CreateDBClusterMessage {
    * @public
    */
   MasterUserSecretKmsKeyId?: string | undefined;
+
+  /**
+   * <p>The network type of the cluster.</p>
+   *          <p>The network type is determined by the <code>DBSubnetGroup</code> specified for the cluster.
+   *             A <code>DBSubnetGroup</code> can support only the IPv4 protocol or the IPv4 and the IPv6 protocols (<code>DUAL</code>).</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/documentdb/latest/developerguide/vpc-clusters.html">DocumentDB clusters in a VPC</a> in the Amazon DocumentDB Developer Guide.</p>
+   *          <p>Valid Values: <code>IPV4</code> | <code>DUAL</code>
+   *          </p>
+   * @public
+   */
+  NetworkType?: string | undefined;
 }
 
 /**
@@ -1631,6 +1642,12 @@ export interface DBCluster {
   DeletionProtection?: boolean | undefined;
 
   /**
+   * <p>The next time you can modify the Amazon DocumentDB cluster to use the iopt1 storage type.</p>
+   * @public
+   */
+  IOOptimizedNextAllowedModificationTime?: Date | undefined;
+
+  /**
    * <p>Storage type associated with your cluster</p>
    *          <p>For information on storage types for Amazon DocumentDB clusters, see
    *             Cluster storage configurations in the <i>Amazon DocumentDB Developer Guide</i>.</p>
@@ -1653,6 +1670,17 @@ export interface DBCluster {
    * @public
    */
   MasterUserSecret?: ClusterMasterUserSecret | undefined;
+
+  /**
+   * <p>The network type of the cluster.</p>
+   *          <p>The network type is determined by the <code>DBSubnetGroup</code> specified for the cluster.
+   *             A <code>DBSubnetGroup</code> can support only the IPv4 protocol or the IPv4 and the IPv6 protocols (<code>DUAL</code>).</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/documentdb/latest/developerguide/vpc-clusters.html">DocumentDB clusters in a VPC</a> in the Amazon DocumentDB Developer Guide.</p>
+   *          <p>Valid Values: <code>IPV4</code> | <code>DUAL</code>
+   *          </p>
+   * @public
+   */
+  NetworkType?: string | undefined;
 }
 
 /**
@@ -1887,6 +1915,26 @@ export class InvalidVPCNetworkStateFault extends __BaseException {
       ...opts,
     });
     Object.setPrototypeOf(this, InvalidVPCNetworkStateFault.prototype);
+  }
+}
+
+/**
+ * <p>The network type is not supported by either <code>DBSubnetGroup</code> or the DB engine version.</p>
+ * @public
+ */
+export class NetworkTypeNotSupported extends __BaseException {
+  readonly name: "NetworkTypeNotSupported" = "NetworkTypeNotSupported";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<NetworkTypeNotSupported, __BaseException>) {
+    super({
+      name: "NetworkTypeNotSupported",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, NetworkTypeNotSupported.prototype);
   }
 }
 
@@ -2274,6 +2322,15 @@ export interface DBSubnetGroup {
    * @public
    */
   DBSubnetGroupArn?: string | undefined;
+
+  /**
+   * <p>The network type of the DB subnet group.</p>
+   *          <p>Valid Values: <code>IPV4</code> | <code>DUAL</code>
+   *          </p>
+   *          <p>A <code>DBSubnetGroup</code> can support only the IPv4 protocol or the IPv4 and the IPv6 protocols (DUAL).</p>
+   * @public
+   */
+  SupportedNetworkTypes?: string[] | undefined;
 }
 
 /**
@@ -3801,7 +3858,34 @@ export interface Parameter {
   ParameterName?: string | undefined;
 
   /**
-   * <p>Specifies the value of the parameter.</p>
+   * <p>Specifies the value of the parameter.
+   *             Must be one or more of the cluster parameter's <code>AllowedValues</code> in CSV format:</p>
+   *          <p>Valid values are:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>enabled</code>: The cluster accepts secure connections using TLS version 1.0 through 1.3. </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>disabled</code>: The cluster does not accept secure connections using TLS. </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>fips-140-3</code>: The cluster only accepts secure connections per the requirements of the Federal Information Processing Standards (FIPS) publication 140-3.
+   *                     Only supported starting with Amazon DocumentDB 5.0 (engine version 3.0.3727) clusters in these regions: ca-central-1, us-west-2, us-east-1, us-east-2, us-gov-east-1, us-gov-west-1.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>tls1.2+</code>: The cluster accepts secure connections using TLS version 1.2 and above.
+   *                     Only supported starting with Amazon DocumentDB 4.0 (engine version 2.0.10980) and Amazon DocumentDB 5.0 (engine version 3.0.11051).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>tls1.3+</code>: The cluster accepts secure connections using TLS version 1.3 and above.
+   *                     Only supported starting with Amazon DocumentDB 4.0 (engine version 2.0.10980) and Amazon DocumentDB 5.0 (engine version 3.0.11051).</p>
+   *             </li>
+   *          </ul>
    * @public
    */
   ParameterValue?: string | undefined;
@@ -5503,9 +5587,40 @@ export interface ModifyDBClusterMessage {
 
   /**
    * <p>A value that indicates whether major version upgrades are allowed.</p>
-   *          <p>Constraints: You must allow major version upgrades when specifying a value for the
-   *              <code>EngineVersion</code> parameter that is a different major version than the DB
-   *              cluster's current version.</p>
+   *          <p>Constraints:</p>
+   *          <ul>
+   *             <li>
+   *                <p>You must allow major version upgrades when specifying a value for the <code>EngineVersion</code> parameter that is a different major version than the cluster's current version.</p>
+   *             </li>
+   *             <li>
+   *                <p>Since some parameters are version specific, changing them requires executing a new <code>ModifyDBCluster</code> API call after the in-place MVU completes.</p>
+   *             </li>
+   *          </ul>
+   *          <note>
+   *             <p>Performing an MVU directly impacts the following parameters:</p>
+   *             <ul>
+   *                <li>
+   *                   <p>
+   *                      <code>MasterUserPassword</code>
+   *                   </p>
+   *                </li>
+   *                <li>
+   *                   <p>
+   *                      <code>NewDBClusterIdentifier</code>
+   *                   </p>
+   *                </li>
+   *                <li>
+   *                   <p>
+   *                      <code>VpcSecurityGroupIds</code>
+   *                   </p>
+   *                </li>
+   *                <li>
+   *                   <p>
+   *                      <code>Port</code>
+   *                   </p>
+   *                </li>
+   *             </ul>
+   *          </note>
    * @public
    */
   AllowMajorVersionUpgrade?: boolean | undefined;
@@ -5577,6 +5692,17 @@ export interface ModifyDBClusterMessage {
    * @public
    */
   RotateMasterUserPassword?: boolean | undefined;
+
+  /**
+   * <p>The network type of the cluster.</p>
+   *          <p>The network type is determined by the <code>DBSubnetGroup</code> specified for the cluster.
+   *             A <code>DBSubnetGroup</code> can support only the IPv4 protocol or the IPv4 and the IPv6 protocols (<code>DUAL</code>).</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/documentdb/latest/developerguide/vpc-clusters.html">DocumentDB clusters in a VPC</a> in the Amazon DocumentDB Developer Guide.</p>
+   *          <p>Valid Values: <code>IPV4</code> | <code>DUAL</code>
+   *          </p>
+   * @public
+   */
+  NetworkType?: string | undefined;
 }
 
 /**
@@ -6395,6 +6521,17 @@ export interface RestoreDBClusterFromSnapshotMessage {
    * @public
    */
   StorageType?: string | undefined;
+
+  /**
+   * <p>The network type of the cluster.</p>
+   *          <p>The network type is determined by the <code>DBSubnetGroup</code> specified for the cluster.
+   *             A <code>DBSubnetGroup</code> can support only the IPv4 protocol or the IPv4 and the IPv6 protocols (<code>DUAL</code>).</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/documentdb/latest/developerguide/vpc-clusters.html">DocumentDB clusters in a VPC</a> in the Amazon DocumentDB Developer Guide.</p>
+   *          <p>Valid Values: <code>IPV4</code> | <code>DUAL</code>
+   *          </p>
+   * @public
+   */
+  NetworkType?: string | undefined;
 }
 
 /**
@@ -6578,6 +6715,17 @@ export interface RestoreDBClusterToPointInTimeMessage {
    * @public
    */
   StorageType?: string | undefined;
+
+  /**
+   * <p>The network type of the cluster.</p>
+   *          <p>The network type is determined by the <code>DBSubnetGroup</code> specified for the cluster.
+   *             A <code>DBSubnetGroup</code> can support only the IPv4 protocol or the IPv4 and the IPv6 protocols (<code>DUAL</code>).</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/documentdb/latest/developerguide/vpc-clusters.html">DocumentDB clusters in a VPC</a> in the Amazon DocumentDB Developer Guide.</p>
+   *          <p>Valid Values: <code>IPV4</code> | <code>DUAL</code>
+   *          </p>
+   * @public
+   */
+  NetworkType?: string | undefined;
 }
 
 /**

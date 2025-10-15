@@ -102,6 +102,7 @@ export interface StopDBClusterCommandOutput extends StopDBClusterResult, __Metad
  * //       "STRING_VALUE",
  * //     ],
  * //     DeletionProtection: true || false,
+ * //     IOOptimizedNextAllowedModificationTime: new Date("TIMESTAMP"),
  * //     StorageType: "STRING_VALUE",
  * //     ServerlessV2ScalingConfiguration: { // ServerlessV2ScalingConfigurationInfo
  * //       MinCapacity: Number("double"),
@@ -112,6 +113,7 @@ export interface StopDBClusterCommandOutput extends StopDBClusterResult, __Metad
  * //       SecretStatus: "STRING_VALUE",
  * //       KmsKeyId: "STRING_VALUE",
  * //     },
+ * //     NetworkType: "STRING_VALUE",
  * //   },
  * // };
  *

@@ -85,6 +85,9 @@ export interface RebootDBInstanceCommandOutput extends RebootDBInstanceResult, _
  * //         },
  * //       ],
  * //       DBSubnetGroupArn: "STRING_VALUE",
+ * //       SupportedNetworkTypes: [ // NetworkTypeList
+ * //         "STRING_VALUE",
+ * //       ],
  * //     },
  * //     PreferredMaintenanceWindow: "STRING_VALUE",
  * //     PendingModifiedValues: { // PendingModifiedValues

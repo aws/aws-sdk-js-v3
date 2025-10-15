@@ -102,6 +102,7 @@ export interface DeleteDBClusterCommandOutput extends DeleteDBClusterResult, __M
  * //       "STRING_VALUE",
  * //     ],
  * //     DeletionProtection: true || false,
+ * //     IOOptimizedNextAllowedModificationTime: new Date("TIMESTAMP"),
  * //     StorageType: "STRING_VALUE",
  * //     ServerlessV2ScalingConfiguration: { // ServerlessV2ScalingConfigurationInfo
  * //       MinCapacity: Number("double"),
@@ -112,6 +113,7 @@ export interface DeleteDBClusterCommandOutput extends DeleteDBClusterResult, __M
  * //       SecretStatus: "STRING_VALUE",
  * //       KmsKeyId: "STRING_VALUE",
  * //     },
+ * //     NetworkType: "STRING_VALUE",
  * //   },
  * // };
  *

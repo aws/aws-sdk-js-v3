@@ -358,6 +358,7 @@ import {
   ModifyEventSubscriptionResult,
   ModifyGlobalClusterMessage,
   ModifyGlobalClusterResult,
+  NetworkTypeNotSupported,
   OrderableDBInstanceOption,
   OrderableDBInstanceOptionsMessage,
   Parameter,
@@ -2527,6 +2528,9 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "InvalidVPCNetworkStateFault":
     case "com.amazonaws.docdb#InvalidVPCNetworkStateFault":
       throw await de_InvalidVPCNetworkStateFaultRes(parsedOutput, context);
+    case "NetworkTypeNotSupported":
+    case "com.amazonaws.docdb#NetworkTypeNotSupported":
+      throw await de_NetworkTypeNotSupportedRes(parsedOutput, context);
     case "StorageQuotaExceeded":
     case "com.amazonaws.docdb#StorageQuotaExceededFault":
       throw await de_StorageQuotaExceededFaultRes(parsedOutput, context);
@@ -3326,6 +3330,22 @@ const de_KMSKeyNotAccessibleFaultRes = async (
 };
 
 /**
+ * deserializeAws_queryNetworkTypeNotSupportedRes
+ */
+const de_NetworkTypeNotSupportedRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<NetworkTypeNotSupported> => {
+  const body = parsedOutput.body;
+  const deserialized: any = de_NetworkTypeNotSupported(body.Error, context);
+  const exception = new NetworkTypeNotSupported({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+/**
  * deserializeAws_queryResourceNotFoundFaultRes
  */
 const de_ResourceNotFoundFaultRes = async (
@@ -3819,6 +3839,9 @@ const se_CreateDBClusterMessage = (input: CreateDBClusterMessage, context: __Ser
   }
   if (input[_MUSKKI] != null) {
     entries[_MUSKKI] = input[_MUSKKI];
+  }
+  if (input[_NT] != null) {
+    entries[_NT] = input[_NT];
   }
   return entries;
 };
@@ -4864,6 +4887,9 @@ const se_ModifyDBClusterMessage = (input: ModifyDBClusterMessage, context: __Ser
   if (input[_RMUP] != null) {
     entries[_RMUP] = input[_RMUP];
   }
+  if (input[_NT] != null) {
+    entries[_NT] = input[_NT];
+  }
   return entries;
 };
 
@@ -5278,6 +5304,9 @@ const se_RestoreDBClusterFromSnapshotMessage = (
   if (input[_ST] != null) {
     entries[_ST] = input[_ST];
   }
+  if (input[_NT] != null) {
+    entries[_NT] = input[_NT];
+  }
   return entries;
 };
 
@@ -5355,6 +5384,9 @@ const se_RestoreDBClusterToPointInTimeMessage = (
   }
   if (input[_ST] != null) {
     entries[_ST] = input[_ST];
+  }
+  if (input[_NT] != null) {
+    entries[_NT] = input[_NT];
   }
   return entries;
 };
@@ -5897,6 +5929,9 @@ const de_DBCluster = (output: any, context: __SerdeContext): DBCluster => {
   if (output[_DP] != null) {
     contents[_DP] = __parseBoolean(output[_DP]);
   }
+  if (output[_IOONAMT] != null) {
+    contents[_IOONAMT] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_IOONAMT]));
+  }
   if (output[_ST] != null) {
     contents[_ST] = __expectString(output[_ST]);
   }
@@ -5905,6 +5940,9 @@ const de_DBCluster = (output: any, context: __SerdeContext): DBCluster => {
   }
   if (output[_MUS] != null) {
     contents[_MUS] = de_ClusterMasterUserSecret(output[_MUS], context);
+  }
+  if (output[_NT] != null) {
+    contents[_NT] = __expectString(output[_NT]);
   }
   return contents;
 };
@@ -6632,6 +6670,11 @@ const de_DBSubnetGroup = (output: any, context: __SerdeContext): DBSubnetGroup =
   }
   if (output[_DBSGA] != null) {
     contents[_DBSGA] = __expectString(output[_DBSGA]);
+  }
+  if (String(output.SupportedNetworkTypes).trim() === "") {
+    contents[_SNT] = [];
+  } else if (output[_SNT] != null && output[_SNT][_me] != null) {
+    contents[_SNT] = de_NetworkTypeList(__getArrayIfSingleItem(output[_SNT][_me]), context);
   }
   return contents;
 };
@@ -7487,6 +7530,28 @@ const de_ModifyGlobalClusterResult = (output: any, context: __SerdeContext): Mod
   const contents: any = {};
   if (output[_GC] != null) {
     contents[_GC] = de_GlobalCluster(output[_GC], context);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_queryNetworkTypeList
+ */
+const de_NetworkTypeList = (output: any, context: __SerdeContext): string[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return __expectString(entry) as any;
+    });
+};
+
+/**
+ * deserializeAws_queryNetworkTypeNotSupported
+ */
+const de_NetworkTypeNotSupported = (output: any, context: __SerdeContext): NetworkTypeNotSupported => {
+  const contents: any = {};
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -8392,6 +8457,7 @@ const _ICT = "InstanceCreateTime";
 const _ICW = "IsClusterWriter";
 const _IM = "IsModifiable";
 const _IMVU = "IsMajorVersionUpgrade";
+const _IOONAMT = "IOOptimizedNextAllowedModificationTime";
 const _IP = "IncludePublic";
 const _IS = "IncludeShared";
 const _IW = "IsWriter";
@@ -8427,6 +8493,7 @@ const _N = "Name";
 const _NDBCI = "NewDBClusterIdentifier";
 const _NDBII = "NewDBInstanceIdentifier";
 const _NGCI = "NewGlobalClusterIdentifier";
+const _NT = "NetworkType";
 const _No = "Normal";
 const _ODBIO = "OrderableDBInstanceOptions";
 const _ODBIOr = "OrderableDBInstanceOption";
@@ -8498,6 +8565,7 @@ const _SIu = "SubnetIds";
 const _SIub = "SubnetIdentifier";
 const _SLETCL = "SupportsLogExportsToCloudwatchLogs";
 const _SN = "SubscriptionName";
+const _SNT = "SupportedNetworkTypes";
 const _SS = "SecretStatus";
 const _SSu = "SubnetStatus";
 const _ST = "StorageType";

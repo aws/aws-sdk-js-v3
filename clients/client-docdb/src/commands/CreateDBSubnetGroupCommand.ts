@@ -69,6 +69,9 @@ export interface CreateDBSubnetGroupCommandOutput extends CreateDBSubnetGroupRes
  * //       },
  * //     ],
  * //     DBSubnetGroupArn: "STRING_VALUE",
+ * //     SupportedNetworkTypes: [ // NetworkTypeList
+ * //       "STRING_VALUE",
+ * //     ],
  * //   },
  * // };
  *

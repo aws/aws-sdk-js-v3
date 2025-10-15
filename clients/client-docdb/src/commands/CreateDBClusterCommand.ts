@@ -76,6 +76,7 @@ export interface CreateDBClusterCommandOutput extends CreateDBClusterResult, __M
  *   },
  *   ManageMasterUserPassword: true || false,
  *   MasterUserSecretKmsKeyId: "STRING_VALUE",
+ *   NetworkType: "STRING_VALUE",
  * };
  * const command = new CreateDBClusterCommand(input);
  * const response = await client.send(command);
@@ -136,6 +137,7 @@ export interface CreateDBClusterCommandOutput extends CreateDBClusterResult, __M
  * //       "STRING_VALUE",
  * //     ],
  * //     DeletionProtection: true || false,
+ * //     IOOptimizedNextAllowedModificationTime: new Date("TIMESTAMP"),
  * //     StorageType: "STRING_VALUE",
  * //     ServerlessV2ScalingConfiguration: { // ServerlessV2ScalingConfigurationInfo
  * //       MinCapacity: Number("double"),
@@ -146,6 +148,7 @@ export interface CreateDBClusterCommandOutput extends CreateDBClusterResult, __M
  * //       SecretStatus: "STRING_VALUE",
  * //       KmsKeyId: "STRING_VALUE",
  * //     },
+ * //     NetworkType: "STRING_VALUE",
  * //   },
  * // };
  *
@@ -211,6 +214,9 @@ export interface CreateDBClusterCommandOutput extends CreateDBClusterResult, __M
  *
  * @throws {@link KMSKeyNotAccessibleFault} (client fault)
  *  <p>An error occurred when accessing an KMS key.</p>
+ *
+ * @throws {@link NetworkTypeNotSupported} (client fault)
+ *  <p>The network type is not supported by either <code>DBSubnetGroup</code> or the DB engine version.</p>
  *
  * @throws {@link StorageQuotaExceededFault} (client fault)
  *  <p>The request would cause you to exceed the allowed amount of storage available across

@@ -89,6 +89,9 @@ export interface ModifyDBInstanceCommandOutput extends ModifyDBInstanceResult, _
  * //         },
  * //       ],
  * //       DBSubnetGroupArn: "STRING_VALUE",
+ * //       SupportedNetworkTypes: [ // NetworkTypeList
+ * //         "STRING_VALUE",
+ * //       ],
  * //     },
  * //     PreferredMaintenanceWindow: "STRING_VALUE",
  * //     PendingModifiedValues: { // PendingModifiedValues

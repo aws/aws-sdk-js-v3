@@ -71,6 +71,9 @@ export interface DescribeDBSubnetGroupsCommandOutput extends DBSubnetGroupMessag
  * //         },
  * //       ],
  * //       DBSubnetGroupArn: "STRING_VALUE",
+ * //       SupportedNetworkTypes: [ // NetworkTypeList
+ * //         "STRING_VALUE",
+ * //       ],
  * //     },
  * //   ],
  * // };

@@ -62,6 +62,9 @@ export interface ModifyDBSubnetGroupCommandOutput extends ModifyDBSubnetGroupRes
  * //       },
  * //     ],
  * //     DBSubnetGroupArn: "STRING_VALUE",
+ * //     SupportedNetworkTypes: [ // NetworkTypeList
+ * //       "STRING_VALUE",
+ * //     ],
  * //   },
  * // };
  *

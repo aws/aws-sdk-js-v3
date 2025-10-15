@@ -71,6 +71,7 @@ export interface ModifyDBClusterCommandOutput extends ModifyDBClusterResult, __M
  *   ManageMasterUserPassword: true || false,
  *   MasterUserSecretKmsKeyId: "STRING_VALUE",
  *   RotateMasterUserPassword: true || false,
+ *   NetworkType: "STRING_VALUE",
  * };
  * const command = new ModifyDBClusterCommand(input);
  * const response = await client.send(command);
@@ -131,6 +132,7 @@ export interface ModifyDBClusterCommandOutput extends ModifyDBClusterResult, __M
  * //       "STRING_VALUE",
  * //     ],
  * //     DeletionProtection: true || false,
+ * //     IOOptimizedNextAllowedModificationTime: new Date("TIMESTAMP"),
  * //     StorageType: "STRING_VALUE",
  * //     ServerlessV2ScalingConfiguration: { // ServerlessV2ScalingConfigurationInfo
  * //       MinCapacity: Number("double"),
@@ -141,6 +143,7 @@ export interface ModifyDBClusterCommandOutput extends ModifyDBClusterResult, __M
  * //       SecretStatus: "STRING_VALUE",
  * //       KmsKeyId: "STRING_VALUE",
  * //     },
+ * //     NetworkType: "STRING_VALUE",
  * //   },
  * // };
  *
@@ -187,6 +190,9 @@ export interface ModifyDBClusterCommandOutput extends ModifyDBClusterResult, __M
  * @throws {@link InvalidVPCNetworkStateFault} (client fault)
  *  <p>The subnet group doesn't cover all Availability Zones after it is created
  *             because of changes that were made.</p>
+ *
+ * @throws {@link NetworkTypeNotSupported} (client fault)
+ *  <p>The network type is not supported by either <code>DBSubnetGroup</code> or the DB engine version.</p>
  *
  * @throws {@link StorageQuotaExceededFault} (client fault)
  *  <p>The request would cause you to exceed the allowed amount of storage available across
