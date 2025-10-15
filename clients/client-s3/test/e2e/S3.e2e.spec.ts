@@ -112,7 +112,7 @@ describe("@aws-sdk/client-s3", () => {
       const { Readable } = require("stream");
       expect(result.Body).toBeInstanceOf(Readable);
     });
-  }, 10_000);
+  });
 
   describe("ListObjects", () => {
     beforeAll(async () => {
