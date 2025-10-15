@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
-import { GetContainerServiceMetricDataRequest, GetContainerServiceMetricDataResult } from "../models/models_0";
+import { GetContainerServiceMetricDataRequest, GetContainerServiceMetricDataResult } from "../models/models_1";
 import {
   de_GetContainerServiceMetricDataCommand,
   se_GetContainerServiceMetricDataCommand,

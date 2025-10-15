@@ -447,6 +447,8 @@ import {
   Bucket,
   BucketAccessLogConfig,
   BucketBundle,
+  BucketCorsConfig,
+  BucketCorsRule,
   Bundle,
   CacheBehavior,
   CacheBehaviorPerPath,
@@ -617,8 +619,6 @@ import {
   GetContainerLogResult,
   GetContainerServiceDeploymentsRequest,
   GetContainerServiceDeploymentsResult,
-  GetContainerServiceMetricDataRequest,
-  GetContainerServiceMetricDataResult,
   HeaderEnum,
   HeaderObject,
   InputOrigin,
@@ -643,6 +643,8 @@ import {
   UnauthenticatedException,
 } from "../models/models_0";
 import {
+  GetContainerServiceMetricDataRequest,
+  GetContainerServiceMetricDataResult,
   GetContainerServicePowersRequest,
   GetContainerServicePowersResult,
   GetContainerServicesRequest,
@@ -6325,6 +6327,20 @@ const de_UnauthenticatedExceptionRes = async (
 
 // se_BucketAccessLogConfig omitted.
 
+// se_BucketCorsAllowedHeaders omitted.
+
+// se_BucketCorsAllowedMethods omitted.
+
+// se_BucketCorsAllowedOrigins omitted.
+
+// se_BucketCorsConfig omitted.
+
+// se_BucketCorsExposeHeaders omitted.
+
+// se_BucketCorsRule omitted.
+
+// se_BucketCorsRules omitted.
+
 // se_CacheBehavior omitted.
 
 // se_CacheBehaviorList omitted.
@@ -7088,6 +7104,7 @@ const de_Bucket = (output: any, context: __SerdeContext): Bucket => {
     accessRules: _json,
     arn: __expectString,
     bundleId: __expectString,
+    cors: _json,
     createdAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     location: _json,
     name: __expectString,
@@ -7129,6 +7146,20 @@ const de_BucketBundleList = (output: any, context: __SerdeContext): BucketBundle
     });
   return retVal;
 };
+
+// de_BucketCorsAllowedHeaders omitted.
+
+// de_BucketCorsAllowedMethods omitted.
+
+// de_BucketCorsAllowedOrigins omitted.
+
+// de_BucketCorsConfig omitted.
+
+// de_BucketCorsExposeHeaders omitted.
+
+// de_BucketCorsRule omitted.
+
+// de_BucketCorsRules omitted.
 
 /**
  * deserializeAws_json1_1BucketList

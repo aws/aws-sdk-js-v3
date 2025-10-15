@@ -54,6 +54,26 @@ export interface UpdateBucketCommandOutput extends UpdateBucketResult, __Metadat
  *     destination: "STRING_VALUE",
  *     prefix: "STRING_VALUE",
  *   },
+ *   cors: { // BucketCorsConfig
+ *     rules: [ // BucketCorsRules
+ *       { // BucketCorsRule
+ *         id: "STRING_VALUE",
+ *         allowedMethods: [ // BucketCorsAllowedMethods // required
+ *           "STRING_VALUE",
+ *         ],
+ *         allowedOrigins: [ // BucketCorsAllowedOrigins // required
+ *           "STRING_VALUE",
+ *         ],
+ *         allowedHeaders: [ // BucketCorsAllowedHeaders
+ *           "STRING_VALUE",
+ *         ],
+ *         exposeHeaders: [ // BucketCorsExposeHeaders
+ *           "STRING_VALUE",
+ *         ],
+ *         maxAgeSeconds: Number("int"),
+ *       },
+ *     ],
+ *   },
  * };
  * const command = new UpdateBucketCommand(input);
  * const response = await client.send(command);
@@ -99,6 +119,26 @@ export interface UpdateBucketCommandOutput extends UpdateBucketResult, __Metadat
  * //       enabled: true || false, // required
  * //       destination: "STRING_VALUE",
  * //       prefix: "STRING_VALUE",
+ * //     },
+ * //     cors: { // BucketCorsConfig
+ * //       rules: [ // BucketCorsRules
+ * //         { // BucketCorsRule
+ * //           id: "STRING_VALUE",
+ * //           allowedMethods: [ // BucketCorsAllowedMethods // required
+ * //             "STRING_VALUE",
+ * //           ],
+ * //           allowedOrigins: [ // BucketCorsAllowedOrigins // required
+ * //             "STRING_VALUE",
+ * //           ],
+ * //           allowedHeaders: [ // BucketCorsAllowedHeaders
+ * //             "STRING_VALUE",
+ * //           ],
+ * //           exposeHeaders: [ // BucketCorsExposeHeaders
+ * //             "STRING_VALUE",
+ * //           ],
+ * //           maxAgeSeconds: Number("int"),
+ * //         },
+ * //       ],
  * //     },
  * //   },
  * //   operations: [ // OperationList

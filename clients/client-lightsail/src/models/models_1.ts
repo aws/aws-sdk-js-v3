@@ -9,6 +9,7 @@ import {
   AvailabilityZone,
   Bucket,
   BucketAccessLogConfig,
+  BucketCorsConfig,
   CacheBehavior,
   CacheBehaviorPerPath,
   CacheSettings,
@@ -18,6 +19,7 @@ import {
   ContactProtocol,
   ContainerImage,
   ContainerService,
+  ContainerServiceMetricName,
   ContainerServicePower,
   ContainerServicePowerName,
   CostEstimate,
@@ -47,6 +49,119 @@ import {
   TreatMissingData,
   ViewerMinimumTlsProtocolVersionEnum,
 } from "./models_0";
+
+/**
+ * @public
+ */
+export interface GetContainerServiceMetricDataRequest {
+  /**
+   * <p>The name of the container service for which to get metric data.</p>
+   * @public
+   */
+  serviceName: string | undefined;
+
+  /**
+   * <p>The metric for which you want to return information.</p>
+   *          <p>Valid container service metric names are listed below, along with the most useful
+   *       statistics to include in your request, and the published unit value.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>CPUUtilization</code> - The average percentage of compute units that are
+   *           currently in use across all nodes of the container service. This metric identifies the
+   *           processing power required to run containers on each node of the container service.</p>
+   *                <p>Statistics: The most useful statistics are <code>Maximum</code> and
+   *             <code>Average</code>.</p>
+   *                <p>Unit: The published unit is <code>Percent</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>MemoryUtilization</code> - The average percentage of available memory that is
+   *           currently in use across all nodes of the container service. This metric identifies the
+   *           memory required to run containers on each node of the container service.</p>
+   *                <p>Statistics: The most useful statistics are <code>Maximum</code> and
+   *             <code>Average</code>.</p>
+   *                <p>Unit: The published unit is <code>Percent</code>.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  metricName: ContainerServiceMetricName | undefined;
+
+  /**
+   * <p>The start time of the time period.</p>
+   * @public
+   */
+  startTime: Date | undefined;
+
+  /**
+   * <p>The end time of the time period.</p>
+   * @public
+   */
+  endTime: Date | undefined;
+
+  /**
+   * <p>The granularity, in seconds, of the returned data points.</p>
+   *          <p>All container service metric data is available in 5-minute (300 seconds)
+   *       granularity.</p>
+   * @public
+   */
+  period: number | undefined;
+
+  /**
+   * <p>The statistic for the metric.</p>
+   *          <p>The following statistics are available:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>Minimum</code> - The lowest value observed during the specified period. Use this
+   *           value to determine low volumes of activity for your application.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Maximum</code> - The highest value observed during the specified period. Use
+   *           this value to determine high volumes of activity for your application.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Sum</code> - All values submitted for the matching metric added together. You
+   *           can use this statistic to determine the total volume of a metric.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Average</code> - The value of <code>Sum</code> / <code>SampleCount</code> during
+   *           the specified period. By comparing this statistic with the <code>Minimum</code> and
+   *             <code>Maximum</code> values, you can determine the full scope of a metric and how close
+   *           the average use is to the <code>Minimum</code> and <code>Maximum</code> values. This
+   *           comparison helps you to know when to increase or decrease your resources.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SampleCount</code> - The count, or number, of data points used for the
+   *           statistical calculation.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  statistics: MetricStatistic[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetContainerServiceMetricDataResult {
+  /**
+   * <p>The name of the metric returned. </p>
+   * @public
+   */
+  metricName?: ContainerServiceMetricName | undefined;
+
+  /**
+   * <p>An array of objects that describe the metric data returned.</p>
+   * @public
+   */
+  metricData?: MetricDatapoint[] | undefined;
+}
 
 /**
  * @public
@@ -6416,6 +6531,15 @@ export interface UpdateBucketRequest {
    * @public
    */
   accessLogConfig?: BucketAccessLogConfig | undefined;
+
+  /**
+   * <p>Sets the cross-origin resource sharing (CORS) configuration for your bucket. If a CORS configuration exists, it is replaced with the specified configuration. For AWS CLI operations, this parameter can also be passed as a file. For more information, see <a href="https://docs.aws.amazon.com/lightsail/latest/userguide/configure-cors.html">Configuring cross-origin resource sharing (CORS)</a>.</p>
+   *          <note>
+   *             <p>CORS information is only returned in a response when you update the CORS policy.</p>
+   *          </note>
+   * @public
+   */
+  cors?: BucketCorsConfig | undefined;
 }
 
 /**

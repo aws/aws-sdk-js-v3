@@ -45,6 +45,7 @@ export interface GetBucketsCommandOutput extends GetBucketsResult, __MetadataBea
  *   bucketName: "STRING_VALUE",
  *   pageToken: "STRING_VALUE",
  *   includeConnectedResources: true || false,
+ *   includeCors: true || false,
  * };
  * const command = new GetBucketsCommand(input);
  * const response = await client.send(command);
@@ -91,6 +92,26 @@ export interface GetBucketsCommandOutput extends GetBucketsResult, __MetadataBea
  * //         enabled: true || false, // required
  * //         destination: "STRING_VALUE",
  * //         prefix: "STRING_VALUE",
+ * //       },
+ * //       cors: { // BucketCorsConfig
+ * //         rules: [ // BucketCorsRules
+ * //           { // BucketCorsRule
+ * //             id: "STRING_VALUE",
+ * //             allowedMethods: [ // BucketCorsAllowedMethods // required
+ * //               "STRING_VALUE",
+ * //             ],
+ * //             allowedOrigins: [ // BucketCorsAllowedOrigins // required
+ * //               "STRING_VALUE",
+ * //             ],
+ * //             allowedHeaders: [ // BucketCorsAllowedHeaders
+ * //               "STRING_VALUE",
+ * //             ],
+ * //             exposeHeaders: [ // BucketCorsExposeHeaders
+ * //               "STRING_VALUE",
+ * //             ],
+ * //             maxAgeSeconds: Number("int"),
+ * //           },
+ * //         ],
  * //       },
  * //     },
  * //   ],

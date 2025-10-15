@@ -1925,6 +1925,84 @@ export interface BucketAccessLogConfig {
 }
 
 /**
+ * <p>Describes a cross-origin resource sharing (CORS) rule for a Lightsail bucket. CORS rules specify which origins are allowed to access the bucket, which HTTP methods are allowed, and other access control information. For more information, see <a href="https://docs.aws.amazon.com/lightsail/latest/userguide/configure-cors.html">Configuring cross-origin resource sharing (CORS)</a>.</p>
+ * @public
+ */
+export interface BucketCorsRule {
+  /**
+   * <p>A unique identifier for the CORS rule. The ID value can be up to 255 characters long. The IDs help you find a rule in the configuration.</p>
+   * @public
+   */
+  id?: string | undefined;
+
+  /**
+   * <p>The HTTP methods that are allowed when accessing the bucket from the specified origin. Each CORS rule must identify at least one origin and one method.</p>
+   *          <p>You can use the following HTTP methods:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>GET</code> - Retrieves data from the server, such as downloading files or viewing content.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>PUT</code> - Uploads or replaces data on the server, such as uploading new files.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>POST</code> - Sends data to the server for processing, such as submitting forms or creating new resources.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DELETE</code> - Removes data from the server, such as deleting files or resources.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>HEAD</code> - Retrieves only the headers from the server without the actual content, useful for checking if a resource exists.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  allowedMethods: string[] | undefined;
+
+  /**
+   * <p>One or more origins you want customers to be able to access the bucket from. Each CORS rule must identify at least one origin and one method.</p>
+   * @public
+   */
+  allowedOrigins: string[] | undefined;
+
+  /**
+   * <p>Headers that are specified in the <code>Access-Control-Request-Headers</code> header. These headers are allowed in a preflight <code>OPTIONS</code> request. In response to any preflight <code>OPTIONS</code> request, Amazon S3 returns any requested headers that are allowed.</p>
+   * @public
+   */
+  allowedHeaders?: string[] | undefined;
+
+  /**
+   * <p>One or more headers in the response that you want customers to be able to access from their applications (for example, from a JavaScript <code>XMLHttpRequest</code> object).</p>
+   * @public
+   */
+  exposeHeaders?: string[] | undefined;
+
+  /**
+   * <p>The time in seconds that your browser is to cache the preflight response for the specified resource. A CORS rule can have only one <code>maxAgeSeconds</code> element.</p>
+   * @public
+   */
+  maxAgeSeconds?: number | undefined;
+}
+
+/**
+ * <p>Describes the cross-origin resource sharing (CORS) configuration for a Lightsail bucket. CORS defines a way for client web applications that are loaded in one domain to interact with resources in a different domain.
+ *         For more information, see <a href="https://docs.aws.amazon.com/lightsail/latest/userguide/configure-cors.html">Configuring cross-origin resource sharing (CORS)</a>.</p>
+ * @public
+ */
+export interface BucketCorsConfig {
+  /**
+   * <p>A set of origins and methods (cross-origin access that you want to allow). You can add up to 20 rules to the configuration. The total size is limited to 64 KB.</p>
+   * @public
+   */
+  rules?: BucketCorsRule[] | undefined;
+}
+
+/**
  * <p>Describes the state of an Amazon Lightsail bucket.</p>
  * @public
  */
@@ -2110,6 +2188,12 @@ export interface Bucket {
    * @public
    */
   accessLogConfig?: BucketAccessLogConfig | undefined;
+
+  /**
+   * <p>An array of cross-origin resource sharing (CORS) rules that identify origins and the HTTP methods that can be executed on your bucket. This field is only included in the response when CORS configuration is requested or when updating CORS configuration. For more information, see <a href="https://docs.aws.amazon.com/lightsail/latest/userguide/configure-cors.html">Configuring cross-origin resource sharing (CORS)</a>.</p>
+   * @public
+   */
+  cors?: BucketCorsConfig | undefined;
 }
 
 /**
@@ -8906,6 +8990,15 @@ export interface GetBucketsRequest {
    * @public
    */
   includeConnectedResources?: boolean | undefined;
+
+  /**
+   * <p>A Boolean value that indicates whether to include Lightsail bucket CORS configuration in the response. For more information, see <a href="https://docs.aws.amazon.com/lightsail/latest/userguide/configure-cors.html">Configuring cross-origin resource sharing (CORS)</a>.</p>
+   *          <note>
+   *             <p>This parameter is only supported when getting a single bucket with <code>bucketName</code> specified. The default value for this parameter is <code>False</code>.</p>
+   *          </note>
+   * @public
+   */
+  includeCors?: boolean | undefined;
 }
 
 /**
@@ -9279,119 +9372,6 @@ export interface GetContainerServiceDeploymentsResult {
    * @public
    */
   deployments?: ContainerServiceDeployment[] | undefined;
-}
-
-/**
- * @public
- */
-export interface GetContainerServiceMetricDataRequest {
-  /**
-   * <p>The name of the container service for which to get metric data.</p>
-   * @public
-   */
-  serviceName: string | undefined;
-
-  /**
-   * <p>The metric for which you want to return information.</p>
-   *          <p>Valid container service metric names are listed below, along with the most useful
-   *       statistics to include in your request, and the published unit value.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>CPUUtilization</code> - The average percentage of compute units that are
-   *           currently in use across all nodes of the container service. This metric identifies the
-   *           processing power required to run containers on each node of the container service.</p>
-   *                <p>Statistics: The most useful statistics are <code>Maximum</code> and
-   *             <code>Average</code>.</p>
-   *                <p>Unit: The published unit is <code>Percent</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>MemoryUtilization</code> - The average percentage of available memory that is
-   *           currently in use across all nodes of the container service. This metric identifies the
-   *           memory required to run containers on each node of the container service.</p>
-   *                <p>Statistics: The most useful statistics are <code>Maximum</code> and
-   *             <code>Average</code>.</p>
-   *                <p>Unit: The published unit is <code>Percent</code>.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  metricName: ContainerServiceMetricName | undefined;
-
-  /**
-   * <p>The start time of the time period.</p>
-   * @public
-   */
-  startTime: Date | undefined;
-
-  /**
-   * <p>The end time of the time period.</p>
-   * @public
-   */
-  endTime: Date | undefined;
-
-  /**
-   * <p>The granularity, in seconds, of the returned data points.</p>
-   *          <p>All container service metric data is available in 5-minute (300 seconds)
-   *       granularity.</p>
-   * @public
-   */
-  period: number | undefined;
-
-  /**
-   * <p>The statistic for the metric.</p>
-   *          <p>The following statistics are available:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>Minimum</code> - The lowest value observed during the specified period. Use this
-   *           value to determine low volumes of activity for your application.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Maximum</code> - The highest value observed during the specified period. Use
-   *           this value to determine high volumes of activity for your application.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Sum</code> - All values submitted for the matching metric added together. You
-   *           can use this statistic to determine the total volume of a metric.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Average</code> - The value of <code>Sum</code> / <code>SampleCount</code> during
-   *           the specified period. By comparing this statistic with the <code>Minimum</code> and
-   *             <code>Maximum</code> values, you can determine the full scope of a metric and how close
-   *           the average use is to the <code>Minimum</code> and <code>Maximum</code> values. This
-   *           comparison helps you to know when to increase or decrease your resources.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>SampleCount</code> - The count, or number, of data points used for the
-   *           statistical calculation.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  statistics: MetricStatistic[] | undefined;
-}
-
-/**
- * @public
- */
-export interface GetContainerServiceMetricDataResult {
-  /**
-   * <p>The name of the metric returned. </p>
-   * @public
-   */
-  metricName?: ContainerServiceMetricName | undefined;
-
-  /**
-   * <p>An array of objects that describe the metric data returned.</p>
-   * @public
-   */
-  metricData?: MetricDatapoint[] | undefined;
 }
 
 /**
