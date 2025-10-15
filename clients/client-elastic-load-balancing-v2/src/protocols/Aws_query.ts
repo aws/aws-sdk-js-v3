@@ -244,6 +244,7 @@ import {
   GetTrustStoreRevocationContentOutput,
   HealthUnavailableException,
   HostHeaderConditionConfig,
+  HostHeaderRewriteConfig,
   HttpHeaderConditionConfig,
   HttpRequestMethodConditionConfig,
   IncompatibleProtocolsException,
@@ -308,10 +309,12 @@ import {
   RevocationContent,
   RevocationContentNotFoundException,
   RevocationIdNotFoundException,
+  RewriteConfig,
   Rule,
   RuleCondition,
   RuleNotFoundException,
   RulePriorityPair,
+  RuleTransform,
   SetIpAddressTypeInput,
   SetIpAddressTypeOutput,
   SetRulePrioritiesInput,
@@ -356,6 +359,7 @@ import {
   TrustStoreNotReadyException,
   TrustStoreRevocation,
   UnsupportedProtocolException,
+  UrlRewriteConfig,
   ZonalCapacityReservationState,
 } from "../models/models_0";
 
@@ -3823,6 +3827,16 @@ const se_CreateRuleInput = (input: CreateRuleInput, context: __SerdeContext): an
       entries[loc] = value;
     });
   }
+  if (input[_Tr] != null) {
+    const memberEntries = se_RuleTransformList(input[_Tr], context);
+    if (input[_Tr]?.length === 0) {
+      entries.Transforms = [];
+    }
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `Transforms.${key}`;
+      entries[loc] = value;
+    });
+  }
   return entries;
 };
 
@@ -4487,6 +4501,34 @@ const se_HostHeaderConditionConfig = (input: HostHeaderConditionConfig, context:
       entries[loc] = value;
     });
   }
+  if (input[_RV] != null) {
+    const memberEntries = se_ListOfString(input[_RV], context);
+    if (input[_RV]?.length === 0) {
+      entries.RegexValues = [];
+    }
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `RegexValues.${key}`;
+      entries[loc] = value;
+    });
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_queryHostHeaderRewriteConfig
+ */
+const se_HostHeaderRewriteConfig = (input: HostHeaderRewriteConfig, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input[_R] != null) {
+    const memberEntries = se_RewriteConfigList(input[_R], context);
+    if (input[_R]?.length === 0) {
+      entries.Rewrites = [];
+    }
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `Rewrites.${key}`;
+      entries[loc] = value;
+    });
+  }
   return entries;
 };
 
@@ -4505,6 +4547,16 @@ const se_HttpHeaderConditionConfig = (input: HttpHeaderConditionConfig, context:
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Values.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input[_RV] != null) {
+    const memberEntries = se_ListOfString(input[_RV], context);
+    if (input[_RV]?.length === 0) {
+      entries.RegexValues = [];
+    }
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `RegexValues.${key}`;
       entries[loc] = value;
     });
   }
@@ -4893,6 +4945,19 @@ const se_ModifyRuleInput = (input: ModifyRuleInput, context: __SerdeContext): an
       entries[loc] = value;
     });
   }
+  if (input[_Tr] != null) {
+    const memberEntries = se_RuleTransformList(input[_Tr], context);
+    if (input[_Tr]?.length === 0) {
+      entries.Transforms = [];
+    }
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `Transforms.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input[_RTes] != null) {
+    entries[_RTes] = input[_RTes];
+  }
   return entries;
 };
 
@@ -5014,6 +5079,16 @@ const se_PathPatternConditionConfig = (input: PathPatternConditionConfig, contex
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Values.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input[_RV] != null) {
+    const memberEntries = se_ListOfString(input[_RV], context);
+    if (input[_RV]?.length === 0) {
+      entries.RegexValues = [];
+    }
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `RegexValues.${key}`;
       entries[loc] = value;
     });
   }
@@ -5276,6 +5351,39 @@ const se_RevocationIds = (input: number[], context: __SerdeContext): any => {
 };
 
 /**
+ * serializeAws_queryRewriteConfig
+ */
+const se_RewriteConfig = (input: RewriteConfig, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input[_Re] != null) {
+    entries[_Re] = input[_Re];
+  }
+  if (input[_Rep] != null) {
+    entries[_Rep] = input[_Rep];
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_queryRewriteConfigList
+ */
+const se_RewriteConfigList = (input: RewriteConfig[], context: __SerdeContext): any => {
+  const entries: any = {};
+  let counter = 1;
+  for (const entry of input) {
+    if (entry === null) {
+      continue;
+    }
+    const memberEntries = se_RewriteConfig(entry, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      entries[`member.${counter}.${key}`] = value;
+    });
+    counter++;
+  }
+  return entries;
+};
+
+/**
  * serializeAws_queryRuleArns
  */
 const se_RuleArns = (input: string[], context: __SerdeContext): any => {
@@ -5351,6 +5459,16 @@ const se_RuleCondition = (input: RuleCondition, context: __SerdeContext): any =>
       entries[loc] = value;
     });
   }
+  if (input[_RV] != null) {
+    const memberEntries = se_ListOfString(input[_RV], context);
+    if (input[_RV]?.length === 0) {
+      entries.RegexValues = [];
+    }
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `RegexValues.${key}`;
+      entries[loc] = value;
+    });
+  }
   return entries;
 };
 
@@ -5402,6 +5520,50 @@ const se_RulePriorityPair = (input: RulePriorityPair, context: __SerdeContext): 
   }
   if (input[_Pr] != null) {
     entries[_Pr] = input[_Pr];
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_queryRuleTransform
+ */
+const se_RuleTransform = (input: RuleTransform, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input[_T] != null) {
+    entries[_T] = input[_T];
+  }
+  if (input[_HHRC] != null) {
+    const memberEntries = se_HostHeaderRewriteConfig(input[_HHRC], context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `HostHeaderRewriteConfig.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input[_URC] != null) {
+    const memberEntries = se_UrlRewriteConfig(input[_URC], context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `UrlRewriteConfig.${key}`;
+      entries[loc] = value;
+    });
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_queryRuleTransformList
+ */
+const se_RuleTransformList = (input: RuleTransform[], context: __SerdeContext): any => {
+  const entries: any = {};
+  let counter = 1;
+  for (const entry of input) {
+    if (entry === null) {
+      continue;
+    }
+    const memberEntries = se_RuleTransform(entry, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      entries[`member.${counter}.${key}`] = value;
+    });
+    counter++;
   }
   return entries;
 };
@@ -5837,6 +5999,24 @@ const se_TrustStoreNames = (input: string[], context: __SerdeContext): any => {
 };
 
 /**
+ * serializeAws_queryUrlRewriteConfig
+ */
+const se_UrlRewriteConfig = (input: UrlRewriteConfig, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input[_R] != null) {
+    const memberEntries = se_RewriteConfigList(input[_R], context);
+    if (input[_R]?.length === 0) {
+      entries.Rewrites = [];
+    }
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `Rewrites.${key}`;
+      entries[loc] = value;
+    });
+  }
+  return entries;
+};
+
+/**
  * deserializeAws_queryAction
  */
 const de_Action = (output: any, context: __SerdeContext): Action => {
@@ -5921,8 +6101,8 @@ const de_AdministrativeOverride = (output: any, context: __SerdeContext): Admini
   if (output[_St] != null) {
     contents[_St] = __expectString(output[_St]);
   }
-  if (output[_R] != null) {
-    contents[_R] = __expectString(output[_R]);
+  if (output[_Rea] != null) {
+    contents[_Rea] = __expectString(output[_Rea]);
   }
   if (output[_D] != null) {
     contents[_D] = __expectString(output[_D]);
@@ -5968,8 +6148,8 @@ const de_ALPNPolicyNotSupportedException = (output: any, context: __SerdeContext
  */
 const de_AnomalyDetection = (output: any, context: __SerdeContext): AnomalyDetection => {
   const contents: any = {};
-  if (output[_Re] != null) {
-    contents[_Re] = __expectString(output[_Re]);
+  if (output[_Res] != null) {
+    contents[_Res] = __expectString(output[_Res]);
   }
   if (output[_MIE] != null) {
     contents[_MIE] = __expectString(output[_MIE]);
@@ -6197,8 +6377,8 @@ const de_CapacityReservationStatus = (output: any, context: __SerdeContext): Cap
   if (output[_Cod] != null) {
     contents[_Cod] = __expectString(output[_Cod]);
   }
-  if (output[_R] != null) {
-    contents[_R] = __expectString(output[_R]);
+  if (output[_Rea] != null) {
+    contents[_Rea] = __expectString(output[_Rea]);
   }
   return contents;
 };
@@ -6875,6 +7055,24 @@ const de_HostHeaderConditionConfig = (output: any, context: __SerdeContext): Hos
   } else if (output[_Va] != null && output[_Va][_m] != null) {
     contents[_Va] = de_ListOfString(__getArrayIfSingleItem(output[_Va][_m]), context);
   }
+  if (String(output.RegexValues).trim() === "") {
+    contents[_RV] = [];
+  } else if (output[_RV] != null && output[_RV][_m] != null) {
+    contents[_RV] = de_ListOfString(__getArrayIfSingleItem(output[_RV][_m]), context);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_queryHostHeaderRewriteConfig
+ */
+const de_HostHeaderRewriteConfig = (output: any, context: __SerdeContext): HostHeaderRewriteConfig => {
+  const contents: any = {};
+  if (String(output.Rewrites).trim() === "") {
+    contents[_R] = [];
+  } else if (output[_R] != null && output[_R][_m] != null) {
+    contents[_R] = de_RewriteConfigList(__getArrayIfSingleItem(output[_R][_m]), context);
+  }
   return contents;
 };
 
@@ -6890,6 +7088,11 @@ const de_HttpHeaderConditionConfig = (output: any, context: __SerdeContext): Htt
     contents[_Va] = [];
   } else if (output[_Va] != null && output[_Va][_m] != null) {
     contents[_Va] = de_ListOfString(__getArrayIfSingleItem(output[_Va][_m]), context);
+  }
+  if (String(output.RegexValues).trim() === "") {
+    contents[_RV] = [];
+  } else if (output[_RV] != null && output[_RV][_m] != null) {
+    contents[_RV] = de_ListOfString(__getArrayIfSingleItem(output[_RV][_m]), context);
   }
   return contents;
 };
@@ -7324,8 +7527,8 @@ const de_LoadBalancerState = (output: any, context: __SerdeContext): LoadBalance
   if (output[_Cod] != null) {
     contents[_Cod] = __expectString(output[_Cod]);
   }
-  if (output[_R] != null) {
-    contents[_R] = __expectString(output[_R]);
+  if (output[_Rea] != null) {
+    contents[_Rea] = __expectString(output[_Rea]);
   }
   return contents;
 };
@@ -7529,6 +7732,11 @@ const de_PathPatternConditionConfig = (output: any, context: __SerdeContext): Pa
   } else if (output[_Va] != null && output[_Va][_m] != null) {
     contents[_Va] = de_ListOfString(__getArrayIfSingleItem(output[_Va][_m]), context);
   }
+  if (String(output.RegexValues).trim() === "") {
+    contents[_RV] = [];
+  } else if (output[_RV] != null && output[_RV][_m] != null) {
+    contents[_RV] = de_ListOfString(__getArrayIfSingleItem(output[_RV][_m]), context);
+  }
   return contents;
 };
 
@@ -7707,6 +7915,31 @@ const de_RevocationIdNotFoundException = (output: any, context: __SerdeContext):
 };
 
 /**
+ * deserializeAws_queryRewriteConfig
+ */
+const de_RewriteConfig = (output: any, context: __SerdeContext): RewriteConfig => {
+  const contents: any = {};
+  if (output[_Re] != null) {
+    contents[_Re] = __expectString(output[_Re]);
+  }
+  if (output[_Rep] != null) {
+    contents[_Rep] = __expectString(output[_Rep]);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_queryRewriteConfigList
+ */
+const de_RewriteConfigList = (output: any, context: __SerdeContext): RewriteConfig[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_RewriteConfig(entry, context);
+    });
+};
+
+/**
  * deserializeAws_queryRule
  */
 const de_Rule = (output: any, context: __SerdeContext): Rule => {
@@ -7729,6 +7962,11 @@ const de_Rule = (output: any, context: __SerdeContext): Rule => {
   }
   if (output[_ID] != null) {
     contents[_ID] = __parseBoolean(output[_ID]);
+  }
+  if (String(output.Transforms).trim() === "") {
+    contents[_Tr] = [];
+  } else if (output[_Tr] != null && output[_Tr][_m] != null) {
+    contents[_Tr] = de_RuleTransformList(__getArrayIfSingleItem(output[_Tr][_m]), context);
   }
   return contents;
 };
@@ -7764,6 +8002,11 @@ const de_RuleCondition = (output: any, context: __SerdeContext): RuleCondition =
   if (output[_SIC] != null) {
     contents[_SIC] = de_SourceIpConditionConfig(output[_SIC], context);
   }
+  if (String(output.RegexValues).trim() === "") {
+    contents[_RV] = [];
+  } else if (output[_RV] != null && output[_RV][_m] != null) {
+    contents[_RV] = de_ListOfString(__getArrayIfSingleItem(output[_RV][_m]), context);
+  }
   return contents;
 };
 
@@ -7797,6 +8040,34 @@ const de_Rules = (output: any, context: __SerdeContext): Rule[] => {
     .filter((e: any) => e != null)
     .map((entry: any) => {
       return de_Rule(entry, context);
+    });
+};
+
+/**
+ * deserializeAws_queryRuleTransform
+ */
+const de_RuleTransform = (output: any, context: __SerdeContext): RuleTransform => {
+  const contents: any = {};
+  if (output[_T] != null) {
+    contents[_T] = __expectString(output[_T]);
+  }
+  if (output[_HHRC] != null) {
+    contents[_HHRC] = de_HostHeaderRewriteConfig(output[_HHRC], context);
+  }
+  if (output[_URC] != null) {
+    contents[_URC] = de_UrlRewriteConfig(output[_URC], context);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_queryRuleTransformList
+ */
+const de_RuleTransformList = (output: any, context: __SerdeContext): RuleTransform[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_RuleTransform(entry, context);
     });
 };
 
@@ -8205,8 +8476,8 @@ const de_TargetHealth = (output: any, context: __SerdeContext): TargetHealth => 
   if (output[_St] != null) {
     contents[_St] = __expectString(output[_St]);
   }
-  if (output[_R] != null) {
-    contents[_R] = __expectString(output[_R]);
+  if (output[_Rea] != null) {
+    contents[_Rea] = __expectString(output[_Rea]);
   }
   if (output[_D] != null) {
     contents[_D] = __expectString(output[_D]);
@@ -8535,6 +8806,19 @@ const de_UnsupportedProtocolException = (output: any, context: __SerdeContext): 
 };
 
 /**
+ * deserializeAws_queryUrlRewriteConfig
+ */
+const de_UrlRewriteConfig = (output: any, context: __SerdeContext): UrlRewriteConfig => {
+  const contents: any = {};
+  if (String(output.Rewrites).trim() === "") {
+    contents[_R] = [];
+  } else if (output[_R] != null && output[_R][_m] != null) {
+    contents[_R] = de_RewriteConfigList(__getArrayIfSingleItem(output[_R][_m]), context);
+  }
+  return contents;
+};
+
+/**
  * deserializeAws_queryZonalCapacityReservationState
  */
 const de_ZonalCapacityReservationState = (output: any, context: __SerdeContext): ZonalCapacityReservationState => {
@@ -8692,6 +8976,7 @@ const _HCTS = "HealthCheckTimeoutSeconds";
 const _HHC = "HostHeaderConfig";
 const _HHCt = "HttpHeaderConfig";
 const _HHN = "HttpHeaderName";
+const _HHRC = "HostHeaderRewriteConfig";
 const _HRMC = "HttpRequestMethodConfig";
 const _HTC = "HealthyThresholdCount";
 const _I = "Issuer";
@@ -8754,7 +9039,7 @@ const _Pol = "Policy";
 const _Pr = "Priority";
 const _Q = "Query";
 const _QSC = "QueryStringConfig";
-const _R = "Reason";
+const _R = "Rewrites";
 const _RA = "ResourceArns";
 const _RAe = "ResourceArn";
 const _RAu = "RuleArn";
@@ -8770,8 +9055,13 @@ const _RP = "RulePriorities";
 const _RT = "RegisterTargets";
 const _RTSR = "RemoveTrustStoreRevocations";
 const _RTe = "RemoveTags";
+const _RTes = "ResetTransforms";
 const _RTev = "RevocationType";
-const _Re = "Result";
+const _RV = "RegexValues";
+const _Re = "Regex";
+const _Rea = "Reason";
+const _Rep = "Replace";
+const _Res = "Result";
 const _Ru = "Rules";
 const _S = "Scope";
 const _SB = "S3Bucket";
@@ -8821,11 +9111,13 @@ const _TT = "TargetType";
 const _Ta = "Tags";
 const _Tar = "Targets";
 const _Targ = "Target";
+const _Tr = "Transforms";
 const _UECS = "UseExistingClientSecret";
 const _UIE = "UserInfoEndpoint";
 const _UPA = "UserPoolArn";
 const _UPCI = "UserPoolClientId";
 const _UPD = "UserPoolDomain";
+const _URC = "UrlRewriteConfig";
 const _UTC = "UnhealthyThresholdCount";
 const _V = "Version";
 const _VI = "VpcId";

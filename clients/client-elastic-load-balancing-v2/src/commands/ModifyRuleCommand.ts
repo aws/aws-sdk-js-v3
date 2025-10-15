@@ -57,17 +57,22 @@ export interface ModifyRuleCommandOutput extends ModifyRuleOutput, __MetadataBea
  *         Values: [
  *           "STRING_VALUE",
  *         ],
+ *         RegexValues: [
+ *           "STRING_VALUE",
+ *         ],
  *       },
  *       PathPatternConfig: { // PathPatternConditionConfig
  *         Values: [
  *           "STRING_VALUE",
  *         ],
+ *         RegexValues: [
+ *           "STRING_VALUE",
+ *         ],
  *       },
  *       HttpHeaderConfig: { // HttpHeaderConditionConfig
  *         HttpHeaderName: "STRING_VALUE",
- *         Values: [
- *           "STRING_VALUE",
- *         ],
+ *         Values: "<ListOfString>",
+ *         RegexValues: "<ListOfString>",
  *       },
  *       QueryStringConfig: { // QueryStringConditionConfig
  *         Values: [ // QueryStringKeyValuePairList
@@ -78,13 +83,12 @@ export interface ModifyRuleCommandOutput extends ModifyRuleOutput, __MetadataBea
  *         ],
  *       },
  *       HttpRequestMethodConfig: { // HttpRequestMethodConditionConfig
- *         Values: [
- *           "STRING_VALUE",
- *         ],
+ *         Values: "<ListOfString>",
  *       },
  *       SourceIpConfig: { // SourceIpConditionConfig
  *         Values: "<ListOfString>",
  *       },
+ *       RegexValues: "<ListOfString>",
  *     },
  *   ],
  *   Actions: [ // Actions
@@ -147,6 +151,28 @@ export interface ModifyRuleCommandOutput extends ModifyRuleOutput, __MetadataBea
  *       },
  *     },
  *   ],
+ *   Transforms: [ // RuleTransformList
+ *     { // RuleTransform
+ *       Type: "host-header-rewrite" || "url-rewrite", // required
+ *       HostHeaderRewriteConfig: { // HostHeaderRewriteConfig
+ *         Rewrites: [ // RewriteConfigList
+ *           { // RewriteConfig
+ *             Regex: "STRING_VALUE", // required
+ *             Replace: "STRING_VALUE", // required
+ *           },
+ *         ],
+ *       },
+ *       UrlRewriteConfig: { // UrlRewriteConfig
+ *         Rewrites: [
+ *           {
+ *             Regex: "STRING_VALUE", // required
+ *             Replace: "STRING_VALUE", // required
+ *           },
+ *         ],
+ *       },
+ *     },
+ *   ],
+ *   ResetTransforms: true || false,
  * };
  * const command = new ModifyRuleCommand(input);
  * const response = await client.send(command);
@@ -165,17 +191,22 @@ export interface ModifyRuleCommandOutput extends ModifyRuleOutput, __MetadataBea
  * //             Values: [
  * //               "STRING_VALUE",
  * //             ],
+ * //             RegexValues: [
+ * //               "STRING_VALUE",
+ * //             ],
  * //           },
  * //           PathPatternConfig: { // PathPatternConditionConfig
  * //             Values: [
  * //               "STRING_VALUE",
  * //             ],
+ * //             RegexValues: [
+ * //               "STRING_VALUE",
+ * //             ],
  * //           },
  * //           HttpHeaderConfig: { // HttpHeaderConditionConfig
  * //             HttpHeaderName: "STRING_VALUE",
- * //             Values: [
- * //               "STRING_VALUE",
- * //             ],
+ * //             Values: "<ListOfString>",
+ * //             RegexValues: "<ListOfString>",
  * //           },
  * //           QueryStringConfig: { // QueryStringConditionConfig
  * //             Values: [ // QueryStringKeyValuePairList
@@ -186,13 +217,12 @@ export interface ModifyRuleCommandOutput extends ModifyRuleOutput, __MetadataBea
  * //             ],
  * //           },
  * //           HttpRequestMethodConfig: { // HttpRequestMethodConditionConfig
- * //             Values: [
- * //               "STRING_VALUE",
- * //             ],
+ * //             Values: "<ListOfString>",
  * //           },
  * //           SourceIpConfig: { // SourceIpConditionConfig
  * //             Values: "<ListOfString>",
  * //           },
+ * //           RegexValues: "<ListOfString>",
  * //         },
  * //       ],
  * //       Actions: [ // Actions
@@ -256,6 +286,27 @@ export interface ModifyRuleCommandOutput extends ModifyRuleOutput, __MetadataBea
  * //         },
  * //       ],
  * //       IsDefault: true || false,
+ * //       Transforms: [ // RuleTransformList
+ * //         { // RuleTransform
+ * //           Type: "host-header-rewrite" || "url-rewrite", // required
+ * //           HostHeaderRewriteConfig: { // HostHeaderRewriteConfig
+ * //             Rewrites: [ // RewriteConfigList
+ * //               { // RewriteConfig
+ * //                 Regex: "STRING_VALUE", // required
+ * //                 Replace: "STRING_VALUE", // required
+ * //               },
+ * //             ],
+ * //           },
+ * //           UrlRewriteConfig: { // UrlRewriteConfig
+ * //             Rewrites: [
+ * //               {
+ * //                 Regex: "STRING_VALUE", // required
+ * //                 Replace: "STRING_VALUE", // required
+ * //               },
+ * //             ],
+ * //           },
+ * //         },
+ * //       ],
  * //     },
  * //   ],
  * // };

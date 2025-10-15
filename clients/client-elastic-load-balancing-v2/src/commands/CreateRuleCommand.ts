@@ -34,10 +34,11 @@ export interface CreateRuleCommandOutput extends CreateRuleOutput, __MetadataBea
 /**
  * <p>Creates a rule for the specified listener. The listener must be associated with an
  *       Application Load Balancer.</p>
- *          <p>Each rule consists of a priority, one or more actions, and one or more conditions. Rules
- *       are evaluated in priority order, from the lowest value to the highest value. When the
- *       conditions for a rule are met, its actions are performed. If the conditions for no rules are
- *       met, the actions for the default rule are performed. For more information, see <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-listeners.html#listener-rules">Listener rules</a> in the <i>Application Load Balancers Guide</i>.</p>
+ *          <p>Each rule consists of a priority, one or more actions, one or more conditions, and
+ *       up to two optional transforms. Rules are evaluated in priority order, from the lowest value
+ *       to the highest value. When the conditions for a rule are met, its actions are performed.
+ *       If the conditions for no rules are met, the actions for the default rule are performed.
+ *       For more information, see <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-listeners.html#listener-rules">Listener rules</a> in the <i>Application Load Balancers Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -58,17 +59,22 @@ export interface CreateRuleCommandOutput extends CreateRuleOutput, __MetadataBea
  *         Values: [
  *           "STRING_VALUE",
  *         ],
+ *         RegexValues: [
+ *           "STRING_VALUE",
+ *         ],
  *       },
  *       PathPatternConfig: { // PathPatternConditionConfig
  *         Values: [
  *           "STRING_VALUE",
  *         ],
+ *         RegexValues: [
+ *           "STRING_VALUE",
+ *         ],
  *       },
  *       HttpHeaderConfig: { // HttpHeaderConditionConfig
  *         HttpHeaderName: "STRING_VALUE",
- *         Values: [
- *           "STRING_VALUE",
- *         ],
+ *         Values: "<ListOfString>",
+ *         RegexValues: "<ListOfString>",
  *       },
  *       QueryStringConfig: { // QueryStringConditionConfig
  *         Values: [ // QueryStringKeyValuePairList
@@ -79,13 +85,12 @@ export interface CreateRuleCommandOutput extends CreateRuleOutput, __MetadataBea
  *         ],
  *       },
  *       HttpRequestMethodConfig: { // HttpRequestMethodConditionConfig
- *         Values: [
- *           "STRING_VALUE",
- *         ],
+ *         Values: "<ListOfString>",
  *       },
  *       SourceIpConfig: { // SourceIpConditionConfig
  *         Values: "<ListOfString>",
  *       },
+ *       RegexValues: "<ListOfString>",
  *     },
  *   ],
  *   Priority: Number("int"), // required
@@ -155,6 +160,27 @@ export interface CreateRuleCommandOutput extends CreateRuleOutput, __MetadataBea
  *       Value: "STRING_VALUE",
  *     },
  *   ],
+ *   Transforms: [ // RuleTransformList
+ *     { // RuleTransform
+ *       Type: "host-header-rewrite" || "url-rewrite", // required
+ *       HostHeaderRewriteConfig: { // HostHeaderRewriteConfig
+ *         Rewrites: [ // RewriteConfigList
+ *           { // RewriteConfig
+ *             Regex: "STRING_VALUE", // required
+ *             Replace: "STRING_VALUE", // required
+ *           },
+ *         ],
+ *       },
+ *       UrlRewriteConfig: { // UrlRewriteConfig
+ *         Rewrites: [
+ *           {
+ *             Regex: "STRING_VALUE", // required
+ *             Replace: "STRING_VALUE", // required
+ *           },
+ *         ],
+ *       },
+ *     },
+ *   ],
  * };
  * const command = new CreateRuleCommand(input);
  * const response = await client.send(command);
@@ -173,17 +199,22 @@ export interface CreateRuleCommandOutput extends CreateRuleOutput, __MetadataBea
  * //             Values: [
  * //               "STRING_VALUE",
  * //             ],
+ * //             RegexValues: [
+ * //               "STRING_VALUE",
+ * //             ],
  * //           },
  * //           PathPatternConfig: { // PathPatternConditionConfig
  * //             Values: [
  * //               "STRING_VALUE",
  * //             ],
+ * //             RegexValues: [
+ * //               "STRING_VALUE",
+ * //             ],
  * //           },
  * //           HttpHeaderConfig: { // HttpHeaderConditionConfig
  * //             HttpHeaderName: "STRING_VALUE",
- * //             Values: [
- * //               "STRING_VALUE",
- * //             ],
+ * //             Values: "<ListOfString>",
+ * //             RegexValues: "<ListOfString>",
  * //           },
  * //           QueryStringConfig: { // QueryStringConditionConfig
  * //             Values: [ // QueryStringKeyValuePairList
@@ -194,13 +225,12 @@ export interface CreateRuleCommandOutput extends CreateRuleOutput, __MetadataBea
  * //             ],
  * //           },
  * //           HttpRequestMethodConfig: { // HttpRequestMethodConditionConfig
- * //             Values: [
- * //               "STRING_VALUE",
- * //             ],
+ * //             Values: "<ListOfString>",
  * //           },
  * //           SourceIpConfig: { // SourceIpConditionConfig
  * //             Values: "<ListOfString>",
  * //           },
+ * //           RegexValues: "<ListOfString>",
  * //         },
  * //       ],
  * //       Actions: [ // Actions
@@ -264,6 +294,27 @@ export interface CreateRuleCommandOutput extends CreateRuleOutput, __MetadataBea
  * //         },
  * //       ],
  * //       IsDefault: true || false,
+ * //       Transforms: [ // RuleTransformList
+ * //         { // RuleTransform
+ * //           Type: "host-header-rewrite" || "url-rewrite", // required
+ * //           HostHeaderRewriteConfig: { // HostHeaderRewriteConfig
+ * //             Rewrites: [ // RewriteConfigList
+ * //               { // RewriteConfig
+ * //                 Regex: "STRING_VALUE", // required
+ * //                 Replace: "STRING_VALUE", // required
+ * //               },
+ * //             ],
+ * //           },
+ * //           UrlRewriteConfig: { // UrlRewriteConfig
+ * //             Rewrites: [
+ * //               {
+ * //                 Regex: "STRING_VALUE", // required
+ * //                 Replace: "STRING_VALUE", // required
+ * //               },
+ * //             ],
+ * //           },
+ * //         },
+ * //       ],
  * //     },
  * //   ],
  * // };

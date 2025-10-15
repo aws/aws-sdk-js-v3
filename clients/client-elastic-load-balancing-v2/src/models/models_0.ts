@@ -1487,7 +1487,7 @@ export interface CreateListenerInput {
   Tags?: Tag[] | undefined;
 
   /**
-   * <p>The mutual authentication configuration information.</p>
+   * <p>[HTTPS listeners] The mutual authentication configuration information.</p>
    * @public
    */
   MutualAuthentication?: MutualAuthenticationAttributes | undefined;
@@ -2432,7 +2432,7 @@ export class TooManyLoadBalancersException extends __BaseException {
  */
 export interface HostHeaderConditionConfig {
   /**
-   * <p>The host names. The maximum size of each name is 128 characters. The comparison is
+   * <p>The host names. The maximum length of each string is 128 characters. The comparison is
    *       case insensitive. The following wildcard characters are supported: * (matches 0 or more
    *       characters) and ? (matches exactly 1 character). You must include at least one "."
    *       character. You can include only alphabetical characters after the final "." character.</p>
@@ -2441,6 +2441,12 @@ export interface HostHeaderConditionConfig {
    * @public
    */
   Values?: string[] | undefined;
+
+  /**
+   * <p>The regular expressions to compare against the host header. The maximum length of each string is 128 characters.</p>
+   * @public
+   */
+  RegexValues?: string[] | undefined;
 }
 
 /**
@@ -2451,7 +2457,7 @@ export interface HostHeaderConditionConfig {
  */
 export interface HttpHeaderConditionConfig {
   /**
-   * <p>The name of the HTTP header field. The maximum size is 40 characters. The header name is
+   * <p>The name of the HTTP header field. The maximum length is 40 characters. The header name is
    *       case insensitive. The allowed characters are specified by RFC 7230. Wildcards are not
    *       supported.</p>
    *          <p>You can't use an HTTP header condition to specify the host header. Instead, use a <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-listeners.html#host-conditions">host condition</a>.</p>
@@ -2460,7 +2466,7 @@ export interface HttpHeaderConditionConfig {
   HttpHeaderName?: string | undefined;
 
   /**
-   * <p>The strings to compare against the value of the HTTP header. The maximum size of
+   * <p>The strings to compare against the value of the HTTP header. The maximum length of
    *       each string is 128 characters. The comparison strings are case insensitive. The following
    *       wildcard characters are supported: * (matches 0 or more characters) and ? (matches exactly 1
    *       character).</p>
@@ -2472,6 +2478,12 @@ export interface HttpHeaderConditionConfig {
    * @public
    */
   Values?: string[] | undefined;
+
+  /**
+   * <p>The regular expression to compare against the HTTP header. The maximum length of each string is 128 characters.</p>
+   * @public
+   */
+  RegexValues?: string[] | undefined;
 }
 
 /**
@@ -2483,7 +2495,7 @@ export interface HttpHeaderConditionConfig {
  */
 export interface HttpRequestMethodConditionConfig {
   /**
-   * <p>The name of the request method. The maximum size is 40 characters. The allowed characters
+   * <p>The name of the request method. The maximum length is 40 characters. The allowed characters
    *       are A-Z, hyphen (-), and underscore (_). The comparison is case sensitive. Wildcards are not
    *       supported; therefore, the method name must be an exact match.</p>
    *          <p>If you specify multiple strings, the condition is satisfied if one of the strings matches
@@ -2500,7 +2512,7 @@ export interface HttpRequestMethodConditionConfig {
  */
 export interface PathPatternConditionConfig {
   /**
-   * <p>The path patterns to compare against the request URL. The maximum size of each
+   * <p>The path patterns to compare against the request URL. The maximum length of each
    *       string is 128 characters. The comparison is case sensitive. The following wildcard characters
    *       are supported: * (matches 0 or more characters) and ? (matches exactly 1 character).</p>
    *          <p>If you specify multiple strings, the condition is satisfied if one of them matches the
@@ -2509,6 +2521,12 @@ export interface PathPatternConditionConfig {
    * @public
    */
   Values?: string[] | undefined;
+
+  /**
+   * <p>The regular expressions to compare against the request URL. The maximum length of each string is 128 characters.</p>
+   * @public
+   */
+  RegexValues?: string[] | undefined;
 }
 
 /**
@@ -2539,7 +2557,7 @@ export interface QueryStringKeyValuePair {
  */
 export interface QueryStringConditionConfig {
   /**
-   * <p>The key/value pairs or values to find in the query string. The maximum size of
+   * <p>The key/value pairs or values to find in the query string. The maximum length of
    *       each string is 128 characters. The comparison is case insensitive. The following wildcard
    *       characters are supported: * (matches 0 or more characters) and ? (matches exactly 1
    *       character). To search for a literal '*' or '?' character in a query string, you must escape
@@ -2710,6 +2728,106 @@ export interface RuleCondition {
    * @public
    */
   SourceIpConfig?: SourceIpConditionConfig | undefined;
+
+  /**
+   * <p>The regular expressions to match against the condition field. The maximum length of each string is 128 characters.
+   *       Specify only when <code>Field</code> is <code>http-header</code>, <code>host-header</code>, or <code>path-pattern</code>.</p>
+   * @public
+   */
+  RegexValues?: string[] | undefined;
+}
+
+/**
+ * <p>Information about a rewrite transform. This transform matches a pattern and replaces it with the specified string.</p>
+ * @public
+ */
+export interface RewriteConfig {
+  /**
+   * <p>The regular expression to match in the input string. The maximum length of the string is 1,024 characters.</p>
+   * @public
+   */
+  Regex: string | undefined;
+
+  /**
+   * <p>The replacement string to use when rewriting the matched input. The maximum length of the string is 1,024 characters.
+   *       You can specify capture groups in the regular expression (for example, $1 and $2).</p>
+   * @public
+   */
+  Replace: string | undefined;
+}
+
+/**
+ * <p>Information about a host header rewrite transform. This transform matches a pattern in the host header in an HTTP request and replaces it with the specified string.</p>
+ * @public
+ */
+export interface HostHeaderRewriteConfig {
+  /**
+   * <p>The host header rewrite transform. Each transform consists of a regular expression to match and a replacement string.</p>
+   * @public
+   */
+  Rewrites?: RewriteConfig[] | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const TransformTypeEnum = {
+  HOST_HEADER_REWRITE: "host-header-rewrite",
+  URL_REWRITE: "url-rewrite",
+} as const;
+
+/**
+ * @public
+ */
+export type TransformTypeEnum = (typeof TransformTypeEnum)[keyof typeof TransformTypeEnum];
+
+/**
+ * <p>Information about a URL rewrite transform. This transform matches a pattern in the request URL and replaces it with the specified string.</p>
+ * @public
+ */
+export interface UrlRewriteConfig {
+  /**
+   * <p>The URL rewrite transform to apply to the request. The transform consists of a regular expression to match and a replacement string.</p>
+   * @public
+   */
+  Rewrites?: RewriteConfig[] | undefined;
+}
+
+/**
+ * <p>Information about a transform to apply to requests that match a rule. Transforms are applied to requests before they are sent to targets.</p>
+ * @public
+ */
+export interface RuleTransform {
+  /**
+   * <p>The type of transform. </p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>host-header-rewrite</code> - Rewrite the host header.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>url-rewrite</code> - Rewrite the request URL.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Type: TransformTypeEnum | undefined;
+
+  /**
+   * <p>Information about a host header rewrite transform. This transform modifies the host header in an HTTP request.
+   *         Specify only when <code>Type</code> is <code>host-header-rewrite</code>.</p>
+   * @public
+   */
+  HostHeaderRewriteConfig?: HostHeaderRewriteConfig | undefined;
+
+  /**
+   * <p>Information about a URL rewrite transform. This transform modifies the request URL.
+   *       Specify only when <code>Type</code> is <code>url-rewrite</code>.</p>
+   * @public
+   */
+  UrlRewriteConfig?: UrlRewriteConfig | undefined;
 }
 
 /**
@@ -2745,6 +2863,13 @@ export interface CreateRuleInput {
    * @public
    */
   Tags?: Tag[] | undefined;
+
+  /**
+   * <p>The transforms to apply to requests that match this rule. You can add one host header rewrite transform
+   *       and one URL rewrite transform.</p>
+   * @public
+   */
+  Transforms?: RuleTransform[] | undefined;
 }
 
 /**
@@ -2786,6 +2911,12 @@ export interface Rule {
    * @public
    */
   IsDefault?: boolean | undefined;
+
+  /**
+   * <p>The transforms for the rule.</p>
+   * @public
+   */
+  Transforms?: RuleTransform[] | undefined;
 }
 
 /**
@@ -3722,63 +3853,7 @@ export interface DescribeAccountLimitsInput {
  */
 export interface Limit {
   /**
-   * <p>The name of the limit. The possible values are:</p>
-   *          <ul>
-   *             <li>
-   *                <p>application-load-balancers</p>
-   *             </li>
-   *             <li>
-   *                <p>condition-values-per-alb-rule</p>
-   *             </li>
-   *             <li>
-   *                <p>condition-wildcards-per-alb-rule</p>
-   *             </li>
-   *             <li>
-   *                <p>gateway-load-balancers</p>
-   *             </li>
-   *             <li>
-   *                <p>gateway-load-balancers-per-vpc</p>
-   *             </li>
-   *             <li>
-   *                <p>geneve-target-groups</p>
-   *             </li>
-   *             <li>
-   *                <p>listeners-per-application-load-balancer</p>
-   *             </li>
-   *             <li>
-   *                <p>listeners-per-network-load-balancer</p>
-   *             </li>
-   *             <li>
-   *                <p>network-load-balancers</p>
-   *             </li>
-   *             <li>
-   *                <p>rules-per-application-load-balancer</p>
-   *             </li>
-   *             <li>
-   *                <p>target-groups</p>
-   *             </li>
-   *             <li>
-   *                <p>target-groups-per-action-on-application-load-balancer</p>
-   *             </li>
-   *             <li>
-   *                <p>target-groups-per-action-on-network-load-balancer</p>
-   *             </li>
-   *             <li>
-   *                <p>target-groups-per-application-load-balancer</p>
-   *             </li>
-   *             <li>
-   *                <p>targets-per-application-load-balancer</p>
-   *             </li>
-   *             <li>
-   *                <p>targets-per-availability-zone-per-gateway-load-balancer</p>
-   *             </li>
-   *             <li>
-   *                <p>targets-per-availability-zone-per-network-load-balancer</p>
-   *             </li>
-   *             <li>
-   *                <p>targets-per-network-load-balancer</p>
-   *             </li>
-   *          </ul>
+   * <p>The name of the limit.</p>
    * @public
    */
   Name?: string | undefined;
@@ -4300,10 +4375,12 @@ export interface LoadBalancerAttribute {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>routing.http2.enabled</code> - Indicates whether HTTP/2 is enabled. The possible
-   *           values are <code>true</code> and <code>false</code>. The default is <code>true</code>.
-   *           Elastic Load Balancing requires that message header names contain only alphanumeric
-   *           characters and hyphens.</p>
+   *                   <code>routing.http2.enabled</code> - Indicates whether clients can connect to the load
+   *           balancer using HTTP/2. If <code>true</code>, clients can connect using HTTP/2 or HTTP/1.1.
+   *           However, all client requests are subject to the stricter HTTP/2 header validation rules.
+   *           For example, message header names must contain only alphanumeric characters and hyphens.
+   *           If <code>false</code>, clients must connect using HTTP/1.1. The default is
+   *             <code>true</code>.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -5649,7 +5726,7 @@ export interface ModifyListenerInput {
   AlpnPolicy?: string[] | undefined;
 
   /**
-   * <p>The mutual authentication configuration information.</p>
+   * <p>[HTTPS listeners] The mutual authentication configuration information.</p>
    * @public
    */
   MutualAuthentication?: MutualAuthenticationAttributes | undefined;
@@ -5743,6 +5820,20 @@ export interface ModifyRuleInput {
    * @public
    */
   Actions?: Action[] | undefined;
+
+  /**
+   * <p>The transforms to apply to requests that match this rule. You can add one host header rewrite transform
+   *       and one URL rewrite transform. If you specify <code>Transforms</code>, you can't specify <code>ResetTransforms</code>.</p>
+   * @public
+   */
+  Transforms?: RuleTransform[] | undefined;
+
+  /**
+   * <p>Indicates whether to remove all transforms from the rule. If you specify <code>ResetTransforms</code>,
+   *       you can't specify <code>Transforms</code>.</p>
+   * @public
+   */
+  ResetTransforms?: boolean | undefined;
 }
 
 /**
@@ -5793,7 +5884,10 @@ export interface ModifyTargetGroupInput {
   HealthCheckPath?: string | undefined;
 
   /**
-   * <p>Indicates whether health checks are enabled.</p>
+   * <p>Indicates whether health checks are enabled. If the target type is <code>lambda</code>,
+   *       health checks are disabled by default but can be enabled. If the target type is
+   *       <code>instance</code>, <code>ip</code>, or <code>alb</code>, health checks are always
+   *       enabled and can't be disabled.</p>
    * @public
    */
   HealthCheckEnabled?: boolean | undefined;
@@ -6160,8 +6254,10 @@ export interface SetSubnetsInput {
    *          <p>[Application Load Balancers on Outposts] You must specify one Outpost subnet.</p>
    *          <p>[Application Load Balancers on Local Zones] You can specify subnets from one or more Local
    *       Zones.</p>
-   *          <p>[Network Load Balancers and Gateway Load Balancers] You can specify subnets from one or more
-   *       Availability Zones.</p>
+   *          <p>[Network Load Balancers] You can specify subnets from one or more Availability Zones.</p>
+   *          <p>[Gateway Load Balancers] You can specify subnets from one or more Availability Zones.
+   *       You must include all subnets that were enabled previously, with their existing configurations,
+   *       plus any additional subnets.</p>
    * @public
    */
   Subnets?: string[] | undefined;

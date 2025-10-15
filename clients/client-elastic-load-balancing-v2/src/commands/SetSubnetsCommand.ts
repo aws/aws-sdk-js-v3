@@ -33,11 +33,8 @@ export interface SetSubnetsCommandOutput extends SetSubnetsOutput, __MetadataBea
 
 /**
  * <p>Enables the Availability Zones for the specified public subnets for the specified
- *       Application Load Balancer, Network Load Balancer or Gateway Load Balancer. The specified subnets replace the
- *       previously enabled subnets.</p>
- *          <p>When you specify subnets for a Network Load Balancer, or Gateway Load Balancer you must include all subnets that
- *       were enabled previously, with their existing configurations, plus any additional
- *       subnets.</p>
+ *       Application Load Balancer, Network Load Balancer or Gateway Load Balancer. The specified subnets
+ *       replace the previously enabled subnets.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
