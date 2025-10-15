@@ -6,7 +6,11 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GuardDutyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GuardDutyClient";
-import { UpdateFindingsFeedbackRequest, UpdateFindingsFeedbackResponse } from "../models/models_1";
+import {
+  UpdateFindingsFeedbackRequest,
+  UpdateFindingsFeedbackRequestFilterSensitiveLog,
+  UpdateFindingsFeedbackResponse,
+} from "../models/models_1";
 import { de_UpdateFindingsFeedbackCommand, se_UpdateFindingsFeedbackCommand } from "../protocols/Aws_restJson1";
 
 /**
@@ -86,7 +90,7 @@ export class UpdateFindingsFeedbackCommand extends $Command
   })
   .s("GuardDutyAPIService", "UpdateFindingsFeedback", {})
   .n("GuardDutyClient", "UpdateFindingsFeedbackCommand")
-  .f(void 0, void 0)
+  .f(UpdateFindingsFeedbackRequestFilterSensitiveLog, void 0)
   .ser(se_UpdateFindingsFeedbackCommand)
   .de(de_UpdateFindingsFeedbackCommand)
   .build() {

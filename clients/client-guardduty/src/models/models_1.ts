@@ -2220,7 +2220,7 @@ export interface ListMalwareProtectionPlansRequest {
    *       of this parameter to null on your first call to the list action.
    *       For subsequent calls to the action, fill nextToken in the request
    *       with the value of <code>NextToken</code> from the previous response to
-   *       continue listing data.</p>
+   *       continue listing data. The default page size is 100 plans.</p>
    * @public
    */
   NextToken?: string | undefined;
@@ -3590,4 +3590,12 @@ export const GetMembersResponseFilterSensitiveLog = (obj: GetMembersResponse): a
 export const ListMembersResponseFilterSensitiveLog = (obj: ListMembersResponse): any => ({
   ...obj,
   ...(obj.Members && { Members: obj.Members.map((item) => MemberFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateFindingsFeedbackRequestFilterSensitiveLog = (obj: UpdateFindingsFeedbackRequest): any => ({
+  ...obj,
+  ...(obj.Comments && { Comments: SENSITIVE_STRING }),
 });
