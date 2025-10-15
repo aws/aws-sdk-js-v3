@@ -80,6 +80,7 @@ export interface CreateAutomatedReasoningPolicyCommandOutput
  *       },
  *     ],
  *   },
+ *   kmsKeyId: "STRING_VALUE",
  *   tags: [ // TagList
  *     { // Tag
  *       key: "STRING_VALUE", // required

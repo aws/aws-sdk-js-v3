@@ -380,6 +380,12 @@ export interface CreateAutomatedReasoningPolicyRequest {
   policyDefinition?: AutomatedReasoningPolicyDefinition | undefined;
 
   /**
+   * <p>The identifier of the KMS key to use for encrypting the automated reasoning policy and its associated artifacts. If you don't specify a KMS key, Amazon Bedrock uses an KMS managed key for encryption. For enhanced security and control, you can specify a customer managed KMS key.</p>
+   * @public
+   */
+  kmsKeyId?: string | undefined;
+
+  /**
    * <p>A list of tags to associate with the Automated Reasoning policy. Tags help you organize and manage your policies.</p>
    * @public
    */
@@ -637,12 +643,38 @@ export interface DeleteAutomatedReasoningPolicyRequest {
    * @public
    */
   policyArn: string | undefined;
+
+  /**
+   * <p>Specifies whether to force delete the automated reasoning policy even if it has active resources. When <code>false</code>, Amazon Bedrock validates if all artifacts have been deleted (e.g. policy version, test case, test result) for a policy before deletion. When <code>true</code>, Amazon Bedrock will delete the policy and all its artifacts without validation. Default is <code>false</code>. </p>
+   * @public
+   */
+  force?: boolean | undefined;
 }
 
 /**
  * @public
  */
 export interface DeleteAutomatedReasoningPolicyResponse {}
+
+/**
+ * <p>Thrown when attempting to delete or modify a resource that is currently being used by other resources or operations. For example, trying to delete an Automated Reasoning policy that is referenced by an active guardrail.</p>
+ * @public
+ */
+export class ResourceInUseException extends __BaseException {
+  readonly name: "ResourceInUseException" = "ResourceInUseException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceInUseException, __BaseException>) {
+    super({
+      name: "ResourceInUseException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceInUseException.prototype);
+  }
+}
 
 /**
  * @public
@@ -671,26 +703,6 @@ export interface DeleteAutomatedReasoningPolicyBuildWorkflowRequest {
  * @public
  */
 export interface DeleteAutomatedReasoningPolicyBuildWorkflowResponse {}
-
-/**
- * <p>Thrown when attempting to delete or modify a resource that is currently being used by other resources or operations. For example, trying to delete an Automated Reasoning policy that is referenced by an active guardrail.</p>
- * @public
- */
-export class ResourceInUseException extends __BaseException {
-  readonly name: "ResourceInUseException" = "ResourceInUseException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceInUseException, __BaseException>) {
-    super({
-      name: "ResourceInUseException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceInUseException.prototype);
-  }
-}
 
 /**
  * @public
@@ -792,6 +804,12 @@ export interface GetAutomatedReasoningPolicyResponse {
    * @public
    */
   definitionHash: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the KMS key used to encrypt the automated reasoning policy and its associated artifacts. If a KMS key is not provided during the initial CreateAutomatedReasoningPolicyRequest, the kmsKeyArn won't be included in the GetAutomatedReasoningPolicyResponse. </p>
+   * @public
+   */
+  kmsKeyArn?: string | undefined;
 
   /**
    * <p>The timestamp when the policy was created.</p>

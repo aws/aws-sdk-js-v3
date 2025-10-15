@@ -58,6 +58,7 @@ export interface GetAutomatedReasoningPolicyCommandOutput
  * //   policyId: "STRING_VALUE", // required
  * //   description: "STRING_VALUE",
  * //   definitionHash: "STRING_VALUE", // required
+ * //   kmsKeyArn: "STRING_VALUE",
  * //   createdAt: new Date("TIMESTAMP"),
  * //   updatedAt: new Date("TIMESTAMP"), // required
  * // };

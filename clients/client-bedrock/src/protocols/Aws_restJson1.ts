@@ -572,6 +572,7 @@ export const se_CreateAutomatedReasoningPolicyCommand = async (
     take(input, {
       clientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
       description: [],
+      kmsKeyId: [],
       name: [],
       policyDefinition: (_) => _json(_),
       tags: (_) => _json(_),
@@ -1040,8 +1041,11 @@ export const se_DeleteAutomatedReasoningPolicyCommand = async (
   const headers: any = {};
   b.bp("/automated-reasoning-policies/{policyArn}");
   b.p("policyArn", () => input.policyArn!, "{policyArn}", false);
+  const query: any = map({
+    [_f]: [() => input.force !== void 0, () => input[_f]!.toString()],
+  });
   let body: any;
-  b.m("DELETE").h(headers).b(body);
+  b.m("DELETE").h(headers).q(query).b(body);
   return b.build();
 };
 
@@ -3214,6 +3218,7 @@ export const de_GetAutomatedReasoningPolicyCommand = async (
     createdAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     definitionHash: __expectString,
     description: __expectString,
+    kmsKeyArn: __expectString,
     name: __expectString,
     policyArn: __expectString,
     policyId: __expectString,
@@ -7487,6 +7492,7 @@ const _cB = "createdBefore";
 const _cRT = "clientRequestToken";
 const _cTA = "creationTimeAfter";
 const _cTB = "creationTimeBefore";
+const _f = "force";
 const _fMAE = "foundationModelArnEquals";
 const _gI = "guardrailIdentifier";
 const _gV = "guardrailVersion";
