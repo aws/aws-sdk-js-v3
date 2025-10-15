@@ -180,6 +180,16 @@ module.exports = class Inliner {
           },
         }),
       ],
+      onwarn(warning) {
+        /*
+        Circular imports are not an error in the language spec,
+        but reasoning about the program and bundling becomes easier.
+        For that reason let's avoid them.
+         */
+        if (warning.code === "CIRCULAR_DEPENDENCY") {
+          // throw Error(warning.message);
+        }
+      },
       external: (id) => {
         const relative = !!id.match(/^\.?\.?\//);
         if (!relative) {
