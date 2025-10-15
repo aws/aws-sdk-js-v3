@@ -48,14 +48,14 @@ export interface CreateDbClusterCommandOutput extends CreateDbClusterOutput, __M
  * const input = { // CreateDbClusterInput
  *   name: "STRING_VALUE", // required
  *   username: "STRING_VALUE",
- *   password: "STRING_VALUE", // required
+ *   password: "STRING_VALUE",
  *   organization: "STRING_VALUE",
  *   bucket: "STRING_VALUE",
  *   port: Number("int"),
  *   dbParameterGroupIdentifier: "STRING_VALUE",
  *   dbInstanceType: "db.influx.medium" || "db.influx.large" || "db.influx.xlarge" || "db.influx.2xlarge" || "db.influx.4xlarge" || "db.influx.8xlarge" || "db.influx.12xlarge" || "db.influx.16xlarge" || "db.influx.24xlarge", // required
  *   dbStorageType: "InfluxIOIncludedT1" || "InfluxIOIncludedT2" || "InfluxIOIncludedT3",
- *   allocatedStorage: Number("int"), // required
+ *   allocatedStorage: Number("int"),
  *   networkType: "IPV4" || "DUAL",
  *   publiclyAccessible: true || false,
  *   vpcSubnetIds: [ // VpcSubnetIdList // required
@@ -64,7 +64,7 @@ export interface CreateDbClusterCommandOutput extends CreateDbClusterOutput, __M
  *   vpcSecurityGroupIds: [ // VpcSecurityGroupIdList // required
  *     "STRING_VALUE",
  *   ],
- *   deploymentType: "MULTI_NODE_READ_REPLICAS", // required
+ *   deploymentType: "MULTI_NODE_READ_REPLICAS",
  *   failoverMode: "AUTOMATIC" || "NO_FAILOVER",
  *   logDeliveryConfiguration: { // LogDeliveryConfiguration
  *     s3Configuration: { // S3Configuration

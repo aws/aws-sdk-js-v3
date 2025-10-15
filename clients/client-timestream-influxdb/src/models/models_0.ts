@@ -186,7 +186,7 @@ export interface CreateDbClusterInput {
    *             InfluxDB CLI to create an operator token. These attributes will be stored in a secret created in Secrets Manager in your account.</p>
    * @public
    */
-  password: string | undefined;
+  password?: string | undefined;
 
   /**
    * <p>The name of the initial organization for the initial admin user in InfluxDB. An InfluxDB organization is a workspace for a group of users.</p>
@@ -203,7 +203,7 @@ export interface CreateDbClusterInput {
   /**
    * <p>The port number on which InfluxDB accepts connections.</p>
    *          <p>Valid Values: 1024-65535</p>
-   *          <p>Default: 8086</p>
+   *          <p>Default: 8086 for InfluxDB v2, 8181 for InfluxDB v3</p>
    *          <p>Constraints: The value can't be 2375-2376, 7788-7799, 8090, or 51678-51680</p>
    * @public
    */
@@ -243,7 +243,7 @@ export interface CreateDbClusterInput {
    * <p>The amount of storage to allocate for your DB storage type in GiB (gibibytes).</p>
    * @public
    */
-  allocatedStorage: number | undefined;
+  allocatedStorage?: number | undefined;
 
   /**
    * <p>Specifies whether the network type of the Timestream for InfluxDB cluster is IPv4, which can communicate over IPv4 protocol only, or DUAL, which can communicate over both IPv4 and IPv6 protocols.</p>
@@ -273,7 +273,7 @@ export interface CreateDbClusterInput {
    * <p>Specifies the type of cluster to create.</p>
    * @public
    */
-  deploymentType: ClusterDeploymentType | undefined;
+  deploymentType?: ClusterDeploymentType | undefined;
 
   /**
    * <p>Specifies the behavior of failure recovery when the primary node of the cluster fails.</p>
@@ -509,6 +509,21 @@ export interface GetDbClusterInput {
 
 /**
  * @public
+ * @enum
+ */
+export const EngineType = {
+  INFLUXDB_V2: "INFLUXDB_V2",
+  INFLUXDB_V3_CORE: "INFLUXDB_V3_CORE",
+  INFLUXDB_V3_ENTERPRISE: "INFLUXDB_V3_ENTERPRISE",
+} as const;
+
+/**
+ * @public
+ */
+export type EngineType = (typeof EngineType)[keyof typeof EngineType];
+
+/**
+ * @public
  */
 export interface GetDbClusterOutput {
   /**
@@ -582,6 +597,12 @@ export interface GetDbClusterOutput {
    * @public
    */
   allocatedStorage?: number | undefined;
+
+  /**
+   * <p>The engine type of your DB cluster.</p>
+   * @public
+   */
+  engineType?: EngineType | undefined;
 
   /**
    * <p>Indicates if the DB cluster has a public IP to facilitate access from outside the VPC.</p>
@@ -719,6 +740,12 @@ export interface DbClusterSummary {
    * @public
    */
   allocatedStorage?: number | undefined;
+
+  /**
+   * <p>The engine type of your DB cluster.</p>
+   * @public
+   */
+  engineType?: EngineType | undefined;
 }
 
 /**
@@ -781,7 +808,11 @@ export type DeploymentType = (typeof DeploymentType)[keyof typeof DeploymentType
  * @enum
  */
 export const InstanceMode = {
+  COMPACT: "COMPACT",
+  INGEST: "INGEST",
   PRIMARY: "PRIMARY",
+  PROCESS: "PROCESS",
+  QUERY: "QUERY",
   REPLICA: "REPLICA",
   STANDBY: "STANDBY",
 } as const;
@@ -889,6 +920,12 @@ export interface DbInstanceForClusterSummary {
    * @public
    */
   instanceMode?: InstanceMode | undefined;
+
+  /**
+   * <p>Specifies the DB instance's roles in the cluster.</p>
+   * @public
+   */
+  instanceModes?: InstanceMode[] | undefined;
 }
 
 /**
@@ -978,7 +1015,7 @@ export interface CreateDbInstanceInput {
   username?: string | undefined;
 
   /**
-   * <p>The password of the initial admin user created in InfluxDB. This password will allow
+   * <p>The password of the initial admin user created in InfluxDB v2. This password will allow
    *             you to access the InfluxDB UI to perform various administrative tasks and also use the
    *             InfluxDB CLI to create an operator token. These attributes will be stored in a Secret
    *             created in Secrets Manager in your account.</p>
@@ -1215,6 +1252,12 @@ export interface CreateDbInstanceOutput {
    * @public
    */
   instanceMode?: InstanceMode | undefined;
+
+  /**
+   * <p>Specifies the DbInstance's roles in the cluster.</p>
+   * @public
+   */
+  instanceModes?: InstanceMode[] | undefined;
 }
 
 /**
@@ -1357,6 +1400,12 @@ export interface DeleteDbInstanceOutput {
    * @public
    */
   instanceMode?: InstanceMode | undefined;
+
+  /**
+   * <p>Specifies the DbInstance's roles in the cluster.</p>
+   * @public
+   */
+  instanceModes?: InstanceMode[] | undefined;
 }
 
 /**
@@ -1499,6 +1548,12 @@ export interface GetDbInstanceOutput {
    * @public
    */
   instanceMode?: InstanceMode | undefined;
+
+  /**
+   * <p>Specifies the DbInstance's roles in the cluster.</p>
+   * @public
+   */
+  instanceModes?: InstanceMode[] | undefined;
 }
 
 /**
@@ -1796,6 +1851,12 @@ export interface UpdateDbInstanceOutput {
    * @public
    */
   instanceMode?: InstanceMode | undefined;
+
+  /**
+   * <p>Specifies the DbInstance's roles in the cluster.</p>
+   * @public
+   */
+  instanceModes?: InstanceMode[] | undefined;
 }
 
 /**
@@ -1803,6 +1864,7 @@ export interface UpdateDbInstanceOutput {
  * @enum
  */
 export const DurationType = {
+  DAYS: "days",
   HOURS: "hours",
   MILLISECONDS: "milliseconds",
   MINUTES: "minutes",
@@ -1852,6 +1914,7 @@ export type LogLevel = (typeof LogLevel)[keyof typeof LogLevel];
  * @enum
  */
 export const TracingType = {
+  DISABLED: "disabled",
   JAEGER: "jaeger",
   LOG: "log",
 } as const;
@@ -2105,10 +2168,718 @@ export interface InfluxDBv2Parameters {
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const DataFusionRuntimeType = {
+  MULTI_THREAD: "multi-thread",
+  MULTI_THREAD_ALT: "multi-thread-alt",
+} as const;
+
+/**
+ * @public
+ */
+export type DataFusionRuntimeType = (typeof DataFusionRuntimeType)[keyof typeof DataFusionRuntimeType];
+
+/**
+ * <p>Percent or Absolute Long for InfluxDB parameters</p>
+ * @public
+ */
+export type PercentOrAbsoluteLong =
+  | PercentOrAbsoluteLong.AbsoluteMember
+  | PercentOrAbsoluteLong.PercentMember
+  | PercentOrAbsoluteLong.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace PercentOrAbsoluteLong {
+  /**
+   * <p>Percent for InfluxDB parameters.</p>
+   * @public
+   */
+  export interface PercentMember {
+    percent: string;
+    absolute?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Absolute long for InfluxDB parameters.</p>
+   * @public
+   */
+  export interface AbsoluteMember {
+    percent?: never;
+    absolute: number;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    percent?: never;
+    absolute?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    percent: (value: string) => T;
+    absolute: (value: number) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: PercentOrAbsoluteLong, visitor: Visitor<T>): T => {
+    if (value.percent !== undefined) return visitor.percent(value.percent);
+    if (value.absolute !== undefined) return visitor.absolute(value.absolute);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const LogFormats = {
+  FULL: "full",
+} as const;
+
+/**
+ * @public
+ */
+export type LogFormats = (typeof LogFormats)[keyof typeof LogFormats];
+
+/**
+ * <p>All the customer-modifiable InfluxDB v3 Core parameters in Timestream for InfluxDB.</p>
+ * @public
+ */
+export interface InfluxDBv3CoreParameters {
+  /**
+   * <p>Limits the number of Parquet files a query can access. If a query attempts to read more than this limit, InfluxDB 3 returns an error.</p>
+   *          <p>Default: 432</p>
+   * @public
+   */
+  queryFileLimit?: number | undefined;
+
+  /**
+   * <p>Defines the size of the query log. Up to this many queries remain in the log before older queries are evicted to make room for new ones.</p>
+   *          <p>Default: 1000</p>
+   * @public
+   */
+  queryLogSize?: number | undefined;
+
+  /**
+   * <p>Sets the filter directive for logs.</p>
+   * @public
+   */
+  logFilter?: string | undefined;
+
+  /**
+   * <p>Defines the message format for logs.</p>
+   *          <p>Default: full</p>
+   * @public
+   */
+  logFormat?: LogFormats | undefined;
+
+  /**
+   * <p>Sets the maximum number of DataFusion runtime threads to use.</p>
+   * @public
+   */
+  dataFusionNumThreads?: number | undefined;
+
+  /**
+   * <p>Specifies the DataFusion tokio runtime type.</p>
+   *          <p>Default: multi-thread</p>
+   * @public
+   */
+  dataFusionRuntimeType?: DataFusionRuntimeType | undefined;
+
+  /**
+   * <p>Disables the LIFO slot of the DataFusion runtime.</p>
+   * @public
+   */
+  dataFusionRuntimeDisableLifoSlot?: boolean | undefined;
+
+  /**
+   * <p>Sets the number of scheduler ticks after which the scheduler of the DataFusion tokio runtime polls for external events–for example: timers, I/O.</p>
+   * @public
+   */
+  dataFusionRuntimeEventInterval?: number | undefined;
+
+  /**
+   * <p>Sets the number of scheduler ticks after which the scheduler of the DataFusion runtime polls the global task queue.</p>
+   * @public
+   */
+  dataFusionRuntimeGlobalQueueInterval?: number | undefined;
+
+  /**
+   * <p>Specifies the limit for additional threads spawned by the DataFusion runtime.</p>
+   * @public
+   */
+  dataFusionRuntimeMaxBlockingThreads?: number | undefined;
+
+  /**
+   * <p>Configures the maximum number of events processed per tick by the tokio DataFusion runtime.</p>
+   * @public
+   */
+  dataFusionRuntimeMaxIoEventsPerTick?: number | undefined;
+
+  /**
+   * <p>Sets a custom timeout for a thread in the blocking pool of the tokio DataFusion runtime.</p>
+   * @public
+   */
+  dataFusionRuntimeThreadKeepAlive?: Duration | undefined;
+
+  /**
+   * <p>Sets the thread priority for tokio DataFusion runtime workers.</p>
+   *          <p>Default: 10</p>
+   * @public
+   */
+  dataFusionRuntimeThreadPriority?: number | undefined;
+
+  /**
+   * <p>When multiple parquet files are required in a sorted way (deduplication for example), specifies the maximum fanout.</p>
+   *          <p>Default: 1000</p>
+   * @public
+   */
+  dataFusionMaxParquetFanout?: number | undefined;
+
+  /**
+   * <p>Uses a cached parquet loader when reading parquet files from the object store.</p>
+   * @public
+   */
+  dataFusionUseCachedParquetLoader?: boolean | undefined;
+
+  /**
+   * <p>Provides custom configuration to DataFusion as a comma-separated list of key:value pairs.</p>
+   * @public
+   */
+  dataFusionConfig?: string | undefined;
+
+  /**
+   * <p>Specifies the maximum size of HTTP requests.</p>
+   *          <p>Default: 10485760</p>
+   * @public
+   */
+  maxHttpRequestSize?: number | undefined;
+
+  /**
+   * <p>Specifies the threshold for the internal memory buffer. Supports either a percentage (portion of available memory) or absolute value in MB–for example: 70% or 100</p>
+   *          <p>Default: 70%</p>
+   * @public
+   */
+  forceSnapshotMemThreshold?: PercentOrAbsoluteLong | undefined;
+
+  /**
+   * <p>Defines the number of WAL files to attempt to remove in a snapshot. This, multiplied by the interval, determines how often snapshots are taken.</p>
+   *          <p>Default: 600</p>
+   * @public
+   */
+  walSnapshotSize?: number | undefined;
+
+  /**
+   * <p>Specifies the maximum number of write requests that can be buffered before a flush must be executed and succeed.</p>
+   *          <p>Default: 100000</p>
+   * @public
+   */
+  walMaxWriteBufferSize?: number | undefined;
+
+  /**
+   * <p>Specifies the number of snapshotted WAL files to retain in the object store. Flushing the WAL files does not clear the WAL files immediately; they are deleted when the number of snapshotted WAL files exceeds this number.</p>
+   *          <p>Default: 300</p>
+   * @public
+   */
+  snapshottedWalFilesToKeep?: number | undefined;
+
+  /**
+   * <p>Specifies the interval to prefetch into the Parquet cache during compaction.</p>
+   *          <p>Default: 3d</p>
+   * @public
+   */
+  preemptiveCacheAge?: Duration | undefined;
+
+  /**
+   * <p>Specifies the percentage of entries to prune during a prune operation on the in-memory Parquet cache.</p>
+   *          <p>Default: 0.1</p>
+   * @public
+   */
+  parquetMemCachePrunePercentage?: number | undefined;
+
+  /**
+   * <p>Sets the interval to check if the in-memory Parquet cache needs to be pruned.</p>
+   *          <p>Default: 1s</p>
+   * @public
+   */
+  parquetMemCachePruneInterval?: Duration | undefined;
+
+  /**
+   * <p>Disables the in-memory Parquet cache. By default, the cache is enabled.</p>
+   * @public
+   */
+  disableParquetMemCache?: boolean | undefined;
+
+  /**
+   * <p>Specifies the time window for caching recent Parquet files in memory.</p>
+   *          <p>Default: 5h</p>
+   * @public
+   */
+  parquetMemCacheQueryPathDuration?: Duration | undefined;
+
+  /**
+   * <p>Specifies the interval to evict expired entries from the Last-N-Value cache, expressed as a human-readable duration–for example: 20s, 1m, 1h.</p>
+   *          <p>Default: 10s</p>
+   * @public
+   */
+  lastCacheEvictionInterval?: Duration | undefined;
+
+  /**
+   * <p>Specifies the interval to evict expired entries from the distinct value cache, expressed as a human-readable duration–for example: 20s, 1m, 1h.</p>
+   *          <p>Default: 10s</p>
+   * @public
+   */
+  distinctCacheEvictionInterval?: Duration | undefined;
+
+  /**
+   * <p>Specifies the duration that Parquet files are arranged into. Data timestamps land each row into a file of this duration. Supported durations are 1m, 5m, and 10m. These files are known as “generation 1” files that the compactor in InfluxDB 3 Enterprise can merge into larger generations.</p>
+   *          <p>Default: 10m</p>
+   * @public
+   */
+  gen1Duration?: Duration | undefined;
+
+  /**
+   * <p>Specifies the size of memory pool used during query execution. Can be given as absolute value in bytes or as a percentage of the total available memory–for example: 8000000000 or 10%.</p>
+   *          <p>Default: 20%</p>
+   * @public
+   */
+  execMemPoolBytes?: PercentOrAbsoluteLong | undefined;
+
+  /**
+   * <p>Specifies the size of the in-memory Parquet cache in megabytes or percentage of total available memory.</p>
+   *          <p>Default: 20%</p>
+   * @public
+   */
+  parquetMemCacheSize?: PercentOrAbsoluteLong | undefined;
+
+  /**
+   * <p>Determines whether WAL replay should fail when encountering errors.</p>
+   *          <p>Default: false</p>
+   * @public
+   */
+  walReplayFailOnError?: boolean | undefined;
+
+  /**
+   * <p>Concurrency limit during WAL replay. Setting this number too high can lead to OOM. The default is dynamically determined.</p>
+   *          <p>Default: max(num_cpus, 10)</p>
+   * @public
+   */
+  walReplayConcurrencyLimit?: number | undefined;
+
+  /**
+   * <p>Specifies the maximum number of entries in the table index cache.</p>
+   *          <p>Default: 1000</p>
+   * @public
+   */
+  tableIndexCacheMaxEntries?: number | undefined;
+
+  /**
+   * <p>Limits the concurrency level for table index cache operations.</p>
+   *          <p>Default: 8</p>
+   * @public
+   */
+  tableIndexCacheConcurrencyLimit?: number | undefined;
+
+  /**
+   * <p>Specifies how far back to look when creating generation 1 Parquet files.</p>
+   *          <p>Default: 24h</p>
+   * @public
+   */
+  gen1LookbackDuration?: Duration | undefined;
+
+  /**
+   * <p>The interval at which retention policies are checked and enforced. Enter as a human-readable time–for example: 30m or 1h.</p>
+   *          <p>Default: 30m</p>
+   * @public
+   */
+  retentionCheckInterval?: Duration | undefined;
+
+  /**
+   * <p>Specifies the grace period before permanently deleting data.</p>
+   *          <p>Default: 24h</p>
+   * @public
+   */
+  deleteGracePeriod?: Duration | undefined;
+
+  /**
+   * <p>Sets the default duration for hard deletion of data.</p>
+   *          <p>Default: 90d</p>
+   * @public
+   */
+  hardDeleteDefaultDuration?: Duration | undefined;
+}
+
+/**
+ * <p>All the customer-modifiable InfluxDB v3 Enterprise parameters in Timestream for InfluxDB.</p>
+ * @public
+ */
+export interface InfluxDBv3EnterpriseParameters {
+  /**
+   * <p>Limits the number of Parquet files a query can access. If a query attempts to read more than this limit, InfluxDB 3 returns an error.</p>
+   *          <p>Default: 432</p>
+   * @public
+   */
+  queryFileLimit?: number | undefined;
+
+  /**
+   * <p>Defines the size of the query log. Up to this many queries remain in the log before older queries are evicted to make room for new ones.</p>
+   *          <p>Default: 1000</p>
+   * @public
+   */
+  queryLogSize?: number | undefined;
+
+  /**
+   * <p>Sets the filter directive for logs.</p>
+   * @public
+   */
+  logFilter?: string | undefined;
+
+  /**
+   * <p>Defines the message format for logs.</p>
+   *          <p>Default: full</p>
+   * @public
+   */
+  logFormat?: LogFormats | undefined;
+
+  /**
+   * <p>Sets the maximum number of DataFusion runtime threads to use.</p>
+   * @public
+   */
+  dataFusionNumThreads?: number | undefined;
+
+  /**
+   * <p>Specifies the DataFusion tokio runtime type.</p>
+   *          <p>Default: multi-thread</p>
+   * @public
+   */
+  dataFusionRuntimeType?: DataFusionRuntimeType | undefined;
+
+  /**
+   * <p>Disables the LIFO slot of the DataFusion runtime.</p>
+   * @public
+   */
+  dataFusionRuntimeDisableLifoSlot?: boolean | undefined;
+
+  /**
+   * <p>Sets the number of scheduler ticks after which the scheduler of the DataFusion tokio runtime polls for external events–for example: timers, I/O.</p>
+   * @public
+   */
+  dataFusionRuntimeEventInterval?: number | undefined;
+
+  /**
+   * <p>Sets the number of scheduler ticks after which the scheduler of the DataFusion runtime polls the global task queue.</p>
+   * @public
+   */
+  dataFusionRuntimeGlobalQueueInterval?: number | undefined;
+
+  /**
+   * <p>Specifies the limit for additional threads spawned by the DataFusion runtime.</p>
+   * @public
+   */
+  dataFusionRuntimeMaxBlockingThreads?: number | undefined;
+
+  /**
+   * <p>Configures the maximum number of events processed per tick by the tokio DataFusion runtime.</p>
+   * @public
+   */
+  dataFusionRuntimeMaxIoEventsPerTick?: number | undefined;
+
+  /**
+   * <p>Sets a custom timeout for a thread in the blocking pool of the tokio DataFusion runtime.</p>
+   * @public
+   */
+  dataFusionRuntimeThreadKeepAlive?: Duration | undefined;
+
+  /**
+   * <p>Sets the thread priority for tokio DataFusion runtime workers.</p>
+   *          <p>Default: 10</p>
+   * @public
+   */
+  dataFusionRuntimeThreadPriority?: number | undefined;
+
+  /**
+   * <p>When multiple parquet files are required in a sorted way (deduplication for example), specifies the maximum fanout.</p>
+   *          <p>Default: 1000</p>
+   * @public
+   */
+  dataFusionMaxParquetFanout?: number | undefined;
+
+  /**
+   * <p>Uses a cached parquet loader when reading parquet files from the object store.</p>
+   * @public
+   */
+  dataFusionUseCachedParquetLoader?: boolean | undefined;
+
+  /**
+   * <p>Provides custom configuration to DataFusion as a comma-separated list of key:value pairs.</p>
+   * @public
+   */
+  dataFusionConfig?: string | undefined;
+
+  /**
+   * <p>Specifies the maximum size of HTTP requests.</p>
+   *          <p>Default: 10485760</p>
+   * @public
+   */
+  maxHttpRequestSize?: number | undefined;
+
+  /**
+   * <p>Specifies the threshold for the internal memory buffer. Supports either a percentage (portion of available memory) or absolute value in MB–for example: 70% or 100</p>
+   *          <p>Default: 70%</p>
+   * @public
+   */
+  forceSnapshotMemThreshold?: PercentOrAbsoluteLong | undefined;
+
+  /**
+   * <p>Defines the number of WAL files to attempt to remove in a snapshot. This, multiplied by the interval, determines how often snapshots are taken.</p>
+   *          <p>Default: 600</p>
+   * @public
+   */
+  walSnapshotSize?: number | undefined;
+
+  /**
+   * <p>Specifies the maximum number of write requests that can be buffered before a flush must be executed and succeed.</p>
+   *          <p>Default: 100000</p>
+   * @public
+   */
+  walMaxWriteBufferSize?: number | undefined;
+
+  /**
+   * <p>Specifies the number of snapshotted WAL files to retain in the object store. Flushing the WAL files does not clear the WAL files immediately; they are deleted when the number of snapshotted WAL files exceeds this number.</p>
+   *          <p>Default: 300</p>
+   * @public
+   */
+  snapshottedWalFilesToKeep?: number | undefined;
+
+  /**
+   * <p>Specifies the interval to prefetch into the Parquet cache during compaction.</p>
+   *          <p>Default: 3d</p>
+   * @public
+   */
+  preemptiveCacheAge?: Duration | undefined;
+
+  /**
+   * <p>Specifies the percentage of entries to prune during a prune operation on the in-memory Parquet cache.</p>
+   *          <p>Default: 0.1</p>
+   * @public
+   */
+  parquetMemCachePrunePercentage?: number | undefined;
+
+  /**
+   * <p>Sets the interval to check if the in-memory Parquet cache needs to be pruned.</p>
+   *          <p>Default: 1s</p>
+   * @public
+   */
+  parquetMemCachePruneInterval?: Duration | undefined;
+
+  /**
+   * <p>Disables the in-memory Parquet cache. By default, the cache is enabled.</p>
+   * @public
+   */
+  disableParquetMemCache?: boolean | undefined;
+
+  /**
+   * <p>Specifies the time window for caching recent Parquet files in memory.</p>
+   *          <p>Default: 5h</p>
+   * @public
+   */
+  parquetMemCacheQueryPathDuration?: Duration | undefined;
+
+  /**
+   * <p>Specifies the interval to evict expired entries from the Last-N-Value cache, expressed as a human-readable duration–for example: 20s, 1m, 1h.</p>
+   *          <p>Default: 10s</p>
+   * @public
+   */
+  lastCacheEvictionInterval?: Duration | undefined;
+
+  /**
+   * <p>Specifies the interval to evict expired entries from the distinct value cache, expressed as a human-readable duration–for example: 20s, 1m, 1h.</p>
+   *          <p>Default: 10s</p>
+   * @public
+   */
+  distinctCacheEvictionInterval?: Duration | undefined;
+
+  /**
+   * <p>Specifies the duration that Parquet files are arranged into. Data timestamps land each row into a file of this duration. Supported durations are 1m, 5m, and 10m. These files are known as “generation 1” files, which the compactor can merge into larger generations.</p>
+   *          <p>Default: 10m</p>
+   * @public
+   */
+  gen1Duration?: Duration | undefined;
+
+  /**
+   * <p>Specifies the size of memory pool used during query execution. Can be given as absolute value in bytes or as a percentage of the total available memory–for example: 8000000000 or 10%.</p>
+   *          <p>Default: 20%</p>
+   * @public
+   */
+  execMemPoolBytes?: PercentOrAbsoluteLong | undefined;
+
+  /**
+   * <p>Specifies the size of the in-memory Parquet cache in megabytes or percentage of total available memory.</p>
+   *          <p>Default: 20%</p>
+   * @public
+   */
+  parquetMemCacheSize?: PercentOrAbsoluteLong | undefined;
+
+  /**
+   * <p>Determines whether WAL replay should fail when encountering errors.</p>
+   *          <p>Default: false</p>
+   * @public
+   */
+  walReplayFailOnError?: boolean | undefined;
+
+  /**
+   * <p>Concurrency limit during WAL replay. Setting this number too high can lead to OOM. The default is dynamically determined.</p>
+   *          <p>Default: max(num_cpus, 10)</p>
+   * @public
+   */
+  walReplayConcurrencyLimit?: number | undefined;
+
+  /**
+   * <p>Specifies the maximum number of entries in the table index cache.</p>
+   *          <p>Default: 1000</p>
+   * @public
+   */
+  tableIndexCacheMaxEntries?: number | undefined;
+
+  /**
+   * <p>Limits the concurrency level for table index cache operations.</p>
+   *          <p>Default: 8</p>
+   * @public
+   */
+  tableIndexCacheConcurrencyLimit?: number | undefined;
+
+  /**
+   * <p>Specifies how far back to look when creating generation 1 Parquet files.</p>
+   *          <p>Default: 24h</p>
+   * @public
+   */
+  gen1LookbackDuration?: Duration | undefined;
+
+  /**
+   * <p>The interval at which retention policies are checked and enforced. Enter as a human-readable time–for example: 30m or 1h.</p>
+   *          <p>Default: 30m</p>
+   * @public
+   */
+  retentionCheckInterval?: Duration | undefined;
+
+  /**
+   * <p>Specifies the grace period before permanently deleting data.</p>
+   *          <p>Default: 24h</p>
+   * @public
+   */
+  deleteGracePeriod?: Duration | undefined;
+
+  /**
+   * <p>Sets the default duration for hard deletion of data.</p>
+   *          <p>Default: 90d</p>
+   * @public
+   */
+  hardDeleteDefaultDuration?: Duration | undefined;
+
+  /**
+   * <p>Specifies number of instances in the DbCluster which can both ingest and query.</p>
+   * @public
+   */
+  ingestQueryInstances: number | undefined;
+
+  /**
+   * <p>Specifies number of instances in the DbCluster which can only query.</p>
+   * @public
+   */
+  queryOnlyInstances: number | undefined;
+
+  /**
+   * <p>Specifies if the compactor instance should be a standalone instance or not.</p>
+   * @public
+   */
+  dedicatedCompactor: boolean | undefined;
+
+  /**
+   * <p>Specifies the soft limit for the number of rows per file that the compactor writes. The compactor may write more rows than this limit.</p>
+   *          <p>Default: 1000000</p>
+   * @public
+   */
+  compactionRowLimit?: number | undefined;
+
+  /**
+   * <p>Sets the maximum number of files included in any compaction plan.</p>
+   *          <p>Default: 500</p>
+   * @public
+   */
+  compactionMaxNumFilesPerPlan?: number | undefined;
+
+  /**
+   * <p>Specifies the duration of the first level of compaction (gen2). Later levels of compaction are multiples of this duration. This value should be equal to or greater than the gen1 duration.</p>
+   *          <p>Default: 20m</p>
+   * @public
+   */
+  compactionGen2Duration?: Duration | undefined;
+
+  /**
+   * <p>Specifies a comma-separated list of multiples defining the duration of each level of compaction. The number of elements in the list determines the number of compaction levels. The first element specifies the duration of the first level (gen3); subsequent levels are multiples of the previous level.</p>
+   *          <p>Default: 3,4,6,5</p>
+   * @public
+   */
+  compactionMultipliers?: string | undefined;
+
+  /**
+   * <p>Specifies the amount of time that the compactor waits after finishing a compaction run to delete files marked as needing deletion during that compaction run.</p>
+   *          <p>Default: 10m</p>
+   * @public
+   */
+  compactionCleanupWait?: Duration | undefined;
+
+  /**
+   * <p>Specifies how often the compactor checks for new compaction work to perform.</p>
+   *          <p>Default: 10s</p>
+   * @public
+   */
+  compactionCheckInterval?: Duration | undefined;
+
+  /**
+   * <p>Disables populating the last-N-value cache from historical data. If disabled, the cache is still populated with data from the write-ahead log (WAL).</p>
+   * @public
+   */
+  lastValueCacheDisableFromHistory?: boolean | undefined;
+
+  /**
+   * <p>Disables populating the distinct value cache from historical data. If disabled, the cache is still populated with data from the write-ahead log (WAL).</p>
+   * @public
+   */
+  distinctValueCacheDisableFromHistory?: boolean | undefined;
+
+  /**
+   * <p>Specifies the interval at which data replication occurs between cluster nodes.</p>
+   *          <p>Default: 250ms</p>
+   * @public
+   */
+  replicationInterval?: Duration | undefined;
+
+  /**
+   * <p>Defines how often the catalog synchronizes across cluster nodes.</p>
+   *          <p>Default: 10s</p>
+   * @public
+   */
+  catalogSyncInterval?: Duration | undefined;
+}
+
+/**
  * <p>The parameters that comprise the parameter group.</p>
  * @public
  */
-export type _Parameters = _Parameters.InfluxDBv2Member | _Parameters.$UnknownMember;
+export type _Parameters =
+  | _Parameters.InfluxDBv2Member
+  | _Parameters.InfluxDBv3CoreMember
+  | _Parameters.InfluxDBv3EnterpriseMember
+  | _Parameters.$UnknownMember;
 
 /**
  * @public
@@ -2120,6 +2891,30 @@ export namespace _Parameters {
    */
   export interface InfluxDBv2Member {
     InfluxDBv2: InfluxDBv2Parameters;
+    InfluxDBv3Core?: never;
+    InfluxDBv3Enterprise?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>All the customer-modifiable InfluxDB v3 Core parameters in Timestream for InfluxDB.</p>
+   * @public
+   */
+  export interface InfluxDBv3CoreMember {
+    InfluxDBv2?: never;
+    InfluxDBv3Core: InfluxDBv3CoreParameters;
+    InfluxDBv3Enterprise?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>All the customer-modifiable InfluxDB v3 Enterprise parameters in Timestream for InfluxDB.</p>
+   * @public
+   */
+  export interface InfluxDBv3EnterpriseMember {
+    InfluxDBv2?: never;
+    InfluxDBv3Core?: never;
+    InfluxDBv3Enterprise: InfluxDBv3EnterpriseParameters;
     $unknown?: never;
   }
 
@@ -2128,16 +2923,22 @@ export namespace _Parameters {
    */
   export interface $UnknownMember {
     InfluxDBv2?: never;
+    InfluxDBv3Core?: never;
+    InfluxDBv3Enterprise?: never;
     $unknown: [string, any];
   }
 
   export interface Visitor<T> {
     InfluxDBv2: (value: InfluxDBv2Parameters) => T;
+    InfluxDBv3Core: (value: InfluxDBv3CoreParameters) => T;
+    InfluxDBv3Enterprise: (value: InfluxDBv3EnterpriseParameters) => T;
     _: (name: string, value: any) => T;
   }
 
   export const visit = <T>(value: _Parameters, visitor: Visitor<T>): T => {
     if (value.InfluxDBv2 !== undefined) return visitor.InfluxDBv2(value.InfluxDBv2);
+    if (value.InfluxDBv3Core !== undefined) return visitor.InfluxDBv3Core(value.InfluxDBv3Core);
+    if (value.InfluxDBv3Enterprise !== undefined) return visitor.InfluxDBv3Enterprise(value.InfluxDBv3Enterprise);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
 }

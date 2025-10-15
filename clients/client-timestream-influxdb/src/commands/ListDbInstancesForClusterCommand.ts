@@ -62,7 +62,10 @@ export interface ListDbInstancesForClusterCommandOutput extends ListDbInstancesF
  * //       dbStorageType: "InfluxIOIncludedT1" || "InfluxIOIncludedT2" || "InfluxIOIncludedT3",
  * //       allocatedStorage: Number("int"),
  * //       deploymentType: "SINGLE_AZ" || "WITH_MULTIAZ_STANDBY",
- * //       instanceMode: "PRIMARY" || "STANDBY" || "REPLICA",
+ * //       instanceMode: "PRIMARY" || "STANDBY" || "REPLICA" || "INGEST" || "QUERY" || "COMPACT" || "PROCESS",
+ * //       instanceModes: [ // InstanceModeList
+ * //         "PRIMARY" || "STANDBY" || "REPLICA" || "INGEST" || "QUERY" || "COMPACT" || "PROCESS",
+ * //       ],
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",

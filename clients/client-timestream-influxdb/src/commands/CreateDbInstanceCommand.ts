@@ -107,7 +107,10 @@ export interface CreateDbInstanceCommandOutput extends CreateDbInstanceOutput, _
  * //   },
  * //   influxAuthParametersSecretArn: "STRING_VALUE",
  * //   dbClusterId: "STRING_VALUE",
- * //   instanceMode: "PRIMARY" || "STANDBY" || "REPLICA",
+ * //   instanceMode: "PRIMARY" || "STANDBY" || "REPLICA" || "INGEST" || "QUERY" || "COMPACT" || "PROCESS",
+ * //   instanceModes: [ // InstanceModeList
+ * //     "PRIMARY" || "STANDBY" || "REPLICA" || "INGEST" || "QUERY" || "COMPACT" || "PROCESS",
+ * //   ],
  * // };
  *
  * ```

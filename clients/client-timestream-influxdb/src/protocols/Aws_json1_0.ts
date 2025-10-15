@@ -1,10 +1,22 @@
 // smithy-typescript generated code
-import { loadRestJsonErrorCode, parseJsonBody as parseBody, parseJsonErrorBody as parseErrorBody } from "@aws-sdk/core";
+import {
+  awsExpectUnion as __expectUnion,
+  loadRestJsonErrorCode,
+  parseJsonBody as parseBody,
+  parseJsonErrorBody as parseErrorBody,
+} from "@aws-sdk/core";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import {
   _json,
   collectBody,
   decorateServiceException as __decorateServiceException,
+  expectBoolean as __expectBoolean,
+  expectInt32 as __expectInt32,
+  expectLong as __expectLong,
+  expectString as __expectString,
+  limitedParseFloat32 as __limitedParseFloat32,
+  serializeFloat as __serializeFloat,
+  take,
   withBaseException,
 } from "@smithy/smithy-client";
 import {
@@ -53,13 +65,17 @@ import {
   CreateDbClusterInput,
   CreateDbInstanceInput,
   CreateDbParameterGroupInput,
+  CreateDbParameterGroupOutput,
   DeleteDbClusterInput,
   DeleteDbInstanceInput,
   Duration,
   GetDbClusterInput,
   GetDbInstanceInput,
   GetDbParameterGroupInput,
+  GetDbParameterGroupOutput,
   InfluxDBv2Parameters,
+  InfluxDBv3CoreParameters,
+  InfluxDBv3EnterpriseParameters,
   InternalServerException,
   ListDbClustersInput,
   ListDbInstancesForClusterInput,
@@ -67,6 +83,7 @@ import {
   ListDbParameterGroupsInput,
   ListTagsForResourceRequest,
   LogDeliveryConfiguration,
+  PercentOrAbsoluteLong,
   ResourceNotFoundException,
   S3Configuration,
   ServiceQuotaExceededException,
@@ -114,7 +131,7 @@ export const se_CreateDbParameterGroupCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("CreateDbParameterGroup");
   let body: any;
-  body = JSON.stringify(_json(input));
+  body = JSON.stringify(se_CreateDbParameterGroupInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -352,7 +369,7 @@ export const de_CreateDbParameterGroupCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = _json(data);
+  contents = de_CreateDbParameterGroupOutput(data, context);
   const response: CreateDbParameterGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -452,7 +469,7 @@ export const de_GetDbParameterGroupCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = _json(data);
+  contents = de_GetDbParameterGroupOutput(data, context);
   const response: GetDbParameterGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -782,7 +799,17 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_CreateDbInstanceInput omitted.
 
-// se_CreateDbParameterGroupInput omitted.
+/**
+ * serializeAws_json1_0CreateDbParameterGroupInput
+ */
+const se_CreateDbParameterGroupInput = (input: CreateDbParameterGroupInput, context: __SerdeContext): any => {
+  return take(input, {
+    description: [],
+    name: [],
+    parameters: (_) => se__Parameters(_, context),
+    tags: _json,
+  });
+};
 
 // se_DeleteDbClusterInput omitted.
 
@@ -798,6 +825,113 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_InfluxDBv2Parameters omitted.
 
+/**
+ * serializeAws_json1_0InfluxDBv3CoreParameters
+ */
+const se_InfluxDBv3CoreParameters = (input: InfluxDBv3CoreParameters, context: __SerdeContext): any => {
+  return take(input, {
+    dataFusionConfig: [],
+    dataFusionMaxParquetFanout: [],
+    dataFusionNumThreads: [],
+    dataFusionRuntimeDisableLifoSlot: [],
+    dataFusionRuntimeEventInterval: [],
+    dataFusionRuntimeGlobalQueueInterval: [],
+    dataFusionRuntimeMaxBlockingThreads: [],
+    dataFusionRuntimeMaxIoEventsPerTick: [],
+    dataFusionRuntimeThreadKeepAlive: _json,
+    dataFusionRuntimeThreadPriority: [],
+    dataFusionRuntimeType: [],
+    dataFusionUseCachedParquetLoader: [],
+    deleteGracePeriod: _json,
+    disableParquetMemCache: [],
+    distinctCacheEvictionInterval: _json,
+    execMemPoolBytes: _json,
+    forceSnapshotMemThreshold: _json,
+    gen1Duration: _json,
+    gen1LookbackDuration: _json,
+    hardDeleteDefaultDuration: _json,
+    lastCacheEvictionInterval: _json,
+    logFilter: [],
+    logFormat: [],
+    maxHttpRequestSize: [],
+    parquetMemCachePruneInterval: _json,
+    parquetMemCachePrunePercentage: __serializeFloat,
+    parquetMemCacheQueryPathDuration: _json,
+    parquetMemCacheSize: _json,
+    preemptiveCacheAge: _json,
+    queryFileLimit: [],
+    queryLogSize: [],
+    retentionCheckInterval: _json,
+    snapshottedWalFilesToKeep: [],
+    tableIndexCacheConcurrencyLimit: [],
+    tableIndexCacheMaxEntries: [],
+    walMaxWriteBufferSize: [],
+    walReplayConcurrencyLimit: [],
+    walReplayFailOnError: [],
+    walSnapshotSize: [],
+  });
+};
+
+/**
+ * serializeAws_json1_0InfluxDBv3EnterpriseParameters
+ */
+const se_InfluxDBv3EnterpriseParameters = (input: InfluxDBv3EnterpriseParameters, context: __SerdeContext): any => {
+  return take(input, {
+    catalogSyncInterval: _json,
+    compactionCheckInterval: _json,
+    compactionCleanupWait: _json,
+    compactionGen2Duration: _json,
+    compactionMaxNumFilesPerPlan: [],
+    compactionMultipliers: [],
+    compactionRowLimit: [],
+    dataFusionConfig: [],
+    dataFusionMaxParquetFanout: [],
+    dataFusionNumThreads: [],
+    dataFusionRuntimeDisableLifoSlot: [],
+    dataFusionRuntimeEventInterval: [],
+    dataFusionRuntimeGlobalQueueInterval: [],
+    dataFusionRuntimeMaxBlockingThreads: [],
+    dataFusionRuntimeMaxIoEventsPerTick: [],
+    dataFusionRuntimeThreadKeepAlive: _json,
+    dataFusionRuntimeThreadPriority: [],
+    dataFusionRuntimeType: [],
+    dataFusionUseCachedParquetLoader: [],
+    dedicatedCompactor: [],
+    deleteGracePeriod: _json,
+    disableParquetMemCache: [],
+    distinctCacheEvictionInterval: _json,
+    distinctValueCacheDisableFromHistory: [],
+    execMemPoolBytes: _json,
+    forceSnapshotMemThreshold: _json,
+    gen1Duration: _json,
+    gen1LookbackDuration: _json,
+    hardDeleteDefaultDuration: _json,
+    ingestQueryInstances: [],
+    lastCacheEvictionInterval: _json,
+    lastValueCacheDisableFromHistory: [],
+    logFilter: [],
+    logFormat: [],
+    maxHttpRequestSize: [],
+    parquetMemCachePruneInterval: _json,
+    parquetMemCachePrunePercentage: __serializeFloat,
+    parquetMemCacheQueryPathDuration: _json,
+    parquetMemCacheSize: _json,
+    preemptiveCacheAge: _json,
+    queryFileLimit: [],
+    queryLogSize: [],
+    queryOnlyInstances: [],
+    replicationInterval: _json,
+    retentionCheckInterval: _json,
+    snapshottedWalFilesToKeep: [],
+    tableIndexCacheConcurrencyLimit: [],
+    tableIndexCacheMaxEntries: [],
+    walMaxWriteBufferSize: [],
+    walReplayConcurrencyLimit: [],
+    walReplayFailOnError: [],
+    walSnapshotSize: [],
+  });
+};
+
 // se_ListDbClustersInput omitted.
 
 // se_ListDbInstancesForClusterInput omitted.
@@ -810,7 +944,19 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_LogDeliveryConfiguration omitted.
 
-// se__Parameters omitted.
+/**
+ * serializeAws_json1_0_Parameters
+ */
+const se__Parameters = (input: _Parameters, context: __SerdeContext): any => {
+  return _Parameters.visit(input, {
+    InfluxDBv2: (value) => ({ InfluxDBv2: _json(value) }),
+    InfluxDBv3Core: (value) => ({ InfluxDBv3Core: se_InfluxDBv3CoreParameters(value, context) }),
+    InfluxDBv3Enterprise: (value) => ({ InfluxDBv3Enterprise: se_InfluxDBv3EnterpriseParameters(value, context) }),
+    _: (name, value) => ({ [name]: value } as any),
+  });
+};
+
+// se_PercentOrAbsoluteLong omitted.
 
 // se_RequestTagMap omitted.
 
@@ -838,7 +984,18 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // de_CreateDbInstanceOutput omitted.
 
-// de_CreateDbParameterGroupOutput omitted.
+/**
+ * deserializeAws_json1_0CreateDbParameterGroupOutput
+ */
+const de_CreateDbParameterGroupOutput = (output: any, context: __SerdeContext): CreateDbParameterGroupOutput => {
+  return take(output, {
+    arn: __expectString,
+    description: __expectString,
+    id: __expectString,
+    name: __expectString,
+    parameters: (_: any) => de__Parameters(__expectUnion(_), context),
+  }) as any;
+};
 
 // de_DbClusterSummary omitted.
 
@@ -866,9 +1023,129 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // de_GetDbInstanceOutput omitted.
 
-// de_GetDbParameterGroupOutput omitted.
+/**
+ * deserializeAws_json1_0GetDbParameterGroupOutput
+ */
+const de_GetDbParameterGroupOutput = (output: any, context: __SerdeContext): GetDbParameterGroupOutput => {
+  return take(output, {
+    arn: __expectString,
+    description: __expectString,
+    id: __expectString,
+    name: __expectString,
+    parameters: (_: any) => de__Parameters(__expectUnion(_), context),
+  }) as any;
+};
 
 // de_InfluxDBv2Parameters omitted.
+
+/**
+ * deserializeAws_json1_0InfluxDBv3CoreParameters
+ */
+const de_InfluxDBv3CoreParameters = (output: any, context: __SerdeContext): InfluxDBv3CoreParameters => {
+  return take(output, {
+    dataFusionConfig: __expectString,
+    dataFusionMaxParquetFanout: __expectInt32,
+    dataFusionNumThreads: __expectInt32,
+    dataFusionRuntimeDisableLifoSlot: __expectBoolean,
+    dataFusionRuntimeEventInterval: __expectInt32,
+    dataFusionRuntimeGlobalQueueInterval: __expectInt32,
+    dataFusionRuntimeMaxBlockingThreads: __expectInt32,
+    dataFusionRuntimeMaxIoEventsPerTick: __expectInt32,
+    dataFusionRuntimeThreadKeepAlive: _json,
+    dataFusionRuntimeThreadPriority: __expectInt32,
+    dataFusionRuntimeType: __expectString,
+    dataFusionUseCachedParquetLoader: __expectBoolean,
+    deleteGracePeriod: _json,
+    disableParquetMemCache: __expectBoolean,
+    distinctCacheEvictionInterval: _json,
+    execMemPoolBytes: (_: any) => _json(__expectUnion(_)),
+    forceSnapshotMemThreshold: (_: any) => _json(__expectUnion(_)),
+    gen1Duration: _json,
+    gen1LookbackDuration: _json,
+    hardDeleteDefaultDuration: _json,
+    lastCacheEvictionInterval: _json,
+    logFilter: __expectString,
+    logFormat: __expectString,
+    maxHttpRequestSize: __expectLong,
+    parquetMemCachePruneInterval: _json,
+    parquetMemCachePrunePercentage: __limitedParseFloat32,
+    parquetMemCacheQueryPathDuration: _json,
+    parquetMemCacheSize: (_: any) => _json(__expectUnion(_)),
+    preemptiveCacheAge: _json,
+    queryFileLimit: __expectInt32,
+    queryLogSize: __expectInt32,
+    retentionCheckInterval: _json,
+    snapshottedWalFilesToKeep: __expectInt32,
+    tableIndexCacheConcurrencyLimit: __expectInt32,
+    tableIndexCacheMaxEntries: __expectInt32,
+    walMaxWriteBufferSize: __expectInt32,
+    walReplayConcurrencyLimit: __expectInt32,
+    walReplayFailOnError: __expectBoolean,
+    walSnapshotSize: __expectInt32,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_0InfluxDBv3EnterpriseParameters
+ */
+const de_InfluxDBv3EnterpriseParameters = (output: any, context: __SerdeContext): InfluxDBv3EnterpriseParameters => {
+  return take(output, {
+    catalogSyncInterval: _json,
+    compactionCheckInterval: _json,
+    compactionCleanupWait: _json,
+    compactionGen2Duration: _json,
+    compactionMaxNumFilesPerPlan: __expectInt32,
+    compactionMultipliers: __expectString,
+    compactionRowLimit: __expectInt32,
+    dataFusionConfig: __expectString,
+    dataFusionMaxParquetFanout: __expectInt32,
+    dataFusionNumThreads: __expectInt32,
+    dataFusionRuntimeDisableLifoSlot: __expectBoolean,
+    dataFusionRuntimeEventInterval: __expectInt32,
+    dataFusionRuntimeGlobalQueueInterval: __expectInt32,
+    dataFusionRuntimeMaxBlockingThreads: __expectInt32,
+    dataFusionRuntimeMaxIoEventsPerTick: __expectInt32,
+    dataFusionRuntimeThreadKeepAlive: _json,
+    dataFusionRuntimeThreadPriority: __expectInt32,
+    dataFusionRuntimeType: __expectString,
+    dataFusionUseCachedParquetLoader: __expectBoolean,
+    dedicatedCompactor: __expectBoolean,
+    deleteGracePeriod: _json,
+    disableParquetMemCache: __expectBoolean,
+    distinctCacheEvictionInterval: _json,
+    distinctValueCacheDisableFromHistory: __expectBoolean,
+    execMemPoolBytes: (_: any) => _json(__expectUnion(_)),
+    forceSnapshotMemThreshold: (_: any) => _json(__expectUnion(_)),
+    gen1Duration: _json,
+    gen1LookbackDuration: _json,
+    hardDeleteDefaultDuration: _json,
+    ingestQueryInstances: __expectInt32,
+    lastCacheEvictionInterval: _json,
+    lastValueCacheDisableFromHistory: __expectBoolean,
+    logFilter: __expectString,
+    logFormat: __expectString,
+    maxHttpRequestSize: __expectLong,
+    parquetMemCachePruneInterval: _json,
+    parquetMemCachePrunePercentage: __limitedParseFloat32,
+    parquetMemCacheQueryPathDuration: _json,
+    parquetMemCacheSize: (_: any) => _json(__expectUnion(_)),
+    preemptiveCacheAge: _json,
+    queryFileLimit: __expectInt32,
+    queryLogSize: __expectInt32,
+    queryOnlyInstances: __expectInt32,
+    replicationInterval: _json,
+    retentionCheckInterval: _json,
+    snapshottedWalFilesToKeep: __expectInt32,
+    tableIndexCacheConcurrencyLimit: __expectInt32,
+    tableIndexCacheMaxEntries: __expectInt32,
+    walMaxWriteBufferSize: __expectInt32,
+    walReplayConcurrencyLimit: __expectInt32,
+    walReplayFailOnError: __expectBoolean,
+    walSnapshotSize: __expectInt32,
+  }) as any;
+};
+
+// de_InstanceModeList omitted.
 
 // de_InternalServerException omitted.
 
@@ -884,7 +1161,29 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // de_LogDeliveryConfiguration omitted.
 
-// de__Parameters omitted.
+/**
+ * deserializeAws_json1_0_Parameters
+ */
+const de__Parameters = (output: any, context: __SerdeContext): _Parameters => {
+  if (output.InfluxDBv2 != null) {
+    return {
+      InfluxDBv2: _json(output.InfluxDBv2),
+    };
+  }
+  if (output.InfluxDBv3Core != null) {
+    return {
+      InfluxDBv3Core: de_InfluxDBv3CoreParameters(output.InfluxDBv3Core, context),
+    };
+  }
+  if (output.InfluxDBv3Enterprise != null) {
+    return {
+      InfluxDBv3Enterprise: de_InfluxDBv3EnterpriseParameters(output.InfluxDBv3Enterprise, context),
+    };
+  }
+  return { $unknown: Object.entries(output)[0] };
+};
+
+// de_PercentOrAbsoluteLong omitted.
 
 // de_ResourceNotFoundException omitted.
 

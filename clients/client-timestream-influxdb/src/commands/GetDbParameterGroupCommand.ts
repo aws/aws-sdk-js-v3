@@ -58,22 +58,22 @@ export interface GetDbParameterGroupCommandOutput extends GetDbParameterGroupOut
  * //       noTasks: true || false,
  * //       queryConcurrency: Number("int"),
  * //       queryQueueSize: Number("int"),
- * //       tracingType: "log" || "jaeger",
+ * //       tracingType: "log" || "jaeger" || "disabled",
  * //       metricsDisabled: true || false,
  * //       httpIdleTimeout: { // Duration
- * //         durationType: "hours" || "minutes" || "seconds" || "milliseconds", // required
+ * //         durationType: "hours" || "minutes" || "seconds" || "milliseconds" || "days", // required
  * //         value: Number("long"), // required
  * //       },
  * //       httpReadHeaderTimeout: {
- * //         durationType: "hours" || "minutes" || "seconds" || "milliseconds", // required
+ * //         durationType: "hours" || "minutes" || "seconds" || "milliseconds" || "days", // required
  * //         value: Number("long"), // required
  * //       },
  * //       httpReadTimeout: {
- * //         durationType: "hours" || "minutes" || "seconds" || "milliseconds", // required
+ * //         durationType: "hours" || "minutes" || "seconds" || "milliseconds" || "days", // required
  * //         value: Number("long"), // required
  * //       },
  * //       httpWriteTimeout: {
- * //         durationType: "hours" || "minutes" || "seconds" || "milliseconds", // required
+ * //         durationType: "hours" || "minutes" || "seconds" || "milliseconds" || "days", // required
  * //         value: Number("long"), // required
  * //       },
  * //       influxqlMaxSelectBuckets: Number("long"),
@@ -88,7 +88,7 @@ export interface GetDbParameterGroupCommandOutput extends GetDbParameterGroupOut
  * //       storageCacheMaxMemorySize: Number("long"),
  * //       storageCacheSnapshotMemorySize: Number("long"),
  * //       storageCacheSnapshotWriteColdDuration: {
- * //         durationType: "hours" || "minutes" || "seconds" || "milliseconds", // required
+ * //         durationType: "hours" || "minutes" || "seconds" || "milliseconds" || "days", // required
  * //         value: Number("long"), // required
  * //       },
  * //       storageCompactFullWriteColdDuration: "<Duration>",
@@ -102,6 +102,116 @@ export interface GetDbParameterGroupCommandOutput extends GetDbParameterGroupOut
  * //       storageWalMaxConcurrentWrites: Number("int"),
  * //       storageWalMaxWriteDelay: "<Duration>",
  * //       uiDisabled: true || false,
+ * //     },
+ * //     InfluxDBv3Core: { // InfluxDBv3CoreParameters
+ * //       queryFileLimit: Number("int"),
+ * //       queryLogSize: Number("int"),
+ * //       logFilter: "STRING_VALUE",
+ * //       logFormat: "full",
+ * //       dataFusionNumThreads: Number("int"),
+ * //       dataFusionRuntimeType: "multi-thread" || "multi-thread-alt",
+ * //       dataFusionRuntimeDisableLifoSlot: true || false,
+ * //       dataFusionRuntimeEventInterval: Number("int"),
+ * //       dataFusionRuntimeGlobalQueueInterval: Number("int"),
+ * //       dataFusionRuntimeMaxBlockingThreads: Number("int"),
+ * //       dataFusionRuntimeMaxIoEventsPerTick: Number("int"),
+ * //       dataFusionRuntimeThreadKeepAlive: "<Duration>",
+ * //       dataFusionRuntimeThreadPriority: Number("int"),
+ * //       dataFusionMaxParquetFanout: Number("int"),
+ * //       dataFusionUseCachedParquetLoader: true || false,
+ * //       dataFusionConfig: "STRING_VALUE",
+ * //       maxHttpRequestSize: Number("long"),
+ * //       forceSnapshotMemThreshold: { // PercentOrAbsoluteLong Union: only one key present
+ * //         percent: "STRING_VALUE",
+ * //         absolute: Number("long"),
+ * //       },
+ * //       walSnapshotSize: Number("int"),
+ * //       walMaxWriteBufferSize: Number("int"),
+ * //       snapshottedWalFilesToKeep: Number("int"),
+ * //       preemptiveCacheAge: "<Duration>",
+ * //       parquetMemCachePrunePercentage: Number("float"),
+ * //       parquetMemCachePruneInterval: "<Duration>",
+ * //       disableParquetMemCache: true || false,
+ * //       parquetMemCacheQueryPathDuration: "<Duration>",
+ * //       lastCacheEvictionInterval: "<Duration>",
+ * //       distinctCacheEvictionInterval: "<Duration>",
+ * //       gen1Duration: "<Duration>",
+ * //       execMemPoolBytes: {//  Union: only one key present
+ * //         percent: "STRING_VALUE",
+ * //         absolute: Number("long"),
+ * //       },
+ * //       parquetMemCacheSize: {//  Union: only one key present
+ * //         percent: "STRING_VALUE",
+ * //         absolute: Number("long"),
+ * //       },
+ * //       walReplayFailOnError: true || false,
+ * //       walReplayConcurrencyLimit: Number("int"),
+ * //       tableIndexCacheMaxEntries: Number("int"),
+ * //       tableIndexCacheConcurrencyLimit: Number("int"),
+ * //       gen1LookbackDuration: "<Duration>",
+ * //       retentionCheckInterval: "<Duration>",
+ * //       deleteGracePeriod: "<Duration>",
+ * //       hardDeleteDefaultDuration: "<Duration>",
+ * //     },
+ * //     InfluxDBv3Enterprise: { // InfluxDBv3EnterpriseParameters
+ * //       queryFileLimit: Number("int"),
+ * //       queryLogSize: Number("int"),
+ * //       logFilter: "STRING_VALUE",
+ * //       logFormat: "full",
+ * //       dataFusionNumThreads: Number("int"),
+ * //       dataFusionRuntimeType: "multi-thread" || "multi-thread-alt",
+ * //       dataFusionRuntimeDisableLifoSlot: true || false,
+ * //       dataFusionRuntimeEventInterval: Number("int"),
+ * //       dataFusionRuntimeGlobalQueueInterval: Number("int"),
+ * //       dataFusionRuntimeMaxBlockingThreads: Number("int"),
+ * //       dataFusionRuntimeMaxIoEventsPerTick: Number("int"),
+ * //       dataFusionRuntimeThreadKeepAlive: "<Duration>",
+ * //       dataFusionRuntimeThreadPriority: Number("int"),
+ * //       dataFusionMaxParquetFanout: Number("int"),
+ * //       dataFusionUseCachedParquetLoader: true || false,
+ * //       dataFusionConfig: "STRING_VALUE",
+ * //       maxHttpRequestSize: Number("long"),
+ * //       forceSnapshotMemThreshold: {//  Union: only one key present
+ * //         percent: "STRING_VALUE",
+ * //         absolute: Number("long"),
+ * //       },
+ * //       walSnapshotSize: Number("int"),
+ * //       walMaxWriteBufferSize: Number("int"),
+ * //       snapshottedWalFilesToKeep: Number("int"),
+ * //       preemptiveCacheAge: "<Duration>",
+ * //       parquetMemCachePrunePercentage: Number("float"),
+ * //       parquetMemCachePruneInterval: "<Duration>",
+ * //       disableParquetMemCache: true || false,
+ * //       parquetMemCacheQueryPathDuration: "<Duration>",
+ * //       lastCacheEvictionInterval: "<Duration>",
+ * //       distinctCacheEvictionInterval: "<Duration>",
+ * //       gen1Duration: "<Duration>",
+ * //       execMemPoolBytes: {//  Union: only one key present
+ * //         percent: "STRING_VALUE",
+ * //         absolute: Number("long"),
+ * //       },
+ * //       parquetMemCacheSize: "<PercentOrAbsoluteLong>",
+ * //       walReplayFailOnError: true || false,
+ * //       walReplayConcurrencyLimit: Number("int"),
+ * //       tableIndexCacheMaxEntries: Number("int"),
+ * //       tableIndexCacheConcurrencyLimit: Number("int"),
+ * //       gen1LookbackDuration: "<Duration>",
+ * //       retentionCheckInterval: "<Duration>",
+ * //       deleteGracePeriod: "<Duration>",
+ * //       hardDeleteDefaultDuration: "<Duration>",
+ * //       ingestQueryInstances: Number("int"), // required
+ * //       queryOnlyInstances: Number("int"), // required
+ * //       dedicatedCompactor: true || false, // required
+ * //       compactionRowLimit: Number("int"),
+ * //       compactionMaxNumFilesPerPlan: Number("int"),
+ * //       compactionGen2Duration: "<Duration>",
+ * //       compactionMultipliers: "STRING_VALUE",
+ * //       compactionCleanupWait: "<Duration>",
+ * //       compactionCheckInterval: "<Duration>",
+ * //       lastValueCacheDisableFromHistory: true || false,
+ * //       distinctValueCacheDisableFromHistory: true || false,
+ * //       replicationInterval: "<Duration>",
+ * //       catalogSyncInterval: "<Duration>",
  * //     },
  * //   },
  * // };

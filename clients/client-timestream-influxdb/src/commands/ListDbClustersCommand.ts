@@ -62,6 +62,7 @@ export interface ListDbClustersCommandOutput extends ListDbClustersOutput, __Met
  * //       networkType: "IPV4" || "DUAL",
  * //       dbStorageType: "InfluxIOIncludedT1" || "InfluxIOIncludedT2" || "InfluxIOIncludedT3",
  * //       allocatedStorage: Number("int"),
+ * //       engineType: "INFLUXDB_V2" || "INFLUXDB_V3_CORE" || "INFLUXDB_V3_ENTERPRISE",
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",
