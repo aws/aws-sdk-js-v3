@@ -29756,6 +29756,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/node@npm:^20.0.0":
+  version: 20.19.21
+  resolution: "@types/node@npm:20.19.21"
+  dependencies:
+    undici-types: "npm:~6.21.0"
+  checksum: 10c0/a5bedcc71b363abfa425c01e69696820736614dfba03d2363df6d306d2ee6f7619b370c72b4ec75d992e5d76eaccdcdeb362276cac1cd01756db6dec2eb8227c
+  languageName: node
+  linkType: hard
+
 "@types/normalize-package-data@npm:^2.4.0":
   version: 2.4.4
   resolution: "@types/normalize-package-data@npm:2.4.4"
@@ -29809,6 +29818,13 @@ __metadata:
   version: 8.3.4
   resolution: "@types/uuid@npm:8.3.4"
   checksum: 10c0/b9ac98f82fcf35962317ef7dc44d9ac9e0f6fdb68121d384c88fe12ea318487d5585d3480fa003cf28be86a3bbe213ca688ba786601dce4a97724765eb5b1cf2
+  languageName: node
+  linkType: hard
+
+"@types/whatwg-mimetype@npm:^3.0.2":
+  version: 3.0.2
+  resolution: "@types/whatwg-mimetype@npm:3.0.2"
+  checksum: 10c0/dad39d1e4abe760a0a963c84bbdbd26b1df0eb68aff83bdf6ecbb50ad781ead777f6906d19a87007790b750f7500a12e5624d31fc6a1529d14bd19b5c3a316d1
   languageName: node
   linkType: hard
 
@@ -31016,7 +31032,7 @@ __metadata:
     fs-extra: "npm:^9.0.0"
     generate-changelog: "npm:^1.7.1"
     glob: "npm:7.1.6"
-    happy-dom: "npm:16.3.0"
+    happy-dom: "npm:20.0.0"
     husky: "npm:^4.2.3"
     jest: "npm:29.7.0"
     jmespath: "npm:^0.15.0"
@@ -34715,13 +34731,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"happy-dom@npm:16.3.0":
-  version: 16.3.0
-  resolution: "happy-dom@npm:16.3.0"
+"happy-dom@npm:20.0.0":
+  version: 20.0.0
+  resolution: "happy-dom@npm:20.0.0"
   dependencies:
-    webidl-conversions: "npm:^7.0.0"
+    "@types/node": "npm:^20.0.0"
+    "@types/whatwg-mimetype": "npm:^3.0.2"
     whatwg-mimetype: "npm:^3.0.0"
-  checksum: 10c0/c90e29ff44818008aaae1fc65b276a9a1920455884fe895fdc634ced3f98a71fe81317ddf9a2ec1d7d07af0b300500d9f652ba7cfc144ed96c5f7c480edde83b
+  checksum: 10c0/a205da48f3c98ae2b2bcb73c8f673fea66296cd2fc081065fcd5fa42b4411546c1b8f7c26ef2ca5adf0bdd1ced9aff4f429a3a4f5e6bce7724eec2747bef1a49
   languageName: node
   linkType: hard
 
@@ -41537,6 +41554,13 @@ __metadata:
   version: 6.20.0
   resolution: "undici-types@npm:6.20.0"
   checksum: 10c0/68e659a98898d6a836a9a59e6adf14a5d799707f5ea629433e025ac90d239f75e408e2e5ff086afc3cace26f8b26ee52155293564593fbb4a2f666af57fc59bf
+  languageName: node
+  linkType: hard
+
+"undici-types@npm:~6.21.0":
+  version: 6.21.0
+  resolution: "undici-types@npm:6.21.0"
+  checksum: 10c0/c01ed51829b10aa72fc3ce64b747f8e74ae9b60eafa19a7b46ef624403508a54c526ffab06a14a26b3120d055e1104d7abe7c9017e83ced038ea5cf52f8d5e04
   languageName: node
   linkType: hard
 
