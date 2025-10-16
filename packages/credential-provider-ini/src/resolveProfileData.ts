@@ -11,6 +11,11 @@ import { isWebIdentityProfile, resolveWebIdentityCredentials } from "./resolveWe
 /**
  * @internal
  */
+export type ResolveProfileData = typeof resolveProfileData;
+
+/**
+ * @internal
+ */
 export const resolveProfileData = async (
   profileName: string,
   profiles: ParsedIniData,
@@ -37,7 +42,7 @@ export const resolveProfileData = async (
   // If this is the first profile visited, role assumption keys should be
   // given precedence over static credentials.
   if (isAssumeRoleRecursiveCall || isAssumeRoleProfile(data, { profile: profileName, logger: options.logger })) {
-    return resolveAssumeRoleCredentials(profileName, profiles, options, visitedProfiles);
+    return resolveAssumeRoleCredentials(profileName, profiles, options, visitedProfiles, resolveProfileData);
   }
 
   // If no role assumption metadata is present, attempt to load static
