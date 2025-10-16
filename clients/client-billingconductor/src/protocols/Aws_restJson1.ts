@@ -142,6 +142,7 @@ import {
   ListPricingPlansFilter,
   ListPricingRulesFilter,
   ListResourcesAssociatedToCustomLineItemFilter,
+  PresentationObject,
   PricingRuleListElement,
   ResourceNotFoundException,
   ServiceLimitExceededException,
@@ -297,8 +298,10 @@ export const se_CreateCustomLineItemCommand = async (
       BillingGroupArn: [],
       BillingPeriodRange: (_) => _json(_),
       ChargeDetails: (_) => se_CustomLineItemChargeDetails(_, context),
+      ComputationRule: [],
       Description: [],
       Name: [],
+      PresentationDetails: (_) => _json(_),
       Tags: (_) => _json(_),
     })
   );
@@ -1931,6 +1934,8 @@ const se_CustomLineItemPercentageChargeDetails = (
 
 // se_ListResourcesAssociatedToCustomLineItemFilter omitted.
 
+// se_PresentationObject omitted.
+
 // se_PricingPlanArns omitted.
 
 // se_PricingRuleArns omitted.
@@ -2035,11 +2040,13 @@ const de_CustomLineItemListElement = (output: any, context: __SerdeContext): Cus
     AssociationSize: __expectLong,
     BillingGroupArn: __expectString,
     ChargeDetails: (_: any) => de_ListCustomLineItemChargeDetails(_, context),
+    ComputationRule: __expectString,
     CreationTime: __expectLong,
     CurrencyCode: __expectString,
     Description: __expectString,
     LastModifiedTime: __expectLong,
     Name: __expectString,
+    PresentationDetails: _json,
     ProductCode: __expectString,
   }) as any;
 };
@@ -2069,12 +2076,14 @@ const de_CustomLineItemVersionListElement = (
     AssociationSize: __expectLong,
     BillingGroupArn: __expectString,
     ChargeDetails: (_: any) => de_ListCustomLineItemChargeDetails(_, context),
+    ComputationRule: __expectString,
     CreationTime: __expectLong,
     CurrencyCode: __expectString,
     Description: __expectString,
     EndBillingPeriod: __expectString,
     LastModifiedTime: __expectLong,
     Name: __expectString,
+    PresentationDetails: _json,
     ProductCode: __expectString,
     StartBillingPeriod: __expectString,
     StartTime: __expectLong,
@@ -2134,6 +2143,8 @@ const de_ListCustomLineItemPercentageChargeDetails = (
 // de_ListResourcesAssociatedToCustomLineItemResponseElement omitted.
 
 // de_ListResourcesAssociatedToCustomLineItemResponseList omitted.
+
+// de_PresentationObject omitted.
 
 // de_PricingPlanArns omitted.
 

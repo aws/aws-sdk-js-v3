@@ -65,18 +65,18 @@ export interface ListCustomLineItemVersionsCommandOutput extends ListCustomLineI
  * //         Percentage: { // ListCustomLineItemPercentageChargeDetails
  * //           PercentageValue: Number("double"), // required
  * //         },
- * //         Type: "STRING_VALUE", // required
+ * //         Type: "CREDIT" || "FEE", // required
  * //         LineItemFilters: [ // LineItemFiltersList
  * //           { // LineItemFilter
- * //             Attribute: "STRING_VALUE", // required
- * //             MatchOption: "STRING_VALUE", // required
+ * //             Attribute: "LINE_ITEM_TYPE", // required
+ * //             MatchOption: "NOT_EQUAL", // required
  * //             Values: [ // LineItemFilterValuesList // required
- * //               "STRING_VALUE",
+ * //               "SAVINGS_PLAN_NEGATION",
  * //             ],
  * //           },
  * //         ],
  * //       },
- * //       CurrencyCode: "STRING_VALUE",
+ * //       CurrencyCode: "USD" || "CNY",
  * //       Description: "STRING_VALUE",
  * //       ProductCode: "STRING_VALUE",
  * //       BillingGroupArn: "STRING_VALUE",
@@ -88,6 +88,10 @@ export interface ListCustomLineItemVersionsCommandOutput extends ListCustomLineI
  * //       Arn: "STRING_VALUE",
  * //       StartTime: Number("long"),
  * //       AccountId: "STRING_VALUE",
+ * //       ComputationRule: "CONSOLIDATED",
+ * //       PresentationDetails: { // PresentationObject
+ * //         Service: "STRING_VALUE", // required
+ * //       },
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",
@@ -102,19 +106,16 @@ export interface ListCustomLineItemVersionsCommandOutput extends ListCustomLineI
  * @see {@link BillingconductorClientResolvedConfig | config} for BillingconductorClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient access to perform this action.
- *     </p>
+ *  <p>You do not have sufficient access to perform this action. </p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An unexpected error occurred while processing a request.
- *     </p>
+ *  <p>An unexpected error occurred while processing a request. </p>
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling.
- *     </p>
+ *  <p>The request was denied due to request throttling. </p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input doesn't match with the constraints specified by Amazon Web Services.</p>
+ *  <p>The input doesn't match with the constraints specified by Amazon Web Services services.</p>
  *
  * @throws {@link BillingconductorServiceException}
  * <p>Base exception class for all service exceptions from Billingconductor service.</p>

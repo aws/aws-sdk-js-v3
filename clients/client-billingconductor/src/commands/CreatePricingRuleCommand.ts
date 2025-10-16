@@ -32,9 +32,7 @@ export interface CreatePricingRuleCommandInput extends CreatePricingRuleInput {}
 export interface CreatePricingRuleCommandOutput extends CreatePricingRuleOutput, __MetadataBearer {}
 
 /**
- * <p>
- *       Creates a pricing rule can be associated to a pricing plan, or a set of pricing plans.
- *     </p>
+ * <p> Creates a pricing rule can be associated to a pricing plan, or a set of pricing plans. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -47,8 +45,8 @@ export interface CreatePricingRuleCommandOutput extends CreatePricingRuleOutput,
  *   ClientToken: "STRING_VALUE",
  *   Name: "STRING_VALUE", // required
  *   Description: "STRING_VALUE",
- *   Scope: "STRING_VALUE", // required
- *   Type: "STRING_VALUE", // required
+ *   Scope: "GLOBAL" || "SERVICE" || "BILLING_ENTITY" || "SKU", // required
+ *   Type: "MARKUP" || "DISCOUNT" || "TIERING", // required
  *   ModifierPercentage: Number("double"),
  *   Service: "STRING_VALUE",
  *   Tags: { // TagMap
@@ -78,27 +76,22 @@ export interface CreatePricingRuleCommandOutput extends CreatePricingRuleOutput,
  * @see {@link BillingconductorClientResolvedConfig | config} for BillingconductorClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient access to perform this action.
- *     </p>
+ *  <p>You do not have sufficient access to perform this action. </p>
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>You can cause an inconsistent state by updating or deleting a resource.
- *     </p>
+ *  <p>You can cause an inconsistent state by updating or deleting a resource. </p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An unexpected error occurred while processing a request.
- *     </p>
+ *  <p>An unexpected error occurred while processing a request. </p>
  *
  * @throws {@link ServiceLimitExceededException} (client fault)
- *  <p>The request would cause a service limit to exceed.
- *     </p>
+ *  <p>The request would cause a service limit to exceed. </p>
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling.
- *     </p>
+ *  <p>The request was denied due to request throttling. </p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input doesn't match with the constraints specified by Amazon Web Services.</p>
+ *  <p>The input doesn't match with the constraints specified by Amazon Web Services services.</p>
  *
  * @throws {@link BillingconductorServiceException}
  * <p>Base exception class for all service exceptions from Billingconductor service.</p>

@@ -28,9 +28,7 @@ export interface ListTagsForResourceCommandInput extends ListTagsForResourceRequ
 export interface ListTagsForResourceCommandOutput extends ListTagsForResourceResponse, __MetadataBearer {}
 
 /**
- * <p>
- *       A list the tags for a resource.
- *     </p>
+ * <p> A list the tags for a resource. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -59,23 +57,19 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * @see {@link BillingconductorClientResolvedConfig | config} for BillingconductorClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient access to perform this action.
- *     </p>
+ *  <p>You do not have sufficient access to perform this action. </p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An unexpected error occurred while processing a request.
- *     </p>
+ *  <p>An unexpected error occurred while processing a request. </p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The request references a resource that doesn't exist.
- *     </p>
+ *  <p>The request references a resource that doesn't exist. </p>
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling.
- *     </p>
+ *  <p>The request was denied due to request throttling. </p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input doesn't match with the constraints specified by Amazon Web Services.</p>
+ *  <p>The input doesn't match with the constraints specified by Amazon Web Services services.</p>
  *
  * @throws {@link BillingconductorServiceException}
  * <p>Base exception class for all service exceptions from Billingconductor service.</p>

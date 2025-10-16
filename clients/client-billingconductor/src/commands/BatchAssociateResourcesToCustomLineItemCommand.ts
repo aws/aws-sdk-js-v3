@@ -37,9 +37,7 @@ export interface BatchAssociateResourcesToCustomLineItemCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>
- *       Associates a batch of resources to a percentage custom line item.
- *     </p>
+ * <p> Associates a batch of resources to a percentage custom line item. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -66,7 +64,7 @@ export interface BatchAssociateResourcesToCustomLineItemCommandOutput
  * //       Arn: "STRING_VALUE",
  * //       Error: { // AssociateResourceError
  * //         Message: "STRING_VALUE",
- * //         Reason: "STRING_VALUE",
+ * //         Reason: "INVALID_ARN" || "SERVICE_LIMIT_EXCEEDED" || "ILLEGAL_CUSTOMLINEITEM" || "INTERNAL_SERVER_EXCEPTION" || "INVALID_BILLING_PERIOD_RANGE",
  * //       },
  * //     },
  * //   ],
@@ -75,7 +73,7 @@ export interface BatchAssociateResourcesToCustomLineItemCommandOutput
  * //       Arn: "STRING_VALUE",
  * //       Error: {
  * //         Message: "STRING_VALUE",
- * //         Reason: "STRING_VALUE",
+ * //         Reason: "INVALID_ARN" || "SERVICE_LIMIT_EXCEEDED" || "ILLEGAL_CUSTOMLINEITEM" || "INTERNAL_SERVER_EXCEPTION" || "INVALID_BILLING_PERIOD_RANGE",
  * //       },
  * //     },
  * //   ],
@@ -90,31 +88,25 @@ export interface BatchAssociateResourcesToCustomLineItemCommandOutput
  * @see {@link BillingconductorClientResolvedConfig | config} for BillingconductorClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient access to perform this action.
- *     </p>
+ *  <p>You do not have sufficient access to perform this action. </p>
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>You can cause an inconsistent state by updating or deleting a resource.
- *     </p>
+ *  <p>You can cause an inconsistent state by updating or deleting a resource. </p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An unexpected error occurred while processing a request.
- *     </p>
+ *  <p>An unexpected error occurred while processing a request. </p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The request references a resource that doesn't exist.
- *     </p>
+ *  <p>The request references a resource that doesn't exist. </p>
  *
  * @throws {@link ServiceLimitExceededException} (client fault)
- *  <p>The request would cause a service limit to exceed.
- *     </p>
+ *  <p>The request would cause a service limit to exceed. </p>
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling.
- *     </p>
+ *  <p>The request was denied due to request throttling. </p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input doesn't match with the constraints specified by Amazon Web Services.</p>
+ *  <p>The input doesn't match with the constraints specified by Amazon Web Services services.</p>
  *
  * @throws {@link BillingconductorServiceException}
  * <p>Base exception class for all service exceptions from Billingconductor service.</p>

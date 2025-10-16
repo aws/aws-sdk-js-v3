@@ -32,9 +32,7 @@ export interface CreateCustomLineItemCommandInput extends CreateCustomLineItemIn
 export interface CreateCustomLineItemCommandOutput extends CreateCustomLineItemOutput, __MetadataBearer {}
 
 /**
- * <p>Creates a custom line item that can be used to create a one-time fixed charge that can be
- *       applied to a single billing group for the current or previous billing period. The one-time
- *       fixed charge is either a fee or discount. </p>
+ * <p>Creates a custom line item that can be used to create a one-time fixed charge that can be applied to a single billing group for the current or previous billing period. The one-time fixed charge is either a fee or discount. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -65,18 +63,22 @@ export interface CreateCustomLineItemCommandOutput extends CreateCustomLineItemO
  *         "STRING_VALUE",
  *       ],
  *     },
- *     Type: "STRING_VALUE", // required
+ *     Type: "CREDIT" || "FEE", // required
  *     LineItemFilters: [ // LineItemFiltersList
  *       { // LineItemFilter
- *         Attribute: "STRING_VALUE", // required
- *         MatchOption: "STRING_VALUE", // required
+ *         Attribute: "LINE_ITEM_TYPE", // required
+ *         MatchOption: "NOT_EQUAL", // required
  *         Values: [ // LineItemFilterValuesList // required
- *           "STRING_VALUE",
+ *           "SAVINGS_PLAN_NEGATION",
  *         ],
  *       },
  *     ],
  *   },
  *   AccountId: "STRING_VALUE",
+ *   ComputationRule: "CONSOLIDATED",
+ *   PresentationDetails: { // PresentationObject
+ *     Service: "STRING_VALUE", // required
+ *   },
  * };
  * const command = new CreateCustomLineItemCommand(input);
  * const response = await client.send(command);
@@ -93,27 +95,22 @@ export interface CreateCustomLineItemCommandOutput extends CreateCustomLineItemO
  * @see {@link BillingconductorClientResolvedConfig | config} for BillingconductorClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient access to perform this action.
- *     </p>
+ *  <p>You do not have sufficient access to perform this action. </p>
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>You can cause an inconsistent state by updating or deleting a resource.
- *     </p>
+ *  <p>You can cause an inconsistent state by updating or deleting a resource. </p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An unexpected error occurred while processing a request.
- *     </p>
+ *  <p>An unexpected error occurred while processing a request. </p>
  *
  * @throws {@link ServiceLimitExceededException} (client fault)
- *  <p>The request would cause a service limit to exceed.
- *     </p>
+ *  <p>The request would cause a service limit to exceed. </p>
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling.
- *     </p>
+ *  <p>The request was denied due to request throttling. </p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input doesn't match with the constraints specified by Amazon Web Services.</p>
+ *  <p>The input doesn't match with the constraints specified by Amazon Web Services services.</p>
  *
  * @throws {@link BillingconductorServiceException}
  * <p>Base exception class for all service exceptions from Billingconductor service.</p>

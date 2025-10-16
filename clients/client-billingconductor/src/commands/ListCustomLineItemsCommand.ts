@@ -33,9 +33,7 @@ export interface ListCustomLineItemsCommandInput extends ListCustomLineItemsInpu
 export interface ListCustomLineItemsCommandOutput extends ListCustomLineItemsOutput, __MetadataBearer {}
 
 /**
- * <p>
- *       A paginated call to get a list of all custom line items (FFLIs) for the given billing period. If you don't provide a billing period, the current billing period is used.
- *     </p>
+ * <p> A paginated call to get a list of all custom line items (FFLIs) for the given billing period. If you don't provide a billing period, the current billing period is used. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -77,18 +75,18 @@ export interface ListCustomLineItemsCommandOutput extends ListCustomLineItemsOut
  * //         Percentage: { // ListCustomLineItemPercentageChargeDetails
  * //           PercentageValue: Number("double"), // required
  * //         },
- * //         Type: "STRING_VALUE", // required
+ * //         Type: "CREDIT" || "FEE", // required
  * //         LineItemFilters: [ // LineItemFiltersList
  * //           { // LineItemFilter
- * //             Attribute: "STRING_VALUE", // required
- * //             MatchOption: "STRING_VALUE", // required
+ * //             Attribute: "LINE_ITEM_TYPE", // required
+ * //             MatchOption: "NOT_EQUAL", // required
  * //             Values: [ // LineItemFilterValuesList // required
- * //               "STRING_VALUE",
+ * //               "SAVINGS_PLAN_NEGATION",
  * //             ],
  * //           },
  * //         ],
  * //       },
- * //       CurrencyCode: "STRING_VALUE",
+ * //       CurrencyCode: "USD" || "CNY",
  * //       Description: "STRING_VALUE",
  * //       ProductCode: "STRING_VALUE",
  * //       BillingGroupArn: "STRING_VALUE",
@@ -96,6 +94,10 @@ export interface ListCustomLineItemsCommandOutput extends ListCustomLineItemsOut
  * //       LastModifiedTime: Number("long"),
  * //       AssociationSize: Number("long"),
  * //       AccountId: "STRING_VALUE",
+ * //       ComputationRule: "CONSOLIDATED",
+ * //       PresentationDetails: { // PresentationObject
+ * //         Service: "STRING_VALUE", // required
+ * //       },
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",
@@ -110,23 +112,19 @@ export interface ListCustomLineItemsCommandOutput extends ListCustomLineItemsOut
  * @see {@link BillingconductorClientResolvedConfig | config} for BillingconductorClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient access to perform this action.
- *     </p>
+ *  <p>You do not have sufficient access to perform this action. </p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An unexpected error occurred while processing a request.
- *     </p>
+ *  <p>An unexpected error occurred while processing a request. </p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The request references a resource that doesn't exist.
- *     </p>
+ *  <p>The request references a resource that doesn't exist. </p>
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling.
- *     </p>
+ *  <p>The request was denied due to request throttling. </p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input doesn't match with the constraints specified by Amazon Web Services.</p>
+ *  <p>The input doesn't match with the constraints specified by Amazon Web Services services.</p>
  *
  * @throws {@link BillingconductorServiceException}
  * <p>Base exception class for all service exceptions from Billingconductor service.</p>

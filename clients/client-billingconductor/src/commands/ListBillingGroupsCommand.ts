@@ -51,7 +51,7 @@ export interface ListBillingGroupsCommandOutput extends ListBillingGroupsOutput,
  *     ],
  *     PricingPlan: "STRING_VALUE",
  *     Statuses: [ // BillingGroupStatusList
- *       "STRING_VALUE",
+ *       "ACTIVE" || "PRIMARY_ACCOUNT_MISSING",
  *     ],
  *     AutoAssociate: true || false,
  *   },
@@ -71,7 +71,7 @@ export interface ListBillingGroupsCommandOutput extends ListBillingGroupsOutput,
  * //       Size: Number("long"),
  * //       CreationTime: Number("long"),
  * //       LastModifiedTime: Number("long"),
- * //       Status: "STRING_VALUE",
+ * //       Status: "ACTIVE" || "PRIMARY_ACCOUNT_MISSING",
  * //       StatusReason: "STRING_VALUE",
  * //       AccountGrouping: { // ListBillingGroupAccountGrouping
  * //         AutoAssociate: true || false,
@@ -90,23 +90,19 @@ export interface ListBillingGroupsCommandOutput extends ListBillingGroupsOutput,
  * @see {@link BillingconductorClientResolvedConfig | config} for BillingconductorClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient access to perform this action.
- *     </p>
+ *  <p>You do not have sufficient access to perform this action. </p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An unexpected error occurred while processing a request.
- *     </p>
+ *  <p>An unexpected error occurred while processing a request. </p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The request references a resource that doesn't exist.
- *     </p>
+ *  <p>The request references a resource that doesn't exist. </p>
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling.
- *     </p>
+ *  <p>The request was denied due to request throttling. </p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input doesn't match with the constraints specified by Amazon Web Services.</p>
+ *  <p>The input doesn't match with the constraints specified by Amazon Web Services services.</p>
  *
  * @throws {@link BillingconductorServiceException}
  * <p>Base exception class for all service exceptions from Billingconductor service.</p>
