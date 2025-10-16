@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.912.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.911.0...v3.912.0) (2025-10-16)
+
+
+### Features
+
+* **client-billingconductor:** New feature: service flat CLI and first AWS managed pricing plan (BasicPricingPlan) ([5c46e3c](https://github.com/aws/aws-sdk-js-v3/commit/5c46e3c1aa4990252059c4c6de0330a7c0ad6ed5))
+
+
+
+
+
 # [3.911.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.910.0...v3.911.0) (2025-10-15)
 
 **Note:** Version bump only for package @aws-sdk/client-billingconductor

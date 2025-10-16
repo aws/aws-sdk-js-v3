@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.912.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.911.0...v3.912.0) (2025-10-16)
+
+
+### Features
+
+* **client-m2:** Update endpoint ruleset parameters casing ([5202e8f](https://github.com/aws/aws-sdk-js-v3/commit/5202e8f063d1a949f0f4b3016859c18c78b65b6a))
+
+
+
+
+
 # [3.911.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.910.0...v3.911.0) (2025-10-15)
 
 **Note:** Version bump only for package @aws-sdk/client-m2

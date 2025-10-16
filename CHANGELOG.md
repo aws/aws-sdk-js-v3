@@ -3,6 +3,66 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.912.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.911.0...v3.912.0) (2025-10-16)
+
+
+### Features
+
+* **client-acm-pca:** Update endpoint ruleset parameters casing ([4370634](https://github.com/aws/aws-sdk-js-v3/commit/4370634f24a2b339a608673c7c93680787e408b7))
+* **client-amplify:** Update endpoint ruleset parameters casing ([b6d9079](https://github.com/aws/aws-sdk-js-v3/commit/b6d9079413d42f7f42381cf12f5bbc8343722ad0))
+* **client-apigatewaymanagementapi:** Update endpoint ruleset parameters casing ([e795cf3](https://github.com/aws/aws-sdk-js-v3/commit/e795cf379278569c0408c4142fd1b74bdbf3cbcd))
+* **client-apprunner:** Update endpoint ruleset parameters casing ([b9f2d9d](https://github.com/aws/aws-sdk-js-v3/commit/b9f2d9d8c4f0be542db1503c0ade6a3f00d24f6b))
+* **client-apptest:** Update endpoint ruleset parameters casing ([fa595a6](https://github.com/aws/aws-sdk-js-v3/commit/fa595a6e3f653d5f122dd83253b6376c625ff424))
+* **client-auto-scaling-plans:** Updated FIPS endpoints for US GovCloud regions ([849cd87](https://github.com/aws/aws-sdk-js-v3/commit/849cd8731998949327582a9bf21e786c8ceea12f))
+* **client-batch:** Update endpoint ruleset parameters casing ([30b99bf](https://github.com/aws/aws-sdk-js-v3/commit/30b99bf74eb28184996848a8197a56eeb943a8b4))
+* **client-bcm-data-exports:** Update endpoint ruleset parameters casing ([75ba0de](https://github.com/aws/aws-sdk-js-v3/commit/75ba0dec0a58868bf32323d8d99810984a6fd0ed))
+* **client-billingconductor:** New feature: service flat CLI and first AWS managed pricing plan (BasicPricingPlan) ([5c46e3c](https://github.com/aws/aws-sdk-js-v3/commit/5c46e3c1aa4990252059c4c6de0330a7c0ad6ed5))
+* **client-customer-profiles:** Update endpoint ruleset parameters casing ([3bbd9bd](https://github.com/aws/aws-sdk-js-v3/commit/3bbd9bd33699485776f928cf433db3ba56c04e57))
+* **client-databrew:** Update endpoint ruleset parameters casing ([90b5628](https://github.com/aws/aws-sdk-js-v3/commit/90b562866ae537404d6e3e6b0990e065287d7960))
+* **client-dataexchange:** Update endpoint ruleset parameters casing ([17defa5](https://github.com/aws/aws-sdk-js-v3/commit/17defa576df6cc2a645e5ef73866437e48b94663))
+* **client-dlm:** Update endpoint ruleset parameters casing ([917e28a](https://github.com/aws/aws-sdk-js-v3/commit/917e28a8b795804667367d7332cdc19b8600e0cd))
+* **client-freetier:** Update endpoint ruleset parameters casing ([53f5fd8](https://github.com/aws/aws-sdk-js-v3/commit/53f5fd89a6393d7b3759ca5a173af33bab7ffdef))
+* **client-gamelift:** Update endpoint ruleset parameters casing ([972ab75](https://github.com/aws/aws-sdk-js-v3/commit/972ab75a31428a6343745a90b5d63bccdcc60140))
+* **client-geo-routes:** Update endpoint ruleset parameters casing ([00ebb7e](https://github.com/aws/aws-sdk-js-v3/commit/00ebb7ec68cf2d840000ee1d4bf768908e80a353))
+* **client-global-accelerator:** Update endpoint ruleset parameters casing ([9caa75d](https://github.com/aws/aws-sdk-js-v3/commit/9caa75d6cb84d5cb3d0850220a430d78fe3f5a23))
+* **client-grafana:** Update endpoint ruleset parameters casing ([319e2c7](https://github.com/aws/aws-sdk-js-v3/commit/319e2c7064970a0a18a523dfd03080e5bcd103c1))
+* **client-identitystore:** Update endpoint ruleset parameters casing ([4ec95dd](https://github.com/aws/aws-sdk-js-v3/commit/4ec95dda86cc24e21d2ebfc74865798b6d3dc5b0))
+* **client-ivs-realtime:** Update endpoint ruleset parameters casing ([6145b98](https://github.com/aws/aws-sdk-js-v3/commit/6145b98b9cf4be2c13ba56bf67516d917179a0fd))
+* **client-ivs:** Update endpoint ruleset parameters casing ([c79e77d](https://github.com/aws/aws-sdk-js-v3/commit/c79e77d17afc21806b385a1c69c56a93ebd136bd))
+* **client-kafka:** Update endpoint ruleset parameters casing ([d967fbc](https://github.com/aws/aws-sdk-js-v3/commit/d967fbc5a5cceb12a3aba46088fe6ec387d84588))
+* **client-keyspaces:** Update endpoint ruleset parameters casing ([7e3eb7f](https://github.com/aws/aws-sdk-js-v3/commit/7e3eb7f97cef595ae1e586a6b8731d8351fccf2d))
+* **client-kms:** Update endpoint ruleset parameters casing ([89298b9](https://github.com/aws/aws-sdk-js-v3/commit/89298b9b566522b1b612f2652ef253b267666b94))
+* **client-lex-model-building-service:** Update endpoint ruleset parameters casing ([0ac4e64](https://github.com/aws/aws-sdk-js-v3/commit/0ac4e6419a922c49576dac95bbd26e76890afec3))
+* **client-lex-runtime-v2:** Update endpoint ruleset parameters casing ([3c38633](https://github.com/aws/aws-sdk-js-v3/commit/3c38633875ae61f864101613895495a99c9a8106))
+* **client-lookoutequipment:** Update endpoint ruleset parameters casing ([df9b959](https://github.com/aws/aws-sdk-js-v3/commit/df9b9594b343bdf57b310333b35a923eb6111943))
+* **client-m2:** Update endpoint ruleset parameters casing ([5202e8f](https://github.com/aws/aws-sdk-js-v3/commit/5202e8f063d1a949f0f4b3016859c18c78b65b6a))
+* **client-machine-learning:** Update endpoint ruleset parameters casing ([6a6c84c](https://github.com/aws/aws-sdk-js-v3/commit/6a6c84c9dcb8d254d72f1c86b9466799b39d711a))
+* **client-marketplace-entitlement-service:** Update endpoint ruleset parameters casing ([3c609c2](https://github.com/aws/aws-sdk-js-v3/commit/3c609c297b0c5c02c66f9da29e6399864b1eaf0d))
+* **client-mediapackagev2:** Update endpoint ruleset parameters casing ([5894bfe](https://github.com/aws/aws-sdk-js-v3/commit/5894bfef7ed71d7b76aebe2dc60c3ae07ca9c963))
+* **client-medical-imaging:** Update endpoint ruleset parameters casing ([b8b7a73](https://github.com/aws/aws-sdk-js-v3/commit/b8b7a7389f73b2c3238eddff79240486fec2540e))
+* **client-memorydb:** Update endpoint ruleset parameters casing ([3f8a305](https://github.com/aws/aws-sdk-js-v3/commit/3f8a305bf0e4672f19acf8995616827490d246e2))
+* **client-migrationhub-config:** Update endpoint ruleset parameters casing ([d969e98](https://github.com/aws/aws-sdk-js-v3/commit/d969e98aeda18aba4e93dc132fa067d590f7efda))
+* **client-networkflowmonitor:** Update endpoint ruleset parameters casing ([fa1fc3a](https://github.com/aws/aws-sdk-js-v3/commit/fa1fc3a7caa4b80a184aa67004352bd6d9c92cc7))
+* **client-osis:** Update endpoint ruleset parameters casing ([583a397](https://github.com/aws/aws-sdk-js-v3/commit/583a397efc60aecff498a5e50a19e93556fc823d))
+* **client-personalize-runtime:** Update endpoint ruleset parameters casing ([6c44068](https://github.com/aws/aws-sdk-js-v3/commit/6c44068549e2810f2ecbf4ced13c38a25944a19f))
+* **client-personalize:** Update endpoint ruleset parameters casing ([aa9de5b](https://github.com/aws/aws-sdk-js-v3/commit/aa9de5b620a0403540e198b6ae5489669a59dbd8))
+* **client-pinpoint-sms-voice:** Update endpoint ruleset parameters casing ([cb713f4](https://github.com/aws/aws-sdk-js-v3/commit/cb713f4a0632743adc61fe5db894921012b2fabb))
+* **client-polly:** Update endpoint ruleset parameters casing ([00da6db](https://github.com/aws/aws-sdk-js-v3/commit/00da6db012c298bc24ab2aecd5d0b772c81fb144))
+* **client-pricing:** Update endpoint ruleset parameters casing ([74497e8](https://github.com/aws/aws-sdk-js-v3/commit/74497e87653e8f78e5e87e76f6a0f356134d58aa))
+* **client-qldb-session:** Update endpoint ruleset parameters casing ([3776fdb](https://github.com/aws/aws-sdk-js-v3/commit/3776fdb91df6e51e5598dc2c076005faa23bfe9d))
+* **client-qldb:** Update endpoint ruleset parameters casing ([be4c85b](https://github.com/aws/aws-sdk-js-v3/commit/be4c85b9ec3b8dd838886e05f34949dac12086e9))
+* **client-route53-recovery-control-config:** Update endpoint ruleset parameters casing ([8533507](https://github.com/aws/aws-sdk-js-v3/commit/8533507ea29a2b0ddfb31a9cc0c1400830d09fba))
+* **client-ssm-contacts:** Update endpoint ruleset parameters casing ([075e372](https://github.com/aws/aws-sdk-js-v3/commit/075e372d57a21373defb5415389e04229e87b553))
+* **client-ssm-guiconnect:** Update endpoint ruleset parameters casing ([adad0da](https://github.com/aws/aws-sdk-js-v3/commit/adad0da002c57c2586b57ab088d77ae4f99a1069))
+* **client-ssm:** Update endpoint ruleset parameters casing ([dd0af33](https://github.com/aws/aws-sdk-js-v3/commit/dd0af33c98538769c6273cebd50caf65532af607))
+* **client-timestream-query:** Update endpoint ruleset parameters casing ([6c1c4e3](https://github.com/aws/aws-sdk-js-v3/commit/6c1c4e36a5ec41ba3a8962b24b4384c3a2d35de9))
+* **client-voice-id:** Update endpoint ruleset parameters casing ([70dad98](https://github.com/aws/aws-sdk-js-v3/commit/70dad984ca62f35b58960ccf262a360a38c8c323))
+* **client-workspaces-web:** Update endpoint ruleset parameters casing ([c9d0d81](https://github.com/aws/aws-sdk-js-v3/commit/c9d0d81b5ce29298e2c05ce634386b18a7294fe6))
+
+
+
+
+
 # [3.911.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.910.0...v3.911.0) (2025-10-15)
 
 

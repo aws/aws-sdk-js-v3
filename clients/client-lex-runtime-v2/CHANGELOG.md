@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.912.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.911.0...v3.912.0) (2025-10-16)
+
+
+### Features
+
+* **client-lex-runtime-v2:** Update endpoint ruleset parameters casing ([3c38633](https://github.com/aws/aws-sdk-js-v3/commit/3c38633875ae61f864101613895495a99c9a8106))
+
+
+
+
+
 # [3.911.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.910.0...v3.911.0) (2025-10-15)
 
 **Note:** Version bump only for package @aws-sdk/client-lex-runtime-v2

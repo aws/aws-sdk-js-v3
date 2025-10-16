@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.912.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.911.0...v3.912.0) (2025-10-16)
+
+
+### Features
+
+* **client-pricing:** Update endpoint ruleset parameters casing ([74497e8](https://github.com/aws/aws-sdk-js-v3/commit/74497e87653e8f78e5e87e76f6a0f356134d58aa))
+
+
+
+
+
 # [3.911.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.910.0...v3.911.0) (2025-10-15)
 
 **Note:** Version bump only for package @aws-sdk/client-pricing
