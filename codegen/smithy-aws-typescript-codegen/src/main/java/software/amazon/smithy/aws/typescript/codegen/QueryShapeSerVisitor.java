@@ -275,7 +275,7 @@ class QueryShapeSerVisitor extends DocumentShapeSerVisitor {
 
         Shape targetShape = context.getModel().expectShape(memberShape.getTarget());
 
-        if ((targetShape.isListShape() || targetShape.isSetShape()) && serializeEmptyLists) {
+        if (targetShape.isListShape() && serializeEmptyLists) {
             writer.openBlock(
                 "if ($L?.length === 0) {",
                 "}",
