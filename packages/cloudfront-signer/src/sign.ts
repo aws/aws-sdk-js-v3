@@ -1,3 +1,4 @@
+import { extendedEncodeURIComponent } from "@smithy/core/protocols";
 import { createSign } from "crypto";
 
 /**
@@ -139,9 +140,21 @@ export function getSignedUrl({
   const startFlag = baseUrl!.includes("?") ? "&" : "?";
   const params = Object.entries(cloudfrontSignBuilder.createCloudfrontAttribute())
     .filter(([, value]) => value !== undefined)
-    .map(([key, value]) => `${encodeURIComponent(key)}=${encodeURIComponent(value)}`)
+    .map(([key, value]) => `${extendedEncodeURIComponent(key)}=${extendedEncodeURIComponent(value)}`)
     .join("&");
-  const urlString = baseUrl + startFlag + params;
+
+  function encodeBaseUrlQuery(url: string) {
+    if (url.includes("?")) {
+      const [hostAndPath, query] = url.split("?");
+      const params = [...new URLSearchParams(query).entries()]
+        .map(([key, value]) => `${extendedEncodeURIComponent(key)}=${extendedEncodeURIComponent(value)}`)
+        .join("&");
+      return `${hostAndPath}?${params}`;
+    }
+    return url;
+  }
+
+  const urlString = encodeBaseUrlQuery(baseUrl!) + startFlag + params;
 
   return getResource(urlString);
 }
