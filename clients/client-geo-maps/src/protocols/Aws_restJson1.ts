@@ -122,6 +122,10 @@ export const se_GetStyleDescriptorCommand = async (
   const query: any = map({
     [_cs]: [, input[_CS]!],
     [_pv]: [, input[_PV]!],
+    [_t]: [, input[_T]!],
+    [_cd]: [, input[_CD]!],
+    [_tr]: [, input[_Tr]!],
+    [_tm]: [() => input.TravelModes !== void 0, () => input[_TM]! || []],
     [_k]: [, input[_K]!],
   });
   let body: any;
@@ -428,6 +432,7 @@ const _BB = "BoundingBox";
 const _BP = "BoundedPositions";
 const _C = "Center";
 const _CC = "CacheControl";
+const _CD = "ContourDensity";
 const _CL = "CropLabels";
 const _CO = "CompactOverlay";
 const _CS = "ColorScheme";
@@ -445,12 +450,16 @@ const _PV = "PoliticalView";
 const _R = "Radius";
 const _S = "Style";
 const _SBU = "ScaleBarUnit";
+const _T = "Terrain";
+const _TM = "TravelModes";
+const _Tr = "Traffic";
 const _W = "Width";
 const _Z = "Zoom";
 const _bb = "bounding-box";
 const _bp = "bounded-positions";
 const _c = "center";
 const _cc = "cache-control";
+const _cd = "contour-density";
 const _cl = "crop-labels";
 const _co = "compact-overlay";
 const _cs = "color-scheme";
@@ -467,6 +476,9 @@ const _pv = "political-view";
 const _r = "radius";
 const _s = "style";
 const _su = "scale-unit";
+const _t = "terrain";
+const _tm = "travel-modes";
+const _tr = "traffic";
 const _w = "width";
 const _xagpb = "x-amz-geo-pricing-bucket";
 const _z = "zoom";

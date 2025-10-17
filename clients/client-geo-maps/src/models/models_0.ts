@@ -41,6 +41,19 @@ export type ColorScheme = (typeof ColorScheme)[keyof typeof ColorScheme];
 
 /**
  * @public
+ * @enum
+ */
+export const ContourDensity = {
+  MEDIUM: "Medium",
+} as const;
+
+/**
+ * @public
+ */
+export type ContourDensity = (typeof ContourDensity)[keyof typeof ContourDensity];
+
+/**
+ * @public
  */
 export interface GetGlyphsRequest {
   /**
@@ -50,7 +63,7 @@ export interface GetGlyphsRequest {
   FontStack: string | undefined;
 
   /**
-   * <p>A Unicode range of characters to download glyphs for. This must be aligned to multiples of 256. </p> <p>Example: <code>0-255.pdf</code> </p>
+   * <p>A Unicode range of characters to download glyphs for. This must be aligned to multiples of 256. </p> <p>Example: <code>0-255.pbf</code> </p>
    * @public
    */
   FontUnicodeRange: string | undefined;
@@ -235,19 +248,19 @@ export type StaticMapStyle = (typeof StaticMapStyle)[keyof typeof StaticMapStyle
  */
 export interface GetStaticMapRequest {
   /**
-   * <p>Takes in two pairs of coordinates, [Lon, Lat], denoting south-westerly and north-easterly edges of the image. The underlying area becomes the view of the image. </p> <p>Example: -123.17075,49.26959,-123.08125,49.31429</p>
+   * <p>Takes in two pairs of coordinates in World Geodetic System (WGS 84) format: [longitude, latitude], denoting south-westerly and north-easterly edges of the image. The underlying area becomes the view of the image. </p> <p>Example: -123.17075,49.26959,-123.08125,49.31429</p>
    * @public
    */
   BoundingBox?: string | undefined;
 
   /**
-   * <p>Takes in two or more pair of coordinates, [Lon, Lat], with each coordinate separated by a comma. The API will generate an image to encompass all of the provided coordinates. </p> <note> <p>Cannot be used with <code>Zoom</code> and or <code>Radius</code> </p> </note> <p>Example: 97.170451,78.039098,99.045536,27.176178</p>
+   * <p>Takes in two or more pair of coordinates in World Geodetic System (WGS 84) format: [longitude, latitude], with each coordinate separated by a comma. The API will generate an image to encompass all of the provided coordinates. </p> <note> <p>Cannot be used with <code>Zoom</code> and or <code>Radius</code> </p> </note> <p>Example: 97.170451,78.039098,99.045536,27.176178</p>
    * @public
    */
   BoundedPositions?: string | undefined;
 
   /**
-   * <p>Takes in a pair of coordinates, [Lon, Lat], which becomes the center point of the image. This parameter requires that either zoom or radius is set.</p> <note> <p>Cannot be used with <code>Zoom</code> and or <code>Radius</code> </p> </note> <p>Example: 49.295,-123.108</p>
+   * <p>Takes in a pair of coordinates in World Geodetic System (WGS 84) format: [longitude, latitude], which becomes the center point of the image. This parameter requires that either zoom or radius is set.</p> <note> <p>Cannot be used with <code>Zoom</code> and or <code>Radius</code> </p> </note> <p>Example: 49.295,-123.108</p>
    * @public
    */
   Center?: string | undefined;
@@ -531,6 +544,46 @@ export class ValidationException extends __BaseException {
 
 /**
  * @public
+ * @enum
+ */
+export const Terrain = {
+  HILLSHADE: "Hillshade",
+} as const;
+
+/**
+ * @public
+ */
+export type Terrain = (typeof Terrain)[keyof typeof Terrain];
+
+/**
+ * @public
+ * @enum
+ */
+export const Traffic = {
+  ALL: "All",
+} as const;
+
+/**
+ * @public
+ */
+export type Traffic = (typeof Traffic)[keyof typeof Traffic];
+
+/**
+ * @public
+ * @enum
+ */
+export const TravelMode = {
+  TRANSIT: "Transit",
+  TRUCK: "Truck",
+} as const;
+
+/**
+ * @public
+ */
+export type TravelMode = (typeof TravelMode)[keyof typeof TravelMode];
+
+/**
+ * @public
  */
 export interface GetStyleDescriptorRequest {
   /**
@@ -550,6 +603,30 @@ export interface GetStyleDescriptorRequest {
    * @public
    */
   PoliticalView?: string | undefined;
+
+  /**
+   * <p>Adjusts how physical terrain details are rendered on the map.</p> <p>The following terrain styles are currently supported:</p> <ul> <li> <p> <code>Hillshade</code>: Displays the physical terrain details through shading and highlighting of elevation change and geographic features.</p> </li> </ul> <p>This parameter is valid only for the <code>Standard</code> map style.</p>
+   * @public
+   */
+  Terrain?: Terrain | undefined;
+
+  /**
+   * <p>Displays the shape and steepness of terrain features using elevation lines. The density value controls how densely the available contour line information is rendered on the map.</p> <p>This parameter is valid only for the <code>Standard</code> map style.</p>
+   * @public
+   */
+  ContourDensity?: ContourDensity | undefined;
+
+  /**
+   * <p>Displays real-time traffic information overlay on map, such as incident events and flow events.</p> <p>This parameter is valid only for the <code>Standard</code> map style.</p>
+   * @public
+   */
+  Traffic?: Traffic | undefined;
+
+  /**
+   * <p>Renders additional map information relevant to selected travel modes. Information for multiple travel modes can be displayed simultaneously, although this increases the overall information density rendered on the map.</p> <p>This parameter is valid only for the <code>Standard</code> map style.</p>
+   * @public
+   */
+  TravelModes?: TravelMode[] | undefined;
 
   /**
    * <p>Optional: The API key to be used for authorization. Either an API key or valid SigV4 signature must be provided when making a request. </p>

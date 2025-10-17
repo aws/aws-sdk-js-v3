@@ -36,7 +36,7 @@ export type GetSpritesCommandOutputType = Omit<GetSpritesResponse, "Blob"> & {
 export interface GetSpritesCommandOutput extends GetSpritesCommandOutputType, __MetadataBearer {}
 
 /**
- * <p> <code>GetSprites</code> returns the map's sprites.</p>
+ * <p> <code>GetSprites</code> returns the map's sprites.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/location/latest/developerguide/styling-iconography-with-sprites.html">Style iconography with sprites</a> in the <i>Amazon Location Service Developer Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

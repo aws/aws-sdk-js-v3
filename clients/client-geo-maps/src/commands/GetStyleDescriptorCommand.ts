@@ -40,7 +40,7 @@ export type GetStyleDescriptorCommandOutputType = Omit<GetStyleDescriptorRespons
 export interface GetStyleDescriptorCommandOutput extends GetStyleDescriptorCommandOutputType, __MetadataBearer {}
 
 /**
- * <p> <code>GetStyleDescriptor</code> returns information about the style.</p>
+ * <p> <code>GetStyleDescriptor</code> returns information about the style.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/location/latest/developerguide/styling-dynamic-maps.html">Style dynamic maps</a> in the <i>Amazon Location Service Developer Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -53,6 +53,12 @@ export interface GetStyleDescriptorCommandOutput extends GetStyleDescriptorComma
  *   Style: "STRING_VALUE", // required
  *   ColorScheme: "STRING_VALUE",
  *   PoliticalView: "STRING_VALUE",
+ *   Terrain: "STRING_VALUE",
+ *   ContourDensity: "STRING_VALUE",
+ *   Traffic: "STRING_VALUE",
+ *   TravelModes: [ // TravelModeList
+ *     "STRING_VALUE",
+ *   ],
  *   Key: "STRING_VALUE",
  * };
  * const command = new GetStyleDescriptorCommand(input);

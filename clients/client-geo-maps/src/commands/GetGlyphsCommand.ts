@@ -36,7 +36,7 @@ export type GetGlyphsCommandOutputType = Omit<GetGlyphsResponse, "Blob"> & {
 export interface GetGlyphsCommandOutput extends GetGlyphsCommandOutputType, __MetadataBearer {}
 
 /**
- * <p> <code>GetGlyphs</code> returns the map's glyphs.</p>
+ * <p> <code>GetGlyphs</code> returns the map's glyphs.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/location/latest/developerguide/styling-labels-with-glyphs.html">Style labels with glyphs</a> in the <i>Amazon Location Service Developer Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

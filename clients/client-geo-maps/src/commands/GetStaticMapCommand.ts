@@ -36,7 +36,7 @@ export type GetStaticMapCommandOutputType = Omit<GetStaticMapResponse, "Blob"> &
 export interface GetStaticMapCommandOutput extends GetStaticMapCommandOutputType, __MetadataBearer {}
 
 /**
- * <p> <code>GetStaticMap</code> provides high-quality static map images with customizable options. You can modify the map's appearance and overlay additional information. It's an ideal solution for applications requiring tailored static map snapshots.</p>
+ * <p> <code>GetStaticMap</code> provides high-quality static map images with customizable options. You can modify the map's appearance and overlay additional information. It's an ideal solution for applications requiring tailored static map snapshots.</p> <p>For more information, see the following topics in the <i>Amazon Location Service Developer Guide</i>:</p> <ul> <li> <p> <a href="https://docs.aws.amazon.com/location/latest/developerguide/static-maps.html">Static maps</a> </p> </li> <li> <p> <a href="https://docs.aws.amazon.com/location/latest/developerguide/customizing-static-maps.html">Customize static maps</a> </p> </li> <li> <p> <a href="https://docs.aws.amazon.com/location/latest/developerguide/overlaying-static-map.html">Overlay on the static map</a> </p> </li> </ul>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
