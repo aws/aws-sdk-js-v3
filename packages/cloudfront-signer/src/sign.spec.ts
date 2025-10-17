@@ -810,3 +810,21 @@ describe("getSignedUrl- when signing a URL with a date range", () => {
     expect(verifySignature(signatureQueryParam, policyStr)).toBeTruthy();
   });
 });
+
+describe("url component encoding", () => {
+  it("should use extended encoding for query params in the base URL", () => {
+    const url =
+      "https://d111111abcdef8.cloudfront.net/private-content/private.jpeg?q=!@#$%^&*()&image-description=aws's image&'''&!()=5";
+    const signedUrl = getSignedUrl({
+      url: url,
+      keyPairId,
+      privateKey,
+      dateLessThan: "2026-01-01",
+    });
+
+    const target =
+      "https://d111111abcdef8.cloudfront.net/private-content/private.jpeg?q=%21%40%23%24%25%5E&%2A%28%29=&image-description=aws%27s%20image&%27%27%27=&%21%28%29=5";
+
+    expect(signedUrl.slice(0, target.length)).toBe(target);
+  });
+});

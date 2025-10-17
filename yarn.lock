@@ -23331,6 +23331,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@aws-sdk/cloudfront-signer@workspace:packages/cloudfront-signer"
   dependencies:
+    "@smithy/core": "npm:^3.16.1"
     "@smithy/url-parser": "npm:^4.2.2"
     "@tsconfig/recommended": "npm:1.0.1"
     concurrently: "npm:7.0.0"
