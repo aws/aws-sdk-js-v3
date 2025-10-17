@@ -1353,7 +1353,8 @@ export interface MachineLearningProductVisibilityFilter {
 }
 
 /**
- * <p>The filters that you can use with the ListEntities operation to filter machine learning products. You can filter by EntityId, LastModifiedDate, ProductTitle, and Visibility.</p>
+ * <p>The filters that you can use with the ListEntities operation to filter machine learning products.
+ *             You can filter by <code>EntityId</code>, <code>astModifiedDate</code>, <code>ProductTitle</code>, and <code>Visibility</code>.</p>
  * @public
  */
 export interface MachineLearningProductFilters {
@@ -2258,7 +2259,8 @@ export namespace EntityTypeFilters {
   }
 
   /**
-   * <p>The filters that you can use with the ListEntities operation to filter machine learning products. You can filter by EntityId, LastModifiedDate, ProductTitle, and Visibility.</p>
+   * <p>The filters that you can use with the ListEntities operation to filter machine learning products.
+   *             You can filter by <code>EntityId</code>, <code>astModifiedDate</code>, <code>ProductTitle</code>, and <code>Visibility</code>.</p>
    * @public
    */
   export interface MachineLearningProductFiltersMember {
@@ -2317,6 +2319,7 @@ export namespace EntityTypeFilters {
  * @enum
  */
 export const ContainerProductSortBy = {
+  CompatibleAWSServices: "CompatibleAWSServices",
   EntityId: "EntityId",
   LastModifiedDate: "LastModifiedDate",
   ProductTitle: "ProductTitle",
@@ -2503,6 +2506,7 @@ export interface ResaleAuthorizationSort {
  * @enum
  */
 export const SaaSProductSortBy = {
+  DeliveryOptionTypes: "DeliveryOptionTypes",
   EntityId: "EntityId",
   LastModifiedDate: "LastModifiedDate",
   ProductTitle: "ProductTitle",

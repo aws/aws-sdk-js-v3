@@ -324,7 +324,7 @@ export interface ListEntitiesCommandOutput extends ListEntitiesResponse, __Metad
  *       SortOrder: "ASCENDING" || "DESCENDING",
  *     },
  *     SaaSProductSort: { // SaaSProductSort
- *       SortBy: "EntityId" || "ProductTitle" || "Visibility" || "LastModifiedDate",
+ *       SortBy: "EntityId" || "ProductTitle" || "Visibility" || "LastModifiedDate" || "DeliveryOptionTypes",
  *       SortOrder: "ASCENDING" || "DESCENDING",
  *     },
  *     AmiProductSort: { // AmiProductSort
@@ -336,7 +336,7 @@ export interface ListEntitiesCommandOutput extends ListEntitiesResponse, __Metad
  *       SortOrder: "ASCENDING" || "DESCENDING",
  *     },
  *     ContainerProductSort: { // ContainerProductSort
- *       SortBy: "EntityId" || "LastModifiedDate" || "ProductTitle" || "Visibility",
+ *       SortBy: "EntityId" || "LastModifiedDate" || "ProductTitle" || "Visibility" || "CompatibleAWSServices",
  *       SortOrder: "ASCENDING" || "DESCENDING",
  *     },
  *     ResaleAuthorizationSort: { // ResaleAuthorizationSort
