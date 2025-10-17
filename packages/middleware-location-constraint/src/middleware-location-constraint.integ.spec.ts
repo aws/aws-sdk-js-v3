@@ -34,6 +34,32 @@ describe("middleware-location-constraint", () => {
       expect.hasAssertions();
     });
 
+    it("should populate other elements of the CreateBucketConfiguration regardless of Location or LocationConstraint", async () => {
+      const client = new S3({ region: "us-east-1" });
+
+      requireRequestsFrom(client).toMatch({
+        body(body = "") {
+          expect(body).toContain(
+            `<CreateBucketConfiguration xmlns="http://s3.amazonaws.com/doc/2006-03-01/"><Tags><Tag><Key>my-tag-key</Key><Value>my-tag-value</Value></Tag></Tags></CreateBucketConfiguration>`
+          );
+        },
+      });
+
+      await client.createBucket({
+        Bucket: "b",
+        CreateBucketConfiguration: {
+          Tags: [
+            {
+              Key: "my-tag-key",
+              Value: "my-tag-value",
+            },
+          ],
+        },
+      });
+
+      expect.hasAssertions();
+    });
+
     it("also not for S3 Express buckets", async () => {
       const client = new S3({ region: "us-west-2" });
 
