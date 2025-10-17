@@ -5,7 +5,7 @@ import { AwsCredentialIdentity, IniSection, Logger, ParsedIniData, Profile } fro
 
 import { FromIniInit } from "./fromIni";
 import { resolveCredentialSource } from "./resolveCredentialSource";
-import { resolveProfileData } from "./resolveProfileData";
+import type { ResolveProfileData } from "./resolveProfileData";
 
 /**
  * @internal
@@ -104,7 +104,8 @@ export const resolveAssumeRoleCredentials = async (
   profileName: string,
   profiles: ParsedIniData,
   options: FromIniInit,
-  visitedProfiles: Record<string, true> = {}
+  visitedProfiles: Record<string, true> = {},
+  resolveProfileData: ResolveProfileData
 ) => {
   options.logger?.debug("@aws-sdk/credential-provider-ini - resolveAssumeRoleCredentials (STS)");
   const profileData = profiles[profileName];

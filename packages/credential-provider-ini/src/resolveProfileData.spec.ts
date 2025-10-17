@@ -79,7 +79,13 @@ describe(resolveProfileData.name, () => {
       vi.mocked(resolveAssumeRoleCredentials).mockImplementation(() => Promise.resolve(mockCreds));
       const receivedCreds = await resolveProfileData(mockProfileName, mockProfiles, mockOptions);
       expect(receivedCreds).toStrictEqual(mockCreds);
-      expect(resolveAssumeRoleCredentials).toHaveBeenCalledWith(mockProfileName, mockProfiles, mockOptions, {});
+      expect(resolveAssumeRoleCredentials).toHaveBeenCalledWith(
+        mockProfileName,
+        mockProfiles,
+        mockOptions,
+        {},
+        resolveProfileData
+      );
     });
 
     it("when it's not static creds, and profiles are visited", async () => {
@@ -87,9 +93,15 @@ describe(resolveProfileData.name, () => {
       vi.mocked(resolveAssumeRoleCredentials).mockImplementation(() => Promise.resolve(mockCreds));
       const receivedCreds = await resolveProfileData(mockProfileName, mockProfiles, mockOptions, { testProfile: true });
       expect(receivedCreds).toStrictEqual(mockCreds);
-      expect(resolveAssumeRoleCredentials).toHaveBeenCalledWith(mockProfileName, mockProfiles, mockOptions, {
-        testProfile: true,
-      });
+      expect(resolveAssumeRoleCredentials).toHaveBeenCalledWith(
+        mockProfileName,
+        mockProfiles,
+        mockOptions,
+        {
+          testProfile: true,
+        },
+        resolveProfileData
+      );
     });
   });
 

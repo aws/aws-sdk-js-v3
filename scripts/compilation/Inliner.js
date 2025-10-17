@@ -187,7 +187,7 @@ module.exports = class Inliner {
         For that reason let's avoid them.
          */
         if (warning.code === "CIRCULAR_DEPENDENCY") {
-          // throw Error(warning.message);
+          throw Error(warning.message);
         }
       },
       external: (id) => {

@@ -130,7 +130,7 @@ describe(resolveAssumeRoleCredentials.name, () => {
 
   it("dynamically loads STS if roleAssumer is not available in options", async () => {
     const inputOptions = { ...mockOptions, roleAssumer: undefined };
-    await resolveAssumeRoleCredentials(mockProfileName, mockProfiles, inputOptions);
+    await resolveAssumeRoleCredentials(mockProfileName, mockProfiles, inputOptions, {}, resolveProfileData);
     expect(inputOptions.roleAssumer).toBeDefined();
   });
 
@@ -146,9 +146,15 @@ describe(resolveAssumeRoleCredentials.name, () => {
     );
 
     try {
-      await resolveAssumeRoleCredentials(mockProfileCurrent, mockProfilesWithCycle, mockOptions, {
-        mockProfileName: true,
-      });
+      await resolveAssumeRoleCredentials(
+        mockProfileCurrent,
+        mockProfilesWithCycle,
+        mockOptions,
+        {
+          mockProfileName: true,
+        },
+        resolveProfileData
+      );
       fail(`expected ${expectedError}`);
     } catch (error) {
       expect(error).toStrictEqual(expectedError);
@@ -168,7 +174,13 @@ describe(resolveAssumeRoleCredentials.name, () => {
       },
     };
 
-    const receivedCreds = await resolveAssumeRoleCredentials(mockProfileCurrent, mockProfilesWithSource, mockOptions);
+    const receivedCreds = await resolveAssumeRoleCredentials(
+      mockProfileCurrent,
+      mockProfilesWithSource,
+      mockOptions,
+      {},
+      resolveProfileData
+    );
     expect(receivedCreds).toStrictEqual(mockCreds);
     expect(resolveProfileData).toHaveBeenCalledWith(
       mockProfileName,
@@ -192,7 +204,13 @@ describe(resolveAssumeRoleCredentials.name, () => {
     const mockRoleAssumeParams = getMockRoleAssumeParams();
     const mockProfilesWithCredSource = getMockProfilesWithCredSource(mockRoleAssumeParams);
 
-    const receivedCreds = await resolveAssumeRoleCredentials(mockProfileName, mockProfilesWithCredSource, mockOptions);
+    const receivedCreds = await resolveAssumeRoleCredentials(
+      mockProfileName,
+      mockProfilesWithCredSource,
+      mockOptions,
+      {},
+      resolveProfileData
+    );
     expect(receivedCreds).toStrictEqual(mockCreds);
     expect(resolveProfileData).not.toHaveBeenCalled();
     expect(resolveCredentialSource).toHaveBeenCalledWith(mockCredentialSource, mockProfileName, undefined);
@@ -211,7 +229,13 @@ describe(resolveAssumeRoleCredentials.name, () => {
     const mockRoleAssumeParams = { ...getMockRoleAssumeParams(), role_session_name: undefined };
     const mockProfilesWithCredSource = getMockProfilesWithCredSource(mockRoleAssumeParams);
 
-    const receivedCreds = await resolveAssumeRoleCredentials(mockProfileName, mockProfilesWithCredSource, mockOptions);
+    const receivedCreds = await resolveAssumeRoleCredentials(
+      mockProfileName,
+      mockProfilesWithCredSource,
+      mockOptions,
+      {},
+      resolveProfileData
+    );
     expect(receivedCreds).toStrictEqual(mockCreds);
     expect(mockOptions.roleAssumer).toHaveBeenCalledWith(mockSourceCredsFromCredential, {
       RoleArn: mockRoleAssumeParams.role_arn,
@@ -234,10 +258,16 @@ describe(resolveAssumeRoleCredentials.name, () => {
       false
     );
     try {
-      await resolveAssumeRoleCredentials(mockProfileName, mockProfilesWithCredSource, {
-        ...mockOptions,
-        mfaCodeProvider: undefined,
-      });
+      await resolveAssumeRoleCredentials(
+        mockProfileName,
+        mockProfilesWithCredSource,
+        {
+          ...mockOptions,
+          mfaCodeProvider: undefined,
+        },
+        {},
+        resolveProfileData
+      );
       fail(`expected ${expectedError}`);
     } catch (error) {
       expect(error).toStrictEqual(expectedError);
@@ -256,7 +286,13 @@ describe(resolveAssumeRoleCredentials.name, () => {
     const mockTokenCode = "mockTokenCode";
     mockOptions.mfaCodeProvider.mockResolvedValue(mockTokenCode);
 
-    const receivedCreds = await resolveAssumeRoleCredentials(mockProfileName, mockProfilesWithCredSource, mockOptions);
+    const receivedCreds = await resolveAssumeRoleCredentials(
+      mockProfileName,
+      mockProfilesWithCredSource,
+      mockOptions,
+      {},
+      resolveProfileData
+    );
     expect(receivedCreds).toStrictEqual(mockCreds);
     expect(mockOptions.roleAssumer).toHaveBeenCalledWith(mockSourceCredsFromCredential, {
       RoleArn: mockRoleAssumeParams.role_arn,
