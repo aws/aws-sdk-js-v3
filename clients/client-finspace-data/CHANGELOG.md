@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.913.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.912.0...v3.913.0) (2025-10-17)
+
+
+### Features
+
+* **client-finspace-data:** Update endpoint ruleset parameters casing ([5c5e8f5](https://github.com/aws/aws-sdk-js-v3/commit/5c5e8f5473ebeead07bbe3d7179ba19370f84fbf))
+
+
+
+
+
 # [3.911.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.910.0...v3.911.0) (2025-10-15)
 
 **Note:** Version bump only for package @aws-sdk/client-finspace-data

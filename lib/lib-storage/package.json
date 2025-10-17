@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/lib-storage",
-  "version": "3.911.0",
+  "version": "3.913.0",
   "description": "Storage higher order operation",
   "main": "./dist-cjs/index.js",
   "module": "./dist-es/index.js",

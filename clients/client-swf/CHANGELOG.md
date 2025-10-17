@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.913.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.912.0...v3.913.0) (2025-10-17)
+
+
+### Features
+
+* **client-swf:** Releasing minor endpoint updates. ([3589834](https://github.com/aws/aws-sdk-js-v3/commit/358983487dd17564ed555ba3b275fc9b0d42416b))
+
+
+
+
+
 # [3.911.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.910.0...v3.911.0) (2025-10-15)
 
 **Note:** Version bump only for package @aws-sdk/client-swf

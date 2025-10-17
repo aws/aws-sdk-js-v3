@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.913.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.912.0...v3.913.0) (2025-10-17)
+
+
+### Features
+
+* **client-mediaconnect:** Update endpoint ruleset parameters casing ([78df38f](https://github.com/aws/aws-sdk-js-v3/commit/78df38f1682d10ce98f0251011606a18a666d020))
+
+
+
+
+
 # [3.911.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.910.0...v3.911.0) (2025-10-15)
 
 **Note:** Version bump only for package @aws-sdk/client-mediaconnect

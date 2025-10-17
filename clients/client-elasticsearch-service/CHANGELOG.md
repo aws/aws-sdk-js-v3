@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.913.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.912.0...v3.913.0) (2025-10-17)
+
+
+### Features
+
+* **client-elasticsearch-service:** Update endpoint ruleset parameters casing ([eefda1b](https://github.com/aws/aws-sdk-js-v3/commit/eefda1beaf58f4079d1cbb922dcd4f9c4d5f7362))
+
+
+
+
+
 # [3.911.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.910.0...v3.911.0) (2025-10-15)
 
 **Note:** Version bump only for package @aws-sdk/client-elasticsearch-service

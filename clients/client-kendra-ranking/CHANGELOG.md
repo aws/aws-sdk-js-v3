@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.913.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.912.0...v3.913.0) (2025-10-17)
+
+
+### Features
+
+* **client-kendra-ranking:** Update endpoint ruleset parameters casing ([73c5dbe](https://github.com/aws/aws-sdk-js-v3/commit/73c5dbe4276cc954aa6b78241cb41854b534d0a0))
+
+
+
+
+
 # [3.911.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.910.0...v3.911.0) (2025-10-15)
 
 **Note:** Version bump only for package @aws-sdk/client-kendra-ranking

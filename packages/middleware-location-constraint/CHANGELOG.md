@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.913.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.912.0...v3.913.0) (2025-10-17)
+
+
+### Bug Fixes
+
+* **middleware-location-constraint:** insert LocationConstraint only additively ([#7433](https://github.com/aws/aws-sdk-js-v3/issues/7433)) ([58fd243](https://github.com/aws/aws-sdk-js-v3/commit/58fd243b69cf60b965d32da01c3f2e2b6526fc6a))
+
+
+
+
+
 # [3.910.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.909.0...v3.910.0) (2025-10-14)
 
 **Note:** Version bump only for package @aws-sdk/middleware-location-constraint
