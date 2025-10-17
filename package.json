@@ -99,7 +99,7 @@
     "fs-extra": "^9.0.0",
     "generate-changelog": "^1.7.1",
     "glob": "7.1.6",
-    "happy-dom": "20.0.0",
+    "happy-dom": "20.0.2",
     "husky": "^4.2.3",
     "jest": "29.7.0",
     "jmespath": "^0.15.0",
