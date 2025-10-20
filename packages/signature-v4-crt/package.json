@@ -38,6 +38,7 @@
     "@tsconfig/recommended": "1.0.1",
     "concurrently": "7.0.0",
     "downlevel-dts": "0.10.1",
+    "jest": "^30.2.0",
     "rimraf": "3.0.2",
     "typescript": "~5.8.3"
   },
