@@ -88,11 +88,11 @@ describe("s3 express CRUD test suite", () => {
 
     readWriteDeleteRecorder = JSON.parse(JSON.stringify(recorder.calls));
     reset();
-  });
+  }, 120_000);
 
   afterAll(async () => {
     await emptyAndDeleteBucket(controller, bucketName);
-  });
+  }, 120_000);
 
   it("can create a bucket", () => {
     expect(createRecorder).toEqual({
