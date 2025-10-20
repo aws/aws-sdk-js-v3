@@ -105,7 +105,7 @@ export const getDefaultRoleAssumer = (
       const isCompatibleRequestHandler = !isH2(requestHandler);
 
       stsClient = new STSClient({
-        ...stsOptions?.parentClientConfig,
+        ...stsOptions,
         // A hack to make sts client uses the credential in current closure.
         credentialDefaultProvider: () => async () => closureSourceCreds,
         region: resolvedRegion,
@@ -166,7 +166,7 @@ export const getDefaultRoleAssumerWithWebIdentity = (
       const isCompatibleRequestHandler = !isH2(requestHandler);
 
       stsClient = new STSClient({
-        ...stsOptions?.parentClientConfig,
+        ...stsOptions,
         region: resolvedRegion,
         requestHandler: isCompatibleRequestHandler ? (requestHandler as any) : undefined,
         logger: logger as any,
