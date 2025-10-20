@@ -1,2 +1,2 @@
 export * from "./extensions";
-export * from "./regionConfig";
+export * from "./regionConfig/awsRegionConfig";
