@@ -5,7 +5,7 @@ import { STS, STSExtensionConfiguration } from "@aws-sdk/client-sts";
 import * as credentialProviderHttp from "@aws-sdk/credential-provider-http";
 import { fromCognitoIdentity, fromCognitoIdentityPool, fromIni, fromWebToken } from "@aws-sdk/credential-providers";
 import { HttpResponse } from "@smithy/protocol-http";
-import type { HttpRequest, NodeHttpHandlerOptions, ParsedIniData } from "@smithy/types";
+import type { HttpRequest, MiddlewareStack, NodeHttpHandlerOptions, ParsedIniData } from "@smithy/types";
 import { AdaptiveRetryStrategy, StandardRetryStrategy } from "@smithy/util-retry";
 import { PassThrough } from "node:stream";
 import { homedir } from "node:os";
@@ -1369,6 +1369,77 @@ describe("credential-provider-node integration test", () => {
       await expect(async () => sts.getCallerIdentity({})).rejects.toThrow(
         "Could not load credentials from any providers"
       );
+    });
+  });
+
+  describe("nested STS client", () => {
+    it("the clientConfig is propagated to the inner STS client used for AssumeRole ", async () => {
+      setIniProfileData({
+        assume: {
+          region: "us-stsar-1",
+          aws_access_key_id: "ASSUME_STATIC_ACCESS_KEY",
+          aws_secret_access_key: "ASSUME_STATIC_SECRET_KEY",
+        },
+        default: {
+          region: "us-stsar-1",
+          role_arn: "ROLE_ARN",
+          role_session_name: "ROLE_SESSION_NAME",
+          external_id: "EXTERNAL_ID",
+          source_profile: "assume",
+        },
+      });
+
+      let request: HttpRequest | undefined = undefined;
+
+      const logRequest = (next: any) => async (args: any) => {
+        const r = await next(args);
+        request = args.request;
+        return r;
+      };
+      const logger = {
+        debug: vi.fn(),
+        info: vi.fn(),
+        warn: vi.fn(),
+        error: vi.fn(),
+      };
+
+      const client = new STS({
+        credentials: defaultProvider({
+          clientPlugins: [
+            {
+              applyToStack(stack: MiddlewareStack<any, any>) {
+                stack.add(logRequest, {
+                  step: "finalizeRequest",
+                });
+              },
+            },
+          ],
+          clientConfig: {
+            customUserAgent: "my-custom-useragent",
+            endpoint: "https://localhost/endpoint",
+            logger,
+          },
+        }),
+      });
+
+      const callerId = await client.getCallerIdentity();
+      expect(callerId).toEqual({
+        $metadata: {
+          attempts: 1,
+          cfId: undefined,
+          extendedRequestId: undefined,
+          httpStatusCode: 200,
+          requestId: undefined,
+          totalRetryDelay: 0,
+        },
+        Account: "123456789012",
+        Arn: "arn:aws:iam::123456789012:user/Alice",
+        UserId: "AIDACKCEVSQ6C2EXAMPLE",
+      });
+      expect(request!.headers?.["x-amz-user-agent"]).toMatch(/my-custom-useragent$/);
+      expect(request!.headers?.host).toMatch(/localhost$/);
+      expect(logger.debug).toHaveBeenCalled();
+      expect(logger.info).toHaveBeenCalled();
     });
   });
 });
