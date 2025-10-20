@@ -165,11 +165,13 @@ describe("getDefaultRoleAssumer", () => {
     };
     const region = "some-region";
     const handler = new NodeHttpHandler();
+    const customUserAgent = [["custom-agent", "1.0.0"]];
     const roleAssumer = getDefaultRoleAssumer({
       parentClientConfig: {
         region,
         logger,
         requestHandler: handler,
+        customUserAgent,
       },
     });
     const params: AssumeRoleCommandInput = {
@@ -183,6 +185,7 @@ describe("getDefaultRoleAssumer", () => {
       logger,
       requestHandler: handler,
       region,
+      customUserAgent,
     });
   });
 
@@ -275,10 +278,12 @@ describe("getDefaultRoleAssumerWithWebIdentity", () => {
     };
     const region = "some-region";
     const handler = new NodeHttpHandler();
+    const customUserAgent = [["custom-agent", "1.0.0"]];
     const roleAssumerWithWebIdentity = getDefaultRoleAssumerWithWebIdentity({
       region,
       logger,
       requestHandler: handler,
+      customUserAgent,
     });
     const params: AssumeRoleWithWebIdentityCommandInput = {
       RoleArn: "arn:aws:foo",
@@ -291,6 +296,7 @@ describe("getDefaultRoleAssumerWithWebIdentity", () => {
       logger,
       requestHandler: handler,
       region,
+      customUserAgent,
     });
   });
 
