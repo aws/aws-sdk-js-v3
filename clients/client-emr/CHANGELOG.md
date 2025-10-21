@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.914.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.913.0...v3.914.0) (2025-10-21)
+
+
+### Features
+
+* **client-emr:** Added RECONFIGURING to the InstanceFleetState convenience enum. ([321c78e](https://github.com/aws/aws-sdk-js-v3/commit/321c78e2742930b79eb9e20cddc94d66bf39c839))
+
+
+
+
+
 # [3.913.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.912.0...v3.913.0) (2025-10-17)
 
 **Note:** Version bump only for package @aws-sdk/client-emr

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.914.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.913.0...v3.914.0) (2025-10-21)
+
+
+### Bug Fixes
+
+* **nested-clients:** propagate clientConfig to inner STS client in role assumption ([#7445](https://github.com/aws/aws-sdk-js-v3/issues/7445)) ([6ec7126](https://github.com/aws/aws-sdk-js-v3/commit/6ec7126b16dd4171b792f9033a9c8069ab4f01a4))
+
+
+
+
+
 # [3.913.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.912.0...v3.913.0) (2025-10-17)
 
 **Note:** Version bump only for package @aws-sdk/credential-provider-node

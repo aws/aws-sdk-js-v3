@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.914.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.913.0...v3.914.0) (2025-10-21)
+
+
+### Features
+
+* **client-mediaconvert:** This release adds the ability to set resolution for the black video generator and also adds the StartJobsQuery and GetJobsQueryResults APIs which allow asynchronous search of job history using new filters. ([3dbc5fe](https://github.com/aws/aws-sdk-js-v3/commit/3dbc5fe9a6c741b2ebb0d31668ccb4b0fd0c0ba9))
+
+
+
+
+
 # [3.913.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.912.0...v3.913.0) (2025-10-17)
 
 **Note:** Version bump only for package @aws-sdk/client-mediaconvert

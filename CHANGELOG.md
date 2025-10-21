@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.914.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.913.0...v3.914.0) (2025-10-21)
+
+
+### Bug Fixes
+
+* **cloudfront-signer:** encode uri components in base url ([#7437](https://github.com/aws/aws-sdk-js-v3/issues/7437)) ([8458bab](https://github.com/aws/aws-sdk-js-v3/commit/8458bab038d3fe4ee8fb3c0ad507b4076d3a3d31))
+* **nested-clients:** propagate clientConfig to inner STS client in role assumption ([#7445](https://github.com/aws/aws-sdk-js-v3/issues/7445)) ([6ec7126](https://github.com/aws/aws-sdk-js-v3/commit/6ec7126b16dd4171b792f9033a9c8069ab4f01a4))
+
+
+### Features
+
+* **client-dynamodb:** Add AccountID based endpoint metric to endpoint rules. ([e23ed85](https://github.com/aws/aws-sdk-js-v3/commit/e23ed853fb48987fd0b871ff1694bdd73ceb8108))
+* **client-emr:** Added RECONFIGURING to the InstanceFleetState convenience enum. ([321c78e](https://github.com/aws/aws-sdk-js-v3/commit/321c78e2742930b79eb9e20cddc94d66bf39c839))
+* **client-marketplace-metering:** Added ClientToken parameter to MeterUsage API for specifying idempotent requests. ([fcf8637](https://github.com/aws/aws-sdk-js-v3/commit/fcf8637188ceffbabd04c7512e63dfe4c8e01e56))
+* **client-mediaconvert:** This release adds the ability to set resolution for the black video generator and also adds the StartJobsQuery and GetJobsQueryResults APIs which allow asynchronous search of job history using new filters. ([3dbc5fe](https://github.com/aws/aws-sdk-js-v3/commit/3dbc5fe9a6c741b2ebb0d31668ccb4b0fd0c0ba9))
+* **clients:** update client endpoints as of 2025-10-21 ([1164402](https://github.com/aws/aws-sdk-js-v3/commit/1164402e7f67b83437ad34f52e5673efb041210c))
+
+
+
+
+
 # [3.913.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.912.0...v3.913.0) (2025-10-17)
 
 

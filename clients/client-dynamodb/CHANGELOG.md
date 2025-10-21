@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.914.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.913.0...v3.914.0) (2025-10-21)
+
+
+### Features
+
+* **client-dynamodb:** Add AccountID based endpoint metric to endpoint rules. ([e23ed85](https://github.com/aws/aws-sdk-js-v3/commit/e23ed853fb48987fd0b871ff1694bdd73ceb8108))
+
+
+
+
+
 # [3.913.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.912.0...v3.913.0) (2025-10-17)
 
 **Note:** Version bump only for package @aws-sdk/client-dynamodb

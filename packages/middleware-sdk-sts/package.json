@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/middleware-sdk-sts",
-  "version": "3.910.0",
+  "version": "3.914.0",
   "scripts": {
     "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types'",
     "build:cjs": "node ../../scripts/compilation/inline middleware-sdk-sts",
