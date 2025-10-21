@@ -53,7 +53,7 @@ export interface ListInstanceFleetsCommandOutput extends ListInstanceFleetsOutpu
  * //       Id: "STRING_VALUE",
  * //       Name: "STRING_VALUE",
  * //       Status: { // InstanceFleetStatus
- * //         State: "PROVISIONING" || "BOOTSTRAPPING" || "RUNNING" || "RESIZING" || "SUSPENDED" || "TERMINATING" || "TERMINATED",
+ * //         State: "PROVISIONING" || "BOOTSTRAPPING" || "RUNNING" || "RESIZING" || "RECONFIGURING" || "SUSPENDED" || "TERMINATING" || "TERMINATED",
  * //         StateChangeReason: { // InstanceFleetStateChangeReason
  * //           Code: "INTERNAL_ERROR" || "VALIDATION_ERROR" || "INSTANCE_FAILURE" || "CLUSTER_TERMINATED",
  * //           Message: "STRING_VALUE",
