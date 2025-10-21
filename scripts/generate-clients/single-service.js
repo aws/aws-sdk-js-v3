@@ -41,6 +41,11 @@ const { solo } = yargs(process.argv.slice(2))
       } catch (ignored) {}
     }
 
+    if (solo === "sts" || solo === "sso-oidc") {
+      const generateNestedClients = require("./nested-clients/generate-nested-clients");
+      await generateNestedClients();
+    }
+
     console.log("================ starting prettier ================", "\n", new Date().toString(), solo);
     await spawnProcess("npx", [
       "prettier",
