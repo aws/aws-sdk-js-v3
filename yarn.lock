@@ -14478,6 +14478,7 @@ __metadata:
     "@smithy/util-middleware": "npm:^4.2.3"
     "@smithy/util-retry": "npm:^4.2.3"
     "@smithy/util-utf8": "npm:^4.2.0"
+    "@smithy/uuid": "npm:^1.1.0"
     "@tsconfig/node18": "npm:18.2.4"
     "@types/node": "npm:^18.19.69"
     concurrently: "npm:7.0.0"
