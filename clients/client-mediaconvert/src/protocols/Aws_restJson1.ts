@@ -51,6 +51,10 @@ import {
   DisassociateCertificateCommandOutput,
 } from "../commands/DisassociateCertificateCommand";
 import { GetJobCommandInput, GetJobCommandOutput } from "../commands/GetJobCommand";
+import {
+  GetJobsQueryResultsCommandInput,
+  GetJobsQueryResultsCommandOutput,
+} from "../commands/GetJobsQueryResultsCommand";
 import { GetJobTemplateCommandInput, GetJobTemplateCommandOutput } from "../commands/GetJobTemplateCommand";
 import { GetPolicyCommandInput, GetPolicyCommandOutput } from "../commands/GetPolicyCommand";
 import { GetPresetCommandInput, GetPresetCommandOutput } from "../commands/GetPresetCommand";
@@ -67,6 +71,7 @@ import { ListVersionsCommandInput, ListVersionsCommandOutput } from "../commands
 import { ProbeCommandInput, ProbeCommandOutput } from "../commands/ProbeCommand";
 import { PutPolicyCommandInput, PutPolicyCommandOutput } from "../commands/PutPolicyCommand";
 import { SearchJobsCommandInput, SearchJobsCommandOutput } from "../commands/SearchJobsCommand";
+import { StartJobsQueryCommandInput, StartJobsQueryCommandOutput } from "../commands/StartJobsQueryCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
 import { UpdateJobTemplateCommandInput, UpdateJobTemplateCommandOutput } from "../commands/UpdateJobTemplateCommand";
@@ -257,6 +262,7 @@ import {
 import {
   AudioProperties,
   BadRequestException,
+  CodecMetadata,
   ConflictException,
   Container,
   DataProperties,
@@ -266,6 +272,7 @@ import {
   Job,
   JobEngineVersion,
   JobSettings,
+  JobsQueryFilter,
   JobTemplate,
   JobTemplateSettings,
   Metadata,
@@ -280,6 +287,7 @@ import {
   ReservationPlanSettings,
   ResourceTags,
   ServiceOverride,
+  ServiceQuotaExceededException,
   TimecodeConfig,
   TimedMetadataInsertion,
   Timing,
@@ -588,6 +596,22 @@ export const se_GetJobCommand = async (input: GetJobCommandInput, context: __Ser
 };
 
 /**
+ * serializeAws_restJson1GetJobsQueryResultsCommand
+ */
+export const se_GetJobsQueryResultsCommand = async (
+  input: GetJobsQueryResultsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/2017-08-29/jobsQueries/{Id}");
+  b.p("Id", () => input.Id!, "{Id}", false);
+  let body: any;
+  b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1GetJobTemplateCommand
  */
 export const se_GetJobTemplateCommand = async (
@@ -833,6 +857,31 @@ export const se_SearchJobsCommand = async (
   });
   let body: any;
   b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1StartJobsQueryCommand
+ */
+export const se_StartJobsQueryCommand = async (
+  input: StartJobsQueryCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/2017-08-29/jobsQueries");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      filterList: [, (_) => se___listOfJobsQueryFilter(_, context), `FilterList`],
+      maxResults: [, , `MaxResults`],
+      nextToken: [, , `NextToken`],
+      order: [, , `Order`],
+    })
+  );
+  b.m("POST").h(headers).b(body);
   return b.build();
 };
 
@@ -1227,6 +1276,29 @@ export const de_GetJobCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1GetJobsQueryResultsCommand
+ */
+export const de_GetJobsQueryResultsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetJobsQueryResultsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Jobs: [, (_) => de___listOfJob(_, context), `jobs`],
+    NextToken: [, __expectString, `nextToken`],
+    Status: [, __expectString, `status`],
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1GetJobTemplateCommand
  */
 export const de_GetJobTemplateCommand = async (
@@ -1505,6 +1577,27 @@ export const de_SearchJobsCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1StartJobsQueryCommand
+ */
+export const de_StartJobsQueryCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartJobsQueryCommandOutput> => {
+  if (output.statusCode !== 201 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Id: [, __expectString, `id`],
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1TagResourceCommand
  */
 export const de_TagResourceCommand = async (
@@ -1626,6 +1719,9 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "NotFoundException":
     case "com.amazonaws.mediaconvert#NotFoundException":
       throw await de_NotFoundExceptionRes(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.mediaconvert#ServiceQuotaExceededException":
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.mediaconvert#TooManyRequestsException":
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
@@ -1729,6 +1825,26 @@ const de_NotFoundExceptionRes = async (parsedOutput: any, context: __SerdeContex
 };
 
 /**
+ * deserializeAws_restJson1ServiceQuotaExceededExceptionRes
+ */
+const de_ServiceQuotaExceededExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<ServiceQuotaExceededException> => {
+  const contents: any = map({});
+  const data: any = parsedOutput.body;
+  const doc = take(data, {
+    Message: [, __expectString, `message`],
+  });
+  Object.assign(contents, doc);
+  const exception = new ServiceQuotaExceededException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
+};
+
+/**
  * deserializeAws_restJson1TooManyRequestsExceptionRes
  */
 const de_TooManyRequestsExceptionRes = async (
@@ -1766,6 +1882,8 @@ const se___listOf__doubleMinNegative60Max6 = (input: number[], context: __SerdeC
 // se___listOf__integerMinNegative60Max6 omitted.
 
 // se___listOf__string omitted.
+
+// se___listOf__stringMax100 omitted.
 
 // se___listOf__stringMin1 omitted.
 
@@ -1965,6 +2083,17 @@ const se___listOfInsertableImage = (input: InsertableImage[], context: __SerdeCo
     .filter((e: any) => e != null)
     .map((entry) => {
       return se_InsertableImage(entry, context);
+    });
+};
+
+/**
+ * serializeAws_restJson1__listOfJobsQueryFilter
+ */
+const se___listOfJobsQueryFilter = (input: JobsQueryFilter[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return se_JobsQueryFilter(entry, context);
     });
 };
 
@@ -3545,7 +3674,9 @@ const se_InputVideoGenerator = (input: InputVideoGenerator, context: __SerdeCont
     duration: [, , `Duration`],
     framerateDenominator: [, , `FramerateDenominator`],
     framerateNumerator: [, , `FramerateNumerator`],
+    height: [, , `Height`],
     sampleRate: [, , `SampleRate`],
+    width: [, , `Width`],
   });
 };
 
@@ -3591,6 +3722,16 @@ const se_JobSettings = (input: JobSettings, context: __SerdeContext): any => {
     outputGroups: [, (_) => se___listOfOutputGroup(_, context), `OutputGroups`],
     timecodeConfig: [, (_) => se_TimecodeConfig(_, context), `TimecodeConfig`],
     timedMetadataInsertion: [, (_) => se_TimedMetadataInsertion(_, context), `TimedMetadataInsertion`],
+  });
+};
+
+/**
+ * serializeAws_restJson1JobsQueryFilter
+ */
+const se_JobsQueryFilter = (input: JobsQueryFilter, context: __SerdeContext): any => {
+  return take(input, {
+    key: [, , `Key`],
+    values: [, _json, `Values`],
   });
 };
 
@@ -5876,6 +6017,25 @@ const de_CmfcSettings = (output: any, context: __SerdeContext): CmfcSettings => 
 };
 
 /**
+ * deserializeAws_restJson1CodecMetadata
+ */
+const de_CodecMetadata = (output: any, context: __SerdeContext): CodecMetadata => {
+  return take(output, {
+    BitDepth: [, __expectInt32, `bitDepth`],
+    ChromaSubsampling: [, __expectString, `chromaSubsampling`],
+    CodedFrameRate: [, (_: any) => de_FrameRate(_, context), `codedFrameRate`],
+    ColorPrimaries: [, __expectString, `colorPrimaries`],
+    Height: [, __expectInt32, `height`],
+    Level: [, __expectString, `level`],
+    MatrixCoefficients: [, __expectString, `matrixCoefficients`],
+    Profile: [, __expectString, `profile`],
+    ScanType: [, __expectString, `scanType`],
+    TransferCharacteristics: [, __expectString, `transferCharacteristics`],
+    Width: [, __expectInt32, `width`],
+  }) as any;
+};
+
+/**
  * deserializeAws_restJson1ColorConversion3DLUTSetting
  */
 const de_ColorConversion3DLUTSetting = (output: any, context: __SerdeContext): ColorConversion3DLUTSetting => {
@@ -6829,7 +6989,9 @@ const de_InputVideoGenerator = (output: any, context: __SerdeContext): InputVide
     Duration: [, __expectInt32, `duration`],
     FramerateDenominator: [, __expectInt32, `framerateDenominator`],
     FramerateNumerator: [, __expectInt32, `framerateNumerator`],
+    Height: [, __expectInt32, `height`],
     SampleRate: [, __expectInt32, `sampleRate`],
+    Width: [, __expectInt32, `width`],
   }) as any;
 };
 
@@ -8093,6 +8255,7 @@ const de_VideoProperties = (output: any, context: __SerdeContext): VideoProperti
   return take(output, {
     BitDepth: [, __expectInt32, `bitDepth`],
     BitRate: [, __expectLong, `bitRate`],
+    CodecMetadata: [, (_: any) => de_CodecMetadata(_, context), `codecMetadata`],
     ColorPrimaries: [, __expectString, `colorPrimaries`],
     FrameRate: [, (_: any) => de_FrameRate(_, context), `frameRate`],
     Height: [, __expectInt32, `height`],

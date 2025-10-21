@@ -6,8 +6,8 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { MediaConvertClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaConvertClient";
-import { DeletePresetRequest, DeletePresetResponse } from "../models/models_2";
-import { de_DeletePresetCommand, se_DeletePresetCommand } from "../protocols/Aws_restJson1";
+import { StartJobsQueryRequest, StartJobsQueryResponse } from "../models/models_2";
+import { de_StartJobsQueryCommand, se_StartJobsQueryCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -17,39 +17,51 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link DeletePresetCommand}.
+ * The input for {@link StartJobsQueryCommand}.
  */
-export interface DeletePresetCommandInput extends DeletePresetRequest {}
+export interface StartJobsQueryCommandInput extends StartJobsQueryRequest {}
 /**
  * @public
  *
- * The output of {@link DeletePresetCommand}.
+ * The output of {@link StartJobsQueryCommand}.
  */
-export interface DeletePresetCommandOutput extends DeletePresetResponse, __MetadataBearer {}
+export interface StartJobsQueryCommandOutput extends StartJobsQueryResponse, __MetadataBearer {}
 
 /**
- * Permanently delete a preset you have created.
+ * Start an asynchronous jobs query using the provided filters. To receive the list of jobs that match your query, call the GetJobsQueryResults API using the query ID returned by this API.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MediaConvertClient, DeletePresetCommand } from "@aws-sdk/client-mediaconvert"; // ES Modules import
- * // const { MediaConvertClient, DeletePresetCommand } = require("@aws-sdk/client-mediaconvert"); // CommonJS import
+ * import { MediaConvertClient, StartJobsQueryCommand } from "@aws-sdk/client-mediaconvert"; // ES Modules import
+ * // const { MediaConvertClient, StartJobsQueryCommand } = require("@aws-sdk/client-mediaconvert"); // CommonJS import
  * // import type { MediaConvertClientConfig } from "@aws-sdk/client-mediaconvert";
  * const config = {}; // type is MediaConvertClientConfig
  * const client = new MediaConvertClient(config);
- * const input = { // DeletePresetRequest
- *   Name: "STRING_VALUE", // required
+ * const input = { // StartJobsQueryRequest
+ *   FilterList: [ // __listOfJobsQueryFilter
+ *     { // JobsQueryFilter
+ *       Key: "queue" || "status" || "fileInput" || "jobEngineVersionRequested" || "jobEngineVersionUsed" || "audioCodec" || "videoCodec",
+ *       Values: [ // __listOf__stringMax100
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ *   Order: "ASCENDING" || "DESCENDING",
  * };
- * const command = new DeletePresetCommand(input);
+ * const command = new StartJobsQueryCommand(input);
  * const response = await client.send(command);
- * // {};
+ * // { // StartJobsQueryResponse
+ * //   Id: "STRING_VALUE",
+ * // };
  *
  * ```
  *
- * @param DeletePresetCommandInput - {@link DeletePresetCommandInput}
- * @returns {@link DeletePresetCommandOutput}
- * @see {@link DeletePresetCommandInput} for command's `input` shape.
- * @see {@link DeletePresetCommandOutput} for command's `response` shape.
+ * @param StartJobsQueryCommandInput - {@link StartJobsQueryCommandInput}
+ * @returns {@link StartJobsQueryCommandOutput}
+ * @see {@link StartJobsQueryCommandInput} for command's `input` shape.
+ * @see {@link StartJobsQueryCommandOutput} for command's `response` shape.
  * @see {@link MediaConvertClientResolvedConfig | config} for MediaConvertClient's `config` shape.
  *
  * @throws {@link BadRequestException} (client fault)
@@ -79,10 +91,10 @@ export interface DeletePresetCommandOutput extends DeletePresetResponse, __Metad
  *
  * @public
  */
-export class DeletePresetCommand extends $Command
+export class StartJobsQueryCommand extends $Command
   .classBuilder<
-    DeletePresetCommandInput,
-    DeletePresetCommandOutput,
+    StartJobsQueryCommandInput,
+    StartJobsQueryCommandOutput,
     MediaConvertClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -94,21 +106,21 @@ export class DeletePresetCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("MediaConvert", "DeletePreset", {})
-  .n("MediaConvertClient", "DeletePresetCommand")
+  .s("MediaConvert", "StartJobsQuery", {})
+  .n("MediaConvertClient", "StartJobsQueryCommand")
   .f(void 0, void 0)
-  .ser(se_DeletePresetCommand)
-  .de(de_DeletePresetCommand)
+  .ser(se_StartJobsQueryCommand)
+  .de(de_StartJobsQueryCommand)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: DeletePresetRequest;
-      output: {};
+      input: StartJobsQueryRequest;
+      output: StartJobsQueryResponse;
     };
     sdk: {
-      input: DeletePresetCommandInput;
-      output: DeletePresetCommandOutput;
+      input: StartJobsQueryCommandInput;
+      output: StartJobsQueryCommandOutput;
     };
   };
 }

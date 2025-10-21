@@ -108,7 +108,7 @@ export interface JobSettings {
   ExtendedDataServices?: ExtendedDataServices | undefined;
 
   /**
-   * Specify the input that MediaConvert references for your default output settings.  MediaConvert uses this input's Resolution, Frame rate, and Pixel aspect ratio for all  outputs that you don't manually specify different output settings for. Enabling this setting will disable "Follow source" for all other inputs.  If MediaConvert cannot follow your source, for example if you specify an audio-only input,  MediaConvert uses the first followable input instead. In your JSON job specification, enter an integer from 1 to 150 corresponding  to the order of your inputs.
+   * Specify the input that MediaConvert references for your default output settings. MediaConvert uses this input's Resolution, Frame rate, and Pixel aspect ratio for all outputs that you don't manually specify different output settings for. Enabling this setting will disable "Follow source" for all other inputs.  If MediaConvert cannot follow your source, for example if you specify an audio-only input,  MediaConvert uses the first followable input instead. In your JSON job specification, enter an integer from 1 to 150 corresponding  to the order of your inputs.
    * @public
    */
   FollowSource?: number | undefined;
@@ -481,10 +481,47 @@ export interface JobEngineVersion {
   ExpirationDate?: Date | undefined;
 
   /**
-   * Use Job engine versions to run jobs for your production workflow on one version, while you test and validate the latest version. Job engine versions are in a YYYY-MM-DD format.
+   * Use Job engine versions to run jobs for your production workflow on one version, while you test and validate the latest version. Job engine versions represent periodically grouped MediaConvert releases with new features, updates, improvements, and fixes. Job engine versions are in a YYYY-MM-DD format. Note that the Job engine version feature is not publicly available at this time. To request access, contact AWS support.
    * @public
    */
   Version?: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const JobsQueryFilterKey = {
+  audioCodec: "audioCodec",
+  fileInput: "fileInput",
+  jobEngineVersionRequested: "jobEngineVersionRequested",
+  jobEngineVersionUsed: "jobEngineVersionUsed",
+  queue: "queue",
+  status: "status",
+  videoCodec: "videoCodec",
+} as const;
+
+/**
+ * @public
+ */
+export type JobsQueryFilterKey = (typeof JobsQueryFilterKey)[keyof typeof JobsQueryFilterKey];
+
+/**
+ * Provide one or more JobsQueryFilter objects, each containing a Key with an associated Values array. Note that MediaConvert queries jobs using OR logic.
+ * @public
+ */
+export interface JobsQueryFilter {
+  /**
+   * Specify job details to filter for while performing a jobs query. You specify these filters as part of a key-value pair within the JobsQueryFilter array. The following list describes which keys are available and their possible values: * queue - Your Queue's name or ARN. * status - Your job's status. (SUBMITTED | PROGRESSING | COMPLETE | CANCELED | ERROR) * fileInput - Your input file URL, or partial input file name. * jobEngineVersionRequested - The Job engine version that you requested for your job. Valid versions are in a YYYY-MM-DD format. * jobEngineVersionUsed - The Job engine version that your job used. This may differ from the version that you requested. Valid versions are in a YYYY-MM-DD format. * audioCodec - Your output's audio codec. (AAC | MP2 | MP3 | WAV | AIFF | AC3| EAC3 | EAC3_ATMOS | VORBIS | OPUS | PASSTHROUGH | FLAC) * videoCodec - Your output's video codec. (AV1 | AVC_INTRA | FRAME_CAPTURE | H_264 | H_265 | MPEG2 | PASSTHROUGH | PRORES | UNCOMPRESSED | VC3 | VP8 | VP9 | XAVC)
+   * @public
+   */
+  Key?: JobsQueryFilterKey | undefined;
+
+  /**
+   * A list of values associated with a JobsQueryFilterKey.
+   * @public
+   */
+  Values?: string[] | undefined;
 }
 
 /**
@@ -523,7 +560,7 @@ export interface JobTemplateSettings {
   ExtendedDataServices?: ExtendedDataServices | undefined;
 
   /**
-   * Specify the input that MediaConvert references for your default output settings.  MediaConvert uses this input's Resolution, Frame rate, and Pixel aspect ratio for all  outputs that you don't manually specify different output settings for. Enabling this setting will disable "Follow source" for all other inputs.  If MediaConvert cannot follow your source, for example if you specify an audio-only input,  MediaConvert uses the first followable input instead. In your JSON job specification, enter an integer from 1 to 150 corresponding  to the order of your inputs.
+   * Specify the input that MediaConvert references for your default output settings. MediaConvert uses this input's Resolution, Frame rate, and Pixel aspect ratio for all outputs that you don't manually specify different output settings for. Enabling this setting will disable "Follow source" for all other inputs.  If MediaConvert cannot follow your source, for example if you specify an audio-only input,  MediaConvert uses the first followable input instead. In your JSON job specification, enter an integer from 1 to 150 corresponding  to the order of your inputs.
    * @public
    */
   FollowSource?: number | undefined;
@@ -789,7 +826,7 @@ export const Format = {
 export type Format = (typeof Format)[keyof typeof Format];
 
 /**
- * The frame rate of the video or audio track.
+ * The frame rate of the video or audio track, expressed as a fraction with numerator and denominator values.
  * @public
  */
 export interface FrameRate {
@@ -830,7 +867,7 @@ export interface AudioProperties {
   Channels?: number | undefined;
 
   /**
-   * The frame rate of the video or audio track.
+   * The frame rate of the video or audio track, expressed as a fraction with numerator and denominator values.
    * @public
    */
   FrameRate?: FrameRate | undefined;
@@ -866,12 +903,15 @@ export const Codec = {
   MJPEG: "MJPEG",
   MP3: "MP3",
   MP4V: "MP4V",
+  MPEG1: "MPEG1",
   MPEG2: "MPEG2",
   OPUS: "OPUS",
   PCM: "PCM",
   PRORES: "PRORES",
+  QTRLE: "QTRLE",
   THEORA: "THEORA",
   UNKNOWN: "UNKNOWN",
+  VFW: "VFW",
   VORBIS: "VORBIS",
   VP8: "VP8",
   VP9: "VP9",
@@ -1000,12 +1040,84 @@ export const TransferCharacteristics = {
 export type TransferCharacteristics = (typeof TransferCharacteristics)[keyof typeof TransferCharacteristics];
 
 /**
+ * Codec-specific parameters parsed from the video essence headers. This information provides detailed technical specifications about how the video was encoded, including profile settings, resolution details, and color space information that can help you understand the source video characteristics and make informed encoding decisions.
+ * @public
+ */
+export interface CodecMetadata {
+  /**
+   * The number of bits used per color component in the video essence such as 8, 10, or 12 bits. Standard range (SDR) video typically uses 8-bit, while 10-bit is common for high dynamic range (HDR).
+   * @public
+   */
+  BitDepth?: number | undefined;
+
+  /**
+   * The chroma subsampling format used in the video encoding, such as "4:2:0" or "4:4:4". This describes how color information is sampled relative to brightness information. Different subsampling ratios affect video quality and file size, with "4:4:4" providing the highest color fidelity and "4:2:0" being most common for standard video.
+   * @public
+   */
+  ChromaSubsampling?: string | undefined;
+
+  /**
+   * The frame rate of the video or audio track, expressed as a fraction with numerator and denominator values.
+   * @public
+   */
+  CodedFrameRate?: FrameRate | undefined;
+
+  /**
+   * The color space primaries of the video track, defining the red, green, and blue color coordinates used for the video. This information helps ensure accurate color reproduction during playback and transcoding.
+   * @public
+   */
+  ColorPrimaries?: ColorPrimaries | undefined;
+
+  /**
+   * The height in pixels as coded by the codec. This represents the actual encoded video height as specified in the video stream headers.
+   * @public
+   */
+  Height?: number | undefined;
+
+  /**
+   * The codec level or tier that specifies the maximum processing requirements and capabilities. Levels define constraints such as maximum bit rate, frame rate, and resolution.
+   * @public
+   */
+  Level?: string | undefined;
+
+  /**
+   * The color space matrix coefficients of the video track, defining how RGB color values are converted to and from YUV color space. This affects color accuracy during encoding and decoding processes.
+   * @public
+   */
+  MatrixCoefficients?: MatrixCoefficients | undefined;
+
+  /**
+   * The codec profile used to encode the video. Profiles define specific feature sets and capabilities within a codec standard. For example, H.264 profiles include Baseline, Main, and High, each supporting different encoding features and complexity levels.
+   * @public
+   */
+  Profile?: string | undefined;
+
+  /**
+   * The scanning method specified in the video essence, indicating whether the video uses progressive or interlaced scanning.
+   * @public
+   */
+  ScanType?: string | undefined;
+
+  /**
+   * The color space transfer characteristics of the video track, defining the relationship between linear light values and the encoded signal values. This affects brightness and contrast reproduction.
+   * @public
+   */
+  TransferCharacteristics?: TransferCharacteristics | undefined;
+
+  /**
+   * The width in pixels as coded by the codec. This represents the actual encoded video width as specified in the video stream headers.
+   * @public
+   */
+  Width?: number | undefined;
+}
+
+/**
  * Details about the media file's video track.
  * @public
  */
 export interface VideoProperties {
   /**
-   * The bit depth of the video track.
+   * The number of bits used per color component such as 8, 10, or 12 bits. Standard range (SDR) video typically uses 8-bit, while 10-bit is common for high dynamic range (HDR).
    * @public
    */
   BitDepth?: number | undefined;
@@ -1017,13 +1129,19 @@ export interface VideoProperties {
   BitRate?: number | undefined;
 
   /**
-   * The color space color primaries of the video track.
+   * Codec-specific parameters parsed from the video essence headers. This information provides detailed technical specifications about how the video was encoded, including profile settings, resolution details, and color space information that can help you understand the source video characteristics and make informed encoding decisions.
+   * @public
+   */
+  CodecMetadata?: CodecMetadata | undefined;
+
+  /**
+   * The color space primaries of the video track, defining the red, green, and blue color coordinates used for the video. This information helps ensure accurate color reproduction during playback and transcoding.
    * @public
    */
   ColorPrimaries?: ColorPrimaries | undefined;
 
   /**
-   * The frame rate of the video or audio track.
+   * The frame rate of the video or audio track, expressed as a fraction with numerator and denominator values.
    * @public
    */
   FrameRate?: FrameRate | undefined;
@@ -1035,13 +1153,13 @@ export interface VideoProperties {
   Height?: number | undefined;
 
   /**
-   * The color space matrix coefficients of the video track.
+   * The color space matrix coefficients of the video track, defining how RGB color values are converted to and from YUV color space. This affects color accuracy during encoding and decoding processes.
    * @public
    */
   MatrixCoefficients?: MatrixCoefficients | undefined;
 
   /**
-   * The color space transfer characteristics of the video track.
+   * The color space transfer characteristics of the video track, defining the relationship between linear light values and the encoded signal values. This affects brightness and contrast reproduction.
    * @public
    */
   TransferCharacteristics?: TransferCharacteristics | undefined;
@@ -1555,6 +1673,28 @@ export class NotFoundException extends __BaseException {
 }
 
 /**
+ * You attempted to create more resources than the service allows based on service quotas.
+ * @public
+ */
+export class ServiceQuotaExceededException extends __BaseException {
+  readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
+  readonly $fault: "client" = "client";
+  Message?: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ServiceQuotaExceededException, __BaseException>) {
+    super({
+      name: "ServiceQuotaExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ServiceQuotaExceededException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
  * Too many requests have been sent in too short of a time. The service limits the rate at which it will accept requests.
  * @public
  */
@@ -1621,7 +1761,7 @@ export interface CreateJobRequest {
   HopDestinations?: HopDestination[] | undefined;
 
   /**
-   * Use Job engine versions to run jobs for your production workflow on one version, while you test and validate the latest version. To specify a Job engine version: Enter a date in a YYYY-MM-DD format. For a list of valid Job engine versions, submit a ListVersions request. To not specify a Job engine version: Leave blank.
+   * Use Job engine versions to run jobs for your production workflow on one version, while you test and validate the latest version. Job engine versions represent periodically grouped MediaConvert releases with new features, updates, improvements, and fixes. Job engine versions are in a YYYY-MM-DD format. Note that the Job engine version feature is not publicly available at this time. To request access, contact AWS support.
    * @public
    */
   JobEngineVersion?: string | undefined;
@@ -2068,6 +2208,56 @@ export interface GetJobResponse {
    * @public
    */
   Job?: Job | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetJobsQueryResultsRequest {
+  /**
+   * The ID of the jobs query.
+   * @public
+   */
+  Id: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const JobsQueryStatus = {
+  COMPLETE: "COMPLETE",
+  ERROR: "ERROR",
+  PROGRESSING: "PROGRESSING",
+  SUBMITTED: "SUBMITTED",
+} as const;
+
+/**
+ * @public
+ */
+export type JobsQueryStatus = (typeof JobsQueryStatus)[keyof typeof JobsQueryStatus];
+
+/**
+ * @public
+ */
+export interface GetJobsQueryResultsResponse {
+  /**
+   * List of jobs.
+   * @public
+   */
+  Jobs?: Job[] | undefined;
+
+  /**
+   * Use this string to request the next batch of jobs via the StartJobsQuery API.
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * The status of the jobs query.
+   * @public
+   */
+  Status?: JobsQueryStatus | undefined;
 }
 
 /**
@@ -2636,6 +2826,46 @@ export interface SearchJobsResponse {
    * @public
    */
   NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartJobsQueryRequest {
+  /**
+   * Optional. Provide an array of JobsQueryFilters for your StartJobsQuery request.
+   * @public
+   */
+  FilterList?: JobsQueryFilter[] | undefined;
+
+  /**
+   * Optional. Number of jobs, up to twenty, that will be included in the jobs query.
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * Use this string to request the next batch of jobs matched by a jobs query.
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * Optional. When you request lists of resources, you can specify whether they are sorted in ASCENDING or DESCENDING order. Default varies by resource.
+   * @public
+   */
+  Order?: Order | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartJobsQueryResponse {
+  /**
+   * The ID of the jobs query.
+   * @public
+   */
+  Id?: string | undefined;
 }
 
 /**

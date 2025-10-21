@@ -53,6 +53,11 @@ import {
 } from "./commands/DisassociateCertificateCommand";
 import { GetJobCommand, GetJobCommandInput, GetJobCommandOutput } from "./commands/GetJobCommand";
 import {
+  GetJobsQueryResultsCommand,
+  GetJobsQueryResultsCommandInput,
+  GetJobsQueryResultsCommandOutput,
+} from "./commands/GetJobsQueryResultsCommand";
+import {
   GetJobTemplateCommand,
   GetJobTemplateCommandInput,
   GetJobTemplateCommandOutput,
@@ -81,6 +86,11 @@ import {
 import { ProbeCommand, ProbeCommandInput, ProbeCommandOutput } from "./commands/ProbeCommand";
 import { PutPolicyCommand, PutPolicyCommandInput, PutPolicyCommandOutput } from "./commands/PutPolicyCommand";
 import { SearchJobsCommand, SearchJobsCommandInput, SearchJobsCommandOutput } from "./commands/SearchJobsCommand";
+import {
+  StartJobsQueryCommand,
+  StartJobsQueryCommandInput,
+  StartJobsQueryCommandOutput,
+} from "./commands/StartJobsQueryCommand";
 import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
   UntagResourceCommand,
@@ -115,6 +125,7 @@ const commands = {
   DescribeEndpointsCommand,
   DisassociateCertificateCommand,
   GetJobCommand,
+  GetJobsQueryResultsCommand,
   GetJobTemplateCommand,
   GetPolicyCommand,
   GetPresetCommand,
@@ -128,6 +139,7 @@ const commands = {
   ProbeCommand,
   PutPolicyCommand,
   SearchJobsCommand,
+  StartJobsQueryCommand,
   TagResourceCommand,
   UntagResourceCommand,
   UpdateJobTemplateCommand,
@@ -329,6 +341,23 @@ export interface MediaConvert {
   ): void;
 
   /**
+   * @see {@link GetJobsQueryResultsCommand}
+   */
+  getJobsQueryResults(
+    args: GetJobsQueryResultsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetJobsQueryResultsCommandOutput>;
+  getJobsQueryResults(
+    args: GetJobsQueryResultsCommandInput,
+    cb: (err: any, data?: GetJobsQueryResultsCommandOutput) => void
+  ): void;
+  getJobsQueryResults(
+    args: GetJobsQueryResultsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetJobsQueryResultsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetJobTemplateCommand}
    */
   getJobTemplate(
@@ -492,6 +521,21 @@ export interface MediaConvert {
     args: SearchJobsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: SearchJobsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StartJobsQueryCommand}
+   */
+  startJobsQuery(): Promise<StartJobsQueryCommandOutput>;
+  startJobsQuery(
+    args: StartJobsQueryCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartJobsQueryCommandOutput>;
+  startJobsQuery(args: StartJobsQueryCommandInput, cb: (err: any, data?: StartJobsQueryCommandOutput) => void): void;
+  startJobsQuery(
+    args: StartJobsQueryCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartJobsQueryCommandOutput) => void
   ): void;
 
   /**

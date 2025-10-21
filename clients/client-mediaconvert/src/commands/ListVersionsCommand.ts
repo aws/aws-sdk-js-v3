@@ -76,6 +76,9 @@ export interface ListVersionsCommandOutput extends ListVersionsResponse, __Metad
  * @throws {@link NotFoundException} (client fault)
  *  The resource you requested doesn't exist.
  *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  You attempted to create more resources than the service allows based on service quotas.
+ *
  * @throws {@link TooManyRequestsException} (client fault)
  *  Too many requests have been sent in too short of a time. The service limits the rate at which it will accept requests.
  *

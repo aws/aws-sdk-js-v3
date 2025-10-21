@@ -6,8 +6,8 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { MediaConvertClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaConvertClient";
-import { ListJobTemplatesRequest, ListJobTemplatesResponse } from "../models/models_2";
-import { de_ListJobTemplatesCommand, se_ListJobTemplatesCommand } from "../protocols/Aws_restJson1";
+import { GetJobsQueryResultsRequest, GetJobsQueryResultsResponse } from "../models/models_2";
+import { de_GetJobsQueryResultsCommand, se_GetJobsQueryResultsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -17,45 +17,45 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link ListJobTemplatesCommand}.
+ * The input for {@link GetJobsQueryResultsCommand}.
  */
-export interface ListJobTemplatesCommandInput extends ListJobTemplatesRequest {}
+export interface GetJobsQueryResultsCommandInput extends GetJobsQueryResultsRequest {}
 /**
  * @public
  *
- * The output of {@link ListJobTemplatesCommand}.
+ * The output of {@link GetJobsQueryResultsCommand}.
  */
-export interface ListJobTemplatesCommandOutput extends ListJobTemplatesResponse, __MetadataBearer {}
+export interface GetJobsQueryResultsCommandOutput extends GetJobsQueryResultsResponse, __MetadataBearer {}
 
 /**
- * Retrieve a JSON array of up to twenty of your job templates. This will return the templates themselves, not just a list of them. To retrieve the next twenty templates, use the nextToken string returned with the array
+ * Retrieve a JSON array of up to twenty of your most recent jobs matched by a jobs query.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MediaConvertClient, ListJobTemplatesCommand } from "@aws-sdk/client-mediaconvert"; // ES Modules import
- * // const { MediaConvertClient, ListJobTemplatesCommand } = require("@aws-sdk/client-mediaconvert"); // CommonJS import
+ * import { MediaConvertClient, GetJobsQueryResultsCommand } from "@aws-sdk/client-mediaconvert"; // ES Modules import
+ * // const { MediaConvertClient, GetJobsQueryResultsCommand } = require("@aws-sdk/client-mediaconvert"); // CommonJS import
  * // import type { MediaConvertClientConfig } from "@aws-sdk/client-mediaconvert";
  * const config = {}; // type is MediaConvertClientConfig
  * const client = new MediaConvertClient(config);
- * const input = { // ListJobTemplatesRequest
- *   Category: "STRING_VALUE",
- *   ListBy: "NAME" || "CREATION_DATE" || "SYSTEM",
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
- *   Order: "ASCENDING" || "DESCENDING",
+ * const input = { // GetJobsQueryResultsRequest
+ *   Id: "STRING_VALUE", // required
  * };
- * const command = new ListJobTemplatesCommand(input);
+ * const command = new GetJobsQueryResultsCommand(input);
  * const response = await client.send(command);
- * // { // ListJobTemplatesResponse
- * //   JobTemplates: [ // __listOfJobTemplate
- * //     { // JobTemplate
+ * // { // GetJobsQueryResultsResponse
+ * //   Jobs: [ // __listOfJob
+ * //     { // Job
  * //       AccelerationSettings: { // AccelerationSettings
  * //         Mode: "DISABLED" || "ENABLED" || "PREFERRED", // required
  * //       },
+ * //       AccelerationStatus: "NOT_APPLICABLE" || "IN_PROGRESS" || "ACCELERATED" || "NOT_ACCELERATED",
  * //       Arn: "STRING_VALUE",
- * //       Category: "STRING_VALUE",
+ * //       BillingTagsSource: "QUEUE" || "PRESET" || "JOB_TEMPLATE" || "JOB",
+ * //       ClientRequestToken: "STRING_VALUE",
  * //       CreatedAt: new Date("TIMESTAMP"),
- * //       Description: "STRING_VALUE",
+ * //       CurrentPhase: "PROBING" || "TRANSCODING" || "UPLOADING",
+ * //       ErrorCode: Number("int"),
+ * //       ErrorMessage: "STRING_VALUE",
  * //       HopDestinations: [ // __listOfHopDestination
  * //         { // HopDestination
  * //           Priority: Number("int"),
@@ -63,11 +63,45 @@ export interface ListJobTemplatesCommandOutput extends ListJobTemplatesResponse,
  * //           WaitMinutes: Number("int"),
  * //         },
  * //       ],
- * //       LastUpdated: new Date("TIMESTAMP"),
- * //       Name: "STRING_VALUE", // required
+ * //       Id: "STRING_VALUE",
+ * //       JobEngineVersionRequested: "STRING_VALUE",
+ * //       JobEngineVersionUsed: "STRING_VALUE",
+ * //       JobPercentComplete: Number("int"),
+ * //       JobTemplate: "STRING_VALUE",
+ * //       LastShareDetails: "STRING_VALUE",
+ * //       Messages: { // JobMessages
+ * //         Info: [ // __listOf__string
+ * //           "STRING_VALUE",
+ * //         ],
+ * //         Warning: [
+ * //           "STRING_VALUE",
+ * //         ],
+ * //       },
+ * //       OutputGroupDetails: [ // __listOfOutputGroupDetail
+ * //         { // OutputGroupDetail
+ * //           OutputDetails: [ // __listOfOutputDetail
+ * //             { // OutputDetail
+ * //               DurationInMs: Number("int"),
+ * //               VideoDetails: { // VideoDetail
+ * //                 HeightInPx: Number("int"),
+ * //                 WidthInPx: Number("int"),
+ * //               },
+ * //             },
+ * //           ],
+ * //         },
+ * //       ],
  * //       Priority: Number("int"),
  * //       Queue: "STRING_VALUE",
- * //       Settings: { // JobTemplateSettings
+ * //       QueueTransitions: [ // __listOfQueueTransition
+ * //         { // QueueTransition
+ * //           DestinationQueue: "STRING_VALUE",
+ * //           SourceQueue: "STRING_VALUE",
+ * //           Timestamp: new Date("TIMESTAMP"),
+ * //         },
+ * //       ],
+ * //       RetryCount: Number("int"),
+ * //       Role: "STRING_VALUE", // required
+ * //       Settings: { // JobSettings
  * //         AdAvailOffset: Number("int"),
  * //         AvailBlanking: { // AvailBlanking
  * //           AvailBlankingImage: "STRING_VALUE",
@@ -95,8 +129,8 @@ export interface ListJobTemplatesCommandOutput extends ListJobTemplatesResponse,
  * //           VchipAction: "PASSTHROUGH" || "STRIP",
  * //         },
  * //         FollowSource: Number("int"),
- * //         Inputs: [ // __listOfInputTemplate
- * //           { // InputTemplate
+ * //         Inputs: [ // __listOfInput
+ * //           { // Input
  * //             AdvancedInputFilter: "ENABLED" || "DISABLED",
  * //             AdvancedInputFilterSettings: { // AdvancedInputFilterSettings
  * //               AddTexture: "ENABLED" || "DISABLED",
@@ -204,6 +238,12 @@ export interface ListJobTemplatesCommandOutput extends ListJobTemplatesResponse,
  * //               Y: Number("int"),
  * //             },
  * //             DeblockFilter: "ENABLED" || "DISABLED",
+ * //             DecryptionSettings: { // InputDecryptionSettings
+ * //               DecryptionMode: "AES_CTR" || "AES_CBC" || "AES_GCM",
+ * //               EncryptedDecryptionKey: "STRING_VALUE",
+ * //               InitializationVector: "STRING_VALUE",
+ * //               KmsKeyRegion: "STRING_VALUE",
+ * //             },
  * //             DenoiseFilter: "ENABLED" || "DISABLED",
  * //             DolbyVisionMetadataXml: "STRING_VALUE",
  * //             DynamicAudioSelectors: { // __mapOfDynamicAudioSelector
@@ -215,6 +255,7 @@ export interface ListJobTemplatesCommandOutput extends ListJobTemplatesResponse,
  * //                 SelectorType: "ALL_TRACKS" || "LANGUAGE_CODE",
  * //               },
  * //             },
+ * //             FileInput: "STRING_VALUE",
  * //             FilterEnable: "AUTO" || "DISABLE" || "FORCE",
  * //             FilterStrength: Number("int"),
  * //             ImageInserter: { // ImageInserter
@@ -250,8 +291,26 @@ export interface ListJobTemplatesCommandOutput extends ListJobTemplatesResponse,
  * //             },
  * //             ProgramNumber: Number("int"),
  * //             PsiControl: "IGNORE_PSI" || "USE_PSI",
+ * //             SupplementalImps: [ // __listOf__stringPatternS3ASSETMAPXml
+ * //               "STRING_VALUE",
+ * //             ],
+ * //             TamsSettings: { // InputTamsSettings
+ * //               AuthConnectionArn: "STRING_VALUE",
+ * //               GapHandling: "SKIP_GAPS" || "FILL_WITH_BLACK" || "HOLD_LAST_FRAME",
+ * //               SourceId: "STRING_VALUE",
+ * //               Timerange: "STRING_VALUE",
+ * //             },
  * //             TimecodeSource: "EMBEDDED" || "ZEROBASED" || "SPECIFIEDSTART",
  * //             TimecodeStart: "STRING_VALUE",
+ * //             VideoGenerator: { // InputVideoGenerator
+ * //               Channels: Number("int"),
+ * //               Duration: Number("int"),
+ * //               FramerateDenominator: Number("int"),
+ * //               FramerateNumerator: Number("int"),
+ * //               Height: Number("int"),
+ * //               SampleRate: Number("int"),
+ * //               Width: Number("int"),
+ * //             },
  * //             VideoOverlays: [ // __listOfVideoOverlay
  * //               { // VideoOverlay
  * //                 Crop: { // VideoOverlayCrop
@@ -1595,19 +1654,36 @@ export interface ListJobTemplatesCommandOutput extends ListJobTemplatesResponse,
  * //           ],
  * //         },
  * //       },
+ * //       ShareStatus: "NOT_SHARED" || "INITIATED" || "SHARED",
+ * //       SimulateReservedQueue: "DISABLED" || "ENABLED",
+ * //       Status: "SUBMITTED" || "PROGRESSING" || "COMPLETE" || "CANCELED" || "ERROR",
  * //       StatusUpdateInterval: "SECONDS_10" || "SECONDS_12" || "SECONDS_15" || "SECONDS_20" || "SECONDS_30" || "SECONDS_60" || "SECONDS_120" || "SECONDS_180" || "SECONDS_240" || "SECONDS_300" || "SECONDS_360" || "SECONDS_420" || "SECONDS_480" || "SECONDS_540" || "SECONDS_600",
- * //       Type: "SYSTEM" || "CUSTOM",
+ * //       Timing: { // Timing
+ * //         FinishTime: new Date("TIMESTAMP"),
+ * //         StartTime: new Date("TIMESTAMP"),
+ * //         SubmitTime: new Date("TIMESTAMP"),
+ * //       },
+ * //       UserMetadata: { // __mapOf__string
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //       Warnings: [ // __listOfWarningGroup
+ * //         { // WarningGroup
+ * //           Code: Number("int"), // required
+ * //           Count: Number("int"), // required
+ * //         },
+ * //       ],
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",
+ * //   Status: "SUBMITTED" || "PROGRESSING" || "COMPLETE" || "ERROR",
  * // };
  *
  * ```
  *
- * @param ListJobTemplatesCommandInput - {@link ListJobTemplatesCommandInput}
- * @returns {@link ListJobTemplatesCommandOutput}
- * @see {@link ListJobTemplatesCommandInput} for command's `input` shape.
- * @see {@link ListJobTemplatesCommandOutput} for command's `response` shape.
+ * @param GetJobsQueryResultsCommandInput - {@link GetJobsQueryResultsCommandInput}
+ * @returns {@link GetJobsQueryResultsCommandOutput}
+ * @see {@link GetJobsQueryResultsCommandInput} for command's `input` shape.
+ * @see {@link GetJobsQueryResultsCommandOutput} for command's `response` shape.
  * @see {@link MediaConvertClientResolvedConfig | config} for MediaConvertClient's `config` shape.
  *
  * @throws {@link BadRequestException} (client fault)
@@ -1637,10 +1713,10 @@ export interface ListJobTemplatesCommandOutput extends ListJobTemplatesResponse,
  *
  * @public
  */
-export class ListJobTemplatesCommand extends $Command
+export class GetJobsQueryResultsCommand extends $Command
   .classBuilder<
-    ListJobTemplatesCommandInput,
-    ListJobTemplatesCommandOutput,
+    GetJobsQueryResultsCommandInput,
+    GetJobsQueryResultsCommandOutput,
     MediaConvertClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -1652,21 +1728,21 @@ export class ListJobTemplatesCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("MediaConvert", "ListJobTemplates", {})
-  .n("MediaConvertClient", "ListJobTemplatesCommand")
+  .s("MediaConvert", "GetJobsQueryResults", {})
+  .n("MediaConvertClient", "GetJobsQueryResultsCommand")
   .f(void 0, void 0)
-  .ser(se_ListJobTemplatesCommand)
-  .de(de_ListJobTemplatesCommand)
+  .ser(se_GetJobsQueryResultsCommand)
+  .de(de_GetJobsQueryResultsCommand)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: ListJobTemplatesRequest;
-      output: ListJobTemplatesResponse;
+      input: GetJobsQueryResultsRequest;
+      output: GetJobsQueryResultsResponse;
     };
     sdk: {
-      input: ListJobTemplatesCommandInput;
-      output: ListJobTemplatesCommandOutput;
+      input: GetJobsQueryResultsCommandInput;
+      output: GetJobsQueryResultsCommandOutput;
     };
   };
 }

@@ -76,6 +76,10 @@ import {
   DisassociateCertificateCommandOutput,
 } from "./commands/DisassociateCertificateCommand";
 import { GetJobCommandInput, GetJobCommandOutput } from "./commands/GetJobCommand";
+import {
+  GetJobsQueryResultsCommandInput,
+  GetJobsQueryResultsCommandOutput,
+} from "./commands/GetJobsQueryResultsCommand";
 import { GetJobTemplateCommandInput, GetJobTemplateCommandOutput } from "./commands/GetJobTemplateCommand";
 import { GetPolicyCommandInput, GetPolicyCommandOutput } from "./commands/GetPolicyCommand";
 import { GetPresetCommandInput, GetPresetCommandOutput } from "./commands/GetPresetCommand";
@@ -92,6 +96,7 @@ import { ListVersionsCommandInput, ListVersionsCommandOutput } from "./commands/
 import { ProbeCommandInput, ProbeCommandOutput } from "./commands/ProbeCommand";
 import { PutPolicyCommandInput, PutPolicyCommandOutput } from "./commands/PutPolicyCommand";
 import { SearchJobsCommandInput, SearchJobsCommandOutput } from "./commands/SearchJobsCommand";
+import { StartJobsQueryCommandInput, StartJobsQueryCommandOutput } from "./commands/StartJobsQueryCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import { UpdateJobTemplateCommandInput, UpdateJobTemplateCommandOutput } from "./commands/UpdateJobTemplateCommand";
@@ -127,6 +132,7 @@ export type ServiceInputTypes =
   | DisassociateCertificateCommandInput
   | GetJobCommandInput
   | GetJobTemplateCommandInput
+  | GetJobsQueryResultsCommandInput
   | GetPolicyCommandInput
   | GetPresetCommandInput
   | GetQueueCommandInput
@@ -139,6 +145,7 @@ export type ServiceInputTypes =
   | ProbeCommandInput
   | PutPolicyCommandInput
   | SearchJobsCommandInput
+  | StartJobsQueryCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
   | UpdateJobTemplateCommandInput
@@ -164,6 +171,7 @@ export type ServiceOutputTypes =
   | DisassociateCertificateCommandOutput
   | GetJobCommandOutput
   | GetJobTemplateCommandOutput
+  | GetJobsQueryResultsCommandOutput
   | GetPolicyCommandOutput
   | GetPresetCommandOutput
   | GetQueueCommandOutput
@@ -176,6 +184,7 @@ export type ServiceOutputTypes =
   | ProbeCommandOutput
   | PutPolicyCommandOutput
   | SearchJobsCommandOutput
+  | StartJobsQueryCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
   | UpdateJobTemplateCommandOutput

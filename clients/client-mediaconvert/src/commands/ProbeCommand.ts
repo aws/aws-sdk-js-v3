@@ -65,7 +65,7 @@ export interface ProbeCommandOutput extends ProbeResponse, __MetadataBearer {}
  * //               LanguageCode: "STRING_VALUE",
  * //               SampleRate: Number("int"),
  * //             },
- * //             Codec: "UNKNOWN" || "AAC" || "AC3" || "EAC3" || "FLAC" || "MP3" || "OPUS" || "PCM" || "VORBIS" || "AV1" || "AVC" || "HEVC" || "JPEG2000" || "MJPEG" || "MP4V" || "MPEG2" || "PRORES" || "THEORA" || "VP8" || "VP9" || "C608" || "C708" || "WEBVTT",
+ * //             Codec: "UNKNOWN" || "AAC" || "AC3" || "EAC3" || "FLAC" || "MP3" || "OPUS" || "PCM" || "VORBIS" || "AV1" || "AVC" || "HEVC" || "JPEG2000" || "MJPEG" || "MPEG1" || "MP4V" || "MPEG2" || "PRORES" || "THEORA" || "VFW" || "VP8" || "VP9" || "QTRLE" || "C608" || "C708" || "WEBVTT",
  * //             DataProperties: { // DataProperties
  * //               LanguageCode: "STRING_VALUE",
  * //             },
@@ -75,6 +75,22 @@ export interface ProbeCommandOutput extends ProbeResponse, __MetadataBearer {}
  * //             VideoProperties: { // VideoProperties
  * //               BitDepth: Number("int"),
  * //               BitRate: Number("long"),
+ * //               CodecMetadata: { // CodecMetadata
+ * //                 BitDepth: Number("int"),
+ * //                 ChromaSubsampling: "STRING_VALUE",
+ * //                 CodedFrameRate: {
+ * //                   Denominator: Number("int"),
+ * //                   Numerator: Number("int"),
+ * //                 },
+ * //                 ColorPrimaries: "ITU_709" || "UNSPECIFIED" || "RESERVED" || "ITU_470M" || "ITU_470BG" || "SMPTE_170M" || "SMPTE_240M" || "GENERIC_FILM" || "ITU_2020" || "SMPTE_428_1" || "SMPTE_431_2" || "SMPTE_EG_432_1" || "IPT" || "SMPTE_2067XYZ" || "EBU_3213_E" || "LAST",
+ * //                 Height: Number("int"),
+ * //                 Level: "STRING_VALUE",
+ * //                 MatrixCoefficients: "RGB" || "ITU_709" || "UNSPECIFIED" || "RESERVED" || "FCC" || "ITU_470BG" || "SMPTE_170M" || "SMPTE_240M" || "YCgCo" || "ITU_2020_NCL" || "ITU_2020_CL" || "SMPTE_2085" || "CD_NCL" || "CD_CL" || "ITU_2100ICtCp" || "IPT" || "EBU3213" || "LAST",
+ * //                 Profile: "STRING_VALUE",
+ * //                 ScanType: "STRING_VALUE",
+ * //                 TransferCharacteristics: "ITU_709" || "UNSPECIFIED" || "RESERVED" || "ITU_470M" || "ITU_470BG" || "SMPTE_170M" || "SMPTE_240M" || "LINEAR" || "LOG10_2" || "LOC10_2_5" || "IEC_61966_2_4" || "ITU_1361" || "IEC_61966_2_1" || "ITU_2020_10bit" || "ITU_2020_12bit" || "SMPTE_2084" || "SMPTE_428_1" || "ARIB_B67" || "LAST",
+ * //                 Width: Number("int"),
+ * //               },
  * //               ColorPrimaries: "ITU_709" || "UNSPECIFIED" || "RESERVED" || "ITU_470M" || "ITU_470BG" || "SMPTE_170M" || "SMPTE_240M" || "GENERIC_FILM" || "ITU_2020" || "SMPTE_428_1" || "SMPTE_431_2" || "SMPTE_EG_432_1" || "IPT" || "SMPTE_2067XYZ" || "EBU_3213_E" || "LAST",
  * //               FrameRate: {
  * //                 Denominator: Number("int"),
@@ -133,6 +149,9 @@ export interface ProbeCommandOutput extends ProbeResponse, __MetadataBearer {}
  *
  * @throws {@link NotFoundException} (client fault)
  *  The resource you requested doesn't exist.
+ *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  You attempted to create more resources than the service allows based on service quotas.
  *
  * @throws {@link TooManyRequestsException} (client fault)
  *  Too many requests have been sent in too short of a time. The service limits the rate at which it will accept requests.

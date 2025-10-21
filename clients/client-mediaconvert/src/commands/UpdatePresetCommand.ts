@@ -460,7 +460,7 @@ export interface UpdatePresetCommandOutput extends UpdatePresetResponse, __Metad
  *           MaxBitrate: Number("int"),
  *           NumberBFramesBetweenReferenceFrames: Number("int"),
  *           PerFrameMetrics: [ // __listOfFrameMetricType
- *             "PSNR" || "SSIM" || "MS_SSIM" || "PSNR_HVS" || "VMAF" || "QVBR",
+ *             "PSNR" || "SSIM" || "MS_SSIM" || "PSNR_HVS" || "VMAF" || "QVBR" || "SHOT_CHANGE",
  *           ],
  *           QvbrSettings: { // Av1QvbrSettings
  *             QvbrQualityLevel: Number("int"),
@@ -481,7 +481,7 @@ export interface UpdatePresetCommandOutput extends UpdatePresetResponse, __Metad
  *           FramerateNumerator: Number("int"),
  *           InterlaceMode: "PROGRESSIVE" || "TOP_FIELD" || "BOTTOM_FIELD" || "FOLLOW_TOP_FIELD" || "FOLLOW_BOTTOM_FIELD",
  *           PerFrameMetrics: [
- *             "PSNR" || "SSIM" || "MS_SSIM" || "PSNR_HVS" || "VMAF" || "QVBR",
+ *             "PSNR" || "SSIM" || "MS_SSIM" || "PSNR_HVS" || "VMAF" || "QVBR" || "SHOT_CHANGE",
  *           ],
  *           ScanTypeConversionMode: "INTERLACED" || "INTERLACED_OPTIMIZE",
  *           SlowPal: "DISABLED" || "ENABLED",
@@ -534,7 +534,7 @@ export interface UpdatePresetCommandOutput extends UpdatePresetResponse, __Metad
  *           ParDenominator: Number("int"),
  *           ParNumerator: Number("int"),
  *           PerFrameMetrics: [
- *             "PSNR" || "SSIM" || "MS_SSIM" || "PSNR_HVS" || "VMAF" || "QVBR",
+ *             "PSNR" || "SSIM" || "MS_SSIM" || "PSNR_HVS" || "VMAF" || "QVBR" || "SHOT_CHANGE",
  *           ],
  *           QualityTuningLevel: "SINGLE_PASS" || "SINGLE_PASS_HQ" || "MULTI_PASS_HQ",
  *           QvbrSettings: { // H264QvbrSettings
@@ -591,7 +591,7 @@ export interface UpdatePresetCommandOutput extends UpdatePresetResponse, __Metad
  *           ParDenominator: Number("int"),
  *           ParNumerator: Number("int"),
  *           PerFrameMetrics: [
- *             "PSNR" || "SSIM" || "MS_SSIM" || "PSNR_HVS" || "VMAF" || "QVBR",
+ *             "PSNR" || "SSIM" || "MS_SSIM" || "PSNR_HVS" || "VMAF" || "QVBR" || "SHOT_CHANGE",
  *           ],
  *           QualityTuningLevel: "SINGLE_PASS" || "SINGLE_PASS_HQ" || "MULTI_PASS_HQ",
  *           QvbrSettings: { // H265QvbrSettings
@@ -638,7 +638,7 @@ export interface UpdatePresetCommandOutput extends UpdatePresetResponse, __Metad
  *           ParDenominator: Number("int"),
  *           ParNumerator: Number("int"),
  *           PerFrameMetrics: [
- *             "PSNR" || "SSIM" || "MS_SSIM" || "PSNR_HVS" || "VMAF" || "QVBR",
+ *             "PSNR" || "SSIM" || "MS_SSIM" || "PSNR_HVS" || "VMAF" || "QVBR" || "SHOT_CHANGE",
  *           ],
  *           QualityTuningLevel: "SINGLE_PASS" || "MULTI_PASS",
  *           RateControlMode: "VBR" || "CBR",
@@ -1318,7 +1318,7 @@ export interface UpdatePresetCommandOutput extends UpdatePresetResponse, __Metad
  * //             MaxBitrate: Number("int"),
  * //             NumberBFramesBetweenReferenceFrames: Number("int"),
  * //             PerFrameMetrics: [ // __listOfFrameMetricType
- * //               "PSNR" || "SSIM" || "MS_SSIM" || "PSNR_HVS" || "VMAF" || "QVBR",
+ * //               "PSNR" || "SSIM" || "MS_SSIM" || "PSNR_HVS" || "VMAF" || "QVBR" || "SHOT_CHANGE",
  * //             ],
  * //             QvbrSettings: { // Av1QvbrSettings
  * //               QvbrQualityLevel: Number("int"),
@@ -1339,7 +1339,7 @@ export interface UpdatePresetCommandOutput extends UpdatePresetResponse, __Metad
  * //             FramerateNumerator: Number("int"),
  * //             InterlaceMode: "PROGRESSIVE" || "TOP_FIELD" || "BOTTOM_FIELD" || "FOLLOW_TOP_FIELD" || "FOLLOW_BOTTOM_FIELD",
  * //             PerFrameMetrics: [
- * //               "PSNR" || "SSIM" || "MS_SSIM" || "PSNR_HVS" || "VMAF" || "QVBR",
+ * //               "PSNR" || "SSIM" || "MS_SSIM" || "PSNR_HVS" || "VMAF" || "QVBR" || "SHOT_CHANGE",
  * //             ],
  * //             ScanTypeConversionMode: "INTERLACED" || "INTERLACED_OPTIMIZE",
  * //             SlowPal: "DISABLED" || "ENABLED",
@@ -1392,7 +1392,7 @@ export interface UpdatePresetCommandOutput extends UpdatePresetResponse, __Metad
  * //             ParDenominator: Number("int"),
  * //             ParNumerator: Number("int"),
  * //             PerFrameMetrics: [
- * //               "PSNR" || "SSIM" || "MS_SSIM" || "PSNR_HVS" || "VMAF" || "QVBR",
+ * //               "PSNR" || "SSIM" || "MS_SSIM" || "PSNR_HVS" || "VMAF" || "QVBR" || "SHOT_CHANGE",
  * //             ],
  * //             QualityTuningLevel: "SINGLE_PASS" || "SINGLE_PASS_HQ" || "MULTI_PASS_HQ",
  * //             QvbrSettings: { // H264QvbrSettings
@@ -1449,7 +1449,7 @@ export interface UpdatePresetCommandOutput extends UpdatePresetResponse, __Metad
  * //             ParDenominator: Number("int"),
  * //             ParNumerator: Number("int"),
  * //             PerFrameMetrics: [
- * //               "PSNR" || "SSIM" || "MS_SSIM" || "PSNR_HVS" || "VMAF" || "QVBR",
+ * //               "PSNR" || "SSIM" || "MS_SSIM" || "PSNR_HVS" || "VMAF" || "QVBR" || "SHOT_CHANGE",
  * //             ],
  * //             QualityTuningLevel: "SINGLE_PASS" || "SINGLE_PASS_HQ" || "MULTI_PASS_HQ",
  * //             QvbrSettings: { // H265QvbrSettings
@@ -1496,7 +1496,7 @@ export interface UpdatePresetCommandOutput extends UpdatePresetResponse, __Metad
  * //             ParDenominator: Number("int"),
  * //             ParNumerator: Number("int"),
  * //             PerFrameMetrics: [
- * //               "PSNR" || "SSIM" || "MS_SSIM" || "PSNR_HVS" || "VMAF" || "QVBR",
+ * //               "PSNR" || "SSIM" || "MS_SSIM" || "PSNR_HVS" || "VMAF" || "QVBR" || "SHOT_CHANGE",
  * //             ],
  * //             QualityTuningLevel: "SINGLE_PASS" || "MULTI_PASS",
  * //             RateControlMode: "VBR" || "CBR",
@@ -1772,6 +1772,9 @@ export interface UpdatePresetCommandOutput extends UpdatePresetResponse, __Metad
  *
  * @throws {@link NotFoundException} (client fault)
  *  The resource you requested doesn't exist.
+ *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  You attempted to create more resources than the service allows based on service quotas.
  *
  * @throws {@link TooManyRequestsException} (client fault)
  *  Too many requests have been sent in too short of a time. The service limits the rate at which it will accept requests.

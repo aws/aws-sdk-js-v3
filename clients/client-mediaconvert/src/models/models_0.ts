@@ -1882,7 +1882,7 @@ export interface AudioDescription {
   CustomLanguageCode?: string | undefined;
 
   /**
-   * Indicates the language of the audio output track. The ISO 639 language specified in the 'Language Code' drop down will be used when 'Follow Input Language Code' is not selected or when 'Follow Input Language Code' is selected but there is no ISO 639 language code specified by the input.
+   * Specify the language for your output audio track. To follow the input language: Leave blank. When you do, also set Language code control to Follow input. If no input language is detected MediaConvert will not write an output language code. To follow the input langauge, but fall back to a specified language code if there is no input language to follow: Enter an ISO 639-2 three-letter language code in all capital letters. When you do, also set Language code control to Follow input. To specify the language code: Enter an ISO 639 three-letter language code in all capital letters. When you do, also set Language code control to Use configured.
    * @public
    */
   LanguageCode?: LanguageCode | undefined;
@@ -2805,7 +2805,7 @@ export type ImscStylePassthrough = (typeof ImscStylePassthrough)[keyof typeof Im
  */
 export interface ImscDestinationSettings {
   /**
-   * If the IMSC captions track is intended to provide accessibility for people who are deaf or hard of hearing: Set Accessibility subtitles to Enabled. When you do, MediaConvert adds accessibility attributes to your output HLS or DASH manifest. For HLS manifests, MediaConvert adds the following accessibility attributes under EXT-X-MEDIA for this track: CHARACTERISTICS="public.accessibility.describes-spoken-dialog,public.accessibility.describes-music-and-sound" and AUTOSELECT="YES". For DASH manifests, MediaConvert adds the following in the adaptation set for this track: <Accessibility schemeIdUri="urn:mpeg:dash:role:2011" value="caption"/>. If the captions track is not intended to provide such accessibility: Keep the default value, Disabled. When you do, for DASH manifests, MediaConvert instead adds the following in the adaptation set for this track: <Role schemeIDUri="urn:mpeg:dash:role:2011" value="subtitle"/>.
+   * If the IMSC captions track is intended to provide accessibility for people who are deaf or hard of hearing: Set Accessibility subtitles to Enabled. When you do, MediaConvert adds accessibility attributes to your output HLS or DASH manifest. For HLS manifests, MediaConvert adds the following accessibility attributes under EXT-X-MEDIA for this track: CHARACTERISTICS="public.accessibility.transcribes-spoken-dialog,public.accessibility.describes-music-and-sound" and AUTOSELECT="YES". For DASH manifests, MediaConvert adds the following in the adaptation set for this track: <Accessibility schemeIdUri="urn:mpeg:dash:role:2011" value="caption"/>. If the captions track is not intended to provide such accessibility: Keep the default value, Disabled. When you do, for DASH manifests, MediaConvert instead adds the following in the adaptation set for this track: <Role schemeIDUri="urn:mpeg:dash:role:2011" value="subtitle"/>.
    * @public
    */
   Accessibility?: ImscAccessibilitySubs | undefined;
@@ -2969,7 +2969,7 @@ export type WebvttStylePassthrough = (typeof WebvttStylePassthrough)[keyof typeo
  */
 export interface WebvttDestinationSettings {
   /**
-   * If the WebVTT captions track is intended to provide accessibility for people who are deaf or hard of hearing: Set Accessibility subtitles to Enabled. When you do, MediaConvert adds accessibility attributes to your output HLS or DASH manifest. For HLS manifests, MediaConvert adds the following accessibility attributes under EXT-X-MEDIA for this track: CHARACTERISTICS="public.accessibility.describes-spoken-dialog,public.accessibility.describes-music-and-sound" and AUTOSELECT="YES". For DASH manifests, MediaConvert adds the following in the adaptation set for this track: <Accessibility schemeIdUri="urn:mpeg:dash:role:2011" value="caption"/>. If the captions track is not intended to provide such accessibility: Keep the default value, Disabled. When you do, for DASH manifests, MediaConvert instead adds the following in the adaptation set for this track: <Role schemeIDUri="urn:mpeg:dash:role:2011" value="subtitle"/>.
+   * If the WebVTT captions track is intended to provide accessibility for people who are deaf or hard of hearing: Set Accessibility subtitles to Enabled. When you do, MediaConvert adds accessibility attributes to your output HLS or DASH manifest. For HLS manifests, MediaConvert adds the following accessibility attributes under EXT-X-MEDIA for this track: CHARACTERISTICS="public.accessibility.transcribes-spoken-dialog,public.accessibility.describes-music-and-sound" and AUTOSELECT="YES". For DASH manifests, MediaConvert adds the following in the adaptation set for this track: <Accessibility schemeIdUri="urn:mpeg:dash:role:2011" value="caption"/>. If the captions track is not intended to provide such accessibility: Keep the default value, Disabled. When you do, for DASH manifests, MediaConvert instead adds the following in the adaptation set for this track: <Role schemeIDUri="urn:mpeg:dash:role:2011" value="subtitle"/>.
    * @public
    */
   Accessibility?: WebvttAccessibilitySubs | undefined;
@@ -3226,6 +3226,7 @@ export const FrameMetricType = {
   PSNR: "PSNR",
   PSNR_HVS: "PSNR_HVS",
   QVBR: "QVBR",
+  SHOT_CHANGE: "SHOT_CHANGE",
   SSIM: "SSIM",
   VMAF: "VMAF",
 } as const;
@@ -3279,13 +3280,13 @@ export interface HlsCaptionLanguageMapping {
   CaptionChannel?: number | undefined;
 
   /**
-   * Specify the language for this captions channel, using the ISO 639-2 or ISO 639-3 three-letter language code
+   * Specify the language, using an ISO 639-2 three-letter code in all capital letters. You can find a list of codes at: https://www.loc.gov/standards/iso639-2/php/code_list.php
    * @public
    */
   CustomLanguageCode?: string | undefined;
 
   /**
-   * Specify the language, using the ISO 639-2 three-letter code listed at https://www.loc.gov/standards/iso639-2/php/code_list.php.
+   * Specify the language, using an ISO 639-2 three-letter code in all capital letters. You can find a list of codes at: https://www.loc.gov/standards/iso639-2/php/code_list.php
    * @public
    */
   LanguageCode?: LanguageCode | undefined;
@@ -3456,7 +3457,7 @@ export interface HlsRenditionGroupSettings {
   RenditionGroupId?: string | undefined;
 
   /**
-   * Optional. Specify ISO 639-2 or ISO 639-3 code in the language property
+   * Optionally specify the language, using an ISO 639-2 or ISO 639-3 three-letter code in all capital letters. You can find a list of codes at: https://www.loc.gov/standards/iso639-2/php/code_list.php
    * @public
    */
   RenditionLanguageCode?: LanguageCode | undefined;
@@ -3521,7 +3522,7 @@ export interface AudioSelector {
   HlsRenditionGroupSettings?: HlsRenditionGroupSettings | undefined;
 
   /**
-   * Specify the language to select from your audio input. In the MediaConvert console choose from a list of languages. In your JSON job settings choose from an ISO 639-2 three-letter code listed at https://www.loc.gov/standards/iso639-2/php/code_list.php
+   * Specify the language, using an ISO 639-2 three-letter code in all capital letters. You can find a list of codes at: https://www.loc.gov/standards/iso639-2/php/code_list.php
    * @public
    */
   LanguageCode?: LanguageCode | undefined;
@@ -3553,7 +3554,7 @@ export interface AudioSelector {
   RemixSettings?: RemixSettings | undefined;
 
   /**
-   * Specify how MediaConvert selects audio content within your input. The default is Track. PID: Select audio by specifying the Packet Identifier (PID) values for MPEG Transport Stream inputs. Use this when you know the exact PID values of your audio streams. Track: Default. Select audio by track number. This is the most common option and works with most input container formats. Language code: Select audio by language using ISO 639-2 or ISO 639-3 three-letter language codes. Use this when your source has embedded language metadata and you want to select tracks based on their language. HLS rendition group: Select audio from an HLS rendition group. Use this when your input is an HLS package with multiple audio renditions and you want to select specific rendition groups. All PCM: Select all uncompressed PCM audio tracks from your input automatically. This is useful when you want to include all PCM audio tracks without specifying individual track numbers.
+   * Specify how MediaConvert selects audio content within your input. The default is Track. PID: Select audio by specifying the Packet Identifier (PID) values for MPEG Transport Stream inputs. Use this when you know the exact PID values of your audio streams. Track: Default. Select audio by track number. This is the most common option and works with most input container formats. Language code: Select audio by language using an ISO 639-2 or ISO 639-3 three-letter code in all capital letters. Use this when your source has embedded language metadata and you want to select tracks based on their language. HLS rendition group: Select audio from an HLS rendition group. Use this when your input is an HLS package with multiple audio renditions and you want to select specific rendition groups. All PCM: Select all uncompressed PCM audio tracks from your input automatically. This is useful when you want to include all PCM audio tracks without specifying individual track numbers.
    * @public
    */
   SelectorType?: AudioSelectorType | undefined;
@@ -3893,7 +3894,7 @@ export interface WebvttHlsSourceSettings {
   RenditionGroupId?: string | undefined;
 
   /**
-   * Optional. Specify ISO 639-2 or ISO 639-3 code in the language property
+   * Optionally specify the language, using an ISO 639-2 or ISO 639-3 three-letter code in all capital letters. You can find a list of codes at: https://www.loc.gov/standards/iso639-2/php/code_list.php
    * @public
    */
   RenditionLanguageCode?: LanguageCode | undefined;
@@ -4118,7 +4119,7 @@ export interface DynamicAudioSelector {
   ExternalAudioFileInput?: string | undefined;
 
   /**
-   * Specify the language to select from your audio input. In the MediaConvert console choose from a list of languages. In your JSON job settings choose from an ISO 639-2 three-letter code listed at https://www.loc.gov/standards/iso639-2/php/code_list.php
+   * Specify the language, using an ISO 639-2 three-letter code in all capital letters. You can find a list of codes at: https://www.loc.gov/standards/iso639-2/php/code_list.php
    * @public
    */
   LanguageCode?: LanguageCode | undefined;
@@ -4380,11 +4381,23 @@ export interface InputVideoGenerator {
   FramerateNumerator?: number | undefined;
 
   /**
+   * Specify the height, in pixels, for your video generator input. This is useful for positioning when you include one or more video overlays for this input. To use the default resolution 540x360: Leave both width and height blank. To specify a height: Enter an even integer from 32 to 8192. When you do, you must also specify a value for width.
+   * @public
+   */
+  Height?: number | undefined;
+
+  /**
    * Specify the audio sample rate, in Hz, for the silent audio in your video generator input.
    * Enter an integer from 32000 to 48000.
    * @public
    */
   SampleRate?: number | undefined;
+
+  /**
+   * Specify the width, in pixels, for your video generator input. This is useful for positioning when you include one or more video overlays for this input. To use the default resolution 540x360: Leave both width and height blank. To specify a width: Enter an even integer from 32 to 8192. When you do, you must also specify a value for height.
+   * @public
+   */
+  Width?: number | undefined;
 }
 
 /**
