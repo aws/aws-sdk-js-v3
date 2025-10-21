@@ -55,7 +55,7 @@ export interface UsageAllocation {
 export interface UsageRecord {
   /**
    * <p>Timestamp, in UTC, for which the usage is being reported.</p>
-   *          <p>Your application can meter usage for up to one hour in the past. Make sure the
+   *          <p>Your application can meter usage for up to six hours in the past. Make sure the
    *                 <code>timestamp</code> value is not before the start of the software usage.</p>
    * @public
    */
@@ -455,6 +455,26 @@ export class DuplicateRequestException extends __BaseException {
 }
 
 /**
+ * <p>The <code>ClientToken</code> is being used for multiple requests.</p>
+ * @public
+ */
+export class IdempotencyConflictException extends __BaseException {
+  readonly name: "IdempotencyConflictException" = "IdempotencyConflictException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<IdempotencyConflictException, __BaseException>) {
+    super({
+      name: "IdempotencyConflictException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, IdempotencyConflictException.prototype);
+  }
+}
+
+/**
  * <p>The endpoint being called is in a Amazon Web Services Region different from your EC2 instance, ECS
  *             task, or EKS pod. The Region of the Metering Service endpoint and the Amazon Web Services Region of
  *             the resource must match.</p>
@@ -526,6 +546,21 @@ export interface MeterUsageRequest {
    * @public
    */
   UsageAllocations?: UsageAllocation[] | undefined;
+
+  /**
+   * <p>Specifies a unique, case-sensitive identifier that you provide to ensure the idempotency
+   *          of the request. This lets you safely retry the request without accidentally performing the
+   *          same operation a second time. Passing the same value to a later call to an operation
+   *          requires that you also pass the same value for all other parameters. We recommend that you
+   *          use a <a href="https://wikipedia.org/wiki/Universally_unique_identifier">UUID type of
+   *             value</a>.</p>
+   *          <p>If you don't provide this value, then Amazon Web Services generates a random one for
+   *          you.</p>
+   *          <p>If you retry the operation with the same <code>ClientToken</code>, but with different
+   *          parameters, the retry fails with an <code>IdempotencyConflictException</code> error.</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
 }
 
 /**

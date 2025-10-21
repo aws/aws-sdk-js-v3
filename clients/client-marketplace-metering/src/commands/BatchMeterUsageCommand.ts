@@ -34,7 +34,7 @@ export interface BatchMeterUsageCommandOutput extends BatchMeterUsageResult, __M
 /**
  * <important>
  *             <p>
- *                 The <code>CustomerIdentifier</code> parameter is scheduled for deprecation. Use <code>CustomerAWSAccountID</code> instead.</p>
+ *                 The <code>CustomerIdentifier</code> parameter is scheduled for deprecation on March 31, 2026. Use <code>CustomerAWSAccountID</code> instead.</p>
  *             <p>These parameters are mutually exclusive. You can't specify both <code>CustomerIdentifier</code> and <code>CustomerAWSAccountID</code> in the same request.
  *             </p>
  *          </important>

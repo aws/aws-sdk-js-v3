@@ -19,6 +19,7 @@ import {
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext,
 } from "@smithy/types";
+import { v4 as generateIdempotencyToken } from "@smithy/uuid";
 
 import { BatchMeterUsageCommandInput, BatchMeterUsageCommandOutput } from "../commands/BatchMeterUsageCommand";
 import { MeterUsageCommandInput, MeterUsageCommandOutput } from "../commands/MeterUsageCommand";
@@ -32,6 +33,7 @@ import {
   DisabledApiException,
   DuplicateRequestException,
   ExpiredTokenException,
+  IdempotencyConflictException,
   InternalServiceErrorException,
   InvalidCustomerIdentifierException,
   InvalidEndpointRegionException,
@@ -230,6 +232,9 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "DuplicateRequestException":
     case "com.amazonaws.marketplacemetering#DuplicateRequestException":
       throw await de_DuplicateRequestExceptionRes(parsedOutput, context);
+    case "IdempotencyConflictException":
+    case "com.amazonaws.marketplacemetering#IdempotencyConflictException":
+      throw await de_IdempotencyConflictExceptionRes(parsedOutput, context);
     case "InvalidEndpointRegionException":
     case "com.amazonaws.marketplacemetering#InvalidEndpointRegionException":
       throw await de_InvalidEndpointRegionExceptionRes(parsedOutput, context);
@@ -316,6 +321,22 @@ const de_ExpiredTokenExceptionRes = async (
   const body = parsedOutput.body;
   const deserialized: any = _json(body);
   const exception = new ExpiredTokenException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+/**
+ * deserializeAws_json1_1IdempotencyConflictExceptionRes
+ */
+const de_IdempotencyConflictExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<IdempotencyConflictException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = _json(body);
+  const exception = new IdempotencyConflictException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
   });
@@ -539,6 +560,7 @@ const se_BatchMeterUsageRequest = (input: BatchMeterUsageRequest, context: __Ser
  */
 const se_MeterUsageRequest = (input: MeterUsageRequest, context: __SerdeContext): any => {
   return take(input, {
+    ClientToken: [true, (_) => _ ?? generateIdempotencyToken()],
     DryRun: [],
     ProductCode: [],
     Timestamp: (_) => _.getTime() / 1_000,
@@ -602,6 +624,8 @@ const de_BatchMeterUsageResult = (output: any, context: __SerdeContext): BatchMe
 // de_DuplicateRequestException omitted.
 
 // de_ExpiredTokenException omitted.
+
+// de_IdempotencyConflictException omitted.
 
 // de_InternalServiceErrorException omitted.
 

@@ -43,8 +43,13 @@ export interface MeterUsageCommandOutput extends MeterUsageResult, __MetadataBea
  *             <code>MeterUsage</code> can optionally include multiple usage allocations, to provide
  *             customers with usage data split into buckets by tags that you define (or allow the
  *             customer to define).</p>
- *          <p>Usage records are expected to be submitted as quickly as possible after the event that
- *             is being recorded, and are not accepted more than 6 hours after the event.</p>
+ *          <p>Submit usage records to report events from the previous hour. If you submit records that
+ *             are greater than six hours after events occur, the records won’t be accepted. The timestamp
+ *             in your request determines when an event is recorded. You can only report usage once per hour
+ *             for each dimension. For AMI-based products, this is per dimension and per EC2 instance. For
+ *             container products, this is per dimension and per ECS task or EKS pod. You can’t modify values
+ *             after they’re recorded. If you report usage before the current hour ends, you will be unable to
+ *             report additional usage until the next hour begins.</p>
  *          <p>For Amazon Web Services Regions that support <code>MeterUsage</code>, see <a href="https://docs.aws.amazon.com/marketplace/latest/APIReference/metering-regions.html#meterusage-region-support-ec2">MeterUsage Region support for Amazon EC2</a> and <a href="https://docs.aws.amazon.com/marketplace/latest/APIReference/metering-regions.html#meterusage-region-support-ecs-eks">MeterUsage Region support for Amazon ECS and Amazon EKS</a>. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -71,6 +76,7 @@ export interface MeterUsageCommandOutput extends MeterUsageResult, __MetadataBea
  *       ],
  *     },
  *   ],
+ *   ClientToken: "STRING_VALUE",
  * };
  * const command = new MeterUsageCommand(input);
  * const response = await client.send(command);
@@ -94,6 +100,9 @@ export interface MeterUsageCommandOutput extends MeterUsageResult, __MetadataBea
  *  <p>A metering record has already been emitted by the same EC2 instance, ECS task, or EKS
  *             pod for the given {<code>usageDimension</code>, <code>timestamp</code>} with a different
  *                 <code>usageQuantity</code>.</p>
+ *
+ * @throws {@link IdempotencyConflictException} (client fault)
+ *  <p>The <code>ClientToken</code> is being used for multiple requests.</p>
  *
  * @throws {@link InternalServiceErrorException} (server fault)
  *  <p>An internal error has occurred. Retry your request. If the problem persists, post a
