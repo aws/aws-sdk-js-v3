@@ -6625,6 +6625,9 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "ConcurrentModification":
+    case "com.amazonaws.iam#ConcurrentModificationException":
+      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
     case "InvalidInput":
     case "com.amazonaws.iam#InvalidInputException":
       throw await de_InvalidInputExceptionRes(parsedOutput, context);
@@ -6655,9 +6658,6 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "PasswordPolicyViolation":
     case "com.amazonaws.iam#PasswordPolicyViolationException":
       throw await de_PasswordPolicyViolationExceptionRes(parsedOutput, context);
-    case "ConcurrentModification":
-    case "com.amazonaws.iam#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
     case "OpenIdIdpCommunicationError":
     case "com.amazonaws.iam#OpenIdIdpCommunicationErrorException":
       throw await de_OpenIdIdpCommunicationErrorExceptionRes(parsedOutput, context);

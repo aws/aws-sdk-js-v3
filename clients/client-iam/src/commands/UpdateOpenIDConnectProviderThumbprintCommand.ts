@@ -80,6 +80,10 @@ export interface UpdateOpenIDConnectProviderThumbprintCommandOutput extends __Me
  * @see {@link UpdateOpenIDConnectProviderThumbprintCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
+ * @throws {@link ConcurrentModificationException} (client fault)
+ *  <p>The request was rejected because multiple requests to change this object were submitted
+ *       simultaneously. Wait a few minutes and submit your request again.</p>
+ *
  * @throws {@link InvalidInputException} (client fault)
  *  <p>The request was rejected because an invalid or out-of-range value was supplied for an
  *       input parameter.</p>

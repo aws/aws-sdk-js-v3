@@ -286,6 +286,27 @@ export interface AddClientIDToOpenIDConnectProviderRequest {
 }
 
 /**
+ * <p>The request was rejected because multiple requests to change this object were submitted
+ *       simultaneously. Wait a few minutes and submit your request again.</p>
+ * @public
+ */
+export class ConcurrentModificationException extends __BaseException {
+  readonly name: "ConcurrentModificationException" = "ConcurrentModificationException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ConcurrentModificationException, __BaseException>) {
+    super({
+      name: "ConcurrentModificationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ConcurrentModificationException.prototype);
+  }
+}
+
+/**
  * <p>The request was rejected because an invalid or out-of-range value was supplied for an
  *       input parameter.</p>
  * @public
@@ -742,27 +763,6 @@ export interface CreateAccessKeyResponse {
    * @public
    */
   AccessKey: AccessKey | undefined;
-}
-
-/**
- * <p>The request was rejected because multiple requests to change this object were submitted
- *       simultaneously. Wait a few minutes and submit your request again.</p>
- * @public
- */
-export class ConcurrentModificationException extends __BaseException {
-  readonly name: "ConcurrentModificationException" = "ConcurrentModificationException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ConcurrentModificationException, __BaseException>) {
-    super({
-      name: "ConcurrentModificationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ConcurrentModificationException.prototype);
-  }
 }
 
 /**
