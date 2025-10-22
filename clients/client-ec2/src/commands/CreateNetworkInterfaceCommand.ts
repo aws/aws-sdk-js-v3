@@ -210,6 +210,7 @@ export interface CreateNetworkInterfaceCommandOutput extends CreateNetworkInterf
  * //     AssociatedSubnets: [ // AssociatedSubnetList
  * //       "STRING_VALUE",
  * //     ],
+ * //     AvailabilityZoneId: "STRING_VALUE",
  * //   },
  * //   ClientToken: "STRING_VALUE",
  * // };

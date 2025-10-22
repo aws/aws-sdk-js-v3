@@ -4081,6 +4081,12 @@ export interface NetworkInterface {
    * @public
    */
   AssociatedSubnets?: string[] | undefined;
+
+  /**
+   * <p>The ID of the Availability Zone.</p>
+   * @public
+   */
+  AvailabilityZoneId?: string | undefined;
 }
 
 /**

@@ -83425,6 +83425,9 @@ const de_NetworkInterface = (output: any, context: __SerdeContext): NetworkInter
   } else if (output[_aSSs] != null && output[_aSSs][_i] != null) {
     contents[_ASsso] = de_AssociatedSubnetList(__getArrayIfSingleItem(output[_aSSs][_i]), context);
   }
+  if (output[_aZI] != null) {
+    contents[_AZI] = __expectString(output[_aZI]);
+  }
   return contents;
 };
 

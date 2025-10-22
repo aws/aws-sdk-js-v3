@@ -175,6 +175,7 @@ export interface DescribeNetworkInterfacesCommandOutput extends DescribeNetworkI
  * //       AssociatedSubnets: [ // AssociatedSubnetList
  * //         "STRING_VALUE",
  * //       ],
+ * //       AvailabilityZoneId: "STRING_VALUE",
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",
