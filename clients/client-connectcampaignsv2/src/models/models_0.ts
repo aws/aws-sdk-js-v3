@@ -31,6 +31,19 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const AgentAction = {
+  DISCARD: "DISCARD",
+} as const;
+
+/**
+ * @public
+ */
+export type AgentAction = (typeof AgentAction)[keyof typeof AgentAction];
+
+/**
  * Agentless config
  * @public
  */
@@ -284,6 +297,42 @@ export interface PredictiveConfig {
 }
 
 /**
+ * Timeout Config for preview contacts.
+ * @public
+ */
+export interface TimeoutConfig {
+  /**
+   * Timeout duration for a preview contact in seconds.
+   * @public
+   */
+  durationInSeconds: number | undefined;
+}
+
+/**
+ * Preview config
+ * @public
+ */
+export interface PreviewConfig {
+  /**
+   * The bandwidth allocation of a queue resource.
+   * @public
+   */
+  bandwidthAllocation: number | undefined;
+
+  /**
+   * Timeout Config for preview contacts.
+   * @public
+   */
+  timeoutConfig: TimeoutConfig | undefined;
+
+  /**
+   * Actions that can be performed by agent during preview phase.
+   * @public
+   */
+  agentActions?: AgentAction[] | undefined;
+}
+
+/**
  * Progressive config
  * @public
  */
@@ -302,6 +351,7 @@ export interface ProgressiveConfig {
 export type TelephonyOutboundMode =
   | TelephonyOutboundMode.AgentlessMember
   | TelephonyOutboundMode.PredictiveMember
+  | TelephonyOutboundMode.PreviewMember
   | TelephonyOutboundMode.ProgressiveMember
   | TelephonyOutboundMode.$UnknownMember;
 
@@ -317,6 +367,7 @@ export namespace TelephonyOutboundMode {
     progressive: ProgressiveConfig;
     predictive?: never;
     agentless?: never;
+    preview?: never;
     $unknown?: never;
   }
 
@@ -328,6 +379,7 @@ export namespace TelephonyOutboundMode {
     progressive?: never;
     predictive: PredictiveConfig;
     agentless?: never;
+    preview?: never;
     $unknown?: never;
   }
 
@@ -339,6 +391,19 @@ export namespace TelephonyOutboundMode {
     progressive?: never;
     predictive?: never;
     agentless: AgentlessConfig;
+    preview?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * Preview config
+   * @public
+   */
+  export interface PreviewMember {
+    progressive?: never;
+    predictive?: never;
+    agentless?: never;
+    preview: PreviewConfig;
     $unknown?: never;
   }
 
@@ -349,6 +414,7 @@ export namespace TelephonyOutboundMode {
     progressive?: never;
     predictive?: never;
     agentless?: never;
+    preview?: never;
     $unknown: [string, any];
   }
 
@@ -356,6 +422,7 @@ export namespace TelephonyOutboundMode {
     progressive: (value: ProgressiveConfig) => T;
     predictive: (value: PredictiveConfig) => T;
     agentless: (value: AgentlessConfig) => T;
+    preview: (value: PreviewConfig) => T;
     _: (name: string, value: any) => T;
   }
 
@@ -363,6 +430,7 @@ export namespace TelephonyOutboundMode {
     if (value.progressive !== undefined) return visitor.progressive(value.progressive);
     if (value.predictive !== undefined) return visitor.predictive(value.predictive);
     if (value.agentless !== undefined) return visitor.agentless(value.agentless);
+    if (value.preview !== undefined) return visitor.preview(value.preview);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
 }

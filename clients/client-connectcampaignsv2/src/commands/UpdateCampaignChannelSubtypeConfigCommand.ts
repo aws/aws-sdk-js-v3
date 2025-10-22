@@ -61,6 +61,15 @@ export interface UpdateCampaignChannelSubtypeConfigCommandOutput extends __Metad
  *           bandwidthAllocation: Number("double"), // required
  *         },
  *         agentless: {},
+ *         preview: { // PreviewConfig
+ *           bandwidthAllocation: Number("double"), // required
+ *           timeoutConfig: { // TimeoutConfig
+ *             durationInSeconds: Number("int"), // required
+ *           },
+ *           agentActions: [ // AgentActions
+ *             "STRING_VALUE",
+ *           ],
+ *         },
  *       },
  *       defaultOutboundConfig: { // TelephonyOutboundConfig
  *         connectContactFlowId: "STRING_VALUE", // required

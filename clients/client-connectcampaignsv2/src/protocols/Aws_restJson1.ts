@@ -137,6 +137,7 @@ import {
 import { ConnectCampaignsV2ServiceException as __BaseException } from "../models/ConnectCampaignsV2ServiceException";
 import {
   AccessDeniedException,
+  AgentAction,
   AgentlessConfig,
   AnswerMachineDetectionConfig,
   Campaign,
@@ -171,6 +172,7 @@ import {
   OpenHours,
   OutboundRequest,
   PredictiveConfig,
+  PreviewConfig,
   ProfileOutboundRequest,
   ProgressiveConfig,
   QConnectIntegrationConfig,
@@ -190,6 +192,7 @@ import {
   TelephonyOutboundConfig,
   TelephonyOutboundMode,
   ThrottlingException,
+  TimeoutConfig,
   TimeRange,
   TimeWindow,
   ValidationException,
@@ -1792,6 +1795,8 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
+// se_AgentActions omitted.
+
 // se_AgentlessConfig omitted.
 
 // se_AnswerMachineDetectionConfig omitted.
@@ -1900,6 +1905,17 @@ const se_PredictiveConfig = (input: PredictiveConfig, context: __SerdeContext): 
 };
 
 /**
+ * serializeAws_restJson1PreviewConfig
+ */
+const se_PreviewConfig = (input: PreviewConfig, context: __SerdeContext): any => {
+  return take(input, {
+    agentActions: _json,
+    bandwidthAllocation: __serializeFloat,
+    timeoutConfig: _json,
+  });
+};
+
+/**
  * serializeAws_restJson1ProfileOutboundRequest
  */
 const se_ProfileOutboundRequest = (input: ProfileOutboundRequest, context: __SerdeContext): any => {
@@ -1995,16 +2011,21 @@ const se_TelephonyOutboundMode = (input: TelephonyOutboundMode, context: __Serde
   return TelephonyOutboundMode.visit(input, {
     agentless: (value) => ({ agentless: _json(value) }),
     predictive: (value) => ({ predictive: se_PredictiveConfig(value, context) }),
+    preview: (value) => ({ preview: se_PreviewConfig(value, context) }),
     progressive: (value) => ({ progressive: se_ProgressiveConfig(value, context) }),
     _: (name, value) => ({ [name]: value } as any),
   });
 };
+
+// se_TimeoutConfig omitted.
 
 // se_TimeRange omitted.
 
 // se_TimeRangeList omitted.
 
 // se_TimeWindow omitted.
+
+// de_AgentActions omitted.
 
 // de_AgentlessConfig omitted.
 
@@ -2142,6 +2163,17 @@ const de_PredictiveConfig = (output: any, context: __SerdeContext): PredictiveCo
 };
 
 /**
+ * deserializeAws_restJson1PreviewConfig
+ */
+const de_PreviewConfig = (output: any, context: __SerdeContext): PreviewConfig => {
+  return take(output, {
+    agentActions: _json,
+    bandwidthAllocation: __limitedParseDouble,
+    timeoutConfig: _json,
+  }) as any;
+};
+
+/**
  * deserializeAws_restJson1ProgressiveConfig
  */
 const de_ProgressiveConfig = (output: any, context: __SerdeContext): ProgressiveConfig => {
@@ -2228,6 +2260,11 @@ const de_TelephonyOutboundMode = (output: any, context: __SerdeContext): Telepho
       predictive: de_PredictiveConfig(output.predictive, context),
     };
   }
+  if (output.preview != null) {
+    return {
+      preview: de_PreviewConfig(output.preview, context),
+    };
+  }
   if (output.progressive != null) {
     return {
       progressive: de_ProgressiveConfig(output.progressive, context),
@@ -2235,6 +2272,8 @@ const de_TelephonyOutboundMode = (output: any, context: __SerdeContext): Telepho
   }
   return { $unknown: Object.entries(output)[0] };
 };
+
+// de_TimeoutConfig omitted.
 
 // de_TimeRange omitted.
 
