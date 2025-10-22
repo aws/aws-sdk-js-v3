@@ -318,6 +318,7 @@ export const CloudWatchRegion = {
   us_iso_east_1: "us-iso-east-1",
   us_iso_west_1: "us-iso-west-1",
   us_isob_east_1: "us-isob-east-1",
+  us_isob_west_1: "us-isob-west-1",
   us_isof_east_1: "us-isof-east-1",
   us_isof_south_1: "us-isof-south-1",
   us_west_1: "us-west-1",
@@ -775,11 +776,32 @@ export interface AliasTarget {
    * 						</p>
    *                </note>
    *             </dd>
+   *             <dt>API Gateway APIs</dt>
+   *             <dd>
+   *                <p>There are no special requirements for setting
+   * 							<code>EvaluateTargetHealth</code> to <code>true</code> when the alias
+   * 						target is an API Gateway API. However, because API Gateway is highly
+   * 						available by design, <code>EvaluateTargetHealth</code> provides no
+   * 						operational benefit and <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover.html">Route 53 health
+   * 							checks</a> are recommended instead for failover scenarios.</p>
+   *             </dd>
    *             <dt>S3 buckets</dt>
    *             <dd>
    *                <p>There are no special requirements for setting
    * 							<code>EvaluateTargetHealth</code> to <code>true</code> when the alias
-   * 						target is an S3 bucket.</p>
+   * 						target is an S3 bucket. However, because S3 buckets are highly available by
+   * 						design, <code>EvaluateTargetHealth</code> provides no operational benefit
+   * 						and <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover.html">Route 53 health
+   * 							checks</a> are recommended instead for failover scenarios.</p>
+   *             </dd>
+   *             <dt>VPC interface endpoints</dt>
+   *             <dd>
+   *                <p>There are no special requirements for setting
+   * 							<code>EvaluateTargetHealth</code> to <code>true</code> when the alias
+   * 						target is a VPC interface endpoint. However, because VPC interface endpoints
+   * 						are highly available by design, <code>EvaluateTargetHealth</code> provides
+   * 						no operational benefit and <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover.html">Route 53 health
+   * 							checks</a> are recommended instead for failover scenarios.</p>
    *             </dd>
    *             <dt>Other records in the same hosted zone</dt>
    *             <dd>
@@ -791,6 +813,15 @@ export interface AliasTarget {
    * 							<i>Amazon Route 53 Developer Guide</i>.</p>
    *             </dd>
    *          </dl>
+   *          <note>
+   *             <p>While <code>EvaluateTargetHealth</code> can be set to <code>true</code> for highly
+   * 				available Amazon Web Services services (such as S3 buckets, VPC interface endpoints,
+   * 				and API Gateway), these services are designed for high availability and rarely
+   * 				experience outages that would be detected by this feature. For failover scenarios
+   * 				with these services, consider using <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover.html">Route 53 health
+   * 					checks</a> that monitor your application's ability to access the service
+   * 				instead.</p>
+   *          </note>
    *          <p>For more information and examples, see <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover.html">Amazon Route 53 Health Checks
    * 				and DNS Failover</a> in the <i>Amazon Route 53 Developer
    * 			Guide</i>.</p>
@@ -844,6 +875,7 @@ export const VPCRegion = {
   us_iso_east_1: "us-iso-east-1",
   us_iso_west_1: "us-iso-west-1",
   us_isob_east_1: "us-isob-east-1",
+  us_isob_west_1: "us-isob-west-1",
   us_isof_east_1: "us-isof-east-1",
   us_isof_south_1: "us-isof-south-1",
   us_west_1: "us-west-1",
@@ -3054,8 +3086,8 @@ export interface CreateHealthCheckRequest {
    *                <p>If you send a <code>CreateHealthCheck</code> request with the same
    * 						<code>CallerReference</code> and settings as a previous request, and if the
    * 					health check doesn't exist, Amazon Route 53 creates the health check. If the
-   * 					health check does exist, Route 53 returns the settings for the existing health
-   * 					check.</p>
+   * 					health check does exist, Route 53 returns the health check configuration in the
+   * 					response. </p>
    *             </li>
    *             <li>
    *                <p>If you send a <code>CreateHealthCheck</code> request with the same
