@@ -131,6 +131,7 @@ export interface StopRemoteAccessSessionCommandOutput extends StopRemoteAccessSe
  * //       host: "STRING_VALUE", // required
  * //       port: Number("int"), // required
  * //     },
+ * //     appUpload: "STRING_VALUE",
  * //   },
  * // };
  *

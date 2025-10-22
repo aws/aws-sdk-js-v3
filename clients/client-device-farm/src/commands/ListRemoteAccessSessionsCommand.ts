@@ -133,6 +133,7 @@ export interface ListRemoteAccessSessionsCommandOutput extends ListRemoteAccessS
  * //         host: "STRING_VALUE", // required
  * //         port: Number("int"), // required
  * //       },
+ * //       appUpload: "STRING_VALUE",
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",

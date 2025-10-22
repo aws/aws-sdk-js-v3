@@ -1180,6 +1180,12 @@ export interface DeviceProxy {
  */
 export interface CreateRemoteAccessSessionConfiguration {
   /**
+   * <p>A list of upload ARNs for app packages to be installed onto your device. (Maximum 3)</p>
+   * @public
+   */
+  auxiliaryApps?: string[] | undefined;
+
+  /**
    * <p>The billing method for the remote access session.</p>
    * @public
    */
@@ -1230,6 +1236,12 @@ export interface CreateRemoteAccessSessionRequest {
    * @public
    */
   deviceArn: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the app to create the remote access session.</p>
+   * @public
+   */
+  appArn?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the device instance for which you want to create a
@@ -1883,6 +1895,12 @@ export interface RemoteAccessSession {
    * @public
    */
   deviceProxy?: DeviceProxy | undefined;
+
+  /**
+   * <p>The ARN for the app to be installed onto your device.</p>
+   * @public
+   */
+  appUpload?: string | undefined;
 }
 
 /**

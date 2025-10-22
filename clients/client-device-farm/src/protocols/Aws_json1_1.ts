@@ -3148,6 +3148,8 @@ const de_TooManyTagsExceptionRes = async (
 
 // se_AndroidPaths omitted.
 
+// se_AuxiliaryAppArnList omitted.
+
 // se_CreateDevicePoolRequest omitted.
 
 // se_CreateInstanceProfileRequest omitted.
@@ -4201,6 +4203,7 @@ const de_RecurringCharges = (output: any, context: __SerdeContext): RecurringCha
  */
 const de_RemoteAccessSession = (output: any, context: __SerdeContext): RemoteAccessSession => {
   return take(output, {
+    appUpload: __expectString,
     arn: __expectString,
     billingMethod: __expectString,
     clientId: __expectString,

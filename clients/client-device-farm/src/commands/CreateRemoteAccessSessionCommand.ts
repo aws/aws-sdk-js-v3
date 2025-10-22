@@ -40,6 +40,7 @@ export interface CreateRemoteAccessSessionCommandOutput extends CreateRemoteAcce
  * const input = { // CreateRemoteAccessSessionRequest
  *   projectArn: "STRING_VALUE", // required
  *   deviceArn: "STRING_VALUE", // required
+ *   appArn: "STRING_VALUE",
  *   instanceArn: "STRING_VALUE",
  *   sshPublicKey: "STRING_VALUE",
  *   remoteDebugEnabled: true || false,
@@ -48,6 +49,9 @@ export interface CreateRemoteAccessSessionCommandOutput extends CreateRemoteAcce
  *   name: "STRING_VALUE",
  *   clientId: "STRING_VALUE",
  *   configuration: { // CreateRemoteAccessSessionConfiguration
+ *     auxiliaryApps: [ // AuxiliaryAppArnList
+ *       "STRING_VALUE",
+ *     ],
  *     billingMethod: "METERED" || "UNMETERED",
  *     vpceConfigurationArns: [ // AmazonResourceNames
  *       "STRING_VALUE",
@@ -151,6 +155,7 @@ export interface CreateRemoteAccessSessionCommandOutput extends CreateRemoteAcce
  * //       host: "STRING_VALUE", // required
  * //       port: Number("int"), // required
  * //     },
+ * //     appUpload: "STRING_VALUE",
  * //   },
  * // };
  *

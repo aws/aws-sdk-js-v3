@@ -131,6 +131,7 @@ export interface GetRemoteAccessSessionCommandOutput extends GetRemoteAccessSess
  * //       host: "STRING_VALUE", // required
  * //       port: Number("int"), // required
  * //     },
+ * //     appUpload: "STRING_VALUE",
  * //   },
  * // };
  *
