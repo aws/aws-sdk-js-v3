@@ -65,7 +65,6 @@ describe("middleware-flexible-checksums", () => {
                   ...(body.length
                     ? {
                         "content-length": body.length.toString(),
-                        Expect: "100-continue",
                       }
                     : {}),
                   ...(requestChecksumCalculation === RequestChecksumCalculation.WHEN_REQUIRED &&
