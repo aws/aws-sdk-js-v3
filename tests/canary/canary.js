@@ -31,7 +31,7 @@ const testWorkspace = path.join(jsv3_root, "..", "canary-aws-sdk-js-v3");
   });
 
   verdaccioFork = await runRegistry(["-c", path.join(jsv3_root, "verdaccio", "config.yaml")]);
-  await localPublishChangedPackages(jsv3_root);
+  await retry(() => localPublishChangedPackages(jsv3_root));
 
   await spawnProcess("npm", ["init", "-y"], { cwd: testWorkspace });
   await spawnProcess("npm", ["install", `@aws-sdk/client-sts@ci`, "--registry", "http://localhost:4873/"], {
@@ -71,6 +71,18 @@ function runRegistry(args = [], childOptions = {}) {
   });
 }
 
+async function retry(fn, attempts = 3) {
+  for (let i = 0; i < attempts; i++) {
+    try {
+      return await fn();
+    } catch (error) {
+      if (i === attempts - 1) throw error;
+      console.log(`Retry ${i + 1}/${attempts} failed, retrying...`);
+      await new Promise((resolve) => setTimeout(resolve, 2000));
+    }
+  }
+}
+
 async function localPublishChangedPackages(root) {
   await spawnProcess("rm", ["-rf", "verdaccio/storage"], { cwd: root, stdio: "inherit" });
 
@@ -96,5 +108,5 @@ async function localPublishChangedPackages(root) {
     "--dist-tag",
     "ci",
   ];
-  await spawnProcess("npx", args, { cwd: root, stdio: "inherit" });
+  await retry(() => spawnProcess("npx", args, { cwd: root, stdio: "inherit" }));
 }
