@@ -77,6 +77,7 @@ async function retry(fn, attempts = 3) {
       return await fn();
     } catch (error) {
       if (i === attempts - 1) throw error;
+      console.log(`Retry ${i + 1}/${attempts} failed, retrying...`);
       await new Promise((resolve) => setTimeout(resolve, 2000));
     }
   }
