@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListFlowAssociationsRequest, ListFlowAssociationsResponse } from "../models/models_1";
+import { ListFlowAssociationsRequest, ListFlowAssociationsResponse } from "../models/models_2";
 import { de_ListFlowAssociationsCommand, se_ListFlowAssociationsCommand } from "../protocols/Aws_restJson1";
 
 /**

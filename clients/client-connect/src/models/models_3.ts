@@ -27,6 +27,7 @@ import {
   MediaConcurrency,
   OutboundCallerConfig,
   OutboundEmailConfig,
+  OutboundStrategy,
   PredefinedAttributeValues,
   QuickConnectConfig,
   Reference,
@@ -65,6 +66,7 @@ import {
   EndpointInfo,
   Evaluation,
   EvaluationFormVersionStatus,
+  EvaluationNote,
   Expiry,
   InstanceAttributeType,
   QualityMetrics,
@@ -89,6 +91,7 @@ import {
   EmailAddressInfoFilterSensitiveLog,
   EmailAddressSearchFilter,
   EmailAttachment,
+  EvaluationAnswerInput,
   HierarchyGroupCondition,
   HoursOfOperationSearchFilter,
   InboundAdditionalRecipients,
@@ -108,6 +111,225 @@ import {
   UserHierarchyGroupSearchFilter,
   UserSearchFilter,
 } from "./models_2";
+
+/**
+ * @public
+ */
+export interface UpdateContactEvaluationRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>A unique identifier for the contact evaluation.</p>
+   * @public
+   */
+  EvaluationId: string | undefined;
+
+  /**
+   * <p>A map of question identifiers to answer value.</p>
+   * @public
+   */
+  Answers?: Record<string, EvaluationAnswerInput> | undefined;
+
+  /**
+   * <p>A map of question identifiers to note value.</p>
+   * @public
+   */
+  Notes?: Record<string, EvaluationNote> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateContactEvaluationResponse {
+  /**
+   * <p>A unique identifier for the contact evaluation.</p>
+   * @public
+   */
+  EvaluationId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) for the contact evaluation resource.</p>
+   * @public
+   */
+  EvaluationArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateContactFlowContentRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The identifier of the flow.</p>
+   * @public
+   */
+  ContactFlowId: string | undefined;
+
+  /**
+   * <p>The JSON string that represents the content of the flow. For an example, see <a href="https://docs.aws.amazon.com/connect/latest/APIReference/flow-language-example.html">Example
+   *     flow in Amazon Connect Flow language</a>. </p>
+   *          <p>Length Constraints: Minimum length of 1. Maximum length of 256000.</p>
+   * @public
+   */
+  Content: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateContactFlowContentResponse {}
+
+/**
+ * @public
+ */
+export interface UpdateContactFlowMetadataRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The identifier of the flow.</p>
+   * @public
+   */
+  ContactFlowId: string | undefined;
+
+  /**
+   * <p>The name of the flow.</p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>The description of the flow.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The state of flow.</p>
+   * @public
+   */
+  ContactFlowState?: ContactFlowState | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateContactFlowMetadataResponse {}
+
+/**
+ * @public
+ */
+export interface UpdateContactFlowModuleContentRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The identifier of the flow module.</p>
+   * @public
+   */
+  ContactFlowModuleId: string | undefined;
+
+  /**
+   * <p>The JSON string that represents the content of the flow. For an example, see <a href="https://docs.aws.amazon.com/connect/latest/APIReference/flow-language-example.html">Example
+   *     flow in Amazon Connect Flow language</a>. </p>
+   * @public
+   */
+  Content: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateContactFlowModuleContentResponse {}
+
+/**
+ * @public
+ */
+export interface UpdateContactFlowModuleMetadataRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The identifier of the flow module.</p>
+   * @public
+   */
+  ContactFlowModuleId: string | undefined;
+
+  /**
+   * <p>The name of the flow module.</p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>The description of the flow module.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The state of flow module.</p>
+   * @public
+   */
+  State?: ContactFlowModuleState | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateContactFlowModuleMetadataResponse {}
+
+/**
+ * @public
+ */
+export interface UpdateContactFlowNameRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The identifier of the flow.</p>
+   * @public
+   */
+  ContactFlowId: string | undefined;
+
+  /**
+   * <p>The name of the flow.</p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>The description of the flow.</p>
+   * @public
+   */
+  Description?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateContactFlowNameResponse {}
 
 /**
  * <p>Specify whether this routing criteria step should apply for only a limited amount of time,
@@ -365,7 +587,7 @@ export interface UpdateInstanceAttributeRequest {
    * <p>The type of attribute.</p>
    *          <note>
    *             <p>Only allowlisted customers can consume USE_CUSTOM_TTS_VOICES. To access this feature,
-   *     contact Amazon Web Services Support for allowlisting.</p>
+   *     contact Amazon Web ServicesSupport for allowlisting.</p>
    *          </note>
    * @public
    */
@@ -2628,7 +2850,7 @@ export interface UserSearchCriteria {
    * <p>A leaf node condition which can be used to specify a string condition.</p>
    *          <p>The currently supported values for <code>FieldName</code> are <code>Username</code>,
    *     <code>FirstName</code>, <code>LastName</code>, <code>RoutingProfileId</code>,
-   *     <code>SecurityProfileId</code>, <code>ResourceId</code>.</p>
+   *     <code>SecurityProfileId</code>, <code>resourceId</code>.</p>
    * @public
    */
   StringCondition?: StringCondition | undefined;
@@ -4361,7 +4583,8 @@ export interface Contact {
   Recordings?: RecordingInfo[] | undefined;
 
   /**
-   * <p>The disconnect reason for the contact.</p>
+   * <p>The disconnect reason for the contact. For a list and description of all the possible
+   *    disconnect reasons by channel, see DisconnectReason under <a href="https://docs.aws.amazon.com/connect/latest/adminguide/ctr-data-model.html#ctr-ContactTraceRecord">ContactTraceRecord</a> in the <i>Amazon Connect Administrator Guide</i>. </p>
    * @public
    */
   DisconnectReason?: string | undefined;
@@ -4385,6 +4608,12 @@ export interface Contact {
    * @public
    */
   ContactDetails?: ContactDetails | undefined;
+
+  /**
+   * <p>Information about the outbound strategy.</p>
+   * @public
+   */
+  OutboundStrategy?: OutboundStrategy | undefined;
 
   /**
    * <p>The attributes of the contact.</p>

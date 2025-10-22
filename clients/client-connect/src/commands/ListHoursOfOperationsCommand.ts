@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListHoursOfOperationsRequest, ListHoursOfOperationsResponse } from "../models/models_1";
+import { ListHoursOfOperationsRequest, ListHoursOfOperationsResponse } from "../models/models_2";
 import { de_ListHoursOfOperationsCommand, se_ListHoursOfOperationsCommand } from "../protocols/Aws_restJson1";
 
 /**

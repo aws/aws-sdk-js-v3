@@ -77,7 +77,7 @@ export interface StopContactCommandOutput extends StopContactResponse, __Metadat
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
  *
  * @throws {@link ContactNotFoundException} (client fault)
- *  <p>The contact with the specified ID is not active or does not exist.</p>
+ *  <p>The contact with the specified ID does not exist.</p>
  *
  * @throws {@link InternalServiceException} (server fault)
  *  <p>Request processing failed because of an error or failure with the service.</p>

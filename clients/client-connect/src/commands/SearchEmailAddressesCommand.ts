@@ -98,6 +98,11 @@ export interface SearchEmailAddressesCommandOutput extends SearchEmailAddressesR
  * //       EmailAddress: "STRING_VALUE",
  * //       Description: "STRING_VALUE",
  * //       DisplayName: "STRING_VALUE",
+ * //       AliasConfigurations: [ // AliasConfigurationList
+ * //         { // AliasConfiguration
+ * //           EmailAddressId: "STRING_VALUE", // required
+ * //         },
+ * //       ],
  * //     },
  * //   ],
  * //   ApproximateTotalCount: Number("long"),

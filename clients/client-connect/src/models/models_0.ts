@@ -441,6 +441,62 @@ export interface AgentContactReference {
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const AllowedUserAction = {
+  CALL: "CALL",
+  DISCARD: "DISCARD",
+} as const;
+
+/**
+ * @public
+ */
+export type AllowedUserAction = (typeof AllowedUserAction)[keyof typeof AllowedUserAction];
+
+/**
+ * <p>Countdown timer configuration after the agent accepted the contact.</p>
+ * @public
+ */
+export interface PostAcceptTimeoutConfig {
+  /**
+   * <p>Duration in seconds for the countdown timer after the agent accepted the contact.</p>
+   * @public
+   */
+  DurationInSeconds: number | undefined;
+}
+
+/**
+ * <p>Information about agent-first preview mode outbound strategy configuration.</p>
+ * @public
+ */
+export interface Preview {
+  /**
+   * <p>Countdown timer configuration after the agent accepted the preview outbound contact.</p>
+   * @public
+   */
+  PostAcceptTimeoutConfig: PostAcceptTimeoutConfig | undefined;
+
+  /**
+   * <p>The actions the agent can perform after accepting the preview outbound contact.</p>
+   * @public
+   */
+  AllowedUserActions: AllowedUserAction[] | undefined;
+}
+
+/**
+ * <p>Information about agent-first outbound strategy configuration.</p>
+ * @public
+ */
+export interface AgentFirst {
+  /**
+   * <p>Information about preview configuration of agent first outbound strategy</p>
+   * @public
+   */
+  Preview?: Preview | undefined;
+}
+
+/**
  * <p>Information about an agent hierarchy group.</p>
  * @public
  */
@@ -649,6 +705,18 @@ export interface AgentInfo {
    * @public
    */
   Id?: string | undefined;
+
+  /**
+   * <p>The timestamp when the contact was accepted by the agent.</p>
+   * @public
+   */
+  AcceptedByAgentTimestamp?: Date | undefined;
+
+  /**
+   * <p>The timestamp when the agent finished previewing the contact.</p>
+   * @public
+   */
+  PreviewEndTimestamp?: Date | undefined;
 
   /**
    * <p>The timestamp when the contact was connected to the agent.</p>
@@ -1076,6 +1144,18 @@ export interface AgentStatusSummary {
    * @public
    */
   LastModifiedRegion?: string | undefined;
+}
+
+/**
+ * <p>Configuration information of an email alias.</p>
+ * @public
+ */
+export interface AliasConfiguration {
+  /**
+   * <p>The email address ID.</p>
+   * @public
+   */
+  EmailAddressId: string | undefined;
 }
 
 /**
@@ -1555,6 +1635,67 @@ export interface AssociateDefaultVocabularyRequest {
  * @public
  */
 export interface AssociateDefaultVocabularyResponse {}
+
+/**
+ * @public
+ */
+export interface AssociateEmailAddressAliasRequest {
+  /**
+   * <p>The identifier of the email address.</p>
+   * @public
+   */
+  EmailAddressId: string | undefined;
+
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>Configuration object that specifies which email address will serve as the alias. The
+   *    specified email address must already exist in the Amazon Connect instance and cannot already
+   *    be configured as an alias or have an alias of its own.</p>
+   * @public
+   */
+  AliasConfiguration: AliasConfiguration | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   *             request. If not provided, the Amazon Web Services
+   *             SDK populates this field. For more information about idempotency, see
+   *             <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface AssociateEmailAddressAliasResponse {}
+
+/**
+ * <p>An entity with the same name already exists.</p>
+ * @public
+ */
+export class IdempotencyException extends __BaseException {
+  readonly name: "IdempotencyException" = "IdempotencyException";
+  readonly $fault: "client" = "client";
+  Message?: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<IdempotencyException, __BaseException>) {
+    super({
+      name: "IdempotencyException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, IdempotencyException.prototype);
+    this.Message = opts.Message;
+  }
+}
 
 /**
  * @public
@@ -2691,6 +2832,49 @@ export interface Endpoint {
 }
 
 /**
+ * <p>The config of the outbound strategy.</p>
+ * @public
+ */
+export interface OutboundStrategyConfig {
+  /**
+   * <p>The config of agent first outbound strategy.</p>
+   * @public
+   */
+  AgentFirst?: AgentFirst | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const OutboundStrategyType = {
+  AGENT_FIRST: "AGENT_FIRST",
+} as const;
+
+/**
+ * @public
+ */
+export type OutboundStrategyType = (typeof OutboundStrategyType)[keyof typeof OutboundStrategyType];
+
+/**
+ * <p>Information about the outbound strategy.</p>
+ * @public
+ */
+export interface OutboundStrategy {
+  /**
+   * <p>Type of the outbound strategy.</p>
+   * @public
+   */
+  Type: OutboundStrategyType | undefined;
+
+  /**
+   * <p>Config of the outbound strategy.</p>
+   * @public
+   */
+  Config?: OutboundStrategyConfig | undefined;
+}
+
+/**
  * <p>Request object with information to create a contact.</p>
  * @public
  */
@@ -2732,6 +2916,12 @@ export interface ContactDataRequest {
    * @public
    */
   Campaign?: Campaign | undefined;
+
+  /**
+   * <p>Information about the outbound strategy.</p>
+   * @public
+   */
+  OutboundStrategy?: OutboundStrategy | undefined;
 }
 
 /**
@@ -2769,6 +2959,7 @@ export const FailureReasonCode = {
   INTERNAL_ERROR: "INTERNAL_ERROR",
   INVALID_ATTRIBUTE_KEY: "INVALID_ATTRIBUTE_KEY",
   INVALID_CUSTOMER_ENDPOINT: "INVALID_CUSTOMER_ENDPOINT",
+  INVALID_OUTBOUND_STRATEGY: "INVALID_OUTBOUND_STRATEGY",
   INVALID_QUEUE: "INVALID_QUEUE",
   INVALID_SYSTEM_ENDPOINT: "INVALID_SYSTEM_ENDPOINT",
   MISSING_CAMPAIGN: "MISSING_CAMPAIGN",
@@ -2841,28 +3032,6 @@ export interface BatchPutContactResponse {
    * @public
    */
   FailedRequestList?: FailedRequest[] | undefined;
-}
-
-/**
- * <p>An entity with the same name already exists.</p>
- * @public
- */
-export class IdempotencyException extends __BaseException {
-  readonly name: "IdempotencyException" = "IdempotencyException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<IdempotencyException, __BaseException>) {
-    super({
-      name: "IdempotencyException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, IdempotencyException.prototype);
-    this.Message = opts.Message;
-  }
 }
 
 /**
@@ -7319,140 +7488,6 @@ export interface DeleteAttachedFileRequest {
  * @public
  */
 export interface DeleteAttachedFileResponse {}
-
-/**
- * @public
- */
-export interface DeleteContactEvaluationRequest {
-  /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>A unique identifier for the contact evaluation.</p>
-   * @public
-   */
-  EvaluationId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteContactFlowRequest {
-  /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The identifier of the flow.</p>
-   * @public
-   */
-  ContactFlowId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteContactFlowResponse {}
-
-/**
- * @public
- */
-export interface DeleteContactFlowModuleRequest {
-  /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The identifier of the flow module.</p>
-   * @public
-   */
-  ContactFlowModuleId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteContactFlowModuleResponse {}
-
-/**
- * @public
- */
-export interface DeleteContactFlowVersionRequest {
-  /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The identifier of the flow.</p>
-   * @public
-   */
-  ContactFlowId: string | undefined;
-
-  /**
-   * <p>The identifier of the flow version.</p>
-   * @public
-   */
-  ContactFlowVersion: number | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteContactFlowVersionResponse {}
-
-/**
- * @public
- */
-export interface DeleteEmailAddressRequest {
-  /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The identifier of the email address.</p>
-   * @public
-   */
-  EmailAddressId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteEmailAddressResponse {}
-
-/**
- * @public
- */
-export interface DeleteEvaluationFormRequest {
-  /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The unique identifier for the evaluation form.</p>
-   * @public
-   */
-  EvaluationFormId: string | undefined;
-
-  /**
-   * <p>The unique identifier for the evaluation form.</p>
-   * @public
-   */
-  EvaluationFormVersion?: number | undefined;
-}
 
 /**
  * @internal

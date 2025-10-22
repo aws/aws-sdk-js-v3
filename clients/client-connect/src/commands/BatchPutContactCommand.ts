@@ -66,6 +66,21 @@ export interface BatchPutContactCommandOutput extends BatchPutContactResponse, _
  *       Campaign: { // Campaign
  *         CampaignId: "STRING_VALUE",
  *       },
+ *       OutboundStrategy: { // OutboundStrategy
+ *         Type: "AGENT_FIRST", // required
+ *         Config: { // OutboundStrategyConfig
+ *           AgentFirst: { // AgentFirst
+ *             Preview: { // Preview
+ *               PostAcceptTimeoutConfig: { // PostAcceptTimeoutConfig
+ *                 DurationInSeconds: Number("int"), // required
+ *               },
+ *               AllowedUserActions: [ // AllowedUserActions // required
+ *                 "CALL" || "DISCARD",
+ *               ],
+ *             },
+ *           },
+ *         },
+ *       },
  *     },
  *   ],
  * };
@@ -81,7 +96,7 @@ export interface BatchPutContactCommandOutput extends BatchPutContactResponse, _
  * //   FailedRequestList: [ // FailedRequestList
  * //     { // FailedRequest
  * //       RequestIdentifier: "STRING_VALUE",
- * //       FailureReasonCode: "INVALID_ATTRIBUTE_KEY" || "INVALID_CUSTOMER_ENDPOINT" || "INVALID_SYSTEM_ENDPOINT" || "INVALID_QUEUE" || "MISSING_CAMPAIGN" || "MISSING_CUSTOMER_ENDPOINT" || "MISSING_QUEUE_ID_AND_SYSTEM_ENDPOINT" || "REQUEST_THROTTLED" || "IDEMPOTENCY_EXCEPTION" || "INTERNAL_ERROR",
+ * //       FailureReasonCode: "INVALID_ATTRIBUTE_KEY" || "INVALID_CUSTOMER_ENDPOINT" || "INVALID_SYSTEM_ENDPOINT" || "INVALID_QUEUE" || "INVALID_OUTBOUND_STRATEGY" || "MISSING_CAMPAIGN" || "MISSING_CUSTOMER_ENDPOINT" || "MISSING_QUEUE_ID_AND_SYSTEM_ENDPOINT" || "REQUEST_THROTTLED" || "IDEMPOTENCY_EXCEPTION" || "INTERNAL_ERROR",
  * //       FailureReasonMessage: "STRING_VALUE",
  * //     },
  * //   ],

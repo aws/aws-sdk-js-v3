@@ -55,6 +55,11 @@ export interface DescribeEmailAddressCommandOutput extends DescribeEmailAddressR
  * //   Description: "STRING_VALUE",
  * //   CreateTimestamp: "STRING_VALUE",
  * //   ModifiedTimestamp: "STRING_VALUE",
+ * //   AliasConfigurations: [ // AliasConfigurationList
+ * //     { // AliasConfiguration
+ * //       EmailAddressId: "STRING_VALUE", // required
+ * //     },
+ * //   ],
  * //   Tags: { // TagMap
  * //     "<keys>": "STRING_VALUE",
  * //   },

@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DeleteEmailAddressRequest, DeleteEmailAddressResponse } from "../models/models_0";
+import { DeleteEmailAddressRequest, DeleteEmailAddressResponse } from "../models/models_1";
 import { de_DeleteEmailAddressCommand, se_DeleteEmailAddressCommand } from "../protocols/Aws_restJson1";
 
 /**

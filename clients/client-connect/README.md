@@ -276,6 +276,14 @@ AssociateDefaultVocabulary
 </details>
 <details>
 <summary>
+AssociateEmailAddressAlias
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/connect/command/AssociateEmailAddressAliasCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connect/Interface/AssociateEmailAddressAliasCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connect/Interface/AssociateEmailAddressAliasCommandOutput/)
+
+</details>
+<details>
+<summary>
 AssociateFlow
 </summary>
 
@@ -1104,6 +1112,14 @@ DisassociateBot
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/connect/command/DisassociateBotCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connect/Interface/DisassociateBotCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connect/Interface/DisassociateBotCommandOutput/)
+
+</details>
+<details>
+<summary>
+DisassociateEmailAddressAlias
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/connect/command/DisassociateEmailAddressAliasCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connect/Interface/DisassociateEmailAddressAliasCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connect/Interface/DisassociateEmailAddressAliasCommandOutput/)
 
 </details>
 <details>

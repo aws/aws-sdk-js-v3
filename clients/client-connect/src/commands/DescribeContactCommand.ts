@@ -42,7 +42,8 @@ export interface DescribeContactCommandOutput extends DescribeContactResponse, _
  *             </li>
  *             <li>
  *                <p>Detect when a customer chat session disconnects due to a network issue on the agent's end.
- *      Use the DisconnectReason field in the <a href="https://docs.aws.amazon.com/connect/latest/adminguide/ctr-data-model.html#ctr-ContactTraceRecord">ContactTraceRecord</a> to detect this event and then re-queue the chat for followup.</p>
+ *      Use the DisconnectReason field in the <a href="https://docs.aws.amazon.com/connect/latest/adminguide/ctr-data-model.html#ctr-ContactTraceRecord">ContactTraceRecord</a> to detect this event and then re-queue the chat for
+ *      followup.</p>
  *             </li>
  *             <li>
  *                <p>Identify after contact work (ACW) duration and call recordings information when a
@@ -98,6 +99,8 @@ export interface DescribeContactCommandOutput extends DescribeContactResponse, _
  * //     },
  * //     AgentInfo: { // AgentInfo
  * //       Id: "STRING_VALUE",
+ * //       AcceptedByAgentTimestamp: new Date("TIMESTAMP"),
+ * //       PreviewEndTimestamp: new Date("TIMESTAMP"),
  * //       ConnectedToAgentTimestamp: new Date("TIMESTAMP"),
  * //       AgentPauseDurationInSeconds: Number("int"),
  * //       HierarchyGroups: { // HierarchyGroups
@@ -407,6 +410,21 @@ export interface DescribeContactCommandOutput extends DescribeContactResponse, _
  * //     ContactDetails: { // ContactDetails
  * //       Name: "STRING_VALUE",
  * //       Description: "STRING_VALUE",
+ * //     },
+ * //     OutboundStrategy: { // OutboundStrategy
+ * //       Type: "AGENT_FIRST", // required
+ * //       Config: { // OutboundStrategyConfig
+ * //         AgentFirst: { // AgentFirst
+ * //           Preview: { // Preview
+ * //             PostAcceptTimeoutConfig: { // PostAcceptTimeoutConfig
+ * //               DurationInSeconds: Number("int"), // required
+ * //             },
+ * //             AllowedUserActions: [ // AllowedUserActions // required
+ * //               "CALL" || "DISCARD",
+ * //             ],
+ * //           },
+ * //         },
+ * //       },
  * //     },
  * //     Attributes: { // Attributes
  * //       "<keys>": "STRING_VALUE",

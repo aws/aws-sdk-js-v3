@@ -57,6 +57,10 @@ import {
   AssociateDefaultVocabularyCommandInput,
   AssociateDefaultVocabularyCommandOutput,
 } from "../commands/AssociateDefaultVocabularyCommand";
+import {
+  AssociateEmailAddressAliasCommandInput,
+  AssociateEmailAddressAliasCommandOutput,
+} from "../commands/AssociateEmailAddressAliasCommand";
 import { AssociateFlowCommandInput, AssociateFlowCommandOutput } from "../commands/AssociateFlowCommand";
 import {
   AssociateInstanceStorageConfigCommandInput,
@@ -344,6 +348,10 @@ import {
   DisassociateApprovedOriginCommandOutput,
 } from "../commands/DisassociateApprovedOriginCommand";
 import { DisassociateBotCommandInput, DisassociateBotCommandOutput } from "../commands/DisassociateBotCommand";
+import {
+  DisassociateEmailAddressAliasCommandInput,
+  DisassociateEmailAddressAliasCommandOutput,
+} from "../commands/DisassociateEmailAddressAliasCommand";
 import { DisassociateFlowCommandInput, DisassociateFlowCommandOutput } from "../commands/DisassociateFlowCommand";
 import {
   DisassociateInstanceStorageConfigCommandInput,
@@ -854,6 +862,7 @@ import {
   AccessDeniedException,
   AgentConfig,
   AgentContactReference,
+  AgentFirst,
   AgentHierarchyGroups,
   AgentInfo,
   AgentQualityMetrics,
@@ -862,7 +871,9 @@ import {
   AgentStatusReference,
   AgentStatusSearchFilter,
   AgentStatusSummary,
+  AliasConfiguration,
   AllowedCapabilities,
+  AllowedUserAction,
   Application,
   AssignContactCategoryActionDefinition,
   AssignSlaActionDefinition,
@@ -923,11 +934,15 @@ import {
   NumericQuestionPropertyValueAutomation,
   OutboundCallerConfig,
   OutboundEmailConfig,
+  OutboundStrategy,
+  OutboundStrategyConfig,
   OverrideTimeSlice,
   ParticipantCapabilities,
   ParticipantDetailsToAdd,
   PhoneNumberQuickConnectConfig,
+  PostAcceptTimeoutConfig,
   PredefinedAttributeValues,
+  Preview,
   PropertyValidationException,
   QueueQuickConnectConfig,
   QuickConnectConfig,
@@ -993,7 +1008,6 @@ import {
   EvaluationAnswerData,
   EvaluationAnswerOutput,
   EvaluationFormSummary,
-  EvaluationFormVersionSummary,
   EvaluationMetadata,
   EvaluationNote,
   EvaluationScore,
@@ -1011,7 +1025,6 @@ import {
   HistoricalMetricData,
   HistoricalMetricResult,
   HoursOfOperation,
-  HoursOfOperationSummary,
   Instance,
   IntervalDetails,
   MatchCriteria,
@@ -1069,8 +1082,10 @@ import {
   EmailAttachment,
   EmailHeaderType,
   EvaluationAnswerInput,
+  EvaluationFormVersionSummary,
   HierarchyGroupCondition,
   HoursOfOperationSearchFilter,
+  HoursOfOperationSummary,
   InboundAdditionalRecipients,
   InboundEmailContent,
   InboundRawMessage,
@@ -1314,6 +1329,31 @@ export const se_AssociateDefaultVocabularyCommand = async (
     })
   );
   b.m("PUT").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1AssociateEmailAddressAliasCommand
+ */
+export const se_AssociateEmailAddressAliasCommand = async (
+  input: AssociateEmailAddressAliasCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/email-addresses/{InstanceId}/{EmailAddressId}/associate-alias");
+  b.p("EmailAddressId", () => input.EmailAddressId!, "{EmailAddressId}", false);
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      AliasConfiguration: (_) => _json(_),
+      ClientToken: [true, (_) => _ ?? generateIdempotencyToken()],
+    })
+  );
+  b.m("POST").h(headers).b(body);
   return b.build();
 };
 
@@ -3554,6 +3594,31 @@ export const se_DisassociateBotCommand = async (
       ClientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       LexBot: (_) => _json(_),
       LexV2Bot: (_) => _json(_),
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1DisassociateEmailAddressAliasCommand
+ */
+export const se_DisassociateEmailAddressAliasCommand = async (
+  input: DisassociateEmailAddressAliasCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/email-addresses/{InstanceId}/{EmailAddressId}/disassociate-alias");
+  b.p("EmailAddressId", () => input.EmailAddressId!, "{EmailAddressId}", false);
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      AliasConfiguration: (_) => _json(_),
+      ClientToken: [true, (_) => _ ?? generateIdempotencyToken()],
     })
   );
   b.m("POST").h(headers).b(body);
@@ -6103,6 +6168,7 @@ export const se_StartOutboundVoiceContactCommand = async (
       DestinationPhoneNumber: [],
       InstanceId: [],
       Name: [],
+      OutboundStrategy: (_) => _json(_),
       QueueId: [],
       References: (_) => _json(_),
       RelatedContactId: [],
@@ -7850,6 +7916,23 @@ export const de_AssociateDefaultVocabularyCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1AssociateEmailAddressAliasCommand
+ */
+export const de_AssociateEmailAddressAliasCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AssociateEmailAddressAliasCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1AssociateFlowCommand
  */
 export const de_AssociateFlowCommand = async (
@@ -9435,6 +9518,7 @@ export const de_DescribeEmailAddressCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
+    AliasConfigurations: _json,
     CreateTimestamp: __expectString,
     Description: __expectString,
     DisplayName: __expectString,
@@ -9910,6 +9994,23 @@ export const de_DisassociateBotCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DisassociateBotCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DisassociateEmailAddressAliasCommand
+ */
+export const de_DisassociateEmailAddressAliasCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DisassociateEmailAddressAliasCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return de_CommandError(output, context);
   }
@@ -14109,6 +14210,8 @@ const de_UserNotFoundExceptionRes = async (
 
 // se_AgentConfig omitted.
 
+// se_AgentFirst omitted.
+
 // se_AgentHierarchyGroups omitted.
 
 // se_AgentIds omitted.
@@ -14145,11 +14248,15 @@ const se_AgentStatusSearchCriteria = (input: AgentStatusSearchCriteria, context:
 
 // se_AgentStatusSearchFilter omitted.
 
+// se_AliasConfiguration omitted.
+
 // se_AllowedAccessControlTags omitted.
 
 // se_AllowedCapabilities omitted.
 
 // se_AllowedMonitorCapabilities omitted.
+
+// se_AllowedUserActions omitted.
 
 // se_AnswerMachineDetectionConfig omitted.
 
@@ -14751,6 +14858,10 @@ const se_MetricV2 = (input: MetricV2, context: __SerdeContext): any => {
 
 // se_OutboundRawMessage omitted.
 
+// se_OutboundStrategy omitted.
+
+// se_OutboundStrategyConfig omitted.
+
 // se_OverrideTimeSlice omitted.
 
 // se_ParticipantCapabilities omitted.
@@ -14774,6 +14885,8 @@ const se_MetricV2 = (input: MetricV2, context: __SerdeContext): any => {
 // se_PhoneNumberQuickConnectConfig omitted.
 
 // se_PhoneNumberTypes omitted.
+
+// se_PostAcceptTimeoutConfig omitted.
 
 // se_PredefinedAttributePurposeNameList omitted.
 
@@ -14808,6 +14921,8 @@ const se_PredefinedAttributeSearchCriteria = (
 // se_PredefinedAttributeStringValuesList omitted.
 
 // se_PredefinedAttributeValues omitted.
+
+// se_Preview omitted.
 
 /**
  * serializeAws_restJson1PromptSearchConditionList
@@ -15455,6 +15570,8 @@ const de_AgentContactReferenceList = (output: any, context: __SerdeContext): Age
   return retVal;
 };
 
+// de_AgentFirst omitted.
+
 // de_AgentHierarchyGroup omitted.
 
 // de_AgentIds omitted.
@@ -15464,6 +15581,7 @@ const de_AgentContactReferenceList = (output: any, context: __SerdeContext): Age
  */
 const de_AgentInfo = (output: any, context: __SerdeContext): AgentInfo => {
   return take(output, {
+    AcceptedByAgentTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     AfterContactWorkDuration: __expectInt32,
     AfterContactWorkEndTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     AfterContactWorkStartTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
@@ -15474,6 +15592,7 @@ const de_AgentInfo = (output: any, context: __SerdeContext): AgentInfo => {
     DeviceInfo: _json,
     HierarchyGroups: _json,
     Id: __expectString,
+    PreviewEndTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     StateTransitions: (_: any) => de_StateTransitions(_, context),
   }) as any;
 };
@@ -15558,7 +15677,13 @@ const de_AgentStatusSummaryList = (output: any, context: __SerdeContext): AgentS
   return retVal;
 };
 
+// de_AliasConfiguration omitted.
+
+// de_AliasConfigurationList omitted.
+
 // de_AllowedAccessControlTags omitted.
+
+// de_AllowedUserActions omitted.
 
 // de_AnalyticsDataAssociationResult omitted.
 
@@ -15792,6 +15917,7 @@ const de_Contact = (output: any, context: __SerdeContext): Contact => {
     LastResumedTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     LastUpdateTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     Name: __expectString,
+    OutboundStrategy: _json,
     PreviousContactId: __expectString,
     QualityMetrics: (_: any) => de_QualityMetrics(_, context),
     QueueInfo: (_: any) => de_QueueInfo(_, context),
@@ -16944,6 +17070,10 @@ const de_MetricV2 = (output: any, context: __SerdeContext): MetricV2 => {
 
 // de_OutboundEmailConfig omitted.
 
+// de_OutboundStrategy omitted.
+
+// de_OutboundStrategyConfig omitted.
+
 // de_OverrideTimeSlice omitted.
 
 // de_ParticipantCapabilities omitted.
@@ -16976,6 +17106,8 @@ const de_ParticipantMetrics = (output: any, context: __SerdeContext): Participan
 // de_PhoneNumberSummary omitted.
 
 // de_PhoneNumberSummaryList omitted.
+
+// de_PostAcceptTimeoutConfig omitted.
 
 // de_PotentialAudioQualityIssues omitted.
 
@@ -17035,6 +17167,8 @@ const de_PredefinedAttributeSummaryList = (output: any, context: __SerdeContext)
 };
 
 // de_PredefinedAttributeValues omitted.
+
+// de_Preview omitted.
 
 // de_ProblemDetail omitted.
 

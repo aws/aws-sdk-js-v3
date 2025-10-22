@@ -74,6 +74,10 @@ import {
   AssociateDefaultVocabularyCommandInput,
   AssociateDefaultVocabularyCommandOutput,
 } from "./commands/AssociateDefaultVocabularyCommand";
+import {
+  AssociateEmailAddressAliasCommandInput,
+  AssociateEmailAddressAliasCommandOutput,
+} from "./commands/AssociateEmailAddressAliasCommand";
 import { AssociateFlowCommandInput, AssociateFlowCommandOutput } from "./commands/AssociateFlowCommand";
 import {
   AssociateInstanceStorageConfigCommandInput,
@@ -361,6 +365,10 @@ import {
   DisassociateApprovedOriginCommandOutput,
 } from "./commands/DisassociateApprovedOriginCommand";
 import { DisassociateBotCommandInput, DisassociateBotCommandOutput } from "./commands/DisassociateBotCommand";
+import {
+  DisassociateEmailAddressAliasCommandInput,
+  DisassociateEmailAddressAliasCommandOutput,
+} from "./commands/DisassociateEmailAddressAliasCommand";
 import { DisassociateFlowCommandInput, DisassociateFlowCommandOutput } from "./commands/DisassociateFlowCommand";
 import {
   DisassociateInstanceStorageConfigCommandInput,
@@ -887,6 +895,7 @@ export type ServiceInputTypes =
   | AssociateBotCommandInput
   | AssociateContactWithUserCommandInput
   | AssociateDefaultVocabularyCommandInput
+  | AssociateEmailAddressAliasCommandInput
   | AssociateFlowCommandInput
   | AssociateInstanceStorageConfigCommandInput
   | AssociateLambdaFunctionCommandInput
@@ -991,6 +1000,7 @@ export type ServiceInputTypes =
   | DisassociateAnalyticsDataSetCommandInput
   | DisassociateApprovedOriginCommandInput
   | DisassociateBotCommandInput
+  | DisassociateEmailAddressAliasCommandInput
   | DisassociateFlowCommandInput
   | DisassociateInstanceStorageConfigCommandInput
   | DisassociateLambdaFunctionCommandInput
@@ -1177,6 +1187,7 @@ export type ServiceOutputTypes =
   | AssociateBotCommandOutput
   | AssociateContactWithUserCommandOutput
   | AssociateDefaultVocabularyCommandOutput
+  | AssociateEmailAddressAliasCommandOutput
   | AssociateFlowCommandOutput
   | AssociateInstanceStorageConfigCommandOutput
   | AssociateLambdaFunctionCommandOutput
@@ -1281,6 +1292,7 @@ export type ServiceOutputTypes =
   | DisassociateAnalyticsDataSetCommandOutput
   | DisassociateApprovedOriginCommandOutput
   | DisassociateBotCommandOutput
+  | DisassociateEmailAddressAliasCommandOutput
   | DisassociateFlowCommandOutput
   | DisassociateInstanceStorageConfigCommandOutput
   | DisassociateLambdaFunctionCommandOutput

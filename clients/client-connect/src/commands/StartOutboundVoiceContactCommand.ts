@@ -86,6 +86,21 @@ export interface StartOutboundVoiceContactCommandOutput extends StartOutboundVoi
  *   },
  *   CampaignId: "STRING_VALUE",
  *   TrafficType: "GENERAL" || "CAMPAIGN",
+ *   OutboundStrategy: { // OutboundStrategy
+ *     Type: "AGENT_FIRST", // required
+ *     Config: { // OutboundStrategyConfig
+ *       AgentFirst: { // AgentFirst
+ *         Preview: { // Preview
+ *           PostAcceptTimeoutConfig: { // PostAcceptTimeoutConfig
+ *             DurationInSeconds: Number("int"), // required
+ *           },
+ *           AllowedUserActions: [ // AllowedUserActions // required
+ *             "CALL" || "DISCARD",
+ *           ],
+ *         },
+ *       },
+ *     },
+ *   },
  * };
  * const command = new StartOutboundVoiceContactCommand(input);
  * const response = await client.send(command);

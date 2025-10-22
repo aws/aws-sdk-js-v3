@@ -33,6 +33,11 @@ import {
   AssociateDefaultVocabularyCommandOutput,
 } from "./commands/AssociateDefaultVocabularyCommand";
 import {
+  AssociateEmailAddressAliasCommand,
+  AssociateEmailAddressAliasCommandInput,
+  AssociateEmailAddressAliasCommandOutput,
+} from "./commands/AssociateEmailAddressAliasCommand";
+import {
   AssociateFlowCommand,
   AssociateFlowCommandInput,
   AssociateFlowCommandOutput,
@@ -520,6 +525,11 @@ import {
   DisassociateBotCommandInput,
   DisassociateBotCommandOutput,
 } from "./commands/DisassociateBotCommand";
+import {
+  DisassociateEmailAddressAliasCommand,
+  DisassociateEmailAddressAliasCommandInput,
+  DisassociateEmailAddressAliasCommandOutput,
+} from "./commands/DisassociateEmailAddressAliasCommand";
 import {
   DisassociateFlowCommand,
   DisassociateFlowCommandInput,
@@ -1356,6 +1366,7 @@ const commands = {
   AssociateBotCommand,
   AssociateContactWithUserCommand,
   AssociateDefaultVocabularyCommand,
+  AssociateEmailAddressAliasCommand,
   AssociateFlowCommand,
   AssociateInstanceStorageConfigCommand,
   AssociateLambdaFunctionCommand,
@@ -1460,6 +1471,7 @@ const commands = {
   DisassociateAnalyticsDataSetCommand,
   DisassociateApprovedOriginCommand,
   DisassociateBotCommand,
+  DisassociateEmailAddressAliasCommand,
   DisassociateFlowCommand,
   DisassociateInstanceStorageConfigCommand,
   DisassociateLambdaFunctionCommand,
@@ -1732,6 +1744,23 @@ export interface Connect {
     args: AssociateDefaultVocabularyCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: AssociateDefaultVocabularyCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link AssociateEmailAddressAliasCommand}
+   */
+  associateEmailAddressAlias(
+    args: AssociateEmailAddressAliasCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AssociateEmailAddressAliasCommandOutput>;
+  associateEmailAddressAlias(
+    args: AssociateEmailAddressAliasCommandInput,
+    cb: (err: any, data?: AssociateEmailAddressAliasCommandOutput) => void
+  ): void;
+  associateEmailAddressAlias(
+    args: AssociateEmailAddressAliasCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: AssociateEmailAddressAliasCommandOutput) => void
   ): void;
 
   /**
@@ -3371,6 +3400,23 @@ export interface Connect {
     args: DisassociateBotCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DisassociateBotCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DisassociateEmailAddressAliasCommand}
+   */
+  disassociateEmailAddressAlias(
+    args: DisassociateEmailAddressAliasCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DisassociateEmailAddressAliasCommandOutput>;
+  disassociateEmailAddressAlias(
+    args: DisassociateEmailAddressAliasCommandInput,
+    cb: (err: any, data?: DisassociateEmailAddressAliasCommandOutput) => void
+  ): void;
+  disassociateEmailAddressAlias(
+    args: DisassociateEmailAddressAliasCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DisassociateEmailAddressAliasCommandOutput) => void
   ): void;
 
   /**
