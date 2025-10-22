@@ -2,8 +2,8 @@
 module.exports = {
   // Use full commit hash as we explicitly fetch it.
   // Comparison link (update with previous hash):
-  // https://github.com/smithy-lang/smithy-typescript/compare/c1f6ba33dfc31e1cd3c89610c8d3c589fa9f21db...8af2d330260513d3e51c98f1f137793b5330ceb4
-  SMITHY_TS_COMMIT: "8af2d330260513d3e51c98f1f137793b5330ceb4",
+  // https://github.com/smithy-lang/smithy-typescript/compare/8af2d330260513d3e51c98f1f137793b5330ceb4...56a65e69af8a8b7a814a92af716009cabe4b0b42
+  SMITHY_TS_COMMIT: "56a65e69af8a8b7a814a92af716009cabe4b0b42",
 };
 
 if (module.exports.SMITHY_TS_COMMIT.length < 40) {
