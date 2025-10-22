@@ -1,5 +1,6 @@
 import { HttpHandler, HttpRequest } from "@smithy/protocol-http";
-import {
+import type {
+  BodyLengthCalculator,
   BuildHandler,
   BuildHandlerArguments,
   BuildHandlerOptions,
@@ -13,20 +14,43 @@ import {
 interface PreviouslyResolved {
   runtime: string;
   requestHandler?: RequestHandler<any, any, any> | HttpHandler<any>;
+  bodyLengthChecker?: BodyLengthCalculator;
+  expectContinueHeader?: boolean | number;
 }
 
 export function addExpectContinueMiddleware(options: PreviouslyResolved): BuildMiddleware<any, any> {
   return <Output extends MetadataBearer>(next: BuildHandler<any, Output>): BuildHandler<any, Output> =>
     async (args: BuildHandlerArguments<any>): Promise<BuildHandlerOutput<Output>> => {
       const { request } = args;
-      if (HttpRequest.isInstance(request) && request.body && options.runtime === "node") {
-        if (options.requestHandler?.constructor?.name !== "FetchHttpHandler") {
-          request.headers = {
-            ...request.headers,
-            Expect: "100-continue",
-          };
+
+      if (
+        options.expectContinueHeader !== false &&
+        HttpRequest.isInstance(request) &&
+        request.body &&
+        options.runtime === "node" &&
+        options.requestHandler?.constructor?.name !== "FetchHttpHandler"
+      ) {
+        let sendHeader = true;
+        if (typeof options.expectContinueHeader === "number") {
+          try {
+            const bodyLength =
+              Number(request.headers?.["content-length"]) ?? options.bodyLengthChecker?.(request.body) ?? Infinity;
+            sendHeader = bodyLength >= options.expectContinueHeader;
+            console.log({
+              sendHeader,
+              bodyLength,
+              threshold: options.expectContinueHeader,
+            });
+          } catch (e) {}
+        } else {
+          sendHeader = !!options.expectContinueHeader;
+        }
+
+        if (sendHeader) {
+          request.headers.Expect = "100-continue";
         }
       }
+
       return next({
         ...args,
         request,

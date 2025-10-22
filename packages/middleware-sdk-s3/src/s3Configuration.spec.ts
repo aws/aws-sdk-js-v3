@@ -11,4 +11,37 @@ describe(resolveS3Config.name, () => {
       })
     ).toBe(input);
   });
+
+  it("accepts bool/num for expectContinueHeader and defaults to 2mb", () => {
+    expect(
+      resolveS3Config(
+        {
+          expectContinueHeader: 1,
+        },
+        {
+          session: [() => null, vi.fn()],
+        }
+      ).expectContinueHeader
+    ).toEqual(1);
+
+    expect(
+      resolveS3Config(
+        {
+          expectContinueHeader: false,
+        },
+        {
+          session: [() => null, vi.fn()],
+        }
+      ).expectContinueHeader
+    ).toEqual(false);
+
+    expect(
+      resolveS3Config(
+        {},
+        {
+          session: [() => null, vi.fn()],
+        }
+      ).expectContinueHeader
+    ).toEqual(2 * 1024 * 1024);
+  });
 });

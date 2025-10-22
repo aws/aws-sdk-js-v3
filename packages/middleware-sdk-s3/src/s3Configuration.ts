@@ -35,6 +35,22 @@ export interface S3InputConfig {
    * Whether to use the bucket name as the endpoint for this client.
    */
   bucketEndpoint?: boolean;
+  /**
+   * This field configures the SDK's behavior around setting the `expect: 100-continue` header.
+   *
+   * Default: 2_097_152 (2 MB)
+   *
+   * When given as a boolean - always send or omit the header.
+   * When given as a number - minimum byte threshold of the payload before setting the header.
+   *                          Unmeasurable payload sizes (streams) will set the header too.
+   *
+   * The `expect: 100-continue` header is used to allow the server a chance to validate the PUT request
+   * headers before the client begins to send the object payload. This avoids wasteful data transmission for a
+   * request that is rejected.
+   *
+   * However, there is a trade-off where the request will take longer to complete.
+   */
+  expectContinueHeader?: boolean | number;
 }
 
 /**
@@ -58,6 +74,7 @@ export interface S3ResolvedConfig {
   followRegionRedirects: boolean;
   s3ExpressIdentityProvider: S3ExpressIdentityProvider;
   bucketEndpoint: boolean;
+  expectContinueHeader: boolean | number;
 }
 
 export const resolveS3Config = <T>(
@@ -76,6 +93,7 @@ export const resolveS3Config = <T>(
     followRegionRedirects,
     s3ExpressIdentityProvider,
     bucketEndpoint,
+    expectContinueHeader,
   } = input;
 
   return Object.assign(input, {
@@ -93,5 +111,6 @@ export const resolveS3Config = <T>(
         )
       ),
     bucketEndpoint: bucketEndpoint ?? false,
+    expectContinueHeader: expectContinueHeader ?? 2_097_152,
   });
 };
