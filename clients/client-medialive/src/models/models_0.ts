@@ -2726,6 +2726,68 @@ export interface CaptionSelector {
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const ChannelAlertState = {
+  CLEARED: "CLEARED",
+  SET: "SET",
+} as const;
+
+/**
+ * @public
+ */
+export type ChannelAlertState = (typeof ChannelAlertState)[keyof typeof ChannelAlertState];
+
+/**
+ * An alert on a channel
+ * @public
+ */
+export interface ChannelAlert {
+  /**
+   * The type of the alert
+   * @public
+   */
+  AlertType?: string | undefined;
+
+  /**
+   * The time when the alert was cleared
+   * @public
+   */
+  ClearedTimestamp?: Date | undefined;
+
+  /**
+   * The unique ID for this alert instance
+   * @public
+   */
+  Id?: string | undefined;
+
+  /**
+   * The user facing alert message which can have more context
+   * @public
+   */
+  Message?: string | undefined;
+
+  /**
+   * The ID of the pipeline this alert is associated with
+   * @public
+   */
+  PipelineId?: string | undefined;
+
+  /**
+   * The time when the alert was set
+   * @public
+   */
+  SetTimestamp?: Date | undefined;
+
+  /**
+   * The state of the alert
+   * @public
+   */
+  State?: ChannelAlertState | undefined;
+}
+
+/**
  * Placeholder documentation for ChannelEgressEndpoint
  * @public
  */
@@ -4066,6 +4128,74 @@ export interface CloudWatchAlarmTemplateSummary {
    * @public
    */
   TreatMissingData: CloudWatchAlarmTemplateTreatMissingData | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ClusterAlertState = {
+  CLEARED: "CLEARED",
+  SET: "SET",
+} as const;
+
+/**
+ * @public
+ */
+export type ClusterAlertState = (typeof ClusterAlertState)[keyof typeof ClusterAlertState];
+
+/**
+ * An alert on a cluster
+ * @public
+ */
+export interface ClusterAlert {
+  /**
+   * The type of the alert
+   * @public
+   */
+  AlertType?: string | undefined;
+
+  /**
+   * The ID of the channel this alert is associated with
+   * @public
+   */
+  ChannelId?: string | undefined;
+
+  /**
+   * The time when the alert was cleared
+   * @public
+   */
+  ClearedTimestamp?: Date | undefined;
+
+  /**
+   * The further subtype of this alert
+   * @public
+   */
+  Id?: string | undefined;
+
+  /**
+   * The user facing alert message which can have more context
+   * @public
+   */
+  Message?: string | undefined;
+
+  /**
+   * The ID of the node this alert is associated with
+   * @public
+   */
+  NodeId?: string | undefined;
+
+  /**
+   * The time when the alert was set
+   * @public
+   */
+  SetTimestamp?: Date | undefined;
+
+  /**
+   * The state of the alert
+   * @public
+   */
+  State?: ClusterAlertState | undefined;
 }
 
 /**
@@ -6150,6 +6280,68 @@ export interface MulticastSourceUpdateRequest {
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const MultiplexAlertState = {
+  CLEARED: "CLEARED",
+  SET: "SET",
+} as const;
+
+/**
+ * @public
+ */
+export type MultiplexAlertState = (typeof MultiplexAlertState)[keyof typeof MultiplexAlertState];
+
+/**
+ * An alert on a multiplex
+ * @public
+ */
+export interface MultiplexAlert {
+  /**
+   * The type of the alert
+   * @public
+   */
+  AlertType?: string | undefined;
+
+  /**
+   * The time when the alert was cleared
+   * @public
+   */
+  ClearedTimestamp?: Date | undefined;
+
+  /**
+   * The unique ID for this alert instance
+   * @public
+   */
+  Id?: string | undefined;
+
+  /**
+   * The user facing alert message which can have more context
+   * @public
+   */
+  Message?: string | undefined;
+
+  /**
+   * The ID of the pipeline this alert is associated with
+   * @public
+   */
+  PipelineId?: string | undefined;
+
+  /**
+   * The time when the alert was set
+   * @public
+   */
+  SetTimestamp?: Date | undefined;
+
+  /**
+   * The state of the alert
+   * @public
+   */
+  State?: MultiplexAlertState | undefined;
+}
+
+/**
  * Multiplex MediaConnect output destination settings.
  * @public
  */
@@ -6769,87 +6961,3 @@ export interface DvbTdtSettings {
    */
   RepInterval?: number | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const M2tsEbifControl = {
-  NONE: "NONE",
-  PASSTHROUGH: "PASSTHROUGH",
-} as const;
-
-/**
- * @public
- */
-export type M2tsEbifControl = (typeof M2tsEbifControl)[keyof typeof M2tsEbifControl];
-
-/**
- * @public
- * @enum
- */
-export const M2tsAudioInterval = {
-  VIDEO_AND_FIXED_INTERVALS: "VIDEO_AND_FIXED_INTERVALS",
-  VIDEO_INTERVAL: "VIDEO_INTERVAL",
-} as const;
-
-/**
- * @public
- */
-export type M2tsAudioInterval = (typeof M2tsAudioInterval)[keyof typeof M2tsAudioInterval];
-
-/**
- * @public
- * @enum
- */
-export const M2tsEbpPlacement = {
-  VIDEO_AND_AUDIO_PIDS: "VIDEO_AND_AUDIO_PIDS",
-  VIDEO_PID: "VIDEO_PID",
-} as const;
-
-/**
- * @public
- */
-export type M2tsEbpPlacement = (typeof M2tsEbpPlacement)[keyof typeof M2tsEbpPlacement];
-
-/**
- * @public
- * @enum
- */
-export const M2tsEsRateInPes = {
-  EXCLUDE: "EXCLUDE",
-  INCLUDE: "INCLUDE",
-} as const;
-
-/**
- * @public
- */
-export type M2tsEsRateInPes = (typeof M2tsEsRateInPes)[keyof typeof M2tsEsRateInPes];
-
-/**
- * @public
- * @enum
- */
-export const M2tsKlv = {
-  NONE: "NONE",
-  PASSTHROUGH: "PASSTHROUGH",
-} as const;
-
-/**
- * @public
- */
-export type M2tsKlv = (typeof M2tsKlv)[keyof typeof M2tsKlv];
-
-/**
- * @public
- * @enum
- */
-export const M2tsNielsenId3Behavior = {
-  NO_PASSTHROUGH: "NO_PASSTHROUGH",
-  PASSTHROUGH: "PASSTHROUGH",
-} as const;
-
-/**
- * @public
- */
-export type M2tsNielsenId3Behavior = (typeof M2tsNielsenId3Behavior)[keyof typeof M2tsNielsenId3Behavior];

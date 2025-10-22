@@ -287,6 +287,7 @@ import {
   GetSignalMapCommandInput,
   GetSignalMapCommandOutput,
 } from "./commands/GetSignalMapCommand";
+import { ListAlertsCommand, ListAlertsCommandInput, ListAlertsCommandOutput } from "./commands/ListAlertsCommand";
 import {
   ListChannelPlacementGroupsCommand,
   ListChannelPlacementGroupsCommandInput,
@@ -307,6 +308,11 @@ import {
   ListCloudWatchAlarmTemplatesCommandInput,
   ListCloudWatchAlarmTemplatesCommandOutput,
 } from "./commands/ListCloudWatchAlarmTemplatesCommand";
+import {
+  ListClusterAlertsCommand,
+  ListClusterAlertsCommandInput,
+  ListClusterAlertsCommandOutput,
+} from "./commands/ListClusterAlertsCommand";
 import {
   ListClustersCommand,
   ListClustersCommandInput,
@@ -338,6 +344,11 @@ import {
   ListInputSecurityGroupsCommandInput,
   ListInputSecurityGroupsCommandOutput,
 } from "./commands/ListInputSecurityGroupsCommand";
+import {
+  ListMultiplexAlertsCommand,
+  ListMultiplexAlertsCommandInput,
+  ListMultiplexAlertsCommandOutput,
+} from "./commands/ListMultiplexAlertsCommand";
 import {
   ListMultiplexesCommand,
   ListMultiplexesCommandInput,
@@ -610,10 +621,12 @@ const commands = {
   GetEventBridgeRuleTemplateCommand,
   GetEventBridgeRuleTemplateGroupCommand,
   GetSignalMapCommand,
+  ListAlertsCommand,
   ListChannelPlacementGroupsCommand,
   ListChannelsCommand,
   ListCloudWatchAlarmTemplateGroupsCommand,
   ListCloudWatchAlarmTemplatesCommand,
+  ListClusterAlertsCommand,
   ListClustersCommand,
   ListEventBridgeRuleTemplateGroupsCommand,
   ListEventBridgeRuleTemplatesCommand,
@@ -621,6 +634,7 @@ const commands = {
   ListInputDeviceTransfersCommand,
   ListInputsCommand,
   ListInputSecurityGroupsCommand,
+  ListMultiplexAlertsCommand,
   ListMultiplexesCommand,
   ListMultiplexProgramsCommand,
   ListNetworksCommand,
@@ -1641,6 +1655,17 @@ export interface MediaLive {
   ): void;
 
   /**
+   * @see {@link ListAlertsCommand}
+   */
+  listAlerts(args: ListAlertsCommandInput, options?: __HttpHandlerOptions): Promise<ListAlertsCommandOutput>;
+  listAlerts(args: ListAlertsCommandInput, cb: (err: any, data?: ListAlertsCommandOutput) => void): void;
+  listAlerts(
+    args: ListAlertsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListAlertsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListChannelPlacementGroupsCommand}
    */
   listChannelPlacementGroups(
@@ -1703,6 +1728,23 @@ export interface MediaLive {
     args: ListCloudWatchAlarmTemplatesCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListCloudWatchAlarmTemplatesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListClusterAlertsCommand}
+   */
+  listClusterAlerts(
+    args: ListClusterAlertsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListClusterAlertsCommandOutput>;
+  listClusterAlerts(
+    args: ListClusterAlertsCommandInput,
+    cb: (err: any, data?: ListClusterAlertsCommandOutput) => void
+  ): void;
+  listClusterAlerts(
+    args: ListClusterAlertsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListClusterAlertsCommandOutput) => void
   ): void;
 
   /**
@@ -1816,6 +1858,23 @@ export interface MediaLive {
     args: ListInputSecurityGroupsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListInputSecurityGroupsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListMultiplexAlertsCommand}
+   */
+  listMultiplexAlerts(
+    args: ListMultiplexAlertsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListMultiplexAlertsCommandOutput>;
+  listMultiplexAlerts(
+    args: ListMultiplexAlertsCommandInput,
+    cb: (err: any, data?: ListMultiplexAlertsCommandOutput) => void
+  ): void;
+  listMultiplexAlerts(
+    args: ListMultiplexAlertsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListMultiplexAlertsCommandOutput) => void
   ): void;
 
   /**

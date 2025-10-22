@@ -184,6 +184,7 @@ import {
   GetEventBridgeRuleTemplateGroupCommandOutput,
 } from "../commands/GetEventBridgeRuleTemplateGroupCommand";
 import { GetSignalMapCommandInput, GetSignalMapCommandOutput } from "../commands/GetSignalMapCommand";
+import { ListAlertsCommandInput, ListAlertsCommandOutput } from "../commands/ListAlertsCommand";
 import {
   ListChannelPlacementGroupsCommandInput,
   ListChannelPlacementGroupsCommandOutput,
@@ -197,6 +198,7 @@ import {
   ListCloudWatchAlarmTemplatesCommandInput,
   ListCloudWatchAlarmTemplatesCommandOutput,
 } from "../commands/ListCloudWatchAlarmTemplatesCommand";
+import { ListClusterAlertsCommandInput, ListClusterAlertsCommandOutput } from "../commands/ListClusterAlertsCommand";
 import { ListClustersCommandInput, ListClustersCommandOutput } from "../commands/ListClustersCommand";
 import {
   ListEventBridgeRuleTemplateGroupsCommandInput,
@@ -216,6 +218,10 @@ import {
   ListInputSecurityGroupsCommandInput,
   ListInputSecurityGroupsCommandOutput,
 } from "../commands/ListInputSecurityGroupsCommand";
+import {
+  ListMultiplexAlertsCommandInput,
+  ListMultiplexAlertsCommandOutput,
+} from "../commands/ListMultiplexAlertsCommand";
 import { ListMultiplexesCommandInput, ListMultiplexesCommandOutput } from "../commands/ListMultiplexesCommand";
 import {
   ListMultiplexProgramsCommandInput,
@@ -344,12 +350,14 @@ import {
   CaptionSelector,
   CaptionSelectorSettings,
   CdiInputSpecification,
+  ChannelAlert,
   ChannelEgressEndpoint,
   ChannelEngineVersionResponse,
   ChannelPipelineIdToRestart,
   ChannelSummary,
   CloudWatchAlarmTemplateGroupSummary,
   CloudWatchAlarmTemplateSummary,
+  ClusterAlert,
   ClusterNetworkSettings,
   CmafIngestCaptionLanguageMapping,
   ColorCorrection,
@@ -423,6 +431,7 @@ import {
   MulticastSource,
   MulticastSourceCreateRequest,
   MulticastSourceUpdateRequest,
+  MultiplexAlert,
   MultiplexMediaConnectOutputDestinationSettings,
   MultiplexOutputDestination,
   MultiplexProgramChannelDestinationSettings,
@@ -483,8 +492,6 @@ import {
   Av1ColorSpaceSettings,
   Av1Settings,
   AvailBlanking,
-  AvailConfiguration,
-  AvailSettings,
   BadGatewayException,
   BadRequestException,
   BandwidthReductionFilterSettings,
@@ -575,7 +582,6 @@ import {
   Scte35SegmentationDescriptor,
   Scte35SpliceInsert,
   Scte35SpliceInsertScheduleActionSettings,
-  Scte35TimeSignalApos,
   Scte35TimeSignalScheduleActionSettings,
   SdiSourceSummary,
   SignalMapSummary,
@@ -607,6 +613,8 @@ import {
   VideoDescription,
 } from "../models/models_1";
 import {
+  AvailConfiguration,
+  AvailSettings,
   BatchScheduleActionCreateRequest,
   BatchScheduleActionCreateResult,
   BatchScheduleActionDeleteRequest,
@@ -645,6 +653,7 @@ import {
   NielsenConfiguration,
   OutputLockingSettings,
   PipelineLockingSettings,
+  Scte35TimeSignalApos,
   SdiSource,
   SdiSourceMappingUpdateRequest,
   SrtSettingsRequest,
@@ -1966,6 +1975,27 @@ export const se_GetSignalMapCommand = async (
 };
 
 /**
+ * serializeAws_restJson1ListAlertsCommand
+ */
+export const se_ListAlertsCommand = async (
+  input: ListAlertsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/prod/channels/{ChannelId}/alerts");
+  b.p("ChannelId", () => input.ChannelId!, "{ChannelId}", false);
+  const query: any = map({
+    [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_nT]: [, input[_NT]!],
+    [_sF]: [, input[_SF]!],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1ListChannelPlacementGroupsCommand
  */
 export const se_ListChannelPlacementGroupsCommand = async (
@@ -2041,6 +2071,27 @@ export const se_ListCloudWatchAlarmTemplatesCommand = async (
     [_nT]: [, input[_NT]!],
     [_s]: [, input[_S]!],
     [_sMI]: [, input[_SMI]!],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListClusterAlertsCommand
+ */
+export const se_ListClusterAlertsCommand = async (
+  input: ListClusterAlertsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/prod/clusters/{ClusterId}/alerts");
+  b.p("ClusterId", () => input.ClusterId!, "{ClusterId}", false);
+  const query: any = map({
+    [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_nT]: [, input[_NT]!],
+    [_sF]: [, input[_SF]!],
   });
   let body: any;
   b.m("GET").h(headers).q(query).b(body);
@@ -2185,6 +2236,27 @@ export const se_ListInputSecurityGroupsCommand = async (
 };
 
 /**
+ * serializeAws_restJson1ListMultiplexAlertsCommand
+ */
+export const se_ListMultiplexAlertsCommand = async (
+  input: ListMultiplexAlertsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/prod/multiplexes/{MultiplexId}/alerts");
+  b.p("MultiplexId", () => input.MultiplexId!, "{MultiplexId}", false);
+  const query: any = map({
+    [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_nT]: [, input[_NT]!],
+    [_sF]: [, input[_SF]!],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1ListMultiplexesCommand
  */
 export const se_ListMultiplexesCommand = async (
@@ -2283,7 +2355,7 @@ export const se_ListOfferingsCommand = async (
     [_nT]: [, input[_NT]!],
     [_r]: [, input[_R]!],
     [_rT]: [, input[_RT]!],
-    [_sF]: [, input[_SF]!],
+    [_sFp]: [, input[_SFp]!],
     [_vQ]: [, input[_VQ]!],
   });
   let body: any;
@@ -2310,7 +2382,7 @@ export const se_ListReservationsCommand = async (
     [_nT]: [, input[_NT]!],
     [_r]: [, input[_R]!],
     [_rT]: [, input[_RT]!],
-    [_sF]: [, input[_SF]!],
+    [_sFp]: [, input[_SFp]!],
     [_vQ]: [, input[_VQ]!],
   });
   let body: any;
@@ -4857,6 +4929,28 @@ export const de_GetSignalMapCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1ListAlertsCommand
+ */
+export const de_ListAlertsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListAlertsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Alerts: [, (_) => de___listOfChannelAlert(_, context), `alerts`],
+    NextToken: [, __expectString, `nextToken`],
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1ListChannelPlacementGroupsCommand
  */
 export const de_ListChannelPlacementGroupsCommand = async (
@@ -4950,6 +5044,28 @@ export const de_ListCloudWatchAlarmTemplatesCommand = async (
       (_) => de___listOfCloudWatchAlarmTemplateSummary(_, context),
       `cloudWatchAlarmTemplates`,
     ],
+    NextToken: [, __expectString, `nextToken`],
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListClusterAlertsCommand
+ */
+export const de_ListClusterAlertsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListClusterAlertsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Alerts: [, (_) => de___listOfClusterAlert(_, context), `alerts`],
     NextToken: [, __expectString, `nextToken`],
   });
   Object.assign(contents, doc);
@@ -5112,6 +5228,28 @@ export const de_ListInputSecurityGroupsCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     InputSecurityGroups: [, (_) => de___listOfInputSecurityGroup(_, context), `inputSecurityGroups`],
+    NextToken: [, __expectString, `nextToken`],
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListMultiplexAlertsCommand
+ */
+export const de_ListMultiplexAlertsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListMultiplexAlertsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Alerts: [, (_) => de___listOfMultiplexAlert(_, context), `alerts`],
     NextToken: [, __expectString, `nextToken`],
   });
   Object.assign(contents, doc);
@@ -10293,6 +10431,18 @@ const de___listOfCaptionSelector = (output: any, context: __SerdeContext): Capti
 };
 
 /**
+ * deserializeAws_restJson1__listOfChannelAlert
+ */
+const de___listOfChannelAlert = (output: any, context: __SerdeContext): ChannelAlert[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_ChannelAlert(entry, context);
+    });
+  return retVal;
+};
+
+/**
  * deserializeAws_restJson1__listOfChannelEgressEndpoint
  */
 const de___listOfChannelEgressEndpoint = (output: any, context: __SerdeContext): ChannelEgressEndpoint[] => {
@@ -10357,6 +10507,18 @@ const de___listOfCloudWatchAlarmTemplateSummary = (
     .filter((e: any) => e != null)
     .map((entry: any) => {
       return de_CloudWatchAlarmTemplateSummary(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1__listOfClusterAlert
+ */
+const de___listOfClusterAlert = (output: any, context: __SerdeContext): ClusterAlert[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_ClusterAlert(entry, context);
     });
   return retVal;
 };
@@ -10720,6 +10882,18 @@ const de___listOfMulticastSource = (output: any, context: __SerdeContext): Multi
     .filter((e: any) => e != null)
     .map((entry: any) => {
       return de_MulticastSource(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1__listOfMultiplexAlert
+ */
+const de___listOfMultiplexAlert = (output: any, context: __SerdeContext): MultiplexAlert[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_MultiplexAlert(entry, context);
     });
   return retVal;
 };
@@ -11628,6 +11802,21 @@ const de_Channel = (output: any, context: __SerdeContext): Channel => {
 };
 
 /**
+ * deserializeAws_restJson1ChannelAlert
+ */
+const de_ChannelAlert = (output: any, context: __SerdeContext): ChannelAlert => {
+  return take(output, {
+    AlertType: [, __expectString, `alertType`],
+    ClearedTimestamp: [, (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)), `clearedTimestamp`],
+    Id: [, __expectString, `id`],
+    Message: [, __expectString, `message`],
+    PipelineId: [, __expectString, `pipelineId`],
+    SetTimestamp: [, (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)), `setTimestamp`],
+    State: [, __expectString, `state`],
+  }) as any;
+};
+
+/**
  * deserializeAws_restJson1ChannelEgressEndpoint
  */
 const de_ChannelEgressEndpoint = (output: any, context: __SerdeContext): ChannelEgressEndpoint => {
@@ -11718,6 +11907,22 @@ const de_CloudWatchAlarmTemplateSummary = (output: any, context: __SerdeContext)
     TargetResourceType: [, __expectString, `targetResourceType`],
     Threshold: [, __limitedParseDouble, `threshold`],
     TreatMissingData: [, __expectString, `treatMissingData`],
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1ClusterAlert
+ */
+const de_ClusterAlert = (output: any, context: __SerdeContext): ClusterAlert => {
+  return take(output, {
+    AlertType: [, __expectString, `alertType`],
+    ChannelId: [, __expectString, `channelId`],
+    ClearedTimestamp: [, (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)), `clearedTimestamp`],
+    Id: [, __expectString, `id`],
+    Message: [, __expectString, `message`],
+    NodeId: [, __expectString, `nodeId`],
+    SetTimestamp: [, (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)), `setTimestamp`],
+    State: [, __expectString, `state`],
   }) as any;
 };
 
@@ -13413,6 +13618,21 @@ const de_Multiplex = (output: any, context: __SerdeContext): Multiplex => {
 };
 
 /**
+ * deserializeAws_restJson1MultiplexAlert
+ */
+const de_MultiplexAlert = (output: any, context: __SerdeContext): MultiplexAlert => {
+  return take(output, {
+    AlertType: [, __expectString, `alertType`],
+    ClearedTimestamp: [, (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)), `clearedTimestamp`],
+    Id: [, __expectString, `id`],
+    Message: [, __expectString, `message`],
+    PipelineId: [, __expectString, `pipelineId`],
+    SetTimestamp: [, (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)), `setTimestamp`],
+    State: [, __expectString, `state`],
+  }) as any;
+};
+
+/**
  * deserializeAws_restJson1MultiplexContainerSettings
  */
 const de_MultiplexContainerSettings = (output: any, context: __SerdeContext): MultiplexContainerSettings => {
@@ -14827,7 +15047,8 @@ const _PI = "PipelineId";
 const _R = "Resolution";
 const _RT = "ResourceType";
 const _S = "Scope";
-const _SF = "SpecialFeature";
+const _SF = "StateFilter";
+const _SFp = "SpecialFeature";
 const _SMI = "SignalMapIdentifier";
 const _TK = "TagKeys";
 const _TT = "ThumbnailType";
@@ -14853,7 +15074,8 @@ const _pI = "pipelineId";
 const _r = "resolution";
 const _rT = "resourceType";
 const _s = "scope";
-const _sF = "specialFeature";
+const _sF = "stateFilter";
+const _sFp = "specialFeature";
 const _sMI = "signalMapIdentifier";
 const _tK = "tagKeys";
 const _tT = "thumbnailType";

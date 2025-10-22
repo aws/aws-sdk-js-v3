@@ -7,6 +7,7 @@ import {
   BatchSuccessfulResultModel,
   CaptionDescription,
   CdiInputSpecification,
+  ChannelAlert,
   ChannelClass,
   ChannelEgressEndpoint,
   ChannelEngineVersionResponse,
@@ -20,6 +21,7 @@ import {
   CloudWatchAlarmTemplateSummary,
   CloudWatchAlarmTemplateTargetResourceType,
   CloudWatchAlarmTemplateTreatMissingData,
+  ClusterAlert,
   ClusterNetworkSettings,
   ClusterState,
   ClusterType,
@@ -78,6 +80,7 @@ import {
   MulticastSettings,
   MulticastSourceCreateRequest,
   MulticastSourceUpdateRequest,
+  MultiplexAlert,
   MultiplexOutputDestination,
   MultiplexProgramPipelineDetail,
   MultiplexProgramSummary,
@@ -106,7 +109,7 @@ import {
   AccountConfiguration,
   AnywhereSettings,
   AvailBlanking,
-  AvailConfiguration,
+  Esam,
   OutputGroup,
   PipelineDetail,
   RenewalSettings,
@@ -115,6 +118,9 @@ import {
   RouteCreateRequest,
   RouteUpdateRequest,
   ScheduleAction,
+  Scte35AposNoRegionalBlackoutBehavior,
+  Scte35AposWebDeliveryAllowedBehavior,
+  Scte35SpliceInsert,
   SdiSourceMode,
   SdiSourceState,
   SdiSourceSummary,
@@ -127,6 +133,137 @@ import {
   TransferringInputDeviceSummary,
   VideoDescription,
 } from "./models_1";
+
+/**
+ * Atypical configuration that applies segment breaks only on SCTE-35 time signal placement opportunities and breaks.
+ * @public
+ */
+export interface Scte35TimeSignalApos {
+  /**
+   * When specified, this offset (in milliseconds) is added to the input Ad Avail PTS time. This only applies to embedded SCTE 104/35 messages and does not apply to OOB messages.
+   * @public
+   */
+  AdAvailOffset?: number | undefined;
+
+  /**
+   * When set to ignore, Segment Descriptors with noRegionalBlackoutFlag set to 0 will no longer trigger blackouts or Ad Avail slates
+   * @public
+   */
+  NoRegionalBlackoutFlag?: Scte35AposNoRegionalBlackoutBehavior | undefined;
+
+  /**
+   * When set to ignore, Segment Descriptors with webDeliveryAllowedFlag set to 0 will no longer trigger blackouts or Ad Avail slates
+   * @public
+   */
+  WebDeliveryAllowedFlag?: Scte35AposWebDeliveryAllowedBehavior | undefined;
+}
+
+/**
+ * Avail Settings
+ * @public
+ */
+export interface AvailSettings {
+  /**
+   * Esam
+   * @public
+   */
+  Esam?: Esam | undefined;
+
+  /**
+   * Typical configuration that applies breaks on splice inserts in addition to time signal placement opportunities, breaks, and advertisements.
+   * @public
+   */
+  Scte35SpliceInsert?: Scte35SpliceInsert | undefined;
+
+  /**
+   * Atypical configuration that applies segment breaks only on SCTE-35 time signal placement opportunities and breaks.
+   * @public
+   */
+  Scte35TimeSignalApos?: Scte35TimeSignalApos | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const Scte35SegmentationScope = {
+  ALL_OUTPUT_GROUPS: "ALL_OUTPUT_GROUPS",
+  SCTE35_ENABLED_OUTPUT_GROUPS: "SCTE35_ENABLED_OUTPUT_GROUPS",
+} as const;
+
+/**
+ * @public
+ */
+export type Scte35SegmentationScope = (typeof Scte35SegmentationScope)[keyof typeof Scte35SegmentationScope];
+
+/**
+ * Avail Configuration
+ * @public
+ */
+export interface AvailConfiguration {
+  /**
+   * Controls how SCTE-35 messages create cues. Splice Insert mode treats all segmentation signals traditionally. With Time Signal APOS mode only Time Signal Placement Opportunity and Break messages create segment breaks. With ESAM mode, signals are forwarded to an ESAM server for possible update.
+   * @public
+   */
+  AvailSettings?: AvailSettings | undefined;
+
+  /**
+   * Configures whether SCTE 35 passthrough triggers segment breaks in all output groups that use segmented outputs. Insertion of a SCTE 35 message typically results in a segment break, in addition to the regular cadence of breaks. The segment breaks appear in video outputs, audio outputs, and captions outputs (if any).
+   *
+   * ALL_OUTPUT_GROUPS: Default. Insert the segment break in in all output groups that have segmented outputs. This is the legacy behavior.
+   * SCTE35_ENABLED_OUTPUT_GROUPS: Insert the segment break only in output groups that have SCTE 35 passthrough enabled. This is the recommended value, because it reduces unnecessary segment breaks.
+   * @public
+   */
+  Scte35SegmentationScope?: Scte35SegmentationScope | undefined;
+}
+
+/**
+ * A request to delete resources
+ * @public
+ */
+export interface BatchDeleteRequest {
+  /**
+   * List of channel IDs
+   * @public
+   */
+  ChannelIds?: string[] | undefined;
+
+  /**
+   * List of input IDs
+   * @public
+   */
+  InputIds?: string[] | undefined;
+
+  /**
+   * List of input security group IDs
+   * @public
+   */
+  InputSecurityGroupIds?: string[] | undefined;
+
+  /**
+   * List of multiplex IDs
+   * @public
+   */
+  MultiplexIds?: string[] | undefined;
+}
+
+/**
+ * Placeholder documentation for BatchDeleteResponse
+ * @public
+ */
+export interface BatchDeleteResponse {
+  /**
+   * List of failed operations
+   * @public
+   */
+  Failed?: BatchFailedResultModel[] | undefined;
+
+  /**
+   * List of successful operations
+   * @public
+   */
+  Successful?: BatchSuccessfulResultModel[] | undefined;
+}
 
 /**
  * A list of schedule actions to create (in a request) or that have been created (in a response).
@@ -5793,6 +5930,54 @@ export interface InputDeviceConfigurableSettings {
 }
 
 /**
+ * Placeholder documentation for ListAlertsRequest
+ * @public
+ */
+export interface ListAlertsRequest {
+  /**
+   * The unique ID of the channel
+   * @public
+   */
+  ChannelId: string | undefined;
+
+  /**
+   * The maximum number of items to return
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * The next pagination token
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * Specifies the set of alerts to return based on their state. SET - Return only alerts with SET state. CLEARED - Return only alerts with CLEARED state. ALL - Return all alerts.
+   * @public
+   */
+  StateFilter?: string | undefined;
+}
+
+/**
+ * Placeholder documentation for ListAlertsResponse
+ * @public
+ */
+export interface ListAlertsResponse {
+  /**
+   * The alerts found for this channel
+   * @public
+   */
+  Alerts?: ChannelAlert[] | undefined;
+
+  /**
+   * The token to use to retrieve the next page of results
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
  * Placeholder documentation for ListChannelPlacementGroupsRequest
  * @public
  */
@@ -5967,6 +6152,54 @@ export interface ListCloudWatchAlarmTemplatesResponse {
 
   /**
    * A token used to retrieve the next set of results in paginated list responses.
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * Placeholder documentation for ListClusterAlertsRequest
+ * @public
+ */
+export interface ListClusterAlertsRequest {
+  /**
+   * The unique ID of the cluster
+   * @public
+   */
+  ClusterId: string | undefined;
+
+  /**
+   * The maximum number of items to return
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * The next pagination token
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * Specifies the set of alerts to return based on their state. SET - Return only alerts with SET state. CLEARED - Return only alerts with CLEARED state. ALL - Return all alerts.
+   * @public
+   */
+  StateFilter?: string | undefined;
+}
+
+/**
+ * Placeholder documentation for ListClusterAlertsResponse
+ * @public
+ */
+export interface ListClusterAlertsResponse {
+  /**
+   * The alerts found for this cluster
+   * @public
+   */
+  Alerts?: ClusterAlert[] | undefined;
+
+  /**
+   * The token to use to retrieve the next page of results
    * @public
    */
   NextToken?: string | undefined;
@@ -6243,6 +6476,54 @@ export interface ListInputSecurityGroupsResponse {
 
   /**
    * Placeholder documentation for __string
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * Placeholder documentation for ListMultiplexAlertsRequest
+ * @public
+ */
+export interface ListMultiplexAlertsRequest {
+  /**
+   * The maximum number of items to return
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * The unique ID of the multiplex
+   * @public
+   */
+  MultiplexId: string | undefined;
+
+  /**
+   * The next pagination token
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * Specifies the set of alerts to return based on their state. SET - Return only alerts with SET state. CLEARED - Return only alerts with CLEARED state. ALL - Return all alerts.
+   * @public
+   */
+  StateFilter?: string | undefined;
+}
+
+/**
+ * Placeholder documentation for ListMultiplexAlertsResponse
+ * @public
+ */
+export interface ListMultiplexAlertsResponse {
+  /**
+   * The alerts found for this multiplex
+   * @public
+   */
+  Alerts?: MultiplexAlert[] | undefined;
+
+  /**
+   * The token to use to retrieve the next page of results
    * @public
    */
   NextToken?: string | undefined;
@@ -9388,60 +9669,6 @@ export interface UpdateReservationRequest {
    * @public
    */
   ReservationId: string | undefined;
-}
-
-/**
- * Placeholder documentation for UpdateReservationResponse
- * @public
- */
-export interface UpdateReservationResponse {
-  /**
-   * Reserved resources available to use
-   * @public
-   */
-  Reservation?: Reservation | undefined;
-}
-
-/**
- * A request to update the SdiSource.
- * @public
- */
-export interface UpdateSdiSourceRequest {
-  /**
-   * Include this parameter only if you want to change the name of the SdiSource. Specify a name that is unique in the AWS account. We recommend you assign a name that describes the source, for example curling-cameraA. Names are case-sensitive.
-   * @public
-   */
-  Mode?: SdiSourceMode | undefined;
-
-  /**
-   * Include this parameter only if you want to change the name of the SdiSource. Specify a name that is unique in the AWS account. We recommend you assign a name that describes the source, for example curling-cameraA. Names are case-sensitive.
-   * @public
-   */
-  Name?: string | undefined;
-
-  /**
-   * The ID of the SdiSource
-   * @public
-   */
-  SdiSourceId: string | undefined;
-
-  /**
-   * Include this parameter only if you want to change the mode. Specify the type of the SDI source: SINGLE: The source is a single-link source. QUAD: The source is one part of a quad-link source.
-   * @public
-   */
-  Type?: SdiSourceType | undefined;
-}
-
-/**
- * Placeholder documentation for UpdateSdiSourceResponse
- * @public
- */
-export interface UpdateSdiSourceResponse {
-  /**
-   * Settings for the SDI source.
-   * @public
-   */
-  SdiSource?: SdiSource | undefined;
 }
 
 /**

@@ -6,8 +6,6 @@ import { MediaLiveServiceException as __BaseException } from "./MediaLiveService
 import {
   AdditionalDestinations,
   Algorithm,
-  BatchFailedResultModel,
-  BatchSuccessfulResultModel,
   CaptionLanguageMapping,
   ChannelEngineVersionResponse,
   CmafIngestCaptionLanguageMapping,
@@ -21,20 +19,98 @@ import {
   M2tsArib,
   M2tsAribCaptionsPidControl,
   M2tsAudioBufferModel,
-  M2tsAudioInterval,
   M2tsAudioStreamType,
   M2tsBufferModel,
   M2tsCcDescriptor,
-  M2tsEbifControl,
-  M2tsEbpPlacement,
-  M2tsEsRateInPes,
-  M2tsKlv,
-  M2tsNielsenId3Behavior,
   OfferingDurationUnits,
   OfferingType,
   OutputLocationRef,
   ReservationResourceSpecification,
 } from "./models_0";
+
+/**
+ * @public
+ * @enum
+ */
+export const M2tsEbifControl = {
+  NONE: "NONE",
+  PASSTHROUGH: "PASSTHROUGH",
+} as const;
+
+/**
+ * @public
+ */
+export type M2tsEbifControl = (typeof M2tsEbifControl)[keyof typeof M2tsEbifControl];
+
+/**
+ * @public
+ * @enum
+ */
+export const M2tsAudioInterval = {
+  VIDEO_AND_FIXED_INTERVALS: "VIDEO_AND_FIXED_INTERVALS",
+  VIDEO_INTERVAL: "VIDEO_INTERVAL",
+} as const;
+
+/**
+ * @public
+ */
+export type M2tsAudioInterval = (typeof M2tsAudioInterval)[keyof typeof M2tsAudioInterval];
+
+/**
+ * @public
+ * @enum
+ */
+export const M2tsEbpPlacement = {
+  VIDEO_AND_AUDIO_PIDS: "VIDEO_AND_AUDIO_PIDS",
+  VIDEO_PID: "VIDEO_PID",
+} as const;
+
+/**
+ * @public
+ */
+export type M2tsEbpPlacement = (typeof M2tsEbpPlacement)[keyof typeof M2tsEbpPlacement];
+
+/**
+ * @public
+ * @enum
+ */
+export const M2tsEsRateInPes = {
+  EXCLUDE: "EXCLUDE",
+  INCLUDE: "INCLUDE",
+} as const;
+
+/**
+ * @public
+ */
+export type M2tsEsRateInPes = (typeof M2tsEsRateInPes)[keyof typeof M2tsEsRateInPes];
+
+/**
+ * @public
+ * @enum
+ */
+export const M2tsKlv = {
+  NONE: "NONE",
+  PASSTHROUGH: "PASSTHROUGH",
+} as const;
+
+/**
+ * @public
+ */
+export type M2tsKlv = (typeof M2tsKlv)[keyof typeof M2tsKlv];
+
+/**
+ * @public
+ * @enum
+ */
+export const M2tsNielsenId3Behavior = {
+  NO_PASSTHROUGH: "NO_PASSTHROUGH",
+  PASSTHROUGH: "PASSTHROUGH",
+} as const;
+
+/**
+ * @public
+ */
+export type M2tsNielsenId3Behavior = (typeof M2tsNielsenId3Behavior)[keyof typeof M2tsNielsenId3Behavior];
 
 /**
  * @public
@@ -7529,134 +7605,3 @@ export const Scte35AposWebDeliveryAllowedBehavior = {
  */
 export type Scte35AposWebDeliveryAllowedBehavior =
   (typeof Scte35AposWebDeliveryAllowedBehavior)[keyof typeof Scte35AposWebDeliveryAllowedBehavior];
-
-/**
- * Atypical configuration that applies segment breaks only on SCTE-35 time signal placement opportunities and breaks.
- * @public
- */
-export interface Scte35TimeSignalApos {
-  /**
-   * When specified, this offset (in milliseconds) is added to the input Ad Avail PTS time. This only applies to embedded SCTE 104/35 messages and does not apply to OOB messages.
-   * @public
-   */
-  AdAvailOffset?: number | undefined;
-
-  /**
-   * When set to ignore, Segment Descriptors with noRegionalBlackoutFlag set to 0 will no longer trigger blackouts or Ad Avail slates
-   * @public
-   */
-  NoRegionalBlackoutFlag?: Scte35AposNoRegionalBlackoutBehavior | undefined;
-
-  /**
-   * When set to ignore, Segment Descriptors with webDeliveryAllowedFlag set to 0 will no longer trigger blackouts or Ad Avail slates
-   * @public
-   */
-  WebDeliveryAllowedFlag?: Scte35AposWebDeliveryAllowedBehavior | undefined;
-}
-
-/**
- * Avail Settings
- * @public
- */
-export interface AvailSettings {
-  /**
-   * Esam
-   * @public
-   */
-  Esam?: Esam | undefined;
-
-  /**
-   * Typical configuration that applies breaks on splice inserts in addition to time signal placement opportunities, breaks, and advertisements.
-   * @public
-   */
-  Scte35SpliceInsert?: Scte35SpliceInsert | undefined;
-
-  /**
-   * Atypical configuration that applies segment breaks only on SCTE-35 time signal placement opportunities and breaks.
-   * @public
-   */
-  Scte35TimeSignalApos?: Scte35TimeSignalApos | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const Scte35SegmentationScope = {
-  ALL_OUTPUT_GROUPS: "ALL_OUTPUT_GROUPS",
-  SCTE35_ENABLED_OUTPUT_GROUPS: "SCTE35_ENABLED_OUTPUT_GROUPS",
-} as const;
-
-/**
- * @public
- */
-export type Scte35SegmentationScope = (typeof Scte35SegmentationScope)[keyof typeof Scte35SegmentationScope];
-
-/**
- * Avail Configuration
- * @public
- */
-export interface AvailConfiguration {
-  /**
-   * Controls how SCTE-35 messages create cues. Splice Insert mode treats all segmentation signals traditionally. With Time Signal APOS mode only Time Signal Placement Opportunity and Break messages create segment breaks. With ESAM mode, signals are forwarded to an ESAM server for possible update.
-   * @public
-   */
-  AvailSettings?: AvailSettings | undefined;
-
-  /**
-   * Configures whether SCTE 35 passthrough triggers segment breaks in all output groups that use segmented outputs. Insertion of a SCTE 35 message typically results in a segment break, in addition to the regular cadence of breaks. The segment breaks appear in video outputs, audio outputs, and captions outputs (if any).
-   *
-   * ALL_OUTPUT_GROUPS: Default. Insert the segment break in in all output groups that have segmented outputs. This is the legacy behavior.
-   * SCTE35_ENABLED_OUTPUT_GROUPS: Insert the segment break only in output groups that have SCTE 35 passthrough enabled. This is the recommended value, because it reduces unnecessary segment breaks.
-   * @public
-   */
-  Scte35SegmentationScope?: Scte35SegmentationScope | undefined;
-}
-
-/**
- * A request to delete resources
- * @public
- */
-export interface BatchDeleteRequest {
-  /**
-   * List of channel IDs
-   * @public
-   */
-  ChannelIds?: string[] | undefined;
-
-  /**
-   * List of input IDs
-   * @public
-   */
-  InputIds?: string[] | undefined;
-
-  /**
-   * List of input security group IDs
-   * @public
-   */
-  InputSecurityGroupIds?: string[] | undefined;
-
-  /**
-   * List of multiplex IDs
-   * @public
-   */
-  MultiplexIds?: string[] | undefined;
-}
-
-/**
- * Placeholder documentation for BatchDeleteResponse
- * @public
- */
-export interface BatchDeleteResponse {
-  /**
-   * List of failed operations
-   * @public
-   */
-  Failed?: BatchFailedResultModel[] | undefined;
-
-  /**
-   * List of successful operations
-   * @public
-   */
-  Successful?: BatchSuccessfulResultModel[] | undefined;
-}

@@ -6,8 +6,8 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
-import { UpdateSdiSourceRequest, UpdateSdiSourceResponse } from "../models/models_3";
-import { de_UpdateSdiSourceCommand, se_UpdateSdiSourceCommand } from "../protocols/Aws_restJson1";
+import { ListAlertsRequest, ListAlertsResponse } from "../models/models_2";
+import { de_ListAlertsCommand, se_ListAlertsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -17,54 +17,55 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link UpdateSdiSourceCommand}.
+ * The input for {@link ListAlertsCommand}.
  */
-export interface UpdateSdiSourceCommandInput extends UpdateSdiSourceRequest {}
+export interface ListAlertsCommandInput extends ListAlertsRequest {}
 /**
  * @public
  *
- * The output of {@link UpdateSdiSourceCommand}.
+ * The output of {@link ListAlertsCommand}.
  */
-export interface UpdateSdiSourceCommandOutput extends UpdateSdiSourceResponse, __MetadataBearer {}
+export interface ListAlertsCommandOutput extends ListAlertsResponse, __MetadataBearer {}
 
 /**
- * Change some of the settings in an SdiSource.
+ * List the alerts for a channel with optional filtering based on alert state.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MediaLiveClient, UpdateSdiSourceCommand } from "@aws-sdk/client-medialive"; // ES Modules import
- * // const { MediaLiveClient, UpdateSdiSourceCommand } = require("@aws-sdk/client-medialive"); // CommonJS import
+ * import { MediaLiveClient, ListAlertsCommand } from "@aws-sdk/client-medialive"; // ES Modules import
+ * // const { MediaLiveClient, ListAlertsCommand } = require("@aws-sdk/client-medialive"); // CommonJS import
  * // import type { MediaLiveClientConfig } from "@aws-sdk/client-medialive";
  * const config = {}; // type is MediaLiveClientConfig
  * const client = new MediaLiveClient(config);
- * const input = { // UpdateSdiSourceRequest
- *   Mode: "QUADRANT" || "INTERLEAVE",
- *   Name: "STRING_VALUE",
- *   SdiSourceId: "STRING_VALUE", // required
- *   Type: "SINGLE" || "QUAD",
+ * const input = { // ListAlertsRequest
+ *   ChannelId: "STRING_VALUE", // required
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ *   StateFilter: "STRING_VALUE",
  * };
- * const command = new UpdateSdiSourceCommand(input);
+ * const command = new ListAlertsCommand(input);
  * const response = await client.send(command);
- * // { // UpdateSdiSourceResponse
- * //   SdiSource: { // SdiSource
- * //     Arn: "STRING_VALUE",
- * //     Id: "STRING_VALUE",
- * //     Inputs: [ // __listOf__string
- * //       "STRING_VALUE",
- * //     ],
- * //     Mode: "QUADRANT" || "INTERLEAVE",
- * //     Name: "STRING_VALUE",
- * //     State: "IDLE" || "IN_USE" || "DELETED",
- * //     Type: "SINGLE" || "QUAD",
- * //   },
+ * // { // ListAlertsResponse
+ * //   Alerts: [ // __listOfChannelAlert
+ * //     { // ChannelAlert
+ * //       AlertType: "STRING_VALUE",
+ * //       ClearedTimestamp: new Date("TIMESTAMP"),
+ * //       Id: "STRING_VALUE",
+ * //       Message: "STRING_VALUE",
+ * //       PipelineId: "STRING_VALUE",
+ * //       SetTimestamp: new Date("TIMESTAMP"),
+ * //       State: "SET" || "CLEARED",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
  * // };
  *
  * ```
  *
- * @param UpdateSdiSourceCommandInput - {@link UpdateSdiSourceCommandInput}
- * @returns {@link UpdateSdiSourceCommandOutput}
- * @see {@link UpdateSdiSourceCommandInput} for command's `input` shape.
- * @see {@link UpdateSdiSourceCommandOutput} for command's `response` shape.
+ * @param ListAlertsCommandInput - {@link ListAlertsCommandInput}
+ * @returns {@link ListAlertsCommandOutput}
+ * @see {@link ListAlertsCommandInput} for command's `input` shape.
+ * @see {@link ListAlertsCommandOutput} for command's `response` shape.
  * @see {@link MediaLiveClientResolvedConfig | config} for MediaLiveClient's `config` shape.
  *
  * @throws {@link BadGatewayException} (server fault)
@@ -72,9 +73,6 @@ export interface UpdateSdiSourceCommandOutput extends UpdateSdiSourceResponse, _
  *
  * @throws {@link BadRequestException} (client fault)
  *  Placeholder documentation for BadRequestException
- *
- * @throws {@link ConflictException} (client fault)
- *  Placeholder documentation for ConflictException
  *
  * @throws {@link ForbiddenException} (client fault)
  *  Placeholder documentation for ForbiddenException
@@ -85,6 +83,9 @@ export interface UpdateSdiSourceCommandOutput extends UpdateSdiSourceResponse, _
  * @throws {@link InternalServerErrorException} (server fault)
  *  Placeholder documentation for InternalServerErrorException
  *
+ * @throws {@link NotFoundException} (client fault)
+ *  Placeholder documentation for NotFoundException
+ *
  * @throws {@link TooManyRequestsException} (client fault)
  *  Placeholder documentation for TooManyRequestsException
  *
@@ -94,10 +95,10 @@ export interface UpdateSdiSourceCommandOutput extends UpdateSdiSourceResponse, _
  *
  * @public
  */
-export class UpdateSdiSourceCommand extends $Command
+export class ListAlertsCommand extends $Command
   .classBuilder<
-    UpdateSdiSourceCommandInput,
-    UpdateSdiSourceCommandOutput,
+    ListAlertsCommandInput,
+    ListAlertsCommandOutput,
     MediaLiveClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -109,21 +110,21 @@ export class UpdateSdiSourceCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("MediaLive", "UpdateSdiSource", {})
-  .n("MediaLiveClient", "UpdateSdiSourceCommand")
+  .s("MediaLive", "ListAlerts", {})
+  .n("MediaLiveClient", "ListAlertsCommand")
   .f(void 0, void 0)
-  .ser(se_UpdateSdiSourceCommand)
-  .de(de_UpdateSdiSourceCommand)
+  .ser(se_ListAlertsCommand)
+  .de(de_ListAlertsCommand)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: UpdateSdiSourceRequest;
-      output: UpdateSdiSourceResponse;
+      input: ListAlertsRequest;
+      output: ListAlertsResponse;
     };
     sdk: {
-      input: UpdateSdiSourceCommandInput;
-      output: UpdateSdiSourceCommandOutput;
+      input: ListAlertsCommandInput;
+      output: ListAlertsCommandOutput;
     };
   };
 }

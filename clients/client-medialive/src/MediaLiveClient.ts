@@ -206,6 +206,7 @@ import {
   GetEventBridgeRuleTemplateGroupCommandOutput,
 } from "./commands/GetEventBridgeRuleTemplateGroupCommand";
 import { GetSignalMapCommandInput, GetSignalMapCommandOutput } from "./commands/GetSignalMapCommand";
+import { ListAlertsCommandInput, ListAlertsCommandOutput } from "./commands/ListAlertsCommand";
 import {
   ListChannelPlacementGroupsCommandInput,
   ListChannelPlacementGroupsCommandOutput,
@@ -219,6 +220,7 @@ import {
   ListCloudWatchAlarmTemplatesCommandInput,
   ListCloudWatchAlarmTemplatesCommandOutput,
 } from "./commands/ListCloudWatchAlarmTemplatesCommand";
+import { ListClusterAlertsCommandInput, ListClusterAlertsCommandOutput } from "./commands/ListClusterAlertsCommand";
 import { ListClustersCommandInput, ListClustersCommandOutput } from "./commands/ListClustersCommand";
 import {
   ListEventBridgeRuleTemplateGroupsCommandInput,
@@ -238,6 +240,10 @@ import {
   ListInputSecurityGroupsCommandInput,
   ListInputSecurityGroupsCommandOutput,
 } from "./commands/ListInputSecurityGroupsCommand";
+import {
+  ListMultiplexAlertsCommandInput,
+  ListMultiplexAlertsCommandOutput,
+} from "./commands/ListMultiplexAlertsCommand";
 import { ListMultiplexesCommandInput, ListMultiplexesCommandOutput } from "./commands/ListMultiplexesCommand";
 import {
   ListMultiplexProgramsCommandInput,
@@ -413,10 +419,12 @@ export type ServiceInputTypes =
   | GetEventBridgeRuleTemplateCommandInput
   | GetEventBridgeRuleTemplateGroupCommandInput
   | GetSignalMapCommandInput
+  | ListAlertsCommandInput
   | ListChannelPlacementGroupsCommandInput
   | ListChannelsCommandInput
   | ListCloudWatchAlarmTemplateGroupsCommandInput
   | ListCloudWatchAlarmTemplatesCommandInput
+  | ListClusterAlertsCommandInput
   | ListClustersCommandInput
   | ListEventBridgeRuleTemplateGroupsCommandInput
   | ListEventBridgeRuleTemplatesCommandInput
@@ -424,6 +432,7 @@ export type ServiceInputTypes =
   | ListInputDevicesCommandInput
   | ListInputSecurityGroupsCommandInput
   | ListInputsCommandInput
+  | ListMultiplexAlertsCommandInput
   | ListMultiplexProgramsCommandInput
   | ListMultiplexesCommandInput
   | ListNetworksCommandInput
@@ -538,10 +547,12 @@ export type ServiceOutputTypes =
   | GetEventBridgeRuleTemplateCommandOutput
   | GetEventBridgeRuleTemplateGroupCommandOutput
   | GetSignalMapCommandOutput
+  | ListAlertsCommandOutput
   | ListChannelPlacementGroupsCommandOutput
   | ListChannelsCommandOutput
   | ListCloudWatchAlarmTemplateGroupsCommandOutput
   | ListCloudWatchAlarmTemplatesCommandOutput
+  | ListClusterAlertsCommandOutput
   | ListClustersCommandOutput
   | ListEventBridgeRuleTemplateGroupsCommandOutput
   | ListEventBridgeRuleTemplatesCommandOutput
@@ -549,6 +560,7 @@ export type ServiceOutputTypes =
   | ListInputDevicesCommandOutput
   | ListInputSecurityGroupsCommandOutput
   | ListInputsCommandOutput
+  | ListMultiplexAlertsCommandOutput
   | ListMultiplexProgramsCommandOutput
   | ListMultiplexesCommandOutput
   | ListNetworksCommandOutput
