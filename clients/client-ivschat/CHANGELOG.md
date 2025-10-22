@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.915.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.914.0...v3.915.0) (2025-10-22)
+
+
+### Features
+
+* **client-ivschat:** Update endpoint ruleset parameters casing ([32025a3](https://github.com/aws/aws-sdk-js-v3/commit/32025a3c805755a72c6290a2f6f0b6011e911c9a))
+
+
+
+
+
 # [3.914.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.913.0...v3.914.0) (2025-10-21)
 
 **Note:** Version bump only for package @aws-sdk/client-ivschat
