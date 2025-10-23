@@ -3,7 +3,13 @@ import { externalDataInterceptor } from "@smithy/shared-ini-file-loader";
 import { NodeHttpHandler } from "@smithy/node-http-handler";
 import { STS, STSExtensionConfiguration } from "@aws-sdk/client-sts";
 import * as credentialProviderHttp from "@aws-sdk/credential-provider-http";
-import { fromCognitoIdentity, fromCognitoIdentityPool, fromIni, fromWebToken } from "@aws-sdk/credential-providers";
+import {
+  fromCognitoIdentity,
+  fromCognitoIdentityPool,
+  fromIni,
+  fromWebToken,
+  fromTokenFile,
+} from "@aws-sdk/credential-providers";
 import { HttpResponse } from "@smithy/protocol-http";
 import type { HttpRequest, MiddlewareStack, NodeHttpHandlerOptions, ParsedIniData } from "@smithy/types";
 import { AdaptiveRetryStrategy, StandardRetryStrategy } from "@smithy/util-retry";
@@ -777,6 +783,51 @@ describe("credential-provider-node integration test", () => {
   });
 
   describe("fromTokenFile", () => {
+    it("should use the caller client region when combined with one", async () => {
+      sts = new STS({
+        region: "ap-northeast-1",
+        credentials: fromTokenFile({
+          roleArn: "ROLE_ARN",
+          webIdentityTokenFile: "token-filepath",
+        }),
+      });
+      await sts.getCallerIdentity({});
+      const credentials = await sts.config.credentials();
+      expect(credentials).toEqual({
+        accessKeyId: "STS_ARWI_ACCESS_KEY_ID",
+        secretAccessKey: "STS_ARWI_SECRET_ACCESS_KEY",
+        sessionToken: "STS_ARWI_SESSION_TOKEN_ap-northeast-1",
+        expiration: new Date("3000-01-01T00:00:00.000Z"),
+        $source: {
+          CREDENTIALS_CODE: "e",
+          CREDENTIALS_STS_ASSUME_ROLE_WEB_ID: "k",
+        },
+      });
+    });
+
+    it("should use the caller client region if derived from AWS_REGION", async () => {
+      process.env.AWS_REGION = "eu-west-2";
+      const provider = fromTokenFile({
+        roleArn: "ROLE_ARN",
+        webIdentityTokenFile: "token-filepath",
+      });
+      sts = new STS({
+        credentials: provider,
+      });
+      await sts.getCallerIdentity({});
+      const credentials = await sts.config.credentials();
+      expect(credentials).toEqual({
+        accessKeyId: "STS_ARWI_ACCESS_KEY_ID",
+        secretAccessKey: "STS_ARWI_SECRET_ACCESS_KEY",
+        sessionToken: "STS_ARWI_SESSION_TOKEN_eu-west-2",
+        expiration: new Date("3000-01-01T00:00:00.000Z"),
+        $source: {
+          CREDENTIALS_CODE: "e",
+          CREDENTIALS_STS_ASSUME_ROLE_WEB_ID: "k",
+        },
+      });
+    });
+
     it("should resolve credentials with STS assumeRoleWithWebIdentity using a token", async () => {
       process.env.AWS_WEB_IDENTITY_TOKEN_FILE = "token-filepath";
       process.env.AWS_ROLE_ARN = "ROLE_ARN";

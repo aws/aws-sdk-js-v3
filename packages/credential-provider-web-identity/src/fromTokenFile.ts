@@ -1,8 +1,8 @@
 import { setCredentialFeature } from "@aws-sdk/core/client";
-import { AttributedAwsCredentialIdentity, CredentialProviderOptions } from "@aws-sdk/types";
+import type { AttributedAwsCredentialIdentity, CredentialProviderOptions } from "@aws-sdk/types";
+import { AwsIdentityProperties, RuntimeConfigAwsCredentialIdentityProvider } from "@aws-sdk/types/src";
 import { CredentialsProviderError } from "@smithy/property-provider";
 import { externalDataInterceptor } from "@smithy/shared-ini-file-loader";
-import type { AwsCredentialIdentityProvider } from "@smithy/types";
 import { readFileSync } from "fs";
 
 import { fromWebToken, FromWebTokenInit } from "./fromWebToken";
@@ -29,8 +29,8 @@ export interface FromTokenFileInit
  * Represents OIDC credentials from a file on disk.
  */
 export const fromTokenFile =
-  (init: FromTokenFileInit = {}): AwsCredentialIdentityProvider =>
-  async () => {
+  (init: FromTokenFileInit = {}): RuntimeConfigAwsCredentialIdentityProvider =>
+  async (awsIdentityProperties?: AwsIdentityProperties) => {
     init.logger?.debug("@aws-sdk/credential-provider-web-identity - fromTokenFile");
     const webIdentityTokenFile = init?.webIdentityTokenFile ?? process.env[ENV_TOKEN_FILE];
     const roleArn = init?.roleArn ?? process.env[ENV_ROLE_ARN];
@@ -49,7 +49,7 @@ export const fromTokenFile =
         readFileSync(webIdentityTokenFile, { encoding: "ascii" }),
       roleArn,
       roleSessionName,
-    })();
+    })(awsIdentityProperties);
 
     if (webIdentityTokenFile === process.env[ENV_TOKEN_FILE]) {
       setCredentialFeature(credentials, "CREDENTIALS_ENV_VARS_STS_WEB_ID_TOKEN", "h");
