@@ -402,13 +402,13 @@ export interface AddPermissionRequest {
   PrincipalOrgID?: string | undefined;
 
   /**
-   * <p>The type of authentication that your function URL uses. Set to <code>AWS_IAM</code> if you want to restrict access to authenticated users only. Set to <code>NONE</code> if you want to bypass IAM authentication to create a public endpoint. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html">Security and auth model for Lambda function URLs</a>.</p>
+   * <p>The type of authentication that your function URL uses. Set to <code>AWS_IAM</code> if you want to restrict access to authenticated users only. Set to <code>NONE</code> if you want to bypass IAM authentication to create a public endpoint. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html">Control access to Lambda function URLs</a>.</p>
    * @public
    */
   FunctionUrlAuthType?: FunctionUrlAuthType | undefined;
 
   /**
-   * <p>Restricts the <code>lambda:InvokeFunction</code> action to calls coming from a function URL. When set to <code>true</code>, this prevents the principal from invoking the function by any means other than the function URL. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html">Security and auth model for Lambda function URLs</a>.</p>
+   * <p>Restricts the <code>lambda:InvokeFunction</code> action to calls coming from a function URL. When set to <code>true</code>, this prevents the principal from invoking the function by any means other than the function URL. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html">Control access to Lambda function URLs</a>.</p>
    * @public
    */
   InvokedViaFunctionUrl?: boolean | undefined;
@@ -2074,6 +2074,7 @@ export const Runtime = {
   nodejs18x: "nodejs18.x",
   nodejs20x: "nodejs20.x",
   nodejs22x: "nodejs22.x",
+  nodejs24x: "nodejs24.x",
   nodejs43: "nodejs4.3",
   nodejs43edge: "nodejs4.3-edge",
   nodejs610: "nodejs6.10",
@@ -2959,7 +2960,7 @@ export interface CreateFunctionUrlConfigRequest {
   Qualifier?: string | undefined;
 
   /**
-   * <p>The type of authentication that your function URL uses. Set to <code>AWS_IAM</code> if you want to restrict access to authenticated users only. Set to <code>NONE</code> if you want to bypass IAM authentication to create a public endpoint. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html">Security and auth model for Lambda function URLs</a>.</p>
+   * <p>The type of authentication that your function URL uses. Set to <code>AWS_IAM</code> if you want to restrict access to authenticated users only. Set to <code>NONE</code> if you want to bypass IAM authentication to create a public endpoint. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html">Control access to Lambda function URLs</a>.</p>
    * @public
    */
   AuthType: FunctionUrlAuthType | undefined;
@@ -2994,7 +2995,7 @@ export interface CreateFunctionUrlConfigResponse {
   FunctionArn: string | undefined;
 
   /**
-   * <p>The type of authentication that your function URL uses. Set to <code>AWS_IAM</code> if you want to restrict access to authenticated users only. Set to <code>NONE</code> if you want to bypass IAM authentication to create a public endpoint. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html">Security and auth model for Lambda function URLs</a>.</p>
+   * <p>The type of authentication that your function URL uses. Set to <code>AWS_IAM</code> if you want to restrict access to authenticated users only. Set to <code>NONE</code> if you want to bypass IAM authentication to create a public endpoint. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html">Control access to Lambda function URLs</a>.</p>
    * @public
    */
   AuthType: FunctionUrlAuthType | undefined;
@@ -3397,7 +3398,7 @@ export interface GetFunctionUrlConfigResponse {
   FunctionArn: string | undefined;
 
   /**
-   * <p>The type of authentication that your function URL uses. Set to <code>AWS_IAM</code> if you want to restrict access to authenticated users only. Set to <code>NONE</code> if you want to bypass IAM authentication to create a public endpoint. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html">Security and auth model for Lambda function URLs</a>.</p>
+   * <p>The type of authentication that your function URL uses. Set to <code>AWS_IAM</code> if you want to restrict access to authenticated users only. Set to <code>NONE</code> if you want to bypass IAM authentication to create a public endpoint. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html">Control access to Lambda function URLs</a>.</p>
    * @public
    */
   AuthType: FunctionUrlAuthType | undefined;
@@ -5141,7 +5142,7 @@ export interface UpdateFunctionUrlConfigRequest {
   Qualifier?: string | undefined;
 
   /**
-   * <p>The type of authentication that your function URL uses. Set to <code>AWS_IAM</code> if you want to restrict access to authenticated users only. Set to <code>NONE</code> if you want to bypass IAM authentication to create a public endpoint. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html">Security and auth model for Lambda function URLs</a>.</p>
+   * <p>The type of authentication that your function URL uses. Set to <code>AWS_IAM</code> if you want to restrict access to authenticated users only. Set to <code>NONE</code> if you want to bypass IAM authentication to create a public endpoint. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html">Control access to Lambda function URLs</a>.</p>
    * @public
    */
   AuthType?: FunctionUrlAuthType | undefined;
@@ -5176,7 +5177,7 @@ export interface UpdateFunctionUrlConfigResponse {
   FunctionArn: string | undefined;
 
   /**
-   * <p>The type of authentication that your function URL uses. Set to <code>AWS_IAM</code> if you want to restrict access to authenticated users only. Set to <code>NONE</code> if you want to bypass IAM authentication to create a public endpoint. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html">Security and auth model for Lambda function URLs</a>.</p>
+   * <p>The type of authentication that your function URL uses. Set to <code>AWS_IAM</code> if you want to restrict access to authenticated users only. Set to <code>NONE</code> if you want to bypass IAM authentication to create a public endpoint. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html">Control access to Lambda function URLs</a>.</p>
    * @public
    */
   AuthType: FunctionUrlAuthType | undefined;
