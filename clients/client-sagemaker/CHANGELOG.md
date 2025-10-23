@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.916.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.915.0...v3.916.0) (2025-10-23)
+
+
+### Features
+
+* **client-sagemaker:** Update endpoint ruleset parameters casing ([5a5f374](https://github.com/aws/aws-sdk-js-v3/commit/5a5f374ca8f69b2a2c8a39784030e085d2964e5a))
+
+
+
+
+
 # [3.914.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.913.0...v3.914.0) (2025-10-21)
 
 **Note:** Version bump only for package @aws-sdk/client-sagemaker

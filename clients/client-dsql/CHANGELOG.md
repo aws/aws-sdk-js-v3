@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.916.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.915.0...v3.916.0) (2025-10-23)
+
+
+### Features
+
+* **client-dsql:** Add support for resource-based policies for Aurora DSQL clusters. This will enable you to implement Block Public Access (BPA) which will help restrict access to your Aurora DSQL public or VPC endpoints. ([31a35eb](https://github.com/aws/aws-sdk-js-v3/commit/31a35eb9cf7d4e3574d1b8a75fe0aac8cf133fc4))
+
+
+
+
+
 # [3.914.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.913.0...v3.914.0) (2025-10-21)
 
 **Note:** Version bump only for package @aws-sdk/client-dsql

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.916.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.915.0...v3.916.0) (2025-10-23)
+
+
+### Features
+
+* **client-neptunedata:** Update endpoint ruleset parameters casing ([32bac2a](https://github.com/aws/aws-sdk-js-v3/commit/32bac2a84cf8ec71d72ac689825dd47129a51186))
+
+
+
+
+
 # [3.914.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.913.0...v3.914.0) (2025-10-21)
 
 **Note:** Version bump only for package @aws-sdk/client-neptunedata

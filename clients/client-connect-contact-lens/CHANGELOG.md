@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.916.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.915.0...v3.916.0) (2025-10-23)
+
+
+### Features
+
+* **client-connect-contact-lens:** Update endpoint ruleset parameters casing ([3b6b8d2](https://github.com/aws/aws-sdk-js-v3/commit/3b6b8d26870d1586c2313bf1e3ed40251a27034c))
+
+
+
+
+
 # [3.914.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.913.0...v3.914.0) (2025-10-21)
 
 **Note:** Version bump only for package @aws-sdk/client-connect-contact-lens

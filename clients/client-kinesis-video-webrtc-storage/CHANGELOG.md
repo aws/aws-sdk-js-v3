@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.916.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.915.0...v3.916.0) (2025-10-23)
+
+
+### Features
+
+* **client-kinesis-video-webrtc-storage:** Update endpoint ruleset parameters casing ([15afad5](https://github.com/aws/aws-sdk-js-v3/commit/15afad5cd867125c78e675df6753c694bc29d510))
+
+
+
+
+
 # [3.914.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.913.0...v3.914.0) (2025-10-21)
 
 **Note:** Version bump only for package @aws-sdk/client-kinesis-video-webrtc-storage

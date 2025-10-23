@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/signature-v4-multi-region",
-  "version": "3.914.0",
+  "version": "3.916.0",
   "scripts": {
     "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types'",
     "build:cjs": "node ../../scripts/compilation/inline signature-v4-multi-region",

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.916.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.915.0...v3.916.0) (2025-10-23)
+
+
+### Features
+
+* **client-s3:** make expect continue header configurable ([#7450](https://github.com/aws/aws-sdk-js-v3/issues/7450)) ([01ee0f2](https://github.com/aws/aws-sdk-js-v3/commit/01ee0f2ff8fe2fb92f1f4b2d74ccecc6387761a9))
+
+
+
+
+
 # [3.914.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.913.0...v3.914.0) (2025-10-21)
 
 **Note:** Version bump only for package @aws-sdk/middleware-sdk-s3
