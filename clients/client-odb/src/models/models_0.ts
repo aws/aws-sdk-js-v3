@@ -682,7 +682,7 @@ export interface CloudAutonomousVmCluster {
   isMtlsEnabledVmCluster?: boolean | undefined;
 
   /**
-   * <p>The Oracle license model that applies to the Autonomous VM cluster. Valid values are <code>LICENSE_INCLUDED</code> or <code>BRING_YOUR_OWN_LICENSE</code>.</p>
+   * <p>The Oracle license model that applies to the Autonomous VM cluster.</p>
    * @public
    */
   licenseModel?: LicenseModel | undefined;
@@ -3609,7 +3609,7 @@ export interface CreateOdbPeeringConnectionOutput {
   displayName?: string | undefined;
 
   /**
-   * <p>The status of the ODB peering connection.</p> <p>Valid Values: <code>provisioning | active | terminating | terminated | failed</code> </p>
+   * <p>The status of the ODB peering connection.</p>
    * @public
    */
   status?: ResourceStatus | undefined;
@@ -4474,7 +4474,7 @@ export type ManagedResourceStatus = (typeof ManagedResourceStatus)[keyof typeof 
  */
 export interface ManagedS3BackupAccess {
   /**
-   * <p>The status of the managed Amazon S3 backup access.</p> <p>Valid Values: <code>enabled | disabled</code> </p>
+   * <p>The status of the managed Amazon S3 backup access.</p>
    * @public
    */
   status?: ManagedResourceStatus | undefined;
@@ -4492,7 +4492,7 @@ export interface ManagedS3BackupAccess {
  */
 export interface S3Access {
   /**
-   * <p>The status of the Amazon S3 access.</p> <p>Valid Values: <code>enabled | disabled</code> </p>
+   * <p>The status of the Amazon S3 access.</p>
    * @public
    */
   status?: ManagedResourceStatus | undefined;
@@ -4541,7 +4541,7 @@ export interface ServiceNetworkEndpoint {
   vpcEndpointId?: string | undefined;
 
   /**
-   * <p>The type of the VPC endpoint.</p> <p>Valid Values: <code>Interface | Gateway</code> </p>
+   * <p>The type of the VPC endpoint.</p>
    * @public
    */
   vpcEndpointType?: VpcEndpointType | undefined;
@@ -4553,7 +4553,7 @@ export interface ServiceNetworkEndpoint {
  */
 export interface ZeroEtlAccess {
   /**
-   * <p>The status of the Zero-ETL access.</p> <p>Valid Values: <code>enabled | disabled</code> </p>
+   * <p>The status of the Zero-ETL access.</p>
    * @public
    */
   status?: ManagedResourceStatus | undefined;
@@ -4803,7 +4803,7 @@ export interface OdbPeeringConnection {
   displayName?: string | undefined;
 
   /**
-   * <p>The status of the ODB peering connection.</p> <p>Valid Values: <code>provisioning | active | terminating | terminated | failed</code> </p>
+   * <p>The status of the ODB peering connection.</p>
    * @public
    */
   status?: ResourceStatus | undefined;
@@ -5183,7 +5183,7 @@ export interface OdbPeeringConnectionSummary {
   displayName?: string | undefined;
 
   /**
-   * <p>The status of the ODB peering connection.</p> <p>Valid Values: <code>provisioning | active | terminating | terminated | failed</code> </p>
+   * <p>The status of the ODB peering connection.</p>
    * @public
    */
   status?: ResourceStatus | undefined;
