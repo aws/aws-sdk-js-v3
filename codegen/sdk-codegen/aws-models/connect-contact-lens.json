@@ -1,1382 +1,1382 @@
 {
-  "smithy": "2.0",
-  "metadata": {
-    "suppressions": [
-      {
-        "id": "HttpMethodSemantics",
-        "namespace": "*"
-      },
-      {
-        "id": "HttpResponseCodeSemantics",
-        "namespace": "*"
-      },
-      {
-        "id": "PaginatedTrait",
-        "namespace": "*"
-      },
-      {
-        "id": "HttpHeaderTrait",
-        "namespace": "*"
-      },
-      {
-        "id": "HttpUriConflict",
-        "namespace": "*"
-      },
-      {
-        "id": "Service",
-        "namespace": "*"
-      }
-    ]
-  },
-  "shapes": {
-    "com.amazonaws.connectcontactlens#AccessDeniedException": {
-      "type": "structure",
-      "members": {
-        "Message": {
-          "target": "com.amazonaws.connectcontactlens#Message",
-          "traits": {
-            "smithy.api#clientOptional": {},
-            "smithy.api#required": {}
-          }
-        }
-      },
-      "traits": {
-        "smithy.api#documentation": "<p>You do not have sufficient access to perform this action.</p>",
-        "smithy.api#error": "client",
-        "smithy.api#httpError": 403
-      }
-    },
-    "com.amazonaws.connectcontactlens#AmazonConnectContactLens": {
-      "type": "service",
-      "version": "2020-08-21",
-      "operations": [
-        {
-          "target": "com.amazonaws.connectcontactlens#ListRealtimeContactAnalysisSegments"
-        }
-      ],
-      "traits": {
-        "aws.api#service": {
-          "sdkId": "Connect Contact Lens",
-          "arnNamespace": "connect",
-          "cloudFormationName": "ConnectContactLens",
-          "cloudTrailEventSource": "connectcontactlens.amazonaws.com",
-          "endpointPrefix": "contact-lens"
-        },
-        "aws.auth#sigv4": {
-          "name": "connect"
-        },
-        "aws.protocols#restJson1": {},
-        "smithy.api#documentation": "<ul>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/connect/latest/APIReference/API_Operations_Amazon_Connect_Contact_Lens.html\">Contact Lens actions</a>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/connect/latest/APIReference/API_Types_Amazon_Connect_Contact_Lens.html\">Contact Lens data types</a>\n               </p>\n            </li>\n         </ul>\n         <p>Amazon Connect Contact Lens enables you to analyze conversations between customer and agents, by using\n            speech transcription, natural language processing, and intelligent search capabilities.\n            It performs sentiment analysis, detects issues, and enables you to automatically\n            categorize contacts.</p>\n         <p>Amazon Connect Contact Lens provides both real-time and post-call analytics of customer-agent\n            conversations. For more information, see <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/analyze-conversations.html\">Analyze conversations\n                using speech analytics</a> in the <i>Amazon Connect Administrator\n            Guide</i>. </p>",
-        "smithy.api#title": "Amazon Connect Contact Lens",
-        "smithy.rules#endpointRuleSet": {
-          "version": "1.0",
-          "parameters": {
-            "Region": {
-              "builtIn": "AWS::Region",
-              "required": false,
-              "documentation": "The AWS region used to dispatch the request.",
-              "type": "String"
+    "smithy": "2.0",
+    "metadata": {
+        "suppressions": [
+            {
+                "id": "HttpMethodSemantics",
+                "namespace": "*"
             },
-            "UseDualStack": {
-              "builtIn": "AWS::UseDualStack",
-              "required": true,
-              "default": false,
-              "documentation": "When true, use the dual-stack endpoint. If the configured endpoint does not support dual-stack, dispatching the request MAY return an error.",
-              "type": "Boolean"
+            {
+                "id": "HttpResponseCodeSemantics",
+                "namespace": "*"
             },
-            "UseFIPS": {
-              "builtIn": "AWS::UseFIPS",
-              "required": true,
-              "default": false,
-              "documentation": "When true, send this request to the FIPS-compliant regional endpoint. If the configured endpoint does not have a FIPS compliant endpoint, dispatching the request will return an error.",
-              "type": "Boolean"
+            {
+                "id": "PaginatedTrait",
+                "namespace": "*"
             },
-            "Endpoint": {
-              "builtIn": "SDK::Endpoint",
-              "required": false,
-              "documentation": "Override the endpoint used to send this request",
-              "type": "String"
+            {
+                "id": "HttpHeaderTrait",
+                "namespace": "*"
+            },
+            {
+                "id": "HttpUriConflict",
+                "namespace": "*"
+            },
+            {
+                "id": "Service",
+                "namespace": "*"
             }
-          },
-          "rules": [
-            {
-              "conditions": [
-                {
-                  "fn": "isSet",
-                  "argv": [
-                    {
-                      "ref": "Endpoint"
+        ]
+    },
+    "shapes": {
+        "com.amazonaws.connectcontactlens#AccessDeniedException": {
+            "type": "structure",
+            "members": {
+                "Message": {
+                    "target": "com.amazonaws.connectcontactlens#Message",
+                    "traits": {
+                        "smithy.api#clientOptional": {},
+                        "smithy.api#required": {}
                     }
-                  ]
                 }
-              ],
-              "rules": [
-                {
-                  "conditions": [
-                    {
-                      "fn": "booleanEquals",
-                      "argv": [
-                        {
-                          "ref": "UseFIPS"
-                        },
-                        true
-                      ]
-                    }
-                  ],
-                  "error": "Invalid Configuration: FIPS and custom endpoint are not supported",
-                  "type": "error"
-                },
-                {
-                  "conditions": [
-                    {
-                      "fn": "booleanEquals",
-                      "argv": [
-                        {
-                          "ref": "UseDualStack"
-                        },
-                        true
-                      ]
-                    }
-                  ],
-                  "error": "Invalid Configuration: Dualstack and custom endpoint are not supported",
-                  "type": "error"
-                },
-                {
-                  "conditions": [],
-                  "endpoint": {
-                    "url": {
-                      "ref": "Endpoint"
-                    },
-                    "properties": {},
-                    "headers": {}
-                  },
-                  "type": "endpoint"
-                }
-              ],
-              "type": "tree"
             },
-            {
-              "conditions": [
+            "traits": {
+                "smithy.api#documentation": "<p>You do not have sufficient access to perform this action.</p>",
+                "smithy.api#error": "client",
+                "smithy.api#httpError": 403
+            }
+        },
+        "com.amazonaws.connectcontactlens#AmazonConnectContactLens": {
+            "type": "service",
+            "version": "2020-08-21",
+            "operations": [
                 {
-                  "fn": "isSet",
-                  "argv": [
-                    {
-                      "ref": "Region"
-                    }
-                  ]
+                    "target": "com.amazonaws.connectcontactlens#ListRealtimeContactAnalysisSegments"
                 }
-              ],
-              "rules": [
-                {
-                  "conditions": [
-                    {
-                      "fn": "aws.partition",
-                      "argv": [
-                        {
-                          "ref": "Region"
-                        }
-                      ],
-                      "assign": "PartitionResult"
-                    }
-                  ],
-                  "rules": [
-                    {
-                      "conditions": [
-                        {
-                          "fn": "booleanEquals",
-                          "argv": [
-                            {
-                              "ref": "UseFIPS"
-                            },
-                            true
-                          ]
+            ],
+            "traits": {
+                "aws.api#service": {
+                    "sdkId": "Connect Contact Lens",
+                    "arnNamespace": "connect",
+                    "cloudFormationName": "ConnectContactLens",
+                    "cloudTrailEventSource": "connectcontactlens.amazonaws.com",
+                    "endpointPrefix": "contact-lens"
+                },
+                "aws.auth#sigv4": {
+                    "name": "connect"
+                },
+                "aws.protocols#restJson1": {},
+                "smithy.api#documentation": "<ul>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/connect/latest/APIReference/API_Operations_Amazon_Connect_Contact_Lens.html\">Contact Lens actions</a>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/connect/latest/APIReference/API_Types_Amazon_Connect_Contact_Lens.html\">Contact Lens data types</a>\n               </p>\n            </li>\n         </ul>\n         <p>Amazon Connect Contact Lens enables you to analyze conversations between customer and agents, by using\n            speech transcription, natural language processing, and intelligent search capabilities.\n            It performs sentiment analysis, detects issues, and enables you to automatically\n            categorize contacts.</p>\n         <p>Amazon Connect Contact Lens provides both real-time and post-call analytics of customer-agent\n            conversations. For more information, see <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/analyze-conversations.html\">Analyze conversations\n                using speech analytics</a> in the <i>Amazon Connect Administrator\n            Guide</i>. </p>",
+                "smithy.api#title": "Amazon Connect Contact Lens",
+                "smithy.rules#endpointRuleSet": {
+                    "version": "1.0",
+                    "parameters": {
+                        "Region": {
+                            "builtIn": "AWS::Region",
+                            "required": false,
+                            "documentation": "The AWS region used to dispatch the request.",
+                            "type": "string"
                         },
-                        {
-                          "fn": "booleanEquals",
-                          "argv": [
-                            {
-                              "ref": "UseDualStack"
-                            },
-                            true
-                          ]
-                        }
-                      ],
-                      "rules": [
-                        {
-                          "conditions": [
-                            {
-                              "fn": "booleanEquals",
-                              "argv": [
-                                true,
-                                {
-                                  "fn": "getAttr",
-                                  "argv": [
-                                    {
-                                      "ref": "PartitionResult"
-                                    },
-                                    "supportsFIPS"
-                                  ]
-                                }
-                              ]
-                            },
-                            {
-                              "fn": "booleanEquals",
-                              "argv": [
-                                true,
-                                {
-                                  "fn": "getAttr",
-                                  "argv": [
-                                    {
-                                      "ref": "PartitionResult"
-                                    },
-                                    "supportsDualStack"
-                                  ]
-                                }
-                              ]
-                            }
-                          ],
-                          "rules": [
-                            {
-                              "conditions": [],
-                              "endpoint": {
-                                "url": "https://contact-lens-fips.{Region}.{PartitionResult#dualStackDnsSuffix}",
-                                "properties": {},
-                                "headers": {}
-                              },
-                              "type": "endpoint"
-                            }
-                          ],
-                          "type": "tree"
+                        "UseDualStack": {
+                            "builtIn": "AWS::UseDualStack",
+                            "required": true,
+                            "default": false,
+                            "documentation": "When true, use the dual-stack endpoint. If the configured endpoint does not support dual-stack, dispatching the request MAY return an error.",
+                            "type": "boolean"
                         },
-                        {
-                          "conditions": [],
-                          "error": "FIPS and DualStack are enabled, but this partition does not support one or both",
-                          "type": "error"
+                        "UseFIPS": {
+                            "builtIn": "AWS::UseFIPS",
+                            "required": true,
+                            "default": false,
+                            "documentation": "When true, send this request to the FIPS-compliant regional endpoint. If the configured endpoint does not have a FIPS compliant endpoint, dispatching the request will return an error.",
+                            "type": "boolean"
+                        },
+                        "Endpoint": {
+                            "builtIn": "SDK::Endpoint",
+                            "required": false,
+                            "documentation": "Override the endpoint used to send this request",
+                            "type": "string"
                         }
-                      ],
-                      "type": "tree"
                     },
-                    {
-                      "conditions": [
+                    "rules": [
                         {
-                          "fn": "booleanEquals",
-                          "argv": [
-                            {
-                              "ref": "UseFIPS"
-                            },
-                            true
-                          ]
-                        }
-                      ],
-                      "rules": [
-                        {
-                          "conditions": [
-                            {
-                              "fn": "booleanEquals",
-                              "argv": [
+                            "conditions": [
                                 {
-                                  "fn": "getAttr",
-                                  "argv": [
-                                    {
-                                      "ref": "PartitionResult"
-                                    },
-                                    "supportsFIPS"
-                                  ]
+                                    "fn": "isSet",
+                                    "argv": [
+                                        {
+                                            "ref": "Endpoint"
+                                        }
+                                    ]
+                                }
+                            ],
+                            "rules": [
+                                {
+                                    "conditions": [
+                                        {
+                                            "fn": "booleanEquals",
+                                            "argv": [
+                                                {
+                                                    "ref": "UseFIPS"
+                                                },
+                                                true
+                                            ]
+                                        }
+                                    ],
+                                    "error": "Invalid Configuration: FIPS and custom endpoint are not supported",
+                                    "type": "error"
                                 },
-                                true
-                              ]
-                            }
-                          ],
-                          "rules": [
-                            {
-                              "conditions": [],
-                              "endpoint": {
-                                "url": "https://contact-lens-fips.{Region}.{PartitionResult#dnsSuffix}",
-                                "properties": {},
-                                "headers": {}
-                              },
-                              "type": "endpoint"
-                            }
-                          ],
-                          "type": "tree"
-                        },
-                        {
-                          "conditions": [],
-                          "error": "FIPS is enabled but this partition does not support FIPS",
-                          "type": "error"
-                        }
-                      ],
-                      "type": "tree"
-                    },
-                    {
-                      "conditions": [
-                        {
-                          "fn": "booleanEquals",
-                          "argv": [
-                            {
-                              "ref": "UseDualStack"
-                            },
-                            true
-                          ]
-                        }
-                      ],
-                      "rules": [
-                        {
-                          "conditions": [
-                            {
-                              "fn": "booleanEquals",
-                              "argv": [
-                                true,
                                 {
-                                  "fn": "getAttr",
-                                  "argv": [
-                                    {
-                                      "ref": "PartitionResult"
+                                    "conditions": [
+                                        {
+                                            "fn": "booleanEquals",
+                                            "argv": [
+                                                {
+                                                    "ref": "UseDualStack"
+                                                },
+                                                true
+                                            ]
+                                        }
+                                    ],
+                                    "error": "Invalid Configuration: Dualstack and custom endpoint are not supported",
+                                    "type": "error"
+                                },
+                                {
+                                    "conditions": [],
+                                    "endpoint": {
+                                        "url": {
+                                            "ref": "Endpoint"
+                                        },
+                                        "properties": {},
+                                        "headers": {}
                                     },
-                                    "supportsDualStack"
-                                  ]
+                                    "type": "endpoint"
                                 }
-                              ]
-                            }
-                          ],
-                          "rules": [
-                            {
-                              "conditions": [],
-                              "endpoint": {
-                                "url": "https://contact-lens.{Region}.{PartitionResult#dualStackDnsSuffix}",
-                                "properties": {},
-                                "headers": {}
-                              },
-                              "type": "endpoint"
-                            }
-                          ],
-                          "type": "tree"
+                            ],
+                            "type": "tree"
                         },
                         {
-                          "conditions": [],
-                          "error": "DualStack is enabled but this partition does not support DualStack",
-                          "type": "error"
+                            "conditions": [
+                                {
+                                    "fn": "isSet",
+                                    "argv": [
+                                        {
+                                            "ref": "Region"
+                                        }
+                                    ]
+                                }
+                            ],
+                            "rules": [
+                                {
+                                    "conditions": [
+                                        {
+                                            "fn": "aws.partition",
+                                            "argv": [
+                                                {
+                                                    "ref": "Region"
+                                                }
+                                            ],
+                                            "assign": "PartitionResult"
+                                        }
+                                    ],
+                                    "rules": [
+                                        {
+                                            "conditions": [
+                                                {
+                                                    "fn": "booleanEquals",
+                                                    "argv": [
+                                                        {
+                                                            "ref": "UseFIPS"
+                                                        },
+                                                        true
+                                                    ]
+                                                },
+                                                {
+                                                    "fn": "booleanEquals",
+                                                    "argv": [
+                                                        {
+                                                            "ref": "UseDualStack"
+                                                        },
+                                                        true
+                                                    ]
+                                                }
+                                            ],
+                                            "rules": [
+                                                {
+                                                    "conditions": [
+                                                        {
+                                                            "fn": "booleanEquals",
+                                                            "argv": [
+                                                                true,
+                                                                {
+                                                                    "fn": "getAttr",
+                                                                    "argv": [
+                                                                        {
+                                                                            "ref": "PartitionResult"
+                                                                        },
+                                                                        "supportsFIPS"
+                                                                    ]
+                                                                }
+                                                            ]
+                                                        },
+                                                        {
+                                                            "fn": "booleanEquals",
+                                                            "argv": [
+                                                                true,
+                                                                {
+                                                                    "fn": "getAttr",
+                                                                    "argv": [
+                                                                        {
+                                                                            "ref": "PartitionResult"
+                                                                        },
+                                                                        "supportsDualStack"
+                                                                    ]
+                                                                }
+                                                            ]
+                                                        }
+                                                    ],
+                                                    "rules": [
+                                                        {
+                                                            "conditions": [],
+                                                            "endpoint": {
+                                                                "url": "https://contact-lens-fips.{Region}.{PartitionResult#dualStackDnsSuffix}",
+                                                                "properties": {},
+                                                                "headers": {}
+                                                            },
+                                                            "type": "endpoint"
+                                                        }
+                                                    ],
+                                                    "type": "tree"
+                                                },
+                                                {
+                                                    "conditions": [],
+                                                    "error": "FIPS and DualStack are enabled, but this partition does not support one or both",
+                                                    "type": "error"
+                                                }
+                                            ],
+                                            "type": "tree"
+                                        },
+                                        {
+                                            "conditions": [
+                                                {
+                                                    "fn": "booleanEquals",
+                                                    "argv": [
+                                                        {
+                                                            "ref": "UseFIPS"
+                                                        },
+                                                        true
+                                                    ]
+                                                }
+                                            ],
+                                            "rules": [
+                                                {
+                                                    "conditions": [
+                                                        {
+                                                            "fn": "booleanEquals",
+                                                            "argv": [
+                                                                {
+                                                                    "fn": "getAttr",
+                                                                    "argv": [
+                                                                        {
+                                                                            "ref": "PartitionResult"
+                                                                        },
+                                                                        "supportsFIPS"
+                                                                    ]
+                                                                },
+                                                                true
+                                                            ]
+                                                        }
+                                                    ],
+                                                    "rules": [
+                                                        {
+                                                            "conditions": [],
+                                                            "endpoint": {
+                                                                "url": "https://contact-lens-fips.{Region}.{PartitionResult#dnsSuffix}",
+                                                                "properties": {},
+                                                                "headers": {}
+                                                            },
+                                                            "type": "endpoint"
+                                                        }
+                                                    ],
+                                                    "type": "tree"
+                                                },
+                                                {
+                                                    "conditions": [],
+                                                    "error": "FIPS is enabled but this partition does not support FIPS",
+                                                    "type": "error"
+                                                }
+                                            ],
+                                            "type": "tree"
+                                        },
+                                        {
+                                            "conditions": [
+                                                {
+                                                    "fn": "booleanEquals",
+                                                    "argv": [
+                                                        {
+                                                            "ref": "UseDualStack"
+                                                        },
+                                                        true
+                                                    ]
+                                                }
+                                            ],
+                                            "rules": [
+                                                {
+                                                    "conditions": [
+                                                        {
+                                                            "fn": "booleanEquals",
+                                                            "argv": [
+                                                                true,
+                                                                {
+                                                                    "fn": "getAttr",
+                                                                    "argv": [
+                                                                        {
+                                                                            "ref": "PartitionResult"
+                                                                        },
+                                                                        "supportsDualStack"
+                                                                    ]
+                                                                }
+                                                            ]
+                                                        }
+                                                    ],
+                                                    "rules": [
+                                                        {
+                                                            "conditions": [],
+                                                            "endpoint": {
+                                                                "url": "https://contact-lens.{Region}.{PartitionResult#dualStackDnsSuffix}",
+                                                                "properties": {},
+                                                                "headers": {}
+                                                            },
+                                                            "type": "endpoint"
+                                                        }
+                                                    ],
+                                                    "type": "tree"
+                                                },
+                                                {
+                                                    "conditions": [],
+                                                    "error": "DualStack is enabled but this partition does not support DualStack",
+                                                    "type": "error"
+                                                }
+                                            ],
+                                            "type": "tree"
+                                        },
+                                        {
+                                            "conditions": [],
+                                            "endpoint": {
+                                                "url": "https://contact-lens.{Region}.{PartitionResult#dnsSuffix}",
+                                                "properties": {},
+                                                "headers": {}
+                                            },
+                                            "type": "endpoint"
+                                        }
+                                    ],
+                                    "type": "tree"
+                                }
+                            ],
+                            "type": "tree"
+                        },
+                        {
+                            "conditions": [],
+                            "error": "Invalid Configuration: Missing Region",
+                            "type": "error"
                         }
-                      ],
-                      "type": "tree"
-                    },
-                    {
-                      "conditions": [],
-                      "endpoint": {
-                        "url": "https://contact-lens.{Region}.{PartitionResult#dnsSuffix}",
-                        "properties": {},
-                        "headers": {}
-                      },
-                      "type": "endpoint"
+                    ]
+                },
+                "smithy.rules#endpointTests": {
+                    "testCases": [
+                        {
+                            "documentation": "For region ap-northeast-1 with FIPS disabled and DualStack disabled",
+                            "expect": {
+                                "endpoint": {
+                                    "url": "https://contact-lens.ap-northeast-1.amazonaws.com"
+                                }
+                            },
+                            "params": {
+                                "Region": "ap-northeast-1",
+                                "UseFIPS": false,
+                                "UseDualStack": false
+                            }
+                        },
+                        {
+                            "documentation": "For region ap-northeast-2 with FIPS disabled and DualStack disabled",
+                            "expect": {
+                                "endpoint": {
+                                    "url": "https://contact-lens.ap-northeast-2.amazonaws.com"
+                                }
+                            },
+                            "params": {
+                                "Region": "ap-northeast-2",
+                                "UseFIPS": false,
+                                "UseDualStack": false
+                            }
+                        },
+                        {
+                            "documentation": "For region ap-southeast-2 with FIPS disabled and DualStack disabled",
+                            "expect": {
+                                "endpoint": {
+                                    "url": "https://contact-lens.ap-southeast-2.amazonaws.com"
+                                }
+                            },
+                            "params": {
+                                "Region": "ap-southeast-2",
+                                "UseFIPS": false,
+                                "UseDualStack": false
+                            }
+                        },
+                        {
+                            "documentation": "For region ca-central-1 with FIPS disabled and DualStack disabled",
+                            "expect": {
+                                "endpoint": {
+                                    "url": "https://contact-lens.ca-central-1.amazonaws.com"
+                                }
+                            },
+                            "params": {
+                                "Region": "ca-central-1",
+                                "UseFIPS": false,
+                                "UseDualStack": false
+                            }
+                        },
+                        {
+                            "documentation": "For region eu-central-1 with FIPS disabled and DualStack disabled",
+                            "expect": {
+                                "endpoint": {
+                                    "url": "https://contact-lens.eu-central-1.amazonaws.com"
+                                }
+                            },
+                            "params": {
+                                "Region": "eu-central-1",
+                                "UseFIPS": false,
+                                "UseDualStack": false
+                            }
+                        },
+                        {
+                            "documentation": "For region eu-west-2 with FIPS disabled and DualStack disabled",
+                            "expect": {
+                                "endpoint": {
+                                    "url": "https://contact-lens.eu-west-2.amazonaws.com"
+                                }
+                            },
+                            "params": {
+                                "Region": "eu-west-2",
+                                "UseFIPS": false,
+                                "UseDualStack": false
+                            }
+                        },
+                        {
+                            "documentation": "For region us-east-1 with FIPS disabled and DualStack disabled",
+                            "expect": {
+                                "endpoint": {
+                                    "url": "https://contact-lens.us-east-1.amazonaws.com"
+                                }
+                            },
+                            "params": {
+                                "Region": "us-east-1",
+                                "UseFIPS": false,
+                                "UseDualStack": false
+                            }
+                        },
+                        {
+                            "documentation": "For region us-west-2 with FIPS disabled and DualStack disabled",
+                            "expect": {
+                                "endpoint": {
+                                    "url": "https://contact-lens.us-west-2.amazonaws.com"
+                                }
+                            },
+                            "params": {
+                                "Region": "us-west-2",
+                                "UseFIPS": false,
+                                "UseDualStack": false
+                            }
+                        },
+                        {
+                            "documentation": "For region us-east-1 with FIPS enabled and DualStack enabled",
+                            "expect": {
+                                "endpoint": {
+                                    "url": "https://contact-lens-fips.us-east-1.api.aws"
+                                }
+                            },
+                            "params": {
+                                "Region": "us-east-1",
+                                "UseFIPS": true,
+                                "UseDualStack": true
+                            }
+                        },
+                        {
+                            "documentation": "For region us-east-1 with FIPS enabled and DualStack disabled",
+                            "expect": {
+                                "endpoint": {
+                                    "url": "https://contact-lens-fips.us-east-1.amazonaws.com"
+                                }
+                            },
+                            "params": {
+                                "Region": "us-east-1",
+                                "UseFIPS": true,
+                                "UseDualStack": false
+                            }
+                        },
+                        {
+                            "documentation": "For region us-east-1 with FIPS disabled and DualStack enabled",
+                            "expect": {
+                                "endpoint": {
+                                    "url": "https://contact-lens.us-east-1.api.aws"
+                                }
+                            },
+                            "params": {
+                                "Region": "us-east-1",
+                                "UseFIPS": false,
+                                "UseDualStack": true
+                            }
+                        },
+                        {
+                            "documentation": "For region cn-north-1 with FIPS enabled and DualStack enabled",
+                            "expect": {
+                                "endpoint": {
+                                    "url": "https://contact-lens-fips.cn-north-1.api.amazonwebservices.com.cn"
+                                }
+                            },
+                            "params": {
+                                "Region": "cn-north-1",
+                                "UseFIPS": true,
+                                "UseDualStack": true
+                            }
+                        },
+                        {
+                            "documentation": "For region cn-north-1 with FIPS enabled and DualStack disabled",
+                            "expect": {
+                                "endpoint": {
+                                    "url": "https://contact-lens-fips.cn-north-1.amazonaws.com.cn"
+                                }
+                            },
+                            "params": {
+                                "Region": "cn-north-1",
+                                "UseFIPS": true,
+                                "UseDualStack": false
+                            }
+                        },
+                        {
+                            "documentation": "For region cn-north-1 with FIPS disabled and DualStack enabled",
+                            "expect": {
+                                "endpoint": {
+                                    "url": "https://contact-lens.cn-north-1.api.amazonwebservices.com.cn"
+                                }
+                            },
+                            "params": {
+                                "Region": "cn-north-1",
+                                "UseFIPS": false,
+                                "UseDualStack": true
+                            }
+                        },
+                        {
+                            "documentation": "For region cn-north-1 with FIPS disabled and DualStack disabled",
+                            "expect": {
+                                "endpoint": {
+                                    "url": "https://contact-lens.cn-north-1.amazonaws.com.cn"
+                                }
+                            },
+                            "params": {
+                                "Region": "cn-north-1",
+                                "UseFIPS": false,
+                                "UseDualStack": false
+                            }
+                        },
+                        {
+                            "documentation": "For region us-gov-east-1 with FIPS enabled and DualStack enabled",
+                            "expect": {
+                                "endpoint": {
+                                    "url": "https://contact-lens-fips.us-gov-east-1.api.aws"
+                                }
+                            },
+                            "params": {
+                                "Region": "us-gov-east-1",
+                                "UseFIPS": true,
+                                "UseDualStack": true
+                            }
+                        },
+                        {
+                            "documentation": "For region us-gov-east-1 with FIPS enabled and DualStack disabled",
+                            "expect": {
+                                "endpoint": {
+                                    "url": "https://contact-lens-fips.us-gov-east-1.amazonaws.com"
+                                }
+                            },
+                            "params": {
+                                "Region": "us-gov-east-1",
+                                "UseFIPS": true,
+                                "UseDualStack": false
+                            }
+                        },
+                        {
+                            "documentation": "For region us-gov-east-1 with FIPS disabled and DualStack enabled",
+                            "expect": {
+                                "endpoint": {
+                                    "url": "https://contact-lens.us-gov-east-1.api.aws"
+                                }
+                            },
+                            "params": {
+                                "Region": "us-gov-east-1",
+                                "UseFIPS": false,
+                                "UseDualStack": true
+                            }
+                        },
+                        {
+                            "documentation": "For region us-gov-east-1 with FIPS disabled and DualStack disabled",
+                            "expect": {
+                                "endpoint": {
+                                    "url": "https://contact-lens.us-gov-east-1.amazonaws.com"
+                                }
+                            },
+                            "params": {
+                                "Region": "us-gov-east-1",
+                                "UseFIPS": false,
+                                "UseDualStack": false
+                            }
+                        },
+                        {
+                            "documentation": "For region us-iso-east-1 with FIPS enabled and DualStack disabled",
+                            "expect": {
+                                "endpoint": {
+                                    "url": "https://contact-lens-fips.us-iso-east-1.c2s.ic.gov"
+                                }
+                            },
+                            "params": {
+                                "Region": "us-iso-east-1",
+                                "UseFIPS": true,
+                                "UseDualStack": false
+                            }
+                        },
+                        {
+                            "documentation": "For region us-iso-east-1 with FIPS disabled and DualStack disabled",
+                            "expect": {
+                                "endpoint": {
+                                    "url": "https://contact-lens.us-iso-east-1.c2s.ic.gov"
+                                }
+                            },
+                            "params": {
+                                "Region": "us-iso-east-1",
+                                "UseFIPS": false,
+                                "UseDualStack": false
+                            }
+                        },
+                        {
+                            "documentation": "For region us-isob-east-1 with FIPS enabled and DualStack disabled",
+                            "expect": {
+                                "endpoint": {
+                                    "url": "https://contact-lens-fips.us-isob-east-1.sc2s.sgov.gov"
+                                }
+                            },
+                            "params": {
+                                "Region": "us-isob-east-1",
+                                "UseFIPS": true,
+                                "UseDualStack": false
+                            }
+                        },
+                        {
+                            "documentation": "For region us-isob-east-1 with FIPS disabled and DualStack disabled",
+                            "expect": {
+                                "endpoint": {
+                                    "url": "https://contact-lens.us-isob-east-1.sc2s.sgov.gov"
+                                }
+                            },
+                            "params": {
+                                "Region": "us-isob-east-1",
+                                "UseFIPS": false,
+                                "UseDualStack": false
+                            }
+                        },
+                        {
+                            "documentation": "For custom endpoint with region set and fips disabled and dualstack disabled",
+                            "expect": {
+                                "endpoint": {
+                                    "url": "https://example.com"
+                                }
+                            },
+                            "params": {
+                                "Region": "us-east-1",
+                                "UseFIPS": false,
+                                "UseDualStack": false,
+                                "Endpoint": "https://example.com"
+                            }
+                        },
+                        {
+                            "documentation": "For custom endpoint with region not set and fips disabled and dualstack disabled",
+                            "expect": {
+                                "endpoint": {
+                                    "url": "https://example.com"
+                                }
+                            },
+                            "params": {
+                                "UseFIPS": false,
+                                "UseDualStack": false,
+                                "Endpoint": "https://example.com"
+                            }
+                        },
+                        {
+                            "documentation": "For custom endpoint with fips enabled and dualstack disabled",
+                            "expect": {
+                                "error": "Invalid Configuration: FIPS and custom endpoint are not supported"
+                            },
+                            "params": {
+                                "Region": "us-east-1",
+                                "UseFIPS": true,
+                                "UseDualStack": false,
+                                "Endpoint": "https://example.com"
+                            }
+                        },
+                        {
+                            "documentation": "For custom endpoint with fips disabled and dualstack enabled",
+                            "expect": {
+                                "error": "Invalid Configuration: Dualstack and custom endpoint are not supported"
+                            },
+                            "params": {
+                                "Region": "us-east-1",
+                                "UseFIPS": false,
+                                "UseDualStack": true,
+                                "Endpoint": "https://example.com"
+                            }
+                        },
+                        {
+                            "documentation": "Missing region",
+                            "expect": {
+                                "error": "Invalid Configuration: Missing Region"
+                            }
+                        }
+                    ],
+                    "version": "1.0"
+                }
+            }
+        },
+        "com.amazonaws.connectcontactlens#Categories": {
+            "type": "structure",
+            "members": {
+                "MatchedCategories": {
+                    "target": "com.amazonaws.connectcontactlens#MatchedCategories",
+                    "traits": {
+                        "smithy.api#clientOptional": {},
+                        "smithy.api#documentation": "<p>The category rules that have been matched in the analyzed segment.</p>",
+                        "smithy.api#required": {}
                     }
-                  ],
-                  "type": "tree"
+                },
+                "MatchedDetails": {
+                    "target": "com.amazonaws.connectcontactlens#MatchedDetails",
+                    "traits": {
+                        "smithy.api#clientOptional": {},
+                        "smithy.api#documentation": "<p>The category rule that was matched and when it occurred in the transcript.</p>",
+                        "smithy.api#required": {}
+                    }
                 }
-              ],
-              "type": "tree"
             },
-            {
-              "conditions": [],
-              "error": "Invalid Configuration: Missing Region",
-              "type": "error"
+            "traits": {
+                "smithy.api#documentation": "<p>Provides the category rules that are used to automatically categorize contacts based\n            on uttered keywords and phrases.</p>"
             }
-          ]
         },
-        "smithy.rules#endpointTests": {
-          "testCases": [
-            {
-              "documentation": "For region ap-northeast-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://contact-lens.ap-northeast-1.amazonaws.com"
+        "com.amazonaws.connectcontactlens#CategoryDetails": {
+            "type": "structure",
+            "members": {
+                "PointsOfInterest": {
+                    "target": "com.amazonaws.connectcontactlens#PointsOfInterest",
+                    "traits": {
+                        "smithy.api#clientOptional": {},
+                        "smithy.api#documentation": "<p>The section of audio where the category rule was detected.</p>",
+                        "smithy.api#required": {}
+                    }
                 }
-              },
-              "params": {
-                "Region": "ap-northeast-1",
-                "UseFIPS": false,
-                "UseDualStack": false
-              }
             },
-            {
-              "documentation": "For region ap-northeast-2 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://contact-lens.ap-northeast-2.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "ap-northeast-2",
-                "UseFIPS": false,
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region ap-southeast-2 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://contact-lens.ap-southeast-2.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "ap-southeast-2",
-                "UseFIPS": false,
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region ca-central-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://contact-lens.ca-central-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "ca-central-1",
-                "UseFIPS": false,
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region eu-central-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://contact-lens.eu-central-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "eu-central-1",
-                "UseFIPS": false,
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region eu-west-2 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://contact-lens.eu-west-2.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "eu-west-2",
-                "UseFIPS": false,
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region us-east-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://contact-lens.us-east-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "us-east-1",
-                "UseFIPS": false,
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region us-west-2 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://contact-lens.us-west-2.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "us-west-2",
-                "UseFIPS": false,
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region us-east-1 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://contact-lens-fips.us-east-1.api.aws"
-                }
-              },
-              "params": {
-                "Region": "us-east-1",
-                "UseFIPS": true,
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region us-east-1 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://contact-lens-fips.us-east-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "us-east-1",
-                "UseFIPS": true,
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region us-east-1 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://contact-lens.us-east-1.api.aws"
-                }
-              },
-              "params": {
-                "Region": "us-east-1",
-                "UseFIPS": false,
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region cn-north-1 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://contact-lens-fips.cn-north-1.api.amazonwebservices.com.cn"
-                }
-              },
-              "params": {
-                "Region": "cn-north-1",
-                "UseFIPS": true,
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region cn-north-1 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://contact-lens-fips.cn-north-1.amazonaws.com.cn"
-                }
-              },
-              "params": {
-                "Region": "cn-north-1",
-                "UseFIPS": true,
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region cn-north-1 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://contact-lens.cn-north-1.api.amazonwebservices.com.cn"
-                }
-              },
-              "params": {
-                "Region": "cn-north-1",
-                "UseFIPS": false,
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region cn-north-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://contact-lens.cn-north-1.amazonaws.com.cn"
-                }
-              },
-              "params": {
-                "Region": "cn-north-1",
-                "UseFIPS": false,
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region us-gov-east-1 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://contact-lens-fips.us-gov-east-1.api.aws"
-                }
-              },
-              "params": {
-                "Region": "us-gov-east-1",
-                "UseFIPS": true,
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region us-gov-east-1 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://contact-lens-fips.us-gov-east-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "us-gov-east-1",
-                "UseFIPS": true,
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region us-gov-east-1 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://contact-lens.us-gov-east-1.api.aws"
-                }
-              },
-              "params": {
-                "Region": "us-gov-east-1",
-                "UseFIPS": false,
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region us-gov-east-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://contact-lens.us-gov-east-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "us-gov-east-1",
-                "UseFIPS": false,
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region us-iso-east-1 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://contact-lens-fips.us-iso-east-1.c2s.ic.gov"
-                }
-              },
-              "params": {
-                "Region": "us-iso-east-1",
-                "UseFIPS": true,
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region us-iso-east-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://contact-lens.us-iso-east-1.c2s.ic.gov"
-                }
-              },
-              "params": {
-                "Region": "us-iso-east-1",
-                "UseFIPS": false,
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region us-isob-east-1 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://contact-lens-fips.us-isob-east-1.sc2s.sgov.gov"
-                }
-              },
-              "params": {
-                "Region": "us-isob-east-1",
-                "UseFIPS": true,
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region us-isob-east-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://contact-lens.us-isob-east-1.sc2s.sgov.gov"
-                }
-              },
-              "params": {
-                "Region": "us-isob-east-1",
-                "UseFIPS": false,
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For custom endpoint with region set and fips disabled and dualstack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://example.com"
-                }
-              },
-              "params": {
-                "Region": "us-east-1",
-                "UseFIPS": false,
-                "UseDualStack": false,
-                "Endpoint": "https://example.com"
-              }
-            },
-            {
-              "documentation": "For custom endpoint with region not set and fips disabled and dualstack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://example.com"
-                }
-              },
-              "params": {
-                "UseFIPS": false,
-                "UseDualStack": false,
-                "Endpoint": "https://example.com"
-              }
-            },
-            {
-              "documentation": "For custom endpoint with fips enabled and dualstack disabled",
-              "expect": {
-                "error": "Invalid Configuration: FIPS and custom endpoint are not supported"
-              },
-              "params": {
-                "Region": "us-east-1",
-                "UseFIPS": true,
-                "UseDualStack": false,
-                "Endpoint": "https://example.com"
-              }
-            },
-            {
-              "documentation": "For custom endpoint with fips disabled and dualstack enabled",
-              "expect": {
-                "error": "Invalid Configuration: Dualstack and custom endpoint are not supported"
-              },
-              "params": {
-                "Region": "us-east-1",
-                "UseFIPS": false,
-                "UseDualStack": true,
-                "Endpoint": "https://example.com"
-              }
-            },
-            {
-              "documentation": "Missing region",
-              "expect": {
-                "error": "Invalid Configuration: Missing Region"
-              }
+            "traits": {
+                "smithy.api#documentation": "<p>Provides information about the category rule that was matched.</p>"
             }
-          ],
-          "version": "1.0"
+        },
+        "com.amazonaws.connectcontactlens#CategoryName": {
+            "type": "string",
+            "traits": {
+                "smithy.api#length": {
+                    "min": 1,
+                    "max": 256
+                },
+                "smithy.api#pattern": "\\S"
+            }
+        },
+        "com.amazonaws.connectcontactlens#CharacterOffset": {
+            "type": "integer",
+            "traits": {
+                "smithy.api#range": {
+                    "min": 0
+                }
+            }
+        },
+        "com.amazonaws.connectcontactlens#CharacterOffsets": {
+            "type": "structure",
+            "members": {
+                "BeginOffsetChar": {
+                    "target": "com.amazonaws.connectcontactlens#CharacterOffset",
+                    "traits": {
+                        "smithy.api#clientOptional": {},
+                        "smithy.api#documentation": "<p>The beginning of the issue.</p>",
+                        "smithy.api#required": {}
+                    }
+                },
+                "EndOffsetChar": {
+                    "target": "com.amazonaws.connectcontactlens#CharacterOffset",
+                    "traits": {
+                        "smithy.api#clientOptional": {},
+                        "smithy.api#documentation": "<p>The end of the issue.</p>",
+                        "smithy.api#required": {}
+                    }
+                }
+            },
+            "traits": {
+                "smithy.api#documentation": "<p>For characters that were detected as issues, where they occur in the\n            transcript.</p>"
+            }
+        },
+        "com.amazonaws.connectcontactlens#ContactId": {
+            "type": "string",
+            "traits": {
+                "smithy.api#length": {
+                    "min": 1,
+                    "max": 256
+                },
+                "smithy.api#pattern": "\\S"
+            }
+        },
+        "com.amazonaws.connectcontactlens#InstanceId": {
+            "type": "string",
+            "traits": {
+                "smithy.api#length": {
+                    "min": 1,
+                    "max": 256
+                },
+                "smithy.api#pattern": "\\S"
+            }
+        },
+        "com.amazonaws.connectcontactlens#InternalServiceException": {
+            "type": "structure",
+            "members": {
+                "Message": {
+                    "target": "com.amazonaws.connectcontactlens#Message"
+                }
+            },
+            "traits": {
+                "smithy.api#documentation": "<p>Request processing failed due to an error or failure with the service.</p>",
+                "smithy.api#error": "server",
+                "smithy.api#httpError": 500
+            }
+        },
+        "com.amazonaws.connectcontactlens#InvalidRequestException": {
+            "type": "structure",
+            "members": {
+                "Message": {
+                    "target": "com.amazonaws.connectcontactlens#Message"
+                }
+            },
+            "traits": {
+                "smithy.api#documentation": "<p>The request is not valid.</p>",
+                "smithy.api#error": "client",
+                "smithy.api#httpError": 400
+            }
+        },
+        "com.amazonaws.connectcontactlens#IssueDetected": {
+            "type": "structure",
+            "members": {
+                "CharacterOffsets": {
+                    "target": "com.amazonaws.connectcontactlens#CharacterOffsets",
+                    "traits": {
+                        "smithy.api#clientOptional": {},
+                        "smithy.api#documentation": "<p>The offset for when the issue was detected in the segment.</p>",
+                        "smithy.api#required": {}
+                    }
+                }
+            },
+            "traits": {
+                "smithy.api#documentation": "<p>Potential issues that are detected based on an artificial intelligence analysis of\n            each turn in the conversation.</p>"
+            }
+        },
+        "com.amazonaws.connectcontactlens#IssuesDetected": {
+            "type": "list",
+            "member": {
+                "target": "com.amazonaws.connectcontactlens#IssueDetected"
+            },
+            "traits": {
+                "smithy.api#length": {
+                    "min": 0,
+                    "max": 20
+                }
+            }
+        },
+        "com.amazonaws.connectcontactlens#ListRealtimeContactAnalysisSegments": {
+            "type": "operation",
+            "input": {
+                "target": "com.amazonaws.connectcontactlens#ListRealtimeContactAnalysisSegmentsRequest"
+            },
+            "output": {
+                "target": "com.amazonaws.connectcontactlens#ListRealtimeContactAnalysisSegmentsResponse"
+            },
+            "errors": [
+                {
+                    "target": "com.amazonaws.connectcontactlens#AccessDeniedException"
+                },
+                {
+                    "target": "com.amazonaws.connectcontactlens#InternalServiceException"
+                },
+                {
+                    "target": "com.amazonaws.connectcontactlens#InvalidRequestException"
+                },
+                {
+                    "target": "com.amazonaws.connectcontactlens#ResourceNotFoundException"
+                },
+                {
+                    "target": "com.amazonaws.connectcontactlens#ThrottlingException"
+                }
+            ],
+            "traits": {
+                "smithy.api#documentation": "<p>Provides a list of analysis segments for a real-time analysis session.</p>",
+                "smithy.api#http": {
+                    "method": "POST",
+                    "uri": "/realtime-contact-analysis/analysis-segments",
+                    "code": 200
+                },
+                "smithy.api#paginated": {
+                    "inputToken": "NextToken",
+                    "outputToken": "NextToken",
+                    "pageSize": "MaxResults"
+                }
+            }
+        },
+        "com.amazonaws.connectcontactlens#ListRealtimeContactAnalysisSegmentsRequest": {
+            "type": "structure",
+            "members": {
+                "InstanceId": {
+                    "target": "com.amazonaws.connectcontactlens#InstanceId",
+                    "traits": {
+                        "smithy.api#clientOptional": {},
+                        "smithy.api#documentation": "<p>The identifier of the Amazon Connect instance.</p>",
+                        "smithy.api#required": {}
+                    }
+                },
+                "ContactId": {
+                    "target": "com.amazonaws.connectcontactlens#ContactId",
+                    "traits": {
+                        "smithy.api#clientOptional": {},
+                        "smithy.api#documentation": "<p>The identifier of the contact.</p>",
+                        "smithy.api#required": {}
+                    }
+                },
+                "MaxResults": {
+                    "target": "com.amazonaws.connectcontactlens#MaxResults",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The maximum number of results to return per page.</p>"
+                    }
+                },
+                "NextToken": {
+                    "target": "com.amazonaws.connectcontactlens#NextToken",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The token for the next set of results. Use the value returned in the previous \nresponse in the next request to retrieve the next set of results.</p>"
+                    }
+                }
+            },
+            "traits": {
+                "smithy.api#input": {}
+            }
+        },
+        "com.amazonaws.connectcontactlens#ListRealtimeContactAnalysisSegmentsResponse": {
+            "type": "structure",
+            "members": {
+                "Segments": {
+                    "target": "com.amazonaws.connectcontactlens#RealtimeContactAnalysisSegments",
+                    "traits": {
+                        "smithy.api#clientOptional": {},
+                        "smithy.api#documentation": "<p>An analyzed transcript or category.</p>",
+                        "smithy.api#required": {}
+                    }
+                },
+                "NextToken": {
+                    "target": "com.amazonaws.connectcontactlens#NextToken",
+                    "traits": {
+                        "smithy.api#documentation": "<p>If there are additional results, this is the token for the next set of results. If response includes <code>nextToken</code> there are two possible\n            scenarios:</p>\n         <ul>\n            <li>\n               <p>There are more segments so another call is required to get them.</p>\n            </li>\n            <li>\n               <p>There are no more segments at this time, but more may be available later\n                    (real-time analysis is in progress) so the client should call the operation\n                    again to get new segments.</p>\n            </li>\n         </ul>\n         <p>If response does not include <code>nextToken</code>, the analysis is completed\n            (successfully or failed) and there are no more segments to retrieve.</p>"
+                    }
+                }
+            },
+            "traits": {
+                "smithy.api#output": {}
+            }
+        },
+        "com.amazonaws.connectcontactlens#MatchedCategories": {
+            "type": "list",
+            "member": {
+                "target": "com.amazonaws.connectcontactlens#CategoryName"
+            },
+            "traits": {
+                "smithy.api#length": {
+                    "min": 0,
+                    "max": 150
+                }
+            }
+        },
+        "com.amazonaws.connectcontactlens#MatchedDetails": {
+            "type": "map",
+            "key": {
+                "target": "com.amazonaws.connectcontactlens#CategoryName"
+            },
+            "value": {
+                "target": "com.amazonaws.connectcontactlens#CategoryDetails"
+            },
+            "traits": {
+                "smithy.api#length": {
+                    "min": 0,
+                    "max": 150
+                }
+            }
+        },
+        "com.amazonaws.connectcontactlens#MaxResults": {
+            "type": "integer",
+            "traits": {
+                "smithy.api#range": {
+                    "min": 1,
+                    "max": 100
+                }
+            }
+        },
+        "com.amazonaws.connectcontactlens#Message": {
+            "type": "string"
+        },
+        "com.amazonaws.connectcontactlens#NextToken": {
+            "type": "string",
+            "traits": {
+                "smithy.api#length": {
+                    "min": 1,
+                    "max": 131070
+                },
+                "smithy.api#pattern": "\\S"
+            }
+        },
+        "com.amazonaws.connectcontactlens#OffsetMillis": {
+            "type": "integer",
+            "traits": {
+                "smithy.api#range": {
+                    "min": 0
+                }
+            }
+        },
+        "com.amazonaws.connectcontactlens#ParticipantId": {
+            "type": "string",
+            "traits": {
+                "smithy.api#length": {
+                    "min": 1,
+                    "max": 256
+                },
+                "smithy.api#pattern": "\\S"
+            }
+        },
+        "com.amazonaws.connectcontactlens#ParticipantRole": {
+            "type": "string",
+            "traits": {
+                "smithy.api#length": {
+                    "min": 1,
+                    "max": 256
+                },
+                "smithy.api#pattern": "\\S"
+            }
+        },
+        "com.amazonaws.connectcontactlens#PointOfInterest": {
+            "type": "structure",
+            "members": {
+                "BeginOffsetMillis": {
+                    "target": "com.amazonaws.connectcontactlens#OffsetMillis",
+                    "traits": {
+                        "smithy.api#clientOptional": {},
+                        "smithy.api#documentation": "<p>The beginning offset in milliseconds where the category rule was detected.</p>",
+                        "smithy.api#required": {}
+                    }
+                },
+                "EndOffsetMillis": {
+                    "target": "com.amazonaws.connectcontactlens#OffsetMillis",
+                    "traits": {
+                        "smithy.api#clientOptional": {},
+                        "smithy.api#documentation": "<p>The ending offset in milliseconds where the category rule was detected.</p>",
+                        "smithy.api#required": {}
+                    }
+                }
+            },
+            "traits": {
+                "smithy.api#documentation": "<p>The section of the contact audio where that category rule was detected.</p>"
+            }
+        },
+        "com.amazonaws.connectcontactlens#PointsOfInterest": {
+            "type": "list",
+            "member": {
+                "target": "com.amazonaws.connectcontactlens#PointOfInterest"
+            },
+            "traits": {
+                "smithy.api#length": {
+                    "min": 0,
+                    "max": 20
+                }
+            }
+        },
+        "com.amazonaws.connectcontactlens#PostContactSummary": {
+            "type": "structure",
+            "members": {
+                "Content": {
+                    "target": "com.amazonaws.connectcontactlens#PostContactSummaryContent",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The content of the summary.</p>"
+                    }
+                },
+                "Status": {
+                    "target": "com.amazonaws.connectcontactlens#PostContactSummaryStatus",
+                    "traits": {
+                        "smithy.api#clientOptional": {},
+                        "smithy.api#documentation": "<p>Whether the summary was successfully COMPLETED or FAILED to be generated.</p>",
+                        "smithy.api#required": {}
+                    }
+                },
+                "FailureCode": {
+                    "target": "com.amazonaws.connectcontactlens#PostContactSummaryFailureCode",
+                    "traits": {
+                        "smithy.api#documentation": "<p>If the summary failed to be generated, one of the following failure codes\n            occurs:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>QUOTA_EXCEEDED</code>: The number of concurrent analytics jobs reached\n                    your service quota.</p>\n            </li>\n            <li>\n               <p>\n                  <code>INSUFFICIENT_CONVERSATION_CONTENT</code>: The conversation needs to have\n                    at least one turn from both the participants in order to generate the\n                    summary.</p>\n            </li>\n            <li>\n               <p>\n                  <code>FAILED_SAFETY_GUIDELINES</code>: The generated summary cannot be\n                    provided because it failed to meet system safety guidelines.</p>\n            </li>\n            <li>\n               <p>\n                  <code>INVALID_ANALYSIS_CONFIGURATION</code>: This code occurs when, for\n                    example, you're using a \n                    <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/supported-languages.html#supported-languages-contact-lens\">language</a> \n                     that isn't supported by generative AI-powered post-contact summaries.\n                </p>\n            </li>\n            <li>\n               <p>\n                  <code>INTERNAL_ERROR</code>: Internal system error.</p>\n            </li>\n         </ul>"
+                    }
+                }
+            },
+            "traits": {
+                "smithy.api#documentation": "<p>Information about the post-contact summary.</p>"
+            }
+        },
+        "com.amazonaws.connectcontactlens#PostContactSummaryContent": {
+            "type": "string",
+            "traits": {
+                "smithy.api#length": {
+                    "min": 1,
+                    "max": 1762
+                }
+            }
+        },
+        "com.amazonaws.connectcontactlens#PostContactSummaryFailureCode": {
+            "type": "enum",
+            "members": {
+                "QUOTA_EXCEEDED": {
+                    "target": "smithy.api#Unit",
+                    "traits": {
+                        "smithy.api#enumValue": "QUOTA_EXCEEDED"
+                    }
+                },
+                "INSUFFICIENT_CONVERSATION_CONTENT": {
+                    "target": "smithy.api#Unit",
+                    "traits": {
+                        "smithy.api#enumValue": "INSUFFICIENT_CONVERSATION_CONTENT"
+                    }
+                },
+                "FAILED_SAFETY_GUIDELINES": {
+                    "target": "smithy.api#Unit",
+                    "traits": {
+                        "smithy.api#enumValue": "FAILED_SAFETY_GUIDELINES"
+                    }
+                },
+                "INVALID_ANALYSIS_CONFIGURATION": {
+                    "target": "smithy.api#Unit",
+                    "traits": {
+                        "smithy.api#enumValue": "INVALID_ANALYSIS_CONFIGURATION"
+                    }
+                },
+                "INTERNAL_ERROR": {
+                    "target": "smithy.api#Unit",
+                    "traits": {
+                        "smithy.api#enumValue": "INTERNAL_ERROR"
+                    }
+                }
+            }
+        },
+        "com.amazonaws.connectcontactlens#PostContactSummaryStatus": {
+            "type": "enum",
+            "members": {
+                "FAILED": {
+                    "target": "smithy.api#Unit",
+                    "traits": {
+                        "smithy.api#enumValue": "FAILED"
+                    }
+                },
+                "COMPLETED": {
+                    "target": "smithy.api#Unit",
+                    "traits": {
+                        "smithy.api#enumValue": "COMPLETED"
+                    }
+                }
+            }
+        },
+        "com.amazonaws.connectcontactlens#RealtimeContactAnalysisSegment": {
+            "type": "structure",
+            "members": {
+                "Transcript": {
+                    "target": "com.amazonaws.connectcontactlens#Transcript",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The analyzed transcript.</p>"
+                    }
+                },
+                "Categories": {
+                    "target": "com.amazonaws.connectcontactlens#Categories",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The matched category rules.</p>"
+                    }
+                },
+                "PostContactSummary": {
+                    "target": "com.amazonaws.connectcontactlens#PostContactSummary",
+                    "traits": {
+                        "smithy.api#documentation": "<p>Information about the post-contact summary.</p>"
+                    }
+                }
+            },
+            "traits": {
+                "smithy.api#documentation": "<p>An analyzed segment for a real-time analysis session.</p>"
+            }
+        },
+        "com.amazonaws.connectcontactlens#RealtimeContactAnalysisSegments": {
+            "type": "list",
+            "member": {
+                "target": "com.amazonaws.connectcontactlens#RealtimeContactAnalysisSegment"
+            },
+            "traits": {
+                "smithy.api#length": {
+                    "min": 0,
+                    "max": 100
+                }
+            }
+        },
+        "com.amazonaws.connectcontactlens#ResourceNotFoundException": {
+            "type": "structure",
+            "members": {
+                "Message": {
+                    "target": "com.amazonaws.connectcontactlens#Message"
+                }
+            },
+            "traits": {
+                "smithy.api#documentation": "<p>The specified resource was not found.</p>",
+                "smithy.api#error": "client",
+                "smithy.api#httpError": 404
+            }
+        },
+        "com.amazonaws.connectcontactlens#SentimentValue": {
+            "type": "enum",
+            "members": {
+                "POSITIVE": {
+                    "target": "smithy.api#Unit",
+                    "traits": {
+                        "smithy.api#enumValue": "POSITIVE"
+                    }
+                },
+                "NEUTRAL": {
+                    "target": "smithy.api#Unit",
+                    "traits": {
+                        "smithy.api#enumValue": "NEUTRAL"
+                    }
+                },
+                "NEGATIVE": {
+                    "target": "smithy.api#Unit",
+                    "traits": {
+                        "smithy.api#enumValue": "NEGATIVE"
+                    }
+                }
+            }
+        },
+        "com.amazonaws.connectcontactlens#ThrottlingException": {
+            "type": "structure",
+            "members": {
+                "Message": {
+                    "target": "com.amazonaws.connectcontactlens#Message",
+                    "traits": {
+                        "smithy.api#clientOptional": {},
+                        "smithy.api#required": {}
+                    }
+                }
+            },
+            "traits": {
+                "smithy.api#documentation": "<p>The throttling limit has been exceeded.</p>",
+                "smithy.api#error": "client",
+                "smithy.api#httpError": 429
+            }
+        },
+        "com.amazonaws.connectcontactlens#Transcript": {
+            "type": "structure",
+            "members": {
+                "Id": {
+                    "target": "com.amazonaws.connectcontactlens#TranscriptId",
+                    "traits": {
+                        "smithy.api#clientOptional": {},
+                        "smithy.api#documentation": "<p>The identifier of the transcript.</p>",
+                        "smithy.api#required": {}
+                    }
+                },
+                "ParticipantId": {
+                    "target": "com.amazonaws.connectcontactlens#ParticipantId",
+                    "traits": {
+                        "smithy.api#clientOptional": {},
+                        "smithy.api#documentation": "<p>The identifier of the participant. Valid values are CUSTOMER or AGENT.</p>",
+                        "smithy.api#required": {}
+                    }
+                },
+                "ParticipantRole": {
+                    "target": "com.amazonaws.connectcontactlens#ParticipantRole",
+                    "traits": {
+                        "smithy.api#clientOptional": {},
+                        "smithy.api#documentation": "<p>The role of participant. For example, is it a customer, agent, or system.</p>",
+                        "smithy.api#required": {}
+                    }
+                },
+                "Content": {
+                    "target": "com.amazonaws.connectcontactlens#TranscriptContent",
+                    "traits": {
+                        "smithy.api#clientOptional": {},
+                        "smithy.api#documentation": "<p>The content of the transcript.</p>",
+                        "smithy.api#required": {}
+                    }
+                },
+                "BeginOffsetMillis": {
+                    "target": "com.amazonaws.connectcontactlens#OffsetMillis",
+                    "traits": {
+                        "smithy.api#clientOptional": {},
+                        "smithy.api#documentation": "<p>The beginning offset in the contact for this transcript.</p>",
+                        "smithy.api#required": {}
+                    }
+                },
+                "EndOffsetMillis": {
+                    "target": "com.amazonaws.connectcontactlens#OffsetMillis",
+                    "traits": {
+                        "smithy.api#clientOptional": {},
+                        "smithy.api#documentation": "<p>The end offset in the contact for this transcript.</p>",
+                        "smithy.api#required": {}
+                    }
+                },
+                "Sentiment": {
+                    "target": "com.amazonaws.connectcontactlens#SentimentValue",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The sentiment detected for this piece of transcript.</p>"
+                    }
+                },
+                "IssuesDetected": {
+                    "target": "com.amazonaws.connectcontactlens#IssuesDetected",
+                    "traits": {
+                        "smithy.api#documentation": "<p>List of positions where issues were detected on the transcript.</p>"
+                    }
+                }
+            },
+            "traits": {
+                "smithy.api#documentation": "<p>A list of messages in the session.</p>"
+            }
+        },
+        "com.amazonaws.connectcontactlens#TranscriptContent": {
+            "type": "string",
+            "traits": {
+                "smithy.api#length": {
+                    "min": 1
+                },
+                "smithy.api#pattern": "\\S"
+            }
+        },
+        "com.amazonaws.connectcontactlens#TranscriptId": {
+            "type": "string",
+            "traits": {
+                "smithy.api#length": {
+                    "min": 1,
+                    "max": 256
+                },
+                "smithy.api#pattern": "\\S"
+            }
         }
-      }
-    },
-    "com.amazonaws.connectcontactlens#Categories": {
-      "type": "structure",
-      "members": {
-        "MatchedCategories": {
-          "target": "com.amazonaws.connectcontactlens#MatchedCategories",
-          "traits": {
-            "smithy.api#clientOptional": {},
-            "smithy.api#documentation": "<p>The category rules that have been matched in the analyzed segment.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "MatchedDetails": {
-          "target": "com.amazonaws.connectcontactlens#MatchedDetails",
-          "traits": {
-            "smithy.api#clientOptional": {},
-            "smithy.api#documentation": "<p>The category rule that was matched and when it occurred in the transcript.</p>",
-            "smithy.api#required": {}
-          }
-        }
-      },
-      "traits": {
-        "smithy.api#documentation": "<p>Provides the category rules that are used to automatically categorize contacts based\n            on uttered keywords and phrases.</p>"
-      }
-    },
-    "com.amazonaws.connectcontactlens#CategoryDetails": {
-      "type": "structure",
-      "members": {
-        "PointsOfInterest": {
-          "target": "com.amazonaws.connectcontactlens#PointsOfInterest",
-          "traits": {
-            "smithy.api#clientOptional": {},
-            "smithy.api#documentation": "<p>The section of audio where the category rule was detected.</p>",
-            "smithy.api#required": {}
-          }
-        }
-      },
-      "traits": {
-        "smithy.api#documentation": "<p>Provides information about the category rule that was matched.</p>"
-      }
-    },
-    "com.amazonaws.connectcontactlens#CategoryName": {
-      "type": "string",
-      "traits": {
-        "smithy.api#length": {
-          "min": 1,
-          "max": 256
-        },
-        "smithy.api#pattern": "\\S"
-      }
-    },
-    "com.amazonaws.connectcontactlens#CharacterOffset": {
-      "type": "integer",
-      "traits": {
-        "smithy.api#range": {
-          "min": 0
-        }
-      }
-    },
-    "com.amazonaws.connectcontactlens#CharacterOffsets": {
-      "type": "structure",
-      "members": {
-        "BeginOffsetChar": {
-          "target": "com.amazonaws.connectcontactlens#CharacterOffset",
-          "traits": {
-            "smithy.api#clientOptional": {},
-            "smithy.api#documentation": "<p>The beginning of the issue.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "EndOffsetChar": {
-          "target": "com.amazonaws.connectcontactlens#CharacterOffset",
-          "traits": {
-            "smithy.api#clientOptional": {},
-            "smithy.api#documentation": "<p>The end of the issue.</p>",
-            "smithy.api#required": {}
-          }
-        }
-      },
-      "traits": {
-        "smithy.api#documentation": "<p>For characters that were detected as issues, where they occur in the\n            transcript.</p>"
-      }
-    },
-    "com.amazonaws.connectcontactlens#ContactId": {
-      "type": "string",
-      "traits": {
-        "smithy.api#length": {
-          "min": 1,
-          "max": 256
-        },
-        "smithy.api#pattern": "\\S"
-      }
-    },
-    "com.amazonaws.connectcontactlens#InstanceId": {
-      "type": "string",
-      "traits": {
-        "smithy.api#length": {
-          "min": 1,
-          "max": 256
-        },
-        "smithy.api#pattern": "\\S"
-      }
-    },
-    "com.amazonaws.connectcontactlens#InternalServiceException": {
-      "type": "structure",
-      "members": {
-        "Message": {
-          "target": "com.amazonaws.connectcontactlens#Message"
-        }
-      },
-      "traits": {
-        "smithy.api#documentation": "<p>Request processing failed due to an error or failure with the service.</p>",
-        "smithy.api#error": "server",
-        "smithy.api#httpError": 500
-      }
-    },
-    "com.amazonaws.connectcontactlens#InvalidRequestException": {
-      "type": "structure",
-      "members": {
-        "Message": {
-          "target": "com.amazonaws.connectcontactlens#Message"
-        }
-      },
-      "traits": {
-        "smithy.api#documentation": "<p>The request is not valid.</p>",
-        "smithy.api#error": "client",
-        "smithy.api#httpError": 400
-      }
-    },
-    "com.amazonaws.connectcontactlens#IssueDetected": {
-      "type": "structure",
-      "members": {
-        "CharacterOffsets": {
-          "target": "com.amazonaws.connectcontactlens#CharacterOffsets",
-          "traits": {
-            "smithy.api#clientOptional": {},
-            "smithy.api#documentation": "<p>The offset for when the issue was detected in the segment.</p>",
-            "smithy.api#required": {}
-          }
-        }
-      },
-      "traits": {
-        "smithy.api#documentation": "<p>Potential issues that are detected based on an artificial intelligence analysis of\n            each turn in the conversation.</p>"
-      }
-    },
-    "com.amazonaws.connectcontactlens#IssuesDetected": {
-      "type": "list",
-      "member": {
-        "target": "com.amazonaws.connectcontactlens#IssueDetected"
-      },
-      "traits": {
-        "smithy.api#length": {
-          "min": 0,
-          "max": 20
-        }
-      }
-    },
-    "com.amazonaws.connectcontactlens#ListRealtimeContactAnalysisSegments": {
-      "type": "operation",
-      "input": {
-        "target": "com.amazonaws.connectcontactlens#ListRealtimeContactAnalysisSegmentsRequest"
-      },
-      "output": {
-        "target": "com.amazonaws.connectcontactlens#ListRealtimeContactAnalysisSegmentsResponse"
-      },
-      "errors": [
-        {
-          "target": "com.amazonaws.connectcontactlens#AccessDeniedException"
-        },
-        {
-          "target": "com.amazonaws.connectcontactlens#InternalServiceException"
-        },
-        {
-          "target": "com.amazonaws.connectcontactlens#InvalidRequestException"
-        },
-        {
-          "target": "com.amazonaws.connectcontactlens#ResourceNotFoundException"
-        },
-        {
-          "target": "com.amazonaws.connectcontactlens#ThrottlingException"
-        }
-      ],
-      "traits": {
-        "smithy.api#documentation": "<p>Provides a list of analysis segments for a real-time analysis session.</p>",
-        "smithy.api#http": {
-          "method": "POST",
-          "uri": "/realtime-contact-analysis/analysis-segments",
-          "code": 200
-        },
-        "smithy.api#paginated": {
-          "inputToken": "NextToken",
-          "outputToken": "NextToken",
-          "pageSize": "MaxResults"
-        }
-      }
-    },
-    "com.amazonaws.connectcontactlens#ListRealtimeContactAnalysisSegmentsRequest": {
-      "type": "structure",
-      "members": {
-        "InstanceId": {
-          "target": "com.amazonaws.connectcontactlens#InstanceId",
-          "traits": {
-            "smithy.api#clientOptional": {},
-            "smithy.api#documentation": "<p>The identifier of the Amazon Connect instance.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "ContactId": {
-          "target": "com.amazonaws.connectcontactlens#ContactId",
-          "traits": {
-            "smithy.api#clientOptional": {},
-            "smithy.api#documentation": "<p>The identifier of the contact.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "MaxResults": {
-          "target": "com.amazonaws.connectcontactlens#MaxResults",
-          "traits": {
-            "smithy.api#documentation": "<p>The maximum number of results to return per page.</p>"
-          }
-        },
-        "NextToken": {
-          "target": "com.amazonaws.connectcontactlens#NextToken",
-          "traits": {
-            "smithy.api#documentation": "<p>The token for the next set of results. Use the value returned in the previous \nresponse in the next request to retrieve the next set of results.</p>"
-          }
-        }
-      },
-      "traits": {
-        "smithy.api#input": {}
-      }
-    },
-    "com.amazonaws.connectcontactlens#ListRealtimeContactAnalysisSegmentsResponse": {
-      "type": "structure",
-      "members": {
-        "Segments": {
-          "target": "com.amazonaws.connectcontactlens#RealtimeContactAnalysisSegments",
-          "traits": {
-            "smithy.api#clientOptional": {},
-            "smithy.api#documentation": "<p>An analyzed transcript or category.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "NextToken": {
-          "target": "com.amazonaws.connectcontactlens#NextToken",
-          "traits": {
-            "smithy.api#documentation": "<p>If there are additional results, this is the token for the next set of results. If response includes <code>nextToken</code> there are two possible\n            scenarios:</p>\n         <ul>\n            <li>\n               <p>There are more segments so another call is required to get them.</p>\n            </li>\n            <li>\n               <p>There are no more segments at this time, but more may be available later\n                    (real-time analysis is in progress) so the client should call the operation\n                    again to get new segments.</p>\n            </li>\n         </ul>\n         <p>If response does not include <code>nextToken</code>, the analysis is completed\n            (successfully or failed) and there are no more segments to retrieve.</p>"
-          }
-        }
-      },
-      "traits": {
-        "smithy.api#output": {}
-      }
-    },
-    "com.amazonaws.connectcontactlens#MatchedCategories": {
-      "type": "list",
-      "member": {
-        "target": "com.amazonaws.connectcontactlens#CategoryName"
-      },
-      "traits": {
-        "smithy.api#length": {
-          "min": 0,
-          "max": 150
-        }
-      }
-    },
-    "com.amazonaws.connectcontactlens#MatchedDetails": {
-      "type": "map",
-      "key": {
-        "target": "com.amazonaws.connectcontactlens#CategoryName"
-      },
-      "value": {
-        "target": "com.amazonaws.connectcontactlens#CategoryDetails"
-      },
-      "traits": {
-        "smithy.api#length": {
-          "min": 0,
-          "max": 150
-        }
-      }
-    },
-    "com.amazonaws.connectcontactlens#MaxResults": {
-      "type": "integer",
-      "traits": {
-        "smithy.api#range": {
-          "min": 1,
-          "max": 100
-        }
-      }
-    },
-    "com.amazonaws.connectcontactlens#Message": {
-      "type": "string"
-    },
-    "com.amazonaws.connectcontactlens#NextToken": {
-      "type": "string",
-      "traits": {
-        "smithy.api#length": {
-          "min": 1,
-          "max": 131070
-        },
-        "smithy.api#pattern": "\\S"
-      }
-    },
-    "com.amazonaws.connectcontactlens#OffsetMillis": {
-      "type": "integer",
-      "traits": {
-        "smithy.api#range": {
-          "min": 0
-        }
-      }
-    },
-    "com.amazonaws.connectcontactlens#ParticipantId": {
-      "type": "string",
-      "traits": {
-        "smithy.api#length": {
-          "min": 1,
-          "max": 256
-        },
-        "smithy.api#pattern": "\\S"
-      }
-    },
-    "com.amazonaws.connectcontactlens#ParticipantRole": {
-      "type": "string",
-      "traits": {
-        "smithy.api#length": {
-          "min": 1,
-          "max": 256
-        },
-        "smithy.api#pattern": "\\S"
-      }
-    },
-    "com.amazonaws.connectcontactlens#PointOfInterest": {
-      "type": "structure",
-      "members": {
-        "BeginOffsetMillis": {
-          "target": "com.amazonaws.connectcontactlens#OffsetMillis",
-          "traits": {
-            "smithy.api#clientOptional": {},
-            "smithy.api#documentation": "<p>The beginning offset in milliseconds where the category rule was detected.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "EndOffsetMillis": {
-          "target": "com.amazonaws.connectcontactlens#OffsetMillis",
-          "traits": {
-            "smithy.api#clientOptional": {},
-            "smithy.api#documentation": "<p>The ending offset in milliseconds where the category rule was detected.</p>",
-            "smithy.api#required": {}
-          }
-        }
-      },
-      "traits": {
-        "smithy.api#documentation": "<p>The section of the contact audio where that category rule was detected.</p>"
-      }
-    },
-    "com.amazonaws.connectcontactlens#PointsOfInterest": {
-      "type": "list",
-      "member": {
-        "target": "com.amazonaws.connectcontactlens#PointOfInterest"
-      },
-      "traits": {
-        "smithy.api#length": {
-          "min": 0,
-          "max": 20
-        }
-      }
-    },
-    "com.amazonaws.connectcontactlens#PostContactSummary": {
-      "type": "structure",
-      "members": {
-        "Content": {
-          "target": "com.amazonaws.connectcontactlens#PostContactSummaryContent",
-          "traits": {
-            "smithy.api#documentation": "<p>The content of the summary.</p>"
-          }
-        },
-        "Status": {
-          "target": "com.amazonaws.connectcontactlens#PostContactSummaryStatus",
-          "traits": {
-            "smithy.api#clientOptional": {},
-            "smithy.api#documentation": "<p>Whether the summary was successfully COMPLETED or FAILED to be generated.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "FailureCode": {
-          "target": "com.amazonaws.connectcontactlens#PostContactSummaryFailureCode",
-          "traits": {
-            "smithy.api#documentation": "<p>If the summary failed to be generated, one of the following failure codes\n            occurs:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>QUOTA_EXCEEDED</code>: The number of concurrent analytics jobs reached\n                    your service quota.</p>\n            </li>\n            <li>\n               <p>\n                  <code>INSUFFICIENT_CONVERSATION_CONTENT</code>: The conversation needs to have\n                    at least one turn from both the participants in order to generate the\n                    summary.</p>\n            </li>\n            <li>\n               <p>\n                  <code>FAILED_SAFETY_GUIDELINES</code>: The generated summary cannot be\n                    provided because it failed to meet system safety guidelines.</p>\n            </li>\n            <li>\n               <p>\n                  <code>INVALID_ANALYSIS_CONFIGURATION</code>: This code occurs when, for\n                    example, you're using a \n                    <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/supported-languages.html#supported-languages-contact-lens\">language</a> \n                     that isn't supported by generative AI-powered post-contact summaries.\n                </p>\n            </li>\n            <li>\n               <p>\n                  <code>INTERNAL_ERROR</code>: Internal system error.</p>\n            </li>\n         </ul>"
-          }
-        }
-      },
-      "traits": {
-        "smithy.api#documentation": "<p>Information about the post-contact summary.</p>"
-      }
-    },
-    "com.amazonaws.connectcontactlens#PostContactSummaryContent": {
-      "type": "string",
-      "traits": {
-        "smithy.api#length": {
-          "min": 1,
-          "max": 1762
-        }
-      }
-    },
-    "com.amazonaws.connectcontactlens#PostContactSummaryFailureCode": {
-      "type": "enum",
-      "members": {
-        "QUOTA_EXCEEDED": {
-          "target": "smithy.api#Unit",
-          "traits": {
-            "smithy.api#enumValue": "QUOTA_EXCEEDED"
-          }
-        },
-        "INSUFFICIENT_CONVERSATION_CONTENT": {
-          "target": "smithy.api#Unit",
-          "traits": {
-            "smithy.api#enumValue": "INSUFFICIENT_CONVERSATION_CONTENT"
-          }
-        },
-        "FAILED_SAFETY_GUIDELINES": {
-          "target": "smithy.api#Unit",
-          "traits": {
-            "smithy.api#enumValue": "FAILED_SAFETY_GUIDELINES"
-          }
-        },
-        "INVALID_ANALYSIS_CONFIGURATION": {
-          "target": "smithy.api#Unit",
-          "traits": {
-            "smithy.api#enumValue": "INVALID_ANALYSIS_CONFIGURATION"
-          }
-        },
-        "INTERNAL_ERROR": {
-          "target": "smithy.api#Unit",
-          "traits": {
-            "smithy.api#enumValue": "INTERNAL_ERROR"
-          }
-        }
-      }
-    },
-    "com.amazonaws.connectcontactlens#PostContactSummaryStatus": {
-      "type": "enum",
-      "members": {
-        "FAILED": {
-          "target": "smithy.api#Unit",
-          "traits": {
-            "smithy.api#enumValue": "FAILED"
-          }
-        },
-        "COMPLETED": {
-          "target": "smithy.api#Unit",
-          "traits": {
-            "smithy.api#enumValue": "COMPLETED"
-          }
-        }
-      }
-    },
-    "com.amazonaws.connectcontactlens#RealtimeContactAnalysisSegment": {
-      "type": "structure",
-      "members": {
-        "Transcript": {
-          "target": "com.amazonaws.connectcontactlens#Transcript",
-          "traits": {
-            "smithy.api#documentation": "<p>The analyzed transcript.</p>"
-          }
-        },
-        "Categories": {
-          "target": "com.amazonaws.connectcontactlens#Categories",
-          "traits": {
-            "smithy.api#documentation": "<p>The matched category rules.</p>"
-          }
-        },
-        "PostContactSummary": {
-          "target": "com.amazonaws.connectcontactlens#PostContactSummary",
-          "traits": {
-            "smithy.api#documentation": "<p>Information about the post-contact summary.</p>"
-          }
-        }
-      },
-      "traits": {
-        "smithy.api#documentation": "<p>An analyzed segment for a real-time analysis session.</p>"
-      }
-    },
-    "com.amazonaws.connectcontactlens#RealtimeContactAnalysisSegments": {
-      "type": "list",
-      "member": {
-        "target": "com.amazonaws.connectcontactlens#RealtimeContactAnalysisSegment"
-      },
-      "traits": {
-        "smithy.api#length": {
-          "min": 0,
-          "max": 100
-        }
-      }
-    },
-    "com.amazonaws.connectcontactlens#ResourceNotFoundException": {
-      "type": "structure",
-      "members": {
-        "Message": {
-          "target": "com.amazonaws.connectcontactlens#Message"
-        }
-      },
-      "traits": {
-        "smithy.api#documentation": "<p>The specified resource was not found.</p>",
-        "smithy.api#error": "client",
-        "smithy.api#httpError": 404
-      }
-    },
-    "com.amazonaws.connectcontactlens#SentimentValue": {
-      "type": "enum",
-      "members": {
-        "POSITIVE": {
-          "target": "smithy.api#Unit",
-          "traits": {
-            "smithy.api#enumValue": "POSITIVE"
-          }
-        },
-        "NEUTRAL": {
-          "target": "smithy.api#Unit",
-          "traits": {
-            "smithy.api#enumValue": "NEUTRAL"
-          }
-        },
-        "NEGATIVE": {
-          "target": "smithy.api#Unit",
-          "traits": {
-            "smithy.api#enumValue": "NEGATIVE"
-          }
-        }
-      }
-    },
-    "com.amazonaws.connectcontactlens#ThrottlingException": {
-      "type": "structure",
-      "members": {
-        "Message": {
-          "target": "com.amazonaws.connectcontactlens#Message",
-          "traits": {
-            "smithy.api#clientOptional": {},
-            "smithy.api#required": {}
-          }
-        }
-      },
-      "traits": {
-        "smithy.api#documentation": "<p>The throttling limit has been exceeded.</p>",
-        "smithy.api#error": "client",
-        "smithy.api#httpError": 429
-      }
-    },
-    "com.amazonaws.connectcontactlens#Transcript": {
-      "type": "structure",
-      "members": {
-        "Id": {
-          "target": "com.amazonaws.connectcontactlens#TranscriptId",
-          "traits": {
-            "smithy.api#clientOptional": {},
-            "smithy.api#documentation": "<p>The identifier of the transcript.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "ParticipantId": {
-          "target": "com.amazonaws.connectcontactlens#ParticipantId",
-          "traits": {
-            "smithy.api#clientOptional": {},
-            "smithy.api#documentation": "<p>The identifier of the participant. Valid values are CUSTOMER or AGENT.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "ParticipantRole": {
-          "target": "com.amazonaws.connectcontactlens#ParticipantRole",
-          "traits": {
-            "smithy.api#clientOptional": {},
-            "smithy.api#documentation": "<p>The role of participant. For example, is it a customer, agent, or system.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "Content": {
-          "target": "com.amazonaws.connectcontactlens#TranscriptContent",
-          "traits": {
-            "smithy.api#clientOptional": {},
-            "smithy.api#documentation": "<p>The content of the transcript.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "BeginOffsetMillis": {
-          "target": "com.amazonaws.connectcontactlens#OffsetMillis",
-          "traits": {
-            "smithy.api#clientOptional": {},
-            "smithy.api#documentation": "<p>The beginning offset in the contact for this transcript.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "EndOffsetMillis": {
-          "target": "com.amazonaws.connectcontactlens#OffsetMillis",
-          "traits": {
-            "smithy.api#clientOptional": {},
-            "smithy.api#documentation": "<p>The end offset in the contact for this transcript.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "Sentiment": {
-          "target": "com.amazonaws.connectcontactlens#SentimentValue",
-          "traits": {
-            "smithy.api#documentation": "<p>The sentiment detected for this piece of transcript.</p>"
-          }
-        },
-        "IssuesDetected": {
-          "target": "com.amazonaws.connectcontactlens#IssuesDetected",
-          "traits": {
-            "smithy.api#documentation": "<p>List of positions where issues were detected on the transcript.</p>"
-          }
-        }
-      },
-      "traits": {
-        "smithy.api#documentation": "<p>A list of messages in the session.</p>"
-      }
-    },
-    "com.amazonaws.connectcontactlens#TranscriptContent": {
-      "type": "string",
-      "traits": {
-        "smithy.api#length": {
-          "min": 1
-        },
-        "smithy.api#pattern": "\\S"
-      }
-    },
-    "com.amazonaws.connectcontactlens#TranscriptId": {
-      "type": "string",
-      "traits": {
-        "smithy.api#length": {
-          "min": 1,
-          "max": 256
-        },
-        "smithy.api#pattern": "\\S"
-      }
     }
-  }
 }
