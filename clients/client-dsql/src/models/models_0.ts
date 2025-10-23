@@ -85,13 +85,13 @@ export class ConflictException extends __BaseException {
  */
 export interface MultiRegionProperties {
   /**
-   * <p>The  that serves as the witness region for a multi-Region cluster. The witness region helps maintain cluster consistency and quorum.</p>
+   * <p>The  Region that serves as the witness region for a multi-Region cluster. The witness Region helps maintain cluster consistency and quorum.</p>
    * @public
    */
   witnessRegion?: string | undefined;
 
   /**
-   * <p>The set of linked clusters that form the multi-Region cluster configuration. Each linked cluster represents a database instance in a different  Region.</p>
+   * <p>The set of peered clusters that form the multi-Region cluster configuration. Each peered cluster represents a database instance in a different  Region.</p>
    * @public
    */
   clusters?: string[] | undefined;
@@ -137,6 +137,18 @@ export interface CreateClusterInput {
    * @public
    */
   multiRegionProperties?: MultiRegionProperties | undefined;
+
+  /**
+   * <p>An optional resource-based policy document in JSON format that defines access permissions for the cluster.</p>
+   * @public
+   */
+  policy?: string | undefined;
+
+  /**
+   * <p>An optional field that controls whether to bypass the lockout prevention check. When set to true, this parameter allows you to apply a policy that might lock you out of the cluster. Use with caution.</p>
+   * @public
+   */
+  bypassPolicyLockoutSafetyCheck?: boolean | undefined;
 }
 
 /**
@@ -522,6 +534,40 @@ export class ResourceNotFoundException extends __BaseException {
 /**
  * @public
  */
+export interface DeleteClusterPolicyInput {
+  /**
+   * <p>The ID of the cluster.</p>
+   * @public
+   */
+  identifier: string | undefined;
+
+  /**
+   * <p>The expected version of the policy to delete. This parameter ensures that you're deleting the correct version of the policy and helps prevent accidental deletions.</p>
+   * @public
+   */
+  expectedPolicyVersion?: string | undefined;
+
+  /**
+   * <p>Idempotency token so a request is only processed once.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteClusterPolicyOutput {
+  /**
+   * <p>The version of the policy that was deleted.</p>
+   * @public
+   */
+  policyVersion: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface GetClusterInput {
   /**
    * <p>The ID of the cluster to retrieve.</p>
@@ -582,6 +628,34 @@ export interface GetClusterOutput {
    * @public
    */
   encryptionDetails?: EncryptionDetails | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetClusterPolicyInput {
+  /**
+   * <p>The ID of the cluster to retrieve the policy from.</p>
+   * @public
+   */
+  identifier: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetClusterPolicyOutput {
+  /**
+   * <p>The resource-based policy document attached to the cluster, returned as a JSON string.</p>
+   * @public
+   */
+  policy: string | undefined;
+
+  /**
+   * <p>The version of the policy document. This version number is incremented each time the policy is updated.</p>
+   * @public
+   */
+  policyVersion: string | undefined;
 }
 
 /**
@@ -661,6 +735,52 @@ export interface ListClustersOutput {
    * @public
    */
   clusters: ClusterSummary[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PutClusterPolicyInput {
+  /**
+   * <p>The ID of the cluster.</p>
+   * @public
+   */
+  identifier: string | undefined;
+
+  /**
+   * <p>The resource-based policy document to attach to the cluster. This should be a valid JSON policy document that defines permissions and conditions.</p>
+   * @public
+   */
+  policy: string | undefined;
+
+  /**
+   * <p>A flag that allows you to bypass the policy lockout safety check. When set to true, this parameter allows you to apply a policy that might lock you out of the cluster. Use with caution.</p>
+   * @public
+   */
+  bypassPolicyLockoutSafetyCheck?: boolean | undefined;
+
+  /**
+   * <p>The expected version of the current policy. This parameter ensures that you're updating the correct version of the policy and helps prevent concurrent modification conflicts.</p>
+   * @public
+   */
+  expectedPolicyVersion?: string | undefined;
+
+  /**
+   * <p>Idempotency token so a request is only processed once.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PutClusterPolicyOutput {
+  /**
+   * <p>The version of the policy after it has been updated or created.</p>
+   * @public
+   */
+  policyVersion: string | undefined;
 }
 
 /**

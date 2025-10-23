@@ -28,7 +28,7 @@ export interface CreateClusterCommandInput extends CreateClusterInput {}
 export interface CreateClusterCommandOutput extends CreateClusterOutput, __MetadataBearer {}
 
 /**
- * <p>The CreateCluster API allows you to create both single-region clusters and multi-Region
+ * <p>The CreateCluster API allows you to create both single-Region clusters and multi-Region
  *          clusters. With the addition of the <i>multiRegionProperties</i> parameter,
  *          you can create a cluster with witness Region support and establish peer relationships with
  *          clusters in other Regions during creation.</p>
@@ -55,7 +55,7 @@ export interface CreateClusterCommandOutput extends CreateClusterOutput, __Metad
  *             </dd>
  *             <dt>dsql:PutMultiRegionProperties</dt>
  *             <dd>
- *                <p>Permission to configure multi-region properties for a cluster.</p>
+ *                <p>Permission to configure multi-Region properties for a cluster.</p>
  *                <p>Resources: <code>arn:aws:dsql:region:account-id:cluster/*</code>
  *                </p>
  *             </dd>
@@ -114,6 +114,8 @@ export interface CreateClusterCommandOutput extends CreateClusterOutput, __Metad
  *       "STRING_VALUE",
  *     ],
  *   },
+ *   policy: "STRING_VALUE",
+ *   bypassPolicyLockoutSafetyCheck: true || false,
  * };
  * const command = new CreateClusterCommand(input);
  * const response = await client.send(command);

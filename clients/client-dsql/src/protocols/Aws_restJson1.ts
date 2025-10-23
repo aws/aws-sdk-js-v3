@@ -28,7 +28,12 @@ import { v4 as generateIdempotencyToken } from "@smithy/uuid";
 
 import { CreateClusterCommandInput, CreateClusterCommandOutput } from "../commands/CreateClusterCommand";
 import { DeleteClusterCommandInput, DeleteClusterCommandOutput } from "../commands/DeleteClusterCommand";
+import {
+  DeleteClusterPolicyCommandInput,
+  DeleteClusterPolicyCommandOutput,
+} from "../commands/DeleteClusterPolicyCommand";
 import { GetClusterCommandInput, GetClusterCommandOutput } from "../commands/GetClusterCommand";
+import { GetClusterPolicyCommandInput, GetClusterPolicyCommandOutput } from "../commands/GetClusterPolicyCommand";
 import {
   GetVpcEndpointServiceNameCommandInput,
   GetVpcEndpointServiceNameCommandOutput,
@@ -38,6 +43,7 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "../commands/ListTagsForResourceCommand";
+import { PutClusterPolicyCommandInput, PutClusterPolicyCommandOutput } from "../commands/PutClusterPolicyCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
 import { UpdateClusterCommandInput, UpdateClusterCommandOutput } from "../commands/UpdateClusterCommand";
@@ -68,10 +74,12 @@ export const se_CreateClusterCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
+      bypassPolicyLockoutSafetyCheck: [],
       clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       deletionProtectionEnabled: [],
       kmsEncryptionKey: [],
       multiRegionProperties: (_) => _json(_),
+      policy: [],
       tags: (_) => _json(_),
     })
   );
@@ -99,6 +107,26 @@ export const se_DeleteClusterCommand = async (
 };
 
 /**
+ * serializeAws_restJson1DeleteClusterPolicyCommand
+ */
+export const se_DeleteClusterPolicyCommand = async (
+  input: DeleteClusterPolicyCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/cluster/{identifier}/policy");
+  b.p("identifier", () => input.identifier!, "{identifier}", false);
+  const query: any = map({
+    [_epv]: [, input[_ePV]!],
+    [_ct]: [, input[_cT] ?? generateIdempotencyToken()],
+  });
+  let body: any;
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1GetClusterCommand
  */
 export const se_GetClusterCommand = async (
@@ -108,6 +136,22 @@ export const se_GetClusterCommand = async (
   const b = rb(input, context);
   const headers: any = {};
   b.bp("/cluster/{identifier}");
+  b.p("identifier", () => input.identifier!, "{identifier}", false);
+  let body: any;
+  b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1GetClusterPolicyCommand
+ */
+export const se_GetClusterPolicyCommand = async (
+  input: GetClusterPolicyCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/cluster/{identifier}/policy");
   b.p("identifier", () => input.identifier!, "{identifier}", false);
   let body: any;
   b.m("GET").h(headers).b(body);
@@ -162,6 +206,32 @@ export const se_ListTagsForResourceCommand = async (
   b.p("resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   let body: any;
   b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1PutClusterPolicyCommand
+ */
+export const se_PutClusterPolicyCommand = async (
+  input: PutClusterPolicyCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/cluster/{identifier}/policy");
+  b.p("identifier", () => input.identifier!, "{identifier}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      bypassPolicyLockoutSafetyCheck: [],
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
+      expectedPolicyVersion: [],
+      policy: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
   return b.build();
 };
 
@@ -285,6 +355,27 @@ export const de_DeleteClusterCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1DeleteClusterPolicyCommand
+ */
+export const de_DeleteClusterPolicyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteClusterPolicyCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    policyVersion: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1GetClusterCommand
  */
 export const de_GetClusterCommand = async (
@@ -307,6 +398,28 @@ export const de_GetClusterCommand = async (
     multiRegionProperties: _json,
     status: __expectString,
     tags: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetClusterPolicyCommand
+ */
+export const de_GetClusterPolicyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetClusterPolicyCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    policy: __expectString,
+    policyVersion: __expectString,
   });
   Object.assign(contents, doc);
   return contents;
@@ -371,6 +484,27 @@ export const de_ListTagsForResourceCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     tags: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1PutClusterPolicyCommand
+ */
+export const de_PutClusterPolicyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutClusterPolicyCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    policyVersion: __expectString,
   });
   Object.assign(contents, doc);
   return contents;
@@ -659,6 +793,8 @@ const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<st
 
 const _cT = "clientToken";
 const _ct = "client-token";
+const _ePV = "expectedPolicyVersion";
+const _epv = "expected-policy-version";
 const _mR = "maxResults";
 const _mr = "max-results";
 const _nT = "nextToken";

@@ -30,7 +30,9 @@ export interface UpdateClusterCommandOutput extends UpdateClusterOutput, __Metad
 /**
  * <p>The <i>UpdateCluster</i> API allows you to modify both single-Region and multi-Region cluster configurations. With the <i>multiRegionProperties</i> parameter, you can add or modify witness Region support and manage peer relationships with clusters in other Regions.</p>
  *          <note>
- *             <p>Note that updating multi-region clusters requires additional IAM permissions beyond those needed for standard cluster updates, as detailed in the Permissions section.</p>
+ *             <p>Note that updating multi-Region clusters requires additional IAM permissions
+ *             beyond those needed for standard cluster updates, as detailed in the Permissions
+ *             section.</p>
  *          </note>
  *          <p>
  *             <b>Required permissions</b>

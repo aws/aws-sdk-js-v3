@@ -12,7 +12,17 @@ import {
   DeleteClusterCommandInput,
   DeleteClusterCommandOutput,
 } from "./commands/DeleteClusterCommand";
+import {
+  DeleteClusterPolicyCommand,
+  DeleteClusterPolicyCommandInput,
+  DeleteClusterPolicyCommandOutput,
+} from "./commands/DeleteClusterPolicyCommand";
 import { GetClusterCommand, GetClusterCommandInput, GetClusterCommandOutput } from "./commands/GetClusterCommand";
+import {
+  GetClusterPolicyCommand,
+  GetClusterPolicyCommandInput,
+  GetClusterPolicyCommandOutput,
+} from "./commands/GetClusterPolicyCommand";
 import {
   GetVpcEndpointServiceNameCommand,
   GetVpcEndpointServiceNameCommandInput,
@@ -28,6 +38,11 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
+import {
+  PutClusterPolicyCommand,
+  PutClusterPolicyCommandInput,
+  PutClusterPolicyCommandOutput,
+} from "./commands/PutClusterPolicyCommand";
 import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
   UntagResourceCommand,
@@ -44,10 +59,13 @@ import { DSQLClient, DSQLClientConfig } from "./DSQLClient";
 const commands = {
   CreateClusterCommand,
   DeleteClusterCommand,
+  DeleteClusterPolicyCommand,
   GetClusterCommand,
+  GetClusterPolicyCommand,
   GetVpcEndpointServiceNameCommand,
   ListClustersCommand,
   ListTagsForResourceCommand,
+  PutClusterPolicyCommand,
   TagResourceCommand,
   UntagResourceCommand,
   UpdateClusterCommand,
@@ -78,6 +96,23 @@ export interface DSQL {
   ): void;
 
   /**
+   * @see {@link DeleteClusterPolicyCommand}
+   */
+  deleteClusterPolicy(
+    args: DeleteClusterPolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteClusterPolicyCommandOutput>;
+  deleteClusterPolicy(
+    args: DeleteClusterPolicyCommandInput,
+    cb: (err: any, data?: DeleteClusterPolicyCommandOutput) => void
+  ): void;
+  deleteClusterPolicy(
+    args: DeleteClusterPolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteClusterPolicyCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetClusterCommand}
    */
   getCluster(args: GetClusterCommandInput, options?: __HttpHandlerOptions): Promise<GetClusterCommandOutput>;
@@ -86,6 +121,23 @@ export interface DSQL {
     args: GetClusterCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetClusterCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetClusterPolicyCommand}
+   */
+  getClusterPolicy(
+    args: GetClusterPolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetClusterPolicyCommandOutput>;
+  getClusterPolicy(
+    args: GetClusterPolicyCommandInput,
+    cb: (err: any, data?: GetClusterPolicyCommandOutput) => void
+  ): void;
+  getClusterPolicy(
+    args: GetClusterPolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetClusterPolicyCommandOutput) => void
   ): void;
 
   /**
@@ -132,6 +184,23 @@ export interface DSQL {
     args: ListTagsForResourceCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link PutClusterPolicyCommand}
+   */
+  putClusterPolicy(
+    args: PutClusterPolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutClusterPolicyCommandOutput>;
+  putClusterPolicy(
+    args: PutClusterPolicyCommandInput,
+    cb: (err: any, data?: PutClusterPolicyCommandOutput) => void
+  ): void;
+  putClusterPolicy(
+    args: PutClusterPolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutClusterPolicyCommandOutput) => void
   ): void;
 
   /**

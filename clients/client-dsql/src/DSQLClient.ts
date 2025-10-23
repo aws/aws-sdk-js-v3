@@ -55,7 +55,12 @@ import {
 } from "./auth/httpAuthSchemeProvider";
 import { CreateClusterCommandInput, CreateClusterCommandOutput } from "./commands/CreateClusterCommand";
 import { DeleteClusterCommandInput, DeleteClusterCommandOutput } from "./commands/DeleteClusterCommand";
+import {
+  DeleteClusterPolicyCommandInput,
+  DeleteClusterPolicyCommandOutput,
+} from "./commands/DeleteClusterPolicyCommand";
 import { GetClusterCommandInput, GetClusterCommandOutput } from "./commands/GetClusterCommand";
+import { GetClusterPolicyCommandInput, GetClusterPolicyCommandOutput } from "./commands/GetClusterPolicyCommand";
 import {
   GetVpcEndpointServiceNameCommandInput,
   GetVpcEndpointServiceNameCommandOutput,
@@ -65,6 +70,7 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
+import { PutClusterPolicyCommandInput, PutClusterPolicyCommandOutput } from "./commands/PutClusterPolicyCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import { UpdateClusterCommandInput, UpdateClusterCommandOutput } from "./commands/UpdateClusterCommand";
@@ -85,10 +91,13 @@ export { __Client };
 export type ServiceInputTypes =
   | CreateClusterCommandInput
   | DeleteClusterCommandInput
+  | DeleteClusterPolicyCommandInput
   | GetClusterCommandInput
+  | GetClusterPolicyCommandInput
   | GetVpcEndpointServiceNameCommandInput
   | ListClustersCommandInput
   | ListTagsForResourceCommandInput
+  | PutClusterPolicyCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
   | UpdateClusterCommandInput;
@@ -99,10 +108,13 @@ export type ServiceInputTypes =
 export type ServiceOutputTypes =
   | CreateClusterCommandOutput
   | DeleteClusterCommandOutput
+  | DeleteClusterPolicyCommandOutput
   | GetClusterCommandOutput
+  | GetClusterPolicyCommandOutput
   | GetVpcEndpointServiceNameCommandOutput
   | ListClustersCommandOutput
   | ListTagsForResourceCommandOutput
+  | PutClusterPolicyCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
   | UpdateClusterCommandOutput;
