@@ -36,11 +36,6 @@ export function addExpectContinueMiddleware(options: PreviouslyResolved): BuildM
             const bodyLength =
               Number(request.headers?.["content-length"]) ?? options.bodyLengthChecker?.(request.body) ?? Infinity;
             sendHeader = bodyLength >= options.expectContinueHeader;
-            console.log({
-              sendHeader,
-              bodyLength,
-              threshold: options.expectContinueHeader,
-            });
           } catch (e) {}
         } else {
           sendHeader = !!options.expectContinueHeader;
