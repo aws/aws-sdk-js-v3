@@ -88,6 +88,9 @@ export interface GetLinkCommandOutput extends GetLinkResponse, __MetadataBearer 
  * //           },
  * //           holdbackPercentage: Number("float"), // required
  * //         },
+ * //         rateLimiter: { // RateLimiterModuleParameters
+ * //           tps: Number("float"),
+ * //         },
  * //       },
  * //     },
  * //   ],
@@ -128,6 +131,9 @@ export interface GetLinkCommandOutput extends GetLinkResponse, __MetadataBearer 
  * //             },
  * //           },
  * //           holdbackPercentage: Number("float"), // required
+ * //         },
+ * //         rateLimiter: {
+ * //           tps: Number("float"),
  * //         },
  * //       },
  * //     },

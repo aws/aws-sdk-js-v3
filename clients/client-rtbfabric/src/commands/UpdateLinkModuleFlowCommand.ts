@@ -79,6 +79,9 @@ export interface UpdateLinkModuleFlowCommandOutput extends UpdateLinkModuleFlowR
  *           },
  *           holdbackPercentage: Number("float"), // required
  *         },
+ *         rateLimiter: { // RateLimiterModuleParameters
+ *           tps: Number("float"),
+ *         },
  *       },
  *     },
  *   ],

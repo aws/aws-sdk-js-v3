@@ -86,6 +86,9 @@ export interface GetInboundExternalLinkCommandOutput extends GetInboundExternalL
  * //           },
  * //           holdbackPercentage: Number("float"), // required
  * //         },
+ * //         rateLimiter: { // RateLimiterModuleParameters
+ * //           tps: Number("float"),
+ * //         },
  * //       },
  * //     },
  * //   ],
@@ -126,6 +129,9 @@ export interface GetInboundExternalLinkCommandOutput extends GetInboundExternalL
  * //             },
  * //           },
  * //           holdbackPercentage: Number("float"), // required
+ * //         },
+ * //         rateLimiter: {
+ * //           tps: Number("float"),
  * //         },
  * //       },
  * //     },

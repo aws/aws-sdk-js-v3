@@ -91,6 +91,9 @@ export interface ListLinksCommandOutput extends ListLinksResponse, __MetadataBea
  * //               },
  * //               holdbackPercentage: Number("float"), // required
  * //             },
+ * //             rateLimiter: { // RateLimiterModuleParameters
+ * //               tps: Number("float"),
+ * //             },
  * //           },
  * //         },
  * //       ],
@@ -131,6 +134,9 @@ export interface ListLinksCommandOutput extends ListLinksResponse, __MetadataBea
  * //                 },
  * //               },
  * //               holdbackPercentage: Number("float"), // required
+ * //             },
+ * //             rateLimiter: {
+ * //               tps: Number("float"),
  * //             },
  * //           },
  * //         },

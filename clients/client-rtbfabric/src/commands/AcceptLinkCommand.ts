@@ -109,6 +109,9 @@ export interface AcceptLinkCommandOutput extends AcceptLinkResponse, __MetadataB
  * //           },
  * //           holdbackPercentage: Number("float"), // required
  * //         },
+ * //         rateLimiter: { // RateLimiterModuleParameters
+ * //           tps: Number("float"),
+ * //         },
  * //       },
  * //     },
  * //   ],
@@ -149,6 +152,9 @@ export interface AcceptLinkCommandOutput extends AcceptLinkResponse, __MetadataB
  * //             },
  * //           },
  * //           holdbackPercentage: Number("float"), // required
+ * //         },
+ * //         rateLimiter: {
+ * //           tps: Number("float"),
  * //         },
  * //       },
  * //     },

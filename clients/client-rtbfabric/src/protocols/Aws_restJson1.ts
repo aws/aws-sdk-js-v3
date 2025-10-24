@@ -135,6 +135,7 @@ import {
   NoBidAction,
   NoBidModuleParameters,
   OpenRtbAttributeModuleParameters,
+  RateLimiterModuleParameters,
   ResourceNotFoundException,
   ResponderErrorMaskingForHttpCode,
   ResponderErrorMaskingLoggingType,
@@ -1633,6 +1634,7 @@ const se_ModuleParameters = (input: ModuleParameters, context: __SerdeContext): 
   return ModuleParameters.visit(input, {
     noBid: (value) => ({ noBid: se_NoBidModuleParameters(value, context) }),
     openRtbAttribute: (value) => ({ openRtbAttribute: se_OpenRtbAttributeModuleParameters(value, context) }),
+    rateLimiter: (value) => ({ rateLimiter: se_RateLimiterModuleParameters(value, context) }),
     _: (name, value) => ({ [name]: value } as any),
   });
 };
@@ -1659,6 +1661,15 @@ const se_OpenRtbAttributeModuleParameters = (input: OpenRtbAttributeModuleParame
     filterConfiguration: _json,
     filterType: [],
     holdbackPercentage: __serializeFloat,
+  });
+};
+
+/**
+ * serializeAws_restJson1RateLimiterModuleParameters
+ */
+const se_RateLimiterModuleParameters = (input: RateLimiterModuleParameters, context: __SerdeContext): any => {
+  return take(input, {
+    tps: __serializeFloat,
   });
 };
 
@@ -1830,6 +1841,11 @@ const de_ModuleParameters = (output: any, context: __SerdeContext): ModuleParame
       openRtbAttribute: de_OpenRtbAttributeModuleParameters(output.openRtbAttribute, context),
     };
   }
+  if (output.rateLimiter != null) {
+    return {
+      rateLimiter: de_RateLimiterModuleParameters(output.rateLimiter, context),
+    };
+  }
   return { $unknown: Object.entries(output)[0] };
 };
 
@@ -1858,6 +1874,15 @@ const de_OpenRtbAttributeModuleParameters = (
     filterConfiguration: _json,
     filterType: __expectString,
     holdbackPercentage: __limitedParseFloat32,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1RateLimiterModuleParameters
+ */
+const de_RateLimiterModuleParameters = (output: any, context: __SerdeContext): RateLimiterModuleParameters => {
+  return take(output, {
+    tps: __limitedParseFloat32,
   }) as any;
 };
 

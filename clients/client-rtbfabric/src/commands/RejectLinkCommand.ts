@@ -88,6 +88,9 @@ export interface RejectLinkCommandOutput extends RejectLinkResponse, __MetadataB
  * //           },
  * //           holdbackPercentage: Number("float"), // required
  * //         },
+ * //         rateLimiter: { // RateLimiterModuleParameters
+ * //           tps: Number("float"),
+ * //         },
  * //       },
  * //     },
  * //   ],
@@ -128,6 +131,9 @@ export interface RejectLinkCommandOutput extends RejectLinkResponse, __MetadataB
  * //             },
  * //           },
  * //           holdbackPercentage: Number("float"), // required
+ * //         },
+ * //         rateLimiter: {
+ * //           tps: Number("float"),
  * //         },
  * //       },
  * //     },

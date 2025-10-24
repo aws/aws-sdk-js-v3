@@ -348,12 +348,25 @@ export interface OpenRtbAttributeModuleParameters {
 }
 
 /**
+ * <p>Describes the parameters of a rate limit.</p>
+ * @public
+ */
+export interface RateLimiterModuleParameters {
+  /**
+   * <p>The transactions per second rate limit.</p>
+   * @public
+   */
+  tps?: number | undefined;
+}
+
+/**
  * <p>Describes the parameters of a module.</p>
  * @public
  */
 export type ModuleParameters =
   | ModuleParameters.NoBidMember
   | ModuleParameters.OpenRtbAttributeMember
+  | ModuleParameters.RateLimiterMember
   | ModuleParameters.$UnknownMember;
 
 /**
@@ -367,6 +380,7 @@ export namespace ModuleParameters {
   export interface NoBidMember {
     noBid: NoBidModuleParameters;
     openRtbAttribute?: never;
+    rateLimiter?: never;
     $unknown?: never;
   }
 
@@ -377,6 +391,18 @@ export namespace ModuleParameters {
   export interface OpenRtbAttributeMember {
     noBid?: never;
     openRtbAttribute: OpenRtbAttributeModuleParameters;
+    rateLimiter?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Describes the parameters of a rate limit.</p>
+   * @public
+   */
+  export interface RateLimiterMember {
+    noBid?: never;
+    openRtbAttribute?: never;
+    rateLimiter: RateLimiterModuleParameters;
     $unknown?: never;
   }
 
@@ -386,18 +412,21 @@ export namespace ModuleParameters {
   export interface $UnknownMember {
     noBid?: never;
     openRtbAttribute?: never;
+    rateLimiter?: never;
     $unknown: [string, any];
   }
 
   export interface Visitor<T> {
     noBid: (value: NoBidModuleParameters) => T;
     openRtbAttribute: (value: OpenRtbAttributeModuleParameters) => T;
+    rateLimiter: (value: RateLimiterModuleParameters) => T;
     _: (name: string, value: any) => T;
   }
 
   export const visit = <T>(value: ModuleParameters, visitor: Visitor<T>): T => {
     if (value.noBid !== undefined) return visitor.noBid(value.noBid);
     if (value.openRtbAttribute !== undefined) return visitor.openRtbAttribute(value.openRtbAttribute);
+    if (value.rateLimiter !== undefined) return visitor.rateLimiter(value.rateLimiter);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
 }
