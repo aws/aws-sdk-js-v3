@@ -6,7 +6,7 @@ import {
   Tag,
   UploadPartCommandInput,
 } from "@aws-sdk/client-s3";
-import type { AbortController } from "@smithy/types";
+import type { AbortController, AbortSignal } from "@smithy/types";
 
 export interface Progress {
   loaded?: number;
@@ -18,6 +18,9 @@ export interface Progress {
 
 // string | Uint8Array | Buffer | Readable | ReadableStream | Blob.
 export type BodyDataTypes = PutObjectCommandInput["Body"];
+
+export type IAbortController = AbortController | globalThis.AbortController;
+export type IAbortSignal = AbortSignal | globalThis.AbortSignal;
 
 /**
  * @deprecated redundant, use {@link S3Client} directly.
@@ -51,8 +54,15 @@ export interface Configuration {
 
   /**
    * Optional abort controller for controlling this upload's abort signal externally.
+   *
+   * @deprecated use `abortSignal` instead.
    */
-  abortController?: AbortController;
+  abortController?: IAbortController;
+
+  /**
+   * Optional abort signal for controlling this upload's abort signal externally.
+   */
+  abortSignal?: globalThis.AbortSignal;
 }
 
 export interface Options extends Partial<Configuration> {
