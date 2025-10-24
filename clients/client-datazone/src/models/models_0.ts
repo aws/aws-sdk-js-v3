@@ -5248,6 +5248,24 @@ export interface IamPropertiesInput {
 }
 
 /**
+ * <p>The MLflow properties of a connection.</p>
+ * @public
+ */
+export interface MlflowPropertiesInput {
+  /**
+   * <p>The name of the tracking server as part of the MLflow properties of a connection.</p>
+   * @public
+   */
+  trackingServerName?: string | undefined;
+
+  /**
+   * <p>The tracking server ARN as part of the MLflow properties of a connection.</p>
+   * @public
+   */
+  trackingServerArn?: string | undefined;
+}
+
+/**
  * <p>The username and password of a connection.</p>
  * @public
  */
@@ -5595,6 +5613,7 @@ export type ConnectionPropertiesInput =
   | ConnectionPropertiesInput.GluePropertiesMember
   | ConnectionPropertiesInput.HyperPodPropertiesMember
   | ConnectionPropertiesInput.IamPropertiesMember
+  | ConnectionPropertiesInput.MlflowPropertiesMember
   | ConnectionPropertiesInput.RedshiftPropertiesMember
   | ConnectionPropertiesInput.S3PropertiesMember
   | ConnectionPropertiesInput.SparkEmrPropertiesMember
@@ -5619,6 +5638,7 @@ export namespace ConnectionPropertiesInput {
     sparkGlueProperties?: never;
     s3Properties?: never;
     amazonQProperties?: never;
+    mlflowProperties?: never;
     $unknown?: never;
   }
 
@@ -5636,6 +5656,7 @@ export namespace ConnectionPropertiesInput {
     sparkGlueProperties?: never;
     s3Properties?: never;
     amazonQProperties?: never;
+    mlflowProperties?: never;
     $unknown?: never;
   }
 
@@ -5653,6 +5674,7 @@ export namespace ConnectionPropertiesInput {
     sparkGlueProperties?: never;
     s3Properties?: never;
     amazonQProperties?: never;
+    mlflowProperties?: never;
     $unknown?: never;
   }
 
@@ -5670,6 +5692,7 @@ export namespace ConnectionPropertiesInput {
     sparkGlueProperties?: never;
     s3Properties?: never;
     amazonQProperties?: never;
+    mlflowProperties?: never;
     $unknown?: never;
   }
 
@@ -5687,6 +5710,7 @@ export namespace ConnectionPropertiesInput {
     sparkGlueProperties?: never;
     s3Properties?: never;
     amazonQProperties?: never;
+    mlflowProperties?: never;
     $unknown?: never;
   }
 
@@ -5704,6 +5728,7 @@ export namespace ConnectionPropertiesInput {
     sparkGlueProperties?: never;
     s3Properties?: never;
     amazonQProperties?: never;
+    mlflowProperties?: never;
     $unknown?: never;
   }
 
@@ -5721,6 +5746,7 @@ export namespace ConnectionPropertiesInput {
     sparkGlueProperties: SparkGluePropertiesInput;
     s3Properties?: never;
     amazonQProperties?: never;
+    mlflowProperties?: never;
     $unknown?: never;
   }
 
@@ -5738,6 +5764,7 @@ export namespace ConnectionPropertiesInput {
     sparkGlueProperties?: never;
     s3Properties: S3PropertiesInput;
     amazonQProperties?: never;
+    mlflowProperties?: never;
     $unknown?: never;
   }
 
@@ -5755,6 +5782,25 @@ export namespace ConnectionPropertiesInput {
     sparkGlueProperties?: never;
     s3Properties?: never;
     amazonQProperties: AmazonQPropertiesInput;
+    mlflowProperties?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The MLflow properties of a connection.</p>
+   * @public
+   */
+  export interface MlflowPropertiesMember {
+    athenaProperties?: never;
+    glueProperties?: never;
+    hyperPodProperties?: never;
+    iamProperties?: never;
+    redshiftProperties?: never;
+    sparkEmrProperties?: never;
+    sparkGlueProperties?: never;
+    s3Properties?: never;
+    amazonQProperties?: never;
+    mlflowProperties: MlflowPropertiesInput;
     $unknown?: never;
   }
 
@@ -5771,6 +5817,7 @@ export namespace ConnectionPropertiesInput {
     sparkGlueProperties?: never;
     s3Properties?: never;
     amazonQProperties?: never;
+    mlflowProperties?: never;
     $unknown: [string, any];
   }
 
@@ -5784,6 +5831,7 @@ export namespace ConnectionPropertiesInput {
     sparkGlueProperties: (value: SparkGluePropertiesInput) => T;
     s3Properties: (value: S3PropertiesInput) => T;
     amazonQProperties: (value: AmazonQPropertiesInput) => T;
+    mlflowProperties: (value: MlflowPropertiesInput) => T;
     _: (name: string, value: any) => T;
   }
 
@@ -5797,6 +5845,7 @@ export namespace ConnectionPropertiesInput {
     if (value.sparkGlueProperties !== undefined) return visitor.sparkGlueProperties(value.sparkGlueProperties);
     if (value.s3Properties !== undefined) return visitor.s3Properties(value.s3Properties);
     if (value.amazonQProperties !== undefined) return visitor.amazonQProperties(value.amazonQProperties);
+    if (value.mlflowProperties !== undefined) return visitor.mlflowProperties(value.mlflowProperties);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
 }
@@ -5893,6 +5942,24 @@ export interface IamPropertiesOutput {
    * @public
    */
   glueLineageSyncEnabled?: boolean | undefined;
+}
+
+/**
+ * <p>The MLflow properties of a connection.</p>
+ * @public
+ */
+export interface MlflowPropertiesOutput {
+  /**
+   * <p>The name of the tracking server as part of the MLflow properties of a connection.</p>
+   * @public
+   */
+  trackingServerName?: string | undefined;
+
+  /**
+   * <p>The tracking server ARN as part of the MLflow properties of a connection.</p>
+   * @public
+   */
+  trackingServerArn?: string | undefined;
 }
 
 /**
@@ -6195,6 +6262,7 @@ export type ConnectionPropertiesOutput =
   | ConnectionPropertiesOutput.GluePropertiesMember
   | ConnectionPropertiesOutput.HyperPodPropertiesMember
   | ConnectionPropertiesOutput.IamPropertiesMember
+  | ConnectionPropertiesOutput.MlflowPropertiesMember
   | ConnectionPropertiesOutput.RedshiftPropertiesMember
   | ConnectionPropertiesOutput.S3PropertiesMember
   | ConnectionPropertiesOutput.SparkEmrPropertiesMember
@@ -6219,6 +6287,7 @@ export namespace ConnectionPropertiesOutput {
     sparkGlueProperties?: never;
     s3Properties?: never;
     amazonQProperties?: never;
+    mlflowProperties?: never;
     $unknown?: never;
   }
 
@@ -6236,6 +6305,7 @@ export namespace ConnectionPropertiesOutput {
     sparkGlueProperties?: never;
     s3Properties?: never;
     amazonQProperties?: never;
+    mlflowProperties?: never;
     $unknown?: never;
   }
 
@@ -6253,6 +6323,7 @@ export namespace ConnectionPropertiesOutput {
     sparkGlueProperties?: never;
     s3Properties?: never;
     amazonQProperties?: never;
+    mlflowProperties?: never;
     $unknown?: never;
   }
 
@@ -6270,6 +6341,7 @@ export namespace ConnectionPropertiesOutput {
     sparkGlueProperties?: never;
     s3Properties?: never;
     amazonQProperties?: never;
+    mlflowProperties?: never;
     $unknown?: never;
   }
 
@@ -6287,6 +6359,7 @@ export namespace ConnectionPropertiesOutput {
     sparkGlueProperties?: never;
     s3Properties?: never;
     amazonQProperties?: never;
+    mlflowProperties?: never;
     $unknown?: never;
   }
 
@@ -6304,6 +6377,7 @@ export namespace ConnectionPropertiesOutput {
     sparkGlueProperties?: never;
     s3Properties?: never;
     amazonQProperties?: never;
+    mlflowProperties?: never;
     $unknown?: never;
   }
 
@@ -6321,6 +6395,7 @@ export namespace ConnectionPropertiesOutput {
     sparkGlueProperties: SparkGluePropertiesOutput;
     s3Properties?: never;
     amazonQProperties?: never;
+    mlflowProperties?: never;
     $unknown?: never;
   }
 
@@ -6338,6 +6413,7 @@ export namespace ConnectionPropertiesOutput {
     sparkGlueProperties?: never;
     s3Properties: S3PropertiesOutput;
     amazonQProperties?: never;
+    mlflowProperties?: never;
     $unknown?: never;
   }
 
@@ -6355,6 +6431,25 @@ export namespace ConnectionPropertiesOutput {
     sparkGlueProperties?: never;
     s3Properties?: never;
     amazonQProperties: AmazonQPropertiesOutput;
+    mlflowProperties?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The MLflow properties of a connection.</p>
+   * @public
+   */
+  export interface MlflowPropertiesMember {
+    athenaProperties?: never;
+    glueProperties?: never;
+    hyperPodProperties?: never;
+    iamProperties?: never;
+    redshiftProperties?: never;
+    sparkEmrProperties?: never;
+    sparkGlueProperties?: never;
+    s3Properties?: never;
+    amazonQProperties?: never;
+    mlflowProperties: MlflowPropertiesOutput;
     $unknown?: never;
   }
 
@@ -6371,6 +6466,7 @@ export namespace ConnectionPropertiesOutput {
     sparkGlueProperties?: never;
     s3Properties?: never;
     amazonQProperties?: never;
+    mlflowProperties?: never;
     $unknown: [string, any];
   }
 
@@ -6384,6 +6480,7 @@ export namespace ConnectionPropertiesOutput {
     sparkGlueProperties: (value: SparkGluePropertiesOutput) => T;
     s3Properties: (value: S3PropertiesOutput) => T;
     amazonQProperties: (value: AmazonQPropertiesOutput) => T;
+    mlflowProperties: (value: MlflowPropertiesOutput) => T;
     _: (name: string, value: any) => T;
   }
 
@@ -6397,6 +6494,7 @@ export namespace ConnectionPropertiesOutput {
     if (value.sparkGlueProperties !== undefined) return visitor.sparkGlueProperties(value.sparkGlueProperties);
     if (value.s3Properties !== undefined) return visitor.s3Properties(value.s3Properties);
     if (value.amazonQProperties !== undefined) return visitor.amazonQProperties(value.amazonQProperties);
+    if (value.mlflowProperties !== undefined) return visitor.mlflowProperties(value.mlflowProperties);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
 }
@@ -6447,6 +6545,24 @@ export interface IamPropertiesPatch {
    * @public
    */
   glueLineageSyncEnabled?: boolean | undefined;
+}
+
+/**
+ * <p>The MLflow properties of a connection.</p>
+ * @public
+ */
+export interface MlflowPropertiesPatch {
+  /**
+   * <p>The name of the tracking server as part of the MLflow properties of a connection.</p>
+   * @public
+   */
+  trackingServerName?: string | undefined;
+
+  /**
+   * <p>The tracking server ARN as part of the MLflow properties of a connection.</p>
+   * @public
+   */
+  trackingServerArn?: string | undefined;
 }
 
 /**
@@ -6572,6 +6688,7 @@ export type ConnectionPropertiesPatch =
   | ConnectionPropertiesPatch.AthenaPropertiesMember
   | ConnectionPropertiesPatch.GluePropertiesMember
   | ConnectionPropertiesPatch.IamPropertiesMember
+  | ConnectionPropertiesPatch.MlflowPropertiesMember
   | ConnectionPropertiesPatch.RedshiftPropertiesMember
   | ConnectionPropertiesPatch.S3PropertiesMember
   | ConnectionPropertiesPatch.SparkEmrPropertiesMember
@@ -6593,6 +6710,7 @@ export namespace ConnectionPropertiesPatch {
     sparkEmrProperties?: never;
     s3Properties?: never;
     amazonQProperties?: never;
+    mlflowProperties?: never;
     $unknown?: never;
   }
 
@@ -6608,6 +6726,7 @@ export namespace ConnectionPropertiesPatch {
     sparkEmrProperties?: never;
     s3Properties?: never;
     amazonQProperties?: never;
+    mlflowProperties?: never;
     $unknown?: never;
   }
 
@@ -6623,6 +6742,7 @@ export namespace ConnectionPropertiesPatch {
     sparkEmrProperties?: never;
     s3Properties?: never;
     amazonQProperties?: never;
+    mlflowProperties?: never;
     $unknown?: never;
   }
 
@@ -6638,6 +6758,7 @@ export namespace ConnectionPropertiesPatch {
     sparkEmrProperties?: never;
     s3Properties?: never;
     amazonQProperties?: never;
+    mlflowProperties?: never;
     $unknown?: never;
   }
 
@@ -6653,6 +6774,7 @@ export namespace ConnectionPropertiesPatch {
     sparkEmrProperties: SparkEmrPropertiesPatch;
     s3Properties?: never;
     amazonQProperties?: never;
+    mlflowProperties?: never;
     $unknown?: never;
   }
 
@@ -6668,6 +6790,7 @@ export namespace ConnectionPropertiesPatch {
     sparkEmrProperties?: never;
     s3Properties: S3PropertiesPatch;
     amazonQProperties?: never;
+    mlflowProperties?: never;
     $unknown?: never;
   }
 
@@ -6683,6 +6806,23 @@ export namespace ConnectionPropertiesPatch {
     sparkEmrProperties?: never;
     s3Properties?: never;
     amazonQProperties: AmazonQPropertiesPatch;
+    mlflowProperties?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The MLflow properties of a connection.</p>
+   * @public
+   */
+  export interface MlflowPropertiesMember {
+    athenaProperties?: never;
+    glueProperties?: never;
+    iamProperties?: never;
+    redshiftProperties?: never;
+    sparkEmrProperties?: never;
+    s3Properties?: never;
+    amazonQProperties?: never;
+    mlflowProperties: MlflowPropertiesPatch;
     $unknown?: never;
   }
 
@@ -6697,6 +6837,7 @@ export namespace ConnectionPropertiesPatch {
     sparkEmrProperties?: never;
     s3Properties?: never;
     amazonQProperties?: never;
+    mlflowProperties?: never;
     $unknown: [string, any];
   }
 
@@ -6708,6 +6849,7 @@ export namespace ConnectionPropertiesPatch {
     sparkEmrProperties: (value: SparkEmrPropertiesPatch) => T;
     s3Properties: (value: S3PropertiesPatch) => T;
     amazonQProperties: (value: AmazonQPropertiesPatch) => T;
+    mlflowProperties: (value: MlflowPropertiesPatch) => T;
     _: (name: string, value: any) => T;
   }
 
@@ -6719,6 +6861,7 @@ export namespace ConnectionPropertiesPatch {
     if (value.sparkEmrProperties !== undefined) return visitor.sparkEmrProperties(value.sparkEmrProperties);
     if (value.s3Properties !== undefined) return visitor.s3Properties(value.s3Properties);
     if (value.amazonQProperties !== undefined) return visitor.amazonQProperties(value.amazonQProperties);
+    if (value.mlflowProperties !== undefined) return visitor.mlflowProperties(value.mlflowProperties);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
 }
@@ -6750,6 +6893,7 @@ export const ConnectionType = {
   DYNAMODB: "DYNAMODB",
   HYPERPOD: "HYPERPOD",
   IAM: "IAM",
+  MLFLOW: "MLFLOW",
   MYSQL: "MYSQL",
   OPENSEARCH: "OPENSEARCH",
   ORACLE: "ORACLE",
@@ -10580,106 +10724,6 @@ export interface CreateProjectMembershipInput {
 export interface CreateProjectMembershipOutput {}
 
 /**
- * <p>The Amazon Web Services Region.</p>
- * @public
- */
-export type Region = Region.RegionNameMember | Region.RegionNamePathMember | Region.$UnknownMember;
-
-/**
- * @public
- */
-export namespace Region {
-  /**
-   * <p>The Amazon Web Services Region name.</p>
-   * @public
-   */
-  export interface RegionNameMember {
-    regionName: string;
-    regionNamePath?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>The region name path.</p>
-   * @public
-   */
-  export interface RegionNamePathMember {
-    regionName?: never;
-    regionNamePath: string;
-    $unknown?: never;
-  }
-
-  /**
-   * @public
-   */
-  export interface $UnknownMember {
-    regionName?: never;
-    regionNamePath?: never;
-    $unknown: [string, any];
-  }
-
-  export interface Visitor<T> {
-    regionName: (value: string) => T;
-    regionNamePath: (value: string) => T;
-    _: (name: string, value: any) => T;
-  }
-
-  export const visit = <T>(value: Region, visitor: Visitor<T>): T => {
-    if (value.regionName !== undefined) return visitor.regionName(value.regionName);
-    if (value.regionNamePath !== undefined) return visitor.regionNamePath(value.regionNamePath);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
-}
-
-/**
- * <p>The environment configuration parameter.</p>
- * @public
- */
-export interface EnvironmentConfigurationParameter {
-  /**
-   * <p>The name of the environment configuration parameter.</p>
-   * @public
-   */
-  name?: string | undefined;
-
-  /**
-   * <p>The value of the environment configuration parameter.</p>
-   * @public
-   */
-  value?: string | undefined;
-
-  /**
-   * <p>Specifies whether the environment parameter is editable.</p>
-   * @public
-   */
-  isEditable?: boolean | undefined;
-}
-
-/**
- * <p>The details of the environment configuration parameter.</p>
- * @public
- */
-export interface EnvironmentConfigurationParametersDetails {
-  /**
-   * <p>Ssm path environment configuration parameters.</p>
-   * @public
-   */
-  ssmPath?: string | undefined;
-
-  /**
-   * <p>The parameter overrides.</p>
-   * @public
-   */
-  parameterOverrides?: EnvironmentConfigurationParameter[] | undefined;
-
-  /**
-   * <p>The resolved environment configuration parameters.</p>
-   * @public
-   */
-  resolvedParameters?: EnvironmentConfigurationParameter[] | undefined;
-}
-
-/**
  * @internal
  */
 export const AcceptChoiceFilterSensitiveLog = (obj: AcceptChoice): any => ({
@@ -11136,6 +11180,7 @@ export const ConnectionPropertiesInputFilterSensitiveLog = (obj: ConnectionPrope
   if (obj.sparkGlueProperties !== undefined) return { sparkGlueProperties: obj.sparkGlueProperties };
   if (obj.s3Properties !== undefined) return { s3Properties: obj.s3Properties };
   if (obj.amazonQProperties !== undefined) return { amazonQProperties: obj.amazonQProperties };
+  if (obj.mlflowProperties !== undefined) return { mlflowProperties: obj.mlflowProperties };
   if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
 };
 
@@ -11179,6 +11224,7 @@ export const ConnectionPropertiesOutputFilterSensitiveLog = (obj: ConnectionProp
   if (obj.sparkGlueProperties !== undefined) return { sparkGlueProperties: obj.sparkGlueProperties };
   if (obj.s3Properties !== undefined) return { s3Properties: obj.s3Properties };
   if (obj.amazonQProperties !== undefined) return { amazonQProperties: obj.amazonQProperties };
+  if (obj.mlflowProperties !== undefined) return { mlflowProperties: obj.mlflowProperties };
   if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
 };
 
@@ -11224,6 +11270,7 @@ export const ConnectionPropertiesPatchFilterSensitiveLog = (obj: ConnectionPrope
   if (obj.sparkEmrProperties !== undefined) return { sparkEmrProperties: obj.sparkEmrProperties };
   if (obj.s3Properties !== undefined) return { s3Properties: obj.s3Properties };
   if (obj.amazonQProperties !== undefined) return { amazonQProperties: obj.amazonQProperties };
+  if (obj.mlflowProperties !== undefined) return { mlflowProperties: obj.mlflowProperties };
   if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
 };
 

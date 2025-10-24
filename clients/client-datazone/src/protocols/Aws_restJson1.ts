@@ -464,8 +464,6 @@ import {
   DomainUnitFilterForProject,
   DomainUnitGrantFilter,
   DomainUnitPolicyGrantPrincipal,
-  EnvironmentConfigurationParameter,
-  EnvironmentConfigurationParametersDetails,
   EnvironmentConfigurationUserParameter,
   EnvironmentDeploymentDetails,
   EnvironmentError,
@@ -498,6 +496,8 @@ import {
   LikeExpression,
   LineageSyncSchedule,
   Member,
+  MlflowPropertiesInput,
+  MlflowPropertiesPatch,
   Model,
   NotEqualToExpression,
   NotInExpression,
@@ -528,7 +528,6 @@ import {
   RedshiftServerlessStorage,
   RedshiftStorage,
   RedshiftStorageProperties,
-  Region,
   RelationalFilterConfiguration,
   ResourceNotFoundException,
   RowFilterExpression,
@@ -566,6 +565,8 @@ import {
   EnvironmentBlueprintConfigurationItem,
   EnvironmentBlueprintSummary,
   EnvironmentConfiguration,
+  EnvironmentConfigurationParameter,
+  EnvironmentConfigurationParametersDetails,
   EnvironmentProfileSummary,
   EnvironmentSummary,
   FailureCause,
@@ -588,6 +589,7 @@ import {
   ProjectsForRule,
   ProjectSummary,
   ProvisioningConfiguration,
+  Region,
   RuleDetail,
   RuleScope,
   RuleTarget,
@@ -9403,6 +9405,10 @@ const se_FilterList = (input: FilterClause[], context: __SerdeContext): any => {
 
 // se_MetadataGenerationRunTarget omitted.
 
+// se_MlflowPropertiesInput omitted.
+
+// se_MlflowPropertiesPatch omitted.
+
 // se_Model omitted.
 
 // se_NotEqualToExpression omitted.
@@ -9929,6 +9935,11 @@ const de_ConnectionPropertiesOutput = (output: any, context: __SerdeContext): Co
   if (output.iamProperties != null) {
     return {
       iamProperties: _json(output.iamProperties),
+    };
+  }
+  if (output.mlflowProperties != null) {
+    return {
+      mlflowProperties: _json(output.mlflowProperties),
     };
   }
   if (output.redshiftProperties != null) {
@@ -10846,6 +10857,8 @@ const de_MetadataGenerationRuns = (output: any, context: __SerdeContext): Metada
 // de_MetadataGenerationRunTarget omitted.
 
 // de_MetadataMap omitted.
+
+// de_MlflowPropertiesOutput omitted.
 
 // de_Model omitted.
 

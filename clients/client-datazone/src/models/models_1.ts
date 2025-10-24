@@ -44,7 +44,6 @@ import {
   DomainUnitOwnerProperties,
   DomainVersion,
   EnableSetting,
-  EnvironmentConfigurationParametersDetails,
   EnvironmentConfigurationUserParameter,
   EnvironmentConfigurationUserParameterFilterSensitiveLog,
   EnvironmentDeploymentDetails,
@@ -72,7 +71,6 @@ import {
   ProjectStatus,
   ProvisioningProperties,
   RecommendationConfiguration,
-  Region,
   ResolutionStrategy,
   Resource,
   RuleScopeSelectionMode,
@@ -88,6 +86,106 @@ import {
   TermRelations,
   UserDesignation,
 } from "./models_0";
+
+/**
+ * <p>The Amazon Web Services Region.</p>
+ * @public
+ */
+export type Region = Region.RegionNameMember | Region.RegionNamePathMember | Region.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace Region {
+  /**
+   * <p>The Amazon Web Services Region name.</p>
+   * @public
+   */
+  export interface RegionNameMember {
+    regionName: string;
+    regionNamePath?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The region name path.</p>
+   * @public
+   */
+  export interface RegionNamePathMember {
+    regionName?: never;
+    regionNamePath: string;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    regionName?: never;
+    regionNamePath?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    regionName: (value: string) => T;
+    regionNamePath: (value: string) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: Region, visitor: Visitor<T>): T => {
+    if (value.regionName !== undefined) return visitor.regionName(value.regionName);
+    if (value.regionNamePath !== undefined) return visitor.regionNamePath(value.regionNamePath);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * <p>The environment configuration parameter.</p>
+ * @public
+ */
+export interface EnvironmentConfigurationParameter {
+  /**
+   * <p>The name of the environment configuration parameter.</p>
+   * @public
+   */
+  name?: string | undefined;
+
+  /**
+   * <p>The value of the environment configuration parameter.</p>
+   * @public
+   */
+  value?: string | undefined;
+
+  /**
+   * <p>Specifies whether the environment parameter is editable.</p>
+   * @public
+   */
+  isEditable?: boolean | undefined;
+}
+
+/**
+ * <p>The details of the environment configuration parameter.</p>
+ * @public
+ */
+export interface EnvironmentConfigurationParametersDetails {
+  /**
+   * <p>Ssm path environment configuration parameters.</p>
+   * @public
+   */
+  ssmPath?: string | undefined;
+
+  /**
+   * <p>The parameter overrides.</p>
+   * @public
+   */
+  parameterOverrides?: EnvironmentConfigurationParameter[] | undefined;
+
+  /**
+   * <p>The resolved environment configuration parameters.</p>
+   * @public
+   */
+  resolvedParameters?: EnvironmentConfigurationParameter[] | undefined;
+}
 
 /**
  * @public
@@ -10504,45 +10602,6 @@ export interface SubscriptionTargetSummary {
 }
 
 /**
- * @public
- */
-export interface ListSubscriptionTargetsOutput {
-  /**
-   * <p>The results of the <code>ListSubscriptionTargets</code> action.</p>
-   * @public
-   */
-  items: SubscriptionTargetSummary[] | undefined;
-
-  /**
-   * <p>When the number of subscription targets is greater than the default value for the <code>MaxResults</code> parameter, or if you explicitly specify a value for <code>MaxResults</code> that is less than the number of subscription targets, the response includes a pagination token named <code>NextToken</code>. You can specify this <code>NextToken</code> value in a subsequent call to <code>ListSubscriptionTargets</code> to list the next set of subscription targets.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListTagsForResourceRequest {
-  /**
-   * <p>The ARN of the resource whose tags you want to list.</p>
-   * @public
-   */
-  resourceArn: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListTagsForResourceResponse {
-  /**
-   * <p>The tags of the specified resource.</p>
-   * @public
-   */
-  tags?: Record<string, string> | undefined;
-}
-
-/**
  * @internal
  */
 export const EnvironmentConfigurationFilterSensitiveLog = (obj: EnvironmentConfiguration): any => ({
@@ -11370,12 +11429,4 @@ export const ListSubscriptionsOutputFilterSensitiveLog = (obj: ListSubscriptions
 export const SubscriptionTargetSummaryFilterSensitiveLog = (obj: SubscriptionTargetSummary): any => ({
   ...obj,
   ...(obj.name && { name: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const ListSubscriptionTargetsOutputFilterSensitiveLog = (obj: ListSubscriptionTargetsOutput): any => ({
-  ...obj,
-  ...(obj.items && { items: obj.items.map((item) => SubscriptionTargetSummaryFilterSensitiveLog(item)) }),
 });

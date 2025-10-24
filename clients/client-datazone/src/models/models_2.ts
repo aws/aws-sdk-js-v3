@@ -89,6 +89,8 @@ import {
   SubscriptionGrantOverallStatus,
   SubscriptionGrantStatus,
   SubscriptionTargetForm,
+  SubscriptionTargetSummary,
+  SubscriptionTargetSummaryFilterSensitiveLog,
   TimeSeriesDataPointFormOutput,
   TimeSeriesEntityType,
   UserProfileDetails,
@@ -96,6 +98,45 @@ import {
   UserProfileStatus,
   UserProfileType,
 } from "./models_1";
+
+/**
+ * @public
+ */
+export interface ListSubscriptionTargetsOutput {
+  /**
+   * <p>The results of the <code>ListSubscriptionTargets</code> action.</p>
+   * @public
+   */
+  items: SubscriptionTargetSummary[] | undefined;
+
+  /**
+   * <p>When the number of subscription targets is greater than the default value for the <code>MaxResults</code> parameter, or if you explicitly specify a value for <code>MaxResults</code> that is less than the number of subscription targets, the response includes a pagination token named <code>NextToken</code>. You can specify this <code>NextToken</code> value in a subsequent call to <code>ListSubscriptionTargets</code> to list the next set of subscription targets.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListTagsForResourceRequest {
+  /**
+   * <p>The ARN of the resource whose tags you want to list.</p>
+   * @public
+   */
+  resourceArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListTagsForResourceResponse {
+  /**
+   * <p>The tags of the specified resource.</p>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
+}
 
 /**
  * @public
@@ -4584,6 +4625,14 @@ export interface UpdateAssetFilterOutput {
    */
   effectiveRowFilter?: string | undefined;
 }
+
+/**
+ * @internal
+ */
+export const ListSubscriptionTargetsOutputFilterSensitiveLog = (obj: ListSubscriptionTargetsOutput): any => ({
+  ...obj,
+  ...(obj.items && { items: obj.items.map((item) => SubscriptionTargetSummaryFilterSensitiveLog(item)) }),
+});
 
 /**
  * @internal

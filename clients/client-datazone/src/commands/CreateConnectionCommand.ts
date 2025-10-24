@@ -184,6 +184,10 @@ export interface CreateConnectionCommandOutput extends CreateConnectionOutput, _
  *       profileArn: "STRING_VALUE",
  *       authMode: "STRING_VALUE",
  *     },
+ *     mlflowProperties: { // MlflowPropertiesInput
+ *       trackingServerName: "STRING_VALUE",
+ *       trackingServerArn: "STRING_VALUE",
+ *     },
  *   },
  *   enableTrustedIdentityPropagation: true || false,
  *   scope: "DOMAIN" || "PROJECT",
@@ -209,7 +213,7 @@ export interface CreateConnectionCommandOutput extends CreateConnectionOutput, _
  * //       glueConnection: { // GlueConnection
  * //         name: "STRING_VALUE",
  * //         description: "STRING_VALUE",
- * //         connectionType: "ATHENA" || "BIGQUERY" || "DATABRICKS" || "DOCUMENTDB" || "DYNAMODB" || "HYPERPOD" || "IAM" || "MYSQL" || "OPENSEARCH" || "ORACLE" || "POSTGRESQL" || "REDSHIFT" || "S3" || "SAPHANA" || "SNOWFLAKE" || "SPARK" || "SQLSERVER" || "TERADATA" || "VERTICA" || "WORKFLOWS_MWAA" || "AMAZON_Q",
+ * //         connectionType: "ATHENA" || "BIGQUERY" || "DATABRICKS" || "DOCUMENTDB" || "DYNAMODB" || "HYPERPOD" || "IAM" || "MYSQL" || "OPENSEARCH" || "ORACLE" || "POSTGRESQL" || "REDSHIFT" || "S3" || "SAPHANA" || "SNOWFLAKE" || "SPARK" || "SQLSERVER" || "TERADATA" || "VERTICA" || "WORKFLOWS_MWAA" || "AMAZON_Q" || "MLFLOW",
  * //         matchCriteria: [ // MatchCriteria
  * //           "STRING_VALUE",
  * //         ],
@@ -367,8 +371,12 @@ export interface CreateConnectionCommandOutput extends CreateConnectionOutput, _
  * //       profileArn: "STRING_VALUE",
  * //       authMode: "STRING_VALUE",
  * //     },
+ * //     mlflowProperties: { // MlflowPropertiesOutput
+ * //       trackingServerName: "STRING_VALUE",
+ * //       trackingServerArn: "STRING_VALUE",
+ * //     },
  * //   },
- * //   type: "ATHENA" || "BIGQUERY" || "DATABRICKS" || "DOCUMENTDB" || "DYNAMODB" || "HYPERPOD" || "IAM" || "MYSQL" || "OPENSEARCH" || "ORACLE" || "POSTGRESQL" || "REDSHIFT" || "S3" || "SAPHANA" || "SNOWFLAKE" || "SPARK" || "SQLSERVER" || "TERADATA" || "VERTICA" || "WORKFLOWS_MWAA" || "AMAZON_Q", // required
+ * //   type: "ATHENA" || "BIGQUERY" || "DATABRICKS" || "DOCUMENTDB" || "DYNAMODB" || "HYPERPOD" || "IAM" || "MYSQL" || "OPENSEARCH" || "ORACLE" || "POSTGRESQL" || "REDSHIFT" || "S3" || "SAPHANA" || "SNOWFLAKE" || "SPARK" || "SQLSERVER" || "TERADATA" || "VERTICA" || "WORKFLOWS_MWAA" || "AMAZON_Q" || "MLFLOW", // required
  * //   scope: "DOMAIN" || "PROJECT",
  * // };
  *
