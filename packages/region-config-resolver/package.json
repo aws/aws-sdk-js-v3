@@ -25,6 +25,7 @@
   "dependencies": {
     "@aws-sdk/types": "*",
     "@smithy/config-resolver": "^4.4.0",
+    "@smithy/node-config-provider": "^4.3.3",
     "@smithy/types": "^4.8.0",
     "tslib": "^2.6.2"
   },
@@ -53,5 +54,9 @@
     "type": "git",
     "url": "https://github.com/aws/aws-sdk-js-v3.git",
     "directory": "packages/region-config-resolver"
-  }
+  },
+  "browser": {
+    "./dist-es/regionConfig/stsRegionDefaultResolver": "./dist-es/regionConfig/stsRegionDefaultResolver.browser"
+  },
+  "react-native": {}
 }

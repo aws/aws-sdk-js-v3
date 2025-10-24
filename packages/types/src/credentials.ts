@@ -49,6 +49,7 @@ export type CredentialProviderOptions = {
   parentClientConfig?: {
     region?: string | Provider<string>;
     profile?: string;
+    logger?: Logger;
     [key: string]: unknown;
   };
 };
