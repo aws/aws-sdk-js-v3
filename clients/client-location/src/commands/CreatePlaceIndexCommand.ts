@@ -32,17 +32,7 @@ export interface CreatePlaceIndexCommandInput extends CreatePlaceIndexRequest {}
 export interface CreatePlaceIndexCommandOutput extends CreatePlaceIndexResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a place index resource in your Amazon Web Services account. Use a place index resource to
- *             geocode addresses and other text queries by using the
- *                 <code>SearchPlaceIndexForText</code> operation, and reverse geocode coordinates by
- *             using the <code>SearchPlaceIndexForPosition</code> operation, and enable autosuggestions
- *             by using the <code>SearchPlaceIndexForSuggestions</code> operation.</p>
- *          <note>
- *             <p>If your application is tracking or routing assets you use in your business, such
- *                 as delivery vehicles or employees, you must not use Esri as your geolocation
- *                 provider. See section 82 of the <a href="http://aws.amazon.com/service-terms">Amazon Web Services
- *                     service terms</a> for more details.</p>
- *          </note>
+ * <important> <p>This operation is no longer current and may be deprecated in the future. We recommend you upgrade to the Places API V2 unless you require Grab data.</p> <ul> <li> <p> <code>CreatePlaceIndex</code> is part of a previous Amazon Location Service Places API (version 1) which has been superseded by a more intuitive, powerful, and complete API (version 2).</p> </li> <li> <p>The Places API version 2 has a simplified interface that can be used without creating or managing place index resources.</p> </li> <li> <p>If you are using an Amazon Web Services SDK or the Amazon Web Services CLI, note that the Places API version 2 is found under <code>geo-places</code> or <code>geo_places</code>, not under <code>location</code>.</p> </li> <li> <p>Since Grab is not yet fully supported in Places API version 2, we recommend you continue using API version 1 when using Grab.</p> </li> <li> <p>Start your version 2 API journey with the Places V2 <a href="/location/latest/APIReference/API_Operations_Amazon_Location_Service_Places_V2.html">API Reference</a> or the <a href="/location/latest/developerguide/places.html">Developer Guide</a>.</p> </li> </ul> </important> <p>Creates a place index resource in your Amazon Web Services account. Use a place index resource to geocode addresses and other text queries by using the <code>SearchPlaceIndexForText</code> operation, and reverse geocode coordinates by using the <code>SearchPlaceIndexForPosition</code> operation, and enable autosuggestions by using the <code>SearchPlaceIndexForSuggestions</code> operation.</p> <note> <p>If your application is tracking or routing assets you use in your business, such as delivery vehicles or employees, you must not use Esri as your geolocation provider. See section 82 of the <a href="http://aws.amazon.com/service-terms">Amazon Web Services service terms</a> for more details.</p> </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -80,8 +70,7 @@ export interface CreatePlaceIndexCommandOutput extends CreatePlaceIndexResponse,
  * @see {@link LocationClientResolvedConfig | config} for LocationClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>The request was denied because of insufficient access or permissions. Check with an
- *       administrator to verify your permissions.</p>
+ *  <p>The request was denied because of insufficient access or permissions. Check with an administrator to verify your permissions.</p>
  *
  * @throws {@link ConflictException} (client fault)
  *  <p>The request was unsuccessful because of a conflict.</p>
@@ -90,8 +79,7 @@ export interface CreatePlaceIndexCommandOutput extends CreatePlaceIndexResponse,
  *  <p>The request has failed to process because of an unknown server error, exception, or failure.</p>
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>The operation was denied because the request would exceed the maximum <a href="https://docs.aws.amazon.com/location/previous/developerguide/location-quotas.html">quota</a>
- *       set for Amazon Location Service.</p>
+ *  <p>The operation was denied because the request would exceed the maximum <a href="https://docs.aws.amazon.com/location/previous/developerguide/location-quotas.html">quota</a> set for Amazon Location Service.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied because of request throttling.</p>

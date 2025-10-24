@@ -33,26 +33,7 @@ export interface ForecastGeofenceEventsCommandInput extends ForecastGeofenceEven
 export interface ForecastGeofenceEventsCommandOutput extends ForecastGeofenceEventsResponse, __MetadataBearer {}
 
 /**
- * <p>This action forecasts future geofence events that are likely to occur within a
- *             specified time horizon if a device continues moving at its current speed. Each
- *             forecasted event is associated with a geofence from a provided geofence collection. A
- *             forecast event can have one of the following states:</p>
- *          <p>
- *             <code>ENTER</code>: The device position is outside the referenced geofence, but the
- *             device may cross into the geofence during the forecasting time horizon if it maintains
- *             its current speed.</p>
- *          <p>
- *             <code>EXIT</code>: The device position is inside the referenced geofence, but the
- *             device may leave the geofence during the forecasted time horizon if the device maintains
- *             it's current speed.</p>
- *          <p>
- *             <code>IDLE</code>:The device is inside the geofence, and it will remain inside the
- *             geofence through the end of the time horizon if the device maintains it's current
- *             speed.</p>
- *          <note>
- *             <p>Heading direction is not considered in the current version. The API takes a
- *                 conservative approach and includes events that can occur for any heading.</p>
- *          </note>
+ * <p>This action forecasts future geofence events that are likely to occur within a specified time horizon if a device continues moving at its current speed. Each forecasted event is associated with a geofence from a provided geofence collection. A forecast event can have one of the following states:</p> <p> <code>ENTER</code>: The device position is outside the referenced geofence, but the device may cross into the geofence during the forecasting time horizon if it maintains its current speed.</p> <p> <code>EXIT</code>: The device position is inside the referenced geofence, but the device may leave the geofence during the forecasted time horizon if the device maintains it's current speed.</p> <p> <code>IDLE</code>:The device is inside the geofence, and it will remain inside the geofence through the end of the time horizon if the device maintains it's current speed.</p> <note> <p>Heading direction is not considered in the current version. The API takes a conservative approach and includes events that can occur for any heading.</p> </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -105,8 +86,7 @@ export interface ForecastGeofenceEventsCommandOutput extends ForecastGeofenceEve
  * @see {@link LocationClientResolvedConfig | config} for LocationClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>The request was denied because of insufficient access or permissions. Check with an
- *       administrator to verify your permissions.</p>
+ *  <p>The request was denied because of insufficient access or permissions. Check with an administrator to verify your permissions.</p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>The request has failed to process because of an unknown server error, exception, or failure.</p>

@@ -38,18 +38,7 @@ export interface SearchPlaceIndexForSuggestionsCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Generates suggestions for addresses and points of interest based on partial or
- *             misspelled free-form text. This operation is also known as autocomplete, autosuggest, or
- *             fuzzy matching.</p>
- *          <p>Optional parameters let you narrow your search results by bounding box or country, or
- *             bias your search toward a specific position on the globe.</p>
- *          <note>
- *             <p>You can search for suggested place names near a specified position by using
- *                     <code>BiasPosition</code>, or filter results within a bounding box by using
- *                     <code>FilterBBox</code>. These parameters are mutually exclusive; using both
- *                     <code>BiasPosition</code> and <code>FilterBBox</code> in the same command
- *                 returns an error.</p>
- *          </note>
+ * <important> <p>This operation is no longer current and may be deprecated in the future. We recommend you upgrade to <a href="/location/latest/APIReference/API_geoplaces_Suggest.html"> <code>Suggest</code> </a> or <a href="/location/latest/APIReference/API_geoplaces_Autocomplete.html"> <code>Autocomplete</code> </a> unless you require Grab data.</p> <ul> <li> <p> <code>SearchPlaceIndexForSuggestions</code> is part of a previous Amazon Location Service Places API (version 1) which has been superseded by a more intuitive, powerful, and complete API (version 2).</p> </li> <li> <p>The version 2 <code>Suggest</code> operation gives better results for typeahead place search suggestions with fuzzy matching, while the version 2 <code>Autocomplete</code> operation gives better results for address completion based on partial input.</p> </li> <li> <p>If you are using an Amazon Web Services SDK or the Amazon Web Services CLI, note that the Places API version 2 is found under <code>geo-places</code> or <code>geo_places</code>, not under <code>location</code>.</p> </li> <li> <p>Since Grab is not yet fully supported in Places API version 2, we recommend you continue using API version 1 when using Grab.</p> </li> </ul> </important> <p>Generates suggestions for addresses and points of interest based on partial or misspelled free-form text. This operation is also known as autocomplete, autosuggest, or fuzzy matching.</p> <p>Optional parameters let you narrow your search results by bounding box or country, or bias your search toward a specific position on the globe.</p> <note> <p>You can search for suggested place names near a specified position by using <code>BiasPosition</code>, or filter results within a bounding box by using <code>FilterBBox</code>. These parameters are mutually exclusive; using both <code>BiasPosition</code> and <code>FilterBBox</code> in the same command returns an error.</p> </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -121,8 +110,7 @@ export interface SearchPlaceIndexForSuggestionsCommandOutput
  * @see {@link LocationClientResolvedConfig | config} for LocationClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>The request was denied because of insufficient access or permissions. Check with an
- *       administrator to verify your permissions.</p>
+ *  <p>The request was denied because of insufficient access or permissions. Check with an administrator to verify your permissions.</p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>The request has failed to process because of an unknown server error, exception, or failure.</p>

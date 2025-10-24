@@ -28,11 +28,7 @@ export interface GetGeofenceCommandInput extends GetGeofenceRequest {}
 export interface GetGeofenceCommandOutput extends GetGeofenceResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves the geofence details from a geofence collection.</p>
- *          <note>
- *             <p>The returned geometry will always match the geometry format used when the geofence
- *                 was created.</p>
- *          </note>
+ * <p>Retrieves the geofence details from a geofence collection.</p> <note> <p>The returned geometry will always match the geometry format used when the geofence was created.</p> </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -89,8 +85,7 @@ export interface GetGeofenceCommandOutput extends GetGeofenceResponse, __Metadat
  * @see {@link LocationClientResolvedConfig | config} for LocationClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>The request was denied because of insufficient access or permissions. Check with an
- *       administrator to verify your permissions.</p>
+ *  <p>The request was denied because of insufficient access or permissions. Check with an administrator to verify your permissions.</p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>The request has failed to process because of an unknown server error, exception, or failure.</p>

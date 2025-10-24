@@ -57,8 +57,7 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * @see {@link LocationClientResolvedConfig | config} for LocationClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>The request was denied because of insufficient access or permissions. Check with an
- *       administrator to verify your permissions.</p>
+ *  <p>The request was denied because of insufficient access or permissions. Check with an administrator to verify your permissions.</p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>The request has failed to process because of an unknown server error, exception, or failure.</p>

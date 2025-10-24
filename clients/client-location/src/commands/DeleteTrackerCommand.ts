@@ -28,12 +28,7 @@ export interface DeleteTrackerCommandInput extends DeleteTrackerRequest {}
 export interface DeleteTrackerCommandOutput extends DeleteTrackerResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes a tracker resource from your Amazon Web Services account.</p>
- *          <note>
- *             <p>This operation deletes the resource permanently. If the tracker resource is in use, you may
- *                 encounter an error. Make sure that the target resource isn't a dependency for your
- *                 applications.</p>
- *          </note>
+ * <p>Deletes a tracker resource from your Amazon Web Services account.</p> <note> <p>This operation deletes the resource permanently. If the tracker resource is in use, you may encounter an error. Make sure that the target resource isn't a dependency for your applications.</p> </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -58,8 +53,7 @@ export interface DeleteTrackerCommandOutput extends DeleteTrackerResponse, __Met
  * @see {@link LocationClientResolvedConfig | config} for LocationClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>The request was denied because of insufficient access or permissions. Check with an
- *       administrator to verify your permissions.</p>
+ *  <p>The request was denied because of insufficient access or permissions. Check with an administrator to verify your permissions.</p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>The request has failed to process because of an unknown server error, exception, or failure.</p>

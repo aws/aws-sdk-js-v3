@@ -28,11 +28,7 @@ export interface DeleteGeofenceCollectionCommandInput extends DeleteGeofenceColl
 export interface DeleteGeofenceCollectionCommandOutput extends DeleteGeofenceCollectionResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes a geofence collection from your Amazon Web Services account.</p>
- *          <note>
- *             <p>This operation deletes the resource permanently. If the geofence collection is the
- *                 target of a tracker resource, the devices will no longer be monitored.</p>
- *          </note>
+ * <p>Deletes a geofence collection from your Amazon Web Services account.</p> <note> <p>This operation deletes the resource permanently. If the geofence collection is the target of a tracker resource, the devices will no longer be monitored.</p> </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -57,8 +53,7 @@ export interface DeleteGeofenceCollectionCommandOutput extends DeleteGeofenceCol
  * @see {@link LocationClientResolvedConfig | config} for LocationClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>The request was denied because of insufficient access or permissions. Check with an
- *       administrator to verify your permissions.</p>
+ *  <p>The request was denied because of insufficient access or permissions. Check with an administrator to verify your permissions.</p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>The request has failed to process because of an unknown server error, exception, or failure.</p>

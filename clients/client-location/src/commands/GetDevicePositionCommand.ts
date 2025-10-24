@@ -32,10 +32,7 @@ export interface GetDevicePositionCommandInput extends GetDevicePositionRequest 
 export interface GetDevicePositionCommandOutput extends GetDevicePositionResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves a device's most recent position according to its sample time.</p>
- *          <note>
- *             <p>Device positions are deleted after 30 days.</p>
- *          </note>
+ * <p>Retrieves a device's most recent position according to its sample time.</p> <note> <p>Device positions are deleted after 30 days.</p> </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -74,8 +71,7 @@ export interface GetDevicePositionCommandOutput extends GetDevicePositionRespons
  * @see {@link LocationClientResolvedConfig | config} for LocationClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>The request was denied because of insufficient access or permissions. Check with an
- *       administrator to verify your permissions.</p>
+ *  <p>The request was denied because of insufficient access or permissions. Check with an administrator to verify your permissions.</p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>The request has failed to process because of an unknown server error, exception, or failure.</p>

@@ -33,29 +33,7 @@ export interface GetPlaceCommandInput extends GetPlaceRequest {}
 export interface GetPlaceCommandOutput extends GetPlaceResponse, __MetadataBearer {}
 
 /**
- * <p>Finds a place by its unique ID. A <code>PlaceId</code> is returned by other search
- *             operations.</p>
- *          <note>
- *             <p>A PlaceId is valid only if all of the following are the same in the original
- *                 search request and the call to <code>GetPlace</code>.</p>
- *             <ul>
- *                <li>
- *                   <p>Customer Amazon Web Services account</p>
- *                </li>
- *                <li>
- *                   <p>Amazon Web Services Region</p>
- *                </li>
- *                <li>
- *                   <p>Data provider specified in the place index resource</p>
- *                </li>
- *             </ul>
- *          </note>
- *          <note>
- *             <p>If your Place index resource is configured with Grab as your geolocation
- *                 provider and Storage as Intended use, the GetPlace operation is unavailable. For
- *                 more information, see <a href="http://aws.amazon.com/service-terms">AWS service
- *                     terms</a>.</p>
- *          </note>
+ * <important> <p>This operation is no longer current and may be deprecated in the future. We recommend you upgrade to the <a href="/location/latest/APIReference/API_geoplaces_GetPlace.html">V2 <code>GetPlace</code> </a> operation unless you require Grab data.</p> <ul> <li> <p>This version of <code>GetPlace</code> is part of a previous Amazon Location Service Places API (version 1) which has been superseded by a more intuitive, powerful, and complete API (version 2).</p> </li> <li> <p>Version 2 of the <code>GetPlace</code> operation interoperates with the rest of the Places V2 API, while this version does not.</p> </li> <li> <p>If you are using an Amazon Web Services SDK or the Amazon Web Services CLI, note that the Places API version 2 is found under <code>geo-places</code> or <code>geo_places</code>, not under <code>location</code>.</p> </li> <li> <p>Since Grab is not yet fully supported in Places API version 2, we recommend you continue using API version 1 when using Grab.</p> </li> <li> <p>Start your version 2 API journey with the Places V2 <a href="/location/latest/APIReference/API_Operations_Amazon_Location_Service_Places_V2.html">API Reference</a> or the <a href="/location/latest/developerguide/places.html">Developer Guide</a>.</p> </li> </ul> </important> <p>Finds a place by its unique ID. A <code>PlaceId</code> is returned by other search operations.</p> <note> <p>A PlaceId is valid only if all of the following are the same in the original search request and the call to <code>GetPlace</code>.</p> <ul> <li> <p>Customer Amazon Web Services account</p> </li> <li> <p>Amazon Web Services Region</p> </li> <li> <p>Data provider specified in the place index resource</p> </li> </ul> </note> <note> <p>If your Place index resource is configured with Grab as your geolocation provider and Storage as Intended use, the GetPlace operation is unavailable. For more information, see <a href="http://aws.amazon.com/service-terms">AWS service terms</a>.</p> </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -114,8 +92,7 @@ export interface GetPlaceCommandOutput extends GetPlaceResponse, __MetadataBeare
  * @see {@link LocationClientResolvedConfig | config} for LocationClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>The request was denied because of insufficient access or permissions. Check with an
- *       administrator to verify your permissions.</p>
+ *  <p>The request was denied because of insufficient access or permissions. Check with an administrator to verify your permissions.</p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>The request has failed to process because of an unknown server error, exception, or failure.</p>

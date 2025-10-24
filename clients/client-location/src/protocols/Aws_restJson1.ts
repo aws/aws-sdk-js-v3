@@ -178,8 +178,10 @@ import {
 import { LocationServiceException as __BaseException } from "../models/LocationServiceException";
 import {
   AccessDeniedException,
+  AndroidApp,
   ApiKeyFilter,
   ApiKeyRestrictions,
+  AppleApp,
   BatchEvaluateGeofencesError,
   BatchPutGeofenceRequestEntry,
   BatchPutGeofenceSuccess,
@@ -3583,11 +3585,19 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
+// se_AndroidApp omitted.
+
+// se_AndroidAppList omitted.
+
 // se_ApiKeyActionList omitted.
 
 // se_ApiKeyFilter omitted.
 
 // se_ApiKeyRestrictions omitted.
+
+// se_AppleApp omitted.
+
+// se_AppleAppList omitted.
 
 /**
  * serializeAws_restJson1BatchPutGeofenceRequestEntry
@@ -3910,9 +3920,17 @@ const se_WaypointPositionList = (input: number[][], context: __SerdeContext): an
 
 // se_WiFiAccessPointList omitted.
 
+// de_AndroidApp omitted.
+
+// de_AndroidAppList omitted.
+
 // de_ApiKeyActionList omitted.
 
 // de_ApiKeyRestrictions omitted.
+
+// de_AppleApp omitted.
+
+// de_AppleAppList omitted.
 
 // de_ArnList omitted.
 

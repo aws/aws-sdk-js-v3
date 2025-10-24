@@ -33,11 +33,7 @@ export interface DisassociateTrackerConsumerCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Removes the association between a tracker resource and a geofence collection.</p>
- *          <note>
- *             <p>Once you unlink a tracker resource from a geofence collection, the tracker
- *                 positions will no longer be automatically evaluated against geofences.</p>
- *          </note>
+ * <p>Removes the association between a tracker resource and a geofence collection.</p> <note> <p>Once you unlink a tracker resource from a geofence collection, the tracker positions will no longer be automatically evaluated against geofences.</p> </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -63,8 +59,7 @@ export interface DisassociateTrackerConsumerCommandOutput
  * @see {@link LocationClientResolvedConfig | config} for LocationClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>The request was denied because of insufficient access or permissions. Check with an
- *       administrator to verify your permissions.</p>
+ *  <p>The request was denied because of insufficient access or permissions. Check with an administrator to verify your permissions.</p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>The request has failed to process because of an unknown server error, exception, or failure.</p>
