@@ -805,6 +805,24 @@ describe("credential-provider-node integration test", () => {
       });
     });
 
+    it("prefers AWS_REGION over profile region when profile is not the credential source", async () => {
+      process.env.AWS_REGION = "eu-north-1";
+      const provider = fromTokenFile({
+        roleArn: "ROLE_ARN",
+        webIdentityTokenFile: "token-filepath",
+      });
+      const credentials = await provider();
+      expect(credentials).toEqual({
+        accessKeyId: "STS_ARWI_ACCESS_KEY_ID",
+        secretAccessKey: "STS_ARWI_SECRET_ACCESS_KEY",
+        sessionToken: "STS_ARWI_SESSION_TOKEN_eu-north-1",
+        expiration: new Date("3000-01-01T00:00:00.000Z"),
+        $source: {
+          CREDENTIALS_STS_ASSUME_ROLE_WEB_ID: "k",
+        },
+      });
+    });
+
     it("should use the caller client region if derived from AWS_REGION", async () => {
       process.env.AWS_REGION = "eu-west-2";
       const provider = fromTokenFile({
@@ -1491,6 +1509,121 @@ describe("credential-provider-node integration test", () => {
       expect(request!.headers?.host).toMatch(/localhost$/);
       expect(logger.debug).toHaveBeenCalled();
       expect(logger.info).toHaveBeenCalled();
+    });
+
+    describe("uses a variant of the default region resolution where us-east-1 is the last resort", async () => {
+      it("no env or profile region", async () => {
+        delete process.env.AWS_REGION;
+        setIniProfileData({
+          assume: {
+            aws_access_key_id: "ASSUME_STATIC_ACCESS_KEY",
+            aws_secret_access_key: "ASSUME_STATIC_SECRET_KEY",
+          },
+          default: {
+            role_arn: "ROLE_ARN",
+            role_session_name: "ROLE_SESSION_NAME",
+            source_profile: "assume",
+          },
+        });
+
+        const provider = defaultProvider({});
+        const credentials = await provider();
+        expect(credentials).toEqual({
+          accessKeyId: "STS_AR_ACCESS_KEY_ID",
+          expiration: new Date(`3000-01-01T00:00:00.000Z`),
+          secretAccessKey: "STS_AR_SECRET_ACCESS_KEY",
+          sessionToken: "STS_AR_SESSION_TOKEN_us-east-1",
+          $source: {
+            CREDENTIALS_PROFILE_SOURCE_PROFILE: "o",
+            CREDENTIALS_STS_ASSUME_ROLE: "i",
+          },
+        });
+      });
+
+      it("env region", async () => {
+        process.env.AWS_REGION = "eu-north-1";
+        setIniProfileData({
+          assume: {
+            aws_access_key_id: "ASSUME_STATIC_ACCESS_KEY",
+            aws_secret_access_key: "ASSUME_STATIC_SECRET_KEY",
+          },
+          default: {
+            role_arn: "ROLE_ARN",
+            role_session_name: "ROLE_SESSION_NAME",
+            source_profile: "assume",
+          },
+        });
+
+        const provider = defaultProvider({});
+        const credentials = await provider();
+        expect(credentials).toEqual({
+          accessKeyId: "STS_AR_ACCESS_KEY_ID",
+          expiration: new Date(`3000-01-01T00:00:00.000Z`),
+          secretAccessKey: "STS_AR_SECRET_ACCESS_KEY",
+          sessionToken: "STS_AR_SESSION_TOKEN_eu-north-1",
+          $source: {
+            CREDENTIALS_PROFILE_SOURCE_PROFILE: "o",
+            CREDENTIALS_STS_ASSUME_ROLE: "i",
+          },
+        });
+      });
+
+      it("profile region", async () => {
+        setIniProfileData({
+          assume: {
+            aws_access_key_id: "ASSUME_STATIC_ACCESS_KEY",
+            aws_secret_access_key: "ASSUME_STATIC_SECRET_KEY",
+          },
+          default: {
+            region: "us-west-2",
+            role_arn: "ROLE_ARN",
+            role_session_name: "ROLE_SESSION_NAME",
+            source_profile: "assume",
+          },
+        });
+
+        const provider = defaultProvider({});
+        const credentials = await provider();
+        expect(credentials).toEqual({
+          accessKeyId: "STS_AR_ACCESS_KEY_ID",
+          expiration: new Date(`3000-01-01T00:00:00.000Z`),
+          secretAccessKey: "STS_AR_SECRET_ACCESS_KEY",
+          sessionToken: "STS_AR_SESSION_TOKEN_us-west-2",
+          $source: {
+            CREDENTIALS_PROFILE_SOURCE_PROFILE: "o",
+            CREDENTIALS_STS_ASSUME_ROLE: "i",
+          },
+        });
+      });
+
+      it("profile and env region conflict, it uses config region because credentials are fromIni", async () => {
+        process.env.AWS_REGION = "eu-north-1";
+        setIniProfileData({
+          assume: {
+            aws_access_key_id: "ASSUME_STATIC_ACCESS_KEY",
+            aws_secret_access_key: "ASSUME_STATIC_SECRET_KEY",
+          },
+          default: {
+            region: "us-west-2",
+            role_arn: "ROLE_ARN",
+            role_session_name: "ROLE_SESSION_NAME",
+            source_profile: "assume",
+          },
+        });
+
+        const provider = defaultProvider({});
+        const credentials = await provider();
+        expect(credentials).toEqual({
+          accessKeyId: "STS_AR_ACCESS_KEY_ID",
+          expiration: new Date(`3000-01-01T00:00:00.000Z`),
+          secretAccessKey: "STS_AR_SECRET_ACCESS_KEY",
+          sessionToken: "STS_AR_SESSION_TOKEN_us-west-2",
+          $source: {
+            CREDENTIALS_PROFILE_SOURCE_PROFILE: "o",
+            CREDENTIALS_STS_ASSUME_ROLE: "i",
+          },
+        });
+      });
     });
   });
 });

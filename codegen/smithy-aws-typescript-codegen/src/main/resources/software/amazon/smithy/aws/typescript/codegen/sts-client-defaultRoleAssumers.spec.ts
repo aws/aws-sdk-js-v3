@@ -137,7 +137,7 @@ describe("getDefaultRoleAssumer", () => {
       requestHandler: handler,
       parentClientConfig: {
         region: "some-other-region",
-        logger: null,
+        logger: null as any,
         requestHandler: null,
       },
     });

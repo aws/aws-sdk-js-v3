@@ -7,26 +7,29 @@ A collection of all credential providers.
 
 # Table of Contents
 
-1. [Terminology](#terminology)
-1. [From Cognito Identity](#fromcognitoidentity)
-1. [From Cognito Identity Pool](#fromcognitoidentitypool)
-1. [From Temporary Credentials](#fromtemporarycredentials)
-1. [From Web Token](#fromwebtoken)
-   1. [Examples](#examples)
-1. [From Token File](#fromtokenfile)
-1. [From Instance and Container Metadata Service](#fromcontainermetadata-and-frominstancemetadata)
-1. [From HTTP(S)](#fromhttp)
-1. [From Shared INI files](#fromini)
-   1. [Sample Files](#sample-files)
-1. [From Environmental Variables](#fromenv)
-1. [From Credential Process](#fromprocess)
-   1. [Sample files](#sample-files-1)
-1. [From Single Sign-On Service](#fromsso)
-   1. [Supported Configuration](#supported-configuration)
-   1. [SSO login with AWS CLI](#sso-login-with-the-aws-cli)
-   1. [Sample Files](#sample-files-2)
-1. [From Node.js default credentials provider chain](#fromnodeproviderchain)
-1. [Creating a custom credentials chain](#createcredentialchain)
+- [Terminology](#terminology)
+  - [Credentials Provider](#credentials-provider)
+  - [Outer and inner clients](#outer-and-inner-clients)
+- [Resolving AWS Region in credential providers (e.g. STS region)](#resolving-aws-region-in-credential-providers-eg-sts-region)
+- [From Cognito Identity](#fromcognitoidentity)
+- [From Cognito Identity Pool](#fromcognitoidentitypool)
+- [From Temporary Credentials](#fromtemporarycredentials)
+- [From Web Token](#fromwebtoken)
+  - [Examples](#examples)
+- [From Token File](#fromtokenfile)
+- [From Instance and Container Metadata Service](#fromcontainermetadata-and-frominstancemetadata)
+- [From HTTP(S)](#fromhttp)
+- [From Shared INI files](#fromini)
+  - [Sample Files](#sample-files)
+- [From Environmental Variables](#fromenv)
+- [From Credential Process](#fromprocess)
+  - [Sample files](#sample-files-1)
+- [From Single Sign-On Service](#fromsso)
+  - [Supported Configuration](#supported-configuration)
+  - [SSO login with AWS CLI](#sso-login-with-the-aws-cli)
+  - [Sample Files](#sample-files-2)
+- [From Node.js default credentials provider chain](#fromnodeproviderchain)
+- [Creating a custom credentials chain](#createcredentialchain)
 
 ## Terminology
 
@@ -79,6 +82,77 @@ const s3 = new S3Client({
 In the above example, `S3Client` is the outer client, and
 if the `fromIni` credentials provider uses STS::AssumeRole, the
 `STSClient` initialized by the SDK is the inner client.
+
+## Resolving AWS Region in credential providers (e.g. STS region)
+
+When a credential provider uses an SDK client to retrieve credentials, commonly STS, the
+control of the STS region follows this logic:
+
+```js
+import { fromIni } from "@aws-sdk/credential-providers";
+
+/*
+# AWS config file contents
+[profile default]
+region = profile-region
+role_arn = ROLE_ARN
+source_profile = assume
+
+[profile assume]
+...
+ */
+
+process.env.AWS_REGION = "env-region";
+
+const provider = fromIni({
+  clientConfig: {
+    region: "credential-provider-config-region",
+  },
+});
+
+const client = new SDKClient({
+  region: "context-client-region",
+  credentials: provider,
+});
+
+const fallbackRegion = "us-east-1";
+```
+
+As shown above, there are many sources of region information. The priority order is:
+
+1. `credential-provider-config-region` - given in code to the credential provider itself.
+2. `profile-region` **\*** - if credential provider is resolving credentials from the config file, the config file's
+   region takes precedence in this case over AWS_REGION env.
+3. `context-client-region` - the region resolved by an SDK client using the credential provider.
+4. `env-region` - AWS_REGION environment variable.
+5. `profile-region` **\*** - if credential provider is not resolving credentials from the config file, the config file's
+   region is lower priority than AWS_REGION env.
+6. `us-east-1` (fallback) - this is a legacy fallback value. It's more likely that the client will fail to execute any
+   operation if none of the other region sources were set.
+
+This differs from _direct_ instantiation of the STSClient, which follows this order, which is the same for all clients:
+
+```js
+import { STSClient } from "@aws-sdk/client-sts";
+/*
+# AWS config file contents
+[profile default]
+region = profile-region
+ */
+
+process.env.AWS_REGION = "env-region";
+
+const client = new STSClient({
+  region: "client-region",
+});
+```
+
+1. `client-region`
+2. `env-region`
+3. `profile-region` (config file)
+4. thrown error (no us-east-1 fallback)
+
+# Credential providers
 
 ## `fromCognitoIdentity()`
 
@@ -898,20 +972,26 @@ const credentialProvider = fromNodeProviderChain({
 
 You can use this helper to create a credential chain of your own.
 
-A credential chain is created from a list of functions of the signature () => Promise<[AwsCredentialIdentity](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-smithy-types/Interface/AwsCredentialIdentity/)>,
+A credential chain is created from a list of functions of the signature () =>
+Promise<[AwsCredentialIdentity](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-smithy-types/Interface/AwsCredentialIdentity/)>,
 composed together such that the overall chain has the **same** signature.
 
-That is why you can provide the chained credential provider to the same field (`credentials`) as any single provider function.
+That is why you can provide the chained credential provider to the same field (`credentials`) as any single provider
+function.
 
 All the providers from this package are compatible, and can be used to create such a chain.
 
-As with _any_ function provided to the `credentials` SDK client constructor configuration field, if the credential object returned does not contain
-an `expiration` (type `Date`), the client will only ever call the provider function once. You do not need to memoize this function.
+As with _any_ function provided to the `credentials` SDK client constructor configuration field, if the credential
+object returned does not contain
+an `expiration` (type `Date`), the client will only ever call the provider function once. You do not need to memoize
+this function.
 
-To enable automatic refresh, the credential provider function should set an `expiration` (`Date`) field. When this expiration approaches within 5 minutes, the
+To enable automatic refresh, the credential provider function should set an `expiration` (`Date`) field. When this
+expiration approaches within 5 minutes, the
 provider function will be called again by the client in the course of making SDK requests.
 
-To assist with this, the `createCredentialChain` has a chainable helper `.expireAfter(milliseconds: number)`. An example is included below.
+To assist with this, the `createCredentialChain` has a chainable helper `.expireAfter(milliseconds: number)`. An example
+is included below.
 
 ```ts
 import { fromEnv, fromIni, createCredentialChain } from "@aws-sdk/credential-providers";
