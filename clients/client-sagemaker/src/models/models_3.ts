@@ -201,6 +201,29 @@ import {
 /**
  * @public
  */
+export interface DescribeClusterNodeRequest {
+  /**
+   * <p>The string name or the Amazon Resource Name (ARN) of the SageMaker HyperPod cluster in which the node is.</p>
+   * @public
+   */
+  ClusterName: string | undefined;
+
+  /**
+   * <p>The ID of the SageMaker HyperPod cluster node.</p>
+   * @public
+   */
+  NodeId?: string | undefined;
+
+  /**
+   * <p>The logical identifier of the node to describe. You can specify either <code>NodeLogicalId</code> or <code>InstanceId</code>, but not both. <code>NodeLogicalId</code> can be used to describe nodes that are still being provisioned and don't yet have an <code>InstanceId</code> assigned.</p>
+   * @public
+   */
+  NodeLogicalId?: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface DescribeClusterNodeResponse {
   /**
    * <p>The details of the SageMaker HyperPod cluster node.</p>
@@ -3535,6 +3558,18 @@ export interface InferenceComponentContainerSpecificationSummary {
 }
 
 /**
+ * <p>Settings that affect how the inference component caches data.</p>
+ * @public
+ */
+export interface InferenceComponentDataCacheConfigSummary {
+  /**
+   * <p>Indicates whether the inference component caches model artifacts as part of the auto scaling process.</p>
+   * @public
+   */
+  EnableCaching: boolean | undefined;
+}
+
+/**
  * <p>Details about the resources that are deployed with this inference component.</p>
  * @public
  */
@@ -3568,6 +3603,12 @@ export interface InferenceComponentSpecificationSummary {
    * @public
    */
   BaseInferenceComponentName?: string | undefined;
+
+  /**
+   * <p>Settings that affect how the inference component caches data.</p>
+   * @public
+   */
+  DataCacheConfig?: InferenceComponentDataCacheConfigSummary | undefined;
 }
 
 /**
@@ -10576,83 +10617,6 @@ export interface ScalingPolicyMetric {
    */
   ModelLatency?: number | undefined;
 }
-
-/**
- * @public
- */
-export interface GetScalingConfigurationRecommendationResponse {
-  /**
-   * <p>The name of a previously completed Inference Recommender job.</p>
-   * @public
-   */
-  InferenceRecommendationsJobName?: string | undefined;
-
-  /**
-   * <p>The recommendation ID of a previously completed inference recommendation.</p>
-   * @public
-   */
-  RecommendationId?: string | undefined;
-
-  /**
-   * <p>The name of an endpoint benchmarked during a previously completed Inference Recommender job.</p>
-   * @public
-   */
-  EndpointName?: string | undefined;
-
-  /**
-   * <p>The percentage of how much utilization you want an instance to use before autoscaling, which you specified in the request. The default value is 50%.</p>
-   * @public
-   */
-  TargetCpuUtilizationPerCore?: number | undefined;
-
-  /**
-   * <p>An object representing the anticipated traffic pattern for an endpoint that you specified in the request.</p>
-   * @public
-   */
-  ScalingPolicyObjective?: ScalingPolicyObjective | undefined;
-
-  /**
-   * <p>An object with a list of metrics that were benchmarked during the previously completed Inference Recommender job.</p>
-   * @public
-   */
-  Metric?: ScalingPolicyMetric | undefined;
-
-  /**
-   * <p>An object with the recommended values for you to specify when creating an autoscaling policy.</p>
-   * @public
-   */
-  DynamicScalingConfiguration?: DynamicScalingConfiguration | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const ResourceType = {
-  ENDPOINT: "Endpoint",
-  EXPERIMENT: "Experiment",
-  EXPERIMENT_TRIAL: "ExperimentTrial",
-  EXPERIMENT_TRIAL_COMPONENT: "ExperimentTrialComponent",
-  FEATURE_GROUP: "FeatureGroup",
-  FEATURE_METADATA: "FeatureMetadata",
-  HYPER_PARAMETER_TUNING_JOB: "HyperParameterTuningJob",
-  IMAGE: "Image",
-  IMAGE_VERSION: "ImageVersion",
-  MODEL: "Model",
-  MODEL_CARD: "ModelCard",
-  MODEL_PACKAGE: "ModelPackage",
-  MODEL_PACKAGE_GROUP: "ModelPackageGroup",
-  PIPELINE: "Pipeline",
-  PIPELINE_EXECUTION: "PipelineExecution",
-  PIPELINE_VERSION: "PipelineVersion",
-  PROJECT: "Project",
-  TRAINING_JOB: "TrainingJob",
-} as const;
-
-/**
- * @public
- */
-export type ResourceType = (typeof ResourceType)[keyof typeof ResourceType];
 
 /**
  * @internal

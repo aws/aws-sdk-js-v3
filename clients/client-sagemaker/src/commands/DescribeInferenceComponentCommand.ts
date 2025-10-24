@@ -73,6 +73,9 @@ export interface DescribeInferenceComponentCommandOutput extends DescribeInferen
  * //       MaxMemoryRequiredInMb: Number("int"),
  * //     },
  * //     BaseInferenceComponentName: "STRING_VALUE",
+ * //     DataCacheConfig: { // InferenceComponentDataCacheConfigSummary
+ * //       EnableCaching: true || false, // required
+ * //     },
  * //   },
  * //   RuntimeConfig: { // InferenceComponentRuntimeConfigSummary
  * //     DesiredCopyCount: Number("int"),

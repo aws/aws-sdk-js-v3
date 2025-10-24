@@ -77,6 +77,7 @@ import {
   DeviceFleetSummary,
   DeviceSummary,
   DomainDetails,
+  DynamicScalingConfiguration,
   EdgeDeploymentPlanSummary,
   EdgePackagingJobStatus,
   EdgePackagingJobSummary,
@@ -129,8 +130,9 @@ import {
   RecommendationJobStatus,
   RecommendationMetrics,
   ReservedCapacitySummary,
-  ResourceType,
   SageMakerResourceName,
+  ScalingPolicyMetric,
+  ScalingPolicyObjective,
   ScheduleStatus,
   SecondaryStatus,
   SpaceStatus,
@@ -145,6 +147,83 @@ import {
   WarmPoolResourceStatus,
   WarmPoolStatus,
 } from "./models_3";
+
+/**
+ * @public
+ */
+export interface GetScalingConfigurationRecommendationResponse {
+  /**
+   * <p>The name of a previously completed Inference Recommender job.</p>
+   * @public
+   */
+  InferenceRecommendationsJobName?: string | undefined;
+
+  /**
+   * <p>The recommendation ID of a previously completed inference recommendation.</p>
+   * @public
+   */
+  RecommendationId?: string | undefined;
+
+  /**
+   * <p>The name of an endpoint benchmarked during a previously completed Inference Recommender job.</p>
+   * @public
+   */
+  EndpointName?: string | undefined;
+
+  /**
+   * <p>The percentage of how much utilization you want an instance to use before autoscaling, which you specified in the request. The default value is 50%.</p>
+   * @public
+   */
+  TargetCpuUtilizationPerCore?: number | undefined;
+
+  /**
+   * <p>An object representing the anticipated traffic pattern for an endpoint that you specified in the request.</p>
+   * @public
+   */
+  ScalingPolicyObjective?: ScalingPolicyObjective | undefined;
+
+  /**
+   * <p>An object with a list of metrics that were benchmarked during the previously completed Inference Recommender job.</p>
+   * @public
+   */
+  Metric?: ScalingPolicyMetric | undefined;
+
+  /**
+   * <p>An object with the recommended values for you to specify when creating an autoscaling policy.</p>
+   * @public
+   */
+  DynamicScalingConfiguration?: DynamicScalingConfiguration | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ResourceType = {
+  ENDPOINT: "Endpoint",
+  EXPERIMENT: "Experiment",
+  EXPERIMENT_TRIAL: "ExperimentTrial",
+  EXPERIMENT_TRIAL_COMPONENT: "ExperimentTrialComponent",
+  FEATURE_GROUP: "FeatureGroup",
+  FEATURE_METADATA: "FeatureMetadata",
+  HYPER_PARAMETER_TUNING_JOB: "HyperParameterTuningJob",
+  IMAGE: "Image",
+  IMAGE_VERSION: "ImageVersion",
+  MODEL: "Model",
+  MODEL_CARD: "ModelCard",
+  MODEL_PACKAGE: "ModelPackage",
+  MODEL_PACKAGE_GROUP: "ModelPackageGroup",
+  PIPELINE: "Pipeline",
+  PIPELINE_EXECUTION: "PipelineExecution",
+  PIPELINE_VERSION: "PipelineVersion",
+  PROJECT: "Project",
+  TRAINING_JOB: "TrainingJob",
+} as const;
+
+/**
+ * @public
+ */
+export type ResourceType = (typeof ResourceType)[keyof typeof ResourceType];
 
 /**
  * <p>Part of the <code>SuggestionQuery</code> type. Specifies a hint for retrieving property names that begin with the specified text.</p>
@@ -9653,41 +9732,3 @@ export interface ListTrialsResponse {
    */
   NextToken?: string | undefined;
 }
-
-/**
- * @public
- */
-export interface ListUltraServersByReservedCapacityRequest {
-  /**
-   * <p>The ARN of the reserved capacity to list UltraServers for.</p>
-   * @public
-   */
-  ReservedCapacityArn: string | undefined;
-
-  /**
-   * <p>The maximum number of UltraServers to return in the response. The default value is 10.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>If the previous response was truncated, you receive this token. Use it in your next request to receive the next set of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const UltraServerHealthStatus = {
-  IMPAIRED: "Impaired",
-  INSUFFICIENT_DATA: "Insufficient-Data",
-  OK: "OK",
-} as const;
-
-/**
- * @public
- */
-export type UltraServerHealthStatus = (typeof UltraServerHealthStatus)[keyof typeof UltraServerHealthStatus];

@@ -61,6 +61,9 @@ export interface CreateInferenceComponentCommandOutput extends CreateInferenceCo
  *       MaxMemoryRequiredInMb: Number("int"),
  *     },
  *     BaseInferenceComponentName: "STRING_VALUE",
+ *     DataCacheConfig: { // InferenceComponentDataCacheConfig
+ *       EnableCaching: true || false, // required
+ *     },
  *   },
  *   RuntimeConfig: { // InferenceComponentRuntimeConfig
  *     CopyCount: Number("int"), // required

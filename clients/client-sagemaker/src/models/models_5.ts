@@ -153,7 +153,6 @@ import {
   ProjectStatus,
   ReservedCapacityInstanceType,
   ReservedCapacityType,
-  ResourceType,
   SageMakerResourceName,
   ScheduleStatus,
   SecondaryStatus,
@@ -178,9 +177,47 @@ import {
   LineageType,
   MonitoringAlertSummary,
   Parameter,
+  ResourceType,
   SortOrder,
-  UltraServerHealthStatus,
 } from "./models_4";
+
+/**
+ * @public
+ */
+export interface ListUltraServersByReservedCapacityRequest {
+  /**
+   * <p>The ARN of the reserved capacity to list UltraServers for.</p>
+   * @public
+   */
+  ReservedCapacityArn: string | undefined;
+
+  /**
+   * <p>The maximum number of UltraServers to return in the response. The default value is 10.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>If the previous response was truncated, you receive this token. Use it in your next request to receive the next set of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const UltraServerHealthStatus = {
+  IMPAIRED: "Impaired",
+  INSUFFICIENT_DATA: "Insufficient-Data",
+  OK: "OK",
+} as const;
+
+/**
+ * @public
+ */
+export type UltraServerHealthStatus = (typeof UltraServerHealthStatus)[keyof typeof UltraServerHealthStatus];
 
 /**
  * <p>Represents a high-performance compute server used for distributed training in SageMaker AI. An UltraServer consists of multiple instances within a shared NVLink interconnect domain.</p>

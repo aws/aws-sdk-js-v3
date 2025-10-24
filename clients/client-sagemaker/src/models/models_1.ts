@@ -6739,6 +6739,18 @@ export interface InferenceComponentContainerSpecification {
 }
 
 /**
+ * <p>Settings that affect how the inference component caches data.</p>
+ * @public
+ */
+export interface InferenceComponentDataCacheConfig {
+  /**
+   * <p>Sets whether the endpoint that hosts the inference component caches the model artifacts and container image.</p> <p>With caching enabled, the endpoint caches this data in each instance that it provisions for the inference component. That way, the inference component deploys faster during the auto scaling process. If caching isn't enabled, the inference component takes longer to deploy because of the time it spends downloading the data.</p>
+   * @public
+   */
+  EnableCaching: boolean | undefined;
+}
+
+/**
  * <p>Settings that take effect while the model container starts up.</p>
  * @public
  */
@@ -6790,6 +6802,12 @@ export interface InferenceComponentSpecification {
    * @public
    */
   BaseInferenceComponentName?: string | undefined;
+
+  /**
+   * <p>Settings that affect how the inference component caches data.</p>
+   * @public
+   */
+  DataCacheConfig?: InferenceComponentDataCacheConfig | undefined;
 }
 
 /**
@@ -8095,15 +8113,4 @@ export interface CreateLabelingJobRequest {
    * @public
    */
   Tags?: Tag[] | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateLabelingJobResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the labeling job. You use this ARN to identify the labeling job.</p>
-   * @public
-   */
-  LabelingJobArn: string | undefined;
 }

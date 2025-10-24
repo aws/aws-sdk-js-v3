@@ -1315,7 +1315,6 @@ import {
   CreateInferenceRecommendationsJobRequest,
   CreateInferenceRecommendationsJobResponse,
   CreateLabelingJobRequest,
-  CreateLabelingJobResponse,
   CustomFileSystemConfig,
   CustomImage,
   CustomPosixUserConfig,
@@ -1369,6 +1368,7 @@ import {
   ImageConfig,
   InferenceComponentComputeResourceRequirements,
   InferenceComponentContainerSpecification,
+  InferenceComponentDataCacheConfig,
   InferenceComponentRuntimeConfig,
   InferenceComponentSpecification,
   InferenceComponentStartupParameters,
@@ -1465,6 +1465,7 @@ import {
   VectorConfig,
 } from "../models/models_1";
 import {
+  CreateLabelingJobResponse,
   CreateMlflowTrackingServerRequest,
   CreateMlflowTrackingServerResponse,
   CreateModelBiasJobDefinitionRequest,
@@ -1631,7 +1632,6 @@ import {
   DescribeAutoMLJobV2Response,
   DescribeClusterEventRequest,
   DescribeClusterEventResponse,
-  DescribeClusterNodeRequest,
   DescribeClusterRequest,
   DescribeClusterResponse,
   DriftCheckBaselines,
@@ -1738,6 +1738,7 @@ import {
   WorkforceVpcConfigRequest,
 } from "../models/models_2";
 import {
+  DescribeClusterNodeRequest,
   DescribeClusterNodeResponse,
   DescribeClusterSchedulerConfigRequest,
   DescribeClusterSchedulerConfigResponse,
@@ -1913,13 +1914,13 @@ import {
   GetSagemakerServicecatalogPortfolioStatusInput,
   GetSagemakerServicecatalogPortfolioStatusOutput,
   GetScalingConfigurationRecommendationRequest,
-  GetScalingConfigurationRecommendationResponse,
   HubContentDependency,
   HyperParameterTrainingJobSummary,
   HyperParameterTuningJobCompletionDetails,
   HyperParameterTuningJobConsumedResources,
   InferenceComponentCapacitySize,
   InferenceComponentContainerSpecificationSummary,
+  InferenceComponentDataCacheConfigSummary,
   InferenceComponentDeploymentConfig,
   InferenceComponentRollingUpdatePolicy,
   InferenceComponentRuntimeConfigSummary,
@@ -1980,6 +1981,7 @@ import {
   Workteam,
 } from "../models/models_3";
 import {
+  GetScalingConfigurationRecommendationResponse,
   GetSearchSuggestionsRequest,
   GetSearchSuggestionsResponse,
   GitConfigForUpdate,
@@ -2162,7 +2164,6 @@ import {
   ListTrialComponentsResponse,
   ListTrialsRequest,
   ListTrialsResponse,
-  ListUltraServersByReservedCapacityRequest,
   ModelCardExportJobSummary,
   ModelCardSummary,
   ModelCardVersionSummary,
@@ -2217,6 +2218,7 @@ import {
   TuningJobStepMetaData,
 } from "../models/models_4";
 import {
+  ListUltraServersByReservedCapacityRequest,
   ListUltraServersByReservedCapacityResponse,
   ListUserProfilesRequest,
   ListUserProfilesResponse,
@@ -15927,6 +15929,8 @@ const se_InferenceComponentComputeResourceRequirements = (
 
 // se_InferenceComponentContainerSpecification omitted.
 
+// se_InferenceComponentDataCacheConfig omitted.
+
 // se_InferenceComponentDeploymentConfig omitted.
 
 // se_InferenceComponentRollingUpdatePolicy omitted.
@@ -15941,6 +15945,7 @@ const se_InferenceComponentSpecification = (input: InferenceComponentSpecificati
     BaseInferenceComponentName: [],
     ComputeResourceRequirements: (_) => se_InferenceComponentComputeResourceRequirements(_, context),
     Container: _json,
+    DataCacheConfig: _json,
     ModelName: [],
     StartupParameters: _json,
   });
@@ -25976,6 +25981,18 @@ const de_InferenceComponentContainerSpecificationSummary = (
 };
 
 /**
+ * deserializeAws_json1_1InferenceComponentDataCacheConfigSummary
+ */
+const de_InferenceComponentDataCacheConfigSummary = (
+  output: any,
+  context: __SerdeContext
+): InferenceComponentDataCacheConfigSummary => {
+  return take(output, {
+    EnableCaching: __expectBoolean,
+  }) as any;
+};
+
+/**
  * deserializeAws_json1_1InferenceComponentDeploymentConfig
  */
 const de_InferenceComponentDeploymentConfig = (
@@ -26027,6 +26044,7 @@ const de_InferenceComponentSpecificationSummary = (
     BaseInferenceComponentName: __expectString,
     ComputeResourceRequirements: (_: any) => de_InferenceComponentComputeResourceRequirements(_, context),
     Container: (_: any) => de_InferenceComponentContainerSpecificationSummary(_, context),
+    DataCacheConfig: (_: any) => de_InferenceComponentDataCacheConfigSummary(_, context),
     ModelName: __expectString,
     StartupParameters: (_: any) => de_InferenceComponentStartupParameters(_, context),
   }) as any;

@@ -5,8 +5,10 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListUltraServersByReservedCapacityRequest } from "../models/models_4";
-import { ListUltraServersByReservedCapacityResponse } from "../models/models_5";
+import {
+  ListUltraServersByReservedCapacityRequest,
+  ListUltraServersByReservedCapacityResponse,
+} from "../models/models_5";
 import {
   de_ListUltraServersByReservedCapacityCommand,
   se_ListUltraServersByReservedCapacityCommand,

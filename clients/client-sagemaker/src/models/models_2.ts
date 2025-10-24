@@ -104,6 +104,17 @@ import {
 
 /**
  * @public
+ */
+export interface CreateLabelingJobResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the labeling job. You use this ARN to identify the labeling job.</p>
+   * @public
+   */
+  LabelingJobArn: string | undefined;
+}
+
+/**
+ * @public
  * @enum
  */
 export const TrackingServerSize = {
@@ -1832,7 +1843,7 @@ export interface CreateNotebookInstanceInput {
   RootAccess?: RootAccess | undefined;
 
   /**
-   * <p>The platform identifier of the notebook instance runtime environment.</p>
+   * <p>The platform identifier of the notebook instance runtime environment. The default value is <code>notebook-al2-v2</code>.</p>
    * @public
    */
   PlatformIdentifier?: string | undefined;
@@ -2875,7 +2886,7 @@ export interface ProcessingS3Input {
   S3InputMode?: ProcessingS3InputMode | undefined;
 
   /**
-   * <p>Whether to distribute the data from Amazon S3 to all processing instances with <code>FullyReplicated</code>, or whether the data from Amazon S3 is shared by Amazon S3 key, downloading one shard of data to each processing instance.</p>
+   * <p>Whether to distribute the data from Amazon S3 to all processing instances with <code>FullyReplicated</code>, or whether the data from Amazon S3 is sharded by Amazon S3 key, downloading one shard of data to each processing instance.</p>
    * @public
    */
   S3DataDistributionType?: ProcessingS3DataDistributionType | undefined;
@@ -7027,29 +7038,6 @@ export interface DescribeClusterEventResponse {
    * @public
    */
   EventDetails?: ClusterEventDetail | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeClusterNodeRequest {
-  /**
-   * <p>The string name or the Amazon Resource Name (ARN) of the SageMaker HyperPod cluster in which the node is.</p>
-   * @public
-   */
-  ClusterName: string | undefined;
-
-  /**
-   * <p>The ID of the SageMaker HyperPod cluster node.</p>
-   * @public
-   */
-  NodeId?: string | undefined;
-
-  /**
-   * <p>The logical identifier of the node to describe. You can specify either <code>NodeLogicalId</code> or <code>InstanceId</code>, but not both. <code>NodeLogicalId</code> can be used to describe nodes that are still being provisioned and don't yet have an <code>InstanceId</code> assigned.</p>
-   * @public
-   */
-  NodeLogicalId?: string | undefined;
 }
 
 /**
