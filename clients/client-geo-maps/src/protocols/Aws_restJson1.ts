@@ -148,6 +148,7 @@ export const se_GetTileCommand = async (
   b.p("X", () => input.X!, "{X}", false);
   b.p("Y", () => input.Y!, "{Y}", false);
   const query: any = map({
+    [_af]: [() => input.AdditionalFeatures !== void 0, () => input[_AF]! || []],
     [_k]: [, input[_K]!],
   });
   let body: any;
@@ -428,6 +429,7 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
 
+const _AF = "AdditionalFeatures";
 const _BB = "BoundingBox";
 const _BP = "BoundedPositions";
 const _C = "Center";
@@ -455,6 +457,7 @@ const _TM = "TravelModes";
 const _Tr = "Traffic";
 const _W = "Width";
 const _Z = "Zoom";
+const _af = "additional-features";
 const _bb = "bounding-box";
 const _bp = "bounded-positions";
 const _c = "center";

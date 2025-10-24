@@ -46,6 +46,9 @@ export interface GetTileCommandOutput extends GetTileCommandOutputType, __Metada
  * const config = {}; // type is GeoMapsClientConfig
  * const client = new GeoMapsClient(config);
  * const input = { // GetTileRequest
+ *   AdditionalFeatures: [ // TileAdditionalFeatureList
+ *     "STRING_VALUE",
+ *   ],
  *   Tileset: "STRING_VALUE", // required
  *   Z: "STRING_VALUE", // required
  *   X: "STRING_VALUE", // required

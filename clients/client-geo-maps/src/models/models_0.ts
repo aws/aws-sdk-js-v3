@@ -666,8 +666,42 @@ export interface GetStyleDescriptorResponse {
 
 /**
  * @public
+ * @enum
+ */
+export const TileAdditionalFeature = {
+  /**
+   * Map elevation contour lines.
+   */
+  CONTOUR_LINES: "ContourLines",
+  /**
+   * Map hillshading details for shading elevation changes.
+   */
+  HILLSHADE: "Hillshade",
+  /**
+   * Map logistics details, including advanced pois and road networks.
+   */
+  LOGISTICS: "Logistics",
+  /**
+   * Map transit details.
+   */
+  TRANSIT: "Transit",
+} as const;
+
+/**
+ * @public
+ */
+export type TileAdditionalFeature = (typeof TileAdditionalFeature)[keyof typeof TileAdditionalFeature];
+
+/**
+ * @public
  */
 export interface GetTileRequest {
+  /**
+   * <p>A list of optional additional parameters such as map styles that can be requested for each result.</p>
+   * @public
+   */
+  AdditionalFeatures?: TileAdditionalFeature[] | undefined;
+
   /**
    * <p>Specifies the desired tile set.</p> <p>Valid Values: <code>raster.satellite | vector.basemap</code> </p>
    * @public
