@@ -28,7 +28,7 @@ export interface DeleteAggregatorV2CommandInput extends DeleteAggregatorV2Reques
 export interface DeleteAggregatorV2CommandOutput extends DeleteAggregatorV2Response, __MetadataBearer {}
 
 /**
- * <p>Deletes the Aggregator V2. This API is in private preview and subject to change.</p>
+ * <p>Deletes the Aggregator V2. This API is in public preview and subject to change.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

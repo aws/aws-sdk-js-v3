@@ -955,7 +955,6 @@ import {
   BooleanFilter,
   CodeRepositoryDetails,
   CodeVulnerabilitiesFilePath,
-  CompositeFilter,
   ConfigurationOptions,
   ConfigurationPolicyAssociation,
   ConfigurationPolicyAssociationSummary,
@@ -963,7 +962,6 @@ import {
   ConflictException,
   ConnectorSummary,
   ContainerDetails,
-  Criteria,
   Cvss,
   DataClassificationDetails,
   DoubleConfigurationOptions,
@@ -977,8 +975,8 @@ import {
   KeywordFilter,
   OcsfBooleanFilter,
   OcsfDateFilter,
-  OcsfFindingFilters,
   OcsfFindingIdentifier,
+  OcsfIpFilter,
   OcsfMapFilter,
   OcsfNumberFilter,
   OcsfStringFilter,
@@ -1019,10 +1017,13 @@ import {
   Workflow,
 } from "../models/models_2";
 import {
+  CompositeFilter,
+  Criteria,
   GroupByRule,
   Insight,
   JiraCloudUpdateConfiguration,
   Member,
+  OcsfFindingFilters,
   ParameterDefinition,
   ProviderUpdateConfiguration,
   ResourceGroupByRule,
@@ -7742,7 +7743,9 @@ const se_CompositeFilter = (input: CompositeFilter, context: __SerdeContext): an
   return take(input, {
     BooleanFilters: _json,
     DateFilters: _json,
+    IpFilters: _json,
     MapFilters: _json,
+    NestedCompositeFilters: (_) => se_CompositeFilterList(_, context),
     NumberFilters: (_) => se_OcsfNumberFilterList(_, context),
     Operator: [],
     StringFilters: _json,
@@ -8049,6 +8052,10 @@ const se_OcsfFindingFilters = (input: OcsfFindingFilters, context: __SerdeContex
 // se_OcsfFindingIdentifier omitted.
 
 // se_OcsfFindingIdentifierList omitted.
+
+// se_OcsfIpFilter omitted.
+
+// se_OcsfIpFilterList omitted.
 
 // se_OcsfMapFilter omitted.
 
@@ -8368,6 +8375,7 @@ const se_ResourcesCompositeFilter = (input: ResourcesCompositeFilter, context: _
   return take(input, {
     DateFilters: _json,
     MapFilters: _json,
+    NestedCompositeFilters: (_) => se_ResourcesCompositeFilterList(_, context),
     NumberFilters: (_) => se_ResourcesNumberFilterList(_, context),
     Operator: [],
     StringFilters: _json,
@@ -10867,7 +10875,9 @@ const de_CompositeFilter = (output: any, context: __SerdeContext): CompositeFilt
   return take(output, {
     BooleanFilters: _json,
     DateFilters: _json,
+    IpFilters: _json,
     MapFilters: _json,
+    NestedCompositeFilters: (_: any) => de_CompositeFilterList(_, context),
     NumberFilters: (_: any) => de_OcsfNumberFilterList(_, context),
     Operator: __expectString,
     StringFilters: _json,
@@ -11483,6 +11493,10 @@ const de_OcsfFindingsList = (output: any, context: __SerdeContext): __DocumentTy
   return retVal;
 };
 
+// de_OcsfIpFilter omitted.
+
+// de_OcsfIpFilterList omitted.
+
 // de_OcsfMapFilter omitted.
 
 // de_OcsfMapFilterList omitted.
@@ -11850,11 +11864,11 @@ const de_ResourceResult = (output: any, context: __SerdeContext): ResourceResult
     AccountId: __expectString,
     FindingsSummary: _json,
     Region: __expectString,
-    ResourceArn: __expectString,
     ResourceCategory: __expectString,
     ResourceConfig: (_: any) => de_ResourceConfig(_, context),
     ResourceCreationTimeDt: __expectString,
     ResourceDetailCaptureTimeDt: __expectString,
+    ResourceGuid: __expectString,
     ResourceId: __expectString,
     ResourceName: __expectString,
     ResourceTags: _json,

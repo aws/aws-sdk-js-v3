@@ -28,7 +28,7 @@ export interface DescribeSecurityHubV2CommandInput extends DescribeSecurityHubV2
 export interface DescribeSecurityHubV2CommandOutput extends DescribeSecurityHubV2Response, __MetadataBearer {}
 
 /**
- * <p>Returns details about the service resource in your account. This API is in private preview and subject to change.</p>
+ * <p>Returns details about the service resource in your account. This API is in public preview and subject to change.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

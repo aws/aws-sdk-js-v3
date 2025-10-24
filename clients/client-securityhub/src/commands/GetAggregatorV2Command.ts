@@ -28,7 +28,7 @@ export interface GetAggregatorV2CommandInput extends GetAggregatorV2Request {}
 export interface GetAggregatorV2CommandOutput extends GetAggregatorV2Response, __MetadataBearer {}
 
 /**
- * <p>Returns the configuration of the specified Aggregator V2. This API is in private preview and subject to change.</p>
+ * <p>Returns the configuration of the specified Aggregator V2. This API is in public preview and subject to change.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -6,12 +6,10 @@ import {
   Action,
   ActionTarget,
   Adjustment,
-  AllowedOperators,
   AssociationStatus,
   AssociationType,
   AutoEnableStandards,
   AutomationRulesAction,
-  AutomationRulesActionV2,
   AutomationRulesConfig,
   AutomationRulesFindingFilters,
   AwsAmazonMqBrokerDetails,
@@ -63,7 +61,6 @@ import {
   NumberFilter,
   RelatedFinding,
   RuleStatus,
-  RuleStatusV2,
   SeverityLabel,
   SeverityUpdate,
   StringFilter,
@@ -5677,7 +5674,8 @@ export interface UnprocessedSecurityControl {
 
   /**
    * <p>
-   *          The error code for the unprocessed security control.
+   *          The error code for the unprocessed security control. The <code>NOT_FOUND</code> value has been deprecated and
+   *          replaced by the <code>RESOURCE_NOT_FOUND</code> value.
    *       </p>
    * @public
    */
@@ -5860,7 +5858,8 @@ export interface UnprocessedStandardsControlAssociation {
   StandardsControlAssociationId: StandardsControlAssociationId | undefined;
 
   /**
-   * <p>The error code for the unprocessed standard and control association.
+   * <p>The error code for the unprocessed standard and control association. The <code>NOT_FOUND</code> value has been deprecated and
+   *          replaced by the <code>RESOURCE_NOT_FOUND</code> value.
    *       </p>
    * @public
    */
@@ -6611,7 +6610,8 @@ export interface UnprocessedStandardsControlAssociationUpdate {
 
   /**
    * <p>The error code for the unprocessed update of the control's enablement status in the
-   *          specified standard.</p>
+   *          specified standard.  The <code>NOT_FOUND</code> value has been deprecated and
+   *          replaced by the <code>RESOURCE_NOT_FOUND</code> value.</p>
    * @public
    */
   ErrorCode: UnprocessedErrorCode | undefined;
@@ -6695,6 +6695,9 @@ export const OcsfDateField = {
   FINDING_INFO_FIRST_SEEN_TIME_DT: "finding_info.first_seen_time_dt",
   FINDING_INFO_LAST_SEEN_TIME_DT: "finding_info.last_seen_time_dt",
   FINDING_INFO_MODIFIED_TIME_DT: "finding_info.modified_time_dt",
+  RESOURCES_IMAGE_CREATED_TIME_DT: "resources.image.created_time_dt",
+  RESOURCES_IMAGE_LAST_USED_TIME_DT: "resources.image.last_used_time_dt",
+  RESOURCES_MODIFIED_TIME_DT: "resources.modified_time_dt",
 } as const;
 
 /**
@@ -6724,7 +6727,42 @@ export interface OcsfDateFilter {
  * @public
  * @enum
  */
+export const OcsfIpField = {
+  EVIDENCES_DST_ENDPOINT_IP: "evidences.dst_endpoint.ip",
+  EVIDENCES_SRC_ENDPOINT_IP: "evidences.src_endpoint.ip",
+} as const;
+
+/**
+ * @public
+ */
+export type OcsfIpField = (typeof OcsfIpField)[keyof typeof OcsfIpField];
+
+/**
+ * <p>The structure for filtering findings based on IP address attributes.</p>
+ * @public
+ */
+export interface OcsfIpFilter {
+  /**
+   * <p>The name of the IP address field to filter on.</p>
+   * @public
+   */
+  FieldName?: OcsfIpField | undefined;
+
+  /**
+   * <p>The IP filter for querying findings.</p>
+   * @public
+   */
+  Filter?: IpFilter | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
 export const OcsfMapField = {
+  COMPLIANCE_CONTROL_PARAMETERS: "compliance.control_parameters",
+  DATABUCKET_TAGS: "databucket.tags",
+  FINDING_INFO_TAGS: "finding_info.tags",
   RESOURCES_TAGS: "resources.tags",
 } as const;
 
@@ -6760,7 +6798,13 @@ export const OcsfNumberField = {
   ACTIVITY_ID: "activity_id",
   COMPLIANCE_STATUS_ID: "compliance.status_id",
   CONFIDENCE_SCORE: "confidence_score",
+  EVIDENCES_API_RESPONSE_CODE: "evidences.api.response.code",
+  EVIDENCES_DST_ENDPOINT_AUTONOMOUS_SYSTEM_NUMBER: "evidences.dst_endpoint.autonomous_system.number",
+  EVIDENCES_DST_ENDPOINT_PORT: "evidences.dst_endpoint.port",
+  EVIDENCES_SRC_ENDPOINT_AUTONOMOUS_SYSTEM_NUMBER: "evidences.src_endpoint.autonomous_system.number",
+  EVIDENCES_SRC_ENDPOINT_PORT: "evidences.src_endpoint.port",
   FINDING_INFO_RELATED_EVENTS_COUNT: "finding_info.related_events_count",
+  RESOURCES_IMAGE_IN_USE_COUNT: "resources.image.in_use_count",
   SEVERITY_ID: "severity_id",
   STATUS_ID: "status_id",
 } as const;
@@ -6795,6 +6839,7 @@ export interface OcsfNumberFilter {
 export const OcsfStringField = {
   ACTIVITY_NAME: "activity_name",
   CLASS_NAME: "class_name",
+  CLOUD_ACCOUNT_NAME: "cloud.account.name",
   CLOUD_ACCOUNT_UID: "cloud.account.uid",
   CLOUD_PROVIDER: "cloud.provider",
   CLOUD_REGION: "cloud.region",
@@ -6804,6 +6849,24 @@ export const OcsfStringField = {
   COMPLIANCE_CONTROL: "compliance.control",
   COMPLIANCE_STANDARDS: "compliance.standards",
   COMPLIANCE_STATUS: "compliance.status",
+  DATABUCKET_ENCRYPTION_DETAILS_ALGORITHM: "databucket.encryption_details.algorithm",
+  DATABUCKET_ENCRYPTION_DETAILS_KEY_UID: "databucket.encryption_details.key_uid",
+  DATABUCKET_FILE_DATA_CLASSIFICATIONS_CLASSIFIER_DETAILS_TYPE:
+    "databucket.file.data_classifications.classifier_details.type",
+  EVIDENCES_ACTOR_USER_ACCOUNT_UID: "evidences.actor.user.account.uid",
+  EVIDENCES_API_OPERATION: "evidences.api.operation",
+  EVIDENCES_API_RESPONSE_ERROR_MESSAGE: "evidences.api.response.error_message",
+  EVIDENCES_API_SERVICE_NAME: "evidences.api.service.name",
+  EVIDENCES_CONNECTION_INFO_DIRECTION: "evidences.connection_info.direction",
+  EVIDENCES_CONNECTION_INFO_PROTOCOL_NAME: "evidences.connection_info.protocol_name",
+  EVIDENCES_DST_ENDPOINT_AUTONOMOUS_SYSTEM_NAME: "evidences.dst_endpoint.autonomous_system.name",
+  EVIDENCES_DST_ENDPOINT_LOCATION_CITY: "evidences.dst_endpoint.location.city",
+  EVIDENCES_DST_ENDPOINT_LOCATION_COUNTRY: "evidences.dst_endpoint.location.country",
+  EVIDENCES_SRC_ENDPOINT_AUTONOMOUS_SYSTEM_NAME: "evidences.src_endpoint.autonomous_system.name",
+  EVIDENCES_SRC_ENDPOINT_HOSTNAME: "evidences.src_endpoint.hostname",
+  EVIDENCES_SRC_ENDPOINT_LOCATION_CITY: "evidences.src_endpoint.location.city",
+  EVIDENCES_SRC_ENDPOINT_LOCATION_COUNTRY: "evidences.src_endpoint.location.country",
+  FINDING_INFO_ANALYTIC_NAME: "finding_info.analytic.name",
   FINDING_INFO_DESC: "finding_info.desc",
   FINDING_INFO_RELATED_EVENTS_PRODUCT_UID: "finding_info.related_events.product.uid",
   FINDING_INFO_RELATED_EVENTS_TITLE: "finding_info.related_events.title",
@@ -6812,19 +6875,38 @@ export const OcsfStringField = {
   FINDING_INFO_TITLE: "finding_info.title",
   FINDING_INFO_TYPES: "finding_info.types",
   FINDING_INFO_UID: "finding_info.uid",
+  MALWARE_NAME: "malware.name",
+  MALWARE_SCAN_INFO_UID: "malware_scan_info.uid",
+  MALWARE_SEVERITY: "malware.severity",
   METADATA_PRODUCT_NAME: "metadata.product.name",
   METADATA_PRODUCT_UID: "metadata.product.uid",
   METADATA_PRODUCT_VENDOR_NAME: "metadata.product.vendor_name",
   METADATA_UID: "metadata.uid",
   REMEDIATION_DESC: "remediation.desc",
   REMEDIATION_REFERENCES: "remediation.references",
+  RESOURCES_CLOUD_FUNCTION_LAYERS_UID_ALT: "resources.cloud_function.layers.uid_alt",
+  RESOURCES_CLOUD_FUNCTION_RUNTIME: "resources.cloud_function.runtime",
+  RESOURCES_CLOUD_FUNCTION_USER_UID: "resources.cloud_function.user.uid",
   RESOURCES_CLOUD_PARTITION: "resources.cloud_partition",
+  RESOURCES_DEVICE_ENCRYPTION_DETAILS_KEY_UID: "resources.device.encryption_details.key_uid",
+  RESOURCES_DEVICE_IMAGE_UID: "resources.device.image.uid",
+  RESOURCES_IMAGE_ARCHITECTURE: "resources.image.architecture",
+  RESOURCES_IMAGE_REGISTRY_UID: "resources.image.registry_uid",
+  RESOURCES_IMAGE_REPOSITORY_NAME: "resources.image.repository_name",
+  RESOURCES_IMAGE_UID: "resources.image.uid",
   RESOURCES_REGION: "resources.region",
+  RESOURCES_SUBNET_INFO_UID: "resources.subnet_info.uid",
   RESOURCES_TYPE: "resources.type",
   RESOURCES_UID: "resources.uid",
+  RESOURCES_VPC_UID: "resources.vpc_uid",
   SEVERITY: "severity",
   STATUS: "status",
+  VULNERABILITIES_AFFECTED_CODE_FILE_PATH: "vulnerabilities.affected_code.file.path",
+  VULNERABILITIES_AFFECTED_PACKAGES_NAME: "vulnerabilities.affected_packages.name",
+  VULNERABILITIES_CVE_EPSS_SCORE: "vulnerabilities.cve.epss.score",
+  VULNERABILITIES_CVE_UID: "vulnerabilities.cve.uid",
   VULNERABILITIES_FIX_COVERAGE: "vulnerabilities.fix_coverage",
+  VULNERABILITIES_RELATED_VULNERABILITIES: "vulnerabilities.related_vulnerabilities",
 } as const;
 
 /**
@@ -6848,48 +6930,6 @@ export interface OcsfStringFilter {
    * @public
    */
   Filter?: StringFilter | undefined;
-}
-
-/**
- * <p>Enables the creation of filtering criteria for security findings.</p>
- * @public
- */
-export interface CompositeFilter {
-  /**
-   * <p>Enables filtering based on string field values.</p>
-   * @public
-   */
-  StringFilters?: OcsfStringFilter[] | undefined;
-
-  /**
-   * <p>Enables filtering based on date and timestamp fields.</p>
-   * @public
-   */
-  DateFilters?: OcsfDateFilter[] | undefined;
-
-  /**
-   * <p>Enables filtering  based on boolean field values.</p>
-   * @public
-   */
-  BooleanFilters?: OcsfBooleanFilter[] | undefined;
-
-  /**
-   * <p>Enables filtering based on numerical field values.</p>
-   * @public
-   */
-  NumberFilters?: OcsfNumberFilter[] | undefined;
-
-  /**
-   * <p>Enables filtering based on map field values.</p>
-   * @public
-   */
-  MapFilters?: OcsfMapFilter[] | undefined;
-
-  /**
-   * <p>The logical operator used to combine multiple filter conditions.</p>
-   * @public
-   */
-  Operator?: AllowedOperators | undefined;
 }
 
 /**
@@ -7746,115 +7786,6 @@ export interface CreateAutomationRuleResponse {
    * @public
    */
   RuleArn?: string | undefined;
-}
-
-/**
- * <p>Specifies the filtering criteria for security findings using OCSF.</p>
- * @public
- */
-export interface OcsfFindingFilters {
-  /**
-   * <p>Enables the creation of complex filtering conditions by combining filter criteria.</p>
-   * @public
-   */
-  CompositeFilters?: CompositeFilter[] | undefined;
-
-  /**
-   * <p>The logical operators used to combine the filtering on multiple <code>CompositeFilters</code>.</p>
-   * @public
-   */
-  CompositeOperator?: AllowedOperators | undefined;
-}
-
-/**
- * <p>Defines the parameters and conditions used to evaluate and filter security findings.</p>
- * @public
- */
-export type Criteria = Criteria.OcsfFindingCriteriaMember | Criteria.$UnknownMember;
-
-/**
- * @public
- */
-export namespace Criteria {
-  /**
-   * <p>The filtering conditions that align with OCSF standards.</p>
-   * @public
-   */
-  export interface OcsfFindingCriteriaMember {
-    OcsfFindingCriteria: OcsfFindingFilters;
-    $unknown?: never;
-  }
-
-  /**
-   * @public
-   */
-  export interface $UnknownMember {
-    OcsfFindingCriteria?: never;
-    $unknown: [string, any];
-  }
-
-  export interface Visitor<T> {
-    OcsfFindingCriteria: (value: OcsfFindingFilters) => T;
-    _: (name: string, value: any) => T;
-  }
-
-  export const visit = <T>(value: Criteria, visitor: Visitor<T>): T => {
-    if (value.OcsfFindingCriteria !== undefined) return visitor.OcsfFindingCriteria(value.OcsfFindingCriteria);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
-}
-
-/**
- * @public
- */
-export interface CreateAutomationRuleV2Request {
-  /**
-   * <p>The name of the V2 automation rule.</p>
-   * @public
-   */
-  RuleName: string | undefined;
-
-  /**
-   * <p>The status of the V2 automation rule.</p>
-   * @public
-   */
-  RuleStatus?: RuleStatusV2 | undefined;
-
-  /**
-   * <p>A description of the V2 automation rule.</p>
-   * @public
-   */
-  Description: string | undefined;
-
-  /**
-   * <p>The value for the rule priority.</p>
-   * @public
-   */
-  RuleOrder: number | undefined;
-
-  /**
-   * <p>The filtering type and configuration of the automation rule.</p>
-   * @public
-   */
-  Criteria: Criteria | undefined;
-
-  /**
-   * <p>A list of actions to be performed when the rule criteria is met.</p>
-   * @public
-   */
-  Actions: AutomationRulesActionV2[] | undefined;
-
-  /**
-   * <p>A list of key-value pairs associated with the V2 automation rule.</p>
-   * @public
-   */
-  Tags?: Record<string, string> | undefined;
-
-  /**
-   * <p>A unique identifier used to ensure idempotency.</p>
-   * @public
-   */
-  ClientToken?: string | undefined;
 }
 
 /**
@@ -9878,71 +9809,6 @@ export interface GetAutomationRuleV2Request {
 /**
  * @public
  */
-export interface GetAutomationRuleV2Response {
-  /**
-   * <p>The ARN of the V2 automation rule.</p>
-   * @public
-   */
-  RuleArn?: string | undefined;
-
-  /**
-   * <p>The ID of the V2 automation rule.</p>
-   * @public
-   */
-  RuleId?: string | undefined;
-
-  /**
-   * <p>The value for the rule priority.</p>
-   * @public
-   */
-  RuleOrder?: number | undefined;
-
-  /**
-   * <p>The name of the V2 automation rule.</p>
-   * @public
-   */
-  RuleName?: string | undefined;
-
-  /**
-   * <p>The status of the V2 automation automation rule.</p>
-   * @public
-   */
-  RuleStatus?: RuleStatusV2 | undefined;
-
-  /**
-   * <p>A description of the automation rule.</p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p>The filtering type and configuration of the V2 automation rule.</p>
-   * @public
-   */
-  Criteria?: Criteria | undefined;
-
-  /**
-   * <p>A list of actions performed when the rule criteria is met.</p>
-   * @public
-   */
-  Actions?: AutomationRulesActionV2[] | undefined;
-
-  /**
-   * <p>The timestamp when the V2 automation rule was created.</p>
-   * @public
-   */
-  CreatedAt?: Date | undefined;
-
-  /**
-   * <p>The timestamp when the V2 automation rule was updated.</p>
-   * @public
-   */
-  UpdatedAt?: Date | undefined;
-}
-
-/**
- * @public
- */
 export interface GetConfigurationPolicyRequest {
   /**
    * <p>
@@ -10501,6 +10367,94 @@ export interface SortCriterion {
    */
   SortOrder?: SortOrder | undefined;
 }
+
+/**
+ * @public
+ */
+export interface GetFindingsRequest {
+  /**
+   * <p>The finding attributes used to define a condition to filter the returned
+   *          findings.</p>
+   *          <p>You can filter by up to 10 finding attributes. For each attribute, you can provide up to
+   *          20 filter values.</p>
+   *          <p>Note that in the available filter fields, <code>WorkflowState</code> is deprecated. To
+   *          search for a finding based on its workflow status, use <code>WorkflowStatus</code>.</p>
+   * @public
+   */
+  Filters?: AwsSecurityFindingFilters | undefined;
+
+  /**
+   * <p>The finding attributes used to sort the list of returned findings.</p>
+   * @public
+   */
+  SortCriteria?: SortCriterion[] | undefined;
+
+  /**
+   * <p>The token that is required for pagination. On your first call to the
+   *             <code>GetFindings</code> operation, set the value of this parameter to
+   *          <code>NULL</code>.</p>
+   *          <p>For subsequent calls to the operation, to continue listing data, set the value of this
+   *          parameter to the value returned from the previous response.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of findings to return.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetFindingsResponse {
+  /**
+   * <p>The findings that matched the filters specified in the request.</p>
+   * @public
+   */
+  Findings: AwsSecurityFinding[] | undefined;
+
+  /**
+   * <p>The pagination token to use to request the next page of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const GroupByField = {
+  ACTIVITY_NAME: "activity_name",
+  CLASS_NAME: "class_name",
+  CLOUD_ACCOUNT_NAME: "cloud.account.name",
+  CLOUD_ACCOUNT_UID: "cloud.account.uid",
+  CLOUD_PROVIDER: "cloud.provider",
+  CLOUD_REGION: "cloud.region",
+  COMPLIANCE_ASSESSMENTS_NAME: "compliance.assessments.name",
+  COMPLIANCE_CONTROL: "compliance.control",
+  COMPLIANCE_STANDARDS: "compliance.standards",
+  COMPLIANCE_STATUS: "compliance.status",
+  FINDING_INFO_ANALYTIC_NAME: "finding_info.analytic.name",
+  FINDING_INFO_TITLE: "finding_info.title",
+  FINDING_INFO_TYPES: "finding_info.types",
+  METADATA_PRODUCT_NAME: "metadata.product.name",
+  METADATA_PRODUCT_UID: "metadata.product.uid",
+  RESOURCES_TYPE: "resources.type",
+  RESOURCES_UID: "resources.uid",
+  SEVERITY: "severity",
+  STATUS: "status",
+  VULNERABILITIES_AFFECTED_PACKAGES_NAME: "vulnerabilities.affected_packages.name",
+  VULNERABILITIES_FIX_COVERAGE: "vulnerabilities.fix_coverage",
+} as const;
+
+/**
+ * @public
+ */
+export type GroupByField = (typeof GroupByField)[keyof typeof GroupByField];
 
 /**
  * @internal

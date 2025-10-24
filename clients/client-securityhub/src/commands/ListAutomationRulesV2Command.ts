@@ -28,7 +28,7 @@ export interface ListAutomationRulesV2CommandInput extends ListAutomationRulesV2
 export interface ListAutomationRulesV2CommandOutput extends ListAutomationRulesV2Response, __MetadataBearer {}
 
 /**
- * <p>Returns a list of automation rules and metadata for the calling account. This API is in private preview and subject to change.</p>
+ * <p>Returns a list of automation rules and metadata for the calling account. This API is in public preview and subject to change.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

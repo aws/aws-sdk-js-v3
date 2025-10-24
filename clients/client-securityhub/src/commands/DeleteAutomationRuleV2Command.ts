@@ -28,7 +28,7 @@ export interface DeleteAutomationRuleV2CommandInput extends DeleteAutomationRule
 export interface DeleteAutomationRuleV2CommandOutput extends DeleteAutomationRuleV2Response, __MetadataBearer {}
 
 /**
- * <p>Deletes a V2 automation rule. This API is in private preview and subject to change.</p>
+ * <p>Deletes a V2 automation rule. This API is in public preview and subject to change.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

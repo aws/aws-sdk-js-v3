@@ -26,7 +26,6 @@ import {
 import { RecordState } from "./models_1";
 
 import {
-  AwsSecurityFinding,
   AwsSecurityFindingFilters,
   ConfigurationOptions,
   ConfigurationPolicyAssociationSummary,
@@ -36,10 +35,15 @@ import {
   ConnectorSummary,
   ControlFindingGenerator,
   ControlStatus,
-  Criteria,
   FindingAggregator,
+  GroupByField,
   Invitation,
-  OcsfFindingFilters,
+  OcsfBooleanFilter,
+  OcsfDateFilter,
+  OcsfIpFilter,
+  OcsfMapFilter,
+  OcsfNumberFilter,
+  OcsfStringFilter,
   OrganizationConfiguration,
   ParameterConfiguration,
   Policy,
@@ -54,133 +58,6 @@ import {
 } from "./models_2";
 
 import { SecurityHubServiceException as __BaseException } from "./SecurityHubServiceException";
-
-/**
- * @public
- */
-export interface GetFindingsRequest {
-  /**
-   * <p>The finding attributes used to define a condition to filter the returned
-   *          findings.</p>
-   *          <p>You can filter by up to 10 finding attributes. For each attribute, you can provide up to
-   *          20 filter values.</p>
-   *          <p>Note that in the available filter fields, <code>WorkflowState</code> is deprecated. To
-   *          search for a finding based on its workflow status, use <code>WorkflowStatus</code>.</p>
-   * @public
-   */
-  Filters?: AwsSecurityFindingFilters | undefined;
-
-  /**
-   * <p>The finding attributes used to sort the list of returned findings.</p>
-   * @public
-   */
-  SortCriteria?: SortCriterion[] | undefined;
-
-  /**
-   * <p>The token that is required for pagination. On your first call to the
-   *             <code>GetFindings</code> operation, set the value of this parameter to
-   *          <code>NULL</code>.</p>
-   *          <p>For subsequent calls to the operation, to continue listing data, set the value of this
-   *          parameter to the value returned from the previous response.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of findings to return.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface GetFindingsResponse {
-  /**
-   * <p>The findings that matched the filters specified in the request.</p>
-   * @public
-   */
-  Findings: AwsSecurityFinding[] | undefined;
-
-  /**
-   * <p>The pagination token to use to request the next page of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const GroupByField = {
-  ACTIVITY_NAME: "activity_name",
-  CLASS_NAME: "class_name",
-  CLOUD_ACCOUNT_UID: "cloud.account.uid",
-  CLOUD_PROVIDER: "cloud.provider",
-  CLOUD_REGION: "cloud.region",
-  COMPLIANCE_ASSESSMENTS_NAME: "compliance.assessments.name",
-  COMPLIANCE_CONTROL: "compliance.control",
-  COMPLIANCE_STATUS: "compliance.status",
-  FINDING_INFO_TITLE: "finding_info.title",
-  FINDING_INFO_TYPES: "finding_info.types",
-  METADATA_PRODUCT_NAME: "metadata.product.name",
-  METADATA_PRODUCT_UID: "metadata.product.uid",
-  RESOURCES_TYPE: "resources.type",
-  RESOURCES_UID: "resources.uid",
-  SEVERITY: "severity",
-  STATUS: "status",
-  VULNERABILITIES_FIX_COVERAGE: "vulnerabilities.fix_coverage",
-} as const;
-
-/**
- * @public
- */
-export type GroupByField = (typeof GroupByField)[keyof typeof GroupByField];
-
-/**
- * <p>Defines the how the finding attribute should be grouped.</p>
- * @public
- */
-export interface GroupByRule {
-  /**
-   * <p>The criteria used to select which security findings should be included in the grouping operation.</p>
-   * @public
-   */
-  Filters?: OcsfFindingFilters | undefined;
-
-  /**
-   * <p>The attribute by which filtered findings should be grouped.</p>
-   * @public
-   */
-  GroupByField: GroupByField | undefined;
-}
-
-/**
- * @public
- */
-export interface GetFindingStatisticsV2Request {
-  /**
-   * <p>Specifies how security findings should be aggregated and organized in the statistical analysis.
-   *       It can accept up to 5 <code>groupBy</code> fields in a single call.</p>
-   * @public
-   */
-  GroupByRules: GroupByRule[] | undefined;
-
-  /**
-   * <p>Orders the aggregation count in descending or ascending order.
-   *          Descending order is the default.</p>
-   * @public
-   */
-  SortOrder?: SortOrder | undefined;
-
-  /**
-   * <p>The maximum number of results to be returned.</p>
-   * @public
-   */
-  MaxStatisticResults?: number | undefined;
-}
 
 /**
  * <p>Represents individual aggregated results when grouping security findings for each <code>GroupByField</code>.</p>
@@ -227,40 +104,6 @@ export interface GetFindingStatisticsV2Response {
    * @public
    */
   GroupByResults?: GroupByResult[] | undefined;
-}
-
-/**
- * @public
- */
-export interface GetFindingsV2Request {
-  /**
-   * <p>The finding attributes used to define a condition to filter the returned OCSF findings.
-   *          You can filter up to 10 composite filters.
-   *          For each filter type inside of a composite filter, you can provide up to 20 filters.</p>
-   * @public
-   */
-  Filters?: OcsfFindingFilters | undefined;
-
-  /**
-   * <p>The finding attributes used to sort the list of returned findings.</p>
-   * @public
-   */
-  SortCriteria?: SortCriterion[] | undefined;
-
-  /**
-   * <p>
-   *          The token required for pagination.
-   *          On your first call, set the value of this parameter to <code>NULL</code>.
-   *          For subsequent calls, to continue listing data, set the value of this parameter to the value returned in the previous response.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of results to return.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
 }
 
 /**
@@ -589,8 +432,8 @@ export interface GetMembersResponse {
  * @enum
  */
 export const ResourcesDateField = {
-  RESOURCE_CREATION_TIME_DT: "resource_creation_time_dt",
-  RESOURCE_DETAIL_CAPTURE_TIME_DT: "resource_detail_capture_time_dt",
+  RESOURCE_CREATION_TIME_DT: "ResourceCreationTime",
+  RESOURCE_DETAIL_CAPTURE_TIME_DT: "ResourceDetailCaptureTime",
 } as const;
 
 /**
@@ -621,7 +464,7 @@ export interface ResourcesDateFilter {
  * @enum
  */
 export const ResourcesMapField = {
-  TAG: "tags",
+  TAG: "ResourceTags",
 } as const;
 
 /**
@@ -653,15 +496,15 @@ export interface ResourcesMapFilter {
  * @enum
  */
 export const ResourcesNumberField = {
-  SEVERITY_CRITICAL: "findings_summary.severities.critical",
-  SEVERITY_FATAL: "findings_summary.severities.fatal",
-  SEVERITY_HIGH: "findings_summary.severities.high",
-  SEVERITY_INFORMATIONAL: "findings_summary.severities.informational",
-  SEVERITY_LOW: "findings_summary.severities.low",
-  SEVERITY_MEDIUM: "findings_summary.severities.medium",
-  SEVERITY_OTHER: "findings_summary.severities.other",
-  SEVERITY_UNKNOWN: "findings_summary.severities.unknown",
-  TOTAL_FINDINGS: "findings_summary.total_findings",
+  SEVERITY_CRITICAL: "FindingsSummary.Severities.Critical",
+  SEVERITY_FATAL: "FindingsSummary.Severities.Fatal",
+  SEVERITY_HIGH: "FindingsSummary.Severities.High",
+  SEVERITY_INFORMATIONAL: "FindingsSummary.Severities.Informational",
+  SEVERITY_LOW: "FindingsSummary.Severities.Low",
+  SEVERITY_MEDIUM: "FindingsSummary.Severities.Medium",
+  SEVERITY_OTHER: "FindingsSummary.Severities.Other",
+  SEVERITY_UNKNOWN: "FindingsSummary.Severities.Unknown",
+  TOTAL_FINDINGS: "FindingsSummary.TotalFindings",
 } as const;
 
 /**
@@ -692,15 +535,15 @@ export interface ResourcesNumberFilter {
  * @enum
  */
 export const ResourcesStringField = {
-  ACCOUNT_ID: "account_id",
-  FINDING_TYPE: "findings_summary.finding_type",
-  PRODUCT_NAME: "findings_summary.product_name",
-  REGION: "region",
-  RESOURCE_ARN: "resource_arn",
-  RESOURCE_CATEGORY: "resource_category",
-  RESOURCE_ID: "resource_id",
-  RESOURCE_NAME: "resource_name",
-  RESOURCE_TYPE: "resource_type",
+  ACCOUNT_ID: "AccountId",
+  FINDING_TYPE: "FindingsSummary.FindingType",
+  PRODUCT_NAME: "FindingsSummary.ProductName",
+  REGION: "Region",
+  RESOURCE_CATEGORY: "ResourceCategory",
+  RESOURCE_GUID: "ResourceGuid",
+  RESOURCE_ID: "ResourceId",
+  RESOURCE_NAME: "ResourceName",
+  RESOURCE_TYPE: "ResourceType",
 } as const;
 
 /**
@@ -727,117 +570,22 @@ export interface ResourcesStringFilter {
 }
 
 /**
- * <p>Enables the creation of criteria for Amazon Web Services resources in Security Hub.</p>
- * @public
- */
-export interface ResourcesCompositeFilter {
-  /**
-   * <p>Enables filtering based on string field values.</p>
-   * @public
-   */
-  StringFilters?: ResourcesStringFilter[] | undefined;
-
-  /**
-   * <p>Enables filtering based on date and timestamp field values.</p>
-   * @public
-   */
-  DateFilters?: ResourcesDateFilter[] | undefined;
-
-  /**
-   * <p>Enables filtering based on numerical field values.</p>
-   * @public
-   */
-  NumberFilters?: ResourcesNumberFilter[] | undefined;
-
-  /**
-   * <p>Enables filtering based on map-based field values.</p>
-   * @public
-   */
-  MapFilters?: ResourcesMapFilter[] | undefined;
-
-  /**
-   * <p>The logical operator used to combine multiple filter conditions.</p>
-   * @public
-   */
-  Operator?: AllowedOperators | undefined;
-}
-
-/**
- * <p>Enables filtering of Amazon Web Services resources based on data.</p>
- * @public
- */
-export interface ResourcesFilters {
-  /**
-   * <p>A collection of complex filtering conditions that can be applied to Amazon Web Services resources.</p>
-   * @public
-   */
-  CompositeFilters?: ResourcesCompositeFilter[] | undefined;
-
-  /**
-   * <p>The logical operator used to combine multiple filter conditions in the structure.</p>
-   * @public
-   */
-  CompositeOperator?: AllowedOperators | undefined;
-}
-
-/**
  * @public
  * @enum
  */
 export const ResourceGroupByField = {
-  ACCOUNT_ID: "account_id",
-  FINDING_TYPE: "findings_summary.finding_type",
-  REGION: "region",
-  RESOURCE_CATEGORY: "resource_category",
-  RESOURCE_NAME: "resource_name",
-  RESOURCE_TYPE: "resource_type",
+  ACCOUNT_ID: "AccountId",
+  FINDING_TYPE: "FindingsSummary.FindingType",
+  REGION: "Region",
+  RESOURCE_CATEGORY: "ResourceCategory",
+  RESOURCE_NAME: "ResourceName",
+  RESOURCE_TYPE: "ResourceType",
 } as const;
 
 /**
  * @public
  */
 export type ResourceGroupByField = (typeof ResourceGroupByField)[keyof typeof ResourceGroupByField];
-
-/**
- * <p>Defines the configuration for organizing and categorizing Amazon Web Services resources based on associated security findings.</p>
- * @public
- */
-export interface ResourceGroupByRule {
-  /**
-   * <p>Specifies the attribute that resources should be grouped by.</p>
-   * @public
-   */
-  GroupByField: ResourceGroupByField | undefined;
-
-  /**
-   * <p>The criteria used to select resources and associated security findings.</p>
-   * @public
-   */
-  Filters?: ResourcesFilters | undefined;
-}
-
-/**
- * @public
- */
-export interface GetResourcesStatisticsV2Request {
-  /**
-   * <p>How resource statistics should be aggregated and organized in the response.</p>
-   * @public
-   */
-  GroupByRules: ResourceGroupByRule[] | undefined;
-
-  /**
-   * <p>Sorts aggregated statistics.</p>
-   * @public
-   */
-  SortOrder?: SortOrder | undefined;
-
-  /**
-   * <p>The maximum number of results to be returned.</p>
-   * @public
-   */
-  MaxStatisticResults?: number | undefined;
-}
 
 /**
  * @public
@@ -848,37 +596,6 @@ export interface GetResourcesStatisticsV2Response {
    * @public
    */
   GroupByResults: GroupByResult[] | undefined;
-}
-
-/**
- * @public
- */
-export interface GetResourcesV2Request {
-  /**
-   * <p>Filters resources based on a set of criteria.</p>
-   * @public
-   */
-  Filters?: ResourcesFilters | undefined;
-
-  /**
-   * <p>The finding attributes used to sort the list of returned findings.</p>
-   * @public
-   */
-  SortCriteria?: SortCriterion[] | undefined;
-
-  /**
-   * <p>The token required for pagination.
-   *          On your first call, set the value of this parameter to <code>NULL</code>.
-   *          For subsequent calls, to continue listing data, set the value of this parameter to the value returned in the previous response.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of results to return.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
 }
 
 /**
@@ -1009,10 +726,10 @@ export interface ResourceTag {
  */
 export interface ResourceResult {
   /**
-   * <p>Specifies the ARN that uniquely identifies a resource.</p>
+   * <p>The global identifier used to identify a resource.</p>
    * @public
    */
-  ResourceArn?: string | undefined;
+  ResourceGuid?: string | undefined;
 
   /**
    * <p>The unique identifier for a resource.</p>
@@ -2277,53 +1994,6 @@ export interface UpdateAggregatorV2Response {
 /**
  * @public
  */
-export interface UpdateAutomationRuleV2Request {
-  /**
-   * <p>The ARN of the automation rule.</p>
-   * @public
-   */
-  Identifier: string | undefined;
-
-  /**
-   * <p>The status of the automation rule.</p>
-   * @public
-   */
-  RuleStatus?: RuleStatusV2 | undefined;
-
-  /**
-   * <p>Represents a value for the rule priority.</p>
-   * @public
-   */
-  RuleOrder?: number | undefined;
-
-  /**
-   * <p>A description of the automation rule.</p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p>The name of the automation rule.</p>
-   * @public
-   */
-  RuleName?: string | undefined;
-
-  /**
-   * <p>The filtering type and configuration of the automation rule.</p>
-   * @public
-   */
-  Criteria?: Criteria | undefined;
-
-  /**
-   * <p>A list of actions to be performed when the rule criteria is met.</p>
-   * @public
-   */
-  Actions?: AutomationRulesActionV2[] | undefined;
-}
-
-/**
- * @public
- */
 export interface UpdateAutomationRuleV2Response {}
 
 /**
@@ -2762,6 +2432,500 @@ export interface UpdateStandardsControlRequest {
  * @public
  */
 export interface UpdateStandardsControlResponse {}
+
+/**
+ * <p>Enables the creation of filtering criteria for security findings.</p>
+ * @public
+ */
+export interface CompositeFilter {
+  /**
+   * <p>Enables filtering based on string field values.</p>
+   * @public
+   */
+  StringFilters?: OcsfStringFilter[] | undefined;
+
+  /**
+   * <p>Enables filtering based on date and timestamp fields.</p>
+   * @public
+   */
+  DateFilters?: OcsfDateFilter[] | undefined;
+
+  /**
+   * <p>Enables filtering  based on boolean field values.</p>
+   * @public
+   */
+  BooleanFilters?: OcsfBooleanFilter[] | undefined;
+
+  /**
+   * <p>Enables filtering based on numerical field values.</p>
+   * @public
+   */
+  NumberFilters?: OcsfNumberFilter[] | undefined;
+
+  /**
+   * <p>Enables filtering based on map field values.</p>
+   * @public
+   */
+  MapFilters?: OcsfMapFilter[] | undefined;
+
+  /**
+   * <p>A list of IP address filters that allowing you to filter findings based on IP address properties.</p>
+   * @public
+   */
+  IpFilters?: OcsfIpFilter[] | undefined;
+
+  /**
+   * <p>
+   *          Provides an additional level of filtering, creating a three-layer nested structure.
+   *          The first layer is a <code>CompositeFilters</code> array with a <code>CompositeOperator</code> (<code>AND</code>/<code>OR</code>).
+   *          The second layer is a <code>CompositeFilter</code> object that contains direct filters and <code>NestedCompositeFilters</code>.
+   *          The third layer is <code>NestedCompositeFilters</code>, which contains additional filter conditions.
+   *       </p>
+   * @public
+   */
+  NestedCompositeFilters?: CompositeFilter[] | undefined;
+
+  /**
+   * <p>The logical operator used to combine multiple filter conditions.</p>
+   * @public
+   */
+  Operator?: AllowedOperators | undefined;
+}
+
+/**
+ * <p>Enables the creation of criteria for Amazon Web Services resources in Security Hub.</p>
+ * @public
+ */
+export interface ResourcesCompositeFilter {
+  /**
+   * <p>Enables filtering based on string field values.</p>
+   * @public
+   */
+  StringFilters?: ResourcesStringFilter[] | undefined;
+
+  /**
+   * <p>Enables filtering based on date and timestamp field values.</p>
+   * @public
+   */
+  DateFilters?: ResourcesDateFilter[] | undefined;
+
+  /**
+   * <p>Enables filtering based on numerical field values.</p>
+   * @public
+   */
+  NumberFilters?: ResourcesNumberFilter[] | undefined;
+
+  /**
+   * <p>Enables filtering based on map-based field values.</p>
+   * @public
+   */
+  MapFilters?: ResourcesMapFilter[] | undefined;
+
+  /**
+   * <p>
+   *          Provides an additional level of filtering, creating a three-layer nested structure.
+   *          The first layer is a <code>CompositeFilters</code> array with a <code>CompositeOperator</code> (<code>AND</code>/<code>OR</code>).
+   *          The second layer is a <code>CompositeFilter</code> object that contains direct filters and <code>NestedCompositeFilters</code>.
+   *          The third layer is <code>NestedCompositeFilters</code>, which contains additional filter conditions.
+   *       </p>
+   * @public
+   */
+  NestedCompositeFilters?: ResourcesCompositeFilter[] | undefined;
+
+  /**
+   * <p>The logical operator used to combine multiple filter conditions.</p>
+   * @public
+   */
+  Operator?: AllowedOperators | undefined;
+}
+
+/**
+ * <p>Specifies the filtering criteria for security findings using OCSF.</p>
+ * @public
+ */
+export interface OcsfFindingFilters {
+  /**
+   * <p>Enables the creation of complex filtering conditions by combining filter criteria.</p>
+   * @public
+   */
+  CompositeFilters?: CompositeFilter[] | undefined;
+
+  /**
+   * <p>The logical operators used to combine the filtering on multiple <code>CompositeFilters</code>.</p>
+   * @public
+   */
+  CompositeOperator?: AllowedOperators | undefined;
+}
+
+/**
+ * <p>Enables filtering of Amazon Web Services resources based on data.</p>
+ * @public
+ */
+export interface ResourcesFilters {
+  /**
+   * <p>A collection of complex filtering conditions that can be applied to Amazon Web Services resources.</p>
+   * @public
+   */
+  CompositeFilters?: ResourcesCompositeFilter[] | undefined;
+
+  /**
+   * <p>The logical operator used to combine multiple filter conditions in the structure.</p>
+   * @public
+   */
+  CompositeOperator?: AllowedOperators | undefined;
+}
+
+/**
+ * <p>Defines the parameters and conditions used to evaluate and filter security findings.</p>
+ * @public
+ */
+export type Criteria = Criteria.OcsfFindingCriteriaMember | Criteria.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace Criteria {
+  /**
+   * <p>The filtering conditions that align with OCSF standards.</p>
+   * @public
+   */
+  export interface OcsfFindingCriteriaMember {
+    OcsfFindingCriteria: OcsfFindingFilters;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    OcsfFindingCriteria?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    OcsfFindingCriteria: (value: OcsfFindingFilters) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: Criteria, visitor: Visitor<T>): T => {
+    if (value.OcsfFindingCriteria !== undefined) return visitor.OcsfFindingCriteria(value.OcsfFindingCriteria);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * @public
+ */
+export interface GetFindingsV2Request {
+  /**
+   * <p>The finding attributes used to define a condition to filter the returned OCSF findings.
+   *          You can filter up to 10 composite filters.
+   *          For each filter type inside of a composite filter, you can provide up to 20 filters.</p>
+   * @public
+   */
+  Filters?: OcsfFindingFilters | undefined;
+
+  /**
+   * <p>The finding attributes used to sort the list of returned findings.</p>
+   * @public
+   */
+  SortCriteria?: SortCriterion[] | undefined;
+
+  /**
+   * <p>
+   *          The token required for pagination.
+   *          On your first call, set the value of this parameter to <code>NULL</code>.
+   *          For subsequent calls, to continue listing data, set the value of this parameter to the value returned in the previous response.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetResourcesV2Request {
+  /**
+   * <p>Filters resources based on a set of criteria.</p>
+   * @public
+   */
+  Filters?: ResourcesFilters | undefined;
+
+  /**
+   * <p>The finding attributes used to sort the list of returned findings.</p>
+   * @public
+   */
+  SortCriteria?: SortCriterion[] | undefined;
+
+  /**
+   * <p>The token required for pagination.
+   *          On your first call, set the value of this parameter to <code>NULL</code>.
+   *          For subsequent calls, to continue listing data, set the value of this parameter to the value returned in the previous response.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+}
+
+/**
+ * <p>Defines the how the finding attribute should be grouped.</p>
+ * @public
+ */
+export interface GroupByRule {
+  /**
+   * <p>The criteria used to select which security findings should be included in the grouping operation.</p>
+   * @public
+   */
+  Filters?: OcsfFindingFilters | undefined;
+
+  /**
+   * <p>The attribute by which filtered findings should be grouped.</p>
+   * @public
+   */
+  GroupByField: GroupByField | undefined;
+}
+
+/**
+ * <p>Defines the configuration for organizing and categorizing Amazon Web Services resources based on associated security findings.</p>
+ * @public
+ */
+export interface ResourceGroupByRule {
+  /**
+   * <p>Specifies the attribute that resources should be grouped by.</p>
+   * @public
+   */
+  GroupByField: ResourceGroupByField | undefined;
+
+  /**
+   * <p>The criteria used to select resources and associated security findings.</p>
+   * @public
+   */
+  Filters?: ResourcesFilters | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateAutomationRuleV2Request {
+  /**
+   * <p>The name of the V2 automation rule.</p>
+   * @public
+   */
+  RuleName: string | undefined;
+
+  /**
+   * <p>The status of the V2 automation rule.</p>
+   * @public
+   */
+  RuleStatus?: RuleStatusV2 | undefined;
+
+  /**
+   * <p>A description of the V2 automation rule.</p>
+   * @public
+   */
+  Description: string | undefined;
+
+  /**
+   * <p>The value for the rule priority.</p>
+   * @public
+   */
+  RuleOrder: number | undefined;
+
+  /**
+   * <p>The filtering type and configuration of the automation rule.</p>
+   * @public
+   */
+  Criteria: Criteria | undefined;
+
+  /**
+   * <p>A list of actions to be performed when the rule criteria is met.</p>
+   * @public
+   */
+  Actions: AutomationRulesActionV2[] | undefined;
+
+  /**
+   * <p>A list of key-value pairs associated with the V2 automation rule.</p>
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
+
+  /**
+   * <p>A unique identifier used to ensure idempotency.</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetAutomationRuleV2Response {
+  /**
+   * <p>The ARN of the V2 automation rule.</p>
+   * @public
+   */
+  RuleArn?: string | undefined;
+
+  /**
+   * <p>The ID of the V2 automation rule.</p>
+   * @public
+   */
+  RuleId?: string | undefined;
+
+  /**
+   * <p>The value for the rule priority.</p>
+   * @public
+   */
+  RuleOrder?: number | undefined;
+
+  /**
+   * <p>The name of the V2 automation rule.</p>
+   * @public
+   */
+  RuleName?: string | undefined;
+
+  /**
+   * <p>The status of the V2 automation automation rule.</p>
+   * @public
+   */
+  RuleStatus?: RuleStatusV2 | undefined;
+
+  /**
+   * <p>A description of the automation rule.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The filtering type and configuration of the V2 automation rule.</p>
+   * @public
+   */
+  Criteria?: Criteria | undefined;
+
+  /**
+   * <p>A list of actions performed when the rule criteria is met.</p>
+   * @public
+   */
+  Actions?: AutomationRulesActionV2[] | undefined;
+
+  /**
+   * <p>The timestamp when the V2 automation rule was created.</p>
+   * @public
+   */
+  CreatedAt?: Date | undefined;
+
+  /**
+   * <p>The timestamp when the V2 automation rule was updated.</p>
+   * @public
+   */
+  UpdatedAt?: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateAutomationRuleV2Request {
+  /**
+   * <p>The ARN of the automation rule.</p>
+   * @public
+   */
+  Identifier: string | undefined;
+
+  /**
+   * <p>The status of the automation rule.</p>
+   * @public
+   */
+  RuleStatus?: RuleStatusV2 | undefined;
+
+  /**
+   * <p>Represents a value for the rule priority.</p>
+   * @public
+   */
+  RuleOrder?: number | undefined;
+
+  /**
+   * <p>A description of the automation rule.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The name of the automation rule.</p>
+   * @public
+   */
+  RuleName?: string | undefined;
+
+  /**
+   * <p>The filtering type and configuration of the automation rule.</p>
+   * @public
+   */
+  Criteria?: Criteria | undefined;
+
+  /**
+   * <p>A list of actions to be performed when the rule criteria is met.</p>
+   * @public
+   */
+  Actions?: AutomationRulesActionV2[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetFindingStatisticsV2Request {
+  /**
+   * <p>Specifies how security findings should be aggregated and organized in the statistical analysis.
+   *       It can accept up to 5 <code>groupBy</code> fields in a single call.</p>
+   * @public
+   */
+  GroupByRules: GroupByRule[] | undefined;
+
+  /**
+   * <p>Orders the aggregation count in descending or ascending order.
+   *          Descending order is the default.</p>
+   * @public
+   */
+  SortOrder?: SortOrder | undefined;
+
+  /**
+   * <p>The maximum number of results to be returned.</p>
+   * @public
+   */
+  MaxStatisticResults?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetResourcesStatisticsV2Request {
+  /**
+   * <p>How resource statistics should be aggregated and organized in the response.</p>
+   * @public
+   */
+  GroupByRules: ResourceGroupByRule[] | undefined;
+
+  /**
+   * <p>Sorts aggregated statistics.</p>
+   * @public
+   */
+  SortOrder?: SortOrder | undefined;
+
+  /**
+   * <p>The maximum number of results to be returned.</p>
+   * @public
+   */
+  MaxStatisticResults?: number | undefined;
+}
 
 /**
  * @internal

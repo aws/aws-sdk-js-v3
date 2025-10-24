@@ -28,7 +28,7 @@ export interface GetResourcesV2CommandInput extends GetResourcesV2Request {}
 export interface GetResourcesV2CommandOutput extends GetResourcesV2Response, __MetadataBearer {}
 
 /**
- * <p>Returns a list of resources. This API is in private preview and subject to change.</p>
+ * <p>Returns a list of resources. This API is in public preview and subject to change.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -43,7 +43,7 @@ export interface GetResourcesV2CommandOutput extends GetResourcesV2Response, __M
  *       { // ResourcesCompositeFilter
  *         StringFilters: [ // ResourcesStringFilterList
  *           { // ResourcesStringFilter
- *             FieldName: "resource_arn" || "resource_id" || "account_id" || "region" || "resource_category" || "resource_type" || "resource_name" || "findings_summary.finding_type" || "findings_summary.product_name",
+ *             FieldName: "ResourceGuid" || "ResourceId" || "AccountId" || "Region" || "ResourceCategory" || "ResourceType" || "ResourceName" || "FindingsSummary.FindingType" || "FindingsSummary.ProductName",
  *             Filter: { // StringFilter
  *               Value: "STRING_VALUE",
  *               Comparison: "EQUALS" || "PREFIX" || "NOT_EQUALS" || "PREFIX_NOT_EQUALS" || "CONTAINS" || "NOT_CONTAINS" || "CONTAINS_WORD",
@@ -52,7 +52,7 @@ export interface GetResourcesV2CommandOutput extends GetResourcesV2Response, __M
  *         ],
  *         DateFilters: [ // ResourcesDateFilterList
  *           { // ResourcesDateFilter
- *             FieldName: "resource_detail_capture_time_dt" || "resource_creation_time_dt",
+ *             FieldName: "ResourceDetailCaptureTime" || "ResourceCreationTime",
  *             Filter: { // DateFilter
  *               Start: "STRING_VALUE",
  *               End: "STRING_VALUE",
@@ -65,7 +65,7 @@ export interface GetResourcesV2CommandOutput extends GetResourcesV2Response, __M
  *         ],
  *         NumberFilters: [ // ResourcesNumberFilterList
  *           { // ResourcesNumberFilter
- *             FieldName: "findings_summary.total_findings" || "findings_summary.severities.other" || "findings_summary.severities.fatal" || "findings_summary.severities.critical" || "findings_summary.severities.high" || "findings_summary.severities.medium" || "findings_summary.severities.low" || "findings_summary.severities.informational" || "findings_summary.severities.unknown",
+ *             FieldName: "FindingsSummary.TotalFindings" || "FindingsSummary.Severities.Other" || "FindingsSummary.Severities.Fatal" || "FindingsSummary.Severities.Critical" || "FindingsSummary.Severities.High" || "FindingsSummary.Severities.Medium" || "FindingsSummary.Severities.Low" || "FindingsSummary.Severities.Informational" || "FindingsSummary.Severities.Unknown",
  *             Filter: { // NumberFilter
  *               Gte: Number("double"),
  *               Lte: Number("double"),
@@ -77,12 +77,62 @@ export interface GetResourcesV2CommandOutput extends GetResourcesV2Response, __M
  *         ],
  *         MapFilters: [ // ResourcesMapFilterList
  *           { // ResourcesMapFilter
- *             FieldName: "tags",
+ *             FieldName: "ResourceTags",
  *             Filter: { // MapFilter
  *               Key: "STRING_VALUE",
  *               Value: "STRING_VALUE",
  *               Comparison: "EQUALS" || "NOT_EQUALS" || "CONTAINS" || "NOT_CONTAINS",
  *             },
+ *           },
+ *         ],
+ *         NestedCompositeFilters: [
+ *           {
+ *             StringFilters: [
+ *               {
+ *                 FieldName: "ResourceGuid" || "ResourceId" || "AccountId" || "Region" || "ResourceCategory" || "ResourceType" || "ResourceName" || "FindingsSummary.FindingType" || "FindingsSummary.ProductName",
+ *                 Filter: {
+ *                   Value: "STRING_VALUE",
+ *                   Comparison: "EQUALS" || "PREFIX" || "NOT_EQUALS" || "PREFIX_NOT_EQUALS" || "CONTAINS" || "NOT_CONTAINS" || "CONTAINS_WORD",
+ *                 },
+ *               },
+ *             ],
+ *             DateFilters: [
+ *               {
+ *                 FieldName: "ResourceDetailCaptureTime" || "ResourceCreationTime",
+ *                 Filter: {
+ *                   Start: "STRING_VALUE",
+ *                   End: "STRING_VALUE",
+ *                   DateRange: {
+ *                     Value: Number("int"),
+ *                     Unit: "DAYS",
+ *                   },
+ *                 },
+ *               },
+ *             ],
+ *             NumberFilters: [
+ *               {
+ *                 FieldName: "FindingsSummary.TotalFindings" || "FindingsSummary.Severities.Other" || "FindingsSummary.Severities.Fatal" || "FindingsSummary.Severities.Critical" || "FindingsSummary.Severities.High" || "FindingsSummary.Severities.Medium" || "FindingsSummary.Severities.Low" || "FindingsSummary.Severities.Informational" || "FindingsSummary.Severities.Unknown",
+ *                 Filter: {
+ *                   Gte: Number("double"),
+ *                   Lte: Number("double"),
+ *                   Eq: Number("double"),
+ *                   Gt: Number("double"),
+ *                   Lt: Number("double"),
+ *                 },
+ *               },
+ *             ],
+ *             MapFilters: [
+ *               {
+ *                 FieldName: "ResourceTags",
+ *                 Filter: {
+ *                   Key: "STRING_VALUE",
+ *                   Value: "STRING_VALUE",
+ *                   Comparison: "EQUALS" || "NOT_EQUALS" || "CONTAINS" || "NOT_CONTAINS",
+ *                 },
+ *               },
+ *             ],
+ *             NestedCompositeFilters: "<ResourcesCompositeFilterList>",
+ *             Operator: "AND" || "OR",
  *           },
  *         ],
  *         Operator: "AND" || "OR",
@@ -104,7 +154,7 @@ export interface GetResourcesV2CommandOutput extends GetResourcesV2Response, __M
  * // { // GetResourcesV2Response
  * //   Resources: [ // Resources // required
  * //     { // ResourceResult
- * //       ResourceArn: "STRING_VALUE",
+ * //       ResourceGuid: "STRING_VALUE",
  * //       ResourceId: "STRING_VALUE", // required
  * //       AccountId: "STRING_VALUE", // required
  * //       Region: "STRING_VALUE", // required

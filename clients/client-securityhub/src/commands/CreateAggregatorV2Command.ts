@@ -28,7 +28,7 @@ export interface CreateAggregatorV2CommandInput extends CreateAggregatorV2Reques
 export interface CreateAggregatorV2CommandOutput extends CreateAggregatorV2Response, __MetadataBearer {}
 
 /**
- * <p>Enables aggregation across Amazon Web Services Regions. This API is in private preview and subject to change.</p>
+ * <p>Enables aggregation across Amazon Web Services Regions. This API is in public preview and subject to change.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
