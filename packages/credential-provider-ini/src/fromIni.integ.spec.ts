@@ -1,43 +1,33 @@
 import { STS } from "@aws-sdk/client-sts";
 import { HttpRequest, HttpResponse } from "@smithy/protocol-http";
-import { SourceProfileInit } from "@smithy/shared-ini-file-loader";
+import { externalDataInterceptor } from "@smithy/shared-ini-file-loader";
 import type { NodeHttpHandlerOptions, ParsedIniData } from "@smithy/types";
+import { homedir } from "node:os";
+import { join } from "node:path";
 import { PassThrough } from "node:stream";
-import { afterEach, beforeEach, describe, expect, test as it, vi } from "vitest";
+import { afterEach, beforeEach, describe, expect, test as it } from "vitest";
 
 import { fromIni } from "./fromIni";
 
 let iniProfileData: ParsedIniData = null as any;
-vi.mock("@smithy/shared-ini-file-loader", async () => {
-  const actual: any = await vi.importActual("@smithy/shared-ini-file-loader");
-  const pkg = {
-    ...actual,
-    async loadSsoSessionData() {
-      return Object.entries(iniProfileData)
-        .filter(([key]) => key.startsWith("sso-session."))
-        .reduce(
-          (acc, [key, value]) => ({
-            ...acc,
-            [key.split("sso-session.")[1]]: value,
-          }),
-          {}
-        );
-    },
-    async parseKnownFiles(init: SourceProfileInit): Promise<ParsedIniData> {
-      return iniProfileData;
-    },
-    async getSSOTokenFromFile() {
-      return {
-        accessToken: "mock_sso_token",
-        expiresAt: "3000-01-01T00:00:00.000Z",
-      };
-    },
-  };
-  return {
-    ...pkg,
-    default: pkg,
-  };
-});
+
+function setIniProfileData(data: ParsedIniData) {
+  iniProfileData = data;
+  let buffer = "";
+  for (const profile in data) {
+    if (profile.startsWith("sso-session.")) {
+      buffer += `[sso-session ${profile.split("sso-session.")[1]}]\n`;
+    } else {
+      buffer += `[profile ${profile}]\n`;
+    }
+    for (const [k, v] of Object.entries(data[profile])) {
+      buffer += `${k} = ${v}\n`;
+    }
+    buffer += "\n";
+  }
+  const dir = join(homedir(), ".aws");
+  externalDataInterceptor.interceptFile(join(dir, "config"), buffer);
+}
 
 class MockNodeHttpHandler {
   static create(instanceOrOptions?: any) {
@@ -46,6 +36,7 @@ class MockNodeHttpHandler {
     }
     return new MockNodeHttpHandler();
   }
+
   async handle(request: HttpRequest) {
     const body = new PassThrough({});
 
@@ -125,7 +116,9 @@ class MockNodeHttpHandler {
       }),
     };
   }
+
   updateHttpClientConfig(key: keyof NodeHttpHandlerOptions, value: NodeHttpHandlerOptions[typeof key]): void {}
+
   httpHandlerConfigs(): NodeHttpHandlerOptions {
     return null as any;
   }
@@ -136,22 +129,20 @@ describe("fromIni region search order", () => {
     process.env.AWS_PROFILE = "default";
     iniProfileData = {
       default: {
-        region: "us-west-2",
         output: "json",
+        region: "us-stsar-1",
+        role_arn: "ROLE_ARN",
+        role_session_name: "ROLE_SESSION_NAME",
+        external_id: "EXTERNAL_ID",
+        source_profile: "assume",
+      },
+      assume: {
+        region: "us-stsar-1",
+        aws_access_key_id: "ASSUME_STATIC_ACCESS_KEY",
+        aws_secret_access_key: "ASSUME_STATIC_SECRET_KEY",
       },
     };
-    iniProfileData.assume = {
-      region: "us-stsar-1",
-      aws_access_key_id: "ASSUME_STATIC_ACCESS_KEY",
-      aws_secret_access_key: "ASSUME_STATIC_SECRET_KEY",
-    };
-    Object.assign(iniProfileData.default, {
-      region: "us-stsar-1",
-      role_arn: "ROLE_ARN",
-      role_session_name: "ROLE_SESSION_NAME",
-      external_id: "EXTERNAL_ID",
-      source_profile: "assume",
-    });
+    setIniProfileData(iniProfileData);
   });
 
   afterEach(() => {
@@ -201,6 +192,7 @@ describe("fromIni region search order", () => {
 
   it("should use 3rd priority for the caller client", async () => {
     delete iniProfileData.default.region;
+    setIniProfileData(iniProfileData);
 
     const sts = new STS({
       requestHandler: new MockNodeHttpHandler(),
@@ -221,8 +213,78 @@ describe("fromIni region search order", () => {
     });
   });
 
-  it("should use 4th priority for the default partition's default region", async () => {
-    delete iniProfileData.default.region;
+  it("should use 4th priority for the config file region", async () => {
+    const credentialsData = await fromIni({
+      clientConfig: {
+        requestHandler: new MockNodeHttpHandler(),
+      },
+    })();
+
+    const sts = new STS({
+      requestHandler: new MockNodeHttpHandler(),
+      credentials: credentialsData,
+    });
+
+    await sts.getCallerIdentity({});
+    const credentials = await sts.config.credentials();
+    expect(credentials).toMatchObject({
+      accessKeyId: "STS_AR_ACCESS_KEY_ID",
+      secretAccessKey: "STS_AR_SECRET_ACCESS_KEY",
+      sessionToken: "STS_AR_SESSION_TOKEN_us-stsar-1",
+    });
+  });
+
+  it("should use 5th priority for the AWS_REGION value", async () => {
+    process.env.AWS_REGION = "ap-northeast-1";
+    iniProfileData = {
+      default: {
+        role_arn: "ROLE_ARN",
+        role_session_name: "ROLE_SESSION_NAME",
+        external_id: "EXTERNAL_ID",
+        source_profile: "assume",
+      },
+      assume: {
+        aws_access_key_id: "ASSUME_STATIC_ACCESS_KEY",
+        aws_secret_access_key: "ASSUME_STATIC_SECRET_KEY",
+      },
+    };
+    setIniProfileData(iniProfileData);
+
+    const credentialsData = await fromIni({
+      clientConfig: {
+        requestHandler: new MockNodeHttpHandler(),
+      },
+    })();
+
+    const sts = new STS({
+      requestHandler: new MockNodeHttpHandler(),
+      credentials: credentialsData,
+    });
+
+    await sts.getCallerIdentity({});
+    const credentials = await sts.config.credentials();
+    expect(credentials).toMatchObject({
+      accessKeyId: "STS_AR_ACCESS_KEY_ID",
+      secretAccessKey: "STS_AR_SECRET_ACCESS_KEY",
+      sessionToken: "STS_AR_SESSION_TOKEN_ap-northeast-1",
+    });
+  });
+
+  it("should use 6th priority for the default partition's default region", async () => {
+    delete process.env.AWS_REGION;
+    iniProfileData = {
+      default: {
+        role_arn: "ROLE_ARN",
+        role_session_name: "ROLE_SESSION_NAME",
+        external_id: "EXTERNAL_ID",
+        source_profile: "assume",
+      },
+      assume: {
+        aws_access_key_id: "ASSUME_STATIC_ACCESS_KEY",
+        aws_secret_access_key: "ASSUME_STATIC_SECRET_KEY",
+      },
+    };
+    setIniProfileData(iniProfileData);
 
     const credentialsData = await fromIni({
       clientConfig: {
@@ -243,5 +305,165 @@ describe("fromIni region search order", () => {
       secretAccessKey: "STS_AR_SECRET_ACCESS_KEY",
       sessionToken: "STS_AR_SESSION_TOKEN_us-east-1",
     });
+  });
+
+  describe("logic table", () => {
+    type Parameters = {
+      // has caller context client
+      withCaller: boolean;
+      // has region specified on the caller client
+      codeRegion: boolean;
+      // AWS_REGION is set
+      envRegion: boolean;
+      // profile regions are set
+      profileRegion: boolean;
+      // provider itself has a clientConfig.region
+      providerRegion: boolean;
+      // profile name
+      profile: string | undefined;
+    };
+
+    for (const withCaller of [true, false]) {
+      for (const codeRegion of [true, false]) {
+        for (const envRegion of [true, false]) {
+          for (const profileRegion of [true, false]) {
+            for (const providerRegion of [true, false]) {
+              for (const profile of ["default", "alt", undefined]) {
+                if (!codeRegion && !profileRegion && !envRegion) {
+                  continue;
+                }
+
+                const params = {
+                  withCaller,
+                  codeRegion,
+                  envRegion,
+                  profileRegion,
+                  providerRegion,
+                  profile,
+                };
+
+                it(`should resolve region as expected with params=${JSON.stringify(params)}`, async () => {
+                  const region = await resolveStsRegion(params);
+
+                  if (providerRegion) {
+                    expect(region).toBe("provider-region");
+                    return;
+                  }
+
+                  if (profileRegion) {
+                    expect(region).toBe(`${profile ?? "default"}-profile-region`);
+                    return;
+                  }
+
+                  if (codeRegion && withCaller) {
+                    expect(region).toBe("code-region");
+                    return;
+                  }
+
+                  if (envRegion) {
+                    expect(region).toBe("env-region");
+                    return;
+                  }
+
+                  expect(region).toBe("us-east-1");
+                });
+              }
+            }
+          }
+        }
+      }
+    }
+
+    async function resolveStsRegion({
+      withCaller,
+      envRegion,
+      profile,
+      profileRegion,
+      codeRegion,
+      providerRegion,
+    }: Parameters) {
+      if (envRegion) {
+        process.env.AWS_REGION = "env-region";
+      } else {
+        delete process.env.AWS_REGION;
+      }
+
+      if (profileRegion) {
+        iniProfileData = {
+          default: {
+            region: "default-profile-region",
+            role_arn: "ROLE_ARN",
+            role_session_name: "ROLE_SESSION_NAME",
+            external_id: "EXTERNAL_ID",
+            source_profile: "assume",
+          },
+          assume: {
+            region: "assume-profile-region",
+            aws_access_key_id: "ASSUME_STATIC_ACCESS_KEY",
+            aws_secret_access_key: "ASSUME_STATIC_SECRET_KEY",
+          },
+          alt: {
+            region: "alt-profile-region",
+            role_arn: "ROLE_ARN",
+            role_session_name: "ROLE_SESSION_NAME",
+            external_id: "EXTERNAL_ID",
+            source_profile: "assume2",
+          },
+          assume2: {
+            region: "assume2-profile-region",
+            aws_access_key_id: "ASSUME_STATIC_ACCESS_KEY",
+            aws_secret_access_key: "ASSUME_STATIC_SECRET_KEY",
+          },
+        };
+      } else {
+        iniProfileData = {
+          default: {
+            role_arn: "ROLE_ARN",
+            role_session_name: "ROLE_SESSION_NAME",
+            external_id: "EXTERNAL_ID",
+            source_profile: "assume",
+          },
+          assume: {
+            aws_access_key_id: "ASSUME_STATIC_ACCESS_KEY",
+            aws_secret_access_key: "ASSUME_STATIC_SECRET_KEY",
+          },
+          alt: {
+            role_arn: "ROLE_ARN",
+            role_session_name: "ROLE_SESSION_NAME",
+            external_id: "EXTERNAL_ID",
+            source_profile: "assume2",
+          },
+          assume2: {
+            aws_access_key_id: "ASSUME_STATIC_ACCESS_KEY",
+            aws_secret_access_key: "ASSUME_STATIC_SECRET_KEY",
+          },
+        };
+      }
+      setIniProfileData(iniProfileData);
+
+      const provider = fromIni({
+        profile,
+        clientConfig: {
+          region: providerRegion ? "provider-region" : undefined,
+          requestHandler: new MockNodeHttpHandler(),
+        },
+      });
+
+      if (withCaller) {
+        const sts = new STS({
+          profile,
+          requestHandler: new MockNodeHttpHandler(),
+          region: codeRegion ? "code-region" : undefined,
+          credentials: provider,
+        });
+
+        await sts.getCallerIdentity({});
+        const credentials = await sts.config.credentials();
+        return credentials.sessionToken!.replace("STS_AR_SESSION_TOKEN_", "");
+      }
+
+      const credentials = await provider();
+      return credentials.sessionToken!.replace("STS_AR_SESSION_TOKEN_", "");
+    }
   });
 });

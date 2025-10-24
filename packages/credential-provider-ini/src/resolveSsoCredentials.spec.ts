@@ -64,7 +64,7 @@ describe(resolveSsoCredentials.name, () => {
       secretAccessKey: "mockSecretAccessKey",
     };
     const requestHandler = vi.fn();
-    const logger = vi.fn();
+    const logger: any = vi.fn();
 
     vi.mocked(fromSSO).mockReturnValue(() => Promise.resolve(mockCreds));
 
