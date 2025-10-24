@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.917.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.916.0...v3.917.0) (2025-10-24)
+
+
+### Features
+
+* **client-sagemaker:** Added inference components model data caching feature ([6d77400](https://github.com/aws/aws-sdk-js-v3/commit/6d7740069836166f3f063d74e057d6279e043522))
+
+
+
+
+
 # [3.916.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.915.0...v3.916.0) (2025-10-23)
 
 

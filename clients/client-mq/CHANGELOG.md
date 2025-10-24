@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.917.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.916.0...v3.917.0) (2025-10-24)
+
+
+### Features
+
+* **client-mq:** Update endpoint ruleset parameters casing ([7f703c1](https://github.com/aws/aws-sdk-js-v3/commit/7f703c18716502c0f0f05d6a61cec6c4c57cf70b))
+
+
+
+
+
 # [3.916.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.915.0...v3.916.0) (2025-10-23)
 
 **Note:** Version bump only for package @aws-sdk/client-mq

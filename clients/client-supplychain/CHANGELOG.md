@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.917.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.916.0...v3.917.0) (2025-10-24)
+
+
+### Features
+
+* **client-supplychain:** Update endpoint ruleset parameters casing ([d09e6c3](https://github.com/aws/aws-sdk-js-v3/commit/d09e6c3759d3d16fae1a6aae58a7fbcafe576ca2))
+
+
+
+
+
 # [3.916.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.915.0...v3.916.0) (2025-10-23)
 
 **Note:** Version bump only for package @aws-sdk/client-supplychain

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.917.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.916.0...v3.917.0) (2025-10-24)
+
+
+### Features
+
+* **client-location:** Added support for mobile app restrictions in Amazon Location API keys. ([f7e8904](https://github.com/aws/aws-sdk-js-v3/commit/f7e8904598555010a77dec6e550d8eed6e040e3f))
+
+
+
+
+
 # [3.916.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.915.0...v3.916.0) (2025-10-23)
 
 **Note:** Version bump only for package @aws-sdk/client-location

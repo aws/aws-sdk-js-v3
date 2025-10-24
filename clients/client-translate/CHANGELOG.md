@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.917.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.916.0...v3.917.0) (2025-10-24)
+
+
+### Features
+
+* **client-translate:** Update endpoint ruleset parameters casing ([1f72ef5](https://github.com/aws/aws-sdk-js-v3/commit/1f72ef5b2ecc575ff32738d9f01e68465baa8272))
+
+
+
+
+
 # [3.916.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.915.0...v3.916.0) (2025-10-23)
 
 **Note:** Version bump only for package @aws-sdk/client-translate

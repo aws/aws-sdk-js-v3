@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.917.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.916.0...v3.917.0) (2025-10-24)
+
+
+### Features
+
+* **client-kinesis-video-signaling:** Update endpoint ruleset parameters casing ([377d9ac](https://github.com/aws/aws-sdk-js-v3/commit/377d9ac0f8f3f84c58696486e6e4fd804cb3e19b))
+
+
+
+
+
 # [3.916.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.915.0...v3.916.0) (2025-10-23)
 
 **Note:** Version bump only for package @aws-sdk/client-kinesis-video-signaling

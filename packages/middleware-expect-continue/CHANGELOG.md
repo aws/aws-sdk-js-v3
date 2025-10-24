@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.917.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.916.0...v3.917.0) (2025-10-24)
+
+
+### Bug Fixes
+
+* **middleware-expect-continue:** remove debug logging ([#7454](https://github.com/aws/aws-sdk-js-v3/issues/7454)) ([b8da1d2](https://github.com/aws/aws-sdk-js-v3/commit/b8da1d2ac06f8cef16292dfee066e74a27dbf5e6))
+
+
+
+
+
 # [3.916.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.915.0...v3.916.0) (2025-10-23)
 
 
