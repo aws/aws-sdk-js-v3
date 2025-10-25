@@ -1,6 +1,10 @@
 import { setCredentialFeature } from "@aws-sdk/core/client";
-import type { AttributedAwsCredentialIdentity, CredentialProviderOptions } from "@aws-sdk/types";
-import { AwsIdentityProperties, RuntimeConfigAwsCredentialIdentityProvider } from "@aws-sdk/types/src";
+import type {
+  AttributedAwsCredentialIdentity,
+  AwsIdentityProperties,
+  CredentialProviderOptions,
+  RuntimeConfigAwsCredentialIdentityProvider,
+} from "@aws-sdk/types";
 import { CredentialsProviderError } from "@smithy/property-provider";
 import { externalDataInterceptor } from "@smithy/shared-ini-file-loader";
 import { readFileSync } from "fs";
