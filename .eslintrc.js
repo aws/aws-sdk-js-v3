@@ -28,6 +28,16 @@ module.exports = {
     /** Errors */
     "simple-import-sort/imports": "error",
     "sort-export-all/sort-export-all": "error",
+    "no-restricted-imports": [
+      "error",
+      {
+        patterns: [
+          {
+            group: ["*src*", "!*CsrC*", "*dist-*"],
+          },
+        ],
+      },
+    ],
   },
   ignorePatterns: [
     "packages/nested-clients/src/submodules/**/protocols/*.ts",
