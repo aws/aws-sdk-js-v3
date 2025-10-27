@@ -90,6 +90,7 @@ export interface CreateStreamCommandOutput extends __MetadataBearer {}
  *   Tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
  *   },
+ *   MaxRecordSizeInKiB: Number("int"),
  * };
  * const command = new CreateStreamCommand(input);
  * const response = await client.send(command);

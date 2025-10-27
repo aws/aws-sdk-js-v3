@@ -32,5 +32,6 @@ export * from "./StopStreamEncryptionCommand";
 export * from "./SubscribeToShardCommand";
 export * from "./TagResourceCommand";
 export * from "./UntagResourceCommand";
+export * from "./UpdateMaxRecordSizeCommand";
 export * from "./UpdateShardCountCommand";
 export * from "./UpdateStreamModeCommand";

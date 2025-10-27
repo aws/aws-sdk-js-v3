@@ -134,6 +134,10 @@ import {
 import { SubscribeToShardCommandInput, SubscribeToShardCommandOutput } from "./commands/SubscribeToShardCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import {
+  UpdateMaxRecordSizeCommandInput,
+  UpdateMaxRecordSizeCommandOutput,
+} from "./commands/UpdateMaxRecordSizeCommand";
 import { UpdateShardCountCommandInput, UpdateShardCountCommandOutput } from "./commands/UpdateShardCountCommand";
 import { UpdateStreamModeCommandInput, UpdateStreamModeCommandOutput } from "./commands/UpdateStreamModeCommand";
 import {
@@ -184,6 +188,7 @@ export type ServiceInputTypes =
   | SubscribeToShardCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
+  | UpdateMaxRecordSizeCommandInput
   | UpdateShardCountCommandInput
   | UpdateStreamModeCommandInput;
 
@@ -224,6 +229,7 @@ export type ServiceOutputTypes =
   | SubscribeToShardCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
+  | UpdateMaxRecordSizeCommandOutput
   | UpdateShardCountCommandOutput
   | UpdateStreamModeCommandOutput;
 

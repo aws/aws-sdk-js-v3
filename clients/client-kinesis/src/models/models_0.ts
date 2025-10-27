@@ -336,6 +336,12 @@ export interface CreateStreamInput {
    * @public
    */
   Tags?: Record<string, string> | undefined;
+
+  /**
+   * <p>The maximum record size of a single record in kibibyte (KiB) that you can write to, and read from a stream.</p>
+   * @public
+   */
+  MaxRecordSizeInKiB?: number | undefined;
 }
 
 /**
@@ -1014,6 +1020,12 @@ export interface StreamDescriptionSummary {
    * @public
    */
   ConsumerCount?: number | undefined;
+
+  /**
+   * <p>The maximum record size of a single record in kibibyte (KiB) that you can write to, and read from a stream.</p>
+   * @public
+   */
+  MaxRecordSizeInKiB?: number | undefined;
 }
 
 /**
@@ -3124,6 +3136,23 @@ export interface UntagResourceInput {
    * @public
    */
   ResourceARN: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateMaxRecordSizeInput {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the stream for the <code>MaxRecordSize</code> update.</p>
+   * @public
+   */
+  StreamARN?: string | undefined;
+
+  /**
+   * <p>The maximum record size of a single record in KiB that you can write to, and read from a stream. Specify a value between 1024 and 10240 KiB (1 to 10 MiB). If you specify a value that is out of this range, <code>UpdateMaxRecordSize</code> sends back an <code>ValidationException</code> message.</p>
+   * @public
+   */
+  MaxRecordSizeInKiB: number | undefined;
 }
 
 /**

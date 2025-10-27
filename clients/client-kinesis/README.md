@@ -472,6 +472,14 @@ UntagResource
 </details>
 <details>
 <summary>
+UpdateMaxRecordSize
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/kinesis/command/UpdateMaxRecordSizeCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kinesis/Interface/UpdateMaxRecordSizeCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kinesis/Interface/UpdateMaxRecordSizeCommandOutput/)
+
+</details>
+<details>
+<summary>
 UpdateShardCount
 </summary>
 

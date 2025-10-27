@@ -31,7 +31,7 @@ export interface PutRecordCommandOutput extends PutRecordOutput, __MetadataBeare
  * <p>Writes a single data record into an Amazon Kinesis data stream. Call
  *                 <code>PutRecord</code> to send data into the stream for real-time ingestion and
  *             subsequent processing, one record at a time. Each shard can support writes up to 1,000
- *             records per second, up to a maximum data write total of 1 MiB per second.</p>
+ *             records per second, up to a maximum data write total of 10 MiB per second.</p>
  *          <note>
  *             <p>When invoking this API, you must use either the <code>StreamARN</code> or the
  *                     <code>StreamName</code> parameter, or both. It is recommended that you use the

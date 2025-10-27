@@ -136,6 +136,11 @@ import {
   UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  UpdateMaxRecordSizeCommand,
+  UpdateMaxRecordSizeCommandInput,
+  UpdateMaxRecordSizeCommandOutput,
+} from "./commands/UpdateMaxRecordSizeCommand";
+import {
   UpdateShardCountCommand,
   UpdateShardCountCommandInput,
   UpdateShardCountCommandOutput,
@@ -181,6 +186,7 @@ const commands = {
   SubscribeToShardCommand,
   TagResourceCommand,
   UntagResourceCommand,
+  UpdateMaxRecordSizeCommand,
   UpdateShardCountCommand,
   UpdateStreamModeCommand,
 };
@@ -679,6 +685,23 @@ export interface Kinesis {
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateMaxRecordSizeCommand}
+   */
+  updateMaxRecordSize(
+    args: UpdateMaxRecordSizeCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateMaxRecordSizeCommandOutput>;
+  updateMaxRecordSize(
+    args: UpdateMaxRecordSizeCommandInput,
+    cb: (err: any, data?: UpdateMaxRecordSizeCommandOutput) => void
+  ): void;
+  updateMaxRecordSize(
+    args: UpdateMaxRecordSizeCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateMaxRecordSizeCommandOutput) => void
   ): void;
 
   /**

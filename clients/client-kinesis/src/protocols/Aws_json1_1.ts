@@ -98,6 +98,10 @@ import {
 import { SubscribeToShardCommandInput, SubscribeToShardCommandOutput } from "../commands/SubscribeToShardCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
+import {
+  UpdateMaxRecordSizeCommandInput,
+  UpdateMaxRecordSizeCommandOutput,
+} from "../commands/UpdateMaxRecordSizeCommand";
 import { UpdateShardCountCommandInput, UpdateShardCountCommandOutput } from "../commands/UpdateShardCountCommand";
 import { UpdateStreamModeCommandInput, UpdateStreamModeCommandOutput } from "../commands/UpdateStreamModeCommand";
 import { KinesisServiceException as __BaseException } from "../models/KinesisServiceException";
@@ -170,6 +174,7 @@ import {
   SubscribeToShardInput,
   TagResourceInput,
   UntagResourceInput,
+  UpdateMaxRecordSizeInput,
   UpdateShardCountInput,
   UpdateStreamModeInput,
   ValidationException,
@@ -599,6 +604,19 @@ export const se_UntagResourceCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UntagResource");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1UpdateMaxRecordSizeCommand
+ */
+export const se_UpdateMaxRecordSizeCommand = async (
+  input: UpdateMaxRecordSizeCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("UpdateMaxRecordSize");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1238,6 +1256,23 @@ export const de_UntagResourceCommand = async (
   }
   await collectBody(output.body, context);
   const response: UntagResourceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1UpdateMaxRecordSizeCommand
+ */
+export const de_UpdateMaxRecordSizeCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateMaxRecordSizeCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: UpdateMaxRecordSizeCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
@@ -1932,6 +1967,8 @@ const se_SubscribeToShardInput = (input: SubscribeToShardInput, context: __Serde
 
 // se_UntagResourceInput omitted.
 
+// se_UpdateMaxRecordSizeInput omitted.
+
 // se_UpdateShardCountInput omitted.
 
 // se_UpdateStreamModeInput omitted.
@@ -2168,6 +2205,7 @@ const de_StreamDescriptionSummary = (output: any, context: __SerdeContext): Stre
     EncryptionType: __expectString,
     EnhancedMonitoring: _json,
     KeyId: __expectString,
+    MaxRecordSizeInKiB: __expectInt32,
     OpenShardCount: __expectInt32,
     RetentionPeriodHours: __expectInt32,
     StreamARN: __expectString,

@@ -37,9 +37,9 @@ export interface PutRecordsCommandOutput extends PutRecordsOutput, __MetadataBea
  *                     <code>StreamARN</code> input parameter when you invoke this API.</p>
  *          </note>
  *          <p>Each <code>PutRecords</code> request can support up to 500 records. Each record in the
- *             request can be as large as 1 MiB, up to a limit of 5 MiB for the entire request,
+ *             request can be as large as 10 MiB, up to a limit of 10 MiB for the entire request,
  *             including partition keys. Each shard can support writes up to 1,000 records per second,
- *             up to a maximum data write total of 1 MiB per second.</p>
+ *             up to a maximum data write total of 1 MB per second.</p>
  *          <p>You must specify the name of the stream that captures, stores, and transports the
  *             data; and an array of request <code>Records</code>, with each record in the array
  *             requiring a partition key and data blob. The record size limit applies to the total size
