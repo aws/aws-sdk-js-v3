@@ -90,14 +90,13 @@ export const propertyProviderChain =
   <T>(...providers: Array<RuntimeConfigIdentityProvider<T>>): RuntimeConfigIdentityProvider<T> =>
   async (awsIdentityProperties?: AwsIdentityProperties) => {
     if (providers.length === 0) {
-      throw new ProviderError("No providers in chain");
+      throw new ProviderError("No providers in chain", { tryNextLink: false });
     }
 
     let lastProviderError: Error | undefined;
     for (const provider of providers) {
       try {
-        const credentials = await provider(awsIdentityProperties);
-        return credentials;
+        return await provider(awsIdentityProperties);
       } catch (err) {
         lastProviderError = err;
         if (err?.tryNextLink) {

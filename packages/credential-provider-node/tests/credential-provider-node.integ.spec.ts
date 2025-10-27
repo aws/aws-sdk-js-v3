@@ -1,25 +1,27 @@
-import { afterAll, afterEach, beforeAll, beforeEach, describe, expect, test as it, vi } from "vitest";
-import { externalDataInterceptor } from "@smithy/shared-ini-file-loader";
-import { NodeHttpHandler } from "@smithy/node-http-handler";
 import { STS, STSExtensionConfiguration } from "@aws-sdk/client-sts";
 import * as credentialProviderHttp from "@aws-sdk/credential-provider-http";
 import {
   fromCognitoIdentity,
   fromCognitoIdentityPool,
   fromIni,
-  fromWebToken,
   fromTokenFile,
+  fromWebToken,
 } from "@aws-sdk/credential-providers";
+import { fromNodeProviderChain } from "@aws-sdk/credential-providers";
+import { NodeHttpHandler } from "@smithy/node-http-handler";
 import { HttpResponse } from "@smithy/protocol-http";
+import { externalDataInterceptor } from "@smithy/shared-ini-file-loader";
 import type { HttpRequest, MiddlewareStack, NodeHttpHandlerOptions, ParsedIniData } from "@smithy/types";
 import { AdaptiveRetryStrategy, StandardRetryStrategy } from "@smithy/util-retry";
-import { PassThrough } from "node:stream";
+import child_process from "node:child_process";
+import { createHash } from "node:crypto";
 import { homedir } from "node:os";
 import { join } from "node:path";
-import { createHash } from "node:crypto";
-import child_process from "node:child_process";
+import { PassThrough } from "node:stream";
+import { afterAll, afterEach, beforeAll, beforeEach, describe, expect, test as it, vi } from "vitest";
 
-import { defaultProvider } from "../src";
+// eslint-disable-next-line no-restricted-imports
+import { defaultProvider } from "../src/defaultProvider";
 
 const assumeRoleArns: string[] = [];
 
@@ -1442,7 +1444,7 @@ describe("credential-provider-node integration test", () => {
   });
 
   describe("nested STS client", () => {
-    it("the clientConfig is propagated to the inner STS client used for AssumeRole ", async () => {
+    it("the clientConfig is propagated to the inner STS client used for AssumeRole", async () => {
       setIniProfileData({
         assume: {
           region: "us-stsar-1",
@@ -1624,6 +1626,182 @@ describe("credential-provider-node integration test", () => {
           },
         });
       });
+    });
+
+    describe("STS region logic", () => {
+      type Parameters = {
+        // has caller context client
+        withCaller: boolean;
+        // has region specified on the caller client
+        codeRegion: boolean;
+        // AWS_REGION is set
+        envRegion: boolean;
+        // profile regions are set
+        profileRegion: boolean;
+        // provider itself has a clientConfig.region
+        providerRegion: boolean;
+        // profile name
+        profile: string | undefined;
+      };
+
+      function serializeParams(params: Parameters) {
+        let buffer = "";
+        for (const [key, value] of Object.entries(params)) {
+          if (typeof value === "boolean") {
+            if (value) {
+              buffer += ` ${key},`;
+            }
+          } else {
+            buffer += ` ${key} = ${value},`;
+          }
+        }
+        return buffer;
+      }
+
+      for (const withCaller of [true, false]) {
+        for (const codeRegion of [true, false]) {
+          for (const envRegion of [true, false]) {
+            for (const profileRegion of [true, false]) {
+              for (const providerRegion of [true, false]) {
+                for (const profile of ["default", "alt", undefined]) {
+                  if (!codeRegion && !profileRegion && !envRegion) {
+                    continue;
+                  }
+
+                  const params = {
+                    withCaller,
+                    codeRegion,
+                    envRegion,
+                    profileRegion,
+                    providerRegion,
+                    profile,
+                  };
+
+                  it(`${serializeParams(params)}`, async () => {
+                    const region = await resolveStsRegion(params);
+
+                    if (providerRegion) {
+                      expect(region).toBe("provider-region");
+                      return;
+                    }
+
+                    if (profileRegion) {
+                      expect(region).toBe(`${profile ?? "default"}-profile-region`);
+                      return;
+                    }
+
+                    if (codeRegion && withCaller) {
+                      expect(region).toBe("code-region");
+                      return;
+                    }
+
+                    if (envRegion) {
+                      expect(region).toBe("env-region");
+                      return;
+                    }
+
+                    expect(region).toBe("us-east-1");
+                  });
+                }
+              }
+            }
+          }
+        }
+      }
+
+      async function resolveStsRegion({
+        withCaller,
+        envRegion,
+        profile,
+        profileRegion,
+        codeRegion,
+        providerRegion,
+      }: Parameters) {
+        if (envRegion) {
+          process.env.AWS_REGION = "env-region";
+        } else {
+          delete process.env.AWS_REGION;
+        }
+
+        if (profileRegion) {
+          iniProfileData = {
+            default: {
+              region: "default-profile-region",
+              role_arn: "ROLE_ARN",
+              role_session_name: "ROLE_SESSION_NAME",
+              external_id: "EXTERNAL_ID",
+              source_profile: "assume",
+            },
+            assume: {
+              region: "assume-profile-region",
+              aws_access_key_id: "ASSUME_STATIC_ACCESS_KEY",
+              aws_secret_access_key: "ASSUME_STATIC_SECRET_KEY",
+            },
+            alt: {
+              region: "alt-profile-region",
+              role_arn: "ROLE_ARN",
+              role_session_name: "ROLE_SESSION_NAME",
+              external_id: "EXTERNAL_ID",
+              source_profile: "assume2",
+            },
+            assume2: {
+              region: "assume2-profile-region",
+              aws_access_key_id: "ASSUME_STATIC_ACCESS_KEY",
+              aws_secret_access_key: "ASSUME_STATIC_SECRET_KEY",
+            },
+          };
+        } else {
+          iniProfileData = {
+            default: {
+              role_arn: "ROLE_ARN",
+              role_session_name: "ROLE_SESSION_NAME",
+              external_id: "EXTERNAL_ID",
+              source_profile: "assume",
+            },
+            assume: {
+              aws_access_key_id: "ASSUME_STATIC_ACCESS_KEY",
+              aws_secret_access_key: "ASSUME_STATIC_SECRET_KEY",
+            },
+            alt: {
+              role_arn: "ROLE_ARN",
+              role_session_name: "ROLE_SESSION_NAME",
+              external_id: "EXTERNAL_ID",
+              source_profile: "assume2",
+            },
+            assume2: {
+              aws_access_key_id: "ASSUME_STATIC_ACCESS_KEY",
+              aws_secret_access_key: "ASSUME_STATIC_SECRET_KEY",
+            },
+          };
+        }
+        setIniProfileData(iniProfileData);
+
+        if (withCaller) {
+          const sts = new STS({
+            profile,
+            region: codeRegion ? "code-region" : undefined,
+            credentials: fromNodeProviderChain({
+              clientConfig: {
+                region: providerRegion ? "provider-region" : undefined,
+              },
+            }),
+          });
+
+          await sts.getCallerIdentity({});
+          const credentials = await sts.config.credentials();
+          return credentials.sessionToken!.replace("STS_AR_SESSION_TOKEN_", "");
+        }
+
+        const provider = fromNodeProviderChain({
+          profile,
+          clientConfig: {
+            region: providerRegion ? "provider-region" : undefined,
+          },
+        });
+
+        const credentials = await provider();
+        return credentials.sessionToken!.replace("STS_AR_SESSION_TOKEN_", "");
+      }
     });
   });
 });

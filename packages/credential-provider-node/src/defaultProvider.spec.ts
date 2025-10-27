@@ -26,7 +26,9 @@ describe(defaultProvider.name, () => {
   };
 
   const credentials = () => {
-    throw new CredentialsProviderError("test", true);
+    throw new CredentialsProviderError("test", {
+      tryNextLink: true,
+    });
   };
 
   const finalCredentials = () => {
