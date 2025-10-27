@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.918.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.917.0...v3.918.0) (2025-10-27)
+
+
+### Features
+
+* **client-controltower:** Update endpoint ruleset parameters casing ([4370289](https://github.com/aws/aws-sdk-js-v3/commit/43702890bffa8d1efadcb2bb0a4cbc617759d73b))
+
+
+
+
+
 # [3.917.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.916.0...v3.917.0) (2025-10-24)
 
 **Note:** Version bump only for package @aws-sdk/client-controltower

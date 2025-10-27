@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.918.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.917.0...v3.918.0) (2025-10-27)
+
+
+### Features
+
+* **client-sfn:** Update endpoint ruleset parameters casing ([3625744](https://github.com/aws/aws-sdk-js-v3/commit/36257447ae78ba1f2be044278545265af7ce5a40))
+
+
+
+
+
 # [3.917.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.916.0...v3.917.0) (2025-10-24)
 
 **Note:** Version bump only for package @aws-sdk/client-sfn

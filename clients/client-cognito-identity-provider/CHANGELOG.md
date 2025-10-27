@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.918.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.917.0...v3.918.0) (2025-10-27)
+
+
+### Features
+
+* **client-cognito-identity-provider:** Update endpoint ruleset parameters casing ([49b0f45](https://github.com/aws/aws-sdk-js-v3/commit/49b0f4593ce6bba0af724c379367e540294836fe))
+
+
+
+
+
 # [3.917.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.916.0...v3.917.0) (2025-10-24)
 
 **Note:** Version bump only for package @aws-sdk/client-cognito-identity-provider

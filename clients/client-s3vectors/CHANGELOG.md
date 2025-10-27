@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.918.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.917.0...v3.918.0) (2025-10-27)
+
+
+### Features
+
+* **client-s3vectors:** Update endpoint ruleset parameters casing ([3caed4a](https://github.com/aws/aws-sdk-js-v3/commit/3caed4ad5b8e264af8eea57d41c7e67b699234c9))
+
+
+
+
+
 # [3.917.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.916.0...v3.917.0) (2025-10-24)
 
 **Note:** Version bump only for package @aws-sdk/client-s3vectors

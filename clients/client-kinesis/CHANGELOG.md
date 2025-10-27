@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.918.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.917.0...v3.918.0) (2025-10-27)
+
+
+### Features
+
+* **client-kinesis:** Adds support for record sizes up to 10MiB and introduces new UpdateMaxRecordSize API to modify stream record size limits. Adds record size parameters to existing CreateStream and DescribeStreamSummary APIs for request and response payloads respectively. ([a26d19b](https://github.com/aws/aws-sdk-js-v3/commit/a26d19b7445c3a2b563ba91b449fd2c4aa5f479c))
+
+
+
+
+
 # [3.917.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.916.0...v3.917.0) (2025-10-24)
 
 **Note:** Version bump only for package @aws-sdk/client-kinesis
