@@ -36,12 +36,9 @@ export interface CreateMultipartUploadCommandOutput extends CreateMultipartUploa
 
 /**
  * <important>
- *             <p>End of support notice: Beginning October 1, 2025, Amazon S3 will discontinue support for creating new Email Grantee Access Control Lists (ACL).
- *  Email Grantee ACLs created prior to this date will continue to work and remain accessible through the Amazon Web Services Management Console, Command Line Interface (CLI), SDKs,
- *  and REST API. However, you will no longer be able to create new Email Grantee ACLs.
- * </p>
- *             <p>This change affects the following Amazon Web Services Regions: US East (N. Virginia) Region, US West (N. California) Region, US West (Oregon) Region, Asia Pacific (Singapore) Region, Asia Pacific (Sydney) Region,
- *  Asia Pacific (Tokyo) Region, Europe (Ireland) Region, and South America (São Paulo) Region.</p>
+ *             <p>End of support notice: As of October 1, 2025, Amazon S3 has discontinued support for Email Grantee Access Control Lists (ACLs). If you attempt to use an Email Grantee ACL in a request after October 1, 2025,
+ *  the request will receive an <code>HTTP 405</code> (Method Not Allowed) error.</p>
+ *             <p>This change affects the following Amazon Web Services Regions: US East (N. Virginia), US West (N. California), US West (Oregon), Asia Pacific (Singapore), Asia Pacific (Sydney), Asia Pacific (Tokyo), Europe (Ireland), and South America (São Paulo).</p>
  *          </important>
  *          <p>This action initiates a multipart upload and returns an upload ID. This upload ID is used to
  *       associate all of the parts in the specific multipart upload. You specify this upload ID in each of your
@@ -285,6 +282,9 @@ export interface CreateMultipartUploadCommandOutput extends CreateMultipartUploa
  *                </p>
  *             </li>
  *          </ul>
+ *          <important>
+ *             <p>You must URL encode any signed header values that contain spaces. For example, if your header value is <code>my  file.txt</code>, containing two spaces after <code>my</code>, you must URL encode this value to <code>my%20%20file.txt</code>.</p>
+ *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

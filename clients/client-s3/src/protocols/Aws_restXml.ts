@@ -604,6 +604,8 @@ export const se_CopyObjectCommand = async (
     [_xagr]: input[_GR]!,
     [_xagra]: input[_GRACP]!,
     [_xagwa]: input[_GWACP]!,
+    [_im]: input[_IM]!,
+    [_inm]: input[_INM]!,
     [_xamd]: input[_MD]!,
     [_xatd]: input[_TD]!,
     [_xasse]: input[_SSE]!,

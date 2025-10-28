@@ -30,13 +30,16 @@ export interface HeadBucketCommandOutput extends HeadBucketOutput, __MetadataBea
 
 /**
  * <p>You can use this operation to determine if a bucket exists and if you have permission to access it.
- *       The action returns a <code>200 OK</code> if the bucket exists and you have permission to access
- *       it.</p>
+ *       The action returns a <code>200 OK</code> HTTP status code if the bucket exists and you have
+ *       permission to access it. You can make a <code>HeadBucket</code> call on any bucket name to any
+ *       Region in the partition, and regardless of the permissions on the bucket, you will receive a
+ *       response header with the correct bucket location so that you can then make a proper, signed request
+ *       to the appropriate Regional endpoint.</p>
  *          <note>
- *             <p>If the bucket does not exist or you do not have permission to access it, the <code>HEAD</code>
- *         request returns a generic <code>400 Bad Request</code>, <code>403 Forbidden</code> or <code>404 Not
- *           Found</code> code. A message body is not included, so you cannot determine the exception beyond
- *         these HTTP response codes.</p>
+ *             <p>If the bucket doesn't exist or you don't have permission to access it, the <code>HEAD</code>
+ *         request returns a generic <code>400 Bad Request</code>, <code>403 Forbidden</code>, or
+ *         <code>404 Not Found</code> HTTP status code. A message body isn't included, so you can't determine
+ *         the exception beyond these HTTP response codes.</p>
  *          </note>
  *          <dl>
  *             <dt>Authentication and authorization</dt>
@@ -96,6 +99,9 @@ export interface HeadBucketCommandOutput extends HeadBucketOutput, __MetadataBea
  *                </note>
  *             </dd>
  *          </dl>
+ *          <important>
+ *             <p>You must URL encode any signed header values that contain spaces. For example, if your header value is <code>my  file.txt</code>, containing two spaces after <code>my</code>, you must URL encode this value to <code>my%20%20file.txt</code>.</p>
+ *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -30,7 +30,12 @@ export interface PutObjectAclCommandInput extends PutObjectAclRequest {}
 export interface PutObjectAclCommandOutput extends PutObjectAclOutput, __MetadataBearer {}
 
 /**
- * <note>
+ * <important>
+ *             <p>End of support notice: As of October 1, 2025, Amazon S3 has discontinued support for Email Grantee Access Control Lists (ACLs). If you attempt to use an Email Grantee ACL in a request after October 1, 2025,
+ *  the request will receive an <code>HTTP 405</code> (Method Not Allowed) error.</p>
+ *             <p>This change affects the following Amazon Web Services Regions: US East (N. Virginia), US West (N. California), US West (Oregon), Asia Pacific (Singapore), Asia Pacific (Sydney), Asia Pacific (Tokyo), Europe (Ireland), and South America (São Paulo).</p>
+ *          </important>
+ *          <note>
  *             <p>This operation is not supported for directory buckets.</p>
  *          </note>
  *          <p>Uses the <code>acl</code> subresource to set the access control list (ACL) permissions for a new or
@@ -214,6 +219,9 @@ export interface PutObjectAclCommandOutput extends PutObjectAclOutput, __Metadat
  *                </p>
  *             </li>
  *          </ul>
+ *          <important>
+ *             <p>You must URL encode any signed header values that contain spaces. For example, if your header value is <code>my  file.txt</code>, containing two spaces after <code>my</code>, you must URL encode this value to <code>my%20%20file.txt</code>.</p>
+ *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

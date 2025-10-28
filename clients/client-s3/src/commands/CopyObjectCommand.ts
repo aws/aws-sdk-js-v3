@@ -35,15 +35,12 @@ export interface CopyObjectCommandInput extends CopyObjectRequest {}
 export interface CopyObjectCommandOutput extends CopyObjectOutput, __MetadataBearer {}
 
 /**
- * <important>
- *             <p>End of support notice: Beginning October 1, 2025, Amazon S3 will discontinue support for creating new Email Grantee Access Control Lists (ACL).
- *  Email Grantee ACLs created prior to this date will continue to work and remain accessible through the Amazon Web Services Management Console, Command Line Interface (CLI), SDKs,
- *  and REST API. However, you will no longer be able to create new Email Grantee ACLs.
- * </p>
- *             <p>This change affects the following Amazon Web Services Regions: US East (N. Virginia) Region, US West (N. California) Region, US West (Oregon) Region, Asia Pacific (Singapore) Region, Asia Pacific (Sydney) Region,
- *  Asia Pacific (Tokyo) Region, Europe (Ireland) Region, and South America (São Paulo) Region.</p>
+ * <p>Creates a copy of an object that is already stored in Amazon S3.</p>
+ *          <important>
+ *             <p>End of support notice: As of October 1, 2025, Amazon S3 has discontinued support for Email Grantee Access Control Lists (ACLs). If you attempt to use an Email Grantee ACL in a request after October 1, 2025,
+ *  the request will receive an <code>HTTP 405</code> (Method Not Allowed) error.</p>
+ *             <p>This change affects the following Amazon Web Services Regions: US East (N. Virginia), US West (N. California), US West (Oregon), Asia Pacific (Singapore), Asia Pacific (Sydney), Asia Pacific (Tokyo), Europe (Ireland), and South America (São Paulo).</p>
  *          </important>
- *          <p>Creates a copy of an object that is already stored in Amazon S3.</p>
  *          <note>
  *             <p>You can store individual objects of up to 5 TB in Amazon S3. You create a copy of your object up to 5
  *         GB in size in a single atomic action using this API. However, to copy an object greater than 5 GB, you
@@ -236,6 +233,9 @@ export interface CopyObjectCommandOutput extends CopyObjectOutput, __MetadataBea
  *                </p>
  *             </li>
  *          </ul>
+ *          <important>
+ *             <p>You must URL encode any signed header values that contain spaces. For example, if your header value is <code>my  file.txt</code>, containing two spaces after <code>my</code>, you must URL encode this value to <code>my%20%20file.txt</code>.</p>
+ *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -263,6 +263,8 @@ export interface CopyObjectCommandOutput extends CopyObjectOutput, __MetadataBea
  *   GrantRead: "STRING_VALUE",
  *   GrantReadACP: "STRING_VALUE",
  *   GrantWriteACP: "STRING_VALUE",
+ *   IfMatch: "STRING_VALUE",
+ *   IfNoneMatch: "STRING_VALUE",
  *   Key: "STRING_VALUE", // required
  *   Metadata: { // Metadata
  *     "<keys>": "STRING_VALUE",

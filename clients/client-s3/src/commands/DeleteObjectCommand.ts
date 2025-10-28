@@ -143,6 +143,12 @@ export interface DeleteObjectCommandOutput extends DeleteObjectOutput, __Metadat
  *                </p>
  *             </li>
  *          </ul>
+ *          <important>
+ *             <p>You must URL encode any signed header values that contain spaces. For example, if your header value is <code>my  file.txt</code>, containing two spaces after <code>my</code>, you must URL encode this value to <code>my%20%20file.txt</code>.</p>
+ *          </important>
+ *          <note>
+ *             <p>The <code>If-Match</code> header is supported for both general purpose and directory buckets. <code>IfMatchLastModifiedTime</code> and <code>IfMatchSize</code> is only supported for directory buckets. </p>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

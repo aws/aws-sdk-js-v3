@@ -41,7 +41,7 @@ export interface ListBucketInventoryConfigurationsCommandOutput
  * <note>
  *             <p>This operation is not supported for directory buckets.</p>
  *          </note>
- *          <p>Returns a list of S3 Inventory configurations for the bucket. You can have up to 1,000 analytics
+ *          <p>Returns a list of S3 Inventory configurations for the bucket. You can have up to 1,000 inventory
  *       configurations per bucket.</p>
  *          <p>This action supports list pagination and does not return more than 100 configurations at a time.
  *       Always check the <code>IsTruncated</code> element in the response. If there are no more configurations
@@ -73,6 +73,9 @@ export interface ListBucketInventoryConfigurationsCommandOutput
  *                </p>
  *             </li>
  *          </ul>
+ *          <important>
+ *             <p>You must URL encode any signed header values that contain spaces. For example, if your header value is <code>my  file.txt</code>, containing two spaces after <code>my</code>, you must URL encode this value to <code>my%20%20file.txt</code>.</p>
+ *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

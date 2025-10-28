@@ -2316,8 +2316,7 @@ export interface PutBucketVersioningRequest {
   ChecksumAlgorithm?: ChecksumAlgorithm | undefined;
 
   /**
-   * <p>The concatenation of the authentication device's serial number, a space, and the value that is
-   *       displayed on your authentication device.</p>
+   * <p>The concatenation of the authentication device's serial number, a space, and the value that is displayed on your authentication device. The serial number is the number that uniquely identifies the MFA device. For physical MFA devices, this is the unique serial number that's provided with the device. For virtual MFA devices, the serial number is the device ARN. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/manage-versioning-examples.html">Enabling versioning on buckets</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/MultiFactorAuthenticationDelete.html">Configuring MFA delete</a> in the <i>Amazon Simple Storage Service User Guide</i>.</p>
    * @public
    */
   MFA?: string | undefined;
@@ -2521,7 +2520,7 @@ export interface PutObjectOutput {
   ETag?: string | undefined;
 
   /**
-   * <p>The Base64 encoded, 32-bit <code>CRC32 checksum</code> of the object. This checksum is only be present if the checksum was uploaded
+   * <p>The Base64 encoded, 32-bit <code>CRC32 checksum</code> of the object. This checksum is only present if the checksum was uploaded
    *     with the object. When you use an API operation on an object that was uploaded using multipart uploads, this value may not be a direct checksum value of the full object. Instead, it's a calculation based on the checksum values of each individual part. For more information about how checksums are calculated
    *     with multipart uploads, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html#large-object-checksums">
    *     Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
@@ -2549,7 +2548,7 @@ export interface PutObjectOutput {
   ChecksumCRC64NVME?: string | undefined;
 
   /**
-   * <p>The Base64 encoded, 160-bit <code>SHA1</code> digest of the object. This will only be present if the object was uploaded
+   * <p>The Base64 encoded, 160-bit <code>SHA1</code> digest of the object. This checksum is only present if the checksum was uploaded
    *     with the object. When you use the API operation on an object that was uploaded using multipart uploads, this value may not be a direct checksum value of the full object. Instead, it's a calculation based on the checksum values of each individual part. For more information about how checksums are calculated
    *     with multipart uploads, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html#large-object-checksums">
    *     Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
@@ -2558,7 +2557,7 @@ export interface PutObjectOutput {
   ChecksumSHA1?: string | undefined;
 
   /**
-   * <p>The Base64 encoded, 256-bit <code>SHA256</code> digest of the object. This will only be present if the object was uploaded
+   * <p>The Base64 encoded, 256-bit <code>SHA256</code> digest of the object. This checksum is only present if the checksum was uploaded
    *     with the object. When you use an API operation on an object that was uploaded using multipart uploads, this value may not be a direct checksum value of the full object. Instead, it's a calculation based on the checksum values of each individual part. For more information about how checksums are calculated
    *     with multipart uploads, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html#large-object-checksums">
    *     Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
@@ -3738,14 +3737,8 @@ export interface PutObjectTaggingRequest {
   ExpectedBucketOwner?: string | undefined;
 
   /**
-   * <p>Confirms that the requester knows that they will be charged for the request. Bucket owners need not
-   *       specify this parameter in their requests. If either the source or destination S3 bucket has Requester
-   *       Pays enabled, the requester will pay for corresponding charges to copy the object. For information about
-   *       downloading objects from Requester Pays buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">Downloading Objects in Requester Pays
-   *         Buckets</a> in the <i>Amazon S3 User Guide</i>.</p>
-   *          <note>
-   *             <p>This functionality is not supported for directory buckets.</p>
-   *          </note>
+   * <p>Confirms that the requester knows that she or he will be charged for the tagging object
+   *       request. Bucket owners need not specify this parameter in their requests.</p>
    * @public
    */
   RequestPayer?: RequestPayer | undefined;
@@ -4644,7 +4637,7 @@ export interface RecordsEvent {
    * <p>The byte array of partial, one or more result records. S3 Select doesn't guarantee that a record
    *       will be self-contained in one record frame. To ensure continuous streaming of data, S3 Select might
    *       split the same record across multiple record frames instead of aggregating the results in memory. Some
-   *       S3 clients (for example, the SDK for Java) handle this behavior by creating a
+   *       S3 clients (for example, the SDKforJava) handle this behavior by creating a
    *         <code>ByteStream</code> out of the response by default. Other clients might not handle this behavior
    *       by default. In those cases, you must aggregate the results on the client side and parse the
    *       response.</p>
@@ -5133,7 +5126,7 @@ export interface UploadPartOutput {
   ETag?: string | undefined;
 
   /**
-   * <p>The Base64 encoded, 32-bit <code>CRC32 checksum</code> of the object. This checksum is only be present if the checksum was uploaded
+   * <p>The Base64 encoded, 32-bit <code>CRC32 checksum</code> of the object. This checksum is only present if the checksum was uploaded
    *     with the object. When you use an API operation on an object that was uploaded using multipart uploads, this value may not be a direct checksum value of the full object. Instead, it's a calculation based on the checksum values of each individual part. For more information about how checksums are calculated
    *     with multipart uploads, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html#large-object-checksums">
    *     Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
@@ -5160,7 +5153,7 @@ export interface UploadPartOutput {
   ChecksumCRC64NVME?: string | undefined;
 
   /**
-   * <p>The Base64 encoded, 160-bit <code>SHA1</code> digest of the object. This will only be present if the object was uploaded
+   * <p>The Base64 encoded, 160-bit <code>SHA1</code> digest of the object. This checksum is only present if the checksum was uploaded
    *     with the object. When you use the API operation on an object that was uploaded using multipart uploads, this value may not be a direct checksum value of the full object. Instead, it's a calculation based on the checksum values of each individual part. For more information about how checksums are calculated
    *     with multipart uploads, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html#large-object-checksums">
    *     Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
@@ -5169,7 +5162,7 @@ export interface UploadPartOutput {
   ChecksumSHA1?: string | undefined;
 
   /**
-   * <p>The Base64 encoded, 256-bit <code>SHA256</code> digest of the object. This will only be present if the object was uploaded
+   * <p>The Base64 encoded, 256-bit <code>SHA256</code> digest of the object. This checksum is only present if the checksum was uploaded
    *     with the object. When you use an API operation on an object that was uploaded using multipart uploads, this value may not be a direct checksum value of the full object. Instead, it's a calculation based on the checksum values of each individual part. For more information about how checksums are calculated
    *     with multipart uploads, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html#large-object-checksums">
    *     Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>

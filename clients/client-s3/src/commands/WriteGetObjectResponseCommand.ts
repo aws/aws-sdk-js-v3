@@ -64,6 +64,9 @@ export interface WriteGetObjectResponseCommandOutput extends __MetadataBearer {}
  *       zlib, zstandard and ZIP. </p>
  *          <p>For information on how to view and use these functions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/olap-examples.html">Using Amazon Web Services built Lambda functions</a> in the
  *         <i>Amazon S3 User Guide</i>.</p>
+ *          <important>
+ *             <p>You must URL encode any signed header values that contain spaces. For example, if your header value is <code>my  file.txt</code>, containing two spaces after <code>my</code>, you must URL encode this value to <code>my%20%20file.txt</code>.</p>
+ *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
