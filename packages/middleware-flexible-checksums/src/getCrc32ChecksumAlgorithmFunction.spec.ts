@@ -15,7 +15,7 @@ describe(getCrc32ChecksumAlgorithmFunction.name, () => {
     const mockData = new Uint8Array([1, 2, 3]);
     const mockChecksum = 42;
 
-    // @ts-expect-error crc32 is defined only for Node.js >=v20.15.0 and >=v22.2.0.
+    // @ts-ignore
     zlib.crc32 = vi
       .fn()
       .mockReturnValueOnce(mockChecksum)
@@ -24,20 +24,20 @@ describe(getCrc32ChecksumAlgorithmFunction.name, () => {
     const crc32Fn = getCrc32ChecksumAlgorithmFunction();
     expect(crc32Fn).not.toBe(AwsCrc32);
 
-    // @ts-expect-error crc32 is defined only for Node.js >=v20.15.0 and >=v22.2.0.
+    // @ts-ignore
     expect(zlib.crc32).not.toHaveBeenCalled();
     const crc32 = new crc32Fn();
-    // @ts-expect-error crc32 is defined only for Node.js >=v20.15.0 and >=v22.2.0.
+    // @ts-ignore
     expect(zlib.crc32).not.toHaveBeenCalled();
     expect(await crc32.digest()).toEqual(numToUint8(0));
 
     crc32.update(mockData);
-    // @ts-expect-error crc32 is defined only for Node.js >=v20.15.0 and >=v22.2.0.
+    // @ts-ignore
     expect(zlib.crc32).toHaveBeenCalledWith(mockData, 0);
     expect(await crc32.digest()).toEqual(numToUint8(mockChecksum));
 
     crc32.update(mockData);
-    // @ts-expect-error crc32 is defined only for Node.js >=v20.15.0 and >=v22.2.0.
+    // @ts-ignore
     expect(zlib.crc32).toHaveBeenCalledWith(mockData, mockChecksum);
     expect(await crc32.digest()).toEqual(numToUint8(2 * mockChecksum));
 
