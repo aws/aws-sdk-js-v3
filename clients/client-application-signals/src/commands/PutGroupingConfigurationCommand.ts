@@ -32,7 +32,7 @@ export interface PutGroupingConfigurationCommandInput extends PutGroupingConfigu
 export interface PutGroupingConfigurationCommandOutput extends PutGroupingConfigurationOutput, __MetadataBearer {}
 
 /**
- * <p>Creates or updates the grouping configuration for this account. This operation allows you to define custom grouping attributes that determine how services are logically grouped based on telemetry attributes, Amazon Web Services tags, or predefined mappings. These grouping attributes can then be used to organize and filter services in the Application Signals console and APIs.</p>
+ * <p>Creates or updates a grouping configuration that defines how services are organized and grouped in Application Signals dashboards and service maps.</p> <p>Grouping configurations allow you to logically organize services based on attributes such as environment, team ownership, or business function, making it easier to monitor and manage related services together.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

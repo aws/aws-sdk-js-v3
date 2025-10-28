@@ -108,6 +108,7 @@ import {
   AuditTargetEntity,
   BurnRateConfiguration,
   CalendarInterval,
+  CanaryEntity,
   ChangeEvent,
   ConflictException,
   DependencyConfig,
@@ -1308,6 +1309,8 @@ const se_CalendarInterval = (input: CalendarInterval, context: __SerdeContext): 
     StartTime: (_) => _.getTime() / 1_000,
   });
 };
+
+// se_CanaryEntity omitted.
 
 // se_DependencyConfig omitted.
 

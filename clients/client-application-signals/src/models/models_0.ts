@@ -995,30 +995,30 @@ export interface MetricReference {
 }
 
 /**
- * <p>A structure that represents a logical grouping of services based on shared attributes such as business unit, environment, or entry point.</p>
+ * <p>Represents a logical grouping of services based on shared attributes or characteristics.</p>
  * @public
  */
 export interface ServiceGroup {
   /**
-   * <p>The name of the grouping attribute, such as <code>BusinessUnit</code> or <code>Environment</code>.</p>
+   * <p>The name of the group, such as "Environment", "Team", or "Application".</p>
    * @public
    */
   GroupName: string | undefined;
 
   /**
-   * <p>The value of the grouping attribute for this service, such as <code>Payments</code> or <code>Production</code>.</p>
+   * <p>The specific value for this group, such as "Production", "TeamA", or "WebApp".</p>
    * @public
    */
   GroupValue: string | undefined;
 
   /**
-   * <p>The source of the grouping attribute, such as <code>TAG</code>, <code>OTEL</code>, or <code>DEFAULT</code>.</p>
+   * <p>The source of the grouping information, such as "Tag", "Attribute", or "Manual".</p>
    * @public
    */
   GroupSource: string | undefined;
 
   /**
-   * <p>A unique identifier for this grouping attribute value, used for filtering and API operations.</p>
+   * <p>A unique identifier for the group within the grouping configuration.</p>
    * @public
    */
   GroupIdentifier: string | undefined;
@@ -1042,7 +1042,7 @@ export interface Service {
   AttributeMaps?: Record<string, string>[] | undefined;
 
   /**
-   * <p>An array of service groups that this service belongs to, based on the configured grouping attributes.</p>
+   * <p>An array of service groups that this service belongs to, based on the configured grouping rules.</p>
    * @public
    */
   ServiceGroups?: ServiceGroup[] | undefined;
@@ -1090,37 +1090,49 @@ export interface GetServiceOutput {
 }
 
 /**
- * <p>A structure that contains identifying information for a service entity.</p>
+ * <p>Represents a CloudWatch Synthetics canary that can be audited for performance and configuration issues.</p>
+ * @public
+ */
+export interface CanaryEntity {
+  /**
+   * <p>The name of the CloudWatch Synthetics canary.</p>
+   * @public
+   */
+  CanaryName: string | undefined;
+}
+
+/**
+ * <p>Represents a service entity that is monitored by Application Signals.</p>
  * @public
  */
 export interface ServiceEntity {
   /**
-   * <p>The type of the service entity.</p>
+   * <p>The type of service, such as "WebService", "Database", "Queue", or "Function".</p>
    * @public
    */
   Type?: string | undefined;
 
   /**
-   * <p>The name of the service.</p>
+   * <p>The name of the service as identified by Application Signals.</p>
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>The environment where the service is deployed.</p>
+   * <p>The environment where the service is deployed, such as "Production", "Staging", or "Development".</p>
    * @public
    */
   Environment?: string | undefined;
 
   /**
-   * <p>The Amazon Web Services account ID where the service is located. Provide this value only for cross-account access.</p>
+   * <p>The AWS account ID where the service is deployed.</p>
    * @public
    */
   AwsAccountId?: string | undefined;
 }
 
 /**
- * <p>A structure that contains identifying information for a service operation entity.</p>
+ * <p>Represents a specific operation within a service that can be monitored and audited independently.</p>
  * @public
  */
 export interface ServiceOperationEntity {
@@ -1131,41 +1143,42 @@ export interface ServiceOperationEntity {
   Service?: ServiceEntity | undefined;
 
   /**
-   * <p>The name of the operation.</p>
+   * <p>The name of the specific operation within the service.</p>
    * @public
    */
   Operation?: string | undefined;
 
   /**
-   * <p>The type of metric associated with this service operation.</p>
+   * <p>The type of metric associated with this service operation, such as "Latency", "ErrorRate", or "Throughput".</p>
    * @public
    */
   MetricType?: string | undefined;
 }
 
 /**
- * <p>A structure that contains identifying information for a service level objective entity.</p>
+ * <p>Represents a Service Level Objective (SLO) entity that can be audited for compliance and performance.</p>
  * @public
  */
 export interface ServiceLevelObjectiveEntity {
   /**
-   * <p>The name of the service level objective.</p>
+   * <p>The name of the Service Level Objective.</p>
    * @public
    */
   SloName?: string | undefined;
 
   /**
-   * <p>The ARN of the service level objective. The SLO must be provided with ARN for cross-account access.</p>
+   * <p>The Amazon Resource Name (ARN) of the Service Level Objective.</p>
    * @public
    */
   SloArn?: string | undefined;
 }
 
 /**
- * <p>A union structure that contains the specific entity information for different types of audit targets.</p>
+ * <p>A union type that represents different types of entities that can be audited, such as services, SLOs, service operations, or canaries.</p>
  * @public
  */
 export type AuditTargetEntity =
+  | AuditTargetEntity.CanaryMember
   | AuditTargetEntity.ServiceMember
   | AuditTargetEntity.ServiceOperationMember
   | AuditTargetEntity.SloMember
@@ -1183,28 +1196,43 @@ export namespace AuditTargetEntity {
     Service: ServiceEntity;
     Slo?: never;
     ServiceOperation?: never;
+    Canary?: never;
     $unknown?: never;
   }
 
   /**
-   * <p>SLO entity information when the audit target is a service level objective.</p>
+   * <p>Service Level Objective entity information when the audit target is an SLO.</p>
    * @public
    */
   export interface SloMember {
     Service?: never;
     Slo: ServiceLevelObjectiveEntity;
     ServiceOperation?: never;
+    Canary?: never;
     $unknown?: never;
   }
 
   /**
-   * <p>Service operation entity information when the audit target is a specific service operation.</p>
+   * <p>Service operation entity information when the audit target is a specific operation within a service.</p>
    * @public
    */
   export interface ServiceOperationMember {
     Service?: never;
     Slo?: never;
     ServiceOperation: ServiceOperationEntity;
+    Canary?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Canary entity information when the audit target is a CloudWatch Synthetics canary.</p>
+   * @public
+   */
+  export interface CanaryMember {
+    Service?: never;
+    Slo?: never;
+    ServiceOperation?: never;
+    Canary: CanaryEntity;
     $unknown?: never;
   }
 
@@ -1215,6 +1243,7 @@ export namespace AuditTargetEntity {
     Service?: never;
     Slo?: never;
     ServiceOperation?: never;
+    Canary?: never;
     $unknown: [string, any];
   }
 
@@ -1222,6 +1251,7 @@ export namespace AuditTargetEntity {
     Service: (value: ServiceEntity) => T;
     Slo: (value: ServiceLevelObjectiveEntity) => T;
     ServiceOperation: (value: ServiceOperationEntity) => T;
+    Canary: (value: CanaryEntity) => T;
     _: (name: string, value: any) => T;
   }
 
@@ -1229,23 +1259,24 @@ export namespace AuditTargetEntity {
     if (value.Service !== undefined) return visitor.Service(value.Service);
     if (value.Slo !== undefined) return visitor.Slo(value.Slo);
     if (value.ServiceOperation !== undefined) return visitor.ServiceOperation(value.ServiceOperation);
+    if (value.Canary !== undefined) return visitor.Canary(value.Canary);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
 }
 
 /**
- * <p>A structure that specifies the target entity for audit analysis, such as a <code>service</code>, <code>SLO</code>, or <code>service_operation</code>.</p>
+ * <p>Specifies a target resource for auditing, such as a service, SLO, or operation.</p>
  * @public
  */
 export interface AuditTarget {
   /**
-   * <p>The type of entity being audited, such as <code>Service</code>, <code>SLO</code>, or <code>ServiceOperation</code>.</p>
+   * <p>The type of resource being targeted for audit, such as "Service", "SLO", "ServiceOperation", or "Canary".</p>
    * @public
    */
   Type: string | undefined;
 
   /**
-   * <p>The specific data identifying the audit target entity.</p>
+   * <p>The specific data or entity information for the audit target, containing details needed to identify and examine the resource.</p>
    * @public
    */
   Data: AuditTargetEntity | undefined;
@@ -1256,37 +1287,37 @@ export interface AuditTarget {
  */
 export interface ListAuditFindingsInput {
   /**
-   * <p>The start of the time period to retrieve audit findings for. When used in a raw HTTP Query API, it is formatted as epoch time in seconds. For example, <code>1698778057</code> </p>
+   * <p>The start time for the audit findings query. Only findings created on or after this time will be included in the results. Specify the time as the number of milliseconds since January 1, 1970, 00:00:00 UTC.</p>
    * @public
    */
   StartTime: Date | undefined;
 
   /**
-   * <p>The end of the time period to retrieve audit findings for. When used in a raw HTTP Query API, it is formatted as epoch time in seconds. For example, <code>1698778057</code> </p>
+   * <p>The end time for the audit findings query. Only findings created before this time will be included in the results. Specify the time as the number of milliseconds since January 1, 1970, 00:00:00 UTC.</p>
    * @public
    */
   EndTime: Date | undefined;
 
   /**
-   * <p>A list of auditor names to filter the findings by. Only findings generated by the specified auditors will be returned.</p> <p>The following auditors are available for configuration:</p> <ul> <li> <p> <code>slo</code> - SloAuditor: Identifies SLO violations and detects breached thresholds during the Assessment phase.</p> </li> <li> <p> <code>operation_metric</code> - OperationMetricAuditor: Detects anomalies in service operation metrics from Application Signals RED metrics during the Assessment phase</p> </li> <li> <p> <code>service_quota</code> - ServiceQuotaAuditor: Monitors resource utilization against service quotas during the Assessment phase</p> </li> <li> <p> <code>trace</code> - TraceAuditor: Performs deep-dive analysis of distributed traces, correlating traces with breached SLOs or abnormal RED metrics during the Analysis phase</p> </li> <li> <p> <code>dependency_metric</code> - CriticalPathAuditor: Analyzes service dependency impacts and maps dependency relationships from Application Signals RED metrics during the Analysis phase</p> </li> <li> <p> <code>top_contributor</code> - TopContributorAuditor: Identifies infrastructure-level contributors to issues by analyzing EMF logs of Application Signals RED metrics during the Analysis phase</p> </li> <li> <p> <code>log</code> - LogAuditor: Extracts insights from application logs, categorizing error types and ranking severity by frequency during the Analysis phase</p> </li> </ul> <note> <p> <code>InitAuditor</code> and <code>Summarizer</code> auditors are not configurable as they are automatically triggered during the audit process.</p> </note>
+   * <p>An array of auditor names to filter the findings. Only findings generated by the specified auditors will be returned. When not specified, findings from all auditors are included except canary.</p>
    * @public
    */
   Auditors?: string[] | undefined;
 
   /**
-   * <p>A list of audit targets to filter the findings by. You can specify services, SLOs, or service operations to limit the audit findings to specific entities.</p>
+   * <p>An array of audit target specifications to filter the findings. Only findings related to the specified targets (such as specific services, SLOs, operations or canary) will be returned.</p>
    * @public
    */
   AuditTargets: AuditTarget[] | undefined;
 
   /**
-   * <p>Include this value, if it was returned by the previous operation, to get the next set of audit findings.</p>
+   * <p>The token for the next set of results. Use this token to retrieve additional pages of audit findings when the result set is large.</p>
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of audit findings to return in one operation. If you omit this parameter, the default of 10 is used.</p>
+   * <p>The maximum number of audit findings to return in a single request. Valid range is 1 to 100. If not specified, defaults to 50.</p>
    * @public
    */
   MaxResults?: number | undefined;
@@ -1310,24 +1341,24 @@ export const Severity = {
 export type Severity = (typeof Severity)[keyof typeof Severity];
 
 /**
- * <p>A structure that contains the result of an automated audit analysis, including the auditor name, description of findings, and severity level.</p>
+ * <p>Represents the result of an audit performed by a specific auditor on a resource.</p>
  * @public
  */
 export interface AuditorResult {
   /**
-   * <p>The name of the auditor algorithm that generated this result.</p>
+   * <p>The name or identifier of the auditor that performed the examination and generated this result.</p>
    * @public
    */
   Auditor?: string | undefined;
 
   /**
-   * <p>A detailed description of the audit finding, explaining what was observed and potential implications.</p>
+   * <p>A detailed description of what the auditor found, including any recommendations for remediation or further investigation.</p>
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>The severity level of this audit finding, indicating the importance and potential impact of the issue.</p>
+   * <p>The severity level of the finding, such as "Critical", "High", "Medium", or "Low". This helps prioritize remediation efforts.</p>
    * @public
    */
   Severity?: Severity | undefined;
@@ -1348,162 +1379,162 @@ export const ConnectionType = {
 export type ConnectionType = (typeof ConnectionType)[keyof typeof ConnectionType];
 
 /**
- * <p>A structure that represents a connection between two nodes in a dependency graph, showing the relationship and characteristics of the connection.</p>
+ * <p>Represents a connection between two nodes in a dependency graph, showing how services or components interact with each other.</p>
  * @public
  */
 export interface Edge {
   /**
-   * <p>The identifier of the source node in this edge connection.</p>
+   * <p>The identifier of the source node in the dependency relationship.</p>
    * @public
    */
   SourceNodeId?: string | undefined;
 
   /**
-   * <p>The identifier of the destination node in this edge connection.</p>
+   * <p>The identifier of the destination node in the dependency relationship.</p>
    * @public
    */
   DestinationNodeId?: string | undefined;
 
   /**
-   * <p>The duration or latency associated with this connection, if applicable.</p>
+   * <p>The typical duration or latency of interactions along this edge, measured in milliseconds.</p>
    * @public
    */
   Duration?: number | undefined;
 
   /**
-   * <p>The type of connection between the nodes, indicating the nature of the relationship.</p>
+   * <p>The type of connection between the nodes, such as "HTTP", "Database", "Queue", or "Internal".</p>
    * @public
    */
   ConnectionType?: ConnectionType | undefined;
 }
 
 /**
- * <p>A structure that represents a node in a dependency graph, containing information about a service, resource, or other entity and its characteristics.</p>
+ * <p>Represents a node in a dependency graph, typically corresponding to a service or component in your application architecture.</p>
  * @public
  */
 export interface Node {
   /**
-   * <p>The key attributes that identify this node, including Type, Name, and Environment information.</p>
+   * <p>A map of key attributes that identify and describe the node, such as service name, environment, and other metadata.</p>
    * @public
    */
   KeyAttributes: Record<string, string> | undefined;
 
   /**
-   * <p>The name of the entity represented by this node.</p>
+   * <p>The display name of the node, typically the service or component name.</p>
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>A unique identifier for this node within the dependency graph.</p>
+   * <p>A unique identifier for the node within the dependency graph.</p>
    * @public
    */
   NodeId: string | undefined;
 
   /**
-   * <p>The operation associated with this node, if applicable.</p>
+   * <p>The specific operation or endpoint within the service that this node represents, if applicable.</p>
    * @public
    */
   Operation?: string | undefined;
 
   /**
-   * <p>The type of entity represented by this node, such as <code>Service</code> or <code>Resource</code>.</p>
+   * <p>The type of node, such as "Service", "Database", "Queue", or "External".</p>
    * @public
    */
   Type?: string | undefined;
 
   /**
-   * <p>The duration or processing time associated with this node, if applicable.</p>
+   * <p>The typical response time or processing duration for this node, measured in milliseconds.</p>
    * @public
    */
   Duration?: number | undefined;
 
   /**
-   * <p>The status of the entity represented by this node.</p>
+   * <p>The current health status of the node, such as "Healthy", "Warning", or "Critical".</p>
    * @public
    */
   Status?: string | undefined;
 }
 
 /**
- * <p>A structure that represents the dependency relationships relevant to an audit finding, containing nodes and edges that show how services and resources are connected.</p>
+ * <p>Represents a graph showing the dependencies between services and components in your application architecture.</p>
  * @public
  */
 export interface DependencyGraph {
   /**
-   * <p>An array of nodes representing the services, resources, or other entities in the dependency graph.</p>
+   * <p>An array of nodes in the dependency graph, where each node represents a service or component.</p>
    * @public
    */
   Nodes?: Node[] | undefined;
 
   /**
-   * <p>An array of edges representing the connections and relationships between the nodes in the dependency graph.</p>
+   * <p>An array of edges in the dependency graph, where each edge represents a connection or dependency between two nodes.</p>
    * @public
    */
   Edges?: Edge[] | undefined;
 }
 
 /**
- * <p>A structure that contains metric data queries and time range information that provides context for audit findings through relevant performance metrics.</p>
+ * <p>Represents a graph of metric data over time, showing performance trends and patterns for monitored resources.</p>
  * @public
  */
 export interface MetricGraph {
   /**
-   * <p>An array of metric data queries that define the metrics to be retrieved and analyzed as part of the audit finding context.</p>
+   * <p>An array of metric data queries that define what metrics to display in the graph. Each query specifies the metric source, aggregation, and time range.</p>
    * @public
    */
   MetricDataQueries?: MetricDataQuery[] | undefined;
 
   /**
-   * <p>The start time for the metric data included in this graph. When used in a raw HTTP Query API, it is formatted as epoch time in seconds.</p>
+   * <p>The start time for the metric data displayed in the graph, expressed as the number of milliseconds since January 1, 1970, 00:00:00 UTC.</p>
    * @public
    */
   StartTime?: Date | undefined;
 
   /**
-   * <p>The end time for the metric data included in this graph. When used in a raw HTTP Query API, it is formatted as epoch time in seconds.</p>
+   * <p>The end time for the metric data displayed in the graph, expressed as the number of milliseconds since January 1, 1970, 00:00:00 UTC.</p>
    * @public
    */
   EndTime?: Date | undefined;
 }
 
 /**
- * <p>A structure that contains information about an audit finding, which represents an automated analysis result about service behavior, performance issues, or potential problems identified through heuristic algorithms.</p>
+ * <p>Represents an audit finding that identifies a potential issue, misconfiguration, or compliance violation in Application Signals resources.</p>
  * @public
  */
 export interface AuditFinding {
   /**
-   * <p>The key attributes that identify the service or entity this audit finding relates to. This is a string-to-string map that includes fields like Type, Name, and Environment.</p>
+   * <p>A map of key attributes that identify the resource associated with this audit finding. These attributes help locate and understand the context of the finding.</p>
    * @public
    */
   KeyAttributes: Record<string, string> | undefined;
 
   /**
-   * <p>An array of auditor results that contain the specific findings, descriptions, and severity levels identified by different auditing algorithms.</p>
+   * <p>An array of results from different auditors that examined the resource. Each result includes the auditor name, description, and severity level.</p>
    * @public
    */
   AuditorResults?: AuditorResult[] | undefined;
 
   /**
-   * <p>The name of the operation associated with this audit finding, if the finding is specific to a particular service operation.</p>
+   * <p>The operation or action that was being audited when this finding was discovered. This provides context about what was being examined.</p>
    * @public
    */
   Operation?: string | undefined;
 
   /**
-   * <p>A structure containing metric data queries and time range information that provides context for the audit finding through relevant performance metrics.</p>
+   * <p>A metric graph associated with the audit finding, showing relevant performance data that may be related to the identified issue.</p>
    * @public
    */
   MetricGraph?: MetricGraph | undefined;
 
   /**
-   * <p>A structure containing nodes and edges that represent the dependency relationships relevant to this audit finding, helping to understand the context and potential impact.</p>
+   * <p>A dependency graph showing the relationships between services that may be affected by or related to the audit finding.</p>
    * @public
    */
   DependencyGraph?: DependencyGraph | undefined;
 
   /**
-   * <p>The type of audit finding.</p>
+   * <p>The type or category of the audit finding, such as "Performance", "Security", or "Configuration".</p>
    * @public
    */
   Type?: string | undefined;
@@ -1514,13 +1545,13 @@ export interface AuditFinding {
  */
 export interface ListAuditFindingsOutput {
   /**
-   * <p>An array of structures, where each structure contains information about one audit finding, including the auditor results, severity, and associated metric and dependency graphs.</p>
+   * <p>An array of audit findings that match the specified criteria. Each finding includes details about the issue, affected resources, and auditor results.</p>
    * @public
    */
   AuditFindings: AuditFinding[] | undefined;
 
   /**
-   * <p>Include this value in your next use of this API to get the next set of audit findings.</p>
+   * <p>The token to use for retrieving the next page of results. This value is present only if there are more results available than were returned in the current response.</p>
    * @public
    */
   NextToken?: string | undefined;
@@ -1531,31 +1562,31 @@ export interface ListAuditFindingsOutput {
  */
 export interface ListGroupingAttributeDefinitionsInput {
   /**
-   * <p>Include this value, if it was returned by the previous operation, to get the next set of grouping attribute definitions.</p>
+   * <p>The token for the next set of results. Use this token to retrieve additional pages of grouping attribute definitions when the result set is large.</p>
    * @public
    */
   NextToken?: string | undefined;
 }
 
 /**
- * <p>A structure that defines how services should be grouped based on specific attributes. This includes the friendly name for the grouping, the source keys to derive values from, and an optional default value.</p>
+ * <p>Defines how services should be grouped based on specific attributes. This allows logical organization of services in dashboards and service maps.</p>
  * @public
  */
 export interface GroupingAttributeDefinition {
   /**
-   * <p>The friendly name for this grouping attribute, such as <code>BusinessUnit</code> or <code>Environment</code>. This name is used to identify the grouping in the console and APIs.</p>
+   * <p>The name of the grouping attribute, such as "Environment", "Team", or "Application".</p>
    * @public
    */
   GroupingName: string | undefined;
 
   /**
-   * <p>An array of source keys used to derive the grouping attribute value from telemetry data, Amazon Web Services tags, or other sources. For example, ["business_unit", "team"] would look for values in those fields.</p>
+   * <p>An array of source attribute keys that will be used to determine the grouping value for each service. These keys correspond to service metadata or tags.</p>
    * @public
    */
   GroupingSourceKeys?: string[] | undefined;
 
   /**
-   * <p>The default value to use for this grouping attribute when no value can be derived from the source keys. This ensures all services have a grouping value even if the source data is missing.</p>
+   * <p>The default value to use for grouping when a service doesn't have any of the specified source keys, such as "Unknown" or "Unassigned".</p>
    * @public
    */
   DefaultGroupingValue?: string | undefined;
@@ -1566,19 +1597,19 @@ export interface GroupingAttributeDefinition {
  */
 export interface ListGroupingAttributeDefinitionsOutput {
   /**
-   * <p>An array of structures, where each structure contains information about one grouping attribute definition, including the grouping name, source keys, and default values.</p>
+   * <p>An array of available grouping attribute definitions that can be used to create grouping configurations.</p>
    * @public
    */
   GroupingAttributeDefinitions: GroupingAttributeDefinition[] | undefined;
 
   /**
-   * <p>The timestamp when the grouping configuration was last updated. When used in a raw HTTP Query API, it is formatted as epoch time in seconds.</p>
+   * <p>The timestamp when the grouping attribute definitions were last updated. Expressed as the number of milliseconds since January 1, 1970, 00:00:00 UTC.</p>
    * @public
    */
   UpdatedAt?: Date | undefined;
 
   /**
-   * <p>Include this value in your next use of this API to get the next set of grouping attribute definitions.</p>
+   * <p>The token to use for retrieving the next page of results. This value is present only if there are more results available than were returned in the current response.</p>
    * @public
    */
   NextToken?: string | undefined;
@@ -1959,7 +1990,7 @@ export interface ServiceSummary {
   MetricReferences: MetricReference[] | undefined;
 
   /**
-   * <p>An array of service groups that this service belongs to, based on the configured grouping attributes.</p>
+   * <p>An array of service groups that this service belongs to, providing a summary view of the service's organizational context.</p>
    * @public
    */
   ServiceGroups?: ServiceGroup[] | undefined;
@@ -1995,18 +2026,18 @@ export interface ListServicesOutput {
 }
 
 /**
- * <p>A structure that defines a filter for narrowing down results based on specific attribute values. This can be used to filter services by platform, environment, or other service characteristics.</p>
+ * <p>Represents a filter for service attributes. Used to narrow down results based on specific attribute names and values.</p>
  * @public
  */
 export interface AttributeFilter {
   /**
-   * <p>The name of the attribute to filter by, such as <code>Platform</code>, <code>Environment</code>, or <code>BusinessUnit</code>.</p>
+   * <p>The name of the attribute to filter on. This corresponds to service metadata attributes such as environment, team, or custom tags.</p>
    * @public
    */
   AttributeFilterName: string | undefined;
 
   /**
-   * <p>An array of values to match for the specified attribute. Services that have any of these values for the attribute will be included in the results.</p>
+   * <p>An array of values to match against the specified attribute. Services with attribute values matching any of these values will be included in the results.</p>
    * @public
    */
   AttributeFilterValues: string[] | undefined;
@@ -2017,43 +2048,43 @@ export interface AttributeFilter {
  */
 export interface ListServiceStatesInput {
   /**
-   * <p>The start of the time period to retrieve service state information for. When used in a raw HTTP Query API, it is formatted as epoch time in seconds. For example, <code>1698778057</code>.</p>
+   * <p>The start time for the service states query. Only service states from this time onward will be included. Specify the time as the number of milliseconds since January 1, 1970, 00:00:00 UTC.</p>
    * @public
    */
   StartTime: Date | undefined;
 
   /**
-   * <p>The end of the time period to retrieve service state information for. When used in a raw HTTP Query API, it is formatted as epoch time in seconds. For example, <code>1698778057</code>.</p>
+   * <p>The end time for the service states query. Only service states before this time will be included. Specify the time as the number of milliseconds since January 1, 1970, 00:00:00 UTC.</p>
    * @public
    */
   EndTime: Date | undefined;
 
   /**
-   * <p>The maximum number of service states to return in one operation. If you omit this parameter, the default of 20 is used.</p>
+   * <p>The maximum number of service states to return in a single request. Valid range is 1 to 100. If not specified, defaults to 50.</p>
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>Include this value, if it was returned by the previous operation, to get the next set of service states.</p>
+   * <p>The token for the next set of results. Use this token to retrieve additional pages of service states when the result set is large.</p>
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>If you are using this operation in a monitoring account, specify <code>true</code> to include service states from source accounts in the returned data.</p>
+   * <p>Specifies whether to include service states from linked AWS accounts in the results. Set to <code>true</code> to include linked accounts, or <code>false</code> to only include the current account. Defaults to <code>false</code>.</p>
    * @public
    */
   IncludeLinkedAccounts?: boolean | undefined;
 
   /**
-   * <p>The Amazon Web Services account ID to filter service states by. Use this to limit results to services from a specific account.</p>
+   * <p>The AWS account ID to filter service states. If specified, only service states from this account will be returned. If not specified, service states from the current account (and linked accounts if enabled) are returned.</p>
    * @public
    */
   AwsAccountId?: string | undefined;
 
   /**
-   * <p>A list of attribute filters to narrow down the services. You can filter by platform, environment, or other service attributes.</p>
+   * <p>An array of attribute filters to narrow down the service states returned. Each filter specifies an attribute name and the values to match against.</p>
    * @public
    */
   AttributeFilters?: AttributeFilter[] | undefined;
@@ -2073,78 +2104,78 @@ export const ChangeEventType = {
 export type ChangeEventType = (typeof ChangeEventType)[keyof typeof ChangeEventType];
 
 /**
- * <p>A structure that contains information about a change event that occurred for a service, such as a deployment or configuration change.</p>
+ * <p>Represents a change event that occurred in the system, such as deployments, configuration changes, or other operational events that may impact service performance.</p>
  * @public
  */
 export interface ChangeEvent {
   /**
-   * <p>The timestamp when this change event occurred. When used in a raw HTTP Query API, it is formatted as epoch time in seconds.</p>
+   * <p>The timestamp when the change event occurred, expressed as the number of milliseconds since January 1, 1970, 00:00:00 UTC.</p>
    * @public
    */
   Timestamp: Date | undefined;
 
   /**
-   * <p>The Amazon Web Services account ID where this change event occurred.</p>
+   * <p>The AWS account ID where the change event occurred.</p>
    * @public
    */
   AccountId: string | undefined;
 
   /**
-   * <p>The Amazon Web Services region where this change event occurred.</p>
+   * <p>The AWS region where the change event occurred.</p>
    * @public
    */
   Region: string | undefined;
 
   /**
-   * <p>The entity (service or resource) that was affected by this change event, including its key attributes.</p>
+   * <p>The entity or resource that was changed, such as a service, deployment, or configuration.</p>
    * @public
    */
   Entity: Record<string, string> | undefined;
 
   /**
-   * <p>The type of change event that occurred, such as <code>DEPLOYMENT</code>.</p>
+   * <p>The type of change that occurred, such as "Deployment", "Configuration", or "Infrastructure".</p>
    * @public
    */
   ChangeEventType: ChangeEventType | undefined;
 
   /**
-   * <p>A unique identifier for this change event.</p>
+   * <p>A unique identifier for the change event.</p>
    * @public
    */
   EventId: string | undefined;
 
   /**
-   * <p>The name of the user who initiated this change event, if available.</p>
+   * <p>The name of the user or system that initiated the change event.</p>
    * @public
    */
   UserName?: string | undefined;
 
   /**
-   * <p>The name or description of this change event.</p>
+   * <p>A descriptive name for the change event that provides context about what changed.</p>
    * @public
    */
   EventName?: string | undefined;
 }
 
 /**
- * <p>A structure that contains information about the current state of a service, including its latest change events such as deployments and other state-changing activities.</p>
+ * <p>Represents the current state and health information for a service monitored by Application Signals.</p>
  * @public
  */
 export interface ServiceState {
   /**
-   * <p>The attribute filters that were applied when retrieving this service state information.</p>
+   * <p>The attribute filters that were applied when retrieving this service state.</p>
    * @public
    */
   AttributeFilters?: AttributeFilter[] | undefined;
 
   /**
-   * <p>The key attributes that identify this service, including Type, Name, and Environment information.</p>
+   * <p>The service entity information for this service state.</p>
    * @public
    */
   Service: Record<string, string> | undefined;
 
   /**
-   * <p>An array containing the most recent change events for this service, such as deployments, with information about when they occurred and who initiated them.</p>
+   * <p>An array of the most recent change events that may have affected this service, such as deployments or configuration changes.</p>
    * @public
    */
   LatestChangeEvents: ChangeEvent[] | undefined;
@@ -2155,25 +2186,25 @@ export interface ServiceState {
  */
 export interface ListServiceStatesOutput {
   /**
-   * <p>The start of the time period that the returned information applies to. When used in a raw HTTP Query API, it is formatted as epoch time in seconds. For example, <code>1698778057</code>.</p>
+   * <p>The start time of the query range, expressed as the number of milliseconds since January 1, 1970, 00:00:00 UTC.</p>
    * @public
    */
   StartTime: Date | undefined;
 
   /**
-   * <p>The end of the time period that the returned information applies to. When used in a raw HTTP Query API, it is formatted as epoch time in seconds. For example, <code>1698778057</code>.</p>
+   * <p>The end time of the query range, expressed as the number of milliseconds since January 1, 1970, 00:00:00 UTC.</p>
    * @public
    */
   EndTime: Date | undefined;
 
   /**
-   * <p>An array of structures, where each structure contains information about the state of one service, including its latest change events such as deployments.</p>
+   * <p>An array of service state objects that match the specified criteria. Each service state includes current status, recent change events, and service metadata.</p>
    * @public
    */
   ServiceStates: ServiceState[] | undefined;
 
   /**
-   * <p>Include this value in your next use of this API to get the next set of service states.</p>
+   * <p>The token to use for retrieving the next page of results. This value is present only if there are more results available than were returned in the current response.</p>
    * @public
    */
   NextToken?: string | undefined;
@@ -2224,25 +2255,25 @@ export interface ListTagsForResourceResponse {
  */
 export interface PutGroupingConfigurationInput {
   /**
-   * <p>An array of grouping attribute definitions that specify how services should be grouped. Each definition includes a friendly name, source keys to derive the grouping value from, and an optional default value.</p>
+   * <p>An array of grouping attribute definitions that specify how services should be grouped. Each definition includes the grouping name, source keys, and default values.</p>
    * @public
    */
   GroupingAttributeDefinitions: GroupingAttributeDefinition[] | undefined;
 }
 
 /**
- * <p>A structure that contains the complete grouping configuration for an account, including all defined grouping attributes and metadata about when it was last updated.</p>
+ * <p>Contains the complete configuration for how services are grouped and organized in Application Signals.</p>
  * @public
  */
 export interface GroupingConfiguration {
   /**
-   * <p>An array of grouping attribute definitions that specify how services should be grouped based on various attributes and source keys.</p>
+   * <p>An array of grouping attribute definitions that specify the rules for organizing services into groups.</p>
    * @public
    */
   GroupingAttributeDefinitions: GroupingAttributeDefinition[] | undefined;
 
   /**
-   * <p>The timestamp when this grouping configuration was last updated. When used in a raw HTTP Query API, it is formatted as epoch time in seconds.</p>
+   * <p>The timestamp when the grouping configuration was last updated, expressed as the number of milliseconds since January 1, 1970, 00:00:00 UTC.</p>
    * @public
    */
   UpdatedAt: Date | undefined;
@@ -2253,7 +2284,7 @@ export interface GroupingConfiguration {
  */
 export interface PutGroupingConfigurationOutput {
   /**
-   * <p>A structure containing the updated grouping configuration, including all grouping attribute definitions and the timestamp when it was last updated.</p>
+   * <p>The created or updated grouping configuration, including all attribute definitions and metadata such as the update timestamp.</p>
    * @public
    */
   GroupingConfiguration: GroupingConfiguration | undefined;
@@ -2383,7 +2414,7 @@ export interface ServiceLevelIndicatorMetricConfig {
   MetricType?: ServiceLevelIndicatorMetricType | undefined;
 
   /**
-   * <p>The name of the CloudWatch metric to use for the SLO, when using a custom metric rather than Application Signals standard metrics.</p>
+   * <p>The name of the CloudWatch metric used as a service level indicator (SLI) for measuring service performance.</p>
    * @public
    */
   MetricName?: string | undefined;
