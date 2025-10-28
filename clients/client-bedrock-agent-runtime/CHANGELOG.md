@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.919.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.918.0...v3.919.0) (2025-10-28)
+
+
+### Features
+
+* **client-bedrock-agent-runtime:** Update endpoint ruleset parameters casing ([7d76f76](https://github.com/aws/aws-sdk-js-v3/commit/7d76f762151b52bd11b6f386b3a5673194b834c8))
+
+
+
+
+
 # [3.918.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.917.0...v3.918.0) (2025-10-27)
 
 **Note:** Version bump only for package @aws-sdk/client-bedrock-agent-runtime

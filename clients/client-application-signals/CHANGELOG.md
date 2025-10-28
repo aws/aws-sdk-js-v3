@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.919.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.918.0...v3.919.0) (2025-10-28)
+
+
+### Features
+
+* **client-application-signals:** Added support for CloudWatch Synthetics Canary resources in ListAuditFindings API. This enhancement allows customers to retrieve audit findings specifically for CloudWatch Synthetics canaries and enables service-canary correlation analysis. ([3bacc72](https://github.com/aws/aws-sdk-js-v3/commit/3bacc7251cf35f5324fb06d6cf0d8014bab0d87f))
+
+
+
+
+
 # [3.918.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.917.0...v3.918.0) (2025-10-27)
 
 **Note:** Version bump only for package @aws-sdk/client-application-signals

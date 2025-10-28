@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.919.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.918.0...v3.919.0) (2025-10-28)
+
+
+### Features
+
+* **client-bcm-pricing-calculator:** Update endpoint ruleset parameters casing ([f2aa1e6](https://github.com/aws/aws-sdk-js-v3/commit/f2aa1e6fa0d75208742a7b162ef77e0c364a6e86))
+
+
+
+
+
 # [3.918.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.917.0...v3.918.0) (2025-10-27)
 
 **Note:** Version bump only for package @aws-sdk/client-bcm-pricing-calculator

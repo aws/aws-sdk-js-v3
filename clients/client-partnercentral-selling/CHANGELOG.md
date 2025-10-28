@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.919.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.918.0...v3.919.0) (2025-10-28)
+
+
+### Features
+
+* **client-partnercentral-selling:** Update endpoint ruleset parameters casing ([0083cb0](https://github.com/aws/aws-sdk-js-v3/commit/0083cb03de32ba703e8e0de0b3e54e0175f10099))
+
+
+
+
+
 # [3.918.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.917.0...v3.918.0) (2025-10-27)
 
 **Note:** Version bump only for package @aws-sdk/client-partnercentral-selling

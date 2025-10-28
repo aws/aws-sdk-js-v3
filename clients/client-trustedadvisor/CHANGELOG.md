@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.919.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.918.0...v3.919.0) (2025-10-28)
+
+
+### Features
+
+* **client-trustedadvisor:** Update endpoint ruleset parameters casing ([6c5435e](https://github.com/aws/aws-sdk-js-v3/commit/6c5435e1460f7aec17aa0a940525d78c09cc877f))
+
+
+
+
+
 # [3.918.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.917.0...v3.918.0) (2025-10-27)
 
 **Note:** Version bump only for package @aws-sdk/client-trustedadvisor
