@@ -23610,7 +23610,7 @@ __metadata:
   resolution: "@aws-sdk/middleware-recursion-detection@workspace:packages/middleware-recursion-detection"
   dependencies:
     "@aws-sdk/types": "npm:*"
-    "@aws/lambda-invoke-store": "npm:^0.0.1"
+    "@aws/lambda-invoke-store": "npm:^0.1.1"
     "@smithy/protocol-http": "npm:^5.3.3"
     "@smithy/types": "npm:^4.8.0"
     "@tsconfig/recommended": "npm:1.0.1"
@@ -24532,10 +24532,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@aws/lambda-invoke-store@npm:^0.0.1":
-  version: 0.0.1
-  resolution: "@aws/lambda-invoke-store@npm:0.0.1"
-  checksum: 10c0/0bbf3060014a462177fb743e132e9b106a6743ad9cd905df4bd26e9ca8bfe2cc90473b03a79938fa908934e45e43f366f57af56a697991abda71d9ac92f5018f
+"@aws/lambda-invoke-store@npm:^0.1.1":
+  version: 0.1.1
+  resolution: "@aws/lambda-invoke-store@npm:0.1.1"
+  checksum: 10c0/27c90d9af7cca7ff4870e87dc303516e6d09ebe18f5fa13813397cd6a37fd26cf3ff1715469e3c5323fea0404a55c110f35e21bcc3ea595a4f6ba6406ea1f103
   languageName: node
   linkType: hard
 

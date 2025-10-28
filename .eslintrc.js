@@ -28,19 +28,32 @@ module.exports = {
     /** Errors */
     "simple-import-sort/imports": "error",
     "sort-export-all/sort-export-all": "error",
-    "no-restricted-imports": [
-      "error",
-      {
-        patterns: [
-          {
-            group: ["*src*", "!*CsrC*", "*dist-*"],
-          },
-        ],
-      },
-    ],
   },
   ignorePatterns: [
     "packages/nested-clients/src/submodules/**/protocols/*.ts",
     "packages/nested-clients/src/submodules/**/models/*.ts",
+  ],
+  overrides: [
+    {
+      files: ["lib/*/src/**/*.ts", "clients/*/src/**/*.ts", "packages/*/src/**/*.ts", "private/*/src/**/*.ts"],
+      excludedFiles: [
+        "lib/*/src/**/*.spec.ts",
+        "clients/*/src/**/*.spec.ts",
+        "packages/*/src/**/*.spec.ts",
+        "private/*/src/**/*.spec.ts",
+      ],
+      rules: {
+        "no-restricted-imports": [
+          "error",
+          {
+            patterns: [
+              {
+                group: ["*src*", "*dist-*"],
+              },
+            ],
+          },
+        ],
+      },
+    },
   ],
 };

@@ -1,8 +1,13 @@
-import { InvokeStore } from "@aws/lambda-invoke-store";
+// @ts-ignore
+import { InvokeStore as InvokeStoreImpl } from "@aws/lambda-invoke-store";
+// eslint-disable-next-line no-restricted-imports
+import type { InvokeStore as InvokeStoreType } from "@aws/lambda-invoke-store/dist-types/invoke-store.d";
 import { HttpRequest } from "@smithy/protocol-http";
 import { afterAll, beforeEach, describe, expect, test as it, vi } from "vitest";
 
 import { recursionDetectionMiddleware } from "./recursionDetectionMiddleware";
+
+const InvokeStore = InvokeStoreImpl as typeof InvokeStoreType;
 
 describe(recursionDetectionMiddleware.name, () => {
   const mockNextHandler = vi.fn();

@@ -7,7 +7,7 @@ class NodeCrc32 implements Checksum {
   private checksum = 0;
 
   update(data: Uint8Array) {
-    // @ts-expect-error crc32 is defined only for Node.js >=v20.15.0 and >=v22.2.0.
+    // @ts-ignore
     this.checksum = zlib.crc32(data, this.checksum);
   }
 
@@ -21,7 +21,7 @@ class NodeCrc32 implements Checksum {
 }
 
 export const getCrc32ChecksumAlgorithmFunction = () => {
-  // @ts-expect-error crc32 is defined only for Node.js >=v20.15.0 and >=v22.2.0.
+  // @ts-ignore
   if (typeof zlib.crc32 === "undefined") {
     return AwsCrc32;
   }
