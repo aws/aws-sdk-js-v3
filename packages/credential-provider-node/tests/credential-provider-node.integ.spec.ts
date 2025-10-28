@@ -4,140 +4,25 @@ import {
   fromCognitoIdentity,
   fromCognitoIdentityPool,
   fromIni,
+  fromNodeProviderChain,
   fromTokenFile,
   fromWebToken,
 } from "@aws-sdk/credential-providers";
-import { fromNodeProviderChain } from "@aws-sdk/credential-providers";
+import { MockNodeHttpHandler } from "@aws-sdk/credential-providers/tests/_test-lib.spec";
 import { NodeHttpHandler } from "@smithy/node-http-handler";
-import { HttpResponse } from "@smithy/protocol-http";
 import { externalDataInterceptor } from "@smithy/shared-ini-file-loader";
-import type { HttpRequest, MiddlewareStack, NodeHttpHandlerOptions, ParsedIniData } from "@smithy/types";
+import type { HttpRequest, MiddlewareStack, ParsedIniData } from "@smithy/types";
 import { AdaptiveRetryStrategy, StandardRetryStrategy } from "@smithy/util-retry";
 import child_process from "node:child_process";
 import { createHash } from "node:crypto";
 import { homedir } from "node:os";
 import { join } from "node:path";
-import { PassThrough } from "node:stream";
 import { afterAll, afterEach, beforeAll, beforeEach, describe, expect, test as it, vi } from "vitest";
 
 // eslint-disable-next-line no-restricted-imports
 import { defaultProvider } from "../src/defaultProvider";
 
 const assumeRoleArns: string[] = [];
-
-class MockNodeHttpHandler {
-  static create(instanceOrOptions?: any) {
-    if (typeof instanceOrOptions?.handle === "function") {
-      return instanceOrOptions;
-    }
-    return new MockNodeHttpHandler();
-  }
-
-  async handle(request: HttpRequest) {
-    const body = new PassThrough({});
-
-    if (request.body?.includes("RoleArn=")) {
-      assumeRoleArns.push(request.body.match(/RoleArn=(.*?)&/)?.[1]);
-    }
-
-    const region = (request.hostname.match(/(sts|cognito-identity|portal\.sso)\.(.*?)\./) || [, , "unknown"])[2];
-
-    if (request.headers.Authorization === "container-authorization") {
-      body.write(
-        JSON.stringify({
-          AccessKeyId: "CONTAINER_ACCESS_KEY",
-          SecretAccessKey: "CONTAINER_SECRET_ACCESS_KEY",
-          Token: "CONTAINER_TOKEN",
-          Expiration: "3000-01-01T00:00:00.000Z",
-        })
-      );
-    } else if (request.path?.includes("/federation/credentials")) {
-      body.write(
-        JSON.stringify({
-          roleCredentials: {
-            accessKeyId: "SSO_ACCESS_KEY_ID",
-            secretAccessKey: "SSO_SECRET_ACCESS_KEY",
-            sessionToken: `SSO_SESSION_TOKEN_${region}`,
-            expiration: "3000-01-01T00:00:00.000Z",
-          },
-        })
-      );
-    } else if (request.body?.includes("Action=AssumeRoleWithWebIdentity")) {
-      body.write(`
-<AssumeRoleWithWebIdentityResponse xmlns="https://sts.amazonaws.com/doc/2011-06-15/">
-<AssumeRoleWithWebIdentityResult>
-  <Credentials>
-    <AccessKeyId>STS_ARWI_ACCESS_KEY_ID</AccessKeyId>
-    <SecretAccessKey>STS_ARWI_SECRET_ACCESS_KEY</SecretAccessKey>
-    <SessionToken>STS_ARWI_SESSION_TOKEN_${region}</SessionToken>
-    <Expiration>3000-01-01T00:00:00.000Z</Expiration>
-  </Credentials>
-</AssumeRoleWithWebIdentityResult>
-<ResponseMetadata>
-  <RequestId>01234567-89ab-cdef-0123-456789abcdef</RequestId>
-</ResponseMetadata>
-</AssumeRoleWithWebIdentityResponse>`);
-    } else if (request.body?.includes("Action=AssumeRole")) {
-      body.write(`
-<AssumeRoleResponse xmlns="https://sts.amazonaws.com/doc/2011-06-15/">
-<AssumeRoleResult>
-  <Credentials>
-    <AccessKeyId>STS_AR_ACCESS_KEY_ID</AccessKeyId>
-    <SecretAccessKey>STS_AR_SECRET_ACCESS_KEY</SecretAccessKey>
-    <SessionToken>STS_AR_SESSION_TOKEN_${region}</SessionToken>
-    <Expiration>3000-01-01T00:00:00.000Z</Expiration>
-  </Credentials>
-</AssumeRoleResult>
-<ResponseMetadata>
-  <RequestId>01234567-89ab-cdef-0123-456789abcdef</RequestId>
-</ResponseMetadata>
-</AssumeRoleResponse>`);
-    } else if (request.body.includes("Action=GetCallerIdentity")) {
-      body.write(`
-<GetCallerIdentityResponse xmlns="https://sts.amazonaws.com/doc/2011-06-15/">
-<GetCallerIdentityResult>
-  <Arn>arn:aws:iam::123456789012:user/Alice</Arn>
-  <UserId>AIDACKCEVSQ6C2EXAMPLE</UserId>
-  <Account>123456789012</Account>
-</GetCallerIdentityResult>
-<ResponseMetadata>
-  <RequestId>01234567-89ab-cdef-0123-456789abcdef</RequestId>
-</ResponseMetadata>
-</GetCallerIdentityResponse>`);
-    } else if (request.headers["x-amz-target"] === "AWSCognitoIdentityService.GetCredentialsForIdentity") {
-      body.write(`{
-          "Credentials":{
-            "SecretKey":"COGNITO_SECRET_KEY",
-            "SessionToken":"COGNITO_SESSION_TOKEN_${region}",
-            "Expiration":${new Date("3000-01-01T00:00:00.000Z").getTime() / 1000},
-            "AccessKeyId":"COGNITO_ACCESS_KEY_ID"
-          },
-          "IdentityId":"${region}:COGNITO_IDENTITY_ID"
-        }`);
-    } else if (request.headers["x-amz-target"] === "AWSCognitoIdentityService.GetId") {
-      body.write(`{
-          "IdentityId":"${region}:COGNITO_IDENTITY_ID"
-        }`);
-    } else {
-      console.log(request);
-      throw new Error("request not supported.");
-    }
-    body.end();
-    return {
-      response: new HttpResponse({
-        statusCode: 200,
-        body,
-        headers: {},
-      }),
-    };
-  }
-
-  updateHttpClientConfig(key: keyof NodeHttpHandlerOptions, value: NodeHttpHandlerOptions[typeof key]): void {}
-
-  httpHandlerConfigs(): NodeHttpHandlerOptions {
-    return null as any;
-  }
-}
 
 describe("credential-provider-node integration test", () => {
   let sts: STS = null as any;

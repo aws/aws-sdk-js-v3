@@ -1,6 +1,10 @@
 import { fromIni } from "@aws-sdk/credential-providers";
-import { describe, test as it } from "vitest";
+import { describe } from "vitest";
+
+import { CTest } from "./_test-lib.spec";
 
 describe(fromIni.name, () => {
-  it("placeholder", () => {});
+  const ctest = new CTest(fromIni, CTest.defaultRegionConfigProvider, true);
+
+  ctest.testRegion();
 });
