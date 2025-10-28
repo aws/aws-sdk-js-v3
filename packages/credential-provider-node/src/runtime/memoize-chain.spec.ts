@@ -131,4 +131,29 @@ describe("memoize runtime config aware AWS credential chain", () => {
       expect(expiringCredentials).toHaveBeenCalledTimes(3);
     }
   });
+
+  it("can be force refreshed", async () => {
+    const provider = memoizeChain([expiringCredentials], credentialsWillNeedRefresh);
+
+    const credentials = await Promise.all([
+      provider({ forceRefresh: true }),
+      provider({ forceRefresh: true }),
+      provider({ forceRefresh: true }),
+      provider({ forceRefresh: true }),
+      provider({ forceRefresh: true }),
+    ]);
+    let sequence = 0;
+
+    for (const c of credentials) {
+      expect(c).toEqual({
+        accessKeyId: "",
+        secretAccessKey: "",
+        expiration,
+        sequence: sequence++,
+        runtimeOptions: ["forceRefresh"],
+      });
+    }
+
+    expect(expiringCredentials).toHaveBeenCalledTimes(5);
+  });
 });

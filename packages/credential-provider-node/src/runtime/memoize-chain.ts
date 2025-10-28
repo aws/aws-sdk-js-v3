@@ -31,6 +31,9 @@ export function memoizeChain(
   let credentials: AwsCredentialIdentity | undefined;
 
   const provider = async (options?: AwsIdentityProperties & { forceRefresh?: boolean }) => {
+    if (options?.forceRefresh) {
+      return await chain(options);
+    }
     if (activeLock) {
       await activeLock;
     } else if (!credentials || treatAsExpired?.(credentials!)) {
