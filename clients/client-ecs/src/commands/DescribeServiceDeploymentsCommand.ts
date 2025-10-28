@@ -63,6 +63,8 @@ export interface DescribeServiceDeploymentsCommandOutput extends DescribeService
  * //           requestedTaskCount: Number("int"),
  * //           runningTaskCount: Number("int"),
  * //           pendingTaskCount: Number("int"),
+ * //           requestedTestTrafficWeight: Number("double"),
+ * //           requestedProductionTrafficWeight: Number("double"),
  * //         },
  * //       ],
  * //       targetServiceRevision: {
@@ -70,6 +72,8 @@ export interface DescribeServiceDeploymentsCommandOutput extends DescribeService
  * //         requestedTaskCount: Number("int"),
  * //         runningTaskCount: Number("int"),
  * //         pendingTaskCount: Number("int"),
+ * //         requestedTestTrafficWeight: Number("double"),
+ * //         requestedProductionTrafficWeight: Number("double"),
  * //       },
  * //       status: "PENDING" || "SUCCESSFUL" || "STOPPED" || "STOP_REQUESTED" || "IN_PROGRESS" || "ROLLBACK_REQUESTED" || "ROLLBACK_IN_PROGRESS" || "ROLLBACK_SUCCESSFUL" || "ROLLBACK_FAILED",
  * //       statusReason: "STRING_VALUE",
@@ -88,7 +92,7 @@ export interface DescribeServiceDeploymentsCommandOutput extends DescribeService
  * //           rollback: true || false, // required
  * //           enable: true || false, // required
  * //         },
- * //         strategy: "ROLLING" || "BLUE_GREEN",
+ * //         strategy: "ROLLING" || "BLUE_GREEN" || "LINEAR" || "CANARY",
  * //         bakeTimeInMinutes: Number("int"),
  * //         lifecycleHooks: [ // DeploymentLifecycleHookList
  * //           { // DeploymentLifecycleHook
@@ -100,6 +104,14 @@ export interface DescribeServiceDeploymentsCommandOutput extends DescribeService
  * //             hookDetails: "DOCUMENT_VALUE",
  * //           },
  * //         ],
+ * //         linearConfiguration: { // LinearConfiguration
+ * //           stepPercent: Number("double"),
+ * //           stepBakeTimeInMinutes: Number("int"),
+ * //         },
+ * //         canaryConfiguration: { // CanaryConfiguration
+ * //           canaryPercent: Number("double"),
+ * //           canaryBakeTimeInMinutes: Number("int"),
+ * //         },
  * //       },
  * //       rollback: { // Rollback
  * //         reason: "STRING_VALUE",

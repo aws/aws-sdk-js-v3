@@ -163,6 +163,44 @@ export interface CreateServiceCommandOutput extends CreateServiceResponse, __Met
  *                         </li>
  *                      </ul>
  *                   </li>
+ *                   <li>
+ *                      <p>
+ *                         <code>LINEAR</code>: A <i>linear</i> deployment strategy (<code>LINEAR</code>) gradually shifts traffic from the current production environment to a new environment in equal percentage increments over a specified time period. With Amazon ECS linear deployments, you can control the pace of traffic shifting and validate new service revisions with increasing amounts of production traffic.</p>
+ *                      <p>Linear deployments are best suited for the following scenarios:</p>
+ *                      <ul>
+ *                         <li>
+ *                            <p>Gradual validation: When you want to gradually validate your new service version with increasing traffic</p>
+ *                         </li>
+ *                         <li>
+ *                            <p>Performance monitoring: When you need time to monitor metrics and performance during the deployment</p>
+ *                         </li>
+ *                         <li>
+ *                            <p>Risk minimization: When you want to minimize risk by exposing the new version to production traffic incrementally</p>
+ *                         </li>
+ *                         <li>
+ *                            <p>Load balancer requirement: When your service uses Application Load Balancer, Network Load Balancer, or Service Connect</p>
+ *                         </li>
+ *                      </ul>
+ *                   </li>
+ *                   <li>
+ *                      <p>
+ *                         <code>CANARY</code>: A <i>canary</i> deployment strategy (<code>CANARY</code>) shifts a small percentage of traffic to the new service revision first, then shifts the remaining traffic all at once after a specified time period. This allows you to test the new version with a subset of users before full deployment.</p>
+ *                      <p>Canary deployments are best suited for the following scenarios:</p>
+ *                      <ul>
+ *                         <li>
+ *                            <p>Feature testing: When you want to test new features with a small subset of users before full rollout</p>
+ *                         </li>
+ *                         <li>
+ *                            <p>Production validation: When you need to validate performance and functionality with real production traffic</p>
+ *                         </li>
+ *                         <li>
+ *                            <p>Blast radius control: When you want to minimize blast radius if issues are discovered in the new version</p>
+ *                         </li>
+ *                         <li>
+ *                            <p>Load balancer requirement: When your service uses Application Load Balancer, Network Load Balancer, or Service Connect</p>
+ *                         </li>
+ *                      </ul>
+ *                   </li>
  *                </ul>
  *             </li>
  *             <li>
@@ -246,7 +284,7 @@ export interface CreateServiceCommandOutput extends CreateServiceResponse, __Met
  *       rollback: true || false, // required
  *       enable: true || false, // required
  *     },
- *     strategy: "ROLLING" || "BLUE_GREEN",
+ *     strategy: "ROLLING" || "BLUE_GREEN" || "LINEAR" || "CANARY",
  *     bakeTimeInMinutes: Number("int"),
  *     lifecycleHooks: [ // DeploymentLifecycleHookList
  *       { // DeploymentLifecycleHook
@@ -258,6 +296,14 @@ export interface CreateServiceCommandOutput extends CreateServiceResponse, __Met
  *         hookDetails: "DOCUMENT_VALUE",
  *       },
  *     ],
+ *     linearConfiguration: { // LinearConfiguration
+ *       stepPercent: Number("double"),
+ *       stepBakeTimeInMinutes: Number("int"),
+ *     },
+ *     canaryConfiguration: { // CanaryConfiguration
+ *       canaryPercent: Number("double"),
+ *       canaryBakeTimeInMinutes: Number("int"),
+ *     },
  *   },
  *   placementConstraints: [ // PlacementConstraints
  *     { // PlacementConstraint
@@ -439,7 +485,7 @@ export interface CreateServiceCommandOutput extends CreateServiceResponse, __Met
  * //         rollback: true || false, // required
  * //         enable: true || false, // required
  * //       },
- * //       strategy: "ROLLING" || "BLUE_GREEN",
+ * //       strategy: "ROLLING" || "BLUE_GREEN" || "LINEAR" || "CANARY",
  * //       bakeTimeInMinutes: Number("int"),
  * //       lifecycleHooks: [ // DeploymentLifecycleHookList
  * //         { // DeploymentLifecycleHook
@@ -451,6 +497,14 @@ export interface CreateServiceCommandOutput extends CreateServiceResponse, __Met
  * //           hookDetails: "DOCUMENT_VALUE",
  * //         },
  * //       ],
+ * //       linearConfiguration: { // LinearConfiguration
+ * //         stepPercent: Number("double"),
+ * //         stepBakeTimeInMinutes: Number("int"),
+ * //       },
+ * //       canaryConfiguration: { // CanaryConfiguration
+ * //         canaryPercent: Number("double"),
+ * //         canaryBakeTimeInMinutes: Number("int"),
+ * //       },
  * //     },
  * //     taskSets: [ // TaskSets
  * //       { // TaskSet

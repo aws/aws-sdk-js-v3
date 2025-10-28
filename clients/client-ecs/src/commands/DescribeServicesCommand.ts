@@ -105,7 +105,7 @@ export interface DescribeServicesCommandOutput extends DescribeServicesResponse,
  * //           rollback: true || false, // required
  * //           enable: true || false, // required
  * //         },
- * //         strategy: "ROLLING" || "BLUE_GREEN",
+ * //         strategy: "ROLLING" || "BLUE_GREEN" || "LINEAR" || "CANARY",
  * //         bakeTimeInMinutes: Number("int"),
  * //         lifecycleHooks: [ // DeploymentLifecycleHookList
  * //           { // DeploymentLifecycleHook
@@ -117,6 +117,14 @@ export interface DescribeServicesCommandOutput extends DescribeServicesResponse,
  * //             hookDetails: "DOCUMENT_VALUE",
  * //           },
  * //         ],
+ * //         linearConfiguration: { // LinearConfiguration
+ * //           stepPercent: Number("double"),
+ * //           stepBakeTimeInMinutes: Number("int"),
+ * //         },
+ * //         canaryConfiguration: { // CanaryConfiguration
+ * //           canaryPercent: Number("double"),
+ * //           canaryBakeTimeInMinutes: Number("int"),
+ * //         },
  * //       },
  * //       taskSets: [ // TaskSets
  * //         { // TaskSet

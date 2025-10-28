@@ -198,6 +198,7 @@ import {
   AutoScalingGroupProvider,
   AwsVpcConfiguration,
   BaselineEbsBandwidthMbpsRequest,
+  CanaryConfiguration,
   CapacityProvider,
   CapacityProviderField,
   CapacityProviderStrategyItem,
@@ -299,6 +300,7 @@ import {
   KernelCapabilities,
   KeyValuePair,
   LimitExceededException,
+  LinearConfiguration,
   LinuxParameters,
   ListAccountSettingsRequest,
   ListAttributesRequest,
@@ -336,7 +338,6 @@ import {
   PortMapping,
   ProtectedTask,
   ProxyConfiguration,
-  PutAccountSettingRequest,
   RepositoryCredentials,
   Resource,
   ResourceNotFoundException,
@@ -365,6 +366,7 @@ import {
   ServiceNotFoundException,
   ServiceRegistry,
   ServiceRevision,
+  ServiceRevisionSummary,
   ServiceVolumeConfiguration,
   SystemControl,
   Tag,
@@ -404,6 +406,7 @@ import {
   NoUpdateAvailableException,
   PlatformDevice,
   PutAccountSettingDefaultRequest,
+  PutAccountSettingRequest,
   PutAttributesRequest,
   PutClusterCapacityProvidersRequest,
   RegisterContainerInstanceRequest,
@@ -2996,6 +2999,16 @@ const de_UpdateInProgressExceptionRes = async (
 
 // se_BaselineEbsBandwidthMbpsRequest omitted.
 
+/**
+ * serializeAws_json1_1CanaryConfiguration
+ */
+const se_CanaryConfiguration = (input: CanaryConfiguration, context: __SerdeContext): any => {
+  return take(input, {
+    canaryBakeTimeInMinutes: [],
+    canaryPercent: __serializeFloat,
+  });
+};
+
 // se_CapacityProviderFieldList omitted.
 
 // se_CapacityProviderStrategy omitted.
@@ -3155,8 +3168,10 @@ const se_DeploymentConfiguration = (input: DeploymentConfiguration, context: __S
   return take(input, {
     alarms: _json,
     bakeTimeInMinutes: [],
+    canaryConfiguration: (_) => se_CanaryConfiguration(_, context),
     deploymentCircuitBreaker: _json,
     lifecycleHooks: (_) => se_DeploymentLifecycleHookList(_, context),
+    linearConfiguration: (_) => se_LinearConfiguration(_, context),
     maximumPercent: [],
     minimumHealthyPercent: [],
     strategy: [],
@@ -3346,6 +3361,16 @@ const se_InstanceRequirementsRequest = (input: InstanceRequirementsRequest, cont
 // se_KernelCapabilities omitted.
 
 // se_KeyValuePair omitted.
+
+/**
+ * serializeAws_json1_1LinearConfiguration
+ */
+const se_LinearConfiguration = (input: LinearConfiguration, context: __SerdeContext): any => {
+  return take(input, {
+    stepBakeTimeInMinutes: [],
+    stepPercent: __serializeFloat,
+  });
+};
 
 // se_LinuxParameters omitted.
 
@@ -3813,6 +3838,16 @@ const se_UpdateTaskSetRequest = (input: UpdateTaskSetRequest, context: __SerdeCo
 // de_BlockedException omitted.
 
 /**
+ * deserializeAws_json1_1CanaryConfiguration
+ */
+const de_CanaryConfiguration = (output: any, context: __SerdeContext): CanaryConfiguration => {
+  return take(output, {
+    canaryBakeTimeInMinutes: __expectInt32,
+    canaryPercent: __limitedParseDouble,
+  }) as any;
+};
+
+/**
  * deserializeAws_json1_1CapacityProvider
  */
 const de_CapacityProvider = (output: any, context: __SerdeContext): CapacityProvider => {
@@ -4091,8 +4126,10 @@ const de_DeploymentConfiguration = (output: any, context: __SerdeContext): Deplo
   return take(output, {
     alarms: _json,
     bakeTimeInMinutes: __expectInt32,
+    canaryConfiguration: (_: any) => de_CanaryConfiguration(_, context),
     deploymentCircuitBreaker: _json,
     lifecycleHooks: (_: any) => de_DeploymentLifecycleHookList(_, context),
+    linearConfiguration: (_: any) => de_LinearConfiguration(_, context),
     maximumPercent: __expectInt32,
     minimumHealthyPercent: __expectInt32,
     strategy: __expectString,
@@ -4423,6 +4460,16 @@ const de_InstanceRequirementsRequest = (output: any, context: __SerdeContext): I
 // de_KeyValuePair omitted.
 
 // de_LimitExceededException omitted.
+
+/**
+ * deserializeAws_json1_1LinearConfiguration
+ */
+const de_LinearConfiguration = (output: any, context: __SerdeContext): LinearConfiguration => {
+  return take(output, {
+    stepBakeTimeInMinutes: __expectInt32,
+    stepPercent: __limitedParseDouble,
+  }) as any;
+};
 
 // de_LinuxParameters omitted.
 
@@ -4786,12 +4833,12 @@ const de_ServiceDeployment = (output: any, context: __SerdeContext): ServiceDepl
     rollback: (_: any) => de_Rollback(_, context),
     serviceArn: __expectString,
     serviceDeploymentArn: __expectString,
-    sourceServiceRevisions: _json,
+    sourceServiceRevisions: (_: any) => de_ServiceRevisionsSummaryList(_, context),
     startedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     status: __expectString,
     statusReason: __expectString,
     stoppedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
-    targetServiceRevision: _json,
+    targetServiceRevision: (_: any) => de_ServiceRevisionSummary(_, context),
     updatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
   }) as any;
 };
@@ -4919,9 +4966,31 @@ const de_ServiceRevisions = (output: any, context: __SerdeContext): ServiceRevis
   return retVal;
 };
 
-// de_ServiceRevisionsSummaryList omitted.
+/**
+ * deserializeAws_json1_1ServiceRevisionsSummaryList
+ */
+const de_ServiceRevisionsSummaryList = (output: any, context: __SerdeContext): ServiceRevisionSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_ServiceRevisionSummary(entry, context);
+    });
+  return retVal;
+};
 
-// de_ServiceRevisionSummary omitted.
+/**
+ * deserializeAws_json1_1ServiceRevisionSummary
+ */
+const de_ServiceRevisionSummary = (output: any, context: __SerdeContext): ServiceRevisionSummary => {
+  return take(output, {
+    arn: __expectString,
+    pendingTaskCount: __expectInt32,
+    requestedProductionTrafficWeight: __limitedParseDouble,
+    requestedTaskCount: __expectInt32,
+    requestedTestTrafficWeight: __limitedParseDouble,
+    runningTaskCount: __expectInt32,
+  }) as any;
+};
 
 /**
  * deserializeAws_json1_1Services

@@ -1072,6 +1072,7 @@ export interface CapacityProvider {
 
   /**
    * <p>The cluster that this capacity provider is associated with. Managed instances capacity providers are cluster-scoped, meaning they can only be used within their associated cluster.</p>
+   *          <p>This is required for Managed instances.</p>
    * @public
    */
   cluster?: string | undefined;
@@ -1493,10 +1494,10 @@ export interface CapacityProviderStrategyItem {
    *                <p>Weight is considered after the base value is satisfied</p>
    *             </li>
    *             <li>
-   *                <p>Default value is <code>0</code> if not specified</p>
+   *                <p>The default value is <code>0</code> if not specified</p>
    *             </li>
    *             <li>
-   *                <p>Valid range: 0 to 1,000</p>
+   *                <p>The valid range is 0 to 1,000</p>
    *             </li>
    *             <li>
    *                <p>At least one capacity provider must have a weight greater than zero</p>
@@ -1532,10 +1533,10 @@ export interface CapacityProviderStrategyItem {
    *                <p>Only one capacity provider in a strategy can have a base defined</p>
    *             </li>
    *             <li>
-   *                <p>Default value is <code>0</code> if not specified</p>
+   *                <p>The default value is <code>0</code> if not specified</p>
    *             </li>
    *             <li>
-   *                <p>Valid range: 0 to 100,000</p>
+   *                <p>The valid range is 0 to 100,000</p>
    *             </li>
    *             <li>
    *                <p>Base requirements are satisfied first before weight distribution</p>
@@ -2145,6 +2146,30 @@ export interface DeploymentAlarms {
 }
 
 /**
+ * <p>Configuration for canary deployment strategy that shifts a fixed percentage of traffic to
+ * 			the new service revision, waits for a specified bake time, then shifts the remaining
+ * 			traffic. </p>
+ *          <p>This is only valid when you run <code>CreateService</code> or
+ * 				<code>UpdateService</code> with <code>deploymentController</code> set to
+ * 				<code>ECS</code> and a <code>deploymentConfiguration</code> with a strategy set to
+ * 				<code>CANARY</code>. </p>
+ * @public
+ */
+export interface CanaryConfiguration {
+  /**
+   * <p>The percentage of production traffic to shift to the new service revision during the canary phase. Valid values are 0.1 to 100.0. The default value is 5.0.</p>
+   * @public
+   */
+  canaryPercent?: number | undefined;
+
+  /**
+   * <p>The amount of time in minutes to wait during the canary phase before shifting the remaining production traffic to the new service revision. Valid values are 0 to 1440 minutes (24 hours). The default value is 10.</p>
+   * @public
+   */
+  canaryBakeTimeInMinutes?: number | undefined;
+}
+
+/**
  * <note>
  *             <p>The deployment circuit breaker can only be used for services using the rolling
  * 				update (<code>ECS</code>) deployment type.</p>
@@ -2270,11 +2295,37 @@ export interface DeploymentLifecycleHook {
 }
 
 /**
+ * <p>Configuration for linear deployment strategy that shifts production traffic in equal
+ * 			percentage increments with configurable wait times between each step until 100% of
+ * 			traffic is shifted to the new service revision. This is only valid when you run
+ * 				<code>CreateService</code> or <code>UpdateService</code> with
+ * 				<code>deploymentController</code> set to <code>ECS</code> and a
+ * 				<code>deploymentConfiguration</code> with a strategy set to <code>LINEAR</code>. </p>
+ * @public
+ */
+export interface LinearConfiguration {
+  /**
+   * <p>The percentage of production traffic to shift in each step during a linear deployment. Valid
+   * 			values are 3.0 to 100.0. The default value is 10.0.</p>
+   * @public
+   */
+  stepPercent?: number | undefined;
+
+  /**
+   * <p>The amount of time in minutes to wait between each traffic shifting step during a linear deployment. Valid values are 0 to 1440 minutes (24 hours). The default value is 6. This bake time is not applied after reaching 100% traffic.</p>
+   * @public
+   */
+  stepBakeTimeInMinutes?: number | undefined;
+}
+
+/**
  * @public
  * @enum
  */
 export const DeploymentStrategy = {
   BLUE_GREEN: "BLUE_GREEN",
+  CANARY: "CANARY",
+  LINEAR: "LINEAR",
   ROLLING: "ROLLING",
 } as const;
 
@@ -2466,6 +2517,18 @@ export interface DeploymentConfiguration {
    * @public
    */
   lifecycleHooks?: DeploymentLifecycleHook[] | undefined;
+
+  /**
+   * <p>Configuration for linear deployment strategy. Only valid when the deployment strategy is <code>LINEAR</code>. This configuration enables progressive traffic shifting in equal percentage increments with configurable bake times between each step.</p>
+   * @public
+   */
+  linearConfiguration?: LinearConfiguration | undefined;
+
+  /**
+   * <p>Configuration for canary deployment strategy. Only valid when the deployment strategy is <code>CANARY</code>. This configuration enables shifting a fixed percentage of traffic for testing, followed by shifting the remaining traffic after a bake period.</p>
+   * @public
+   */
+  canaryConfiguration?: CanaryConfiguration | undefined;
 }
 
 /**
@@ -2732,7 +2795,7 @@ export interface AwsVpcConfiguration {
    *          <ul>
    *             <li>
    *                <p>When you use <code>create-service</code> or <code>update-service</code>, the
-   * 					default is <code>DISABLED</code>. </p>
+   * 					The default is <code>DISABLED</code>. </p>
    *             </li>
    *             <li>
    *                <p>When the service <code>deploymentController</code> is <code>ECS</code>, the
@@ -3978,6 +4041,11 @@ export interface CreateServiceRequest {
   /**
    * <p>The infrastructure that you run your service on. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html">Amazon ECS
    * 				launch types</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
+   *          <note>
+   *             <p>If you want to use Amazon ECS Managed Instances, you must use the
+   * 				<code>capacityProviderStrategy</code> request parameter and omit the
+   * 				<code>launchType</code> request parameter.</p>
+   *          </note>
    *          <p>The <code>FARGATE</code> launch type runs your tasks on Fargate On-Demand
    * 			infrastructure.</p>
    *          <note>
@@ -3998,6 +4066,11 @@ export interface CreateServiceRequest {
 
   /**
    * <p>The capacity provider strategy to use for the service.</p>
+   *          <note>
+   *             <p>If you want to use Amazon ECS Managed Instances, you must use the
+   * 					<code>capacityProviderStrategy</code> request parameter and omit the
+   * 				<code>launchType</code> request parameter.</p>
+   *          </note>
    *          <p>If a <code>capacityProviderStrategy</code> is specified, the <code>launchType</code>
    * 			parameter must be omitted. If no <code>capacityProviderStrategy</code> or
    * 				<code>launchType</code> is specified, the
@@ -8569,7 +8642,7 @@ export interface TaskDefinition {
   runtimePlatform?: RuntimePlatform | undefined;
 
   /**
-   * <p>The task launch types the task definition was validated against. The valid values are
+   * <p>The task launch types the task definition was validated against. The valid values are <code>MANAGED_INSTANCES</code>,
    * 				<code>EC2</code>, <code>FARGATE</code>, and <code>EXTERNAL</code>. For more
    * 			information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html">Amazon ECS launch types</a>
    * 			in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
@@ -8651,7 +8724,7 @@ export interface TaskDefinition {
    *          <p>If <code>task</code> is specified, all containers within the specified
    *                             task share the same process namespace.</p>
    *          <p>If no value is specified, the
-   *                             default is a private namespace for each container.</p>
+   *                             The default is a private namespace for each container.</p>
    *          <p>If the <code>host</code> PID mode is used, there's a heightened risk
    *                             of undesired process namespace exposure.</p>
    *          <note>
@@ -9633,6 +9706,18 @@ export interface ServiceRevisionSummary {
    * @public
    */
   pendingTaskCount?: number | undefined;
+
+  /**
+   * <p>The percentage of test traffic that is directed to this service revision. This value represents a snapshot of the traffic distribution and may not reflect real-time changes during active deployments. Valid values are 0.0 to 100.0.</p>
+   * @public
+   */
+  requestedTestTrafficWeight?: number | undefined;
+
+  /**
+   * <p>The percentage of production traffic that is directed to this service revision. This value represents a snapshot of the traffic distribution and may not reflect real-time changes during active deployments. Valid values are 0.0 to 100.0.</p>
+   * @public
+   */
+  requestedProductionTrafficWeight?: number | undefined;
 }
 
 /**
@@ -11764,7 +11849,7 @@ export interface ListContainerInstancesRequest {
    * <p>Filters the container instances by status. For example, if you specify the
    * 				<code>DRAINING</code> status, the results include only container instances that have
    * 			been set to <code>DRAINING</code> using <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_UpdateContainerInstancesState.html">UpdateContainerInstancesState</a>. If you don't specify this parameter, the
-   * 			default is to include container instances set to all states other than
+   * 			The default is to include container instances set to all states other than
    * 				<code>INACTIVE</code>.</p>
    * @public
    */
@@ -12473,190 +12558,6 @@ export interface ListTasksResponse {
    * @public
    */
   nextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface PutAccountSettingRequest {
-  /**
-   * <p>The Amazon ECS account setting name to modify.</p>
-   *          <p>The following are the valid values for the account setting name.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>serviceLongArnFormat</code> - When modified, the Amazon Resource Name
-   * 					(ARN) and resource ID format of the resource type for a specified user, role, or
-   * 					the root user for an account is affected. The opt-in and opt-out account setting
-   * 					must be set for each Amazon ECS resource separately. The ARN and resource ID format
-   * 					of a resource is defined by the opt-in status of the user or role that created
-   * 					the resource. You must turn on this setting to use Amazon ECS features such as
-   * 					resource tagging.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>taskLongArnFormat</code> - When modified, the Amazon Resource Name (ARN)
-   * 					and resource ID format of the resource type for a specified user, role, or the
-   * 					root user for an account is affected. The opt-in and opt-out account setting must
-   * 					be set for each Amazon ECS resource separately. The ARN and resource ID format of a
-   * 					resource is defined by the opt-in status of the user or role that created the
-   * 					resource. You must turn on this setting to use Amazon ECS features such as resource
-   * 					tagging.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>containerInstanceLongArnFormat</code> - When modified, the Amazon
-   * 					Resource Name (ARN) and resource ID format of the resource type for a specified
-   * 					user, role, or the root user for an account is affected. The opt-in and opt-out
-   * 					account setting must be set for each Amazon ECS resource separately. The ARN and
-   * 					resource ID format of a resource is defined by the opt-in status of the user or
-   * 					role that created the resource. You must turn on this setting to use Amazon ECS
-   * 					features such as resource tagging.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>awsvpcTrunking</code> - When modified, the elastic network interface
-   * 					(ENI) limit for any new container instances that support the feature is changed.
-   * 					If <code>awsvpcTrunking</code> is turned on, any new container instances that
-   * 					support the feature are launched have the increased ENI limits available to
-   * 					them. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/container-instance-eni.html">Elastic
-   * 						Network Interface Trunking</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>containerInsights</code> - Container Insights with enhanced
-   * 					observability provides all the Container Insights metrics, plus additional task
-   * 					and container metrics. This version supports enhanced observability for Amazon ECS
-   * 					clusters using the Amazon EC2 and Fargate launch types. After you configure
-   * 					Container Insights with enhanced observability on Amazon ECS, Container Insights
-   * 					auto-collects detailed infrastructure telemetry from the cluster level down to
-   * 					the container level in your environment and displays these critical performance
-   * 					data in curated dashboards removing the heavy lifting in observability set-up. </p>
-   *                <p>To use Container Insights with enhanced observability, set the
-   * 						<code>containerInsights</code> account setting to
-   * 					<code>enhanced</code>.</p>
-   *                <p>To use Container Insights, set the <code>containerInsights</code> account
-   * 					setting to <code>enabled</code>.</p>
-   *                <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cloudwatch-container-insights.html">Monitor Amazon ECS containers using Container Insights with enhanced
-   * 						observability</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>dualStackIPv6</code> - When turned on, when using a VPC in dual stack
-   * 					mode, your tasks using the <code>awsvpc</code> network mode can have an IPv6
-   * 					address assigned. For more information on using IPv6 with tasks launched on
-   * 					Amazon EC2 instances, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking-awsvpc.html#task-networking-vpc-dual-stack">Using a VPC in dual-stack mode</a>. For more information on using IPv6
-   * 					with tasks launched on Fargate, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/fargate-task-networking.html#fargate-task-networking-vpc-dual-stack">Using a VPC in dual-stack mode</a>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>fargateTaskRetirementWaitPeriod</code> - When Amazon Web Services determines that a
-   * 					security or infrastructure update is needed for an Amazon ECS task hosted on
-   * 					Fargate, the tasks need to be stopped and new tasks launched to replace them.
-   * 					Use <code>fargateTaskRetirementWaitPeriod</code> to configure the wait time to
-   * 					retire a Fargate task. For information about the Fargate tasks maintenance,
-   * 					see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-maintenance.html">Amazon Web Services Fargate
-   * 						task maintenance</a> in the <i>Amazon ECS Developer
-   * 					Guide</i>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>tagResourceAuthorization</code> - Amazon ECS is introducing tagging
-   * 					authorization for resource creation. Users must have permissions for actions
-   * 					that create the resource, such as <code>ecsCreateCluster</code>. If tags are
-   * 					specified when you create a resource, Amazon Web Services performs additional authorization to
-   * 					verify if users or roles have permissions to create tags. Therefore, you must
-   * 					grant explicit permissions to use the <code>ecs:TagResource</code> action. For
-   * 					more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/supported-iam-actions-tagging.html">Grant permission to tag resources on creation</a> in the
-   * 						<i>Amazon ECS Developer Guide</i>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>defaultLogDriverMode</code> - Amazon ECS supports setting a default delivery
-   * 					mode of log messages from a container to the <code>logDriver</code> that you specify in the container's <code>logConfiguration</code>. The delivery mode affects
-   * 					application stability when the flow of logs from the container to the log driver is
-   * 					interrupted. The <code>defaultLogDriverMode</code> setting supports two values:
-   * 					<code>blocking</code> and <code>non-blocking</code>. If you don't specify a
-   * 					delivery mode in your container definition's <code>logConfiguration</code>, the
-   * 					mode you specify using this account setting will be used as the default. For
-   * 					more information about log delivery modes, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_LogConfiguration.html">LogConfiguration</a>.
-   * 				</p>
-   *                <note>
-   *                   <p>On June 25, 2025, Amazon ECS changed the default log driver mode from <code>blocking</code> to <code>non-blocking</code> to prioritize task availability over logging. To continue using the <code>blocking</code> mode after this change, do one of the following:</p>
-   *                   <ul>
-   *                      <li>
-   *                         <p>Set the <code>mode</code> option in your container definition's <code>logConfiguration</code> as <code>blocking</code>.</p>
-   *                      </li>
-   *                      <li>
-   *                         <p>Set the <code>defaultLogDriverMode</code> account setting to <code>blocking</code>.</p>
-   *                      </li>
-   *                   </ul>
-   *                </note>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>guardDutyActivate</code> - The <code>guardDutyActivate</code> parameter is read-only in Amazon ECS and indicates whether
-   * 			Amazon ECS Runtime Monitoring is enabled or disabled by your security administrator in your
-   * 			Amazon ECS account. Amazon GuardDuty controls this account setting on your behalf. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-guard-duty-integration.html">Protecting Amazon ECS workloads with Amazon ECS Runtime Monitoring</a>.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  name: SettingName | undefined;
-
-  /**
-   * <p>The account setting value for the specified principal ARN. Accepted values are
-   * 				<code>enabled</code>, <code>disabled</code>, <code>enhanced</code>, <code>on</code>,
-   * 			and <code>off</code>.</p>
-   *          <p>When you specify <code>fargateTaskRetirementWaitPeriod</code> for the
-   * 				<code>name</code>, the following are the valid values:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>0</code> - Amazon Web Services sends the notification, and immediately retires the
-   * 					affected tasks.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>7</code> - Amazon Web Services sends the notification, and waits 7 calendar days to
-   * 					retire the tasks.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>14</code> - Amazon Web Services sends the notification, and waits 14 calendar days to
-   * 					retire the tasks.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  value: string | undefined;
-
-  /**
-   * <p>The ARN of the principal, which can be a user, role, or the root user. If you specify
-   * 			the root user, it modifies the account setting for all users, roles, and the root user of the
-   * 			account unless a user or role explicitly overrides these settings. If this field is
-   * 			omitted, the setting is changed only for the authenticated user.</p>
-   *          <p>In order to use this parameter, you must be the root user, or the principal.</p>
-   *          <note>
-   *             <p>You must use the root user when you set the Fargate wait time
-   * 					(<code>fargateTaskRetirementWaitPeriod</code>). </p>
-   *             <p>Federated users assume the account setting of the root user and can't have explicit
-   * 				account settings set for them.</p>
-   *          </note>
-   * @public
-   */
-  principalArn?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface PutAccountSettingResponse {
-  /**
-   * <p>The current account setting for a resource.</p>
-   * @public
-   */
-  setting?: Setting | undefined;
 }
 
 /**
