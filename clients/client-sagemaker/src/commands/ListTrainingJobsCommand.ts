@@ -45,7 +45,7 @@ export interface ListTrainingJobsCommandOutput extends ListTrainingJobsResponse,
  *   LastModifiedTimeAfter: new Date("TIMESTAMP"),
  *   LastModifiedTimeBefore: new Date("TIMESTAMP"),
  *   NameContains: "STRING_VALUE",
- *   StatusEquals: "InProgress" || "Completed" || "Failed" || "Stopping" || "Stopped",
+ *   StatusEquals: "InProgress" || "Completed" || "Failed" || "Stopping" || "Stopped" || "Deleting",
  *   SortBy: "Name" || "CreationTime" || "Status",
  *   SortOrder: "Ascending" || "Descending",
  *   WarmPoolStatusEquals: "Available" || "Terminated" || "Reused" || "InUse",
@@ -61,7 +61,7 @@ export interface ListTrainingJobsCommandOutput extends ListTrainingJobsResponse,
  * //       CreationTime: new Date("TIMESTAMP"), // required
  * //       TrainingEndTime: new Date("TIMESTAMP"),
  * //       LastModifiedTime: new Date("TIMESTAMP"),
- * //       TrainingJobStatus: "InProgress" || "Completed" || "Failed" || "Stopping" || "Stopped", // required
+ * //       TrainingJobStatus: "InProgress" || "Completed" || "Failed" || "Stopping" || "Stopped" || "Deleting", // required
  * //       SecondaryStatus: "Starting" || "LaunchingMLInstances" || "PreparingTrainingStack" || "Downloading" || "DownloadingTrainingImage" || "Training" || "Uploading" || "Stopping" || "Stopped" || "MaxRuntimeExceeded" || "Completed" || "Failed" || "Interrupted" || "MaxWaitTimeExceeded" || "Updating" || "Restarting" || "Pending",
  * //       WarmPoolStatus: { // WarmPoolStatus
  * //         Status: "Available" || "Terminated" || "Reused" || "InUse", // required

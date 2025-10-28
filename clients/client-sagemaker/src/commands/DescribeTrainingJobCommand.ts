@@ -51,7 +51,7 @@ export interface DescribeTrainingJobCommandOutput extends DescribeTrainingJobRes
  * //   ModelArtifacts: { // ModelArtifacts
  * //     S3ModelArtifacts: "STRING_VALUE", // required
  * //   },
- * //   TrainingJobStatus: "InProgress" || "Completed" || "Failed" || "Stopping" || "Stopped", // required
+ * //   TrainingJobStatus: "InProgress" || "Completed" || "Failed" || "Stopping" || "Stopped" || "Deleting", // required
  * //   SecondaryStatus: "Starting" || "LaunchingMLInstances" || "PreparingTrainingStack" || "Downloading" || "DownloadingTrainingImage" || "Training" || "Uploading" || "Stopping" || "Stopped" || "MaxRuntimeExceeded" || "Completed" || "Failed" || "Interrupted" || "MaxWaitTimeExceeded" || "Updating" || "Restarting" || "Pending", // required
  * //   FailureReason: "STRING_VALUE",
  * //   HyperParameters: { // HyperParameters

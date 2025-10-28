@@ -50,7 +50,7 @@ export interface ListTrainingJobsForHyperParameterTuningJobCommandOutput
  *   HyperParameterTuningJobName: "STRING_VALUE", // required
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),
- *   StatusEquals: "InProgress" || "Completed" || "Failed" || "Stopping" || "Stopped",
+ *   StatusEquals: "InProgress" || "Completed" || "Failed" || "Stopping" || "Stopped" || "Deleting",
  *   SortBy: "Name" || "CreationTime" || "Status" || "FinalObjectiveMetricValue",
  *   SortOrder: "Ascending" || "Descending",
  * };
@@ -66,7 +66,7 @@ export interface ListTrainingJobsForHyperParameterTuningJobCommandOutput
  * //       CreationTime: new Date("TIMESTAMP"), // required
  * //       TrainingStartTime: new Date("TIMESTAMP"),
  * //       TrainingEndTime: new Date("TIMESTAMP"),
- * //       TrainingJobStatus: "InProgress" || "Completed" || "Failed" || "Stopping" || "Stopped", // required
+ * //       TrainingJobStatus: "InProgress" || "Completed" || "Failed" || "Stopping" || "Stopped" || "Deleting", // required
  * //       TunedHyperParameters: { // HyperParameters // required
  * //         "<keys>": "STRING_VALUE",
  * //       },

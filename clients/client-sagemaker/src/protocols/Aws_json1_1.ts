@@ -334,6 +334,10 @@ import {
 } from "../commands/DeleteOptimizationJobCommand";
 import { DeletePartnerAppCommandInput, DeletePartnerAppCommandOutput } from "../commands/DeletePartnerAppCommand";
 import { DeletePipelineCommandInput, DeletePipelineCommandOutput } from "../commands/DeletePipelineCommand";
+import {
+  DeleteProcessingJobCommandInput,
+  DeleteProcessingJobCommandOutput,
+} from "../commands/DeleteProcessingJobCommand";
 import { DeleteProjectCommandInput, DeleteProjectCommandOutput } from "../commands/DeleteProjectCommand";
 import { DeleteSpaceCommandInput, DeleteSpaceCommandOutput } from "../commands/DeleteSpaceCommand";
 import {
@@ -341,6 +345,7 @@ import {
   DeleteStudioLifecycleConfigCommandOutput,
 } from "../commands/DeleteStudioLifecycleConfigCommand";
 import { DeleteTagsCommandInput, DeleteTagsCommandOutput } from "../commands/DeleteTagsCommand";
+import { DeleteTrainingJobCommandInput, DeleteTrainingJobCommandOutput } from "../commands/DeleteTrainingJobCommand";
 import { DeleteTrialCommandInput, DeleteTrialCommandOutput } from "../commands/DeleteTrialCommand";
 import {
   DeleteTrialComponentCommandInput,
@@ -1597,11 +1602,13 @@ import {
   DeletePartnerAppResponse,
   DeletePipelineRequest,
   DeletePipelineResponse,
+  DeleteProcessingJobRequest,
   DeleteProjectInput,
   DeleteSpaceRequest,
   DeleteStudioLifecycleConfigRequest,
   DeleteTagsInput,
   DeleteTagsOutput,
+  DeleteTrainingJobRequest,
   DeleteTrialComponentRequest,
   DeleteTrialComponentResponse,
   DeleteTrialRequest,
@@ -1630,8 +1637,6 @@ import {
   DescribeAutoMLJobResponse,
   DescribeAutoMLJobV2Request,
   DescribeAutoMLJobV2Response,
-  DescribeClusterEventRequest,
-  DescribeClusterEventResponse,
   DescribeClusterRequest,
   DescribeClusterResponse,
   DriftCheckBaselines,
@@ -1738,6 +1743,8 @@ import {
   WorkforceVpcConfigRequest,
 } from "../models/models_2";
 import {
+  DescribeClusterEventRequest,
+  DescribeClusterEventResponse,
   DescribeClusterNodeRequest,
   DescribeClusterNodeResponse,
   DescribeClusterSchedulerConfigRequest,
@@ -1913,7 +1920,6 @@ import {
   GetModelPackageGroupPolicyOutput,
   GetSagemakerServicecatalogPortfolioStatusInput,
   GetSagemakerServicecatalogPortfolioStatusOutput,
-  GetScalingConfigurationRecommendationRequest,
   HubContentDependency,
   HyperParameterTrainingJobSummary,
   HyperParameterTuningJobCompletionDetails,
@@ -1959,7 +1965,6 @@ import {
   RStudioServerProDomainSettingsForUpdate,
   SageMakerResourceName,
   ScalingPolicy,
-  ScalingPolicyMetric,
   ScalingPolicyObjective,
   SecondaryStatusTransition,
   SelectedStep,
@@ -1981,6 +1986,7 @@ import {
   Workteam,
 } from "../models/models_3";
 import {
+  GetScalingConfigurationRecommendationRequest,
   GetScalingConfigurationRecommendationResponse,
   GetSearchSuggestionsRequest,
   GetSearchSuggestionsResponse,
@@ -2163,7 +2169,6 @@ import {
   ListTrialComponentsRequest,
   ListTrialComponentsResponse,
   ListTrialsRequest,
-  ListTrialsResponse,
   ModelCardExportJobSummary,
   ModelCardSummary,
   ModelCardVersionSummary,
@@ -2200,6 +2205,7 @@ import {
   RecommendationJobInferenceBenchmark,
   RegisterModelStepMetadata,
   ResourceCatalog,
+  ScalingPolicyMetric,
   SelectiveExecutionResult,
   SpaceDetails,
   SpaceSettingsSummary,
@@ -2214,10 +2220,10 @@ import {
   TransformJobStepMetadata,
   TransformJobSummary,
   TrialComponentSummary,
-  TrialSummary,
   TuningJobStepMetaData,
 } from "../models/models_4";
 import {
+  ListTrialsResponse,
   ListUltraServersByReservedCapacityRequest,
   ListUltraServersByReservedCapacityResponse,
   ListUserProfilesRequest,
@@ -2309,6 +2315,7 @@ import {
   TrialComponent,
   TrialComponentSimpleSummary,
   TrialComponentSourceDetail,
+  TrialSummary,
   UltraServer,
   UpdateActionRequest,
   UpdateActionResponse,
@@ -3952,6 +3959,19 @@ export const se_DeletePipelineCommand = async (
 };
 
 /**
+ * serializeAws_json1_1DeleteProcessingJobCommand
+ */
+export const se_DeleteProcessingJobCommand = async (
+  input: DeleteProcessingJobCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DeleteProcessingJob");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_1DeleteProjectCommand
  */
 export const se_DeleteProjectCommand = async (
@@ -3998,6 +4018,19 @@ export const se_DeleteTagsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteTags");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1DeleteTrainingJobCommand
+ */
+export const se_DeleteTrainingJobCommand = async (
+  input: DeleteTrainingJobCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DeleteTrainingJob");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -9474,6 +9507,23 @@ export const de_DeletePipelineCommand = async (
 };
 
 /**
+ * deserializeAws_json1_1DeleteProcessingJobCommand
+ */
+export const de_DeleteProcessingJobCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteProcessingJobCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: DeleteProcessingJobCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return response;
+};
+
+/**
  * deserializeAws_json1_1DeleteProjectCommand
  */
 export const de_DeleteProjectCommand = async (
@@ -9540,6 +9590,23 @@ export const de_DeleteTagsCommand = async (
   const response: DeleteTagsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DeleteTrainingJobCommand
+ */
+export const de_DeleteTrainingJobCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteTrainingJobCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: DeleteTrainingJobCommandOutput = {
+    $metadata: deserializeMetadata(output),
   };
   return response;
 };
@@ -15451,6 +15518,8 @@ const se_DeletePipelineRequest = (input: DeletePipelineRequest, context: __Serde
   });
 };
 
+// se_DeleteProcessingJobRequest omitted.
+
 // se_DeleteProjectInput omitted.
 
 // se_DeleteSpaceRequest omitted.
@@ -15458,6 +15527,8 @@ const se_DeletePipelineRequest = (input: DeletePipelineRequest, context: __Serde
 // se_DeleteStudioLifecycleConfigRequest omitted.
 
 // se_DeleteTagsInput omitted.
+
+// se_DeleteTrainingJobRequest omitted.
 
 // se_DeleteTrialComponentRequest omitted.
 

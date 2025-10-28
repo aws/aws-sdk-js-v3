@@ -21,6 +21,7 @@ import {
   CfnTemplateProviderDetail,
   Channel,
   CheckpointConfig,
+  ClusterEventDetail,
   ClusterNodeDetails,
   InferenceSpecification,
   ModelApprovalStatus,
@@ -197,6 +198,34 @@ import {
   WorkerAccessConfiguration,
   WorkforceIpAddressType,
 } from "./models_2";
+
+/**
+ * @public
+ */
+export interface DescribeClusterEventRequest {
+  /**
+   * <p>The unique identifier (UUID) of the event to describe. This ID can be obtained from the <code>ListClusterEvents</code> operation.</p>
+   * @public
+   */
+  EventId: string | undefined;
+
+  /**
+   * <p>The name or Amazon Resource Name (ARN) of the HyperPod cluster associated with the event.</p>
+   * @public
+   */
+  ClusterName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeClusterEventResponse {
+  /**
+   * <p>Detailed information about the requested cluster event, including event metadata for various resource types such as <code>Cluster</code>, <code>InstanceGroup</code>, <code>Instance</code>, and their associated attributes.</p>
+   * @public
+   */
+  EventDetails?: ClusterEventDetail | undefined;
+}
 
 /**
  * @public
@@ -2864,6 +2893,7 @@ export interface FinalHyperParameterTuningJobObjectiveMetric {
  */
 export const TrainingJobStatus = {
   COMPLETED: "Completed",
+  DELETING: "Deleting",
   FAILED: "Failed",
   IN_PROGRESS: "InProgress",
   STOPPED: "Stopped",
@@ -10563,59 +10593,6 @@ export interface ScalingPolicyObjective {
    * @public
    */
   MaxInvocationsPerMinute?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface GetScalingConfigurationRecommendationRequest {
-  /**
-   * <p>The name of a previously completed Inference Recommender job.</p>
-   * @public
-   */
-  InferenceRecommendationsJobName: string | undefined;
-
-  /**
-   * <p>The recommendation ID of a previously completed inference recommendation. This ID should come from one of the recommendations returned by the job specified in the <code>InferenceRecommendationsJobName</code> field.</p> <p>Specify either this field or the <code>EndpointName</code> field.</p>
-   * @public
-   */
-  RecommendationId?: string | undefined;
-
-  /**
-   * <p>The name of an endpoint benchmarked during a previously completed inference recommendation job. This name should come from one of the recommendations returned by the job specified in the <code>InferenceRecommendationsJobName</code> field.</p> <p>Specify either this field or the <code>RecommendationId</code> field.</p>
-   * @public
-   */
-  EndpointName?: string | undefined;
-
-  /**
-   * <p>The percentage of how much utilization you want an instance to use before autoscaling. The default value is 50%.</p>
-   * @public
-   */
-  TargetCpuUtilizationPerCore?: number | undefined;
-
-  /**
-   * <p>An object where you specify the anticipated traffic pattern for an endpoint.</p>
-   * @public
-   */
-  ScalingPolicyObjective?: ScalingPolicyObjective | undefined;
-}
-
-/**
- * <p>The metric for a scaling policy.</p>
- * @public
- */
-export interface ScalingPolicyMetric {
-  /**
-   * <p>The number of invocations sent to a model, normalized by <code>InstanceCount</code> in each ProductionVariant. <code>1/numberOfInstances</code> is sent as the value on each request, where <code>numberOfInstances</code> is the number of active instances for the ProductionVariant behind the endpoint at the time of the request.</p>
-   * @public
-   */
-  InvocationsPerInstance?: number | undefined;
-
-  /**
-   * <p>The interval of time taken by a model to respond as viewed from SageMaker. This interval includes the local communication times taken to send the request and to fetch the response from the container of a model and the time taken to complete the inference in the container.</p>
-   * @public
-   */
-  ModelLatency?: number | undefined;
 }
 
 /**

@@ -182,6 +182,65 @@ import {
 } from "./models_4";
 
 /**
+ * <p>A summary of the properties of a trial. To get the complete set of properties, call the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeTrial.html">DescribeTrial</a> API and provide the <code>TrialName</code>.</p>
+ * @public
+ */
+export interface TrialSummary {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the trial.</p>
+   * @public
+   */
+  TrialArn?: string | undefined;
+
+  /**
+   * <p>The name of the trial.</p>
+   * @public
+   */
+  TrialName?: string | undefined;
+
+  /**
+   * <p>The name of the trial as displayed. If <code>DisplayName</code> isn't specified, <code>TrialName</code> is displayed.</p>
+   * @public
+   */
+  DisplayName?: string | undefined;
+
+  /**
+   * <p>The source of the trial.</p>
+   * @public
+   */
+  TrialSource?: TrialSource | undefined;
+
+  /**
+   * <p>When the trial was created.</p>
+   * @public
+   */
+  CreationTime?: Date | undefined;
+
+  /**
+   * <p>When the trial was last modified.</p>
+   * @public
+   */
+  LastModifiedTime?: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListTrialsResponse {
+  /**
+   * <p>A list of the summaries of your trials.</p>
+   * @public
+   */
+  TrialSummaries?: TrialSummary[] | undefined;
+
+  /**
+   * <p>A token for getting the next set of trials, if there are any.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
  * @public
  */
 export interface ListUltraServersByReservedCapacityRequest {

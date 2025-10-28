@@ -40,7 +40,6 @@ import {
   Channel,
   CheckpointConfig,
   ClusterAutoScalingConfigOutput,
-  ClusterEventDetail,
   ClusterInstanceGroupDetails,
   ClusterNodeProvisioningMode,
   ClusterNodeRecovery,
@@ -5774,6 +5773,17 @@ export interface DeletePipelineResponse {
 /**
  * @public
  */
+export interface DeleteProcessingJobRequest {
+  /**
+   * <p>The name of the processing job to delete.</p>
+   * @public
+   */
+  ProcessingJobName: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface DeleteProjectInput {
   /**
    * <p>The name of the project to delete.</p>
@@ -5831,6 +5841,17 @@ export interface DeleteTagsInput {
  * @public
  */
 export interface DeleteTagsOutput {}
+
+/**
+ * @public
+ */
+export interface DeleteTrainingJobRequest {
+  /**
+   * <p>The name of the training job to delete.</p>
+   * @public
+   */
+  TrainingJobName: string | undefined;
+}
 
 /**
  * @public
@@ -7010,34 +7031,6 @@ export interface DescribeClusterResponse {
    * @public
    */
   AutoScaling?: ClusterAutoScalingConfigOutput | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeClusterEventRequest {
-  /**
-   * <p>The unique identifier (UUID) of the event to describe. This ID can be obtained from the <code>ListClusterEvents</code> operation.</p>
-   * @public
-   */
-  EventId: string | undefined;
-
-  /**
-   * <p>The name or Amazon Resource Name (ARN) of the HyperPod cluster associated with the event.</p>
-   * @public
-   */
-  ClusterName: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeClusterEventResponse {
-  /**
-   * <p>Detailed information about the requested cluster event, including event metadata for various resource types such as <code>Cluster</code>, <code>InstanceGroup</code>, <code>Instance</code>, and their associated attributes.</p>
-   * @public
-   */
-  EventDetails?: ClusterEventDetail | undefined;
 }
 
 /**

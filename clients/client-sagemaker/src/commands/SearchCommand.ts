@@ -108,7 +108,7 @@ export interface SearchCommandOutput extends SearchResponse, __MetadataBearer {}
  * //         ModelArtifacts: { // ModelArtifacts
  * //           S3ModelArtifacts: "STRING_VALUE", // required
  * //         },
- * //         TrainingJobStatus: "InProgress" || "Completed" || "Failed" || "Stopping" || "Stopped",
+ * //         TrainingJobStatus: "InProgress" || "Completed" || "Failed" || "Stopping" || "Stopped" || "Deleting",
  * //         SecondaryStatus: "Starting" || "LaunchingMLInstances" || "PreparingTrainingStack" || "Downloading" || "DownloadingTrainingImage" || "Training" || "Uploading" || "Stopping" || "Stopped" || "MaxRuntimeExceeded" || "Completed" || "Failed" || "Interrupted" || "MaxWaitTimeExceeded" || "Updating" || "Restarting" || "Pending",
  * //         FailureReason: "STRING_VALUE",
  * //         HyperParameters: { // HyperParameters
@@ -483,7 +483,7 @@ export interface SearchCommandOutput extends SearchResponse, __MetadataBearer {}
  * //             ModelArtifacts: {
  * //               S3ModelArtifacts: "STRING_VALUE", // required
  * //             },
- * //             TrainingJobStatus: "InProgress" || "Completed" || "Failed" || "Stopping" || "Stopped",
+ * //             TrainingJobStatus: "InProgress" || "Completed" || "Failed" || "Stopping" || "Stopped" || "Deleting",
  * //             SecondaryStatus: "Starting" || "LaunchingMLInstances" || "PreparingTrainingStack" || "Downloading" || "DownloadingTrainingImage" || "Training" || "Uploading" || "Stopping" || "Stopped" || "MaxRuntimeExceeded" || "Completed" || "Failed" || "Interrupted" || "MaxWaitTimeExceeded" || "Updating" || "Restarting" || "Pending",
  * //             FailureReason: "STRING_VALUE",
  * //             HyperParameters: {
@@ -1857,7 +1857,7 @@ export interface SearchCommandOutput extends SearchResponse, __MetadataBearer {}
  * //           CreationTime: new Date("TIMESTAMP"), // required
  * //           TrainingStartTime: new Date("TIMESTAMP"),
  * //           TrainingEndTime: new Date("TIMESTAMP"),
- * //           TrainingJobStatus: "InProgress" || "Completed" || "Failed" || "Stopping" || "Stopped", // required
+ * //           TrainingJobStatus: "InProgress" || "Completed" || "Failed" || "Stopping" || "Stopped" || "Deleting", // required
  * //           TunedHyperParameters: "<HyperParameters>", // required
  * //           FailureReason: "STRING_VALUE",
  * //           FinalHyperParameterTuningJobObjectiveMetric: { // FinalHyperParameterTuningJobObjectiveMetric
@@ -1875,7 +1875,7 @@ export interface SearchCommandOutput extends SearchResponse, __MetadataBearer {}
  * //           CreationTime: new Date("TIMESTAMP"), // required
  * //           TrainingStartTime: new Date("TIMESTAMP"),
  * //           TrainingEndTime: new Date("TIMESTAMP"),
- * //           TrainingJobStatus: "InProgress" || "Completed" || "Failed" || "Stopping" || "Stopped", // required
+ * //           TrainingJobStatus: "InProgress" || "Completed" || "Failed" || "Stopping" || "Stopped" || "Deleting", // required
  * //           TunedHyperParameters: "<HyperParameters>", // required
  * //           FailureReason: "STRING_VALUE",
  * //           FinalHyperParameterTuningJobObjectiveMetric: {

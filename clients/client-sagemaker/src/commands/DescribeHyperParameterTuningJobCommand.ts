@@ -457,7 +457,7 @@ export interface DescribeHyperParameterTuningJobCommandOutput
  * //     CreationTime: new Date("TIMESTAMP"), // required
  * //     TrainingStartTime: new Date("TIMESTAMP"),
  * //     TrainingEndTime: new Date("TIMESTAMP"),
- * //     TrainingJobStatus: "InProgress" || "Completed" || "Failed" || "Stopping" || "Stopped", // required
+ * //     TrainingJobStatus: "InProgress" || "Completed" || "Failed" || "Stopping" || "Stopped" || "Deleting", // required
  * //     TunedHyperParameters: { // required
  * //       "<keys>": "STRING_VALUE",
  * //     },
@@ -477,7 +477,7 @@ export interface DescribeHyperParameterTuningJobCommandOutput
  * //     CreationTime: new Date("TIMESTAMP"), // required
  * //     TrainingStartTime: new Date("TIMESTAMP"),
  * //     TrainingEndTime: new Date("TIMESTAMP"),
- * //     TrainingJobStatus: "InProgress" || "Completed" || "Failed" || "Stopping" || "Stopped", // required
+ * //     TrainingJobStatus: "InProgress" || "Completed" || "Failed" || "Stopping" || "Stopped" || "Deleting", // required
  * //     TunedHyperParameters: { // required
  * //       "<keys>": "STRING_VALUE",
  * //     },

@@ -355,6 +355,10 @@ import {
 } from "./commands/DeleteOptimizationJobCommand";
 import { DeletePartnerAppCommandInput, DeletePartnerAppCommandOutput } from "./commands/DeletePartnerAppCommand";
 import { DeletePipelineCommandInput, DeletePipelineCommandOutput } from "./commands/DeletePipelineCommand";
+import {
+  DeleteProcessingJobCommandInput,
+  DeleteProcessingJobCommandOutput,
+} from "./commands/DeleteProcessingJobCommand";
 import { DeleteProjectCommandInput, DeleteProjectCommandOutput } from "./commands/DeleteProjectCommand";
 import { DeleteSpaceCommandInput, DeleteSpaceCommandOutput } from "./commands/DeleteSpaceCommand";
 import {
@@ -362,6 +366,7 @@ import {
   DeleteStudioLifecycleConfigCommandOutput,
 } from "./commands/DeleteStudioLifecycleConfigCommand";
 import { DeleteTagsCommandInput, DeleteTagsCommandOutput } from "./commands/DeleteTagsCommand";
+import { DeleteTrainingJobCommandInput, DeleteTrainingJobCommandOutput } from "./commands/DeleteTrainingJobCommand";
 import { DeleteTrialCommandInput, DeleteTrialCommandOutput } from "./commands/DeleteTrialCommand";
 import {
   DeleteTrialComponentCommandInput,
@@ -1153,10 +1158,12 @@ export type ServiceInputTypes =
   | DeleteOptimizationJobCommandInput
   | DeletePartnerAppCommandInput
   | DeletePipelineCommandInput
+  | DeleteProcessingJobCommandInput
   | DeleteProjectCommandInput
   | DeleteSpaceCommandInput
   | DeleteStudioLifecycleConfigCommandInput
   | DeleteTagsCommandInput
+  | DeleteTrainingJobCommandInput
   | DeleteTrialCommandInput
   | DeleteTrialComponentCommandInput
   | DeleteUserProfileCommandInput
@@ -1527,10 +1534,12 @@ export type ServiceOutputTypes =
   | DeleteOptimizationJobCommandOutput
   | DeletePartnerAppCommandOutput
   | DeletePipelineCommandOutput
+  | DeleteProcessingJobCommandOutput
   | DeleteProjectCommandOutput
   | DeleteSpaceCommandOutput
   | DeleteStudioLifecycleConfigCommandOutput
   | DeleteTagsCommandOutput
+  | DeleteTrainingJobCommandOutput
   | DeleteTrialCommandOutput
   | DeleteTrialComponentCommandOutput
   | DeleteUserProfileCommandOutput

@@ -131,7 +131,6 @@ import {
   RecommendationMetrics,
   ReservedCapacitySummary,
   SageMakerResourceName,
-  ScalingPolicyMetric,
   ScalingPolicyObjective,
   ScheduleStatus,
   SecondaryStatus,
@@ -143,10 +142,62 @@ import {
   TrainingPlanStatus,
   TransformJobStatus,
   TrialComponentSource,
-  TrialSource,
   WarmPoolResourceStatus,
   WarmPoolStatus,
 } from "./models_3";
+
+/**
+ * @public
+ */
+export interface GetScalingConfigurationRecommendationRequest {
+  /**
+   * <p>The name of a previously completed Inference Recommender job.</p>
+   * @public
+   */
+  InferenceRecommendationsJobName: string | undefined;
+
+  /**
+   * <p>The recommendation ID of a previously completed inference recommendation. This ID should come from one of the recommendations returned by the job specified in the <code>InferenceRecommendationsJobName</code> field.</p> <p>Specify either this field or the <code>EndpointName</code> field.</p>
+   * @public
+   */
+  RecommendationId?: string | undefined;
+
+  /**
+   * <p>The name of an endpoint benchmarked during a previously completed inference recommendation job. This name should come from one of the recommendations returned by the job specified in the <code>InferenceRecommendationsJobName</code> field.</p> <p>Specify either this field or the <code>RecommendationId</code> field.</p>
+   * @public
+   */
+  EndpointName?: string | undefined;
+
+  /**
+   * <p>The percentage of how much utilization you want an instance to use before autoscaling. The default value is 50%.</p>
+   * @public
+   */
+  TargetCpuUtilizationPerCore?: number | undefined;
+
+  /**
+   * <p>An object where you specify the anticipated traffic pattern for an endpoint.</p>
+   * @public
+   */
+  ScalingPolicyObjective?: ScalingPolicyObjective | undefined;
+}
+
+/**
+ * <p>The metric for a scaling policy.</p>
+ * @public
+ */
+export interface ScalingPolicyMetric {
+  /**
+   * <p>The number of invocations sent to a model, normalized by <code>InstanceCount</code> in each ProductionVariant. <code>1/numberOfInstances</code> is sent as the value on each request, where <code>numberOfInstances</code> is the number of active instances for the ProductionVariant behind the endpoint at the time of the request.</p>
+   * @public
+   */
+  InvocationsPerInstance?: number | undefined;
+
+  /**
+   * <p>The interval of time taken by a model to respond as viewed from SageMaker. This interval includes the local communication times taken to send the request and to fetch the response from the container of a model and the time taken to complete the inference in the container.</p>
+   * @public
+   */
+  ModelLatency?: number | undefined;
+}
 
 /**
  * @public
@@ -9669,65 +9720,6 @@ export interface ListTrialsRequest {
 
   /**
    * <p>If the previous call to <code>ListTrials</code> didn't return the full set of trials, the call returns a token for getting the next set of trials.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * <p>A summary of the properties of a trial. To get the complete set of properties, call the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeTrial.html">DescribeTrial</a> API and provide the <code>TrialName</code>.</p>
- * @public
- */
-export interface TrialSummary {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the trial.</p>
-   * @public
-   */
-  TrialArn?: string | undefined;
-
-  /**
-   * <p>The name of the trial.</p>
-   * @public
-   */
-  TrialName?: string | undefined;
-
-  /**
-   * <p>The name of the trial as displayed. If <code>DisplayName</code> isn't specified, <code>TrialName</code> is displayed.</p>
-   * @public
-   */
-  DisplayName?: string | undefined;
-
-  /**
-   * <p>The source of the trial.</p>
-   * @public
-   */
-  TrialSource?: TrialSource | undefined;
-
-  /**
-   * <p>When the trial was created.</p>
-   * @public
-   */
-  CreationTime?: Date | undefined;
-
-  /**
-   * <p>When the trial was last modified.</p>
-   * @public
-   */
-  LastModifiedTime?: Date | undefined;
-}
-
-/**
- * @public
- */
-export interface ListTrialsResponse {
-  /**
-   * <p>A list of the summaries of your trials.</p>
-   * @public
-   */
-  TrialSummaries?: TrialSummary[] | undefined;
-
-  /**
-   * <p>A token for getting the next set of trials, if there are any.</p>
    * @public
    */
   NextToken?: string | undefined;

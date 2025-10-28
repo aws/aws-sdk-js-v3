@@ -554,6 +554,11 @@ import {
   DeletePipelineCommandOutput,
 } from "./commands/DeletePipelineCommand";
 import {
+  DeleteProcessingJobCommand,
+  DeleteProcessingJobCommandInput,
+  DeleteProcessingJobCommandOutput,
+} from "./commands/DeleteProcessingJobCommand";
+import {
   DeleteProjectCommand,
   DeleteProjectCommandInput,
   DeleteProjectCommandOutput,
@@ -565,6 +570,11 @@ import {
   DeleteStudioLifecycleConfigCommandOutput,
 } from "./commands/DeleteStudioLifecycleConfigCommand";
 import { DeleteTagsCommand, DeleteTagsCommandInput, DeleteTagsCommandOutput } from "./commands/DeleteTagsCommand";
+import {
+  DeleteTrainingJobCommand,
+  DeleteTrainingJobCommandInput,
+  DeleteTrainingJobCommandOutput,
+} from "./commands/DeleteTrainingJobCommand";
 import { DeleteTrialCommand, DeleteTrialCommandInput, DeleteTrialCommandOutput } from "./commands/DeleteTrialCommand";
 import {
   DeleteTrialComponentCommand,
@@ -1841,10 +1851,12 @@ const commands = {
   DeleteOptimizationJobCommand,
   DeletePartnerAppCommand,
   DeletePipelineCommand,
+  DeleteProcessingJobCommand,
   DeleteProjectCommand,
   DeleteSpaceCommand,
   DeleteStudioLifecycleConfigCommand,
   DeleteTagsCommand,
+  DeleteTrainingJobCommand,
   DeleteTrialCommand,
   DeleteTrialComponentCommand,
   DeleteUserProfileCommand,
@@ -3958,6 +3970,23 @@ export interface SageMaker {
   ): void;
 
   /**
+   * @see {@link DeleteProcessingJobCommand}
+   */
+  deleteProcessingJob(
+    args: DeleteProcessingJobCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteProcessingJobCommandOutput>;
+  deleteProcessingJob(
+    args: DeleteProcessingJobCommandInput,
+    cb: (err: any, data?: DeleteProcessingJobCommandOutput) => void
+  ): void;
+  deleteProcessingJob(
+    args: DeleteProcessingJobCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteProcessingJobCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DeleteProjectCommand}
    */
   deleteProject(args: DeleteProjectCommandInput, options?: __HttpHandlerOptions): Promise<DeleteProjectCommandOutput>;
@@ -4005,6 +4034,23 @@ export interface SageMaker {
     args: DeleteTagsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteTagsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteTrainingJobCommand}
+   */
+  deleteTrainingJob(
+    args: DeleteTrainingJobCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteTrainingJobCommandOutput>;
+  deleteTrainingJob(
+    args: DeleteTrainingJobCommandInput,
+    cb: (err: any, data?: DeleteTrainingJobCommandOutput) => void
+  ): void;
+  deleteTrainingJob(
+    args: DeleteTrainingJobCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteTrainingJobCommandOutput) => void
   ): void;
 
   /**
