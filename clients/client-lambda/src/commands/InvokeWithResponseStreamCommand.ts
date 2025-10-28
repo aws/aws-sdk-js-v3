@@ -152,6 +152,9 @@ export interface InvokeWithResponseStreamCommandOutput extends InvokeWithRespons
  * @throws {@link ResourceNotReadyException} (server fault)
  *  <p>The function is inactive and its VPC connection is no longer available. Wait for the VPC connection to reestablish and try again.</p>
  *
+ * @throws {@link SerializedRequestEntityTooLargeException} (client fault)
+ *  <p>The processed request payload exceeded the <code>Invoke</code> request body size limit for asynchronous invocations. While the event payload may be under 1 MB, the size after internal serialization exceeds the maximum allowed size for asynchronous invocations.</p>
+ *
  * @throws {@link ServiceException} (server fault)
  *  <p>The Lambda service encountered an internal error.</p>
  *

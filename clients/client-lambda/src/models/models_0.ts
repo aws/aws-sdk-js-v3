@@ -408,7 +408,7 @@ export interface AddPermissionRequest {
   FunctionUrlAuthType?: FunctionUrlAuthType | undefined;
 
   /**
-   * <p>Restricts the <code>lambda:InvokeFunction</code> action to calls coming from a function URL. When set to <code>true</code>, this prevents the principal from invoking the function by any means other than the function URL. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html">Control access to Lambda function URLs</a>.</p>
+   * <p>Restricts the <code>lambda:InvokeFunction</code> action to function URL calls. When set to <code>true</code>, this prevents the principal from invoking the function by any means other than the function URL. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html">Control access to Lambda function URLs</a>.</p>
    * @public
    */
   InvokedViaFunctionUrl?: boolean | undefined;
@@ -913,7 +913,7 @@ export interface UpdateCodeSigningConfigResponse {
  */
 export interface OnFailure {
   /**
-   * <p>The Amazon Resource Name (ARN) of the destination resource.</p> <p>To retain records of unsuccessful <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#invocation-async-destinations">asynchronous invocations</a>, you can configure an Amazon SNS topic, Amazon SQS queue, Amazon S3 bucket, Lambda function, or Amazon EventBridge event bus as the destination.</p> <p>To retain records of failed invocations from <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html">Kinesis</a>, <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html">DynamoDB</a>, <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-kafka.html#services-smaa-onfailure-destination">self-managed Kafka</a> or <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html#services-msk-onfailure-destination">Amazon MSK</a>, you can configure an Amazon SNS topic, Amazon SQS queue, or Amazon S3 bucket as the destination.</p>
+   * <p>The Amazon Resource Name (ARN) of the destination resource.</p> <p>To retain records of unsuccessful <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#invocation-async-destinations">asynchronous invocations</a>, you can configure an Amazon SNS topic, Amazon SQS queue, Amazon S3 bucket, Lambda function, or Amazon EventBridge event bus as the destination.</p> <note> <p>Amazon SNS destinations have a message size limit of 256 KB. If the combined size of the function request and response payload exceeds the limit, Lambda will drop the payload when sending <code>OnFailure</code> event to the destination. For details on this behavior, refer to <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-async-retain-records.html">Retaining records of asynchronous invocations</a>.</p> </note> <p>To retain records of failed invocations from <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html">Kinesis</a>, <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html">DynamoDB</a>, <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-kafka.html#services-smaa-onfailure-destination">self-managed Kafka</a> or <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html#services-msk-onfailure-destination">Amazon MSK</a>, you can configure an Amazon SNS topic, Amazon SQS queue, or Amazon S3 bucket as the destination.</p>
    * @public
    */
   Destination?: string | undefined;
@@ -925,7 +925,7 @@ export interface OnFailure {
  */
 export interface OnSuccess {
   /**
-   * <p>The Amazon Resource Name (ARN) of the destination resource.</p>
+   * <p>The Amazon Resource Name (ARN) of the destination resource.</p> <note> <p>Amazon SNS destinations have a message size limit of 256 KB. If the combined size of the function request and response payload exceeds the limit, Lambda will drop the payload when sending <code>OnFailure</code> event to the destination. For details on this behavior, refer to <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-async-retain-records.html">Retaining records of asynchronous invocations</a>.</p> </note>
    * @public
    */
   Destination?: string | undefined;
@@ -3892,7 +3892,7 @@ export interface InvocationRequest {
   ClientContext?: string | undefined;
 
   /**
-   * <p>The JSON that you want to provide to your Lambda function as input.</p> <p>You can enter the JSON directly. For example, <code>--payload '\{ "key": "value" \}'</code>. You can also specify a file path. For example, <code>--payload file://payload.json</code>.</p>
+   * <p>The JSON that you want to provide to your Lambda function as input. The maximum payload size is 6 MB for synchronous invocations and 1 MB for asynchronous invocations.</p> <p>You can enter the JSON directly. For example, <code>--payload '\{ "key": "value" \}'</code>. You can also specify a file path. For example, <code>--payload file://payload.json</code>.</p>
    * @public
    */
   Payload?: Uint8Array | undefined;
@@ -4113,6 +4113,33 @@ export class ResourceNotReadyException extends __BaseException {
       ...opts,
     });
     Object.setPrototypeOf(this, ResourceNotReadyException.prototype);
+    this.Type = opts.Type;
+  }
+}
+
+/**
+ * <p>The processed request payload exceeded the <code>Invoke</code> request body size limit for asynchronous invocations. While the event payload may be under 1 MB, the size after internal serialization exceeds the maximum allowed size for asynchronous invocations.</p>
+ * @public
+ */
+export class SerializedRequestEntityTooLargeException extends __BaseException {
+  readonly name: "SerializedRequestEntityTooLargeException" = "SerializedRequestEntityTooLargeException";
+  readonly $fault: "client" = "client";
+  /**
+   * <p>The error type.</p>
+   * @public
+   */
+  Type?: string | undefined;
+
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<SerializedRequestEntityTooLargeException, __BaseException>) {
+    super({
+      name: "SerializedRequestEntityTooLargeException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, SerializedRequestEntityTooLargeException.prototype);
     this.Type = opts.Type;
   }
 }

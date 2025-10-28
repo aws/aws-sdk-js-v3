@@ -301,6 +301,7 @@ import {
   ScalingConfig,
   SelfManagedEventSource,
   SelfManagedKafkaEventSourceConfig,
+  SerializedRequestEntityTooLargeException,
   ServiceException,
   SnapStart,
   SnapStartException,
@@ -3736,6 +3737,9 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "ResourceNotReadyException":
     case "com.amazonaws.lambda#ResourceNotReadyException":
       throw await de_ResourceNotReadyExceptionRes(parsedOutput, context);
+    case "SerializedRequestEntityTooLargeException":
+    case "com.amazonaws.lambda#SerializedRequestEntityTooLargeException":
+      throw await de_SerializedRequestEntityTooLargeExceptionRes(parsedOutput, context);
     case "SnapStartException":
     case "com.amazonaws.lambda#SnapStartException":
       throw await de_SnapStartExceptionRes(parsedOutput, context);
@@ -4405,6 +4409,27 @@ const de_ResourceNotReadyExceptionRes = async (
   });
   Object.assign(contents, doc);
   const exception = new ResourceNotReadyException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
+};
+
+/**
+ * deserializeAws_restJson1SerializedRequestEntityTooLargeExceptionRes
+ */
+const de_SerializedRequestEntityTooLargeExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<SerializedRequestEntityTooLargeException> => {
+  const contents: any = map({});
+  const data: any = parsedOutput.body;
+  const doc = take(data, {
+    Type: __expectString,
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
+  const exception = new SerializedRequestEntityTooLargeException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
   });
