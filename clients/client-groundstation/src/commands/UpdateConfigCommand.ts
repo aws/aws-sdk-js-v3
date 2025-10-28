@@ -28,9 +28,7 @@ export interface UpdateConfigCommandInput extends UpdateConfigRequest {}
 export interface UpdateConfigCommandOutput extends ConfigIdResponse, __MetadataBearer {}
 
 /**
- * <p>Updates the <code>Config</code> used when scheduling contacts.</p>
- *          <p>Updating a <code>Config</code> will not update the execution parameters
- *          for existing future contacts scheduled with this <code>Config</code>.</p>
+ * <p>Updates the <code>Config</code> used when scheduling contacts.</p> <p>Updating a <code>Config</code> will not update the execution parameters for existing future contacts scheduled with this <code>Config</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

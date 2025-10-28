@@ -28,8 +28,7 @@ export interface CreateConfigCommandInput extends CreateConfigRequest {}
 export interface CreateConfigCommandOutput extends ConfigIdResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a <code>Config</code> with the specified <code>configData</code> parameters.</p>
- *          <p>Only one type of <code>configData</code> can be specified.</p>
+ * <p>Creates a <code>Config</code> with the specified <code>configData</code> parameters.</p> <p>Only one type of <code>configData</code> can be specified.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

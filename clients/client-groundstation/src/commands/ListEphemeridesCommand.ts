@@ -28,7 +28,7 @@ export interface ListEphemeridesCommandInput extends ListEphemeridesRequest {}
 export interface ListEphemeridesCommandOutput extends ListEphemeridesResponse, __MetadataBearer {}
 
 /**
- * <p>List existing ephemerides.</p>
+ * <p>List your existing ephemerides.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -38,7 +38,8 @@ export interface ListEphemeridesCommandOutput extends ListEphemeridesResponse, _
  * const config = {}; // type is GroundStationClientConfig
  * const client = new GroundStationClient(config);
  * const input = { // ListEphemeridesRequest
- *   satelliteId: "STRING_VALUE", // required
+ *   satelliteId: "STRING_VALUE",
+ *   ephemerisType: "TLE" || "OEM" || "AZ_EL" || "SERVICE_MANAGED",
  *   startTime: new Date("TIMESTAMP"), // required
  *   endTime: new Date("TIMESTAMP"), // required
  *   statusList: [ // EphemerisStatusList
@@ -54,6 +55,7 @@ export interface ListEphemeridesCommandOutput extends ListEphemeridesResponse, _
  * //   ephemerides: [ // EphemeridesList
  * //     { // EphemerisItem
  * //       ephemerisId: "STRING_VALUE",
+ * //       ephemerisType: "TLE" || "OEM" || "AZ_EL" || "SERVICE_MANAGED",
  * //       status: "VALIDATING" || "INVALID" || "ERROR" || "ENABLED" || "DISABLED" || "EXPIRED",
  * //       priority: Number("int"),
  * //       enabled: true || false,

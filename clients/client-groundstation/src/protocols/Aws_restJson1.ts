@@ -22,6 +22,7 @@ import {
   map,
   parseEpochTimestamp as __parseEpochTimestamp,
   resolvedPath as __resolvedPath,
+  serializeDateTime as __serializeDateTime,
   serializeFloat as __serializeFloat,
   take,
   withBaseException,
@@ -103,6 +104,12 @@ import {
   AntennaDownlinkDemodDecodeConfig,
   AntennaUplinkConfig,
   AwsGroundStationAgentEndpoint,
+  AzElEphemeris,
+  AzElEphemerisFilter,
+  AzElProgramTrackSettings,
+  AzElSegment,
+  AzElSegments,
+  AzElSegmentsData,
   CapabilityHealthReason,
   ComponentStatusData,
   ComponentVersion,
@@ -120,6 +127,7 @@ import {
   Elevation,
   EndpointDetails,
   EphemerisData,
+  EphemerisFilter,
   EphemerisItem,
   EphemerisMetaData,
   EphemerisStatus,
@@ -127,10 +135,13 @@ import {
   FrequencyBandwidth,
   IntegerRange,
   InvalidParameterException,
+  ISO8601TimeRange,
   KmsKey,
   OEMEphemeris,
+  ProgramTrackSettings,
   RangedConnectionDetails,
   RangedSocketAddress,
+  ResourceInUseException,
   ResourceLimitExceededException,
   ResourceNotFoundException,
   S3Object,
@@ -139,10 +150,12 @@ import {
   SecurityDetails,
   SocketAddress,
   SpectrumConfig,
+  TimeAzEl,
   TimeRange,
   TLEData,
   TLEEphemeris,
   TrackingConfig,
+  TrackingOverrides,
   UplinkEchoConfig,
   UplinkSpectrumConfig,
 } from "../models/models_0";
@@ -507,6 +520,7 @@ export const se_ListContactsCommand = async (
   body = JSON.stringify(
     take(input, {
       endTime: (_) => _.getTime() / 1_000,
+      ephemeris: (_) => _json(_),
       groundStation: [],
       maxResults: [],
       missionProfileArn: [],
@@ -559,6 +573,7 @@ export const se_ListEphemeridesCommand = async (
   body = JSON.stringify(
     take(input, {
       endTime: (_) => _.getTime() / 1_000,
+      ephemerisType: [],
       satelliteId: [],
       startTime: (_) => _.getTime() / 1_000,
       statusList: (_) => _json(_),
@@ -687,6 +702,7 @@ export const se_ReserveContactCommand = async (
       satelliteArn: [],
       startTime: (_) => _.getTime() / 1_000,
       tags: (_) => _json(_),
+      trackingOverrides: (_) => _json(_),
     })
   );
   b.m("POST").h(headers).b(body);
@@ -1052,6 +1068,7 @@ export const de_DescribeContactCommand = async (
     contactStatus: __expectString,
     dataflowList: _json,
     endTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    ephemeris: _json,
     errorMessage: __expectString,
     groundStation: __expectString,
     maximumElevation: (_) => de_Elevation(_, context),
@@ -1062,6 +1079,7 @@ export const de_DescribeContactCommand = async (
     satelliteArn: __expectString,
     startTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     tags: _json,
+    trackingOverrides: _json,
     visibilityEndTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     visibilityStartTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
   });
@@ -1087,6 +1105,7 @@ export const de_DescribeEphemerisCommand = async (
     creationTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     enabled: __expectBoolean,
     ephemerisId: __expectString,
+    errorReasons: _json,
     invalidReason: __expectString,
     name: __expectString,
     priority: __expectInt32,
@@ -1614,6 +1633,9 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "ResourceLimitExceededException":
     case "com.amazonaws.groundstation#ResourceLimitExceededException":
       throw await de_ResourceLimitExceededExceptionRes(parsedOutput, context);
+    case "ResourceInUseException":
+    case "com.amazonaws.groundstation#ResourceInUseException":
+      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -1658,6 +1680,26 @@ const de_InvalidParameterExceptionRes = async (
   });
   Object.assign(contents, doc);
   const exception = new InvalidParameterException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
+};
+
+/**
+ * deserializeAws_restJson1ResourceInUseExceptionRes
+ */
+const de_ResourceInUseExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<ResourceInUseException> => {
+  const contents: any = map({});
+  const data: any = parsedOutput.body;
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
+  const exception = new ResourceInUseException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
   });
@@ -1744,6 +1786,63 @@ const se_AntennaUplinkConfig = (input: AntennaUplinkConfig, context: __SerdeCont
 
 // se_AwsGroundStationAgentEndpoint omitted.
 
+/**
+ * serializeAws_restJson1AzElEphemeris
+ */
+const se_AzElEphemeris = (input: AzElEphemeris, context: __SerdeContext): any => {
+  return take(input, {
+    data: (_) => se_AzElSegmentsData(_, context),
+    groundStation: [],
+  });
+};
+
+// se_AzElEphemerisFilter omitted.
+
+// se_AzElProgramTrackSettings omitted.
+
+/**
+ * serializeAws_restJson1AzElSegment
+ */
+const se_AzElSegment = (input: AzElSegment, context: __SerdeContext): any => {
+  return take(input, {
+    azElList: (_) => se_TimeAzElList(_, context),
+    referenceEpoch: __serializeDateTime,
+    validTimeRange: (_) => se_ISO8601TimeRange(_, context),
+  });
+};
+
+/**
+ * serializeAws_restJson1AzElSegmentList
+ */
+const se_AzElSegmentList = (input: AzElSegment[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return se_AzElSegment(entry, context);
+    });
+};
+
+/**
+ * serializeAws_restJson1AzElSegments
+ */
+const se_AzElSegments = (input: AzElSegments, context: __SerdeContext): any => {
+  return take(input, {
+    angleUnit: [],
+    azElSegmentList: (_) => se_AzElSegmentList(_, context),
+  });
+};
+
+/**
+ * serializeAws_restJson1AzElSegmentsData
+ */
+const se_AzElSegmentsData = (input: AzElSegmentsData, context: __SerdeContext): any => {
+  return AzElSegmentsData.visit(input, {
+    azElData: (value) => ({ azElData: se_AzElSegments(value, context) }),
+    s3Object: (value) => ({ s3Object: _json(value) }),
+    _: (name, value) => ({ [name]: value } as any),
+  });
+};
+
 // se_CapabilityArnList omitted.
 
 // se_CapabilityHealthReasonList omitted.
@@ -1809,11 +1908,14 @@ const se_Eirp = (input: Eirp, context: __SerdeContext): any => {
  */
 const se_EphemerisData = (input: EphemerisData, context: __SerdeContext): any => {
   return EphemerisData.visit(input, {
+    azEl: (value) => ({ azEl: se_AzElEphemeris(value, context) }),
     oem: (value) => ({ oem: _json(value) }),
     tle: (value) => ({ tle: se_TLEEphemeris(value, context) }),
     _: (name, value) => ({ [name]: value } as any),
   });
 };
+
+// se_EphemerisFilter omitted.
 
 // se_EphemerisStatusList omitted.
 
@@ -1841,9 +1943,21 @@ const se_FrequencyBandwidth = (input: FrequencyBandwidth, context: __SerdeContex
 
 // se_IpAddressList omitted.
 
+/**
+ * serializeAws_restJson1ISO8601TimeRange
+ */
+const se_ISO8601TimeRange = (input: ISO8601TimeRange, context: __SerdeContext): any => {
+  return take(input, {
+    endTime: __serializeDateTime,
+    startTime: __serializeDateTime,
+  });
+};
+
 // se_KmsKey omitted.
 
 // se_OEMEphemeris omitted.
+
+// se_ProgramTrackSettings omitted.
 
 // se_RangedConnectionDetails omitted.
 
@@ -1877,6 +1991,28 @@ const se_SpectrumConfig = (input: SpectrumConfig, context: __SerdeContext): any 
 // se_SubnetList omitted.
 
 // se_TagsMap omitted.
+
+/**
+ * serializeAws_restJson1TimeAzEl
+ */
+const se_TimeAzEl = (input: TimeAzEl, context: __SerdeContext): any => {
+  return take(input, {
+    az: __serializeFloat,
+    dt: __serializeFloat,
+    el: __serializeFloat,
+  });
+};
+
+/**
+ * serializeAws_restJson1TimeAzElList
+ */
+const se_TimeAzElList = (input: TimeAzEl[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return se_TimeAzEl(entry, context);
+    });
+};
 
 /**
  * serializeAws_restJson1TimeRange
@@ -1921,6 +2057,8 @@ const se_TLEEphemeris = (input: TLEEphemeris, context: __SerdeContext): any => {
 };
 
 // se_TrackingConfig omitted.
+
+// se_TrackingOverrides omitted.
 
 // se_UplinkEchoConfig omitted.
 
@@ -1973,6 +2111,8 @@ const de_AntennaUplinkConfig = (output: any, context: __SerdeContext): AntennaUp
 };
 
 // de_AwsGroundStationAgentEndpoint omitted.
+
+// de_AzElProgramTrackSettings omitted.
 
 // de_CapabilityHealthReasonList omitted.
 
@@ -2037,6 +2177,7 @@ const de_ContactData = (output: any, context: __SerdeContext): ContactData => {
     contactId: __expectString,
     contactStatus: __expectString,
     endTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    ephemeris: _json,
     errorMessage: __expectString,
     groundStation: __expectString,
     maximumElevation: (_: any) => de_Elevation(_, context),
@@ -2124,6 +2265,10 @@ const de_EphemeridesList = (output: any, context: __SerdeContext): EphemerisItem
 
 // de_EphemerisDescription omitted.
 
+// de_EphemerisErrorReason omitted.
+
+// de_EphemerisErrorReasonList omitted.
+
 /**
  * deserializeAws_restJson1EphemerisItem
  */
@@ -2132,6 +2277,7 @@ const de_EphemerisItem = (output: any, context: __SerdeContext): EphemerisItem =
     creationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     enabled: __expectBoolean,
     ephemerisId: __expectString,
+    ephemerisType: __expectString,
     name: __expectString,
     priority: __expectInt32,
     sourceS3Object: _json,
@@ -2150,6 +2296,8 @@ const de_EphemerisMetaData = (output: any, context: __SerdeContext): EphemerisMe
     source: __expectString,
   }) as any;
 };
+
+// de_EphemerisResponseData omitted.
 
 // de_EphemerisTypeDescription omitted.
 
@@ -2186,6 +2334,8 @@ const de_FrequencyBandwidth = (output: any, context: __SerdeContext): FrequencyB
 // de_MissionProfileList omitted.
 
 // de_MissionProfileListItem omitted.
+
+// de_ProgramTrackSettings omitted.
 
 // de_RangedConnectionDetails omitted.
 
@@ -2246,6 +2396,8 @@ const de_SpectrumConfig = (output: any, context: __SerdeContext): SpectrumConfig
 // de_TagsMap omitted.
 
 // de_TrackingConfig omitted.
+
+// de_TrackingOverrides omitted.
 
 // de_UplinkEchoConfig omitted.
 

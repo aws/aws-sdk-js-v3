@@ -147,10 +147,7 @@ export interface AgentDetails {
   instanceType: string | undefined;
 
   /**
-   * <note>
-   *             <p>This field should not be used. Use agentCpuCores instead.</p>
-   *          </note>
-   *          <p>List of CPU cores reserved for processes other than the agent running on the EC2 instance.</p>
+   * <note> <p>This field should not be used. Use agentCpuCores instead.</p> </note> <p>List of CPU cores reserved for processes other than the agent running on the EC2 instance.</p>
    * @public
    */
   reservedCpuCores?: number[] | undefined;
@@ -395,18 +392,7 @@ export type BandwidthUnits = (typeof BandwidthUnits)[keyof typeof BandwidthUnits
  */
 export interface FrequencyBandwidth {
   /**
-   * <p>Frequency bandwidth value. AWS Ground Station currently has the following bandwidth limitations:</p>
-   *          <ul>
-   *             <li>
-   *                <p>For <code>AntennaDownlinkDemodDecodeconfig</code>, valid values are between 125 kHz to 650 MHz.</p>
-   *             </li>
-   *             <li>
-   *                <p>For <code>AntennaDownlinkconfig</code>, valid values are between 10 kHz to 54 MHz.</p>
-   *             </li>
-   *             <li>
-   *                <p>For <code>AntennaUplinkConfig</code>, valid values are between 10 kHz to 54 MHz.</p>
-   *             </li>
-   *          </ul>
+   * <p>Frequency bandwidth value. AWS Ground Station currently has the following bandwidth limitations:</p> <ul> <li> <p>For <code>AntennaDownlinkDemodDecodeconfig</code>, valid values are between 125 kHz to 650 MHz.</p> </li> <li> <p>For <code>AntennaDownlinkconfig</code>, valid values are between 10 kHz to 54 MHz.</p> </li> <li> <p>For <code>AntennaUplinkConfig</code>, valid values are between 10 kHz to 54 MHz.</p> </li> </ul>
    * @public
    */
   value: number | undefined;
@@ -478,18 +464,7 @@ export interface SpectrumConfig {
   centerFrequency: Frequency | undefined;
 
   /**
-   * <p>Bandwidth of a spectral <code>Config</code>. AWS Ground Station currently has the following bandwidth limitations:</p>
-   *          <ul>
-   *             <li>
-   *                <p>For <code>AntennaDownlinkDemodDecodeconfig</code>, valid values are between 125 kHz to 650 MHz.</p>
-   *             </li>
-   *             <li>
-   *                <p>For <code>AntennaDownlinkconfig</code> valid values are between 10 kHz to 54 MHz.</p>
-   *             </li>
-   *             <li>
-   *                <p>For <code>AntennaUplinkConfig</code>, valid values are between 10 kHz to 54 MHz.</p>
-   *             </li>
-   *          </ul>
+   * <p>Bandwidth of a spectral <code>Config</code>. AWS Ground Station currently has the following bandwidth limitations:</p> <ul> <li> <p>For <code>AntennaDownlinkDemodDecodeconfig</code>, valid values are between 125 kHz to 650 MHz.</p> </li> <li> <p>For <code>AntennaDownlinkconfig</code> valid values are between 10 kHz to 54 MHz.</p> </li> <li> <p>For <code>AntennaUplinkConfig</code>, valid values are between 10 kHz to 54 MHz.</p> </li> </ul>
    * @public
    */
   bandwidth: FrequencyBandwidth | undefined;
@@ -502,8 +477,7 @@ export interface SpectrumConfig {
 }
 
 /**
- * <p>Information about how AWS Ground Station should configure an
- *          antenna for downlink during a contact.</p>
+ * <p>Information about how AWS Ground Station should configure an antenna for downlink during a contact.</p>
  * @public
  */
 export interface AntennaDownlinkConfig {
@@ -776,6 +750,211 @@ export interface AwsGroundStationAgentEndpoint {
 }
 
 /**
+ * <p>Time-tagged azimuth elevation pointing data.</p> <p>Specifies the antenna pointing direction at a specific time offset from the segment's reference epoch.</p>
+ * @public
+ */
+export interface TimeAzEl {
+  /**
+   * <p>Time offset in atomic seconds from the segment's reference epoch.</p> <p>All <code>dt</code> values within a segment must be in ascending order with no duplicates.</p> <p> <code>dt</code> values may be:</p> <ul> <li> <p>negative</p> </li> <li> <p>expressed as fractions of a second</p> </li> <li> <p>expressed in scientific notation</p> </li> </ul>
+   * @public
+   */
+  dt: number | undefined;
+
+  /**
+   * <p>Azimuth angle at the specified time.</p> <p>Valid ranges by unit:</p> <ul> <li> <p> <code>DEGREE_ANGLE</code>: -180 to 360 degrees, measured clockwise from true north</p> </li> <li> <p> <code>RADIAN</code>: -π to 2π radians, measured clockwise from true north</p> </li> </ul>
+   * @public
+   */
+  az: number | undefined;
+
+  /**
+   * <p>Elevation angle at the specified time.</p> <p>Valid ranges by unit:</p> <ul> <li> <p> <code>DEGREE_ANGLE</code>: -90 to 90 degrees, where 0 is the horizon, 90 is zenith, and negative values are below the horizon </p> </li> <li> <p> <code>RADIAN</code>: -π/2 to π/2 radians, where 0 is the horizon, π/2 is zenith, and negative values are below the horizon </p> </li> </ul>
+   * @public
+   */
+  el: number | undefined;
+}
+
+/**
+ * <p>Time range specified using ISO 8601 format timestamps.</p>
+ * @public
+ */
+export interface ISO8601TimeRange {
+  /**
+   * <p>Start time in ISO 8601 format in Coordinated Universal Time (UTC).</p> <p>Example: <code>2026-11-15T10:28:48.000Z</code> </p>
+   * @public
+   */
+  startTime: Date | undefined;
+
+  /**
+   * <p>End time in ISO 8601 format in Coordinated Universal Time (UTC).</p> <p>Example: <code>2024-01-15T12:00:00.000Z</code> </p>
+   * @public
+   */
+  endTime: Date | undefined;
+}
+
+/**
+ * <p>A time segment containing azimuth elevation pointing data.</p> <p> Each segment defines a continuous time period with pointing angle data points. AWS Ground Station uses 4th order Lagrange interpolation between the provided points, so each segment must contain at least five data points. </p>
+ * @public
+ */
+export interface AzElSegment {
+  /**
+   * <p>The reference time for this segment in ISO 8601 format in Coordinated Universal Time (UTC).</p> <p>All time values within the segment's <a>AzElSegment$azElList</a> are specified as offsets in atomic seconds from this reference epoch.</p> <p>Example: <code>2024-01-15T12:00:00.000Z</code> </p>
+   * @public
+   */
+  referenceEpoch: Date | undefined;
+
+  /**
+   * <p>The valid time range for this segment.</p> <p> Specifies the start and end timestamps in ISO 8601 format in Coordinated Universal Time (UTC). The segment's pointing data must cover this entire time range. </p>
+   * @public
+   */
+  validTimeRange: ISO8601TimeRange | undefined;
+
+  /**
+   * <p>List of time-tagged azimuth elevation data points.</p> <p> Must contain at least five points to support 4th order Lagrange interpolation. Points must be in chronological order with no duplicates. </p>
+   * @public
+   */
+  azElList: TimeAzEl[] | undefined;
+}
+
+/**
+ * <p>Azimuth elevation segment collection.</p> <p>Contains five or more time-ordered segments that define antenna pointing angles over the ephemeris validity period.</p>
+ * @public
+ */
+export interface AzElSegments {
+  /**
+   * <p>The unit of measure for azimuth and elevation angles. All angles in all segments must use the same unit.</p>
+   * @public
+   */
+  angleUnit: AngleUnits | undefined;
+
+  /**
+   * <p>List of azimuth elevation segments.</p> <p>Must contain between 1 and 100 segments. Segments must be in chronological order with no overlaps.</p>
+   * @public
+   */
+  azElSegmentList: AzElSegment[] | undefined;
+}
+
+/**
+ * <p>Object stored in Amazon S3 containing ephemeris data.</p>
+ * @public
+ */
+export interface S3Object {
+  /**
+   * <p>An Amazon S3 Bucket name.</p>
+   * @public
+   */
+  bucket?: string | undefined;
+
+  /**
+   * <p>An Amazon S3 key for the ephemeris.</p>
+   * @public
+   */
+  key?: string | undefined;
+
+  /**
+   * <p>For versioned Amazon S3 objects, the version to use for the ephemeris.</p>
+   * @public
+   */
+  version?: string | undefined;
+}
+
+/**
+ * <p>Container for azimuth elevation segment data.</p> <p>Specify either <a>AzElSegmentsData$s3Object</a> to reference data in Amazon S3, or <a>AzElSegmentsData$azElData</a> to provide data inline.</p>
+ * @public
+ */
+export type AzElSegmentsData =
+  | AzElSegmentsData.AzElDataMember
+  | AzElSegmentsData.S3ObjectMember
+  | AzElSegmentsData.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace AzElSegmentsData {
+  /**
+   * <p>The Amazon S3 object containing azimuth elevation segment data.</p> <p>The Amazon S3 object must contain JSON-formatted azimuth elevation data matching the <a>AzElSegments</a> structure.</p>
+   * @public
+   */
+  export interface S3ObjectMember {
+    s3Object: S3Object;
+    azElData?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Azimuth elevation segment data provided directly in the request.</p> <p>Use this option for smaller datasets or when Amazon S3 access is not available.</p>
+   * @public
+   */
+  export interface AzElDataMember {
+    s3Object?: never;
+    azElData: AzElSegments;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    s3Object?: never;
+    azElData?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    s3Object: (value: S3Object) => T;
+    azElData: (value: AzElSegments) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: AzElSegmentsData, visitor: Visitor<T>): T => {
+    if (value.s3Object !== undefined) return visitor.s3Object(value.s3Object);
+    if (value.azElData !== undefined) return visitor.azElData(value.azElData);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * <p>Azimuth elevation ephemeris data.</p> <p> Use this ephemeris type to provide pointing angles directly, rather than satellite orbital elements. Use this when you need precise antenna pointing but have imprecise or unknown satellite trajectory information. </p> <p> The azimuth elevation data specifies the antenna pointing direction at specific times relative to a ground station location. AWS Ground Station uses 4th order Lagrange interpolation to compute pointing angles between the provided data points. </p> <p> AWS Ground Station automatically filters interpolated pointing angles, including only those that are above the site mask elevation of the specified ground station. </p> <p> For more detail about providing azimuth elevation ephemerides to AWS Ground Station, see the <a href="https://docs.aws.amazon.com/ground-station/latest/ug/providing-azimuth-elevation-ephemeris-data.html">azimuth elevation ephemeris section</a> of the AWS Ground Station User Guide. </p>
+ * @public
+ */
+export interface AzElEphemeris {
+  /**
+   * <p>The ground station name for which you're providing azimuth elevation data.</p> <p>This ephemeris is specific to this ground station and can't be used at other locations.</p>
+   * @public
+   */
+  groundStation: string | undefined;
+
+  /**
+   * <p>Azimuth elevation segment data.</p> <p>You can provide data inline in the request or through an Amazon S3 object reference.</p>
+   * @public
+   */
+  data: AzElSegmentsData | undefined;
+}
+
+/**
+ * <p>Filter for selecting contacts that use a specific <a>AzElEphemeris</a>.</p>
+ * @public
+ */
+export interface AzElEphemerisFilter {
+  /**
+   * <p>Unique identifier of the azimuth elevation ephemeris.</p>
+   * @public
+   */
+  id: string | undefined;
+}
+
+/**
+ * <p>Program track settings for <a>AzElEphemeris</a>.</p>
+ * @public
+ */
+export interface AzElProgramTrackSettings {
+  /**
+   * <p>Unique identifier of the azimuth elevation ephemeris.</p>
+   * @public
+   */
+  ephemerisId: string | undefined;
+}
+
+/**
  * <p/>
  * @public
  */
@@ -933,8 +1112,7 @@ export const Criticality = {
 export type Criticality = (typeof Criticality)[keyof typeof Criticality];
 
 /**
- * <p>Object that determines whether tracking should be used during a contact
- *          executed with this <code>Config</code> in the mission profile.</p>
+ * <p>Object that determines whether tracking should be used during a contact executed with this <code>Config</code> in the mission profile.</p>
  * @public
  */
 export interface TrackingConfig {
@@ -946,10 +1124,7 @@ export interface TrackingConfig {
 }
 
 /**
- * <p>Information about an uplink echo <code>Config</code>.</p>
- *          <p>Parameters from the <code>AntennaUplinkConfig</code>, corresponding to the
- *          specified <code>AntennaUplinkConfigArn</code>, are used when this <code>UplinkEchoConfig</code>
- *          is used in a contact.</p>
+ * <p>Information about an uplink echo <code>Config</code>.</p> <p>Parameters from the <code>AntennaUplinkConfig</code>, corresponding to the specified <code>AntennaUplinkConfigArn</code>, are used when this <code>UplinkEchoConfig</code> is used in a contact.</p>
  * @public
  */
 export interface UplinkEchoConfig {
@@ -967,8 +1142,7 @@ export interface UplinkEchoConfig {
 }
 
 /**
- * <p>Object containing the parameters of a <code>Config</code>.</p>
- *          <p>See the subtype definitions for what each type of <code>Config</code> contains.</p>
+ * <p>Object containing the parameters of a <code>Config</code>.</p> <p>See the subtype definitions for what each type of <code>Config</code> contains.</p>
  * @public
  */
 export type ConfigTypeData =
@@ -1061,8 +1235,7 @@ export namespace ConfigTypeData {
   }
 
   /**
-   * <p>Information about an uplink echo <code>Config</code>.</p>
-   *          <p>Parameters from the <code>AntennaUplinkConfig</code>, corresponding to the specified <code>AntennaUplinkConfigArn</code>, are used when this <code>UplinkEchoConfig</code> is used in a contact.</p>
+   * <p>Information about an uplink echo <code>Config</code>.</p> <p>Parameters from the <code>AntennaUplinkConfig</code>, corresponding to the specified <code>AntennaUplinkConfigArn</code>, are used when this <code>UplinkEchoConfig</code> is used in a contact.</p>
    * @public
    */
   export interface UplinkEchoConfigMember {
@@ -1228,8 +1401,7 @@ export interface GetConfigResponse {
   configId: string | undefined;
 
   /**
-   * <p>ARN of a <code>Config</code>
-   *          </p>
+   * <p>ARN of a <code>Config</code> </p>
    * @public
    */
   configArn: string | undefined;
@@ -1638,8 +1810,7 @@ export interface Source {
   configId?: string | undefined;
 
   /**
-   * <p>Additional details for a <code>Config</code>, if type is <code>dataflow-endpoint</code> or <code>antenna-downlink-demod-decode</code>
-   *          </p>
+   * <p>Additional details for a <code>Config</code>, if type is <code>dataflow-endpoint</code> or <code>antenna-downlink-demod-decode</code> </p>
    * @public
    */
   configDetails?: ConfigDetails | undefined;
@@ -1676,6 +1847,40 @@ export interface DataflowDetail {
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const EphemerisType = {
+  AZ_EL: "AZ_EL",
+  OEM: "OEM",
+  SERVICE_MANAGED: "SERVICE_MANAGED",
+  TLE: "TLE",
+} as const;
+
+/**
+ * @public
+ */
+export type EphemerisType = (typeof EphemerisType)[keyof typeof EphemerisType];
+
+/**
+ * <p>Ephemeris data for a contact.</p>
+ * @public
+ */
+export interface EphemerisResponseData {
+  /**
+   * <p>Unique identifier of the ephemeris. Appears only for custom ephemerides.</p>
+   * @public
+   */
+  ephemerisId?: string | undefined;
+
+  /**
+   * <p>Type of ephemeris.</p>
+   * @public
+   */
+  ephemerisType: EphemerisType | undefined;
+}
+
+/**
  * <p>Elevation angle of the satellite in the sky during a contact.</p>
  * @public
  */
@@ -1691,6 +1896,56 @@ export interface Elevation {
    * @public
    */
   unit: AngleUnits | undefined;
+}
+
+/**
+ * <p>Program track settings for an antenna during a contact.</p>
+ * @public
+ */
+export type ProgramTrackSettings = ProgramTrackSettings.AzElMember | ProgramTrackSettings.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace ProgramTrackSettings {
+  /**
+   * <p>Program track settings for <a>AzElEphemeris</a>.</p>
+   * @public
+   */
+  export interface AzElMember {
+    azEl: AzElProgramTrackSettings;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    azEl?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    azEl: (value: AzElProgramTrackSettings) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: ProgramTrackSettings, visitor: Visitor<T>): T => {
+    if (value.azEl !== undefined) return visitor.azEl(value.azEl);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * <p>Overrides the default tracking configuration on an antenna during a contact.</p>
+ * @public
+ */
+export interface TrackingOverrides {
+  /**
+   * <p>Program track settings to override for antenna tracking during the contact.</p>
+   * @public
+   */
+  programTrackSettings: ProgramTrackSettings | undefined;
 }
 
 /**
@@ -1783,26 +2038,66 @@ export interface DescribeContactResponse {
   dataflowList?: DataflowDetail[] | undefined;
 
   /**
-   * <p>
-   *          Projected time in UTC your satellite will rise above the
-   *          <a href="https://docs.aws.amazon.com/ground-station/latest/ug/site-masks.html">receive mask</a>.
-   *          This time is based on the satellite's current active ephemeris for future contacts and the ephemeris that was
-   *          active during contact execution for completed contacts.
-   *       </p>
+   * <p> Projected time in UTC your satellite will rise above the <a href="https://docs.aws.amazon.com/ground-station/latest/ug/site-masks.html">receive mask</a>. This time is based on the satellite's current active ephemeris for future contacts and the ephemeris that was active during contact execution for completed contacts. </p>
    * @public
    */
   visibilityStartTime?: Date | undefined;
 
   /**
-   * <p>
-   *          Projected time in UTC your satellite will set below the
-   *          <a href="https://docs.aws.amazon.com/ground-station/latest/ug/site-masks.html">receive mask</a>.
-   *          This time is based on the satellite's current active ephemeris for future contacts and the ephemeris that was
-   *          active during contact execution for completed contacts.
-   *       </p>
+   * <p> Projected time in UTC your satellite will set below the <a href="https://docs.aws.amazon.com/ground-station/latest/ug/site-masks.html">receive mask</a>. This time is based on the satellite's current active ephemeris for future contacts and the ephemeris that was active during contact execution for completed contacts. </p>
    * @public
    */
   visibilityEndTime?: Date | undefined;
+
+  /**
+   * <p>Tracking configuration overrides specified when the contact was reserved.</p>
+   * @public
+   */
+  trackingOverrides?: TrackingOverrides | undefined;
+
+  /**
+   * <p>The ephemeris that determines antenna pointing directions for the contact.</p>
+   * @public
+   */
+  ephemeris?: EphemerisResponseData | undefined;
+}
+
+/**
+ * <p>Filter for selecting contacts that use a specific ephemeris".</p>
+ * @public
+ */
+export type EphemerisFilter = EphemerisFilter.AzElMember | EphemerisFilter.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace EphemerisFilter {
+  /**
+   * <p>Filter for <a>AzElEphemeris</a>.</p>
+   * @public
+   */
+  export interface AzElMember {
+    azEl: AzElEphemerisFilter;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    azEl?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    azEl: (value: AzElEphemerisFilter) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: EphemerisFilter, visitor: Visitor<T>): T => {
+    if (value.azEl !== undefined) return visitor.azEl(value.azEl);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
 }
 
 /**
@@ -1857,6 +2152,12 @@ export interface ListContactsRequest {
    * @public
    */
   missionProfileArn?: string | undefined;
+
+  /**
+   * <p>Filter for selecting contacts that use a specific ephemeris".</p>
+   * @public
+   */
+  ephemeris?: EphemerisFilter | undefined;
 }
 
 /**
@@ -1943,28 +2244,22 @@ export interface ContactData {
   tags?: Record<string, string> | undefined;
 
   /**
-   * <p>
-   *          Projected time in UTC your satellite will rise above the
-   *          <a href="https://docs.aws.amazon.com/ground-station/latest/ug/site-masks.html">receive mask</a>.
-   *          This time is based on the satellite's current active ephemeris for future contacts and the ephemeris that was
-   *          active during contact execution for completed contacts.
-   *          <i>This field is not present for contacts with a <code>SCHEDULING</code> or <code>SCHEDULED</code> status.</i>
-   *          </p>
+   * <p> Projected time in UTC your satellite will rise above the <a href="https://docs.aws.amazon.com/ground-station/latest/ug/site-masks.html">receive mask</a>. This time is based on the satellite's current active ephemeris for future contacts and the ephemeris that was active during contact execution for completed contacts. <i>This field is not present for contacts with a <code>SCHEDULING</code> or <code>SCHEDULED</code> status.</i> </p>
    * @public
    */
   visibilityStartTime?: Date | undefined;
 
   /**
-   * <p>
-   *          Projected time in UTC your satellite will set below the
-   *          <a href="https://docs.aws.amazon.com/ground-station/latest/ug/site-masks.html">receive mask</a>.
-   *          This time is based on the satellite's current active ephemeris for future contacts and the ephemeris that was
-   *          active during contact execution for completed contacts.
-   *          <i>This field is not present for contacts with a <code>SCHEDULING</code> or <code>SCHEDULED</code> status.</i>
-   *          </p>
+   * <p> Projected time in UTC your satellite will set below the <a href="https://docs.aws.amazon.com/ground-station/latest/ug/site-masks.html">receive mask</a>. This time is based on the satellite's current active ephemeris for future contacts and the ephemeris that was active during contact execution for completed contacts. <i>This field is not present for contacts with a <code>SCHEDULING</code> or <code>SCHEDULED</code> status.</i> </p>
    * @public
    */
   visibilityEndTime?: Date | undefined;
+
+  /**
+   * <p>The ephemeris that determines antenna pointing for the contact.</p>
+   * @public
+   */
+  ephemeris?: EphemerisResponseData | undefined;
 }
 
 /**
@@ -2000,7 +2295,7 @@ export interface ReserveContactRequest {
    * <p>ARN of a satellite</p>
    * @public
    */
-  satelliteArn: string | undefined;
+  satelliteArn?: string | undefined;
 
   /**
    * <p>Start time of a contact in UTC.</p>
@@ -2025,6 +2320,12 @@ export interface ReserveContactRequest {
    * @public
    */
   tags?: Record<string, string> | undefined;
+
+  /**
+   * <p>Tracking configuration overrides for the contact.</p>
+   * @public
+   */
+  trackingOverrides?: TrackingOverrides | undefined;
 }
 
 /**
@@ -2033,15 +2334,7 @@ export interface ReserveContactRequest {
  */
 export interface CreateDataflowEndpointGroupRequest {
   /**
-   * <p>Endpoint details of each endpoint in the dataflow endpoint group.
-   *
-   *          All dataflow endpoints within a single dataflow endpoint group must be of the same type.
-   *          You cannot mix <a href="https://docs.aws.amazon.com/ground-station/latest/APIReference/API_AwsGroundStationAgentEndpoint.html">
-   *             AWS Ground Station Agent endpoints</a> with
-   *          <a href="https://docs.aws.amazon.com/ground-station/latest/APIReference/API_DataflowEndpoint.html">Dataflow endpoints</a> in the same group.
-   *          If your use case requires both types of endpoints, you must create separate dataflow endpoint
-   *          groups for each type.
-   *       </p>
+   * <p>Endpoint details of each endpoint in the dataflow endpoint group. All dataflow endpoints within a single dataflow endpoint group must be of the same type. You cannot mix <a href="https://docs.aws.amazon.com/ground-station/latest/APIReference/API_AwsGroundStationAgentEndpoint.html"> AWS Ground Station Agent endpoints</a> with <a href="https://docs.aws.amazon.com/ground-station/latest/APIReference/API_DataflowEndpoint.html">Dataflow endpoints</a> in the same group. If your use case requires both types of endpoints, you must create separate dataflow endpoint groups for each type. </p>
    * @public
    */
   endpointDetails: EndpointDetails[] | undefined;
@@ -2078,47 +2371,18 @@ export interface DataflowEndpointGroupIdResponse {
 }
 
 /**
- * <p>Object stored in S3 containing ephemeris data.</p>
- * @public
- */
-export interface S3Object {
-  /**
-   * <p>An Amazon S3 Bucket name.</p>
-   * @public
-   */
-  bucket?: string | undefined;
-
-  /**
-   * <p>An Amazon S3 key for the ephemeris.</p>
-   * @public
-   */
-  key?: string | undefined;
-
-  /**
-   * <p>For versioned S3 objects, the version to use for the ephemeris.</p>
-   * @public
-   */
-  version?: string | undefined;
-}
-
-/**
- * <p>
- *             Ephemeris data in Orbit Ephemeris Message (OEM) format.
- *         </p>
- *          <p>
- *             AWS Ground Station processes OEM Customer Provided Ephemerides according to the <a href="https://public.ccsds.org/Pubs/502x0b3e1.pdf">CCSDS standard</a> with some extra restrictions. OEM files should be in KVN format. For more detail about the OEM format that AWS Ground Station supports, see <a href="https://docs.aws.amazon.com/ground-station/latest/ug/providing-custom-ephemeris-data.html#oem-ephemeris-format">OEM ephemeris format</a> in the AWS Ground Station user guide.
- *         </p>
+ * <p>Ephemeris data in Orbit Ephemeris Message (OEM) format.</p> <p> AWS Ground Station processes OEM ephemerides according to the <a href="https://ccsds.org/wp-content/uploads/gravity_forms/5-448e85c647331d9cbaf66c096458bdd5/2025/01//502x0b3e1.pdf">CCSDS standard</a> with some extra restrictions. OEM files should be in KVN format. For more detail about the OEM format that AWS Ground Station supports, see <a href="https://docs.aws.amazon.com/ground-station/latest/ug/providing-oem-ephemeris-data.html#oem-ephemeris-format">OEM ephemeris format</a> in the AWS Ground Station user guide. </p>
  * @public
  */
 export interface OEMEphemeris {
   /**
-   * <p>Identifies the S3 object to be used as the ephemeris.</p>
+   * <p>The Amazon S3 object that contains the ephemeris data.</p>
    * @public
    */
   s3Object?: S3Object | undefined;
 
   /**
-   * <p>The data for an OEM ephemeris, supplied directly in the request rather than through an S3 object.</p>
+   * <p>OEM data that you provide directly instead of using an Amazon S3 object.</p>
    * @public
    */
   oemData?: string | undefined;
@@ -2130,13 +2394,13 @@ export interface OEMEphemeris {
  */
 export interface TimeRange {
   /**
-   * <p>Time in UTC at which the time range starts.</p>
+   * <p>Unix epoch timestamp in UTC at which the time range starts.</p>
    * @public
    */
   startTime: Date | undefined;
 
   /**
-   * <p>Time in UTC at which the time range ends.</p>
+   * <p>Unix epoch timestamp in UTC at which the time range ends.</p>
    * @public
    */
   endTime: Date | undefined;
@@ -2160,25 +2424,25 @@ export interface TLEData {
   tleLine2: string | undefined;
 
   /**
-   * <p>The valid time range for the TLE. Gaps or overlap are not permitted.</p>
+   * <p>The valid time range for the TLE. Time ranges must be continuous without gaps or overlaps.</p>
    * @public
    */
   validTimeRange: TimeRange | undefined;
 }
 
 /**
- * <p>Two-line element set (TLE) ephemeris.</p>
+ * <p>Two-line element set (TLE) ephemeris.</p> <p> For more detail about providing Two-line element sets to AWS Ground Station, see the <a href="https://docs.aws.amazon.com/ground-station/latest/ug/providing-tle-ephemeris-data.html">TLE section</a> of the AWS Ground Station user guide. </p>
  * @public
  */
 export interface TLEEphemeris {
   /**
-   * <p>Identifies the S3 object to be used as the ephemeris.</p>
+   * <p>The Amazon S3 object that contains the ephemeris data.</p>
    * @public
    */
   s3Object?: S3Object | undefined;
 
   /**
-   * <p>The data for a TLE ephemeris, supplied directly in the request rather than through an S3 object.</p>
+   * <p>TLE data that you provide directly instead of using an Amazon S3 object.</p>
    * @public
    */
   tleData?: TLEData[] | undefined;
@@ -2188,34 +2452,46 @@ export interface TLEEphemeris {
  * <p>Ephemeris data.</p>
  * @public
  */
-export type EphemerisData = EphemerisData.OemMember | EphemerisData.TleMember | EphemerisData.$UnknownMember;
+export type EphemerisData =
+  | EphemerisData.AzElMember
+  | EphemerisData.OemMember
+  | EphemerisData.TleMember
+  | EphemerisData.$UnknownMember;
 
 /**
  * @public
  */
 export namespace EphemerisData {
   /**
-   * <p>Two-line element set (TLE) ephemeris.</p>
+   * <p>Two-line element set (TLE) ephemeris.</p> <p> For more detail about providing Two-line element sets to AWS Ground Station, see the <a href="https://docs.aws.amazon.com/ground-station/latest/ug/providing-tle-ephemeris-data.html">TLE section</a> of the AWS Ground Station user guide. </p>
    * @public
    */
   export interface TleMember {
     tle: TLEEphemeris;
     oem?: never;
+    azEl?: never;
     $unknown?: never;
   }
 
   /**
-   * <p>
-   *             Ephemeris data in Orbit Ephemeris Message (OEM) format.
-   *         </p>
-   *          <p>
-   *             AWS Ground Station processes OEM Customer Provided Ephemerides according to the <a href="https://public.ccsds.org/Pubs/502x0b3e1.pdf">CCSDS standard</a> with some extra restrictions. OEM files should be in KVN format. For more detail about the OEM format that AWS Ground Station supports, see <a href="https://docs.aws.amazon.com/ground-station/latest/ug/providing-custom-ephemeris-data.html#oem-ephemeris-format">OEM ephemeris format</a> in the AWS Ground Station user guide.
-   *         </p>
+   * <p>Ephemeris data in Orbit Ephemeris Message (OEM) format.</p> <p> AWS Ground Station processes OEM ephemerides according to the <a href="https://ccsds.org/wp-content/uploads/gravity_forms/5-448e85c647331d9cbaf66c096458bdd5/2025/01//502x0b3e1.pdf">CCSDS standard</a> with some extra restrictions. OEM files should be in KVN format. For more detail about the OEM format that AWS Ground Station supports, see <a href="https://docs.aws.amazon.com/ground-station/latest/ug/providing-oem-ephemeris-data.html#oem-ephemeris-format">OEM ephemeris format</a> in the AWS Ground Station user guide. </p>
    * @public
    */
   export interface OemMember {
     tle?: never;
     oem: OEMEphemeris;
+    azEl?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Azimuth elevation ephemeris data.</p> <p> Use this ephemeris type to provide pointing angles directly, rather than satellite orbital elements. Use this when you need precise antenna pointing but have imprecise or unknown satellite trajectory information. </p> <p> The azimuth elevation data specifies the antenna pointing direction at specific times relative to a ground station location. AWS Ground Station uses 4th order Lagrange interpolation to compute pointing angles between the provided data points. </p> <p> AWS Ground Station automatically filters interpolated pointing angles, including only those that are above the site mask elevation of the specified ground station. </p> <p> For more detail about providing azimuth elevation ephemerides to AWS Ground Station, see the <a href="https://docs.aws.amazon.com/ground-station/latest/ug/providing-azimuth-elevation-ephemeris-data.html">azimuth elevation ephemeris section</a> of the AWS Ground Station User Guide. </p>
+   * @public
+   */
+  export interface AzElMember {
+    tle?: never;
+    oem?: never;
+    azEl: AzElEphemeris;
     $unknown?: never;
   }
 
@@ -2225,18 +2501,21 @@ export namespace EphemerisData {
   export interface $UnknownMember {
     tle?: never;
     oem?: never;
+    azEl?: never;
     $unknown: [string, any];
   }
 
   export interface Visitor<T> {
     tle: (value: TLEEphemeris) => T;
     oem: (value: OEMEphemeris) => T;
+    azEl: (value: AzElEphemeris) => T;
     _: (name: string, value: any) => T;
   }
 
   export const visit = <T>(value: EphemerisData, visitor: Visitor<T>): T => {
     if (value.tle !== undefined) return visitor.tle(value.tle);
     if (value.oem !== undefined) return visitor.oem(value.oem);
+    if (value.azEl !== undefined) return visitor.azEl(value.azEl);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
 }
@@ -2246,22 +2525,19 @@ export namespace EphemerisData {
  */
 export interface CreateEphemerisRequest {
   /**
-   * <p>AWS Ground Station satellite ID for this ephemeris.</p>
+   * <p>The satellite ID that associates this ephemeris with a satellite in AWS Ground Station.</p>
    * @public
    */
-  satelliteId: string | undefined;
+  satelliteId?: string | undefined;
 
   /**
-   * <p>Whether to set the ephemeris status to <code>ENABLED</code> after validation.</p>
-   *          <p>Setting this to false will set the ephemeris status to <code>DISABLED</code> after validation.</p>
+   * <p>Set to <code>true</code> to enable the ephemeris after validation. Set to <code>false</code> to keep it disabled.</p>
    * @public
    */
   enabled?: boolean | undefined;
 
   /**
-   * <p>Customer-provided priority score to establish the order in which overlapping ephemerides should be used.</p>
-   *          <p>The default for customer-provided ephemeris priority is 1, and higher numbers take precedence.</p>
-   *          <p>Priority must be 1 or greater</p>
+   * <p>A priority score that determines which ephemeris to use when multiple ephemerides overlap.</p> <p>Higher numbers take precedence. The default is 1. Must be 1 or greater.</p>
    * @public
    */
   priority?: number | undefined;
@@ -2273,13 +2549,13 @@ export interface CreateEphemerisRequest {
   expirationTime?: Date | undefined;
 
   /**
-   * <p>A name string associated with the ephemeris. Used as a human-readable identifier for the ephemeris.</p>
+   * <p>A name that you can use to identify the ephemeris.</p>
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The ARN of a KMS key used to encrypt the ephemeris in Ground Station.</p>
+   * <p>The ARN of the KMS key to use for encrypting the ephemeris.</p>
    * @public
    */
   kmsKeyArn?: string | undefined;
@@ -2410,9 +2686,7 @@ export interface CreateMissionProfileRequest {
   minimumViableContactDurationSeconds: number | undefined;
 
   /**
-   * <p>A list of lists of ARNs. Each list of ARNs is an edge, with a <i>from</i>
-   *             <code>Config</code> and a <i>to</i>
-   *             <code>Config</code>.</p>
+   * <p>A list of lists of ARNs. Each list of ARNs is an edge, with a <i>from</i> <code>Config</code> and a <i>to</i> <code>Config</code>.</p>
    * @public
    */
   dataflowEdges: string[][] | undefined;
@@ -2586,6 +2860,26 @@ export interface DeleteEphemerisRequest {
 }
 
 /**
+ * <p>The specified resource is in use by non-terminal state contacts and cannot be modified or deleted.</p>
+ * @public
+ */
+export class ResourceInUseException extends __BaseException {
+  readonly name: "ResourceInUseException" = "ResourceInUseException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceInUseException, __BaseException>) {
+    super({
+      name: "ResourceInUseException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceInUseException.prototype);
+  }
+}
+
+/**
  * <p/>
  * @public
  */
@@ -2606,6 +2900,74 @@ export interface DescribeEphemerisRequest {
    * @public
    */
   ephemerisId: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const EphemerisErrorCode = {
+  AZ_EL_SEGMENTS_OUT_OF_ORDER: "AZ_EL_SEGMENTS_OUT_OF_ORDER",
+  AZ_EL_SEGMENT_END_TIME_BEFORE_START_TIME: "AZ_EL_SEGMENT_END_TIME_BEFORE_START_TIME",
+  AZ_EL_SEGMENT_END_TIME_INVALID: "AZ_EL_SEGMENT_END_TIME_INVALID",
+  AZ_EL_SEGMENT_END_TIME_TOO_LATE: "AZ_EL_SEGMENT_END_TIME_TOO_LATE",
+  AZ_EL_SEGMENT_LIST_MISSING: "AZ_EL_SEGMENT_LIST_MISSING",
+  AZ_EL_SEGMENT_REFERENCE_EPOCH_INVALID: "AZ_EL_SEGMENT_REFERENCE_EPOCH_INVALID",
+  AZ_EL_SEGMENT_START_TIME_INVALID: "AZ_EL_SEGMENT_START_TIME_INVALID",
+  AZ_EL_SEGMENT_TIMES_OVERLAP: "AZ_EL_SEGMENT_TIMES_OVERLAP",
+  AZ_EL_SEGMENT_VALID_TIME_RANGE_INVALID: "AZ_EL_SEGMENT_VALID_TIME_RANGE_INVALID",
+  AZ_EL_TOTAL_DURATION_EXCEEDED: "AZ_EL_TOTAL_DURATION_EXCEEDED",
+  CENTER_BODY_UNSUPPORTED: "CENTER_BODY_UNSUPPORTED",
+  CREATION_DATE_MISSING: "CREATION_DATE_MISSING",
+  END_TIME_IN_PAST: "END_TIME_IN_PAST",
+  EXPIRATION_TIME_TOO_EARLY: "EXPIRATION_TIME_TOO_EARLY",
+  FILE_FORMAT_INVALID: "FILE_FORMAT_INVALID",
+  INSUFFICIENT_KMS_PERMISSIONS: "INSUFFICIENT_KMS_PERMISSIONS",
+  INSUFFICIENT_TIME_AZ_EL: "INSUFFICIENT_TIME_AZ_EL",
+  INTERNAL_ERROR: "INTERNAL_ERROR",
+  INTERPOLATION_DEGREE_INVALID: "INTERPOLATION_DEGREE_INVALID",
+  INTERPOLATION_MISSING: "INTERPOLATION_MISSING",
+  MEAN_MOTION_INVALID: "MEAN_MOTION_INVALID",
+  MISMATCHED_SATCAT_ID: "MISMATCHED_SATCAT_ID",
+  OBJECT_ID_MISSING: "OBJECT_ID_MISSING",
+  OBJECT_NAME_MISSING: "OBJECT_NAME_MISSING",
+  OEM_VERSION_UNSUPPORTED: "OEM_VERSION_UNSUPPORTED",
+  ORIGINATOR_MISSING: "ORIGINATOR_MISSING",
+  REF_FRAME_EPOCH_UNSUPPORTED: "REF_FRAME_EPOCH_UNSUPPORTED",
+  REF_FRAME_UNSUPPORTED: "REF_FRAME_UNSUPPORTED",
+  START_TIME_IN_FUTURE: "START_TIME_IN_FUTURE",
+  START_TIME_METADATA_TOO_EARLY: "START_TIME_METADATA_TOO_EARLY",
+  STOP_TIME_METADATA_TOO_LATE: "STOP_TIME_METADATA_TOO_LATE",
+  TIME_AZ_EL_ANGLE_UNITS_INVALID: "TIME_AZ_EL_ANGLE_UNITS_INVALID",
+  TIME_AZ_EL_AZ_DEGREE_RANGE_INVALID: "TIME_AZ_EL_AZ_DEGREE_RANGE_INVALID",
+  TIME_AZ_EL_AZ_RADIAN_RANGE_INVALID: "TIME_AZ_EL_AZ_RADIAN_RANGE_INVALID",
+  TIME_AZ_EL_EL_DEGREE_RANGE_INVALID: "TIME_AZ_EL_EL_DEGREE_RANGE_INVALID",
+  TIME_AZ_EL_EL_RADIAN_RANGE_INVALID: "TIME_AZ_EL_EL_RADIAN_RANGE_INVALID",
+  TIME_AZ_EL_ITEMS_OUT_OF_ORDER: "TIME_AZ_EL_ITEMS_OUT_OF_ORDER",
+  TIME_SYSTEM_UNSUPPORTED: "TIME_SYSTEM_UNSUPPORTED",
+} as const;
+
+/**
+ * @public
+ */
+export type EphemerisErrorCode = (typeof EphemerisErrorCode)[keyof typeof EphemerisErrorCode];
+
+/**
+ * <p>Detailed error information for ephemeris validation failures.</p> <p>Provides an error code and descriptive message to help diagnose and resolve validation issues.</p>
+ * @public
+ */
+export interface EphemerisErrorReason {
+  /**
+   * <p>The error code identifying the type of validation failure.</p> <p>See the <a href="https://docs.aws.amazon.com/ground-station/latest/ug/troubleshooting-invalid-ephemerides.html">Troubleshooting Invalid Ephemerides guide</a> for error code details.</p>
+   * @public
+   */
+  errorCode: EphemerisErrorCode | undefined;
+
+  /**
+   * <p>A human-readable message describing the validation failure.</p> <p>Provides specific details about what failed and may include suggestions for remediation.</p>
+   * @public
+   */
+  errorMessage: string | undefined;
 }
 
 /**
@@ -2664,7 +3026,7 @@ export type EphemerisStatus = (typeof EphemerisStatus)[keyof typeof EphemerisSta
  */
 export interface EphemerisDescription {
   /**
-   * <p>Source S3 object used for the ephemeris.</p>
+   * <p>Source Amazon S3 object used for the ephemeris.</p>
    * @public
    */
   sourceS3Object?: S3Object | undefined;
@@ -2681,6 +3043,7 @@ export interface EphemerisDescription {
  * @public
  */
 export type EphemerisTypeDescription =
+  | EphemerisTypeDescription.AzElMember
   | EphemerisTypeDescription.OemMember
   | EphemerisTypeDescription.TleMember
   | EphemerisTypeDescription.$UnknownMember;
@@ -2696,6 +3059,7 @@ export namespace EphemerisTypeDescription {
   export interface TleMember {
     tle: EphemerisDescription;
     oem?: never;
+    azEl?: never;
     $unknown?: never;
   }
 
@@ -2706,6 +3070,18 @@ export namespace EphemerisTypeDescription {
   export interface OemMember {
     tle?: never;
     oem: EphemerisDescription;
+    azEl?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Description of ephemeris.</p>
+   * @public
+   */
+  export interface AzElMember {
+    tle?: never;
+    oem?: never;
+    azEl: EphemerisDescription;
     $unknown?: never;
   }
 
@@ -2715,18 +3091,21 @@ export namespace EphemerisTypeDescription {
   export interface $UnknownMember {
     tle?: never;
     oem?: never;
+    azEl?: never;
     $unknown: [string, any];
   }
 
   export interface Visitor<T> {
     tle: (value: EphemerisDescription) => T;
     oem: (value: EphemerisDescription) => T;
+    azEl: (value: EphemerisDescription) => T;
     _: (name: string, value: any) => T;
   }
 
   export const visit = <T>(value: EphemerisTypeDescription, visitor: Visitor<T>): T => {
     if (value.tle !== undefined) return visitor.tle(value.tle);
     if (value.oem !== undefined) return visitor.oem(value.oem);
+    if (value.azEl !== undefined) return visitor.azEl(value.azEl);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
 }
@@ -2754,9 +3133,7 @@ export interface DescribeEphemerisResponse {
   status?: EphemerisStatus | undefined;
 
   /**
-   * <p>Customer-provided priority score to establish the order in which overlapping ephemerides should be used.</p>
-   *          <p>The default for customer-provided ephemeris priority is 1, and higher numbers take precedence.</p>
-   *          <p>Priority must be 1 or greater</p>
+   * <p>A priority score that determines which ephemeris to use when multiple ephemerides overlap.</p> <p>Higher numbers take precedence. The default is 1. Must be 1 or greater.</p>
    * @public
    */
   priority?: number | undefined;
@@ -2774,7 +3151,7 @@ export interface DescribeEphemerisResponse {
   enabled?: boolean | undefined;
 
   /**
-   * <p>A name string associated with the ephemeris. Used as a human-readable identifier for the ephemeris.</p>
+   * <p>A name that you can use to identify the ephemeris.</p>
    * @public
    */
   name?: string | undefined;
@@ -2792,10 +3169,16 @@ export interface DescribeEphemerisResponse {
   suppliedData?: EphemerisTypeDescription | undefined;
 
   /**
-   * <p>Reason that an ephemeris failed validation. Only provided for ephemerides with <code>INVALID</code> status.</p>
+   * <p>Reason that an ephemeris failed validation. Appears only when the status is <code>INVALID</code>.</p>
    * @public
    */
   invalidReason?: EphemerisInvalidReason | undefined;
+
+  /**
+   * <p>Detailed error information for ephemerides with <code>INVALID</code> status.</p> <p>Provides specific error codes and messages to help diagnose validation failures.</p>
+   * @public
+   */
+  errorReasons?: EphemerisErrorReason[] | undefined;
 }
 
 /**
@@ -2810,15 +3193,19 @@ export interface EphemerisItem {
   ephemerisId?: string | undefined;
 
   /**
+   * <p>The type of ephemeris.</p>
+   * @public
+   */
+  ephemerisType?: EphemerisType | undefined;
+
+  /**
    * <p>The status of the ephemeris.</p>
    * @public
    */
   status?: EphemerisStatus | undefined;
 
   /**
-   * <p>Customer-provided priority score to establish the order in which overlapping ephemerides should be used.</p>
-   *          <p>The default for customer-provided ephemeris priority is 1, and higher numbers take precedence.</p>
-   *          <p>Priority must be 1 or greater</p>
+   * <p>A priority score that determines which ephemeris to use when multiple ephemerides overlap.</p> <p>Higher numbers take precedence. The default is 1. Must be 1 or greater.</p>
    * @public
    */
   priority?: number | undefined;
@@ -2836,13 +3223,13 @@ export interface EphemerisItem {
   creationTime?: Date | undefined;
 
   /**
-   * <p>A name string associated with the ephemeris. Used as a human-readable identifier for the ephemeris.</p>
+   * <p>A name that you can use to identify the ephemeris.</p>
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>Source S3 object used for the ephemeris.</p>
+   * <p>Source Amazon S3 object used for the ephemeris.</p>
    * @public
    */
   sourceS3Object?: S3Object | undefined;
@@ -2856,16 +3243,22 @@ export interface ListEphemeridesRequest {
    * <p>The AWS Ground Station satellite ID to list ephemeris for.</p>
    * @public
    */
-  satelliteId: string | undefined;
+  satelliteId?: string | undefined;
 
   /**
-   * <p>The start time to list in UTC. The operation will return an ephemeris if its expiration time is within the time range defined by the <code>startTime</code> and <code>endTime</code>.</p>
+   * <p>Filter ephemerides by type. If not specified, all ephemeris types will be returned.</p>
+   * @public
+   */
+  ephemerisType?: EphemerisType | undefined;
+
+  /**
+   * <p>The start time for the list operation in UTC. Returns ephemerides with expiration times within your specified time range.</p>
    * @public
    */
   startTime: Date | undefined;
 
   /**
-   * <p>The end time to list in UTC. The operation will return an ephemeris if its expiration time is within the time range defined by the <code>startTime</code> and <code>endTime</code>.</p>
+   * <p>The end time for the list operation in UTC. Returns ephemerides with expiration times within your specified time range.</p>
    * @public
    */
   endTime: Date | undefined;
@@ -2917,21 +3310,19 @@ export interface UpdateEphemerisRequest {
   ephemerisId: string | undefined;
 
   /**
-   * <p>Whether the ephemeris is enabled or not. Changing this value will not require the ephemeris to be re-validated.</p>
+   * <p>Enable or disable the ephemeris. Changing this value doesn't require re-validation.</p>
    * @public
    */
   enabled: boolean | undefined;
 
   /**
-   * <p>A name string associated with the ephemeris. Used as a human-readable identifier for the ephemeris.</p>
+   * <p>A name that you can use to identify the ephemeris.</p>
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>Customer-provided priority score to establish the order in which overlapping ephemerides should be used.</p>
-   *          <p>The default for customer-provided ephemeris priority is 1, and higher numbers take precedence.</p>
-   *          <p>Priority must be 1 or greater</p>
+   * <p>A priority score that determines which ephemeris to use when multiple ephemerides overlap.</p> <p>Higher numbers take precedence. The default is 1. Must be 1 or greater.</p>
    * @public
    */
   priority?: number | undefined;
@@ -2963,22 +3354,19 @@ export interface EphemerisMetaData {
   source: EphemerisSource | undefined;
 
   /**
-   * <p>UUID of a customer-provided ephemeris.</p>
-   *          <p>This field is not populated for default ephemerides from Space Track.</p>
+   * <p>UUID of a customer-provided ephemeris.</p> <p>This field is not populated for default ephemerides from Space Track.</p>
    * @public
    */
   ephemerisId?: string | undefined;
 
   /**
-   * <p>The epoch of a default, ephemeris from Space Track in UTC.</p>
-   *          <p>This field is not populated for customer-provided ephemerides.</p>
+   * <p>The epoch of a default, ephemeris from Space Track in UTC.</p> <p>This field is not populated for customer-provided ephemerides.</p>
    * @public
    */
   epoch?: Date | undefined;
 
   /**
-   * <p>A name string associated with the ephemeris. Used as a human-readable identifier for the ephemeris.</p>
-   *          <p>A name is only returned for customer-provider ephemerides that have a name associated.</p>
+   * <p>A name string associated with the ephemeris. Used as a human-readable identifier for the ephemeris.</p> <p>A name is only returned for customer-provider ephemerides that have a name associated.</p>
    * @public
    */
   name?: string | undefined;
@@ -3098,9 +3486,7 @@ export interface GetMissionProfileResponse {
   minimumViableContactDurationSeconds?: number | undefined;
 
   /**
-   * <p>A list of lists of ARNs. Each list of ARNs is an edge, with a <i>from</i>
-   *             <code>Config</code> and a <i>to</i>
-   *             <code>Config</code>.</p>
+   * <p>A list of lists of ARNs. Each list of ARNs is an edge, with a <i>from</i> <code>Config</code> and a <i>to</i> <code>Config</code>.</p>
    * @public
    */
   dataflowEdges?: string[][] | undefined;
@@ -3370,9 +3756,7 @@ export interface UpdateMissionProfileRequest {
   minimumViableContactDurationSeconds?: number | undefined;
 
   /**
-   * <p>A list of lists of ARNs. Each list of ARNs is an edge, with a <i>from</i>
-   *             <code>Config</code> and a <i>to</i>
-   *             <code>Config</code>.</p>
+   * <p>A list of lists of ARNs. Each list of ARNs is an edge, with a <i>from</i> <code>Config</code> and a <i>to</i> <code>Config</code>.</p>
    * @public
    */
   dataflowEdges?: string[][] | undefined;

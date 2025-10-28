@@ -28,9 +28,7 @@ export interface UpdateMissionProfileCommandInput extends UpdateMissionProfileRe
 export interface UpdateMissionProfileCommandOutput extends MissionProfileIdResponse, __MetadataBearer {}
 
 /**
- * <p>Updates a mission profile.</p>
- *          <p>Updating a mission profile will not update the execution parameters
- *          for existing future contacts.</p>
+ * <p>Updates a mission profile.</p> <p>Updating a mission profile will not update the execution parameters for existing future contacts.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

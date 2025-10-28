@@ -28,8 +28,7 @@ export interface GetConfigCommandInput extends GetConfigRequest {}
 export interface GetConfigCommandOutput extends GetConfigResponse, __MetadataBearer {}
 
 /**
- * <p>Returns <code>Config</code> information.</p>
- *          <p>Only one <code>Config</code> response can be returned.</p>
+ * <p>Returns <code>Config</code> information.</p> <p>Only one <code>Config</code> response can be returned.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

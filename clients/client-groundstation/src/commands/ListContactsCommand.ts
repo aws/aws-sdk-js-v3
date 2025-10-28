@@ -28,10 +28,7 @@ export interface ListContactsCommandInput extends ListContactsRequest {}
 export interface ListContactsCommandOutput extends ListContactsResponse, __MetadataBearer {}
 
 /**
- * <p>Returns a list of contacts.</p>
- *          <p>If <code>statusList</code> contains AVAILABLE, the request must include
- *       <code>groundStation</code>, <code>missionprofileArn</code>, and <code>satelliteArn</code>.
- *       </p>
+ * <p>Returns a list of contacts.</p> <p>If <code>statusList</code> contains AVAILABLE, the request must include <code>groundStation</code>, <code>missionprofileArn</code>, and <code>satelliteArn</code>. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -51,6 +48,11 @@ export interface ListContactsCommandOutput extends ListContactsResponse, __Metad
  *   groundStation: "STRING_VALUE",
  *   satelliteArn: "STRING_VALUE",
  *   missionProfileArn: "STRING_VALUE",
+ *   ephemeris: { // EphemerisFilter Union: only one key present
+ *     azEl: { // AzElEphemerisFilter
+ *       id: "STRING_VALUE", // required
+ *     },
+ *   },
  * };
  * const command = new ListContactsCommand(input);
  * const response = await client.send(command);
@@ -78,6 +80,10 @@ export interface ListContactsCommandOutput extends ListContactsResponse, __Metad
  * //       },
  * //       visibilityStartTime: new Date("TIMESTAMP"),
  * //       visibilityEndTime: new Date("TIMESTAMP"),
+ * //       ephemeris: { // EphemerisResponseData
+ * //         ephemerisId: "STRING_VALUE",
+ * //         ephemerisType: "TLE" || "OEM" || "AZ_EL" || "SERVICE_MANAGED", // required
+ * //       },
  * //     },
  * //   ],
  * // };

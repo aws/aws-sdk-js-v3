@@ -28,7 +28,7 @@ export interface DeleteEphemerisCommandInput extends DeleteEphemerisRequest {}
 export interface DeleteEphemerisCommandOutput extends EphemerisIdResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes an ephemeris</p>
+ * <p>Delete an ephemeris.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -59,6 +59,9 @@ export interface DeleteEphemerisCommandOutput extends EphemerisIdResponse, __Met
  *
  * @throws {@link InvalidParameterException} (client fault)
  *  <p>One or more parameters are not valid.</p>
+ *
+ * @throws {@link ResourceInUseException} (client fault)
+ *  <p>The specified resource is in use by non-terminal state contacts and cannot be modified or deleted.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Resource was not found.</p>

@@ -28,10 +28,7 @@ export interface CreateMissionProfileCommandInput extends CreateMissionProfileRe
 export interface CreateMissionProfileCommandOutput extends MissionProfileIdResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a mission profile.</p>
- *          <p>
- *             <code>dataflowEdges</code> is a list of lists of strings. Each lower level list of strings
- *          has two elements: a <i>from</i> ARN and a <i>to</i> ARN.</p>
+ * <p>Creates a mission profile.</p> <p> <code>dataflowEdges</code> is a list of lists of strings. Each lower level list of strings has two elements: a <i>from</i> ARN and a <i>to</i> ARN.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

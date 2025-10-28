@@ -28,7 +28,7 @@ export interface DescribeEphemerisCommandInput extends DescribeEphemerisRequest 
 export interface DescribeEphemerisCommandOutput extends DescribeEphemerisResponse, __MetadataBearer {}
 
 /**
- * <p>Describes an existing ephemeris.</p>
+ * <p>Retrieve information about an existing ephemeris.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -70,8 +70,22 @@ export interface DescribeEphemerisCommandOutput extends DescribeEphemerisRespons
  * //       },
  * //       ephemerisData: "STRING_VALUE",
  * //     },
+ * //     azEl: {
+ * //       sourceS3Object: {
+ * //         bucket: "STRING_VALUE",
+ * //         key: "STRING_VALUE",
+ * //         version: "STRING_VALUE",
+ * //       },
+ * //       ephemerisData: "STRING_VALUE",
+ * //     },
  * //   },
  * //   invalidReason: "METADATA_INVALID" || "TIME_RANGE_INVALID" || "TRAJECTORY_INVALID" || "KMS_KEY_INVALID" || "VALIDATION_ERROR",
+ * //   errorReasons: [ // EphemerisErrorReasonList
+ * //     { // EphemerisErrorReason
+ * //       errorCode: "INTERNAL_ERROR" || "MISMATCHED_SATCAT_ID" || "OEM_VERSION_UNSUPPORTED" || "ORIGINATOR_MISSING" || "CREATION_DATE_MISSING" || "OBJECT_NAME_MISSING" || "OBJECT_ID_MISSING" || "REF_FRAME_UNSUPPORTED" || "REF_FRAME_EPOCH_UNSUPPORTED" || "TIME_SYSTEM_UNSUPPORTED" || "CENTER_BODY_UNSUPPORTED" || "INTERPOLATION_MISSING" || "INTERPOLATION_DEGREE_INVALID" || "AZ_EL_SEGMENT_LIST_MISSING" || "INSUFFICIENT_TIME_AZ_EL" || "START_TIME_IN_FUTURE" || "END_TIME_IN_PAST" || "EXPIRATION_TIME_TOO_EARLY" || "START_TIME_METADATA_TOO_EARLY" || "STOP_TIME_METADATA_TOO_LATE" || "AZ_EL_SEGMENT_END_TIME_BEFORE_START_TIME" || "AZ_EL_SEGMENT_TIMES_OVERLAP" || "AZ_EL_SEGMENTS_OUT_OF_ORDER" || "TIME_AZ_EL_ITEMS_OUT_OF_ORDER" || "MEAN_MOTION_INVALID" || "TIME_AZ_EL_AZ_RADIAN_RANGE_INVALID" || "TIME_AZ_EL_EL_RADIAN_RANGE_INVALID" || "TIME_AZ_EL_AZ_DEGREE_RANGE_INVALID" || "TIME_AZ_EL_EL_DEGREE_RANGE_INVALID" || "TIME_AZ_EL_ANGLE_UNITS_INVALID" || "INSUFFICIENT_KMS_PERMISSIONS" || "FILE_FORMAT_INVALID" || "AZ_EL_SEGMENT_REFERENCE_EPOCH_INVALID" || "AZ_EL_SEGMENT_START_TIME_INVALID" || "AZ_EL_SEGMENT_END_TIME_INVALID" || "AZ_EL_SEGMENT_VALID_TIME_RANGE_INVALID" || "AZ_EL_SEGMENT_END_TIME_TOO_LATE" || "AZ_EL_TOTAL_DURATION_EXCEEDED", // required
+ * //       errorMessage: "STRING_VALUE", // required
+ * //     },
+ * //   ],
  * // };
  *
  * ```

@@ -28,10 +28,7 @@ export interface RegisterAgentCommandInput extends RegisterAgentRequest {}
 export interface RegisterAgentCommandOutput extends RegisterAgentResponse, __MetadataBearer {}
 
 /**
- * <note>
- *             <p> For use by AWS Ground Station Agent and shouldn't be called directly.</p>
- *          </note>
- *          <p> Registers a new agent with AWS Ground Station. </p>
+ * <note> <p> For use by AWS Ground Station Agent and shouldn't be called directly.</p> </note> <p> Registers a new agent with AWS Ground Station. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

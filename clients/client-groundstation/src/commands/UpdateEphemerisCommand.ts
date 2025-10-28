@@ -28,7 +28,7 @@ export interface UpdateEphemerisCommandInput extends UpdateEphemerisRequest {}
 export interface UpdateEphemerisCommandOutput extends EphemerisIdResponse, __MetadataBearer {}
 
 /**
- * <p>Updates an existing ephemeris</p>
+ * <p>Update an existing ephemeris.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

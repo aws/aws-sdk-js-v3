@@ -28,10 +28,7 @@ export interface GetAgentConfigurationCommandInput extends GetAgentConfiguration
 export interface GetAgentConfigurationCommandOutput extends GetAgentConfigurationResponse, __MetadataBearer {}
 
 /**
- * <note>
- *             <p> For use by AWS Ground Station Agent and shouldn't be called directly.</p>
- *          </note>
- *          <p>Gets the latest configuration information for a registered agent.</p>
+ * <note> <p> For use by AWS Ground Station Agent and shouldn't be called directly.</p> </note> <p>Gets the latest configuration information for a registered agent.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

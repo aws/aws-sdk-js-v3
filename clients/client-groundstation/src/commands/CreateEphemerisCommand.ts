@@ -28,7 +28,7 @@ export interface CreateEphemerisCommandInput extends CreateEphemerisRequest {}
 export interface CreateEphemerisCommandOutput extends EphemerisIdResponse, __MetadataBearer {}
 
 /**
- * <p>Creates an Ephemeris with the specified <code>EphemerisData</code>.</p>
+ * <p>Create an ephemeris with your specified <a>EphemerisData</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -38,7 +38,7 @@ export interface CreateEphemerisCommandOutput extends EphemerisIdResponse, __Met
  * const config = {}; // type is GroundStationClientConfig
  * const client = new GroundStationClient(config);
  * const input = { // CreateEphemerisRequest
- *   satelliteId: "STRING_VALUE", // required
+ *   satelliteId: "STRING_VALUE",
  *   enabled: true || false,
  *   priority: Number("int"),
  *   expirationTime: new Date("TIMESTAMP"),
@@ -69,6 +69,35 @@ export interface CreateEphemerisCommandOutput extends EphemerisIdResponse, __Met
  *         version: "STRING_VALUE",
  *       },
  *       oemData: "STRING_VALUE",
+ *     },
+ *     azEl: { // AzElEphemeris
+ *       groundStation: "STRING_VALUE", // required
+ *       data: { // AzElSegmentsData Union: only one key present
+ *         s3Object: {
+ *           bucket: "STRING_VALUE",
+ *           key: "STRING_VALUE",
+ *           version: "STRING_VALUE",
+ *         },
+ *         azElData: { // AzElSegments
+ *           angleUnit: "DEGREE_ANGLE" || "RADIAN", // required
+ *           azElSegmentList: [ // AzElSegmentList // required
+ *             { // AzElSegment
+ *               referenceEpoch: new Date("TIMESTAMP"), // required
+ *               validTimeRange: { // ISO8601TimeRange
+ *                 startTime: new Date("TIMESTAMP"), // required
+ *                 endTime: new Date("TIMESTAMP"), // required
+ *               },
+ *               azElList: [ // TimeAzElList // required
+ *                 { // TimeAzEl
+ *                   dt: Number("double"), // required
+ *                   az: Number("double"), // required
+ *                   el: Number("double"), // required
+ *                 },
+ *               ],
+ *             },
+ *           ],
+ *         },
+ *       },
  *     },
  *   },
  *   tags: { // TagsMap

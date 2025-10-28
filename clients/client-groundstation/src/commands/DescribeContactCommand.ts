@@ -188,6 +188,17 @@ export interface DescribeContactCommandOutput extends DescribeContactResponse, _
  * //   ],
  * //   visibilityStartTime: new Date("TIMESTAMP"),
  * //   visibilityEndTime: new Date("TIMESTAMP"),
+ * //   trackingOverrides: { // TrackingOverrides
+ * //     programTrackSettings: { // ProgramTrackSettings Union: only one key present
+ * //       azEl: { // AzElProgramTrackSettings
+ * //         ephemerisId: "STRING_VALUE", // required
+ * //       },
+ * //     },
+ * //   },
+ * //   ephemeris: { // EphemerisResponseData
+ * //     ephemerisId: "STRING_VALUE",
+ * //     ephemerisType: "TLE" || "OEM" || "AZ_EL" || "SERVICE_MANAGED", // required
+ * //   },
  * // };
  *
  * ```

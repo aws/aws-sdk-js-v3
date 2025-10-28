@@ -39,12 +39,19 @@ export interface ReserveContactCommandOutput extends ContactIdResponse, __Metada
  * const client = new GroundStationClient(config);
  * const input = { // ReserveContactRequest
  *   missionProfileArn: "STRING_VALUE", // required
- *   satelliteArn: "STRING_VALUE", // required
+ *   satelliteArn: "STRING_VALUE",
  *   startTime: new Date("TIMESTAMP"), // required
  *   endTime: new Date("TIMESTAMP"), // required
  *   groundStation: "STRING_VALUE", // required
  *   tags: { // TagsMap
  *     "<keys>": "STRING_VALUE",
+ *   },
+ *   trackingOverrides: { // TrackingOverrides
+ *     programTrackSettings: { // ProgramTrackSettings Union: only one key present
+ *       azEl: { // AzElProgramTrackSettings
+ *         ephemerisId: "STRING_VALUE", // required
+ *       },
+ *     },
  *   },
  * };
  * const command = new ReserveContactCommand(input);
@@ -66,6 +73,9 @@ export interface ReserveContactCommandOutput extends ContactIdResponse, __Metada
  *
  * @throws {@link InvalidParameterException} (client fault)
  *  <p>One or more parameters are not valid.</p>
+ *
+ * @throws {@link ResourceLimitExceededException} (client fault)
+ *  <p>Account limits for this resource have been exceeded.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Resource was not found.</p>
