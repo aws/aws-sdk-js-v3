@@ -62,10 +62,11 @@ export interface GetStreamGroupCommandOutput extends GetStreamGroupOutput, __Met
  * //   ],
  * //   StreamClass: "gen4n_high" || "gen4n_ultra" || "gen4n_win2022" || "gen5n_high" || "gen5n_ultra" || "gen5n_win2022",
  * //   Id: "STRING_VALUE",
- * //   Status: "ACTIVATING" || "UPDATING_LOCATIONS" || "ACTIVE" || "ACTIVE_WITH_ERRORS" || "ERROR" || "DELETING",
+ * //   Status: "ACTIVATING" || "UPDATING_LOCATIONS" || "ACTIVE" || "ACTIVE_WITH_ERRORS" || "ERROR" || "DELETING" || "EXPIRED",
  * //   StatusReason: "internalError" || "noAvailableInstances",
  * //   LastUpdatedAt: new Date("TIMESTAMP"),
  * //   CreatedAt: new Date("TIMESTAMP"),
+ * //   ExpiresAt: new Date("TIMESTAMP"),
  * //   AssociatedApplications: [ // ArnList
  * //     "STRING_VALUE",
  * //   ],
