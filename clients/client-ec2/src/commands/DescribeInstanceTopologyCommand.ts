@@ -33,8 +33,9 @@ export interface DescribeInstanceTopologyCommandOutput extends DescribeInstanceT
  *             determine the relative proximity of your EC2 instances within the Amazon Web Services network to
  *             support your tightly coupled workloads.</p>
  *          <p>Instance topology is supported for specific instance types only. For more information,
- *             see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-topology-prerequisites.html">
- *                 Prerequisites for Amazon EC2 instance topology</a> in the <i>Amazon EC2 User Guide</i>.</p>
+ *             see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-topology-prerequisites.html">Prerequisites
+ *                 for Amazon EC2 instance topology</a> in the
+ *             <i>Amazon EC2 User Guide</i>.</p>
  *          <note>
  *             <p>The Amazon EC2 API follows an eventual consistency model due to the
  *                 distributed nature of the system supporting it. As a result, when you call the
@@ -42,11 +43,11 @@ export interface DescribeInstanceTopologyCommandOutput extends DescribeInstanceT
  *                 response might return a <code>null</code> value for <code>capacityBlockId</code>
  *                 because the data might not have fully propagated across all subsystems. For more
  *                 information, see <a href="https://docs.aws.amazon.com/ec2/latest/devguide/eventual-consistency.html">Eventual consistency in the
- *                     Amazon EC2 API</a> in the <i>Amazon EC2 Developer
- *                         Guide</i>.</p>
+ *                         Amazon EC2 API</a> in the <i>Amazon EC2 Developer
+ *                     Guide</i>.</p>
  *          </note>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-topology.html">Amazon EC2 instance
- *                 topology</a> in the <i>Amazon EC2 User Guide</i>.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-topology.html">Amazon EC2 topology</a> in
+ *             the <i>Amazon EC2 User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

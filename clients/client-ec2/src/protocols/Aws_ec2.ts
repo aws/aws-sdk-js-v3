@@ -889,6 +889,10 @@ import {
   DescribeCapacityReservationsCommandOutput,
 } from "../commands/DescribeCapacityReservationsCommand";
 import {
+  DescribeCapacityReservationTopologyCommandInput,
+  DescribeCapacityReservationTopologyCommandOutput,
+} from "../commands/DescribeCapacityReservationTopologyCommand";
+import {
   DescribeCarrierGatewaysCommandInput,
   DescribeCarrierGatewaysCommandOutput,
 } from "../commands/DescribeCarrierGatewaysCommand";
@@ -3427,6 +3431,7 @@ import {
   CapacityReservationOptions,
   CapacityReservationSpecificationResponse,
   CapacityReservationStatus,
+  CapacityReservationTopology,
   CertificateAuthentication,
   ClassicLinkInstance,
   ClientConnectResponseOptions,
@@ -3454,6 +3459,8 @@ import {
   DescribeCapacityReservationFleetsResult,
   DescribeCapacityReservationsRequest,
   DescribeCapacityReservationsResult,
+  DescribeCapacityReservationTopologyRequest,
+  DescribeCapacityReservationTopologyResult,
   DescribeCarrierGatewaysRequest,
   DescribeCarrierGatewaysResult,
   DescribeClassicLinkInstancesRequest,
@@ -3638,9 +3645,6 @@ import {
   LaunchPermission,
   LicenseConfiguration,
   LoadPermission,
-  MediaAcceleratorInfo,
-  MediaDeviceInfo,
-  MediaDeviceMemoryInfo,
   Monitoring,
   OnDemandOptions,
   PciId,
@@ -3842,10 +3846,8 @@ import {
   DescribeVolumeAttributeRequest,
   DescribeVolumeAttributeResult,
   DescribeVolumesModificationsRequest,
-  DescribeVolumesModificationsResult,
   DescribeVolumesRequest,
   DescribeVolumesResult,
-  DescribeVolumeStatusRequest,
   EfaInfo,
   HistoryRecord,
   InstanceNetworkInterfaceSpecification,
@@ -3859,6 +3861,9 @@ import {
   LocalGateway,
   LockedSnapshotsInfo,
   MacHost,
+  MediaAcceleratorInfo,
+  MediaDeviceInfo,
+  MediaDeviceMemoryInfo,
   MemoryInfo,
   MovingAddressStatus,
   NetworkCardInfo,
@@ -3929,7 +3934,6 @@ import {
   VerifiedAccessLogKinesisDataFirehoseDestination,
   VerifiedAccessLogs,
   VerifiedAccessLogS3Destination,
-  VolumeModification,
 } from "../models/models_5";
 import {
   AssociatedRole,
@@ -3945,6 +3949,8 @@ import {
   DataQuery,
   DataResponse,
   DeprecationTimeCondition,
+  DescribeVolumesModificationsResult,
+  DescribeVolumeStatusRequest,
   DescribeVolumeStatusResult,
   DescribeVpcAttributeRequest,
   DescribeVpcAttributeResult,
@@ -4168,8 +4174,6 @@ import {
   GetInstanceUefiDataRequest,
   GetInstanceUefiDataResult,
   GetIpamAddressHistoryRequest,
-  GetIpamAddressHistoryResult,
-  GetIpamDiscoveredAccountsRequest,
   GroupBy,
   ImageCriterion,
   InitializationStatusDetails,
@@ -4179,7 +4183,6 @@ import {
   InstanceTypeInfoFromInstanceRequirements,
   InstanceUsage,
   IntegrateServices,
-  IpamAddressHistoryRecord,
   Ipv6CidrAssociation,
   Metric,
   MetricDataResult,
@@ -4194,6 +4197,7 @@ import {
   VerifiedAccessInstanceOpenVpnClientConfiguration,
   VerifiedAccessInstanceOpenVpnClientConfigurationRoute,
   VerifiedAccessInstanceUserTrustProviderClientConfiguration,
+  VolumeModification,
   VolumeStatusAction,
   VolumeStatusAttachmentStatus,
   VolumeStatusDetails,
@@ -4214,6 +4218,8 @@ import {
   DiskImageDetail,
   DnsServersOptionsModifyStructure,
   EbsInstanceBlockDeviceSpecification,
+  GetIpamAddressHistoryResult,
+  GetIpamDiscoveredAccountsRequest,
   GetIpamDiscoveredAccountsResult,
   GetIpamDiscoveredPublicAddressesRequest,
   GetIpamDiscoveredPublicAddressesResult,
@@ -4300,6 +4306,7 @@ import {
   InstanceBlockDeviceMappingSpecification,
   InstanceCreditSpecificationRequest,
   InstanceRequirementsWithMetadataRequest,
+  IpamAddressHistoryRecord,
   IpamDiscoveredAccount,
   IpamDiscoveredPublicAddress,
   IpamDiscoveredResourceCidr,
@@ -4442,11 +4449,8 @@ import {
   ModifyVpcBlockPublicAccessOptionsRequest,
   ModifyVpcBlockPublicAccessOptionsResult,
   ModifyVpcEndpointConnectionNotificationRequest,
-  ModifyVpcEndpointConnectionNotificationResult,
   ModifyVpcEndpointRequest,
   ModifyVpcEndpointResult,
-  ModifyVpcEndpointServiceConfigurationRequest,
-  ModifyVpcEndpointServiceConfigurationResult,
   NetworkInterfaceAttachmentChanges,
   PrefixListAssociation,
   PrefixListEntry,
@@ -4506,6 +4510,9 @@ import {
   IpamCidrAuthorizationContext,
   LaunchTemplateSpecification,
   LicenseConfigurationRequest,
+  ModifyVpcEndpointConnectionNotificationResult,
+  ModifyVpcEndpointServiceConfigurationRequest,
+  ModifyVpcEndpointServiceConfigurationResult,
   ModifyVpcEndpointServicePayerResponsibilityRequest,
   ModifyVpcEndpointServicePayerResponsibilityResult,
   ModifyVpcEndpointServicePermissionsRequest,
@@ -9172,6 +9179,23 @@ export const se_DescribeCapacityReservationsCommand = async (
   body = buildFormUrlencodedString({
     ...se_DescribeCapacityReservationsRequest(input, context),
     [_A]: _DCR,
+    [_V]: _,
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_ec2DescribeCapacityReservationTopologyCommand
+ */
+export const se_DescribeCapacityReservationTopologyCommand = async (
+  input: DescribeCapacityReservationTopologyCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = SHARED_HEADERS;
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...se_DescribeCapacityReservationTopologyRequest(input, context),
+    [_A]: _DCRT,
     [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -21856,6 +21880,26 @@ export const de_DescribeCapacityReservationsCommand = async (
   let contents: any = {};
   contents = de_DescribeCapacityReservationsResult(data, context);
   const response: DescribeCapacityReservationsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_ec2DescribeCapacityReservationTopologyCommand
+ */
+export const de_DescribeCapacityReservationTopologyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeCapacityReservationTopologyCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeCapacityReservationTopologyResult(data, context);
+  const response: DescribeCapacityReservationTopologyCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
@@ -39597,6 +39641,40 @@ const se_DescribeCapacityReservationsRequest = (
   }
   if (input[_DRr] != null) {
     entries[_DRr] = input[_DRr];
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_ec2DescribeCapacityReservationTopologyRequest
+ */
+const se_DescribeCapacityReservationTopologyRequest = (
+  input: DescribeCapacityReservationTopologyRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input[_DRr] != null) {
+    entries[_DRr] = input[_DRr];
+  }
+  if (input[_NT] != null) {
+    entries[_NT] = input[_NT];
+  }
+  if (input[_MR] != null) {
+    entries[_MR] = input[_MR];
+  }
+  if (input[_CRIa] != null) {
+    const memberEntries = se_CapacityReservationIdSet(input[_CRIa], context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `CapacityReservationId.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  if (input[_Fi] != null) {
+    const memberEntries = se_FilterList(input[_Fi], context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
   }
   return entries;
 };
@@ -64391,6 +64469,51 @@ const de_CapacityReservationTargetResponse = (
 };
 
 /**
+ * deserializeAws_ec2CapacityReservationTopology
+ */
+const de_CapacityReservationTopology = (output: any, context: __SerdeContext): CapacityReservationTopology => {
+  const contents: any = {};
+  if (output[_cRI] != null) {
+    contents[_CRI] = __expectString(output[_cRI]);
+  }
+  if (output[_cBI] != null) {
+    contents[_CBIa] = __expectString(output[_cBI]);
+  }
+  if (output[_st] != null) {
+    contents[_Stat] = __expectString(output[_st]);
+  }
+  if (output[_iT] != null) {
+    contents[_IT] = __expectString(output[_iT]);
+  }
+  if (output[_gN] != null) {
+    contents[_GN] = __expectString(output[_gN]);
+  }
+  if (String(output.networkNodeSet).trim() === "") {
+    contents[_NN] = [];
+  } else if (output[_nNS] != null && output[_nNS][_i] != null) {
+    contents[_NN] = de_NetworkNodeSet(__getArrayIfSingleItem(output[_nNS][_i]), context);
+  }
+  if (output[_aZI] != null) {
+    contents[_AZI] = __expectString(output[_aZI]);
+  }
+  if (output[_aZ] != null) {
+    contents[_AZ] = __expectString(output[_aZ]);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_ec2CapacityReservationTopologySet
+ */
+const de_CapacityReservationTopologySet = (output: any, context: __SerdeContext): CapacityReservationTopology[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_CapacityReservationTopology(entry, context);
+    });
+};
+
+/**
  * deserializeAws_ec2CarrierGateway
  */
 const de_CarrierGateway = (output: any, context: __SerdeContext): CarrierGateway => {
@@ -68278,6 +68401,25 @@ const de_DescribeCapacityReservationsResult = (
     contents[_CRapac] = [];
   } else if (output[_cRS] != null && output[_cRS][_i] != null) {
     contents[_CRapac] = de_CapacityReservationSet(__getArrayIfSingleItem(output[_cRS][_i]), context);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_ec2DescribeCapacityReservationTopologyResult
+ */
+const de_DescribeCapacityReservationTopologyResult = (
+  output: any,
+  context: __SerdeContext
+): DescribeCapacityReservationTopologyResult => {
+  const contents: any = {};
+  if (output[_nTe] != null) {
+    contents[_NT] = __expectString(output[_nTe]);
+  }
+  if (String(output.capacityReservationSet).trim() === "") {
+    contents[_CRapac] = [];
+  } else if (output[_cRS] != null && output[_cRS][_i] != null) {
+    contents[_CRapac] = de_CapacityReservationTopologySet(__getArrayIfSingleItem(output[_cRS][_i]), context);
   }
   return contents;
 };
@@ -83651,6 +83793,17 @@ const de_NetworkInterfacePrivateIpAddressList = (
 };
 
 /**
+ * deserializeAws_ec2NetworkNodeSet
+ */
+const de_NetworkNodeSet = (output: any, context: __SerdeContext): string[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return __expectString(entry) as any;
+    });
+};
+
+/**
  * deserializeAws_ec2NetworkNodesList
  */
 const de_NetworkNodesList = (output: any, context: __SerdeContext): string[] => {
@@ -94457,6 +94610,7 @@ const _DCRBO = "DisassociateCapacityReservationBillingOwner";
 const _DCRBR = "DescribeCapacityReservationBillingRequests";
 const _DCRF = "DescribeCapacityReservationFleets";
 const _DCRI = "DestinationCapacityReservationId";
+const _DCRT = "DescribeCapacityReservationTopology";
 const _DCRe = "DestinationCapacityReservation";
 const _DCT = "DescribeConversionTasks";
 const _DCVAR = "DescribeClientVpnAuthorizationRules";

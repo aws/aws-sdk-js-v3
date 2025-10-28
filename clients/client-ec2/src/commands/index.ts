@@ -262,6 +262,7 @@ export * from "./DescribeCapacityBlocksCommand";
 export * from "./DescribeCapacityManagerDataExportsCommand";
 export * from "./DescribeCapacityReservationBillingRequestsCommand";
 export * from "./DescribeCapacityReservationFleetsCommand";
+export * from "./DescribeCapacityReservationTopologyCommand";
 export * from "./DescribeCapacityReservationsCommand";
 export * from "./DescribeCarrierGatewaysCommand";
 export * from "./DescribeClassicLinkInstancesCommand";

@@ -109,6 +109,115 @@ import { CapacityReservationSpecification } from "./models_7";
 /**
  * @public
  */
+export interface ModifyVpcEndpointConnectionNotificationResult {
+  /**
+   * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
+   * @public
+   */
+  ReturnValue?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ModifyVpcEndpointServiceConfigurationRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The ID of the service.</p>
+   * @public
+   */
+  ServiceId: string | undefined;
+
+  /**
+   * <p>(Interface endpoint configuration) The private DNS name to assign to the endpoint service.</p>
+   * @public
+   */
+  PrivateDnsName?: string | undefined;
+
+  /**
+   * <p>(Interface endpoint configuration) Removes the private DNS name of the endpoint service.</p>
+   * @public
+   */
+  RemovePrivateDnsName?: boolean | undefined;
+
+  /**
+   * <p>Indicates whether requests to create an endpoint to the service must be accepted.</p>
+   * @public
+   */
+  AcceptanceRequired?: boolean | undefined;
+
+  /**
+   * <p>The Amazon Resource Names (ARNs) of Network Load Balancers to add to the service
+   *             configuration.</p>
+   * @public
+   */
+  AddNetworkLoadBalancerArns?: string[] | undefined;
+
+  /**
+   * <p>The Amazon Resource Names (ARNs) of Network Load Balancers to remove from the service
+   *             configuration.</p>
+   * @public
+   */
+  RemoveNetworkLoadBalancerArns?: string[] | undefined;
+
+  /**
+   * <p>The Amazon Resource Names (ARNs) of Gateway Load Balancers to add to the service configuration.</p>
+   * @public
+   */
+  AddGatewayLoadBalancerArns?: string[] | undefined;
+
+  /**
+   * <p>The Amazon Resource Names (ARNs) of Gateway Load Balancers to remove from the service configuration.</p>
+   * @public
+   */
+  RemoveGatewayLoadBalancerArns?: string[] | undefined;
+
+  /**
+   * <p>The IP address types to add to the service configuration.</p>
+   * @public
+   */
+  AddSupportedIpAddressTypes?: string[] | undefined;
+
+  /**
+   * <p>The IP address types to remove from the service configuration.</p>
+   * @public
+   */
+  RemoveSupportedIpAddressTypes?: string[] | undefined;
+
+  /**
+   * <p>The supported Regions to add to the service configuration.</p>
+   * @public
+   */
+  AddSupportedRegions?: string[] | undefined;
+
+  /**
+   * <p>The supported Regions to remove from the service configuration.</p>
+   * @public
+   */
+  RemoveSupportedRegions?: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ModifyVpcEndpointServiceConfigurationResult {
+  /**
+   * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
+   * @public
+   */
+  Return?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
 export interface ModifyVpcEndpointServicePayerResponsibilityRequest {
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,

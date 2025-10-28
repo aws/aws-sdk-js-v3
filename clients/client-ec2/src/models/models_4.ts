@@ -1070,6 +1070,155 @@ export interface DescribeCapacityReservationsResult {
 /**
  * @public
  */
+export interface DescribeCapacityReservationTopologyRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the operation, without actually making the
+   *   request, and provides an error response. If you have the required permissions, the error response is
+   *   <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of items to return for this request.
+   *          To get the next page of items, make another request with the token returned in the output.
+   * 	        For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
+   *          <p>You can't specify this parameter and the Capacity Reservation IDs parameter in the
+   *             same request.</p>
+   *          <p>Default: <code>10</code>
+   *          </p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The Capacity Reservation IDs.</p>
+   *          <p>Default: Describes all your Capacity Reservations.</p>
+   *          <p>Constraints: Maximum 100 explicitly specified Capacity Reservation IDs.</p>
+   * @public
+   */
+  CapacityReservationIds?: string[] | undefined;
+
+  /**
+   * <p>The filters.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>availability-zone</code> - The name of the Availability Zone (for
+   *                     example, <code>us-west-2a</code>) or Local Zone (for example,
+   *                         <code>us-west-2-lax-1b</code>) that the Capacity Reservation is in.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>instance-type</code> - The instance type (for example,
+   *                         <code>p4d.24xlarge</code>) or instance family (for example,
+   *                         <code>p4d*</code>). You can use the <code>*</code> wildcard to match zero or
+   *                     more characters, or the <code>?</code> wildcard to match zero or one
+   *                     character.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Filters?: Filter[] | undefined;
+}
+
+/**
+ * <p>Information about the Capacity Reservation topology.</p>
+ * @public
+ */
+export interface CapacityReservationTopology {
+  /**
+   * <p>The ID of the Capacity Reservation.</p>
+   * @public
+   */
+  CapacityReservationId?: string | undefined;
+
+  /**
+   * <p>The ID of the Capacity Block. This parameter is only supported for UltraServer
+   *             instances and identifies instances within the UltraServer domain.</p>
+   * @public
+   */
+  CapacityBlockId?: string | undefined;
+
+  /**
+   * <p>The current state of the Capacity Reservation. For the list of possible states, see
+   *                 <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeCapacityReservations.html">DescribeCapacityReservations</a>.</p>
+   * @public
+   */
+  State?: string | undefined;
+
+  /**
+   * <p>The instance type.</p>
+   * @public
+   */
+  InstanceType?: string | undefined;
+
+  /**
+   * <p>The name of the placement group that the Capacity Reservation is in.</p>
+   * @public
+   */
+  GroupName?: string | undefined;
+
+  /**
+   * <p>The network nodes. The nodes are hashed based on your account. Capacity Reservations
+   *             from different accounts running under the same server will return a different hashed
+   *             list of strings.</p>
+   *          <p>The value is <code>null</code> or empty if:</p>
+   *          <ul>
+   *             <li>
+   *                <p>The instance type is not supported.</p>
+   *             </li>
+   *             <li>
+   *                <p>The Capacity Reservation is in a state other than <code>active</code> or
+   *                         <code>pending</code>.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  NetworkNodes?: string[] | undefined;
+
+  /**
+   * <p>The ID of the Availability Zone or Local Zone that the Capacity Reservation is
+   *             in.</p>
+   * @public
+   */
+  AvailabilityZoneId?: string | undefined;
+
+  /**
+   * <p>The name of the Availability Zone or Local Zone that the Capacity Reservation is
+   *             in.</p>
+   * @public
+   */
+  AvailabilityZone?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeCapacityReservationTopologyResult {
+  /**
+   * <p>The token to include in another request to get the next page of items. This value is <code>null</code> when there
+   *          are no more items to return.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>Information about the topology of each Capacity Reservation.</p>
+   * @public
+   */
+  CapacityReservations?: CapacityReservationTopology[] | undefined;
+}
+
+/**
+ * @public
+ */
 export interface DescribeCarrierGatewaysRequest {
   /**
    * <p>One or more carrier gateway IDs.</p>
@@ -11496,7 +11645,8 @@ export interface DescribeInstanceTopologyRequest {
    * <p>The maximum number of items to return for this request.
    *          To get the next page of items, make another request with the token returned in the output.
    * 	        For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
-   *          <p>You can't specify this parameter and the instance IDs parameter in the same request.</p>
+   *          <p>You can't specify this parameter and the instance IDs parameter in the same
+   *             request.</p>
    *          <p>Default: <code>20</code>
    *          </p>
    * @public
@@ -11525,21 +11675,21 @@ export interface DescribeInstanceTopologyRequest {
    *                <p>
    *                   <code>availability-zone</code> - The name of the Availability Zone (for
    *                     example, <code>us-west-2a</code>) or Local Zone (for example,
-   *                     <code>us-west-2-lax-1b</code>) that the instance is in.</p>
+   *                         <code>us-west-2-lax-1b</code>) that the instance is in.</p>
    *             </li>
    *             <li>
    *                <p>
    *                   <code>instance-type</code> - The instance type (for example,
-   *                     <code>p4d.24xlarge</code>) or instance family (for example,
-   *                     <code>p4d*</code>). You can use the <code>*</code> wildcard to match zero or
+   *                         <code>p4d.24xlarge</code>) or instance family (for example,
+   *                         <code>p4d*</code>). You can use the <code>*</code> wildcard to match zero or
    *                     more characters, or the <code>?</code> wildcard to match zero or one
    *                     character.</p>
    *             </li>
    *             <li>
    *                <p>
    *                   <code>zone-id</code> - The ID of the Availability Zone (for example,
-   *                     <code>usw2-az2</code>) or Local Zone (for example,
-   *                     <code>usw2-lax1-az1</code>) that the instance is in.</p>
+   *                         <code>usw2-az2</code>) or Local Zone (for example,
+   *                         <code>usw2-lax1-az1</code>) that the instance is in.</p>
    *             </li>
    *          </ul>
    * @public
@@ -11574,6 +11724,15 @@ export interface InstanceTopology {
    * <p>The network nodes. The nodes are hashed based on your account. Instances from
    *             different accounts running under the same server will return a different hashed list of
    *             strings.</p>
+   *          <p>The value is <code>null</code> or empty if:</p>
+   *          <ul>
+   *             <li>
+   *                <p>The instance type is not supported.</p>
+   *             </li>
+   *             <li>
+   *                <p>The instance is in a state other than <code>running</code>.</p>
+   *             </li>
+   *          </ul>
    * @public
    */
   NetworkNodes?: string[] | undefined;
@@ -11591,8 +11750,8 @@ export interface InstanceTopology {
   ZoneId?: string | undefined;
 
   /**
-   * <p>The ID of the Capacity Block. This parameter is only supported for Ultraserver
-   *             instances and identifies instances within the Ultraserver domain.</p>
+   * <p>The ID of the Capacity Block. This parameter is only supported for UltraServer
+   *             instances and identifies instances within the UltraServer domain.</p>
    * @public
    */
   CapacityBlockId?: string | undefined;
@@ -12521,67 +12680,6 @@ export interface InstanceStorageInfo {
    * @public
    */
   EncryptionSupport?: InstanceStorageEncryptionSupport | undefined;
-}
-
-/**
- * <p>Describes the memory available to the media accelerator.</p>
- * @public
- */
-export interface MediaDeviceMemoryInfo {
-  /**
-   * <p>The size of the memory available to each media accelerator, in MiB.</p>
-   * @public
-   */
-  SizeInMiB?: number | undefined;
-}
-
-/**
- * <p>Describes the media accelerators for the instance type.</p>
- * @public
- */
-export interface MediaDeviceInfo {
-  /**
-   * <p>The number of media accelerators for the instance type.</p>
-   * @public
-   */
-  Count?: number | undefined;
-
-  /**
-   * <p>The name of the media accelerator.</p>
-   * @public
-   */
-  Name?: string | undefined;
-
-  /**
-   * <p>The manufacturer of the media accelerator.</p>
-   * @public
-   */
-  Manufacturer?: string | undefined;
-
-  /**
-   * <p>Describes the memory available to the media accelerator.</p>
-   * @public
-   */
-  MemoryInfo?: MediaDeviceMemoryInfo | undefined;
-}
-
-/**
- * <p>Describes the media accelerators for the instance type.</p>
- * @public
- */
-export interface MediaAcceleratorInfo {
-  /**
-   * <p>Describes the media accelerators for the instance type.</p>
-   * @public
-   */
-  Accelerators?: MediaDeviceInfo[] | undefined;
-
-  /**
-   * <p>The total size of the memory for the media accelerators for the instance type, in
-   *    MiB.</p>
-   * @public
-   */
-  TotalMediaMemoryInMiB?: number | undefined;
 }
 
 /**

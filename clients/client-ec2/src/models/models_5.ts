@@ -58,7 +58,6 @@ import {
   TargetCapacityUnitType,
   Tenancy,
   Volume,
-  VolumeType,
 } from "./models_1";
 
 import {
@@ -116,11 +115,71 @@ import {
   InferenceAcceleratorInfo,
   InstanceStorageInfo,
   InstanceTypeHypervisor,
-  MediaAcceleratorInfo,
   PermissionGroup,
   ProductCode,
   VirtualizationType,
 } from "./models_4";
+
+/**
+ * <p>Describes the memory available to the media accelerator.</p>
+ * @public
+ */
+export interface MediaDeviceMemoryInfo {
+  /**
+   * <p>The size of the memory available to each media accelerator, in MiB.</p>
+   * @public
+   */
+  SizeInMiB?: number | undefined;
+}
+
+/**
+ * <p>Describes the media accelerators for the instance type.</p>
+ * @public
+ */
+export interface MediaDeviceInfo {
+  /**
+   * <p>The number of media accelerators for the instance type.</p>
+   * @public
+   */
+  Count?: number | undefined;
+
+  /**
+   * <p>The name of the media accelerator.</p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>The manufacturer of the media accelerator.</p>
+   * @public
+   */
+  Manufacturer?: string | undefined;
+
+  /**
+   * <p>Describes the memory available to the media accelerator.</p>
+   * @public
+   */
+  MemoryInfo?: MediaDeviceMemoryInfo | undefined;
+}
+
+/**
+ * <p>Describes the media accelerators for the instance type.</p>
+ * @public
+ */
+export interface MediaAcceleratorInfo {
+  /**
+   * <p>Describes the media accelerators for the instance type.</p>
+   * @public
+   */
+  Accelerators?: MediaDeviceInfo[] | undefined;
+
+  /**
+   * <p>The total size of the memory for the media accelerators for the instance type, in
+   *    MiB.</p>
+   * @public
+   */
+  TotalMediaMemoryInMiB?: number | undefined;
+}
 
 /**
  * <p>Describes the memory for the instance type.</p>
@@ -12353,228 +12412,6 @@ export const VolumeModificationState = {
  * @public
  */
 export type VolumeModificationState = (typeof VolumeModificationState)[keyof typeof VolumeModificationState];
-
-/**
- * <p>Describes the modification status of an EBS volume.</p>
- * @public
- */
-export interface VolumeModification {
-  /**
-   * <p>The ID of the volume.</p>
-   * @public
-   */
-  VolumeId?: string | undefined;
-
-  /**
-   * <p>The current modification state.</p>
-   * @public
-   */
-  ModificationState?: VolumeModificationState | undefined;
-
-  /**
-   * <p>A status message about the modification progress or failure.</p>
-   * @public
-   */
-  StatusMessage?: string | undefined;
-
-  /**
-   * <p>The target size of the volume, in GiB.</p>
-   * @public
-   */
-  TargetSize?: number | undefined;
-
-  /**
-   * <p>The target IOPS rate of the volume.</p>
-   * @public
-   */
-  TargetIops?: number | undefined;
-
-  /**
-   * <p>The target EBS volume type of the volume.</p>
-   * @public
-   */
-  TargetVolumeType?: VolumeType | undefined;
-
-  /**
-   * <p>The target throughput of the volume, in MiB/s.</p>
-   * @public
-   */
-  TargetThroughput?: number | undefined;
-
-  /**
-   * <p>The target setting for Amazon EBS Multi-Attach.</p>
-   * @public
-   */
-  TargetMultiAttachEnabled?: boolean | undefined;
-
-  /**
-   * <p>The original size of the volume, in GiB.</p>
-   * @public
-   */
-  OriginalSize?: number | undefined;
-
-  /**
-   * <p>The original IOPS rate of the volume.</p>
-   * @public
-   */
-  OriginalIops?: number | undefined;
-
-  /**
-   * <p>The original EBS volume type of the volume.</p>
-   * @public
-   */
-  OriginalVolumeType?: VolumeType | undefined;
-
-  /**
-   * <p>The original throughput of the volume, in MiB/s.</p>
-   * @public
-   */
-  OriginalThroughput?: number | undefined;
-
-  /**
-   * <p>The original setting for Amazon EBS Multi-Attach.</p>
-   * @public
-   */
-  OriginalMultiAttachEnabled?: boolean | undefined;
-
-  /**
-   * <p>The modification progress, from 0 to 100 percent complete.</p>
-   * @public
-   */
-  Progress?: number | undefined;
-
-  /**
-   * <p>The modification start time.</p>
-   * @public
-   */
-  StartTime?: Date | undefined;
-
-  /**
-   * <p>The modification completion or failure time.</p>
-   * @public
-   */
-  EndTime?: Date | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeVolumesModificationsResult {
-  /**
-   * <p>The token to include in another request to get the next page of items.
-   *   This value is <code>null</code> when there are no more items to return.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>Information about the volume modifications.</p>
-   * @public
-   */
-  VolumesModifications?: VolumeModification[] | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeVolumeStatusRequest {
-  /**
-   * <p>The maximum number of items to return for this request.
-   * 	To get the next page of items, make another request with the token returned in the output.
-   * 	For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>The token returned from a previous paginated request.
-   *   Pagination continues from the end of the items returned by the previous request.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The IDs of the volumes.</p>
-   *          <p>Default: Describes all your volumes.</p>
-   * @public
-   */
-  VolumeIds?: string[] | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The filters.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>action.code</code> - The action code for the event (for example,
-   *             <code>enable-volume-io</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>action.description</code> - A description of the action.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>action.event-id</code> - The event ID associated with the action.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>availability-zone</code> - The Availability Zone of the instance.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>event.description</code> - A description of the event.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>event.event-id</code> - The event ID.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>event.event-type</code> - The event type (for <code>io-enabled</code>:
-   *             <code>passed</code> | <code>failed</code>; for <code>io-performance</code>:
-   *             <code>io-performance:degraded</code> | <code>io-performance:severely-degraded</code> |
-   *             <code>io-performance:stalled</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>event.not-after</code> - The latest end time for the event.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>event.not-before</code> - The earliest start time for the event.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>volume-status.details-name</code> - The cause for
-   *             <code>volume-status.status</code> (<code>io-enabled</code> |
-   *           <code>io-performance</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>volume-status.details-status</code> - The status of
-   *             <code>volume-status.details-name</code> (for <code>io-enabled</code>:
-   *             <code>passed</code> | <code>failed</code>; for <code>io-performance</code>:
-   *             <code>normal</code> | <code>degraded</code> | <code>severely-degraded</code> |
-   *             <code>stalled</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>volume-status.status</code> - The status of the volume (<code>ok</code> |
-   *             <code>impaired</code> | <code>warning</code> | <code>insufficient-data</code>).</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  Filters?: Filter[] | undefined;
-}
 
 /**
  * @internal

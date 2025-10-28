@@ -2320,6 +2320,14 @@ DescribeCapacityReservations
 </details>
 <details>
 <summary>
+DescribeCapacityReservationTopology
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/DescribeCapacityReservationTopologyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/DescribeCapacityReservationTopologyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/DescribeCapacityReservationTopologyCommandOutput/)
+
+</details>
+<details>
+<summary>
 DescribeCarrierGateways
 </summary>
 

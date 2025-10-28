@@ -918,6 +918,10 @@ import {
   DescribeCapacityReservationsCommandOutput,
 } from "./commands/DescribeCapacityReservationsCommand";
 import {
+  DescribeCapacityReservationTopologyCommandInput,
+  DescribeCapacityReservationTopologyCommandOutput,
+} from "./commands/DescribeCapacityReservationTopologyCommand";
+import {
   DescribeCarrierGatewaysCommandInput,
   DescribeCarrierGatewaysCommandOutput,
 } from "./commands/DescribeCarrierGatewaysCommand";
@@ -2751,6 +2755,7 @@ export type ServiceInputTypes =
   | DescribeCapacityManagerDataExportsCommandInput
   | DescribeCapacityReservationBillingRequestsCommandInput
   | DescribeCapacityReservationFleetsCommandInput
+  | DescribeCapacityReservationTopologyCommandInput
   | DescribeCapacityReservationsCommandInput
   | DescribeCarrierGatewaysCommandInput
   | DescribeClassicLinkInstancesCommandInput
@@ -3460,6 +3465,7 @@ export type ServiceOutputTypes =
   | DescribeCapacityManagerDataExportsCommandOutput
   | DescribeCapacityReservationBillingRequestsCommandOutput
   | DescribeCapacityReservationFleetsCommandOutput
+  | DescribeCapacityReservationTopologyCommandOutput
   | DescribeCapacityReservationsCommandOutput
   | DescribeCarrierGatewaysCommandOutput
   | DescribeClassicLinkInstancesCommandOutput

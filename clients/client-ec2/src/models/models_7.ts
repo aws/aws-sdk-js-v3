@@ -146,12 +146,12 @@ import {
   ReservedInstancesConfiguration,
   SnapshotAttributeName,
   VerifiedAccessInstanceLoggingConfiguration,
-  VolumeModification,
 } from "./models_5";
 
 import {
   InstanceFamilyCreditSpecification,
   InternetGatewayBlockMode,
+  IpamAddressHistoryResourceType,
   IpamComplianceStatus,
   IpamOverlapStatus,
   ManagedBy,
@@ -159,8 +159,142 @@ import {
   SnapshotBlockPublicAccessState,
   TransitGatewayPropagationState,
   UnlimitedSupportedInstanceFamily,
+  VolumeModification,
   VpcBlockPublicAccessOptions,
 } from "./models_6";
+
+/**
+ * <p>The historical record of a CIDR within an IPAM scope. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/view-history-cidr-ipam.html">View the history of IP addresses</a> in the <i>Amazon VPC IPAM User Guide</i>.
+ *       </p>
+ * @public
+ */
+export interface IpamAddressHistoryRecord {
+  /**
+   * <p>The ID of the resource owner.</p>
+   * @public
+   */
+  ResourceOwnerId?: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services Region of the resource.</p>
+   * @public
+   */
+  ResourceRegion?: string | undefined;
+
+  /**
+   * <p>The type of the resource.</p>
+   * @public
+   */
+  ResourceType?: IpamAddressHistoryResourceType | undefined;
+
+  /**
+   * <p>The ID of the resource.</p>
+   * @public
+   */
+  ResourceId?: string | undefined;
+
+  /**
+   * <p>The CIDR of the resource.</p>
+   * @public
+   */
+  ResourceCidr?: string | undefined;
+
+  /**
+   * <p>The name of the resource.</p>
+   * @public
+   */
+  ResourceName?: string | undefined;
+
+  /**
+   * <p>The compliance status of a resource. For more information on compliance statuses, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/monitor-cidr-compliance-ipam.html">Monitor CIDR usage by resource</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
+   * @public
+   */
+  ResourceComplianceStatus?: IpamComplianceStatus | undefined;
+
+  /**
+   * <p>The overlap status of an IPAM resource. The overlap status tells you if the CIDR for a resource overlaps with another CIDR in the scope. For more information on overlap statuses, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/monitor-cidr-compliance-ipam.html">Monitor CIDR usage by resource</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
+   * @public
+   */
+  ResourceOverlapStatus?: IpamOverlapStatus | undefined;
+
+  /**
+   * <p>The VPC ID of the resource.</p>
+   * @public
+   */
+  VpcId?: string | undefined;
+
+  /**
+   * <p>Sampled start time of the resource-to-CIDR association within the IPAM scope. Changes are picked up in periodic snapshots, so the start time may have occurred before this specific time.</p>
+   * @public
+   */
+  SampledStartTime?: Date | undefined;
+
+  /**
+   * <p>Sampled end time of the resource-to-CIDR association within the IPAM scope. Changes are picked up in periodic snapshots, so the end time may have occurred before this specific time.</p>
+   * @public
+   */
+  SampledEndTime?: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetIpamAddressHistoryResult {
+  /**
+   * <p>A historical record for a CIDR within an IPAM scope. If the CIDR is associated with an EC2 instance, you will see an object in the response for the instance and one for the network interface.</p>
+   * @public
+   */
+  HistoryRecords?: IpamAddressHistoryRecord[] | undefined;
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetIpamDiscoveredAccountsRequest {
+  /**
+   * <p>A check for whether you have the required permissions for the action without actually making the request
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>A resource discovery ID.</p>
+   * @public
+   */
+  IpamResourceDiscoveryId: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services Region that the account information is returned from.</p>
+   * @public
+   */
+  DiscoveryRegion: string | undefined;
+
+  /**
+   * <p>Discovered account filters.</p>
+   * @public
+   */
+  Filters?: Filter[] | undefined;
+
+  /**
+   * <p>Specify the pagination token from a previous request to retrieve the next page of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of discovered accounts to return in one page of results.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+}
 
 /**
  * @public
@@ -9688,115 +9822,6 @@ export interface ModifyVpcEndpointConnectionNotificationRequest {
    * @public
    */
   ConnectionEvents?: string[] | undefined;
-}
-
-/**
- * @public
- */
-export interface ModifyVpcEndpointConnectionNotificationResult {
-  /**
-   * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
-   * @public
-   */
-  ReturnValue?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface ModifyVpcEndpointServiceConfigurationRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The ID of the service.</p>
-   * @public
-   */
-  ServiceId: string | undefined;
-
-  /**
-   * <p>(Interface endpoint configuration) The private DNS name to assign to the endpoint service.</p>
-   * @public
-   */
-  PrivateDnsName?: string | undefined;
-
-  /**
-   * <p>(Interface endpoint configuration) Removes the private DNS name of the endpoint service.</p>
-   * @public
-   */
-  RemovePrivateDnsName?: boolean | undefined;
-
-  /**
-   * <p>Indicates whether requests to create an endpoint to the service must be accepted.</p>
-   * @public
-   */
-  AcceptanceRequired?: boolean | undefined;
-
-  /**
-   * <p>The Amazon Resource Names (ARNs) of Network Load Balancers to add to the service
-   *             configuration.</p>
-   * @public
-   */
-  AddNetworkLoadBalancerArns?: string[] | undefined;
-
-  /**
-   * <p>The Amazon Resource Names (ARNs) of Network Load Balancers to remove from the service
-   *             configuration.</p>
-   * @public
-   */
-  RemoveNetworkLoadBalancerArns?: string[] | undefined;
-
-  /**
-   * <p>The Amazon Resource Names (ARNs) of Gateway Load Balancers to add to the service configuration.</p>
-   * @public
-   */
-  AddGatewayLoadBalancerArns?: string[] | undefined;
-
-  /**
-   * <p>The Amazon Resource Names (ARNs) of Gateway Load Balancers to remove from the service configuration.</p>
-   * @public
-   */
-  RemoveGatewayLoadBalancerArns?: string[] | undefined;
-
-  /**
-   * <p>The IP address types to add to the service configuration.</p>
-   * @public
-   */
-  AddSupportedIpAddressTypes?: string[] | undefined;
-
-  /**
-   * <p>The IP address types to remove from the service configuration.</p>
-   * @public
-   */
-  RemoveSupportedIpAddressTypes?: string[] | undefined;
-
-  /**
-   * <p>The supported Regions to add to the service configuration.</p>
-   * @public
-   */
-  AddSupportedRegions?: string[] | undefined;
-
-  /**
-   * <p>The supported Regions to remove from the service configuration.</p>
-   * @public
-   */
-  RemoveSupportedRegions?: string[] | undefined;
-}
-
-/**
- * @public
- */
-export interface ModifyVpcEndpointServiceConfigurationResult {
-  /**
-   * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
-   * @public
-   */
-  Return?: boolean | undefined;
 }
 
 /**

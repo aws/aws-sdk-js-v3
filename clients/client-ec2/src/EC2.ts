@@ -1275,6 +1275,11 @@ import {
   DescribeCapacityReservationsCommandOutput,
 } from "./commands/DescribeCapacityReservationsCommand";
 import {
+  DescribeCapacityReservationTopologyCommand,
+  DescribeCapacityReservationTopologyCommandInput,
+  DescribeCapacityReservationTopologyCommandOutput,
+} from "./commands/DescribeCapacityReservationTopologyCommand";
+import {
   DescribeCarrierGatewaysCommand,
   DescribeCarrierGatewaysCommandInput,
   DescribeCarrierGatewaysCommandOutput,
@@ -3717,6 +3722,7 @@ const commands = {
   DescribeCapacityReservationBillingRequestsCommand,
   DescribeCapacityReservationFleetsCommand,
   DescribeCapacityReservationsCommand,
+  DescribeCapacityReservationTopologyCommand,
   DescribeCarrierGatewaysCommand,
   DescribeClassicLinkInstancesCommand,
   DescribeClientVpnAuthorizationRulesCommand,
@@ -8495,6 +8501,24 @@ export interface EC2 {
     args: DescribeCapacityReservationsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeCapacityReservationsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeCapacityReservationTopologyCommand}
+   */
+  describeCapacityReservationTopology(): Promise<DescribeCapacityReservationTopologyCommandOutput>;
+  describeCapacityReservationTopology(
+    args: DescribeCapacityReservationTopologyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeCapacityReservationTopologyCommandOutput>;
+  describeCapacityReservationTopology(
+    args: DescribeCapacityReservationTopologyCommandInput,
+    cb: (err: any, data?: DescribeCapacityReservationTopologyCommandOutput) => void
+  ): void;
+  describeCapacityReservationTopology(
+    args: DescribeCapacityReservationTopologyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeCapacityReservationTopologyCommandOutput) => void
   ): void;
 
   /**
