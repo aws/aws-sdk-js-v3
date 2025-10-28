@@ -59,6 +59,7 @@ export interface DescribeWorkspacesCommandOutput extends DescribeWorkspacesResul
  * //       DirectoryId: "STRING_VALUE",
  * //       UserName: "STRING_VALUE",
  * //       IpAddress: "STRING_VALUE",
+ * //       Ipv6Address: "STRING_VALUE",
  * //       State: "PENDING" || "AVAILABLE" || "IMPAIRED" || "UNHEALTHY" || "REBOOTING" || "STARTING" || "REBUILDING" || "RESTORING" || "MAINTENANCE" || "ADMIN_MAINTENANCE" || "TERMINATING" || "TERMINATED" || "SUSPENDED" || "UPDATING" || "STOPPING" || "STOPPED" || "ERROR",
  * //       BundleId: "STRING_VALUE",
  * //       SubnetId: "STRING_VALUE",

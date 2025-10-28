@@ -2530,6 +2530,12 @@ export interface WorkspaceRequest {
    * @public
    */
   WorkspaceName?: string | undefined;
+
+  /**
+   * <p>The IPv6 address for the WorkSpace.</p>
+   * @public
+   */
+  Ipv6Address?: string | undefined;
 }
 
 /**
@@ -2733,6 +2739,12 @@ export interface Workspace {
    * @public
    */
   IpAddress?: string | undefined;
+
+  /**
+   * <p>The IPv6 address of the WorkSpace.</p>
+   * @public
+   */
+  Ipv6Address?: string | undefined;
 
   /**
    * <p>The operational state of the WorkSpace.</p>
@@ -5311,6 +5323,12 @@ export interface WorkspaceDirectory {
    * @public
    */
   DnsIpAddresses?: string[] | undefined;
+
+  /**
+   * <p>The IPv6 addresses of the DNS servers for the directory.</p>
+   * @public
+   */
+  DnsIpv6Addresses?: string[] | undefined;
 
   /**
    * <p>The user name for the service account.</p>

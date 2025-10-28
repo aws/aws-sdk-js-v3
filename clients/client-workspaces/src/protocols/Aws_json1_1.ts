@@ -4853,6 +4853,8 @@ const de_DisassociateWorkspaceApplicationResult = (
 
 // de_DnsIpAddresses omitted.
 
+// de_DnsIpv6Addresses omitted.
+
 // de_ErrorDetails omitted.
 
 // de_ErrorDetailsList omitted.
@@ -5153,6 +5155,7 @@ const de_Workspace = (output: any, context: __SerdeContext): Workspace => {
     ErrorCode: __expectString,
     ErrorMessage: __expectString,
     IpAddress: __expectString,
+    Ipv6Address: __expectString,
     ModificationStates: _json,
     RelatedWorkspaces: _json,
     RootVolumeEncryptionEnabled: __expectBoolean,

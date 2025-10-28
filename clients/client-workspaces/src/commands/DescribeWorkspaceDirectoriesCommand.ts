@@ -75,6 +75,9 @@ export interface DescribeWorkspaceDirectoriesCommandOutput
  * //       DnsIpAddresses: [ // DnsIpAddresses
  * //         "STRING_VALUE",
  * //       ],
+ * //       DnsIpv6Addresses: [ // DnsIpv6Addresses
+ * //         "STRING_VALUE",
+ * //       ],
  * //       CustomerUserName: "STRING_VALUE",
  * //       IamRoleId: "STRING_VALUE",
  * //       DirectoryType: "SIMPLE_AD" || "AD_CONNECTOR" || "CUSTOMER_MANAGED" || "AWS_IAM_IDENTITY_CENTER",
