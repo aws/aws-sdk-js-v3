@@ -1178,7 +1178,7 @@ export type ConstraintViolationExceptionReason =
  *             </li>
  *             <li>
  *                <p>WAIT_PERIOD_ACTIVE: After you create an Amazon Web Services account, you must wait until at
- *                     least seven days after the account was created. Invited accounts aren't subject
+ *                     least four days after the account was created. Invited accounts aren't subject
  *                     to this waiting period.</p>
  *             </li>
  *          </ul>
@@ -4004,6 +4004,16 @@ export interface DelegatedAdministrator {
    * @public
    */
   Status?: AccountStatus | undefined;
+
+  /**
+   * <p>Each state represents a specific phase in the account lifecycle. Use this information
+   *             to manage account access, automate workflows, or trigger actions based on account state
+   *             changes.</p>
+   *          <p>For more information about account states and their implications, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_account_state.html">Monitor the state of your Amazon Web Services accounts </a> in the
+   *             <i>Organizations User Guide</i>.</p>
+   * @public
+   */
+  State?: AccountState | undefined;
 
   /**
    * <p>The method by which the delegated administrator's account joined the

@@ -531,9 +531,8 @@ export interface OrganizationsClientResolvedConfig extends OrganizationsClientRe
  *          <p>
  *             <b>Support and feedback for Organizations</b>
  *          </p>
- *          <p>We welcome your feedback. Send your comments to <a href="mailto:feedback-awsorganizations@amazon.com">feedback-awsorganizations@amazon.com</a> or post your feedback and questions in
- *             the <a href="http://forums.aws.amazon.com/forum.jspa?forumID=219">Organizations support forum</a>. For
- *             more information about the Amazon Web Services support forums, see <a href="http://forums.aws.amazon.com/help.jspa">Forums Help</a>.</p>
+ *          <p>We welcome your feedback. You can post your feedback and questions in the <a href="https://forums.aws.amazon.com/forum.jspa?forumID=219">Organizations support
+ *                 forum</a>. For more information about the Amazon Web Services Support forums, see <a href="https://forums.aws.amazon.com/help.jspa">Forums Help</a>.</p>
  *          <p>
  *             <b>Endpoint to call When using the CLI or the Amazon Web Services
  *                 SDK</b>

@@ -79,7 +79,7 @@ export interface LeaveOrganizationCommandOutput extends __MetadataBearer {}
  *                </li>
  *                <li>
  *                   <p>A newly created account has a waiting period before it can be removed from
- *                         its organization. You must wait until at least seven days after the account
+ *                         its organization. You must wait until at least four days after the account
  *                         was created. Invited accounts aren't subject to this waiting period.</p>
  *                </li>
  *                <li>
@@ -341,7 +341,7 @@ export interface LeaveOrganizationCommandOutput extends __MetadataBearer {}
  *             </li>
  *             <li>
  *                <p>WAIT_PERIOD_ACTIVE: After you create an Amazon Web Services account, you must wait until at
- *                     least seven days after the account was created. Invited accounts aren't subject
+ *                     least four days after the account was created. Invited accounts aren't subject
  *                     to this waiting period.</p>
  *             </li>
  *          </ul>

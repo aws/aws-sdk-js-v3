@@ -299,7 +299,7 @@ export interface RegisterDelegatedAdministratorCommandOutput extends __MetadataB
  *             </li>
  *             <li>
  *                <p>WAIT_PERIOD_ACTIVE: After you create an Amazon Web Services account, you must wait until at
- *                     least seven days after the account was created. Invited accounts aren't subject
+ *                     least four days after the account was created. Invited accounts aren't subject
  *                     to this waiting period.</p>
  *             </li>
  *          </ul>

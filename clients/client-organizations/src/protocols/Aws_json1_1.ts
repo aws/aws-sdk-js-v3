@@ -3301,6 +3301,7 @@ const de_DelegatedAdministrator = (output: any, context: __SerdeContext): Delega
     JoinedMethod: __expectString,
     JoinedTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     Name: __expectString,
+    State: __expectString,
     Status: __expectString,
   }) as any;
 };

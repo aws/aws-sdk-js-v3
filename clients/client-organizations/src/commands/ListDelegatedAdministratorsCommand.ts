@@ -61,6 +61,7 @@ export interface ListDelegatedAdministratorsCommandOutput
  * //       Email: "STRING_VALUE",
  * //       Name: "STRING_VALUE",
  * //       Status: "ACTIVE" || "SUSPENDED" || "PENDING_CLOSURE",
+ * //       State: "PENDING_ACTIVATION" || "ACTIVE" || "SUSPENDED" || "PENDING_CLOSURE" || "CLOSED",
  * //       JoinedMethod: "INVITED" || "CREATED",
  * //       JoinedTimestamp: new Date("TIMESTAMP"),
  * //       DelegationEnabledDate: new Date("TIMESTAMP"),
@@ -299,7 +300,7 @@ export interface ListDelegatedAdministratorsCommandOutput
  *             </li>
  *             <li>
  *                <p>WAIT_PERIOD_ACTIVE: After you create an Amazon Web Services account, you must wait until at
- *                     least seven days after the account was created. Invited accounts aren't subject
+ *                     least four days after the account was created. Invited accounts aren't subject
  *                     to this waiting period.</p>
  *             </li>
  *          </ul>
