@@ -2,7 +2,9 @@
   "compilerOptions": {
     "baseUrl": ".",
     "declarationDir": "dist-types",
-    "rootDir": "src"
+    "rootDir": "src",
+    "module": "Node16",
+    "moduleResolution": "Node16"
   },
   "extends": "../../tsconfig.types.json",
   "include": ["src/"]
