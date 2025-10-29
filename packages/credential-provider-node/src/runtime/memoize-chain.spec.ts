@@ -8,7 +8,7 @@ describe("memoize runtime config aware AWS credential chain", () => {
   let staticCredentials!: RuntimeConfigAwsCredentialIdentityProvider;
   let expiringCredentials!: RuntimeConfigAwsCredentialIdentityProvider;
 
-  const expiration = new Date();
+  const expiration = new Date(Date.now() + 5_000);
 
   beforeEach(() => {
     vi.resetAllMocks();

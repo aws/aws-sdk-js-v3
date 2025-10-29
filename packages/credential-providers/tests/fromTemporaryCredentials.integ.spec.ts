@@ -2,7 +2,7 @@ import { S3 } from "@aws-sdk/client-s3";
 import { fromTemporaryCredentials } from "@aws-sdk/credential-providers";
 import { describe, expect, test as it } from "vitest";
 
-import { CTest } from "./_test-lib.spec";
+import { CTest } from "./_test-lib";
 
 describe(fromTemporaryCredentials.name, () => {
   const ctest = new CTest({
@@ -10,7 +10,7 @@ describe(fromTemporaryCredentials.name, () => {
     providerParams: (testParams) => {
       return {
         params: {
-          RoleArn: "arn:aws:iam::1234567890:role/Rigamarole",
+          RoleArn: "arn:aws:iam::1234567890:role/Rigmarole",
         },
         ...CTest.defaultRegionConfigProvider(testParams),
       };
@@ -21,28 +21,42 @@ describe(fromTemporaryCredentials.name, () => {
 
   ctest.testRegion();
 
-  it("should resolve region", async () => {
-    ctest.setIni({
-      alt: {
-        region: "us-east-2",
-      },
+  describe("configure from env", () => {
+    it("is not configurable from env", async () => {
+      expect("ok").toBeTruthy();
     });
+  });
 
-    const s3 = new S3({
-      profile: "alt",
-      credentials: fromTemporaryCredentials({
-        masterCredentials: {
-          accessKeyId: "M",
-          secretAccessKey: "M",
-        },
-        params: {
-          RoleArn: "arn:aws:iam::1234567890:role/Rigamarole",
-        },
-      }),
+  describe("configure from profile", () => {
+    it("is not configurable from profile", async () => {
+      expect("ok").toBeTruthy();
     });
+  });
 
-    expect(await s3.config.credentials()).toMatchObject({
-      sessionToken: "STS_AR_SESSION_TOKEN_us-east-2",
+  describe("configure from code", () => {
+    it("should be configurable from code", async () => {
+      ctest.setIni({
+        alt: {
+          region: "us-east-2",
+        },
+      });
+
+      const s3 = new S3({
+        profile: "alt",
+        credentials: fromTemporaryCredentials({
+          masterCredentials: {
+            accessKeyId: "M",
+            secretAccessKey: "M",
+          },
+          params: {
+            RoleArn: "arn:aws:iam::1234567890:role/Rigmarole",
+          },
+        }),
+      });
+
+      expect(await s3.config.credentials()).toMatchObject({
+        sessionToken: "STS_AR_SESSION_TOKEN_us-east-2",
+      });
     });
   });
 });

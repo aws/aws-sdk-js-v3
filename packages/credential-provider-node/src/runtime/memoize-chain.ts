@@ -34,6 +34,11 @@ export function memoizeChain(
     if (options?.forceRefresh) {
       return await chain(options);
     }
+    if (credentials?.expiration) {
+      if (credentials?.expiration?.getTime() < Date.now()) {
+        credentials = undefined;
+      }
+    }
     if (activeLock) {
       await activeLock;
     } else if (!credentials || treatAsExpired?.(credentials!)) {

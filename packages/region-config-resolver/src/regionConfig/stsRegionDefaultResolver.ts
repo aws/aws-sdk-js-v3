@@ -12,9 +12,21 @@ export function stsRegionDefaultResolver(loaderConfig: LocalConfigOptions = {}) 
     {
       ...NODE_REGION_CONFIG_OPTIONS,
       async default() {
+        if (!warning.silence) {
+          console.warn(
+            "@aws-sdk - WARN - default STS region of us-east-1 used. See @aws-sdk/credential-providers README and set a region explicitly."
+          );
+        }
         return "us-east-1";
       },
     },
     { ...NODE_REGION_CONFIG_FILE_OPTIONS, ...loaderConfig }
   );
 }
+
+/**
+ * @internal
+ */
+export const warning = {
+  silence: false,
+};

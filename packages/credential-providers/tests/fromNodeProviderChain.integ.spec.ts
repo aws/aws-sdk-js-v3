@@ -1,7 +1,8 @@
+import { S3 } from "@aws-sdk/client-s3";
 import { fromNodeProviderChain } from "@aws-sdk/credential-providers";
-import { describe } from "vitest";
+import { describe, expect, test as it } from "vitest";
 
-import { CTest } from "./_test-lib.spec";
+import { CTest } from "./_test-lib";
 
 describe(fromNodeProviderChain.name, () => {
   const ctest = new CTest({
@@ -12,4 +13,10 @@ describe(fromNodeProviderChain.name, () => {
   });
 
   ctest.testRegion();
+
+  void S3;
+
+  it("is tested in the credential-provider-node.integ.spec.ts file", async () => {
+    expect("ok").toBeTruthy();
+  });
 });

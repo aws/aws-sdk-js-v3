@@ -1,4 +1,6 @@
 import { S3 } from "@aws-sdk/client-s3";
+import { fromSSO } from "@aws-sdk/credential-providers";
+import { warning } from "@aws-sdk/region-config-resolver";
 import { ParsedIniData, RuntimeConfigAwsCredentialIdentityProvider } from "@aws-sdk/types";
 import { NodeHttpHandler } from "@smithy/node-http-handler";
 import { HttpResponse } from "@smithy/protocol-http";
@@ -9,14 +11,10 @@ import { createHash } from "node:crypto";
 import { homedir } from "node:os";
 import { join } from "node:path";
 import { PassThrough } from "node:stream";
-import { afterAll, afterEach, beforeAll, beforeEach, describe, expect, test as it } from "vitest";
-import { fromSSO } from "@aws-sdk/credential-providers";
-
-describe("placeholder for testing lib", () => {
-  it("", () => {});
-});
+import { afterAll, afterEach, beforeAll, beforeEach, expect, test as it } from "vitest";
 
 export const assumeRoleArns: string[] = [];
+warning.silence = true;
 let iniProfileData: ParsedIniData = null as any;
 
 export type CredentialTestParameters = {
@@ -52,13 +50,13 @@ export class CTest<P extends (init?: any) => RuntimeConfigAwsCredentialIdentityP
     fallbackRegion,
   }: {
     credentialProvider: P;
-    providerParams: (testParams: CredentialTestParameters) => Parameters<P>[0];
+    providerParams?: (testParams: CredentialTestParameters) => Parameters<P>[0];
     profileCredentials?: boolean;
     filter?: (testParams: CredentialTestParameters) => boolean;
     fallbackRegion?: string;
   }) {
     this.credentialProvider = credentialProvider;
-    this.providerParams = providerParams;
+    this.providerParams = providerParams ?? CTest.defaultRegionConfigProvider;
     this.profileCredentials = !!profileCredentials;
     this.filter = filter ?? (() => true);
     this.fallbackRegion = fallbackRegion ?? "unresolved";
@@ -354,7 +352,7 @@ export class MockNodeHttpHandler {
 
     const region = (request.hostname.match(/(sts|cognito-identity|portal\.sso)\.(.*?)\./) || [, , "unknown"])[2];
 
-    if (request.headers.Authorization === "container-authorization") {
+    if (request.headers.Authorization === "container-authorization" || request.hostname === "169.254.170.23") {
       body.write(
         JSON.stringify({
           AccessKeyId: "CONTAINER_ACCESS_KEY",
@@ -446,6 +444,7 @@ export class MockNodeHttpHandler {
       console.log(request);
       throw new Error("request not supported.");
     }
+
     body.end();
     return {
       response: new HttpResponse({
