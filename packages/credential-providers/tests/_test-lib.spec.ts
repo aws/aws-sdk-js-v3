@@ -1,6 +1,5 @@
 import { S3 } from "@aws-sdk/client-s3";
 import { ParsedIniData, RuntimeConfigAwsCredentialIdentityProvider } from "@aws-sdk/types";
-import { AttributedAwsCredentialIdentity } from "@aws-sdk/types/src";
 import { NodeHttpHandler } from "@smithy/node-http-handler";
 import { HttpResponse } from "@smithy/protocol-http";
 import { externalDataInterceptor } from "@smithy/shared-ini-file-loader";
@@ -11,12 +10,13 @@ import { homedir } from "node:os";
 import { join } from "node:path";
 import { PassThrough } from "node:stream";
 import { afterAll, afterEach, beforeAll, beforeEach, describe, expect, test as it } from "vitest";
+import { fromSSO } from "@aws-sdk/credential-providers";
 
 describe("placeholder for testing lib", () => {
   it("", () => {});
 });
 
-const assumeRoleArns: string[] = [];
+export const assumeRoleArns: string[] = [];
 let iniProfileData: ParsedIniData = null as any;
 
 export type CredentialTestParameters = {
@@ -38,13 +38,30 @@ export type CredentialTestParameters = {
  * Credential provider tester.
  */
 export class CTest<P extends (init?: any) => RuntimeConfigAwsCredentialIdentityProvider> {
-  private lastCredentials: AttributedAwsCredentialIdentity | undefined;
+  private readonly credentialProvider: P;
+  private readonly providerParams: (testParams: CredentialTestParameters) => Parameters<P>[0];
+  private readonly profileCredentials: boolean;
+  private readonly filter: (testParams: CredentialTestParameters) => boolean;
+  private readonly fallbackRegion: string;
 
-  public constructor(
-    public credentialProvider: P,
-    public providerParams: (testParams: CredentialTestParameters) => Parameters<P>[0],
-    public profileCredentials?: boolean
-  ) {
+  public constructor({
+    credentialProvider,
+    providerParams,
+    profileCredentials,
+    filter,
+    fallbackRegion,
+  }: {
+    credentialProvider: P;
+    providerParams: (testParams: CredentialTestParameters) => Parameters<P>[0];
+    profileCredentials?: boolean;
+    filter?: (testParams: CredentialTestParameters) => boolean;
+    fallbackRegion?: string;
+  }) {
+    this.credentialProvider = credentialProvider;
+    this.providerParams = providerParams;
+    this.profileCredentials = !!profileCredentials;
+    this.filter = filter ?? (() => true);
+    this.fallbackRegion = fallbackRegion ?? "unresolved";
     this.init();
   }
 
@@ -57,8 +74,11 @@ export class CTest<P extends (init?: any) => RuntimeConfigAwsCredentialIdentityP
       };
     }
     return {
+      // used by fromIni
       profile,
       clientConfig: {
+        // used by e.g. fromTemporaryCredentials that don't have top level profile selection
+        profile,
         region: providerRegion ? "provider-region" : undefined,
       },
     };
@@ -157,6 +177,9 @@ export class CTest<P extends (init?: any) => RuntimeConfigAwsCredentialIdentityP
   public testRegion() {
     for (const withCaller of [true, false]) {
       for (const callerClientRegion of [true, false]) {
+        if (callerClientRegion && !withCaller) {
+          continue;
+        }
         for (const envRegion of [true, false]) {
           for (const profileRegion of [true, false]) {
             for (const providerRegion of [true, false]) {
@@ -174,11 +197,30 @@ export class CTest<P extends (init?: any) => RuntimeConfigAwsCredentialIdentityP
                   profile,
                 };
 
+                if (!this.filter(params)) {
+                  continue;
+                }
+
                 it(`${serializeParams(params)}`, async () => {
-                  const region = await this.resolveStsRegion(params);
+                  const region = await this.findCredentialSourceRegion(params).catch((e) => {
+                    return "failed";
+                  });
+                  const regionRequired = this.fallbackRegion === "unresolved" || withCaller;
+                  const providerParams = this.providerParams(params);
+                  const isSso = this.credentialProvider === fromSSO || providerParams.ssoStartUrl;
+                  const hasRegion = providerRegion || profileRegion || callerClientRegion || envRegion;
+
+                  if (regionRequired && !hasRegion) {
+                    expect(region).toBe("failed");
+                  }
 
                   if (providerRegion) {
                     expect(region).toBe("provider-region");
+                    return;
+                  }
+
+                  if (isSso) {
+                    expect(region).toBe(providerParams.ssoRegion);
                     return;
                   }
 
@@ -204,7 +246,7 @@ export class CTest<P extends (init?: any) => RuntimeConfigAwsCredentialIdentityP
                     return;
                   }
 
-                  expect(region).toBe("us-east-1");
+                  expect(region).toBe(this.fallbackRegion);
                 });
               }
             }
@@ -214,7 +256,7 @@ export class CTest<P extends (init?: any) => RuntimeConfigAwsCredentialIdentityP
     }
   }
 
-  private async resolveStsRegion(testParams: CredentialTestParameters) {
+  private async findCredentialSourceRegion(testParams: CredentialTestParameters) {
     const { withCaller, envRegion, profile, profileRegion, callerClientRegion, providerRegion } = testParams;
 
     if (envRegion) {
@@ -285,13 +327,13 @@ export class CTest<P extends (init?: any) => RuntimeConfigAwsCredentialIdentityP
 
       await s3.listBuckets({});
       const credentials = await s3.config.credentials();
-      return credentials.sessionToken!.replace("STS_AR_SESSION_TOKEN_", "");
+      return credentials.sessionToken!.replace(/(.*?)SESSION_TOKEN_/, "");
     }
 
     const provider = this.credentialProvider(this.providerParams(testParams));
 
     const credentials = await provider();
-    return credentials.sessionToken!.replace("STS_AR_SESSION_TOKEN_", "");
+    return credentials.sessionToken!.replace(/(.*?)SESSION_TOKEN_/, "");
   }
 }
 

@@ -5,9 +5,9 @@ import { describe, expect, test as it } from "vitest";
 import { CTest } from "./_test-lib.spec";
 
 describe(fromTemporaryCredentials.name, () => {
-  const ctest = new CTest(
-    fromTemporaryCredentials,
-    (testParams) => {
+  const ctest = new CTest({
+    credentialProvider: fromTemporaryCredentials,
+    providerParams: (testParams) => {
       return {
         params: {
           RoleArn: "arn:aws:iam::1234567890:role/Rigamarole",
@@ -15,8 +15,9 @@ describe(fromTemporaryCredentials.name, () => {
         ...CTest.defaultRegionConfigProvider(testParams),
       };
     },
-    false
-  );
+    profileCredentials: false,
+    fallbackRegion: "us-east-1",
+  });
 
   ctest.testRegion();
 

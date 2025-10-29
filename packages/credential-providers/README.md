@@ -826,7 +826,7 @@ import { fromSSO } from "@aws-sdk/credential-providers"; // ES6 import
 const client = new FooClient({
   // Optional, available on clients as of v3.714.0.
   profile: "my-sso-profile",
-  credentials: fromProcess({
+  credentials: fromSSO({
     // Optional. Defaults to the client's profile if that is set.
     // You can specify a profile here as well, but this applies
     // only to the credential resolution and not to the upper client.

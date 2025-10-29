@@ -8,7 +8,7 @@ import {
   fromTokenFile,
   fromWebToken,
 } from "@aws-sdk/credential-providers";
-import { MockNodeHttpHandler } from "@aws-sdk/credential-providers/tests/_test-lib.spec";
+import { MockNodeHttpHandler, assumeRoleArns } from "@aws-sdk/credential-providers/tests/_test-lib.spec";
 import { NodeHttpHandler } from "@smithy/node-http-handler";
 import { externalDataInterceptor } from "@smithy/shared-ini-file-loader";
 import type { HttpRequest, MiddlewareStack, ParsedIniData } from "@smithy/types";
@@ -21,8 +21,6 @@ import { afterAll, afterEach, beforeAll, beforeEach, describe, expect, test as i
 
 // eslint-disable-next-line no-restricted-imports
 import { defaultProvider } from "../src/defaultProvider";
-
-const assumeRoleArns: string[] = [];
 
 describe("credential-provider-node integration test", () => {
   let sts: STS = null as any;
