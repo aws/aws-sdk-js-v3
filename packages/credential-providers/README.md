@@ -64,7 +64,7 @@ An `AwsCredentialIdentityProvider` is any function that matches the signature:
 
 That is, an async function which returns an object containing AWS credentials.
 
-Whether you write your own such function or use of the providers from this package, when used in
+Whether you write your own such function or use one of the providers from this package, when used in
 conjunction with an AWS SDK Client, the client will cache the resulting credentials
 until there is less than 5 minutes remaining to their expiration, at which point the
 function will be called again, and the new credentials cached.
