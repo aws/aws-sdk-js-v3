@@ -62,6 +62,17 @@ An `AwsCredentialIdentityProvider` is any function that matches the signature:
   }>;
 ```
 
+That is, an async function which returns an object containing AWS credentials.
+
+Whether you write your own such function or use of the providers from this package, when used in
+conjunction with an AWS SDK Client, the client will cache the resulting credentials
+until there is less than 5 minutes remaining to their expiration, at which point the
+function will be called again, and the new credentials cached.
+
+This is designed to minimize the number of credential requests. Each client
+instance has a separate cache of credentials, so if you want to share credential caching
+between clients, you'll need to implement your own cache outside the SDK.
+
 #### Outer and inner clients
 
 A "parent/outer/upper/caller" (position), or "data" (purpose) client refers
@@ -165,7 +176,6 @@ for more information.
 
 ```javascript
 import { fromCognitoIdentity } from "@aws-sdk/credential-providers"; // ES6 import
-// const { fromCognitoIdentity } = require("@aws-sdk/credential-providers"); // CommonJS import
 
 const client = new FooClient({
   region,
@@ -207,7 +217,6 @@ Results from `GetId` are cached internally, but results from `GetCredentialsForI
 
 ```javascript
 import { fromCognitoIdentityPool } from "@aws-sdk/credential-providers"; // ES6 import
-// const { fromCognitoIdentityPool } = require("@aws-sdk/credential-providers"); // CommonJS import
 
 const client = new FooClient({
   region,
@@ -252,7 +261,6 @@ credentials from [STS AssumeRole API][assumerole_api].
 
 ```javascript
 import { fromTemporaryCredentials } from "@aws-sdk/credential-providers"; // ES6 import
-// const { fromTemporaryCredentials } = require("@aws-sdk/credential-providers"); // CommonJS import
 
 const client = new FooClient({
   region,
@@ -291,12 +299,11 @@ const client = new FooClient({
 - Uses `@aws-sdk/client-sts`
 - Available in browsers & native apps
 
-The function `fromWebToken` returns `AwsCredentialIdentityProvider` that gets credentials calling
+The function `fromWebToken` returns an `AwsCredentialIdentityProvider` that gets credentials calling
 [STS AssumeRoleWithWebIdentity API][assumerolewithwebidentity_api]
 
 ```javascript
 import { fromWebToken } from "@aws-sdk/credential-providers"; // ES6 import
-// const { fromWebToken } = require("@aws-sdk/credential-providers"); // CommonJS import
 
 const client = new FooClient({
   region,
@@ -366,7 +373,6 @@ read from the ECS container metadata service and the EC2 instance metadata servi
 
 ```javascript
 import { fromInstanceMetadata } from "@aws-sdk/credential-providers"; // ES6 import
-// const { fromInstanceMetadata } = require("@aws-sdk/credential-providers"); // CommonJS import
 
 const client = new FooClient({
   credentials: fromInstanceMetadata({
@@ -382,7 +388,6 @@ const client = new FooClient({
 
 ```javascript
 import { fromContainerMetadata } from "@aws-sdk/credential-providers"; // ES6 import
-// const { fromContainerMetadata } = require("@aws-sdk/credential-providers"); // CommonJS import
 
 const client = new FooClient({
   credentials: fromContainerMetadata({
@@ -396,12 +401,12 @@ const client = new FooClient({
 });
 ```
 
-A `AwsCredentialIdentityProvider` function created with `fromContainerMetadata` will return a promise that will
+An `AwsCredentialIdentityProvider` function created with `fromContainerMetadata` will return a promise that will
 resolve with credentials for the IAM role associated with containers in an Amazon ECS task. Please
 see [IAM Roles for Tasks][iam_roles_for_tasks] for more information on using IAM roles with Amazon
 ECS.
 
-A `AwsCredentialIdentityProvider` function created with `fromInstanceMetadata` will return a promise that will
+An `AwsCredentialIdentityProvider` function created with `fromInstanceMetadata` will return a promise that will
 resolve with credentials for the IAM role associated with an EC2 instance.
 Please see [IAM Roles for Amazon EC2][iam_roles_for_ec2] for more information on using IAM roles
 with Amazon EC2. Both IMDSv1 (a request/response method) and IMDSv2 (a session-oriented method) are
@@ -443,7 +448,6 @@ Node.js:
 
 ```js
 import { fromHttp } from "@aws-sdk/credential-providers";
-// const { fromHttp } = require("@aws-sdk/credential-providers");
 
 const client = new FooClient({
   credentials: fromHttp({
@@ -528,7 +532,6 @@ credentials file will be given precedence over the profile found in the config f
 
 ```javascript
 import { fromIni } from "@aws-sdk/credential-providers"; // ES6 import
-// const { fromIni } = require("@aws-sdk/credential-providers"); // CommonJS import
 
 const client = new FooClient({
   // As of v3.714.0, an easy way to select a profile is to set it on the client.
@@ -671,14 +674,13 @@ See [`fromSSO()`](#fromsso) for more information
 
 ```javascript
 import { fromEnv } from "@aws-sdk/credential-providers"; // ES6 import
-// const { fromEnv } = require("@aws-sdk/credential-providers"); // CommonJS import
 
 const client = new FooClient({
   credentials: fromEnv(),
 });
 ```
 
-`fromEnv` returns a `AwsCredentialIdentityProvider` function, that reads credentials from the following
+`fromEnv` returns an `AwsCredentialIdentityProvider` function, that reads credentials from the following
 environment variables:
 
 - `AWS_ACCESS_KEY_ID` - The access key for your AWS account.
@@ -698,7 +700,6 @@ contains a falsy value, the promise returned by the `fromEnv` function will be r
 
 ```javascript
 import { fromProcess } from "@aws-sdk/credential-providers"; // ES6 import
-// const { fromProcess } = require("@aws-sdk/credential-providers"); // CommonJS import
 
 const client = new FooClient({
   // Optional, available on clients as of v3.714.0.
@@ -721,7 +722,7 @@ const client = new FooClient({
 });
 ```
 
-`fromSharedConfigFiles` creates a `AwsCredentialIdentityProvider` functions that executes a given process and
+`fromProcess` creates an `AwsCredentialIdentityProvider` functions that executes a given process and
 attempt to read its standard output to receive a JSON payload containing the credentials. The
 process command is read from a shared credentials file at `~/.aws/credentials` and a shared
 configuration file at `~/.aws/config`. Both files are expected to be INI formatted with section
@@ -780,7 +781,6 @@ The function `fromTokenFile` returns `AwsCredentialIdentityProvider` that reads 
 
 ```javascript
 import { fromTokenFile } from "@aws-sdk/credential-providers"; // ES6 import
-// const { fromTokenFile } = require("@aws-sdk/credential-providers"); // CommonJS import
 
 const client = new FooClient({
   region: "us-west-2",
@@ -788,8 +788,8 @@ const client = new FooClient({
     // Optional overrides. This is passed to an inner STS client
     // instantiated to resolve the credentials. Region is inherited
     // from the upper client if present unless overridden.
-    clientConfig: {}
-  });
+    clientConfig: {},
+  }),
 });
 ```
 
@@ -821,7 +821,6 @@ function. You can either load the SSO config from shared INI credential files, o
 
 ```javascript
 import { fromSSO } from "@aws-sdk/credential-providers"; // ES6 import
-// const { fromSSO } = require("@aws-sdk/credential-providers") // CommonJS import
 
 const client = new FooClient({
   // Optional, available on clients as of v3.714.0.
@@ -950,7 +949,7 @@ messages be sent to the Instance Metadata Service
 
 ```js
 import { fromNodeProviderChain } from "@aws-sdk/credential-providers"; // ES6 import
-// const { fromNodeProviderChain } = require("@aws-sdk/credential-providers") // CommonJS import
+
 const credentialProvider = fromNodeProviderChain({
   // This provider accepts any input of fromEnv(), fromSSO(), fromTokenFile(),
   // fromIni(), fromProcess(), fromInstanceMetadata(), fromContainerMetadata()
