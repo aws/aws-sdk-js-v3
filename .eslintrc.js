@@ -48,7 +48,7 @@ module.exports = {
           {
             patterns: [
               {
-                group: ["*src*", "*dist-*"],
+                group: ["*src*", "*dist-*", "!*csrc*"],
               },
             ],
           },
