@@ -4,12 +4,14 @@ import type { FromIniInit } from "@aws-sdk/credential-provider-ini";
 import type { FromProcessInit } from "@aws-sdk/credential-provider-process";
 import type { FromSSOInit, SsoCredentialsParameters } from "@aws-sdk/credential-provider-sso";
 import type { FromTokenFileInit } from "@aws-sdk/credential-provider-web-identity";
+import type { AwsIdentityProperties } from "@aws-sdk/types";
 import type { RemoteProviderInit } from "@smithy/credential-provider-imds";
-import { chain, CredentialsProviderError, memoize } from "@smithy/property-provider";
+import { CredentialsProviderError } from "@smithy/property-provider";
 import { ENV_PROFILE } from "@smithy/shared-ini-file-loader";
-import { AwsCredentialIdentity, MemoizedProvider } from "@smithy/types";
+import type { AwsCredentialIdentity } from "@smithy/types";
 
 import { remoteProvider } from "./remoteProvider";
+import { type MemoizedRuntimeConfigAwsCredentialIdentityProvider, memoizeChain } from "./runtime/memoize-chain";
 
 /**
  * @public
@@ -60,9 +62,9 @@ let multipleCredentialSourceWarningEmitted = false;
  * @see {@link fromContainerMetadata}   The function used to source credentials from the
  *                                      ECS Container Metadata Service.
  */
-export const defaultProvider = (init: DefaultProviderInit = {}): MemoizedProvider<AwsCredentialIdentity> =>
-  memoize(
-    chain(
+export const defaultProvider = (init: DefaultProviderInit = {}): MemoizedRuntimeConfigAwsCredentialIdentityProvider =>
+  memoizeChain(
+    [
       async () => {
         const profile = init.profile ?? process.env[ENV_PROFILE];
         if (profile) {
@@ -95,7 +97,7 @@ export const defaultProvider = (init: DefaultProviderInit = {}): MemoizedProvide
         init.logger?.debug("@aws-sdk/credential-provider-node - defaultProvider::fromEnv");
         return fromEnv(init)();
       },
-      async () => {
+      async (awsIdentityProperties?: AwsIdentityProperties) => {
         init.logger?.debug("@aws-sdk/credential-provider-node - defaultProvider::fromSSO");
         const { ssoStartUrl, ssoAccountId, ssoRegion, ssoRoleName, ssoSession } = init;
         if (!ssoStartUrl && !ssoAccountId && !ssoRegion && !ssoRoleName && !ssoSession) {
@@ -105,22 +107,22 @@ export const defaultProvider = (init: DefaultProviderInit = {}): MemoizedProvide
           );
         }
         const { fromSSO } = await import("@aws-sdk/credential-provider-sso");
-        return fromSSO(init)();
+        return fromSSO(init)(awsIdentityProperties);
       },
-      async () => {
+      async (awsIdentityProperties?: AwsIdentityProperties) => {
         init.logger?.debug("@aws-sdk/credential-provider-node - defaultProvider::fromIni");
         const { fromIni } = await import("@aws-sdk/credential-provider-ini");
-        return fromIni(init)();
+        return fromIni(init)(awsIdentityProperties);
       },
-      async () => {
+      async (awsIdentityProperties?: AwsIdentityProperties) => {
         init.logger?.debug("@aws-sdk/credential-provider-node - defaultProvider::fromProcess");
         const { fromProcess } = await import("@aws-sdk/credential-provider-process");
-        return fromProcess(init)();
+        return fromProcess(init)(awsIdentityProperties);
       },
-      async () => {
+      async (awsIdentityProperties?: AwsIdentityProperties) => {
         init.logger?.debug("@aws-sdk/credential-provider-node - defaultProvider::fromTokenFile");
         const { fromTokenFile } = await import("@aws-sdk/credential-provider-web-identity");
-        return fromTokenFile(init)();
+        return fromTokenFile(init)(awsIdentityProperties);
       },
       async () => {
         init.logger?.debug("@aws-sdk/credential-provider-node - defaultProvider::remoteProvider");
@@ -131,10 +133,9 @@ export const defaultProvider = (init: DefaultProviderInit = {}): MemoizedProvide
           tryNextLink: false,
           logger: init.logger,
         });
-      }
-    ),
-    credentialsTreatedAsExpired,
-    credentialsWillNeedRefresh
+      },
+    ],
+    credentialsTreatedAsExpired
   );
 
 /**

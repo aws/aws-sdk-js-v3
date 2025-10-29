@@ -24034,6 +24034,7 @@ __metadata:
   dependencies:
     "@aws-sdk/types": "npm:*"
     "@smithy/config-resolver": "npm:^4.4.0"
+    "@smithy/node-config-provider": "npm:^4.3.3"
     "@smithy/types": "npm:^4.8.0"
     "@tsconfig/recommended": "npm:1.0.1"
     concurrently: "npm:7.0.0"

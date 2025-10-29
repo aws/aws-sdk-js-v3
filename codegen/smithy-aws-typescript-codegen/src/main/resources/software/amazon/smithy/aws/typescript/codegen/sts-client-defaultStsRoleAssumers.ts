@@ -1,4 +1,5 @@
 import { setCredentialFeature } from "@aws-sdk/core/client";
+import { stsRegionDefaultResolver } from "@aws-sdk/region-config-resolver";
 import type { CredentialProviderOptions } from "@aws-sdk/types";
 import { AwsCredentialIdentity, Logger, Provider } from "@smithy/types";
 
@@ -24,8 +25,6 @@ export type RoleAssumer = (
   sourceCreds: AwsCredentialIdentity,
   params: AssumeRoleCommandInput
 ) => Promise<AwsCredentialIdentity>;
-
-const ASSUME_ROLE_DEFAULT_REGION = "us-east-1";
 
 interface AssumedRoleUser {
   /**
@@ -60,19 +59,21 @@ const getAccountIdFromAssumedRoleUser = (assumedRoleUser?: AssumedRoleUser) => {
 const resolveRegion = async (
   _region: string | Provider<string> | undefined,
   _parentRegion: string | Provider<string> | undefined,
-  credentialProviderLogger?: Logger
+  credentialProviderLogger?: Logger,
+  loaderConfig: Parameters<typeof stsRegionDefaultResolver>[0] = {}
 ): Promise<string> => {
   const region: string | undefined = typeof _region === "function" ? await _region() : _region;
   const parentRegion: string | undefined = typeof _parentRegion === "function" ? await _parentRegion() : _parentRegion;
+  const stsDefaultRegion = await stsRegionDefaultResolver(loaderConfig)();
 
   credentialProviderLogger?.debug?.(
     "@aws-sdk/client-sts::resolveRegion",
     "accepting first of:",
-    `${region} (provider)`,
-    `${parentRegion} (parent client)`,
-    `${ASSUME_ROLE_DEFAULT_REGION} (STS default)`
+    `${region} (credential provider clientConfig)`,
+    `${parentRegion} (contextual client)`,
+    `${stsDefaultRegion} (STS default: AWS_REGION, profile region, or us-east-1)`
   );
-  return region ?? parentRegion ?? ASSUME_ROLE_DEFAULT_REGION;
+  return region ?? parentRegion ?? stsDefaultRegion;
 };
 
 /**
@@ -98,7 +99,11 @@ export const getDefaultRoleAssumer = (
       const resolvedRegion = await resolveRegion(
         region,
         stsOptions?.parentClientConfig?.region,
-        credentialProviderLogger
+        credentialProviderLogger,
+        {
+          logger,
+          profile,
+        }
       );
       const isCompatibleRequestHandler = !isH2(requestHandler);
 
@@ -161,7 +166,11 @@ export const getDefaultRoleAssumerWithWebIdentity = (
       const resolvedRegion = await resolveRegion(
         region,
         stsOptions?.parentClientConfig?.region,
-        credentialProviderLogger
+        credentialProviderLogger,
+        {
+          logger,
+          profile,
+        }
       );
       const isCompatibleRequestHandler = !isH2(requestHandler);
 
