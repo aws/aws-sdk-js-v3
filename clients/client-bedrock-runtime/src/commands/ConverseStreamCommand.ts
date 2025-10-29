@@ -95,6 +95,7 @@ export interface ConverseStreamCommandOutput extends ConverseStreamResponse, __M
  *             toolUseId: "STRING_VALUE", // required
  *             name: "STRING_VALUE", // required
  *             input: "DOCUMENT_VALUE", // required
+ *             type: "server_tool_use",
  *           },
  *           toolResult: { // ToolResultBlock
  *             toolUseId: "STRING_VALUE", // required
@@ -143,6 +144,7 @@ export interface ConverseStreamCommandOutput extends ConverseStreamResponse, __M
  *               },
  *             ],
  *             status: "success" || "error",
+ *             type: "STRING_VALUE",
  *           },
  *           guardContent: { // GuardrailConverseContentBlock Union: only one key present
  *             text: { // GuardrailConverseTextBlock
@@ -183,6 +185,10 @@ export interface ConverseStreamCommandOutput extends ConverseStreamResponse, __M
  *                   },
  *                 ],
  *                 location: { // CitationLocation Union: only one key present
+ *                   web: { // WebLocation
+ *                     url: "STRING_VALUE",
+ *                     domain: "STRING_VALUE",
+ *                   },
  *                   documentChar: { // DocumentCharLocation
  *                     documentIndex: Number("int"),
  *                     start: Number("int"),
@@ -246,6 +252,9 @@ export interface ConverseStreamCommandOutput extends ConverseStreamResponse, __M
  *             json: "DOCUMENT_VALUE",
  *           },
  *         },
+ *         systemTool: { // SystemTool
+ *           name: "STRING_VALUE", // required
+ *         },
  *         cachePoint: "<CachePointBlock>",
  *       },
  *     ],
@@ -291,6 +300,12 @@ export interface ConverseStreamCommandOutput extends ConverseStreamResponse, __M
  * //         toolUse: { // ToolUseBlockStart
  * //           toolUseId: "STRING_VALUE", // required
  * //           name: "STRING_VALUE", // required
+ * //           type: "server_tool_use",
+ * //         },
+ * //         toolResult: { // ToolResultBlockStart
+ * //           toolUseId: "STRING_VALUE", // required
+ * //           type: "STRING_VALUE",
+ * //           status: "success" || "error",
  * //         },
  * //       },
  * //       contentBlockIndex: Number("int"), // required
@@ -301,6 +316,11 @@ export interface ConverseStreamCommandOutput extends ConverseStreamResponse, __M
  * //         toolUse: { // ToolUseBlockDelta
  * //           input: "STRING_VALUE", // required
  * //         },
+ * //         toolResult: [ // ToolResultBlocksDelta
+ * //           { // ToolResultBlockDelta Union: only one key present
+ * //             text: "STRING_VALUE",
+ * //           },
+ * //         ],
  * //         reasoningContent: { // ReasoningContentBlockDelta Union: only one key present
  * //           text: "STRING_VALUE",
  * //           redactedContent: new Uint8Array(),
@@ -314,6 +334,10 @@ export interface ConverseStreamCommandOutput extends ConverseStreamResponse, __M
  * //             },
  * //           ],
  * //           location: { // CitationLocation Union: only one key present
+ * //             web: { // WebLocation
+ * //               url: "STRING_VALUE",
+ * //               domain: "STRING_VALUE",
+ * //             },
  * //             documentChar: { // DocumentCharLocation
  * //               documentIndex: Number("int"),
  * //               start: Number("int"),

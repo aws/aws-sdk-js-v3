@@ -1678,7 +1678,7 @@ export interface GuardrailRegexFilter {
 }
 
 /**
- * <p>The assessment for aPersonally Identifiable Information (PII) policy. </p>
+ * <p>The assessment for a Personally Identifiable Information (PII) policy. </p>
  * @public
  */
 export interface GuardrailSensitiveInformationPolicyAssessment {
@@ -2131,6 +2131,24 @@ export interface DocumentPageLocation {
 }
 
 /**
+ * <p>Provides the URL and domain information for the website that was cited when performing a web search.</p>
+ * @public
+ */
+export interface WebLocation {
+  /**
+   * <p>The URL that was cited when performing a web search.</p>
+   * @public
+   */
+  url?: string | undefined;
+
+  /**
+   * <p>The domain that was cited when performing a web search.</p>
+   * @public
+   */
+  domain?: string | undefined;
+}
+
+/**
  * <p>Specifies the precise location within a source document where cited content can be found. This can include character-level positions, page numbers, or document chunks depending on the document type and indexing method.</p>
  * @public
  */
@@ -2138,6 +2156,7 @@ export type CitationLocation =
   | CitationLocation.DocumentCharMember
   | CitationLocation.DocumentChunkMember
   | CitationLocation.DocumentPageMember
+  | CitationLocation.WebMember
   | CitationLocation.$UnknownMember;
 
 /**
@@ -2145,10 +2164,23 @@ export type CitationLocation =
  */
 export namespace CitationLocation {
   /**
+   * <p>The web URL that was cited for this reference.</p>
+   * @public
+   */
+  export interface WebMember {
+    web: WebLocation;
+    documentChar?: never;
+    documentPage?: never;
+    documentChunk?: never;
+    $unknown?: never;
+  }
+
+  /**
    * <p>The character-level location within the document where the cited content is found.</p>
    * @public
    */
   export interface DocumentCharMember {
+    web?: never;
     documentChar: DocumentCharLocation;
     documentPage?: never;
     documentChunk?: never;
@@ -2160,6 +2192,7 @@ export namespace CitationLocation {
    * @public
    */
   export interface DocumentPageMember {
+    web?: never;
     documentChar?: never;
     documentPage: DocumentPageLocation;
     documentChunk?: never;
@@ -2171,6 +2204,7 @@ export namespace CitationLocation {
    * @public
    */
   export interface DocumentChunkMember {
+    web?: never;
     documentChar?: never;
     documentPage?: never;
     documentChunk: DocumentChunkLocation;
@@ -2181,6 +2215,7 @@ export namespace CitationLocation {
    * @public
    */
   export interface $UnknownMember {
+    web?: never;
     documentChar?: never;
     documentPage?: never;
     documentChunk?: never;
@@ -2188,6 +2223,7 @@ export namespace CitationLocation {
   }
 
   export interface Visitor<T> {
+    web: (value: WebLocation) => T;
     documentChar: (value: DocumentCharLocation) => T;
     documentPage: (value: DocumentPageLocation) => T;
     documentChunk: (value: DocumentChunkLocation) => T;
@@ -2195,6 +2231,7 @@ export namespace CitationLocation {
   }
 
   export const visit = <T>(value: CitationLocation, visitor: Visitor<T>): T => {
+    if (value.web !== undefined) return visitor.web(value.web);
     if (value.documentChar !== undefined) return visitor.documentChar(value.documentChar);
     if (value.documentPage !== undefined) return visitor.documentPage(value.documentPage);
     if (value.documentChunk !== undefined) return visitor.documentChunk(value.documentChunk);
@@ -2326,7 +2363,7 @@ export interface CitationsContentBlock {
  */
 export interface CitationsConfig {
   /**
-   * <p>Specifies whether document citations should be included in the model's response. When set to true, the model can generate citations that reference the source documents used to inform the response.</p>
+   * <p>Specifies whether citations from the selected document should be used in the model's response. When set to true, the model can generate citations that reference the source documents used to inform the response.</p>
    * @public
    */
   enabled: boolean | undefined;
@@ -2626,7 +2663,7 @@ export type GuardrailConverseContentQualifier =
   (typeof GuardrailConverseContentQualifier)[keyof typeof GuardrailConverseContentQualifier];
 
 /**
- * <p>A text block that contains text that you want to assess with a guardrail. For more information, see <a>GuardrailConverseContentBlock</a>.</p>
+ * <p>A text block that contains text that you want to assess with a guardrail. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_GuardrailConverseContentBlock.html">GuardrailConverseContentBlock</a>.</p>
  * @public
  */
 export interface GuardrailConverseTextBlock {
@@ -2949,7 +2986,7 @@ export interface VideoBlock {
 }
 
 /**
- * <p>The tool result content block.</p>
+ * <p>The tool result content block. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/tool-use.html">Call a tool with the Converse API</a> in the Amazon Bedrock User Guide.</p>
  * @public
  */
 export type ToolResultContentBlock =
@@ -2965,7 +3002,7 @@ export type ToolResultContentBlock =
  */
 export namespace ToolResultContentBlock {
   /**
-   * <p>A tool result that is JSON format data.</p>
+   * <p>A tool result that is JSON format data. </p>
    * @public
    */
   export interface JsonMember {
@@ -2978,7 +3015,7 @@ export namespace ToolResultContentBlock {
   }
 
   /**
-   * <p>A tool result that is text.</p>
+   * <p>A tool result that is text. </p>
    * @public
    */
   export interface TextMember {
@@ -2991,7 +3028,7 @@ export namespace ToolResultContentBlock {
   }
 
   /**
-   * <p>A tool result that is an image.</p> <note> <p>This field is only supported by Anthropic Claude 3 models.</p> </note>
+   * <p>A tool result that is an image. </p> <note> <p>This field is only supported by Amazon Nova and Anthropic Claude 3 and 4 models.</p> </note>
    * @public
    */
   export interface ImageMember {
@@ -3075,12 +3112,12 @@ export const ToolResultStatus = {
 export type ToolResultStatus = (typeof ToolResultStatus)[keyof typeof ToolResultStatus];
 
 /**
- * <p>A tool result block that contains the results for a tool request that the model previously made.</p>
+ * <p>A tool result block that contains the results for a tool request that the model previously made. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/tool-use.html">Call a tool with the Converse API</a> in the Amazon Bedrock User Guide.</p>
  * @public
  */
 export interface ToolResultBlock {
   /**
-   * <p>The ID of the tool request that this is the result for.</p>
+   * <p>The ID of the tool request that this is the result for. </p>
    * @public
    */
   toolUseId: string | undefined;
@@ -3092,14 +3129,33 @@ export interface ToolResultBlock {
   content: ToolResultContentBlock[] | undefined;
 
   /**
-   * <p>The status for the tool result content block.</p> <note> <p>This field is only supported Anthropic Claude 3 models.</p> </note>
+   * <p>The status for the tool result content block.</p> <note> <p>This field is only supported by Amazon Nova and Anthropic Claude 3 and 4 models.</p> </note>
    * @public
    */
   status?: ToolResultStatus | undefined;
+
+  /**
+   * <p>The type for the tool result content block.</p>
+   * @public
+   */
+  type?: string | undefined;
 }
 
 /**
- * <p>A tool use content block. Contains information about a tool that the model is requesting be run., The model uses the result from the tool to generate a response. </p>
+ * @public
+ * @enum
+ */
+export const ToolUseType = {
+  SERVER_TOOL_USE: "server_tool_use",
+} as const;
+
+/**
+ * @public
+ */
+export type ToolUseType = (typeof ToolUseType)[keyof typeof ToolUseType];
+
+/**
+ * <p>A tool use content block. Contains information about a tool that the model is requesting be run., The model uses the result from the tool to generate a response. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/tool-use.html">Call a tool with the Converse API</a> in the Amazon Bedrock User Guide.</p>
  * @public
  */
 export interface ToolUseBlock {
@@ -3120,6 +3176,12 @@ export interface ToolUseBlock {
    * @public
    */
   input: __DocumentType | undefined;
+
+  /**
+   * <p>The type for the tool request.</p>
+   * @public
+   */
+  type?: ToolUseType | undefined;
 }
 
 /**
@@ -3252,7 +3314,7 @@ export namespace ContentBlock {
   }
 
   /**
-   * <p>Contains the content to assess with the guardrail. If you don't specify <code>guardContent</code> in a call to the Converse API, the guardrail (if passed in the Converse API) assesses the entire message.</p> <p>For more information, see <i>Use a guardrail with the Converse API</i> in the <i>Amazon Bedrock User Guide</i>. </p>
+   * <p>Contains the content to assess with the guardrail. If you don't specify <code>guardContent</code> in a call to the Converse API, the guardrail (if passed in the Converse API) assesses the entire message.</p> <p>For more information, see <i>Use a guardrail with the Converse API</i> in the <i>Amazon Bedrock User Guide</i>.</p>
    * @public
    */
   export interface GuardContentMember {
@@ -3466,7 +3528,7 @@ export namespace PromptVariableValues {
 }
 
 /**
- * <p>A system content block.</p>
+ * <p>Contains configurations for instructions to provide the model for how to handle input. To learn more, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/conversation-inference-call.html">Using the Converse API</a>.</p>
  * @public
  */
 export type SystemContentBlock =
@@ -3538,19 +3600,19 @@ export namespace SystemContentBlock {
 }
 
 /**
- * <p>The model must request at least one tool (no text is generated). For example, <code>\{"any" : \{\}\}</code>.</p>
+ * <p>The model must request at least one tool (no text is generated). For example, <code>\{"any" : \{\}\}</code>. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/tool-use.html">Call a tool with the Converse API</a> in the Amazon Bedrock User Guide.</p>
  * @public
  */
 export interface AnyToolChoice {}
 
 /**
- * <p>The Model automatically decides if a tool should be called or whether to generate text instead. For example, <code>\{"auto" : \{\}\}</code>.</p>
+ * <p>The Model automatically decides if a tool should be called or whether to generate text instead. For example, <code>\{"auto" : \{\}\}</code>. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/tool-use.html">Call a tool with the Converse API</a> in the Amazon Bedrock User Guide</p>
  * @public
  */
 export interface AutoToolChoice {}
 
 /**
- * <p>The model must request a specific tool. For example, <code>\{"tool" : \{"name" : "Your tool name"\}\}</code>.</p> <note> <p>This field is only supported by Anthropic Claude 3 models.</p> </note>
+ * <p>The model must request a specific tool. For example, <code>\{"tool" : \{"name" : "Your tool name"\}\}</code>. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/tool-use.html">Call a tool with the Converse API</a> in the Amazon Bedrock User Guide</p> <note> <p>This field is only supported by Anthropic Claude 3 models.</p> </note>
  * @public
  */
 export interface SpecificToolChoice {
@@ -3562,7 +3624,7 @@ export interface SpecificToolChoice {
 }
 
 /**
- * <p>Determines which tools the model should request in a call to <code>Converse</code> or <code>ConverseStream</code>. <code>ToolChoice</code> is only supported by Anthropic Claude 3 models and by Mistral AI Mistral Large.</p>
+ * <p>Determines which tools the model should request in a call to <code>Converse</code> or <code>ConverseStream</code>. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/tool-use.html">Call a tool with the Converse API</a> in the Amazon Bedrock User Guide.</p>
  * @public
  */
 export type ToolChoice =
@@ -3598,7 +3660,7 @@ export namespace ToolChoice {
   }
 
   /**
-   * <p>The Model must request the specified tool. Only supported by Anthropic Claude 3 models. </p>
+   * <p>The Model must request the specified tool. Only supported by Anthropic Claude 3 and Amazon Nova models. </p>
    * @public
    */
   export interface ToolMember {
@@ -3634,7 +3696,19 @@ export namespace ToolChoice {
 }
 
 /**
- * <p>The schema for the tool. The top level schema type must be <code>object</code>. </p>
+ * <p>Specifies a system-defined tool for the model to use. <i>System-defined tools</i> are tools that are created and provided by the model provider.</p>
+ * @public
+ */
+export interface SystemTool {
+  /**
+   * <p>The name of the system-defined tool that you want to call. </p>
+   * @public
+   */
+  name: string | undefined;
+}
+
+/**
+ * <p>The schema for the tool. The top level schema type must be <code>object</code>. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/tool-use.html">Call a tool with the Converse API</a> in the Amazon Bedrock User Guide.</p>
  * @public
  */
 export type ToolInputSchema = ToolInputSchema.JsonMember | ToolInputSchema.$UnknownMember;
@@ -3672,7 +3746,7 @@ export namespace ToolInputSchema {
 }
 
 /**
- * <p>The specification for the tool.</p>
+ * <p>The specification for the tool. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/tool-use.html">Call a tool with the Converse API</a> in the Amazon Bedrock User Guide.</p>
  * @public
  */
 export interface ToolSpecification {
@@ -3696,21 +3770,33 @@ export interface ToolSpecification {
 }
 
 /**
- * <p>Information about a tool that you can use with the Converse API. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/tool-use.html">Tool use (function calling)</a> in the Amazon Bedrock User Guide.</p>
+ * <p>Information about a tool that you can use with the Converse API. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/tool-use.html">Call a tool with the Converse API</a> in the Amazon Bedrock User Guide.</p>
  * @public
  */
-export type Tool = Tool.CachePointMember | Tool.ToolSpecMember | Tool.$UnknownMember;
+export type Tool = Tool.CachePointMember | Tool.SystemToolMember | Tool.ToolSpecMember | Tool.$UnknownMember;
 
 /**
  * @public
  */
 export namespace Tool {
   /**
-   * <p>The specfication for the tool.</p>
+   * <p>The specfication for the tool. </p>
    * @public
    */
   export interface ToolSpecMember {
     toolSpec: ToolSpecification;
+    systemTool?: never;
+    cachePoint?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Specifies the system-defined tool that you want use.</p>
+   * @public
+   */
+  export interface SystemToolMember {
+    toolSpec?: never;
+    systemTool: SystemTool;
     cachePoint?: never;
     $unknown?: never;
   }
@@ -3721,6 +3807,7 @@ export namespace Tool {
    */
   export interface CachePointMember {
     toolSpec?: never;
+    systemTool?: never;
     cachePoint: CachePointBlock;
     $unknown?: never;
   }
@@ -3730,18 +3817,21 @@ export namespace Tool {
    */
   export interface $UnknownMember {
     toolSpec?: never;
+    systemTool?: never;
     cachePoint?: never;
     $unknown: [string, any];
   }
 
   export interface Visitor<T> {
     toolSpec: (value: ToolSpecification) => T;
+    systemTool: (value: SystemTool) => T;
     cachePoint: (value: CachePointBlock) => T;
     _: (name: string, value: any) => T;
   }
 
   export const visit = <T>(value: Tool, visitor: Visitor<T>): T => {
     if (value.toolSpec !== undefined) return visitor.toolSpec(value.toolSpec);
+    if (value.systemTool !== undefined) return visitor.systemTool(value.systemTool);
     if (value.cachePoint !== undefined) return visitor.cachePoint(value.cachePoint);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
@@ -3753,13 +3843,13 @@ export namespace Tool {
  */
 export interface ToolConfiguration {
   /**
-   * <p>An array of tools that you want to pass to a model.</p>
+   * <p>An array of tools that you want to pass to a model. </p>
    * @public
    */
   tools: Tool[] | undefined;
 
   /**
-   * <p>If supported by model, forces the model to request a tool.</p>
+   * <p>If supported by model, forces the model to request a tool. </p>
    * @public
    */
   toolChoice?: ToolChoice | undefined;
@@ -3906,7 +3996,7 @@ export const StopReason = {
 export type StopReason = (typeof StopReason)[keyof typeof StopReason];
 
 /**
- * <p>A Top level guardrail trace object. For more information, see <a>ConverseTrace</a>.</p>
+ * <p>A Top level guardrail trace object. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_ConverseTrace.html">ConverseTrace</a>.</p>
  * @public
  */
 export interface GuardrailTraceAssessment {
@@ -3948,7 +4038,7 @@ export interface PromptRouterTrace {
 }
 
 /**
- * <p>The trace object in a response from <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_Converse.html">Converse</a>. Currently, you can only trace guardrails.</p>
+ * <p>The trace object in a response from <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_Converse.html">Converse</a>.</p>
  * @public
  */
 export interface ConverseTrace {
@@ -4139,7 +4229,7 @@ export type GuardrailStreamProcessingMode =
   (typeof GuardrailStreamProcessingMode)[keyof typeof GuardrailStreamProcessingMode];
 
 /**
- * <p>Configuration information for a guardrail that you use with the <a>ConverseStream</a> action. </p>
+ * <p>Configuration information for a guardrail that you use with the <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_ConverseStream.html">ConverseStream</a> action. </p>
  * @public
  */
 export interface GuardrailStreamConfiguration {
@@ -4348,6 +4438,44 @@ export namespace ReasoningContentBlockDelta {
 }
 
 /**
+ * <p>Contains incremental updates to tool results information during streaming responses. This allows clients to build up tool results data progressively as the response is generated.</p>
+ * @public
+ */
+export type ToolResultBlockDelta = ToolResultBlockDelta.TextMember | ToolResultBlockDelta.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace ToolResultBlockDelta {
+  /**
+   * <p>The reasoning the model used to return the output.</p>
+   * @public
+   */
+  export interface TextMember {
+    text: string;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    text?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    text: (value: string) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: ToolResultBlockDelta, visitor: Visitor<T>): T => {
+    if (value.text !== undefined) return visitor.text(value.text);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
  * <p>The delta for a tool use block.</p>
  * @public
  */
@@ -4367,6 +4495,7 @@ export type ContentBlockDelta =
   | ContentBlockDelta.CitationMember
   | ContentBlockDelta.ReasoningContentMember
   | ContentBlockDelta.TextMember
+  | ContentBlockDelta.ToolResultMember
   | ContentBlockDelta.ToolUseMember
   | ContentBlockDelta.$UnknownMember;
 
@@ -4381,6 +4510,7 @@ export namespace ContentBlockDelta {
   export interface TextMember {
     text: string;
     toolUse?: never;
+    toolResult?: never;
     reasoningContent?: never;
     citation?: never;
     $unknown?: never;
@@ -4393,6 +4523,20 @@ export namespace ContentBlockDelta {
   export interface ToolUseMember {
     text?: never;
     toolUse: ToolUseBlockDelta;
+    toolResult?: never;
+    reasoningContent?: never;
+    citation?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>An incremental update that contains the results from a tool call.</p>
+   * @public
+   */
+  export interface ToolResultMember {
+    text?: never;
+    toolUse?: never;
+    toolResult: ToolResultBlockDelta[];
     reasoningContent?: never;
     citation?: never;
     $unknown?: never;
@@ -4405,6 +4549,7 @@ export namespace ContentBlockDelta {
   export interface ReasoningContentMember {
     text?: never;
     toolUse?: never;
+    toolResult?: never;
     reasoningContent: ReasoningContentBlockDelta;
     citation?: never;
     $unknown?: never;
@@ -4417,6 +4562,7 @@ export namespace ContentBlockDelta {
   export interface CitationMember {
     text?: never;
     toolUse?: never;
+    toolResult?: never;
     reasoningContent?: never;
     citation: CitationsDelta;
     $unknown?: never;
@@ -4428,6 +4574,7 @@ export namespace ContentBlockDelta {
   export interface $UnknownMember {
     text?: never;
     toolUse?: never;
+    toolResult?: never;
     reasoningContent?: never;
     citation?: never;
     $unknown: [string, any];
@@ -4436,6 +4583,7 @@ export namespace ContentBlockDelta {
   export interface Visitor<T> {
     text: (value: string) => T;
     toolUse: (value: ToolUseBlockDelta) => T;
+    toolResult: (value: ToolResultBlockDelta[]) => T;
     reasoningContent: (value: ReasoningContentBlockDelta) => T;
     citation: (value: CitationsDelta) => T;
     _: (name: string, value: any) => T;
@@ -4444,6 +4592,7 @@ export namespace ContentBlockDelta {
   export const visit = <T>(value: ContentBlockDelta, visitor: Visitor<T>): T => {
     if (value.text !== undefined) return visitor.text(value.text);
     if (value.toolUse !== undefined) return visitor.toolUse(value.toolUse);
+    if (value.toolResult !== undefined) return visitor.toolResult(value.toolResult);
     if (value.reasoningContent !== undefined) return visitor.reasoningContent(value.reasoningContent);
     if (value.citation !== undefined) return visitor.citation(value.citation);
     return visitor._(value.$unknown[0], value.$unknown[1]);
@@ -4469,7 +4618,31 @@ export interface ContentBlockDeltaEvent {
 }
 
 /**
- * <p>The start of a tool use block.</p>
+ * <p>The start of a tool result block. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/tool-use.html">Call a tool with the Converse API</a> in the Amazon Bedrock User Guide.</p>
+ * @public
+ */
+export interface ToolResultBlockStart {
+  /**
+   * <p>The ID of the tool that was used to generate this tool result block.</p>
+   * @public
+   */
+  toolUseId: string | undefined;
+
+  /**
+   * <p>The type for the tool that was used to generate this tool result block.</p>
+   * @public
+   */
+  type?: string | undefined;
+
+  /**
+   * <p>The status of the tool result block.</p>
+   * @public
+   */
+  status?: ToolResultStatus | undefined;
+}
+
+/**
+ * <p>The start of a tool use block. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/tool-use.html">Call a tool with the Converse API</a> in the Amazon Bedrock User Guide.</p>
  * @public
  */
 export interface ToolUseBlockStart {
@@ -4484,13 +4657,22 @@ export interface ToolUseBlockStart {
    * @public
    */
   name: string | undefined;
+
+  /**
+   * <p>The type for the tool request.</p>
+   * @public
+   */
+  type?: ToolUseType | undefined;
 }
 
 /**
  * <p>Content block start information.</p>
  * @public
  */
-export type ContentBlockStart = ContentBlockStart.ToolUseMember | ContentBlockStart.$UnknownMember;
+export type ContentBlockStart =
+  | ContentBlockStart.ToolResultMember
+  | ContentBlockStart.ToolUseMember
+  | ContentBlockStart.$UnknownMember;
 
 /**
  * @public
@@ -4502,6 +4684,17 @@ export namespace ContentBlockStart {
    */
   export interface ToolUseMember {
     toolUse: ToolUseBlockStart;
+    toolResult?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The </p>
+   * @public
+   */
+  export interface ToolResultMember {
+    toolUse?: never;
+    toolResult: ToolResultBlockStart;
     $unknown?: never;
   }
 
@@ -4510,16 +4703,19 @@ export namespace ContentBlockStart {
    */
   export interface $UnknownMember {
     toolUse?: never;
+    toolResult?: never;
     $unknown: [string, any];
   }
 
   export interface Visitor<T> {
     toolUse: (value: ToolUseBlockStart) => T;
+    toolResult: (value: ToolResultBlockStart) => T;
     _: (name: string, value: any) => T;
   }
 
   export const visit = <T>(value: ContentBlockStart, visitor: Visitor<T>): T => {
     if (value.toolUse !== undefined) return visitor.toolUse(value.toolUse);
+    if (value.toolResult !== undefined) return visitor.toolResult(value.toolResult);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
 }
@@ -4597,7 +4793,7 @@ export interface ConverseStreamMetrics {
 }
 
 /**
- * <p>The trace object in a response from <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_ConverseStream.html">ConverseStream</a>. Currently, you can only trace guardrails.</p>
+ * <p>The trace object in a response from <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_ConverseStream.html">ConverseStream</a>.</p>
  * @public
  */
 export interface ConverseStreamTrace {
@@ -4853,7 +5049,7 @@ export namespace ConverseStreamOutput {
   }
 
   /**
-   * <p>The input fails to satisfy the constraints specified by <i>Amazon Bedrock</i>. For troubleshooting this error, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/troubleshooting-api-error-codes.html#ts-validation-error">ValidationError</a> in the Amazon Bedrock User Guide</p>
+   * <p>The input fails to satisfy the constraints specified by <i>Amazon Bedrock</i>. For troubleshooting this error, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/troubleshooting-api-error-codes.html#ts-validation-error">ValidationError</a> in the Amazon Bedrock User Guide.</p>
    * @public
    */
   export interface ValidationExceptionMember {
@@ -4872,7 +5068,7 @@ export namespace ConverseStreamOutput {
   }
 
   /**
-   * <p>Your request was denied due to exceeding the account quotas for <i>Amazon Bedrock</i>. For troubleshooting this error, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/troubleshooting-api-error-codes.html#ts-throttling-exception">ThrottlingException</a> in the Amazon Bedrock User Guide</p>
+   * <p>Your request was denied due to exceeding the account quotas for <i>Amazon Bedrock</i>. For troubleshooting this error, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/troubleshooting-api-error-codes.html#ts-throttling-exception">ThrottlingException</a> in the Amazon Bedrock User Guide.</p>
    * @public
    */
   export interface ThrottlingExceptionMember {
@@ -6120,6 +6316,7 @@ export const ReasoningContentBlockDeltaFilterSensitiveLog = (obj: ReasoningConte
 export const ContentBlockDeltaFilterSensitiveLog = (obj: ContentBlockDelta): any => {
   if (obj.text !== undefined) return { text: obj.text };
   if (obj.toolUse !== undefined) return { toolUse: obj.toolUse };
+  if (obj.toolResult !== undefined) return { toolResult: obj.toolResult.map((item) => item) };
   if (obj.reasoningContent !== undefined) return { reasoningContent: SENSITIVE_STRING };
   if (obj.citation !== undefined) return { citation: obj.citation };
   if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };

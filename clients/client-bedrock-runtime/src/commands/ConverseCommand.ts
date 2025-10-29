@@ -95,6 +95,7 @@ export interface ConverseCommandOutput extends ConverseResponse, __MetadataBeare
  *             toolUseId: "STRING_VALUE", // required
  *             name: "STRING_VALUE", // required
  *             input: "DOCUMENT_VALUE", // required
+ *             type: "server_tool_use",
  *           },
  *           toolResult: { // ToolResultBlock
  *             toolUseId: "STRING_VALUE", // required
@@ -143,6 +144,7 @@ export interface ConverseCommandOutput extends ConverseResponse, __MetadataBeare
  *               },
  *             ],
  *             status: "success" || "error",
+ *             type: "STRING_VALUE",
  *           },
  *           guardContent: { // GuardrailConverseContentBlock Union: only one key present
  *             text: { // GuardrailConverseTextBlock
@@ -183,6 +185,10 @@ export interface ConverseCommandOutput extends ConverseResponse, __MetadataBeare
  *                   },
  *                 ],
  *                 location: { // CitationLocation Union: only one key present
+ *                   web: { // WebLocation
+ *                     url: "STRING_VALUE",
+ *                     domain: "STRING_VALUE",
+ *                   },
  *                   documentChar: { // DocumentCharLocation
  *                     documentIndex: Number("int"),
  *                     start: Number("int"),
@@ -245,6 +251,9 @@ export interface ConverseCommandOutput extends ConverseResponse, __MetadataBeare
  *           inputSchema: { // ToolInputSchema Union: only one key present
  *             json: "DOCUMENT_VALUE",
  *           },
+ *         },
+ *         systemTool: { // SystemTool
+ *           name: "STRING_VALUE", // required
  *         },
  *         cachePoint: "<CachePointBlock>",
  *       },
@@ -332,6 +341,7 @@ export interface ConverseCommandOutput extends ConverseResponse, __MetadataBeare
  * //             toolUseId: "STRING_VALUE", // required
  * //             name: "STRING_VALUE", // required
  * //             input: "DOCUMENT_VALUE", // required
+ * //             type: "server_tool_use",
  * //           },
  * //           toolResult: { // ToolResultBlock
  * //             toolUseId: "STRING_VALUE", // required
@@ -380,6 +390,7 @@ export interface ConverseCommandOutput extends ConverseResponse, __MetadataBeare
  * //               },
  * //             ],
  * //             status: "success" || "error",
+ * //             type: "STRING_VALUE",
  * //           },
  * //           guardContent: { // GuardrailConverseContentBlock Union: only one key present
  * //             text: { // GuardrailConverseTextBlock
@@ -420,6 +431,10 @@ export interface ConverseCommandOutput extends ConverseResponse, __MetadataBeare
  * //                   },
  * //                 ],
  * //                 location: { // CitationLocation Union: only one key present
+ * //                   web: { // WebLocation
+ * //                     url: "STRING_VALUE",
+ * //                     domain: "STRING_VALUE",
+ * //                   },
  * //                   documentChar: { // DocumentCharLocation
  * //                     documentIndex: Number("int"),
  * //                     start: Number("int"),

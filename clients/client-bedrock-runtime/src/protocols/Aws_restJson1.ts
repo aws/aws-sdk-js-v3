@@ -142,6 +142,7 @@ import {
   ServiceUnavailableException,
   SpecificToolChoice,
   SystemContentBlock,
+  SystemTool,
   Tag,
   ThrottlingException,
   Tool,
@@ -155,6 +156,7 @@ import {
   ValidationException,
   VideoBlock,
   VideoSource,
+  WebLocation,
 } from "../models/models_0";
 
 /**
@@ -1566,6 +1568,8 @@ const se_SystemContentBlocks = (input: SystemContentBlock[], context: __SerdeCon
     });
 };
 
+// se_SystemTool omitted.
+
 // se_Tag omitted.
 
 // se_TagList omitted.
@@ -1576,6 +1580,7 @@ const se_SystemContentBlocks = (input: SystemContentBlock[], context: __SerdeCon
 const se_Tool = (input: Tool, context: __SerdeContext): any => {
   return Tool.visit(input, {
     cachePoint: (value) => ({ cachePoint: _json(value) }),
+    systemTool: (value) => ({ systemTool: _json(value) }),
     toolSpec: (value) => ({ toolSpec: se_ToolSpecification(value, context) }),
     _: (name, value) => ({ [name]: value } as any),
   });
@@ -1611,6 +1616,7 @@ const se_ToolResultBlock = (input: ToolResultBlock, context: __SerdeContext): an
     content: (_) => se_ToolResultContentBlocks(_, context),
     status: [],
     toolUseId: [],
+    type: [],
   });
 };
 
@@ -1669,6 +1675,7 @@ const se_ToolUseBlock = (input: ToolUseBlock, context: __SerdeContext): any => {
     input: (_) => se_Document(_, context),
     name: [],
     toolUseId: [],
+    type: [],
   });
 };
 
@@ -1692,6 +1699,8 @@ const se_VideoSource = (input: VideoSource, context: __SerdeContext): any => {
     _: (name, value) => ({ [name]: value } as any),
   });
 };
+
+// se_WebLocation omitted.
 
 /**
  * serializeAws_restJson1Document
@@ -1839,6 +1848,11 @@ const de_ContentBlockDelta = (output: any, context: __SerdeContext): ContentBloc
   }
   if (__expectString(output.text) !== undefined) {
     return { text: __expectString(output.text) as any };
+  }
+  if (output.toolResult != null) {
+    return {
+      toolResult: _json(output.toolResult),
+    };
   }
   if (output.toolUse != null) {
     return {
@@ -2508,8 +2522,15 @@ const de_ToolResultBlock = (output: any, context: __SerdeContext): ToolResultBlo
     content: (_: any) => de_ToolResultContentBlocks(_, context),
     status: __expectString,
     toolUseId: __expectString,
+    type: __expectString,
   }) as any;
 };
+
+// de_ToolResultBlockDelta omitted.
+
+// de_ToolResultBlocksDelta omitted.
+
+// de_ToolResultBlockStart omitted.
 
 /**
  * deserializeAws_restJson1ToolResultContentBlock
@@ -2561,6 +2582,7 @@ const de_ToolUseBlock = (output: any, context: __SerdeContext): ToolUseBlock => 
     input: (_: any) => de_Document(_, context),
     name: __expectString,
     toolUseId: __expectString,
+    type: __expectString,
   }) as any;
 };
 
@@ -2594,6 +2616,8 @@ const de_VideoSource = (output: any, context: __SerdeContext): VideoSource => {
   }
   return { $unknown: Object.entries(output)[0] };
 };
+
+// de_WebLocation omitted.
 
 /**
  * deserializeAws_restJson1Document
