@@ -1,7 +1,7 @@
 import { S3, waitUntilBucketExists, waitUntilBucketNotExists } from "@aws-sdk/client-s3";
 import { type GetCallerIdentityCommandOutput, STS } from "@aws-sdk/client-sts";
-import { afterAll, beforeAll, describe, expect, it } from "vitest";
 import { HttpRequest } from "@smithy/types";
+import { afterAll, beforeAll, describe, expect, it } from "vitest";
 
 describe("@aws-sdk/client-s3 - Working with Buckets", () => {
   const s3 = new S3({
@@ -20,9 +20,14 @@ describe("@aws-sdk/client-s3 - Working with Buckets", () => {
   });
 
   function getBucketName(id: string, region = "us-west-2") {
-    const alphabet = "abcdefghijklmnopqrstuvwxyz";
-    const randId = Array.from({ length: 6 }, () => alphabet[(Math.random() * alphabet.length) | 0]).join("");
-    return `${callerID.Account}-${randId}-${id}-${region}-${(Date.now() / 1000) | 0}`;
+    const alphabet = "abcdefghijklmnopqrstuvwxyz0123456789";
+    const randId = Array.from({ length: 19 }, () => alphabet[(Math.random() * alphabet.length) | 0]).join("");
+
+    console.log({
+      Bucket: `${callerID.Account}-${randId}-${id}-${region}`,
+    });
+
+    return `${callerID.Account}-${randId}-${id}-${region}`;
   }
 
   let Bucket: string;
