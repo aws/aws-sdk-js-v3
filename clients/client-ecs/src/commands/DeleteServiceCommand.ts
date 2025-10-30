@@ -40,8 +40,8 @@ export interface DeleteServiceCommandOutput extends DeleteServiceResponse, __Met
  * 					<code>STOPPED</code> status, the service status moves from <code>DRAINING</code>
  * 				to <code>INACTIVE</code>. Services in the <code>DRAINING</code> or
  * 					<code>INACTIVE</code> status can still be viewed with the <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_DescribeServices.html">DescribeServices</a> API operation. However, in the future,
- * 					<code>INACTIVE</code> services may be cleaned up and purged from Amazon ECS record
- * 				keeping, and <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_DescribeServices.html">DescribeServices</a> calls on those services return a
+ * 					<code>INACTIVE</code> services may be cleaned up and purged from Amazon ECS
+ * 				record keeping, and <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_DescribeServices.html">DescribeServices</a> calls on those services return a
  * 					<code>ServiceNotFoundException</code> error.</p>
  *          </note>
  *          <important>
@@ -297,6 +297,10 @@ export interface DeleteServiceCommandOutput extends DeleteServiceResponse, __Met
  * //               },
  * //             ],
  * //           },
+ * //           accessLogConfiguration: { // ServiceConnectAccessLogConfiguration
+ * //             format: "TEXT" || "JSON", // required
+ * //             includeQueryParameters: "DISABLED" || "ENABLED",
+ * //           },
  * //         },
  * //         serviceConnectResources: [ // ServiceConnectServiceResourceList
  * //           { // ServiceConnectServiceResource
@@ -406,8 +410,8 @@ export interface DeleteServiceCommandOutput extends DeleteServiceResponse, __Met
  * @throws {@link InvalidParameterException} (client fault)
  *  <p>The specified parameter isn't valid. Review the available parameters for the API
  * 			request.</p>
- *          <p>For more information about service event errors, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-event-messages-list.html">Amazon ECS service
- * 				event messages</a>. </p>
+ *          <p>For more information about service event errors, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-event-messages-list.html">Amazon ECS
+ * 				service event messages</a>. </p>
  *
  * @throws {@link ServerException} (server fault)
  *  <p>These errors are usually caused by a server issue.</p>

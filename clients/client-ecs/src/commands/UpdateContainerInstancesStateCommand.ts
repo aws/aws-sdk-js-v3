@@ -43,11 +43,11 @@ export interface UpdateContainerInstancesStateCommandOutput
  * 				reached an <code>ACTIVE</code> status. If the instance is in any other status, an
  * 				error will be received.</p>
  *          </important>
- *          <p>When you set a container instance to <code>DRAINING</code>, Amazon ECS prevents new tasks
- * 			from being scheduled for placement on the container instance and replacement service
- * 			tasks are started on other container instances in the cluster if the resources are
- * 			available. Service tasks on the container instance that are in the <code>PENDING</code>
- * 			state are stopped immediately.</p>
+ *          <p>When you set a container instance to <code>DRAINING</code>, Amazon ECS prevents new
+ * 			tasks from being scheduled for placement on the container instance and replacement
+ * 			service tasks are started on other container instances in the cluster if the resources
+ * 			are available. Service tasks on the container instance that are in the
+ * 				<code>PENDING</code> state are stopped immediately.</p>
  *          <p>Service tasks on the container instance that are in the <code>RUNNING</code> state are
  * 			stopped and replaced according to the service's deployment configuration parameters,
  * 				<code>minimumHealthyPercent</code> and <code>maximumPercent</code>. You can change
@@ -80,8 +80,8 @@ export interface UpdateContainerInstancesStateCommandOutput
  *          <p>A container instance has completed draining when it has no more <code>RUNNING</code>
  * 			tasks. You can verify this using <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ListTasks.html">ListTasks</a>.</p>
  *          <p>When a container instance has been drained, you can set a container instance to
- * 				<code>ACTIVE</code> status and once it has reached that status the Amazon ECS scheduler
- * 			can begin scheduling tasks on the instance again.</p>
+ * 				<code>ACTIVE</code> status and once it has reached that status the Amazon ECS
+ * 			scheduler can begin scheduling tasks on the instance again.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -210,8 +210,8 @@ export interface UpdateContainerInstancesStateCommandOutput
  * @throws {@link InvalidParameterException} (client fault)
  *  <p>The specified parameter isn't valid. Review the available parameters for the API
  * 			request.</p>
- *          <p>For more information about service event errors, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-event-messages-list.html">Amazon ECS service
- * 				event messages</a>. </p>
+ *          <p>For more information about service event errors, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-event-messages-list.html">Amazon ECS
+ * 				service event messages</a>. </p>
  *
  * @throws {@link ServerException} (server fault)
  *  <p>These errors are usually caused by a server issue.</p>

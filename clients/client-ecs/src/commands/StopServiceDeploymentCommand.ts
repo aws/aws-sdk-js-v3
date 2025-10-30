@@ -38,9 +38,9 @@ export interface StopServiceDeploymentCommandOutput extends StopServiceDeploymen
  * 					for the rollback option. </p>
  *             </li>
  *          </ul>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/stop-service-deployment.html">Stopping Amazon ECS
- * 				service deployments</a> in the <i>Amazon Elastic Container Service Developer
- * 			Guide</i>.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/stop-service-deployment.html">Stopping Amazon
+ * 				ECS service deployments</a> in the <i>Amazon Elastic Container Service
+ * 				Developer Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -76,19 +76,22 @@ export interface StopServiceDeploymentCommandOutput extends StopServiceDeploymen
  * 			action or resource. Or, it might be specifying an identifier that isn't valid.</p>
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The request could not be processed because of conflict in the current state of the resource. </p>
+ *  <p>The request could not be processed because of conflict in the current state of the
+ * 			resource. </p>
  *
  * @throws {@link InvalidParameterException} (client fault)
  *  <p>The specified parameter isn't valid. Review the available parameters for the API
  * 			request.</p>
- *          <p>For more information about service event errors, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-event-messages-list.html">Amazon ECS service
- * 				event messages</a>. </p>
+ *          <p>For more information about service event errors, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-event-messages-list.html">Amazon ECS
+ * 				service event messages</a>. </p>
  *
  * @throws {@link ServerException} (server fault)
  *  <p>These errors are usually caused by a server issue.</p>
  *
  * @throws {@link ServiceDeploymentNotFoundException} (client fault)
- *  <p>The service deploy ARN that you specified in the <code>StopServiceDeployment</code> doesn't exist. You can use <code>ListServiceDeployments</code> to retrieve the service deployment ARNs.</p>
+ *  <p>The service deploy ARN that you specified in the <code>StopServiceDeployment</code>
+ * 			doesn't exist. You can use <code>ListServiceDeployments</code> to retrieve the service
+ * 			deployment ARNs.</p>
  *
  * @throws {@link UnsupportedFeatureException} (client fault)
  *  <p>The specified task isn't supported in this Region.</p>

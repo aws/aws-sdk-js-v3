@@ -28,12 +28,12 @@ export interface ListAttributesCommandInput extends ListAttributesRequest {}
 export interface ListAttributesCommandOutput extends ListAttributesResponse, __MetadataBearer {}
 
 /**
- * <p>Lists the attributes for Amazon ECS resources within a specified target type and cluster.
- * 			When you specify a target type and cluster, <code>ListAttributes</code> returns a list
- * 			of attribute objects, one for each attribute on each resource. You can filter the list
- * 			of results to a single attribute name to only return results that have that name. You
- * 			can also filter the results by attribute name and value. You can do this, for example,
- * 			to see which container instances in a cluster are running a Linux AMI
+ * <p>Lists the attributes for Amazon ECS resources within a specified target type and
+ * 			cluster. When you specify a target type and cluster, <code>ListAttributes</code> returns
+ * 			a list of attribute objects, one for each attribute on each resource. You can filter the
+ * 			list of results to a single attribute name to only return results that have that name.
+ * 			You can also filter the results by attribute name and value. You can do this, for
+ * 			example, to see which container instances in a cluster are running a Linux AMI
  * 				(<code>ecs.os-type=linux</code>). </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -79,8 +79,8 @@ export interface ListAttributesCommandOutput extends ListAttributesResponse, __M
  * @throws {@link InvalidParameterException} (client fault)
  *  <p>The specified parameter isn't valid. Review the available parameters for the API
  * 			request.</p>
- *          <p>For more information about service event errors, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-event-messages-list.html">Amazon ECS service
- * 				event messages</a>. </p>
+ *          <p>For more information about service event errors, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-event-messages-list.html">Amazon ECS
+ * 				service event messages</a>. </p>
  *
  * @throws {@link ECSServiceException}
  * <p>Base exception class for all service exceptions from ECS service.</p>

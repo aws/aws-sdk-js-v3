@@ -32,12 +32,15 @@ export interface RegisterTaskDefinitionCommandOutput extends RegisterTaskDefinit
  * 				<code>containerDefinitions</code>. Optionally, you can add data volumes to your
  * 			containers with the <code>volumes</code> parameter. For more information about task
  * 			definition parameters and defaults, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_defintions.html">Amazon ECS Task
- * 				Definitions</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
+ * 				Definitions</a> in the <i>Amazon Elastic Container Service Developer
+ * 				Guide</i>.</p>
  *          <p>You can specify a role for your task with the <code>taskRoleArn</code> parameter. When
  * 			you specify a role for a task, its containers can then use the latest versions of the
- * 			CLI or SDKs to make API requests to the Amazon Web Services services that are specified in the
- * 			policy that's associated with the role. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-iam-roles.html">IAM
- * 				Roles for Tasks</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
+ * 				CLI or SDKs
+ * 			to make API requests to the Amazon Web Services services that are specified in the policy
+ * 			that's associated with the role. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-iam-roles.html">IAM Roles for
+ * 				Tasks</a> in the <i>Amazon Elastic Container Service Developer
+ * 				Guide</i>.</p>
  *          <p>You can specify a Docker networking mode for the containers in your task definition
  * 			with the <code>networkMode</code> parameter. If you specify the <code>awsvpc</code>
  * 			network mode, the task is allocated an elastic network interface, and you must specify a
@@ -612,8 +615,8 @@ export interface RegisterTaskDefinitionCommandOutput extends RegisterTaskDefinit
  * @throws {@link InvalidParameterException} (client fault)
  *  <p>The specified parameter isn't valid. Review the available parameters for the API
  * 			request.</p>
- *          <p>For more information about service event errors, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-event-messages-list.html">Amazon ECS service
- * 				event messages</a>. </p>
+ *          <p>For more information about service event errors, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-event-messages-list.html">Amazon ECS
+ * 				service event messages</a>. </p>
  *
  * @throws {@link ServerException} (server fault)
  *  <p>These errors are usually caused by a server issue.</p>

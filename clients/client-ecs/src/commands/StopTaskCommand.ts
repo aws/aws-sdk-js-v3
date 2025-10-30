@@ -39,10 +39,10 @@ export interface StopTaskCommandOutput extends StopTaskResponse, __MetadataBeare
  * 			sending a <code>CTRL_SHUTDOWN_EVENT</code>. For more information, see <a href="https://github.com/moby/moby/issues/25982">Unable to react to graceful shutdown
  * 				of (Windows) container #25982</a> on GitHub.</p>
  *          <note>
- *             <p>The default 30-second timeout can be configured on the Amazon ECS container agent with
- * 				the <code>ECS_CONTAINER_STOP_TIMEOUT</code> variable. For more information, see
+ *             <p>The default 30-second timeout can be configured on the Amazon ECS container agent
+ * 				with the <code>ECS_CONTAINER_STOP_TIMEOUT</code> variable. For more information, see
  * 					<a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-config.html">Amazon ECS Container Agent Configuration</a> in the
- * 				<i>Amazon Elastic Container Service Developer Guide</i>.</p>
+ * 					<i>Amazon Elastic Container Service Developer Guide</i>.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -241,8 +241,8 @@ export interface StopTaskCommandOutput extends StopTaskResponse, __MetadataBeare
  * @throws {@link InvalidParameterException} (client fault)
  *  <p>The specified parameter isn't valid. Review the available parameters for the API
  * 			request.</p>
- *          <p>For more information about service event errors, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-event-messages-list.html">Amazon ECS service
- * 				event messages</a>. </p>
+ *          <p>For more information about service event errors, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-event-messages-list.html">Amazon ECS
+ * 				service event messages</a>. </p>
  *
  * @throws {@link ServerException} (server fault)
  *  <p>These errors are usually caused by a server issue.</p>

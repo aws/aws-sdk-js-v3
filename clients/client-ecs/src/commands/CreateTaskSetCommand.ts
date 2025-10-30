@@ -31,12 +31,15 @@ export interface CreateTaskSetCommandOutput extends CreateTaskSetResponse, __Met
  * <p>Create a task set in the specified cluster and service. This is used when a service
  * 			uses the <code>EXTERNAL</code> deployment controller type. For more information, see
  * 				<a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-types.html">Amazon ECS deployment
- * 				types</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
+ * 				types</a> in the <i>Amazon Elastic Container Service Developer
+ * 				Guide</i>.</p>
  *          <note>
- *             <p>On March 21, 2024, a change was made to resolve the task definition revision before authorization. When a task definition revision is not specified, authorization will occur using the latest revision of a task definition.</p>
+ *             <p>On March 21, 2024, a change was made to resolve the task definition revision
+ * 				before authorization. When a task definition revision is not specified,
+ * 				authorization will occur using the latest revision of a task definition.</p>
  *          </note>
- *          <p>For information about the maximum number of task sets and other quotas, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-quotas.html">Amazon ECS
- * 				service quotas</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
+ *          <p>For information about the maximum number of task sets and other quotas, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-quotas.html">Amazon ECS service quotas</a> in the <i>Amazon Elastic Container Service
+ * 				Developer Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -204,8 +207,8 @@ export interface CreateTaskSetCommandOutput extends CreateTaskSetResponse, __Met
  * @throws {@link InvalidParameterException} (client fault)
  *  <p>The specified parameter isn't valid. Review the available parameters for the API
  * 			request.</p>
- *          <p>For more information about service event errors, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-event-messages-list.html">Amazon ECS service
- * 				event messages</a>. </p>
+ *          <p>For more information about service event errors, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-event-messages-list.html">Amazon ECS
+ * 				service event messages</a>. </p>
  *
  * @throws {@link NamespaceNotFoundException} (client fault)
  *  <p>The specified namespace wasn't found.</p>

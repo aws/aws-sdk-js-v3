@@ -29,7 +29,8 @@ export interface UpdateCapacityProviderCommandOutput extends UpdateCapacityProvi
 
 /**
  * <p>Modifies the parameters for a capacity provider.</p>
- *          <p>These changes only apply to new Amazon ECS Managed Instances, or EC2 instances, not existing ones.</p>
+ *          <p>These changes only apply to new Amazon ECS Managed Instances, or EC2 instances, not
+ * 			existing ones.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -280,8 +281,8 @@ export interface UpdateCapacityProviderCommandOutput extends UpdateCapacityProvi
  * @throws {@link InvalidParameterException} (client fault)
  *  <p>The specified parameter isn't valid. Review the available parameters for the API
  * 			request.</p>
- *          <p>For more information about service event errors, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-event-messages-list.html">Amazon ECS service
- * 				event messages</a>. </p>
+ *          <p>For more information about service event errors, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-event-messages-list.html">Amazon ECS
+ * 				service event messages</a>. </p>
  *
  * @throws {@link ServerException} (server fault)
  *  <p>These errors are usually caused by a server issue.</p>

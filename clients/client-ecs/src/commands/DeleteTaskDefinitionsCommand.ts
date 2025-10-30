@@ -46,8 +46,8 @@ export interface DeleteTaskDefinitionsCommandOutput extends DeleteTaskDefinition
  * 			definition name is not displayed in the console and not returned in the API. If a task
  * 			definition revisions are in the <code>DELETE_IN_PROGRESS</code> state, the task
  * 			definition name is displayed in the console and returned in the API. The task definition
- * 			name is retained by Amazon ECS and the revision is incremented the next time you create a
- * 			task definition with that name.</p>
+ * 			name is retained by Amazon ECS and the revision is incremented the next time you create
+ * 			a task definition with that name.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -366,8 +366,8 @@ export interface DeleteTaskDefinitionsCommandOutput extends DeleteTaskDefinition
  * @throws {@link InvalidParameterException} (client fault)
  *  <p>The specified parameter isn't valid. Review the available parameters for the API
  * 			request.</p>
- *          <p>For more information about service event errors, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-event-messages-list.html">Amazon ECS service
- * 				event messages</a>. </p>
+ *          <p>For more information about service event errors, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-event-messages-list.html">Amazon ECS
+ * 				service event messages</a>. </p>
  *
  * @throws {@link ServerException} (server fault)
  *  <p>These errors are usually caused by a server issue.</p>

@@ -29,10 +29,11 @@ export interface PutAccountSettingCommandOutput extends PutAccountSettingRespons
 
 /**
  * <p>Modifies an account setting. Account settings are set on a per-Region basis.</p>
- *          <p>If you change the root user account setting, the default settings are reset for users and
- * 			roles that do not have specified individual account settings. For more information, see
- * 				<a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-account-settings.html">Account
- * 				Settings</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
+ *          <p>If you change the root user account setting, the default settings are reset for users
+ * 			and roles that do not have specified individual account settings. For more information,
+ * 			see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-account-settings.html">Account
+ * 				Settings</a> in the <i>Amazon Elastic Container Service Developer
+ * 				Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -73,8 +74,8 @@ export interface PutAccountSettingCommandOutput extends PutAccountSettingRespons
  * @throws {@link InvalidParameterException} (client fault)
  *  <p>The specified parameter isn't valid. Review the available parameters for the API
  * 			request.</p>
- *          <p>For more information about service event errors, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-event-messages-list.html">Amazon ECS service
- * 				event messages</a>. </p>
+ *          <p>For more information about service event errors, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-event-messages-list.html">Amazon ECS
+ * 				service event messages</a>. </p>
  *
  * @throws {@link ServerException} (server fault)
  *  <p>These errors are usually caused by a server issue.</p>

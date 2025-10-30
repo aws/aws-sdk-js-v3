@@ -313,7 +313,6 @@ import {
   ListTagsForResourceRequest,
   ListTaskDefinitionFamiliesRequest,
   ListTaskDefinitionsRequest,
-  ListTasksRequest,
   LoadBalancer,
   LocalStorageType,
   LogConfiguration,
@@ -348,6 +347,7 @@ import {
   Secret,
   ServerException,
   Service,
+  ServiceConnectAccessLogConfiguration,
   ServiceConnectClientAlias,
   ServiceConnectConfiguration,
   ServiceConnectService,
@@ -401,6 +401,7 @@ import {
   ConflictException,
   ContainerStateChange,
   InstanceLaunchTemplateUpdate,
+  ListTasksRequest,
   ManagedAgentStateChange,
   MissingVersionException,
   NoUpdateAvailableException,
@@ -3585,6 +3586,8 @@ const se_Scale = (input: Scale, context: __SerdeContext): any => {
 
 // se_SecretList omitted.
 
+// se_ServiceConnectAccessLogConfiguration omitted.
+
 // se_ServiceConnectClientAlias omitted.
 
 // se_ServiceConnectClientAliasList omitted.
@@ -4793,6 +4796,8 @@ const de_Service = (output: any, context: __SerdeContext): Service => {
     taskSets: (_: any) => de_TaskSets(_, context),
   }) as any;
 };
+
+// de_ServiceConnectAccessLogConfiguration omitted.
 
 // de_ServiceConnectClientAlias omitted.
 

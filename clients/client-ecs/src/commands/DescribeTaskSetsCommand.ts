@@ -31,7 +31,8 @@ export interface DescribeTaskSetsCommandOutput extends DescribeTaskSetsResponse,
  * <p>Describes the task sets in the specified cluster and service. This is used when a
  * 			service uses the <code>EXTERNAL</code> deployment controller type. For more information,
  * 			see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-types.html">Amazon ECS Deployment
- * 				Types</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
+ * 				Types</a> in the <i>Amazon Elastic Container Service Developer
+ * 				Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -159,8 +160,8 @@ export interface DescribeTaskSetsCommandOutput extends DescribeTaskSetsResponse,
  * @throws {@link InvalidParameterException} (client fault)
  *  <p>The specified parameter isn't valid. Review the available parameters for the API
  * 			request.</p>
- *          <p>For more information about service event errors, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-event-messages-list.html">Amazon ECS service
- * 				event messages</a>. </p>
+ *          <p>For more information about service event errors, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-event-messages-list.html">Amazon ECS
+ * 				service event messages</a>. </p>
  *
  * @throws {@link ServerException} (server fault)
  *  <p>These errors are usually caused by a server issue.</p>

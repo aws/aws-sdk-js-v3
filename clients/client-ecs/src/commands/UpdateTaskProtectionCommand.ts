@@ -32,8 +32,8 @@ export interface UpdateTaskProtectionCommandOutput extends UpdateTaskProtectionR
  * 				<code>true</code> to protect your task from termination during scale-in events from
  * 				<a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-auto-scaling.html">Service
  * 				Autoscaling</a> or <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-types.html">deployments</a>.</p>
- *          <p>Task-protection, by default, expires after 2 hours at which point Amazon ECS clears the
- * 				<code>protectionEnabled</code> property making the task eligible for termination by
+ *          <p>Task-protection, by default, expires after 2 hours at which point Amazon ECS clears
+ * 			the <code>protectionEnabled</code> property making the task eligible for termination by
  * 			a subsequent scale-in event.</p>
  *          <p>You can specify a custom expiration period for task protection from 1 minute to up to
  * 			2,880 minutes (48 hours). To specify the custom expiration period, set the
@@ -43,12 +43,13 @@ export interface UpdateTaskProtectionCommandOutput extends UpdateTaskProtectionR
  * 			protection expiration period of a task by invoking this operation repeatedly.</p>
  *          <p>To learn more about Amazon ECS task protection, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-scale-in-protection.html">Task scale-in
  * 				protection</a> in the <i>
- *                <i>Amazon Elastic Container Service Developer Guide</i>
+ *                <i>Amazon Elastic Container Service
+ * 					Developer Guide</i>
  *             </i>.</p>
  *          <note>
- *             <p>This operation is only supported for tasks belonging to an Amazon ECS service. Invoking
- * 				this operation for a standalone task will result in an <code>TASK_NOT_VALID</code>
- * 				failure. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/api_failures_messages.html">API failure
+ *             <p>This operation is only supported for tasks belonging to an Amazon ECS service.
+ * 				Invoking this operation for a standalone task will result in an
+ * 					<code>TASK_NOT_VALID</code> failure. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/api_failures_messages.html">API failure
  * 					reasons</a>.</p>
  *          </note>
  *          <important>
@@ -112,8 +113,8 @@ export interface UpdateTaskProtectionCommandOutput extends UpdateTaskProtectionR
  * @throws {@link InvalidParameterException} (client fault)
  *  <p>The specified parameter isn't valid. Review the available parameters for the API
  * 			request.</p>
- *          <p>For more information about service event errors, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-event-messages-list.html">Amazon ECS service
- * 				event messages</a>. </p>
+ *          <p>For more information about service event errors, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-event-messages-list.html">Amazon ECS
+ * 				service event messages</a>. </p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource wasn't found.</p>

@@ -28,7 +28,10 @@ export interface CreateCapacityProviderCommandInput extends CreateCapacityProvid
 export interface CreateCapacityProviderCommandOutput extends CreateCapacityProviderResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a capacity provider. Capacity providers are associated with a cluster and are used in capacity provider strategies to facilitate cluster auto scaling. You can create capacity providers for Amazon ECS Managed Instances and EC2 instances. Fargate has the predefined <code>FARGATE</code> and <code>FARGATE_SPOT</code> capacity providers.</p>
+ * <p>Creates a capacity provider. Capacity providers are associated with a cluster and are
+ * 			used in capacity provider strategies to facilitate cluster auto scaling. You can create
+ * 			capacity providers for Amazon ECS Managed Instances and EC2 instances. Fargate has the
+ * 			predefined <code>FARGATE</code> and <code>FARGATE_SPOT</code> capacity providers.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -286,8 +289,8 @@ export interface CreateCapacityProviderCommandOutput extends CreateCapacityProvi
  * @throws {@link InvalidParameterException} (client fault)
  *  <p>The specified parameter isn't valid. Review the available parameters for the API
  * 			request.</p>
- *          <p>For more information about service event errors, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-event-messages-list.html">Amazon ECS service
- * 				event messages</a>. </p>
+ *          <p>For more information about service event errors, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-event-messages-list.html">Amazon ECS
+ * 				service event messages</a>. </p>
  *
  * @throws {@link LimitExceededException} (client fault)
  *  <p>The limit for the resource was exceeded.</p>
@@ -299,11 +302,11 @@ export interface CreateCapacityProviderCommandOutput extends CreateCapacityProvi
  *  <p>The specified task isn't supported in this Region.</p>
  *
  * @throws {@link UpdateInProgressException} (client fault)
- *  <p>There's already a current Amazon ECS container agent update in progress on the container
- * 			instance that's specified. If the container agent becomes disconnected while it's in a
- * 			transitional stage, such as <code>PENDING</code> or <code>STAGING</code>, the update
- * 			process can get stuck in that state. However, when the agent reconnects, it resumes
- * 			where it stopped previously.</p>
+ *  <p>There's already a current Amazon ECS container agent update in progress on the
+ * 			container instance that's specified. If the container agent becomes disconnected while
+ * 			it's in a transitional stage, such as <code>PENDING</code> or <code>STAGING</code>, the
+ * 			update process can get stuck in that state. However, when the agent reconnects, it
+ * 			resumes where it stopped previously.</p>
  *
  * @throws {@link ECSServiceException}
  * <p>Base exception class for all service exceptions from ECS service.</p>

@@ -135,7 +135,11 @@ export interface DeleteClusterCommandOutput extends DeleteClusterResponse, __Met
  * 			action or resource. Or, it might be specifying an identifier that isn't valid.</p>
  *
  * @throws {@link ClusterContainsCapacityProviderException} (client fault)
- *  <p>The cluster contains one or more capacity providers that prevent the requested operation. This exception occurs when you try to delete a cluster that still has active capacity providers, including Amazon ECS Managed Instances capacity providers. You must first delete all capacity providers from the cluster before you can delete the cluster itself.</p>
+ *  <p>The cluster contains one or more capacity providers that prevent the requested
+ * 			operation. This exception occurs when you try to delete a cluster that still has active
+ * 			capacity providers, including Amazon ECS Managed Instances capacity providers. You must
+ * 			first delete all capacity providers from the cluster before you can delete the cluster
+ * 			itself.</p>
  *
  * @throws {@link ClusterContainsContainerInstancesException} (client fault)
  *  <p>You can't delete a cluster that has registered container instances. First, deregister
@@ -157,18 +161,18 @@ export interface DeleteClusterCommandOutput extends DeleteClusterResponse, __Met
  * @throws {@link InvalidParameterException} (client fault)
  *  <p>The specified parameter isn't valid. Review the available parameters for the API
  * 			request.</p>
- *          <p>For more information about service event errors, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-event-messages-list.html">Amazon ECS service
- * 				event messages</a>. </p>
+ *          <p>For more information about service event errors, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-event-messages-list.html">Amazon ECS
+ * 				service event messages</a>. </p>
  *
  * @throws {@link ServerException} (server fault)
  *  <p>These errors are usually caused by a server issue.</p>
  *
  * @throws {@link UpdateInProgressException} (client fault)
- *  <p>There's already a current Amazon ECS container agent update in progress on the container
- * 			instance that's specified. If the container agent becomes disconnected while it's in a
- * 			transitional stage, such as <code>PENDING</code> or <code>STAGING</code>, the update
- * 			process can get stuck in that state. However, when the agent reconnects, it resumes
- * 			where it stopped previously.</p>
+ *  <p>There's already a current Amazon ECS container agent update in progress on the
+ * 			container instance that's specified. If the container agent becomes disconnected while
+ * 			it's in a transitional stage, such as <code>PENDING</code> or <code>STAGING</code>, the
+ * 			update process can get stuck in that state. However, when the agent reconnects, it
+ * 			resumes where it stopped previously.</p>
  *
  * @throws {@link ECSServiceException}
  * <p>Base exception class for all service exceptions from ECS service.</p>

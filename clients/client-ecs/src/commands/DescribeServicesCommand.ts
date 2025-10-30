@@ -282,6 +282,10 @@ export interface DescribeServicesCommandOutput extends DescribeServicesResponse,
  * //                 },
  * //               ],
  * //             },
+ * //             accessLogConfiguration: { // ServiceConnectAccessLogConfiguration
+ * //               format: "TEXT" || "JSON", // required
+ * //               includeQueryParameters: "DISABLED" || "ENABLED",
+ * //             },
  * //           },
  * //           serviceConnectResources: [ // ServiceConnectServiceResourceList
  * //             { // ServiceConnectServiceResource
@@ -399,8 +403,8 @@ export interface DescribeServicesCommandOutput extends DescribeServicesResponse,
  * @throws {@link InvalidParameterException} (client fault)
  *  <p>The specified parameter isn't valid. Review the available parameters for the API
  * 			request.</p>
- *          <p>For more information about service event errors, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-event-messages-list.html">Amazon ECS service
- * 				event messages</a>. </p>
+ *          <p>For more information about service event errors, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-event-messages-list.html">Amazon ECS
+ * 				service event messages</a>. </p>
  *
  * @throws {@link ServerException} (server fault)
  *  <p>These errors are usually caused by a server issue.</p>

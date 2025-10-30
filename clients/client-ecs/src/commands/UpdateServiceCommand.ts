@@ -30,26 +30,32 @@ export interface UpdateServiceCommandOutput extends UpdateServiceResponse, __Met
 /**
  * <p>Modifies the parameters of a service.</p>
  *          <note>
- *             <p>On March 21, 2024, a change was made to resolve the task definition revision before authorization. When a task definition revision is not specified, authorization will occur using the latest revision of a task definition.</p>
+ *             <p>On March 21, 2024, a change was made to resolve the task definition revision
+ * 				before authorization. When a task definition revision is not specified,
+ * 				authorization will occur using the latest revision of a task definition.</p>
  *          </note>
  *          <p>For services using the rolling update (<code>ECS</code>) you can update the desired
  * 			count, deployment configuration, network configuration, load balancers, service
  * 			registries, enable ECS managed tags option, propagate tags option, task placement
  * 			constraints and strategies, and task definition. When you update any of these
  * 			parameters, Amazon ECS starts new tasks with the new configuration. </p>
- *          <p>You can attach Amazon EBS volumes to Amazon ECS tasks by configuring the volume when starting or
- * 			running a task, or when creating or updating a service. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ebs-volumes.html#ebs-volume-types">Amazon EBS volumes</a> in the <i>Amazon Elastic Container Service Developer Guide</i>. You can update
- * 			your volume configurations and trigger a new deployment.
- * 				<code>volumeConfigurations</code> is only supported for REPLICA service and not
- * 			DAEMON service. If you leave <code>volumeConfigurations</code>
+ *          <p>You can attach Amazon EBS volumes to Amazon ECS tasks by configuring the volume when
+ * 			starting or running a task, or when creating or updating a service. For more
+ * 			information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ebs-volumes.html#ebs-volume-types">Amazon EBS volumes</a> in the <i>Amazon Elastic
+ * 				Container Service Developer Guide</i>. You can update your volume
+ * 			configurations and trigger a new deployment. <code>volumeConfigurations</code> is only
+ * 			supported for REPLICA service and not DAEMON service. If you leave
+ * 				<code>volumeConfigurations</code>
  *             <code>null</code>, it doesn't trigger a new deployment. For more information on volumes,
- * 			see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ebs-volumes.html#ebs-volume-types">Amazon EBS volumes</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
+ * 			see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ebs-volumes.html#ebs-volume-types">Amazon EBS volumes</a> in the <i>Amazon Elastic
+ * 				Container Service Developer Guide</i>.</p>
  *          <p>For services using the blue/green (<code>CODE_DEPLOY</code>) deployment controller,
  * 			only the desired count, deployment configuration, health check grace period, task
  * 			placement constraints and strategies, enable ECS managed tags option, and propagate tags
  * 			can be updated using this API. If the network configuration, platform version, task
- * 			definition, or load balancer need to be updated, create a new CodeDeploy deployment. For more
- * 			information, see <a href="https://docs.aws.amazon.com/codedeploy/latest/APIReference/API_CreateDeployment.html">CreateDeployment</a> in the <i>CodeDeploy API Reference</i>.</p>
+ * 			definition, or load balancer need to be updated, create a new CodeDeploy deployment. For
+ * 			more information, see <a href="https://docs.aws.amazon.com/codedeploy/latest/APIReference/API_CreateDeployment.html">CreateDeployment</a> in the <i>CodeDeploy API
+ * 			Reference</i>.</p>
  *          <p>For services using an external deployment controller, you can update only the desired
  * 			count, task placement constraints and strategies, health check grace period, enable ECS
  * 			managed tags option, and propagate tags option, using this API. If the launch type, load
@@ -58,8 +64,10 @@ export interface UpdateServiceCommandOutput extends UpdateServiceResponse, __Met
  *          <p>You can add to or subtract from the number of instantiations of a task definition in a
  * 			service by specifying the cluster that the service is running in and a new
  * 				<code>desiredCount</code> parameter.</p>
- *          <p>You can attach Amazon EBS volumes to Amazon ECS tasks by configuring the volume when starting or
- * 			running a task, or when creating or updating a service. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ebs-volumes.html#ebs-volume-types">Amazon EBS volumes</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
+ *          <p>You can attach Amazon EBS volumes to Amazon ECS tasks by configuring the volume when
+ * 			starting or running a task, or when creating or updating a service. For more
+ * 			information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ebs-volumes.html#ebs-volume-types">Amazon EBS volumes</a> in the <i>Amazon Elastic
+ * 				Container Service Developer Guide</i>.</p>
  *          <p>If you have updated the container image of your application, you can create a new task
  * 			definition with that image and deploy it to your service. The service scheduler uses the
  * 			minimum healthy percent and maximum percent parameters (in the service's deployment
@@ -301,6 +309,10 @@ export interface UpdateServiceCommandOutput extends UpdateServiceResponse, __Met
  *           valueFrom: "STRING_VALUE", // required
  *         },
  *       ],
+ *     },
+ *     accessLogConfiguration: { // ServiceConnectAccessLogConfiguration
+ *       format: "TEXT" || "JSON", // required
+ *       includeQueryParameters: "DISABLED" || "ENABLED",
  *     },
  *   },
  *   volumeConfigurations: [ // ServiceVolumeConfigurations
@@ -575,6 +587,10 @@ export interface UpdateServiceCommandOutput extends UpdateServiceResponse, __Met
  * //               },
  * //             ],
  * //           },
+ * //           accessLogConfiguration: { // ServiceConnectAccessLogConfiguration
+ * //             format: "TEXT" || "JSON", // required
+ * //             includeQueryParameters: "DISABLED" || "ENABLED",
+ * //           },
  * //         },
  * //         serviceConnectResources: [ // ServiceConnectServiceResourceList
  * //           { // ServiceConnectServiceResource
@@ -687,8 +703,8 @@ export interface UpdateServiceCommandOutput extends UpdateServiceResponse, __Met
  * @throws {@link InvalidParameterException} (client fault)
  *  <p>The specified parameter isn't valid. Review the available parameters for the API
  * 			request.</p>
- *          <p>For more information about service event errors, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-event-messages-list.html">Amazon ECS service
- * 				event messages</a>. </p>
+ *          <p>For more information about service event errors, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-event-messages-list.html">Amazon ECS
+ * 				service event messages</a>. </p>
  *
  * @throws {@link NamespaceNotFoundException} (client fault)
  *  <p>The specified namespace wasn't found.</p>

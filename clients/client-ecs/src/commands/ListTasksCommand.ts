@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListTasksRequest, ListTasksResponse } from "../models/models_0";
+import { ListTasksRequest, ListTasksResponse } from "../models/models_1";
 import { de_ListTasksCommand, se_ListTasksCommand } from "../protocols/Aws_json1_1";
 
 /**
@@ -29,8 +29,8 @@ export interface ListTasksCommandOutput extends ListTasksResponse, __MetadataBea
 
 /**
  * <p>Returns a list of tasks. You can filter the results by cluster, task definition
- * 			family, container instance, launch type, what IAM principal started the task, or by
- * 			the desired status of the task.</p>
+ * 			family, container instance, launch type, what IAM principal started the task, or by the
+ * 			desired status of the task.</p>
  *          <p>Recently stopped tasks might appear in the returned results. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -79,8 +79,8 @@ export interface ListTasksCommandOutput extends ListTasksResponse, __MetadataBea
  * @throws {@link InvalidParameterException} (client fault)
  *  <p>The specified parameter isn't valid. Review the available parameters for the API
  * 			request.</p>
- *          <p>For more information about service event errors, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-event-messages-list.html">Amazon ECS service
- * 				event messages</a>. </p>
+ *          <p>For more information about service event errors, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-event-messages-list.html">Amazon ECS
+ * 				service event messages</a>. </p>
  *
  * @throws {@link ServerException} (server fault)
  *  <p>These errors are usually caused by a server issue.</p>

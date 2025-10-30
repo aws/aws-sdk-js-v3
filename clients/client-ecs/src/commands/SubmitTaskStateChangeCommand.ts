@@ -29,7 +29,8 @@ export interface SubmitTaskStateChangeCommandOutput extends SubmitTaskStateChang
 
 /**
  * <note>
- *             <p>This action is only used by the Amazon ECS agent, and it is not intended for use outside of the agent.</p>
+ *             <p>This action is only used by the Amazon ECS agent, and it is not intended for use
+ * 				outside of the agent.</p>
  *          </note>
  *          <p>Sent to acknowledge that a task changed states.</p>
  * @example
@@ -108,8 +109,8 @@ export interface SubmitTaskStateChangeCommandOutput extends SubmitTaskStateChang
  * @throws {@link InvalidParameterException} (client fault)
  *  <p>The specified parameter isn't valid. Review the available parameters for the API
  * 			request.</p>
- *          <p>For more information about service event errors, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-event-messages-list.html">Amazon ECS service
- * 				event messages</a>. </p>
+ *          <p>For more information about service event errors, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-event-messages-list.html">Amazon ECS
+ * 				service event messages</a>. </p>
  *
  * @throws {@link ServerException} (server fault)
  *  <p>These errors are usually caused by a server issue.</p>
