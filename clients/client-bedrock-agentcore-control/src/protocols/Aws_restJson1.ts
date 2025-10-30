@@ -184,6 +184,7 @@ import {
   AtlassianOauth2ProviderConfigInput,
   AuthorizerConfiguration,
   BrowserNetworkConfiguration,
+  BrowserSigningConfigInput,
   BrowserSummary,
   CodeInterpreterNetworkConfiguration,
   CodeInterpreterSummary,
@@ -373,6 +374,7 @@ export const se_CreateBrowserCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
+      browserSigning: (_) => _json(_),
       clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       description: [],
       executionRoleArn: [],
@@ -2076,6 +2078,7 @@ export const de_GetBrowserCommand = async (
   const doc = take(data, {
     browserArn: __expectString,
     browserId: __expectString,
+    browserSigning: _json,
     createdAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     description: __expectString,
     executionRoleArn: __expectString,
@@ -3185,6 +3188,8 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_BrowserNetworkConfiguration omitted.
 
+// se_BrowserSigningConfigInput omitted.
+
 // se_CodeInterpreterNetworkConfiguration omitted.
 
 // se_ContainerConfiguration omitted.
@@ -3530,6 +3535,8 @@ const de_ApiKeyCredentialProviders = (output: any, context: __SerdeContext): Api
 // de_AuthorizerConfiguration omitted.
 
 // de_BrowserNetworkConfiguration omitted.
+
+// de_BrowserSigningConfigOutput omitted.
 
 /**
  * deserializeAws_restJson1BrowserSummaries

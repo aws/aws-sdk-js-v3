@@ -70,6 +70,9 @@ export interface GetBrowserCommandOutput extends GetBrowserResponse, __MetadataB
  * //       prefix: "STRING_VALUE", // required
  * //     },
  * //   },
+ * //   browserSigning: { // BrowserSigningConfigOutput
+ * //     enabled: true || false, // required
+ * //   },
  * //   status: "CREATING" || "CREATE_FAILED" || "READY" || "DELETING" || "DELETE_FAILED" || "DELETED", // required
  * //   failureReason: "STRING_VALUE",
  * //   createdAt: new Date("TIMESTAMP"), // required

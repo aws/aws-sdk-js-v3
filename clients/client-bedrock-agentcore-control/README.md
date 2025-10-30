@@ -6,7 +6,7 @@
 
 AWS SDK for JavaScript BedrockAgentCoreControl Client for Node.js, Browser and React Native.
 
-<note> <p> is in preview release and is subject to change.</p> </note> <p>Welcome to the Amazon Bedrock AgentCore Control plane API reference. Control plane actions configure, create, modify, and monitor Amazon Web Services resources.</p>
+<p>Welcome to the Amazon Bedrock AgentCore Control plane API reference. Control plane actions configure, create, modify, and monitor Amazon Web Services resources.</p>
 
 ## Installing
 

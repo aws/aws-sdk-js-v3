@@ -67,6 +67,9 @@ export interface CreateBrowserCommandOutput extends CreateBrowserResponse, __Met
  *       prefix: "STRING_VALUE", // required
  *     },
  *   },
+ *   browserSigning: { // BrowserSigningConfigInput
+ *     enabled: true || false, // required
+ *   },
  *   clientToken: "STRING_VALUE",
  *   tags: { // TagsMap
  *     "<keys>": "STRING_VALUE",

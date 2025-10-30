@@ -1718,6 +1718,18 @@ export interface UpdateApiKeyCredentialProviderResponse {
 }
 
 /**
+ * <p>Configuration for enabling browser signing capabilities that allow agents to cryptographically identify themselves to websites using HTTP message signatures.</p>
+ * @public
+ */
+export interface BrowserSigningConfigInput {
+  /**
+   * <p>Specifies whether browser signing is enabled. When enabled, the browser will cryptographically sign HTTP requests to identify itself as an AI agent to bot control vendors.</p>
+   * @public
+   */
+  enabled: boolean | undefined;
+}
+
+/**
  * @public
  * @enum
  */
@@ -1818,6 +1830,12 @@ export interface CreateBrowserRequest {
    * @public
    */
   recording?: RecordingConfig | undefined;
+
+  /**
+   * <p>The browser signing configuration that enables cryptographic agent identification using HTTP message signatures for web bot authentication.</p>
+   * @public
+   */
+  browserSigning?: BrowserSigningConfigInput | undefined;
 
   /**
    * <p>A unique, case-sensitive identifier to ensure that the operation completes no more than one time. If this token matches a previous request, Amazon Bedrock ignores the request but does not return an error.</p>
@@ -1931,6 +1949,18 @@ export interface GetBrowserRequest {
 }
 
 /**
+ * <p>The current browser signing configuration that shows whether cryptographic agent identification is enabled for web bot authentication.</p>
+ * @public
+ */
+export interface BrowserSigningConfigOutput {
+  /**
+   * <p>Indicates whether browser signing is currently enabled for cryptographic agent identification using HTTP message signatures.</p>
+   * @public
+   */
+  enabled: boolean | undefined;
+}
+
+/**
  * @public
  */
 export interface GetBrowserResponse {
@@ -1975,6 +2005,12 @@ export interface GetBrowserResponse {
    * @public
    */
   recording?: RecordingConfig | undefined;
+
+  /**
+   * <p>The browser signing configuration that shows whether cryptographic agent identification is enabled for web bot authentication.</p>
+   * @public
+   */
+  browserSigning?: BrowserSigningConfigOutput | undefined;
 
   /**
    * <p>The current status of the browser.</p>
