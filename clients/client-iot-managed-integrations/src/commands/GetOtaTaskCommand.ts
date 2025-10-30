@@ -32,7 +32,7 @@ export interface GetOtaTaskCommandInput extends GetOtaTaskRequest {}
 export interface GetOtaTaskCommandOutput extends GetOtaTaskResponse, __MetadataBearer {}
 
 /**
- * <p>Get the over-the-air (OTA) task.</p>
+ * <p>Get details of the over-the-air (OTA) task by its task id.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

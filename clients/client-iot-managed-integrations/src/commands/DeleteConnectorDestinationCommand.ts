@@ -32,7 +32,7 @@ export interface DeleteConnectorDestinationCommandInput extends DeleteConnectorD
 export interface DeleteConnectorDestinationCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Delete a connector destination for connecting a cloud-to-cloud (C2C) connector to the customer's Amazon Web Services account.</p>
+ * <p>Delete a connector destination linked to a cloud-to-cloud (C2C) connector.</p> <note> <p>Deletion can't be done if the account association has used this connector destination.</p> </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

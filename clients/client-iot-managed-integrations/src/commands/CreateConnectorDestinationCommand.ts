@@ -88,8 +88,14 @@ export interface CreateConnectorDestinationCommandOutput extends CreateConnector
  * @throws {@link InternalServerException} (server fault)
  *  <p>Internal error from the service that indicates an unexpected error or that the service is unavailable.</p>
  *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource does not exist.</p>
+ *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The rate exceeds the limit.</p>
+ *
+ * @throws {@link UnauthorizedException} (client fault)
+ *  <p>You are not authorized to perform this operation.</p>
  *
  * @throws {@link ValidationException} (client fault)
  *  <p>A validation error occurred when performing the API request.</p>

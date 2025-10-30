@@ -173,6 +173,11 @@ import {
   GetManagedThingCapabilitiesCommandOutput,
 } from "./commands/GetManagedThingCapabilitiesCommand";
 import {
+  GetManagedThingCertificateCommand,
+  GetManagedThingCertificateCommandInput,
+  GetManagedThingCertificateCommandOutput,
+} from "./commands/GetManagedThingCertificateCommand";
+import {
   GetManagedThingCommand,
   GetManagedThingCommandInput,
   GetManagedThingCommandOutput,
@@ -442,6 +447,7 @@ const commands = {
   GetHubConfigurationCommand,
   GetManagedThingCommand,
   GetManagedThingCapabilitiesCommand,
+  GetManagedThingCertificateCommand,
   GetManagedThingConnectivityDataCommand,
   GetManagedThingMetaDataCommand,
   GetManagedThingStateCommand,
@@ -1072,6 +1078,23 @@ export interface IoTManagedIntegrations {
     args: GetManagedThingCapabilitiesCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetManagedThingCapabilitiesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetManagedThingCertificateCommand}
+   */
+  getManagedThingCertificate(
+    args: GetManagedThingCertificateCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetManagedThingCertificateCommandOutput>;
+  getManagedThingCertificate(
+    args: GetManagedThingCertificateCommandInput,
+    cb: (err: any, data?: GetManagedThingCertificateCommandOutput) => void
+  ): void;
+  getManagedThingCertificate(
+    args: GetManagedThingCertificateCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetManagedThingCertificateCommandOutput) => void
   ): void;
 
   /**

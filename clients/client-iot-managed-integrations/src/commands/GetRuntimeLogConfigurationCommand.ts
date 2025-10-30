@@ -32,7 +32,7 @@ export interface GetRuntimeLogConfigurationCommandInput extends GetRuntimeLogCon
 export interface GetRuntimeLogConfigurationCommandOutput extends GetRuntimeLogConfigurationResponse, __MetadataBearer {}
 
 /**
- * <p>Get the runtime log configuration for a specific managed thing or for all managed things as a group.</p>
+ * <p>Get the runtime log configuration for a specific managed thing.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -32,7 +32,7 @@ export interface GetConnectorDestinationCommandInput extends GetConnectorDestina
 export interface GetConnectorDestinationCommandOutput extends GetConnectorDestinationResponse, __MetadataBearer {}
 
 /**
- * <p>Get a connector destination of a cloud-to-cloud (C2C) connector connecting to a customer's Amazon Web Services account.</p>
+ * <p>Get connector destination details linked to a cloud-to-cloud (C2C) connector.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

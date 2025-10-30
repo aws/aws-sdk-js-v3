@@ -32,7 +32,7 @@ export interface GetCloudConnectorCommandInput extends GetCloudConnectorRequest 
 export interface GetCloudConnectorCommandOutput extends GetCloudConnectorResponse, __MetadataBearer {}
 
 /**
- * <p>Gets all the information about a connector for a connector developer.</p>
+ * <p>Get configuration details for a cloud connector.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -32,7 +32,7 @@ export interface ListCloudConnectorsCommandInput extends ListCloudConnectorsRequ
 export interface ListCloudConnectorsCommandOutput extends ListCloudConnectorsResponse, __MetadataBearer {}
 
 /**
- * <p>Returns a list of connectors based on permissions. </p>
+ * <p>Returns a list of connectors filtered by its Lambda Amazon Resource Name (ARN) and <code>type</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

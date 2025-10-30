@@ -10,8 +10,8 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../IoTManagedIntegrationsClient";
-import { UpdateCloudConnectorRequest } from "../models/models_0";
-import { de_UpdateCloudConnectorCommand, se_UpdateCloudConnectorCommand } from "../protocols/Aws_restJson1";
+import { GetManagedThingCertificateRequest, GetManagedThingCertificateResponse } from "../models/models_0";
+import { de_GetManagedThingCertificateCommand, se_GetManagedThingCertificateCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -21,41 +21,42 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link UpdateCloudConnectorCommand}.
+ * The input for {@link GetManagedThingCertificateCommand}.
  */
-export interface UpdateCloudConnectorCommandInput extends UpdateCloudConnectorRequest {}
+export interface GetManagedThingCertificateCommandInput extends GetManagedThingCertificateRequest {}
 /**
  * @public
  *
- * The output of {@link UpdateCloudConnectorCommand}.
+ * The output of {@link GetManagedThingCertificateCommand}.
  */
-export interface UpdateCloudConnectorCommandOutput extends __MetadataBearer {}
+export interface GetManagedThingCertificateCommandOutput extends GetManagedThingCertificateResponse, __MetadataBearer {}
 
 /**
- * <p>Update an existing cloud connector.</p>
+ * <p>Retrieves the certificate PEM for a managed IoT thing.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTManagedIntegrationsClient, UpdateCloudConnectorCommand } from "@aws-sdk/client-iot-managed-integrations"; // ES Modules import
- * // const { IoTManagedIntegrationsClient, UpdateCloudConnectorCommand } = require("@aws-sdk/client-iot-managed-integrations"); // CommonJS import
+ * import { IoTManagedIntegrationsClient, GetManagedThingCertificateCommand } from "@aws-sdk/client-iot-managed-integrations"; // ES Modules import
+ * // const { IoTManagedIntegrationsClient, GetManagedThingCertificateCommand } = require("@aws-sdk/client-iot-managed-integrations"); // CommonJS import
  * // import type { IoTManagedIntegrationsClientConfig } from "@aws-sdk/client-iot-managed-integrations";
  * const config = {}; // type is IoTManagedIntegrationsClientConfig
  * const client = new IoTManagedIntegrationsClient(config);
- * const input = { // UpdateCloudConnectorRequest
+ * const input = { // GetManagedThingCertificateRequest
  *   Identifier: "STRING_VALUE", // required
- *   Name: "STRING_VALUE",
- *   Description: "STRING_VALUE",
  * };
- * const command = new UpdateCloudConnectorCommand(input);
+ * const command = new GetManagedThingCertificateCommand(input);
  * const response = await client.send(command);
- * // {};
+ * // { // GetManagedThingCertificateResponse
+ * //   ManagedThingId: "STRING_VALUE",
+ * //   CertificatePem: "STRING_VALUE",
+ * // };
  *
  * ```
  *
- * @param UpdateCloudConnectorCommandInput - {@link UpdateCloudConnectorCommandInput}
- * @returns {@link UpdateCloudConnectorCommandOutput}
- * @see {@link UpdateCloudConnectorCommandInput} for command's `input` shape.
- * @see {@link UpdateCloudConnectorCommandOutput} for command's `response` shape.
+ * @param GetManagedThingCertificateCommandInput - {@link GetManagedThingCertificateCommandInput}
+ * @returns {@link GetManagedThingCertificateCommandOutput}
+ * @see {@link GetManagedThingCertificateCommandInput} for command's `input` shape.
+ * @see {@link GetManagedThingCertificateCommandOutput} for command's `response` shape.
  * @see {@link IoTManagedIntegrationsClientResolvedConfig | config} for IoTManagedIntegrationsClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -66,6 +67,9 @@ export interface UpdateCloudConnectorCommandOutput extends __MetadataBearer {}
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource does not exist.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The service is temporarily unavailable.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The rate exceeds the limit.</p>
@@ -80,40 +84,30 @@ export interface UpdateCloudConnectorCommandOutput extends __MetadataBearer {}
  * <p>Base exception class for all service exceptions from IoTManagedIntegrations service.</p>
  *
  *
- * @example UpdateCloudConnector happy path for TP Link to update display name
+ * @example Get managed thing certificate
  * ```javascript
  * //
  * const input = {
- *   Identifier: "123456789012",
- *   Name: "Connector for TP Link Cloud V2"
+ *   Identifier: "example-managed-thing-id"
  * };
- * const command = new UpdateCloudConnectorCommand(input);
+ * const command = new GetManagedThingCertificateCommand(input);
  * const response = await client.send(command);
  * /* response is
- * { /* metadata only *\/ }
- * *\/
- * ```
- *
- * @example UpdateCloudConnector error Id for Ring connector which does not exist
- * ```javascript
- * //
- * const input = {
- *   Identifier: "123456789012",
- *   Name: "Connector for Ring Cloud"
- * };
- * const command = new UpdateCloudConnectorCommand(input);
- * const response = await client.send(command);
- * /* response is
- * { /* metadata only *\/ }
+ * {
+ *   CertificatePem: "-----BEGIN CERTIFICATE-----
+ * MIIBkTCB+wIJAKHHH...
+ * -----END CERTIFICATE-----",
+ *   ManagedThingId: "example-managed-thing-id"
+ * }
  * *\/
  * ```
  *
  * @public
  */
-export class UpdateCloudConnectorCommand extends $Command
+export class GetManagedThingCertificateCommand extends $Command
   .classBuilder<
-    UpdateCloudConnectorCommandInput,
-    UpdateCloudConnectorCommandOutput,
+    GetManagedThingCertificateCommandInput,
+    GetManagedThingCertificateCommandOutput,
     IoTManagedIntegrationsClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -125,21 +119,21 @@ export class UpdateCloudConnectorCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("IotManagedIntegrations", "UpdateCloudConnector", {})
-  .n("IoTManagedIntegrationsClient", "UpdateCloudConnectorCommand")
+  .s("IotManagedIntegrations", "GetManagedThingCertificate", {})
+  .n("IoTManagedIntegrationsClient", "GetManagedThingCertificateCommand")
   .f(void 0, void 0)
-  .ser(se_UpdateCloudConnectorCommand)
-  .de(de_UpdateCloudConnectorCommand)
+  .ser(se_GetManagedThingCertificateCommand)
+  .de(de_GetManagedThingCertificateCommand)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: UpdateCloudConnectorRequest;
-      output: {};
+      input: GetManagedThingCertificateRequest;
+      output: GetManagedThingCertificateResponse;
     };
     sdk: {
-      input: UpdateCloudConnectorCommandInput;
-      output: UpdateCloudConnectorCommandOutput;
+      input: GetManagedThingCertificateCommandInput;
+      output: GetManagedThingCertificateCommandOutput;
     };
   };
 }

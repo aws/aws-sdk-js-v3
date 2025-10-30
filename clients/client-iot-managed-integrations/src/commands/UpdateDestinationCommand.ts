@@ -32,7 +32,7 @@ export interface UpdateDestinationCommandInput extends UpdateDestinationRequest 
 export interface UpdateDestinationCommandOutput extends __MetadataBearer {}
 
 /**
- * <p> Update a destination specified by id. </p>
+ * <p> Update a destination specified by name. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

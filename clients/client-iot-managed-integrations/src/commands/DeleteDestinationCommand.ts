@@ -32,7 +32,7 @@ export interface DeleteDestinationCommandInput extends DeleteDestinationRequest 
 export interface DeleteDestinationCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes a customer-managed destination specified by id. </p>
+ * <p>Deletes a notification destination specified by name. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

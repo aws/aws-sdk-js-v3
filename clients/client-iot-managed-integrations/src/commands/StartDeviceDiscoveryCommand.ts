@@ -36,7 +36,7 @@ export interface StartDeviceDiscoveryCommandInput extends StartDeviceDiscoveryRe
 export interface StartDeviceDiscoveryCommandOutput extends StartDeviceDiscoveryResponse, __MetadataBearer {}
 
 /**
- * <p> This API is used to start device discovery for hub-connected and third-party-connected devices. The authentication material (install code) is passed as a message to the controller telling it to start the discovery.</p>
+ * <p> This API is used to start device discovery for hub-connected and third-party-connected devices. The authentication material (install code) is delivered as a message to the controller instructing it to start the discovery.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -36,7 +36,7 @@ export interface GetDestinationCommandInput extends GetDestinationRequest {}
 export interface GetDestinationCommandOutput extends GetDestinationResponse, __MetadataBearer {}
 
 /**
- * <p>Gets a destination by ID. </p>
+ * <p>Gets a destination by name. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

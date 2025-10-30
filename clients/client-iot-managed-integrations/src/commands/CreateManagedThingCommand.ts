@@ -36,7 +36,7 @@ export interface CreateManagedThingCommandInput extends CreateManagedThingReques
 export interface CreateManagedThingCommandOutput extends CreateManagedThingResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a managed thing. A managed thing contains the device identifier, protocol supported, and capabilities of the device in a protocol-specific format.</p>
+ * <p>Creates a managed thing. A managed thing contains the device identifier, protocol supported, and capabilities of the device in a data model format defined by Managed integrations.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

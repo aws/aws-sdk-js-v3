@@ -159,6 +159,10 @@ import {
   GetManagedThingCapabilitiesCommandInput,
   GetManagedThingCapabilitiesCommandOutput,
 } from "./commands/GetManagedThingCapabilitiesCommand";
+import {
+  GetManagedThingCertificateCommandInput,
+  GetManagedThingCertificateCommandOutput,
+} from "./commands/GetManagedThingCertificateCommand";
 import { GetManagedThingCommandInput, GetManagedThingCommandOutput } from "./commands/GetManagedThingCommand";
 import {
   GetManagedThingConnectivityDataCommandInput,
@@ -361,6 +365,7 @@ export type ServiceInputTypes =
   | GetEventLogConfigurationCommandInput
   | GetHubConfigurationCommandInput
   | GetManagedThingCapabilitiesCommandInput
+  | GetManagedThingCertificateCommandInput
   | GetManagedThingCommandInput
   | GetManagedThingConnectivityDataCommandInput
   | GetManagedThingMetaDataCommandInput
@@ -448,6 +453,7 @@ export type ServiceOutputTypes =
   | GetEventLogConfigurationCommandOutput
   | GetHubConfigurationCommandOutput
   | GetManagedThingCapabilitiesCommandOutput
+  | GetManagedThingCertificateCommandOutput
   | GetManagedThingCommandOutput
   | GetManagedThingConnectivityDataCommandOutput
   | GetManagedThingMetaDataCommandOutput

@@ -136,6 +136,10 @@ import {
   GetManagedThingCapabilitiesCommandInput,
   GetManagedThingCapabilitiesCommandOutput,
 } from "../commands/GetManagedThingCapabilitiesCommand";
+import {
+  GetManagedThingCertificateCommandInput,
+  GetManagedThingCertificateCommandOutput,
+} from "../commands/GetManagedThingCertificateCommand";
 import { GetManagedThingCommandInput, GetManagedThingCommandOutput } from "../commands/GetManagedThingCommand";
 import {
   GetManagedThingConnectivityDataCommandInput,
@@ -1037,6 +1041,22 @@ export const se_GetManagedThingCapabilitiesCommand = async (
   const b = rb(input, context);
   const headers: any = {};
   b.bp("/managed-things-capabilities/{Identifier}");
+  b.p("Identifier", () => input.Identifier!, "{Identifier}", false);
+  let body: any;
+  b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1GetManagedThingCertificateCommand
+ */
+export const se_GetManagedThingCertificateCommand = async (
+  input: GetManagedThingCertificateCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/managed-things-certificate/{Identifier}");
   b.p("Identifier", () => input.Identifier!, "{Identifier}", false);
   let body: any;
   b.m("GET").h(headers).b(body);
@@ -2805,6 +2825,28 @@ export const de_GetManagedThingCapabilitiesCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1GetManagedThingCertificateCommand
+ */
+export const de_GetManagedThingCertificateCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetManagedThingCertificateCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    CertificatePem: __expectString,
+    ManagedThingId: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1GetManagedThingConnectivityDataCommand
  */
 export const de_GetManagedThingConnectivityDataCommand = async (
@@ -3833,15 +3875,15 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "ThrottlingException":
     case "com.amazonaws.iotmanagedintegrations#ThrottlingException":
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "UnauthorizedException":
+    case "com.amazonaws.iotmanagedintegrations#UnauthorizedException":
+      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.iotmanagedintegrations#ValidationException":
       throw await de_ValidationExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.iotmanagedintegrations#ServiceQuotaExceededException":
       throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.iotmanagedintegrations#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.iotmanagedintegrations#LimitExceededException":
       throw await de_LimitExceededExceptionRes(parsedOutput, context);

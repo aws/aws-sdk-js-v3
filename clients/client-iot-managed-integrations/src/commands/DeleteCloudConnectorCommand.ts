@@ -68,6 +68,9 @@ export interface DeleteCloudConnectorCommandOutput extends __MetadataBearer {}
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The rate exceeds the limit.</p>
  *
+ * @throws {@link UnauthorizedException} (client fault)
+ *  <p>You are not authorized to perform this operation.</p>
+ *
  * @throws {@link ValidationException} (client fault)
  *  <p>A validation error occurred when performing the API request.</p>
  *

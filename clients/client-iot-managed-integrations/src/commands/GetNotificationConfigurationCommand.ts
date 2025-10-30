@@ -41,7 +41,7 @@ export interface GetNotificationConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
- * <p> Get a notification configuration.</p>
+ * <p> Get a notification configuration for a specified event type.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

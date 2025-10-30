@@ -35,7 +35,7 @@ export interface ResetRuntimeLogConfigurationCommandInput extends ResetRuntimeLo
 export interface ResetRuntimeLogConfigurationCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Reset a runtime log configuration for a specific managed thing or for all managed things as a group.</p>
+ * <p>Reset a runtime log configuration for a specific managed thing.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

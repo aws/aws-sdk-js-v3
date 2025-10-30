@@ -32,7 +32,7 @@ export interface ListDestinationsCommandInput extends ListDestinationsRequest {}
 export interface ListDestinationsCommandOutput extends ListDestinationsResponse, __MetadataBearer {}
 
 /**
- * <p> List all destination names under one Amazon Web Services account.</p>
+ * <p> List all notification destinations.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

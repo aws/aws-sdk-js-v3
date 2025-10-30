@@ -36,7 +36,7 @@ export interface GetManagedThingCommandInput extends GetManagedThingRequest {}
 export interface GetManagedThingCommandOutput extends GetManagedThingResponse, __MetadataBearer {}
 
 /**
- * <p> Get the attributes and capabilities associated with a managed thing.</p>
+ * <p> Get details of a managed thing including its attributes and capabilities.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

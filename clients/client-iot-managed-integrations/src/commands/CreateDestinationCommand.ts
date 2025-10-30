@@ -36,7 +36,7 @@ export interface CreateDestinationCommandInput extends CreateDestinationRequest 
 export interface CreateDestinationCommandOutput extends CreateDestinationResponse, __MetadataBearer {}
 
 /**
- * <p> Create a destination. IoT managed integrations uses the destination to determine where to deliver notifications for a device. </p>
+ * <p> Create a notification destination such as Kinesis Data Streams that receive events and notifications from Managed integrations. Managed integrations uses the destination to determine where to deliver notifications.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

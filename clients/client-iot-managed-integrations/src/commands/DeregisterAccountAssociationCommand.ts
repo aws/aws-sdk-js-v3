@@ -35,7 +35,7 @@ export interface DeregisterAccountAssociationCommandInput extends DeregisterAcco
 export interface DeregisterAccountAssociationCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deregisters an account association, removing the connection between a managed thing and a third-party account.</p>
+ * <p>Deregister an account association from a managed thing.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

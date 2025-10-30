@@ -33,6 +33,7 @@ export * from "./GetDeviceDiscoveryCommand";
 export * from "./GetEventLogConfigurationCommand";
 export * from "./GetHubConfigurationCommand";
 export * from "./GetManagedThingCapabilitiesCommand";
+export * from "./GetManagedThingCertificateCommand";
 export * from "./GetManagedThingCommand";
 export * from "./GetManagedThingConnectivityDataCommand";
 export * from "./GetManagedThingMetaDataCommand";

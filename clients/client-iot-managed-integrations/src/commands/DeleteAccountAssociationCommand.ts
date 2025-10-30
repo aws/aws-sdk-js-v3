@@ -32,7 +32,7 @@ export interface DeleteAccountAssociationCommandInput extends DeleteAccountAssoc
 export interface DeleteAccountAssociationCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Remove a third party account and related devices from an end user.</p>
+ * <p>Remove a third-party account association for an end user.</p> <note> <p>You must first call the <code>DeregisterAccountAssociation</code> to remove the connection between the managed thing and the third-party account before calling the <code>DeleteAccountAssociation</code> API.</p> </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

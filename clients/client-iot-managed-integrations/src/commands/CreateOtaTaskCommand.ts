@@ -36,7 +36,7 @@ export interface CreateOtaTaskCommandInput extends CreateOtaTaskRequest {}
 export interface CreateOtaTaskCommandOutput extends CreateOtaTaskResponse, __MetadataBearer {}
 
 /**
- * <p>Create an over-the-air (OTA) task to update a device.</p>
+ * <p>Create an over-the-air (OTA) task to target a device.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

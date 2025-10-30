@@ -36,7 +36,7 @@ export interface CreateCredentialLockerCommandInput extends CreateCredentialLock
 export interface CreateCredentialLockerCommandOutput extends CreateCredentialLockerResponse, __MetadataBearer {}
 
 /**
- * <p>Create a product credential locker. This operation will trigger the creation of all the manufacturing resources including the Wi-Fi setup key pair and device certificate.</p>
+ * <p>Create a credential locker.</p> <note> <p>This operation will not trigger the creation of all the manufacturing resources.</p> </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -485,6 +485,14 @@ GetManagedThingCapabilities
 </details>
 <details>
 <summary>
+GetManagedThingCertificate
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iot-managed-integrations/command/GetManagedThingCertificateCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iot-managed-integrations/Interface/GetManagedThingCertificateCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iot-managed-integrations/Interface/GetManagedThingCertificateCommandOutput/)
+
+</details>
+<details>
+<summary>
 GetManagedThingConnectivityData
 </summary>
 
