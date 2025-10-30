@@ -28,7 +28,7 @@ export interface DeleteLinkCommandInput extends DeleteLinkRequest {}
 export interface DeleteLinkCommandOutput extends DeleteLinkResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes a link between RTB applications.</p> <p>Permanently removes the connection between RTB applications. This action cannot be undone.</p>
+ * <p>Deletes a link between gateways.</p> <p>Permanently removes the connection between gateways. This action cannot be undone.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

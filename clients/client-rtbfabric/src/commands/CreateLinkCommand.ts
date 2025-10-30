@@ -28,7 +28,7 @@ export interface CreateLinkCommandInput extends CreateLinkRequest {}
 export interface CreateLinkCommandOutput extends CreateLinkResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a new link between RTB applications.</p> <p>Establishes a connection that allows RTB applications to communicate and exchange bid requests and responses.</p>
+ * <p>Creates a new link between gateways.</p> <p>Establishes a connection that allows gateways to communicate and exchange bid requests and responses.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

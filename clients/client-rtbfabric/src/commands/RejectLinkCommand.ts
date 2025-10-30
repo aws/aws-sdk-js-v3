@@ -28,7 +28,7 @@ export interface RejectLinkCommandInput extends RejectLinkRequest {}
 export interface RejectLinkCommandOutput extends RejectLinkResponse, __MetadataBearer {}
 
 /**
- * <p>Rejects a link request between RTB applications.</p> <p>When a requester RTB application requests to link with a responder RTB application, the responder can use this operation to decline the link request.</p>
+ * <p>Rejects a link request between gateways.</p> <p>When a requester gateway requests to link with a responder gateway, the responder can use this operation to decline the link request.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

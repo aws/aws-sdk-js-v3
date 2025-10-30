@@ -28,7 +28,7 @@ export interface UpdateLinkCommandInput extends UpdateLinkRequest {}
 export interface UpdateLinkCommandOutput extends UpdateLinkResponse, __MetadataBearer {}
 
 /**
- * <p>Updates the configuration of a link between RTB applications.</p> <p>Allows you to modify settings and parameters for an existing link.</p>
+ * <p>Updates the configuration of a link between gateways.</p> <p>Allows you to modify settings and parameters for an existing link.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

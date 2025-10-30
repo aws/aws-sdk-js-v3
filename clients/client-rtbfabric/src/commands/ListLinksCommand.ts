@@ -28,7 +28,7 @@ export interface ListLinksCommandInput extends ListLinksRequest {}
 export interface ListLinksCommandOutput extends ListLinksResponse, __MetadataBearer {}
 
 /**
- * <p>Lists links associated with an RTB application.</p> <p>Returns a list of all links for the specified RTB application, including their status and configuration details.</p>
+ * <p>Lists links associated with gateways.</p> <p>Returns a list of all links for the specified gateways, including their status and configuration details.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

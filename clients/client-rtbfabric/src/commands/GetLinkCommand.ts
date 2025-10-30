@@ -28,7 +28,7 @@ export interface GetLinkCommandInput extends GetLinkRequest {}
 export interface GetLinkCommandOutput extends GetLinkResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves information about a link between RTB applications.</p> <p>Returns detailed information about the link configuration, status, and associated RTB applications.</p>
+ * <p>Retrieves information about a link between gateways.</p> <p>Returns detailed information about the link configuration, status, and associated gateways.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

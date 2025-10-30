@@ -32,7 +32,7 @@ export interface CreateResponderGatewayCommandInput extends CreateResponderGatew
 export interface CreateResponderGatewayCommandOutput extends CreateResponderGatewayResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a responder gateway.</p>
+ * <p>Creates a responder gateway.</p> <important> <p>A domain name or managed endpoint is required.</p> </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
