@@ -1451,6 +1451,604 @@ export interface UntagResourceRequest {
 export interface UntagResourceResponse {}
 
 /**
+ * <p>Configuration for threshold settings that determine when values near expected values should be ignored during anomaly detection.</p>
+ * @public
+ */
+export type IgnoreNearExpected =
+  | IgnoreNearExpected.AmountMember
+  | IgnoreNearExpected.RatioMember
+  | IgnoreNearExpected.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace IgnoreNearExpected {
+  /**
+   * <p>The absolute amount by which values can differ from expected values before being considered anomalous.</p>
+   * @public
+   */
+  export interface AmountMember {
+    amount: number;
+    ratio?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The ratio by which values can differ from expected values before being considered anomalous.</p>
+   * @public
+   */
+  export interface RatioMember {
+    amount?: never;
+    ratio: number;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    amount?: never;
+    ratio?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    amount: (value: number) => T;
+    ratio: (value: number) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: IgnoreNearExpected, visitor: Visitor<T>): T => {
+    if (value.amount !== undefined) return visitor.amount(value.amount);
+    if (value.ratio !== undefined) return visitor.ratio(value.ratio);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * <p>Configuration for the Random Cut Forest algorithm used for anomaly detection in time-series data.</p>
+ * @public
+ */
+export interface RandomCutForestConfiguration {
+  /**
+   * <p>The Prometheus query used to retrieve the time-series data for anomaly detection.</p> <important> <p>Random Cut Forest queries must be wrapped by a supported PromQL aggregation operator. For more information, see <a href="https://prometheus.io/docs/prometheus/latest/querying/operators/#aggregation-operators">Aggregation operators</a> on the <i>Prometheus docs</i> website.</p> <p> <b>Supported PromQL aggregation operators</b>: <code>avg</code>, <code>count</code>, <code>group</code>, <code>max</code>, <code>min</code>, <code>quantile</code>, <code>stddev</code>, <code>stdvar</code>, and <code>sum</code>.</p> </important>
+   * @public
+   */
+  query: string | undefined;
+
+  /**
+   * <p>The number of consecutive data points used to create a shingle for the Random Cut Forest algorithm. The default number is 8 consecutive data points.</p>
+   * @public
+   */
+  shingleSize?: number | undefined;
+
+  /**
+   * <p>The number of data points sampled from the input stream for the Random Cut Forest algorithm. The default number is 256 consecutive data points.</p>
+   * @public
+   */
+  sampleSize?: number | undefined;
+
+  /**
+   * <p>Configuration for ignoring values that are near expected values from above during anomaly detection.</p>
+   * @public
+   */
+  ignoreNearExpectedFromAbove?: IgnoreNearExpected | undefined;
+
+  /**
+   * <p>Configuration for ignoring values that are near expected values from below during anomaly detection.</p>
+   * @public
+   */
+  ignoreNearExpectedFromBelow?: IgnoreNearExpected | undefined;
+}
+
+/**
+ * <p>The configuration for the anomaly detection algorithm.</p>
+ * @public
+ */
+export type AnomalyDetectorConfiguration =
+  | AnomalyDetectorConfiguration.RandomCutForestMember
+  | AnomalyDetectorConfiguration.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace AnomalyDetectorConfiguration {
+  /**
+   * <p>The Random Cut Forest algorithm configuration for anomaly detection.</p>
+   * @public
+   */
+  export interface RandomCutForestMember {
+    randomCutForest: RandomCutForestConfiguration;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    randomCutForest?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    randomCutForest: (value: RandomCutForestConfiguration) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: AnomalyDetectorConfiguration, visitor: Visitor<T>): T => {
+    if (value.randomCutForest !== undefined) return visitor.randomCutForest(value.randomCutForest);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * <p>Specifies the action to take when data is missing during anomaly detection evaluation.</p>
+ * @public
+ */
+export type AnomalyDetectorMissingDataAction =
+  | AnomalyDetectorMissingDataAction.MarkAsAnomalyMember
+  | AnomalyDetectorMissingDataAction.SkipMember
+  | AnomalyDetectorMissingDataAction.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace AnomalyDetectorMissingDataAction {
+  /**
+   * <p>Marks missing data points as anomalies.</p>
+   * @public
+   */
+  export interface MarkAsAnomalyMember {
+    markAsAnomaly: boolean;
+    skip?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Skips evaluation when data is missing.</p>
+   * @public
+   */
+  export interface SkipMember {
+    markAsAnomaly?: never;
+    skip: boolean;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    markAsAnomaly?: never;
+    skip?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    markAsAnomaly: (value: boolean) => T;
+    skip: (value: boolean) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: AnomalyDetectorMissingDataAction, visitor: Visitor<T>): T => {
+    if (value.markAsAnomaly !== undefined) return visitor.markAsAnomaly(value.markAsAnomaly);
+    if (value.skip !== undefined) return visitor.skip(value.skip);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * @public
+ */
+export interface CreateAnomalyDetectorRequest {
+  /**
+   * <p>The identifier of the workspace where the anomaly detector will be created.</p>
+   * @public
+   */
+  workspaceId: string | undefined;
+
+  /**
+   * <p>A user-friendly name for the anomaly detector.</p>
+   * @public
+   */
+  alias: string | undefined;
+
+  /**
+   * <p>The frequency, in seconds, at which the anomaly detector evaluates metrics. The default value is 60 seconds.</p>
+   * @public
+   */
+  evaluationIntervalInSeconds?: number | undefined;
+
+  /**
+   * <p>Specifies the action to take when data is missing during evaluation.</p>
+   * @public
+   */
+  missingDataAction?: AnomalyDetectorMissingDataAction | undefined;
+
+  /**
+   * <p>The algorithm configuration for the anomaly detector.</p>
+   * @public
+   */
+  configuration: AnomalyDetectorConfiguration | undefined;
+
+  /**
+   * <p>The Amazon Managed Service for Prometheus metric labels to associate with the anomaly detector.</p>
+   * @public
+   */
+  labels?: Record<string, string> | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+
+  /**
+   * <p>The metadata to apply to the anomaly detector to assist with categorization and organization.</p>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const AnomalyDetectorStatusCode = {
+  ACTIVE: "ACTIVE",
+  CREATING: "CREATING",
+  CREATION_FAILED: "CREATION_FAILED",
+  DELETING: "DELETING",
+  DELETION_FAILED: "DELETION_FAILED",
+  UPDATE_FAILED: "UPDATE_FAILED",
+  UPDATING: "UPDATING",
+} as const;
+
+/**
+ * @public
+ */
+export type AnomalyDetectorStatusCode = (typeof AnomalyDetectorStatusCode)[keyof typeof AnomalyDetectorStatusCode];
+
+/**
+ * <p>The status information of an anomaly detector.</p>
+ * @public
+ */
+export interface AnomalyDetectorStatus {
+  /**
+   * <p>The status code of the anomaly detector.</p>
+   * @public
+   */
+  statusCode: AnomalyDetectorStatusCode | undefined;
+
+  /**
+   * <p>A description of the current status of the anomaly detector.</p>
+   * @public
+   */
+  statusReason?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateAnomalyDetectorResponse {
+  /**
+   * <p>The unique identifier of the created anomaly detector.</p>
+   * @public
+   */
+  anomalyDetectorId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the created anomaly detector.</p>
+   * @public
+   */
+  arn: string | undefined;
+
+  /**
+   * <p>The status information of the created anomaly detector.</p>
+   * @public
+   */
+  status: AnomalyDetectorStatus | undefined;
+
+  /**
+   * <p>The tags applied to the created anomaly detector.</p>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteAnomalyDetectorRequest {
+  /**
+   * <p>The identifier of the workspace containing the anomaly detector to delete.</p>
+   * @public
+   */
+  workspaceId: string | undefined;
+
+  /**
+   * <p>The identifier of the anomaly detector to delete.</p>
+   * @public
+   */
+  anomalyDetectorId: string | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeAnomalyDetectorRequest {
+  /**
+   * <p>The identifier of the workspace containing the anomaly detector.</p>
+   * @public
+   */
+  workspaceId: string | undefined;
+
+  /**
+   * <p>The identifier of the anomaly detector to describe.</p>
+   * @public
+   */
+  anomalyDetectorId: string | undefined;
+}
+
+/**
+ * <p>Detailed information about an anomaly detector.</p>
+ * @public
+ */
+export interface AnomalyDetectorDescription {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the anomaly detector.</p>
+   * @public
+   */
+  arn: string | undefined;
+
+  /**
+   * <p>The unique identifier of the anomaly detector.</p>
+   * @public
+   */
+  anomalyDetectorId: string | undefined;
+
+  /**
+   * <p>The user-friendly name of the anomaly detector.</p>
+   * @public
+   */
+  alias: string | undefined;
+
+  /**
+   * <p>The frequency, in seconds, at which the anomaly detector evaluates metrics.</p>
+   * @public
+   */
+  evaluationIntervalInSeconds?: number | undefined;
+
+  /**
+   * <p>The action taken when data is missing during evaluation.</p>
+   * @public
+   */
+  missingDataAction?: AnomalyDetectorMissingDataAction | undefined;
+
+  /**
+   * <p>The algorithm configuration of the anomaly detector.</p>
+   * @public
+   */
+  configuration?: AnomalyDetectorConfiguration | undefined;
+
+  /**
+   * <p>The Amazon Managed Service for Prometheus metric labels associated with the anomaly detector.</p>
+   * @public
+   */
+  labels?: Record<string, string> | undefined;
+
+  /**
+   * <p>The current status of the anomaly detector.</p>
+   * @public
+   */
+  status: AnomalyDetectorStatus | undefined;
+
+  /**
+   * <p>The timestamp when the anomaly detector was created.</p>
+   * @public
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p>The timestamp when the anomaly detector was last modified.</p>
+   * @public
+   */
+  modifiedAt: Date | undefined;
+
+  /**
+   * <p>The tags applied to the anomaly detector.</p>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeAnomalyDetectorResponse {
+  /**
+   * <p>The detailed information about the anomaly detector.</p>
+   * @public
+   */
+  anomalyDetector: AnomalyDetectorDescription | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListAnomalyDetectorsRequest {
+  /**
+   * <p>The identifier of the workspace containing the anomaly detectors to list.</p>
+   * @public
+   */
+  workspaceId: string | undefined;
+
+  /**
+   * <p>Filters the results to anomaly detectors with the specified alias.</p>
+   * @public
+   */
+  alias?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return in a single call. Valid range is 1 to 1000.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>The pagination token to continue retrieving results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * <p>Summary information about an anomaly detector for list operations.</p>
+ * @public
+ */
+export interface AnomalyDetectorSummary {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the anomaly detector.</p>
+   * @public
+   */
+  arn: string | undefined;
+
+  /**
+   * <p>The unique identifier of the anomaly detector.</p>
+   * @public
+   */
+  anomalyDetectorId: string | undefined;
+
+  /**
+   * <p>The user-friendly name of the anomaly detector.</p>
+   * @public
+   */
+  alias: string | undefined;
+
+  /**
+   * <p>The current status of the anomaly detector.</p>
+   * @public
+   */
+  status: AnomalyDetectorStatus | undefined;
+
+  /**
+   * <p>The timestamp when the anomaly detector was created.</p>
+   * @public
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p>The timestamp when the anomaly detector was last modified.</p>
+   * @public
+   */
+  modifiedAt: Date | undefined;
+
+  /**
+   * <p>The tags applied to the anomaly detector.</p>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListAnomalyDetectorsResponse {
+  /**
+   * <p>The list of anomaly detectors in the workspace.</p>
+   * @public
+   */
+  anomalyDetectors: AnomalyDetectorSummary[] | undefined;
+
+  /**
+   * <p>The pagination token to retrieve the next set of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PutAnomalyDetectorRequest {
+  /**
+   * <p>The identifier of the workspace containing the anomaly detector to update.</p>
+   * @public
+   */
+  workspaceId: string | undefined;
+
+  /**
+   * <p>The identifier of the anomaly detector to update.</p>
+   * @public
+   */
+  anomalyDetectorId: string | undefined;
+
+  /**
+   * <p>The frequency, in seconds, at which the anomaly detector evaluates metrics.</p>
+   * @public
+   */
+  evaluationIntervalInSeconds?: number | undefined;
+
+  /**
+   * <p>Specifies the action to take when data is missing during evaluation.</p>
+   * @public
+   */
+  missingDataAction?: AnomalyDetectorMissingDataAction | undefined;
+
+  /**
+   * <p>The algorithm configuration for the anomaly detector.</p>
+   * @public
+   */
+  configuration: AnomalyDetectorConfiguration | undefined;
+
+  /**
+   * <p>The Amazon Managed Service for Prometheus metric labels to associate with the anomaly detector.</p>
+   * @public
+   */
+  labels?: Record<string, string> | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PutAnomalyDetectorResponse {
+  /**
+   * <p>The unique identifier of the updated anomaly detector.</p>
+   * @public
+   */
+  anomalyDetectorId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the updated anomaly detector.</p>
+   * @public
+   */
+  arn: string | undefined;
+
+  /**
+   * <p>The status information of the updated anomaly detector.</p>
+   * @public
+   */
+  status: AnomalyDetectorStatus | undefined;
+
+  /**
+   * <p>The tags applied to the updated anomaly detector.</p>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
+}
+
+/**
  * <p>Represents the input of a <code>CreateWorkspace</code> operation.</p>
  * @public
  */

@@ -9,6 +9,11 @@ import {
   CreateAlertManagerDefinitionCommandOutput,
 } from "./commands/CreateAlertManagerDefinitionCommand";
 import {
+  CreateAnomalyDetectorCommand,
+  CreateAnomalyDetectorCommandInput,
+  CreateAnomalyDetectorCommandOutput,
+} from "./commands/CreateAnomalyDetectorCommand";
+import {
   CreateLoggingConfigurationCommand,
   CreateLoggingConfigurationCommandInput,
   CreateLoggingConfigurationCommandOutput,
@@ -38,6 +43,11 @@ import {
   DeleteAlertManagerDefinitionCommandInput,
   DeleteAlertManagerDefinitionCommandOutput,
 } from "./commands/DeleteAlertManagerDefinitionCommand";
+import {
+  DeleteAnomalyDetectorCommand,
+  DeleteAnomalyDetectorCommandInput,
+  DeleteAnomalyDetectorCommandOutput,
+} from "./commands/DeleteAnomalyDetectorCommand";
 import {
   DeleteLoggingConfigurationCommand,
   DeleteLoggingConfigurationCommandInput,
@@ -78,6 +88,11 @@ import {
   DescribeAlertManagerDefinitionCommandInput,
   DescribeAlertManagerDefinitionCommandOutput,
 } from "./commands/DescribeAlertManagerDefinitionCommand";
+import {
+  DescribeAnomalyDetectorCommand,
+  DescribeAnomalyDetectorCommandInput,
+  DescribeAnomalyDetectorCommandOutput,
+} from "./commands/DescribeAnomalyDetectorCommand";
 import {
   DescribeLoggingConfigurationCommand,
   DescribeLoggingConfigurationCommandInput,
@@ -124,6 +139,11 @@ import {
   GetDefaultScraperConfigurationCommandOutput,
 } from "./commands/GetDefaultScraperConfigurationCommand";
 import {
+  ListAnomalyDetectorsCommand,
+  ListAnomalyDetectorsCommandInput,
+  ListAnomalyDetectorsCommandOutput,
+} from "./commands/ListAnomalyDetectorsCommand";
+import {
   ListRuleGroupsNamespacesCommand,
   ListRuleGroupsNamespacesCommandInput,
   ListRuleGroupsNamespacesCommandOutput,
@@ -148,6 +168,11 @@ import {
   PutAlertManagerDefinitionCommandInput,
   PutAlertManagerDefinitionCommandOutput,
 } from "./commands/PutAlertManagerDefinitionCommand";
+import {
+  PutAnomalyDetectorCommand,
+  PutAnomalyDetectorCommandInput,
+  PutAnomalyDetectorCommandOutput,
+} from "./commands/PutAnomalyDetectorCommand";
 import {
   PutResourcePolicyCommand,
   PutResourcePolicyCommandInput,
@@ -197,12 +222,14 @@ import {
 
 const commands = {
   CreateAlertManagerDefinitionCommand,
+  CreateAnomalyDetectorCommand,
   CreateLoggingConfigurationCommand,
   CreateQueryLoggingConfigurationCommand,
   CreateRuleGroupsNamespaceCommand,
   CreateScraperCommand,
   CreateWorkspaceCommand,
   DeleteAlertManagerDefinitionCommand,
+  DeleteAnomalyDetectorCommand,
   DeleteLoggingConfigurationCommand,
   DeleteQueryLoggingConfigurationCommand,
   DeleteResourcePolicyCommand,
@@ -211,6 +238,7 @@ const commands = {
   DeleteScraperLoggingConfigurationCommand,
   DeleteWorkspaceCommand,
   DescribeAlertManagerDefinitionCommand,
+  DescribeAnomalyDetectorCommand,
   DescribeLoggingConfigurationCommand,
   DescribeQueryLoggingConfigurationCommand,
   DescribeResourcePolicyCommand,
@@ -220,11 +248,13 @@ const commands = {
   DescribeWorkspaceCommand,
   DescribeWorkspaceConfigurationCommand,
   GetDefaultScraperConfigurationCommand,
+  ListAnomalyDetectorsCommand,
   ListRuleGroupsNamespacesCommand,
   ListScrapersCommand,
   ListTagsForResourceCommand,
   ListWorkspacesCommand,
   PutAlertManagerDefinitionCommand,
+  PutAnomalyDetectorCommand,
   PutResourcePolicyCommand,
   PutRuleGroupsNamespaceCommand,
   TagResourceCommand,
@@ -253,6 +283,23 @@ export interface Amp {
     args: CreateAlertManagerDefinitionCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateAlertManagerDefinitionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateAnomalyDetectorCommand}
+   */
+  createAnomalyDetector(
+    args: CreateAnomalyDetectorCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateAnomalyDetectorCommandOutput>;
+  createAnomalyDetector(
+    args: CreateAnomalyDetectorCommandInput,
+    cb: (err: any, data?: CreateAnomalyDetectorCommandOutput) => void
+  ): void;
+  createAnomalyDetector(
+    args: CreateAnomalyDetectorCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateAnomalyDetectorCommandOutput) => void
   ): void;
 
   /**
@@ -347,6 +394,23 @@ export interface Amp {
     args: DeleteAlertManagerDefinitionCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteAlertManagerDefinitionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteAnomalyDetectorCommand}
+   */
+  deleteAnomalyDetector(
+    args: DeleteAnomalyDetectorCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteAnomalyDetectorCommandOutput>;
+  deleteAnomalyDetector(
+    args: DeleteAnomalyDetectorCommandInput,
+    cb: (err: any, data?: DeleteAnomalyDetectorCommandOutput) => void
+  ): void;
+  deleteAnomalyDetector(
+    args: DeleteAnomalyDetectorCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteAnomalyDetectorCommandOutput) => void
   ): void;
 
   /**
@@ -474,6 +538,23 @@ export interface Amp {
     args: DescribeAlertManagerDefinitionCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeAlertManagerDefinitionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeAnomalyDetectorCommand}
+   */
+  describeAnomalyDetector(
+    args: DescribeAnomalyDetectorCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeAnomalyDetectorCommandOutput>;
+  describeAnomalyDetector(
+    args: DescribeAnomalyDetectorCommandInput,
+    cb: (err: any, data?: DescribeAnomalyDetectorCommandOutput) => void
+  ): void;
+  describeAnomalyDetector(
+    args: DescribeAnomalyDetectorCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeAnomalyDetectorCommandOutput) => void
   ): void;
 
   /**
@@ -628,6 +709,23 @@ export interface Amp {
   ): void;
 
   /**
+   * @see {@link ListAnomalyDetectorsCommand}
+   */
+  listAnomalyDetectors(
+    args: ListAnomalyDetectorsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListAnomalyDetectorsCommandOutput>;
+  listAnomalyDetectors(
+    args: ListAnomalyDetectorsCommandInput,
+    cb: (err: any, data?: ListAnomalyDetectorsCommandOutput) => void
+  ): void;
+  listAnomalyDetectors(
+    args: ListAnomalyDetectorsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListAnomalyDetectorsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListRuleGroupsNamespacesCommand}
    */
   listRuleGroupsNamespaces(
@@ -703,6 +801,23 @@ export interface Amp {
     args: PutAlertManagerDefinitionCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: PutAlertManagerDefinitionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link PutAnomalyDetectorCommand}
+   */
+  putAnomalyDetector(
+    args: PutAnomalyDetectorCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutAnomalyDetectorCommandOutput>;
+  putAnomalyDetector(
+    args: PutAnomalyDetectorCommandInput,
+    cb: (err: any, data?: PutAnomalyDetectorCommandOutput) => void
+  ): void;
+  putAnomalyDetector(
+    args: PutAnomalyDetectorCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutAnomalyDetectorCommandOutput) => void
   ): void;
 
   /**

@@ -58,6 +58,10 @@ import {
   CreateAlertManagerDefinitionCommandOutput,
 } from "./commands/CreateAlertManagerDefinitionCommand";
 import {
+  CreateAnomalyDetectorCommandInput,
+  CreateAnomalyDetectorCommandOutput,
+} from "./commands/CreateAnomalyDetectorCommand";
+import {
   CreateLoggingConfigurationCommandInput,
   CreateLoggingConfigurationCommandOutput,
 } from "./commands/CreateLoggingConfigurationCommand";
@@ -75,6 +79,10 @@ import {
   DeleteAlertManagerDefinitionCommandInput,
   DeleteAlertManagerDefinitionCommandOutput,
 } from "./commands/DeleteAlertManagerDefinitionCommand";
+import {
+  DeleteAnomalyDetectorCommandInput,
+  DeleteAnomalyDetectorCommandOutput,
+} from "./commands/DeleteAnomalyDetectorCommand";
 import {
   DeleteLoggingConfigurationCommandInput,
   DeleteLoggingConfigurationCommandOutput,
@@ -101,6 +109,10 @@ import {
   DescribeAlertManagerDefinitionCommandInput,
   DescribeAlertManagerDefinitionCommandOutput,
 } from "./commands/DescribeAlertManagerDefinitionCommand";
+import {
+  DescribeAnomalyDetectorCommandInput,
+  DescribeAnomalyDetectorCommandOutput,
+} from "./commands/DescribeAnomalyDetectorCommand";
 import {
   DescribeLoggingConfigurationCommandInput,
   DescribeLoggingConfigurationCommandOutput,
@@ -132,6 +144,10 @@ import {
   GetDefaultScraperConfigurationCommandOutput,
 } from "./commands/GetDefaultScraperConfigurationCommand";
 import {
+  ListAnomalyDetectorsCommandInput,
+  ListAnomalyDetectorsCommandOutput,
+} from "./commands/ListAnomalyDetectorsCommand";
+import {
   ListRuleGroupsNamespacesCommandInput,
   ListRuleGroupsNamespacesCommandOutput,
 } from "./commands/ListRuleGroupsNamespacesCommand";
@@ -145,6 +161,7 @@ import {
   PutAlertManagerDefinitionCommandInput,
   PutAlertManagerDefinitionCommandOutput,
 } from "./commands/PutAlertManagerDefinitionCommand";
+import { PutAnomalyDetectorCommandInput, PutAnomalyDetectorCommandOutput } from "./commands/PutAnomalyDetectorCommand";
 import { PutResourcePolicyCommandInput, PutResourcePolicyCommandOutput } from "./commands/PutResourcePolicyCommand";
 import {
   PutRuleGroupsNamespaceCommandInput,
@@ -189,12 +206,14 @@ export { __Client };
  */
 export type ServiceInputTypes =
   | CreateAlertManagerDefinitionCommandInput
+  | CreateAnomalyDetectorCommandInput
   | CreateLoggingConfigurationCommandInput
   | CreateQueryLoggingConfigurationCommandInput
   | CreateRuleGroupsNamespaceCommandInput
   | CreateScraperCommandInput
   | CreateWorkspaceCommandInput
   | DeleteAlertManagerDefinitionCommandInput
+  | DeleteAnomalyDetectorCommandInput
   | DeleteLoggingConfigurationCommandInput
   | DeleteQueryLoggingConfigurationCommandInput
   | DeleteResourcePolicyCommandInput
@@ -203,6 +222,7 @@ export type ServiceInputTypes =
   | DeleteScraperLoggingConfigurationCommandInput
   | DeleteWorkspaceCommandInput
   | DescribeAlertManagerDefinitionCommandInput
+  | DescribeAnomalyDetectorCommandInput
   | DescribeLoggingConfigurationCommandInput
   | DescribeQueryLoggingConfigurationCommandInput
   | DescribeResourcePolicyCommandInput
@@ -212,11 +232,13 @@ export type ServiceInputTypes =
   | DescribeWorkspaceCommandInput
   | DescribeWorkspaceConfigurationCommandInput
   | GetDefaultScraperConfigurationCommandInput
+  | ListAnomalyDetectorsCommandInput
   | ListRuleGroupsNamespacesCommandInput
   | ListScrapersCommandInput
   | ListTagsForResourceCommandInput
   | ListWorkspacesCommandInput
   | PutAlertManagerDefinitionCommandInput
+  | PutAnomalyDetectorCommandInput
   | PutResourcePolicyCommandInput
   | PutRuleGroupsNamespaceCommandInput
   | TagResourceCommandInput
@@ -233,12 +255,14 @@ export type ServiceInputTypes =
  */
 export type ServiceOutputTypes =
   | CreateAlertManagerDefinitionCommandOutput
+  | CreateAnomalyDetectorCommandOutput
   | CreateLoggingConfigurationCommandOutput
   | CreateQueryLoggingConfigurationCommandOutput
   | CreateRuleGroupsNamespaceCommandOutput
   | CreateScraperCommandOutput
   | CreateWorkspaceCommandOutput
   | DeleteAlertManagerDefinitionCommandOutput
+  | DeleteAnomalyDetectorCommandOutput
   | DeleteLoggingConfigurationCommandOutput
   | DeleteQueryLoggingConfigurationCommandOutput
   | DeleteResourcePolicyCommandOutput
@@ -247,6 +271,7 @@ export type ServiceOutputTypes =
   | DeleteScraperLoggingConfigurationCommandOutput
   | DeleteWorkspaceCommandOutput
   | DescribeAlertManagerDefinitionCommandOutput
+  | DescribeAnomalyDetectorCommandOutput
   | DescribeLoggingConfigurationCommandOutput
   | DescribeQueryLoggingConfigurationCommandOutput
   | DescribeResourcePolicyCommandOutput
@@ -256,11 +281,13 @@ export type ServiceOutputTypes =
   | DescribeWorkspaceCommandOutput
   | DescribeWorkspaceConfigurationCommandOutput
   | GetDefaultScraperConfigurationCommandOutput
+  | ListAnomalyDetectorsCommandOutput
   | ListRuleGroupsNamespacesCommandOutput
   | ListScrapersCommandOutput
   | ListTagsForResourceCommandOutput
   | ListWorkspacesCommandOutput
   | PutAlertManagerDefinitionCommandOutput
+  | PutAnomalyDetectorCommandOutput
   | PutResourcePolicyCommandOutput
   | PutRuleGroupsNamespaceCommandOutput
   | TagResourceCommandOutput

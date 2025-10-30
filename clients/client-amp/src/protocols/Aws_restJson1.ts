@@ -12,14 +12,17 @@ import {
   collectBody,
   convertMap,
   decorateServiceException as __decorateServiceException,
+  expectInt32 as __expectInt32,
   expectNonNull as __expectNonNull,
   expectNumber as __expectNumber,
   expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
+  limitedParseDouble as __limitedParseDouble,
   map,
   parseEpochTimestamp as __parseEpochTimestamp,
   resolvedPath as __resolvedPath,
+  serializeFloat as __serializeFloat,
   strictParseInt32 as __strictParseInt32,
   take,
   withBaseException,
@@ -35,6 +38,10 @@ import {
   CreateAlertManagerDefinitionCommandInput,
   CreateAlertManagerDefinitionCommandOutput,
 } from "../commands/CreateAlertManagerDefinitionCommand";
+import {
+  CreateAnomalyDetectorCommandInput,
+  CreateAnomalyDetectorCommandOutput,
+} from "../commands/CreateAnomalyDetectorCommand";
 import {
   CreateLoggingConfigurationCommandInput,
   CreateLoggingConfigurationCommandOutput,
@@ -53,6 +60,10 @@ import {
   DeleteAlertManagerDefinitionCommandInput,
   DeleteAlertManagerDefinitionCommandOutput,
 } from "../commands/DeleteAlertManagerDefinitionCommand";
+import {
+  DeleteAnomalyDetectorCommandInput,
+  DeleteAnomalyDetectorCommandOutput,
+} from "../commands/DeleteAnomalyDetectorCommand";
 import {
   DeleteLoggingConfigurationCommandInput,
   DeleteLoggingConfigurationCommandOutput,
@@ -79,6 +90,10 @@ import {
   DescribeAlertManagerDefinitionCommandInput,
   DescribeAlertManagerDefinitionCommandOutput,
 } from "../commands/DescribeAlertManagerDefinitionCommand";
+import {
+  DescribeAnomalyDetectorCommandInput,
+  DescribeAnomalyDetectorCommandOutput,
+} from "../commands/DescribeAnomalyDetectorCommand";
 import {
   DescribeLoggingConfigurationCommandInput,
   DescribeLoggingConfigurationCommandOutput,
@@ -110,6 +125,10 @@ import {
   GetDefaultScraperConfigurationCommandOutput,
 } from "../commands/GetDefaultScraperConfigurationCommand";
 import {
+  ListAnomalyDetectorsCommandInput,
+  ListAnomalyDetectorsCommandOutput,
+} from "../commands/ListAnomalyDetectorsCommand";
+import {
   ListRuleGroupsNamespacesCommandInput,
   ListRuleGroupsNamespacesCommandOutput,
 } from "../commands/ListRuleGroupsNamespacesCommand";
@@ -123,6 +142,7 @@ import {
   PutAlertManagerDefinitionCommandInput,
   PutAlertManagerDefinitionCommandOutput,
 } from "../commands/PutAlertManagerDefinitionCommand";
+import { PutAnomalyDetectorCommandInput, PutAnomalyDetectorCommandOutput } from "../commands/PutAnomalyDetectorCommand";
 import { PutResourcePolicyCommandInput, PutResourcePolicyCommandOutput } from "../commands/PutResourcePolicyCommand";
 import {
   PutRuleGroupsNamespaceCommandInput,
@@ -156,11 +176,16 @@ import {
   AccessDeniedException,
   AlertManagerDefinitionDescription,
   AmpConfiguration,
+  AnomalyDetectorConfiguration,
+  AnomalyDetectorDescription,
+  AnomalyDetectorMissingDataAction,
+  AnomalyDetectorSummary,
   CloudWatchLogDestination,
   ComponentConfig,
   ConflictException,
   Destination,
   EksConfiguration,
+  IgnoreNearExpected,
   InternalServerException,
   LimitsPerLabelSet,
   LimitsPerLabelSetEntry,
@@ -168,6 +193,7 @@ import {
   LoggingDestination,
   LoggingFilter,
   QueryLoggingConfigurationMetadata,
+  RandomCutForestConfiguration,
   ResourceNotFoundException,
   RoleConfiguration,
   RuleGroupsNamespaceDescription,
@@ -203,6 +229,35 @@ export const se_CreateAlertManagerDefinitionCommand = async (
     take(input, {
       clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       data: (_) => context.base64Encoder(_),
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1CreateAnomalyDetectorCommand
+ */
+export const se_CreateAnomalyDetectorCommand = async (
+  input: CreateAnomalyDetectorCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/workspaces/{workspaceId}/anomalydetectors");
+  b.p("workspaceId", () => input.workspaceId!, "{workspaceId}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      alias: [],
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
+      configuration: (_) => se_AnomalyDetectorConfiguration(_, context),
+      evaluationIntervalInSeconds: [],
+      labels: (_) => _json(_),
+      missingDataAction: (_) => _json(_),
+      tags: (_) => _json(_),
     })
   );
   b.m("POST").h(headers).b(body);
@@ -347,6 +402,26 @@ export const se_DeleteAlertManagerDefinitionCommand = async (
   const headers: any = {};
   b.bp("/workspaces/{workspaceId}/alertmanager/definition");
   b.p("workspaceId", () => input.workspaceId!, "{workspaceId}", false);
+  const query: any = map({
+    [_cT]: [, input[_cT] ?? generateIdempotencyToken()],
+  });
+  let body: any;
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1DeleteAnomalyDetectorCommand
+ */
+export const se_DeleteAnomalyDetectorCommand = async (
+  input: DeleteAnomalyDetectorCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/workspaces/{workspaceId}/anomalydetectors/{anomalyDetectorId}");
+  b.p("workspaceId", () => input.workspaceId!, "{workspaceId}", false);
+  b.p("anomalyDetectorId", () => input.anomalyDetectorId!, "{anomalyDetectorId}", false);
   const query: any = map({
     [_cT]: [, input[_cT] ?? generateIdempotencyToken()],
   });
@@ -507,6 +582,23 @@ export const se_DescribeAlertManagerDefinitionCommand = async (
 };
 
 /**
+ * serializeAws_restJson1DescribeAnomalyDetectorCommand
+ */
+export const se_DescribeAnomalyDetectorCommand = async (
+  input: DescribeAnomalyDetectorCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/workspaces/{workspaceId}/anomalydetectors/{anomalyDetectorId}");
+  b.p("workspaceId", () => input.workspaceId!, "{workspaceId}", false);
+  b.p("anomalyDetectorId", () => input.anomalyDetectorId!, "{anomalyDetectorId}", false);
+  let body: any;
+  b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1DescribeLoggingConfigurationCommand
  */
 export const se_DescribeLoggingConfigurationCommand = async (
@@ -651,6 +743,27 @@ export const se_GetDefaultScraperConfigurationCommand = async (
 };
 
 /**
+ * serializeAws_restJson1ListAnomalyDetectorsCommand
+ */
+export const se_ListAnomalyDetectorsCommand = async (
+  input: ListAnomalyDetectorsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/workspaces/{workspaceId}/anomalydetectors");
+  b.p("workspaceId", () => input.workspaceId!, "{workspaceId}", false);
+  const query: any = map({
+    [_a]: [, input[_a]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+    [_nT]: [, input[_nT]!],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1ListRuleGroupsNamespacesCommand
  */
 export const se_ListRuleGroupsNamespacesCommand = async (
@@ -745,6 +858,34 @@ export const se_PutAlertManagerDefinitionCommand = async (
     take(input, {
       clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       data: (_) => context.base64Encoder(_),
+    })
+  );
+  b.m("PUT").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1PutAnomalyDetectorCommand
+ */
+export const se_PutAnomalyDetectorCommand = async (
+  input: PutAnomalyDetectorCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/workspaces/{workspaceId}/anomalydetectors/{anomalyDetectorId}");
+  b.p("workspaceId", () => input.workspaceId!, "{workspaceId}", false);
+  b.p("anomalyDetectorId", () => input.anomalyDetectorId!, "{anomalyDetectorId}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
+      configuration: (_) => se_AnomalyDetectorConfiguration(_, context),
+      evaluationIntervalInSeconds: [],
+      labels: (_) => _json(_),
+      missingDataAction: (_) => _json(_),
     })
   );
   b.m("PUT").h(headers).b(body);
@@ -1013,6 +1154,30 @@ export const de_CreateAlertManagerDefinitionCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1CreateAnomalyDetectorCommand
+ */
+export const de_CreateAnomalyDetectorCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateAnomalyDetectorCommandOutput> => {
+  if (output.statusCode !== 202 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    anomalyDetectorId: __expectString,
+    arn: __expectString,
+    status: _json,
+    tags: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1CreateLoggingConfigurationCommand
  */
 export const de_CreateLoggingConfigurationCommand = async (
@@ -1134,6 +1299,23 @@ export const de_DeleteAlertManagerDefinitionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteAlertManagerDefinitionCommandOutput> => {
+  if (output.statusCode !== 202 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DeleteAnomalyDetectorCommand
+ */
+export const de_DeleteAnomalyDetectorCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteAnomalyDetectorCommandOutput> => {
   if (output.statusCode !== 202 && output.statusCode >= 300) {
     return de_CommandError(output, context);
   }
@@ -1284,6 +1466,27 @@ export const de_DescribeAlertManagerDefinitionCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     alertManagerDefinition: (_) => de_AlertManagerDefinitionDescription(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DescribeAnomalyDetectorCommand
+ */
+export const de_DescribeAnomalyDetectorCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeAnomalyDetectorCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    anomalyDetector: (_) => de_AnomalyDetectorDescription(_, context),
   });
   Object.assign(contents, doc);
   return contents;
@@ -1485,6 +1688,28 @@ export const de_GetDefaultScraperConfigurationCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1ListAnomalyDetectorsCommand
+ */
+export const de_ListAnomalyDetectorsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListAnomalyDetectorsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    anomalyDetectors: (_) => de_AnomalyDetectorSummaryList(_, context),
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1ListRuleGroupsNamespacesCommand
  */
 export const de_ListRuleGroupsNamespacesCommand = async (
@@ -1587,6 +1812,30 @@ export const de_PutAlertManagerDefinitionCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     status: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1PutAnomalyDetectorCommand
+ */
+export const de_PutAnomalyDetectorCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutAnomalyDetectorCommandOutput> => {
+  if (output.statusCode !== 202 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    anomalyDetectorId: __expectString,
+    arn: __expectString,
+    status: _json,
+    tags: _json,
   });
   Object.assign(contents, doc);
   return contents;
@@ -1988,6 +2237,18 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_AmpConfiguration omitted.
 
+/**
+ * serializeAws_restJson1AnomalyDetectorConfiguration
+ */
+const se_AnomalyDetectorConfiguration = (input: AnomalyDetectorConfiguration, context: __SerdeContext): any => {
+  return AnomalyDetectorConfiguration.visit(input, {
+    randomCutForest: (value) => ({ randomCutForest: se_RandomCutForestConfiguration(value, context) }),
+    _: (name, value) => ({ [name]: value } as any),
+  });
+};
+
+// se_AnomalyDetectorMissingDataAction omitted.
+
 // se_CloudWatchLogDestination omitted.
 
 // se_ComponentConfig omitted.
@@ -1995,6 +2256,17 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 // se_Destination omitted.
 
 // se_EksConfiguration omitted.
+
+/**
+ * serializeAws_restJson1IgnoreNearExpected
+ */
+const se_IgnoreNearExpected = (input: IgnoreNearExpected, context: __SerdeContext): any => {
+  return IgnoreNearExpected.visit(input, {
+    amount: (value) => ({ amount: __serializeFloat(value) }),
+    ratio: (value) => ({ ratio: __serializeFloat(value) }),
+    _: (name, value) => ({ [name]: value } as any),
+  });
+};
 
 // se_LabelSet omitted.
 
@@ -2009,6 +2281,21 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 // se_LoggingDestinations omitted.
 
 // se_LoggingFilter omitted.
+
+// se_PrometheusMetricLabelMap omitted.
+
+/**
+ * serializeAws_restJson1RandomCutForestConfiguration
+ */
+const se_RandomCutForestConfiguration = (input: RandomCutForestConfiguration, context: __SerdeContext): any => {
+  return take(input, {
+    ignoreNearExpectedFromAbove: (_) => se_IgnoreNearExpected(_, context),
+    ignoreNearExpectedFromBelow: (_) => se_IgnoreNearExpected(_, context),
+    query: [],
+    sampleSize: [],
+    shingleSize: [],
+  });
+};
 
 // se_RoleConfiguration omitted.
 
@@ -2057,6 +2344,68 @@ const de_AlertManagerDefinitionDescription = (
 
 // de_AmpConfiguration omitted.
 
+/**
+ * deserializeAws_restJson1AnomalyDetectorConfiguration
+ */
+const de_AnomalyDetectorConfiguration = (output: any, context: __SerdeContext): AnomalyDetectorConfiguration => {
+  if (output.randomCutForest != null) {
+    return {
+      randomCutForest: de_RandomCutForestConfiguration(output.randomCutForest, context),
+    };
+  }
+  return { $unknown: Object.entries(output)[0] };
+};
+
+/**
+ * deserializeAws_restJson1AnomalyDetectorDescription
+ */
+const de_AnomalyDetectorDescription = (output: any, context: __SerdeContext): AnomalyDetectorDescription => {
+  return take(output, {
+    alias: __expectString,
+    anomalyDetectorId: __expectString,
+    arn: __expectString,
+    configuration: (_: any) => de_AnomalyDetectorConfiguration(__expectUnion(_), context),
+    createdAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    evaluationIntervalInSeconds: __expectInt32,
+    labels: _json,
+    missingDataAction: (_: any) => _json(__expectUnion(_)),
+    modifiedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    status: _json,
+    tags: _json,
+  }) as any;
+};
+
+// de_AnomalyDetectorMissingDataAction omitted.
+
+// de_AnomalyDetectorStatus omitted.
+
+/**
+ * deserializeAws_restJson1AnomalyDetectorSummary
+ */
+const de_AnomalyDetectorSummary = (output: any, context: __SerdeContext): AnomalyDetectorSummary => {
+  return take(output, {
+    alias: __expectString,
+    anomalyDetectorId: __expectString,
+    arn: __expectString,
+    createdAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    modifiedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    status: _json,
+    tags: _json,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1AnomalyDetectorSummaryList
+ */
+const de_AnomalyDetectorSummaryList = (output: any, context: __SerdeContext): AnomalyDetectorSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_AnomalyDetectorSummary(entry, context);
+    });
+  return retVal;
+};
+
 // de_CloudWatchLogDestination omitted.
 
 // de_ComponentConfig omitted.
@@ -2064,6 +2413,19 @@ const de_AlertManagerDefinitionDescription = (
 // de_Destination omitted.
 
 // de_EksConfiguration omitted.
+
+/**
+ * deserializeAws_restJson1IgnoreNearExpected
+ */
+const de_IgnoreNearExpected = (output: any, context: __SerdeContext): IgnoreNearExpected => {
+  if (__limitedParseDouble(output.amount) !== undefined) {
+    return { amount: __limitedParseDouble(output.amount) as any };
+  }
+  if (__limitedParseDouble(output.ratio) !== undefined) {
+    return { ratio: __limitedParseDouble(output.ratio) as any };
+  }
+  return { $unknown: Object.entries(output)[0] };
+};
 
 // de_LabelSet omitted.
 
@@ -2094,6 +2456,8 @@ const de_LoggingConfigurationMetadata = (output: any, context: __SerdeContext): 
 
 // de_LoggingFilter omitted.
 
+// de_PrometheusMetricLabelMap omitted.
+
 /**
  * deserializeAws_restJson1QueryLoggingConfigurationMetadata
  */
@@ -2111,6 +2475,19 @@ const de_QueryLoggingConfigurationMetadata = (
 };
 
 // de_QueryLoggingConfigurationStatus omitted.
+
+/**
+ * deserializeAws_restJson1RandomCutForestConfiguration
+ */
+const de_RandomCutForestConfiguration = (output: any, context: __SerdeContext): RandomCutForestConfiguration => {
+  return take(output, {
+    ignoreNearExpectedFromAbove: (_: any) => de_IgnoreNearExpected(__expectUnion(_), context),
+    ignoreNearExpectedFromBelow: (_: any) => de_IgnoreNearExpected(__expectUnion(_), context),
+    query: __expectString,
+    sampleSize: __expectInt32,
+    shingleSize: __expectInt32,
+  }) as any;
+};
 
 // de_RoleConfiguration omitted.
 
