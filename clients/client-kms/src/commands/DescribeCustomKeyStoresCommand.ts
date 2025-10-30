@@ -127,6 +127,7 @@ export interface DescribeCustomKeyStoresCommandOutput extends DescribeCustomKeyS
  * //         UriEndpoint: "STRING_VALUE",
  * //         UriPath: "STRING_VALUE",
  * //         VpcEndpointServiceName: "STRING_VALUE",
+ * //         VpcEndpointServiceOwner: "STRING_VALUE",
  * //       },
  * //     },
  * //   ],

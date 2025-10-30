@@ -824,6 +824,14 @@ export interface CreateCustomKeyStoreRequest {
   XksProxyVpcEndpointServiceName?: string | undefined;
 
   /**
+   * <p>Specifies the Amazon Web Services account ID that owns the Amazon VPC service endpoint for the interface that
+   *       is used to communicate with your external key store proxy (XKS proxy). This parameter is
+   *       optional. If not provided, the Amazon Web Services account ID calling the action will be used.</p>
+   * @public
+   */
+  XksProxyVpcEndpointServiceOwner?: string | undefined;
+
+  /**
    * <p>Specifies an authentication credential for the external key store proxy (XKS proxy). This
    *       parameter is required for all custom key stores with a <code>CustomKeyStoreType</code> of
    *         <code>EXTERNAL_KEY_STORE</code>.</p>
@@ -2539,6 +2547,14 @@ export interface XksProxyConfigurationType {
    * @public
    */
   VpcEndpointServiceName?: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services account ID that owns the Amazon VPC endpoint service used to communicate with the
+   *       external key store proxy (XKS). This field appears only when the XKS uses an VPC endpoint
+   *       service to communicate with KMS.</p>
+   * @public
+   */
+  VpcEndpointServiceOwner?: string | undefined;
 }
 
 /**
@@ -6719,6 +6735,15 @@ export interface UpdateCustomKeyStoreRequest {
    * @public
    */
   XksProxyVpcEndpointServiceName?: string | undefined;
+
+  /**
+   * <p>Changes the Amazon Web Services account ID that KMS uses to identify the Amazon VPC endpoint service for
+   *       your external key store proxy (XKS proxy). This parameter is optional. If not specified, the current
+   *       Amazon Web Services account ID for the VPC endpoint service will not be updated.</p>
+   *          <p>To change this value, the external key store must be disconnected.</p>
+   * @public
+   */
+  XksProxyVpcEndpointServiceOwner?: string | undefined;
 
   /**
    * <p>Changes the credentials that KMS uses to sign requests to the external key store proxy

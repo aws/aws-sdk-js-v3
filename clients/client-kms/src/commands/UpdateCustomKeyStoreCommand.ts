@@ -144,6 +144,7 @@ export interface UpdateCustomKeyStoreCommandOutput extends UpdateCustomKeyStoreR
  *   XksProxyUriEndpoint: "STRING_VALUE",
  *   XksProxyUriPath: "STRING_VALUE",
  *   XksProxyVpcEndpointServiceName: "STRING_VALUE",
+ *   XksProxyVpcEndpointServiceOwner: "STRING_VALUE",
  *   XksProxyAuthenticationCredential: { // XksProxyAuthenticationCredentialType
  *     AccessKeyId: "STRING_VALUE", // required
  *     RawSecretAccessKey: "STRING_VALUE", // required
