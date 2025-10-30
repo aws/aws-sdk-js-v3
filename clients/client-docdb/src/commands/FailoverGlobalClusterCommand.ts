@@ -66,6 +66,19 @@ export interface FailoverGlobalClusterCommandOutput extends FailoverGlobalCluste
  * //           "STRING_VALUE",
  * //         ],
  * //         IsWriter: true || false,
+ * //         SynchronizationStatus: "connected" || "pending-resync",
+ * //       },
+ * //     ],
+ * //     FailoverState: { // FailoverState
+ * //       Status: "pending" || "failing-over" || "cancelling",
+ * //       FromDbClusterArn: "STRING_VALUE",
+ * //       ToDbClusterArn: "STRING_VALUE",
+ * //       IsDataLossAllowed: true || false,
+ * //     },
+ * //     TagList: [ // TagList
+ * //       { // Tag
+ * //         Key: "STRING_VALUE",
+ * //         Value: "STRING_VALUE",
  * //       },
  * //     ],
  * //   },

@@ -319,6 +319,7 @@ import {
   FailoverDBClusterResult,
   FailoverGlobalClusterMessage,
   FailoverGlobalClusterResult,
+  FailoverState,
   Filter,
   GlobalCluster,
   GlobalClusterAlreadyExistsFault,
@@ -7106,6 +7107,26 @@ const de_FailoverGlobalClusterResult = (output: any, context: __SerdeContext): F
 };
 
 /**
+ * deserializeAws_queryFailoverState
+ */
+const de_FailoverState = (output: any, context: __SerdeContext): FailoverState => {
+  const contents: any = {};
+  if (output[_St] != null) {
+    contents[_St] = __expectString(output[_St]);
+  }
+  if (output[_FDCA] != null) {
+    contents[_FDCA] = __expectString(output[_FDCA]);
+  }
+  if (output[_TDCA] != null) {
+    contents[_TDCA] = __expectString(output[_TDCA]);
+  }
+  if (output[_IDLA] != null) {
+    contents[_IDLA] = __parseBoolean(output[_IDLA]);
+  }
+  return contents;
+};
+
+/**
  * deserializeAws_queryGlobalCluster
  */
 const de_GlobalCluster = (output: any, context: __SerdeContext): GlobalCluster => {
@@ -7141,6 +7162,14 @@ const de_GlobalCluster = (output: any, context: __SerdeContext): GlobalCluster =
     contents[_GCM] = [];
   } else if (output[_GCM] != null && output[_GCM][_GCMl] != null) {
     contents[_GCM] = de_GlobalClusterMemberList(__getArrayIfSingleItem(output[_GCM][_GCMl]), context);
+  }
+  if (output[_FS] != null) {
+    contents[_FS] = de_FailoverState(output[_FS], context);
+  }
+  if (String(output.TagList).trim() === "") {
+    contents[_TL] = [];
+  } else if (output[_TL] != null && output[_TL][_Ta] != null) {
+    contents[_TL] = de_TagList(__getArrayIfSingleItem(output[_TL][_Ta]), context);
   }
   return contents;
 };
@@ -7182,6 +7211,9 @@ const de_GlobalClusterMember = (output: any, context: __SerdeContext): GlobalClu
   }
   if (output[_IW] != null) {
     contents[_IW] = __parseBoolean(output[_IW]);
+  }
+  if (output[_SSy] != null) {
+    contents[_SSy] = __expectString(output[_SSy]);
   }
   return contents;
 };
@@ -8442,8 +8474,10 @@ const _F = "Filters";
 const _FAD = "ForcedApplyDate";
 const _FDBC = "FailoverDBCluster";
 const _FDBSI = "FinalDBSnapshotIdentifier";
+const _FDCA = "FromDbClusterArn";
 const _FF = "ForceFailover";
 const _FGC = "FailoverGlobalCluster";
+const _FS = "FailoverState";
 const _GC = "GlobalCluster";
 const _GCA = "GlobalClusterArn";
 const _GCI = "GlobalClusterIdentifier";
@@ -8455,6 +8489,7 @@ const _HZI = "HostedZoneId";
 const _I = "Iops";
 const _ICT = "InstanceCreateTime";
 const _ICW = "IsClusterWriter";
+const _IDLA = "IsDataLossAllowed";
 const _IM = "IsModifiable";
 const _IMVU = "IsMajorVersionUpgrade";
 const _IOONAMT = "IOOptimizedNextAllowedModificationTime";
@@ -8568,6 +8603,7 @@ const _SN = "SubscriptionName";
 const _SNT = "SupportedNetworkTypes";
 const _SS = "SecretStatus";
 const _SSu = "SubnetStatus";
+const _SSy = "SynchronizationStatus";
 const _ST = "StorageType";
 const _STA = "SnsTopicArn";
 const _STn = "SnapshotType";
@@ -8585,6 +8621,7 @@ const _TDBCPGD = "TargetDBClusterParameterGroupDescription";
 const _TDBCPGI = "TargetDBClusterParameterGroupIdentifier";
 const _TDBCSI = "TargetDBClusterSnapshotIdentifier";
 const _TDBII = "TargetDBInstanceIdentifier";
+const _TDCA = "ToDbClusterArn";
 const _TDCI = "TargetDbClusterIdentifier";
 const _TK = "TagKeys";
 const _TL = "TagList";
