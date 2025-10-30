@@ -898,6 +898,46 @@ export interface GetProtectedQueryInput {
 }
 
 /**
+ * <p>The configuration properties that define the compute environment settings for workers in Clean Rooms. These properties enable customization of the underlying compute environment to optimize performance for your specific workloads.</p>
+ * @public
+ */
+export type WorkerComputeConfigurationProperties =
+  | WorkerComputeConfigurationProperties.SparkMember
+  | WorkerComputeConfigurationProperties.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace WorkerComputeConfigurationProperties {
+  /**
+   * <p>The Spark configuration properties for SQL workloads. This map contains key-value pairs that configure Apache Spark settings to optimize performance for your data processing jobs. You can specify up to 50 Spark properties, with each key being 1-200 characters and each value being 0-500 characters. These properties allow you to adjust compute capacity for large datasets and complex workloads.</p>
+   * @public
+   */
+  export interface SparkMember {
+    spark: Record<string, string>;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    spark?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    spark: (value: Record<string, string>) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: WorkerComputeConfigurationProperties, visitor: Visitor<T>): T => {
+    if (value.spark !== undefined) return visitor.spark(value.spark);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
  * @public
  * @enum
  */
@@ -927,6 +967,12 @@ export interface WorkerComputeConfiguration {
    * @public
    */
   number?: number | undefined;
+
+  /**
+   * <p>The configuration properties for the worker compute environment. These properties allow you to customize the compute settings for your Clean Rooms workloads.</p>
+   * @public
+   */
+  properties?: WorkerComputeConfigurationProperties | undefined;
 }
 
 /**

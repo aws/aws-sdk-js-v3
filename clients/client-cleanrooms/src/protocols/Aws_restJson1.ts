@@ -462,6 +462,7 @@ import {
   ProtectedQueryStatistics,
   ProtectedQuerySummary,
   WorkerComputeConfiguration,
+  WorkerComputeConfigurationProperties,
 } from "../models/models_1";
 
 /**
@@ -4589,6 +4590,8 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_SnowflakeTableSchemaV1 omitted.
 
+// se_SparkProperties omitted.
+
 // se_TableAliasList omitted.
 
 // se_TableReference omitted.
@@ -4596,6 +4599,8 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 // se_TagMap omitted.
 
 // se_WorkerComputeConfiguration omitted.
+
+// se_WorkerComputeConfigurationProperties omitted.
 
 /**
  * deserializeAws_restJson1AccessBudget
@@ -6183,6 +6188,8 @@ const de_SchemaSummaryList = (output: any, context: __SerdeContext): SchemaSumma
 
 // de_SnowflakeTableSchemaV1 omitted.
 
+// de_SparkProperties omitted.
+
 // de_TableReference omitted.
 
 // de_TagMap omitted.
@@ -6192,6 +6199,8 @@ const de_SchemaSummaryList = (output: any, context: __SerdeContext): SchemaSumma
 // de_ValidationExceptionFieldList omitted.
 
 // de_WorkerComputeConfiguration omitted.
+
+// de_WorkerComputeConfigurationProperties omitted.
 
 /**
  * deserializeAws_restJson1Document

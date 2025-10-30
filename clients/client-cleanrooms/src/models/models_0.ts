@@ -6607,7 +6607,7 @@ export interface ConfiguredTable {
   analysisMethod: AnalysisMethod | undefined;
 
   /**
-   * <p>The columns within the underlying Glue table that can be utilized within collaborations.</p>
+   * <p>The columns within the underlying Glue table that can be used within collaborations.</p>
    * @public
    */
   allowedColumns: string[] | undefined;
