@@ -13,7 +13,10 @@ import type { STSClient, STSClientConfig, STSClientResolvedConfig } from "./STSC
 /**
  * @public
  */
-export type STSRoleAssumerOptions = Pick<STSClientConfig, "logger" | "region" | "requestHandler" | "profile"> & {
+export type STSRoleAssumerOptions = Pick<
+  STSClientConfig,
+  "logger" | "region" | "requestHandler" | "profile" | "userAgentAppId"
+> & {
   credentialProviderLogger?: Logger;
   parentClientConfig?: CredentialProviderOptions["parentClientConfig"];
 };
@@ -95,6 +98,7 @@ export const getDefaultRoleAssumer = (
         region,
         requestHandler = stsOptions?.parentClientConfig?.requestHandler,
         credentialProviderLogger,
+        userAgentAppId = stsOptions?.parentClientConfig?.userAgentAppId,
       } = stsOptions;
       const resolvedRegion = await resolveRegion(
         region,
@@ -109,6 +113,7 @@ export const getDefaultRoleAssumer = (
 
       stsClient = new STSClient({
         ...stsOptions,
+        userAgentAppId,
         profile,
         // A hack to make sts client uses the credential in current closure.
         credentialDefaultProvider: () => async () => closureSourceCreds,
@@ -162,6 +167,7 @@ export const getDefaultRoleAssumerWithWebIdentity = (
         region,
         requestHandler = stsOptions?.parentClientConfig?.requestHandler,
         credentialProviderLogger,
+        userAgentAppId = stsOptions?.parentClientConfig?.userAgentAppId,
       } = stsOptions;
       const resolvedRegion = await resolveRegion(
         region,
@@ -176,6 +182,7 @@ export const getDefaultRoleAssumerWithWebIdentity = (
 
       stsClient = new STSClient({
         ...stsOptions,
+        userAgentAppId,
         profile,
         region: resolvedRegion,
         requestHandler: isCompatibleRequestHandler ? (requestHandler as any) : undefined,

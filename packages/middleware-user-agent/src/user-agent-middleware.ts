@@ -64,7 +64,7 @@ export const userAgentMiddleware =
     const customUserAgent = options?.customUserAgent?.map(escapeUserAgent) || [];
     const appId = await options.userAgentAppId();
     if (appId) {
-      defaultUserAgent.push(escapeUserAgent([`app/${appId}`]));
+      defaultUserAgent.push(escapeUserAgent([`app`, `${appId}`]));
     }
     const prefix = getUserAgentPrefix();
 

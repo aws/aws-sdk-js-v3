@@ -117,6 +117,7 @@ export const fromTemporaryCredentials = (
       );
 
       stsClient = new STSClient({
+        userAgentAppId: callerClientConfig?.userAgentAppId,
         ...options.clientConfig,
         credentials: coalesce(credentialSources),
         logger,
