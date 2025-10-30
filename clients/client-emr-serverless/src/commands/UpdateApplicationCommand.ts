@@ -139,6 +139,7 @@ export interface UpdateApplicationCommandOutput extends UpdateApplicationRespons
  *   },
  *   identityCenterConfiguration: { // IdentityCenterConfigurationInput
  *     identityCenterInstanceArn: "STRING_VALUE",
+ *     userBackgroundSessionsEnabled: true || false,
  *   },
  * };
  * const command = new UpdateApplicationCommand(input);
@@ -253,6 +254,7 @@ export interface UpdateApplicationCommandOutput extends UpdateApplicationRespons
  * //     identityCenterConfiguration: { // IdentityCenterConfiguration
  * //       identityCenterInstanceArn: "STRING_VALUE",
  * //       identityCenterApplicationArn: "STRING_VALUE",
+ * //       userBackgroundSessionsEnabled: true || false,
  * //     },
  * //   },
  * // };

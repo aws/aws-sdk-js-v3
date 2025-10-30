@@ -156,6 +156,7 @@ export interface GetApplicationCommandOutput extends GetApplicationResponse, __M
  * //     identityCenterConfiguration: { // IdentityCenterConfiguration
  * //       identityCenterInstanceArn: "STRING_VALUE",
  * //       identityCenterApplicationArn: "STRING_VALUE",
+ * //       userBackgroundSessionsEnabled: true || false,
  * //     },
  * //   },
  * // };

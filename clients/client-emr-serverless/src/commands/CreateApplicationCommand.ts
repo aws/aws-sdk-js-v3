@@ -142,6 +142,7 @@ export interface CreateApplicationCommandOutput extends CreateApplicationRespons
  *   },
  *   identityCenterConfiguration: { // IdentityCenterConfigurationInput
  *     identityCenterInstanceArn: "STRING_VALUE",
+ *     userBackgroundSessionsEnabled: true || false,
  *   },
  * };
  * const command = new CreateApplicationCommand(input);

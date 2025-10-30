@@ -48,7 +48,7 @@ export interface AutoStopConfig {
 }
 
 /**
- * <p>The IAM Identity Center Configuration that includes the Identify Center instance and application ARNs that provide trusted-identity propagation.</p>
+ * <p>The IAM Identity Center Configuration accepts the Identity Center instance parameter required to enable trusted identity propagation. This configuration allows identity propagation between integrated services and the Identity Center instance.</p>
  * @public
  */
 export interface IdentityCenterConfiguration {
@@ -63,6 +63,12 @@ export interface IdentityCenterConfiguration {
    * @public
    */
   identityCenterApplicationArn?: string | undefined;
+
+  /**
+   * <p>Enables user background sessions for this application so Livy sessions can continue running after users log out of their interactive notebook or their Identity Center sessions expire.</p>
+   * @public
+   */
+  userBackgroundSessionsEnabled?: boolean | undefined;
 }
 
 /**
@@ -441,7 +447,7 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * <p>Specifies the IAM Identity Center configuration used to enable or disable trusted identity propagation. When provided, this configuration determines how the application interacts with IAM Identity Center for user authentication and access control.</p>
+ * <p>The IAM Identity Center Configuration accepts the Identity Center instance parameter required to enable trusted identity propagation. This configuration allows identity propagation between integrated services and the Identity Center instance.</p>
  * @public
  */
 export interface IdentityCenterConfigurationInput {
@@ -450,6 +456,12 @@ export interface IdentityCenterConfigurationInput {
    * @public
    */
   identityCenterInstanceArn?: string | undefined;
+
+  /**
+   * <p>Enables user background sessions for this application so Livy sessions can continue running after users log out of their interactive notebook or their Identity Center sessions expire.</p>
+   * @public
+   */
+  userBackgroundSessionsEnabled?: boolean | undefined;
 }
 
 /**
@@ -1559,7 +1571,7 @@ export interface Application {
   schedulerConfiguration?: SchedulerConfiguration | undefined;
 
   /**
-   * <p>The IAM Identity Center configuration applied to enable trusted identity propagation. </p>
+   * <p>The IAM Identity Center configuration applied to enable trusted identity propagation.</p>
    * @public
    */
   identityCenterConfiguration?: IdentityCenterConfiguration | undefined;
