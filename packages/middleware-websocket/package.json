@@ -26,12 +26,12 @@
   "dependencies": {
     "@aws-sdk/types": "*",
     "@aws-sdk/util-format-url": "*",
-    "@smithy/eventstream-codec": "^4.2.3",
-    "@smithy/eventstream-serde-browser": "^4.2.3",
-    "@smithy/fetch-http-handler": "^5.3.4",
-    "@smithy/protocol-http": "^5.3.3",
-    "@smithy/signature-v4": "^5.3.3",
-    "@smithy/types": "^4.8.0",
+    "@smithy/eventstream-codec": "^4.2.4",
+    "@smithy/eventstream-serde-browser": "^4.2.4",
+    "@smithy/fetch-http-handler": "^5.3.5",
+    "@smithy/protocol-http": "^5.3.4",
+    "@smithy/signature-v4": "^5.3.4",
+    "@smithy/types": "^4.8.1",
     "@smithy/util-hex-encoding": "^4.2.0",
     "tslib": "^2.6.2"
   },
