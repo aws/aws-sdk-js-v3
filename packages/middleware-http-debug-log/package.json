@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/middleware-http-debug-log",
-  "version": "3.916.0",
+  "version": "3.921.0",
   "private": true,
   "scripts": {
     "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types'",

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.921.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.920.0...v3.921.0) (2025-10-30)
+
+
+### Features
+
+* **client-schemas:** Update endpoint ruleset parameters casing ([a5126a1](https://github.com/aws/aws-sdk-js-v3/commit/a5126a1722458d26377fc7029dd28e3f02beb951))
+
+
+
+
+
 # [3.920.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.919.0...v3.920.0) (2025-10-29)
 
 **Note:** Version bump only for package @aws-sdk/client-schemas

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.921.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.920.0...v3.921.0) (2025-10-30)
+
+
+### Features
+
+* **client-api-gateway:** Update endpoint ruleset parameters casing ([6c5be10](https://github.com/aws/aws-sdk-js-v3/commit/6c5be10c2b23491bbcd267bfbd64789877ff6fc2))
+
+
+
+
+
 # [3.920.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.919.0...v3.920.0) (2025-10-29)
 
 **Note:** Version bump only for package @aws-sdk/client-api-gateway

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.921.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.920.0...v3.921.0) (2025-10-30)
+
+
+### Features
+
+* **client-s3outposts:** Update endpoint ruleset parameters casing ([1cfb788](https://github.com/aws/aws-sdk-js-v3/commit/1cfb788dab69db48f3f9a141f998507cf77c69b0))
+
+
+
+
+
 # [3.920.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.919.0...v3.920.0) (2025-10-29)
 
 **Note:** Version bump only for package @aws-sdk/client-s3outposts

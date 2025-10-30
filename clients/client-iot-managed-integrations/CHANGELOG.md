@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.921.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.920.0...v3.921.0) (2025-10-30)
+
+
+### Features
+
+* **client-iot-managed-integrations:** Add a new GetManagedThingCertificate API to expose Iot ManagedIntegrations (MI) device certificate, and add  "-"  support for name, properties, actions and events in the CapabilityReportCapability object. ([778f859](https://github.com/aws/aws-sdk-js-v3/commit/778f85959ff75523cc88e67b1c2ee65d8a6a3b23))
+
+
+
+
+
 # [3.920.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.919.0...v3.920.0) (2025-10-29)
 
 **Note:** Version bump only for package @aws-sdk/client-iot-managed-integrations

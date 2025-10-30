@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.921.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.920.0...v3.921.0) (2025-10-30)
+
+
+### Features
+
+* **client-bedrock-agentcore-control:** Web-Bot-Auth support for AgentCore Browser tool to help reduce captcha challenges. ([0f63bb3](https://github.com/aws/aws-sdk-js-v3/commit/0f63bb3db83b0666c199e6eb6524fa24164f6e51))
+
+
+
+
+
 # [3.920.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.919.0...v3.920.0) (2025-10-29)
 
 **Note:** Version bump only for package @aws-sdk/client-bedrock-agentcore-control

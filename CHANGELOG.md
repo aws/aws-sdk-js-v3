@@ -3,6 +3,66 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.921.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.920.0...v3.921.0) (2025-10-30)
+
+
+### Features
+
+* **client-amp:** Add Anomaly Detection APIs for Amazon Managed Prometheus ([b01ec9b](https://github.com/aws/aws-sdk-js-v3/commit/b01ec9b85c46f345bbb3a4c5fab910b9352bc432))
+* **client-api-gateway:** Update endpoint ruleset parameters casing ([6c5be10](https://github.com/aws/aws-sdk-js-v3/commit/6c5be10c2b23491bbcd267bfbd64789877ff6fc2))
+* **client-app-mesh:** Update endpoint ruleset parameters casing ([90fe8ed](https://github.com/aws/aws-sdk-js-v3/commit/90fe8ed13474e23096e12d2fb4fe7ed413b359d4))
+* **client-appconfig:** Update endpoint ruleset parameters casing ([9b9b780](https://github.com/aws/aws-sdk-js-v3/commit/9b9b7806087218d787f2bf5dc8b42a5331b848bd))
+* **client-appflow:** Update endpoint ruleset parameters casing ([4ff8a02](https://github.com/aws/aws-sdk-js-v3/commit/4ff8a02ac32c7f83c15c88c32e998cfe045ab0f8))
+* **client-applicationcostprofiler:** Update endpoint ruleset parameters casing ([f3abd94](https://github.com/aws/aws-sdk-js-v3/commit/f3abd94571f0eac74b25978a70fc1aa809af2cff))
+* **client-appsync:** Update endpoint ruleset parameters casing ([7d254a9](https://github.com/aws/aws-sdk-js-v3/commit/7d254a980dbe82426b10f16cd9666d0beb8f8cb2))
+* **client-artifact:** Update endpoint ruleset parameters casing ([125f2b1](https://github.com/aws/aws-sdk-js-v3/commit/125f2b1b1ab08a57f063288d54efbfaf1bf839df))
+* **client-auditmanager:** Update endpoint ruleset parameters casing ([2d27a6f](https://github.com/aws/aws-sdk-js-v3/commit/2d27a6fdbcf044dedde4bf43416fe1def24cd470))
+* **client-bedrock-agentcore-control:** Web-Bot-Auth support for AgentCore Browser tool to help reduce captcha challenges. ([0f63bb3](https://github.com/aws/aws-sdk-js-v3/commit/0f63bb3db83b0666c199e6eb6524fa24164f6e51))
+* **client-bedrock-agent:** Update endpoint ruleset parameters casing ([c1f73ec](https://github.com/aws/aws-sdk-js-v3/commit/c1f73ec703e69f17f7e72f1b5d40a65826c22cc3))
+* **client-chime:** Update endpoint ruleset parameters casing ([fee835c](https://github.com/aws/aws-sdk-js-v3/commit/fee835cdb820b4c117e3b9f6c84ebad518205229))
+* **client-cleanrooms:** Added support for advanced Spark configurations to optimize SQL performance ([81605d3](https://github.com/aws/aws-sdk-js-v3/commit/81605d38918a1644f8864dfeacc1e20e6a3f7c4f))
+* **client-cloudcontrol:** Update endpoint ruleset parameters casing ([0a935c4](https://github.com/aws/aws-sdk-js-v3/commit/0a935c4e14b6edd53be89a59b7fe160f964c7739))
+* **client-clouddirectory:** Update endpoint ruleset parameters casing ([bd3082f](https://github.com/aws/aws-sdk-js-v3/commit/bd3082fcf25635a00dcc4940b312af48e4d3539e))
+* **client-cloudsearch:** Update endpoint ruleset parameters casing ([55f2a87](https://github.com/aws/aws-sdk-js-v3/commit/55f2a87f43c1220660b0fd20b181a01baeffea89))
+* **client-cloudwatch:** Update endpoint ruleset parameters casing ([fe5a3c2](https://github.com/aws/aws-sdk-js-v3/commit/fe5a3c2be9f758f81afdb353ee3bc6a982e10946))
+* **client-codecatalyst:** Update endpoint ruleset parameters casing ([85d8fb0](https://github.com/aws/aws-sdk-js-v3/commit/85d8fb01befe9f2588eab37e6dd1815c056f0708))
+* **client-codecommit:** Update endpoint ruleset parameters casing ([fa935c6](https://github.com/aws/aws-sdk-js-v3/commit/fa935c619eb085fa9af0ab61ea087a837c4536f4))
+* **client-codedeploy:** Update endpoint ruleset parameters casing ([0bff015](https://github.com/aws/aws-sdk-js-v3/commit/0bff015dfbb4aa74626b55d2b52792f5170ccc91))
+* **client-cognito-sync:** Update endpoint ruleset parameters casing ([090d349](https://github.com/aws/aws-sdk-js-v3/commit/090d34995b600367b6fba1d073f7a4d8cb6b6008))
+* **client-compute-optimizer:** Update endpoint ruleset parameters casing ([7affc83](https://github.com/aws/aws-sdk-js-v3/commit/7affc83cd6b9cdeceb6d96152491c4289e8235fc))
+* **client-connectcases:** Update endpoint ruleset parameters casing ([e7a4c61](https://github.com/aws/aws-sdk-js-v3/commit/e7a4c6116a1f39b8555c7548a1325e02aaec6428))
+* **client-deadline:** Update endpoint ruleset parameters casing ([0e237f0](https://github.com/aws/aws-sdk-js-v3/commit/0e237f042f7c208bf2cbe8bff8731853edfc934c))
+* **client-devops-guru:** Update endpoint ruleset parameters casing ([7e41c38](https://github.com/aws/aws-sdk-js-v3/commit/7e41c38d245689b255b86514d63d4c0a547a4570))
+* **client-docdb:** Adding FailoverState and TagList to GlobalCluster and SynchronizationStatus to GlobalClusterMember. ([a3b8e07](https://github.com/aws/aws-sdk-js-v3/commit/a3b8e0761e7ea80b727c76fe3fd9efb608bc8211))
+* **client-ecs:** Amazon ECS Service Connect now supports Envoy access logs, providing deeper observability into request-level traffic patterns and service interactions. ([338ac6d](https://github.com/aws/aws-sdk-js-v3/commit/338ac6df63c545c9724b3d9f0fec7731c88ad811))
+* **client-eks-auth:** Update endpoint ruleset parameters casing ([a3ff825](https://github.com/aws/aws-sdk-js-v3/commit/a3ff8256ffc912ba75e28c11785f1cd02d4a5118))
+* **client-elasticache:** Update endpoint ruleset parameters casing ([f8e2262](https://github.com/aws/aws-sdk-js-v3/commit/f8e22620a82188d831dea514bcad395dd398cc7c))
+* **client-emr-serverless:** This release adds the capability to enable User Background Sessions for customers running Trusted Identity Propagation enabled Interactive Sessions on EMR Serverless Applications. ([1d1bbee](https://github.com/aws/aws-sdk-js-v3/commit/1d1bbee7c1da5b286e33396983851381840a003c))
+* **client-firehose:** Update endpoint ruleset parameters casing ([a12a2a0](https://github.com/aws/aws-sdk-js-v3/commit/a12a2a0a8162b176f67d06ac8ff83d5bd52710eb))
+* **client-frauddetector:** Update endpoint ruleset parameters casing ([eb69bf5](https://github.com/aws/aws-sdk-js-v3/commit/eb69bf530e87e05f7d4161c513bbb20a37addcb1))
+* **client-geo-places:** Update endpoint ruleset parameters casing ([0223dac](https://github.com/aws/aws-sdk-js-v3/commit/0223dac09ecadf083fceab7224db40caa71cc92f))
+* **client-glue:** This release adds the capability to enable User Background Sessions for customers running Trusted Identity Propagation enabled Interactive Sessions on AWS Glue. ([138d429](https://github.com/aws/aws-sdk-js-v3/commit/138d429ee06fbae598d25e911a13f3d9a356ae46))
+* **client-greengrassv2:** Update endpoint ruleset parameters casing ([d0bf528](https://github.com/aws/aws-sdk-js-v3/commit/d0bf5286ad346c9817347a62de558c85b30c0145))
+* **client-iot-events-data:** Update endpoint ruleset parameters casing ([0f984e1](https://github.com/aws/aws-sdk-js-v3/commit/0f984e146c6944ecd2f4f37a47f75e570c22dfe3))
+* **client-iot-managed-integrations:** Add a new GetManagedThingCertificate API to expose Iot ManagedIntegrations (MI) device certificate, and add  "-"  support for name, properties, actions and events in the CapabilityReportCapability object. ([778f859](https://github.com/aws/aws-sdk-js-v3/commit/778f85959ff75523cc88e67b1c2ee65d8a6a3b23))
+* **client-keyspacesstreams:** Update endpoint ruleset parameters casing ([4804c33](https://github.com/aws/aws-sdk-js-v3/commit/4804c33bce6e4d9b4d9166b2e7e800d9235cc670))
+* **client-kms:** Add cross account VPC endpoint service connectivity support to CustomKeyStore. ([08c9224](https://github.com/aws/aws-sdk-js-v3/commit/08c922421602603f9cd59ba3498d1d7079bc324c))
+* **client-license-manager-linux-subscriptions:** Update endpoint ruleset parameters casing ([dae81b8](https://github.com/aws/aws-sdk-js-v3/commit/dae81b8212f5fa8a7b11784557e353a97c47fd70))
+* **client-marketplace-reporting:** Update endpoint ruleset parameters casing ([789eb5a](https://github.com/aws/aws-sdk-js-v3/commit/789eb5a816f6de562f7e262f4bc553533d69e9e9))
+* **client-neptune:** Update endpoint ruleset parameters casing ([7f14446](https://github.com/aws/aws-sdk-js-v3/commit/7f14446c0f38b660e2fca14bc6532d6de4fba25b))
+* **client-s3outposts:** Update endpoint ruleset parameters casing ([1cfb788](https://github.com/aws/aws-sdk-js-v3/commit/1cfb788dab69db48f3f9a141f998507cf77c69b0))
+* **client-sagemaker-runtime:** Update endpoint ruleset parameters casing ([276aba7](https://github.com/aws/aws-sdk-js-v3/commit/276aba70b1f9ef41db89b14e93a0460619de97a8))
+* **client-schemas:** Update endpoint ruleset parameters casing ([a5126a1](https://github.com/aws/aws-sdk-js-v3/commit/a5126a1722458d26377fc7029dd28e3f02beb951))
+* **client-serverlessapplicationrepository:** Update endpoint ruleset parameters casing ([2cbb7e0](https://github.com/aws/aws-sdk-js-v3/commit/2cbb7e03a5910ed6e351a9f21c2529cad1be452e))
+* **client-service-catalog:** Update endpoint ruleset parameters casing ([198eae4](https://github.com/aws/aws-sdk-js-v3/commit/198eae4fdde87e39483ea67a0a84502c91e98e9a))
+* **client-sso:** Update endpoint ruleset parameters casing ([721f9c6](https://github.com/aws/aws-sdk-js-v3/commit/721f9c6aed07a206ec60e1c70d187c2b1ba56b4a))
+* **client-sts:** Update endpoint ruleset parameters casing ([d28da8b](https://github.com/aws/aws-sdk-js-v3/commit/d28da8b2ff8ed72e6252d49d7a82a0997acd23a7))
+* **clients:** update client endpoints as of 2025-10-30 ([ece610b](https://github.com/aws/aws-sdk-js-v3/commit/ece610b54c0d91ff3751bb179da39fb1d77b336f))
+
+
+
+
+
 # [3.920.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.919.0...v3.920.0) (2025-10-29)
 
 

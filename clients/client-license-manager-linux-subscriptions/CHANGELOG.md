@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.921.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.920.0...v3.921.0) (2025-10-30)
+
+
+### Features
+
+* **client-license-manager-linux-subscriptions:** Update endpoint ruleset parameters casing ([dae81b8](https://github.com/aws/aws-sdk-js-v3/commit/dae81b8212f5fa8a7b11784557e353a97c47fd70))
+
+
+
+
+
 # [3.920.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.919.0...v3.920.0) (2025-10-29)
 
 **Note:** Version bump only for package @aws-sdk/client-license-manager-linux-subscriptions
