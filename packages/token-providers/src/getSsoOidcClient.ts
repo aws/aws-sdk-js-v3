@@ -7,10 +7,13 @@ import { FromSsoInit } from "./fromSso";
 export const getSsoOidcClient = async (ssoRegion: string, init: FromSsoInit = {}) => {
   const { SSOOIDCClient } = await import("@aws-sdk/nested-clients/sso-oidc");
 
+  const coalesce = (prop: string) => init.clientConfig?.[prop] ?? init.parentClientConfig?.[prop];
+
   const ssoOidcClient = new SSOOIDCClient(
     Object.assign({}, init.clientConfig ?? {}, {
       region: ssoRegion ?? init.clientConfig?.region,
-      logger: init.clientConfig?.logger ?? init.parentClientConfig?.logger,
+      logger: coalesce("logger"),
+      userAgentAppId: coalesce("userAgentAppId"),
     })
   );
   return ssoOidcClient;

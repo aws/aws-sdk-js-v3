@@ -28,6 +28,7 @@ export interface AwsIdentityProperties {
     profile?: string;
     region(): Promise<string>;
     requestHandler?: RequestHandler<any, any>;
+    userAgentAppId?(): Promise<string | undefined>;
   };
 }
 

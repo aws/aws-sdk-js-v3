@@ -50,6 +50,7 @@ export type CredentialProviderOptions = {
     region?: string | Provider<string>;
     profile?: string;
     logger?: Logger;
+    userAgentAppId?(): Promise<string | undefined>;
     [key: string]: unknown;
   };
 };

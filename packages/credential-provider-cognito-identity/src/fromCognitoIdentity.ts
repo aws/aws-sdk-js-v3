@@ -33,7 +33,7 @@ export function fromCognitoIdentity(parameters: FromCognitoIdentityParameters): 
     parameters.logger?.debug("@aws-sdk/credential-provider-cognito-identity - fromCognitoIdentity");
     const { GetCredentialsForIdentityCommand, CognitoIdentityClient } = await import("./loadCognitoIdentity");
 
-    const fromConfigs = (property: "region" | "profile"): any =>
+    const fromConfigs = (property: "region" | "profile" | "userAgentAppId"): any =>
       parameters.clientConfig?.[property] ??
       parameters.parentClientConfig?.[property] ??
       awsIdentityProperties?.callerClientConfig?.[property];
@@ -51,6 +51,7 @@ export function fromCognitoIdentity(parameters: FromCognitoIdentityParameters): 
         Object.assign({}, parameters.clientConfig ?? {}, {
           region: fromConfigs("region"),
           profile: fromConfigs("profile"),
+          userAgentAppId: fromConfigs("userAgentAppId"),
         })
       )
     ).send(

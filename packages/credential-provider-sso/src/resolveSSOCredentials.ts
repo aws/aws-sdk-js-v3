@@ -76,6 +76,7 @@ export const resolveSSOCredentials = async ({
       Object.assign({}, clientConfig ?? {}, {
         logger: clientConfig?.logger ?? parentClientConfig?.logger,
         region: clientConfig?.region ?? ssoRegion,
+        userAgentAppId: clientConfig?.userAgentAppId ?? parentClientConfig?.userAgentAppId,
       })
     );
   let ssoResp: GetRoleCredentialsCommandOutput;

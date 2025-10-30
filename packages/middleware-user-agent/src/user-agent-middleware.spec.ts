@@ -133,6 +133,10 @@ describe("userAgentMiddleware", () => {
       { ua: ["api/Service", "1.0.0"], expected: "api/service#1.0.0" },
       { ua: ["#name#", "1.0.0#blah"], expected: "-name-/1.0.0#blah" },
       { ua: ["#prefix#/#name#", "1.0.0#blah"], expected: "-prefix-/-name-#1.0.0#blah" },
+      {
+        ua: ["app", "!#$%&'*+-.^_`|~abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ"],
+        expected: "app/!#$%&'*+-.^_`|~abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ",
+      },
     ];
     [
       { runtime: "node", sdkUserAgentKey: USER_AGENT },
@@ -148,9 +152,7 @@ describe("userAgentMiddleware", () => {
             });
             const handler = middleware(mockNextHandler, {});
             await handler({ input: {}, request: new HttpRequest({ headers: {} }) });
-            expect(mockNextHandler.mock.calls[0][0].request.headers[sdkUserAgentKey]).toEqual(
-              expect.stringContaining(expected)
-            );
+            expect(mockNextHandler.mock.calls[0][0].request.headers[sdkUserAgentKey]).toContain(expected);
           });
 
           it(`should include internal metadata, user agent ${ua} customization: ${expected}`, async () => {
@@ -164,8 +166,8 @@ describe("userAgentMiddleware", () => {
             setPartitionInfo({} as any, "a-test-prefix");
             const handler = middleware(mockInternalNextHandler, {});
             await handler({ input: {}, request: new HttpRequest({ headers: {} }) });
-            expect(mockInternalNextHandler.mock.calls[0][0].request.headers[sdkUserAgentKey]).toEqual(
-              expect.stringContaining("a-test-prefix " + expected)
+            expect(mockInternalNextHandler.mock.calls[0][0].request.headers[sdkUserAgentKey]).toContain(
+              "a-test-prefix " + expected
             );
           });
         }
