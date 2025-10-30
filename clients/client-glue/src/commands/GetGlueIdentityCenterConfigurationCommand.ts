@@ -55,6 +55,7 @@ export interface GetGlueIdentityCenterConfigurationCommandOutput
  * //   Scopes: [ // OrchestrationStringList
  * //     "STRING_VALUE",
  * //   ],
+ * //   UserBackgroundSessionsEnabled: true || false,
  * // };
  *
  * ```

@@ -52,6 +52,7 @@ export interface CreateGlueIdentityCenterConfigurationCommandOutput
  *   Scopes: [ // IdentityCenterScopesList
  *     "STRING_VALUE",
  *   ],
+ *   UserBackgroundSessionsEnabled: true || false,
  * };
  * const command = new CreateGlueIdentityCenterConfigurationCommand(input);
  * const response = await client.send(command);

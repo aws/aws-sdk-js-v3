@@ -2995,6 +2995,12 @@ export interface GetGlueIdentityCenterConfigurationResponse {
    * @public
    */
   Scopes?: string[] | undefined;
+
+  /**
+   * <p>Indicates whether users can run background sessions when using Identity Center authentication with Glue services.</p>
+   * @public
+   */
+  UserBackgroundSessionsEnabled?: boolean | undefined;
 }
 
 /**
