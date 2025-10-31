@@ -2398,7 +2398,7 @@ export interface RegistryMapping {
 }
 
 /**
- * <p>Use a container registry map to specify mappings between the ECR private repository and one or more upstream registries. For more information, see <a href="https://docs.aws.amazon.com/omics/latest/dev/workflows-ecr.html">Container images</a> in the <i>Amazon Web Services HealthOmics User Guide</i>. </p>
+ * <p>Use a container registry map to specify mappings between the ECR private repository and one or more upstream registries. For more information, see <a href="https://docs.aws.amazon.com/omics/latest/dev/workflows-ecr.html">Container images</a> in the <i>Amazon Web Services HealthOmics User Guide</i>.</p>
  * @public
  */
 export interface ContainerRegistryMap {
@@ -3195,6 +3195,7 @@ export const WorkflowEngine = {
   CWL: "CWL",
   NEXTFLOW: "NEXTFLOW",
   WDL: "WDL",
+  WDL_LENIENT: "WDL_LENIENT",
 } as const;
 
 /**
@@ -3311,7 +3312,7 @@ export interface CreateWorkflowRequest {
   storageType?: StorageType | undefined;
 
   /**
-   * <p>(Optional) Use a container registry map to specify mappings between the ECR private repository and one or more upstream registries. For more information, see <a href="https://docs.aws.amazon.com/omics/latest/dev/workflows-ecr.html">Container images</a> in the <i>Amazon Web Services HealthOmics User Guide</i>. </p>
+   * <p>(Optional) Use a container registry map to specify mappings between the ECR private repository and one or more upstream registries. For more information, see <a href="https://docs.aws.amazon.com/omics/latest/dev/workflows-ecr.html">Container images</a> in the <i>Amazon Web Services HealthOmics User Guide</i>.</p>
    * @public
    */
   containerRegistryMap?: ContainerRegistryMap | undefined;
@@ -3501,7 +3502,7 @@ export interface CreateWorkflowVersionRequest {
   workflowBucketOwnerId?: string | undefined;
 
   /**
-   * <p>(Optional) Use a container registry map to specify mappings between the ECR private repository and one or more upstream registries. For more information, see <a href="https://docs.aws.amazon.com/omics/latest/dev/workflows-ecr.html">Container images</a> in the <i>Amazon Web Services HealthOmics User Guide</i>. </p>
+   * <p>(Optional) Use a container registry map to specify mappings between the ECR private repository and one or more upstream registries. For more information, see <a href="https://docs.aws.amazon.com/omics/latest/dev/workflows-ecr.html">Container images</a> in the <i>Amazon Web Services HealthOmics User Guide</i>.</p>
    * @public
    */
   containerRegistryMap?: ContainerRegistryMap | undefined;
