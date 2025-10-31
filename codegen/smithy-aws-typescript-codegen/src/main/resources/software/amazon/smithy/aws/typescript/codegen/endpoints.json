@@ -42356,6 +42356,12 @@
         }
       },
       "services": {
+        "acm": {
+          "endpoints": {
+            "us-iso-east-1": {},
+            "us-iso-west-1": {}
+          }
+        },
         "agreement-marketplace": {
           "endpoints": {
             "fips-us-iso-east-1": {
