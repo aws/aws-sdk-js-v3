@@ -183,7 +183,10 @@ export interface SearchJobsCommandOutput extends SearchJobsResponse, __MetadataB
  * //                   ChannelsIn: Number("int"),
  * //                   ChannelsOut: Number("int"),
  * //                 },
- * //                 SelectorType: "PID" || "TRACK" || "LANGUAGE_CODE" || "HLS_RENDITION_GROUP" || "ALL_PCM",
+ * //                 SelectorType: "PID" || "TRACK" || "LANGUAGE_CODE" || "HLS_RENDITION_GROUP" || "ALL_PCM" || "STREAM",
+ * //                 Streams: [
+ * //                   Number("int"),
+ * //                 ],
  * //                 Tracks: [
  * //                   Number("int"),
  * //                 ],
@@ -226,6 +229,7 @@ export interface SearchJobsCommandOutput extends SearchJobsResponse, __MetadataB
  * //                     PageNumber: "STRING_VALUE",
  * //                   },
  * //                   TrackSourceSettings: { // TrackSourceSettings
+ * //                     StreamNumber: Number("int"),
  * //                     TrackNumber: Number("int"),
  * //                   },
  * //                   WebvttHlsSourceSettings: { // WebvttHlsSourceSettings
@@ -328,6 +332,7 @@ export interface SearchJobsCommandOutput extends SearchJobsResponse, __MetadataB
  * //                 EndTimecode: "STRING_VALUE",
  * //                 InitialPosition: { // VideoOverlayPosition
  * //                   Height: Number("int"),
+ * //                   Opacity: Number("int"),
  * //                   Unit: "PIXELS" || "PERCENTAGE",
  * //                   Width: Number("int"),
  * //                   XPosition: Number("int"),
@@ -350,6 +355,7 @@ export interface SearchJobsCommandOutput extends SearchJobsResponse, __MetadataB
  * //                   { // VideoOverlayTransition
  * //                     EndPosition: {
  * //                       Height: Number("int"),
+ * //                       Opacity: Number("int"),
  * //                       Unit: "PIXELS" || "PERCENTAGE",
  * //                       Width: Number("int"),
  * //                       XPosition: Number("int"),
@@ -491,7 +497,7 @@ export interface SearchJobsCommandOutput extends SearchJobsResponse, __MetadataB
  * //                 ClientCache: "DISABLED" || "ENABLED",
  * //                 CodecSpecification: "RFC_6381" || "RFC_4281",
  * //                 DashIFrameTrickPlayNameModifier: "STRING_VALUE",
- * //                 DashManifestStyle: "BASIC" || "COMPACT" || "DISTINCT",
+ * //                 DashManifestStyle: "BASIC" || "COMPACT" || "DISTINCT" || "FULL",
  * //                 Destination: "STRING_VALUE",
  * //                 DestinationSettings: { // DestinationSettings
  * //                   S3Settings: { // S3DestinationSettings
@@ -572,7 +578,7 @@ export interface SearchJobsCommandOutput extends SearchJobsResponse, __MetadataB
  * //                 AudioChannelConfigSchemeIdUri: "MPEG_CHANNEL_CONFIGURATION" || "DOLBY_CHANNEL_CONFIGURATION",
  * //                 BaseUrl: "STRING_VALUE",
  * //                 DashIFrameTrickPlayNameModifier: "STRING_VALUE",
- * //                 DashManifestStyle: "BASIC" || "COMPACT" || "DISTINCT",
+ * //                 DashManifestStyle: "BASIC" || "COMPACT" || "DISTINCT" || "FULL",
  * //                 Destination: "STRING_VALUE",
  * //                 DestinationSettings: {
  * //                   S3Settings: {
@@ -798,6 +804,9 @@ export interface SearchJobsCommandOutput extends SearchJobsResponse, __MetadataB
  * //                       PeakCalculation: "TRUE_PEAK" || "NONE",
  * //                       TargetLkfs: Number("double"),
  * //                       TruePeakLimiterThreshold: Number("double"),
+ * //                     },
+ * //                     AudioPitchCorrectionSettings: { // AudioPitchCorrectionSettings
+ * //                       SlowPalPitchCorrection: "DISABLED" || "ENABLED",
  * //                     },
  * //                     AudioSourceName: "STRING_VALUE",
  * //                     AudioType: Number("int"),
@@ -1403,6 +1412,9 @@ export interface SearchJobsCommandOutput extends SearchJobsResponse, __MetadataB
  * //                       Syntax: "DEFAULT" || "D_10",
  * //                       Telecine: "NONE" || "SOFT" || "HARD",
  * //                       TemporalAdaptiveQuantization: "DISABLED" || "ENABLED",
+ * //                     },
+ * //                     PassthroughSettings: { // PassthroughSettings
+ * //                       VideoSelectorMode: "AUTO" || "REMUX_ALL",
  * //                     },
  * //                     ProresSettings: { // ProresSettings
  * //                       ChromaSampling: "PRESERVE_444_SAMPLING" || "SUBSAMPLE_TO_422",

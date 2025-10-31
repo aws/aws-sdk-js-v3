@@ -74,6 +74,9 @@ export interface ListPresetsCommandOutput extends ListPresetsResponse, __Metadat
  * //               TargetLkfs: Number("double"),
  * //               TruePeakLimiterThreshold: Number("double"),
  * //             },
+ * //             AudioPitchCorrectionSettings: { // AudioPitchCorrectionSettings
+ * //               SlowPalPitchCorrection: "DISABLED" || "ENABLED",
+ * //             },
  * //             AudioSourceName: "STRING_VALUE",
  * //             AudioType: Number("int"),
  * //             AudioTypeControl: "FOLLOW_INPUT" || "USE_CONFIGURED",
@@ -665,6 +668,9 @@ export interface ListPresetsCommandOutput extends ListPresetsResponse, __Metadat
  * //               Syntax: "DEFAULT" || "D_10",
  * //               Telecine: "NONE" || "SOFT" || "HARD",
  * //               TemporalAdaptiveQuantization: "DISABLED" || "ENABLED",
+ * //             },
+ * //             PassthroughSettings: { // PassthroughSettings
+ * //               VideoSelectorMode: "AUTO" || "REMUX_ALL",
  * //             },
  * //             ProresSettings: { // ProresSettings
  * //               ChromaSampling: "PRESERVE_444_SAMPLING" || "SUBSAMPLE_TO_422",

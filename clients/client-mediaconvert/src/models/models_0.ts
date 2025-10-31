@@ -209,6 +209,32 @@ export interface AudioNormalizationSettings {
  * @public
  * @enum
  */
+export const SlowPalPitchCorrection = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type SlowPalPitchCorrection = (typeof SlowPalPitchCorrection)[keyof typeof SlowPalPitchCorrection];
+
+/**
+ * Settings for audio pitch correction during framerate conversion.
+ * @public
+ */
+export interface AudioPitchCorrectionSettings {
+  /**
+   * Use Slow PAL pitch correction to compensate for audio pitch changes during slow PAL frame rate conversion. This setting only applies when Slow PAL is enabled in your output video codec settings. To automatically apply audio pitch correction: Choose Enabled. MediaConvert automatically applies a pitch correction to your output to match the original content's audio pitch. To not apply audio pitch correction: Keep the default value, Disabled.
+   * @public
+   */
+  SlowPalPitchCorrection?: SlowPalPitchCorrection | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
 export const AudioTypeControl = {
   FOLLOW_INPUT: "FOLLOW_INPUT",
   USE_CONFIGURED: "USE_CONFIGURED",
@@ -1852,6 +1878,12 @@ export interface AudioDescription {
   AudioNormalizationSettings?: AudioNormalizationSettings | undefined;
 
   /**
+   * Settings for audio pitch correction during framerate conversion.
+   * @public
+   */
+  AudioPitchCorrectionSettings?: AudioPitchCorrectionSettings | undefined;
+
+  /**
    * Specifies which audio data to use from each input. In the simplest case, specify an "Audio Selector":#inputs-audio_selector by name based on its order within each input. For example if you specify "Audio Selector 3", then the third audio selector will be used from each input. If an input does not have an "Audio Selector 3", then the audio selector marked as "default" in that input will be used. If there is no audio selector marked as "default", silence will be inserted for the duration of that input. Alternatively, an "Audio Selector Group":#inputs-audio_selector_group name may be specified, with similar default/silence behavior. If no audio_source_name is specified, then "Audio Selector 1" will be chosen automatically.
    * @public
    */
@@ -3478,6 +3510,7 @@ export const AudioSelectorType = {
   HLS_RENDITION_GROUP: "HLS_RENDITION_GROUP",
   LANGUAGE_CODE: "LANGUAGE_CODE",
   PID: "PID",
+  STREAM: "STREAM",
   TRACK: "TRACK",
 } as const;
 
@@ -3554,13 +3587,19 @@ export interface AudioSelector {
   RemixSettings?: RemixSettings | undefined;
 
   /**
-   * Specify how MediaConvert selects audio content within your input. The default is Track. PID: Select audio by specifying the Packet Identifier (PID) values for MPEG Transport Stream inputs. Use this when you know the exact PID values of your audio streams. Track: Default. Select audio by track number. This is the most common option and works with most input container formats. Language code: Select audio by language using an ISO 639-2 or ISO 639-3 three-letter code in all capital letters. Use this when your source has embedded language metadata and you want to select tracks based on their language. HLS rendition group: Select audio from an HLS rendition group. Use this when your input is an HLS package with multiple audio renditions and you want to select specific rendition groups. All PCM: Select all uncompressed PCM audio tracks from your input automatically. This is useful when you want to include all PCM audio tracks without specifying individual track numbers.
+   * Specify how MediaConvert selects audio content within your input. The default is Track. PID: Select audio by specifying the Packet Identifier (PID) values for MPEG Transport Stream inputs. Use this when you know the exact PID values of your audio streams. Track: Default. Select audio by track number. This is the most common option and works with most input container formats. If more types of audio data get recognized in the future, these numberings may shift, but the numberings used for Stream mode will not. Language code: Select audio by language using an ISO 639-2 or ISO 639-3 three-letter       code in all capital letters. Use this when your source has embedded language metadata and you want to select tracks based on their language. HLS rendition group: Select audio from an HLS rendition group. Use this when your input is an HLS package with multiple audio renditions and you want to select specific rendition groups. All PCM: Select all uncompressed PCM audio tracks from your input automatically. This is useful when you want to include all PCM audio tracks without specifying individual track numbers. Stream: Select audio by stream number. Stream numbers include all tracks in the source file, regardless of type, and correspond to either the order of tracks in the file, or if applicable, the stream number metadata of the track. Although all tracks count toward these stream numbers, in this audio selector context, only the stream number of a track containing audio data may be used. If your source file contains a track which is not recognized by the service, then the corresponding stream number will still be reserved for future use. If more types of audio data get recognized in the future, these numberings will not shift.
    * @public
    */
   SelectorType?: AudioSelectorType | undefined;
 
   /**
-   * Identify a track from the input audio to include in this selector by entering the track index number. To include several tracks in a single audio selector, specify multiple tracks as follows. Using the console, enter a comma-separated list. For example, type "1,2,3" to include tracks 1 through 3.
+   * Identify a track from the input audio to include in this selector by entering the stream index number. These numberings count all tracks in the input file, but only a track containing audio data may be used here. To include several tracks in a single audio selector, specify multiple tracks as follows. Using the console, enter a comma-separated list. For example, type "1,2,3" to include tracks 1 through 3.
+   * @public
+   */
+  Streams?: number[] | undefined;
+
+  /**
+   * Identify a track from the input audio to include in this selector by entering the track index number. These numberings include only tracks recognized as audio. If the service recognizes more types of audio tracks in the future, these numberings may shift. To include several tracks in a single audio selector, specify multiple tracks as follows. Using the console, enter a comma-separated list. For example, type "1,2,3" to include tracks 1 through 3.
    * @public
    */
   Tracks?: number[] | undefined;
@@ -3876,7 +3915,13 @@ export interface TeletextSourceSettings {
  */
 export interface TrackSourceSettings {
   /**
-   * Use this setting to select a single captions track from a source. Track numbers correspond to the order in the captions source file. For IMF sources, track numbering is based on the order that the captions appear in the CPL. For example, use 1 to select the captions asset that is listed first in the CPL. To include more than one captions track in your job outputs, create multiple input captions selectors. Specify one track per selector.
+   * Use this setting to select a single captions track from a source. Stream numbers include all tracks in the source file, regardless of type, and correspond to either the order of tracks in the file, or if applicable, the stream number metadata of the track. Although all tracks count toward these stream numbers, in this caption selector context, only the stream number of a track containing caption data may be used. To include more than one captions track in your job outputs, create multiple input captions selectors. Specify one stream per selector. If your source file contains a track which is not recognized by the service, then the corresponding stream number will still be reserved for future use. If more types of caption data get recognized in the future, these numberings will not shift.
+   * @public
+   */
+  StreamNumber?: number | undefined;
+
+  /**
+   * Use this setting to select a single captions track from a source. Track numbers correspond to the order in the captions source file. For IMF sources, track numbering is based on the order that the captions appear in the CPL. For example, use 1 to select the captions asset that is listed first in the CPL. To include more than one captions track in your job outputs, create multiple input captions selectors. Specify one track per selector. If more types of caption data get recognized in the future, these numberings may shift, but the numberings used for streamNumber will not.
    * @public
    */
   TrackNumber?: number | undefined;
@@ -4462,6 +4507,12 @@ export interface VideoOverlayPosition {
   Height?: number | undefined;
 
   /**
+   * Use Opacity to specify how much of the underlying video shows through the overlay video. 0 is transparent and 100 is fully opaque. Default is 100.
+   * @public
+   */
+  Opacity?: number | undefined;
+
+  /**
    * Specify the Unit type to use when you enter a value for X position, Y position, Width, or Height. You can choose Pixels or Percentage. Leave blank to use the default value, Pixels.
    * @public
    */
@@ -4550,7 +4601,7 @@ export const VideoOverlayPlayBackMode = {
 export type VideoOverlayPlayBackMode = (typeof VideoOverlayPlayBackMode)[keyof typeof VideoOverlayPlayBackMode];
 
 /**
- * Specify one or more Transitions for your video overlay. Use Transitions to reposition or resize your overlay over time. To use the same position and size for the duration of your video overlay: Leave blank. To specify a Transition: Enter a value for Start timecode, End Timecode, X Position, Y Position, Width, or Height.
+ * Specify one or more Transitions for your video overlay. Use Transitions to reposition or resize your overlay over time. To use the same position and size for the duration of your video overlay: Leave blank. To specify a Transition: Enter a value for Start timecode, End Timecode, X Position, Y Position, Width, Height, or Opacity
  * @public
  */
 export interface VideoOverlayTransition {
@@ -4884,7 +4935,7 @@ export interface VideoSelector {
   SelectorType?: VideoSelectorType | undefined;
 
   /**
-   * Specify a stream for MediaConvert to use from your HLS input. Enter an integer corresponding to the stream order in your HLS manifest.
+   * Specify one or more video streams for MediaConvert to use from your HLS input. Enter an integer corresponding to the stream number, with the first stream in your HLS multivariant playlist starting at 1.For re-encoding workflows, MediaConvert uses the video stream that you select with the highest bitrate as the input.For video passthrough workflows, you specify whether to passthrough a single video stream or multiple video streams under Video selector source in the output video encoding settings.
    * @public
    */
   Streams?: number[] | undefined;
@@ -5880,6 +5931,7 @@ export const DashManifestStyle = {
   BASIC: "BASIC",
   COMPACT: "COMPACT",
   DISTINCT: "DISTINCT",
+  FULL: "FULL",
 } as const;
 
 /**
@@ -6518,7 +6570,7 @@ export interface CmafGroupSettings {
   DashIFrameTrickPlayNameModifier?: string | undefined;
 
   /**
-   * Specify how MediaConvert writes SegmentTimeline in your output DASH manifest. To write a SegmentTimeline in each video Representation: Keep the default value, Basic. To write a common SegmentTimeline in the video AdaptationSet: Choose Compact. Note that MediaConvert will still write a SegmentTimeline in any Representation that does not share a common timeline. To write a video AdaptationSet for each different output framerate, and a common SegmentTimeline in each AdaptationSet: Choose Distinct.
+   * Specify how MediaConvert writes SegmentTimeline in your output DASH manifest. To write a SegmentTimeline for outputs that you also specify a Name modifier for: Keep the default value, Basic. Note that if you do not specify a name modifier for an output, MediaConvert will not write a SegmentTimeline for it. To write a common SegmentTimeline in the video AdaptationSet: Choose Compact. Note that MediaConvert will still write a SegmentTimeline in any Representation that does not share a common timeline. To write a video AdaptationSet for each different output framerate, and a common SegmentTimeline in each AdaptationSet: Choose Distinct. To write a SegmentTimeline in each AdaptationSet: Choose Full.
    * @public
    */
   DashManifestStyle?: DashManifestStyle | undefined;
@@ -6960,7 +7012,7 @@ export interface DashIsoGroupSettings {
   DashIFrameTrickPlayNameModifier?: string | undefined;
 
   /**
-   * Specify how MediaConvert writes SegmentTimeline in your output DASH manifest. To write a SegmentTimeline in each video Representation: Keep the default value, Basic. To write a common SegmentTimeline in the video AdaptationSet: Choose Compact. Note that MediaConvert will still write a SegmentTimeline in any Representation that does not share a common timeline. To write a video AdaptationSet for each different output framerate, and a common SegmentTimeline in each AdaptationSet: Choose Distinct.
+   * Specify how MediaConvert writes SegmentTimeline in your output DASH manifest. To write a SegmentTimeline for outputs that you also specify a Name modifier for: Keep the default value, Basic. Note that if you do not specify a name modifier for an output, MediaConvert will not write a SegmentTimeline for it. To write a common SegmentTimeline in the video AdaptationSet: Choose Compact. Note that MediaConvert will still write a SegmentTimeline in any Representation that does not share a common timeline. To write a video AdaptationSet for each different output framerate, and a common SegmentTimeline in each AdaptationSet: Choose Distinct. To write a SegmentTimeline in each AdaptationSet: Choose Full.
    * @public
    */
   DashManifestStyle?: DashManifestStyle | undefined;
@@ -7419,32 +7471,3 @@ export const HlsProgressiveWriteHlsManifest = {
  */
 export type HlsProgressiveWriteHlsManifest =
   (typeof HlsProgressiveWriteHlsManifest)[keyof typeof HlsProgressiveWriteHlsManifest];
-
-/**
- * @public
- * @enum
- */
-export const HlsSegmentControl = {
-  SEGMENTED_FILES: "SEGMENTED_FILES",
-  SINGLE_FILE: "SINGLE_FILE",
-} as const;
-
-/**
- * @public
- */
-export type HlsSegmentControl = (typeof HlsSegmentControl)[keyof typeof HlsSegmentControl];
-
-/**
- * @public
- * @enum
- */
-export const HlsSegmentLengthControl = {
-  EXACT: "EXACT",
-  GOP_MULTIPLE: "GOP_MULTIPLE",
-  MATCH: "MATCH",
-} as const;
-
-/**
- * @public
- */
-export type HlsSegmentLengthControl = (typeof HlsSegmentLengthControl)[keyof typeof HlsSegmentLengthControl];

@@ -7,8 +7,10 @@ import {
   AccelerationSettings,
   AccelerationStatus,
   AudioDescription,
+  AutomatedEncodingSettings,
   AvailBlanking,
   BillingTagsSource,
+  CaptionDescription,
   CaptionDescriptionPreset,
   ColorConversion3DLUTSetting,
   Endpoint,
@@ -26,9 +28,238 @@ import {
   NielsenNonLinearWatermarkSettings,
   OutputGroupDetail,
   QueueTransition,
+  Rectangle,
 } from "./models_0";
 
-import { ContainerSettings, OutputGroup, TimecodeSource, VideoDescription } from "./models_1";
+import {
+  AfdSignaling,
+  AntiAlias,
+  ChromaPositionMode,
+  ColorMetadata,
+  ContainerSettings,
+  DropFrameTimecode,
+  OutputGroupSettings,
+  OutputSettings,
+  RespondToAfd,
+  ScalingBehavior,
+  TimecodeTrack,
+  VideoCodecSettings,
+  VideoPreprocessor,
+  VideoTimecodeInsertion,
+} from "./models_1";
+
+/**
+ * Settings related to video encoding of your output. The specific video settings depend on the video codec that you choose.
+ * @public
+ */
+export interface VideoDescription {
+  /**
+   * This setting only applies to H.264, H.265, and MPEG2 outputs. Use Insert AFD signaling to specify whether the service includes AFD values in the output video data and what those values are. * Choose None to remove all AFD values from this output. * Choose Fixed to ignore input AFD values and instead encode the value specified in the job. * Choose Auto to calculate output AFD values based on the input AFD scaler data.
+   * @public
+   */
+  AfdSignaling?: AfdSignaling | undefined;
+
+  /**
+   * The anti-alias filter is automatically applied to all outputs. The service no longer accepts the value DISABLED for AntiAlias. If you specify that in your job, the service will ignore the setting.
+   * @public
+   */
+  AntiAlias?: AntiAlias | undefined;
+
+  /**
+   * Specify the chroma sample positioning metadata for your H.264 or H.265 output. To have MediaConvert automatically determine chroma positioning: We recommend that you keep the default value, Auto. To specify center positioning: Choose Force center. To specify top left positioning: Choose Force top left.
+   * @public
+   */
+  ChromaPositionMode?: ChromaPositionMode | undefined;
+
+  /**
+   * Video codec settings contains the group of settings related to video encoding. The settings in this group vary depending on the value that you choose for Video codec. For each codec enum that you choose, define the corresponding settings object. The following lists the codec enum, settings object pairs. * AV1, Av1Settings * AVC_INTRA, AvcIntraSettings * FRAME_CAPTURE, FrameCaptureSettings * GIF, GifSettings * H_264, H264Settings * H_265, H265Settings * MPEG2, Mpeg2Settings * PRORES, ProresSettings * UNCOMPRESSED, UncompressedSettings * VC3, Vc3Settings * VP8, Vp8Settings * VP9, Vp9Settings * XAVC, XavcSettings
+   * @public
+   */
+  CodecSettings?: VideoCodecSettings | undefined;
+
+  /**
+   * Choose Insert for this setting to include color metadata in this output. Choose Ignore to exclude color metadata from this output. If you don't specify a value, the service sets this to Insert by default.
+   * @public
+   */
+  ColorMetadata?: ColorMetadata | undefined;
+
+  /**
+   * Use Cropping selection to specify the video area that the service will include in the output video frame.
+   * @public
+   */
+  Crop?: Rectangle | undefined;
+
+  /**
+   * Applies only to 29.97 fps outputs. When this feature is enabled, the service will use drop-frame timecode on outputs. If it is not possible to use drop-frame timecode, the system will fall back to non-drop-frame. This setting is enabled by default when Timecode insertion or Timecode track is enabled.
+   * @public
+   */
+  DropFrameTimecode?: DropFrameTimecode | undefined;
+
+  /**
+   * Applies only if you set AFD Signaling to Fixed. Use Fixed to specify a four-bit AFD value which the service will write on all frames of this video output.
+   * @public
+   */
+  FixedAfd?: number | undefined;
+
+  /**
+   * Use Height to define the video resolution height, in pixels, for this output. To use the same resolution as your input: Leave both Width and Height blank. To evenly scale from your input resolution: Leave Height blank and enter a value for Width. For example, if your input is 1920x1080 and you set Width to 1280, your output will be 1280x720.
+   * @public
+   */
+  Height?: number | undefined;
+
+  /**
+   * Use Selection placement to define the video area in your output frame. The area outside of the rectangle that you specify here is black.
+   * @public
+   */
+  Position?: Rectangle | undefined;
+
+  /**
+   * Use Respond to AFD to specify how the service changes the video itself in response to AFD values in the input. * Choose Respond to clip the input video frame according to the AFD value, input display aspect ratio, and output display aspect ratio. * Choose Passthrough to include the input AFD values. Do not choose this when AfdSignaling is set to NONE. A preferred implementation of this workflow is to set RespondToAfd to and set AfdSignaling to AUTO. * Choose None to remove all input AFD values from this output.
+   * @public
+   */
+  RespondToAfd?: RespondToAfd | undefined;
+
+  /**
+   * Specify the video Scaling behavior when your output has a different resolution than your input. For more information, see https://docs.aws.amazon.com/mediaconvert/latest/ug/video-scaling.html
+   * @public
+   */
+  ScalingBehavior?: ScalingBehavior | undefined;
+
+  /**
+   * Use Sharpness setting to specify the strength of anti-aliasing. This setting changes the width of the anti-alias filter kernel used for scaling. Sharpness only applies if your output resolution is different from your input resolution. 0 is the softest setting, 100 the sharpest, and 50 recommended for most content.
+   * @public
+   */
+  Sharpness?: number | undefined;
+
+  /**
+   * Applies only to H.264, H.265, MPEG2, and ProRes outputs. Only enable Timecode insertion when the input frame rate is identical to the output frame rate. To include timecodes in this output, set Timecode insertion to PIC_TIMING_SEI. To leave them out, set it to DISABLED. Default is DISABLED. When the service inserts timecodes in an output, by default, it uses any embedded timecodes from the input. If none are present, the service will set the timecode for the first output frame to zero. To change this default behavior, adjust the settings under Timecode configuration. In the console, these settings are located under Job > Job settings > Timecode configuration. Note - Timecode source under input settings does not affect the timecodes that are inserted in the output. Source under Job settings > Timecode configuration does.
+   * @public
+   */
+  TimecodeInsertion?: VideoTimecodeInsertion | undefined;
+
+  /**
+   * To include a timecode track in your MP4 output: Choose Enabled. MediaConvert writes the timecode track in the Null Media Header box (NMHD), without any timecode text formatting information. You can also specify dropframe or non-dropframe timecode under the Drop Frame Timecode setting. To not include a timecode track: Keep the default value, Disabled.
+   * @public
+   */
+  TimecodeTrack?: TimecodeTrack | undefined;
+
+  /**
+   * Find additional transcoding features under Preprocessors. Enable the features at each output individually. These features are disabled by default.
+   * @public
+   */
+  VideoPreprocessors?: VideoPreprocessor | undefined;
+
+  /**
+   * Use Width to define the video resolution width, in pixels, for this output. To use the same resolution as your input: Leave both Width and Height blank. To evenly scale from your input resolution: Leave Width blank and enter a value for Height. For example, if your input is 1920x1080 and you set Height to 720, your output will be 1280x720.
+   * @public
+   */
+  Width?: number | undefined;
+}
+
+/**
+ * Each output in your job is a collection of settings that describes how you want MediaConvert to encode a single output file or stream. For more information, see https://docs.aws.amazon.com/mediaconvert/latest/ug/create-outputs.html.
+ * @public
+ */
+export interface Output {
+  /**
+   * Contains groups of audio encoding settings organized by audio codec. Include one instance of per output. Can contain multiple groups of encoding settings.
+   * @public
+   */
+  AudioDescriptions?: AudioDescription[] | undefined;
+
+  /**
+   * Contains groups of captions settings. For each output that has captions, include one instance of CaptionDescriptions. Can contain multiple groups of captions settings.
+   * @public
+   */
+  CaptionDescriptions?: CaptionDescription[] | undefined;
+
+  /**
+   * Container specific settings.
+   * @public
+   */
+  ContainerSettings?: ContainerSettings | undefined;
+
+  /**
+   * Use Extension to specify the file extension for outputs in File output groups. If you do not specify a value, the service will use default extensions by container type as follows * MPEG-2 transport stream, m2ts * Quicktime, mov * MXF container, mxf * MPEG-4 container, mp4 * WebM container, webm * Animated GIF container, gif * No Container, the service will use codec extensions (e.g. AAC, H265, H265, AC3)
+   * @public
+   */
+  Extension?: string | undefined;
+
+  /**
+   * Use Name modifier to have the service add a string to the end of each output filename. You specify the base filename as part of your destination URI. When you create multiple outputs in the same output group, Name modifier is required. Name modifier also accepts format identifiers. For DASH ISO outputs, if you use the format identifiers $Number$ or $Time$ in one output, you must use them in the same way in all outputs of the output group.
+   * @public
+   */
+  NameModifier?: string | undefined;
+
+  /**
+   * Specific settings for this type of output.
+   * @public
+   */
+  OutputSettings?: OutputSettings | undefined;
+
+  /**
+   * Use Preset to specify a preset for your transcoding settings. Provide the system or custom preset name. You can specify either Preset or Container settings, but not both.
+   * @public
+   */
+  Preset?: string | undefined;
+
+  /**
+   * VideoDescription contains a group of video encoding settings. The specific video settings depend on the video codec that you choose for the property codec. Include one instance of VideoDescription per output.
+   * @public
+   */
+  VideoDescription?: VideoDescription | undefined;
+}
+
+/**
+ * Group of outputs
+ * @public
+ */
+export interface OutputGroup {
+  /**
+   * Use automated encoding to have MediaConvert choose your encoding settings for you, based on characteristics of your input video.
+   * @public
+   */
+  AutomatedEncodingSettings?: AutomatedEncodingSettings | undefined;
+
+  /**
+   * Use Custom Group Name to specify a name for the output group. This value is displayed on the console and can make your job settings JSON more human-readable. It does not affect your outputs. Use up to twelve characters that are either letters, numbers, spaces, or underscores.
+   * @public
+   */
+  CustomName?: string | undefined;
+
+  /**
+   * Name of the output group
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * Output Group settings, including type
+   * @public
+   */
+  OutputGroupSettings?: OutputGroupSettings | undefined;
+
+  /**
+   * This object holds groups of encoding settings, one group of settings per output.
+   * @public
+   */
+  Outputs?: Output[] | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const TimecodeSource = {
+  EMBEDDED: "EMBEDDED",
+  SPECIFIEDSTART: "SPECIFIEDSTART",
+  ZEROBASED: "ZEROBASED",
+} as const;
+
+/**
+ * @public
+ */
+export type TimecodeSource = (typeof TimecodeSource)[keyof typeof TimecodeSource];
 
 /**
  * These settings control how the service handles timecodes throughout the job. These settings don't affect input clipping.
@@ -108,7 +339,7 @@ export interface JobSettings {
   ExtendedDataServices?: ExtendedDataServices | undefined;
 
   /**
-   * Specify the input that MediaConvert references for your default output settings. MediaConvert uses this input's Resolution, Frame rate, and Pixel aspect ratio for all outputs that you don't manually specify different output settings for. Enabling this setting will disable "Follow source" for all other inputs.  If MediaConvert cannot follow your source, for example if you specify an audio-only input,  MediaConvert uses the first followable input instead. In your JSON job specification, enter an integer from 1 to 150 corresponding  to the order of your inputs.
+   * Specify the input that MediaConvert references for your default output settings.  MediaConvert uses this input's Resolution, Frame rate, and Pixel aspect ratio for all  outputs that you don't manually specify different output settings for. Enabling this setting will disable "Follow source" for all other inputs.  If MediaConvert cannot follow your source, for example if you specify an audio-only input,  MediaConvert uses the first followable input instead. In your JSON job specification, enter an integer from 1 to 150 corresponding  to the order of your inputs.
    * @public
    */
   FollowSource?: number | undefined;
@@ -560,7 +791,7 @@ export interface JobTemplateSettings {
   ExtendedDataServices?: ExtendedDataServices | undefined;
 
   /**
-   * Specify the input that MediaConvert references for your default output settings. MediaConvert uses this input's Resolution, Frame rate, and Pixel aspect ratio for all outputs that you don't manually specify different output settings for. Enabling this setting will disable "Follow source" for all other inputs.  If MediaConvert cannot follow your source, for example if you specify an audio-only input,  MediaConvert uses the first followable input instead. In your JSON job specification, enter an integer from 1 to 150 corresponding  to the order of your inputs.
+   * Specify the input that MediaConvert references for your default output settings.  MediaConvert uses this input's Resolution, Frame rate, and Pixel aspect ratio for all  outputs that you don't manually specify different output settings for. Enabling this setting will disable "Follow source" for all other inputs.  If MediaConvert cannot follow your source, for example if you specify an audio-only input,  MediaConvert uses the first followable input instead. In your JSON job specification, enter an integer from 1 to 150 corresponding  to the order of your inputs.
    * @public
    */
   FollowSource?: number | undefined;

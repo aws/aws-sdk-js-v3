@@ -59,6 +59,9 @@ export interface UpdatePresetCommandOutput extends UpdatePresetResponse, __Metad
  *           TargetLkfs: Number("double"),
  *           TruePeakLimiterThreshold: Number("double"),
  *         },
+ *         AudioPitchCorrectionSettings: { // AudioPitchCorrectionSettings
+ *           SlowPalPitchCorrection: "DISABLED" || "ENABLED",
+ *         },
  *         AudioSourceName: "STRING_VALUE",
  *         AudioType: Number("int"),
  *         AudioTypeControl: "FOLLOW_INPUT" || "USE_CONFIGURED",
@@ -651,6 +654,9 @@ export interface UpdatePresetCommandOutput extends UpdatePresetResponse, __Metad
  *           Telecine: "NONE" || "SOFT" || "HARD",
  *           TemporalAdaptiveQuantization: "DISABLED" || "ENABLED",
  *         },
+ *         PassthroughSettings: { // PassthroughSettings
+ *           VideoSelectorMode: "AUTO" || "REMUX_ALL",
+ *         },
  *         ProresSettings: { // ProresSettings
  *           ChromaSampling: "PRESERVE_444_SAMPLING" || "SUBSAMPLE_TO_422",
  *           CodecProfile: "APPLE_PRORES_422" || "APPLE_PRORES_422_HQ" || "APPLE_PRORES_422_LT" || "APPLE_PRORES_422_PROXY" || "APPLE_PRORES_4444" || "APPLE_PRORES_4444_XQ",
@@ -916,6 +922,9 @@ export interface UpdatePresetCommandOutput extends UpdatePresetResponse, __Metad
  * //             PeakCalculation: "TRUE_PEAK" || "NONE",
  * //             TargetLkfs: Number("double"),
  * //             TruePeakLimiterThreshold: Number("double"),
+ * //           },
+ * //           AudioPitchCorrectionSettings: { // AudioPitchCorrectionSettings
+ * //             SlowPalPitchCorrection: "DISABLED" || "ENABLED",
  * //           },
  * //           AudioSourceName: "STRING_VALUE",
  * //           AudioType: Number("int"),
@@ -1508,6 +1517,9 @@ export interface UpdatePresetCommandOutput extends UpdatePresetResponse, __Metad
  * //             Syntax: "DEFAULT" || "D_10",
  * //             Telecine: "NONE" || "SOFT" || "HARD",
  * //             TemporalAdaptiveQuantization: "DISABLED" || "ENABLED",
+ * //           },
+ * //           PassthroughSettings: { // PassthroughSettings
+ * //             VideoSelectorMode: "AUTO" || "REMUX_ALL",
  * //           },
  * //           ProresSettings: { // ProresSettings
  * //             ChromaSampling: "PRESERVE_444_SAMPLING" || "SUBSAMPLE_TO_422",

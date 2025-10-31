@@ -91,6 +91,7 @@ import {
   AudioCodecSettings,
   AudioDescription,
   AudioNormalizationSettings,
+  AudioPitchCorrectionSettings,
   AudioSelector,
   AudioSelectorGroup,
   AutomatedAbrRule,
@@ -238,17 +239,15 @@ import {
   NoiseReducerFilterSettings,
   NoiseReducerSpatialFilterSettings,
   NoiseReducerTemporalFilterSettings,
-  Output,
-  OutputGroup,
   OutputGroupSettings,
   OutputSettings,
   PartnerWatermarking,
+  PassthroughSettings,
   ProresSettings,
   TimecodeBurnin,
   UncompressedSettings,
   Vc3Settings,
   VideoCodecSettings,
-  VideoDescription,
   VideoPreprocessor,
   Vp8Settings,
   Vp9Settings,
@@ -277,6 +276,8 @@ import {
   JobTemplateSettings,
   Metadata,
   NotFoundException,
+  Output,
+  OutputGroup,
   Policy,
   Preset,
   PresetSettings,
@@ -294,6 +295,7 @@ import {
   TooManyRequestsException,
   Track,
   TrackMapping,
+  VideoDescription,
   VideoProperties,
   WarningGroup,
 } from "../models/models_2";
@@ -2368,6 +2370,11 @@ const se_AudioDescription = (input: AudioDescription, context: __SerdeContext): 
   return take(input, {
     audioChannelTaggingSettings: [, (_) => se_AudioChannelTaggingSettings(_, context), `AudioChannelTaggingSettings`],
     audioNormalizationSettings: [, (_) => se_AudioNormalizationSettings(_, context), `AudioNormalizationSettings`],
+    audioPitchCorrectionSettings: [
+      ,
+      (_) => se_AudioPitchCorrectionSettings(_, context),
+      `AudioPitchCorrectionSettings`,
+    ],
     audioSourceName: [, , `AudioSourceName`],
     audioType: [, , `AudioType`],
     audioTypeControl: [, , `AudioTypeControl`],
@@ -2396,6 +2403,15 @@ const se_AudioNormalizationSettings = (input: AudioNormalizationSettings, contex
 };
 
 /**
+ * serializeAws_restJson1AudioPitchCorrectionSettings
+ */
+const se_AudioPitchCorrectionSettings = (input: AudioPitchCorrectionSettings, context: __SerdeContext): any => {
+  return take(input, {
+    slowPalPitchCorrection: [, , `SlowPalPitchCorrection`],
+  });
+};
+
+/**
  * serializeAws_restJson1AudioSelector
  */
 const se_AudioSelector = (input: AudioSelector, context: __SerdeContext): any => {
@@ -2411,6 +2427,7 @@ const se_AudioSelector = (input: AudioSelector, context: __SerdeContext): any =>
     programSelection: [, , `ProgramSelection`],
     remixSettings: [, (_) => se_RemixSettings(_, context), `RemixSettings`],
     selectorType: [, , `SelectorType`],
+    streams: [, _json, `Streams`],
     tracks: [, _json, `Tracks`],
   });
 };
@@ -4277,6 +4294,15 @@ const se_PartnerWatermarking = (input: PartnerWatermarking, context: __SerdeCont
 };
 
 /**
+ * serializeAws_restJson1PassthroughSettings
+ */
+const se_PassthroughSettings = (input: PassthroughSettings, context: __SerdeContext): any => {
+  return take(input, {
+    videoSelectorMode: [, , `VideoSelectorMode`],
+  });
+};
+
+/**
  * serializeAws_restJson1Policy
  */
 const se_Policy = (input: Policy, context: __SerdeContext): any => {
@@ -4518,6 +4544,7 @@ const se_TimedMetadataInsertion = (input: TimedMetadataInsertion, context: __Ser
  */
 const se_TrackSourceSettings = (input: TrackSourceSettings, context: __SerdeContext): any => {
   return take(input, {
+    streamNumber: [, , `StreamNumber`],
     trackNumber: [, , `TrackNumber`],
   });
 };
@@ -4578,6 +4605,7 @@ const se_VideoCodecSettings = (input: VideoCodecSettings, context: __SerdeContex
     h264Settings: [, (_) => se_H264Settings(_, context), `H264Settings`],
     h265Settings: [, (_) => se_H265Settings(_, context), `H265Settings`],
     mpeg2Settings: [, (_) => se_Mpeg2Settings(_, context), `Mpeg2Settings`],
+    passthroughSettings: [, (_) => se_PassthroughSettings(_, context), `PassthroughSettings`],
     proresSettings: [, (_) => se_ProresSettings(_, context), `ProresSettings`],
     uncompressedSettings: [, (_) => se_UncompressedSettings(_, context), `UncompressedSettings`],
     vc3Settings: [, (_) => se_Vc3Settings(_, context), `Vc3Settings`],
@@ -4668,6 +4696,7 @@ const se_VideoOverlayInputClipping = (input: VideoOverlayInputClipping, context:
 const se_VideoOverlayPosition = (input: VideoOverlayPosition, context: __SerdeContext): any => {
   return take(input, {
     height: [, , `Height`],
+    opacity: [, , `Opacity`],
     unit: [, , `Unit`],
     width: [, , `Width`],
     xPosition: [, , `XPosition`],
@@ -5588,6 +5617,11 @@ const de_AudioDescription = (output: any, context: __SerdeContext): AudioDescrip
       `audioChannelTaggingSettings`,
     ],
     AudioNormalizationSettings: [, (_: any) => de_AudioNormalizationSettings(_, context), `audioNormalizationSettings`],
+    AudioPitchCorrectionSettings: [
+      ,
+      (_: any) => de_AudioPitchCorrectionSettings(_, context),
+      `audioPitchCorrectionSettings`,
+    ],
     AudioSourceName: [, __expectString, `audioSourceName`],
     AudioType: [, __expectInt32, `audioType`],
     AudioTypeControl: [, __expectString, `audioTypeControl`],
@@ -5612,6 +5646,15 @@ const de_AudioNormalizationSettings = (output: any, context: __SerdeContext): Au
     PeakCalculation: [, __expectString, `peakCalculation`],
     TargetLkfs: [, __limitedParseDouble, `targetLkfs`],
     TruePeakLimiterThreshold: [, __limitedParseDouble, `truePeakLimiterThreshold`],
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1AudioPitchCorrectionSettings
+ */
+const de_AudioPitchCorrectionSettings = (output: any, context: __SerdeContext): AudioPitchCorrectionSettings => {
+  return take(output, {
+    SlowPalPitchCorrection: [, __expectString, `slowPalPitchCorrection`],
   }) as any;
 };
 
@@ -5645,6 +5688,7 @@ const de_AudioSelector = (output: any, context: __SerdeContext): AudioSelector =
     ProgramSelection: [, __expectInt32, `programSelection`],
     RemixSettings: [, (_: any) => de_RemixSettings(_, context), `remixSettings`],
     SelectorType: [, __expectString, `selectorType`],
+    Streams: [, _json, `streams`],
     Tracks: [, _json, `tracks`],
   }) as any;
 };
@@ -7701,6 +7745,15 @@ const de_PartnerWatermarking = (output: any, context: __SerdeContext): PartnerWa
 };
 
 /**
+ * deserializeAws_restJson1PassthroughSettings
+ */
+const de_PassthroughSettings = (output: any, context: __SerdeContext): PassthroughSettings => {
+  return take(output, {
+    VideoSelectorMode: [, __expectString, `videoSelectorMode`],
+  }) as any;
+};
+
+/**
  * deserializeAws_restJson1Policy
  */
 const de_Policy = (output: any, context: __SerdeContext): Policy => {
@@ -8054,6 +8107,7 @@ const de_TrackMapping = (output: any, context: __SerdeContext): TrackMapping => 
  */
 const de_TrackSourceSettings = (output: any, context: __SerdeContext): TrackSourceSettings => {
   return take(output, {
+    StreamNumber: [, __expectInt32, `streamNumber`],
     TrackNumber: [, __expectInt32, `trackNumber`],
   }) as any;
 };
@@ -8114,6 +8168,7 @@ const de_VideoCodecSettings = (output: any, context: __SerdeContext): VideoCodec
     H264Settings: [, (_: any) => de_H264Settings(_, context), `h264Settings`],
     H265Settings: [, (_: any) => de_H265Settings(_, context), `h265Settings`],
     Mpeg2Settings: [, (_: any) => de_Mpeg2Settings(_, context), `mpeg2Settings`],
+    PassthroughSettings: [, (_: any) => de_PassthroughSettings(_, context), `passthroughSettings`],
     ProresSettings: [, (_: any) => de_ProresSettings(_, context), `proresSettings`],
     UncompressedSettings: [, (_: any) => de_UncompressedSettings(_, context), `uncompressedSettings`],
     Vc3Settings: [, (_: any) => de_Vc3Settings(_, context), `vc3Settings`],
@@ -8214,6 +8269,7 @@ const de_VideoOverlayInputClipping = (output: any, context: __SerdeContext): Vid
 const de_VideoOverlayPosition = (output: any, context: __SerdeContext): VideoOverlayPosition => {
   return take(output, {
     Height: [, __expectInt32, `height`],
+    Opacity: [, __expectInt32, `opacity`],
     Unit: [, __expectString, `unit`],
     Width: [, __expectInt32, `width`],
     XPosition: [, __expectInt32, `xPosition`],
