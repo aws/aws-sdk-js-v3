@@ -334,6 +334,14 @@ import {
 } from "./commands/CreateIpamExternalResourceVerificationTokenCommand";
 import { CreateIpamPoolCommandInput, CreateIpamPoolCommandOutput } from "./commands/CreateIpamPoolCommand";
 import {
+  CreateIpamPrefixListResolverCommandInput,
+  CreateIpamPrefixListResolverCommandOutput,
+} from "./commands/CreateIpamPrefixListResolverCommand";
+import {
+  CreateIpamPrefixListResolverTargetCommandInput,
+  CreateIpamPrefixListResolverTargetCommandOutput,
+} from "./commands/CreateIpamPrefixListResolverTargetCommand";
+import {
   CreateIpamResourceDiscoveryCommandInput,
   CreateIpamResourceDiscoveryCommandOutput,
 } from "./commands/CreateIpamResourceDiscoveryCommand";
@@ -608,6 +616,14 @@ import {
   DeleteIpamExternalResourceVerificationTokenCommandOutput,
 } from "./commands/DeleteIpamExternalResourceVerificationTokenCommand";
 import { DeleteIpamPoolCommandInput, DeleteIpamPoolCommandOutput } from "./commands/DeleteIpamPoolCommand";
+import {
+  DeleteIpamPrefixListResolverCommandInput,
+  DeleteIpamPrefixListResolverCommandOutput,
+} from "./commands/DeleteIpamPrefixListResolverCommand";
+import {
+  DeleteIpamPrefixListResolverTargetCommandInput,
+  DeleteIpamPrefixListResolverTargetCommandOutput,
+} from "./commands/DeleteIpamPrefixListResolverTargetCommand";
 import {
   DeleteIpamResourceDiscoveryCommandInput,
   DeleteIpamResourceDiscoveryCommandOutput,
@@ -1099,6 +1115,14 @@ import {
   DescribeIpamExternalResourceVerificationTokensCommandOutput,
 } from "./commands/DescribeIpamExternalResourceVerificationTokensCommand";
 import { DescribeIpamPoolsCommandInput, DescribeIpamPoolsCommandOutput } from "./commands/DescribeIpamPoolsCommand";
+import {
+  DescribeIpamPrefixListResolversCommandInput,
+  DescribeIpamPrefixListResolversCommandOutput,
+} from "./commands/DescribeIpamPrefixListResolversCommand";
+import {
+  DescribeIpamPrefixListResolverTargetsCommandInput,
+  DescribeIpamPrefixListResolverTargetsCommandOutput,
+} from "./commands/DescribeIpamPrefixListResolverTargetsCommand";
 import {
   DescribeIpamResourceDiscoveriesCommandInput,
   DescribeIpamResourceDiscoveriesCommandOutput,
@@ -1842,6 +1866,18 @@ import {
 } from "./commands/GetIpamPoolAllocationsCommand";
 import { GetIpamPoolCidrsCommandInput, GetIpamPoolCidrsCommandOutput } from "./commands/GetIpamPoolCidrsCommand";
 import {
+  GetIpamPrefixListResolverRulesCommandInput,
+  GetIpamPrefixListResolverRulesCommandOutput,
+} from "./commands/GetIpamPrefixListResolverRulesCommand";
+import {
+  GetIpamPrefixListResolverVersionEntriesCommandInput,
+  GetIpamPrefixListResolverVersionEntriesCommandOutput,
+} from "./commands/GetIpamPrefixListResolverVersionEntriesCommand";
+import {
+  GetIpamPrefixListResolverVersionsCommandInput,
+  GetIpamPrefixListResolverVersionsCommandOutput,
+} from "./commands/GetIpamPrefixListResolverVersionsCommand";
+import {
   GetIpamResourceCidrsCommandInput,
   GetIpamResourceCidrsCommandOutput,
 } from "./commands/GetIpamResourceCidrsCommand";
@@ -2065,6 +2101,14 @@ import {
 } from "./commands/ModifyInstancePlacementCommand";
 import { ModifyIpamCommandInput, ModifyIpamCommandOutput } from "./commands/ModifyIpamCommand";
 import { ModifyIpamPoolCommandInput, ModifyIpamPoolCommandOutput } from "./commands/ModifyIpamPoolCommand";
+import {
+  ModifyIpamPrefixListResolverCommandInput,
+  ModifyIpamPrefixListResolverCommandOutput,
+} from "./commands/ModifyIpamPrefixListResolverCommand";
+import {
+  ModifyIpamPrefixListResolverTargetCommandInput,
+  ModifyIpamPrefixListResolverTargetCommandOutput,
+} from "./commands/ModifyIpamPrefixListResolverTargetCommand";
 import {
   ModifyIpamResourceCidrCommandInput,
   ModifyIpamResourceCidrCommandOutput,
@@ -2580,6 +2624,8 @@ export type ServiceInputTypes =
   | CreateIpamCommandInput
   | CreateIpamExternalResourceVerificationTokenCommandInput
   | CreateIpamPoolCommandInput
+  | CreateIpamPrefixListResolverCommandInput
+  | CreateIpamPrefixListResolverTargetCommandInput
   | CreateIpamResourceDiscoveryCommandInput
   | CreateIpamScopeCommandInput
   | CreateKeyPairCommandInput
@@ -2666,6 +2712,8 @@ export type ServiceInputTypes =
   | DeleteIpamCommandInput
   | DeleteIpamExternalResourceVerificationTokenCommandInput
   | DeleteIpamPoolCommandInput
+  | DeleteIpamPrefixListResolverCommandInput
+  | DeleteIpamPrefixListResolverTargetCommandInput
   | DeleteIpamResourceDiscoveryCommandInput
   | DeleteIpamScopeCommandInput
   | DeleteKeyPairCommandInput
@@ -2809,6 +2857,8 @@ export type ServiceInputTypes =
   | DescribeIpamByoasnCommandInput
   | DescribeIpamExternalResourceVerificationTokensCommandInput
   | DescribeIpamPoolsCommandInput
+  | DescribeIpamPrefixListResolverTargetsCommandInput
+  | DescribeIpamPrefixListResolversCommandInput
   | DescribeIpamResourceDiscoveriesCommandInput
   | DescribeIpamResourceDiscoveryAssociationsCommandInput
   | DescribeIpamScopesCommandInput
@@ -3011,6 +3061,9 @@ export type ServiceInputTypes =
   | GetIpamDiscoveredResourceCidrsCommandInput
   | GetIpamPoolAllocationsCommandInput
   | GetIpamPoolCidrsCommandInput
+  | GetIpamPrefixListResolverRulesCommandInput
+  | GetIpamPrefixListResolverVersionEntriesCommandInput
+  | GetIpamPrefixListResolverVersionsCommandInput
   | GetIpamResourceCidrsCommandInput
   | GetLaunchTemplateDataCommandInput
   | GetManagedPrefixListAssociationsCommandInput
@@ -3076,6 +3129,8 @@ export type ServiceInputTypes =
   | ModifyInstancePlacementCommandInput
   | ModifyIpamCommandInput
   | ModifyIpamPoolCommandInput
+  | ModifyIpamPrefixListResolverCommandInput
+  | ModifyIpamPrefixListResolverTargetCommandInput
   | ModifyIpamResourceCidrCommandInput
   | ModifyIpamResourceDiscoveryCommandInput
   | ModifyIpamScopeCommandInput
@@ -3290,6 +3345,8 @@ export type ServiceOutputTypes =
   | CreateIpamCommandOutput
   | CreateIpamExternalResourceVerificationTokenCommandOutput
   | CreateIpamPoolCommandOutput
+  | CreateIpamPrefixListResolverCommandOutput
+  | CreateIpamPrefixListResolverTargetCommandOutput
   | CreateIpamResourceDiscoveryCommandOutput
   | CreateIpamScopeCommandOutput
   | CreateKeyPairCommandOutput
@@ -3376,6 +3433,8 @@ export type ServiceOutputTypes =
   | DeleteIpamCommandOutput
   | DeleteIpamExternalResourceVerificationTokenCommandOutput
   | DeleteIpamPoolCommandOutput
+  | DeleteIpamPrefixListResolverCommandOutput
+  | DeleteIpamPrefixListResolverTargetCommandOutput
   | DeleteIpamResourceDiscoveryCommandOutput
   | DeleteIpamScopeCommandOutput
   | DeleteKeyPairCommandOutput
@@ -3519,6 +3578,8 @@ export type ServiceOutputTypes =
   | DescribeIpamByoasnCommandOutput
   | DescribeIpamExternalResourceVerificationTokensCommandOutput
   | DescribeIpamPoolsCommandOutput
+  | DescribeIpamPrefixListResolverTargetsCommandOutput
+  | DescribeIpamPrefixListResolversCommandOutput
   | DescribeIpamResourceDiscoveriesCommandOutput
   | DescribeIpamResourceDiscoveryAssociationsCommandOutput
   | DescribeIpamScopesCommandOutput
@@ -3721,6 +3782,9 @@ export type ServiceOutputTypes =
   | GetIpamDiscoveredResourceCidrsCommandOutput
   | GetIpamPoolAllocationsCommandOutput
   | GetIpamPoolCidrsCommandOutput
+  | GetIpamPrefixListResolverRulesCommandOutput
+  | GetIpamPrefixListResolverVersionEntriesCommandOutput
+  | GetIpamPrefixListResolverVersionsCommandOutput
   | GetIpamResourceCidrsCommandOutput
   | GetLaunchTemplateDataCommandOutput
   | GetManagedPrefixListAssociationsCommandOutput
@@ -3786,6 +3850,8 @@ export type ServiceOutputTypes =
   | ModifyInstancePlacementCommandOutput
   | ModifyIpamCommandOutput
   | ModifyIpamPoolCommandOutput
+  | ModifyIpamPrefixListResolverCommandOutput
+  | ModifyIpamPrefixListResolverTargetCommandOutput
   | ModifyIpamResourceCidrCommandOutput
   | ModifyIpamResourceDiscoveryCommandOutput
   | ModifyIpamScopeCommandOutput

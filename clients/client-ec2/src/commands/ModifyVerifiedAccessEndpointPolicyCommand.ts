@@ -9,7 +9,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import {
   ModifyVerifiedAccessEndpointPolicyRequest,
   ModifyVerifiedAccessEndpointPolicyResult,
-} from "../models/models_7";
+} from "../models/models_8";
 import {
   de_ModifyVerifiedAccessEndpointPolicyCommand,
   se_ModifyVerifiedAccessEndpointPolicyCommand,

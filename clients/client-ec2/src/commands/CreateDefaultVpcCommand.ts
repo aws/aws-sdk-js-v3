@@ -104,6 +104,9 @@ export interface CreateDefaultVpcCommandOutput extends CreateDefaultVpcResult, _
  * //           State: "enabling" || "enabled" || "disabling" || "disabled",
  * //           StateMessage: "STRING_VALUE",
  * //         },
+ * //         Lambda: "<VpcEncryptionControlExclusion>",
+ * //         VpcLattice: "<VpcEncryptionControlExclusion>",
+ * //         ElasticFileSystem: "<VpcEncryptionControlExclusion>",
  * //       },
  * //       Tags: [ // TagList
  * //         { // Tag

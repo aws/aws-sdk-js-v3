@@ -8,7 +8,6 @@ import {
   ApplianceModeSupportValue,
   AttachmentStatus,
   CurrencyCodeValues,
-  DeviceTrustProviderType,
   DnsSupportValue,
   DynamicRoutingValue,
   Ipv4PrefixSpecification,
@@ -26,12 +25,7 @@ import {
   TransitGatewayAttachmentState,
   TransitGatewayPeeringAttachment,
   TransitGatewayVpcAttachment,
-  TrustProviderType,
-  UserTrustProviderType,
-  VerifiedAccessInstance,
   VerifiedAccessSseSpecificationResponse,
-  VerifiedAccessTrustProvider,
-  VerifiedAccessTrustProviderFilterSensitiveLog,
 } from "./models_0";
 
 import {
@@ -39,22 +33,36 @@ import {
   AmdSevSnpSpecification,
   CapacityReservationPreference,
   ConnectionTrackingSpecificationRequest,
+  CreditSpecificationRequest,
+  ElasticGpuSpecification,
   HostnameType,
   InstanceBandwidthWeighting,
   InstanceInterruptionBehavior,
   InstanceRequirements,
+  InstanceRequirementsRequest,
   Ipv4PrefixSpecificationRequest,
   Ipv6PrefixSpecificationRequest,
   LaunchTemplateAutoRecoveryState,
-  LaunchTemplateBlockDeviceMapping,
+  LaunchTemplateBlockDeviceMappingRequest,
+  LaunchTemplateCapacityReservationSpecificationRequest,
+  LaunchTemplateCpuOptionsRequest,
+  LaunchTemplateElasticInferenceAccelerator,
+  LaunchTemplateEnclaveOptionsRequest,
+  LaunchTemplateHibernationOptionsRequest,
   LaunchTemplateHttpTokensState,
+  LaunchTemplateIamInstanceProfileSpecificationRequest,
+  LaunchTemplateInstanceMaintenanceOptionsRequest,
+  LaunchTemplateInstanceMarketOptionsRequest,
   LaunchTemplateInstanceMetadataEndpointState,
+  LaunchTemplateInstanceMetadataOptionsRequest,
   LaunchTemplateInstanceMetadataProtocolIpv6,
   LaunchTemplateInstanceMetadataTagsState,
+  LaunchTemplateInstanceNetworkInterfaceSpecificationRequest,
+  LaunchTemplateLicenseConfigurationRequest,
+  LaunchTemplatesMonitoringRequest,
   MacModificationTask,
   MacSystemIntegrityProtectionSettingStatus,
   MarketType,
-  OperatorRequest,
   OperatorResponse,
   PrivateIpAddressSpecification,
   ShutdownBehavior,
@@ -63,10 +71,894 @@ import {
   SSEType,
   Subnet,
   Tenancy,
-  ValidationWarning,
   VolumeType,
-  Vpc,
 } from "./models_1";
+
+/**
+ * <p>When you configure network performance options in your launch template, your instance
+ *             is geared for performance improvements based on the workload that it runs as soon as
+ *             it's available.</p>
+ * @public
+ */
+export interface LaunchTemplateNetworkPerformanceOptionsRequest {
+  /**
+   * <p>Specify the bandwidth weighting option to boost the associated type of baseline
+   *             bandwidth, as follows:</p>
+   *          <dl>
+   *             <dt>default</dt>
+   *             <dd>
+   *                <p>This option uses the standard bandwidth configuration for your instance
+   *                         type.</p>
+   *             </dd>
+   *             <dt>vpc-1</dt>
+   *             <dd>
+   *                <p>This option boosts your networking baseline bandwidth and reduces your EBS
+   *                         baseline bandwidth.</p>
+   *             </dd>
+   *             <dt>ebs-1</dt>
+   *             <dd>
+   *                <p>This option boosts your EBS baseline bandwidth and reduces your networking
+   *                         baseline bandwidth.</p>
+   *             </dd>
+   *          </dl>
+   * @public
+   */
+  BandwidthWeighting?: InstanceBandwidthWeighting | undefined;
+}
+
+/**
+ * <p>The service provider that manages the resource.</p>
+ * @public
+ */
+export interface OperatorRequest {
+  /**
+   * <p>The service provider that manages the resource.</p>
+   * @public
+   */
+  Principal?: string | undefined;
+}
+
+/**
+ * <p>Describes the placement of an instance.</p>
+ * @public
+ */
+export interface LaunchTemplatePlacementRequest {
+  /**
+   * <p>The Availability Zone for the instance.</p>
+   *          <p>Either <code>AvailabilityZone</code> or <code>AvailabilityZoneId</code> can be specified, but not both</p>
+   * @public
+   */
+  AvailabilityZone?: string | undefined;
+
+  /**
+   * <p>The ID of the Availability Zone for the instance.</p>
+   *          <p>Either <code>AvailabilityZone</code> or <code>AvailabilityZoneId</code> can be specified, but not both</p>
+   * @public
+   */
+  AvailabilityZoneId?: string | undefined;
+
+  /**
+   * <p>The affinity setting for an instance on a Dedicated Host.</p>
+   * @public
+   */
+  Affinity?: string | undefined;
+
+  /**
+   * <p>The name of the placement group for the instance.</p>
+   * @public
+   */
+  GroupName?: string | undefined;
+
+  /**
+   * <p>The ID of the Dedicated Host for the instance.</p>
+   * @public
+   */
+  HostId?: string | undefined;
+
+  /**
+   * <p>The tenancy of the instance. An instance with a tenancy of dedicated runs on
+   *             single-tenant hardware.</p>
+   * @public
+   */
+  Tenancy?: Tenancy | undefined;
+
+  /**
+   * <p>Reserved for future use.</p>
+   * @public
+   */
+  SpreadDomain?: string | undefined;
+
+  /**
+   * <p>The ARN of the host resource group in which to launch the instances. If you specify a
+   *             host resource group ARN, omit the <b>Tenancy</b> parameter or
+   *             set it to <code>host</code>.</p>
+   * @public
+   */
+  HostResourceGroupArn?: string | undefined;
+
+  /**
+   * <p>The number of the partition the instance should launch in. Valid only if the placement
+   *             group strategy is set to <code>partition</code>.</p>
+   * @public
+   */
+  PartitionNumber?: number | undefined;
+
+  /**
+   * <p>The Group Id of a placement group. You must specify the Placement Group <b>Group Id</b> to launch an instance in a shared placement
+   *             group.</p>
+   * @public
+   */
+  GroupId?: string | undefined;
+}
+
+/**
+ * <p>Describes the options for instance hostnames.</p>
+ * @public
+ */
+export interface LaunchTemplatePrivateDnsNameOptionsRequest {
+  /**
+   * <p>The type of hostname for Amazon EC2 instances. For IPv4 only subnets, an instance DNS name
+   *             must be based on the instance IPv4 address. For IPv6 native subnets, an instance DNS
+   *             name must be based on the instance ID. For dual-stack subnets, you can specify whether
+   *             DNS names use the instance IPv4 address or the instance ID.</p>
+   * @public
+   */
+  HostnameType?: HostnameType | undefined;
+
+  /**
+   * <p>Indicates whether to respond to DNS queries for instance hostnames with DNS A
+   *             records.</p>
+   * @public
+   */
+  EnableResourceNameDnsARecord?: boolean | undefined;
+
+  /**
+   * <p>Indicates whether to respond to DNS queries for instance hostnames with DNS AAAA
+   *             records.</p>
+   * @public
+   */
+  EnableResourceNameDnsAAAARecord?: boolean | undefined;
+}
+
+/**
+ * <p>The tags specification for the resources that are created during instance
+ *             launch.</p>
+ * @public
+ */
+export interface LaunchTemplateTagSpecificationRequest {
+  /**
+   * <p>The type of resource to tag.</p>
+   *          <p>Valid Values lists all resource types for Amazon EC2 that can be tagged. When you
+   *             create a launch template, you can specify tags for the following resource types only:
+   *                 <code>instance</code> | <code>volume</code> |
+   *             <code>network-interface</code> | <code>spot-instances-request</code>. If the instance
+   *             does not include the resource type that you specify, the instance launch fails. For
+   *             example, not all instance types include a volume.</p>
+   *          <p>To tag a resource after it has been created, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html">CreateTags</a>.</p>
+   * @public
+   */
+  ResourceType?: ResourceType | undefined;
+
+  /**
+   * <p>The tags to apply to the resource.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+}
+
+/**
+ * <p>The information to include in the launch template.</p>
+ *          <note>
+ *             <p>You must specify at least one parameter for the launch template data.</p>
+ *          </note>
+ * @public
+ */
+export interface RequestLaunchTemplateData {
+  /**
+   * <p>The ID of the kernel.</p>
+   *          <important>
+   *             <p>We recommend that you use PV-GRUB instead of kernels and RAM disks. For more
+   *                 information, see <a href="https://docs.aws.amazon.com/linux/al2/ug/UserProvidedKernels.html">User provided kernels</a> in the
+   *                     <i>Amazon Linux 2 User Guide</i>.</p>
+   *          </important>
+   * @public
+   */
+  KernelId?: string | undefined;
+
+  /**
+   * <p>Indicates whether the instance is optimized for Amazon EBS I/O. This optimization
+   *             provides dedicated throughput to Amazon EBS and an optimized configuration stack to
+   *             provide optimal Amazon EBS I/O performance. This optimization isn't available with all
+   *             instance types. Additional usage charges apply when using an EBS-optimized
+   *             instance.</p>
+   * @public
+   */
+  EbsOptimized?: boolean | undefined;
+
+  /**
+   * <p>The name or Amazon Resource Name (ARN) of an IAM instance profile.</p>
+   * @public
+   */
+  IamInstanceProfile?: LaunchTemplateIamInstanceProfileSpecificationRequest | undefined;
+
+  /**
+   * <p>The block device mapping.</p>
+   * @public
+   */
+  BlockDeviceMappings?: LaunchTemplateBlockDeviceMappingRequest[] | undefined;
+
+  /**
+   * <p>The network interfaces for the instance.</p>
+   * @public
+   */
+  NetworkInterfaces?: LaunchTemplateInstanceNetworkInterfaceSpecificationRequest[] | undefined;
+
+  /**
+   * <p>The ID of the AMI in the format <code>ami-0ac394d6a3example</code>.</p>
+   *          <p>Alternatively, you can specify a Systems Manager parameter, using one of the following
+   *             formats. The Systems Manager parameter will resolve to an AMI ID on launch.</p>
+   *          <p>To reference a public parameter:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>resolve:ssm:<i>public-parameter</i>
+   *                   </code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   *          <p>To reference a parameter stored in the same account:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>resolve:ssm:<i>parameter-name</i>
+   *                   </code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>resolve:ssm:<i>parameter-name:version-number</i>
+   *                   </code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>resolve:ssm:<i>parameter-name:label</i>
+   *                   </code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   *          <p>To reference a parameter shared from another Amazon Web Services account:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>resolve:ssm:<i>parameter-ARN</i>
+   *                   </code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>resolve:ssm:<i>parameter-ARN:version-number</i>
+   *                   </code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>resolve:ssm:<i>parameter-ARN:label</i>
+   *                   </code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/create-launch-template.html#use-an-ssm-parameter-instead-of-an-ami-id">Use a Systems Manager parameter instead of an AMI ID</a> in the
+   *                 <i>Amazon EC2 User Guide</i>.</p>
+   *          <note>
+   *             <p>If the launch template will be used for an EC2 Fleet or Spot Fleet, note the
+   *                 following:</p>
+   *             <ul>
+   *                <li>
+   *                   <p>Only EC2 Fleets of type <code>instant</code> support specifying a Systems
+   *                         Manager parameter.</p>
+   *                </li>
+   *                <li>
+   *                   <p>For EC2 Fleets of type <code>maintain</code> or <code>request</code>, or
+   *                         for Spot Fleets, you must specify the AMI ID.</p>
+   *                </li>
+   *             </ul>
+   *          </note>
+   * @public
+   */
+  ImageId?: string | undefined;
+
+  /**
+   * <p>The instance type. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html">Amazon EC2 instance types</a> in
+   *             the <i>Amazon EC2 User Guide</i>.</p>
+   *          <p>If you specify <code>InstanceType</code>, you can't specify
+   *                 <code>InstanceRequirements</code>.</p>
+   * @public
+   */
+  InstanceType?: _InstanceType | undefined;
+
+  /**
+   * <p>The name of the key pair. You can create a key pair using <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateKeyPair.html">CreateKeyPair</a> or
+   *                 <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ImportKeyPair.html">ImportKeyPair</a>.</p>
+   *          <important>
+   *             <p>If you do not specify a key pair, you can't connect to the instance unless you
+   *                 choose an AMI that is configured to allow users another way to log in.</p>
+   *          </important>
+   * @public
+   */
+  KeyName?: string | undefined;
+
+  /**
+   * <p>The monitoring for the instance.</p>
+   * @public
+   */
+  Monitoring?: LaunchTemplatesMonitoringRequest | undefined;
+
+  /**
+   * <p>The placement for the instance.</p>
+   * @public
+   */
+  Placement?: LaunchTemplatePlacementRequest | undefined;
+
+  /**
+   * <p>The ID of the RAM disk.</p>
+   *          <important>
+   *             <p>We recommend that you use PV-GRUB instead of kernels and RAM disks. For more
+   *                 information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedkernels.html">User provided
+   *                     kernels</a> in the <i>Amazon EC2 User Guide</i>.</p>
+   *          </important>
+   * @public
+   */
+  RamDiskId?: string | undefined;
+
+  /**
+   * <p>Indicates whether termination protection is enabled for the instance. The default is
+   *                 <code>false</code>, which means that you can terminate the instance using the Amazon EC2
+   *             console, command line tools, or API. You can enable termination protection when you
+   *             launch an instance, while the instance is running, or while the instance is
+   *             stopped.</p>
+   * @public
+   */
+  DisableApiTermination?: boolean | undefined;
+
+  /**
+   * <p>Indicates whether an instance stops or terminates when you initiate shutdown from the
+   *             instance (using the operating system command for system shutdown).</p>
+   *          <p>Default: <code>stop</code>
+   *          </p>
+   * @public
+   */
+  InstanceInitiatedShutdownBehavior?: ShutdownBehavior | undefined;
+
+  /**
+   * <p>The user data to make available to the instance. You must provide base64-encoded text.
+   *             User data is limited to 16 KB. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/user-data.html">Run commands when you launch an EC2
+   *                 instance with user data input</a> in the
+   *             <i>Amazon EC2 User Guide</i>.</p>
+   *          <p>If you are creating the launch template for use with Batch, the user
+   *             data must be provided in the <a href="https://cloudinit.readthedocs.io/en/latest/topics/format.html#mime-multi-part-archive">MIME multi-part archive format</a>. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/launch-templates.html#lt-user-data">Amazon EC2 user data in launch templates</a> in the
+   *                     <i>Batch User Guide</i>.</p>
+   * @public
+   */
+  UserData?: string | undefined;
+
+  /**
+   * <p>The tags to apply to the resources that are created during instance launch. These tags
+   *             are not applied to the launch template.</p>
+   * @public
+   */
+  TagSpecifications?: LaunchTemplateTagSpecificationRequest[] | undefined;
+
+  /**
+   * <p>Deprecated.</p>
+   *          <note>
+   *             <p>Amazon Elastic Graphics reached end of life on January 8, 2024.</p>
+   *          </note>
+   *
+   * @deprecated Specifying Elastic Graphics accelerators is no longer supported on the RunInstances API.
+   * @public
+   */
+  ElasticGpuSpecifications?: ElasticGpuSpecification[] | undefined;
+
+  /**
+   * <note>
+   *             <p>Amazon Elastic Inference is no longer available.</p>
+   *          </note>
+   *          <p>An elastic inference accelerator to associate with the instance. Elastic inference
+   *             accelerators are a resource you can attach to your Amazon EC2 instances to accelerate
+   *             your Deep Learning (DL) inference workloads.</p>
+   *          <p>You cannot specify accelerators from different generations in the same request.</p>
+   *
+   * @deprecated Specifying Elastic Inference accelerators is no longer supported on the RunInstances API.
+   * @public
+   */
+  ElasticInferenceAccelerators?: LaunchTemplateElasticInferenceAccelerator[] | undefined;
+
+  /**
+   * <p>The IDs of the security groups.</p>
+   *          <p>If you specify a network interface, you must specify any security groups as part of
+   *             the network interface instead of using this parameter.</p>
+   * @public
+   */
+  SecurityGroupIds?: string[] | undefined;
+
+  /**
+   * <p>The names of the security groups. For a nondefault VPC, you must use security group
+   *             IDs instead.</p>
+   *          <p>If you specify a network interface, you must specify any security groups as part of
+   *             the network interface instead of using this parameter.</p>
+   * @public
+   */
+  SecurityGroups?: string[] | undefined;
+
+  /**
+   * <p>The market (purchasing) option for the instances.</p>
+   * @public
+   */
+  InstanceMarketOptions?: LaunchTemplateInstanceMarketOptionsRequest | undefined;
+
+  /**
+   * <p>The credit option for CPU usage of the instance. Valid only for T instances.</p>
+   * @public
+   */
+  CreditSpecification?: CreditSpecificationRequest | undefined;
+
+  /**
+   * <p>The CPU options for the instance. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html">CPU
+   *                 options for Amazon EC2 instances</a> in the
+   *             <i>Amazon EC2 User Guide</i>.</p>
+   * @public
+   */
+  CpuOptions?: LaunchTemplateCpuOptionsRequest | undefined;
+
+  /**
+   * <p>The Capacity Reservation targeting option. If you do not specify this parameter, the
+   *             instance's Capacity Reservation preference defaults to <code>open</code>, which enables
+   *             it to run in any open Capacity Reservation that has matching attributes (instance type,
+   *             platform, Availability Zone).</p>
+   * @public
+   */
+  CapacityReservationSpecification?: LaunchTemplateCapacityReservationSpecificationRequest | undefined;
+
+  /**
+   * <p>The license configurations.</p>
+   * @public
+   */
+  LicenseSpecifications?: LaunchTemplateLicenseConfigurationRequest[] | undefined;
+
+  /**
+   * <p>Indicates whether an instance is enabled for hibernation. This parameter is valid only
+   *             if the instance meets the <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/hibernating-prerequisites.html">hibernation
+   *                 prerequisites</a>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html">Hibernate your Amazon EC2 instance</a>
+   *             in the <i>Amazon EC2 User Guide</i>.</p>
+   * @public
+   */
+  HibernationOptions?: LaunchTemplateHibernationOptionsRequest | undefined;
+
+  /**
+   * <p>The metadata options for the instance. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-instance-metadata-options.html">Configure
+   *                 the Instance Metadata Service options</a> in the
+   *                 <i>Amazon EC2 User Guide</i>.</p>
+   * @public
+   */
+  MetadataOptions?: LaunchTemplateInstanceMetadataOptionsRequest | undefined;
+
+  /**
+   * <p>Indicates whether the instance is enabled for Amazon Web Services Nitro Enclaves. For more
+   *             information, see <a href="https://docs.aws.amazon.com/enclaves/latest/user/nitro-enclave.html">What is Nitro Enclaves?</a> in the
+   *                 <i>Amazon Web Services Nitro Enclaves User Guide</i>.</p>
+   *          <p>You can't enable Amazon Web Services Nitro Enclaves and hibernation on the same instance.</p>
+   * @public
+   */
+  EnclaveOptions?: LaunchTemplateEnclaveOptionsRequest | undefined;
+
+  /**
+   * <p>The attributes for the instance types. When you specify instance attributes, Amazon EC2 will
+   *          identify instance types with these attributes.</p>
+   *          <p>You must specify <code>VCpuCount</code> and <code>MemoryMiB</code>. All other attributes
+   *          are optional. Any unspecified optional attribute is set to its default.</p>
+   *          <p>When you specify multiple attributes, you get instance types that satisfy all of the
+   *          specified attributes. If you specify multiple values for an attribute, you get instance
+   *          types that satisfy any of the specified values.</p>
+   *          <p>To limit the list of instance types from which Amazon EC2 can identify matching instance types,
+   *          you can use one of the following parameters, but not both in the same request:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>AllowedInstanceTypes</code> - The instance types to include in the list. All
+   *                other instance types are ignored, even if they match your specified attributes.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ExcludedInstanceTypes</code> - The instance types to exclude from the list,
+   *                even if they match your specified attributes.</p>
+   *             </li>
+   *          </ul>
+   *          <note>
+   *             <p>If you specify <code>InstanceRequirements</code>, you can't specify
+   *             <code>InstanceType</code>.</p>
+   *             <p>Attribute-based instance type selection is only supported when using Auto Scaling
+   *             groups, EC2 Fleet, and Spot Fleet to launch instances. If you plan to use the launch template in
+   *             the <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-instance-wizard.html">launch instance
+   *                wizard</a>, or with the <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html">RunInstances</a> API or
+   *               <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html">AWS::EC2::Instance</a> Amazon Web Services CloudFormation resource, you can't specify <code>InstanceRequirements</code>.</p>
+   *          </note>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-attribute-based-instance-type-selection.html">Specify attributes for instance type selection for EC2 Fleet or Spot Fleet</a> and <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-placement-score.html">Spot
+   *             placement score</a> in the <i>Amazon EC2 User Guide</i>.</p>
+   * @public
+   */
+  InstanceRequirements?: InstanceRequirementsRequest | undefined;
+
+  /**
+   * <p>The options for the instance hostname. The default values are inherited from the
+   *             subnet.</p>
+   * @public
+   */
+  PrivateDnsNameOptions?: LaunchTemplatePrivateDnsNameOptionsRequest | undefined;
+
+  /**
+   * <p>The maintenance options for the instance.</p>
+   * @public
+   */
+  MaintenanceOptions?: LaunchTemplateInstanceMaintenanceOptionsRequest | undefined;
+
+  /**
+   * <p>Indicates whether to enable the instance for stop protection. For more information,
+   *             see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-stop-protection.html">Enable stop protection for your EC2 instances</a> in the
+   *                 <i>Amazon EC2 User Guide</i>.</p>
+   * @public
+   */
+  DisableApiStop?: boolean | undefined;
+
+  /**
+   * <p>The entity that manages the launch template.</p>
+   * @public
+   */
+  Operator?: OperatorRequest | undefined;
+
+  /**
+   * <p>Contains launch template settings to boost network performance for the type of
+   *             workload that runs on your instance.</p>
+   * @public
+   */
+  NetworkPerformanceOptions?: LaunchTemplateNetworkPerformanceOptionsRequest | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateLaunchTemplateRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually
+   *             making the request, and provides an error response. If you have the required
+   *             permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is
+   *                 <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>Unique, case-sensitive identifier you provide to ensure the idempotency of the
+   *             request. If a client token isn't specified, a randomly generated token is used in the
+   *             request to ensure idempotency.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring
+   *                 idempotency</a>.</p>
+   *          <p>Constraint: Maximum 128 ASCII characters.</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
+
+  /**
+   * <p>A name for the launch template.</p>
+   * @public
+   */
+  LaunchTemplateName: string | undefined;
+
+  /**
+   * <p>A description for the first version of the launch template.</p>
+   * @public
+   */
+  VersionDescription?: string | undefined;
+
+  /**
+   * <p>The information for the launch template.</p>
+   * @public
+   */
+  LaunchTemplateData: RequestLaunchTemplateData | undefined;
+
+  /**
+   * <p>Reserved for internal use.</p>
+   * @public
+   */
+  Operator?: OperatorRequest | undefined;
+
+  /**
+   * <p>The tags to apply to the launch template on creation. To tag the launch template, the
+   *             resource type must be <code>launch-template</code>.</p>
+   *          <p>To specify the tags for the resources that are created when an instance is launched,
+   *             you must use the <code>TagSpecifications</code> parameter in the <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RequestLaunchTemplateData.html">launch template
+   *                 data</a> structure.</p>
+   * @public
+   */
+  TagSpecifications?: TagSpecification[] | undefined;
+}
+
+/**
+ * <p>Describes a launch template.</p>
+ * @public
+ */
+export interface LaunchTemplate {
+  /**
+   * <p>The ID of the launch template.</p>
+   * @public
+   */
+  LaunchTemplateId?: string | undefined;
+
+  /**
+   * <p>The name of the launch template.</p>
+   * @public
+   */
+  LaunchTemplateName?: string | undefined;
+
+  /**
+   * <p>The time launch template was created.</p>
+   * @public
+   */
+  CreateTime?: Date | undefined;
+
+  /**
+   * <p>The principal that created the launch template. </p>
+   * @public
+   */
+  CreatedBy?: string | undefined;
+
+  /**
+   * <p>The version number of the default version of the launch template.</p>
+   * @public
+   */
+  DefaultVersionNumber?: number | undefined;
+
+  /**
+   * <p>The version number of the latest version of the launch template.</p>
+   * @public
+   */
+  LatestVersionNumber?: number | undefined;
+
+  /**
+   * <p>The tags for the launch template.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+
+  /**
+   * <p>The entity that manages the launch template.</p>
+   * @public
+   */
+  Operator?: OperatorResponse | undefined;
+}
+
+/**
+ * <p>The error code and error message that is returned for a parameter or parameter
+ *             combination that is not valid when a new launch template or new version of a launch
+ *             template is created.</p>
+ * @public
+ */
+export interface ValidationError {
+  /**
+   * <p>The error code that indicates why the parameter or parameter combination is not valid.
+   *             For more information about error codes, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/errors-overview.html">Error codes</a>.</p>
+   * @public
+   */
+  Code?: string | undefined;
+
+  /**
+   * <p>The error message that describes why the parameter or parameter combination is not
+   *             valid. For more information about error messages, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/errors-overview.html">Error codes</a>.</p>
+   * @public
+   */
+  Message?: string | undefined;
+}
+
+/**
+ * <p>The error codes and error messages that are returned for the parameters or parameter
+ *             combinations that are not valid when a new launch template or new version of a launch
+ *             template is created.</p>
+ * @public
+ */
+export interface ValidationWarning {
+  /**
+   * <p>The error codes and error messages.</p>
+   * @public
+   */
+  Errors?: ValidationError[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateLaunchTemplateResult {
+  /**
+   * <p>Information about the launch template.</p>
+   * @public
+   */
+  LaunchTemplate?: LaunchTemplate | undefined;
+
+  /**
+   * <p>If the launch template contains parameters or parameter combinations that are not
+   *             valid, an error code and an error message are returned for each issue that's
+   *             found.</p>
+   * @public
+   */
+  Warning?: ValidationWarning | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateLaunchTemplateVersionRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually
+   *             making the request, and provides an error response. If you have the required
+   *             permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is
+   *                 <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>Unique, case-sensitive identifier you provide to ensure the idempotency of the
+   *             request. If a client token isn't specified, a randomly generated token is used in the
+   *             request to ensure idempotency.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring
+   *                 idempotency</a>.</p>
+   *          <p>Constraint: Maximum 128 ASCII characters.</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
+
+  /**
+   * <p>The ID of the launch template.</p>
+   *          <p>You must specify either the launch template ID or the launch template name, but not
+   *             both.</p>
+   * @public
+   */
+  LaunchTemplateId?: string | undefined;
+
+  /**
+   * <p>The name of the launch template.</p>
+   *          <p>You must specify either the launch template ID or the launch template name, but not
+   *             both.</p>
+   * @public
+   */
+  LaunchTemplateName?: string | undefined;
+
+  /**
+   * <p>The version of the launch template on which to base the new version. Snapshots applied
+   *             to the block device mapping are ignored when creating a new version unless they are
+   *             explicitly included.</p>
+   *          <p>If you specify this parameter, the new version inherits the launch parameters from the
+   *             source version. If you specify additional launch parameters for the new version, they
+   *             overwrite any corresponding launch parameters inherited from the source version.</p>
+   *          <p>If you omit this parameter, the new version contains only the launch parameters that
+   *             you specify for the new version.</p>
+   * @public
+   */
+  SourceVersion?: string | undefined;
+
+  /**
+   * <p>A description for the version of the launch template.</p>
+   * @public
+   */
+  VersionDescription?: string | undefined;
+
+  /**
+   * <p>The information for the launch template.</p>
+   * @public
+   */
+  LaunchTemplateData: RequestLaunchTemplateData | undefined;
+
+  /**
+   * <p>If <code>true</code>, and if a Systems Manager parameter is specified for
+   *                 <code>ImageId</code>, the AMI ID is displayed in the response for
+   *                 <code>imageID</code>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/create-launch-template.html#use-an-ssm-parameter-instead-of-an-ami-id">Use a Systems Manager parameter instead of an AMI ID</a> in the
+   *                 <i>Amazon EC2 User Guide</i>.</p>
+   *          <p>Default: <code>false</code>
+   *          </p>
+   * @public
+   */
+  ResolveAlias?: boolean | undefined;
+}
+
+/**
+ * <p>Describes a block device for an EBS volume.</p>
+ * @public
+ */
+export interface LaunchTemplateEbsBlockDevice {
+  /**
+   * <p>Indicates whether the EBS volume is encrypted.</p>
+   * @public
+   */
+  Encrypted?: boolean | undefined;
+
+  /**
+   * <p>Indicates whether the EBS volume is deleted on instance termination.</p>
+   * @public
+   */
+  DeleteOnTermination?: boolean | undefined;
+
+  /**
+   * <p>The number of I/O operations per second (IOPS) that the volume supports. </p>
+   * @public
+   */
+  Iops?: number | undefined;
+
+  /**
+   * <p>Identifier (key ID, key alias, key ARN, or alias ARN) of the customer managed KMS key to use for EBS encryption.</p>
+   * @public
+   */
+  KmsKeyId?: string | undefined;
+
+  /**
+   * <p>The ID of the snapshot.</p>
+   * @public
+   */
+  SnapshotId?: string | undefined;
+
+  /**
+   * <p>The size of the volume, in GiB.</p>
+   * @public
+   */
+  VolumeSize?: number | undefined;
+
+  /**
+   * <p>The volume type.</p>
+   * @public
+   */
+  VolumeType?: VolumeType | undefined;
+
+  /**
+   * <p>The throughput that the volume supports, in MiB/s.</p>
+   * @public
+   */
+  Throughput?: number | undefined;
+
+  /**
+   * <p>The Amazon EBS Provisioned Rate for Volume Initialization (volume initialization rate) specified for the volume, in MiB/s.
+   *             If no volume initialization rate was specified, the value is <code>null</code>.</p>
+   * @public
+   */
+  VolumeInitializationRate?: number | undefined;
+}
+
+/**
+ * <p>Describes a block device mapping.</p>
+ * @public
+ */
+export interface LaunchTemplateBlockDeviceMapping {
+  /**
+   * <p>The device name.</p>
+   * @public
+   */
+  DeviceName?: string | undefined;
+
+  /**
+   * <p>The virtual device name (ephemeralN).</p>
+   * @public
+   */
+  VirtualName?: string | undefined;
+
+  /**
+   * <p>Information about the block device for an EBS volume.</p>
+   * @public
+   */
+  Ebs?: LaunchTemplateEbsBlockDevice | undefined;
+
+  /**
+   * <p>To omit the device from the block device mapping, specify an empty string.</p>
+   * @public
+   */
+  NoDevice?: string | undefined;
+}
 
 /**
  * <p>Describes a target Capacity Reservation or Capacity Reservation group.</p>
@@ -2355,6 +3247,19 @@ export interface ManagedPrefixList {
    * @public
    */
   OwnerId?: string | undefined;
+
+  /**
+   * <p>The ID of the IPAM prefix list resolver target associated with this managed prefix list. When set, this prefix list becomes an IPAM managed prefix list.</p>
+   *          <p>An IPAM-managed prefix list is a customer-managed prefix list that has been associated with an IPAM prefix list resolver target. When a prefix list becomes IPAM managed, its CIDRs are automatically synchronized based on the IPAM prefix list resolver's CIDR selection rules, and direct CIDR modifications are restricted.</p>
+   * @public
+   */
+  IpamPrefixListResolverTargetId?: string | undefined;
+
+  /**
+   * <p>Indicates whether synchronization with an IPAM prefix list resolver is enabled for this managed prefix list. When enabled, the prefix list CIDRs are automatically updated based on the resolver's CIDR selection rules.</p>
+   * @public
+   */
+  IpamPrefixListResolverSyncEnabled?: boolean | undefined;
 }
 
 /**
@@ -9999,718 +10904,32 @@ export interface VerifiedAccessGroup {
 }
 
 /**
- * @public
+ * @internal
  */
-export interface CreateVerifiedAccessGroupResult {
-  /**
-   * <p>Details about the Verified Access group.</p>
-   * @public
-   */
-  VerifiedAccessGroup?: VerifiedAccessGroup | undefined;
-}
+export const RequestLaunchTemplateDataFilterSensitiveLog = (obj: RequestLaunchTemplateData): any => ({
+  ...obj,
+  ...(obj.UserData && { UserData: SENSITIVE_STRING }),
+});
 
 /**
- * @public
+ * @internal
  */
-export interface CreateVerifiedAccessInstanceRequest {
-  /**
-   * <p>A description for the Verified Access instance.</p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p>The tags to assign to the Verified Access instance.</p>
-   * @public
-   */
-  TagSpecifications?: TagSpecification[] | undefined;
-
-  /**
-   * <p>A unique, case-sensitive token that you provide to ensure idempotency of your
-   *             modification request. For more information, see <a href="https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html">Ensuring idempotency</a>.</p>
-   * @public
-   */
-  ClientToken?: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>Enable or disable support for Federal Information Processing Standards (FIPS) on the instance.</p>
-   * @public
-   */
-  FIPSEnabled?: boolean | undefined;
-
-  /**
-   * <p>The custom subdomain.</p>
-   * @public
-   */
-  CidrEndpointsCustomSubDomain?: string | undefined;
-}
+export const CreateLaunchTemplateRequestFilterSensitiveLog = (obj: CreateLaunchTemplateRequest): any => ({
+  ...obj,
+  ...(obj.LaunchTemplateData && {
+    LaunchTemplateData: RequestLaunchTemplateDataFilterSensitiveLog(obj.LaunchTemplateData),
+  }),
+});
 
 /**
- * @public
+ * @internal
  */
-export interface CreateVerifiedAccessInstanceResult {
-  /**
-   * <p>Details about the Verified Access instance.</p>
-   * @public
-   */
-  VerifiedAccessInstance?: VerifiedAccessInstance | undefined;
-}
-
-/**
- * <p>Describes the options when creating an Amazon Web Services Verified Access trust provider using the
- *             <code>device</code> type.</p>
- * @public
- */
-export interface CreateVerifiedAccessTrustProviderDeviceOptions {
-  /**
-   * <p>The ID of the tenant application with the device-identity provider.</p>
-   * @public
-   */
-  TenantId?: string | undefined;
-
-  /**
-   * <p>
-   *          The URL Amazon Web Services Verified Access will use to verify the authenticity of the device tokens.
-   *       </p>
-   * @public
-   */
-  PublicSigningKeyUrl?: string | undefined;
-}
-
-/**
- * <p>Describes the OpenID Connect (OIDC) options.</p>
- * @public
- */
-export interface CreateVerifiedAccessNativeApplicationOidcOptions {
-  /**
-   * <p>The public signing key endpoint.</p>
-   * @public
-   */
-  PublicSigningKeyEndpoint?: string | undefined;
-
-  /**
-   * <p>The OIDC issuer identifier of the IdP.</p>
-   * @public
-   */
-  Issuer?: string | undefined;
-
-  /**
-   * <p>The authorization endpoint of the IdP.</p>
-   * @public
-   */
-  AuthorizationEndpoint?: string | undefined;
-
-  /**
-   * <p>The token endpoint of the IdP.</p>
-   * @public
-   */
-  TokenEndpoint?: string | undefined;
-
-  /**
-   * <p>The user info endpoint of the IdP.</p>
-   * @public
-   */
-  UserInfoEndpoint?: string | undefined;
-
-  /**
-   * <p>The OAuth 2.0 client identifier.</p>
-   * @public
-   */
-  ClientId?: string | undefined;
-
-  /**
-   * <p>The OAuth 2.0 client secret.</p>
-   * @public
-   */
-  ClientSecret?: string | undefined;
-
-  /**
-   * <p>The set of user claims to be requested from the IdP.</p>
-   * @public
-   */
-  Scope?: string | undefined;
-}
-
-/**
- * <p>Describes the options when creating an Amazon Web Services Verified Access trust provider using the <code>user</code>
- *          type.</p>
- * @public
- */
-export interface CreateVerifiedAccessTrustProviderOidcOptions {
-  /**
-   * <p>The OIDC issuer.</p>
-   * @public
-   */
-  Issuer?: string | undefined;
-
-  /**
-   * <p>The OIDC authorization endpoint.</p>
-   * @public
-   */
-  AuthorizationEndpoint?: string | undefined;
-
-  /**
-   * <p>The OIDC token endpoint.</p>
-   * @public
-   */
-  TokenEndpoint?: string | undefined;
-
-  /**
-   * <p>The OIDC user info endpoint.</p>
-   * @public
-   */
-  UserInfoEndpoint?: string | undefined;
-
-  /**
-   * <p>The client identifier.</p>
-   * @public
-   */
-  ClientId?: string | undefined;
-
-  /**
-   * <p>The client secret.</p>
-   * @public
-   */
-  ClientSecret?: string | undefined;
-
-  /**
-   * <p>OpenID Connect (OIDC) scopes are used by an application during authentication to authorize access to a user's details. Each scope returns a specific set of user attributes.</p>
-   * @public
-   */
-  Scope?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateVerifiedAccessTrustProviderRequest {
-  /**
-   * <p>The type of trust provider.</p>
-   * @public
-   */
-  TrustProviderType: TrustProviderType | undefined;
-
-  /**
-   * <p>The type of user-based trust provider. This parameter is required when the provider type
-   *          is <code>user</code>.</p>
-   * @public
-   */
-  UserTrustProviderType?: UserTrustProviderType | undefined;
-
-  /**
-   * <p>The type of device-based trust provider. This parameter is required when the provider
-   *          type is <code>device</code>.</p>
-   * @public
-   */
-  DeviceTrustProviderType?: DeviceTrustProviderType | undefined;
-
-  /**
-   * <p>The options for a OpenID Connect-compatible user-identity trust provider. This parameter
-   *          is required when the provider type is <code>user</code>.</p>
-   * @public
-   */
-  OidcOptions?: CreateVerifiedAccessTrustProviderOidcOptions | undefined;
-
-  /**
-   * <p>The options for a device-based trust provider. This parameter is required when the
-   *          provider type is <code>device</code>.</p>
-   * @public
-   */
-  DeviceOptions?: CreateVerifiedAccessTrustProviderDeviceOptions | undefined;
-
-  /**
-   * <p>The identifier to be used when working with policy rules.</p>
-   * @public
-   */
-  PolicyReferenceName: string | undefined;
-
-  /**
-   * <p>A description for the Verified Access trust provider.</p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p>The tags to assign to the Verified Access trust provider.</p>
-   * @public
-   */
-  TagSpecifications?: TagSpecification[] | undefined;
-
-  /**
-   * <p>A unique, case-sensitive token that you provide to ensure idempotency of your
-   *             modification request. For more information, see <a href="https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html">Ensuring idempotency</a>.</p>
-   * @public
-   */
-  ClientToken?: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The options for server side encryption.</p>
-   * @public
-   */
-  SseSpecification?: VerifiedAccessSseSpecificationRequest | undefined;
-
-  /**
-   * <p>The OpenID Connect (OIDC) options.</p>
-   * @public
-   */
-  NativeApplicationOidcOptions?: CreateVerifiedAccessNativeApplicationOidcOptions | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateVerifiedAccessTrustProviderResult {
-  /**
-   * <p>Details about the Verified Access trust provider.</p>
-   * @public
-   */
-  VerifiedAccessTrustProvider?: VerifiedAccessTrustProvider | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateVolumeRequest {
-  /**
-   * <p>The ID of the Availability Zone in which to create the volume. For example, <code>us-east-1a</code>.</p>
-   *          <p>Either <code>AvailabilityZone</code> or <code>AvailabilityZoneId</code> must be specified,
-   *       but not both.</p>
-   * @public
-   */
-  AvailabilityZone?: string | undefined;
-
-  /**
-   * <p>The ID of the Availability Zone in which to create the volume. For example, <code>use1-az1</code>.</p>
-   *          <p>Either <code>AvailabilityZone</code> or <code>AvailabilityZoneId</code> must be specified,
-   *       but not both.</p>
-   * @public
-   */
-  AvailabilityZoneId?: string | undefined;
-
-  /**
-   * <p>Indicates whether the volume should be encrypted.
-   *       The effect of setting the encryption state to <code>true</code> depends on
-   * the volume origin (new or from a snapshot), starting encryption state, ownership, and whether encryption by default is enabled.
-   *       For more information, see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/work-with-ebs-encr.html#encryption-by-default">Encryption by default</a>
-   *       in the <i>Amazon EBS User Guide</i>.</p>
-   *          <p>Encrypted Amazon EBS volumes must be attached to instances that support Amazon EBS encryption.
-   *       For more information, see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/ebs-encryption-requirements.html#ebs-encryption_supported_instances">Supported
-   *         instance types</a>.</p>
-   * @public
-   */
-  Encrypted?: boolean | undefined;
-
-  /**
-   * <p>The number of I/O operations per second (IOPS) to provision for the volume.
-   *       Required for <code>io1</code> and <code>io2</code> volumes. Optional for <code>gp3</code>
-   *       volumes. Omit for all other volume types. </p>
-   *          <p>Valid ranges:</p>
-   *          <ul>
-   *             <li>
-   *                <p>gp3: <code>3,000 </code>(<i>default</i>)<code> - 80,000</code> IOPS</p>
-   *             </li>
-   *             <li>
-   *                <p>io1: <code>100 - 64,000</code> IOPS</p>
-   *             </li>
-   *             <li>
-   *                <p>io2: <code>100 - 256,000</code> IOPS</p>
-   *             </li>
-   *          </ul>
-   *          <note>
-   *             <p>
-   *                <a href="https://docs.aws.amazon.com/ec2/latest/instancetypes/ec2-nitro-instances.html">
-   * Instances built on the Nitro System</a> can support up to 256,000 IOPS. Other instances can support up to 32,000
-   * IOPS.</p>
-   *          </note>
-   * @public
-   */
-  Iops?: number | undefined;
-
-  /**
-   * <p>The identifier of the KMS key to use for Amazon EBS encryption.
-   *       If this parameter is not specified, your KMS key for Amazon EBS is used. If <code>KmsKeyId</code> is
-   *       specified, the encrypted state must be <code>true</code>.</p>
-   *          <p>You can specify the KMS key using any of the following:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Key ID. For example, 1234abcd-12ab-34cd-56ef-1234567890ab.</p>
-   *             </li>
-   *             <li>
-   *                <p>Key alias. For example, alias/ExampleAlias.</p>
-   *             </li>
-   *             <li>
-   *                <p>Key ARN. For example, arn:aws:kms:us-east-1:012345678910:key/1234abcd-12ab-34cd-56ef-1234567890ab.</p>
-   *             </li>
-   *             <li>
-   *                <p>Alias ARN. For example, arn:aws:kms:us-east-1:012345678910:alias/ExampleAlias.</p>
-   *             </li>
-   *          </ul>
-   *          <p>Amazon Web Services authenticates the KMS key asynchronously. Therefore, if you specify an ID, alias, or ARN that is not valid,
-   *       the action can appear to complete, but eventually fails.</p>
-   * @public
-   */
-  KmsKeyId?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the Outpost on which to create the volume.</p>
-   *          <p>If you intend to use a volume with an instance running on an outpost, then you must
-   *          create the volume on the same outpost as the instance. You can't use a volume created
-   *          in an Amazon Web Services Region with an instance on an Amazon Web Services outpost, or the other way around.</p>
-   * @public
-   */
-  OutpostArn?: string | undefined;
-
-  /**
-   * <p>The size of the volume, in GiBs. You must specify either a snapshot ID or a volume size.
-   *       If you specify a snapshot, the default is the snapshot size, and you can specify a volume size
-   *       that is equal to or larger than the snapshot size.</p>
-   *          <p>Valid sizes:</p>
-   *          <ul>
-   *             <li>
-   *                <p>gp2: <code>1 - 16,384</code> GiB</p>
-   *             </li>
-   *             <li>
-   *                <p>gp3: <code>1 - 65,536</code> GiB</p>
-   *             </li>
-   *             <li>
-   *                <p>io1: <code>4 - 16,384</code> GiB</p>
-   *             </li>
-   *             <li>
-   *                <p>io2: <code>4 - 65,536</code> GiB</p>
-   *             </li>
-   *             <li>
-   *                <p>st1 and sc1: <code>125 - 16,384</code> GiB</p>
-   *             </li>
-   *             <li>
-   *                <p>standard: <code>1 - 1024</code> GiB</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  Size?: number | undefined;
-
-  /**
-   * <p>The snapshot from which to create the volume. You must specify either a snapshot ID or a volume size.</p>
-   * @public
-   */
-  SnapshotId?: string | undefined;
-
-  /**
-   * <p>The volume type. This parameter can be one of the following values:</p>
-   *          <ul>
-   *             <li>
-   *                <p>General Purpose SSD: <code>gp2</code> | <code>gp3</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>Provisioned IOPS SSD: <code>io1</code> | <code>io2</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>Throughput Optimized HDD: <code>st1</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>Cold HDD: <code>sc1</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>Magnetic: <code>standard</code>
-   *                </p>
-   *             </li>
-   *          </ul>
-   *          <important>
-   *             <p>Throughput Optimized HDD (<code>st1</code>) and Cold HDD (<code>sc1</code>) volumes can't be used as boot volumes.</p>
-   *          </important>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/ebs-volume-types.html">Amazon EBS volume types</a> in the
-   *       <i>Amazon EBS User Guide</i>.</p>
-   *          <p>Default: <code>gp2</code>
-   *          </p>
-   * @public
-   */
-  VolumeType?: VolumeType | undefined;
-
-  /**
-   * <p>The tags to apply to the volume during creation.</p>
-   * @public
-   */
-  TagSpecifications?: TagSpecification[] | undefined;
-
-  /**
-   * <p>Indicates whether to enable Amazon EBS Multi-Attach. If you enable Multi-Attach, you can attach the
-   *       volume to up to 16 <a href="https://docs.aws.amazon.com/ec2/latest/instancetypes/ec2-nitro-instances.html">Instances built on the Nitro System</a> in the same Availability Zone. This parameter is
-   *     	supported with <code>io1</code> and <code>io2</code> volumes only. For more information,
-   *     	see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/ebs-volumes-multi.html">
-   *     		Amazon EBS Multi-Attach</a> in the <i>Amazon EBS User Guide</i>.</p>
-   * @public
-   */
-  MultiAttachEnabled?: boolean | undefined;
-
-  /**
-   * <p>The throughput to provision for the volume, in MiB/s. Supported for <code>gp3</code>
-   *       volumes only. Omit for all other volume types.</p>
-   *          <p>Valid Range: <code>125 - 2000</code> MiB/s</p>
-   * @public
-   */
-  Throughput?: number | undefined;
-
-  /**
-   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency
-   *       of the request. For more information, see <a href="https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html">Ensure
-   *         Idempotency</a>.</p>
-   * @public
-   */
-  ClientToken?: string | undefined;
-
-  /**
-   * <p>Specifies the Amazon EBS Provisioned Rate for Volume Initialization (volume initialization rate), in MiB/s, at which to download
-   *       the snapshot blocks from Amazon S3 to the volume. This is also known as <i>volume
-   *         initialization</i>. Specifying a volume initialization rate ensures that the volume is
-   *       initialized at a predictable and consistent rate after creation.</p>
-   *          <p>This parameter is supported only for volumes created from snapshots. Omit this parameter
-   *       if:</p>
-   *          <ul>
-   *             <li>
-   *                <p>You want to create the volume using fast snapshot restore. You must specify a snapshot
-   *           that is enabled for fast snapshot restore. In this case, the volume is fully initialized at
-   *           creation.</p>
-   *                <note>
-   *                   <p>If you specify a snapshot that is enabled for fast snapshot restore and a volume initialization rate,
-   *             the volume will be initialized at the specified rate instead of fast snapshot restore.</p>
-   *                </note>
-   *             </li>
-   *             <li>
-   *                <p>You want to create a volume that is initialized at the default rate.</p>
-   *             </li>
-   *          </ul>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/initalize-volume.html">
-   *       Initialize Amazon EBS volumes</a> in the <i>Amazon EC2 User Guide</i>.</p>
-   *          <p>Valid range: 100 - 300 MiB/s</p>
-   * @public
-   */
-  VolumeInitializationRate?: number | undefined;
-
-  /**
-   * <p>Reserved for internal use.</p>
-   * @public
-   */
-  Operator?: OperatorRequest | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateVpcRequest {
-  /**
-   * <p>The IPv4 network range for the VPC, in CIDR notation. For example,
-   * 		        <code>10.0.0.0/16</code>. We modify the specified CIDR block to its canonical form; for example, if you specify <code>100.68.0.18/18</code>, we modify it to <code>100.68.0.0/18</code>.</p>
-   * @public
-   */
-  CidrBlock?: string | undefined;
-
-  /**
-   * <p>The ID of an IPv6 address pool from which to allocate the IPv6 CIDR block.</p>
-   * @public
-   */
-  Ipv6Pool?: string | undefined;
-
-  /**
-   * <p>The IPv6 CIDR block from the IPv6 address pool. You must also specify <code>Ipv6Pool</code> in the request.</p>
-   *          <p>To let Amazon choose the IPv6 CIDR block for you, omit this parameter.</p>
-   * @public
-   */
-  Ipv6CidrBlock?: string | undefined;
-
-  /**
-   * <p>The ID of an IPv4 IPAM pool you want to use for allocating this VPC's CIDR. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/what-is-it-ipam.html">What is IPAM?</a> in the <i>Amazon VPC IPAM User Guide</i>.
-   *
-   *       </p>
-   * @public
-   */
-  Ipv4IpamPoolId?: string | undefined;
-
-  /**
-   * <p>The netmask length of the IPv4 CIDR you want to allocate to this VPC from an Amazon VPC IP Address Manager (IPAM) pool. For more information about IPAM, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/what-is-it-ipam.html">What is IPAM?</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
-   * @public
-   */
-  Ipv4NetmaskLength?: number | undefined;
-
-  /**
-   * <p>The ID of an IPv6 IPAM pool which will be used to allocate this VPC an IPv6 CIDR. IPAM is a VPC feature that you can use to automate your IP address management workflows including assigning, tracking, troubleshooting, and auditing IP addresses across Amazon Web Services Regions and accounts throughout your Amazon Web Services Organization. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/what-is-it-ipam.html">What is IPAM?</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
-   * @public
-   */
-  Ipv6IpamPoolId?: string | undefined;
-
-  /**
-   * <p>The netmask length of the IPv6 CIDR you want to allocate to this VPC from an Amazon VPC IP Address Manager (IPAM) pool. For more information about IPAM, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/what-is-it-ipam.html">What is IPAM?</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
-   * @public
-   */
-  Ipv6NetmaskLength?: number | undefined;
-
-  /**
-   * <p>The name of the location from which we advertise the IPV6 CIDR block. Use this parameter to limit the address to this location.</p>
-   *          <p> You must set <code>AmazonProvidedIpv6CidrBlock</code> to <code>true</code> to use this parameter.</p>
-   * @public
-   */
-  Ipv6CidrBlockNetworkBorderGroup?: string | undefined;
-
-  /**
-   * <p>The tags to assign to the VPC.</p>
-   * @public
-   */
-  TagSpecifications?: TagSpecification[] | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The tenancy options for instances launched into the VPC. For <code>default</code>, instances
-   *       are launched with shared tenancy by default. You can launch instances with any tenancy into a
-   *       shared tenancy VPC. For <code>dedicated</code>, instances are launched as dedicated tenancy
-   *       instances by default. You can only launch instances with a tenancy of <code>dedicated</code>
-   *       or <code>host</code> into a dedicated tenancy VPC. </p>
-   *          <p>
-   *             <b>Important:</b> The <code>host</code> value cannot be used with this parameter. Use the <code>default</code> or <code>dedicated</code> values only.</p>
-   *          <p>Default: <code>default</code>
-   *          </p>
-   * @public
-   */
-  InstanceTenancy?: Tenancy | undefined;
-
-  /**
-   * <p>Requests an Amazon-provided IPv6 CIDR block with a /56 prefix length for the VPC.
-   *             You cannot specify the range of IP addresses, or the size of the CIDR block.</p>
-   * @public
-   */
-  AmazonProvidedIpv6CidrBlock?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateVpcResult {
-  /**
-   * <p>Information about the VPC.</p>
-   * @public
-   */
-  Vpc?: Vpc | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const InternetGatewayExclusionMode = {
-  allow_bidirectional: "allow-bidirectional",
-  allow_egress: "allow-egress",
-} as const;
-
-/**
- * @public
- */
-export type InternetGatewayExclusionMode =
-  (typeof InternetGatewayExclusionMode)[keyof typeof InternetGatewayExclusionMode];
-
-/**
- * @public
- */
-export interface CreateVpcBlockPublicAccessExclusionRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>A subnet ID.</p>
-   * @public
-   */
-  SubnetId?: string | undefined;
-
-  /**
-   * <p>A VPC ID.</p>
-   * @public
-   */
-  VpcId?: string | undefined;
-
-  /**
-   * <p>The exclusion mode for internet gateway traffic.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>allow-bidirectional</code>: Allow all internet traffic to and from the excluded VPCs and subnets.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>allow-egress</code>: Allow outbound internet traffic from the excluded VPCs and subnets. Block inbound internet traffic to the excluded VPCs and subnets. Only applies when VPC Block Public Access is set to Bidirectional.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  InternetGatewayExclusionMode: InternetGatewayExclusionMode | undefined;
-
-  /**
-   * <p>
-   *             <code>tag</code> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value.
-   *     For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>
-   * @public
-   */
-  TagSpecifications?: TagSpecification[] | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const VpcBlockPublicAccessExclusionState = {
-  create_complete: "create-complete",
-  create_failed: "create-failed",
-  create_in_progress: "create-in-progress",
-  delete_complete: "delete-complete",
-  delete_in_progress: "delete-in-progress",
-  disable_complete: "disable-complete",
-  disable_in_progress: "disable-in-progress",
-  update_complete: "update-complete",
-  update_failed: "update-failed",
-  update_in_progress: "update-in-progress",
-} as const;
-
-/**
- * @public
- */
-export type VpcBlockPublicAccessExclusionState =
-  (typeof VpcBlockPublicAccessExclusionState)[keyof typeof VpcBlockPublicAccessExclusionState];
+export const CreateLaunchTemplateVersionRequestFilterSensitiveLog = (obj: CreateLaunchTemplateVersionRequest): any => ({
+  ...obj,
+  ...(obj.LaunchTemplateData && {
+    LaunchTemplateData: RequestLaunchTemplateDataFilterSensitiveLog(obj.LaunchTemplateData),
+  }),
+});
 
 /**
  * @internal
@@ -10748,53 +10967,4 @@ export const CreateMacSystemIntegrityProtectionModificationTaskRequestFilterSens
 ): any => ({
   ...obj,
   ...(obj.MacCredentials && { MacCredentials: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const CreateVerifiedAccessNativeApplicationOidcOptionsFilterSensitiveLog = (
-  obj: CreateVerifiedAccessNativeApplicationOidcOptions
-): any => ({
-  ...obj,
-  ...(obj.ClientSecret && { ClientSecret: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const CreateVerifiedAccessTrustProviderOidcOptionsFilterSensitiveLog = (
-  obj: CreateVerifiedAccessTrustProviderOidcOptions
-): any => ({
-  ...obj,
-  ...(obj.ClientSecret && { ClientSecret: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const CreateVerifiedAccessTrustProviderRequestFilterSensitiveLog = (
-  obj: CreateVerifiedAccessTrustProviderRequest
-): any => ({
-  ...obj,
-  ...(obj.OidcOptions && {
-    OidcOptions: CreateVerifiedAccessTrustProviderOidcOptionsFilterSensitiveLog(obj.OidcOptions),
-  }),
-  ...(obj.NativeApplicationOidcOptions && {
-    NativeApplicationOidcOptions: CreateVerifiedAccessNativeApplicationOidcOptionsFilterSensitiveLog(
-      obj.NativeApplicationOidcOptions
-    ),
-  }),
-});
-
-/**
- * @internal
- */
-export const CreateVerifiedAccessTrustProviderResultFilterSensitiveLog = (
-  obj: CreateVerifiedAccessTrustProviderResult
-): any => ({
-  ...obj,
-  ...(obj.VerifiedAccessTrustProvider && {
-    VerifiedAccessTrustProvider: VerifiedAccessTrustProviderFilterSensitiveLog(obj.VerifiedAccessTrustProvider),
-  }),
 });

@@ -9,7 +9,6 @@ import {
   AllowedPrincipal,
   AsnAssociation,
   AssociationStatus,
-  CurrencyCodeValues,
   DeviceTrustProviderType,
   IamInstanceProfileAssociation,
   InstanceEventWindow,
@@ -33,15 +32,9 @@ import {
   VpcPeeringConnection,
 } from "./models_0";
 
-import {
-  CapacityReservationState,
-  DiskImageFormat,
-  InstanceRequirementsRequest,
-  IpAddressType,
-  SSEType,
-  VolumeType,
-  Vpc,
-} from "./models_1";
+import { CapacityReservationState, DiskImageFormat, IpAddressType, SSEType, Volume, VolumeType, Vpc } from "./models_1";
+
+import { VerifiedAccessGroup } from "./models_2";
 
 import {
   ConnectionNotification,
@@ -71,15 +64,729 @@ import {
   FastLaunchSnapshotConfigurationResponse,
   FastLaunchStateCode,
   FastSnapshotRestoreStateCode,
-  HttpTokensState,
-  InstanceMetadataEndpointState,
-  InstanceMetadataTagsState,
-  PaymentOption,
+  ProductCode,
   ReservationState,
-  VirtualizationType,
 } from "./models_4";
 
-import { ArchitectureType, VolumeModificationState } from "./models_5";
+/**
+ * @public
+ */
+export interface DescribeVerifiedAccessGroupsRequest {
+  /**
+   * <p>The ID of the Verified Access groups.</p>
+   * @public
+   */
+  VerifiedAccessGroupIds?: string[] | undefined;
+
+  /**
+   * <p>The ID of the Verified Access instance.</p>
+   * @public
+   */
+  VerifiedAccessInstanceId?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return with a single call.
+   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The token for the next page of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>One or more filters. Filter names and values are case-sensitive.</p>
+   * @public
+   */
+  Filters?: Filter[] | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeVerifiedAccessGroupsResult {
+  /**
+   * <p>Details about the Verified Access groups.</p>
+   * @public
+   */
+  VerifiedAccessGroups?: VerifiedAccessGroup[] | undefined;
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeVerifiedAccessInstanceLoggingConfigurationsRequest {
+  /**
+   * <p>The IDs of the Verified Access instances.</p>
+   * @public
+   */
+  VerifiedAccessInstanceIds?: string[] | undefined;
+
+  /**
+   * <p>The maximum number of results to return with a single call.
+   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The token for the next page of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>One or more filters. Filter names and values are case-sensitive.</p>
+   * @public
+   */
+  Filters?: Filter[] | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const VerifiedAccessLogDeliveryStatusCode = {
+  FAILED: "failed",
+  SUCCESS: "success",
+} as const;
+
+/**
+ * @public
+ */
+export type VerifiedAccessLogDeliveryStatusCode =
+  (typeof VerifiedAccessLogDeliveryStatusCode)[keyof typeof VerifiedAccessLogDeliveryStatusCode];
+
+/**
+ * <p>Describes a log delivery status.</p>
+ * @public
+ */
+export interface VerifiedAccessLogDeliveryStatus {
+  /**
+   * <p>The status code.</p>
+   * @public
+   */
+  Code?: VerifiedAccessLogDeliveryStatusCode | undefined;
+
+  /**
+   * <p>The status message.</p>
+   * @public
+   */
+  Message?: string | undefined;
+}
+
+/**
+ * <p>Options for CloudWatch Logs as a logging destination.</p>
+ * @public
+ */
+export interface VerifiedAccessLogCloudWatchLogsDestination {
+  /**
+   * <p>Indicates whether logging is enabled.</p>
+   * @public
+   */
+  Enabled?: boolean | undefined;
+
+  /**
+   * <p>The delivery status for access logs.</p>
+   * @public
+   */
+  DeliveryStatus?: VerifiedAccessLogDeliveryStatus | undefined;
+
+  /**
+   * <p>The ID of the CloudWatch Logs log group.</p>
+   * @public
+   */
+  LogGroup?: string | undefined;
+}
+
+/**
+ * <p>Options for Kinesis as a logging destination.</p>
+ * @public
+ */
+export interface VerifiedAccessLogKinesisDataFirehoseDestination {
+  /**
+   * <p>Indicates whether logging is enabled.</p>
+   * @public
+   */
+  Enabled?: boolean | undefined;
+
+  /**
+   * <p>The delivery status.</p>
+   * @public
+   */
+  DeliveryStatus?: VerifiedAccessLogDeliveryStatus | undefined;
+
+  /**
+   * <p>The ID of the delivery stream.</p>
+   * @public
+   */
+  DeliveryStream?: string | undefined;
+}
+
+/**
+ * <p>Options for Amazon S3 as a logging destination.</p>
+ * @public
+ */
+export interface VerifiedAccessLogS3Destination {
+  /**
+   * <p>Indicates whether logging is enabled.</p>
+   * @public
+   */
+  Enabled?: boolean | undefined;
+
+  /**
+   * <p>The delivery status.</p>
+   * @public
+   */
+  DeliveryStatus?: VerifiedAccessLogDeliveryStatus | undefined;
+
+  /**
+   * <p>The bucket name.</p>
+   * @public
+   */
+  BucketName?: string | undefined;
+
+  /**
+   * <p>The bucket prefix.</p>
+   * @public
+   */
+  Prefix?: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services account number that owns the bucket.</p>
+   * @public
+   */
+  BucketOwner?: string | undefined;
+}
+
+/**
+ * <p>Describes the options for Verified Access logs.</p>
+ * @public
+ */
+export interface VerifiedAccessLogs {
+  /**
+   * <p>Amazon S3 logging options.</p>
+   * @public
+   */
+  S3?: VerifiedAccessLogS3Destination | undefined;
+
+  /**
+   * <p>CloudWatch Logs logging destination.</p>
+   * @public
+   */
+  CloudWatchLogs?: VerifiedAccessLogCloudWatchLogsDestination | undefined;
+
+  /**
+   * <p>Kinesis logging destination.</p>
+   * @public
+   */
+  KinesisDataFirehose?: VerifiedAccessLogKinesisDataFirehoseDestination | undefined;
+
+  /**
+   * <p>The log version.</p>
+   * @public
+   */
+  LogVersion?: string | undefined;
+
+  /**
+   * <p>Indicates whether trust data is included in the logs.</p>
+   * @public
+   */
+  IncludeTrustContext?: boolean | undefined;
+}
+
+/**
+ * <p>Describes logging options for an Amazon Web Services Verified Access instance.</p>
+ * @public
+ */
+export interface VerifiedAccessInstanceLoggingConfiguration {
+  /**
+   * <p>The ID of the Amazon Web Services Verified Access instance.</p>
+   * @public
+   */
+  VerifiedAccessInstanceId?: string | undefined;
+
+  /**
+   * <p>Details about the logging options.</p>
+   * @public
+   */
+  AccessLogs?: VerifiedAccessLogs | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeVerifiedAccessInstanceLoggingConfigurationsResult {
+  /**
+   * <p>The logging configuration for the Verified Access instances.</p>
+   * @public
+   */
+  LoggingConfigurations?: VerifiedAccessInstanceLoggingConfiguration[] | undefined;
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeVerifiedAccessInstancesRequest {
+  /**
+   * <p>The IDs of the Verified Access instances.</p>
+   * @public
+   */
+  VerifiedAccessInstanceIds?: string[] | undefined;
+
+  /**
+   * <p>The maximum number of results to return with a single call.
+   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The token for the next page of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>One or more filters. Filter names and values are case-sensitive.</p>
+   * @public
+   */
+  Filters?: Filter[] | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeVerifiedAccessInstancesResult {
+  /**
+   * <p>Details about the Verified Access instances.</p>
+   * @public
+   */
+  VerifiedAccessInstances?: VerifiedAccessInstance[] | undefined;
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeVerifiedAccessTrustProvidersRequest {
+  /**
+   * <p>The IDs of the Verified Access trust providers.</p>
+   * @public
+   */
+  VerifiedAccessTrustProviderIds?: string[] | undefined;
+
+  /**
+   * <p>The maximum number of results to return with a single call.
+   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The token for the next page of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>One or more filters. Filter names and values are case-sensitive.</p>
+   * @public
+   */
+  Filters?: Filter[] | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeVerifiedAccessTrustProvidersResult {
+  /**
+   * <p>Details about the Verified Access trust providers.</p>
+   * @public
+   */
+  VerifiedAccessTrustProviders?: VerifiedAccessTrustProvider[] | undefined;
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const VolumeAttributeName = {
+  autoEnableIO: "autoEnableIO",
+  productCodes: "productCodes",
+} as const;
+
+/**
+ * @public
+ */
+export type VolumeAttributeName = (typeof VolumeAttributeName)[keyof typeof VolumeAttributeName];
+
+/**
+ * @public
+ */
+export interface DescribeVolumeAttributeRequest {
+  /**
+   * <p>The attribute of the volume. This parameter is required.</p>
+   * @public
+   */
+  Attribute: VolumeAttributeName | undefined;
+
+  /**
+   * <p>The ID of the volume.</p>
+   * @public
+   */
+  VolumeId: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeVolumeAttributeResult {
+  /**
+   * <p>The state of <code>autoEnableIO</code> attribute.</p>
+   * @public
+   */
+  AutoEnableIO?: AttributeBooleanValue | undefined;
+
+  /**
+   * <p>A list of product codes.</p>
+   * @public
+   */
+  ProductCodes?: ProductCode[] | undefined;
+
+  /**
+   * <p>The ID of the volume.</p>
+   * @public
+   */
+  VolumeId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeVolumesRequest {
+  /**
+   * <p>The volume IDs. If not specified, then all volumes are included in the response.</p>
+   * @public
+   */
+  VolumeIds?: string[] | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The filters.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>attachment.attach-time</code> - The time stamp when the attachment
+   *           initiated.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>attachment.delete-on-termination</code> - Whether the volume is deleted on
+   *           instance termination.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>attachment.device</code> - The device name specified in the block device mapping
+   *           (for example, <code>/dev/sda1</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>attachment.instance-id</code> - The ID of the instance the volume is attached
+   *           to.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>attachment.status</code> - The attachment state (<code>attaching</code> |
+   *             <code>attached</code> | <code>detaching</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>availability-zone</code> - The Availability Zone in which the volume was
+   *           created.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>availability-zone-id</code> - The ID of the Availability Zone in which the
+   *           volume was created.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>create-time</code> - The time stamp when the volume was created.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>encrypted</code> - Indicates whether the volume is encrypted (<code>true</code>
+   *           | <code>false</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>fast-restored</code> - Indicates whether the volume was created from a
+   *           snapshot that is enabled for fast snapshot restore (<code>true</code> |
+   *           <code>false</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>multi-attach-enabled</code> - Indicates whether the volume is enabled for Multi-Attach (<code>true</code>
+   *     			| <code>false</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>operator.managed</code> - A Boolean that indicates whether this is a managed
+   *           volume.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>operator.principal</code> - The principal that manages the volume. Only valid
+   *           for managed volumes, where <code>managed</code> is <code>true</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>size</code> - The size of the volume, in GiB.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>snapshot-id</code> - The snapshot from which the volume was created.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>status</code> - The state of the volume (<code>creating</code> |
+   *             <code>available</code> | <code>in-use</code> | <code>deleting</code> |
+   *             <code>deleted</code> | <code>error</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>tag</code>:<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value.
+   *     For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>volume-id</code> - The volume ID.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>volume-type</code> - The Amazon EBS volume type (<code>gp2</code> | <code>gp3</code> | <code>io1</code> | <code>io2</code> |
+   *           <code>st1</code> | <code>sc1</code>| <code>standard</code>)</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Filters?: Filter[] | undefined;
+
+  /**
+   * <p>The token returned from a previous paginated request.
+   *   Pagination continues from the end of the items returned by the previous request.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of items to return for this request.
+   * 	To get the next page of items, make another request with the token returned in the output.
+   * 	For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeVolumesResult {
+  /**
+   * <p>The token to include in another request to get the next page of items.
+   *   This value is <code>null</code> when there are no more items to return.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>Information about the volumes.</p>
+   * @public
+   */
+  Volumes?: Volume[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeVolumesModificationsRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The IDs of the volumes.</p>
+   * @public
+   */
+  VolumeIds?: string[] | undefined;
+
+  /**
+   * <p>The filters.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>modification-state</code> - The current modification state (modifying |
+   *           optimizing | completed | failed).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>original-iops</code> - The original IOPS rate of the volume.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>original-size</code> - The original size of the volume, in GiB.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>original-volume-type</code> - The original volume type of the volume (standard |
+   *           io1 | io2 | gp2 | sc1 | st1).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>originalMultiAttachEnabled</code> - Indicates whether Multi-Attach support was enabled (true | false).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>start-time</code> - The modification start time.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>target-iops</code> - The target IOPS rate of the volume.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>target-size</code> - The target size of the volume, in GiB.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>target-volume-type</code> - The target volume type of the volume (standard |
+   *           io1 | io2 | gp2 | sc1 | st1).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>targetMultiAttachEnabled</code> - Indicates whether Multi-Attach support is to be enabled (true | false).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>volume-id</code> - The ID of the volume.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Filters?: Filter[] | undefined;
+
+  /**
+   * <p>The token returned from a previous paginated request.
+   *   Pagination continues from the end of the items returned by the previous request.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results (up to a limit of 500) to be returned in a paginated
+   *       request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const VolumeModificationState = {
+  completed: "completed",
+  failed: "failed",
+  modifying: "modifying",
+  optimizing: "optimizing",
+} as const;
+
+/**
+ * @public
+ */
+export type VolumeModificationState = (typeof VolumeModificationState)[keyof typeof VolumeModificationState];
 
 /**
  * <p>Describes the modification status of an EBS volume.</p>
@@ -7703,591 +8410,18 @@ export interface CapacityReservationGroup {
 }
 
 /**
- * @public
+ * @internal
  */
-export interface GetGroupsForCapacityReservationResult {
-  /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>Information about the resource groups to which the Capacity Reservation has been
-   * 			added.</p>
-   * @public
-   */
-  CapacityReservationGroups?: CapacityReservationGroup[] | undefined;
-}
-
-/**
- * @public
- */
-export interface GetHostReservationPurchasePreviewRequest {
-  /**
-   * <p>The IDs of the Dedicated Hosts with which the reservation is associated.</p>
-   * @public
-   */
-  HostIdSet: string[] | undefined;
-
-  /**
-   * <p>The offering ID of the reservation.</p>
-   * @public
-   */
-  OfferingId: string | undefined;
-}
-
-/**
- * <p>Describes the result of the purchase.</p>
- * @public
- */
-export interface Purchase {
-  /**
-   * <p>The currency in which the <code>UpfrontPrice</code> and <code>HourlyPrice</code>
-   *             amounts are specified. At this time, the only supported currency is
-   *             <code>USD</code>.</p>
-   * @public
-   */
-  CurrencyCode?: CurrencyCodeValues | undefined;
-
-  /**
-   * <p>The duration of the reservation's term in seconds.</p>
-   * @public
-   */
-  Duration?: number | undefined;
-
-  /**
-   * <p>The IDs of the Dedicated Hosts associated with the reservation.</p>
-   * @public
-   */
-  HostIdSet?: string[] | undefined;
-
-  /**
-   * <p>The ID of the reservation.</p>
-   * @public
-   */
-  HostReservationId?: string | undefined;
-
-  /**
-   * <p>The hourly price of the reservation per hour.</p>
-   * @public
-   */
-  HourlyPrice?: string | undefined;
-
-  /**
-   * <p>The instance family on the Dedicated Host that the reservation can be associated
-   *             with.</p>
-   * @public
-   */
-  InstanceFamily?: string | undefined;
-
-  /**
-   * <p>The payment option for the reservation.</p>
-   * @public
-   */
-  PaymentOption?: PaymentOption | undefined;
-
-  /**
-   * <p>The upfront price of the reservation.</p>
-   * @public
-   */
-  UpfrontPrice?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetHostReservationPurchasePreviewResult {
-  /**
-   * <p>The currency in which the <code>totalUpfrontPrice</code> and
-   *                 <code>totalHourlyPrice</code> amounts are specified. At this time, the only
-   *             supported currency is <code>USD</code>.</p>
-   * @public
-   */
-  CurrencyCode?: CurrencyCodeValues | undefined;
-
-  /**
-   * <p>The purchase information of the Dedicated Host reservation and the Dedicated Hosts
-   *             associated with it.</p>
-   * @public
-   */
-  Purchase?: Purchase[] | undefined;
-
-  /**
-   * <p>The potential total hourly price of the reservation per hour.</p>
-   * @public
-   */
-  TotalHourlyPrice?: string | undefined;
-
-  /**
-   * <p>The potential total upfront price. This is billed immediately.</p>
-   * @public
-   */
-  TotalUpfrontPrice?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetImageBlockPublicAccessStateRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   * 			and provides an error response. If you have the required permissions, the error response is
-   * 			<code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface GetImageBlockPublicAccessStateResult {
-  /**
-   * <p>The current state of block public access for AMIs at the account level in the specified
-   *       Amazon Web Services Region.</p>
-   *          <p>Possible values:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>block-new-sharing</code> - Any attempt to publicly share your AMIs in the
-   *           specified Region is blocked.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>unblocked</code> - Your AMIs in the specified Region can be publicly
-   *           shared.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  ImageBlockPublicAccessState?: string | undefined;
-
-  /**
-   * <p>The entity that manages the state for block public access for AMIs. Possible values
-   *             include:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>account</code> -  The state is managed by the account.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>declarative-policy</code> - The state is managed by a declarative policy and
-   *             can't be modified by the account.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  ManagedBy?: ManagedBy | undefined;
-}
-
-/**
- * @public
- */
-export interface GetInstanceMetadataDefaultsRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the operation, without actually making the
-   *   request, and provides an error response. If you have the required permissions, the error response is
-   *   <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-}
-
-/**
- * <p>The default instance metadata service (IMDS) settings that were set at the account
- *             level in the specified Amazon Web Services  Region.</p>
- * @public
- */
-export interface InstanceMetadataDefaultsResponse {
-  /**
-   * <p>Indicates whether IMDSv2 is required.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>optional</code> – IMDSv2 is optional, which means that you can
-   *                     use either IMDSv2 or IMDSv1.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>required</code> – IMDSv2 is required, which means that IMDSv1 is
-   *                     disabled, and you must use IMDSv2.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  HttpTokens?: HttpTokensState | undefined;
-
-  /**
-   * <p>The maximum number of hops that the metadata token can travel.</p>
-   * @public
-   */
-  HttpPutResponseHopLimit?: number | undefined;
-
-  /**
-   * <p>Indicates whether the IMDS endpoint for an instance is enabled or disabled. When disabled, the instance
-   *             metadata can't be accessed.</p>
-   * @public
-   */
-  HttpEndpoint?: InstanceMetadataEndpointState | undefined;
-
-  /**
-   * <p>Indicates whether access to instance tags from the instance metadata is enabled or
-   *             disabled. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#work-with-tags-in-IMDS">Work with
-   *                 instance tags using the instance metadata</a> in the
-   *             <i>Amazon EC2 User Guide</i>.</p>
-   * @public
-   */
-  InstanceMetadataTags?: InstanceMetadataTagsState | undefined;
-
-  /**
-   * <p>The entity that manages the IMDS default settings. Possible values include:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>account</code> - The IMDS default settings are managed by the
-   *             account.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>declarative-policy</code> - The IMDS default settings are managed
-   *             by a declarative policy and can't be modified by the account.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  ManagedBy?: ManagedBy | undefined;
-
-  /**
-   * <p>The customized exception message that is specified in the declarative policy.</p>
-   * @public
-   */
-  ManagedExceptionMessage?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetInstanceMetadataDefaultsResult {
-  /**
-   * <p>The account-level default IMDS settings.</p>
-   * @public
-   */
-  AccountLevel?: InstanceMetadataDefaultsResponse | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const EkPubKeyFormat = {
-  der: "der",
-  tpmt: "tpmt",
-} as const;
-
-/**
- * @public
- */
-export type EkPubKeyFormat = (typeof EkPubKeyFormat)[keyof typeof EkPubKeyFormat];
-
-/**
- * @public
- * @enum
- */
-export const EkPubKeyType = {
-  ECC_SEC_P384: "ecc-sec-p384",
-  RSA_2048: "rsa-2048",
-} as const;
-
-/**
- * @public
- */
-export type EkPubKeyType = (typeof EkPubKeyType)[keyof typeof EkPubKeyType];
-
-/**
- * @public
- */
-export interface GetInstanceTpmEkPubRequest {
-  /**
-   * <p>The ID of the instance for which to get the public endorsement key.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The required public endorsement key type.</p>
-   * @public
-   */
-  KeyType: EkPubKeyType | undefined;
-
-  /**
-   * <p>The required public endorsement key format. Specify <code>der</code> for a DER-encoded public
-   *             key that is compatible with OpenSSL. Specify <code>tpmt</code> for a TPM 2.0 format that is
-   *             compatible with tpm2-tools. The returned key is base64 encoded.</p>
-   * @public
-   */
-  KeyFormat: EkPubKeyFormat | undefined;
-
-  /**
-   * <p>Specify this parameter to verify whether the request will succeed, without actually making the
-   *             request. If the request will succeed, the response is <code>DryRunOperation</code>. Otherwise,
-   *             the response is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface GetInstanceTpmEkPubResult {
-  /**
-   * <p>The ID of the instance.</p>
-   * @public
-   */
-  InstanceId?: string | undefined;
-
-  /**
-   * <p>The public endorsement key type.</p>
-   * @public
-   */
-  KeyType?: EkPubKeyType | undefined;
-
-  /**
-   * <p>The public endorsement key format.</p>
-   * @public
-   */
-  KeyFormat?: EkPubKeyFormat | undefined;
-
-  /**
-   * <p>The public endorsement key material.</p>
-   * @public
-   */
-  KeyValue?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetInstanceTypesFromInstanceRequirementsRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The processor architecture type.</p>
-   * @public
-   */
-  ArchitectureTypes: ArchitectureType[] | undefined;
-
-  /**
-   * <p>The virtualization type.</p>
-   * @public
-   */
-  VirtualizationTypes: VirtualizationType[] | undefined;
-
-  /**
-   * <p>The attributes required for the instance types.</p>
-   * @public
-   */
-  InstanceRequirements: InstanceRequirementsRequest | undefined;
-
-  /**
-   * <p>The maximum number of items to return for this request.
-   *          To get the next page of items, make another request with the token returned in the output.
-   * 	        For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>Reserved.</p>
-   * @public
-   */
-  Context?: string | undefined;
-}
-
-/**
- * <p>The list of instance types with the specified instance attributes.</p>
- * @public
- */
-export interface InstanceTypeInfoFromInstanceRequirements {
-  /**
-   * <p>The matching instance type.</p>
-   * @public
-   */
-  InstanceType?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetInstanceTypesFromInstanceRequirementsResult {
-  /**
-   * <p>The instance types with the specified instance attributes.</p>
-   * @public
-   */
-  InstanceTypes?: InstanceTypeInfoFromInstanceRequirements[] | undefined;
-
-  /**
-   * <p>The token to include in another request to get the next page of items. This value is <code>null</code> when there
-   *          are no more items to return.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetInstanceUefiDataRequest {
-  /**
-   * <p>The ID of the instance from which to retrieve the UEFI data.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the operation, without actually making the
-   *   request, and provides an error response. If you have the required permissions, the error response is
-   *   <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface GetInstanceUefiDataResult {
-  /**
-   * <p>The ID of the instance from which to retrieve the UEFI data.</p>
-   * @public
-   */
-  InstanceId?: string | undefined;
-
-  /**
-   * <p>Base64 representation of the non-volatile UEFI variable store.</p>
-   * @public
-   */
-  UefiData?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetIpamAddressHistoryRequest {
-  /**
-   * <p>A check for whether you have the required permissions for the action without actually making the request
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The CIDR you want the history of. The CIDR can be an IPv4 or IPv6 IP address range.
-   *          If you enter a /16 IPv4 CIDR, you will get records that match it exactly. You will not get records for any subnets within the /16 CIDR.</p>
-   * @public
-   */
-  Cidr: string | undefined;
-
-  /**
-   * <p>The ID of the IPAM scope that the CIDR is in.</p>
-   * @public
-   */
-  IpamScopeId: string | undefined;
-
-  /**
-   * <p>The ID of the VPC you want your history records filtered by.</p>
-   * @public
-   */
-  VpcId?: string | undefined;
-
-  /**
-   * <p>The start of the time period for which you are looking for history. If you omit this option, it will default to the value of EndTime.</p>
-   * @public
-   */
-  StartTime?: Date | undefined;
-
-  /**
-   * <p>The end of the time period for which you are looking for history. If you omit this option, it will default to the current time.</p>
-   * @public
-   */
-  EndTime?: Date | undefined;
-
-  /**
-   * <p>The maximum number of historical results you would like returned per page. Defaults to 100.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>The token for the next page of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const IpamComplianceStatus = {
-  compliant: "compliant",
-  ignored: "ignored",
-  noncompliant: "noncompliant",
-  unmanaged: "unmanaged",
-} as const;
-
-/**
- * @public
- */
-export type IpamComplianceStatus = (typeof IpamComplianceStatus)[keyof typeof IpamComplianceStatus];
-
-/**
- * @public
- * @enum
- */
-export const IpamOverlapStatus = {
-  ignored: "ignored",
-  nonoverlapping: "nonoverlapping",
-  overlapping: "overlapping",
-} as const;
-
-/**
- * @public
- */
-export type IpamOverlapStatus = (typeof IpamOverlapStatus)[keyof typeof IpamOverlapStatus];
-
-/**
- * @public
- * @enum
- */
-export const IpamAddressHistoryResourceType = {
-  eip: "eip",
-  instance: "instance",
-  network_interface: "network-interface",
-  subnet: "subnet",
-  vpc: "vpc",
-} as const;
-
-/**
- * @public
- */
-export type IpamAddressHistoryResourceType =
-  (typeof IpamAddressHistoryResourceType)[keyof typeof IpamAddressHistoryResourceType];
+export const DescribeVerifiedAccessTrustProvidersResultFilterSensitiveLog = (
+  obj: DescribeVerifiedAccessTrustProvidersResult
+): any => ({
+  ...obj,
+  ...(obj.VerifiedAccessTrustProviders && {
+    VerifiedAccessTrustProviders: obj.VerifiedAccessTrustProviders.map((item) =>
+      VerifiedAccessTrustProviderFilterSensitiveLog(item)
+    ),
+  }),
+});
 
 /**
  * @internal
@@ -8333,12 +8467,4 @@ export const ExportVerifiedAccessInstanceClientConfigurationResultFilterSensitiv
       obj.UserTrustProvider
     ),
   }),
-});
-
-/**
- * @internal
- */
-export const GetInstanceTpmEkPubResultFilterSensitiveLog = (obj: GetInstanceTpmEkPubResult): any => ({
-  ...obj,
-  ...(obj.KeyValue && { KeyValue: SENSITIVE_STRING }),
 });

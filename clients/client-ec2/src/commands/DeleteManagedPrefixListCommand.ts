@@ -60,6 +60,8 @@ export interface DeleteManagedPrefixListCommandOutput extends DeleteManagedPrefi
  * //       },
  * //     ],
  * //     OwnerId: "STRING_VALUE",
+ * //     IpamPrefixListResolverTargetId: "STRING_VALUE",
+ * //     IpamPrefixListResolverSyncEnabled: true || false,
  * //   },
  * // };
  *

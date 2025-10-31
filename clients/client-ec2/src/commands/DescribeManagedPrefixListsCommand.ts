@@ -74,6 +74,8 @@ export interface DescribeManagedPrefixListsCommandOutput extends DescribeManaged
  * //         },
  * //       ],
  * //       OwnerId: "STRING_VALUE",
+ * //       IpamPrefixListResolverTargetId: "STRING_VALUE",
+ * //       IpamPrefixListResolverSyncEnabled: true || false,
  * //     },
  * //   ],
  * // };

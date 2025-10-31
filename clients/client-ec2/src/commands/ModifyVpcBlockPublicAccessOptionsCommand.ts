@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ModifyVpcBlockPublicAccessOptionsRequest, ModifyVpcBlockPublicAccessOptionsResult } from "../models/models_7";
+import { ModifyVpcBlockPublicAccessOptionsRequest, ModifyVpcBlockPublicAccessOptionsResult } from "../models/models_8";
 import {
   de_ModifyVpcBlockPublicAccessOptionsCommand,
   se_ModifyVpcBlockPublicAccessOptionsCommand,

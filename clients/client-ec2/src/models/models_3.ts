@@ -8,15 +8,16 @@ import {
   AddressAttribute,
   AddressAttributeName,
   AddressTransfer,
-  BundleTask,
-  BundleTaskFilterSensitiveLog,
   ByoipCidr,
+  DeviceTrustProviderType,
   InstanceEventWindowState,
   Tag,
   TagSpecification,
   TransitGatewayPeeringAttachment,
   TransitGatewayVpcAttachment,
+  TrustProviderType,
   UnsuccessfulItem,
+  UserTrustProviderType,
   VerifiedAccessInstance,
   VerifiedAccessTrustProvider,
   VerifiedAccessTrustProviderFilterSensitiveLog,
@@ -25,7 +26,6 @@ import {
 } from "./models_0";
 
 import {
-  CapacityReservationTenancy,
   CarrierGateway,
   ClientVpnEndpointStatus,
   ClientVpnRouteStatus,
@@ -37,13 +37,17 @@ import {
   Ipam,
   IpamExternalResourceVerificationToken,
   IpamPool,
+  IpamPrefixListResolver,
+  IpamPrefixListResolverTarget,
   IpamResourceDiscovery,
   IpamScope,
-  LaunchTemplate,
+  Tenancy,
+  VolumeType,
+  Vpc,
 } from "./models_1";
 
 import {
-  InternetGatewayExclusionMode,
+  LaunchTemplate,
   LocalGatewayRoute,
   LocalGatewayRouteTable,
   LocalGatewayRouteTableVirtualInterfaceGroupAssociation,
@@ -51,6 +55,7 @@ import {
   LocalGatewayVirtualInterface,
   LocalGatewayVirtualInterfaceGroup,
   ManagedPrefixList,
+  OperatorRequest,
   RouteServer,
   RouteServerEndpoint,
   RouteServerPeer,
@@ -66,8 +71,722 @@ import {
   TransitGatewayRouteTableAnnouncement,
   VerifiedAccessEndpoint,
   VerifiedAccessGroup,
-  VpcBlockPublicAccessExclusionState,
+  VerifiedAccessSseSpecificationRequest,
 } from "./models_2";
+
+/**
+ * @public
+ */
+export interface CreateVerifiedAccessGroupResult {
+  /**
+   * <p>Details about the Verified Access group.</p>
+   * @public
+   */
+  VerifiedAccessGroup?: VerifiedAccessGroup | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateVerifiedAccessInstanceRequest {
+  /**
+   * <p>A description for the Verified Access instance.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The tags to assign to the Verified Access instance.</p>
+   * @public
+   */
+  TagSpecifications?: TagSpecification[] | undefined;
+
+  /**
+   * <p>A unique, case-sensitive token that you provide to ensure idempotency of your
+   *             modification request. For more information, see <a href="https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html">Ensuring idempotency</a>.</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>Enable or disable support for Federal Information Processing Standards (FIPS) on the instance.</p>
+   * @public
+   */
+  FIPSEnabled?: boolean | undefined;
+
+  /**
+   * <p>The custom subdomain.</p>
+   * @public
+   */
+  CidrEndpointsCustomSubDomain?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateVerifiedAccessInstanceResult {
+  /**
+   * <p>Details about the Verified Access instance.</p>
+   * @public
+   */
+  VerifiedAccessInstance?: VerifiedAccessInstance | undefined;
+}
+
+/**
+ * <p>Describes the options when creating an Amazon Web Services Verified Access trust provider using the
+ *             <code>device</code> type.</p>
+ * @public
+ */
+export interface CreateVerifiedAccessTrustProviderDeviceOptions {
+  /**
+   * <p>The ID of the tenant application with the device-identity provider.</p>
+   * @public
+   */
+  TenantId?: string | undefined;
+
+  /**
+   * <p>
+   *          The URL Amazon Web Services Verified Access will use to verify the authenticity of the device tokens.
+   *       </p>
+   * @public
+   */
+  PublicSigningKeyUrl?: string | undefined;
+}
+
+/**
+ * <p>Describes the OpenID Connect (OIDC) options.</p>
+ * @public
+ */
+export interface CreateVerifiedAccessNativeApplicationOidcOptions {
+  /**
+   * <p>The public signing key endpoint.</p>
+   * @public
+   */
+  PublicSigningKeyEndpoint?: string | undefined;
+
+  /**
+   * <p>The OIDC issuer identifier of the IdP.</p>
+   * @public
+   */
+  Issuer?: string | undefined;
+
+  /**
+   * <p>The authorization endpoint of the IdP.</p>
+   * @public
+   */
+  AuthorizationEndpoint?: string | undefined;
+
+  /**
+   * <p>The token endpoint of the IdP.</p>
+   * @public
+   */
+  TokenEndpoint?: string | undefined;
+
+  /**
+   * <p>The user info endpoint of the IdP.</p>
+   * @public
+   */
+  UserInfoEndpoint?: string | undefined;
+
+  /**
+   * <p>The OAuth 2.0 client identifier.</p>
+   * @public
+   */
+  ClientId?: string | undefined;
+
+  /**
+   * <p>The OAuth 2.0 client secret.</p>
+   * @public
+   */
+  ClientSecret?: string | undefined;
+
+  /**
+   * <p>The set of user claims to be requested from the IdP.</p>
+   * @public
+   */
+  Scope?: string | undefined;
+}
+
+/**
+ * <p>Describes the options when creating an Amazon Web Services Verified Access trust provider using the <code>user</code>
+ *          type.</p>
+ * @public
+ */
+export interface CreateVerifiedAccessTrustProviderOidcOptions {
+  /**
+   * <p>The OIDC issuer.</p>
+   * @public
+   */
+  Issuer?: string | undefined;
+
+  /**
+   * <p>The OIDC authorization endpoint.</p>
+   * @public
+   */
+  AuthorizationEndpoint?: string | undefined;
+
+  /**
+   * <p>The OIDC token endpoint.</p>
+   * @public
+   */
+  TokenEndpoint?: string | undefined;
+
+  /**
+   * <p>The OIDC user info endpoint.</p>
+   * @public
+   */
+  UserInfoEndpoint?: string | undefined;
+
+  /**
+   * <p>The client identifier.</p>
+   * @public
+   */
+  ClientId?: string | undefined;
+
+  /**
+   * <p>The client secret.</p>
+   * @public
+   */
+  ClientSecret?: string | undefined;
+
+  /**
+   * <p>OpenID Connect (OIDC) scopes are used by an application during authentication to authorize access to a user's details. Each scope returns a specific set of user attributes.</p>
+   * @public
+   */
+  Scope?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateVerifiedAccessTrustProviderRequest {
+  /**
+   * <p>The type of trust provider.</p>
+   * @public
+   */
+  TrustProviderType: TrustProviderType | undefined;
+
+  /**
+   * <p>The type of user-based trust provider. This parameter is required when the provider type
+   *          is <code>user</code>.</p>
+   * @public
+   */
+  UserTrustProviderType?: UserTrustProviderType | undefined;
+
+  /**
+   * <p>The type of device-based trust provider. This parameter is required when the provider
+   *          type is <code>device</code>.</p>
+   * @public
+   */
+  DeviceTrustProviderType?: DeviceTrustProviderType | undefined;
+
+  /**
+   * <p>The options for a OpenID Connect-compatible user-identity trust provider. This parameter
+   *          is required when the provider type is <code>user</code>.</p>
+   * @public
+   */
+  OidcOptions?: CreateVerifiedAccessTrustProviderOidcOptions | undefined;
+
+  /**
+   * <p>The options for a device-based trust provider. This parameter is required when the
+   *          provider type is <code>device</code>.</p>
+   * @public
+   */
+  DeviceOptions?: CreateVerifiedAccessTrustProviderDeviceOptions | undefined;
+
+  /**
+   * <p>The identifier to be used when working with policy rules.</p>
+   * @public
+   */
+  PolicyReferenceName: string | undefined;
+
+  /**
+   * <p>A description for the Verified Access trust provider.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The tags to assign to the Verified Access trust provider.</p>
+   * @public
+   */
+  TagSpecifications?: TagSpecification[] | undefined;
+
+  /**
+   * <p>A unique, case-sensitive token that you provide to ensure idempotency of your
+   *             modification request. For more information, see <a href="https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html">Ensuring idempotency</a>.</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The options for server side encryption.</p>
+   * @public
+   */
+  SseSpecification?: VerifiedAccessSseSpecificationRequest | undefined;
+
+  /**
+   * <p>The OpenID Connect (OIDC) options.</p>
+   * @public
+   */
+  NativeApplicationOidcOptions?: CreateVerifiedAccessNativeApplicationOidcOptions | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateVerifiedAccessTrustProviderResult {
+  /**
+   * <p>Details about the Verified Access trust provider.</p>
+   * @public
+   */
+  VerifiedAccessTrustProvider?: VerifiedAccessTrustProvider | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateVolumeRequest {
+  /**
+   * <p>The ID of the Availability Zone in which to create the volume. For example, <code>us-east-1a</code>.</p>
+   *          <p>Either <code>AvailabilityZone</code> or <code>AvailabilityZoneId</code> must be specified,
+   *       but not both.</p>
+   * @public
+   */
+  AvailabilityZone?: string | undefined;
+
+  /**
+   * <p>The ID of the Availability Zone in which to create the volume. For example, <code>use1-az1</code>.</p>
+   *          <p>Either <code>AvailabilityZone</code> or <code>AvailabilityZoneId</code> must be specified,
+   *       but not both.</p>
+   * @public
+   */
+  AvailabilityZoneId?: string | undefined;
+
+  /**
+   * <p>Indicates whether the volume should be encrypted.
+   *       The effect of setting the encryption state to <code>true</code> depends on
+   * the volume origin (new or from a snapshot), starting encryption state, ownership, and whether encryption by default is enabled.
+   *       For more information, see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/work-with-ebs-encr.html#encryption-by-default">Encryption by default</a>
+   *       in the <i>Amazon EBS User Guide</i>.</p>
+   *          <p>Encrypted Amazon EBS volumes must be attached to instances that support Amazon EBS encryption.
+   *       For more information, see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/ebs-encryption-requirements.html#ebs-encryption_supported_instances">Supported
+   *         instance types</a>.</p>
+   * @public
+   */
+  Encrypted?: boolean | undefined;
+
+  /**
+   * <p>The number of I/O operations per second (IOPS) to provision for the volume.
+   *       Required for <code>io1</code> and <code>io2</code> volumes. Optional for <code>gp3</code>
+   *       volumes. Omit for all other volume types. </p>
+   *          <p>Valid ranges:</p>
+   *          <ul>
+   *             <li>
+   *                <p>gp3: <code>3,000 </code>(<i>default</i>)<code> - 80,000</code> IOPS</p>
+   *             </li>
+   *             <li>
+   *                <p>io1: <code>100 - 64,000</code> IOPS</p>
+   *             </li>
+   *             <li>
+   *                <p>io2: <code>100 - 256,000</code> IOPS</p>
+   *             </li>
+   *          </ul>
+   *          <note>
+   *             <p>
+   *                <a href="https://docs.aws.amazon.com/ec2/latest/instancetypes/ec2-nitro-instances.html">
+   * Instances built on the Nitro System</a> can support up to 256,000 IOPS. Other instances can support up to 32,000
+   * IOPS.</p>
+   *          </note>
+   * @public
+   */
+  Iops?: number | undefined;
+
+  /**
+   * <p>The identifier of the KMS key to use for Amazon EBS encryption.
+   *       If this parameter is not specified, your KMS key for Amazon EBS is used. If <code>KmsKeyId</code> is
+   *       specified, the encrypted state must be <code>true</code>.</p>
+   *          <p>You can specify the KMS key using any of the following:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Key ID. For example, 1234abcd-12ab-34cd-56ef-1234567890ab.</p>
+   *             </li>
+   *             <li>
+   *                <p>Key alias. For example, alias/ExampleAlias.</p>
+   *             </li>
+   *             <li>
+   *                <p>Key ARN. For example, arn:aws:kms:us-east-1:012345678910:key/1234abcd-12ab-34cd-56ef-1234567890ab.</p>
+   *             </li>
+   *             <li>
+   *                <p>Alias ARN. For example, arn:aws:kms:us-east-1:012345678910:alias/ExampleAlias.</p>
+   *             </li>
+   *          </ul>
+   *          <p>Amazon Web Services authenticates the KMS key asynchronously. Therefore, if you specify an ID, alias, or ARN that is not valid,
+   *       the action can appear to complete, but eventually fails.</p>
+   * @public
+   */
+  KmsKeyId?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Outpost on which to create the volume.</p>
+   *          <p>If you intend to use a volume with an instance running on an outpost, then you must
+   *          create the volume on the same outpost as the instance. You can't use a volume created
+   *          in an Amazon Web Services Region with an instance on an Amazon Web Services outpost, or the other way around.</p>
+   * @public
+   */
+  OutpostArn?: string | undefined;
+
+  /**
+   * <p>The size of the volume, in GiBs. You must specify either a snapshot ID or a volume size.
+   *       If you specify a snapshot, the default is the snapshot size, and you can specify a volume size
+   *       that is equal to or larger than the snapshot size.</p>
+   *          <p>Valid sizes:</p>
+   *          <ul>
+   *             <li>
+   *                <p>gp2: <code>1 - 16,384</code> GiB</p>
+   *             </li>
+   *             <li>
+   *                <p>gp3: <code>1 - 65,536</code> GiB</p>
+   *             </li>
+   *             <li>
+   *                <p>io1: <code>4 - 16,384</code> GiB</p>
+   *             </li>
+   *             <li>
+   *                <p>io2: <code>4 - 65,536</code> GiB</p>
+   *             </li>
+   *             <li>
+   *                <p>st1 and sc1: <code>125 - 16,384</code> GiB</p>
+   *             </li>
+   *             <li>
+   *                <p>standard: <code>1 - 1024</code> GiB</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Size?: number | undefined;
+
+  /**
+   * <p>The snapshot from which to create the volume. You must specify either a snapshot ID or a volume size.</p>
+   * @public
+   */
+  SnapshotId?: string | undefined;
+
+  /**
+   * <p>The volume type. This parameter can be one of the following values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>General Purpose SSD: <code>gp2</code> | <code>gp3</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>Provisioned IOPS SSD: <code>io1</code> | <code>io2</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>Throughput Optimized HDD: <code>st1</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>Cold HDD: <code>sc1</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>Magnetic: <code>standard</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   *          <important>
+   *             <p>Throughput Optimized HDD (<code>st1</code>) and Cold HDD (<code>sc1</code>) volumes can't be used as boot volumes.</p>
+   *          </important>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/ebs-volume-types.html">Amazon EBS volume types</a> in the
+   *       <i>Amazon EBS User Guide</i>.</p>
+   *          <p>Default: <code>gp2</code>
+   *          </p>
+   * @public
+   */
+  VolumeType?: VolumeType | undefined;
+
+  /**
+   * <p>The tags to apply to the volume during creation.</p>
+   * @public
+   */
+  TagSpecifications?: TagSpecification[] | undefined;
+
+  /**
+   * <p>Indicates whether to enable Amazon EBS Multi-Attach. If you enable Multi-Attach, you can attach the
+   *       volume to up to 16 <a href="https://docs.aws.amazon.com/ec2/latest/instancetypes/ec2-nitro-instances.html">Instances built on the Nitro System</a> in the same Availability Zone. This parameter is
+   *     	supported with <code>io1</code> and <code>io2</code> volumes only. For more information,
+   *     	see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/ebs-volumes-multi.html">
+   *     		Amazon EBS Multi-Attach</a> in the <i>Amazon EBS User Guide</i>.</p>
+   * @public
+   */
+  MultiAttachEnabled?: boolean | undefined;
+
+  /**
+   * <p>The throughput to provision for the volume, in MiB/s. Supported for <code>gp3</code>
+   *       volumes only. Omit for all other volume types.</p>
+   *          <p>Valid Range: <code>125 - 2000</code> MiB/s</p>
+   * @public
+   */
+  Throughput?: number | undefined;
+
+  /**
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency
+   *       of the request. For more information, see <a href="https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html">Ensure
+   *         Idempotency</a>.</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
+
+  /**
+   * <p>Specifies the Amazon EBS Provisioned Rate for Volume Initialization (volume initialization rate), in MiB/s, at which to download
+   *       the snapshot blocks from Amazon S3 to the volume. This is also known as <i>volume
+   *         initialization</i>. Specifying a volume initialization rate ensures that the volume is
+   *       initialized at a predictable and consistent rate after creation.</p>
+   *          <p>This parameter is supported only for volumes created from snapshots. Omit this parameter
+   *       if:</p>
+   *          <ul>
+   *             <li>
+   *                <p>You want to create the volume using fast snapshot restore. You must specify a snapshot
+   *           that is enabled for fast snapshot restore. In this case, the volume is fully initialized at
+   *           creation.</p>
+   *                <note>
+   *                   <p>If you specify a snapshot that is enabled for fast snapshot restore and a volume initialization rate,
+   *             the volume will be initialized at the specified rate instead of fast snapshot restore.</p>
+   *                </note>
+   *             </li>
+   *             <li>
+   *                <p>You want to create a volume that is initialized at the default rate.</p>
+   *             </li>
+   *          </ul>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/initalize-volume.html">
+   *       Initialize Amazon EBS volumes</a> in the <i>Amazon EC2 User Guide</i>.</p>
+   *          <p>Valid range: 100 - 300 MiB/s</p>
+   * @public
+   */
+  VolumeInitializationRate?: number | undefined;
+
+  /**
+   * <p>Reserved for internal use.</p>
+   * @public
+   */
+  Operator?: OperatorRequest | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateVpcRequest {
+  /**
+   * <p>The IPv4 network range for the VPC, in CIDR notation. For example,
+   * 		        <code>10.0.0.0/16</code>. We modify the specified CIDR block to its canonical form; for example, if you specify <code>100.68.0.18/18</code>, we modify it to <code>100.68.0.0/18</code>.</p>
+   * @public
+   */
+  CidrBlock?: string | undefined;
+
+  /**
+   * <p>The ID of an IPv6 address pool from which to allocate the IPv6 CIDR block.</p>
+   * @public
+   */
+  Ipv6Pool?: string | undefined;
+
+  /**
+   * <p>The IPv6 CIDR block from the IPv6 address pool. You must also specify <code>Ipv6Pool</code> in the request.</p>
+   *          <p>To let Amazon choose the IPv6 CIDR block for you, omit this parameter.</p>
+   * @public
+   */
+  Ipv6CidrBlock?: string | undefined;
+
+  /**
+   * <p>The ID of an IPv4 IPAM pool you want to use for allocating this VPC's CIDR. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/what-is-it-ipam.html">What is IPAM?</a> in the <i>Amazon VPC IPAM User Guide</i>.
+   *
+   *       </p>
+   * @public
+   */
+  Ipv4IpamPoolId?: string | undefined;
+
+  /**
+   * <p>The netmask length of the IPv4 CIDR you want to allocate to this VPC from an Amazon VPC IP Address Manager (IPAM) pool. For more information about IPAM, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/what-is-it-ipam.html">What is IPAM?</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
+   * @public
+   */
+  Ipv4NetmaskLength?: number | undefined;
+
+  /**
+   * <p>The ID of an IPv6 IPAM pool which will be used to allocate this VPC an IPv6 CIDR. IPAM is a VPC feature that you can use to automate your IP address management workflows including assigning, tracking, troubleshooting, and auditing IP addresses across Amazon Web Services Regions and accounts throughout your Amazon Web Services Organization. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/what-is-it-ipam.html">What is IPAM?</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
+   * @public
+   */
+  Ipv6IpamPoolId?: string | undefined;
+
+  /**
+   * <p>The netmask length of the IPv6 CIDR you want to allocate to this VPC from an Amazon VPC IP Address Manager (IPAM) pool. For more information about IPAM, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/what-is-it-ipam.html">What is IPAM?</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
+   * @public
+   */
+  Ipv6NetmaskLength?: number | undefined;
+
+  /**
+   * <p>The name of the location from which we advertise the IPV6 CIDR block. Use this parameter to limit the address to this location.</p>
+   *          <p> You must set <code>AmazonProvidedIpv6CidrBlock</code> to <code>true</code> to use this parameter.</p>
+   * @public
+   */
+  Ipv6CidrBlockNetworkBorderGroup?: string | undefined;
+
+  /**
+   * <p>The tags to assign to the VPC.</p>
+   * @public
+   */
+  TagSpecifications?: TagSpecification[] | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The tenancy options for instances launched into the VPC. For <code>default</code>, instances
+   *       are launched with shared tenancy by default. You can launch instances with any tenancy into a
+   *       shared tenancy VPC. For <code>dedicated</code>, instances are launched as dedicated tenancy
+   *       instances by default. You can only launch instances with a tenancy of <code>dedicated</code>
+   *       or <code>host</code> into a dedicated tenancy VPC. </p>
+   *          <p>
+   *             <b>Important:</b> The <code>host</code> value cannot be used with this parameter. Use the <code>default</code> or <code>dedicated</code> values only.</p>
+   *          <p>Default: <code>default</code>
+   *          </p>
+   * @public
+   */
+  InstanceTenancy?: Tenancy | undefined;
+
+  /**
+   * <p>Requests an Amazon-provided IPv6 CIDR block with a /56 prefix length for the VPC.
+   *             You cannot specify the range of IP addresses, or the size of the CIDR block.</p>
+   * @public
+   */
+  AmazonProvidedIpv6CidrBlock?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateVpcResult {
+  /**
+   * <p>Information about the VPC.</p>
+   * @public
+   */
+  Vpc?: Vpc | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const InternetGatewayExclusionMode = {
+  allow_bidirectional: "allow-bidirectional",
+  allow_egress: "allow-egress",
+} as const;
+
+/**
+ * @public
+ */
+export type InternetGatewayExclusionMode =
+  (typeof InternetGatewayExclusionMode)[keyof typeof InternetGatewayExclusionMode];
+
+/**
+ * @public
+ */
+export interface CreateVpcBlockPublicAccessExclusionRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>A subnet ID.</p>
+   * @public
+   */
+  SubnetId?: string | undefined;
+
+  /**
+   * <p>A VPC ID.</p>
+   * @public
+   */
+  VpcId?: string | undefined;
+
+  /**
+   * <p>The exclusion mode for internet gateway traffic.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>allow-bidirectional</code>: Allow all internet traffic to and from the excluded VPCs and subnets.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>allow-egress</code>: Allow outbound internet traffic from the excluded VPCs and subnets. Block inbound internet traffic to the excluded VPCs and subnets. Only applies when VPC Block Public Access is set to Bidirectional.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  InternetGatewayExclusionMode: InternetGatewayExclusionMode | undefined;
+
+  /**
+   * <p>
+   *             <code>tag</code> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value.
+   *     For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>
+   * @public
+   */
+  TagSpecifications?: TagSpecification[] | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const VpcBlockPublicAccessExclusionState = {
+  create_complete: "create-complete",
+  create_failed: "create-failed",
+  create_in_progress: "create-in-progress",
+  delete_complete: "delete-complete",
+  delete_in_progress: "delete-in-progress",
+  disable_complete: "disable-complete",
+  disable_in_progress: "disable-in-progress",
+  update_complete: "update-complete",
+  update_failed: "update-failed",
+  update_in_progress: "update-in-progress",
+} as const;
+
+/**
+ * @public
+ */
+export type VpcBlockPublicAccessExclusionState =
+  (typeof VpcBlockPublicAccessExclusionState)[keyof typeof VpcBlockPublicAccessExclusionState];
 
 /**
  * <p>A VPC BPA exclusion is a mode that can be applied to a single VPC or subnet that exempts it from the account’s BPA mode and will allow bidirectional or egress-only access. You can create BPA exclusions for VPCs and subnets even when BPA is not enabled on the account to ensure that there is no traffic disruption to the exclusions when VPC BPA is turned on. To learn more about VPC BPA, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/security-vpc-bpa.html">Block public access to VPCs and subnets</a> in the <i>Amazon VPC User Guide</i>.</p>
@@ -3166,6 +3885,66 @@ export interface DeleteIpamPoolResult {
    * @public
    */
   IpamPool?: IpamPool | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteIpamPrefixListResolverRequest {
+  /**
+   * <p>A check for whether you have the required permissions for the action without actually making the request
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The ID of the IPAM prefix list resolver to delete.</p>
+   * @public
+   */
+  IpamPrefixListResolverId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteIpamPrefixListResolverResult {
+  /**
+   * <p>Information about the IPAM prefix list resolver that was deleted.</p>
+   * @public
+   */
+  IpamPrefixListResolver?: IpamPrefixListResolver | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteIpamPrefixListResolverTargetRequest {
+  /**
+   * <p>A check for whether you have the required permissions for the action without actually making the request
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The ID of the IPAM prefix list resolver target to delete.</p>
+   * @public
+   */
+  IpamPrefixListResolverTargetId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteIpamPrefixListResolverTargetResult {
+  /**
+   * <p>Information about the IPAM prefix list resolver target that was deleted.</p>
+   * @public
+   */
+  IpamPrefixListResolverTarget?: IpamPrefixListResolverTarget | undefined;
 }
 
 /**
@@ -6541,844 +7320,53 @@ export interface Subscription {
 }
 
 /**
- * @public
+ * @internal
  */
-export interface DescribeAwsNetworkPerformanceMetricSubscriptionsResult {
-  /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>Describes the current Infrastructure Performance subscriptions.</p>
-   * @public
-   */
-  Subscriptions?: Subscription[] | undefined;
-}
+export const CreateVerifiedAccessNativeApplicationOidcOptionsFilterSensitiveLog = (
+  obj: CreateVerifiedAccessNativeApplicationOidcOptions
+): any => ({
+  ...obj,
+  ...(obj.ClientSecret && { ClientSecret: SENSITIVE_STRING }),
+});
 
 /**
- * @public
+ * @internal
  */
-export interface DescribeBundleTasksRequest {
-  /**
-   * <p>The bundle task IDs.</p>
-   *          <p>Default: Describes all your bundle tasks.</p>
-   * @public
-   */
-  BundleIds?: string[] | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   * 			and provides an error response. If you have the required permissions, the error response is
-   * 			<code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The filters.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>bundle-id</code> - The ID of the bundle task.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>error-code</code> - If the task failed, the error code returned.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>error-message</code> - If the task failed, the error message returned.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>instance-id</code> - The ID of the instance.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>progress</code> - The level of task completion, as a percentage (for example,
-   *           20%).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>s3-bucket</code> - The Amazon S3 bucket to store the AMI.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>s3-prefix</code> - The beginning of the AMI name.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>start-time</code> - The time the task started (for example,
-   *           2013-09-15T17:15:20.000Z).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>state</code> - The state of the task (<code>pending</code> |
-   *             <code>waiting-for-shutdown</code> | <code>bundling</code> | <code>storing</code> |
-   *             <code>cancelling</code> | <code>complete</code> | <code>failed</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>update-time</code> - The time of the most recent update for the task.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  Filters?: Filter[] | undefined;
-}
+export const CreateVerifiedAccessTrustProviderOidcOptionsFilterSensitiveLog = (
+  obj: CreateVerifiedAccessTrustProviderOidcOptions
+): any => ({
+  ...obj,
+  ...(obj.ClientSecret && { ClientSecret: SENSITIVE_STRING }),
+});
 
 /**
- * @public
+ * @internal
  */
-export interface DescribeBundleTasksResult {
-  /**
-   * <p>Information about the bundle tasks.</p>
-   * @public
-   */
-  BundleTasks?: BundleTask[] | undefined;
-}
+export const CreateVerifiedAccessTrustProviderRequestFilterSensitiveLog = (
+  obj: CreateVerifiedAccessTrustProviderRequest
+): any => ({
+  ...obj,
+  ...(obj.OidcOptions && {
+    OidcOptions: CreateVerifiedAccessTrustProviderOidcOptionsFilterSensitiveLog(obj.OidcOptions),
+  }),
+  ...(obj.NativeApplicationOidcOptions && {
+    NativeApplicationOidcOptions: CreateVerifiedAccessNativeApplicationOidcOptionsFilterSensitiveLog(
+      obj.NativeApplicationOidcOptions
+    ),
+  }),
+});
 
 /**
- * @public
+ * @internal
  */
-export interface DescribeByoipCidrsRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The maximum number of results to return with a single call.
-   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
-   * @public
-   */
-  MaxResults: number | undefined;
-
-  /**
-   * <p>The token for the next page of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeByoipCidrsResult {
-  /**
-   * <p>Information about your address ranges.</p>
-   * @public
-   */
-  ByoipCidrs?: ByoipCidr[] | undefined;
-
-  /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeCapacityBlockExtensionHistoryRequest {
-  /**
-   * <p>The IDs of Capacity Block reservations that you want to display the history
-   * 			for.</p>
-   * @public
-   */
-  CapacityReservationIds?: string[] | undefined;
-
-  /**
-   * <p>The token to use to retrieve the next page of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of items to return for this request. To get the next page of items, make another request with the token returned in the output. For more information,
-   *     see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>One or more filters</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>availability-zone</code> - The Availability Zone of the
-   * 					extension.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>availability-zone-id</code> - The Availability Zone ID of the
-   * 					extension.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>capacity-block-extension-offering-id</code> - The ID of the extension
-   * 					offering.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>capacity-block-extension-status</code> - The status of the extension
-   * 						(<code>payment-pending</code> | <code>payment-failed</code> |
-   * 						<code>payment-succeeded</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>capacity-reservation-id</code> - The reservation ID of the
-   * 					extension.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>instance-type</code> - The instance type of the extension.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  Filters?: Filter[] | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const CapacityBlockExtensionStatus = {
-  PAYMENT_FAILED: "payment-failed",
-  PAYMENT_PENDING: "payment-pending",
-  PAYMENT_SUCCEEDED: "payment-succeeded",
-} as const;
-
-/**
- * @public
- */
-export type CapacityBlockExtensionStatus =
-  (typeof CapacityBlockExtensionStatus)[keyof typeof CapacityBlockExtensionStatus];
-
-/**
- * <p>Describes a Capacity Block extension. With an extension, you can extend the duration
- * 			of time for an existing Capacity Block.</p>
- * @public
- */
-export interface CapacityBlockExtension {
-  /**
-   * <p>The reservation ID of the Capacity Block extension.</p>
-   * @public
-   */
-  CapacityReservationId?: string | undefined;
-
-  /**
-   * <p>The instance type of the Capacity Block extension.</p>
-   * @public
-   */
-  InstanceType?: string | undefined;
-
-  /**
-   * <p>The number of instances in the Capacity Block extension.</p>
-   * @public
-   */
-  InstanceCount?: number | undefined;
-
-  /**
-   * <p>The Availability Zone of the Capacity Block extension.</p>
-   * @public
-   */
-  AvailabilityZone?: string | undefined;
-
-  /**
-   * <p>The Availability Zone ID of the Capacity Block extension.</p>
-   * @public
-   */
-  AvailabilityZoneId?: string | undefined;
-
-  /**
-   * <p>The ID of the Capacity Block extension offering.</p>
-   * @public
-   */
-  CapacityBlockExtensionOfferingId?: string | undefined;
-
-  /**
-   * <p>The duration of the Capacity Block extension in hours.</p>
-   * @public
-   */
-  CapacityBlockExtensionDurationHours?: number | undefined;
-
-  /**
-   * <p>The status of the Capacity Block extension. A Capacity Block extension can have one of
-   * 			the following statuses:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>payment-pending</code> - The Capacity Block extension payment is
-   * 					processing. If your payment can't be processed within 12 hours, the Capacity
-   * 					Block extension is failed.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>payment-failed</code> - Payment for the Capacity Block extension request
-   * 					was not successful.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>payment-succeeded</code> - Payment for the Capacity Block extension
-   * 					request was successful. You receive an invoice that reflects the one-time
-   * 					upfront payment. In the invoice, you can associate the paid amount with the
-   * 					Capacity Block reservation ID.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  CapacityBlockExtensionStatus?: CapacityBlockExtensionStatus | undefined;
-
-  /**
-   * <p>The date when the Capacity Block extension was purchased.</p>
-   * @public
-   */
-  CapacityBlockExtensionPurchaseDate?: Date | undefined;
-
-  /**
-   * <p>The start date of the Capacity Block extension.</p>
-   * @public
-   */
-  CapacityBlockExtensionStartDate?: Date | undefined;
-
-  /**
-   * <p>The end date of the Capacity Block extension.</p>
-   * @public
-   */
-  CapacityBlockExtensionEndDate?: Date | undefined;
-
-  /**
-   * <p>The total price to be paid up front.</p>
-   * @public
-   */
-  UpfrontFee?: string | undefined;
-
-  /**
-   * <p>The currency of the payment for the Capacity Block extension.</p>
-   * @public
-   */
-  CurrencyCode?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeCapacityBlockExtensionHistoryResult {
-  /**
-   * <p>Describes one or more of your Capacity Block extensions. The results describe only the
-   * 			Capacity Block extensions in the Amazon Web Services Region that you're currently using.</p>
-   * @public
-   */
-  CapacityBlockExtensions?: CapacityBlockExtension[] | undefined;
-
-  /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeCapacityBlockExtensionOfferingsRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The duration of the Capacity Block extension offering in hours.</p>
-   * @public
-   */
-  CapacityBlockExtensionDurationHours: number | undefined;
-
-  /**
-   * <p>The ID of the Capacity reservation to be extended.</p>
-   * @public
-   */
-  CapacityReservationId: string | undefined;
-
-  /**
-   * <p>The token to use to retrieve the next page of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of items to return for this request. To get the next page of items, make another request with the token returned in the output. For more information,
-   *     see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-}
-
-/**
- * <p>The recommended Capacity Block extension that fits your search requirements.</p>
- * @public
- */
-export interface CapacityBlockExtensionOffering {
-  /**
-   * <p>The ID of the Capacity Block extension offering.</p>
-   * @public
-   */
-  CapacityBlockExtensionOfferingId?: string | undefined;
-
-  /**
-   * <p>The instance type of the Capacity Block that will be extended.</p>
-   * @public
-   */
-  InstanceType?: string | undefined;
-
-  /**
-   * <p>The number of instances in the Capacity Block extension offering.</p>
-   * @public
-   */
-  InstanceCount?: number | undefined;
-
-  /**
-   * <p>The Availability Zone of the Capacity Block that will be extended.</p>
-   * @public
-   */
-  AvailabilityZone?: string | undefined;
-
-  /**
-   * <p>The Availability Zone ID of the Capacity Block that will be extended.</p>
-   * @public
-   */
-  AvailabilityZoneId?: string | undefined;
-
-  /**
-   * <p>The start date of the Capacity Block that will be extended.</p>
-   * @public
-   */
-  StartDate?: Date | undefined;
-
-  /**
-   * <p>The date and time at which the Capacity Block extension will start. This date is also
-   * 			the same as the end date of the Capacity Block that will be extended.</p>
-   * @public
-   */
-  CapacityBlockExtensionStartDate?: Date | undefined;
-
-  /**
-   * <p>The date and time at which the Capacity Block extension expires. When a Capacity Block
-   * 			expires, the reserved capacity is released and you can no longer launch instances into
-   * 			it. The Capacity Block's state changes to <code>expired</code> when it reaches its end
-   * 			date</p>
-   * @public
-   */
-  CapacityBlockExtensionEndDate?: Date | undefined;
-
-  /**
-   * <p>The amount of time of the Capacity Block extension offering in hours.</p>
-   * @public
-   */
-  CapacityBlockExtensionDurationHours?: number | undefined;
-
-  /**
-   * <p>The total price of the Capacity Block extension offering, to be paid up front.</p>
-   * @public
-   */
-  UpfrontFee?: string | undefined;
-
-  /**
-   * <p>The currency of the payment for the Capacity Block extension offering.</p>
-   * @public
-   */
-  CurrencyCode?: string | undefined;
-
-  /**
-   * <p>Indicates the tenancy of the Capacity Block extension offering. A Capacity Block can
-   * 			have one of the following tenancy settings:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>default</code> - The Capacity Block is created on hardware that is
-   * 					shared with other Amazon Web Services accounts.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>dedicated</code> - The Capacity Block is created on single-tenant
-   * 					hardware that is dedicated to a single Amazon Web Services account.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  Tenancy?: CapacityReservationTenancy | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeCapacityBlockExtensionOfferingsResult {
-  /**
-   * <p>The recommended Capacity Block extension offerings for the dates specified.</p>
-   * @public
-   */
-  CapacityBlockExtensionOfferings?: CapacityBlockExtensionOffering[] | undefined;
-
-  /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeCapacityBlockOfferingsRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The type of instance for which the Capacity Block offering reserves capacity.</p>
-   * @public
-   */
-  InstanceType?: string | undefined;
-
-  /**
-   * <p>The number of instances for which to reserve capacity. Each Capacity Block can have up
-   * 			to 64 instances, and you can have up to 256 instances across Capacity Blocks.</p>
-   * @public
-   */
-  InstanceCount?: number | undefined;
-
-  /**
-   * <p>The earliest start date for the Capacity Block offering.</p>
-   * @public
-   */
-  StartDateRange?: Date | undefined;
-
-  /**
-   * <p>The latest end date for the Capacity Block offering.</p>
-   * @public
-   */
-  EndDateRange?: Date | undefined;
-
-  /**
-   * <p>The reservation duration for the Capacity Block, in hours. You must specify the
-   * 			duration in 1-day increments up 14 days, and in 7-day increments up to 182 days.</p>
-   * @public
-   */
-  CapacityDurationHours: number | undefined;
-
-  /**
-   * <p>The token to use to retrieve the next page of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of items to return for this request. To get the next page of items, make another request with the token returned in the output. For more information,
-   *     see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>The EC2 UltraServer type of the Capacity Block offerings.</p>
-   * @public
-   */
-  UltraserverType?: string | undefined;
-
-  /**
-   * <p>The number of EC2 UltraServers in the offerings.</p>
-   * @public
-   */
-  UltraserverCount?: number | undefined;
-}
-
-/**
- * <p>The recommended Capacity Block that fits your search requirements.</p>
- * @public
- */
-export interface CapacityBlockOffering {
-  /**
-   * <p>The ID of the Capacity Block offering.</p>
-   * @public
-   */
-  CapacityBlockOfferingId?: string | undefined;
-
-  /**
-   * <p>The instance type of the Capacity Block offering.</p>
-   * @public
-   */
-  InstanceType?: string | undefined;
-
-  /**
-   * <p>The Availability Zone of the Capacity Block offering.</p>
-   * @public
-   */
-  AvailabilityZone?: string | undefined;
-
-  /**
-   * <p>The number of instances in the Capacity Block offering.</p>
-   * @public
-   */
-  InstanceCount?: number | undefined;
-
-  /**
-   * <p>The start date of the Capacity Block offering.</p>
-   * @public
-   */
-  StartDate?: Date | undefined;
-
-  /**
-   * <p>The end date of the Capacity Block offering.</p>
-   * @public
-   */
-  EndDate?: Date | undefined;
-
-  /**
-   * <p>The number of hours (in addition to <code>capacityBlockDurationMinutes</code>) for the
-   * 			duration of the Capacity Block reservation. For example, if a Capacity Block starts at
-   * 				<b>04:55</b> and ends at <b>11:30</b>, the hours field would be <b>6</b>.</p>
-   * @public
-   */
-  CapacityBlockDurationHours?: number | undefined;
-
-  /**
-   * <p>The total price to be paid up front.</p>
-   * @public
-   */
-  UpfrontFee?: string | undefined;
-
-  /**
-   * <p>The currency of the payment for the Capacity Block.</p>
-   * @public
-   */
-  CurrencyCode?: string | undefined;
-
-  /**
-   * <p>The tenancy of the Capacity Block.</p>
-   * @public
-   */
-  Tenancy?: CapacityReservationTenancy | undefined;
-
-  /**
-   * <p>The EC2 UltraServer type of the Capacity Block offering.</p>
-   * @public
-   */
-  UltraserverType?: string | undefined;
-
-  /**
-   * <p>The number of EC2 UltraServers in the offering.</p>
-   * @public
-   */
-  UltraserverCount?: number | undefined;
-
-  /**
-   * <p>The number of minutes (in addition to <code>capacityBlockDurationHours</code>) for the
-   * 			duration of the Capacity Block reservation. For example, if a Capacity Block starts at
-   * 				<b>08:55</b> and ends at <b>11:30</b>, the minutes field would be <b>35</b>.</p>
-   * @public
-   */
-  CapacityBlockDurationMinutes?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeCapacityBlockOfferingsResult {
-  /**
-   * <p>The recommended Capacity Block offering for the dates specified.</p>
-   * @public
-   */
-  CapacityBlockOfferings?: CapacityBlockOffering[] | undefined;
-
-  /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeCapacityBlocksRequest {
-  /**
-   * <p>The IDs of the Capacity Blocks.</p>
-   * @public
-   */
-  CapacityBlockIds?: string[] | undefined;
-
-  /**
-   * <p>The token to use to retrieve the next page of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of items to return for this request. To get the next page of items, make another request with the token returned in the output. For more information,
-   *     see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p> One or more filters. </p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>capacity-block-id</code> - The ID of the Capacity Block.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ultraserver-type</code> - The Capacity Block type. The type can be
-   * 					<code>instances</code> or <code>ultraservers</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>availability-zone</code> - The Availability Zone of the Capacity
-   * 					Block.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>start-date</code> - The date and time at which the Capacity Block was
-   * 					started.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>end-date</code> - The date and time at which the Capacity Block expires.
-   * 					When a Capacity Block expires, all instances in the Capacity Block are
-   * 					terminated.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>create-date</code> - The date and time at which the Capacity Block was
-   * 					created.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>state</code> - The state of the Capacity Block (<code>active</code> |
-   * 					<code>expired</code> | <code>unavailable</code> | <code>cancelled</code> |
-   * 					<code>failed</code> | <code>scheduled</code> | <code>payment-pending</code> |
-   * 					<code>payment-failed</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>tags</code> - The tags assigned to the Capacity Block.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  Filters?: Filter[] | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const CapacityBlockResourceState = {
-  active: "active",
-  cancelled: "cancelled",
-  expired: "expired",
-  failed: "failed",
-  payment_failed: "payment-failed",
-  payment_pending: "payment-pending",
-  scheduled: "scheduled",
-  unavailable: "unavailable",
-} as const;
-
-/**
- * @public
- */
-export type CapacityBlockResourceState = (typeof CapacityBlockResourceState)[keyof typeof CapacityBlockResourceState];
-
-/**
- * <p>Reserve powerful GPU instances on a future date to support your short duration machine learning (ML) workloads. Instances that run inside a Capacity Block are automatically placed close together inside <a href="http://aws.amazon.com/ec2/ultraclusters/">Amazon EC2 UltraClusters</a>, for low-latency, petabit-scale, non-blocking networking.</p>
- *          <p>You can also reserve Amazon EC2 UltraServers. UltraServers connect multiple EC2 instances using a low-latency, high-bandwidth accelerator interconnect (NeuronLink). They are built to tackle very large-scale AI/ML workloads that require significant processing power. For more information, see Amazon EC2 UltraServers.</p>
- * @public
- */
-export interface CapacityBlock {
-  /**
-   * <p>The ID of the Capacity Block.</p>
-   * @public
-   */
-  CapacityBlockId?: string | undefined;
-
-  /**
-   * <p>The EC2 UltraServer type of the Capacity Block.</p>
-   * @public
-   */
-  UltraserverType?: string | undefined;
-
-  /**
-   * <p>The Availability Zone of the Capacity Block.</p>
-   * @public
-   */
-  AvailabilityZone?: string | undefined;
-
-  /**
-   * <p>The Availability Zone ID of the Capacity Block.</p>
-   * @public
-   */
-  AvailabilityZoneId?: string | undefined;
-
-  /**
-   * <p>The ID of the Capacity Reservation.</p>
-   * @public
-   */
-  CapacityReservationIds?: string[] | undefined;
-
-  /**
-   * <p>The date and time at which the Capacity Block was started.</p>
-   * @public
-   */
-  StartDate?: Date | undefined;
-
-  /**
-   * <p>The date and time at which the Capacity Block expires. When a Capacity Block expires,
-   * 			all instances in the Capacity Block are terminated.</p>
-   * @public
-   */
-  EndDate?: Date | undefined;
-
-  /**
-   * <p>The date and time at which the Capacity Block was created.</p>
-   * @public
-   */
-  CreateDate?: Date | undefined;
-
-  /**
-   * <p>The state of the Capacity Block.</p>
-   * @public
-   */
-  State?: CapacityBlockResourceState | undefined;
-
-  /**
-   * <p>The tags assigned to the Capacity Block.</p>
-   * @public
-   */
-  Tags?: Tag[] | undefined;
-}
+export const CreateVerifiedAccessTrustProviderResultFilterSensitiveLog = (
+  obj: CreateVerifiedAccessTrustProviderResult
+): any => ({
+  ...obj,
+  ...(obj.VerifiedAccessTrustProvider && {
+    VerifiedAccessTrustProvider: VerifiedAccessTrustProviderFilterSensitiveLog(obj.VerifiedAccessTrustProvider),
+  }),
+});
 
 /**
  * @internal
@@ -7449,12 +7437,4 @@ export const DeleteVerifiedAccessTrustProviderResultFilterSensitiveLog = (
   ...(obj.VerifiedAccessTrustProvider && {
     VerifiedAccessTrustProvider: VerifiedAccessTrustProviderFilterSensitiveLog(obj.VerifiedAccessTrustProvider),
   }),
-});
-
-/**
- * @internal
- */
-export const DescribeBundleTasksResultFilterSensitiveLog = (obj: DescribeBundleTasksResult): any => ({
-  ...obj,
-  ...(obj.BundleTasks && { BundleTasks: obj.BundleTasks.map((item) => BundleTaskFilterSensitiveLog(item)) }),
 });

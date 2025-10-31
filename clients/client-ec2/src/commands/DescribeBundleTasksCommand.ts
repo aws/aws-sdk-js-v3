@@ -10,7 +10,7 @@ import {
   DescribeBundleTasksRequest,
   DescribeBundleTasksResult,
   DescribeBundleTasksResultFilterSensitiveLog,
-} from "../models/models_3";
+} from "../models/models_4";
 import { de_DescribeBundleTasksCommand, se_DescribeBundleTasksCommand } from "../protocols/Aws_ec2";
 
 /**

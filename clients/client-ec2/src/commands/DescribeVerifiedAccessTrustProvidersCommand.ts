@@ -10,7 +10,7 @@ import {
   DescribeVerifiedAccessTrustProvidersRequest,
   DescribeVerifiedAccessTrustProvidersResult,
   DescribeVerifiedAccessTrustProvidersResultFilterSensitiveLog,
-} from "../models/models_5";
+} from "../models/models_6";
 import {
   de_DescribeVerifiedAccessTrustProvidersCommand,
   se_DescribeVerifiedAccessTrustProvidersCommand,

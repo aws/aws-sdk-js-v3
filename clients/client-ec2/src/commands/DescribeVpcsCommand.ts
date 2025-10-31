@@ -115,6 +115,9 @@ export interface DescribeVpcsCommandOutput extends DescribeVpcsResult, __Metadat
  * //             State: "enabling" || "enabled" || "disabling" || "disabled",
  * //             StateMessage: "STRING_VALUE",
  * //           },
+ * //           Lambda: "<VpcEncryptionControlExclusion>",
+ * //           VpcLattice: "<VpcEncryptionControlExclusion>",
+ * //           ElasticFileSystem: "<VpcEncryptionControlExclusion>",
  * //         },
  * //         Tags: [ // TagList
  * //           { // Tag

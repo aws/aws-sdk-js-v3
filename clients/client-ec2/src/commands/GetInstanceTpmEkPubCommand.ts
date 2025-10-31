@@ -10,7 +10,7 @@ import {
   GetInstanceTpmEkPubRequest,
   GetInstanceTpmEkPubResult,
   GetInstanceTpmEkPubResultFilterSensitiveLog,
-} from "../models/models_6";
+} from "../models/models_7";
 import { de_GetInstanceTpmEkPubCommand, se_GetInstanceTpmEkPubCommand } from "../protocols/Aws_ec2";
 
 /**

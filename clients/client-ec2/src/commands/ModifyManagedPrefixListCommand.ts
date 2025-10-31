@@ -58,6 +58,7 @@ export interface ModifyManagedPrefixListCommandOutput extends ModifyManagedPrefi
  *     },
  *   ],
  *   MaxEntries: Number("int"),
+ *   IpamPrefixListResolverSyncEnabled: true || false,
  * };
  * const command = new ModifyManagedPrefixListCommand(input);
  * const response = await client.send(command);
@@ -78,6 +79,8 @@ export interface ModifyManagedPrefixListCommandOutput extends ModifyManagedPrefi
  * //       },
  * //     ],
  * //     OwnerId: "STRING_VALUE",
+ * //     IpamPrefixListResolverTargetId: "STRING_VALUE",
+ * //     IpamPrefixListResolverSyncEnabled: true || false,
  * //   },
  * // };
  *

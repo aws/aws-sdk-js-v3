@@ -176,6 +176,8 @@ export const ResourceType = {
   ipam: "ipam",
   ipam_external_resource_verification_token: "ipam-external-resource-verification-token",
   ipam_pool: "ipam-pool",
+  ipam_prefix_list_resolver: "ipam-prefix-list-resolver",
+  ipam_prefix_list_resolver_target: "ipam-prefix-list-resolver-target",
   ipam_resource_discovery: "ipam-resource-discovery",
   ipam_resource_discovery_association: "ipam-resource-discovery-association",
   ipam_scope: "ipam-scope",
@@ -5096,11 +5098,11 @@ export interface IpamResourceDiscoveryAssociation {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>isolate-in-progress</code> - Amazon Web Services account that created the resource discovery association has been removed and the resource discovery associatation is being isolated.</p>
+   *                   <code>isolate-in-progress</code> - Amazon Web Services account that created the resource discovery association has been removed and the resource discovery association is being isolated.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>isolate-complete</code> - Resource discovery isolation is complete..</p>
+   *                   <code>isolate-complete</code> - Resource discovery isolation is complete.</p>
    *             </li>
    *             <li>
    *                <p>

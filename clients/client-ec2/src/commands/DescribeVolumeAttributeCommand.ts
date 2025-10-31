@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DescribeVolumeAttributeRequest, DescribeVolumeAttributeResult } from "../models/models_5";
+import { DescribeVolumeAttributeRequest, DescribeVolumeAttributeResult } from "../models/models_6";
 import { de_DescribeVolumeAttributeCommand, se_DescribeVolumeAttributeCommand } from "../protocols/Aws_ec2";
 
 /**

@@ -67,6 +67,8 @@ export interface RestoreManagedPrefixListVersionCommandOutput
  * //       },
  * //     ],
  * //     OwnerId: "STRING_VALUE",
+ * //     IpamPrefixListResolverTargetId: "STRING_VALUE",
+ * //     IpamPrefixListResolverSyncEnabled: true || false,
  * //   },
  * // };
  *

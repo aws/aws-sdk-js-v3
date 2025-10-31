@@ -9,7 +9,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import {
   ModifyVpcBlockPublicAccessExclusionRequest,
   ModifyVpcBlockPublicAccessExclusionResult,
-} from "../models/models_7";
+} from "../models/models_8";
 import {
   de_ModifyVpcBlockPublicAccessExclusionCommand,
   se_ModifyVpcBlockPublicAccessExclusionCommand,

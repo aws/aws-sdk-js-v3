@@ -8,6 +8,9 @@ import {
   AssociationStatus,
   AttachmentStatus,
   AutoPlacement,
+  BundleTask,
+  BundleTaskFilterSensitiveLog,
+  ByoipCidr,
   CapacityReservationFleetState,
   ClientVpnAuthorizationRuleStatus,
   CurrencyCodeValues,
@@ -77,7 +80,847 @@ import {
   StateReason,
 } from "./models_2";
 
-import { CapacityBlock, Filter, FleetStateCode, IdFormat, InstanceTagNotificationAttribute } from "./models_3";
+import { Filter, FleetStateCode, IdFormat, InstanceTagNotificationAttribute, Subscription } from "./models_3";
+
+/**
+ * @public
+ */
+export interface DescribeAwsNetworkPerformanceMetricSubscriptionsResult {
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>Describes the current Infrastructure Performance subscriptions.</p>
+   * @public
+   */
+  Subscriptions?: Subscription[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeBundleTasksRequest {
+  /**
+   * <p>The bundle task IDs.</p>
+   *          <p>Default: Describes all your bundle tasks.</p>
+   * @public
+   */
+  BundleIds?: string[] | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   * 			and provides an error response. If you have the required permissions, the error response is
+   * 			<code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The filters.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>bundle-id</code> - The ID of the bundle task.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>error-code</code> - If the task failed, the error code returned.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>error-message</code> - If the task failed, the error message returned.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>instance-id</code> - The ID of the instance.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>progress</code> - The level of task completion, as a percentage (for example,
+   *           20%).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>s3-bucket</code> - The Amazon S3 bucket to store the AMI.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>s3-prefix</code> - The beginning of the AMI name.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>start-time</code> - The time the task started (for example,
+   *           2013-09-15T17:15:20.000Z).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>state</code> - The state of the task (<code>pending</code> |
+   *             <code>waiting-for-shutdown</code> | <code>bundling</code> | <code>storing</code> |
+   *             <code>cancelling</code> | <code>complete</code> | <code>failed</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>update-time</code> - The time of the most recent update for the task.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Filters?: Filter[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeBundleTasksResult {
+  /**
+   * <p>Information about the bundle tasks.</p>
+   * @public
+   */
+  BundleTasks?: BundleTask[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeByoipCidrsRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The maximum number of results to return with a single call.
+   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   * @public
+   */
+  MaxResults: number | undefined;
+
+  /**
+   * <p>The token for the next page of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeByoipCidrsResult {
+  /**
+   * <p>Information about your address ranges.</p>
+   * @public
+   */
+  ByoipCidrs?: ByoipCidr[] | undefined;
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeCapacityBlockExtensionHistoryRequest {
+  /**
+   * <p>The IDs of Capacity Block reservations that you want to display the history
+   * 			for.</p>
+   * @public
+   */
+  CapacityReservationIds?: string[] | undefined;
+
+  /**
+   * <p>The token to use to retrieve the next page of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of items to return for this request. To get the next page of items, make another request with the token returned in the output. For more information,
+   *     see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>One or more filters</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>availability-zone</code> - The Availability Zone of the
+   * 					extension.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>availability-zone-id</code> - The Availability Zone ID of the
+   * 					extension.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>capacity-block-extension-offering-id</code> - The ID of the extension
+   * 					offering.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>capacity-block-extension-status</code> - The status of the extension
+   * 						(<code>payment-pending</code> | <code>payment-failed</code> |
+   * 						<code>payment-succeeded</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>capacity-reservation-id</code> - The reservation ID of the
+   * 					extension.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>instance-type</code> - The instance type of the extension.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Filters?: Filter[] | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const CapacityBlockExtensionStatus = {
+  PAYMENT_FAILED: "payment-failed",
+  PAYMENT_PENDING: "payment-pending",
+  PAYMENT_SUCCEEDED: "payment-succeeded",
+} as const;
+
+/**
+ * @public
+ */
+export type CapacityBlockExtensionStatus =
+  (typeof CapacityBlockExtensionStatus)[keyof typeof CapacityBlockExtensionStatus];
+
+/**
+ * <p>Describes a Capacity Block extension. With an extension, you can extend the duration
+ * 			of time for an existing Capacity Block.</p>
+ * @public
+ */
+export interface CapacityBlockExtension {
+  /**
+   * <p>The reservation ID of the Capacity Block extension.</p>
+   * @public
+   */
+  CapacityReservationId?: string | undefined;
+
+  /**
+   * <p>The instance type of the Capacity Block extension.</p>
+   * @public
+   */
+  InstanceType?: string | undefined;
+
+  /**
+   * <p>The number of instances in the Capacity Block extension.</p>
+   * @public
+   */
+  InstanceCount?: number | undefined;
+
+  /**
+   * <p>The Availability Zone of the Capacity Block extension.</p>
+   * @public
+   */
+  AvailabilityZone?: string | undefined;
+
+  /**
+   * <p>The Availability Zone ID of the Capacity Block extension.</p>
+   * @public
+   */
+  AvailabilityZoneId?: string | undefined;
+
+  /**
+   * <p>The ID of the Capacity Block extension offering.</p>
+   * @public
+   */
+  CapacityBlockExtensionOfferingId?: string | undefined;
+
+  /**
+   * <p>The duration of the Capacity Block extension in hours.</p>
+   * @public
+   */
+  CapacityBlockExtensionDurationHours?: number | undefined;
+
+  /**
+   * <p>The status of the Capacity Block extension. A Capacity Block extension can have one of
+   * 			the following statuses:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>payment-pending</code> - The Capacity Block extension payment is
+   * 					processing. If your payment can't be processed within 12 hours, the Capacity
+   * 					Block extension is failed.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>payment-failed</code> - Payment for the Capacity Block extension request
+   * 					was not successful.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>payment-succeeded</code> - Payment for the Capacity Block extension
+   * 					request was successful. You receive an invoice that reflects the one-time
+   * 					upfront payment. In the invoice, you can associate the paid amount with the
+   * 					Capacity Block reservation ID.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  CapacityBlockExtensionStatus?: CapacityBlockExtensionStatus | undefined;
+
+  /**
+   * <p>The date when the Capacity Block extension was purchased.</p>
+   * @public
+   */
+  CapacityBlockExtensionPurchaseDate?: Date | undefined;
+
+  /**
+   * <p>The start date of the Capacity Block extension.</p>
+   * @public
+   */
+  CapacityBlockExtensionStartDate?: Date | undefined;
+
+  /**
+   * <p>The end date of the Capacity Block extension.</p>
+   * @public
+   */
+  CapacityBlockExtensionEndDate?: Date | undefined;
+
+  /**
+   * <p>The total price to be paid up front.</p>
+   * @public
+   */
+  UpfrontFee?: string | undefined;
+
+  /**
+   * <p>The currency of the payment for the Capacity Block extension.</p>
+   * @public
+   */
+  CurrencyCode?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeCapacityBlockExtensionHistoryResult {
+  /**
+   * <p>Describes one or more of your Capacity Block extensions. The results describe only the
+   * 			Capacity Block extensions in the Amazon Web Services Region that you're currently using.</p>
+   * @public
+   */
+  CapacityBlockExtensions?: CapacityBlockExtension[] | undefined;
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeCapacityBlockExtensionOfferingsRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The duration of the Capacity Block extension offering in hours.</p>
+   * @public
+   */
+  CapacityBlockExtensionDurationHours: number | undefined;
+
+  /**
+   * <p>The ID of the Capacity reservation to be extended.</p>
+   * @public
+   */
+  CapacityReservationId: string | undefined;
+
+  /**
+   * <p>The token to use to retrieve the next page of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of items to return for this request. To get the next page of items, make another request with the token returned in the output. For more information,
+   *     see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+}
+
+/**
+ * <p>The recommended Capacity Block extension that fits your search requirements.</p>
+ * @public
+ */
+export interface CapacityBlockExtensionOffering {
+  /**
+   * <p>The ID of the Capacity Block extension offering.</p>
+   * @public
+   */
+  CapacityBlockExtensionOfferingId?: string | undefined;
+
+  /**
+   * <p>The instance type of the Capacity Block that will be extended.</p>
+   * @public
+   */
+  InstanceType?: string | undefined;
+
+  /**
+   * <p>The number of instances in the Capacity Block extension offering.</p>
+   * @public
+   */
+  InstanceCount?: number | undefined;
+
+  /**
+   * <p>The Availability Zone of the Capacity Block that will be extended.</p>
+   * @public
+   */
+  AvailabilityZone?: string | undefined;
+
+  /**
+   * <p>The Availability Zone ID of the Capacity Block that will be extended.</p>
+   * @public
+   */
+  AvailabilityZoneId?: string | undefined;
+
+  /**
+   * <p>The start date of the Capacity Block that will be extended.</p>
+   * @public
+   */
+  StartDate?: Date | undefined;
+
+  /**
+   * <p>The date and time at which the Capacity Block extension will start. This date is also
+   * 			the same as the end date of the Capacity Block that will be extended.</p>
+   * @public
+   */
+  CapacityBlockExtensionStartDate?: Date | undefined;
+
+  /**
+   * <p>The date and time at which the Capacity Block extension expires. When a Capacity Block
+   * 			expires, the reserved capacity is released and you can no longer launch instances into
+   * 			it. The Capacity Block's state changes to <code>expired</code> when it reaches its end
+   * 			date</p>
+   * @public
+   */
+  CapacityBlockExtensionEndDate?: Date | undefined;
+
+  /**
+   * <p>The amount of time of the Capacity Block extension offering in hours.</p>
+   * @public
+   */
+  CapacityBlockExtensionDurationHours?: number | undefined;
+
+  /**
+   * <p>The total price of the Capacity Block extension offering, to be paid up front.</p>
+   * @public
+   */
+  UpfrontFee?: string | undefined;
+
+  /**
+   * <p>The currency of the payment for the Capacity Block extension offering.</p>
+   * @public
+   */
+  CurrencyCode?: string | undefined;
+
+  /**
+   * <p>Indicates the tenancy of the Capacity Block extension offering. A Capacity Block can
+   * 			have one of the following tenancy settings:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>default</code> - The Capacity Block is created on hardware that is
+   * 					shared with other Amazon Web Services accounts.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>dedicated</code> - The Capacity Block is created on single-tenant
+   * 					hardware that is dedicated to a single Amazon Web Services account.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Tenancy?: CapacityReservationTenancy | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeCapacityBlockExtensionOfferingsResult {
+  /**
+   * <p>The recommended Capacity Block extension offerings for the dates specified.</p>
+   * @public
+   */
+  CapacityBlockExtensionOfferings?: CapacityBlockExtensionOffering[] | undefined;
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeCapacityBlockOfferingsRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The type of instance for which the Capacity Block offering reserves capacity.</p>
+   * @public
+   */
+  InstanceType?: string | undefined;
+
+  /**
+   * <p>The number of instances for which to reserve capacity. Each Capacity Block can have up
+   * 			to 64 instances, and you can have up to 256 instances across Capacity Blocks.</p>
+   * @public
+   */
+  InstanceCount?: number | undefined;
+
+  /**
+   * <p>The earliest start date for the Capacity Block offering.</p>
+   * @public
+   */
+  StartDateRange?: Date | undefined;
+
+  /**
+   * <p>The latest end date for the Capacity Block offering.</p>
+   * @public
+   */
+  EndDateRange?: Date | undefined;
+
+  /**
+   * <p>The reservation duration for the Capacity Block, in hours. You must specify the
+   * 			duration in 1-day increments up 14 days, and in 7-day increments up to 182 days.</p>
+   * @public
+   */
+  CapacityDurationHours: number | undefined;
+
+  /**
+   * <p>The token to use to retrieve the next page of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of items to return for this request. To get the next page of items, make another request with the token returned in the output. For more information,
+   *     see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The EC2 UltraServer type of the Capacity Block offerings.</p>
+   * @public
+   */
+  UltraserverType?: string | undefined;
+
+  /**
+   * <p>The number of EC2 UltraServers in the offerings.</p>
+   * @public
+   */
+  UltraserverCount?: number | undefined;
+}
+
+/**
+ * <p>The recommended Capacity Block that fits your search requirements.</p>
+ * @public
+ */
+export interface CapacityBlockOffering {
+  /**
+   * <p>The ID of the Capacity Block offering.</p>
+   * @public
+   */
+  CapacityBlockOfferingId?: string | undefined;
+
+  /**
+   * <p>The instance type of the Capacity Block offering.</p>
+   * @public
+   */
+  InstanceType?: string | undefined;
+
+  /**
+   * <p>The Availability Zone of the Capacity Block offering.</p>
+   * @public
+   */
+  AvailabilityZone?: string | undefined;
+
+  /**
+   * <p>The number of instances in the Capacity Block offering.</p>
+   * @public
+   */
+  InstanceCount?: number | undefined;
+
+  /**
+   * <p>The start date of the Capacity Block offering.</p>
+   * @public
+   */
+  StartDate?: Date | undefined;
+
+  /**
+   * <p>The end date of the Capacity Block offering.</p>
+   * @public
+   */
+  EndDate?: Date | undefined;
+
+  /**
+   * <p>The number of hours (in addition to <code>capacityBlockDurationMinutes</code>) for the
+   * 			duration of the Capacity Block reservation. For example, if a Capacity Block starts at
+   * 				<b>04:55</b> and ends at <b>11:30</b>, the hours field would be <b>6</b>.</p>
+   * @public
+   */
+  CapacityBlockDurationHours?: number | undefined;
+
+  /**
+   * <p>The total price to be paid up front.</p>
+   * @public
+   */
+  UpfrontFee?: string | undefined;
+
+  /**
+   * <p>The currency of the payment for the Capacity Block.</p>
+   * @public
+   */
+  CurrencyCode?: string | undefined;
+
+  /**
+   * <p>The tenancy of the Capacity Block.</p>
+   * @public
+   */
+  Tenancy?: CapacityReservationTenancy | undefined;
+
+  /**
+   * <p>The EC2 UltraServer type of the Capacity Block offering.</p>
+   * @public
+   */
+  UltraserverType?: string | undefined;
+
+  /**
+   * <p>The number of EC2 UltraServers in the offering.</p>
+   * @public
+   */
+  UltraserverCount?: number | undefined;
+
+  /**
+   * <p>The number of minutes (in addition to <code>capacityBlockDurationHours</code>) for the
+   * 			duration of the Capacity Block reservation. For example, if a Capacity Block starts at
+   * 				<b>08:55</b> and ends at <b>11:30</b>, the minutes field would be <b>35</b>.</p>
+   * @public
+   */
+  CapacityBlockDurationMinutes?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeCapacityBlockOfferingsResult {
+  /**
+   * <p>The recommended Capacity Block offering for the dates specified.</p>
+   * @public
+   */
+  CapacityBlockOfferings?: CapacityBlockOffering[] | undefined;
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeCapacityBlocksRequest {
+  /**
+   * <p>The IDs of the Capacity Blocks.</p>
+   * @public
+   */
+  CapacityBlockIds?: string[] | undefined;
+
+  /**
+   * <p>The token to use to retrieve the next page of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of items to return for this request. To get the next page of items, make another request with the token returned in the output. For more information,
+   *     see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p> One or more filters. </p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>capacity-block-id</code> - The ID of the Capacity Block.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ultraserver-type</code> - The Capacity Block type. The type can be
+   * 					<code>instances</code> or <code>ultraservers</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>availability-zone</code> - The Availability Zone of the Capacity
+   * 					Block.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>start-date</code> - The date and time at which the Capacity Block was
+   * 					started.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>end-date</code> - The date and time at which the Capacity Block expires.
+   * 					When a Capacity Block expires, all instances in the Capacity Block are
+   * 					terminated.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>create-date</code> - The date and time at which the Capacity Block was
+   * 					created.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>state</code> - The state of the Capacity Block (<code>active</code> |
+   * 					<code>expired</code> | <code>unavailable</code> | <code>cancelled</code> |
+   * 					<code>failed</code> | <code>scheduled</code> | <code>payment-pending</code> |
+   * 					<code>payment-failed</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>tags</code> - The tags assigned to the Capacity Block.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Filters?: Filter[] | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const CapacityBlockResourceState = {
+  active: "active",
+  cancelled: "cancelled",
+  expired: "expired",
+  failed: "failed",
+  payment_failed: "payment-failed",
+  payment_pending: "payment-pending",
+  scheduled: "scheduled",
+  unavailable: "unavailable",
+} as const;
+
+/**
+ * @public
+ */
+export type CapacityBlockResourceState = (typeof CapacityBlockResourceState)[keyof typeof CapacityBlockResourceState];
+
+/**
+ * <p>Reserve powerful GPU instances on a future date to support your short duration machine learning (ML) workloads. Instances that run inside a Capacity Block are automatically placed close together inside <a href="http://aws.amazon.com/ec2/ultraclusters/">Amazon EC2 UltraClusters</a>, for low-latency, petabit-scale, non-blocking networking.</p>
+ *          <p>You can also reserve Amazon EC2 UltraServers. UltraServers connect multiple EC2 instances using a low-latency, high-bandwidth accelerator interconnect (NeuronLink). They are built to tackle very large-scale AI/ML workloads that require significant processing power. For more information, see Amazon EC2 UltraServers.</p>
+ * @public
+ */
+export interface CapacityBlock {
+  /**
+   * <p>The ID of the Capacity Block.</p>
+   * @public
+   */
+  CapacityBlockId?: string | undefined;
+
+  /**
+   * <p>The EC2 UltraServer type of the Capacity Block.</p>
+   * @public
+   */
+  UltraserverType?: string | undefined;
+
+  /**
+   * <p>The Availability Zone of the Capacity Block.</p>
+   * @public
+   */
+  AvailabilityZone?: string | undefined;
+
+  /**
+   * <p>The Availability Zone ID of the Capacity Block.</p>
+   * @public
+   */
+  AvailabilityZoneId?: string | undefined;
+
+  /**
+   * <p>The ID of the Capacity Reservation.</p>
+   * @public
+   */
+  CapacityReservationIds?: string[] | undefined;
+
+  /**
+   * <p>The date and time at which the Capacity Block was started.</p>
+   * @public
+   */
+  StartDate?: Date | undefined;
+
+  /**
+   * <p>The date and time at which the Capacity Block expires. When a Capacity Block expires,
+   * 			all instances in the Capacity Block are terminated.</p>
+   * @public
+   */
+  EndDate?: Date | undefined;
+
+  /**
+   * <p>The date and time at which the Capacity Block was created.</p>
+   * @public
+   */
+  CreateDate?: Date | undefined;
+
+  /**
+   * <p>The state of the Capacity Block.</p>
+   * @public
+   */
+  State?: CapacityBlockResourceState | undefined;
+
+  /**
+   * <p>The tags assigned to the Capacity Block.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+}
 
 /**
  * @public
@@ -7642,6 +8485,15 @@ export interface DescribeImageUsageReportsRequest {
    *                   <code>state</code> - The state of the report (<code>available</code> |
    *           <code>pending</code> | <code>error</code>).</p>
    *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>tag:<key></code> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value.
+   *     For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p>
+   *             </li>
    *          </ul>
    * @public
    */
@@ -12305,382 +13157,12 @@ export const EbsOptimizedSupport = {
 export type EbsOptimizedSupport = (typeof EbsOptimizedSupport)[keyof typeof EbsOptimizedSupport];
 
 /**
- * @public
- * @enum
+ * @internal
  */
-export const EbsEncryptionSupport = {
-  supported: "supported",
-  unsupported: "unsupported",
-} as const;
-
-/**
- * @public
- */
-export type EbsEncryptionSupport = (typeof EbsEncryptionSupport)[keyof typeof EbsEncryptionSupport];
-
-/**
- * @public
- * @enum
- */
-export const EbsNvmeSupport = {
-  REQUIRED: "required",
-  SUPPORTED: "supported",
-  UNSUPPORTED: "unsupported",
-} as const;
-
-/**
- * @public
- */
-export type EbsNvmeSupport = (typeof EbsNvmeSupport)[keyof typeof EbsNvmeSupport];
-
-/**
- * <p>Describes the Amazon EBS features supported by the instance type.</p>
- * @public
- */
-export interface EbsInfo {
-  /**
-   * <p>Indicates whether the instance type is Amazon EBS-optimized. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSOptimized.html">Amazon EBS-optimized
-   *     instances</a> in <i>Amazon EC2 User Guide</i>.</p>
-   * @public
-   */
-  EbsOptimizedSupport?: EbsOptimizedSupport | undefined;
-
-  /**
-   * <p>Indicates whether Amazon EBS encryption is supported.</p>
-   * @public
-   */
-  EncryptionSupport?: EbsEncryptionSupport | undefined;
-
-  /**
-   * <p>Describes the optimized EBS performance for the instance type.</p>
-   * @public
-   */
-  EbsOptimizedInfo?: EbsOptimizedInfo | undefined;
-
-  /**
-   * <p>Indicates whether non-volatile memory express (NVMe) is supported.</p>
-   * @public
-   */
-  NvmeSupport?: EbsNvmeSupport | undefined;
-
-  /**
-   * <p>Indicates the maximum number of Amazon EBS volumes that can be attached to
-   *    the instance type. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/volume_limits.html">Amazon EBS volume limits for
-   *     Amazon EC2 instances</a> in the <i>Amazon EC2 User Guide</i>.</p>
-   * @public
-   */
-  MaximumEbsAttachments?: number | undefined;
-
-  /**
-   * <p>Indicates whether the instance type features a shared or dedicated Amazon EBS
-   *    volume attachment limit. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/volume_limits.html">Amazon EBS volume limits for
-   *     Amazon EC2 instances</a> in the <i>Amazon EC2 User Guide</i>.</p>
-   * @public
-   */
-  AttachmentLimitType?: AttachmentLimitType | undefined;
-}
-
-/**
- * <p>Describes the memory for the FPGA accelerator for the instance type.</p>
- * @public
- */
-export interface FpgaDeviceMemoryInfo {
-  /**
-   * <p>The size of the memory available to the FPGA accelerator, in MiB.</p>
-   * @public
-   */
-  SizeInMiB?: number | undefined;
-}
-
-/**
- * <p>Describes the FPGA accelerator for the instance type.</p>
- * @public
- */
-export interface FpgaDeviceInfo {
-  /**
-   * <p>The name of the FPGA accelerator.</p>
-   * @public
-   */
-  Name?: string | undefined;
-
-  /**
-   * <p>The manufacturer of the FPGA accelerator.</p>
-   * @public
-   */
-  Manufacturer?: string | undefined;
-
-  /**
-   * <p>The count of FPGA accelerators for the instance type.</p>
-   * @public
-   */
-  Count?: number | undefined;
-
-  /**
-   * <p>Describes the memory for the FPGA accelerator for the instance type.</p>
-   * @public
-   */
-  MemoryInfo?: FpgaDeviceMemoryInfo | undefined;
-}
-
-/**
- * <p>Describes the FPGAs for the instance type.</p>
- * @public
- */
-export interface FpgaInfo {
-  /**
-   * <p>Describes the FPGAs for the instance type.</p>
-   * @public
-   */
-  Fpgas?: FpgaDeviceInfo[] | undefined;
-
-  /**
-   * <p>The total memory of all FPGA accelerators for the instance type.</p>
-   * @public
-   */
-  TotalFpgaMemoryInMiB?: number | undefined;
-}
-
-/**
- * <p>Describes the memory available to the GPU accelerator.</p>
- * @public
- */
-export interface GpuDeviceMemoryInfo {
-  /**
-   * <p>The size of the memory available to the GPU accelerator, in MiB.</p>
-   * @public
-   */
-  SizeInMiB?: number | undefined;
-}
-
-/**
- * <p>Describes the GPU accelerators for the instance type.</p>
- * @public
- */
-export interface GpuDeviceInfo {
-  /**
-   * <p>The name of the GPU accelerator.</p>
-   * @public
-   */
-  Name?: string | undefined;
-
-  /**
-   * <p>The manufacturer of the GPU accelerator.</p>
-   * @public
-   */
-  Manufacturer?: string | undefined;
-
-  /**
-   * <p>The number of GPUs for the instance type.</p>
-   * @public
-   */
-  Count?: number | undefined;
-
-  /**
-   * <p>Describes the memory available to the GPU accelerator.</p>
-   * @public
-   */
-  MemoryInfo?: GpuDeviceMemoryInfo | undefined;
-}
-
-/**
- * <p>Describes the GPU accelerators for the instance type.</p>
- * @public
- */
-export interface GpuInfo {
-  /**
-   * <p>Describes the GPU accelerators for the instance type.</p>
-   * @public
-   */
-  Gpus?: GpuDeviceInfo[] | undefined;
-
-  /**
-   * <p>The total size of the memory for the GPU accelerators for the instance type, in MiB.</p>
-   * @public
-   */
-  TotalGpuMemoryInMiB?: number | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const InstanceTypeHypervisor = {
-  NITRO: "nitro",
-  XEN: "xen",
-} as const;
-
-/**
- * @public
- */
-export type InstanceTypeHypervisor = (typeof InstanceTypeHypervisor)[keyof typeof InstanceTypeHypervisor];
-
-/**
- * <note>
- *             <p>Amazon Elastic Inference is no longer available.</p>
- *          </note>
- *          <p>Describes the memory available to the inference accelerator.</p>
- * @public
- */
-export interface InferenceDeviceMemoryInfo {
-  /**
-   * <p>The size of the memory available to the inference accelerator, in MiB.</p>
-   * @public
-   */
-  SizeInMiB?: number | undefined;
-}
-
-/**
- * <note>
- *             <p>Amazon Elastic Inference is no longer available.</p>
- *          </note>
- *          <p>Describes the Inference accelerators for the instance type.</p>
- * @public
- */
-export interface InferenceDeviceInfo {
-  /**
-   * <p>The number of Inference accelerators for the instance type.</p>
-   * @public
-   */
-  Count?: number | undefined;
-
-  /**
-   * <p>The name of the Inference accelerator.</p>
-   * @public
-   */
-  Name?: string | undefined;
-
-  /**
-   * <p>The manufacturer of the Inference accelerator.</p>
-   * @public
-   */
-  Manufacturer?: string | undefined;
-
-  /**
-   * <p>Describes the memory available to the inference accelerator.</p>
-   * @public
-   */
-  MemoryInfo?: InferenceDeviceMemoryInfo | undefined;
-}
-
-/**
- * <note>
- *             <p>Amazon Elastic Inference is no longer available.</p>
- *          </note>
- *          <p>Describes the Inference accelerators for the instance type.</p>
- * @public
- */
-export interface InferenceAcceleratorInfo {
-  /**
-   * <p>Describes the Inference accelerators for the instance type.</p>
-   * @public
-   */
-  Accelerators?: InferenceDeviceInfo[] | undefined;
-
-  /**
-   * <p>The total size of the memory for the inference accelerators for the instance type, in
-   *    MiB.</p>
-   * @public
-   */
-  TotalInferenceMemoryInMiB?: number | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const DiskType = {
-  hdd: "hdd",
-  ssd: "ssd",
-} as const;
-
-/**
- * @public
- */
-export type DiskType = (typeof DiskType)[keyof typeof DiskType];
-
-/**
- * <p>Describes a disk.</p>
- * @public
- */
-export interface DiskInfo {
-  /**
-   * <p>The size of the disk in GB.</p>
-   * @public
-   */
-  SizeInGB?: number | undefined;
-
-  /**
-   * <p>The number of disks with this configuration.</p>
-   * @public
-   */
-  Count?: number | undefined;
-
-  /**
-   * <p>The type of disk.</p>
-   * @public
-   */
-  Type?: DiskType | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const InstanceStorageEncryptionSupport = {
-  required: "required",
-  unsupported: "unsupported",
-} as const;
-
-/**
- * @public
- */
-export type InstanceStorageEncryptionSupport =
-  (typeof InstanceStorageEncryptionSupport)[keyof typeof InstanceStorageEncryptionSupport];
-
-/**
- * @public
- * @enum
- */
-export const EphemeralNvmeSupport = {
-  REQUIRED: "required",
-  SUPPORTED: "supported",
-  UNSUPPORTED: "unsupported",
-} as const;
-
-/**
- * @public
- */
-export type EphemeralNvmeSupport = (typeof EphemeralNvmeSupport)[keyof typeof EphemeralNvmeSupport];
-
-/**
- * <p>Describes the instance store features that are supported by the instance type.</p>
- * @public
- */
-export interface InstanceStorageInfo {
-  /**
-   * <p>The total size of the disks, in GB.</p>
-   * @public
-   */
-  TotalSizeInGB?: number | undefined;
-
-  /**
-   * <p>Describes the disks that are available for the instance type.</p>
-   * @public
-   */
-  Disks?: DiskInfo[] | undefined;
-
-  /**
-   * <p>Indicates whether non-volatile memory express (NVMe) is supported.</p>
-   * @public
-   */
-  NvmeSupport?: EphemeralNvmeSupport | undefined;
-
-  /**
-   * <p>Indicates whether data is encrypted at rest.</p>
-   * @public
-   */
-  EncryptionSupport?: InstanceStorageEncryptionSupport | undefined;
-}
+export const DescribeBundleTasksResultFilterSensitiveLog = (obj: DescribeBundleTasksResult): any => ({
+  ...obj,
+  ...(obj.BundleTasks && { BundleTasks: obj.BundleTasks.map((item) => BundleTaskFilterSensitiveLog(item)) }),
+});
 
 /**
  * @internal

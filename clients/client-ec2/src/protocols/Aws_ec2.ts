@@ -305,6 +305,14 @@ import {
 } from "../commands/CreateIpamExternalResourceVerificationTokenCommand";
 import { CreateIpamPoolCommandInput, CreateIpamPoolCommandOutput } from "../commands/CreateIpamPoolCommand";
 import {
+  CreateIpamPrefixListResolverCommandInput,
+  CreateIpamPrefixListResolverCommandOutput,
+} from "../commands/CreateIpamPrefixListResolverCommand";
+import {
+  CreateIpamPrefixListResolverTargetCommandInput,
+  CreateIpamPrefixListResolverTargetCommandOutput,
+} from "../commands/CreateIpamPrefixListResolverTargetCommand";
+import {
   CreateIpamResourceDiscoveryCommandInput,
   CreateIpamResourceDiscoveryCommandOutput,
 } from "../commands/CreateIpamResourceDiscoveryCommand";
@@ -579,6 +587,14 @@ import {
   DeleteIpamExternalResourceVerificationTokenCommandOutput,
 } from "../commands/DeleteIpamExternalResourceVerificationTokenCommand";
 import { DeleteIpamPoolCommandInput, DeleteIpamPoolCommandOutput } from "../commands/DeleteIpamPoolCommand";
+import {
+  DeleteIpamPrefixListResolverCommandInput,
+  DeleteIpamPrefixListResolverCommandOutput,
+} from "../commands/DeleteIpamPrefixListResolverCommand";
+import {
+  DeleteIpamPrefixListResolverTargetCommandInput,
+  DeleteIpamPrefixListResolverTargetCommandOutput,
+} from "../commands/DeleteIpamPrefixListResolverTargetCommand";
 import {
   DeleteIpamResourceDiscoveryCommandInput,
   DeleteIpamResourceDiscoveryCommandOutput,
@@ -1070,6 +1086,14 @@ import {
   DescribeIpamExternalResourceVerificationTokensCommandOutput,
 } from "../commands/DescribeIpamExternalResourceVerificationTokensCommand";
 import { DescribeIpamPoolsCommandInput, DescribeIpamPoolsCommandOutput } from "../commands/DescribeIpamPoolsCommand";
+import {
+  DescribeIpamPrefixListResolversCommandInput,
+  DescribeIpamPrefixListResolversCommandOutput,
+} from "../commands/DescribeIpamPrefixListResolversCommand";
+import {
+  DescribeIpamPrefixListResolverTargetsCommandInput,
+  DescribeIpamPrefixListResolverTargetsCommandOutput,
+} from "../commands/DescribeIpamPrefixListResolverTargetsCommand";
 import {
   DescribeIpamResourceDiscoveriesCommandInput,
   DescribeIpamResourceDiscoveriesCommandOutput,
@@ -1813,6 +1837,18 @@ import {
 } from "../commands/GetIpamPoolAllocationsCommand";
 import { GetIpamPoolCidrsCommandInput, GetIpamPoolCidrsCommandOutput } from "../commands/GetIpamPoolCidrsCommand";
 import {
+  GetIpamPrefixListResolverRulesCommandInput,
+  GetIpamPrefixListResolverRulesCommandOutput,
+} from "../commands/GetIpamPrefixListResolverRulesCommand";
+import {
+  GetIpamPrefixListResolverVersionEntriesCommandInput,
+  GetIpamPrefixListResolverVersionEntriesCommandOutput,
+} from "../commands/GetIpamPrefixListResolverVersionEntriesCommand";
+import {
+  GetIpamPrefixListResolverVersionsCommandInput,
+  GetIpamPrefixListResolverVersionsCommandOutput,
+} from "../commands/GetIpamPrefixListResolverVersionsCommand";
+import {
   GetIpamResourceCidrsCommandInput,
   GetIpamResourceCidrsCommandOutput,
 } from "../commands/GetIpamResourceCidrsCommand";
@@ -2036,6 +2072,14 @@ import {
 } from "../commands/ModifyInstancePlacementCommand";
 import { ModifyIpamCommandInput, ModifyIpamCommandOutput } from "../commands/ModifyIpamCommand";
 import { ModifyIpamPoolCommandInput, ModifyIpamPoolCommandOutput } from "../commands/ModifyIpamPoolCommand";
+import {
+  ModifyIpamPrefixListResolverCommandInput,
+  ModifyIpamPrefixListResolverCommandOutput,
+} from "../commands/ModifyIpamPrefixListResolverCommand";
+import {
+  ModifyIpamPrefixListResolverTargetCommandInput,
+  ModifyIpamPrefixListResolverTargetCommandOutput,
+} from "../commands/ModifyIpamPrefixListResolverTargetCommand";
 import {
   ModifyIpamResourceCidrCommandInput,
   ModifyIpamResourceCidrCommandOutput,
@@ -2782,6 +2826,10 @@ import {
   CreateIpamExternalResourceVerificationTokenResult,
   CreateIpamPoolRequest,
   CreateIpamPoolResult,
+  CreateIpamPrefixListResolverRequest,
+  CreateIpamPrefixListResolverResult,
+  CreateIpamPrefixListResolverTargetRequest,
+  CreateIpamPrefixListResolverTargetResult,
   CreateIpamRequest,
   CreateIpamResourceDiscoveryRequest,
   CreateIpamResourceDiscoveryResult,
@@ -2789,9 +2837,6 @@ import {
   CreateIpamScopeRequest,
   CreateIpamScopeResult,
   CreateKeyPairRequest,
-  CreateLaunchTemplateRequest,
-  CreateLaunchTemplateResult,
-  CreateLaunchTemplateVersionRequest,
   CreditSpecificationRequest,
   CustomerGateway,
   DestinationOptionsRequest,
@@ -2838,19 +2883,20 @@ import {
   IpamPool,
   IpamPoolSourceResource,
   IpamPoolSourceResourceRequest,
+  IpamPrefixListResolver,
+  IpamPrefixListResolverRuleConditionRequest,
+  IpamPrefixListResolverRuleRequest,
+  IpamPrefixListResolverTarget,
   IpamResourceDiscovery,
   IpamResourceTag,
   IpamScope,
   Ipv4PrefixSpecificationRequest,
   Ipv6PrefixSpecificationRequest,
   KeyPair,
-  LaunchTemplate,
   LaunchTemplateAndOverridesResponse,
-  LaunchTemplateBlockDeviceMapping,
   LaunchTemplateBlockDeviceMappingRequest,
   LaunchTemplateCapacityReservationSpecificationRequest,
   LaunchTemplateCpuOptionsRequest,
-  LaunchTemplateEbsBlockDevice,
   LaunchTemplateEbsBlockDeviceRequest,
   LaunchTemplateElasticInferenceAccelerator,
   LaunchTemplateEnclaveOptionsRequest,
@@ -2861,12 +2907,8 @@ import {
   LaunchTemplateInstanceMetadataOptionsRequest,
   LaunchTemplateInstanceNetworkInterfaceSpecificationRequest,
   LaunchTemplateLicenseConfigurationRequest,
-  LaunchTemplateNetworkPerformanceOptionsRequest,
-  LaunchTemplatePlacementRequest,
-  LaunchTemplatePrivateDnsNameOptionsRequest,
   LaunchTemplatesMonitoringRequest,
   LaunchTemplateSpotMarketOptionsRequest,
-  LaunchTemplateTagSpecificationRequest,
   LocalStorageType,
   MacModificationTask,
   MacSystemIntegrityProtectionConfiguration,
@@ -2880,7 +2922,6 @@ import {
   NetworkInterfaceCountRequest,
   NewDhcpConfiguration,
   OnDemandOptionsRequest,
-  OperatorRequest,
   OperatorResponse,
   PerformanceFactorReference,
   PerformanceFactorReferenceRequest,
@@ -2889,7 +2930,6 @@ import {
   PrivateDnsNameOptionsOnLaunch,
   PrivateIpAddressSpecification,
   RequestIpamResourceTag,
-  RequestLaunchTemplateData,
   ReservationFleetInstanceSpecification,
   SpotOptionsRequest,
   StorageLocation,
@@ -2897,8 +2937,6 @@ import {
   TargetCapacitySpecificationRequest,
   TotalLocalStorageGB,
   TotalLocalStorageGBRequest,
-  ValidationError,
-  ValidationWarning,
   VCpuCountRange,
   VCpuCountRangeRequest,
   Volume,
@@ -2913,6 +2951,9 @@ import {
   CapacityReservationTargetResponse,
   ConnectionTrackingConfiguration,
   ConnectionTrackingSpecification,
+  CreateLaunchTemplateRequest,
+  CreateLaunchTemplateResult,
+  CreateLaunchTemplateVersionRequest,
   CreateLaunchTemplateVersionResult,
   CreateLocalGatewayRouteRequest,
   CreateLocalGatewayRouteResult,
@@ -3019,18 +3060,6 @@ import {
   CreateVerifiedAccessEndpointRequest,
   CreateVerifiedAccessEndpointResult,
   CreateVerifiedAccessGroupRequest,
-  CreateVerifiedAccessGroupResult,
-  CreateVerifiedAccessInstanceRequest,
-  CreateVerifiedAccessInstanceResult,
-  CreateVerifiedAccessNativeApplicationOidcOptions,
-  CreateVerifiedAccessTrustProviderDeviceOptions,
-  CreateVerifiedAccessTrustProviderOidcOptions,
-  CreateVerifiedAccessTrustProviderRequest,
-  CreateVerifiedAccessTrustProviderResult,
-  CreateVolumeRequest,
-  CreateVpcBlockPublicAccessExclusionRequest,
-  CreateVpcRequest,
-  CreateVpcResult,
   CreditSpecification,
   ElasticGpuSpecificationResponse,
   FilterPortRange,
@@ -3041,8 +3070,11 @@ import {
   Ipv4PrefixSpecificationResponse,
   Ipv6PrefixSpecification,
   Ipv6PrefixSpecificationResponse,
+  LaunchTemplate,
+  LaunchTemplateBlockDeviceMapping,
   LaunchTemplateCapacityReservationSpecificationResponse,
   LaunchTemplateCpuOptions,
+  LaunchTemplateEbsBlockDevice,
   LaunchTemplateElasticInferenceAcceleratorResponse,
   LaunchTemplateEnaSrdSpecification,
   LaunchTemplateEnaSrdUdpSpecification,
@@ -3055,11 +3087,15 @@ import {
   LaunchTemplateInstanceNetworkInterfaceSpecification,
   LaunchTemplateLicenseConfiguration,
   LaunchTemplateNetworkPerformanceOptions,
+  LaunchTemplateNetworkPerformanceOptionsRequest,
   LaunchTemplatePlacement,
+  LaunchTemplatePlacementRequest,
   LaunchTemplatePrivateDnsNameOptions,
+  LaunchTemplatePrivateDnsNameOptionsRequest,
   LaunchTemplatesMonitoring,
   LaunchTemplateSpotMarketOptions,
   LaunchTemplateTagSpecification,
+  LaunchTemplateTagSpecificationRequest,
   LaunchTemplateVersion,
   LocalGatewayRoute,
   LocalGatewayRouteTable,
@@ -3083,6 +3119,7 @@ import {
   NetworkInterfacePermission,
   NetworkInterfacePermissionState,
   NetworkInterfacePrivateIpAddress,
+  OperatorRequest,
   PathFilter,
   PathRequestFilter,
   PlacementGroup,
@@ -3092,6 +3129,7 @@ import {
   PublicIpDnsNameOptions,
   ReplaceRootVolumeTask,
   RequestFilterPortRange,
+  RequestLaunchTemplateData,
   ResponseLaunchTemplateData,
   Route,
   RouteServer,
@@ -3135,6 +3173,8 @@ import {
   TransitGatewayRouteAttachment,
   TransitGatewayRouteTable,
   TransitGatewayRouteTableAnnouncement,
+  ValidationError,
+  ValidationWarning,
   VerifiedAccessEndpoint,
   VerifiedAccessEndpointCidrOptions,
   VerifiedAccessEndpointEniOptions,
@@ -3149,13 +3189,19 @@ import {
   AvailabilityZone,
   AvailabilityZoneMessage,
   Byoasn,
-  CapacityBlock,
-  CapacityBlockExtension,
-  CapacityBlockExtensionOffering,
-  CapacityBlockOffering,
   CloudWatchLogOptions,
   CloudWatchLogOptionsSpecification,
   ConnectionNotification,
+  CreateVerifiedAccessGroupResult,
+  CreateVerifiedAccessInstanceRequest,
+  CreateVerifiedAccessInstanceResult,
+  CreateVerifiedAccessNativeApplicationOidcOptions,
+  CreateVerifiedAccessTrustProviderDeviceOptions,
+  CreateVerifiedAccessTrustProviderOidcOptions,
+  CreateVerifiedAccessTrustProviderRequest,
+  CreateVerifiedAccessTrustProviderResult,
+  CreateVolumeRequest,
+  CreateVpcBlockPublicAccessExclusionRequest,
   CreateVpcBlockPublicAccessExclusionResult,
   CreateVpcEndpointConnectionNotificationRequest,
   CreateVpcEndpointConnectionNotificationResult,
@@ -3165,6 +3211,8 @@ import {
   CreateVpcEndpointServiceConfigurationResult,
   CreateVpcPeeringConnectionRequest,
   CreateVpcPeeringConnectionResult,
+  CreateVpcRequest,
+  CreateVpcResult,
   CreateVpnConnectionRequest,
   CreateVpnConnectionResult,
   CreateVpnConnectionRouteRequest,
@@ -3206,6 +3254,10 @@ import {
   DeleteIpamExternalResourceVerificationTokenResult,
   DeleteIpamPoolRequest,
   DeleteIpamPoolResult,
+  DeleteIpamPrefixListResolverRequest,
+  DeleteIpamPrefixListResolverResult,
+  DeleteIpamPrefixListResolverTargetRequest,
+  DeleteIpamPrefixListResolverTargetResult,
   DeleteIpamRequest,
   DeleteIpamResourceDiscoveryRequest,
   DeleteIpamResourceDiscoveryResult,
@@ -3355,18 +3407,6 @@ import {
   DescribeAvailabilityZonesRequest,
   DescribeAvailabilityZonesResult,
   DescribeAwsNetworkPerformanceMetricSubscriptionsRequest,
-  DescribeAwsNetworkPerformanceMetricSubscriptionsResult,
-  DescribeBundleTasksRequest,
-  DescribeBundleTasksResult,
-  DescribeByoipCidrsRequest,
-  DescribeByoipCidrsResult,
-  DescribeCapacityBlockExtensionHistoryRequest,
-  DescribeCapacityBlockExtensionHistoryResult,
-  DescribeCapacityBlockExtensionOfferingsRequest,
-  DescribeCapacityBlockExtensionOfferingsResult,
-  DescribeCapacityBlockOfferingsRequest,
-  DescribeCapacityBlockOfferingsResult,
-  DescribeCapacityBlocksRequest,
   DnsEntry,
   DnsOptions,
   DnsOptionsSpecification,
@@ -3423,6 +3463,10 @@ import {
   AttributeBooleanValue,
   AuthorizationRule,
   AvailableCapacity,
+  CapacityBlock,
+  CapacityBlockExtension,
+  CapacityBlockExtensionOffering,
+  CapacityBlockOffering,
   CapacityBlockStatus,
   CapacityManagerDataExportResponse,
   CapacityReservationBillingRequest,
@@ -3448,6 +3492,18 @@ import {
   ConversionTask,
   CpuOptions,
   DeclarativePoliciesReport,
+  DescribeAwsNetworkPerformanceMetricSubscriptionsResult,
+  DescribeBundleTasksRequest,
+  DescribeBundleTasksResult,
+  DescribeByoipCidrsRequest,
+  DescribeByoipCidrsResult,
+  DescribeCapacityBlockExtensionHistoryRequest,
+  DescribeCapacityBlockExtensionHistoryResult,
+  DescribeCapacityBlockExtensionOfferingsRequest,
+  DescribeCapacityBlockExtensionOfferingsResult,
+  DescribeCapacityBlockOfferingsRequest,
+  DescribeCapacityBlockOfferingsResult,
+  DescribeCapacityBlocksRequest,
   DescribeCapacityBlocksResult,
   DescribeCapacityBlockStatusRequest,
   DescribeCapacityBlockStatusResult,
@@ -3562,8 +3618,6 @@ import {
   DirectoryServiceAuthentication,
   DiskImageDescription,
   DiskImageVolumeDescription,
-  DiskInfo,
-  EbsInfo,
   EbsInstanceBlockDevice,
   EbsOptimizedInfo,
   EbsStatusDetails,
@@ -3584,15 +3638,9 @@ import {
   FleetSpotCapacityRebalance,
   FleetSpotMaintenanceStrategies,
   FlowLog,
-  FpgaDeviceInfo,
-  FpgaDeviceMemoryInfo,
   FpgaImage,
   FpgaImageAttribute,
   FpgaImageState,
-  FpgaInfo,
-  GpuDeviceInfo,
-  GpuDeviceMemoryInfo,
-  GpuInfo,
   HibernationOptions,
   HistoryRecordEntry,
   Host,
@@ -3614,9 +3662,6 @@ import {
   ImportInstanceVolumeDetailItem,
   ImportSnapshotTask,
   ImportVolumeTaskDetails,
-  InferenceAcceleratorInfo,
-  InferenceDeviceInfo,
-  InferenceDeviceMemoryInfo,
   Instance,
   InstanceAttachmentEnaSrdSpecification,
   InstanceAttachmentEnaSrdUdpSpecification,
@@ -3639,7 +3684,6 @@ import {
   InstanceStatusDetails,
   InstanceStatusEvent,
   InstanceStatusSummary,
-  InstanceStorageInfo,
   InstanceTopology,
   InstanceTypeOffering,
   LaunchPermission,
@@ -3677,6 +3721,10 @@ import {
   DescribeIpamExternalResourceVerificationTokensResult,
   DescribeIpamPoolsRequest,
   DescribeIpamPoolsResult,
+  DescribeIpamPrefixListResolversRequest,
+  DescribeIpamPrefixListResolversResult,
+  DescribeIpamPrefixListResolverTargetsRequest,
+  DescribeIpamPrefixListResolverTargetsResult,
   DescribeIpamResourceDiscoveriesRequest,
   DescribeIpamResourceDiscoveriesResult,
   DescribeIpamResourceDiscoveryAssociationsRequest,
@@ -3835,22 +3883,21 @@ import {
   DescribeTrunkInterfaceAssociationsResult,
   DescribeVerifiedAccessEndpointsRequest,
   DescribeVerifiedAccessEndpointsResult,
-  DescribeVerifiedAccessGroupsRequest,
-  DescribeVerifiedAccessGroupsResult,
-  DescribeVerifiedAccessInstanceLoggingConfigurationsRequest,
-  DescribeVerifiedAccessInstanceLoggingConfigurationsResult,
-  DescribeVerifiedAccessInstancesRequest,
-  DescribeVerifiedAccessInstancesResult,
-  DescribeVerifiedAccessTrustProvidersRequest,
-  DescribeVerifiedAccessTrustProvidersResult,
-  DescribeVolumeAttributeRequest,
-  DescribeVolumeAttributeResult,
-  DescribeVolumesModificationsRequest,
-  DescribeVolumesRequest,
-  DescribeVolumesResult,
+  DiskInfo,
+  EbsInfo,
   EfaInfo,
+  FpgaDeviceInfo,
+  FpgaDeviceMemoryInfo,
+  FpgaInfo,
+  GpuDeviceInfo,
+  GpuDeviceMemoryInfo,
+  GpuInfo,
   HistoryRecord,
+  InferenceAcceleratorInfo,
+  InferenceDeviceInfo,
+  InferenceDeviceMemoryInfo,
   InstanceNetworkInterfaceSpecification,
+  InstanceStorageInfo,
   InstanceTypeInfo,
   Ipv6Pool,
   KeyPairInfo,
@@ -3928,12 +3975,6 @@ import {
   TransitGatewayAttachmentAssociation,
   UsageClassType,
   VCpuInfo,
-  VerifiedAccessInstanceLoggingConfiguration,
-  VerifiedAccessLogCloudWatchLogsDestination,
-  VerifiedAccessLogDeliveryStatus,
-  VerifiedAccessLogKinesisDataFirehoseDestination,
-  VerifiedAccessLogs,
-  VerifiedAccessLogS3Destination,
 } from "../models/models_5";
 import {
   AssociatedRole,
@@ -3949,7 +3990,20 @@ import {
   DataQuery,
   DataResponse,
   DeprecationTimeCondition,
+  DescribeVerifiedAccessGroupsRequest,
+  DescribeVerifiedAccessGroupsResult,
+  DescribeVerifiedAccessInstanceLoggingConfigurationsRequest,
+  DescribeVerifiedAccessInstanceLoggingConfigurationsResult,
+  DescribeVerifiedAccessInstancesRequest,
+  DescribeVerifiedAccessInstancesResult,
+  DescribeVerifiedAccessTrustProvidersRequest,
+  DescribeVerifiedAccessTrustProvidersResult,
+  DescribeVolumeAttributeRequest,
+  DescribeVolumeAttributeResult,
+  DescribeVolumesModificationsRequest,
   DescribeVolumesModificationsResult,
+  DescribeVolumesRequest,
+  DescribeVolumesResult,
   DescribeVolumeStatusRequest,
   DescribeVolumeStatusResult,
   DescribeVpcAttributeRequest,
@@ -4160,27 +4214,11 @@ import {
   GetFlowLogsIntegrationTemplateRequest,
   GetFlowLogsIntegrationTemplateResult,
   GetGroupsForCapacityReservationRequest,
-  GetGroupsForCapacityReservationResult,
-  GetHostReservationPurchasePreviewRequest,
-  GetHostReservationPurchasePreviewResult,
-  GetImageBlockPublicAccessStateRequest,
-  GetImageBlockPublicAccessStateResult,
-  GetInstanceMetadataDefaultsRequest,
-  GetInstanceMetadataDefaultsResult,
-  GetInstanceTpmEkPubRequest,
-  GetInstanceTpmEkPubResult,
-  GetInstanceTypesFromInstanceRequirementsRequest,
-  GetInstanceTypesFromInstanceRequirementsResult,
-  GetInstanceUefiDataRequest,
-  GetInstanceUefiDataResult,
-  GetIpamAddressHistoryRequest,
   GroupBy,
   ImageCriterion,
   InitializationStatusDetails,
   InstanceEventWindowDisassociationRequest,
   InstanceFamilyCreditSpecification,
-  InstanceMetadataDefaultsResponse,
-  InstanceTypeInfoFromInstanceRequirements,
   InstanceUsage,
   IntegrateServices,
   Ipv6CidrAssociation,
@@ -4189,14 +4227,19 @@ import {
   MetricPoint,
   MetricValue,
   PrivateDnsDetails,
-  Purchase,
   RegionalSummary,
   RouteServerPropagation,
   ServiceDetail,
   TransitGatewayPropagation,
+  VerifiedAccessInstanceLoggingConfiguration,
   VerifiedAccessInstanceOpenVpnClientConfiguration,
   VerifiedAccessInstanceOpenVpnClientConfigurationRoute,
   VerifiedAccessInstanceUserTrustProviderClientConfiguration,
+  VerifiedAccessLogCloudWatchLogsDestination,
+  VerifiedAccessLogDeliveryStatus,
+  VerifiedAccessLogKinesisDataFirehoseDestination,
+  VerifiedAccessLogs,
+  VerifiedAccessLogS3Destination,
   VolumeModification,
   VolumeStatusAction,
   VolumeStatusAttachmentStatus,
@@ -4218,6 +4261,20 @@ import {
   DiskImageDetail,
   DnsServersOptionsModifyStructure,
   EbsInstanceBlockDeviceSpecification,
+  GetGroupsForCapacityReservationResult,
+  GetHostReservationPurchasePreviewRequest,
+  GetHostReservationPurchasePreviewResult,
+  GetImageBlockPublicAccessStateRequest,
+  GetImageBlockPublicAccessStateResult,
+  GetInstanceMetadataDefaultsRequest,
+  GetInstanceMetadataDefaultsResult,
+  GetInstanceTpmEkPubRequest,
+  GetInstanceTpmEkPubResult,
+  GetInstanceTypesFromInstanceRequirementsRequest,
+  GetInstanceTypesFromInstanceRequirementsResult,
+  GetInstanceUefiDataRequest,
+  GetInstanceUefiDataResult,
+  GetIpamAddressHistoryRequest,
   GetIpamAddressHistoryResult,
   GetIpamDiscoveredAccountsRequest,
   GetIpamDiscoveredAccountsResult,
@@ -4229,6 +4286,12 @@ import {
   GetIpamPoolAllocationsResult,
   GetIpamPoolCidrsRequest,
   GetIpamPoolCidrsResult,
+  GetIpamPrefixListResolverRulesRequest,
+  GetIpamPrefixListResolverRulesResult,
+  GetIpamPrefixListResolverVersionEntriesRequest,
+  GetIpamPrefixListResolverVersionEntriesResult,
+  GetIpamPrefixListResolverVersionsRequest,
+  GetIpamPrefixListResolverVersionsResult,
   GetIpamResourceCidrsRequest,
   GetIpamResourceCidrsResult,
   GetLaunchTemplateDataRequest,
@@ -4305,12 +4368,18 @@ import {
   ImportVolumeResult,
   InstanceBlockDeviceMappingSpecification,
   InstanceCreditSpecificationRequest,
+  InstanceMetadataDefaultsResponse,
   InstanceRequirementsWithMetadataRequest,
+  InstanceTypeInfoFromInstanceRequirements,
   IpamAddressHistoryRecord,
   IpamDiscoveredAccount,
   IpamDiscoveredPublicAddress,
   IpamDiscoveredResourceCidr,
   IpamDiscoveryFailureReason,
+  IpamPrefixListResolverRule,
+  IpamPrefixListResolverRuleCondition,
+  IpamPrefixListResolverVersion,
+  IpamPrefixListResolverVersionEntry,
   IpamPublicAddressSecurityGroup,
   IpamPublicAddressTag,
   IpamPublicAddressTags,
@@ -4373,6 +4442,10 @@ import {
   ModifyInstancePlacementResult,
   ModifyIpamPoolRequest,
   ModifyIpamPoolResult,
+  ModifyIpamPrefixListResolverRequest,
+  ModifyIpamPrefixListResolverResult,
+  ModifyIpamPrefixListResolverTargetRequest,
+  ModifyIpamPrefixListResolverTargetResult,
   ModifyIpamRequest,
   ModifyIpamResourceCidrRequest,
   ModifyIpamResourceCidrResult,
@@ -4419,41 +4492,11 @@ import {
   ModifyTransitGatewayVpcAttachmentRequestOptions,
   ModifyTransitGatewayVpcAttachmentResult,
   ModifyVerifiedAccessEndpointCidrOptions,
-  ModifyVerifiedAccessEndpointEniOptions,
-  ModifyVerifiedAccessEndpointLoadBalancerOptions,
-  ModifyVerifiedAccessEndpointPolicyRequest,
-  ModifyVerifiedAccessEndpointPolicyResult,
   ModifyVerifiedAccessEndpointPortRange,
-  ModifyVerifiedAccessEndpointRdsOptions,
-  ModifyVerifiedAccessEndpointRequest,
-  ModifyVerifiedAccessEndpointResult,
-  ModifyVerifiedAccessGroupPolicyRequest,
-  ModifyVerifiedAccessGroupPolicyResult,
-  ModifyVerifiedAccessGroupRequest,
-  ModifyVerifiedAccessGroupResult,
-  ModifyVerifiedAccessInstanceLoggingConfigurationRequest,
-  ModifyVerifiedAccessInstanceLoggingConfigurationResult,
-  ModifyVerifiedAccessInstanceRequest,
-  ModifyVerifiedAccessInstanceResult,
-  ModifyVerifiedAccessNativeApplicationOidcOptions,
-  ModifyVerifiedAccessTrustProviderDeviceOptions,
-  ModifyVerifiedAccessTrustProviderOidcOptions,
-  ModifyVerifiedAccessTrustProviderRequest,
-  ModifyVerifiedAccessTrustProviderResult,
-  ModifyVolumeAttributeRequest,
-  ModifyVolumeRequest,
-  ModifyVolumeResult,
-  ModifyVpcAttributeRequest,
-  ModifyVpcBlockPublicAccessExclusionRequest,
-  ModifyVpcBlockPublicAccessExclusionResult,
-  ModifyVpcBlockPublicAccessOptionsRequest,
-  ModifyVpcBlockPublicAccessOptionsResult,
-  ModifyVpcEndpointConnectionNotificationRequest,
-  ModifyVpcEndpointRequest,
-  ModifyVpcEndpointResult,
   NetworkInterfaceAttachmentChanges,
   PrefixListAssociation,
   PrefixListEntry,
+  Purchase,
   RemoveIpamOperatingRegion,
   RemoveIpamOrganizationalUnitExclusion,
   RemovePrefixListEntry,
@@ -4484,10 +4527,6 @@ import {
   UserBucket,
   UserData,
   VerifiedAccessEndpointTarget,
-  VerifiedAccessLogCloudWatchLogsDestinationOptions,
-  VerifiedAccessLogKinesisDataFirehoseDestinationOptions,
-  VerifiedAccessLogOptions,
-  VerifiedAccessLogS3DestinationOptions,
   VolumeDetail,
   VpnConnectionDeviceType,
 } from "../models/models_7";
@@ -4510,7 +4549,38 @@ import {
   IpamCidrAuthorizationContext,
   LaunchTemplateSpecification,
   LicenseConfigurationRequest,
+  ModifyVerifiedAccessEndpointEniOptions,
+  ModifyVerifiedAccessEndpointLoadBalancerOptions,
+  ModifyVerifiedAccessEndpointPolicyRequest,
+  ModifyVerifiedAccessEndpointPolicyResult,
+  ModifyVerifiedAccessEndpointRdsOptions,
+  ModifyVerifiedAccessEndpointRequest,
+  ModifyVerifiedAccessEndpointResult,
+  ModifyVerifiedAccessGroupPolicyRequest,
+  ModifyVerifiedAccessGroupPolicyResult,
+  ModifyVerifiedAccessGroupRequest,
+  ModifyVerifiedAccessGroupResult,
+  ModifyVerifiedAccessInstanceLoggingConfigurationRequest,
+  ModifyVerifiedAccessInstanceLoggingConfigurationResult,
+  ModifyVerifiedAccessInstanceRequest,
+  ModifyVerifiedAccessInstanceResult,
+  ModifyVerifiedAccessNativeApplicationOidcOptions,
+  ModifyVerifiedAccessTrustProviderDeviceOptions,
+  ModifyVerifiedAccessTrustProviderOidcOptions,
+  ModifyVerifiedAccessTrustProviderRequest,
+  ModifyVerifiedAccessTrustProviderResult,
+  ModifyVolumeAttributeRequest,
+  ModifyVolumeRequest,
+  ModifyVolumeResult,
+  ModifyVpcAttributeRequest,
+  ModifyVpcBlockPublicAccessExclusionRequest,
+  ModifyVpcBlockPublicAccessExclusionResult,
+  ModifyVpcBlockPublicAccessOptionsRequest,
+  ModifyVpcBlockPublicAccessOptionsResult,
+  ModifyVpcEndpointConnectionNotificationRequest,
   ModifyVpcEndpointConnectionNotificationResult,
+  ModifyVpcEndpointRequest,
+  ModifyVpcEndpointResult,
   ModifyVpcEndpointServiceConfigurationRequest,
   ModifyVpcEndpointServiceConfigurationResult,
   ModifyVpcEndpointServicePayerResponsibilityRequest,
@@ -4692,6 +4762,10 @@ import {
   UpdateSecurityGroupRuleDescriptionsEgressResult,
   UpdateSecurityGroupRuleDescriptionsIngressRequest,
   UpdateSecurityGroupRuleDescriptionsIngressResult,
+  VerifiedAccessLogCloudWatchLogsDestinationOptions,
+  VerifiedAccessLogKinesisDataFirehoseDestinationOptions,
+  VerifiedAccessLogOptions,
+  VerifiedAccessLogS3DestinationOptions,
   WithdrawByoipCidrRequest,
   WithdrawByoipCidrResult,
 } from "../models/models_8";
@@ -6193,6 +6267,40 @@ export const se_CreateIpamPoolCommand = async (
 };
 
 /**
+ * serializeAws_ec2CreateIpamPrefixListResolverCommand
+ */
+export const se_CreateIpamPrefixListResolverCommand = async (
+  input: CreateIpamPrefixListResolverCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = SHARED_HEADERS;
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...se_CreateIpamPrefixListResolverRequest(input, context),
+    [_A]: _CIPLR,
+    [_V]: _,
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_ec2CreateIpamPrefixListResolverTargetCommand
+ */
+export const se_CreateIpamPrefixListResolverTargetCommand = async (
+  input: CreateIpamPrefixListResolverTargetCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = SHARED_HEADERS;
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...se_CreateIpamPrefixListResolverTargetRequest(input, context),
+    [_A]: _CIPLRT,
+    [_V]: _,
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_ec2CreateIpamResourceDiscoveryCommand
  */
 export const se_CreateIpamResourceDiscoveryCommand = async (
@@ -7649,6 +7757,40 @@ export const se_DeleteIpamPoolCommand = async (
   body = buildFormUrlencodedString({
     ...se_DeleteIpamPoolRequest(input, context),
     [_A]: _DIP,
+    [_V]: _,
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_ec2DeleteIpamPrefixListResolverCommand
+ */
+export const se_DeleteIpamPrefixListResolverCommand = async (
+  input: DeleteIpamPrefixListResolverCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = SHARED_HEADERS;
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...se_DeleteIpamPrefixListResolverRequest(input, context),
+    [_A]: _DIPLR,
+    [_V]: _,
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_ec2DeleteIpamPrefixListResolverTargetCommand
+ */
+export const se_DeleteIpamPrefixListResolverTargetCommand = async (
+  input: DeleteIpamPrefixListResolverTargetCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = SHARED_HEADERS;
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...se_DeleteIpamPrefixListResolverTargetRequest(input, context),
+    [_A]: _DIPLRT,
     [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -10080,6 +10222,40 @@ export const se_DescribeIpamPoolsCommand = async (
   body = buildFormUrlencodedString({
     ...se_DescribeIpamPoolsRequest(input, context),
     [_A]: _DIPe,
+    [_V]: _,
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_ec2DescribeIpamPrefixListResolversCommand
+ */
+export const se_DescribeIpamPrefixListResolversCommand = async (
+  input: DescribeIpamPrefixListResolversCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = SHARED_HEADERS;
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...se_DescribeIpamPrefixListResolversRequest(input, context),
+    [_A]: _DIPLRe,
+    [_V]: _,
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_ec2DescribeIpamPrefixListResolverTargetsCommand
+ */
+export const se_DescribeIpamPrefixListResolverTargetsCommand = async (
+  input: DescribeIpamPrefixListResolverTargetsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = SHARED_HEADERS;
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...se_DescribeIpamPrefixListResolverTargetsRequest(input, context),
+    [_A]: _DIPLRTe,
     [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -13520,6 +13696,57 @@ export const se_GetIpamPoolCidrsCommand = async (
 };
 
 /**
+ * serializeAws_ec2GetIpamPrefixListResolverRulesCommand
+ */
+export const se_GetIpamPrefixListResolverRulesCommand = async (
+  input: GetIpamPrefixListResolverRulesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = SHARED_HEADERS;
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...se_GetIpamPrefixListResolverRulesRequest(input, context),
+    [_A]: _GIPLRR,
+    [_V]: _,
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_ec2GetIpamPrefixListResolverVersionEntriesCommand
+ */
+export const se_GetIpamPrefixListResolverVersionEntriesCommand = async (
+  input: GetIpamPrefixListResolverVersionEntriesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = SHARED_HEADERS;
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...se_GetIpamPrefixListResolverVersionEntriesRequest(input, context),
+    [_A]: _GIPLRVE,
+    [_V]: _,
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_ec2GetIpamPrefixListResolverVersionsCommand
+ */
+export const se_GetIpamPrefixListResolverVersionsCommand = async (
+  input: GetIpamPrefixListResolverVersionsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = SHARED_HEADERS;
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...se_GetIpamPrefixListResolverVersionsRequest(input, context),
+    [_A]: _GIPLRV,
+    [_V]: _,
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_ec2GetIpamResourceCidrsCommand
  */
 export const se_GetIpamResourceCidrsCommand = async (
@@ -14619,6 +14846,40 @@ export const se_ModifyIpamPoolCommand = async (
   body = buildFormUrlencodedString({
     ...se_ModifyIpamPoolRequest(input, context),
     [_A]: _MIPo,
+    [_V]: _,
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_ec2ModifyIpamPrefixListResolverCommand
+ */
+export const se_ModifyIpamPrefixListResolverCommand = async (
+  input: ModifyIpamPrefixListResolverCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = SHARED_HEADERS;
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...se_ModifyIpamPrefixListResolverRequest(input, context),
+    [_A]: _MIPLR,
+    [_V]: _,
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_ec2ModifyIpamPrefixListResolverTargetCommand
+ */
+export const se_ModifyIpamPrefixListResolverTargetCommand = async (
+  input: ModifyIpamPrefixListResolverTargetCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = SHARED_HEADERS;
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...se_ModifyIpamPrefixListResolverTargetRequest(input, context),
+    [_A]: _MIPLRT,
     [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -18430,6 +18691,46 @@ export const de_CreateIpamPoolCommand = async (
 };
 
 /**
+ * deserializeAws_ec2CreateIpamPrefixListResolverCommand
+ */
+export const de_CreateIpamPrefixListResolverCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateIpamPrefixListResolverCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_CreateIpamPrefixListResolverResult(data, context);
+  const response: CreateIpamPrefixListResolverCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_ec2CreateIpamPrefixListResolverTargetCommand
+ */
+export const de_CreateIpamPrefixListResolverTargetCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateIpamPrefixListResolverTargetCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_CreateIpamPrefixListResolverTargetResult(data, context);
+  const response: CreateIpamPrefixListResolverTargetCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
  * deserializeAws_ec2CreateIpamResourceDiscoveryCommand
  */
 export const de_CreateIpamResourceDiscoveryCommand = async (
@@ -20125,6 +20426,46 @@ export const de_DeleteIpamPoolCommand = async (
   let contents: any = {};
   contents = de_DeleteIpamPoolResult(data, context);
   const response: DeleteIpamPoolCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_ec2DeleteIpamPrefixListResolverCommand
+ */
+export const de_DeleteIpamPrefixListResolverCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteIpamPrefixListResolverCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DeleteIpamPrefixListResolverResult(data, context);
+  const response: DeleteIpamPrefixListResolverCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_ec2DeleteIpamPrefixListResolverTargetCommand
+ */
+export const de_DeleteIpamPrefixListResolverTargetCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteIpamPrefixListResolverTargetCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DeleteIpamPrefixListResolverTargetResult(data, context);
+  const response: DeleteIpamPrefixListResolverTargetCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
@@ -22940,6 +23281,46 @@ export const de_DescribeIpamPoolsCommand = async (
   let contents: any = {};
   contents = de_DescribeIpamPoolsResult(data, context);
   const response: DescribeIpamPoolsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_ec2DescribeIpamPrefixListResolversCommand
+ */
+export const de_DescribeIpamPrefixListResolversCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeIpamPrefixListResolversCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeIpamPrefixListResolversResult(data, context);
+  const response: DescribeIpamPrefixListResolversCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_ec2DescribeIpamPrefixListResolverTargetsCommand
+ */
+export const de_DescribeIpamPrefixListResolverTargetsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeIpamPrefixListResolverTargetsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeIpamPrefixListResolverTargetsResult(data, context);
+  const response: DescribeIpamPrefixListResolverTargetsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
@@ -26963,6 +27344,66 @@ export const de_GetIpamPoolCidrsCommand = async (
 };
 
 /**
+ * deserializeAws_ec2GetIpamPrefixListResolverRulesCommand
+ */
+export const de_GetIpamPrefixListResolverRulesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetIpamPrefixListResolverRulesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_GetIpamPrefixListResolverRulesResult(data, context);
+  const response: GetIpamPrefixListResolverRulesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_ec2GetIpamPrefixListResolverVersionEntriesCommand
+ */
+export const de_GetIpamPrefixListResolverVersionEntriesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetIpamPrefixListResolverVersionEntriesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_GetIpamPrefixListResolverVersionEntriesResult(data, context);
+  const response: GetIpamPrefixListResolverVersionEntriesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_ec2GetIpamPrefixListResolverVersionsCommand
+ */
+export const de_GetIpamPrefixListResolverVersionsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetIpamPrefixListResolverVersionsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_GetIpamPrefixListResolverVersionsResult(data, context);
+  const response: GetIpamPrefixListResolverVersionsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
  * deserializeAws_ec2GetIpamResourceCidrsCommand
  */
 export const de_GetIpamResourceCidrsCommand = async (
@@ -28244,6 +28685,46 @@ export const de_ModifyIpamPoolCommand = async (
   let contents: any = {};
   contents = de_ModifyIpamPoolResult(data, context);
   const response: ModifyIpamPoolCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_ec2ModifyIpamPrefixListResolverCommand
+ */
+export const de_ModifyIpamPrefixListResolverCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ModifyIpamPrefixListResolverCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ModifyIpamPrefixListResolverResult(data, context);
+  const response: ModifyIpamPrefixListResolverCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_ec2ModifyIpamPrefixListResolverTargetCommand
+ */
+export const de_ModifyIpamPrefixListResolverTargetCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ModifyIpamPrefixListResolverTargetCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ModifyIpamPrefixListResolverTargetResult(data, context);
+  const response: ModifyIpamPrefixListResolverTargetCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
@@ -34422,6 +34903,91 @@ const se_CreateIpamPoolRequest = (input: CreateIpamPoolRequest, context: __Serde
 };
 
 /**
+ * serializeAws_ec2CreateIpamPrefixListResolverRequest
+ */
+const se_CreateIpamPrefixListResolverRequest = (
+  input: CreateIpamPrefixListResolverRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input[_DRr] != null) {
+    entries[_DRr] = input[_DRr];
+  }
+  if (input[_IIp] != null) {
+    entries[_IIp] = input[_IIp];
+  }
+  if (input[_De] != null) {
+    entries[_De] = input[_De];
+  }
+  if (input[_AF] != null) {
+    entries[_AF] = input[_AF];
+  }
+  if (input[_Ru] != null) {
+    const memberEntries = se_IpamPrefixListResolverRuleRequestSet(input[_Ru], context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `Rule.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  if (input[_TS] != null) {
+    const memberEntries = se_TagSpecificationList(input[_TS], context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `TagSpecification.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  if (input[_CTl] === undefined) {
+    input[_CTl] = generateIdempotencyToken();
+  }
+  if (input[_CTl] != null) {
+    entries[_CTl] = input[_CTl];
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_ec2CreateIpamPrefixListResolverTargetRequest
+ */
+const se_CreateIpamPrefixListResolverTargetRequest = (
+  input: CreateIpamPrefixListResolverTargetRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input[_DRr] != null) {
+    entries[_DRr] = input[_DRr];
+  }
+  if (input[_IPLRI] != null) {
+    entries[_IPLRI] = input[_IPLRI];
+  }
+  if (input[_PLI] != null) {
+    entries[_PLI] = input[_PLI];
+  }
+  if (input[_PLR] != null) {
+    entries[_PLR] = input[_PLR];
+  }
+  if (input[_DVesi] != null) {
+    entries[_DVesi] = input[_DVesi];
+  }
+  if (input[_TLV] != null) {
+    entries[_TLV] = input[_TLV];
+  }
+  if (input[_TS] != null) {
+    const memberEntries = se_TagSpecificationList(input[_TS], context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `TagSpecification.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  if (input[_CTl] === undefined) {
+    input[_CTl] = generateIdempotencyToken();
+  }
+  if (input[_CTl] != null) {
+    entries[_CTl] = input[_CTl];
+  }
+  return entries;
+};
+
+/**
  * serializeAws_ec2CreateIpamRequest
  */
 const se_CreateIpamRequest = (input: CreateIpamRequest, context: __SerdeContext): any => {
@@ -37800,6 +38366,40 @@ const se_DeleteIpamPoolRequest = (input: DeleteIpamPoolRequest, context: __Serde
   }
   if (input[_Ca] != null) {
     entries[_Ca] = input[_Ca];
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_ec2DeleteIpamPrefixListResolverRequest
+ */
+const se_DeleteIpamPrefixListResolverRequest = (
+  input: DeleteIpamPrefixListResolverRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input[_DRr] != null) {
+    entries[_DRr] = input[_DRr];
+  }
+  if (input[_IPLRI] != null) {
+    entries[_IPLRI] = input[_IPLRI];
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_ec2DeleteIpamPrefixListResolverTargetRequest
+ */
+const se_DeleteIpamPrefixListResolverTargetRequest = (
+  input: DeleteIpamPrefixListResolverTargetRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input[_DRr] != null) {
+    entries[_DRr] = input[_DRr];
+  }
+  if (input[_IPLRTI] != null) {
+    entries[_IPLRTI] = input[_IPLRTI];
   }
   return entries;
 };
@@ -41278,6 +41878,77 @@ const se_DescribeIpamPoolsRequest = (input: DescribeIpamPoolsRequest, context: _
       const loc = `IpamPoolId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
     });
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_ec2DescribeIpamPrefixListResolversRequest
+ */
+const se_DescribeIpamPrefixListResolversRequest = (
+  input: DescribeIpamPrefixListResolversRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input[_DRr] != null) {
+    entries[_DRr] = input[_DRr];
+  }
+  if (input[_Fi] != null) {
+    const memberEntries = se_FilterList(input[_Fi], context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  if (input[_MR] != null) {
+    entries[_MR] = input[_MR];
+  }
+  if (input[_NT] != null) {
+    entries[_NT] = input[_NT];
+  }
+  if (input[_IPLRIp] != null) {
+    const memberEntries = se_ValueStringList(input[_IPLRIp], context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `IpamPrefixListResolverId.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_ec2DescribeIpamPrefixListResolverTargetsRequest
+ */
+const se_DescribeIpamPrefixListResolverTargetsRequest = (
+  input: DescribeIpamPrefixListResolverTargetsRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input[_DRr] != null) {
+    entries[_DRr] = input[_DRr];
+  }
+  if (input[_Fi] != null) {
+    const memberEntries = se_FilterList(input[_Fi], context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  if (input[_MR] != null) {
+    entries[_MR] = input[_MR];
+  }
+  if (input[_NT] != null) {
+    entries[_NT] = input[_NT];
+  }
+  if (input[_IPLRTIp] != null) {
+    const memberEntries = se_ValueStringList(input[_IPLRTIp], context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `IpamPrefixListResolverTargetId.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  if (input[_IPLRI] != null) {
+    entries[_IPLRI] = input[_IPLRI];
   }
   return entries;
 };
@@ -47537,6 +48208,99 @@ const se_GetIpamPoolCidrsRequest = (input: GetIpamPoolCidrsRequest, context: __S
 };
 
 /**
+ * serializeAws_ec2GetIpamPrefixListResolverRulesRequest
+ */
+const se_GetIpamPrefixListResolverRulesRequest = (
+  input: GetIpamPrefixListResolverRulesRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input[_DRr] != null) {
+    entries[_DRr] = input[_DRr];
+  }
+  if (input[_IPLRI] != null) {
+    entries[_IPLRI] = input[_IPLRI];
+  }
+  if (input[_Fi] != null) {
+    const memberEntries = se_FilterList(input[_Fi], context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  if (input[_MR] != null) {
+    entries[_MR] = input[_MR];
+  }
+  if (input[_NT] != null) {
+    entries[_NT] = input[_NT];
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_ec2GetIpamPrefixListResolverVersionEntriesRequest
+ */
+const se_GetIpamPrefixListResolverVersionEntriesRequest = (
+  input: GetIpamPrefixListResolverVersionEntriesRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input[_DRr] != null) {
+    entries[_DRr] = input[_DRr];
+  }
+  if (input[_IPLRI] != null) {
+    entries[_IPLRI] = input[_IPLRI];
+  }
+  if (input[_IPLRV] != null) {
+    entries[_IPLRV] = input[_IPLRV];
+  }
+  if (input[_MR] != null) {
+    entries[_MR] = input[_MR];
+  }
+  if (input[_NT] != null) {
+    entries[_NT] = input[_NT];
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_ec2GetIpamPrefixListResolverVersionsRequest
+ */
+const se_GetIpamPrefixListResolverVersionsRequest = (
+  input: GetIpamPrefixListResolverVersionsRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input[_DRr] != null) {
+    entries[_DRr] = input[_DRr];
+  }
+  if (input[_IPLRI] != null) {
+    entries[_IPLRI] = input[_IPLRI];
+  }
+  if (input[_IPLRVp] != null) {
+    const memberEntries = se_IpamPrefixListResolverVersionNumberSet(input[_IPLRVp], context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `IpamPrefixListResolverVersion.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  if (input[_MR] != null) {
+    entries[_MR] = input[_MR];
+  }
+  if (input[_Fi] != null) {
+    const memberEntries = se_FilterList(input[_Fi], context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  if (input[_NT] != null) {
+    entries[_NT] = input[_NT];
+  }
+  return entries;
+};
+
+/**
  * serializeAws_ec2GetIpamResourceCidrsRequest
  */
 const se_GetIpamResourceCidrsRequest = (input: GetIpamResourceCidrsRequest, context: __SerdeContext): any => {
@@ -50145,6 +50909,132 @@ const se_IpamPoolSourceResourceRequest = (input: IpamPoolSourceResourceRequest, 
 };
 
 /**
+ * serializeAws_ec2IpamPrefixListResolverRuleConditionRequest
+ */
+const se_IpamPrefixListResolverRuleConditionRequest = (
+  input: IpamPrefixListResolverRuleConditionRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input[_Ope] != null) {
+    entries[_Ope] = input[_Ope];
+  }
+  if (input[_IPI] != null) {
+    entries[_IPI] = input[_IPI];
+  }
+  if (input[_RIeso] != null) {
+    entries[_RIeso] = input[_RIeso];
+  }
+  if (input[_ROe] != null) {
+    entries[_ROe] = input[_ROe];
+  }
+  if (input[_RRe] != null) {
+    entries[_RRe] = input[_RRe];
+  }
+  if (input[_RTeso] != null) {
+    const memberEntries = se_RequestIpamResourceTag(input[_RTeso], context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `ResourceTag.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input[_C] != null) {
+    entries[_C] = input[_C];
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_ec2IpamPrefixListResolverRuleConditionRequestSet
+ */
+const se_IpamPrefixListResolverRuleConditionRequestSet = (
+  input: IpamPrefixListResolverRuleConditionRequest[],
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  let counter = 1;
+  for (const entry of input) {
+    if (entry === null) {
+      continue;
+    }
+    const memberEntries = se_IpamPrefixListResolverRuleConditionRequest(entry, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      entries[`Condition.${counter}.${key}`] = value;
+    });
+    counter++;
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_ec2IpamPrefixListResolverRuleRequest
+ */
+const se_IpamPrefixListResolverRuleRequest = (
+  input: IpamPrefixListResolverRuleRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input[_RTu] != null) {
+    entries[_RTu] = input[_RTu];
+  }
+  if (input[_SCt] != null) {
+    entries[_SCt] = input[_SCt];
+  }
+  if (input[_ISI] != null) {
+    entries[_ISI] = input[_ISI];
+  }
+  if (input[_RT] != null) {
+    entries[_RT] = input[_RT];
+  }
+  if (input[_Cond] != null) {
+    const memberEntries = se_IpamPrefixListResolverRuleConditionRequestSet(input[_Cond], context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `Condition.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_ec2IpamPrefixListResolverRuleRequestSet
+ */
+const se_IpamPrefixListResolverRuleRequestSet = (
+  input: IpamPrefixListResolverRuleRequest[],
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  let counter = 1;
+  for (const entry of input) {
+    if (entry === null) {
+      continue;
+    }
+    const memberEntries = se_IpamPrefixListResolverRuleRequest(entry, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      entries[`Rule.${counter}.${key}`] = value;
+    });
+    counter++;
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_ec2IpamPrefixListResolverVersionNumberSet
+ */
+const se_IpamPrefixListResolverVersionNumberSet = (input: number[], context: __SerdeContext): any => {
+  const entries: any = {};
+  let counter = 1;
+  for (const entry of input) {
+    if (entry === null) {
+      continue;
+    }
+    entries[`Item.${counter}`] = entry;
+    counter++;
+  }
+  return entries;
+};
+
+/**
  * serializeAws_ec2IpList
  */
 const se_IpList = (input: string[], context: __SerdeContext): any => {
@@ -52548,6 +53438,62 @@ const se_ModifyIpamPoolRequest = (input: ModifyIpamPoolRequest, context: __Serde
 };
 
 /**
+ * serializeAws_ec2ModifyIpamPrefixListResolverRequest
+ */
+const se_ModifyIpamPrefixListResolverRequest = (
+  input: ModifyIpamPrefixListResolverRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input[_DRr] != null) {
+    entries[_DRr] = input[_DRr];
+  }
+  if (input[_IPLRI] != null) {
+    entries[_IPLRI] = input[_IPLRI];
+  }
+  if (input[_De] != null) {
+    entries[_De] = input[_De];
+  }
+  if (input[_Ru] != null) {
+    const memberEntries = se_IpamPrefixListResolverRuleRequestSet(input[_Ru], context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `Rule.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_ec2ModifyIpamPrefixListResolverTargetRequest
+ */
+const se_ModifyIpamPrefixListResolverTargetRequest = (
+  input: ModifyIpamPrefixListResolverTargetRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input[_DRr] != null) {
+    entries[_DRr] = input[_DRr];
+  }
+  if (input[_IPLRTI] != null) {
+    entries[_IPLRTI] = input[_IPLRTI];
+  }
+  if (input[_DVesi] != null) {
+    entries[_DVesi] = input[_DVesi];
+  }
+  if (input[_TLV] != null) {
+    entries[_TLV] = input[_TLV];
+  }
+  if (input[_CTl] === undefined) {
+    input[_CTl] = generateIdempotencyToken();
+  }
+  if (input[_CTl] != null) {
+    entries[_CTl] = input[_CTl];
+  }
+  return entries;
+};
+
+/**
  * serializeAws_ec2ModifyIpamRequest
  */
 const se_ModifyIpamRequest = (input: ModifyIpamRequest, context: __SerdeContext): any => {
@@ -52766,6 +53712,9 @@ const se_ModifyManagedPrefixListRequest = (input: ModifyManagedPrefixListRequest
   }
   if (input[_ME] != null) {
     entries[_ME] = input[_ME];
+  }
+  if (input[_IPLRSE] != null) {
+    entries[_IPLRSE] = input[_IPLRSE];
   }
   return entries;
 };
@@ -65902,6 +66851,34 @@ const de_CreateIpamPoolResult = (output: any, context: __SerdeContext): CreateIp
 };
 
 /**
+ * deserializeAws_ec2CreateIpamPrefixListResolverResult
+ */
+const de_CreateIpamPrefixListResolverResult = (
+  output: any,
+  context: __SerdeContext
+): CreateIpamPrefixListResolverResult => {
+  const contents: any = {};
+  if (output[_iPLR] != null) {
+    contents[_IPLR] = de_IpamPrefixListResolver(output[_iPLR], context);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_ec2CreateIpamPrefixListResolverTargetResult
+ */
+const de_CreateIpamPrefixListResolverTargetResult = (
+  output: any,
+  context: __SerdeContext
+): CreateIpamPrefixListResolverTargetResult => {
+  const contents: any = {};
+  if (output[_iPLRT] != null) {
+    contents[_IPLRT] = de_IpamPrefixListResolverTarget(output[_iPLRT], context);
+  }
+  return contents;
+};
+
+/**
  * deserializeAws_ec2CreateIpamResourceDiscoveryResult
  */
 const de_CreateIpamResourceDiscoveryResult = (
@@ -67175,6 +68152,34 @@ const de_DeleteIpamPoolResult = (output: any, context: __SerdeContext): DeleteIp
   const contents: any = {};
   if (output[_iPp] != null) {
     contents[_IPpa] = de_IpamPool(output[_iPp], context);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_ec2DeleteIpamPrefixListResolverResult
+ */
+const de_DeleteIpamPrefixListResolverResult = (
+  output: any,
+  context: __SerdeContext
+): DeleteIpamPrefixListResolverResult => {
+  const contents: any = {};
+  if (output[_iPLR] != null) {
+    contents[_IPLR] = de_IpamPrefixListResolver(output[_iPLR], context);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_ec2DeleteIpamPrefixListResolverTargetResult
+ */
+const de_DeleteIpamPrefixListResolverTargetResult = (
+  output: any,
+  context: __SerdeContext
+): DeleteIpamPrefixListResolverTargetResult => {
+  const contents: any = {};
+  if (output[_iPLRT] != null) {
+    contents[_IPLRT] = de_IpamPrefixListResolverTarget(output[_iPLRT], context);
   }
   return contents;
 };
@@ -69461,6 +70466,44 @@ const de_DescribeIpamPoolsResult = (output: any, context: __SerdeContext): Descr
     contents[_IPpam] = [];
   } else if (output[_iPS] != null && output[_iPS][_i] != null) {
     contents[_IPpam] = de_IpamPoolSet(__getArrayIfSingleItem(output[_iPS][_i]), context);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_ec2DescribeIpamPrefixListResolversResult
+ */
+const de_DescribeIpamPrefixListResolversResult = (
+  output: any,
+  context: __SerdeContext
+): DescribeIpamPrefixListResolversResult => {
+  const contents: any = {};
+  if (output[_nTe] != null) {
+    contents[_NT] = __expectString(output[_nTe]);
+  }
+  if (String(output.ipamPrefixListResolverSet).trim() === "") {
+    contents[_IPLRp] = [];
+  } else if (output[_iPLRS] != null && output[_iPLRS][_i] != null) {
+    contents[_IPLRp] = de_IpamPrefixListResolverSet(__getArrayIfSingleItem(output[_iPLRS][_i]), context);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_ec2DescribeIpamPrefixListResolverTargetsResult
+ */
+const de_DescribeIpamPrefixListResolverTargetsResult = (
+  output: any,
+  context: __SerdeContext
+): DescribeIpamPrefixListResolverTargetsResult => {
+  const contents: any = {};
+  if (output[_nTe] != null) {
+    contents[_NT] = __expectString(output[_nTe]);
+  }
+  if (String(output.ipamPrefixListResolverTargetSet).trim() === "") {
+    contents[_IPLRTp] = [];
+  } else if (output[_iPLRTS] != null && output[_iPLRTS][_i] != null) {
+    contents[_IPLRTp] = de_IpamPrefixListResolverTargetSet(__getArrayIfSingleItem(output[_iPLRTS][_i]), context);
   }
   return contents;
 };
@@ -74893,6 +75936,63 @@ const de_GetIpamPoolCidrsResult = (output: any, context: __SerdeContext): GetIpa
 };
 
 /**
+ * deserializeAws_ec2GetIpamPrefixListResolverRulesResult
+ */
+const de_GetIpamPrefixListResolverRulesResult = (
+  output: any,
+  context: __SerdeContext
+): GetIpamPrefixListResolverRulesResult => {
+  const contents: any = {};
+  if (String(output.ruleSet).trim() === "") {
+    contents[_Ru] = [];
+  } else if (output[_rSu] != null && output[_rSu][_i] != null) {
+    contents[_Ru] = de_IpamPrefixListResolverRuleSet(__getArrayIfSingleItem(output[_rSu][_i]), context);
+  }
+  if (output[_nTe] != null) {
+    contents[_NT] = __expectString(output[_nTe]);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_ec2GetIpamPrefixListResolverVersionEntriesResult
+ */
+const de_GetIpamPrefixListResolverVersionEntriesResult = (
+  output: any,
+  context: __SerdeContext
+): GetIpamPrefixListResolverVersionEntriesResult => {
+  const contents: any = {};
+  if (String(output.entrySet).trim() === "") {
+    contents[_Ent] = [];
+  } else if (output[_eSnt] != null && output[_eSnt][_i] != null) {
+    contents[_Ent] = de_IpamPrefixListResolverVersionEntrySet(__getArrayIfSingleItem(output[_eSnt][_i]), context);
+  }
+  if (output[_nTe] != null) {
+    contents[_NT] = __expectString(output[_nTe]);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_ec2GetIpamPrefixListResolverVersionsResult
+ */
+const de_GetIpamPrefixListResolverVersionsResult = (
+  output: any,
+  context: __SerdeContext
+): GetIpamPrefixListResolverVersionsResult => {
+  const contents: any = {};
+  if (String(output.ipamPrefixListResolverVersionSet).trim() === "") {
+    contents[_IPLRVp] = [];
+  } else if (output[_iPLRVS] != null && output[_iPLRVS][_i] != null) {
+    contents[_IPLRVp] = de_IpamPrefixListResolverVersionSet(__getArrayIfSingleItem(output[_iPLRVS][_i]), context);
+  }
+  if (output[_nTe] != null) {
+    contents[_NT] = __expectString(output[_nTe]);
+  }
+  return contents;
+};
+
+/**
  * deserializeAws_ec2GetIpamResourceCidrsResult
  */
 const de_GetIpamResourceCidrsResult = (output: any, context: __SerdeContext): GetIpamResourceCidrsResult => {
@@ -79361,6 +80461,249 @@ const de_IpamPoolSourceResource = (output: any, context: __SerdeContext): IpamPo
 };
 
 /**
+ * deserializeAws_ec2IpamPrefixListResolver
+ */
+const de_IpamPrefixListResolver = (output: any, context: __SerdeContext): IpamPrefixListResolver => {
+  const contents: any = {};
+  if (output[_oI] != null) {
+    contents[_OIwn] = __expectString(output[_oI]);
+  }
+  if (output[_iPLRI] != null) {
+    contents[_IPLRI] = __expectString(output[_iPLRI]);
+  }
+  if (output[_iPLRA] != null) {
+    contents[_IPLRA] = __expectString(output[_iPLRA]);
+  }
+  if (output[_iApa] != null) {
+    contents[_IApa] = __expectString(output[_iApa]);
+  }
+  if (output[_iRp] != null) {
+    contents[_IRpa] = __expectString(output[_iRp]);
+  }
+  if (output[_de] != null) {
+    contents[_De] = __expectString(output[_de]);
+  }
+  if (output[_aF] != null) {
+    contents[_AF] = __expectString(output[_aF]);
+  }
+  if (output[_st] != null) {
+    contents[_Stat] = __expectString(output[_st]);
+  }
+  if (String(output.tagSet).trim() === "") {
+    contents[_Ta] = [];
+  } else if (output[_tS] != null && output[_tS][_i] != null) {
+    contents[_Ta] = de_TagList(__getArrayIfSingleItem(output[_tS][_i]), context);
+  }
+  if (output[_lVCS] != null) {
+    contents[_LVCS] = __expectString(output[_lVCS]);
+  }
+  if (output[_lVCSM] != null) {
+    contents[_LVCSM] = __expectString(output[_lVCSM]);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_ec2IpamPrefixListResolverRule
+ */
+const de_IpamPrefixListResolverRule = (output: any, context: __SerdeContext): IpamPrefixListResolverRule => {
+  const contents: any = {};
+  if (output[_rTu] != null) {
+    contents[_RTu] = __expectString(output[_rTu]);
+  }
+  if (output[_sCt] != null) {
+    contents[_SCt] = __expectString(output[_sCt]);
+  }
+  if (output[_iSIp] != null) {
+    contents[_ISI] = __expectString(output[_iSIp]);
+  }
+  if (output[_rTe] != null) {
+    contents[_RT] = __expectString(output[_rTe]);
+  }
+  if (String(output.conditionSet).trim() === "") {
+    contents[_Cond] = [];
+  } else if (output[_cSo] != null && output[_cSo][_i] != null) {
+    contents[_Cond] = de_IpamPrefixListResolverRuleConditionSet(__getArrayIfSingleItem(output[_cSo][_i]), context);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_ec2IpamPrefixListResolverRuleCondition
+ */
+const de_IpamPrefixListResolverRuleCondition = (
+  output: any,
+  context: __SerdeContext
+): IpamPrefixListResolverRuleCondition => {
+  const contents: any = {};
+  if (output[_ope] != null) {
+    contents[_Ope] = __expectString(output[_ope]);
+  }
+  if (output[_iPIp] != null) {
+    contents[_IPI] = __expectString(output[_iPIp]);
+  }
+  if (output[_rIes] != null) {
+    contents[_RIeso] = __expectString(output[_rIes]);
+  }
+  if (output[_rO] != null) {
+    contents[_ROe] = __expectString(output[_rO]);
+  }
+  if (output[_rR] != null) {
+    contents[_RRe] = __expectString(output[_rR]);
+  }
+  if (output[_rTes] != null) {
+    contents[_RTeso] = de_IpamResourceTag(output[_rTes], context);
+  }
+  if (output[_ci] != null) {
+    contents[_C] = __expectString(output[_ci]);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_ec2IpamPrefixListResolverRuleConditionSet
+ */
+const de_IpamPrefixListResolverRuleConditionSet = (
+  output: any,
+  context: __SerdeContext
+): IpamPrefixListResolverRuleCondition[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_IpamPrefixListResolverRuleCondition(entry, context);
+    });
+};
+
+/**
+ * deserializeAws_ec2IpamPrefixListResolverRuleSet
+ */
+const de_IpamPrefixListResolverRuleSet = (output: any, context: __SerdeContext): IpamPrefixListResolverRule[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_IpamPrefixListResolverRule(entry, context);
+    });
+};
+
+/**
+ * deserializeAws_ec2IpamPrefixListResolverSet
+ */
+const de_IpamPrefixListResolverSet = (output: any, context: __SerdeContext): IpamPrefixListResolver[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_IpamPrefixListResolver(entry, context);
+    });
+};
+
+/**
+ * deserializeAws_ec2IpamPrefixListResolverTarget
+ */
+const de_IpamPrefixListResolverTarget = (output: any, context: __SerdeContext): IpamPrefixListResolverTarget => {
+  const contents: any = {};
+  if (output[_iPLRTI] != null) {
+    contents[_IPLRTI] = __expectString(output[_iPLRTI]);
+  }
+  if (output[_iPLRTA] != null) {
+    contents[_IPLRTA] = __expectString(output[_iPLRTA]);
+  }
+  if (output[_iPLRI] != null) {
+    contents[_IPLRI] = __expectString(output[_iPLRI]);
+  }
+  if (output[_oI] != null) {
+    contents[_OIwn] = __expectString(output[_oI]);
+  }
+  if (output[_pLI] != null) {
+    contents[_PLI] = __expectString(output[_pLI]);
+  }
+  if (output[_pLR] != null) {
+    contents[_PLR] = __expectString(output[_pLR]);
+  }
+  if (output[_dVe] != null) {
+    contents[_DVesi] = __strictParseLong(output[_dVe]) as number;
+  }
+  if (output[_lSV] != null) {
+    contents[_LSV] = __strictParseLong(output[_lSV]) as number;
+  }
+  if (output[_tLV] != null) {
+    contents[_TLV] = __parseBoolean(output[_tLV]);
+  }
+  if (output[_sMta] != null) {
+    contents[_SMta] = __expectString(output[_sMta]);
+  }
+  if (output[_st] != null) {
+    contents[_Stat] = __expectString(output[_st]);
+  }
+  if (String(output.tagSet).trim() === "") {
+    contents[_Ta] = [];
+  } else if (output[_tS] != null && output[_tS][_i] != null) {
+    contents[_Ta] = de_TagList(__getArrayIfSingleItem(output[_tS][_i]), context);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_ec2IpamPrefixListResolverTargetSet
+ */
+const de_IpamPrefixListResolverTargetSet = (output: any, context: __SerdeContext): IpamPrefixListResolverTarget[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_IpamPrefixListResolverTarget(entry, context);
+    });
+};
+
+/**
+ * deserializeAws_ec2IpamPrefixListResolverVersion
+ */
+const de_IpamPrefixListResolverVersion = (output: any, context: __SerdeContext): IpamPrefixListResolverVersion => {
+  const contents: any = {};
+  if (output[_ve] != null) {
+    contents[_V] = __strictParseLong(output[_ve]) as number;
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_ec2IpamPrefixListResolverVersionEntry
+ */
+const de_IpamPrefixListResolverVersionEntry = (
+  output: any,
+  context: __SerdeContext
+): IpamPrefixListResolverVersionEntry => {
+  const contents: any = {};
+  if (output[_ci] != null) {
+    contents[_C] = __expectString(output[_ci]);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_ec2IpamPrefixListResolverVersionEntrySet
+ */
+const de_IpamPrefixListResolverVersionEntrySet = (
+  output: any,
+  context: __SerdeContext
+): IpamPrefixListResolverVersionEntry[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_IpamPrefixListResolverVersionEntry(entry, context);
+    });
+};
+
+/**
+ * deserializeAws_ec2IpamPrefixListResolverVersionSet
+ */
+const de_IpamPrefixListResolverVersionSet = (output: any, context: __SerdeContext): IpamPrefixListResolverVersion[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_IpamPrefixListResolverVersion(entry, context);
+    });
+};
+
+/**
  * deserializeAws_ec2IpamPublicAddressSecurityGroup
  */
 const de_IpamPublicAddressSecurityGroup = (output: any, context: __SerdeContext): IpamPublicAddressSecurityGroup => {
@@ -79466,8 +80809,8 @@ const de_IpamResourceCidr = (output: any, context: __SerdeContext): IpamResource
   if (output[_iU] != null) {
     contents[_IUp] = __strictParseFloat(output[_iU]) as number;
   }
-  if (output[_cSo] != null) {
-    contents[_CSo] = __expectString(output[_cSo]);
+  if (output[_cSom] != null) {
+    contents[_CSo] = __expectString(output[_cSom]);
   }
   if (output[_mSa] != null) {
     contents[_MSa] = __expectString(output[_mSa]);
@@ -80914,8 +82257,8 @@ const de_LaunchTemplateVersion = (output: any, context: __SerdeContext): LaunchT
   if (output[_cBr] != null) {
     contents[_CBr] = __expectString(output[_cBr]);
   }
-  if (output[_dVe] != null) {
-    contents[_DVef] = __parseBoolean(output[_dVe]);
+  if (output[_dVef] != null) {
+    contents[_DVef] = __parseBoolean(output[_dVef]);
   }
   if (output[_lTD] != null) {
     contents[_LTD] = de_ResponseLaunchTemplateData(output[_lTD], context);
@@ -81656,6 +82999,12 @@ const de_ManagedPrefixList = (output: any, context: __SerdeContext): ManagedPref
   if (output[_oI] != null) {
     contents[_OIwn] = __expectString(output[_oI]);
   }
+  if (output[_iPLRTI] != null) {
+    contents[_IPLRTI] = __expectString(output[_iPLRTI]);
+  }
+  if (output[_iPLRSE] != null) {
+    contents[_IPLRSE] = __parseBoolean(output[_iPLRSE]);
+  }
   return contents;
 };
 
@@ -82181,6 +83530,34 @@ const de_ModifyIpamPoolResult = (output: any, context: __SerdeContext): ModifyIp
   const contents: any = {};
   if (output[_iPp] != null) {
     contents[_IPpa] = de_IpamPool(output[_iPp], context);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_ec2ModifyIpamPrefixListResolverResult
+ */
+const de_ModifyIpamPrefixListResolverResult = (
+  output: any,
+  context: __SerdeContext
+): ModifyIpamPrefixListResolverResult => {
+  const contents: any = {};
+  if (output[_iPLR] != null) {
+    contents[_IPLR] = de_IpamPrefixListResolver(output[_iPLR], context);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_ec2ModifyIpamPrefixListResolverTargetResult
+ */
+const de_ModifyIpamPrefixListResolverTargetResult = (
+  output: any,
+  context: __SerdeContext
+): ModifyIpamPrefixListResolverTargetResult => {
+  const contents: any = {};
+  if (output[_iPLRT] != null) {
+    contents[_IPLRT] = de_IpamPrefixListResolverTarget(output[_iPLRT], context);
   }
   return contents;
 };
@@ -93316,6 +94693,15 @@ const de_VpcEncryptionControlExclusions = (output: any, context: __SerdeContext)
   if (output[_vPpc] != null) {
     contents[_VPpc] = de_VpcEncryptionControlExclusion(output[_vPpc], context);
   }
+  if (output[_la] != null) {
+    contents[_Lam] = de_VpcEncryptionControlExclusion(output[_la], context);
+  }
+  if (output[_vL] != null) {
+    contents[_VL] = de_VpcEncryptionControlExclusion(output[_vL], context);
+  }
+  if (output[_eFS] != null) {
+    contents[_EFS] = de_VpcEncryptionControlExclusion(output[_eFS], context);
+  }
   return contents;
 };
 
@@ -94356,6 +95742,8 @@ const _CIEW = "CreateInstanceEventWindow";
 const _CIG = "CreateInternetGateway";
 const _CILP = "CancelImageLaunchPermission";
 const _CIP = "CreateIpamPool";
+const _CIPLR = "CreateIpamPrefixListResolver";
+const _CIPLRT = "CreateIpamPrefixListResolverTarget";
 const _CIRD = "CreateIpamResourceDiscovery";
 const _CIS = "CreateIpamScope";
 const _CISI = "CurrentIpamScopeId";
@@ -94550,6 +95938,7 @@ const _Cod = "Code";
 const _Com = "Comparison";
 const _Comp = "Component";
 const _Con = "Context";
+const _Cond = "Conditions";
 const _Conf = "Configured";
 const _Confi = "Config";
 const _Conn = "Connections";
@@ -94696,6 +96085,10 @@ const _DIIT = "DescribeImportImageTasks";
 const _DIOAA = "DisableIpamOrganizationAdminAccount";
 const _DIP = "DeleteIpamPool";
 const _DIPC = "DeprovisionIpamPoolCidr";
+const _DIPLR = "DeleteIpamPrefixListResolver";
+const _DIPLRT = "DeleteIpamPrefixListResolverTarget";
+const _DIPLRTe = "DescribeIpamPrefixListResolverTargets";
+const _DIPLRe = "DescribeIpamPrefixListResolvers";
 const _DIPe = "DescribeIpamPools";
 const _DIPes = "DescribeIpv6Pools";
 const _DIR = "DescribeImageReferences";
@@ -94977,6 +96370,7 @@ const _DVe = "DeleteVpc";
 const _DVef = "DefaultVersion";
 const _DVes = "DescribeVolumes";
 const _DVesc = "DescribeVpcs";
+const _DVesi = "DesiredVersion";
 const _DVest = "DestinationVpc";
 const _DVet = "DetachVolume";
 const _Da = "Data";
@@ -95026,6 +96420,7 @@ const _EEEBD = "EnableEbsEncryptionByDefault";
 const _EEI = "EndpointEniId";
 const _EFL = "EnableFastLaunch";
 const _EFR = "EgressFilterRules";
+const _EFS = "ElasticFileSystem";
 const _EFSR = "EnableFastSnapshotRestores";
 const _EGA = "ElasticGpuAssociations";
 const _EGAI = "ElasticGpuAssociationId";
@@ -95232,6 +96627,9 @@ const _GIDRC = "GetIpamDiscoveredResourceCidrs";
 const _GIMD = "GetInstanceMetadataDefaults";
 const _GIPA = "GetIpamPoolAllocations";
 const _GIPC = "GetIpamPoolCidrs";
+const _GIPLRR = "GetIpamPrefixListResolverRules";
+const _GIPLRV = "GetIpamPrefixListResolverVersions";
+const _GIPLRVE = "GetIpamPrefixListResolverVersionEntries";
 const _GIRC = "GetIpamResourceCidrs";
 const _GITEP = "GetInstanceTpmEkPub";
 const _GITFIR = "GetInstanceTypesFromInstanceRequirements";
@@ -95427,6 +96825,19 @@ const _IPI = "IpamPoolId";
 const _IPIp = "IpamPoolIds";
 const _IPIs = "IsPrimaryIpv6";
 const _IPK = "IncludePublicKey";
+const _IPLR = "IpamPrefixListResolver";
+const _IPLRA = "IpamPrefixListResolverArn";
+const _IPLRI = "IpamPrefixListResolverId";
+const _IPLRIp = "IpamPrefixListResolverIds";
+const _IPLRSE = "IpamPrefixListResolverSyncEnabled";
+const _IPLRT = "IpamPrefixListResolverTarget";
+const _IPLRTA = "IpamPrefixListResolverTargetArn";
+const _IPLRTI = "IpamPrefixListResolverTargetId";
+const _IPLRTIp = "IpamPrefixListResolverTargetIds";
+const _IPLRTp = "IpamPrefixListResolverTargets";
+const _IPLRV = "IpamPrefixListResolverVersion";
+const _IPLRVp = "IpamPrefixListResolverVersions";
+const _IPLRp = "IpamPrefixListResolvers";
 const _IPO = "IpamPoolOwner";
 const _IPR = "IsPermanentRestore";
 const _IPTUC = "InstancePoolsToUseCount";
@@ -95634,6 +97045,7 @@ const _LSDT = "LastSuccessfulDiscoveryTime";
 const _LSIRB = "ListSnapshotsInRecycleBin";
 const _LSL = "LogsStorageLocation";
 const _LST = "LocalStorageTypes";
+const _LSV = "LastSyncedVersion";
 const _LSa = "LaunchSpecification";
 const _LSau = "LaunchSpecifications";
 const _LSi = "LicenseSpecifications";
@@ -95664,8 +97076,11 @@ const _LUT = "LastUpdateTime";
 const _LUTa = "LastUpdatedTime";
 const _LUTas = "LastUpdateTimestamp";
 const _LV = "LogVersion";
+const _LVCS = "LastVersionCreationStatus";
+const _LVCSM = "LastVersionCreationStatusMessage";
 const _LVN = "LatestVersionNumber";
 const _La = "Latest";
+const _Lam = "Lambda";
 const _Li = "Lifecycle";
 const _Lic = "Licenses";
 const _Lo = "Location";
@@ -95737,6 +97152,8 @@ const _MIMO = "ModifyInstanceMaintenanceOptions";
 const _MIMOo = "ModifyInstanceMetadataOptions";
 const _MINPO = "ModifyInstanceNetworkPerformanceOptions";
 const _MIP = "ModifyInstancePlacement";
+const _MIPLR = "ModifyIpamPrefixListResolver";
+const _MIPLRT = "ModifyIpamPrefixListResolverTarget";
 const _MIPo = "ModifyIpamPool";
 const _MIRC = "ModifyIpamResourceCidr";
 const _MIRD = "ModifyIpamResourceDiscovery";
@@ -95977,6 +97394,7 @@ const _OV = "OptionValues";
 const _OVC = "OpenVpnConfigurations";
 const _OVT = "OriginalVolumeType";
 const _Op = "Options";
+const _Ope = "Operation";
 const _Or = "Origin";
 const _Ou = "Output";
 const _Ov = "Overrides";
@@ -96092,6 +97510,7 @@ const _PLI = "PrefixListId";
 const _PLIr = "PrefixListIds";
 const _PLN = "PrefixListName";
 const _PLOI = "PrefixListOwnerId";
+const _PLR = "PrefixListRegion";
 const _PLS = "Phase1LifetimeSeconds";
 const _PLSh = "Phase2LifetimeSeconds";
 const _PLr = "PrefixList";
@@ -96362,6 +97781,7 @@ const _RTeso = "ResourceTag";
 const _RTesou = "ResourceTags";
 const _RTo = "RouteTable";
 const _RTou = "RouteTables";
+const _RTu = "RuleType";
 const _RUFO = "ReservationUnusedFinancialOwner";
 const _RUI = "ReplaceUnhealthyInstances";
 const _RUV = "RemainingUpfrontValue";
@@ -96389,6 +97809,7 @@ const _Ret = "Return";
 const _Ro = "Role";
 const _Rou = "Route";
 const _Rout = "Routes";
+const _Ru = "Rules";
 const _S = "Source";
 const _SA = "StartupAction";
 const _SAI = "SecondaryAllocationIds";
@@ -96418,6 +97839,7 @@ const _SCc = "ScopeCount";
 const _SCe = "ServiceConfiguration";
 const _SCer = "ServiceConfigurations";
 const _SCn = "SnapshotConfiguration";
+const _SCt = "StaticCidr";
 const _SD = "StartDate";
 const _SDC = "SourceDestCheck";
 const _SDI = "SendDiagnosticInterrupt";
@@ -96702,6 +98124,7 @@ const _TIar = "TargetIops";
 const _TIe = "TenantId";
 const _TIer = "TerminatingInstances";
 const _TLSGB = "TotalLocalStorageGB";
+const _TLV = "TrackLatestVersion";
 const _TMAE = "TargetMultiAttachEnabled";
 const _TMF = "TrafficMirrorFilter";
 const _TMFI = "TrafficMirrorFilterId";
@@ -96885,6 +98308,7 @@ const _VIl = "VlanId";
 const _VIo = "VolumeId";
 const _VIol = "VolumeIds";
 const _VIp = "VpcIds";
+const _VL = "VpcLattice";
 const _VM = "VerificationMethod";
 const _VMo = "VolumesModifications";
 const _VMol = "VolumeModification";
@@ -97244,7 +98668,8 @@ const _cSBN = "certificateS3BucketName";
 const _cSFRS = "currentSpotFleetRequestState";
 const _cSOK = "certificateS3ObjectKey";
 const _cSl = "clientSecret";
-const _cSo = "complianceStatus";
+const _cSo = "conditionSet";
+const _cSom = "complianceStatus";
 const _cSon = "configurationState";
 const _cSonn = "connectionStatuses";
 const _cSr = "creditSpecification";
@@ -97372,7 +98797,8 @@ const _dV = "destinationVpc";
 const _dVC = "defaultVCpus";
 const _dVD = "deviceValidationDomain";
 const _dVN = "defaultVersionNumber";
-const _dVe = "defaultVersion";
+const _dVe = "desiredVersion";
+const _dVef = "defaultVersion";
 const _de = "description";
 const _dea = "deadline";
 const _def = "default";
@@ -97406,6 +98832,7 @@ const _eEA = "endpointEniAddress";
 const _eEBD = "ebsEncryptionByDefault";
 const _eEI = "endpointEniId";
 const _eFRS = "egressFilterRuleSet";
+const _eFS = "elasticFileSystem";
 const _eGAI = "elasticGpuAssociationId";
 const _eGAS = "elasticGpuAssociationState";
 const _eGASl = "elasticGpuAssociationSet";
@@ -97682,6 +99109,16 @@ const _iPCpv = "ipv6PrefixCount";
 const _iPE = "ipPermissionsEgress";
 const _iPI = "isPrimaryIpv6";
 const _iPIp = "ipamPoolId";
+const _iPLR = "ipamPrefixListResolver";
+const _iPLRA = "ipamPrefixListResolverArn";
+const _iPLRI = "ipamPrefixListResolverId";
+const _iPLRS = "ipamPrefixListResolverSet";
+const _iPLRSE = "ipamPrefixListResolverSyncEnabled";
+const _iPLRT = "ipamPrefixListResolverTarget";
+const _iPLRTA = "ipamPrefixListResolverTargetArn";
+const _iPLRTI = "ipamPrefixListResolverTargetId";
+const _iPLRTS = "ipamPrefixListResolverTargetSet";
+const _iPLRVS = "ipamPrefixListResolverVersionSet";
 const _iPR = "isPermanentRestore";
 const _iPS = "ipamPoolSet";
 const _iPSm = "imageProviderSet";
@@ -97868,6 +99305,7 @@ const _lS = "licenseSpecifications";
 const _lSC = "lastStatusChange";
 const _lSDT = "lastSuccessfulDiscoveryTime";
 const _lSTS = "localStorageTypeSet";
+const _lSV = "lastSyncedVersion";
 const _lSa = "launchSpecifications";
 const _lSau = "launchSpecification";
 const _lSi = "licenseSet";
@@ -97894,7 +99332,10 @@ const _lUT = "lastUpdateTime";
 const _lUTa = "lastUpdatedTime";
 const _lUTas = "lastUpdateTimestamp";
 const _lV = "logVersion";
+const _lVCS = "lastVersionCreationStatus";
+const _lVCSM = "lastVersionCreationStatusMessage";
 const _lVN = "latestVersionNumber";
+const _la = "lambda";
 const _lo = "location";
 const _loc = "locale";
 const _m = "min";
@@ -98099,6 +99540,7 @@ const _oVCS = "openVpnConfigurationSet";
 const _oVS = "optionValueSet";
 const _oVT = "originalVolumeType";
 const _op = "operator";
+const _ope = "operation";
 const _opt = "options";
 const _ou = "output";
 const _ov = "overrides";
@@ -98193,6 +99635,7 @@ const _pLI = "prefixListId";
 const _pLIr = "prefixListIds";
 const _pLN = "prefixListName";
 const _pLOI = "prefixListOwnerId";
+const _pLR = "prefixListRegion";
 const _pLS = "prefixListSet";
 const _pLSh = "phase1LifetimeSeconds";
 const _pLSha = "phase2LifetimeSeconds";
@@ -98363,6 +99806,7 @@ const _rSesou = "resourceSet";
 const _rSo = "routeServer";
 const _rSou = "routeSet";
 const _rSout = "routeStatus";
+const _rSu = "ruleSet";
 const _rT = "reservationType";
 const _rTAI = "routeTableAssociationId";
 const _rTI = "routeTableId";
@@ -98377,7 +99821,9 @@ const _rTV = "remainingTotalValue";
 const _rTe = "resourceType";
 const _rTel = "releaseTime";
 const _rTeq = "requestTime";
+const _rTes = "resourceTag";
 const _rTo = "routeTable";
+const _rTu = "ruleType";
 const _rUFO = "reservationUnusedFinancialOwner";
 const _rUI = "replaceUnhealthyInstances";
 const _rUV = "remainingUpfrontValue";
@@ -98419,6 +99865,7 @@ const _sCS = "serviceConfigurationSet";
 const _sCSIG = "sustainedClockSpeedInGhz";
 const _sCc = "scopeCount";
 const _sCn = "snapshotConfiguration";
+const _sCt = "staticCidr";
 const _sD = "startDate";
 const _sDC = "sourceDestCheck";
 const _sDIH = "slotDurationInHours";
@@ -98656,6 +100103,7 @@ const _tIWE = "terminateInstancesWithExpiration";
 const _tIa = "targetIops";
 const _tIe = "tenantId";
 const _tLSGB = "totalLocalStorageGB";
+const _tLV = "trackLatestVersion";
 const _tMAE = "targetMultiAttachEnabled";
 const _tMF = "trafficMirrorFilter";
 const _tMFI = "trafficMirrorFilterId";
@@ -98804,6 +100252,7 @@ const _vI = "vpcId";
 const _vIR = "volumeInitializationRate";
 const _vIl = "vlanId";
 const _vIo = "volumeId";
+const _vL = "vpcLattice";
 const _vM = "volumeModification";
 const _vMS = "volumeModificationSet";
 const _vN = "virtualName";

@@ -423,6 +423,16 @@ import {
   CreateIpamPoolCommandOutput,
 } from "./commands/CreateIpamPoolCommand";
 import {
+  CreateIpamPrefixListResolverCommand,
+  CreateIpamPrefixListResolverCommandInput,
+  CreateIpamPrefixListResolverCommandOutput,
+} from "./commands/CreateIpamPrefixListResolverCommand";
+import {
+  CreateIpamPrefixListResolverTargetCommand,
+  CreateIpamPrefixListResolverTargetCommandInput,
+  CreateIpamPrefixListResolverTargetCommandOutput,
+} from "./commands/CreateIpamPrefixListResolverTargetCommand";
+import {
   CreateIpamResourceDiscoveryCommand,
   CreateIpamResourceDiscoveryCommandInput,
   CreateIpamResourceDiscoveryCommandOutput,
@@ -836,6 +846,16 @@ import {
   DeleteIpamPoolCommandInput,
   DeleteIpamPoolCommandOutput,
 } from "./commands/DeleteIpamPoolCommand";
+import {
+  DeleteIpamPrefixListResolverCommand,
+  DeleteIpamPrefixListResolverCommandInput,
+  DeleteIpamPrefixListResolverCommandOutput,
+} from "./commands/DeleteIpamPrefixListResolverCommand";
+import {
+  DeleteIpamPrefixListResolverTargetCommand,
+  DeleteIpamPrefixListResolverTargetCommandInput,
+  DeleteIpamPrefixListResolverTargetCommandOutput,
+} from "./commands/DeleteIpamPrefixListResolverTargetCommand";
 import {
   DeleteIpamResourceDiscoveryCommand,
   DeleteIpamResourceDiscoveryCommandInput,
@@ -1539,6 +1559,16 @@ import {
   DescribeIpamPoolsCommandInput,
   DescribeIpamPoolsCommandOutput,
 } from "./commands/DescribeIpamPoolsCommand";
+import {
+  DescribeIpamPrefixListResolversCommand,
+  DescribeIpamPrefixListResolversCommandInput,
+  DescribeIpamPrefixListResolversCommandOutput,
+} from "./commands/DescribeIpamPrefixListResolversCommand";
+import {
+  DescribeIpamPrefixListResolverTargetsCommand,
+  DescribeIpamPrefixListResolverTargetsCommandInput,
+  DescribeIpamPrefixListResolverTargetsCommandOutput,
+} from "./commands/DescribeIpamPrefixListResolverTargetsCommand";
 import {
   DescribeIpamResourceDiscoveriesCommand,
   DescribeIpamResourceDiscoveriesCommandInput,
@@ -2542,6 +2572,21 @@ import {
   GetIpamPoolCidrsCommandOutput,
 } from "./commands/GetIpamPoolCidrsCommand";
 import {
+  GetIpamPrefixListResolverRulesCommand,
+  GetIpamPrefixListResolverRulesCommandInput,
+  GetIpamPrefixListResolverRulesCommandOutput,
+} from "./commands/GetIpamPrefixListResolverRulesCommand";
+import {
+  GetIpamPrefixListResolverVersionEntriesCommand,
+  GetIpamPrefixListResolverVersionEntriesCommandInput,
+  GetIpamPrefixListResolverVersionEntriesCommandOutput,
+} from "./commands/GetIpamPrefixListResolverVersionEntriesCommand";
+import {
+  GetIpamPrefixListResolverVersionsCommand,
+  GetIpamPrefixListResolverVersionsCommandInput,
+  GetIpamPrefixListResolverVersionsCommandOutput,
+} from "./commands/GetIpamPrefixListResolverVersionsCommand";
+import {
   GetIpamResourceCidrsCommand,
   GetIpamResourceCidrsCommandInput,
   GetIpamResourceCidrsCommandOutput,
@@ -2850,6 +2895,16 @@ import {
   ModifyIpamPoolCommandInput,
   ModifyIpamPoolCommandOutput,
 } from "./commands/ModifyIpamPoolCommand";
+import {
+  ModifyIpamPrefixListResolverCommand,
+  ModifyIpamPrefixListResolverCommandInput,
+  ModifyIpamPrefixListResolverCommandOutput,
+} from "./commands/ModifyIpamPrefixListResolverCommand";
+import {
+  ModifyIpamPrefixListResolverTargetCommand,
+  ModifyIpamPrefixListResolverTargetCommandInput,
+  ModifyIpamPrefixListResolverTargetCommandOutput,
+} from "./commands/ModifyIpamPrefixListResolverTargetCommand";
 import {
   ModifyIpamResourceCidrCommand,
   ModifyIpamResourceCidrCommandInput,
@@ -3546,6 +3601,8 @@ const commands = {
   CreateIpamCommand,
   CreateIpamExternalResourceVerificationTokenCommand,
   CreateIpamPoolCommand,
+  CreateIpamPrefixListResolverCommand,
+  CreateIpamPrefixListResolverTargetCommand,
   CreateIpamResourceDiscoveryCommand,
   CreateIpamScopeCommand,
   CreateKeyPairCommand,
@@ -3632,6 +3689,8 @@ const commands = {
   DeleteIpamCommand,
   DeleteIpamExternalResourceVerificationTokenCommand,
   DeleteIpamPoolCommand,
+  DeleteIpamPrefixListResolverCommand,
+  DeleteIpamPrefixListResolverTargetCommand,
   DeleteIpamResourceDiscoveryCommand,
   DeleteIpamScopeCommand,
   DeleteKeyPairCommand,
@@ -3775,6 +3834,8 @@ const commands = {
   DescribeIpamByoasnCommand,
   DescribeIpamExternalResourceVerificationTokensCommand,
   DescribeIpamPoolsCommand,
+  DescribeIpamPrefixListResolversCommand,
+  DescribeIpamPrefixListResolverTargetsCommand,
   DescribeIpamResourceDiscoveriesCommand,
   DescribeIpamResourceDiscoveryAssociationsCommand,
   DescribeIpamsCommand,
@@ -3977,6 +4038,9 @@ const commands = {
   GetIpamDiscoveredResourceCidrsCommand,
   GetIpamPoolAllocationsCommand,
   GetIpamPoolCidrsCommand,
+  GetIpamPrefixListResolverRulesCommand,
+  GetIpamPrefixListResolverVersionEntriesCommand,
+  GetIpamPrefixListResolverVersionsCommand,
   GetIpamResourceCidrsCommand,
   GetLaunchTemplateDataCommand,
   GetManagedPrefixListAssociationsCommand,
@@ -4042,6 +4106,8 @@ const commands = {
   ModifyInstancePlacementCommand,
   ModifyIpamCommand,
   ModifyIpamPoolCommand,
+  ModifyIpamPrefixListResolverCommand,
+  ModifyIpamPrefixListResolverTargetCommand,
   ModifyIpamResourceCidrCommand,
   ModifyIpamResourceDiscoveryCommand,
   ModifyIpamScopeCommand,
@@ -5599,6 +5665,40 @@ export interface EC2 {
   ): void;
 
   /**
+   * @see {@link CreateIpamPrefixListResolverCommand}
+   */
+  createIpamPrefixListResolver(
+    args: CreateIpamPrefixListResolverCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateIpamPrefixListResolverCommandOutput>;
+  createIpamPrefixListResolver(
+    args: CreateIpamPrefixListResolverCommandInput,
+    cb: (err: any, data?: CreateIpamPrefixListResolverCommandOutput) => void
+  ): void;
+  createIpamPrefixListResolver(
+    args: CreateIpamPrefixListResolverCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateIpamPrefixListResolverCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateIpamPrefixListResolverTargetCommand}
+   */
+  createIpamPrefixListResolverTarget(
+    args: CreateIpamPrefixListResolverTargetCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateIpamPrefixListResolverTargetCommandOutput>;
+  createIpamPrefixListResolverTarget(
+    args: CreateIpamPrefixListResolverTargetCommandInput,
+    cb: (err: any, data?: CreateIpamPrefixListResolverTargetCommandOutput) => void
+  ): void;
+  createIpamPrefixListResolverTarget(
+    args: CreateIpamPrefixListResolverTargetCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateIpamPrefixListResolverTargetCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link CreateIpamResourceDiscoveryCommand}
    */
   createIpamResourceDiscovery(): Promise<CreateIpamResourceDiscoveryCommandOutput>;
@@ -6996,6 +7096,40 @@ export interface EC2 {
     args: DeleteIpamPoolCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteIpamPoolCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteIpamPrefixListResolverCommand}
+   */
+  deleteIpamPrefixListResolver(
+    args: DeleteIpamPrefixListResolverCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteIpamPrefixListResolverCommandOutput>;
+  deleteIpamPrefixListResolver(
+    args: DeleteIpamPrefixListResolverCommandInput,
+    cb: (err: any, data?: DeleteIpamPrefixListResolverCommandOutput) => void
+  ): void;
+  deleteIpamPrefixListResolver(
+    args: DeleteIpamPrefixListResolverCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteIpamPrefixListResolverCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteIpamPrefixListResolverTargetCommand}
+   */
+  deleteIpamPrefixListResolverTarget(
+    args: DeleteIpamPrefixListResolverTargetCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteIpamPrefixListResolverTargetCommandOutput>;
+  deleteIpamPrefixListResolverTarget(
+    args: DeleteIpamPrefixListResolverTargetCommandInput,
+    cb: (err: any, data?: DeleteIpamPrefixListResolverTargetCommandOutput) => void
+  ): void;
+  deleteIpamPrefixListResolverTarget(
+    args: DeleteIpamPrefixListResolverTargetCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteIpamPrefixListResolverTargetCommandOutput) => void
   ): void;
 
   /**
@@ -9432,6 +9566,42 @@ export interface EC2 {
     args: DescribeIpamPoolsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeIpamPoolsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeIpamPrefixListResolversCommand}
+   */
+  describeIpamPrefixListResolvers(): Promise<DescribeIpamPrefixListResolversCommandOutput>;
+  describeIpamPrefixListResolvers(
+    args: DescribeIpamPrefixListResolversCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeIpamPrefixListResolversCommandOutput>;
+  describeIpamPrefixListResolvers(
+    args: DescribeIpamPrefixListResolversCommandInput,
+    cb: (err: any, data?: DescribeIpamPrefixListResolversCommandOutput) => void
+  ): void;
+  describeIpamPrefixListResolvers(
+    args: DescribeIpamPrefixListResolversCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeIpamPrefixListResolversCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeIpamPrefixListResolverTargetsCommand}
+   */
+  describeIpamPrefixListResolverTargets(): Promise<DescribeIpamPrefixListResolverTargetsCommandOutput>;
+  describeIpamPrefixListResolverTargets(
+    args: DescribeIpamPrefixListResolverTargetsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeIpamPrefixListResolverTargetsCommandOutput>;
+  describeIpamPrefixListResolverTargets(
+    args: DescribeIpamPrefixListResolverTargetsCommandInput,
+    cb: (err: any, data?: DescribeIpamPrefixListResolverTargetsCommandOutput) => void
+  ): void;
+  describeIpamPrefixListResolverTargets(
+    args: DescribeIpamPrefixListResolverTargetsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeIpamPrefixListResolverTargetsCommandOutput) => void
   ): void;
 
   /**
@@ -12930,6 +13100,57 @@ export interface EC2 {
   ): void;
 
   /**
+   * @see {@link GetIpamPrefixListResolverRulesCommand}
+   */
+  getIpamPrefixListResolverRules(
+    args: GetIpamPrefixListResolverRulesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetIpamPrefixListResolverRulesCommandOutput>;
+  getIpamPrefixListResolverRules(
+    args: GetIpamPrefixListResolverRulesCommandInput,
+    cb: (err: any, data?: GetIpamPrefixListResolverRulesCommandOutput) => void
+  ): void;
+  getIpamPrefixListResolverRules(
+    args: GetIpamPrefixListResolverRulesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetIpamPrefixListResolverRulesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetIpamPrefixListResolverVersionEntriesCommand}
+   */
+  getIpamPrefixListResolverVersionEntries(
+    args: GetIpamPrefixListResolverVersionEntriesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetIpamPrefixListResolverVersionEntriesCommandOutput>;
+  getIpamPrefixListResolverVersionEntries(
+    args: GetIpamPrefixListResolverVersionEntriesCommandInput,
+    cb: (err: any, data?: GetIpamPrefixListResolverVersionEntriesCommandOutput) => void
+  ): void;
+  getIpamPrefixListResolverVersionEntries(
+    args: GetIpamPrefixListResolverVersionEntriesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetIpamPrefixListResolverVersionEntriesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetIpamPrefixListResolverVersionsCommand}
+   */
+  getIpamPrefixListResolverVersions(
+    args: GetIpamPrefixListResolverVersionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetIpamPrefixListResolverVersionsCommandOutput>;
+  getIpamPrefixListResolverVersions(
+    args: GetIpamPrefixListResolverVersionsCommandInput,
+    cb: (err: any, data?: GetIpamPrefixListResolverVersionsCommandOutput) => void
+  ): void;
+  getIpamPrefixListResolverVersions(
+    args: GetIpamPrefixListResolverVersionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetIpamPrefixListResolverVersionsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetIpamResourceCidrsCommand}
    */
   getIpamResourceCidrs(
@@ -13983,6 +14204,40 @@ export interface EC2 {
     args: ModifyIpamPoolCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ModifyIpamPoolCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ModifyIpamPrefixListResolverCommand}
+   */
+  modifyIpamPrefixListResolver(
+    args: ModifyIpamPrefixListResolverCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ModifyIpamPrefixListResolverCommandOutput>;
+  modifyIpamPrefixListResolver(
+    args: ModifyIpamPrefixListResolverCommandInput,
+    cb: (err: any, data?: ModifyIpamPrefixListResolverCommandOutput) => void
+  ): void;
+  modifyIpamPrefixListResolver(
+    args: ModifyIpamPrefixListResolverCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ModifyIpamPrefixListResolverCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ModifyIpamPrefixListResolverTargetCommand}
+   */
+  modifyIpamPrefixListResolverTarget(
+    args: ModifyIpamPrefixListResolverTargetCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ModifyIpamPrefixListResolverTargetCommandOutput>;
+  modifyIpamPrefixListResolverTarget(
+    args: ModifyIpamPrefixListResolverTargetCommandInput,
+    cb: (err: any, data?: ModifyIpamPrefixListResolverTargetCommandOutput) => void
+  ): void;
+  modifyIpamPrefixListResolverTarget(
+    args: ModifyIpamPrefixListResolverTargetCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ModifyIpamPrefixListResolverTargetCommandOutput) => void
   ): void;
 
   /**

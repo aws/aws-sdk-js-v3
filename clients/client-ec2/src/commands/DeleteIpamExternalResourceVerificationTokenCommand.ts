@@ -37,7 +37,8 @@ export interface DeleteIpamExternalResourceVerificationTokenCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Delete a verification token. A verification token is an Amazon Web Services-generated random value that you can use to prove ownership of an external resource. For example, you can use a verification token to validate that you control a public IP address range when you bring an IP address range to Amazon Web Services (BYOIP).
+ * <p>Delete a verification token.</p>
+ *          <p>A verification token is an Amazon Web Services-generated random value that you can use to prove ownership of an external resource. For example, you can use a verification token to validate that you control a public IP address range when you bring an IP address range to Amazon Web Services (BYOIP).
  * </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

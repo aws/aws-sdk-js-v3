@@ -11,7 +11,7 @@ import {
   ModifyVerifiedAccessTrustProviderRequestFilterSensitiveLog,
   ModifyVerifiedAccessTrustProviderResult,
   ModifyVerifiedAccessTrustProviderResultFilterSensitiveLog,
-} from "../models/models_7";
+} from "../models/models_8";
 import {
   de_ModifyVerifiedAccessTrustProviderCommand,
   se_ModifyVerifiedAccessTrustProviderCommand,
