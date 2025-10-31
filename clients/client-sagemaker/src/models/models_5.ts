@@ -5104,6 +5104,12 @@ export interface UpdateNotebookInstanceInput {
   IpAddressType?: IPAddressType | undefined;
 
   /**
+   * <p>The platform identifier of the notebook instance runtime environment.</p>
+   * @public
+   */
+  PlatformIdentifier?: string | undefined;
+
+  /**
    * <p>The Amazon Resource Name (ARN) of the IAM role that SageMaker AI can assume to access the notebook instance. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-roles.html">SageMaker AI Roles</a>. </p> <note> <p>To be able to pass this role to SageMaker AI, the caller of this API must have the <code>iam:PassRole</code> permission.</p> </note>
    * @public
    */
