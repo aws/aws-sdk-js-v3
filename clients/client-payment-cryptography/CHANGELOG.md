@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.922.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.921.0...v3.922.0) (2025-10-31)
+
+
+### Features
+
+* **client-payment-cryptography:** Allow additional characters in the CertificateSubject for GetCertificateSigningRequest API. ([71d7f21](https://github.com/aws/aws-sdk-js-v3/commit/71d7f21d08ca7730acc50974fb0ddf3ae55bcdf9))
+
+
+
+
+
 # [3.921.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.920.0...v3.921.0) (2025-10-30)
 
 **Note:** Version bump only for package @aws-sdk/client-payment-cryptography

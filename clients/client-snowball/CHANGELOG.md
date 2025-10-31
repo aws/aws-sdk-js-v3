@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.922.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.921.0...v3.922.0) (2025-10-31)
+
+
+### Features
+
+* **client-snowball:** Update endpoint ruleset parameters casing ([dbcb489](https://github.com/aws/aws-sdk-js-v3/commit/dbcb489e79bd97bec05060e035e5d26c70c90a26))
+
+
+
+
+
 # [3.921.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.920.0...v3.921.0) (2025-10-30)
 
 **Note:** Version bump only for package @aws-sdk/client-snowball

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.922.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.921.0...v3.922.0) (2025-10-31)
+
+
+### Bug Fixes
+
+* **middleware-user-agent:** allow hash in userAgentAppId and propagate to inner clients ([#7469](https://github.com/aws/aws-sdk-js-v3/issues/7469)) ([03d94d1](https://github.com/aws/aws-sdk-js-v3/commit/03d94d1e02e1bbb62eabe32876d5137027aabb5b))
+
+
+
+
+
 # [3.921.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.920.0...v3.921.0) (2025-10-30)
 
 **Note:** Version bump only for package @aws-sdk/token-providers

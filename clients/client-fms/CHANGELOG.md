@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.922.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.921.0...v3.922.0) (2025-10-31)
+
+
+### Features
+
+* **client-fms:** Update endpoint ruleset parameters casing ([52136e4](https://github.com/aws/aws-sdk-js-v3/commit/52136e4a9a28914466ce014ac6ecdb70535b73eb))
+
+
+
+
+
 # [3.921.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.920.0...v3.921.0) (2025-10-30)
 
 **Note:** Version bump only for package @aws-sdk/client-fms

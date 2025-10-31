@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.922.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.921.0...v3.922.0) (2025-10-31)
+
+
+### Features
+
+* **client-omics:** Added WDL_LENIENT engine type that enables implicit typecasting of variable values to its compatible declared types ([efb1c6f](https://github.com/aws/aws-sdk-js-v3/commit/efb1c6fb5fb59f991c90b9829c0b59201f3de761))
+
+
+
+
+
 # [3.921.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.920.0...v3.921.0) (2025-10-30)
 
 **Note:** Version bump only for package @aws-sdk/client-omics

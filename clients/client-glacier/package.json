@@ -1,7 +1,7 @@
 {
   "name": "@aws-sdk/client-glacier",
   "description": "AWS SDK for JavaScript Glacier Client for Node.js, Browser and React Native",
-  "version": "3.921.0",
+  "version": "3.922.0",
   "scripts": {
     "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types'",
     "build:cjs": "node ../../scripts/compilation/inline client-glacier",

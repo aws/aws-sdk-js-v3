@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.922.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.921.0...v3.922.0) (2025-10-31)
+
+
+### Features
+
+* **client-cloudwatch-logs:** Update endpoint ruleset parameters casing ([e778e04](https://github.com/aws/aws-sdk-js-v3/commit/e778e04b27efc0ca84c9fcf2853d6cd72be4e83a))
+
+
+
+
+
 # [3.921.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.920.0...v3.921.0) (2025-10-30)
 
 **Note:** Version bump only for package @aws-sdk/client-cloudwatch-logs

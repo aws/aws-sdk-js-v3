@@ -3,6 +3,43 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.922.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.921.0...v3.922.0) (2025-10-31)
+
+
+### Bug Fixes
+
+* **middleware-user-agent:** allow hash in userAgentAppId and propagate to inner clients ([#7469](https://github.com/aws/aws-sdk-js-v3/issues/7469)) ([03d94d1](https://github.com/aws/aws-sdk-js-v3/commit/03d94d1e02e1bbb62eabe32876d5137027aabb5b))
+
+
+### Features
+
+* **client-cloudwatch-logs:** Update endpoint ruleset parameters casing ([e778e04](https://github.com/aws/aws-sdk-js-v3/commit/e778e04b27efc0ca84c9fcf2853d6cd72be4e83a))
+* **client-connectcases:** Added two new case rule types: Parent Child Field Options (restricts child field options based on parent field value) and Hidden (controls child field visibility based on parent field value). Both enable dynamic field behavior within templates. ([c5f0043](https://github.com/aws/aws-sdk-js-v3/commit/c5f00435976177f5b8e5d463dbd47b161d9effa3))
+* **client-ec2:** Amazon VPC IP Address Manager (IPAM) now supports automated prefix list management, allowing you to create rules that automatically populate customer-managed prefix lists with CIDRs from your IPAM pools or AWS resources based on tags, Regions, or other criteria. ([21a7dd3](https://github.com/aws/aws-sdk-js-v3/commit/21a7dd3827939fd8ad9ab779e846828c7c0886e9))
+* **client-emr:** Update endpoint ruleset parameters casing ([647ff66](https://github.com/aws/aws-sdk-js-v3/commit/647ff669489c02674018d10978648ffce0e04591))
+* **client-fms:** Update endpoint ruleset parameters casing ([52136e4](https://github.com/aws/aws-sdk-js-v3/commit/52136e4a9a28914466ce014ac6ecdb70535b73eb))
+* **client-fsx:** Update endpoint ruleset parameters casing ([fa7903c](https://github.com/aws/aws-sdk-js-v3/commit/fa7903c368ee556ccd6028f02e39b15e04795515))
+* **client-health:** Update endpoint ruleset parameters casing ([91db038](https://github.com/aws/aws-sdk-js-v3/commit/91db038de61cf965fab440f21ed7a605290f19c5))
+* **client-kinesis:** Update endpoint ruleset parameters casing ([1fbd3b6](https://github.com/aws/aws-sdk-js-v3/commit/1fbd3b63e2f774d570d2c32772e05c24c97b2d7b))
+* **client-lambda:** Add Python3.14 (python3.14) and Java 25 (java25) support to AWS Lambda ([833a43f](https://github.com/aws/aws-sdk-js-v3/commit/833a43f453e25c76e7aa06dc4eaa8a2d498a536e))
+* **client-marketplace-catalog:** Update endpoint ruleset parameters casing ([84ab3c4](https://github.com/aws/aws-sdk-js-v3/commit/84ab3c44a1cecf05400e1f536d27edf370dfbbd5))
+* **client-mediaconvert:** Adds SlowPalPitchCorrection to audio pitch correction settings. Enables opacity for VideoOverlays. Adds REMUX_ALL option to enable multi-rendition passthrough to VideoSelector for allow listed accounts. ([ad80a04](https://github.com/aws/aws-sdk-js-v3/commit/ad80a044c436904942cfff4bcc129ecf3548317e))
+* **client-omics:** Added WDL_LENIENT engine type that enables implicit typecasting of variable values to its compatible declared types ([efb1c6f](https://github.com/aws/aws-sdk-js-v3/commit/efb1c6fb5fb59f991c90b9829c0b59201f3de761))
+* **client-payment-cryptography:** Allow additional characters in the CertificateSubject for GetCertificateSigningRequest API. ([71d7f21](https://github.com/aws/aws-sdk-js-v3/commit/71d7f21d08ca7730acc50974fb0ddf3ae55bcdf9))
+* **client-redshift:** Update endpoint ruleset parameters casing ([8dab0d0](https://github.com/aws/aws-sdk-js-v3/commit/8dab0d0cfe839961312fa5e76fd209a61c6e4c29))
+* **client-resource-groups-tagging-api:** Update endpoint ruleset parameters casing ([808f229](https://github.com/aws/aws-sdk-js-v3/commit/808f229ff624016ae1dde73e280f3fcdbd6d83cc))
+* **client-sagemaker:** Allow update of platform identifier via UpdateNotebookInstance operation. ([7e15a9e](https://github.com/aws/aws-sdk-js-v3/commit/7e15a9e2a9219ea8d18a0bf727ed7662123c114d))
+* **client-savingsplans:** Add dual-stack endpoint support for Savings Plans ([bbb2fe9](https://github.com/aws/aws-sdk-js-v3/commit/bbb2fe9f880cf941e1b47a770c9f7c27653ce408))
+* **client-snowball:** Update endpoint ruleset parameters casing ([dbcb489](https://github.com/aws/aws-sdk-js-v3/commit/dbcb489e79bd97bec05060e035e5d26c70c90a26))
+* **client-ssm-quicksetup:** Update endpoint ruleset parameters casing ([6bda795](https://github.com/aws/aws-sdk-js-v3/commit/6bda7950cdc2fba106e2acbd5cd061b7f2006bba))
+* **client-textract:** Update endpoint ruleset parameters casing ([2d00f76](https://github.com/aws/aws-sdk-js-v3/commit/2d00f767fb1ef8fffcd258eb0c9642ec9f626141))
+* **client-waf:** Update endpoint ruleset parameters casing ([8842366](https://github.com/aws/aws-sdk-js-v3/commit/88423667134e71531a050a44f14913687b9df0c2))
+* **clients:** update client endpoints as of 2025-10-31 ([a3fc323](https://github.com/aws/aws-sdk-js-v3/commit/a3fc323e3571b964579c62897dacd7594ac21039))
+
+
+
+
+
 # [3.921.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.920.0...v3.921.0) (2025-10-30)
 
 

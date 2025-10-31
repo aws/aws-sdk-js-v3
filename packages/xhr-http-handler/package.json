@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/xhr-http-handler",
-  "version": "3.921.0",
+  "version": "3.922.0",
   "description": "Provides a way to make requests using XMLHttpRequest",
   "scripts": {
     "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types'",
