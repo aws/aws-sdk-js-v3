@@ -73,6 +73,49 @@ export interface CreateCaseRuleCommandOutput extends CreateCaseRuleResponse, __M
  *         },
  *       ],
  *     },
+ *     fieldOptions: { // FieldOptionsCaseRule
+ *       parentFieldId: "STRING_VALUE",
+ *       childFieldId: "STRING_VALUE",
+ *       parentChildFieldOptionsMappings: [ // ParentChildFieldOptionsMappingList // required
+ *         { // ParentChildFieldOptionsMapping
+ *           parentFieldOptionValue: "STRING_VALUE", // required
+ *           childFieldOptionValues: [ // ParentChildFieldOptionValueList // required
+ *             "STRING_VALUE",
+ *           ],
+ *         },
+ *       ],
+ *     },
+ *     hidden: { // HiddenCaseRule
+ *       defaultValue: true || false, // required
+ *       conditions: [ // required
+ *         {//  Union: only one key present
+ *           equalTo: {
+ *             operandOne: {//  Union: only one key present
+ *               fieldId: "STRING_VALUE",
+ *             },
+ *             operandTwo: {//  Union: only one key present
+ *               stringValue: "STRING_VALUE",
+ *               booleanValue: true || false,
+ *               doubleValue: Number("double"),
+ *               emptyValue: {},
+ *             },
+ *             result: true || false, // required
+ *           },
+ *           notEqualTo: {
+ *             operandOne: {//  Union: only one key present
+ *               fieldId: "STRING_VALUE",
+ *             },
+ *             operandTwo: {//  Union: only one key present
+ *               stringValue: "STRING_VALUE",
+ *               booleanValue: true || false,
+ *               doubleValue: Number("double"),
+ *               emptyValue: {},
+ *             },
+ *             result: true || false, // required
+ *           },
+ *         },
+ *       ],
+ *     },
  *   },
  * };
  * const command = new CreateCaseRuleCommand(input);

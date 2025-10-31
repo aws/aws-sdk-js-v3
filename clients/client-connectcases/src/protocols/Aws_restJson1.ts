@@ -126,18 +126,21 @@ import {
   FieldIdentifier,
   FieldItem,
   FieldOption,
+  FieldOptionsCaseRule,
   FieldValue,
   FieldValueUnion,
   FileContent,
   FileFilter,
   GetCaseRuleResponse,
   GetFieldResponse,
+  HiddenCaseRule,
   InternalServerException,
   LayoutConfiguration,
   LayoutContent,
   LayoutSections,
   OperandOne,
   OperandTwo,
+  ParentChildFieldOptionsMapping,
   RelatedItemContent,
   RelatedItemEventIncludedData,
   RelatedItemInputContent,
@@ -1099,6 +1102,7 @@ export const de_BatchGetCaseRuleCommand = async (
   const doc = take(data, {
     caseRules: (_) => de_BatchGetCaseRuleList(_, context),
     errors: _json,
+    unprocessedCaseRules: _json,
   });
   Object.assign(contents, doc);
   return contents;
@@ -2196,6 +2200,8 @@ const se_CaseFilterList = (input: CaseFilter[], context: __SerdeContext): any =>
  */
 const se_CaseRuleDetails = (input: CaseRuleDetails, context: __SerdeContext): any => {
   return CaseRuleDetails.visit(input, {
+    fieldOptions: (value) => ({ fieldOptions: _json(value) }),
+    hidden: (value) => ({ hidden: se_HiddenCaseRule(value, context) }),
     required: (value) => ({ required: se_RequiredCaseRule(value, context) }),
     _: (name, value) => ({ [name]: value } as any),
   });
@@ -2296,6 +2302,8 @@ const se_FieldFilter = (input: FieldFilter, context: __SerdeContext): any => {
 
 // se_FieldOption omitted.
 
+// se_FieldOptionsCaseRule omitted.
+
 // se_FieldOptionsList omitted.
 
 /**
@@ -2337,6 +2345,16 @@ const se_FieldValueUnion = (input: FieldValueUnion, context: __SerdeContext): an
 
 // se_FileFilter omitted.
 
+/**
+ * serializeAws_restJson1HiddenCaseRule
+ */
+const se_HiddenCaseRule = (input: HiddenCaseRule, context: __SerdeContext): any => {
+  return take(input, {
+    conditions: (_) => se_BooleanConditionList(_, context),
+    defaultValue: [],
+  });
+};
+
 // se_LayoutConfiguration omitted.
 
 // se_LayoutContent omitted.
@@ -2357,6 +2375,12 @@ const se_OperandTwo = (input: OperandTwo, context: __SerdeContext): any => {
     _: (name, value) => ({ [name]: value } as any),
   });
 };
+
+// se_ParentChildFieldOptionsMapping omitted.
+
+// se_ParentChildFieldOptionsMappingList omitted.
+
+// se_ParentChildFieldOptionValueList omitted.
 
 // se_RelatedItemEventIncludedData omitted.
 
@@ -2576,6 +2600,8 @@ const de_BatchGetCaseRuleList = (output: any, context: __SerdeContext): GetCaseR
   return retVal;
 };
 
+// de_BatchGetCaseRuleUnprocessedList omitted.
+
 // de_BatchGetFieldErrorList omitted.
 
 /**
@@ -2636,6 +2662,16 @@ const de_BooleanOperands = (output: any, context: __SerdeContext): BooleanOperan
  * deserializeAws_restJson1CaseRuleDetails
  */
 const de_CaseRuleDetails = (output: any, context: __SerdeContext): CaseRuleDetails => {
+  if (output.fieldOptions != null) {
+    return {
+      fieldOptions: _json(output.fieldOptions),
+    };
+  }
+  if (output.hidden != null) {
+    return {
+      hidden: de_HiddenCaseRule(output.hidden, context),
+    };
+  }
   if (output.required != null) {
     return {
       required: de_RequiredCaseRule(output.required, context),
@@ -2707,6 +2743,8 @@ const de_CustomContent = (output: any, context: __SerdeContext): CustomContent =
 // de_FieldOptionError omitted.
 
 // de_FieldOptionErrorList omitted.
+
+// de_FieldOptionsCaseRule omitted.
 
 // de_FieldOptionsList omitted.
 
@@ -2797,6 +2835,16 @@ const de_GetFieldResponse = (output: any, context: __SerdeContext): GetFieldResp
   }) as any;
 };
 
+/**
+ * deserializeAws_restJson1HiddenCaseRule
+ */
+const de_HiddenCaseRule = (output: any, context: __SerdeContext): HiddenCaseRule => {
+  return take(output, {
+    conditions: (_: any) => de_BooleanConditionList(_, context),
+    defaultValue: __expectBoolean,
+  }) as any;
+};
+
 // de_LayoutConfiguration omitted.
 
 // de_LayoutContent omitted.
@@ -2829,6 +2877,12 @@ const de_OperandTwo = (output: any, context: __SerdeContext): OperandTwo => {
   }
   return { $unknown: Object.entries(output)[0] };
 };
+
+// de_ParentChildFieldOptionsMapping omitted.
+
+// de_ParentChildFieldOptionsMappingList omitted.
+
+// de_ParentChildFieldOptionValueList omitted.
 
 /**
  * deserializeAws_restJson1RelatedItemContent

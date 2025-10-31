@@ -66,7 +66,7 @@ export interface GetTemplateCommandOutput extends GetTemplateResponse, __Metadat
  * //   rules: [ // TemplateCaseRuleList
  * //     { // TemplateRule
  * //       caseRuleId: "STRING_VALUE", // required
- * //       fieldId: "STRING_VALUE", // required
+ * //       fieldId: "STRING_VALUE",
  * //     },
  * //   ],
  * // };

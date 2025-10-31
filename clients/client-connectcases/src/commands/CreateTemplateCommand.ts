@@ -53,7 +53,7 @@ export interface CreateTemplateCommandOutput extends CreateTemplateResponse, __M
  *   rules: [ // TemplateCaseRuleList
  *     { // TemplateRule
  *       caseRuleId: "STRING_VALUE", // required
- *       fieldId: "STRING_VALUE", // required
+ *       fieldId: "STRING_VALUE",
  *     },
  *   ],
  * };

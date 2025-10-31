@@ -1873,10 +1873,52 @@ export interface BatchGetCaseRuleRequest {
   domainId: string | undefined;
 
   /**
-   * <p>List of case rule identifiers.</p>
+   * <p>A list of case rule identifiers.</p>
    * @public
    */
   caseRules: CaseRuleIdentifier[] | undefined;
+}
+
+/**
+ * <p>A mapping between a parent field option value and child field option values.</p>
+ * @public
+ */
+export interface ParentChildFieldOptionsMapping {
+  /**
+   * <p>The value in the parent field.</p>
+   * @public
+   */
+  parentFieldOptionValue: string | undefined;
+
+  /**
+   * <p>A list of allowed values in the child field.</p>
+   * @public
+   */
+  childFieldOptionValues: string[] | undefined;
+}
+
+/**
+ * <p>Rules that control which options are available in a child field based on the selected value in a parent field.</p>
+ * @public
+ */
+export interface FieldOptionsCaseRule {
+  /**
+   * <p>The identifier of the parent field that controls options.</p>
+   * @public
+   */
+  parentFieldId?: string | undefined;
+
+  /**
+   * <p>The identifier of the child field whose options are controlled.</p>
+   * @public
+   */
+  childFieldId?: string | undefined;
+
+  /**
+   * <p>A mapping between a parent field option value and child field option values.</p>
+   * @public
+   */
+  parentChildFieldOptionsMappings: ParentChildFieldOptionsMapping[] | undefined;
 }
 
 /**
@@ -2094,6 +2136,24 @@ export namespace BooleanCondition {
 }
 
 /**
+ * <p>A rule that controls field visibility based on conditions. Fields can be shown or hidden dynamically based on values in other fields.</p>
+ * @public
+ */
+export interface HiddenCaseRule {
+  /**
+   * <p>Whether the field is hidden when no conditions match.</p>
+   * @public
+   */
+  defaultValue: boolean | undefined;
+
+  /**
+   * <p>A list of conditions that determine field visibility.</p>
+   * @public
+   */
+  conditions: BooleanCondition[] | undefined;
+}
+
+/**
  * <p>Required rule type, used to indicate whether a field is required. In the Amazon Connect admin website, case rules are known as <i>case field conditions</i>. For more information about case field conditions, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/case-field-conditions.html">Add case field conditions to a case template</a>.</p>
  * @public
  */
@@ -2115,7 +2175,11 @@ export interface RequiredCaseRule {
  * <p>Represents what rule type should take place, under what conditions. In the Amazon Connect admin website, case rules are known as <i>case field conditions</i>. For more information about case field conditions, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/case-field-conditions.html">Add case field conditions to a case template</a>.</p>
  * @public
  */
-export type CaseRuleDetails = CaseRuleDetails.RequiredMember | CaseRuleDetails.$UnknownMember;
+export type CaseRuleDetails =
+  | CaseRuleDetails.FieldOptionsMember
+  | CaseRuleDetails.HiddenMember
+  | CaseRuleDetails.RequiredMember
+  | CaseRuleDetails.$UnknownMember;
 
 /**
  * @public
@@ -2127,6 +2191,30 @@ export namespace CaseRuleDetails {
    */
   export interface RequiredMember {
     required: RequiredCaseRule;
+    fieldOptions?: never;
+    hidden?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Which options are available in a child field based on the selected value in a parent field.</p>
+   * @public
+   */
+  export interface FieldOptionsMember {
+    required?: never;
+    fieldOptions: FieldOptionsCaseRule;
+    hidden?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Whether a field is visible, based on values in other fields.</p>
+   * @public
+   */
+  export interface HiddenMember {
+    required?: never;
+    fieldOptions?: never;
+    hidden: HiddenCaseRule;
     $unknown?: never;
   }
 
@@ -2135,16 +2223,22 @@ export namespace CaseRuleDetails {
    */
   export interface $UnknownMember {
     required?: never;
+    fieldOptions?: never;
+    hidden?: never;
     $unknown: [string, any];
   }
 
   export interface Visitor<T> {
     required: (value: RequiredCaseRule) => T;
+    fieldOptions: (value: FieldOptionsCaseRule) => T;
+    hidden: (value: HiddenCaseRule) => T;
     _: (name: string, value: any) => T;
   }
 
   export const visit = <T>(value: CaseRuleDetails, visitor: Visitor<T>): T => {
     if (value.required !== undefined) return visitor.required(value.required);
+    if (value.fieldOptions !== undefined) return visitor.fieldOptions(value.fieldOptions);
+    if (value.hidden !== undefined) return visitor.hidden(value.hidden);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
 }
@@ -2238,16 +2332,22 @@ export interface CaseRuleError {
  */
 export interface BatchGetCaseRuleResponse {
   /**
-   * <p>List of detailed case rule information.</p>
+   * <p>A list of detailed case rule information.</p>
    * @public
    */
   caseRules: GetCaseRuleResponse[] | undefined;
 
   /**
-   * <p>List of case rule errors.</p>
+   * <p>A list of case rule errors.</p>
    * @public
    */
   errors: CaseRuleError[] | undefined;
+
+  /**
+   * <p>A list of unprocessed case rule identifiers.</p>
+   * @public
+   */
+  unprocessedCaseRules?: string[] | undefined;
 }
 
 /**
@@ -2346,6 +2446,8 @@ export interface ListCaseRulesRequest {
  * @enum
  */
 export const RuleType = {
+  FIELD_OPTIONS: "FieldOptions",
+  HIDDEN: "Hidden",
   REQUIRED: "Required",
 } as const;
 
@@ -3737,7 +3839,7 @@ export interface TemplateRule {
    * <p>Unique identifier of a field.</p>
    * @public
    */
-  fieldId: string | undefined;
+  fieldId?: string | undefined;
 }
 
 /**

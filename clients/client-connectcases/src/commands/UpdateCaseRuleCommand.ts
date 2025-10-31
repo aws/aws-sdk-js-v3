@@ -74,6 +74,49 @@ export interface UpdateCaseRuleCommandOutput extends UpdateCaseRuleResponse, __M
  *         },
  *       ],
  *     },
+ *     fieldOptions: { // FieldOptionsCaseRule
+ *       parentFieldId: "STRING_VALUE",
+ *       childFieldId: "STRING_VALUE",
+ *       parentChildFieldOptionsMappings: [ // ParentChildFieldOptionsMappingList // required
+ *         { // ParentChildFieldOptionsMapping
+ *           parentFieldOptionValue: "STRING_VALUE", // required
+ *           childFieldOptionValues: [ // ParentChildFieldOptionValueList // required
+ *             "STRING_VALUE",
+ *           ],
+ *         },
+ *       ],
+ *     },
+ *     hidden: { // HiddenCaseRule
+ *       defaultValue: true || false, // required
+ *       conditions: [ // required
+ *         {//  Union: only one key present
+ *           equalTo: {
+ *             operandOne: {//  Union: only one key present
+ *               fieldId: "STRING_VALUE",
+ *             },
+ *             operandTwo: {//  Union: only one key present
+ *               stringValue: "STRING_VALUE",
+ *               booleanValue: true || false,
+ *               doubleValue: Number("double"),
+ *               emptyValue: {},
+ *             },
+ *             result: true || false, // required
+ *           },
+ *           notEqualTo: {
+ *             operandOne: {//  Union: only one key present
+ *               fieldId: "STRING_VALUE",
+ *             },
+ *             operandTwo: {//  Union: only one key present
+ *               stringValue: "STRING_VALUE",
+ *               booleanValue: true || false,
+ *               doubleValue: Number("double"),
+ *               emptyValue: {},
+ *             },
+ *             result: true || false, // required
+ *           },
+ *         },
+ *       ],
+ *     },
  *   },
  * };
  * const command = new UpdateCaseRuleCommand(input);
@@ -99,6 +142,9 @@ export interface UpdateCaseRuleCommandOutput extends UpdateCaseRuleResponse, __M
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>We couldn't find the requested resource. Check that your resources exists and were created in the same Amazon Web Services Region as your request, and try your request again.</p>
+ *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p>The service quota has been exceeded. For a list of service quotas, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html">Amazon Connect Service Quotas</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The rate has been exceeded for this API. Please try again after a few minutes.</p>

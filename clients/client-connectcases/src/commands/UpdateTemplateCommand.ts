@@ -54,7 +54,7 @@ export interface UpdateTemplateCommandOutput extends UpdateTemplateResponse, __M
  *   rules: [ // TemplateCaseRuleList
  *     { // TemplateRule
  *       caseRuleId: "STRING_VALUE", // required
- *       fieldId: "STRING_VALUE", // required
+ *       fieldId: "STRING_VALUE",
  *     },
  *   ],
  * };
@@ -81,6 +81,9 @@ export interface UpdateTemplateCommandOutput extends UpdateTemplateResponse, __M
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>We couldn't find the requested resource. Check that your resources exists and were created in the same Amazon Web Services Region as your request, and try your request again.</p>
+ *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p>The service quota has been exceeded. For a list of service quotas, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html">Amazon Connect Service Quotas</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The rate has been exceeded for this API. Please try again after a few minutes.</p>
