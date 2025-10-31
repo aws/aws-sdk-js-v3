@@ -41,7 +41,7 @@ export interface GetCertificateSigningRequestCommandOutput
     __MetadataBearer {}
 
 /**
- * Used to retrieve the public key for a keypair.
+ * <p>Creates a certificate signing request (CSR) from a key pair.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

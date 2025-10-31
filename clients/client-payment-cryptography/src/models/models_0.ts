@@ -319,12 +319,12 @@ export const KeyReplicationState = {
 export type KeyReplicationState = (typeof KeyReplicationState)[keyof typeof KeyReplicationState];
 
 /**
- * <p>Represents the replication status information for a key in a replication region.</p> <p>This structure contains details about the current state of key replication, including any status messages and operational information about the replication process.</p>
+ * <p>Represents the replication status information for a key in a replication region for <a href="https://docs.aws.amazon.com/payment-cryptography/latest/userguide/keys-multi-region-replication.html">Multi-Region key replication</a>.</p> <p>This structure contains details about the current state of key replication, including any status messages and operational information about the replication process.</p>
  * @public
  */
 export interface ReplicationStatusType {
   /**
-   * <p>The current status of key replication in this region.</p> <p>This field indicates whether the key replication is in progress, completed successfully, or has encountered an error. Possible values include states such as SYNCRHONIZED, IN_PROGRESS, DELETE_IN_PROGRESS, or FAILED. This provides visibility into the replication process for monitoring and troubleshooting purposes.</p>
+   * <p>The current status of key replication in this Amazon Web Services Region.</p> <p>This field indicates whether the key replication is in progress, completed successfully, or has encountered an error. Possible values include states such as <code>SYNCRHONIZED</code>, <code>IN_PROGRESS</code>, <code>DELETE_IN_PROGRESS</code>, or <code>FAILED</code>. This provides visibility into the replication process for monitoring and troubleshooting purposes.</p>
    * @public
    */
   Status: KeyReplicationState | undefined;
@@ -426,7 +426,7 @@ export interface Key {
   DeriveKeyUsage?: DeriveKeyUsage | undefined;
 
   /**
-   * <p>Indicates whether this key is a multi-region key and its role in the multi-region key hierarchy.</p> <p>Multi-region keys allow the same key material to be used across multiple Amazon Web Services Regions. This field specifies whether the key is a primary key (which can be replicated to other regions) or a replica key (which is a copy of a primary key in another region).</p>
+   * <p>Indicates whether this key is a Multi-Region key and its role in the Multi-Region key hierarchy.</p> <p>Multi-Region replication keys allow the same key material to be used across multiple Amazon Web Services Regions. This field specifies whether the key is a Primary Region key (PRK) (which can be replicated to other Amazon Web Services Regions) or a Replica Region key (RRK) (which is a copy of a PRK in another Region). For more information, see <a href="https://docs.aws.amazon.com/payment-cryptography/latest/userguide/keys-multi-region-replication.html">Multi-Region key replication</a>.</p>
    * @public
    */
   MultiRegionKeyType?: MultiRegionKeyType | undefined;
@@ -438,13 +438,13 @@ export interface Key {
   PrimaryRegion?: string | undefined;
 
   /**
-   * <p>Information about the replication status of the key across different regions.</p> <p>This field provides details about the current state of key replication, including any status messages or operational information. It helps track the progress and health of key replication operations.</p>
+   * <p>Information about the replication status of the key across different Amazon Web Services Regions.</p> <p>This field provides details about the current state of key replication, including any status messages or operational information. It helps track the progress and health of key replication operations.</p>
    * @public
    */
   ReplicationStatus?: Record<string, ReplicationStatusType> | undefined;
 
   /**
-   * <p>Indicates whether this key is using the account's default replication regions configuration.</p> <p>When set to <code>true</code>, the key automatically replicates to the regions specified in the account's default replication settings. When set to <code>false</code>, the key has a custom replication configuration that overrides the account defaults.</p>
+   * <p>Indicates whether this key is using the account's default replication regions configuration for <a href="https://docs.aws.amazon.com/payment-cryptography/latest/userguide/keys-multi-region-replication.html">Multi-Region key replication</a>.</p> <p>When set to <code>true</code>, the key automatically replicates to the regions specified in the account's default replication settings. When set to <code>false</code>, the key has a custom replication configuration that overrides the account defaults.</p>
    * @public
    */
   UsingDefaultReplicationRegions?: boolean | undefined;
@@ -773,48 +773,48 @@ export interface UpdateAliasOutput {
 }
 
 /**
- * Metadata used in generating the CSR
+ * <p>The metadata used to create the certificate signing request.</p>
  * @public
  */
 export interface CertificateSubjectType {
   /**
-   * Common Name to be used in the certificate signing request
+   * <p>The name you provide to create the certificate signing request.</p>
    * @public
    */
   CommonName: string | undefined;
 
   /**
-   * Organization Unit to be used in the certificate signing request
+   * <p>The organization unit you provide to create the certificate signing request.</p>
    * @public
    */
   OrganizationUnit?: string | undefined;
 
   /**
-   * Organization to be used in the certificate signing request
+   * <p>The organization you provide to create the certificate signing request.</p>
    * @public
    */
   Organization?: string | undefined;
 
   /**
-   * City to be used in the certificate signing request
+   * <p>The city you provide to create the certificate signing request.</p>
    * @public
    */
   City?: string | undefined;
 
   /**
-   * Country to be used in the certificate signing request
+   * <p>The city you provide to create the certificate signing request.</p>
    * @public
    */
   Country?: string | undefined;
 
   /**
-   * State Or Province to be used in the certificate signing request
+   * <p>The state or province you provide to create the certificate signing request.</p>
    * @public
    */
   StateOrProvince?: string | undefined;
 
   /**
-   * Email to be used in the certificate signing request
+   * <p>The email address you provide to create the certificate signing request.</p>
    * @public
    */
   EmailAddress?: string | undefined;
@@ -994,7 +994,7 @@ export interface DisableDefaultKeyReplicationRegionsOutput {
  */
 export interface EnableDefaultKeyReplicationRegionsInput {
   /**
-   * <p>The list of Amazon Web Services Regions to enable as default replication regions for the account.</p> <p>New keys created in this account will automatically be replicated to these regions unless explicitly overridden during key creation.</p>
+   * <p>The list of Amazon Web Services Regions to enable as default replication regions for the Amazon Web Services account for <a href="https://docs.aws.amazon.com/payment-cryptography/latest/userguide/keys-multi-region-replication.html">Multi-Region key replication</a>.</p> <p>New keys created in this account will automatically be replicated to these regions unless explicitly overridden during key creation.</p>
    * @public
    */
   ReplicationRegions: string[] | undefined;
@@ -1284,13 +1284,13 @@ export interface ExportTr34KeyBlock {
   ExportToken?: string | undefined;
 
   /**
-   * Key Identifier used for signing the export key
+   * <p>Key Identifier used for signing the export key</p>
    * @public
    */
   SigningKeyIdentifier?: string | undefined;
 
   /**
-   * Certificate used for signing the export key
+   * <p>The certificate used to sign the TR-34 key block.</p>
    * @public
    */
   SigningKeyCertificate?: string | undefined;
@@ -1512,19 +1512,19 @@ export type SigningAlgorithmType = (typeof SigningAlgorithmType)[keyof typeof Si
  */
 export interface GetCertificateSigningRequestInput {
   /**
-   * Asymmetric key used for generating the certificate signing request
+   * <p>Asymmetric key used for generating the certificate signing request</p>
    * @public
    */
   KeyIdentifier: string | undefined;
 
   /**
-   * Algorithm used to generate the certificate signing request
+   * <p>The cryptographic algorithm used to sign your CSR.</p>
    * @public
    */
   SigningAlgorithm: SigningAlgorithmType | undefined;
 
   /**
-   * Certificate subject data
+   * <p>The metadata used to create the CSR.</p>
    * @public
    */
   CertificateSubject: CertificateSubjectType | undefined;
@@ -1535,7 +1535,7 @@ export interface GetCertificateSigningRequestInput {
  */
 export interface GetCertificateSigningRequestOutput {
   /**
-   * Certificate signing request
+   * <p>The certificate signing request generated using the key pair associated with the key identifier.</p>
    * @public
    */
   CertificateSigningRequest: string | undefined;
@@ -1880,13 +1880,13 @@ export interface ImportTr34KeyBlock {
   ImportToken?: string | undefined;
 
   /**
-   * Key Identifier used for unwrapping the import key
+   * <p>Key Identifier used for unwrapping the import key</p>
    * @public
    */
   WrappingKeyIdentifier?: string | undefined;
 
   /**
-   * Key Identifier used for unwrapping the import key
+   * <p>The certificate used to wrap the TR-34 key block.</p>
    * @public
    */
   WrappingKeyCertificate?: string | undefined;
@@ -2183,7 +2183,7 @@ export interface KeySummary {
   Enabled: boolean | undefined;
 
   /**
-   * <p>Indicates whether this key is a multi-region key and its role in the multi-region key hierarchy.</p> <p>Multi-region keys allow the same key material to be used across multiple Amazon Web Services Regions. This field specifies whether the key is a primary key (which can be replicated to other regions) or a replica key (which is a copy of a primary key in another region).</p>
+   * <p>Indicates whether this key is a Multi-Region key and its role in the Multi-Region key hierarchy.</p> <p>Multi-Region replication keys allow the same key material to be used across multiple Amazon Web Services Regions. This field specifies whether the key is a Primary Region key (PRK) (which can be replicated to other Amazon Web Services Regions) or a Replica Region key (RRK) (which is a copy of a PRK in another Region). For more information, see <a href="https://docs.aws.amazon.com/payment-cryptography/latest/userguide/keys-multi-region-replication.html">Multi-Region key replication</a>.</p>
    * @public
    */
   MultiRegionKeyType?: MultiRegionKeyType | undefined;
