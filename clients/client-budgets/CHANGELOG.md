@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.923.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.922.0...v3.923.0) (2025-11-03)
+
+
+### Features
+
+* **client-budgets:** Fix the AWS Budgets endpoint for the aws-eusc partition. ([99c585c](https://github.com/aws/aws-sdk-js-v3/commit/99c585cde5fac2b8075d48831f92b2a9c66d7a3a))
+
+
+
+
+
 # [3.922.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.921.0...v3.922.0) (2025-10-31)
 
 **Note:** Version bump only for package @aws-sdk/client-budgets

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.923.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.922.0...v3.923.0) (2025-11-03)
+
+
+### Features
+
+* **client-ec2:** Add Amazon EC2 trn2.3xlarge instance type. ([338b58b](https://github.com/aws/aws-sdk-js-v3/commit/338b58ba1895b4799a35cd819048838805c1c813))
+
+
+
+
+
 # [3.922.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.921.0...v3.922.0) (2025-10-31)
 
 

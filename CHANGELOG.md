@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.923.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.922.0...v3.923.0) (2025-11-03)
+
+
+### Features
+
+* **client-bedrock-agentcore-control:** Adds support for direct code deploy with CreateAgentRuntime and UpdateAgentRuntime ([f263170](https://github.com/aws/aws-sdk-js-v3/commit/f263170448a04c70375c6d4a518d07090aea068b))
+* **client-budgets:** Fix the AWS Budgets endpoint for the aws-eusc partition. ([99c585c](https://github.com/aws/aws-sdk-js-v3/commit/99c585cde5fac2b8075d48831f92b2a9c66d7a3a))
+* **client-ec2:** Add Amazon EC2 trn2.3xlarge instance type. ([338b58b](https://github.com/aws/aws-sdk-js-v3/commit/338b58ba1895b4799a35cd819048838805c1c813))
+* **client-kinesis:** Adds support for MinimumThroughputBillingCommitment with new UpdateAccountSettings API. Adds support to configure warm throughput for on-demand streams in new UpdateStreamWarmThroughput API and existing CreateStream API and UpdateStreamMode API. ([ec3f672](https://github.com/aws/aws-sdk-js-v3/commit/ec3f67264b457ded0bce44286889ff64af6847fd))
+
+
+
+
+
 # [3.922.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.921.0...v3.922.0) (2025-10-31)
 
 

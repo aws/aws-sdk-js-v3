@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.923.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.922.0...v3.923.0) (2025-11-03)
+
+
+### Features
+
+* **client-kinesis:** Adds support for MinimumThroughputBillingCommitment with new UpdateAccountSettings API. Adds support to configure warm throughput for on-demand streams in new UpdateStreamWarmThroughput API and existing CreateStream API and UpdateStreamMode API. ([ec3f672](https://github.com/aws/aws-sdk-js-v3/commit/ec3f67264b457ded0bce44286889ff64af6847fd))
+
+
+
+
+
 # [3.922.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.921.0...v3.922.0) (2025-10-31)
 
 
