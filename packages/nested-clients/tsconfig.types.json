@@ -5,7 +5,8 @@
     "rootDir": "src",
     "paths": {
       "@aws-sdk/nested-clients/sso-oidc": ["./src/submodules/sso-oidc/index.ts"],
-      "@aws-sdk/nested-clients/sts": ["./src/submodules/sts/index.ts"]
+      "@aws-sdk/nested-clients/sts": ["./src/submodules/sts/index.ts"],
+      "@aws-sdk/nested-clients/signin": ["./src/submodules/signin/index.ts"]
     }
   },
   "extends": "../../tsconfig.types.json",

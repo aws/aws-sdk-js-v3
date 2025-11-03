@@ -41,7 +41,7 @@ const { solo } = yargs(process.argv.slice(2))
       } catch (ignored) {}
     }
 
-    if (solo === "sts" || solo === "sso-oidc") {
+    if (solo === "sts" || solo === "sso-oidc" || solo === "signin") {
       const generateNestedClients = require("./nested-clients/generate-nested-clients");
       await generateNestedClients();
     }

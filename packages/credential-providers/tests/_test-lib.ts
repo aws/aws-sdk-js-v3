@@ -1,5 +1,5 @@
 import { S3 } from "@aws-sdk/client-s3";
-import { fromSSO } from "@aws-sdk/credential-providers";
+import { fromLoginCredentials, fromSSO } from "@aws-sdk/credential-providers";
 import { warning } from "@aws-sdk/region-config-resolver";
 import { ParsedIniData, RuntimeConfigAwsCredentialIdentityProvider } from "@aws-sdk/types";
 import { NodeHttpHandler } from "@smithy/node-http-handler";
@@ -101,6 +101,7 @@ export class CTest<P extends (init?: any) => RuntimeConfigAwsCredentialIdentityP
       AWS_CONTAINER_CREDENTIALS_RELATIVE_URI: 1,
       AWS_CONTAINER_AUTHORIZATION_TOKEN: 1,
       AWS_CONTAINER_AUTHORIZATION_TOKEN_FILE: 1,
+      AWS_LOGIN_CACHE_DIRECTORY: 1,
     };
 
     function copy<T>(data: T): T {
@@ -152,6 +153,42 @@ export class CTest<P extends (init?: any) => RuntimeConfigAwsCredentialIdentityP
       externalDataInterceptor.interceptToken("SSO_START_URL", ssoToken);
       externalDataInterceptor.interceptToken("ssoNew", ssoToken);
       externalDataInterceptor.interceptToken("token-filepath", "token-contents");
+
+      // Setup login credentials cache
+      let loginCreds = {
+        accessToken: {
+          accessKeyId: "LOGIN_ACCESS_KEY_ID",
+          secretAccessKey: "LOGIN_SECRET_ACCESS_KEY",
+          sessionToken: "LOGIN_SESSION_TOKEN",
+          accountId: "012345678910",
+          expiresAt: new Date(Date.now() + 15 * 60 * 1000).toISOString(),
+        },
+        tokenType: "accessToken",
+        clientId: "test-client-id",
+        refreshToken: "test-refresh-token",
+        idToken: "test-id-token",
+        dpopKey: "test-dpop-key",
+      };
+      const loginSessionBytes = Buffer.from("arn:aws:sts::012345678910:assumed-role/Test", "utf8");
+      const loginCacheName = createHash("sha256").update(loginSessionBytes).digest("hex");
+      const loginCachePath = join(
+        process.env.AWS_LOGIN_CACHE_DIRECTORY ?? join(homedir(), ".aws", "login", "cache"),
+        `${loginCacheName}.json`
+      );
+      externalDataInterceptor.interceptFile(loginCachePath, JSON.stringify(loginCreds));
+      externalDataInterceptor.interceptToken("loginCachePath", loginCreds);
+      externalDataInterceptor.interceptToken("updateLoginCreds", (region: string) => {
+        loginCreds = {
+          ...loginCreds,
+          accessToken: {
+            ...loginCreds.accessToken,
+            sessionToken: `LOGIN_SESSION_TOKEN_${region}`,
+          },
+        };
+        // Update the file content with new credentials
+        externalDataInterceptor.interceptFile(loginCachePath, JSON.stringify(loginCreds));
+      });
+      externalDataInterceptor.interceptToken("login_session", "arn:aws:sts::012345678910:assumed-role/Test");
     });
 
     afterEach(async () => {
@@ -206,6 +243,7 @@ export class CTest<P extends (init?: any) => RuntimeConfigAwsCredentialIdentityP
                   const regionRequired = this.fallbackRegion === "unresolved" || withCaller;
                   const providerParams = this.providerParams(params);
                   const isSso = this.credentialProvider === fromSSO || providerParams.ssoStartUrl;
+
                   const hasRegion = providerRegion || profileRegion || callerClientRegion || envRegion;
 
                   if (regionRequired && !hasRegion) {
@@ -263,6 +301,28 @@ export class CTest<P extends (init?: any) => RuntimeConfigAwsCredentialIdentityP
       delete process.env.AWS_REGION;
     }
 
+    const isLoginCredentials = this.credentialProvider === fromLoginCredentials;
+
+    // Update login credentials with expected region for this test
+    if (isLoginCredentials) {
+      let expectedRegion = "";
+      if (providerRegion) {
+        expectedRegion = "provider-region";
+      } else if (profileRegion) {
+        expectedRegion = `${profile ?? "default"}-profile-region`;
+      } else if (callerClientRegion && withCaller) {
+        expectedRegion = "code-region";
+      } else if (envRegion) {
+        expectedRegion = "env-region";
+      }
+      if (expectedRegion) {
+        const updateLoginCreds = externalDataInterceptor.getTokenRecord().updateLoginCreds;
+        if (updateLoginCreds) {
+          updateLoginCreds(expectedRegion);
+        }
+      }
+    }
+
     if (profileRegion) {
       iniProfileData = {
         default: {
@@ -271,6 +331,7 @@ export class CTest<P extends (init?: any) => RuntimeConfigAwsCredentialIdentityP
           role_session_name: "ROLE_SESSION_NAME",
           external_id: "EXTERNAL_ID",
           source_profile: "assume",
+          login_session: "arn:aws:sts::012345678910:assumed-role/Test",
         },
         assume: {
           region: "assume-profile-region",
@@ -283,6 +344,7 @@ export class CTest<P extends (init?: any) => RuntimeConfigAwsCredentialIdentityP
           role_session_name: "ROLE_SESSION_NAME",
           external_id: "EXTERNAL_ID",
           source_profile: "assume2",
+          login_session: "arn:aws:sts::012345678910:assumed-role/Test",
         },
         assume2: {
           region: "assume2-profile-region",
@@ -297,6 +359,7 @@ export class CTest<P extends (init?: any) => RuntimeConfigAwsCredentialIdentityP
           role_session_name: "ROLE_SESSION_NAME",
           external_id: "EXTERNAL_ID",
           source_profile: "assume",
+          login_session: "arn:aws:sts::012345678910:assumed-role/Test",
         },
         assume: {
           aws_access_key_id: "ASSUME_STATIC_ACCESS_KEY",
@@ -307,6 +370,7 @@ export class CTest<P extends (init?: any) => RuntimeConfigAwsCredentialIdentityP
           role_session_name: "ROLE_SESSION_NAME",
           external_id: "EXTERNAL_ID",
           source_profile: "assume2",
+          login_session: "arn:aws:sts::012345678910:assumed-role/Test",
         },
         assume2: {
           aws_access_key_id: "ASSUME_STATIC_ACCESS_KEY",
@@ -428,6 +492,20 @@ export class MockNodeHttpHandler {
       body.write(`{
           "IdentityId":"${region}:COGNITO_IDENTITY_ID"
         }`);
+    } else if (request.path?.includes("/v1/token") && request.headers["dpop"]) {
+      body.write(
+        JSON.stringify({
+          tokenOutput: {
+            accessToken: {
+              accessKeyId: "LOGIN_ACCESS_KEY_ID",
+              secretAccessKey: "LOGIN_SECRET_ACCESS_KEY",
+              sessionToken: `LOGIN_SESSION_TOKEN_${region}`,
+            },
+            refreshToken: "REFRESHED_TOKEN",
+            expiresIn: 900,
+          },
+        })
+      );
     } else if (request.hostname.startsWith("s3.")) {
       body.write(`<?xml version="1.0" encoding="UTF-8"?>
 <ListAllMyBucketsResult>

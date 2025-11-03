@@ -452,6 +452,48 @@ describe("credential-provider-node integration test", () => {
       });
     });
 
+    it("should resolve login credentials if the profile has login_session", async () => {
+      const mockLoginSession = "arn:aws:sts::123456789012:assumed-role/Admin/admin";
+      const loginSessionHash = createHash("sha256").update(Buffer.from(mockLoginSession, "utf8")).digest("hex");
+      const dir = join(homedir(), ".aws", "login", "cache");
+      const tokenPath = join(dir, `${loginSessionHash}.json`);
+
+      const mockToken = {
+        accessToken: {
+          accessKeyId: "LOGIN_ACCESS_KEY_ID",
+          secretAccessKey: "LOGIN_SECRET_ACCESS_KEY",
+          sessionToken: "LOGIN_SESSION_TOKEN",
+          accountId: "123456789012",
+          expiresAt: "3000-01-01T00:00:00.000Z",
+        },
+        clientId: "test-client-id",
+        refreshToken: "test-refresh-token",
+        dpopKey: "test-dpop-key",
+      };
+
+      externalDataInterceptor.interceptFile(tokenPath, JSON.stringify(mockToken));
+
+      setIniProfileData({
+        default: {
+          region: "ap-northeast-2",
+          login_session: mockLoginSession,
+        },
+      });
+      await sts.getCallerIdentity({});
+      const credentials = await sts.config.credentials();
+      expect(credentials).toEqual({
+        accessKeyId: "LOGIN_ACCESS_KEY_ID",
+        secretAccessKey: "LOGIN_SECRET_ACCESS_KEY",
+        sessionToken: "LOGIN_SESSION_TOKEN",
+        accountId: "123456789012",
+        expiration: new Date("3000-01-01T00:00:00.000Z"),
+        $source: {
+          CREDENTIALS_PROFILE_LOGIN: "AC",
+          CREDENTIALS_LOGIN: "AD",
+        },
+      });
+    });
+
     it("should be able to combine a source_profile having only credential_source with an origin profile having role_arn and source_profile", async () => {
       process.env.AWS_CONTAINER_CREDENTIALS_FULL_URI = "http://169.254.170.23";
       process.env.AWS_CONTAINER_AUTHORIZATION_TOKEN = "container-authorization";

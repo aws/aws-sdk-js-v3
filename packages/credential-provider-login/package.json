@@ -1,28 +1,25 @@
 {
-  "name": "@aws-sdk/credential-providers",
-  "version": "3.935.0",
-  "description": "A collection of credential providers, without requiring service clients like STS, Cognito",
+  "name": "@aws-sdk/credential-provider-login",
+  "version": "3.0.0",
+  "description": "AWS credential provider that sources credentials from aws login cached tokens",
   "main": "./dist-cjs/index.js",
   "module": "./dist-es/index.js",
-  "browser": "./dist-es/index.browser.js",
-  "react-native": "./dist-es/index.browser.js",
   "scripts": {
     "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types'",
-    "build:cjs": "node ../../scripts/compilation/inline credential-providers",
+    "build:cjs": "node ../../scripts/compilation/inline credential-provider-login",
     "build:es": "tsc -p tsconfig.es.json",
     "build:include:deps": "lerna run --scope $npm_package_name --include-dependencies build",
     "build:types": "tsc -p tsconfig.types.json",
     "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
     "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
-    "extract:docs": "api-extractor run --local",
     "test": "yarn g:vitest run",
-    "test:watch": "yarn g:vitest watch",
-    "test:integration": "yarn g:vitest run -c vitest.config.integ.mts",
-    "test:integration:watch": "yarn g:vitest watch -c vitest.config.integ.mts"
+    "test:watch": "yarn g:vitest watch"
   },
   "keywords": [
     "aws",
-    "credentials"
+    "credentials",
+    "signin",
+    "login"
   ],
   "sideEffects": false,
   "author": {
@@ -31,24 +28,12 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "@aws-sdk/client-cognito-identity": "*",
     "@aws-sdk/core": "*",
-    "@aws-sdk/credential-provider-cognito-identity": "*",
-    "@aws-sdk/credential-provider-env": "*",
-    "@aws-sdk/credential-provider-http": "*",
-    "@aws-sdk/credential-provider-ini": "*",
-    "@aws-sdk/credential-provider-login": "*",
-    "@aws-sdk/credential-provider-node": "*",
-    "@aws-sdk/credential-provider-process": "*",
-    "@aws-sdk/credential-provider-sso": "*",
-    "@aws-sdk/credential-provider-web-identity": "*",
     "@aws-sdk/nested-clients": "*",
     "@aws-sdk/types": "*",
-    "@smithy/config-resolver": "^4.4.3",
-    "@smithy/core": "^3.18.5",
-    "@smithy/credential-provider-imds": "^4.2.5",
-    "@smithy/node-config-provider": "^4.3.5",
     "@smithy/property-provider": "^4.2.5",
+    "@smithy/protocol-http": "^5.3.5",
+    "@smithy/shared-ini-file-loader": "^4.4.0",
     "@smithy/types": "^4.9.0",
     "tslib": "^2.6.2"
   },
@@ -74,10 +59,10 @@
   "files": [
     "dist-*/**"
   ],
-  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages/credential-providers",
+  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages/credential-provider-login",
   "repository": {
     "type": "git",
     "url": "https://github.com/aws/aws-sdk-js-v3.git",
-    "directory": "packages/credential-providers"
+    "directory": "packages/credential-provider-login"
   }
 }

@@ -3,6 +3,7 @@ import type { AwsCredentialIdentity, ParsedIniData } from "@smithy/types";
 
 import { FromIniInit } from "./fromIni";
 import { isAssumeRoleProfile, resolveAssumeRoleCredentials } from "./resolveAssumeRoleCredentials";
+import { isLoginProfile, resolveLoginCredentials } from "./resolveLoginCredentials";
 import { isProcessProfile, resolveProcessCredentials } from "./resolveProcessCredentials";
 import { isSsoProfile, resolveSsoCredentials } from "./resolveSsoCredentials";
 import { isStaticCredsProfile, resolveStaticCredentials } from "./resolveStaticCredentials";
@@ -65,6 +66,10 @@ export const resolveProfileData = async (
 
   if (isSsoProfile(data)) {
     return await resolveSsoCredentials(profileName, data, options);
+  }
+
+  if (isLoginProfile(data)) {
+    return resolveLoginCredentials(profileName, options);
   }
 
   // If the profile cannot be parsed or contains neither static credentials

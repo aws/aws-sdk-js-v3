@@ -48,6 +48,9 @@ const node_libraries = [
 
 const ignored = [...node_libraries, "vitest"];
 
+// Check if a dependency should be ignored (including node: prefixed modules)
+const shouldIgnore = (dep) => ignored.includes(dep) || (dep.startsWith("node:") && ignored.includes(dep.slice(5)));
+
 (async () => {
   const errors = [];
 
@@ -88,7 +91,7 @@ const ignored = [...node_libraries, "vitest"];
         ...new Set(
           [...(contents.toString().match(/(from |import\()"(.*?)"\)?;/g) ?? [])]
             .map((_) => _.replace(/(from ")|(import\(")/g, "").replace(/"\)?;$/, ""))
-            .filter((_) => !_.startsWith(".") && !ignored.includes(_))
+            .filter((_) => !_.startsWith(".") && !shouldIgnore(_))
         )
       );
 
@@ -103,7 +106,7 @@ const ignored = [...node_libraries, "vitest"];
           dependencyPackageName !== pkgJson.name
         ) {
           if (
-            ["@aws-sdk/client-sts", "@aws-sdk/client-sso-oidc"].includes(dependency) &&
+            ["@aws-sdk/client-sts", "@aws-sdk/client-sso-oidc", "@aws-sdk/client-signin"].includes(dependency) &&
             ["@aws-sdk/nested-clients"].includes(pkgJson.name)
           ) {
             continue;
