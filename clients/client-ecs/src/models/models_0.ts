@@ -2324,8 +2324,8 @@ export interface DeploymentAlarms {
 }
 
 /**
- * <p>Configuration for canary deployment strategy that shifts a fixed percentage of traffic
- * 			to the new service revision, waits for a specified bake time, then shifts the remaining
+ * <p>Configuration for a canary deployment strategy that shifts a fixed percentage of traffic to
+ * 			the new service revision, waits for a specified bake time, then shifts the remaining
  * 			traffic. </p>
  *          <p>This is only valid when you run <code>CreateService</code> or
  * 				<code>UpdateService</code> with <code>deploymentController</code> set to
@@ -2335,8 +2335,7 @@ export interface DeploymentAlarms {
  */
 export interface CanaryConfiguration {
   /**
-   * <p>The percentage of production traffic to shift to the new service revision during the
-   * 			canary phase. Valid values are 0.1 to 100.0. The default value is 5.0.</p>
+   * <p>The percentage of production traffic to shift to the new service revision during the canary phase. Valid values are multiples of 0.1 from 0.1 to 100.0. The default value is 5.0.</p>
    * @public
    */
   canaryPercent?: number | undefined;
@@ -2489,16 +2488,14 @@ export interface DeploymentLifecycleHook {
  */
 export interface LinearConfiguration {
   /**
-   * <p>The percentage of production traffic to shift in each step during a linear deployment.
-   * 			Valid values are 3.0 to 100.0. The default value is 10.0.</p>
+   * <p>The percentage of production traffic to shift in each step during a linear deployment. Valid
+   * 			values are multiples of 0.1 from 3.0 to 100.0. The default value is 10.0.</p>
    * @public
    */
   stepPercent?: number | undefined;
 
   /**
-   * <p>The amount of time in minutes to wait between each traffic shifting step during a
-   * 			linear deployment. Valid values are 0 to 1440 minutes (24 hours). The default value is
-   * 			6. This bake time is not applied after reaching 100% traffic.</p>
+   * <p>The amount of time in minutes to wait between each traffic shifting step during a linear deployment. Valid values are 0 to 1440 minutes (24 hours). The default value is 6. This bake time is not applied after reaching 100 percent traffic.</p>
    * @public
    */
   stepBakeTimeInMinutes?: number | undefined;
@@ -2685,6 +2682,22 @@ export interface DeploymentConfiguration {
    *                blue/green deployments, you can validate new service revisions before directing
    *                production traffic to them. This approach provides a safer way to deploy changes with
    *                the ability to quickly roll back if needed.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>LINEAR</code> - A <i>linear</i> deployment strategy
+   *                (<code>LINEAR</code>) gradually shifts traffic from the current production
+   *                environment to a new environment in equal percentages over time. With Amazon ECS linear
+   *                deployments, you can control the pace of traffic shifting and validate new service
+   *                revisions with increasing amounts of production traffic.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CANARY</code> - A <i>canary</i> deployment strategy
+   *                (<code>CANARY</code>) shifts a small percentage of traffic to the new service
+   *                revision first, then shifts the remaining traffic all at once after a specified
+   *                time period. This allows you to test the new version with a subset of users before
+   *                full deployment.</p>
    *             </li>
    *          </ul>
    * @public
@@ -2992,7 +3005,7 @@ export interface AwsVpcConfiguration {
    *          <ul>
    *             <li>
    *                <p>When you use <code>create-service</code> or <code>update-service</code>, the
-   * 					The default is <code>DISABLED</code>. </p>
+   * 					default is <code>DISABLED</code>. </p>
    *             </li>
    *             <li>
    *                <p>When the service <code>deploymentController</code> is <code>ECS</code>, the

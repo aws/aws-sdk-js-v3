@@ -181,10 +181,9 @@ export interface CreateServiceCommandOutput extends CreateServiceResponse, __Met
  *                         <code>LINEAR</code>: A <i>linear</i> deployment strategy
  * 								(<code>LINEAR</code>) gradually shifts traffic from the current
  * 							production environment to a new environment in equal percentage
- * 							increments over a specified time period. With Amazon ECS linear
- * 							deployments, you can control the pace of traffic shifting and validate
- * 							new service revisions with increasing amounts of production
- * 							traffic.</p>
+ * 							increments. With Amazon ECS linear deployments, you can control the pace
+ * 							of traffic shifting and validate new service revisions with increasing
+ * 							amounts of production traffic.</p>
  *                      <p>Linear deployments are best suited for the following scenarios:</p>
  *                      <ul>
  *                         <li>
@@ -201,7 +200,7 @@ export interface CreateServiceCommandOutput extends CreateServiceResponse, __Met
  *                         </li>
  *                         <li>
  *                            <p>Load balancer requirement: When your service uses Application
- * 									Load Balancer, Network Load Balancer, or Service Connect</p>
+ * 									Load Balancer or Service Connect</p>
  *                         </li>
  *                      </ul>
  *                   </li>
@@ -228,7 +227,7 @@ export interface CreateServiceCommandOutput extends CreateServiceResponse, __Met
  *                         </li>
  *                         <li>
  *                            <p>Load balancer requirement: When your service uses Application
- * 									Load Balancer, Network Load Balancer, or Service Connect</p>
+ * 									Load Balancer or Service Connect</p>
  *                         </li>
  *                      </ul>
  *                   </li>
