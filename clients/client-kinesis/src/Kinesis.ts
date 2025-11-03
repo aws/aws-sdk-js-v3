@@ -33,6 +33,11 @@ import {
   DeregisterStreamConsumerCommandOutput,
 } from "./commands/DeregisterStreamConsumerCommand";
 import {
+  DescribeAccountSettingsCommand,
+  DescribeAccountSettingsCommandInput,
+  DescribeAccountSettingsCommandOutput,
+} from "./commands/DescribeAccountSettingsCommand";
+import {
   DescribeLimitsCommand,
   DescribeLimitsCommandInput,
   DescribeLimitsCommandOutput,
@@ -136,6 +141,11 @@ import {
   UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  UpdateAccountSettingsCommand,
+  UpdateAccountSettingsCommandInput,
+  UpdateAccountSettingsCommandOutput,
+} from "./commands/UpdateAccountSettingsCommand";
+import {
   UpdateMaxRecordSizeCommand,
   UpdateMaxRecordSizeCommandInput,
   UpdateMaxRecordSizeCommandOutput,
@@ -150,6 +160,11 @@ import {
   UpdateStreamModeCommandInput,
   UpdateStreamModeCommandOutput,
 } from "./commands/UpdateStreamModeCommand";
+import {
+  UpdateStreamWarmThroughputCommand,
+  UpdateStreamWarmThroughputCommandInput,
+  UpdateStreamWarmThroughputCommandOutput,
+} from "./commands/UpdateStreamWarmThroughputCommand";
 import { KinesisClient, KinesisClientConfig } from "./KinesisClient";
 
 const commands = {
@@ -159,6 +174,7 @@ const commands = {
   DeleteResourcePolicyCommand,
   DeleteStreamCommand,
   DeregisterStreamConsumerCommand,
+  DescribeAccountSettingsCommand,
   DescribeLimitsCommand,
   DescribeStreamCommand,
   DescribeStreamConsumerCommand,
@@ -186,9 +202,11 @@ const commands = {
   SubscribeToShardCommand,
   TagResourceCommand,
   UntagResourceCommand,
+  UpdateAccountSettingsCommand,
   UpdateMaxRecordSizeCommand,
   UpdateShardCountCommand,
   UpdateStreamModeCommand,
+  UpdateStreamWarmThroughputCommand,
 };
 
 export interface Kinesis {
@@ -279,6 +297,24 @@ export interface Kinesis {
     args: DeregisterStreamConsumerCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeregisterStreamConsumerCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeAccountSettingsCommand}
+   */
+  describeAccountSettings(): Promise<DescribeAccountSettingsCommandOutput>;
+  describeAccountSettings(
+    args: DescribeAccountSettingsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeAccountSettingsCommandOutput>;
+  describeAccountSettings(
+    args: DescribeAccountSettingsCommandInput,
+    cb: (err: any, data?: DescribeAccountSettingsCommandOutput) => void
+  ): void;
+  describeAccountSettings(
+    args: DescribeAccountSettingsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeAccountSettingsCommandOutput) => void
   ): void;
 
   /**
@@ -688,6 +724,23 @@ export interface Kinesis {
   ): void;
 
   /**
+   * @see {@link UpdateAccountSettingsCommand}
+   */
+  updateAccountSettings(
+    args: UpdateAccountSettingsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateAccountSettingsCommandOutput>;
+  updateAccountSettings(
+    args: UpdateAccountSettingsCommandInput,
+    cb: (err: any, data?: UpdateAccountSettingsCommandOutput) => void
+  ): void;
+  updateAccountSettings(
+    args: UpdateAccountSettingsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateAccountSettingsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link UpdateMaxRecordSizeCommand}
    */
   updateMaxRecordSize(
@@ -736,6 +789,23 @@ export interface Kinesis {
     args: UpdateStreamModeCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateStreamModeCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateStreamWarmThroughputCommand}
+   */
+  updateStreamWarmThroughput(
+    args: UpdateStreamWarmThroughputCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateStreamWarmThroughputCommandOutput>;
+  updateStreamWarmThroughput(
+    args: UpdateStreamWarmThroughputCommandInput,
+    cb: (err: any, data?: UpdateStreamWarmThroughputCommandOutput) => void
+  ): void;
+  updateStreamWarmThroughput(
+    args: UpdateStreamWarmThroughputCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateStreamWarmThroughputCommandOutput) => void
   ): void;
 }
 

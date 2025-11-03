@@ -38,6 +38,10 @@ import {
   DeregisterStreamConsumerCommandInput,
   DeregisterStreamConsumerCommandOutput,
 } from "../commands/DeregisterStreamConsumerCommand";
+import {
+  DescribeAccountSettingsCommandInput,
+  DescribeAccountSettingsCommandOutput,
+} from "../commands/DescribeAccountSettingsCommand";
 import { DescribeLimitsCommandInput, DescribeLimitsCommandOutput } from "../commands/DescribeLimitsCommand";
 import { DescribeStreamCommandInput, DescribeStreamCommandOutput } from "../commands/DescribeStreamCommand";
 import {
@@ -99,11 +103,19 @@ import { SubscribeToShardCommandInput, SubscribeToShardCommandOutput } from "../
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
 import {
+  UpdateAccountSettingsCommandInput,
+  UpdateAccountSettingsCommandOutput,
+} from "../commands/UpdateAccountSettingsCommand";
+import {
   UpdateMaxRecordSizeCommandInput,
   UpdateMaxRecordSizeCommandOutput,
 } from "../commands/UpdateMaxRecordSizeCommand";
 import { UpdateShardCountCommandInput, UpdateShardCountCommandOutput } from "../commands/UpdateShardCountCommand";
 import { UpdateStreamModeCommandInput, UpdateStreamModeCommandOutput } from "../commands/UpdateStreamModeCommand";
+import {
+  UpdateStreamWarmThroughputCommandInput,
+  UpdateStreamWarmThroughputCommandOutput,
+} from "../commands/UpdateStreamWarmThroughputCommand";
 import { KinesisServiceException as __BaseException } from "../models/KinesisServiceException";
 import {
   _Record,
@@ -116,6 +128,8 @@ import {
   DeleteResourcePolicyInput,
   DeleteStreamInput,
   DeregisterStreamConsumerInput,
+  DescribeAccountSettingsInput,
+  DescribeAccountSettingsOutput,
   DescribeLimitsInput,
   DescribeStreamConsumerInput,
   DescribeStreamConsumerOutput,
@@ -150,6 +164,8 @@ import {
   ListTagsForStreamInput,
   MergeShardsInput,
   MetricsName,
+  MinimumThroughputBillingCommitmentInput,
+  MinimumThroughputBillingCommitmentOutput,
   ProvisionedThroughputExceededException,
   PutRecordInput,
   PutRecordsInput,
@@ -174,9 +190,12 @@ import {
   SubscribeToShardInput,
   TagResourceInput,
   UntagResourceInput,
+  UpdateAccountSettingsInput,
+  UpdateAccountSettingsOutput,
   UpdateMaxRecordSizeInput,
   UpdateShardCountInput,
   UpdateStreamModeInput,
+  UpdateStreamWarmThroughputInput,
   ValidationException,
 } from "../models/models_0";
 
@@ -253,6 +272,19 @@ export const se_DeregisterStreamConsumerCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeregisterStreamConsumer");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1DescribeAccountSettingsCommand
+ */
+export const se_DescribeAccountSettingsCommand = async (
+  input: DescribeAccountSettingsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DescribeAccountSettings");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -610,6 +642,19 @@ export const se_UntagResourceCommand = async (
 };
 
 /**
+ * serializeAws_json1_1UpdateAccountSettingsCommand
+ */
+export const se_UpdateAccountSettingsCommand = async (
+  input: UpdateAccountSettingsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("UpdateAccountSettings");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_1UpdateMaxRecordSizeCommand
  */
 export const se_UpdateMaxRecordSizeCommand = async (
@@ -643,6 +688,19 @@ export const se_UpdateStreamModeCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UpdateStreamMode");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1UpdateStreamWarmThroughputCommand
+ */
+export const se_UpdateStreamWarmThroughputCommand = async (
+  input: UpdateStreamWarmThroughputCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("UpdateStreamWarmThroughput");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -746,6 +804,26 @@ export const de_DeregisterStreamConsumerCommand = async (
   await collectBody(output.body, context);
   const response: DeregisterStreamConsumerCommandOutput = {
     $metadata: deserializeMetadata(output),
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeAccountSettingsCommand
+ */
+export const de_DescribeAccountSettingsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeAccountSettingsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeAccountSettingsOutput(data, context);
+  const response: DescribeAccountSettingsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
   };
   return response;
 };
@@ -1262,6 +1340,26 @@ export const de_UntagResourceCommand = async (
 };
 
 /**
+ * deserializeAws_json1_1UpdateAccountSettingsCommand
+ */
+export const de_UpdateAccountSettingsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateAccountSettingsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_UpdateAccountSettingsOutput(data, context);
+  const response: UpdateAccountSettingsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
  * deserializeAws_json1_1UpdateMaxRecordSizeCommand
  */
 export const de_UpdateMaxRecordSizeCommand = async (
@@ -1316,6 +1414,26 @@ export const de_UpdateStreamModeCommand = async (
 };
 
 /**
+ * deserializeAws_json1_1UpdateStreamWarmThroughputCommand
+ */
+export const de_UpdateStreamWarmThroughputCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateStreamWarmThroughputCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: UpdateStreamWarmThroughputCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
  * deserialize_Aws_json1_1CommandError
  */
 const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
@@ -1340,6 +1458,9 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "ResourceNotFoundException":
     case "com.amazonaws.kinesis#ResourceNotFoundException":
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.kinesis#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     case "ExpiredIteratorException":
     case "com.amazonaws.kinesis#ExpiredIteratorException":
       throw await de_ExpiredIteratorExceptionRes(parsedOutput, context);
@@ -1370,9 +1491,6 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "ExpiredNextTokenException":
     case "com.amazonaws.kinesis#ExpiredNextTokenException":
       throw await de_ExpiredNextTokenExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.kinesis#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -1796,6 +1914,8 @@ const de_SubscribeToShardEvent_event = async (output: any, context: __SerdeConte
 
 // se_DeregisterStreamConsumerInput omitted.
 
+// se_DescribeAccountSettingsInput omitted.
+
 // se_DescribeLimitsInput omitted.
 
 // se_DescribeStreamConsumerInput omitted.
@@ -1864,6 +1984,8 @@ const se_ListStreamConsumersInput = (input: ListStreamConsumersInput, context: _
 // se_MergeShardsInput omitted.
 
 // se_MetricsNameList omitted.
+
+// se_MinimumThroughputBillingCommitmentInput omitted.
 
 /**
  * serializeAws_json1_1PutRecordInput
@@ -1967,11 +2089,15 @@ const se_SubscribeToShardInput = (input: SubscribeToShardInput, context: __Serde
 
 // se_UntagResourceInput omitted.
 
+// se_UpdateAccountSettingsInput omitted.
+
 // se_UpdateMaxRecordSizeInput omitted.
 
 // se_UpdateShardCountInput omitted.
 
 // se_UpdateStreamModeInput omitted.
+
+// se_UpdateStreamWarmThroughputInput omitted.
 
 // de_AccessDeniedException omitted.
 
@@ -2014,6 +2140,15 @@ const de_ConsumerList = (output: any, context: __SerdeContext): Consumer[] => {
       return de_Consumer(entry, context);
     });
   return retVal;
+};
+
+/**
+ * deserializeAws_json1_1DescribeAccountSettingsOutput
+ */
+const de_DescribeAccountSettingsOutput = (output: any, context: __SerdeContext): DescribeAccountSettingsOutput => {
+  return take(output, {
+    MinimumThroughputBillingCommitment: (_: any) => de_MinimumThroughputBillingCommitmentOutput(_, context),
+  }) as any;
 };
 
 // de_DescribeLimitsOutput omitted.
@@ -2121,6 +2256,21 @@ const de_ListStreamsOutput = (output: any, context: __SerdeContext): ListStreams
 
 // de_MetricsNameList omitted.
 
+/**
+ * deserializeAws_json1_1MinimumThroughputBillingCommitmentOutput
+ */
+const de_MinimumThroughputBillingCommitmentOutput = (
+  output: any,
+  context: __SerdeContext
+): MinimumThroughputBillingCommitmentOutput => {
+  return take(output, {
+    EarliestAllowedEndAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    EndedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    StartedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Status: __expectString,
+  }) as any;
+};
+
 // de_ProvisionedThroughputExceededException omitted.
 
 // de_PutRecordOutput omitted.
@@ -2213,6 +2363,7 @@ const de_StreamDescriptionSummary = (output: any, context: __SerdeContext): Stre
     StreamModeDetails: _json,
     StreamName: __expectString,
     StreamStatus: __expectString,
+    WarmThroughput: _json,
   }) as any;
 };
 
@@ -2261,9 +2412,22 @@ const de_SubscribeToShardEvent = (output: any, context: __SerdeContext): Subscri
 
 // de_TagList omitted.
 
+/**
+ * deserializeAws_json1_1UpdateAccountSettingsOutput
+ */
+const de_UpdateAccountSettingsOutput = (output: any, context: __SerdeContext): UpdateAccountSettingsOutput => {
+  return take(output, {
+    MinimumThroughputBillingCommitment: (_: any) => de_MinimumThroughputBillingCommitmentOutput(_, context),
+  }) as any;
+};
+
 // de_UpdateShardCountOutput omitted.
 
+// de_UpdateStreamWarmThroughputOutput omitted.
+
 // de_ValidationException omitted.
+
+// de_WarmThroughputObject omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,

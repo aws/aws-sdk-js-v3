@@ -32,16 +32,9 @@ export interface CreateStreamCommandOutput extends __MetadataBearer {}
  *             continuously emitted from different data sources or <i>producers</i>.
  *             Scale-out within a stream is explicitly supported by means of shards, which are uniquely
  *             identified groups of data records in a stream.</p>
- *          <p>You can create your data stream using either on-demand or provisioned capacity mode.
- *             Data streams with an on-demand mode require no capacity planning and automatically scale
- *             to handle gigabytes of write and read throughput per minute. With the on-demand mode,
- *             Kinesis Data Streams automatically manages the shards in order to provide the necessary
- *             throughput. For the data streams with a provisioned mode, you must specify the number of
- *             shards for the data stream. Each shard can support reads up to five transactions per
- *             second, up to a maximum data read total of 2 MiB per second. Each shard can support
- *             writes up to 1,000 records per second, up to a maximum data write total of 1 MiB per
- *             second. If the amount of data input increases or decreases, you can add or remove
- *             shards.</p>
+ *          <p>You can create your data stream using either on-demand or provisioned capacity mode. Data streams with an on-demand mode require no capacity planning and automatically scale to handle gigabytes of write and read throughput per minute. With the on-demand mode, Kinesis Data Streams automatically manages the shards in order to provide the necessary throughput.</p>
+ *          <p>If you'd still like to proactively scale your on-demand data stream’s capacity, you can unlock the warm throughput feature for on-demand data streams by enabling <code>MinimumThroughputBillingCommitment</code> for your account. Once your account has <code>MinimumThroughputBillingCommitment</code> enabled, you can specify the warm throughput in MiB per second that your stream can support in writes.</p>
+ *          <p>For the data streams with a provisioned mode, you must specify the number of shards for the data stream. Each shard can support reads up to five transactions per second, up to a maximum data read total of 2 MiB per second. Each shard can support writes up to 1,000 records per second, up to a maximum data write total of 1 MiB per second. If the amount of data input increases or decreases, you can add or remove shards.</p>
  *          <p>The stream name identifies the stream. The name is scoped to the Amazon Web Services
  *             account used by the application. It is also scoped by Amazon Web Services Region. That
  *             is, two streams in two different accounts can have the same name, and two streams in the
@@ -63,10 +56,7 @@ export interface CreateStreamCommandOutput extends __MetadataBearer {}
  *                <p>Create more shards than are authorized for your account.</p>
  *             </li>
  *          </ul>
- *          <p>For the default shard limit for an Amazon Web Services account, see <a href="https://docs.aws.amazon.com/kinesis/latest/dev/service-sizes-and-limits.html">Amazon
- *                 Kinesis Data Streams Limits</a> in the <i>Amazon Kinesis Data Streams
- *                 Developer Guide</i>. To increase this limit, <a href="https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html">contact Amazon Web Services
- *                 Support</a>.</p>
+ *          <p>For the default shard or on-demand throughput limits for an Amazon Web Services account, see <a href="https://docs.aws.amazon.com/kinesis/latest/dev/service-sizes-and-limits.html">Amazon Kinesis Data Streams Limits</a> in the <i>Amazon Kinesis Data Streams Developer Guide</i>. To increase this limit, <a href="https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html">contact Amazon Web Services Support</a>.</p>
  *          <p>You can use <a>DescribeStreamSummary</a> to check the stream status, which
  *             is returned in <code>StreamStatus</code>.</p>
  *          <p>
@@ -90,6 +80,7 @@ export interface CreateStreamCommandOutput extends __MetadataBearer {}
  *   Tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
  *   },
+ *   WarmThroughputMiBps: Number("int"),
  *   MaxRecordSizeInKiB: Number("int"),
  * };
  * const command = new CreateStreamCommand(input);
@@ -115,6 +106,11 @@ export interface CreateStreamCommandOutput extends __MetadataBearer {}
  * @throws {@link ResourceInUseException} (client fault)
  *  <p>The resource is not available for this operation. For successful operation, the
  *             resource must be in the <code>ACTIVE</code> state.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>Specifies that you tried to invoke this API for a data stream with the on-demand
+ *             capacity mode. This API is only supported for data streams with the provisioned capacity
+ *             mode. </p>
  *
  * @throws {@link KinesisServiceException}
  * <p>Base exception class for all service exceptions from Kinesis service.</p>

@@ -76,6 +76,10 @@ export interface DescribeStreamSummaryCommandOutput extends DescribeStreamSummar
  * //     KeyId: "STRING_VALUE",
  * //     OpenShardCount: Number("int"), // required
  * //     ConsumerCount: Number("int"),
+ * //     WarmThroughput: { // WarmThroughputObject
+ * //       TargetMiBps: Number("int"),
+ * //       CurrentMiBps: Number("int"),
+ * //     },
  * //     MaxRecordSizeInKiB: Number("int"),
  * //   },
  * // };

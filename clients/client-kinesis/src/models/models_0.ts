@@ -338,10 +338,38 @@ export interface CreateStreamInput {
   Tags?: Record<string, string> | undefined;
 
   /**
+   * <p>The target warm throughput in MB/s that the stream should be scaled to handle. This represents the throughput capacity that will be immediately available for write operations.</p>
+   * @public
+   */
+  WarmThroughputMiBps?: number | undefined;
+
+  /**
    * <p>The maximum record size of a single record in kibibyte (KiB) that you can write to, and read from a stream.</p>
    * @public
    */
   MaxRecordSizeInKiB?: number | undefined;
+}
+
+/**
+ * <p>Specifies that you tried to invoke this API for a data stream with the on-demand
+ *             capacity mode. This API is only supported for data streams with the provisioned capacity
+ *             mode. </p>
+ * @public
+ */
+export class ValidationException extends __BaseException {
+  readonly name: "ValidationException" = "ValidationException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
+    super({
+      name: "ValidationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ValidationException.prototype);
+  }
 }
 
 /**
@@ -433,6 +461,68 @@ export interface DeregisterStreamConsumerInput {
    * @public
    */
   ConsumerARN?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeAccountSettingsInput {}
+
+/**
+ * @public
+ * @enum
+ */
+export const MinimumThroughputBillingCommitmentOutputStatus = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+  ENABLED_UNTIL_EARLIEST_ALLOWED_END: "ENABLED_UNTIL_EARLIEST_ALLOWED_END",
+} as const;
+
+/**
+ * @public
+ */
+export type MinimumThroughputBillingCommitmentOutputStatus =
+  (typeof MinimumThroughputBillingCommitmentOutputStatus)[keyof typeof MinimumThroughputBillingCommitmentOutputStatus];
+
+/**
+ * <p>Represents the current status of minimum throughput billing commitment for an account.</p>
+ * @public
+ */
+export interface MinimumThroughputBillingCommitmentOutput {
+  /**
+   * <p>The current status of the minimum throughput billing commitment.</p>
+   * @public
+   */
+  Status: MinimumThroughputBillingCommitmentOutputStatus | undefined;
+
+  /**
+   * <p>The timestamp when the commitment was started.</p>
+   * @public
+   */
+  StartedAt?: Date | undefined;
+
+  /**
+   * <p>The timestamp when the commitment was ended.</p>
+   * @public
+   */
+  EndedAt?: Date | undefined;
+
+  /**
+   * <p>The earliest timestamp when the commitment can be ended.</p>
+   * @public
+   */
+  EarliestAllowedEndAt?: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeAccountSettingsOutput {
+  /**
+   * <p>The current configuration of the minimum throughput billing commitment for your Amazon Web Services account.</p>
+   * @public
+   */
+  MinimumThroughputBillingCommitment?: MinimumThroughputBillingCommitmentOutput | undefined;
 }
 
 /**
@@ -881,6 +971,24 @@ export interface DescribeStreamSummaryInput {
 }
 
 /**
+ * <p>Represents the warm throughput configuration on the stream. This is only present for On-Demand Kinesis Data Streams in accounts that have <code>MinimumThroughputBillingCommitment</code> enabled.</p>
+ * @public
+ */
+export interface WarmThroughputObject {
+  /**
+   * <p>The target warm throughput value on the stream. This indicates that the stream is currently scaling towards this target value.</p>
+   * @public
+   */
+  TargetMiBps?: number | undefined;
+
+  /**
+   * <p>The current warm throughput value on the stream. This is the write throughput in MiBps that the stream is currently scaled to handle.</p>
+   * @public
+   */
+  CurrentMiBps?: number | undefined;
+}
+
+/**
  * <p>Represents the output for <a>DescribeStreamSummary</a>
  *          </p>
  * @public
@@ -1020,6 +1128,12 @@ export interface StreamDescriptionSummary {
    * @public
    */
   ConsumerCount?: number | undefined;
+
+  /**
+   * <p>The warm throughput in MB/s for the stream. This represents the throughput capacity that will be immediately available for write operations.</p>
+   * @public
+   */
+  WarmThroughput?: WarmThroughputObject | undefined;
 
   /**
    * <p>The maximum record size of a single record in kibibyte (KiB) that you can write to, and read from a stream.</p>
@@ -2232,28 +2346,6 @@ export interface MergeShardsInput {
 }
 
 /**
- * <p>Specifies that you tried to invoke this API for a data stream with the on-demand
- *             capacity mode. This API is only supported for data streams with the provisioned capacity
- *             mode. </p>
- * @public
- */
-export class ValidationException extends __BaseException {
-  readonly name: "ValidationException" = "ValidationException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
-    super({
-      name: "ValidationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ValidationException.prototype);
-  }
-}
-
-/**
  * <p>Represents the input for <code>PutRecord</code>.</p>
  * @public
  */
@@ -3140,6 +3232,71 @@ export interface UntagResourceInput {
 
 /**
  * @public
+ * @enum
+ */
+export const MinimumThroughputBillingCommitmentInputStatus = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type MinimumThroughputBillingCommitmentInputStatus =
+  (typeof MinimumThroughputBillingCommitmentInputStatus)[keyof typeof MinimumThroughputBillingCommitmentInputStatus];
+
+/**
+ * <p>Represents the request parameters for configuring minimum throughput billing commitment.</p>
+ *          <note>
+ *             <ul>
+ *                <li>
+ *                   <p>Minimum throughput billing commitments provide cost savings on on-demand data streams in exchange for committing to a minimum level of throughput usage.</p>
+ *                </li>
+ *                <li>
+ *                   <p>Commitments have a minimum duration of 24 hours that must be honored before they can be disabled.</p>
+ *                </li>
+ *                <li>
+ *                   <p>If you attempt to disable a commitment before the minimum commitment period ends, the commitment will be scheduled for automatic disable at the earliest allowed end time.</p>
+ *                </li>
+ *                <li>
+ *                   <p>You can cancel a pending disable by enabling the commitment again before the earliest allowed end time.</p>
+ *                </li>
+ *             </ul>
+ *          </note>
+ * @public
+ */
+export interface MinimumThroughputBillingCommitmentInput {
+  /**
+   * <p>The desired status of the minimum throughput billing commitment.</p>
+   * @public
+   */
+  Status: MinimumThroughputBillingCommitmentInputStatus | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateAccountSettingsInput {
+  /**
+   * <p>Specifies the minimum throughput billing commitment configuration for your account.</p>
+   * @public
+   */
+  MinimumThroughputBillingCommitment: MinimumThroughputBillingCommitmentInput | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateAccountSettingsOutput {
+  /**
+   * <p>The updated configuration of the minimum throughput billing commitment for your account.</p>
+   * @public
+   */
+  MinimumThroughputBillingCommitment?: MinimumThroughputBillingCommitmentOutput | undefined;
+}
+
+/**
+ * @public
  */
 export interface UpdateMaxRecordSizeInput {
   /**
@@ -3261,6 +3418,58 @@ export interface UpdateStreamModeInput {
    * @public
    */
   StreamModeDetails: StreamModeDetails | undefined;
+
+  /**
+   * <p>The target warm throughput in MB/s that the stream should be scaled to handle. This represents the throughput capacity that will be immediately available for write operations. This field is only valid when the stream mode is being updated to on-demand.</p>
+   * @public
+   */
+  WarmThroughputMiBps?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateStreamWarmThroughputInput {
+  /**
+   * <p>The ARN of the stream to be updated.</p>
+   * @public
+   */
+  StreamARN?: string | undefined;
+
+  /**
+   * <p>The name of the stream to be updated.</p>
+   * @public
+   */
+  StreamName?: string | undefined;
+
+  /**
+   * <p>The target warm throughput in MB/s that the stream should be scaled to handle. This represents the throughput capacity that will be immediately available for write operations.</p>
+   * @public
+   */
+  WarmThroughputMiBps: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateStreamWarmThroughputOutput {
+  /**
+   * <p>The ARN of the stream that was updated.</p>
+   * @public
+   */
+  StreamARN?: string | undefined;
+
+  /**
+   * <p>The name of the stream that was updated.</p>
+   * @public
+   */
+  StreamName?: string | undefined;
+
+  /**
+   * <p>Specifies the updated warm throughput configuration for your data stream.</p>
+   * @public
+   */
+  WarmThroughput?: WarmThroughputObject | undefined;
 }
 
 /**

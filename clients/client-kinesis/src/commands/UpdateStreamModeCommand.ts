@@ -32,6 +32,7 @@ export interface UpdateStreamModeCommandOutput extends __MetadataBearer {}
  *             can choose between an <b>on-demand</b> capacity mode and a
  *                 <b>provisioned</b> capacity mode for your data stream.
  *         </p>
+ *          <p>If you'd still like to proactively scale your on-demand data stream’s capacity, you can unlock the warm throughput feature for on-demand data streams by enabling <code>MinimumThroughputBillingCommitment</code> for your account. Once your account has <code>MinimumThroughputBillingCommitment</code> enabled, you can specify the warm throughput in MiB per second that your stream can support in writes.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -45,6 +46,7 @@ export interface UpdateStreamModeCommandOutput extends __MetadataBearer {}
  *   StreamModeDetails: { // StreamModeDetails
  *     StreamMode: "PROVISIONED" || "ON_DEMAND", // required
  *   },
+ *   WarmThroughputMiBps: Number("int"),
  * };
  * const command = new UpdateStreamModeCommand(input);
  * const response = await client.send(command);
@@ -73,6 +75,11 @@ export interface UpdateStreamModeCommandOutput extends __MetadataBearer {}
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The requested resource could not be found. The stream might not be specified
  *             correctly.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>Specifies that you tried to invoke this API for a data stream with the on-demand
+ *             capacity mode. This API is only supported for data streams with the provisioned capacity
+ *             mode. </p>
  *
  * @throws {@link KinesisServiceException}
  * <p>Base exception class for all service exceptions from Kinesis service.</p>

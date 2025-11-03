@@ -74,6 +74,10 @@ import {
   DeregisterStreamConsumerCommandInput,
   DeregisterStreamConsumerCommandOutput,
 } from "./commands/DeregisterStreamConsumerCommand";
+import {
+  DescribeAccountSettingsCommandInput,
+  DescribeAccountSettingsCommandOutput,
+} from "./commands/DescribeAccountSettingsCommand";
 import { DescribeLimitsCommandInput, DescribeLimitsCommandOutput } from "./commands/DescribeLimitsCommand";
 import { DescribeStreamCommandInput, DescribeStreamCommandOutput } from "./commands/DescribeStreamCommand";
 import {
@@ -135,11 +139,19 @@ import { SubscribeToShardCommandInput, SubscribeToShardCommandOutput } from "./c
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import {
+  UpdateAccountSettingsCommandInput,
+  UpdateAccountSettingsCommandOutput,
+} from "./commands/UpdateAccountSettingsCommand";
+import {
   UpdateMaxRecordSizeCommandInput,
   UpdateMaxRecordSizeCommandOutput,
 } from "./commands/UpdateMaxRecordSizeCommand";
 import { UpdateShardCountCommandInput, UpdateShardCountCommandOutput } from "./commands/UpdateShardCountCommand";
 import { UpdateStreamModeCommandInput, UpdateStreamModeCommandOutput } from "./commands/UpdateStreamModeCommand";
+import {
+  UpdateStreamWarmThroughputCommandInput,
+  UpdateStreamWarmThroughputCommandOutput,
+} from "./commands/UpdateStreamWarmThroughputCommand";
 import {
   ClientInputEndpointParameters,
   ClientResolvedEndpointParameters,
@@ -161,6 +173,7 @@ export type ServiceInputTypes =
   | DeleteResourcePolicyCommandInput
   | DeleteStreamCommandInput
   | DeregisterStreamConsumerCommandInput
+  | DescribeAccountSettingsCommandInput
   | DescribeLimitsCommandInput
   | DescribeStreamCommandInput
   | DescribeStreamConsumerCommandInput
@@ -188,9 +201,11 @@ export type ServiceInputTypes =
   | SubscribeToShardCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
+  | UpdateAccountSettingsCommandInput
   | UpdateMaxRecordSizeCommandInput
   | UpdateShardCountCommandInput
-  | UpdateStreamModeCommandInput;
+  | UpdateStreamModeCommandInput
+  | UpdateStreamWarmThroughputCommandInput;
 
 /**
  * @public
@@ -202,6 +217,7 @@ export type ServiceOutputTypes =
   | DeleteResourcePolicyCommandOutput
   | DeleteStreamCommandOutput
   | DeregisterStreamConsumerCommandOutput
+  | DescribeAccountSettingsCommandOutput
   | DescribeLimitsCommandOutput
   | DescribeStreamCommandOutput
   | DescribeStreamConsumerCommandOutput
@@ -229,9 +245,11 @@ export type ServiceOutputTypes =
   | SubscribeToShardCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
+  | UpdateAccountSettingsCommandOutput
   | UpdateMaxRecordSizeCommandOutput
   | UpdateShardCountCommandOutput
-  | UpdateStreamModeCommandOutput;
+  | UpdateStreamModeCommandOutput
+  | UpdateStreamWarmThroughputCommandOutput;
 
 /**
  * @public
