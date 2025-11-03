@@ -43,6 +43,7 @@ export interface DeleteAgentRuntimeCommandOutput extends DeleteAgentRuntimeRespo
  * const client = new BedrockAgentCoreControlClient(config);
  * const input = { // DeleteAgentRuntimeRequest
  *   agentRuntimeId: "STRING_VALUE", // required
+ *   clientToken: "STRING_VALUE",
  * };
  * const command = new DeleteAgentRuntimeCommand(input);
  * const response = await client.send(command);

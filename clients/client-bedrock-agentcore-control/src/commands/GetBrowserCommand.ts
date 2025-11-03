@@ -68,6 +68,7 @@ export interface GetBrowserCommandOutput extends GetBrowserResponse, __MetadataB
  * //     s3Location: { // S3Location
  * //       bucket: "STRING_VALUE", // required
  * //       prefix: "STRING_VALUE", // required
+ * //       versionId: "STRING_VALUE",
  * //     },
  * //   },
  * //   browserSigning: { // BrowserSigningConfigOutput

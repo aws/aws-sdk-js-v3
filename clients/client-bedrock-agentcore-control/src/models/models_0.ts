@@ -611,6 +611,108 @@ export interface UpdateAgentRuntimeEndpointResponse {
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const AgentManagedRuntimeType = {
+  PYTHON_3_10: "PYTHON_3_10",
+  PYTHON_3_11: "PYTHON_3_11",
+  PYTHON_3_12: "PYTHON_3_12",
+  PYTHON_3_13: "PYTHON_3_13",
+} as const;
+
+/**
+ * @public
+ */
+export type AgentManagedRuntimeType = (typeof AgentManagedRuntimeType)[keyof typeof AgentManagedRuntimeType];
+
+/**
+ * <p>The Amazon S3 location for storing data. This structure defines where in Amazon S3 data is stored.</p>
+ * @public
+ */
+export interface S3Location {
+  /**
+   * <p>The name of the Amazon S3 bucket. This bucket contains the stored data.</p>
+   * @public
+   */
+  bucket: string | undefined;
+
+  /**
+   * <p>The prefix for objects in the Amazon S3 bucket. This prefix is added to the object keys to organize the data.</p>
+   * @public
+   */
+  prefix: string | undefined;
+
+  /**
+   * <p>The version ID of the Amazon Amazon S3 object. If not specified, the latest version of the object is used.</p>
+   * @public
+   */
+  versionId?: string | undefined;
+}
+
+/**
+ * <p>The source code configuration that specifies the location and details of the code to be executed.</p>
+ * @public
+ */
+export type Code = Code.S3Member | Code.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace Code {
+  /**
+   * <p>The Amazon Amazon S3 object that contains the source code for the agent runtime.</p>
+   * @public
+   */
+  export interface S3Member {
+    s3: S3Location;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    s3?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    s3: (value: S3Location) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: Code, visitor: Visitor<T>): T => {
+    if (value.s3 !== undefined) return visitor.s3(value.s3);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * <p>The configuration for the source code that defines how the agent runtime code should be executed, including the code location, runtime environment, and entry point.</p>
+ * @public
+ */
+export interface CodeConfiguration {
+  /**
+   * <p>The source code location and configuration details.</p>
+   * @public
+   */
+  code: Code | undefined;
+
+  /**
+   * <p>The runtime environment for executing the code (for example, Python 3.9 or Node.js 18).</p>
+   * @public
+   */
+  runtime: AgentManagedRuntimeType | undefined;
+
+  /**
+   * <p>The entry point for the code execution, specifying the function or method that should be invoked when the code runs.</p>
+   * @public
+   */
+  entryPoint: string[] | undefined;
+}
+
+/**
  * <p>Representation of a container configuration.</p>
  * @public
  */
@@ -627,6 +729,7 @@ export interface ContainerConfiguration {
  * @public
  */
 export type AgentRuntimeArtifact =
+  | AgentRuntimeArtifact.CodeConfigurationMember
   | AgentRuntimeArtifact.ContainerConfigurationMember
   | AgentRuntimeArtifact.$UnknownMember;
 
@@ -640,6 +743,17 @@ export namespace AgentRuntimeArtifact {
    */
   export interface ContainerConfigurationMember {
     containerConfiguration: ContainerConfiguration;
+    codeConfiguration?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The code configuration for the agent runtime artifact, including the source code location and execution settings.</p>
+   * @public
+   */
+  export interface CodeConfigurationMember {
+    containerConfiguration?: never;
+    codeConfiguration: CodeConfiguration;
     $unknown?: never;
   }
 
@@ -648,16 +762,19 @@ export namespace AgentRuntimeArtifact {
    */
   export interface $UnknownMember {
     containerConfiguration?: never;
+    codeConfiguration?: never;
     $unknown: [string, any];
   }
 
   export interface Visitor<T> {
     containerConfiguration: (value: ContainerConfiguration) => T;
+    codeConfiguration: (value: CodeConfiguration) => T;
     _: (name: string, value: any) => T;
   }
 
   export const visit = <T>(value: AgentRuntimeArtifact, visitor: Visitor<T>): T => {
     if (value.containerConfiguration !== undefined) return visitor.containerConfiguration(value.containerConfiguration);
+    if (value.codeConfiguration !== undefined) return visitor.codeConfiguration(value.codeConfiguration);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
 }
@@ -1018,6 +1135,12 @@ export interface DeleteAgentRuntimeRequest {
    * @public
    */
   agentRuntimeId: string | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier to ensure that the operation completes no more than one time. If this token matches a previous request, the service ignores the request but does not return an error.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
 }
 
 /**
@@ -1759,24 +1882,6 @@ export interface BrowserNetworkConfiguration {
    * @public
    */
   vpcConfig?: VpcConfig | undefined;
-}
-
-/**
- * <p>The Amazon S3 location for storing data. This structure defines where in Amazon S3 data is stored.</p>
- * @public
- */
-export interface S3Location {
-  /**
-   * <p>The name of the Amazon S3 bucket. This bucket contains the stored data.</p>
-   * @public
-   */
-  bucket: string | undefined;
-
-  /**
-   * <p>The prefix for objects in the Amazon S3 bucket. This prefix is added to the object keys to organize the data.</p>
-   * @public
-   */
-  prefix: string | undefined;
 }
 
 /**

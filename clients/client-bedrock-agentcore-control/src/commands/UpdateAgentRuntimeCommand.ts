@@ -51,6 +51,19 @@ export interface UpdateAgentRuntimeCommandOutput extends UpdateAgentRuntimeRespo
  *     containerConfiguration: { // ContainerConfiguration
  *       containerUri: "STRING_VALUE", // required
  *     },
+ *     codeConfiguration: { // CodeConfiguration
+ *       code: { // Code Union: only one key present
+ *         s3: { // S3Location
+ *           bucket: "STRING_VALUE", // required
+ *           prefix: "STRING_VALUE", // required
+ *           versionId: "STRING_VALUE",
+ *         },
+ *       },
+ *       runtime: "PYTHON_3_10" || "PYTHON_3_11" || "PYTHON_3_12" || "PYTHON_3_13", // required
+ *       entryPoint: [ // EntryPoints // required
+ *         "STRING_VALUE",
+ *       ],
+ *     },
  *   },
  *   roleArn: "STRING_VALUE", // required
  *   networkConfiguration: { // NetworkConfiguration

@@ -186,6 +186,8 @@ import {
   BrowserNetworkConfiguration,
   BrowserSigningConfigInput,
   BrowserSummary,
+  Code,
+  CodeConfiguration,
   CodeInterpreterNetworkConfiguration,
   CodeInterpreterSummary,
   ConcurrentModificationException,
@@ -563,8 +565,11 @@ export const se_DeleteAgentRuntimeCommand = async (
   const headers: any = {};
   b.bp("/runtimes/{agentRuntimeId}");
   b.p("agentRuntimeId", () => input.agentRuntimeId!, "{agentRuntimeId}", false);
+  const query: any = map({
+    [_cT]: [, input[_cT] ?? generateIdempotencyToken()],
+  });
   let body: any;
-  b.m("DELETE").h(headers).b(body);
+  b.m("DELETE").h(headers).q(query).b(body);
   return b.build();
 };
 
@@ -3190,6 +3195,10 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_BrowserSigningConfigInput omitted.
 
+// se_Code omitted.
+
+// se_CodeConfiguration omitted.
+
 // se_CodeInterpreterNetworkConfiguration omitted.
 
 // se_ContainerConfiguration omitted.
@@ -3215,6 +3224,8 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 // se_DeleteMemoryStrategiesList omitted.
 
 // se_DeleteMemoryStrategyInput omitted.
+
+// se_EntryPoints omitted.
 
 // se_EnvironmentVariablesMap omitted.
 
@@ -3565,6 +3576,10 @@ const de_BrowserSummary = (output: any, context: __SerdeContext): BrowserSummary
   }) as any;
 };
 
+// de_Code omitted.
+
+// de_CodeConfiguration omitted.
+
 // de_CodeInterpreterNetworkConfiguration omitted.
 
 /**
@@ -3611,6 +3626,8 @@ const de_CodeInterpreterSummary = (output: any, context: __SerdeContext): CodeIn
 // de_CustomJWTAuthorizerConfiguration omitted.
 
 // de_CustomOauth2ProviderConfigOutput omitted.
+
+// de_EntryPoints omitted.
 
 // de_EnvironmentVariablesMap omitted.
 
