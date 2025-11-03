@@ -2648,6 +2648,7 @@ export const _InstanceType = {
   trn1_2xlarge: "trn1.2xlarge",
   trn1_32xlarge: "trn1.32xlarge",
   trn1n_32xlarge: "trn1n.32xlarge",
+  trn2_3xlarge: "trn2.3xlarge",
   trn2_48xlarge: "trn2.48xlarge",
   u7i_12tb_224xlarge: "u7i-12tb.224xlarge",
   u7i_6tb_112xlarge: "u7i-6tb.112xlarge",
