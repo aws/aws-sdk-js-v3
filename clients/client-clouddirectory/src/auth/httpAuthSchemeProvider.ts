@@ -93,7 +93,7 @@ export const defaultCloudDirectoryHttpAuthSchemeProvider: CloudDirectoryHttpAuth
 };
 
 /**
- * @internal
+ * @public
  */
 export interface HttpAuthSchemeInputConfig extends AwsSdkSigV4AuthInputConfig {
   /**

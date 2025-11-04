@@ -93,7 +93,7 @@ export const defaultCognitoSyncHttpAuthSchemeProvider: CognitoSyncHttpAuthScheme
 };
 
 /**
- * @internal
+ * @public
  */
 export interface HttpAuthSchemeInputConfig extends AwsSdkSigV4AuthInputConfig {
   /**

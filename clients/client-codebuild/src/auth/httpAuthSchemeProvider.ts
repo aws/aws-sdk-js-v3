@@ -92,7 +92,7 @@ export const defaultCodeBuildHttpAuthSchemeProvider: CodeBuildHttpAuthSchemeProv
 };
 
 /**
- * @internal
+ * @public
  */
 export interface HttpAuthSchemeInputConfig extends AwsSdkSigV4AuthInputConfig {
   /**

@@ -92,7 +92,7 @@ export const defaultPanoramaHttpAuthSchemeProvider: PanoramaHttpAuthSchemeProvid
 };
 
 /**
- * @internal
+ * @public
  */
 export interface HttpAuthSchemeInputConfig extends AwsSdkSigV4AuthInputConfig {
   /**

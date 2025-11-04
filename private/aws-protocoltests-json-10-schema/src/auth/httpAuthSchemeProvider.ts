@@ -92,7 +92,7 @@ export const defaultJSONRPC10HttpAuthSchemeProvider: JSONRPC10HttpAuthSchemeProv
 };
 
 /**
- * @internal
+ * @public
  */
 export interface HttpAuthSchemeInputConfig extends AwsSdkSigV4AuthInputConfig {
   /**

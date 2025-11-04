@@ -92,7 +92,7 @@ export const defaultFinspaceHttpAuthSchemeProvider: FinspaceHttpAuthSchemeProvid
 };
 
 /**
- * @internal
+ * @public
  */
 export interface HttpAuthSchemeInputConfig extends AwsSdkSigV4AuthInputConfig {
   /**

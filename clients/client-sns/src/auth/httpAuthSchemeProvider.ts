@@ -92,7 +92,7 @@ export const defaultSNSHttpAuthSchemeProvider: SNSHttpAuthSchemeProvider = (auth
 };
 
 /**
- * @internal
+ * @public
  */
 export interface HttpAuthSchemeInputConfig extends AwsSdkSigV4AuthInputConfig {
   /**

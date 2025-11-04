@@ -93,7 +93,7 @@ export const defaultIoTSiteWiseHttpAuthSchemeProvider: IoTSiteWiseHttpAuthScheme
 };
 
 /**
- * @internal
+ * @public
  */
 export interface HttpAuthSchemeInputConfig extends AwsSdkSigV4AuthInputConfig {
   /**

@@ -92,7 +92,7 @@ export const defaultCloudHSMV2HttpAuthSchemeProvider: CloudHSMV2HttpAuthSchemePr
 };
 
 /**
- * @internal
+ * @public
  */
 export interface HttpAuthSchemeInputConfig extends AwsSdkSigV4AuthInputConfig {
   /**

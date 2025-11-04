@@ -115,7 +115,7 @@ export const defaultCognitoIdentityHttpAuthSchemeProvider: CognitoIdentityHttpAu
 };
 
 /**
- * @internal
+ * @public
  */
 export interface HttpAuthSchemeInputConfig extends AwsSdkSigV4AuthInputConfig {
   /**

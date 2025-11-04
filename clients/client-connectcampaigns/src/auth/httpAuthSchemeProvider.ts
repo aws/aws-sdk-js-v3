@@ -95,7 +95,7 @@ export const defaultConnectCampaignsHttpAuthSchemeProvider: ConnectCampaignsHttp
 };
 
 /**
- * @internal
+ * @public
  */
 export interface HttpAuthSchemeInputConfig extends AwsSdkSigV4AuthInputConfig {
   /**

@@ -100,7 +100,7 @@ export const defaultRekognitionStreamingHttpAuthSchemeProvider: RekognitionStrea
 };
 
 /**
- * @internal
+ * @public
  */
 export interface HttpAuthSchemeInputConfig extends AwsSdkSigV4AuthInputConfig {
   /**

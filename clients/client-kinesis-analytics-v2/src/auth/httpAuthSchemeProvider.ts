@@ -95,7 +95,7 @@ export const defaultKinesisAnalyticsV2HttpAuthSchemeProvider: KinesisAnalyticsV2
 };
 
 /**
- * @internal
+ * @public
  */
 export interface HttpAuthSchemeInputConfig extends AwsSdkSigV4AuthInputConfig {
   /**

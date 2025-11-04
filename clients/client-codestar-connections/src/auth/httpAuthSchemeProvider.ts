@@ -95,7 +95,7 @@ export const defaultCodeStarConnectionsHttpAuthSchemeProvider: CodeStarConnectio
 };
 
 /**
- * @internal
+ * @public
  */
 export interface HttpAuthSchemeInputConfig extends AwsSdkSigV4AuthInputConfig {
   /**

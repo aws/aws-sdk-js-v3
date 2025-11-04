@@ -93,7 +93,7 @@ export const defaultCostExplorerHttpAuthSchemeProvider: CostExplorerHttpAuthSche
 };
 
 /**
- * @internal
+ * @public
  */
 export interface HttpAuthSchemeInputConfig extends AwsSdkSigV4AuthInputConfig {
   /**

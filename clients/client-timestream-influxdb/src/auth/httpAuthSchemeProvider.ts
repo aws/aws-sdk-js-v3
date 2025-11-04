@@ -95,7 +95,7 @@ export const defaultTimestreamInfluxDBHttpAuthSchemeProvider: TimestreamInfluxDB
 };
 
 /**
- * @internal
+ * @public
  */
 export interface HttpAuthSchemeInputConfig extends AwsSdkSigV4AuthInputConfig {
   /**

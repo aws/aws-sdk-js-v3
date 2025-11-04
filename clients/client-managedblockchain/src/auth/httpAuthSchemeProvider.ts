@@ -95,7 +95,7 @@ export const defaultManagedBlockchainHttpAuthSchemeProvider: ManagedBlockchainHt
 };
 
 /**
- * @internal
+ * @public
  */
 export interface HttpAuthSchemeInputConfig extends AwsSdkSigV4AuthInputConfig {
   /**

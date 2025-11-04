@@ -92,7 +92,7 @@ export const defaultEFSHttpAuthSchemeProvider: EFSHttpAuthSchemeProvider = (auth
 };
 
 /**
- * @internal
+ * @public
  */
 export interface HttpAuthSchemeInputConfig extends AwsSdkSigV4AuthInputConfig {
   /**

@@ -95,7 +95,7 @@ export const defaultServiceDiscoveryHttpAuthSchemeProvider: ServiceDiscoveryHttp
 };
 
 /**
- * @internal
+ * @public
  */
 export interface HttpAuthSchemeInputConfig extends AwsSdkSigV4AuthInputConfig {
   /**

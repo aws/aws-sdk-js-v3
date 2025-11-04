@@ -93,7 +93,7 @@ export const defaultServiceCatalogHttpAuthSchemeProvider: ServiceCatalogHttpAuth
 };
 
 /**
- * @internal
+ * @public
  */
 export interface HttpAuthSchemeInputConfig extends AwsSdkSigV4AuthInputConfig {
   /**

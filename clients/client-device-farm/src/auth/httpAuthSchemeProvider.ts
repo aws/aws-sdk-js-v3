@@ -92,7 +92,7 @@ export const defaultDeviceFarmHttpAuthSchemeProvider: DeviceFarmHttpAuthSchemePr
 };
 
 /**
- * @internal
+ * @public
  */
 export interface HttpAuthSchemeInputConfig extends AwsSdkSigV4AuthInputConfig {
   /**

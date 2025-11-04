@@ -95,7 +95,7 @@ export const defaultCostOptimizationHubHttpAuthSchemeProvider: CostOptimizationH
 };
 
 /**
- * @internal
+ * @public
  */
 export interface HttpAuthSchemeInputConfig extends AwsSdkSigV4AuthInputConfig {
   /**

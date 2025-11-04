@@ -92,7 +92,7 @@ export const defaultDetectiveHttpAuthSchemeProvider: DetectiveHttpAuthSchemeProv
 };
 
 /**
- * @internal
+ * @public
  */
 export interface HttpAuthSchemeInputConfig extends AwsSdkSigV4AuthInputConfig {
   /**

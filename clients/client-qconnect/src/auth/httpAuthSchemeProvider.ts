@@ -92,7 +92,7 @@ export const defaultQConnectHttpAuthSchemeProvider: QConnectHttpAuthSchemeProvid
 };
 
 /**
- * @internal
+ * @public
  */
 export interface HttpAuthSchemeInputConfig extends AwsSdkSigV4AuthInputConfig {
   /**

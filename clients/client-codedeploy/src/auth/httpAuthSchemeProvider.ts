@@ -92,7 +92,7 @@ export const defaultCodeDeployHttpAuthSchemeProvider: CodeDeployHttpAuthSchemePr
 };
 
 /**
- * @internal
+ * @public
  */
 export interface HttpAuthSchemeInputConfig extends AwsSdkSigV4AuthInputConfig {
   /**

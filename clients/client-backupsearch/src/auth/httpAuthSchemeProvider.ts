@@ -93,7 +93,7 @@ export const defaultBackupSearchHttpAuthSchemeProvider: BackupSearchHttpAuthSche
 };
 
 /**
- * @internal
+ * @public
  */
 export interface HttpAuthSchemeInputConfig extends AwsSdkSigV4AuthInputConfig {
   /**

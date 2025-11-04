@@ -93,7 +93,7 @@ export const defaultGreengrassV2HttpAuthSchemeProvider: GreengrassV2HttpAuthSche
 };
 
 /**
- * @internal
+ * @public
  */
 export interface HttpAuthSchemeInputConfig extends AwsSdkSigV4AuthInputConfig {
   /**

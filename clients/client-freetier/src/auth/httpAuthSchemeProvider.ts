@@ -92,7 +92,7 @@ export const defaultFreeTierHttpAuthSchemeProvider: FreeTierHttpAuthSchemeProvid
 };
 
 /**
- * @internal
+ * @public
  */
 export interface HttpAuthSchemeInputConfig extends AwsSdkSigV4AuthInputConfig {
   /**

@@ -92,7 +92,7 @@ export const defaultOpenSearchHttpAuthSchemeProvider: OpenSearchHttpAuthSchemePr
 };
 
 /**
- * @internal
+ * @public
  */
 export interface HttpAuthSchemeInputConfig extends AwsSdkSigV4AuthInputConfig {
   /**

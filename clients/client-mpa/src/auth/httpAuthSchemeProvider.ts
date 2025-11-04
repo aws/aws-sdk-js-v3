@@ -92,7 +92,7 @@ export const defaultMPAHttpAuthSchemeProvider: MPAHttpAuthSchemeProvider = (auth
 };
 
 /**
- * @internal
+ * @public
  */
 export interface HttpAuthSchemeInputConfig extends AwsSdkSigV4AuthInputConfig {
   /**

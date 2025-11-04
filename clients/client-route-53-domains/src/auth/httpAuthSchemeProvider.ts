@@ -93,7 +93,7 @@ export const defaultRoute53DomainsHttpAuthSchemeProvider: Route53DomainsHttpAuth
 };
 
 /**
- * @internal
+ * @public
  */
 export interface HttpAuthSchemeInputConfig extends AwsSdkSigV4AuthInputConfig {
   /**

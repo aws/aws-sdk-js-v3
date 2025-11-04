@@ -93,7 +93,7 @@ export const defaultInternetMonitorHttpAuthSchemeProvider: InternetMonitorHttpAu
 };
 
 /**
- * @internal
+ * @public
  */
 export interface HttpAuthSchemeInputConfig extends AwsSdkSigV4AuthInputConfig {
   /**

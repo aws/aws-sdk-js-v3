@@ -92,7 +92,7 @@ export const defaultOmicsHttpAuthSchemeProvider: OmicsHttpAuthSchemeProvider = (
 };
 
 /**
- * @internal
+ * @public
  */
 export interface HttpAuthSchemeInputConfig extends AwsSdkSigV4AuthInputConfig {
   /**

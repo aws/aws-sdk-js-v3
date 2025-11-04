@@ -92,7 +92,7 @@ export const defaultDevOpsGuruHttpAuthSchemeProvider: DevOpsGuruHttpAuthSchemePr
 };
 
 /**
- * @internal
+ * @public
  */
 export interface HttpAuthSchemeInputConfig extends AwsSdkSigV4AuthInputConfig {
   /**

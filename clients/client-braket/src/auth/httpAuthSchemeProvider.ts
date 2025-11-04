@@ -92,7 +92,7 @@ export const defaultBraketHttpAuthSchemeProvider: BraketHttpAuthSchemeProvider =
 };
 
 /**
- * @internal
+ * @public
  */
 export interface HttpAuthSchemeInputConfig extends AwsSdkSigV4AuthInputConfig {
   /**

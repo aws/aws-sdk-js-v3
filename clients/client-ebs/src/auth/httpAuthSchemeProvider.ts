@@ -92,7 +92,7 @@ export const defaultEBSHttpAuthSchemeProvider: EBSHttpAuthSchemeProvider = (auth
 };
 
 /**
- * @internal
+ * @public
  */
 export interface HttpAuthSchemeInputConfig extends AwsSdkSigV4AuthInputConfig {
   /**

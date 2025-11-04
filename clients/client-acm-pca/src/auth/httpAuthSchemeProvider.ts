@@ -92,7 +92,7 @@ export const defaultACMPCAHttpAuthSchemeProvider: ACMPCAHttpAuthSchemeProvider =
 };
 
 /**
- * @internal
+ * @public
  */
 export interface HttpAuthSchemeInputConfig extends AwsSdkSigV4AuthInputConfig {
   /**

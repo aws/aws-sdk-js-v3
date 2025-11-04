@@ -92,7 +92,7 @@ export const defaultGuardDutyHttpAuthSchemeProvider: GuardDutyHttpAuthSchemeProv
 };
 
 /**
- * @internal
+ * @public
  */
 export interface HttpAuthSchemeInputConfig extends AwsSdkSigV4AuthInputConfig {
   /**

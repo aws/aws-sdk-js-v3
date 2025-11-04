@@ -95,7 +95,7 @@ export const defaultPcaConnectorScepHttpAuthSchemeProvider: PcaConnectorScepHttp
 };
 
 /**
- * @internal
+ * @public
  */
 export interface HttpAuthSchemeInputConfig extends AwsSdkSigV4AuthInputConfig {
   /**

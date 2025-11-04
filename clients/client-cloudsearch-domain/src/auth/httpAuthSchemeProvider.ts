@@ -95,7 +95,7 @@ export const defaultCloudSearchDomainHttpAuthSchemeProvider: CloudSearchDomainHt
 };
 
 /**
- * @internal
+ * @public
  */
 export interface HttpAuthSchemeInputConfig extends AwsSdkSigV4AuthInputConfig {
   /**

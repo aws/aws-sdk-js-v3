@@ -92,7 +92,7 @@ export const defaultAppSyncHttpAuthSchemeProvider: AppSyncHttpAuthSchemeProvider
 };
 
 /**
- * @internal
+ * @public
  */
 export interface HttpAuthSchemeInputConfig extends AwsSdkSigV4AuthInputConfig {
   /**

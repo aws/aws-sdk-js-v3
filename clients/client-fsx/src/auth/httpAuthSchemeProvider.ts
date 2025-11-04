@@ -92,7 +92,7 @@ export const defaultFSxHttpAuthSchemeProvider: FSxHttpAuthSchemeProvider = (auth
 };
 
 /**
- * @internal
+ * @public
  */
 export interface HttpAuthSchemeInputConfig extends AwsSdkSigV4AuthInputConfig {
   /**

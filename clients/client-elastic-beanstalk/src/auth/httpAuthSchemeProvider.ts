@@ -95,7 +95,7 @@ export const defaultElasticBeanstalkHttpAuthSchemeProvider: ElasticBeanstalkHttp
 };
 
 /**
- * @internal
+ * @public
  */
 export interface HttpAuthSchemeInputConfig extends AwsSdkSigV4AuthInputConfig {
   /**

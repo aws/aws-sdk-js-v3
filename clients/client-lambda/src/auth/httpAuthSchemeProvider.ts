@@ -92,7 +92,7 @@ export const defaultLambdaHttpAuthSchemeProvider: LambdaHttpAuthSchemeProvider =
 };
 
 /**
- * @internal
+ * @public
  */
 export interface HttpAuthSchemeInputConfig extends AwsSdkSigV4AuthInputConfig {
   /**

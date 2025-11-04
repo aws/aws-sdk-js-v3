@@ -92,7 +92,7 @@ export const defaultAmpHttpAuthSchemeProvider: AmpHttpAuthSchemeProvider = (auth
 };
 
 /**
- * @internal
+ * @public
  */
 export interface HttpAuthSchemeInputConfig extends AwsSdkSigV4AuthInputConfig {
   /**

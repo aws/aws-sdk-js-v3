@@ -95,7 +95,7 @@ export const defaultSageMakerRuntimeHttpAuthSchemeProvider: SageMakerRuntimeHttp
 };
 
 /**
- * @internal
+ * @public
  */
 export interface HttpAuthSchemeInputConfig extends AwsSdkSigV4AuthInputConfig {
   /**

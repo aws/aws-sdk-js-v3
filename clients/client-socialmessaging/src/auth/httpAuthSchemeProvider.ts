@@ -93,7 +93,7 @@ export const defaultSocialMessagingHttpAuthSchemeProvider: SocialMessagingHttpAu
 };
 
 /**
- * @internal
+ * @public
  */
 export interface HttpAuthSchemeInputConfig extends AwsSdkSigV4AuthInputConfig {
   /**

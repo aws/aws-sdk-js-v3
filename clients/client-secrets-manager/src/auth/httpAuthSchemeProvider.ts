@@ -93,7 +93,7 @@ export const defaultSecretsManagerHttpAuthSchemeProvider: SecretsManagerHttpAuth
 };
 
 /**
- * @internal
+ * @public
  */
 export interface HttpAuthSchemeInputConfig extends AwsSdkSigV4AuthInputConfig {
   /**

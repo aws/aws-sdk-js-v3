@@ -92,7 +92,7 @@ export const defaultMediaStoreHttpAuthSchemeProvider: MediaStoreHttpAuthSchemePr
 };
 
 /**
- * @internal
+ * @public
  */
 export interface HttpAuthSchemeInputConfig extends AwsSdkSigV4AuthInputConfig {
   /**

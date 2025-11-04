@@ -92,7 +92,7 @@ export const defaultECRPUBLICHttpAuthSchemeProvider: ECRPUBLICHttpAuthSchemeProv
 };
 
 /**
- * @internal
+ * @public
  */
 export interface HttpAuthSchemeInputConfig extends AwsSdkSigV4AuthInputConfig {
   /**

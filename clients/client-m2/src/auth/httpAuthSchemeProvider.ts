@@ -92,7 +92,7 @@ export const defaultM2HttpAuthSchemeProvider: M2HttpAuthSchemeProvider = (authPa
 };
 
 /**
- * @internal
+ * @public
  */
 export interface HttpAuthSchemeInputConfig extends AwsSdkSigV4AuthInputConfig {
   /**

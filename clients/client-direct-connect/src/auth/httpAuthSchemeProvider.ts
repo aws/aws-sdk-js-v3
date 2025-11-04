@@ -93,7 +93,7 @@ export const defaultDirectConnectHttpAuthSchemeProvider: DirectConnectHttpAuthSc
 };
 
 /**
- * @internal
+ * @public
  */
 export interface HttpAuthSchemeInputConfig extends AwsSdkSigV4AuthInputConfig {
   /**

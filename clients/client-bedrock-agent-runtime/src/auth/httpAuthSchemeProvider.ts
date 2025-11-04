@@ -95,7 +95,7 @@ export const defaultBedrockAgentRuntimeHttpAuthSchemeProvider: BedrockAgentRunti
 };
 
 /**
- * @internal
+ * @public
  */
 export interface HttpAuthSchemeInputConfig extends AwsSdkSigV4AuthInputConfig {
   /**

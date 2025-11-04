@@ -92,7 +92,7 @@ export const defaultMacie2HttpAuthSchemeProvider: Macie2HttpAuthSchemeProvider =
 };
 
 /**
- * @internal
+ * @public
  */
 export interface HttpAuthSchemeInputConfig extends AwsSdkSigV4AuthInputConfig {
   /**

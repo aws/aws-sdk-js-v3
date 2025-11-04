@@ -99,7 +99,7 @@ export const defaultLicenseManagerUserSubscriptionsHttpAuthSchemeProvider: Licen
   };
 
 /**
- * @internal
+ * @public
  */
 export interface HttpAuthSchemeInputConfig extends AwsSdkSigV4AuthInputConfig {
   /**

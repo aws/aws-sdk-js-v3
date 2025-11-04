@@ -92,7 +92,7 @@ export const defaultForecastHttpAuthSchemeProvider: ForecastHttpAuthSchemeProvid
 };
 
 /**
- * @internal
+ * @public
  */
 export interface HttpAuthSchemeInputConfig extends AwsSdkSigV4AuthInputConfig {
   /**

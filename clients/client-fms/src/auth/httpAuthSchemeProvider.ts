@@ -92,7 +92,7 @@ export const defaultFMSHttpAuthSchemeProvider: FMSHttpAuthSchemeProvider = (auth
 };
 
 /**
- * @internal
+ * @public
  */
 export interface HttpAuthSchemeInputConfig extends AwsSdkSigV4AuthInputConfig {
   /**

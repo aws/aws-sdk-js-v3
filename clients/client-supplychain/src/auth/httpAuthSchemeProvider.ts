@@ -93,7 +93,7 @@ export const defaultSupplyChainHttpAuthSchemeProvider: SupplyChainHttpAuthScheme
 };
 
 /**
- * @internal
+ * @public
  */
 export interface HttpAuthSchemeInputConfig extends AwsSdkSigV4AuthInputConfig {
   /**

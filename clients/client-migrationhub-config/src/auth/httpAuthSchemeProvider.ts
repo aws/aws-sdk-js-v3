@@ -95,7 +95,7 @@ export const defaultMigrationHubConfigHttpAuthSchemeProvider: MigrationHubConfig
 };
 
 /**
- * @internal
+ * @public
  */
 export interface HttpAuthSchemeInputConfig extends AwsSdkSigV4AuthInputConfig {
   /**

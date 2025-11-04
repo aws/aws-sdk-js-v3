@@ -95,7 +95,7 @@ export const defaultPaymentCryptographyHttpAuthSchemeProvider: PaymentCryptograp
 };
 
 /**
- * @internal
+ * @public
  */
 export interface HttpAuthSchemeInputConfig extends AwsSdkSigV4AuthInputConfig {
   /**

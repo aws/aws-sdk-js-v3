@@ -93,7 +93,7 @@ export const defaultDynamoDBStreamsHttpAuthSchemeProvider: DynamoDBStreamsHttpAu
 };
 
 /**
- * @internal
+ * @public
  */
 export interface HttpAuthSchemeInputConfig extends AwsSdkSigV4AuthInputConfig {
   /**

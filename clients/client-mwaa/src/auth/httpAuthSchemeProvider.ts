@@ -92,7 +92,7 @@ export const defaultMWAAHttpAuthSchemeProvider: MWAAHttpAuthSchemeProvider = (au
 };
 
 /**
- * @internal
+ * @public
  */
 export interface HttpAuthSchemeInputConfig extends AwsSdkSigV4AuthInputConfig {
   /**

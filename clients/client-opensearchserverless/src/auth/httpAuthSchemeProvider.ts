@@ -100,7 +100,7 @@ export const defaultOpenSearchServerlessHttpAuthSchemeProvider: OpenSearchServer
 };
 
 /**
- * @internal
+ * @public
  */
 export interface HttpAuthSchemeInputConfig extends AwsSdkSigV4AuthInputConfig {
   /**

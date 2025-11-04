@@ -93,7 +93,7 @@ export const defaultNeptunedataHttpAuthSchemeProvider: NeptunedataHttpAuthScheme
 };
 
 /**
- * @internal
+ * @public
  */
 export interface HttpAuthSchemeInputConfig extends AwsSdkSigV4AuthInputConfig {
   /**

@@ -92,7 +92,7 @@ export const defaultPipesHttpAuthSchemeProvider: PipesHttpAuthSchemeProvider = (
 };
 
 /**
- * @internal
+ * @public
  */
 export interface HttpAuthSchemeInputConfig extends AwsSdkSigV4AuthInputConfig {
   /**

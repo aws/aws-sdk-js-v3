@@ -120,7 +120,7 @@ export const defaultBedrockRuntimeHttpAuthSchemeProvider: BedrockRuntimeHttpAuth
 };
 
 /**
- * @internal
+ * @public
  */
 export interface HttpAuthSchemeInputConfig extends AwsSdkSigV4AuthInputConfig {
   /**

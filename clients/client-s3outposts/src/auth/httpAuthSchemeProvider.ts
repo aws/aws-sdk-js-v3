@@ -92,7 +92,7 @@ export const defaultS3OutpostsHttpAuthSchemeProvider: S3OutpostsHttpAuthSchemePr
 };
 
 /**
- * @internal
+ * @public
  */
 export interface HttpAuthSchemeInputConfig extends AwsSdkSigV4AuthInputConfig {
   /**

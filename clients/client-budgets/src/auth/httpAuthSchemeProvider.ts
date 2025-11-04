@@ -92,7 +92,7 @@ export const defaultBudgetsHttpAuthSchemeProvider: BudgetsHttpAuthSchemeProvider
 };
 
 /**
- * @internal
+ * @public
  */
 export interface HttpAuthSchemeInputConfig extends AwsSdkSigV4AuthInputConfig {
   /**

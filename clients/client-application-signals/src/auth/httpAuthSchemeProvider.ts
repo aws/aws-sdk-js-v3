@@ -95,7 +95,7 @@ export const defaultApplicationSignalsHttpAuthSchemeProvider: ApplicationSignals
 };
 
 /**
- * @internal
+ * @public
  */
 export interface HttpAuthSchemeInputConfig extends AwsSdkSigV4AuthInputConfig {
   /**

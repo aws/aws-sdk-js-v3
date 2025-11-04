@@ -92,7 +92,7 @@ export const defaultSignerHttpAuthSchemeProvider: SignerHttpAuthSchemeProvider =
 };
 
 /**
- * @internal
+ * @public
  */
 export interface HttpAuthSchemeInputConfig extends AwsSdkSigV4AuthInputConfig {
   /**

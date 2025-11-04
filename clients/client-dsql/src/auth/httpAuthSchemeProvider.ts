@@ -92,7 +92,7 @@ export const defaultDSQLHttpAuthSchemeProvider: DSQLHttpAuthSchemeProvider = (au
 };
 
 /**
- * @internal
+ * @public
  */
 export interface HttpAuthSchemeInputConfig extends AwsSdkSigV4AuthInputConfig {
   /**

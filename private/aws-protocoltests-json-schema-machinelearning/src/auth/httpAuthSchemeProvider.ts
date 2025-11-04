@@ -93,7 +93,7 @@ export const defaultMachineLearningHttpAuthSchemeProvider: MachineLearningHttpAu
 };
 
 /**
- * @internal
+ * @public
  */
 export interface HttpAuthSchemeInputConfig extends AwsSdkSigV4AuthInputConfig {
   /**

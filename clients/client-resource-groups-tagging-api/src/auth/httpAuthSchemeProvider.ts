@@ -100,7 +100,7 @@ export const defaultResourceGroupsTaggingAPIHttpAuthSchemeProvider: ResourceGrou
 };
 
 /**
- * @internal
+ * @public
  */
 export interface HttpAuthSchemeInputConfig extends AwsSdkSigV4AuthInputConfig {
   /**

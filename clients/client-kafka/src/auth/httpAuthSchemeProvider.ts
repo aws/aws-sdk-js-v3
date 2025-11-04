@@ -92,7 +92,7 @@ export const defaultKafkaHttpAuthSchemeProvider: KafkaHttpAuthSchemeProvider = (
 };
 
 /**
- * @internal
+ * @public
  */
 export interface HttpAuthSchemeInputConfig extends AwsSdkSigV4AuthInputConfig {
   /**

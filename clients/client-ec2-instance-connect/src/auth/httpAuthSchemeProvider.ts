@@ -95,7 +95,7 @@ export const defaultEC2InstanceConnectHttpAuthSchemeProvider: EC2InstanceConnect
 };
 
 /**
- * @internal
+ * @public
  */
 export interface HttpAuthSchemeInputConfig extends AwsSdkSigV4AuthInputConfig {
   /**

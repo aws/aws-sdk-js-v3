@@ -92,7 +92,7 @@ export const defaultWorkMailHttpAuthSchemeProvider: WorkMailHttpAuthSchemeProvid
 };
 
 /**
- * @internal
+ * @public
  */
 export interface HttpAuthSchemeInputConfig extends AwsSdkSigV4AuthInputConfig {
   /**

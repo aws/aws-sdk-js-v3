@@ -92,7 +92,7 @@ export const defaultCloud9HttpAuthSchemeProvider: Cloud9HttpAuthSchemeProvider =
 };
 
 /**
- * @internal
+ * @public
  */
 export interface HttpAuthSchemeInputConfig extends AwsSdkSigV4AuthInputConfig {
   /**

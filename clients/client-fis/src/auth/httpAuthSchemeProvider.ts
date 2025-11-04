@@ -92,7 +92,7 @@ export const defaultFisHttpAuthSchemeProvider: FisHttpAuthSchemeProvider = (auth
 };
 
 /**
- * @internal
+ * @public
  */
 export interface HttpAuthSchemeInputConfig extends AwsSdkSigV4AuthInputConfig {
   /**

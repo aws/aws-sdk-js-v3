@@ -95,7 +95,7 @@ export const defaultChimeSDKIdentityHttpAuthSchemeProvider: ChimeSDKIdentityHttp
 };
 
 /**
- * @internal
+ * @public
  */
 export interface HttpAuthSchemeInputConfig extends AwsSdkSigV4AuthInputConfig {
   /**

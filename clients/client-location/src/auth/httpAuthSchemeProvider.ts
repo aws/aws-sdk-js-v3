@@ -92,7 +92,7 @@ export const defaultLocationHttpAuthSchemeProvider: LocationHttpAuthSchemeProvid
 };
 
 /**
- * @internal
+ * @public
  */
 export interface HttpAuthSchemeInputConfig extends AwsSdkSigV4AuthInputConfig {
   /**

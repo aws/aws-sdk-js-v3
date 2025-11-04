@@ -100,7 +100,7 @@ export const defaultElasticLoadBalancingV2HttpAuthSchemeProvider: ElasticLoadBal
 };
 
 /**
- * @internal
+ * @public
  */
 export interface HttpAuthSchemeInputConfig extends AwsSdkSigV4AuthInputConfig {
   /**

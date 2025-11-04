@@ -100,7 +100,7 @@ export const defaultIoTManagedIntegrationsHttpAuthSchemeProvider: IoTManagedInte
 };
 
 /**
- * @internal
+ * @public
  */
 export interface HttpAuthSchemeInputConfig extends AwsSdkSigV4AuthInputConfig {
   /**

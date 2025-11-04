@@ -93,7 +93,7 @@ export const defaultARCRegionSwitchHttpAuthSchemeProvider: ARCRegionSwitchHttpAu
 };
 
 /**
- * @internal
+ * @public
  */
 export interface HttpAuthSchemeInputConfig extends AwsSdkSigV4AuthInputConfig {
   /**

@@ -92,7 +92,7 @@ export const defaultS3TablesHttpAuthSchemeProvider: S3TablesHttpAuthSchemeProvid
 };
 
 /**
- * @internal
+ * @public
  */
 export interface HttpAuthSchemeInputConfig extends AwsSdkSigV4AuthInputConfig {
   /**

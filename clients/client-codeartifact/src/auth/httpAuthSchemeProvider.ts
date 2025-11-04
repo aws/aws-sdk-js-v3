@@ -93,7 +93,7 @@ export const defaultCodeartifactHttpAuthSchemeProvider: CodeartifactHttpAuthSche
 };
 
 /**
- * @internal
+ * @public
  */
 export interface HttpAuthSchemeInputConfig extends AwsSdkSigV4AuthInputConfig {
   /**

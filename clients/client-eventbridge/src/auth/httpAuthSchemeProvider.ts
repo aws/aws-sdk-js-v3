@@ -282,7 +282,7 @@ export const defaultEventBridgeHttpAuthSchemeProvider: EventBridgeHttpAuthScheme
   });
 
 /**
- * @internal
+ * @public
  */
 export interface HttpAuthSchemeInputConfig extends AwsSdkSigV4AuthInputConfig, AwsSdkSigV4AAuthInputConfig {
   /**
