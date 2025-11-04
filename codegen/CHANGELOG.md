@@ -1,5 +1,14 @@
 # Smithy AWS Typescript Codegen Changelog
 
+## 0.37.0 (2025-11-04)
+
+### Features
+- Upgraded to smithy-typescript 0.37.0 ([Release Notes](https://github.com/smithy-lang/smithy-typescript/blob/main/CHANGELOG.md#0361-2025-11-04))
+- Upgraded smithy version to 1.63.0 ([#7474](https://github.com/aws/aws-sdk-js-v3/pull/7474))
+
+### Bug Fixes
+- Applied reserved word escaping to union shape in Json serializer ([#7419](https://github.com/aws/aws-sdk-js-v3/pull/7419))
+
 ## 0.36.1 (2025-10-06)
 
 ### Features
