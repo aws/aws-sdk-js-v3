@@ -95,7 +95,7 @@ export const defaultElasticTranscoderHttpAuthSchemeProvider: ElasticTranscoderHt
 };
 
 /**
- * @internal
+ * @public
  */
 export interface HttpAuthSchemeInputConfig extends AwsSdkSigV4AuthInputConfig {
   /**

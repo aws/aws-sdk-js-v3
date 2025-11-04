@@ -281,7 +281,7 @@ export const defaultSESv2HttpAuthSchemeProvider: SESv2HttpAuthSchemeProvider =
   });
 
 /**
- * @internal
+ * @public
  */
 export interface HttpAuthSchemeInputConfig extends AwsSdkSigV4AuthInputConfig, AwsSdkSigV4AAuthInputConfig {
   /**

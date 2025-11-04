@@ -92,7 +92,7 @@ export const defaultECSHttpAuthSchemeProvider: ECSHttpAuthSchemeProvider = (auth
 };
 
 /**
- * @internal
+ * @public
  */
 export interface HttpAuthSchemeInputConfig extends AwsSdkSigV4AuthInputConfig {
   /**

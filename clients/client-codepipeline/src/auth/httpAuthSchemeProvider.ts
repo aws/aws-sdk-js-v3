@@ -93,7 +93,7 @@ export const defaultCodePipelineHttpAuthSchemeProvider: CodePipelineHttpAuthSche
 };
 
 /**
- * @internal
+ * @public
  */
 export interface HttpAuthSchemeInputConfig extends AwsSdkSigV4AuthInputConfig {
   /**

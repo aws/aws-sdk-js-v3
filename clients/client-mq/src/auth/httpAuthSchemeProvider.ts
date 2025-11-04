@@ -92,7 +92,7 @@ export const defaultMqHttpAuthSchemeProvider: MqHttpAuthSchemeProvider = (authPa
 };
 
 /**
- * @internal
+ * @public
  */
 export interface HttpAuthSchemeInputConfig extends AwsSdkSigV4AuthInputConfig {
   /**

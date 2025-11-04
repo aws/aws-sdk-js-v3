@@ -93,7 +93,7 @@ export const defaultCodeConnectionsHttpAuthSchemeProvider: CodeConnectionsHttpAu
 };
 
 /**
- * @internal
+ * @public
  */
 export interface HttpAuthSchemeInputConfig extends AwsSdkSigV4AuthInputConfig {
   /**

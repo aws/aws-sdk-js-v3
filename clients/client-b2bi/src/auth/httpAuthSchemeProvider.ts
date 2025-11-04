@@ -92,7 +92,7 @@ export const defaultB2biHttpAuthSchemeProvider: B2biHttpAuthSchemeProvider = (au
 };
 
 /**
- * @internal
+ * @public
  */
 export interface HttpAuthSchemeInputConfig extends AwsSdkSigV4AuthInputConfig {
   /**

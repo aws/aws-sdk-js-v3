@@ -92,7 +92,7 @@ export const defaultS3VectorsHttpAuthSchemeProvider: S3VectorsHttpAuthSchemeProv
 };
 
 /**
- * @internal
+ * @public
  */
 export interface HttpAuthSchemeInputConfig extends AwsSdkSigV4AuthInputConfig {
   /**

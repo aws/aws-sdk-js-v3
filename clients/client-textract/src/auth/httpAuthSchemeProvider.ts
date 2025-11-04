@@ -92,7 +92,7 @@ export const defaultTextractHttpAuthSchemeProvider: TextractHttpAuthSchemeProvid
 };
 
 /**
- * @internal
+ * @public
  */
 export interface HttpAuthSchemeInputConfig extends AwsSdkSigV4AuthInputConfig {
   /**

@@ -93,7 +93,7 @@ export const defaultRekognitionHttpAuthSchemeProvider: RekognitionHttpAuthScheme
 };
 
 /**
- * @internal
+ * @public
  */
 export interface HttpAuthSchemeInputConfig extends AwsSdkSigV4AuthInputConfig {
   /**

@@ -100,7 +100,7 @@ export const defaultWorkSpacesThinClientHttpAuthSchemeProvider: WorkSpacesThinCl
 };
 
 /**
- * @internal
+ * @public
  */
 export interface HttpAuthSchemeInputConfig extends AwsSdkSigV4AuthInputConfig {
   /**

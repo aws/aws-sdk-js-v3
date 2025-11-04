@@ -93,7 +93,7 @@ export const defaultDocDBElasticHttpAuthSchemeProvider: DocDBElasticHttpAuthSche
 };
 
 /**
- * @internal
+ * @public
  */
 export interface HttpAuthSchemeInputConfig extends AwsSdkSigV4AuthInputConfig {
   /**

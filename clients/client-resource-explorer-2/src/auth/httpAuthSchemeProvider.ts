@@ -95,7 +95,7 @@ export const defaultResourceExplorer2HttpAuthSchemeProvider: ResourceExplorer2Ht
 };
 
 /**
- * @internal
+ * @public
  */
 export interface HttpAuthSchemeInputConfig extends AwsSdkSigV4AuthInputConfig {
   /**

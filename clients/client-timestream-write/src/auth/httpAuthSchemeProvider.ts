@@ -93,7 +93,7 @@ export const defaultTimestreamWriteHttpAuthSchemeProvider: TimestreamWriteHttpAu
 };
 
 /**
- * @internal
+ * @public
  */
 export interface HttpAuthSchemeInputConfig extends AwsSdkSigV4AuthInputConfig {
   /**

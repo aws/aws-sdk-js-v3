@@ -93,7 +93,7 @@ export const defaultTrustedAdvisorHttpAuthSchemeProvider: TrustedAdvisorHttpAuth
 };
 
 /**
- * @internal
+ * @public
  */
 export interface HttpAuthSchemeInputConfig extends AwsSdkSigV4AuthInputConfig {
   /**

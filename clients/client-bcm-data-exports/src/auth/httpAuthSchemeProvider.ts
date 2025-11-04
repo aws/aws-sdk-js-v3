@@ -93,7 +93,7 @@ export const defaultBCMDataExportsHttpAuthSchemeProvider: BCMDataExportsHttpAuth
 };
 
 /**
- * @internal
+ * @public
  */
 export interface HttpAuthSchemeInputConfig extends AwsSdkSigV4AuthInputConfig {
   /**

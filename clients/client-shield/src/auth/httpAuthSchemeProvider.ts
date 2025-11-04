@@ -92,7 +92,7 @@ export const defaultShieldHttpAuthSchemeProvider: ShieldHttpAuthSchemeProvider =
 };
 
 /**
- * @internal
+ * @public
  */
 export interface HttpAuthSchemeInputConfig extends AwsSdkSigV4AuthInputConfig {
   /**

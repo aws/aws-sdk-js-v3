@@ -92,7 +92,7 @@ export const defaultAppMeshHttpAuthSchemeProvider: AppMeshHttpAuthSchemeProvider
 };
 
 /**
- * @internal
+ * @public
  */
 export interface HttpAuthSchemeInputConfig extends AwsSdkSigV4AuthInputConfig {
   /**

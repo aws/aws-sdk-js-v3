@@ -95,7 +95,7 @@ export const defaultAutoScalingPlansHttpAuthSchemeProvider: AutoScalingPlansHttp
 };
 
 /**
- * @internal
+ * @public
  */
 export interface HttpAuthSchemeInputConfig extends AwsSdkSigV4AuthInputConfig {
   /**

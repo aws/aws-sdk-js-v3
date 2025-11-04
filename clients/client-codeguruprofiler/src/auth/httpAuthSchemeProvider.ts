@@ -95,7 +95,7 @@ export const defaultCodeGuruProfilerHttpAuthSchemeProvider: CodeGuruProfilerHttp
 };
 
 /**
- * @internal
+ * @public
  */
 export interface HttpAuthSchemeInputConfig extends AwsSdkSigV4AuthInputConfig {
   /**

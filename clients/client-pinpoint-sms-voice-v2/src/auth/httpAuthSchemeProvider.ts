@@ -95,7 +95,7 @@ export const defaultPinpointSMSVoiceV2HttpAuthSchemeProvider: PinpointSMSVoiceV2
 };
 
 /**
- * @internal
+ * @public
  */
 export interface HttpAuthSchemeInputConfig extends AwsSdkSigV4AuthInputConfig {
   /**

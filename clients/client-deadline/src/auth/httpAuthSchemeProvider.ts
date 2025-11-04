@@ -92,7 +92,7 @@ export const defaultDeadlineHttpAuthSchemeProvider: DeadlineHttpAuthSchemeProvid
 };
 
 /**
- * @internal
+ * @public
  */
 export interface HttpAuthSchemeInputConfig extends AwsSdkSigV4AuthInputConfig {
   /**

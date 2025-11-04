@@ -92,7 +92,7 @@ export const defaultChatbotHttpAuthSchemeProvider: ChatbotHttpAuthSchemeProvider
 };
 
 /**
- * @internal
+ * @public
  */
 export interface HttpAuthSchemeInputConfig extends AwsSdkSigV4AuthInputConfig {
   /**

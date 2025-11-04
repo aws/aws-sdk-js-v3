@@ -66,7 +66,7 @@ export const defaultEchoServiceHttpAuthSchemeProvider: EchoServiceHttpAuthScheme
 };
 
 /**
- * @internal
+ * @public
  */
 export interface HttpAuthSchemeInputConfig {
   /**

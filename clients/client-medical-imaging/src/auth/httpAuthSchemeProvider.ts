@@ -93,7 +93,7 @@ export const defaultMedicalImagingHttpAuthSchemeProvider: MedicalImagingHttpAuth
 };
 
 /**
- * @internal
+ * @public
  */
 export interface HttpAuthSchemeInputConfig extends AwsSdkSigV4AuthInputConfig {
   /**

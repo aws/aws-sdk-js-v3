@@ -92,7 +92,7 @@ export const defaultGeoRoutesHttpAuthSchemeProvider: GeoRoutesHttpAuthSchemeProv
 };
 
 /**
- * @internal
+ * @public
  */
 export interface HttpAuthSchemeInputConfig extends AwsSdkSigV4AuthInputConfig {
   /**

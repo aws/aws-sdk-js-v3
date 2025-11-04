@@ -92,7 +92,7 @@ export const defaultIvsHttpAuthSchemeProvider: IvsHttpAuthSchemeProvider = (auth
 };
 
 /**
- * @internal
+ * @public
  */
 export interface HttpAuthSchemeInputConfig extends AwsSdkSigV4AuthInputConfig {
   /**

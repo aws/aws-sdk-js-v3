@@ -95,7 +95,7 @@ export const defaultBillingconductorHttpAuthSchemeProvider: BillingconductorHttp
 };
 
 /**
- * @internal
+ * @public
  */
 export interface HttpAuthSchemeInputConfig extends AwsSdkSigV4AuthInputConfig {
   /**

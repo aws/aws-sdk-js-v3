@@ -93,7 +93,7 @@ export const defaultBedrockAgentHttpAuthSchemeProvider: BedrockAgentHttpAuthSche
 };
 
 /**
- * @internal
+ * @public
  */
 export interface HttpAuthSchemeInputConfig extends AwsSdkSigV4AuthInputConfig {
   /**

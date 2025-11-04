@@ -100,7 +100,7 @@ export const defaultKinesisVideoWebRTCStorageHttpAuthSchemeProvider: KinesisVide
 };
 
 /**
- * @internal
+ * @public
  */
 export interface HttpAuthSchemeInputConfig extends AwsSdkSigV4AuthInputConfig {
   /**

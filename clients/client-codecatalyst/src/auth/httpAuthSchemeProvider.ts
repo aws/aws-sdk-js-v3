@@ -87,7 +87,7 @@ export const defaultCodeCatalystHttpAuthSchemeProvider: CodeCatalystHttpAuthSche
 };
 
 /**
- * @internal
+ * @public
  */
 export interface HttpAuthSchemeInputConfig {
   /**

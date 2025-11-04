@@ -95,7 +95,7 @@ export const defaultWorkMailMessageFlowHttpAuthSchemeProvider: WorkMailMessageFl
 };
 
 /**
- * @internal
+ * @public
  */
 export interface HttpAuthSchemeInputConfig extends AwsSdkSigV4AuthInputConfig {
   /**

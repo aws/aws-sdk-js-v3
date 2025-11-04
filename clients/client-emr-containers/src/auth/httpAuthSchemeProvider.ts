@@ -93,7 +93,7 @@ export const defaultEMRContainersHttpAuthSchemeProvider: EMRContainersHttpAuthSc
 };
 
 /**
- * @internal
+ * @public
  */
 export interface HttpAuthSchemeInputConfig extends AwsSdkSigV4AuthInputConfig {
   /**

@@ -92,7 +92,7 @@ export const defaultRDSDataHttpAuthSchemeProvider: RDSDataHttpAuthSchemeProvider
 };
 
 /**
- * @internal
+ * @public
  */
 export interface HttpAuthSchemeInputConfig extends AwsSdkSigV4AuthInputConfig {
   /**

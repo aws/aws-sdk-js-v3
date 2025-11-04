@@ -92,7 +92,7 @@ export const defaultAppflowHttpAuthSchemeProvider: AppflowHttpAuthSchemeProvider
 };
 
 /**
- * @internal
+ * @public
  */
 export interface HttpAuthSchemeInputConfig extends AwsSdkSigV4AuthInputConfig {
   /**

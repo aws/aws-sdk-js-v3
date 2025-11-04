@@ -92,7 +92,7 @@ export const defaultInvoicingHttpAuthSchemeProvider: InvoicingHttpAuthSchemeProv
 };
 
 /**
- * @internal
+ * @public
  */
 export interface HttpAuthSchemeInputConfig extends AwsSdkSigV4AuthInputConfig {
   /**

@@ -92,7 +92,7 @@ export const defaultRbinHttpAuthSchemeProvider: RbinHttpAuthSchemeProvider = (au
 };
 
 /**
- * @internal
+ * @public
  */
 export interface HttpAuthSchemeInputConfig extends AwsSdkSigV4AuthInputConfig {
   /**

@@ -99,7 +99,7 @@ export const defaultRoute53RecoveryControlConfigHttpAuthSchemeProvider: Route53R
   };
 
 /**
- * @internal
+ * @public
  */
 export interface HttpAuthSchemeInputConfig extends AwsSdkSigV4AuthInputConfig {
   /**

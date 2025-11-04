@@ -93,7 +93,7 @@ export const defaultSecurityLakeHttpAuthSchemeProvider: SecurityLakeHttpAuthSche
 };
 
 /**
- * @internal
+ * @public
  */
 export interface HttpAuthSchemeInputConfig extends AwsSdkSigV4AuthInputConfig {
   /**

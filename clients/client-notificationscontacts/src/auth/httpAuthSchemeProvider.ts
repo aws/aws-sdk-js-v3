@@ -100,7 +100,7 @@ export const defaultNotificationsContactsHttpAuthSchemeProvider: NotificationsCo
 };
 
 /**
- * @internal
+ * @public
  */
 export interface HttpAuthSchemeInputConfig extends AwsSdkSigV4AuthInputConfig {
   /**

@@ -95,7 +95,7 @@ export const defaultTranscribeStreamingHttpAuthSchemeProvider: TranscribeStreami
 };
 
 /**
- * @internal
+ * @public
  */
 export interface HttpAuthSchemeInputConfig extends AwsSdkSigV4AuthInputConfig {
   /**

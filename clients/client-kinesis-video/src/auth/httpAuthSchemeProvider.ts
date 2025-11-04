@@ -93,7 +93,7 @@ export const defaultKinesisVideoHttpAuthSchemeProvider: KinesisVideoHttpAuthSche
 };
 
 /**
- * @internal
+ * @public
  */
 export interface HttpAuthSchemeInputConfig extends AwsSdkSigV4AuthInputConfig {
   /**

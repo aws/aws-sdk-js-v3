@@ -99,7 +99,7 @@ export const defaultApplicationDiscoveryServiceHttpAuthSchemeProvider: Applicati
   };
 
 /**
- * @internal
+ * @public
  */
 export interface HttpAuthSchemeInputConfig extends AwsSdkSigV4AuthInputConfig {
   /**

@@ -100,7 +100,7 @@ export const defaultCodestarNotificationsHttpAuthSchemeProvider: CodestarNotific
 };
 
 /**
- * @internal
+ * @public
  */
 export interface HttpAuthSchemeInputConfig extends AwsSdkSigV4AuthInputConfig {
   /**

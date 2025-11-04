@@ -92,7 +92,7 @@ export const defaultGameLiftHttpAuthSchemeProvider: GameLiftHttpAuthSchemeProvid
 };
 
 /**
- * @internal
+ * @public
  */
 export interface HttpAuthSchemeInputConfig extends AwsSdkSigV4AuthInputConfig {
   /**

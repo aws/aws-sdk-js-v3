@@ -92,7 +92,7 @@ export const defaultWAFV2HttpAuthSchemeProvider: WAFV2HttpAuthSchemeProvider = (
 };
 
 /**
- * @internal
+ * @public
  */
 export interface HttpAuthSchemeInputConfig extends AwsSdkSigV4AuthInputConfig {
   /**

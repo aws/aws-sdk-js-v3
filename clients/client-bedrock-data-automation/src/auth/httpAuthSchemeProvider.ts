@@ -100,7 +100,7 @@ export const defaultBedrockDataAutomationHttpAuthSchemeProvider: BedrockDataAuto
 };
 
 /**
- * @internal
+ * @public
  */
 export interface HttpAuthSchemeInputConfig extends AwsSdkSigV4AuthInputConfig {
   /**

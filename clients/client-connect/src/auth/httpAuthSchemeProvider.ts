@@ -92,7 +92,7 @@ export const defaultConnectHttpAuthSchemeProvider: ConnectHttpAuthSchemeProvider
 };
 
 /**
- * @internal
+ * @public
  */
 export interface HttpAuthSchemeInputConfig extends AwsSdkSigV4AuthInputConfig {
   /**

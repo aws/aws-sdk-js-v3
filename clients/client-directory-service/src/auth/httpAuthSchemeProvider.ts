@@ -95,7 +95,7 @@ export const defaultDirectoryServiceHttpAuthSchemeProvider: DirectoryServiceHttp
 };
 
 /**
- * @internal
+ * @public
  */
 export interface HttpAuthSchemeInputConfig extends AwsSdkSigV4AuthInputConfig {
   /**

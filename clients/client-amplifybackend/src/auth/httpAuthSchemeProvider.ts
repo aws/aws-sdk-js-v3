@@ -93,7 +93,7 @@ export const defaultAmplifyBackendHttpAuthSchemeProvider: AmplifyBackendHttpAuth
 };
 
 /**
- * @internal
+ * @public
  */
 export interface HttpAuthSchemeInputConfig extends AwsSdkSigV4AuthInputConfig {
   /**

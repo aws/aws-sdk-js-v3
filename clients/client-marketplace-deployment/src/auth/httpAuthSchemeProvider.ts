@@ -100,7 +100,7 @@ export const defaultMarketplaceDeploymentHttpAuthSchemeProvider: MarketplaceDepl
 };
 
 /**
- * @internal
+ * @public
  */
 export interface HttpAuthSchemeInputConfig extends AwsSdkSigV4AuthInputConfig {
   /**

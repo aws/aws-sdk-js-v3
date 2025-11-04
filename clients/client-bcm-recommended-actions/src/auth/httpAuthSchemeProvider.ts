@@ -100,7 +100,7 @@ export const defaultBCMRecommendedActionsHttpAuthSchemeProvider: BCMRecommendedA
 };
 
 /**
- * @internal
+ * @public
  */
 export interface HttpAuthSchemeInputConfig extends AwsSdkSigV4AuthInputConfig {
   /**

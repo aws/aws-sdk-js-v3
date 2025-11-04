@@ -92,7 +92,7 @@ export const defaultSnowballHttpAuthSchemeProvider: SnowballHttpAuthSchemeProvid
 };
 
 /**
- * @internal
+ * @public
  */
 export interface HttpAuthSchemeInputConfig extends AwsSdkSigV4AuthInputConfig {
   /**

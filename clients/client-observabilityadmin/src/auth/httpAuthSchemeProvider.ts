@@ -95,7 +95,7 @@ export const defaultObservabilityAdminHttpAuthSchemeProvider: ObservabilityAdmin
 };
 
 /**
- * @internal
+ * @public
  */
 export interface HttpAuthSchemeInputConfig extends AwsSdkSigV4AuthInputConfig {
   /**

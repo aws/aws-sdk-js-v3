@@ -92,7 +92,7 @@ export const defaultGlacierHttpAuthSchemeProvider: GlacierHttpAuthSchemeProvider
 };
 
 /**
- * @internal
+ * @public
  */
 export interface HttpAuthSchemeInputConfig extends AwsSdkSigV4AuthInputConfig {
   /**

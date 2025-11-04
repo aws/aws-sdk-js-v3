@@ -118,7 +118,7 @@ export const resolveStsAuthConfig = <T>(input: T & StsAuthInputConfig): T & StsA
   });
 
 /**
- * @internal
+ * @public
  */
 export interface HttpAuthSchemeInputConfig extends StsAuthInputConfig, AwsSdkSigV4AuthInputConfig {
   /**

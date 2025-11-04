@@ -99,7 +99,7 @@ export const defaultMarketplaceCommerceAnalyticsHttpAuthSchemeProvider: Marketpl
   };
 
 /**
- * @internal
+ * @public
  */
 export interface HttpAuthSchemeInputConfig extends AwsSdkSigV4AuthInputConfig {
   /**

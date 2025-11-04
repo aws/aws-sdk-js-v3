@@ -93,7 +93,7 @@ export const defaultImagebuilderHttpAuthSchemeProvider: ImagebuilderHttpAuthSche
 };
 
 /**
- * @internal
+ * @public
  */
 export interface HttpAuthSchemeInputConfig extends AwsSdkSigV4AuthInputConfig {
   /**

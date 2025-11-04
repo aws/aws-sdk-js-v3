@@ -95,7 +95,7 @@ export const defaultKeyspacesStreamsHttpAuthSchemeProvider: KeyspacesStreamsHttp
 };
 
 /**
- * @internal
+ * @public
  */
 export interface HttpAuthSchemeInputConfig extends AwsSdkSigV4AuthInputConfig {
   /**

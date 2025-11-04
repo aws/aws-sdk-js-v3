@@ -95,7 +95,7 @@ export const defaultRestJsonProtocolHttpAuthSchemeProvider: RestJsonProtocolHttp
 };
 
 /**
- * @internal
+ * @public
  */
 export interface HttpAuthSchemeInputConfig extends AwsSdkSigV4AuthInputConfig {
   /**

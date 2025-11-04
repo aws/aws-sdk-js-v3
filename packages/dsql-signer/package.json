@@ -33,7 +33,7 @@
     "@aws-crypto/sha256-js": "5.2.0",
     "@aws-sdk/credential-providers": "*",
     "@aws-sdk/util-format-url": "*",
-    "@smithy/config-resolver": "^4.4.1",
+    "@smithy/config-resolver": "^4.4.2",
     "@smithy/hash-node": "^4.2.4",
     "@smithy/invalid-dependency": "^4.2.4",
     "@smithy/node-config-provider": "^4.3.4",

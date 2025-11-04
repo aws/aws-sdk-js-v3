@@ -100,7 +100,7 @@ export const defaultElasticsearchServiceHttpAuthSchemeProvider: ElasticsearchSer
 };
 
 /**
- * @internal
+ * @public
  */
 export interface HttpAuthSchemeInputConfig extends AwsSdkSigV4AuthInputConfig {
   /**

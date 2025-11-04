@@ -92,7 +92,7 @@ export const defaultInspector2HttpAuthSchemeProvider: Inspector2HttpAuthSchemePr
 };
 
 /**
- * @internal
+ * @public
  */
 export interface HttpAuthSchemeInputConfig extends AwsSdkSigV4AuthInputConfig {
   /**

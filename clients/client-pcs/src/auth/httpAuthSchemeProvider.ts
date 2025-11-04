@@ -92,7 +92,7 @@ export const defaultPCSHttpAuthSchemeProvider: PCSHttpAuthSchemeProvider = (auth
 };
 
 /**
- * @internal
+ * @public
  */
 export interface HttpAuthSchemeInputConfig extends AwsSdkSigV4AuthInputConfig {
   /**

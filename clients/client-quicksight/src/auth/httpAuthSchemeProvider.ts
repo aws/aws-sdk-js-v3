@@ -92,7 +92,7 @@ export const defaultQuickSightHttpAuthSchemeProvider: QuickSightHttpAuthSchemePr
 };
 
 /**
- * @internal
+ * @public
  */
 export interface HttpAuthSchemeInputConfig extends AwsSdkSigV4AuthInputConfig {
   /**

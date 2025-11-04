@@ -93,7 +93,7 @@ export const defaultMediaTailorHttpAuthSchemeProvider: MediaTailorHttpAuthScheme
 };
 
 /**
- * @internal
+ * @public
  */
 export interface HttpAuthSchemeInputConfig extends AwsSdkSigV4AuthInputConfig {
   /**

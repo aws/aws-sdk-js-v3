@@ -99,7 +99,7 @@ export const defaultLicenseManagerLinuxSubscriptionsHttpAuthSchemeProvider: Lice
   };
 
 /**
- * @internal
+ * @public
  */
 export interface HttpAuthSchemeInputConfig extends AwsSdkSigV4AuthInputConfig {
   /**

@@ -300,7 +300,7 @@ export const defaultCloudFrontKeyValueStoreHttpAuthSchemeProvider: CloudFrontKey
   );
 
 /**
- * @internal
+ * @public
  */
 export interface HttpAuthSchemeInputConfig extends AwsSdkSigV4AuthInputConfig, AwsSdkSigV4AAuthInputConfig {
   /**

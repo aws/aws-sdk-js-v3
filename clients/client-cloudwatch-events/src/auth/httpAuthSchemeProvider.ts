@@ -95,7 +95,7 @@ export const defaultCloudWatchEventsHttpAuthSchemeProvider: CloudWatchEventsHttp
 };
 
 /**
- * @internal
+ * @public
  */
 export interface HttpAuthSchemeInputConfig extends AwsSdkSigV4AuthInputConfig {
   /**

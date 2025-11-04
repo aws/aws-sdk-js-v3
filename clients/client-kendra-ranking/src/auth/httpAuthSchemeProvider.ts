@@ -93,7 +93,7 @@ export const defaultKendraRankingHttpAuthSchemeProvider: KendraRankingHttpAuthSc
 };
 
 /**
- * @internal
+ * @public
  */
 export interface HttpAuthSchemeInputConfig extends AwsSdkSigV4AuthInputConfig {
   /**

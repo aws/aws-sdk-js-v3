@@ -93,7 +93,7 @@ export const defaultBackupGatewayHttpAuthSchemeProvider: BackupGatewayHttpAuthSc
 };
 
 /**
- * @internal
+ * @public
  */
 export interface HttpAuthSchemeInputConfig extends AwsSdkSigV4AuthInputConfig {
   /**

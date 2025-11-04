@@ -92,7 +92,7 @@ export const defaultOSISHttpAuthSchemeProvider: OSISHttpAuthSchemeProvider = (au
 };
 
 /**
- * @internal
+ * @public
  */
 export interface HttpAuthSchemeInputConfig extends AwsSdkSigV4AuthInputConfig {
   /**

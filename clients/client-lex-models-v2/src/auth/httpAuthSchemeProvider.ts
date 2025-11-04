@@ -93,7 +93,7 @@ export const defaultLexModelsV2HttpAuthSchemeProvider: LexModelsV2HttpAuthScheme
 };
 
 /**
- * @internal
+ * @public
  */
 export interface HttpAuthSchemeInputConfig extends AwsSdkSigV4AuthInputConfig {
   /**

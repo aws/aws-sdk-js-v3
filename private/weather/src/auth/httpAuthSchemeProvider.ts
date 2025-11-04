@@ -167,7 +167,7 @@ export const defaultWeatherHttpAuthSchemeProvider: WeatherHttpAuthSchemeProvider
 };
 
 /**
- * @internal
+ * @public
  */
 export interface HttpAuthSchemeInputConfig {
   /**

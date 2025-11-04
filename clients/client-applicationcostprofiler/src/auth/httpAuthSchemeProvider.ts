@@ -100,7 +100,7 @@ export const defaultApplicationCostProfilerHttpAuthSchemeProvider: ApplicationCo
 };
 
 /**
- * @internal
+ * @public
  */
 export interface HttpAuthSchemeInputConfig extends AwsSdkSigV4AuthInputConfig {
   /**

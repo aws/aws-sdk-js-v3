@@ -92,7 +92,7 @@ export const defaultRTBFabricHttpAuthSchemeProvider: RTBFabricHttpAuthSchemeProv
 };
 
 /**
- * @internal
+ * @public
  */
 export interface HttpAuthSchemeInputConfig extends AwsSdkSigV4AuthInputConfig {
   /**

@@ -92,7 +92,7 @@ export const defaultWorkSpacesHttpAuthSchemeProvider: WorkSpacesHttpAuthSchemePr
 };
 
 /**
- * @internal
+ * @public
  */
 export interface HttpAuthSchemeInputConfig extends AwsSdkSigV4AuthInputConfig {
   /**

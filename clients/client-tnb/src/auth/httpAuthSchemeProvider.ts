@@ -92,7 +92,7 @@ export const defaultTnbHttpAuthSchemeProvider: TnbHttpAuthSchemeProvider = (auth
 };
 
 /**
- * @internal
+ * @public
  */
 export interface HttpAuthSchemeInputConfig extends AwsSdkSigV4AuthInputConfig {
   /**

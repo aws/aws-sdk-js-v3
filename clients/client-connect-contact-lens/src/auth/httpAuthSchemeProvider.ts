@@ -95,7 +95,7 @@ export const defaultConnectContactLensHttpAuthSchemeProvider: ConnectContactLens
 };
 
 /**
- * @internal
+ * @public
  */
 export interface HttpAuthSchemeInputConfig extends AwsSdkSigV4AuthInputConfig {
   /**

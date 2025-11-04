@@ -93,7 +93,7 @@ export const defaultLaunchWizardHttpAuthSchemeProvider: LaunchWizardHttpAuthSche
 };
 
 /**
- * @internal
+ * @public
  */
 export interface HttpAuthSchemeInputConfig extends AwsSdkSigV4AuthInputConfig {
   /**

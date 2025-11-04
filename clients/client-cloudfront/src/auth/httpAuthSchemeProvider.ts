@@ -92,7 +92,7 @@ export const defaultCloudFrontHttpAuthSchemeProvider: CloudFrontHttpAuthSchemePr
 };
 
 /**
- * @internal
+ * @public
  */
 export interface HttpAuthSchemeInputConfig extends AwsSdkSigV4AuthInputConfig {
   /**

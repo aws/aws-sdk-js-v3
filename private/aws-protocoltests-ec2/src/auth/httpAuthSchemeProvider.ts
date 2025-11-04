@@ -93,7 +93,7 @@ export const defaultEC2ProtocolHttpAuthSchemeProvider: EC2ProtocolHttpAuthScheme
 };
 
 /**
- * @internal
+ * @public
  */
 export interface HttpAuthSchemeInputConfig extends AwsSdkSigV4AuthInputConfig {
   /**

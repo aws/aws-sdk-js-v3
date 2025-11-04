@@ -93,7 +93,7 @@ export const defaultAutoScalingHttpAuthSchemeProvider: AutoScalingHttpAuthScheme
 };
 
 /**
- * @internal
+ * @public
  */
 export interface HttpAuthSchemeInputConfig extends AwsSdkSigV4AuthInputConfig {
   /**

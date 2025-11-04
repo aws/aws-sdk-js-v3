@@ -99,7 +99,7 @@ export const defaultServerlessApplicationRepositoryHttpAuthSchemeProvider: Serve
   };
 
 /**
- * @internal
+ * @public
  */
 export interface HttpAuthSchemeInputConfig extends AwsSdkSigV4AuthInputConfig {
   /**

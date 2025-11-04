@@ -92,7 +92,7 @@ export const defaultDAXHttpAuthSchemeProvider: DAXHttpAuthSchemeProvider = (auth
 };
 
 /**
- * @internal
+ * @public
  */
 export interface HttpAuthSchemeInputConfig extends AwsSdkSigV4AuthInputConfig {
   /**

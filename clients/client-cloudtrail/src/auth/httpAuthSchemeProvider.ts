@@ -92,7 +92,7 @@ export const defaultCloudTrailHttpAuthSchemeProvider: CloudTrailHttpAuthSchemePr
 };
 
 /**
- * @internal
+ * @public
  */
 export interface HttpAuthSchemeInputConfig extends AwsSdkSigV4AuthInputConfig {
   /**

@@ -284,7 +284,7 @@ export const defaultS3HttpAuthSchemeProvider: S3HttpAuthSchemeProvider = createE
 );
 
 /**
- * @internal
+ * @public
  */
 export interface HttpAuthSchemeInputConfig extends AwsSdkSigV4AuthInputConfig, AwsSdkSigV4AAuthInputConfig {
   /**

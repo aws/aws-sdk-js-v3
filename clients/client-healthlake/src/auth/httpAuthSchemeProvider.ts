@@ -92,7 +92,7 @@ export const defaultHealthLakeHttpAuthSchemeProvider: HealthLakeHttpAuthSchemePr
 };
 
 /**
- * @internal
+ * @public
  */
 export interface HttpAuthSchemeInputConfig extends AwsSdkSigV4AuthInputConfig {
   /**

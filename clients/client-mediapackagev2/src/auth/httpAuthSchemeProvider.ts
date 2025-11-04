@@ -93,7 +93,7 @@ export const defaultMediaPackageV2HttpAuthSchemeProvider: MediaPackageV2HttpAuth
 };
 
 /**
- * @internal
+ * @public
  */
 export interface HttpAuthSchemeInputConfig extends AwsSdkSigV4AuthInputConfig {
   /**

@@ -95,7 +95,7 @@ export const defaultPersonalizeEventsHttpAuthSchemeProvider: PersonalizeEventsHt
 };
 
 /**
- * @internal
+ * @public
  */
 export interface HttpAuthSchemeInputConfig extends AwsSdkSigV4AuthInputConfig {
   /**

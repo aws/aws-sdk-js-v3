@@ -93,7 +93,7 @@ export const defaultEMRServerlessHttpAuthSchemeProvider: EMRServerlessHttpAuthSc
 };
 
 /**
- * @internal
+ * @public
  */
 export interface HttpAuthSchemeInputConfig extends AwsSdkSigV4AuthInputConfig {
   /**

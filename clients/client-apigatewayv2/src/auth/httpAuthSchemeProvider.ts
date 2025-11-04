@@ -93,7 +93,7 @@ export const defaultApiGatewayV2HttpAuthSchemeProvider: ApiGatewayV2HttpAuthSche
 };
 
 /**
- * @internal
+ * @public
  */
 export interface HttpAuthSchemeInputConfig extends AwsSdkSigV4AuthInputConfig {
   /**

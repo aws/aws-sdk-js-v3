@@ -92,7 +92,7 @@ export const defaultDataZoneHttpAuthSchemeProvider: DataZoneHttpAuthSchemeProvid
 };
 
 /**
- * @internal
+ * @public
  */
 export interface HttpAuthSchemeInputConfig extends AwsSdkSigV4AuthInputConfig {
   /**

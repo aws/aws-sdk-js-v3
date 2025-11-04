@@ -95,7 +95,7 @@ export const defaultIotDeviceAdvisorHttpAuthSchemeProvider: IotDeviceAdvisorHttp
 };
 
 /**
- * @internal
+ * @public
  */
 export interface HttpAuthSchemeInputConfig extends AwsSdkSigV4AuthInputConfig {
   /**
