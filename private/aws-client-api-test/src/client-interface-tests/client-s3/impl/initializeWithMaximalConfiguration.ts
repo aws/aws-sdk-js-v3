@@ -84,6 +84,9 @@ export const initializeWithMaximalConfiguration = () => {
     tls: true,
     disableHostPrefix: false,
     signingRegion: "us-west-2",
+    sigv4aSigningRegionSet: [],
+    authSchemePreference: [],
+    userAgentAppId: "testApp",
     // END user options
 
     // BEGIN internal options
@@ -110,7 +113,6 @@ export const initializeWithMaximalConfiguration = () => {
     streamHasher: streamHasher,
     utf8Decoder: fromUtf8,
     utf8Encoder: toUtf8,
-    authSchemePreference: [],
     httpAuthSchemes: [],
     httpAuthSchemeProvider: (() => null) as unknown as HttpAuthSchemeProvider<any>,
     serviceConfiguredEndpoint: null as never,
@@ -127,10 +129,8 @@ export const initializeWithMaximalConfiguration = () => {
     useGlobalEndpoint: false,
     signingEscapePath: false,
     bucketEndpoint: false,
-    sigv4aSigningRegionSet: [],
     requestChecksumCalculation: DEFAULT_REQUEST_CHECKSUM_CALCULATION,
     responseChecksumValidation: DEFAULT_RESPONSE_CHECKSUM_VALIDATION,
-    userAgentAppId: "testApp",
     requestStreamBufferSize: 8 * 1024,
     expectContinueHeader: 8 * 1024 * 1024,
   };
