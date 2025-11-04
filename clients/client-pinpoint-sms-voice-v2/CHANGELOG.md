@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.924.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.923.0...v3.924.0) (2025-11-04)
+
+
+### Features
+
+* **client-pinpoint-sms-voice-v2:** This release adds support for the CarrierLookup API, which returns information about a destination phone number including if the number is valid, the carrier, and more. ([9777f1c](https://github.com/aws/aws-sdk-js-v3/commit/9777f1c747c048d397de34667af08f8516f8ee9a))
+
+
+
+
+
 # [3.922.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.921.0...v3.922.0) (2025-10-31)
 
 **Note:** Version bump only for package @aws-sdk/client-pinpoint-sms-voice-v2
