@@ -32,7 +32,7 @@ export interface DeleteResourcePolicyCommandInput extends DeleteResourcePolicyRe
 export interface DeleteResourcePolicyCommandOutput extends DeleteResourcePolicyResult, __MetadataBearer {}
 
 /**
- * <p>Deletes the resource-based policy document attached to the AWS End User Messaging SMS and Voice resource. A shared resource can be a Pool, Opt-out list, Sender Id, or Phone number.</p>
+ * <p>Deletes the resource-based policy document attached to the End User MessagingSMS resource. A shared resource can be a Pool, Opt-out list, Sender Id, or Phone number.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

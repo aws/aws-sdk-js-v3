@@ -32,7 +32,7 @@ export interface RequestPhoneNumberCommandInput extends RequestPhoneNumberReques
 export interface RequestPhoneNumberCommandOutput extends RequestPhoneNumberResult, __MetadataBearer {}
 
 /**
- * <p>Request an origination phone number for use in your account. For more information on phone number request see <a href="https://docs.aws.amazon.com/sms-voice/latest/userguide/phone-numbers-request.html">Request a phone number</a> in the <i>AWS End User Messaging SMS User Guide</i>.</p>
+ * <p>Request an origination phone number for use in your account. For more information on phone number request see <a href="https://docs.aws.amazon.com/sms-voice/latest/userguide/phone-numbers-request.html">Request a phone number</a> in the <i>End User MessagingSMS User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

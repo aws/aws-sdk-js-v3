@@ -30,6 +30,7 @@ import {
   AssociateProtectConfigurationCommandInput,
   AssociateProtectConfigurationCommandOutput,
 } from "../commands/AssociateProtectConfigurationCommand";
+import { CarrierLookupCommandInput, CarrierLookupCommandOutput } from "../commands/CarrierLookupCommand";
 import {
   CreateConfigurationSetCommandInput,
   CreateConfigurationSetCommandOutput,
@@ -302,6 +303,7 @@ import {
   AccessDeniedException,
   AssociateOriginationIdentityRequest,
   AssociateProtectConfigurationRequest,
+  CarrierLookupRequest,
   CloudWatchLogsDestination,
   ConfigurationSetFilter,
   ConfigurationSetInformation,
@@ -498,6 +500,19 @@ export const se_AssociateProtectConfigurationCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("AssociateProtectConfiguration");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_0CarrierLookupCommand
+ */
+export const se_CarrierLookupCommand = async (
+  input: CarrierLookupCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("CarrierLookup");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1681,6 +1696,26 @@ export const de_AssociateProtectConfigurationCommand = async (
   let contents: any = {};
   contents = _json(data);
   const response: AssociateProtectConfigurationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0CarrierLookupCommand
+ */
+export const de_CarrierLookupCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CarrierLookupCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: CarrierLookupCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
@@ -3608,6 +3643,8 @@ const se_AssociateOriginationIdentityRequest = (
 
 // se_AssociateProtectConfigurationRequest omitted.
 
+// se_CarrierLookupRequest omitted.
+
 // se_CloudWatchLogsDestination omitted.
 
 // se_ConfigurationSetFilter omitted.
@@ -4070,6 +4107,8 @@ const se_RequestSenderIdRequest = (input: RequestSenderIdRequest, context: __Ser
 // de_AssociateOriginationIdentityResult omitted.
 
 // de_AssociateProtectConfigurationResult omitted.
+
+// de_CarrierLookupResult omitted.
 
 // de_CloudWatchLogsDestination omitted.
 

@@ -1,6 +1,7 @@
 // smithy-typescript generated code
 export * from "./AssociateOriginationIdentityCommand";
 export * from "./AssociateProtectConfigurationCommand";
+export * from "./CarrierLookupCommand";
 export * from "./CreateConfigurationSetCommand";
 export * from "./CreateEventDestinationCommand";
 export * from "./CreateOptOutListCommand";

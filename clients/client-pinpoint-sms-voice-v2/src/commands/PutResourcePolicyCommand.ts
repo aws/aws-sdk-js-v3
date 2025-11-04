@@ -32,7 +32,7 @@ export interface PutResourcePolicyCommandInput extends PutResourcePolicyRequest 
 export interface PutResourcePolicyCommandOutput extends PutResourcePolicyResult, __MetadataBearer {}
 
 /**
- * <p>Attaches a resource-based policy to a AWS End User Messaging SMS and Voice resource(phone number, sender Id, phone poll, or opt-out list) that is used for sharing the resource. A shared resource can be a Pool, Opt-out list, Sender Id, or Phone number. For more information about resource-based policies, see <a href="https://docs.aws.amazon.com/sms-voice/latest/userguide/shared-resources.html">Working with shared resources</a> in the <i>AWS End User Messaging SMS User Guide</i>. </p>
+ * <p>Attaches a resource-based policy to a End User MessagingSMS resource(phone number, sender Id, phone poll, or opt-out list) that is used for sharing the resource. A shared resource can be a Pool, Opt-out list, Sender Id, or Phone number. For more information about resource-based policies, see <a href="https://docs.aws.amazon.com/sms-voice/latest/userguide/shared-resources.html">Working with shared resources</a> in the <i>End User MessagingSMS User Guide</i>. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
