@@ -23,7 +23,7 @@
     "@aws-sdk/core": "*",
     "@aws-sdk/types": "*",
     "@aws-smithy/server-common": "1.0.0-alpha.10",
-    "@smithy/config-resolver": "^4.4.1",
+    "@smithy/config-resolver": "^4.4.2",
     "@smithy/fetch-http-handler": "^5.3.5",
     "@smithy/hash-node": "^4.2.4",
     "@smithy/invalid-dependency": "^4.2.4",
@@ -40,7 +40,7 @@
     "@smithy/util-body-length-browser": "^4.2.0",
     "@smithy/util-body-length-node": "^4.2.1",
     "@smithy/util-defaults-mode-browser": "^4.3.5",
-    "@smithy/util-defaults-mode-node": "^4.2.7",
+    "@smithy/util-defaults-mode-node": "^4.2.8",
     "@smithy/util-endpoints": "^3.2.4",
     "@smithy/util-utf8": "^4.2.0",
     "tslib": "^2.6.2"
