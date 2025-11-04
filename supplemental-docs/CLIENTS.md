@@ -715,7 +715,70 @@ new S3Client({
 
 ### (Smithy) Runtime Extensions `extensions`
 
-TODO
+This is an advanced configuration option that you usually will not need
+to set.
+
+The extensions field accepts zero or more objects having a `configure(extensionConfiguration)`
+method. These configure methods will be invoked upon client instantiation.
+The `extensionConfiguration` object will be given to your extension, and contains methods
+that can be used to configure the client during the instantiation phase. The modifiable
+configurations generally will include the HttpHandler, Region, HttpAuth, Checksum, and
+RetryStrategy configurations.
+
+For the details of the API, inspect the typings on the associated client, such as for
+[S3](https://github.com/aws/aws-sdk-js-v3/blob/main/clients/client-s3/src/runtimeExtensions.ts).
+
+### Signing Region `signingRegion`
+
+Applicable for services using regional signing, which is most AWS clients.
+In rare cases, you can instruct the signing region to differ from the client region (default).
+
+### Signature V4 Asymmetric Signing Region Set `sigv4aSigningRegionSet`
+
+Applicable for services supporting [sigv4a](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_sigv.html#how-sigv4a-works).
+
+Also used rarely, this can override the sigv4a signing region set, which by default is `["*"]`.
+Support for values other than `["*"]` is very limited, so this configuration is generally not required.
+
+```js
+new S3({
+  sigv4aSigningRegionSet: ["us-west-1", "us-west-2"],
+});
+```
+
+### Authentication Scheme Preference `authSchemePreference`
+
+This field is optionally used to configure an ordered list of preferred auth schemes for
+services supporting more than one auth scheme.
+
+For example, for a service operation such as some in S3 that support two auth schemes: `sigv4` and `sigv4a`,
+a value of:
+
+```js
+new S3({
+  authSchemePreference: ["sigv4", "sigv4a"],
+});
+```
+
+prefers sigv4 first, whereas
+
+```js
+new S3({
+  authSchemePreference: ["sigv4a", "sigv4"],
+});
+```
+
+indicates a preference for sigv4a. The following logic also applies:
+
+- any auth scheme given by the user that is not supported by the service will be ignored.
+- any unrecognized auth scheme will be ignored.
+- if there is no overlap between the supported and given auth schemes, one of the
+  supported auth schemes will be used. That is why the field is only a "preference".
+- auth scheme availability may vary from operation to operation, even within one service.
+
+For `sigv4a` in _particular_, you will need to opt in to one of the dependencies
+that implements it. Refer to the AWS SDK for JavaScript v3
+[README on sigv4a](https://github.com/aws/aws-sdk-js-v3#functionality-requiring-aws-common-runtime-crt)
 
 ## Other constructor parameters not listed here
 
@@ -753,6 +816,14 @@ See also https://aws.amazon.com/blogs/developer/middleware-stack-modular-aws-sdk
 
 ### S3
 
+#### `useGlobalEndpoint`:
+
+This does **NOT** make the client operate freely across regions.
+This is a legacy setting that makes the AWS endpoint in `us-east-1` toggle between
+`s3.us-east-1.amazonaws.com` (false) and `s3.amazonaws.com` (true).
+
+For making cross-region requests, see below on `followRegionRedirects`.
+
 #### `followRegionRedirects`:
 
 This feature was previously called the S3 Global Client. Setting this option to true enables failed requests to be retried with a corrected region when receiving a permanent redirect error with status 301. Note that this can result in additional latency owing to the retried request. This feature should only be used as a last resort if you do not know the region of your bucket(s) ahead of time.
@@ -783,6 +854,43 @@ See https://docs.aws.amazon.com/AmazonS3/latest/API/sigv4-streaming.html.
 // input streams into chunks of 64kb or higher.
 new S3Client({
   requestStreamBufferSize: 64 * 1024,
+});
+```
+
+#### `bucketEndpoint`:
+
+The `endpoint` given to the client will be treated as the URL of a bucket instead of
+as the URL of the service. This means any `Bucket` provided to an operation parameter
+will be ignored, assuming the entire endpoint is already the bucket URL.
+
+```js
+// example: endpoint is a bucket rather than a service
+new S3({
+  endpoint: "https://localhost/my-bucket",
+  bucketEndpoint: true,
+});
+```
+
+#### `expectContinueHeader`:
+
+This field configures the SDK's behavior around setting the `expect: 100-continue` header.
+
+Default: `2_097_152` (2 MB)
+
+- When given as a `boolean` - always send or omit the header.
+- When given as a `number` - minimum byte threshold of the payload before setting the header.
+  Unmeasurable payload sizes (streams) will set the header too.
+
+The `expect: 100-continue` header is used to allow the server a chance to validate the PUT request
+headers before the client begins to send the object payload. This avoids wasteful data transmission for a
+request that is rejected.
+
+However, there is a trade-off where the request will take longer to complete.
+
+```js
+// example: omit the expect: 100-continue header
+new S3({
+  expectContinueHeader: false,
 });
 ```
 
