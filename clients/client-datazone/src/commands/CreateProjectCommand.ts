@@ -46,6 +46,9 @@ export interface CreateProjectCommandOutput extends CreateProjectOutput, __Metad
  *   domainIdentifier: "STRING_VALUE", // required
  *   name: "STRING_VALUE", // required
  *   description: "STRING_VALUE",
+ *   resourceTags: { // Tags
+ *     "<keys>": "STRING_VALUE",
+ *   },
  *   glossaryTerms: [ // GlossaryTerms
  *     "STRING_VALUE",
  *   ],
@@ -86,6 +89,13 @@ export interface CreateProjectCommandOutput extends CreateProjectOutput, __Metad
  * //   createdBy: "STRING_VALUE", // required
  * //   createdAt: new Date("TIMESTAMP"),
  * //   lastUpdatedAt: new Date("TIMESTAMP"),
+ * //   resourceTags: [ // ResourceTags
+ * //     { // ResourceTag
+ * //       key: "STRING_VALUE", // required
+ * //       value: "STRING_VALUE", // required
+ * //       source: "PROJECT" || "PROJECT_PROFILE", // required
+ * //     },
+ * //   ],
  * //   glossaryTerms: [ // GlossaryTerms
  * //     "STRING_VALUE",
  * //   ],

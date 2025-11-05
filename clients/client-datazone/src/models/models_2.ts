@@ -54,6 +54,7 @@ import {
   ProvisioningProperties,
   ResolutionStrategy,
   Resource,
+  ResourceTag,
   RowFilterExpression,
   SubscribedListing,
   SubscribedListingFilterSensitiveLog,
@@ -77,20 +78,22 @@ import {
   GrantedEntity,
   Import,
   ImportFilterSensitiveLog,
+  ResourceTagParameter,
   RuleAction,
   RuleDetail,
   RuleScope,
   RuleTarget,
   RuleTargetType,
   RuleType,
+  SortKey,
   SortOrder,
   Status,
   SubscribedAsset,
   SubscriptionGrantOverallStatus,
   SubscriptionGrantStatus,
+  SubscriptionSummary,
+  SubscriptionSummaryFilterSensitiveLog,
   SubscriptionTargetForm,
-  SubscriptionTargetSummary,
-  SubscriptionTargetSummaryFilterSensitiveLog,
   TimeSeriesDataPointFormOutput,
   TimeSeriesEntityType,
   UserProfileDetails,
@@ -98,6 +101,160 @@ import {
   UserProfileStatus,
   UserProfileType,
 } from "./models_1";
+
+/**
+ * @public
+ */
+export interface ListSubscriptionsOutput {
+  /**
+   * <p>The results of the <code>ListSubscriptions</code> action.</p>
+   * @public
+   */
+  items: SubscriptionSummary[] | undefined;
+
+  /**
+   * <p>When the number of subscriptions is greater than the default value for the <code>MaxResults</code> parameter, or if you explicitly specify a value for <code>MaxResults</code> that is less than the number of subscriptions, the response includes a pagination token named <code>NextToken</code>. You can specify this <code>NextToken</code> value in a subsequent call to <code>ListSubscriptions</code> to list the next set of subscriptions.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListSubscriptionTargetsInput {
+  /**
+   * <p>The identifier of the Amazon DataZone domain where you want to list subscription targets.</p>
+   * @public
+   */
+  domainIdentifier: string | undefined;
+
+  /**
+   * <p>The identifier of the environment where you want to list subscription targets.</p>
+   * @public
+   */
+  environmentIdentifier: string | undefined;
+
+  /**
+   * <p>Specifies the way in which the results of this action are to be sorted.</p>
+   * @public
+   */
+  sortBy?: SortKey | undefined;
+
+  /**
+   * <p>Specifies the sort order for the results of this action.</p>
+   * @public
+   */
+  sortOrder?: SortOrder | undefined;
+
+  /**
+   * <p>The maximum number of subscription targets to return in a single call to <code>ListSubscriptionTargets</code>. When the number of subscription targets to be listed is greater than the value of <code>MaxResults</code>, the response contains a <code>NextToken</code> value that you can use in a subsequent call to <code>ListSubscriptionTargets</code> to list the next set of subscription targets. </p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>When the number of subscription targets is greater than the default value for the <code>MaxResults</code> parameter, or if you explicitly specify a value for <code>MaxResults</code> that is less than the number of subscription targets, the response includes a pagination token named <code>NextToken</code>. You can specify this <code>NextToken</code> value in a subsequent call to <code>ListSubscriptionTargets</code> to list the next set of subscription targets.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * <p>The details of the subscription target.</p>
+ * @public
+ */
+export interface SubscriptionTargetSummary {
+  /**
+   * <p>The identifier of the subscription target.</p>
+   * @public
+   */
+  id: string | undefined;
+
+  /**
+   * <p>The authorized principals included in the subscription target.</p>
+   * @public
+   */
+  authorizedPrincipals: string[] | undefined;
+
+  /**
+   * <p>The identifier of the Amazon DataZone domain in which the subscription target exists.</p>
+   * @public
+   */
+  domainId: string | undefined;
+
+  /**
+   * <p>The identifier of the project specified in the subscription target.</p>
+   * @public
+   */
+  projectId: string | undefined;
+
+  /**
+   * <p>The identifier of the environment of the subscription target.</p>
+   * @public
+   */
+  environmentId: string | undefined;
+
+  /**
+   * <p>The name of the subscription target.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The type of the subscription target.</p>
+   * @public
+   */
+  type: string | undefined;
+
+  /**
+   * <p>The Amazon DataZone user who created the subscription target.</p>
+   * @public
+   */
+  createdBy: string | undefined;
+
+  /**
+   * <p>The Amazon DataZone user who updated the subscription target.</p>
+   * @public
+   */
+  updatedBy?: string | undefined;
+
+  /**
+   * <p>The timestamp of when the subscription target was created.</p>
+   * @public
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p>The timestamp of when the subscription target was updated.</p>
+   * @public
+   */
+  updatedAt?: Date | undefined;
+
+  /**
+   * <p>The manage access role specified in the subscription target.</p>
+   * @public
+   */
+  manageAccessRole?: string | undefined;
+
+  /**
+   * <p>The asset types included in the subscription target.</p>
+   * @public
+   */
+  applicableAssetTypes: string[] | undefined;
+
+  /**
+   * <p>The configuration of the subscription target.</p>
+   * @public
+   */
+  subscriptionTargetConfig: SubscriptionTargetForm[] | undefined;
+
+  /**
+   * <p>The provider of the subscription target.</p>
+   * @public
+   */
+  provider: string | undefined;
+}
 
 /**
  * @public
@@ -3256,6 +3413,12 @@ export interface UpdateProjectInput {
   description?: string | undefined;
 
   /**
+   * <p>The resource tags of the project.</p>
+   * @public
+   */
+  resourceTags?: Record<string, string> | undefined;
+
+  /**
    * <p>The glossary terms to be updated as part of the <code>UpdateProject</code> action.</p>
    * @public
    */
@@ -3345,6 +3508,12 @@ export interface UpdateProjectOutput {
   lastUpdatedAt?: Date | undefined;
 
   /**
+   * <p>The resource tags of the project.</p>
+   * @public
+   */
+  resourceTags?: ResourceTag[] | undefined;
+
+  /**
    * <p>The glossary terms of the project that are to be updated.</p>
    * @public
    */
@@ -3410,6 +3579,24 @@ export interface UpdateProjectProfileInput {
   status?: Status | undefined;
 
   /**
+   * <p>The resource tags of the project profile.</p>
+   * @public
+   */
+  projectResourceTags?: ResourceTagParameter[] | undefined;
+
+  /**
+   * <p>Specifies whether custom project resource tags are supported.</p>
+   * @public
+   */
+  allowCustomProjectResourceTags?: boolean | undefined;
+
+  /**
+   * <p>Field viewable through the UI that provides a project user with the allowed resource tag specifications.</p>
+   * @public
+   */
+  projectResourceTagsDescription?: string | undefined;
+
+  /**
    * <p>The environment configurations of a project profile.</p>
    * @public
    */
@@ -3455,6 +3642,24 @@ export interface UpdateProjectProfileOutput {
    * @public
    */
   status?: Status | undefined;
+
+  /**
+   * <p>The resource tags of the project profile.</p>
+   * @public
+   */
+  projectResourceTags?: ResourceTagParameter[] | undefined;
+
+  /**
+   * <p>Specifies whether custom project resource tags are supported.</p>
+   * @public
+   */
+  allowCustomProjectResourceTags?: boolean | undefined;
+
+  /**
+   * <p>Field viewable through the UI that provides a project user with the allowed resource tag specifications.</p>
+   * @public
+   */
+  projectResourceTagsDescription?: string | undefined;
 
   /**
    * <p>The environment configurations of a project profile.</p>
@@ -4629,6 +4834,22 @@ export interface UpdateAssetFilterOutput {
 /**
  * @internal
  */
+export const ListSubscriptionsOutputFilterSensitiveLog = (obj: ListSubscriptionsOutput): any => ({
+  ...obj,
+  ...(obj.items && { items: obj.items.map((item) => SubscriptionSummaryFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const SubscriptionTargetSummaryFilterSensitiveLog = (obj: SubscriptionTargetSummary): any => ({
+  ...obj,
+  ...(obj.name && { name: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
 export const ListSubscriptionTargetsOutputFilterSensitiveLog = (obj: ListSubscriptionTargetsOutput): any => ({
   ...obj,
   ...(obj.items && { items: obj.items.map((item) => SubscriptionTargetSummaryFilterSensitiveLog(item)) }),
@@ -5016,6 +5237,7 @@ export const UpdateProjectProfileInputFilterSensitiveLog = (obj: UpdateProjectPr
   ...obj,
   ...(obj.name && { name: SENSITIVE_STRING }),
   ...(obj.description && { description: SENSITIVE_STRING }),
+  ...(obj.projectResourceTagsDescription && { projectResourceTagsDescription: SENSITIVE_STRING }),
   ...(obj.environmentConfigurations && {
     environmentConfigurations: obj.environmentConfigurations.map((item) =>
       EnvironmentConfigurationFilterSensitiveLog(item)
@@ -5030,6 +5252,7 @@ export const UpdateProjectProfileOutputFilterSensitiveLog = (obj: UpdateProjectP
   ...obj,
   ...(obj.name && { name: SENSITIVE_STRING }),
   ...(obj.description && { description: SENSITIVE_STRING }),
+  ...(obj.projectResourceTagsDescription && { projectResourceTagsDescription: SENSITIVE_STRING }),
   ...(obj.environmentConfigurations && {
     environmentConfigurations: obj.environmentConfigurations.map((item) =>
       EnvironmentConfigurationFilterSensitiveLog(item)

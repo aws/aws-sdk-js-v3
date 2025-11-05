@@ -58,6 +58,13 @@ export interface GetProjectCommandOutput extends GetProjectOutput, __MetadataBea
  * //   createdBy: "STRING_VALUE", // required
  * //   createdAt: new Date("TIMESTAMP"),
  * //   lastUpdatedAt: new Date("TIMESTAMP"),
+ * //   resourceTags: [ // ResourceTags
+ * //     { // ResourceTag
+ * //       key: "STRING_VALUE", // required
+ * //       value: "STRING_VALUE", // required
+ * //       source: "PROJECT" || "PROJECT_PROFILE", // required
+ * //     },
+ * //   ],
  * //   glossaryTerms: [ // GlossaryTerms
  * //     "STRING_VALUE",
  * //   ],

@@ -6,11 +6,8 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DataZoneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataZoneClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  ListSubscriptionsInput,
-  ListSubscriptionsOutput,
-  ListSubscriptionsOutputFilterSensitiveLog,
-} from "../models/models_1";
+import { ListSubscriptionsInput } from "../models/models_1";
+import { ListSubscriptionsOutput, ListSubscriptionsOutputFilterSensitiveLog } from "../models/models_2";
 import { de_ListSubscriptionsCommand, se_ListSubscriptionsCommand } from "../protocols/Aws_restJson1";
 
 /**

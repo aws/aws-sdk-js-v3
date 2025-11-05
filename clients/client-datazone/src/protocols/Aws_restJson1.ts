@@ -590,6 +590,7 @@ import {
   ProjectSummary,
   ProvisioningConfiguration,
   Region,
+  ResourceTagParameter,
   RuleDetail,
   RuleScope,
   RuleTarget,
@@ -601,7 +602,6 @@ import {
   SubscriptionRequestSummary,
   SubscriptionSummary,
   SubscriptionTargetForm,
-  SubscriptionTargetSummary,
   TimeSeriesDataPointFormOutput,
 } from "../models/models_1";
 import {
@@ -625,6 +625,7 @@ import {
   SearchResultItem,
   SearchSort,
   SearchTypesResultItem,
+  SubscriptionTargetSummary,
   TimeSeriesDataPointFormInput,
 } from "../models/models_2";
 
@@ -1403,6 +1404,7 @@ export const se_CreateProjectCommand = async (
       glossaryTerms: (_) => _json(_),
       name: [],
       projectProfileId: [],
+      resourceTags: (_) => _json(_),
       userParameters: (_) => _json(_),
     })
   );
@@ -1451,10 +1453,13 @@ export const se_CreateProjectProfileCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
+      allowCustomProjectResourceTags: [],
       description: [],
       domainUnitIdentifier: [],
       environmentConfigurations: (_) => _json(_),
       name: [],
+      projectResourceTags: (_) => _json(_),
+      projectResourceTagsDescription: [],
       status: [],
     })
   );
@@ -4341,6 +4346,7 @@ export const se_UpdateProjectCommand = async (
       glossaryTerms: (_) => _json(_),
       name: [],
       projectProfileVersion: [],
+      resourceTags: (_) => _json(_),
       userParameters: (_) => _json(_),
     })
   );
@@ -4365,10 +4371,13 @@ export const se_UpdateProjectProfileCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
+      allowCustomProjectResourceTags: [],
       description: [],
       domainUnitIdentifier: [],
       environmentConfigurations: (_) => _json(_),
       name: [],
+      projectResourceTags: (_) => _json(_),
+      projectResourceTagsDescription: [],
       status: [],
     })
   );
@@ -5351,6 +5360,7 @@ export const de_CreateProjectCommand = async (
     name: __expectString,
     projectProfileId: __expectString,
     projectStatus: __expectString,
+    resourceTags: _json,
     userParameters: _json,
   });
   Object.assign(contents, doc);
@@ -5389,6 +5399,7 @@ export const de_CreateProjectProfileCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
+    allowCustomProjectResourceTags: __expectBoolean,
     createdAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     createdBy: __expectString,
     description: __expectString,
@@ -5398,6 +5409,8 @@ export const de_CreateProjectProfileCommand = async (
     id: __expectString,
     lastUpdatedAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     name: __expectString,
+    projectResourceTags: _json,
+    projectResourceTagsDescription: __expectString,
     status: __expectString,
   });
   Object.assign(contents, doc);
@@ -6929,6 +6942,7 @@ export const de_GetProjectCommand = async (
     name: __expectString,
     projectProfileId: __expectString,
     projectStatus: __expectString,
+    resourceTags: _json,
     userParameters: _json,
   });
   Object.assign(contents, doc);
@@ -6950,6 +6964,7 @@ export const de_GetProjectProfileCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
+    allowCustomProjectResourceTags: __expectBoolean,
     createdAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     createdBy: __expectString,
     description: __expectString,
@@ -6959,6 +6974,8 @@ export const de_GetProjectProfileCommand = async (
     id: __expectString,
     lastUpdatedAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     name: __expectString,
+    projectResourceTags: _json,
+    projectResourceTagsDescription: __expectString,
     status: __expectString,
   });
   Object.assign(contents, doc);
@@ -8743,6 +8760,7 @@ export const de_UpdateProjectCommand = async (
     name: __expectString,
     projectProfileId: __expectString,
     projectStatus: __expectString,
+    resourceTags: _json,
     userParameters: _json,
   });
   Object.assign(contents, doc);
@@ -8764,6 +8782,7 @@ export const de_UpdateProjectProfileCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
+    allowCustomProjectResourceTags: __expectBoolean,
     createdAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     createdBy: __expectString,
     description: __expectString,
@@ -8773,6 +8792,8 @@ export const de_UpdateProjectProfileCommand = async (
     id: __expectString,
     lastUpdatedAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     name: __expectString,
+    projectResourceTags: _json,
+    projectResourceTagsDescription: __expectString,
     status: __expectString,
   });
   Object.assign(contents, doc);
@@ -9447,6 +9468,8 @@ const se_FilterList = (input: FilterClause[], context: __SerdeContext): any => {
 
 // se_ProjectProfileList omitted.
 
+// se_ProjectResourceTagParameters omitted.
+
 // se_ProjectsForRule omitted.
 
 // se_PropertyMap omitted.
@@ -9504,6 +9527,8 @@ const se_RejectRule = (input: RejectRule, context: __SerdeContext): any => {
 // se_RelationalFilterConfigurations omitted.
 
 // se_RequiredMetadataFormList omitted.
+
+// se_ResourceTagParameter omitted.
 
 /**
  * serializeAws_restJson1RowFilter
@@ -11023,6 +11048,8 @@ const de_ProjectProfileSummary = (output: any, context: __SerdeContext): Project
   }) as any;
 };
 
+// de_ProjectResourceTagParameters omitted.
+
 // de_ProjectsForRule omitted.
 
 /**
@@ -11100,6 +11127,12 @@ const de_ProjectSummary = (output: any, context: __SerdeContext): ProjectSummary
 // de_Resource omitted.
 
 // de_ResourceList omitted.
+
+// de_ResourceTag omitted.
+
+// de_ResourceTagParameter omitted.
+
+// de_ResourceTags omitted.
 
 /**
  * deserializeAws_restJson1RowFilter

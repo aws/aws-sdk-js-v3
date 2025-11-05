@@ -48,6 +48,15 @@ export interface UpdateProjectProfileCommandOutput extends UpdateProjectProfileO
  *   name: "STRING_VALUE",
  *   description: "STRING_VALUE",
  *   status: "ENABLED" || "DISABLED",
+ *   projectResourceTags: [ // ProjectResourceTagParameters
+ *     { // ResourceTagParameter
+ *       key: "STRING_VALUE", // required
+ *       value: "STRING_VALUE", // required
+ *       isValueEditable: true || false, // required
+ *     },
+ *   ],
+ *   allowCustomProjectResourceTags: true || false,
+ *   projectResourceTagsDescription: "STRING_VALUE",
  *   environmentConfigurations: [ // EnvironmentConfigurationsList
  *     { // EnvironmentConfiguration
  *       name: "STRING_VALUE", // required
@@ -96,6 +105,15 @@ export interface UpdateProjectProfileCommandOutput extends UpdateProjectProfileO
  * //   name: "STRING_VALUE", // required
  * //   description: "STRING_VALUE",
  * //   status: "ENABLED" || "DISABLED",
+ * //   projectResourceTags: [ // ProjectResourceTagParameters
+ * //     { // ResourceTagParameter
+ * //       key: "STRING_VALUE", // required
+ * //       value: "STRING_VALUE", // required
+ * //       isValueEditable: true || false, // required
+ * //     },
+ * //   ],
+ * //   allowCustomProjectResourceTags: true || false,
+ * //   projectResourceTagsDescription: "STRING_VALUE",
  * //   environmentConfigurations: [ // EnvironmentConfigurationsList
  * //     { // EnvironmentConfiguration
  * //       name: "STRING_VALUE", // required

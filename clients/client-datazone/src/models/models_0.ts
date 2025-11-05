@@ -10436,6 +10436,12 @@ export interface CreateProjectInput {
   description?: string | undefined;
 
   /**
+   * <p>The resource tags of the project.</p>
+   * @public
+   */
+  resourceTags?: Record<string, string> | undefined;
+
+  /**
    * <p>The glossary terms that can be used in this Amazon DataZone project.</p>
    * @public
    */
@@ -10533,6 +10539,44 @@ export type ProjectStatus = (typeof ProjectStatus)[keyof typeof ProjectStatus];
 
 /**
  * @public
+ * @enum
+ */
+export const ResourceTagSource = {
+  PROJECT: "PROJECT",
+  PROJECT_PROFILE: "PROJECT_PROFILE",
+} as const;
+
+/**
+ * @public
+ */
+export type ResourceTagSource = (typeof ResourceTagSource)[keyof typeof ResourceTagSource];
+
+/**
+ * <p>The resource tag of the project.</p>
+ * @public
+ */
+export interface ResourceTag {
+  /**
+   * <p>The key of the resource tag of the project.</p>
+   * @public
+   */
+  key: string | undefined;
+
+  /**
+   * <p>The value of the resource tag of the project.</p>
+   * @public
+   */
+  value: string | undefined;
+
+  /**
+   * <p>The source of the resource tag of the project.</p>
+   * @public
+   */
+  source: ResourceTagSource | undefined;
+}
+
+/**
+ * @public
  */
 export interface CreateProjectOutput {
   /**
@@ -10588,6 +10632,12 @@ export interface CreateProjectOutput {
    * @public
    */
   lastUpdatedAt?: Date | undefined;
+
+  /**
+   * <p>The resource tags of the project.</p>
+   * @public
+   */
+  resourceTags?: ResourceTag[] | undefined;
 
   /**
    * <p>The glossary terms that can be used in the project.</p>
@@ -10688,40 +10738,6 @@ export namespace Member {
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
 }
-
-/**
- * @public
- */
-export interface CreateProjectMembershipInput {
-  /**
-   * <p>The ID of the Amazon DataZone domain in which project membership is created.</p>
-   * @public
-   */
-  domainIdentifier: string | undefined;
-
-  /**
-   * <p>The ID of the project for which this project membership was created.</p>
-   * @public
-   */
-  projectIdentifier: string | undefined;
-
-  /**
-   * <p>The project member whose project membership was created.</p>
-   * @public
-   */
-  member: Member | undefined;
-
-  /**
-   * <p>The designation of the project membership.</p>
-   * @public
-   */
-  designation: UserDesignation | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateProjectMembershipOutput {}
 
 /**
  * @internal
