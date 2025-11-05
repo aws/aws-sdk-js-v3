@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.925.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.924.0...v3.925.0) (2025-11-05)
+
+
+### Features
+
+* **client-groundstation:** Introduce CreateDataflowEndpointGroupV2 action ([67ac8eb](https://github.com/aws/aws-sdk-js-v3/commit/67ac8eb632073bb3749577b91412e1563ea3d439))
+
+
+
+
+
 # [3.922.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.921.0...v3.922.0) (2025-10-31)
 
 **Note:** Version bump only for package @aws-sdk/client-groundstation

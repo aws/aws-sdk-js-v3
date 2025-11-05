@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.925.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.924.0...v3.925.0) (2025-11-05)
+
+
+### Features
+
+* **client-cloudfront:** This release adds new and updated API operations. You can now use the IpAddressType field to specify either ipv4 or dualstack for your Anycast static IP list. You can also enable cross-account resource sharing to share your VPC origins with other AWS accounts ([75c3cef](https://github.com/aws/aws-sdk-js-v3/commit/75c3cef38c45aab4d6a21ebcf9053d2de8e13cc2))
+* **client-datazone:** Added support for Project Resource Tags ([64852ec](https://github.com/aws/aws-sdk-js-v3/commit/64852ec8f4963a665f5a2f65b2e0435ed66736dc))
+* **client-ec2:** This release adds AvailabilityZoneId support for DescribeFastSnapshotRestores, DisableFastSnapshotRestores, and EnableFastSnapshotRestores APIs. ([68aae5b](https://github.com/aws/aws-sdk-js-v3/commit/68aae5bdcf47b1d87f8bda7213b1d4b3a4200349))
+* **client-fsx:** Amazon FSx now enables secure management of Active Directory credentials through AWS Secrets Manager integration. Customers can use Secret ARNs instead of direct credentials when joining resources to Active Directory domains. ([4e481ba](https://github.com/aws/aws-sdk-js-v3/commit/4e481ba5f0a98af65f71495fc441a740fe2082df))
+* **client-groundstation:** Introduce CreateDataflowEndpointGroupV2 action ([67ac8eb](https://github.com/aws/aws-sdk-js-v3/commit/67ac8eb632073bb3749577b91412e1563ea3d439))
+* **client-s3:** Launch IPv6 dual-stack support for S3 Express ([a6a3e29](https://github.com/aws/aws-sdk-js-v3/commit/a6a3e2980d299734956f0bccc69c094a8757549f))
+* **client-sagemaker:** Add new fields in SageMaker Hyperpod DescribeCluster API response: TargetStateCount, SoftwareUpdateStatus and ActiveSoftwareDeploymentConfig to provide AMI update progress visibility . ([a29341a](https://github.com/aws/aws-sdk-js-v3/commit/a29341a573b29702649fb052f2b32c4f37ff5536))
+
+
+
+
+
 # [3.924.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.923.0...v3.924.0) (2025-11-04)
 
 

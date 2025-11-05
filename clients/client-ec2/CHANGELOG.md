@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.925.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.924.0...v3.925.0) (2025-11-05)
+
+
+### Features
+
+* **client-ec2:** This release adds AvailabilityZoneId support for DescribeFastSnapshotRestores, DisableFastSnapshotRestores, and EnableFastSnapshotRestores APIs. ([68aae5b](https://github.com/aws/aws-sdk-js-v3/commit/68aae5bdcf47b1d87f8bda7213b1d4b3a4200349))
+
+
+
+
+
 # [3.923.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.922.0...v3.923.0) (2025-11-03)
 
 
