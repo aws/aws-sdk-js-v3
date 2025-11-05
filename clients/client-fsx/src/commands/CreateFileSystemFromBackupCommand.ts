@@ -97,11 +97,12 @@ export interface CreateFileSystemFromBackupCommandOutput extends CreateFileSyste
  *       DomainName: "STRING_VALUE", // required
  *       OrganizationalUnitDistinguishedName: "STRING_VALUE",
  *       FileSystemAdministratorsGroup: "STRING_VALUE",
- *       UserName: "STRING_VALUE", // required
- *       Password: "STRING_VALUE", // required
+ *       UserName: "STRING_VALUE",
+ *       Password: "STRING_VALUE",
  *       DnsIps: [ // DnsIps // required
  *         "STRING_VALUE",
  *       ],
+ *       DomainJoinServiceAccountSecret: "STRING_VALUE",
  *     },
  *     DeploymentType: "MULTI_AZ_1" || "SINGLE_AZ_1" || "SINGLE_AZ_2",
  *     PreferredSubnetId: "STRING_VALUE",
@@ -251,6 +252,7 @@ export interface CreateFileSystemFromBackupCommandOutput extends CreateFileSyste
  * //         DnsIps: [ // DnsIps
  * //           "STRING_VALUE",
  * //         ],
+ * //         DomainJoinServiceAccountSecret: "STRING_VALUE",
  * //       },
  * //       DeploymentType: "MULTI_AZ_1" || "SINGLE_AZ_1" || "SINGLE_AZ_2",
  * //       RemoteAdministrationEndpoint: "STRING_VALUE",
@@ -365,6 +367,7 @@ export interface CreateFileSystemFromBackupCommandOutput extends CreateFileSyste
  * //               DnsIps: [
  * //                 "STRING_VALUE",
  * //               ],
+ * //               DomainJoinServiceAccountSecret: "STRING_VALUE",
  * //             },
  * //             DeploymentType: "MULTI_AZ_1" || "SINGLE_AZ_1" || "SINGLE_AZ_2",
  * //             RemoteAdministrationEndpoint: "STRING_VALUE",

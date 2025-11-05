@@ -167,6 +167,7 @@ export interface DescribeVolumesCommandOutput extends DescribeVolumesResponse, _
  * //                 DnsIps: [ // DnsIps
  * //                   "STRING_VALUE",
  * //                 ],
+ * //                 DomainJoinServiceAccountSecret: "STRING_VALUE",
  * //               },
  * //               DeploymentType: "MULTI_AZ_1" || "SINGLE_AZ_1" || "SINGLE_AZ_2",
  * //               RemoteAdministrationEndpoint: "STRING_VALUE",
@@ -276,6 +277,7 @@ export interface DescribeVolumesCommandOutput extends DescribeVolumesResponse, _
  * //                       DnsIps: [
  * //                         "STRING_VALUE",
  * //                       ],
+ * //                       DomainJoinServiceAccountSecret: "STRING_VALUE",
  * //                     },
  * //                     DeploymentType: "MULTI_AZ_1" || "SINGLE_AZ_1" || "SINGLE_AZ_2",
  * //                     RemoteAdministrationEndpoint: "STRING_VALUE",

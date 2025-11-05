@@ -54,6 +54,7 @@ export interface UpdateStorageVirtualMachineCommandOutput
  *       DomainName: "STRING_VALUE",
  *       OrganizationalUnitDistinguishedName: "STRING_VALUE",
  *       FileSystemAdministratorsGroup: "STRING_VALUE",
+ *       DomainJoinServiceAccountSecret: "STRING_VALUE",
  *     },
  *     NetBiosName: "STRING_VALUE",
  *   },
@@ -75,6 +76,7 @@ export interface UpdateStorageVirtualMachineCommandOutput
  * //         DnsIps: [ // DnsIps
  * //           "STRING_VALUE",
  * //         ],
+ * //         DomainJoinServiceAccountSecret: "STRING_VALUE",
  * //       },
  * //     },
  * //     CreationTime: new Date("TIMESTAMP"),

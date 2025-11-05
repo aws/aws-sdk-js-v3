@@ -72,6 +72,7 @@ export interface DescribeStorageVirtualMachinesCommandOutput
  * //           DnsIps: [ // DnsIps
  * //             "STRING_VALUE",
  * //           ],
+ * //           DomainJoinServiceAccountSecret: "STRING_VALUE",
  * //         },
  * //       },
  * //       CreationTime: new Date("TIMESTAMP"),

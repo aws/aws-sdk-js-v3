@@ -161,6 +161,7 @@ export interface CreateBackupCommandOutput extends CreateBackupResponse, __Metad
  * //           DnsIps: [ // DnsIps
  * //             "STRING_VALUE",
  * //           ],
+ * //           DomainJoinServiceAccountSecret: "STRING_VALUE",
  * //         },
  * //         DeploymentType: "MULTI_AZ_1" || "SINGLE_AZ_1" || "SINGLE_AZ_2",
  * //         RemoteAdministrationEndpoint: "STRING_VALUE",
@@ -270,6 +271,7 @@ export interface CreateBackupCommandOutput extends CreateBackupResponse, __Metad
  * //                 DnsIps: [
  * //                   "STRING_VALUE",
  * //                 ],
+ * //                 DomainJoinServiceAccountSecret: "STRING_VALUE",
  * //               },
  * //               DeploymentType: "MULTI_AZ_1" || "SINGLE_AZ_1" || "SINGLE_AZ_2",
  * //               RemoteAdministrationEndpoint: "STRING_VALUE",

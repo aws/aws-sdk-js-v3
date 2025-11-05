@@ -303,6 +303,7 @@ export interface UpdateFileSystemCommandOutput extends UpdateFileSystemResponse,
  *       DomainName: "STRING_VALUE",
  *       OrganizationalUnitDistinguishedName: "STRING_VALUE",
  *       FileSystemAdministratorsGroup: "STRING_VALUE",
+ *       DomainJoinServiceAccountSecret: "STRING_VALUE",
  *     },
  *     AuditLogConfiguration: { // WindowsAuditLogCreateConfiguration
  *       FileAccessAuditLogLevel: "DISABLED" || "SUCCESS_ONLY" || "FAILURE_ONLY" || "SUCCESS_AND_FAILURE", // required
@@ -428,6 +429,7 @@ export interface UpdateFileSystemCommandOutput extends UpdateFileSystemResponse,
  * //         DnsIps: [ // DnsIps
  * //           "STRING_VALUE",
  * //         ],
+ * //         DomainJoinServiceAccountSecret: "STRING_VALUE",
  * //       },
  * //       DeploymentType: "MULTI_AZ_1" || "SINGLE_AZ_1" || "SINGLE_AZ_2",
  * //       RemoteAdministrationEndpoint: "STRING_VALUE",
@@ -542,6 +544,7 @@ export interface UpdateFileSystemCommandOutput extends UpdateFileSystemResponse,
  * //               DnsIps: [
  * //                 "STRING_VALUE",
  * //               ],
+ * //               DomainJoinServiceAccountSecret: "STRING_VALUE",
  * //             },
  * //             DeploymentType: "MULTI_AZ_1" || "SINGLE_AZ_1" || "SINGLE_AZ_2",
  * //             RemoteAdministrationEndpoint: "STRING_VALUE",

@@ -113,6 +113,7 @@ export interface DescribeFileSystemsCommandOutput extends DescribeFileSystemsRes
  * //           DnsIps: [ // DnsIps
  * //             "STRING_VALUE",
  * //           ],
+ * //           DomainJoinServiceAccountSecret: "STRING_VALUE",
  * //         },
  * //         DeploymentType: "MULTI_AZ_1" || "SINGLE_AZ_1" || "SINGLE_AZ_2",
  * //         RemoteAdministrationEndpoint: "STRING_VALUE",
@@ -227,6 +228,7 @@ export interface DescribeFileSystemsCommandOutput extends DescribeFileSystemsRes
  * //                 DnsIps: [
  * //                   "STRING_VALUE",
  * //                 ],
+ * //                 DomainJoinServiceAccountSecret: "STRING_VALUE",
  * //               },
  * //               DeploymentType: "MULTI_AZ_1" || "SINGLE_AZ_1" || "SINGLE_AZ_2",
  * //               RemoteAdministrationEndpoint: "STRING_VALUE",

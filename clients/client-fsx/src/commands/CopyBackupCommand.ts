@@ -128,6 +128,7 @@ export interface CopyBackupCommandOutput extends CopyBackupResponse, __MetadataB
  * //           DnsIps: [ // DnsIps
  * //             "STRING_VALUE",
  * //           ],
+ * //           DomainJoinServiceAccountSecret: "STRING_VALUE",
  * //         },
  * //         DeploymentType: "MULTI_AZ_1" || "SINGLE_AZ_1" || "SINGLE_AZ_2",
  * //         RemoteAdministrationEndpoint: "STRING_VALUE",
@@ -237,6 +238,7 @@ export interface CopyBackupCommandOutput extends CopyBackupResponse, __MetadataB
  * //                 DnsIps: [
  * //                   "STRING_VALUE",
  * //                 ],
+ * //                 DomainJoinServiceAccountSecret: "STRING_VALUE",
  * //               },
  * //               DeploymentType: "MULTI_AZ_1" || "SINGLE_AZ_1" || "SINGLE_AZ_2",
  * //               RemoteAdministrationEndpoint: "STRING_VALUE",

@@ -91,6 +91,7 @@ export interface StartMisconfiguredStateRecoveryCommandOutput
  * //         DnsIps: [ // DnsIps
  * //           "STRING_VALUE",
  * //         ],
+ * //         DomainJoinServiceAccountSecret: "STRING_VALUE",
  * //       },
  * //       DeploymentType: "MULTI_AZ_1" || "SINGLE_AZ_1" || "SINGLE_AZ_2",
  * //       RemoteAdministrationEndpoint: "STRING_VALUE",
@@ -205,6 +206,7 @@ export interface StartMisconfiguredStateRecoveryCommandOutput
  * //               DnsIps: [
  * //                 "STRING_VALUE",
  * //               ],
+ * //               DomainJoinServiceAccountSecret: "STRING_VALUE",
  * //             },
  * //             DeploymentType: "MULTI_AZ_1" || "SINGLE_AZ_1" || "SINGLE_AZ_2",
  * //             RemoteAdministrationEndpoint: "STRING_VALUE",

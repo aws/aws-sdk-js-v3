@@ -50,11 +50,12 @@ export interface CreateStorageVirtualMachineCommandOutput
  *       DomainName: "STRING_VALUE", // required
  *       OrganizationalUnitDistinguishedName: "STRING_VALUE",
  *       FileSystemAdministratorsGroup: "STRING_VALUE",
- *       UserName: "STRING_VALUE", // required
- *       Password: "STRING_VALUE", // required
+ *       UserName: "STRING_VALUE",
+ *       Password: "STRING_VALUE",
  *       DnsIps: [ // DnsIps // required
  *         "STRING_VALUE",
  *       ],
+ *       DomainJoinServiceAccountSecret: "STRING_VALUE",
  *     },
  *   },
  *   ClientRequestToken: "STRING_VALUE",
@@ -83,6 +84,7 @@ export interface CreateStorageVirtualMachineCommandOutput
  * //         DnsIps: [ // DnsIps
  * //           "STRING_VALUE",
  * //         ],
+ * //         DomainJoinServiceAccountSecret: "STRING_VALUE",
  * //       },
  * //     },
  * //     CreationTime: new Date("TIMESTAMP"),
