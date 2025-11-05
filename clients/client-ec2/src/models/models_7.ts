@@ -1624,59 +1624,76 @@ export interface GetIpamPrefixListResolverRulesRequest {
 /**
  * <p>Describes a condition within a CIDR selection rule. Conditions define the criteria for selecting CIDRs from IPAM's database based on resource attributes.</p>
  *          <p>CIDR selection rules define the business logic for selecting CIDRs from IPAM. If a CIDR matches any of the rules, it will be included. If a rule has multiple conditions, the CIDR has to match every condition of that rule. You can create a prefix list resolver without any CIDR selection rules, but it will generate empty versions (containing no CIDRs) until you add rules.</p>
- *          <p>There are three rule types:</p>
+ *          <p>There are three rule types. Only 2 of the 3 rule types support conditions - <b>IPAM pool CIDR</b> and <b>Scope resource CIDR</b>. <b>Static CIDR</b> rules cannot have conditions.</p>
  *          <ul>
  *             <li>
  *                <p>
- *                   <b>Static CIDR</b>: A fixed list of CIDRs that do not change (like a manual list replicated across Regions).</p>
+ *                   <b>Static CIDR</b>: A fixed list of CIDRs that do not change (like a manual list replicated across Regions)</p>
  *             </li>
  *             <li>
  *                <p>
- *                   <b>IPAM pool CIDR</b>: CIDRs from specific IPAM pools (like all CIDRs from your IPAM production pool).</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <b>Scope resource CIDR</b>: CIDRs for Amazon Web Services resources like VPCs, subnets, and EIPs within a specific IPAM scope.</p>
- *             </li>
- *          </ul>
- *          <p>Condition availability by resource type:</p>
- *          <ul>
- *             <li>
- *                <p>Only 2 of the 3 rule types support conditions - <b>IPAM pool CIDR</b> and <b>Scope resource CIDR</b>. <b>Static CIDR</b> rules cannot have conditions.</p>
+ *                   <b>IPAM pool CIDR</b>: CIDRs from specific IPAM pools (like all CIDRs from your IPAM production pool)</p>
+ *                <p>If you choose this option, choose the following:</p>
  *                <ul>
  *                   <li>
- *                      <p>Condition available for the <b>IPAM pool CIDR</b> resource type:</p>
+ *                      <p>
+ *                         <b>IPAM scope</b>: Select the IPAM scope to search for resources</p>
+ *                   </li>
+ *                   <li>
+ *                      <p>
+ *                         <b>Conditions:</b>
+ *                      </p>
  *                      <ul>
  *                         <li>
- *                            <p>Property:</p>
+ *                            <p>
+ *                               <b>Property</b>
+ *                            </p>
  *                            <ul>
  *                               <li>
- *                                  <p>IPAM Pool ID</p>
+ *                                  <p>
+ *                                     <b>IPAM pool ID</b>: Select an IPAM pool that contains the resources</p>
  *                               </li>
  *                               <li>
- *                                  <p>CIDR (like 10.24.34.0/23)</p>
+ *                                  <p>
+ *                                     <b>CIDR</b> (like 10.24.34.0/23)</p>
  *                               </li>
  *                            </ul>
  *                         </li>
  *                         <li>
- *                            <p>Operation: Equals/Not equals</p>
+ *                            <p>
+ *                               <b>Operation</b>: Equals/Not equals</p>
  *                         </li>
  *                         <li>
- *                            <p>Value: The value on which to match the condition</p>
+ *                            <p>
+ *                               <b>Value</b>: The value on which to match the condition</p>
  *                         </li>
  *                      </ul>
  *                   </li>
+ *                </ul>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <b>Scope resource CIDR</b>: CIDRs from Amazon Web Services resources like VPCs, subnets, EIPs within an IPAM scope</p>
+ *                <p>If you choose this option, choose the following:</p>
+ *                <ul>
  *                   <li>
- *                      <p>Conditions for the <b>Scope resource CIDR</b> resource type:</p>
+ *                      <p>
+ *                         <b>IPAM scope</b>: Select the IPAM scope to search for resources</p>
+ *                   </li>
+ *                   <li>
+ *                      <p>
+ *                         <b>Resource type</b>: Select a resource, like a VPC or subnet.</p>
+ *                   </li>
+ *                   <li>
+ *                      <p>
+ *                         <b>Conditions</b>:</p>
  *                      <ul>
  *                         <li>
- *                            <p>Property:</p>
+ *                            <p>
+ *                               <b>Property</b>:</p>
  *                            <ul>
  *                               <li>
  *                                  <p>Resource ID: The unique ID of a resource (like vpc-1234567890abcdef0)</p>
- *                               </li>
- *                               <li>
- *                                  <p>Resource type (like VPC or Subnet)</p>
  *                               </li>
  *                               <li>
  *                                  <p>Resource owner (like 111122223333)</p>
@@ -1693,15 +1710,14 @@ export interface GetIpamPrefixListResolverRulesRequest {
  *                            </ul>
  *                         </li>
  *                         <li>
- *                            <p>Operation: Equals/Not equals</p>
+ *                            <p>
+ *                               <b>Operation</b>: Equals/Not equals</p>
  *                         </li>
  *                         <li>
- *                            <p>Value: The value on which to match the condition</p>
+ *                            <p>
+ *                               <b>Value</b>: The value on which to match the condition</p>
  *                         </li>
  *                      </ul>
- *                   </li>
- *                   <li>
- *                      <p>When setting conditions for a rule, one or more conditions is required.</p>
  *                   </li>
  *                </ul>
  *             </li>

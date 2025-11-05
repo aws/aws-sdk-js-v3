@@ -4528,7 +4528,11 @@ export interface DescribeFastSnapshotRestoresRequest {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>availability-zone</code>: The Availability Zone of the snapshot.</p>
+   *                   <code>availability-zone</code>: The Availability Zone of the snapshot. For example, <code>us-east-2a</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>availability-zone-id</code>: The ID of the Availability Zone of the snapshot. For example, <code>use2-az1</code>.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -4610,6 +4614,12 @@ export interface DescribeFastSnapshotRestoreSuccessItem {
    * @public
    */
   AvailabilityZone?: string | undefined;
+
+  /**
+   * <p>The ID of the Availability Zone.</p>
+   * @public
+   */
+  AvailabilityZoneId?: string | undefined;
 
   /**
    * <p>The state of fast snapshot restores.</p>

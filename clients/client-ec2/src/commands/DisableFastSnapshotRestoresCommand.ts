@@ -38,7 +38,10 @@ export interface DisableFastSnapshotRestoresCommandOutput extends DisableFastSna
  * const config = {}; // type is EC2ClientConfig
  * const client = new EC2Client(config);
  * const input = { // DisableFastSnapshotRestoresRequest
- *   AvailabilityZones: [ // AvailabilityZoneStringList // required
+ *   AvailabilityZones: [ // AvailabilityZoneStringList
+ *     "STRING_VALUE",
+ *   ],
+ *   AvailabilityZoneIds: [ // AvailabilityZoneIdStringList
  *     "STRING_VALUE",
  *   ],
  *   SourceSnapshotIds: [ // SnapshotIdStringList // required
@@ -53,6 +56,7 @@ export interface DisableFastSnapshotRestoresCommandOutput extends DisableFastSna
  * //     { // DisableFastSnapshotRestoreSuccessItem
  * //       SnapshotId: "STRING_VALUE",
  * //       AvailabilityZone: "STRING_VALUE",
+ * //       AvailabilityZoneId: "STRING_VALUE",
  * //       State: "enabling" || "optimizing" || "enabled" || "disabling" || "disabled",
  * //       StateTransitionReason: "STRING_VALUE",
  * //       OwnerId: "STRING_VALUE",
@@ -70,6 +74,7 @@ export interface DisableFastSnapshotRestoresCommandOutput extends DisableFastSna
  * //       FastSnapshotRestoreStateErrors: [ // DisableFastSnapshotRestoreStateErrorSet
  * //         { // DisableFastSnapshotRestoreStateErrorItem
  * //           AvailabilityZone: "STRING_VALUE",
+ * //           AvailabilityZoneId: "STRING_VALUE",
  * //           Error: { // DisableFastSnapshotRestoreStateError
  * //             Code: "STRING_VALUE",
  * //             Message: "STRING_VALUE",

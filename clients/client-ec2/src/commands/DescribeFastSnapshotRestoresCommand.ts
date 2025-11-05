@@ -59,6 +59,7 @@ export interface DescribeFastSnapshotRestoresCommandOutput
  * //     { // DescribeFastSnapshotRestoreSuccessItem
  * //       SnapshotId: "STRING_VALUE",
  * //       AvailabilityZone: "STRING_VALUE",
+ * //       AvailabilityZoneId: "STRING_VALUE",
  * //       State: "enabling" || "optimizing" || "enabled" || "disabling" || "disabled",
  * //       StateTransitionReason: "STRING_VALUE",
  * //       OwnerId: "STRING_VALUE",

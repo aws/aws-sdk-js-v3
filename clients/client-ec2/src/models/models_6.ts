@@ -3624,9 +3624,17 @@ export interface DisableFastLaunchResult {
 export interface DisableFastSnapshotRestoresRequest {
   /**
    * <p>One or more Availability Zones. For example, <code>us-east-2a</code>.</p>
+   *          <p>Either <code>AvailabilityZone</code> or <code>AvailabilityZoneId</code> must be specified in the request, but not both.</p>
    * @public
    */
-  AvailabilityZones: string[] | undefined;
+  AvailabilityZones?: string[] | undefined;
+
+  /**
+   * <p>One or more Availability Zone IDs. For example, <code>use2-az1</code>.</p>
+   *          <p>Either <code>AvailabilityZone</code> or <code>AvailabilityZoneId</code> must be specified in the request, but not both.</p>
+   * @public
+   */
+  AvailabilityZoneIds?: string[] | undefined;
 
   /**
    * <p>The IDs of one or more snapshots. For example, <code>snap-1234567890abcdef0</code>.</p>
@@ -3659,6 +3667,12 @@ export interface DisableFastSnapshotRestoreSuccessItem {
    * @public
    */
   AvailabilityZone?: string | undefined;
+
+  /**
+   * <p>The ID of the Availability Zone.</p>
+   * @public
+   */
+  AvailabilityZoneId?: string | undefined;
 
   /**
    * <p>The state of fast snapshot restores for the snapshot.</p>
@@ -3755,6 +3769,12 @@ export interface DisableFastSnapshotRestoreStateErrorItem {
    * @public
    */
   AvailabilityZone?: string | undefined;
+
+  /**
+   * <p>The ID of the Availability Zone.</p>
+   * @public
+   */
+  AvailabilityZoneId?: string | undefined;
 
   /**
    * <p>The error.</p>
@@ -5278,9 +5298,17 @@ export interface EnableFastLaunchResult {
 export interface EnableFastSnapshotRestoresRequest {
   /**
    * <p>One or more Availability Zones. For example, <code>us-east-2a</code>.</p>
+   *          <p>Either <code>AvailabilityZone</code> or <code>AvailabilityZoneId</code> must be specified in the request, but not both.</p>
    * @public
    */
-  AvailabilityZones: string[] | undefined;
+  AvailabilityZones?: string[] | undefined;
+
+  /**
+   * <p>One or more Availability Zone IDs. For example, <code>use2-az1</code>.</p>
+   *          <p>Either <code>AvailabilityZone</code> or <code>AvailabilityZoneId</code> must be specified in the request, but not both.</p>
+   * @public
+   */
+  AvailabilityZoneIds?: string[] | undefined;
 
   /**
    * <p>The IDs of one or more snapshots. For example, <code>snap-1234567890abcdef0</code>. You can specify
@@ -5314,6 +5342,12 @@ export interface EnableFastSnapshotRestoreSuccessItem {
    * @public
    */
   AvailabilityZone?: string | undefined;
+
+  /**
+   * <p>The ID of the Availability Zone.</p>
+   * @public
+   */
+  AvailabilityZoneId?: string | undefined;
 
   /**
    * <p>The state of fast snapshot restores.</p>
@@ -5410,6 +5444,12 @@ export interface EnableFastSnapshotRestoreStateErrorItem {
    * @public
    */
   AvailabilityZone?: string | undefined;
+
+  /**
+   * <p>The ID of the Availability Zone.</p>
+   * @public
+   */
+  AvailabilityZoneId?: string | undefined;
 
   /**
    * <p>The error.</p>

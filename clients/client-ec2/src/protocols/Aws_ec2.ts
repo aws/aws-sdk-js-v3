@@ -32735,6 +32735,22 @@ const se_AuthorizeSecurityGroupIngressRequest = (
 };
 
 /**
+ * serializeAws_ec2AvailabilityZoneIdStringList
+ */
+const se_AvailabilityZoneIdStringList = (input: string[], context: __SerdeContext): any => {
+  const entries: any = {};
+  let counter = 1;
+  for (const entry of input) {
+    if (entry === null) {
+      continue;
+    }
+    entries[`AvailabilityZoneId.${counter}`] = entry;
+    counter++;
+  }
+  return entries;
+};
+
+/**
  * serializeAws_ec2AvailabilityZoneStringList
  */
 const se_AvailabilityZoneStringList = (input: string[], context: __SerdeContext): any => {
@@ -45552,6 +45568,13 @@ const se_DisableFastSnapshotRestoresRequest = (
       entries[loc] = value;
     });
   }
+  if (input[_AZIv] != null) {
+    const memberEntries = se_AvailabilityZoneIdStringList(input[_AZIv], context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `AvailabilityZoneId.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
   if (input[_SSIo] != null) {
     const memberEntries = se_SnapshotIdStringList(input[_SSIo], context);
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -46526,6 +46549,13 @@ const se_EnableFastSnapshotRestoresRequest = (
     const memberEntries = se_AvailabilityZoneStringList(input[_AZv], context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `AvailabilityZone.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  if (input[_AZIv] != null) {
+    const memberEntries = se_AvailabilityZoneIdStringList(input[_AZIv], context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `AvailabilityZoneId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
     });
   }
@@ -69812,6 +69842,9 @@ const de_DescribeFastSnapshotRestoreSuccessItem = (
   if (output[_aZ] != null) {
     contents[_AZ] = __expectString(output[_aZ]);
   }
+  if (output[_aZI] != null) {
+    contents[_AZI] = __expectString(output[_aZI]);
+  }
   if (output[_st] != null) {
     contents[_Stat] = __expectString(output[_st]);
   }
@@ -72702,6 +72735,9 @@ const de_DisableFastSnapshotRestoreStateErrorItem = (
   if (output[_aZ] != null) {
     contents[_AZ] = __expectString(output[_aZ]);
   }
+  if (output[_aZI] != null) {
+    contents[_AZI] = __expectString(output[_aZI]);
+  }
   if (output[_er] != null) {
     contents[_Er] = de_DisableFastSnapshotRestoreStateError(output[_er], context);
   }
@@ -72735,6 +72771,9 @@ const de_DisableFastSnapshotRestoreSuccessItem = (
   }
   if (output[_aZ] != null) {
     contents[_AZ] = __expectString(output[_aZ]);
+  }
+  if (output[_aZI] != null) {
+    contents[_AZI] = __expectString(output[_aZI]);
   }
   if (output[_st] != null) {
     contents[_Stat] = __expectString(output[_st]);
@@ -73900,6 +73939,9 @@ const de_EnableFastSnapshotRestoreStateErrorItem = (
   if (output[_aZ] != null) {
     contents[_AZ] = __expectString(output[_aZ]);
   }
+  if (output[_aZI] != null) {
+    contents[_AZI] = __expectString(output[_aZI]);
+  }
   if (output[_er] != null) {
     contents[_Er] = de_EnableFastSnapshotRestoreStateError(output[_er], context);
   }
@@ -73933,6 +73975,9 @@ const de_EnableFastSnapshotRestoreSuccessItem = (
   }
   if (output[_aZ] != null) {
     contents[_AZ] = __expectString(output[_aZ]);
+  }
+  if (output[_aZI] != null) {
+    contents[_AZI] = __expectString(output[_aZI]);
   }
   if (output[_st] != null) {
     contents[_Stat] = __expectString(output[_st]);
