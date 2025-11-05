@@ -18,6 +18,11 @@ import {
   CreateDataflowEndpointGroupCommandOutput,
 } from "./commands/CreateDataflowEndpointGroupCommand";
 import {
+  CreateDataflowEndpointGroupV2Command,
+  CreateDataflowEndpointGroupV2CommandInput,
+  CreateDataflowEndpointGroupV2CommandOutput,
+} from "./commands/CreateDataflowEndpointGroupV2Command";
+import {
   CreateEphemerisCommand,
   CreateEphemerisCommandInput,
   CreateEphemerisCommandOutput,
@@ -62,6 +67,11 @@ import {
   GetAgentConfigurationCommandInput,
   GetAgentConfigurationCommandOutput,
 } from "./commands/GetAgentConfigurationCommand";
+import {
+  GetAgentTaskResponseUrlCommand,
+  GetAgentTaskResponseUrlCommandInput,
+  GetAgentTaskResponseUrlCommandOutput,
+} from "./commands/GetAgentTaskResponseUrlCommand";
 import { GetConfigCommand, GetConfigCommandInput, GetConfigCommandOutput } from "./commands/GetConfigCommand";
 import {
   GetDataflowEndpointGroupCommand,
@@ -161,6 +171,7 @@ const commands = {
   CancelContactCommand,
   CreateConfigCommand,
   CreateDataflowEndpointGroupCommand,
+  CreateDataflowEndpointGroupV2Command,
   CreateEphemerisCommand,
   CreateMissionProfileCommand,
   DeleteConfigCommand,
@@ -170,6 +181,7 @@ const commands = {
   DescribeContactCommand,
   DescribeEphemerisCommand,
   GetAgentConfigurationCommand,
+  GetAgentTaskResponseUrlCommand,
   GetConfigCommand,
   GetDataflowEndpointGroupCommand,
   GetMinuteUsageCommand,
@@ -231,6 +243,23 @@ export interface GroundStation {
     args: CreateDataflowEndpointGroupCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateDataflowEndpointGroupCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateDataflowEndpointGroupV2Command}
+   */
+  createDataflowEndpointGroupV2(
+    args: CreateDataflowEndpointGroupV2CommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateDataflowEndpointGroupV2CommandOutput>;
+  createDataflowEndpointGroupV2(
+    args: CreateDataflowEndpointGroupV2CommandInput,
+    cb: (err: any, data?: CreateDataflowEndpointGroupV2CommandOutput) => void
+  ): void;
+  createDataflowEndpointGroupV2(
+    args: CreateDataflowEndpointGroupV2CommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateDataflowEndpointGroupV2CommandOutput) => void
   ): void;
 
   /**
@@ -369,6 +398,23 @@ export interface GroundStation {
     args: GetAgentConfigurationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetAgentConfigurationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetAgentTaskResponseUrlCommand}
+   */
+  getAgentTaskResponseUrl(
+    args: GetAgentTaskResponseUrlCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetAgentTaskResponseUrlCommandOutput>;
+  getAgentTaskResponseUrl(
+    args: GetAgentTaskResponseUrlCommandInput,
+    cb: (err: any, data?: GetAgentTaskResponseUrlCommandOutput) => void
+  ): void;
+  getAgentTaskResponseUrl(
+    args: GetAgentTaskResponseUrlCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetAgentTaskResponseUrlCommandOutput) => void
   ): void;
 
   /**

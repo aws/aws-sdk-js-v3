@@ -229,6 +229,14 @@ CreateDataflowEndpointGroup
 </details>
 <details>
 <summary>
+CreateDataflowEndpointGroupV2
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/groundstation/command/CreateDataflowEndpointGroupV2Command/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-groundstation/Interface/CreateDataflowEndpointGroupV2CommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-groundstation/Interface/CreateDataflowEndpointGroupV2CommandOutput/)
+
+</details>
+<details>
+<summary>
 CreateEphemeris
 </summary>
 
@@ -297,6 +305,14 @@ GetAgentConfiguration
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/groundstation/command/GetAgentConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-groundstation/Interface/GetAgentConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-groundstation/Interface/GetAgentConfigurationCommandOutput/)
+
+</details>
+<details>
+<summary>
+GetAgentTaskResponseUrl
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/groundstation/command/GetAgentTaskResponseUrlCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-groundstation/Interface/GetAgentTaskResponseUrlCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-groundstation/Interface/GetAgentTaskResponseUrlCommandOutput/)
 
 </details>
 <details>

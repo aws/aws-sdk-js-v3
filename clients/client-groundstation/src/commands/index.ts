@@ -2,6 +2,7 @@
 export * from "./CancelContactCommand";
 export * from "./CreateConfigCommand";
 export * from "./CreateDataflowEndpointGroupCommand";
+export * from "./CreateDataflowEndpointGroupV2Command";
 export * from "./CreateEphemerisCommand";
 export * from "./CreateMissionProfileCommand";
 export * from "./DeleteConfigCommand";
@@ -11,6 +12,7 @@ export * from "./DeleteMissionProfileCommand";
 export * from "./DescribeContactCommand";
 export * from "./DescribeEphemerisCommand";
 export * from "./GetAgentConfigurationCommand";
+export * from "./GetAgentTaskResponseUrlCommand";
 export * from "./GetConfigCommand";
 export * from "./GetDataflowEndpointGroupCommand";
 export * from "./GetMinuteUsageCommand";

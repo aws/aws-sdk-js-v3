@@ -1528,6 +1528,94 @@ export interface UpdateConfigRequest {
 }
 
 /**
+ * <p>Connection details for Ground Station to Agent and Agent to customer</p>
+ * @public
+ */
+export interface DownlinkConnectionDetails {
+  /**
+   * <p>Ingress address of AgentEndpoint with a port range and an optional mtu.</p>
+   * @public
+   */
+  agentIpAndPortAddress: RangedConnectionDetails | undefined;
+
+  /**
+   * <p>Egress address of AgentEndpoint with an optional mtu.</p>
+   * @public
+   */
+  egressAddressAndPort: ConnectionDetails | undefined;
+}
+
+/**
+ * <p>Dataflow details for a downlink endpoint</p>
+ * @public
+ */
+export type DownlinkDataflowDetails =
+  | DownlinkDataflowDetails.AgentConnectionDetailsMember
+  | DownlinkDataflowDetails.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace DownlinkDataflowDetails {
+  /**
+   * <p>Downlink connection details for customer to Agent and Agent to Ground Station</p>
+   * @public
+   */
+  export interface AgentConnectionDetailsMember {
+    agentConnectionDetails: DownlinkConnectionDetails;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    agentConnectionDetails?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    agentConnectionDetails: (value: DownlinkConnectionDetails) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: DownlinkDataflowDetails, visitor: Visitor<T>): T => {
+    if (value.agentConnectionDetails !== undefined) return visitor.agentConnectionDetails(value.agentConnectionDetails);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * <p>Details for a downlink agent endpoint</p>
+ * @public
+ */
+export interface DownlinkAwsGroundStationAgentEndpointDetails {
+  /**
+   * <p>Downlink dataflow endpoint name</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>Dataflow details for the downlink endpoint</p>
+   * @public
+   */
+  dataflowDetails: DownlinkDataflowDetails | undefined;
+
+  /**
+   * <p>Status of the agent associated with the downlink dataflow endpoint</p>
+   * @public
+   */
+  agentStatus?: AgentStatus | undefined;
+
+  /**
+   * <p>Health audit results for the downlink dataflow endpoint</p>
+   * @public
+   */
+  auditResults?: AuditResults | undefined;
+}
+
+/**
  * @public
  * @enum
  */
@@ -1599,6 +1687,94 @@ export interface SecurityDetails {
 }
 
 /**
+ * <p>Connection details for customer to Agent and Agent to Ground Station</p>
+ * @public
+ */
+export interface UplinkConnectionDetails {
+  /**
+   * <p>Egress address of AgentEndpoint with an optional mtu.</p>
+   * @public
+   */
+  ingressAddressAndPort: ConnectionDetails | undefined;
+
+  /**
+   * <p>Ingress address of AgentEndpoint with a port range and an optional mtu.</p>
+   * @public
+   */
+  agentIpAndPortAddress: RangedConnectionDetails | undefined;
+}
+
+/**
+ * <p>Dataflow details for an uplink endpoint</p>
+ * @public
+ */
+export type UplinkDataflowDetails =
+  | UplinkDataflowDetails.AgentConnectionDetailsMember
+  | UplinkDataflowDetails.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace UplinkDataflowDetails {
+  /**
+   * <p>Uplink connection details for customer to Agent and Agent to Ground Station</p>
+   * @public
+   */
+  export interface AgentConnectionDetailsMember {
+    agentConnectionDetails: UplinkConnectionDetails;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    agentConnectionDetails?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    agentConnectionDetails: (value: UplinkConnectionDetails) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: UplinkDataflowDetails, visitor: Visitor<T>): T => {
+    if (value.agentConnectionDetails !== undefined) return visitor.agentConnectionDetails(value.agentConnectionDetails);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * <p>Details for an uplink agent endpoint</p>
+ * @public
+ */
+export interface UplinkAwsGroundStationAgentEndpointDetails {
+  /**
+   * <p>Uplink dataflow endpoint name</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>Dataflow details for the uplink endpoint</p>
+   * @public
+   */
+  dataflowDetails: UplinkDataflowDetails | undefined;
+
+  /**
+   * <p>Status of the agent associated with the uplink dataflow endpoint</p>
+   * @public
+   */
+  agentStatus?: AgentStatus | undefined;
+
+  /**
+   * <p>Health audit results for the uplink dataflow endpoint</p>
+   * @public
+   */
+  auditResults?: AuditResults | undefined;
+}
+
+/**
  * <p>Information about the endpoint details.</p>
  * @public
  */
@@ -1620,6 +1796,18 @@ export interface EndpointDetails {
    * @public
    */
   awsGroundStationAgentEndpoint?: AwsGroundStationAgentEndpoint | undefined;
+
+  /**
+   * <p>Definition for an uplink agent endpoint</p>
+   * @public
+   */
+  uplinkAwsGroundStationAgentEndpoint?: UplinkAwsGroundStationAgentEndpointDetails | undefined;
+
+  /**
+   * <p>Definition for a downlink agent endpoint</p>
+   * @public
+   */
+  downlinkAwsGroundStationAgentEndpoint?: DownlinkAwsGroundStationAgentEndpointDetails | undefined;
 
   /**
    * <p>A dataflow endpoint health status. This field is ignored when calling <code>CreateDataflowEndpointGroup</code>.</p>
@@ -2368,6 +2556,166 @@ export interface DataflowEndpointGroupIdResponse {
    * @public
    */
   dataflowEndpointGroupId?: string | undefined;
+}
+
+/**
+ * <p>Definition for a downlink agent endpoint</p>
+ * @public
+ */
+export interface DownlinkAwsGroundStationAgentEndpoint {
+  /**
+   * <p>Downlink dataflow endpoint name</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>Dataflow details for the downlink endpoint</p>
+   * @public
+   */
+  dataflowDetails: DownlinkDataflowDetails | undefined;
+}
+
+/**
+ * <p>Definition for an uplink agent endpoint</p>
+ * @public
+ */
+export interface UplinkAwsGroundStationAgentEndpoint {
+  /**
+   * <p>Uplink dataflow endpoint name</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>Dataflow details for the uplink endpoint</p>
+   * @public
+   */
+  dataflowDetails: UplinkDataflowDetails | undefined;
+}
+
+/**
+ * <p>Endpoint definition used for creating a dataflow endpoint</p>
+ * @public
+ */
+export type CreateEndpointDetails =
+  | CreateEndpointDetails.DownlinkAwsGroundStationAgentEndpointMember
+  | CreateEndpointDetails.UplinkAwsGroundStationAgentEndpointMember
+  | CreateEndpointDetails.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace CreateEndpointDetails {
+  /**
+   * <p>Definition for an uplink agent endpoint</p>
+   * @public
+   */
+  export interface UplinkAwsGroundStationAgentEndpointMember {
+    uplinkAwsGroundStationAgentEndpoint: UplinkAwsGroundStationAgentEndpoint;
+    downlinkAwsGroundStationAgentEndpoint?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Definition for a downlink agent endpoint</p>
+   * @public
+   */
+  export interface DownlinkAwsGroundStationAgentEndpointMember {
+    uplinkAwsGroundStationAgentEndpoint?: never;
+    downlinkAwsGroundStationAgentEndpoint: DownlinkAwsGroundStationAgentEndpoint;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    uplinkAwsGroundStationAgentEndpoint?: never;
+    downlinkAwsGroundStationAgentEndpoint?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    uplinkAwsGroundStationAgentEndpoint: (value: UplinkAwsGroundStationAgentEndpoint) => T;
+    downlinkAwsGroundStationAgentEndpoint: (value: DownlinkAwsGroundStationAgentEndpoint) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: CreateEndpointDetails, visitor: Visitor<T>): T => {
+    if (value.uplinkAwsGroundStationAgentEndpoint !== undefined)
+      return visitor.uplinkAwsGroundStationAgentEndpoint(value.uplinkAwsGroundStationAgentEndpoint);
+    if (value.downlinkAwsGroundStationAgentEndpoint !== undefined)
+      return visitor.downlinkAwsGroundStationAgentEndpoint(value.downlinkAwsGroundStationAgentEndpoint);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * @public
+ */
+export interface CreateDataflowEndpointGroupV2Request {
+  /**
+   * <p>Dataflow endpoint group's endpoint definitions</p>
+   * @public
+   */
+  endpoints: CreateEndpointDetails[] | undefined;
+
+  /**
+   * <p>Amount of time, in seconds, before a contact starts that the Ground Station Dataflow Endpoint Group will be in a <code>PREPASS</code> state. A Ground Station Dataflow Endpoint Group State Change event will be emitted when the Dataflow Endpoint Group enters and exits the <code>PREPASS</code> state.</p>
+   * @public
+   */
+  contactPrePassDurationSeconds?: number | undefined;
+
+  /**
+   * <p>Amount of time, in seconds, after a contact ends that the Ground Station Dataflow Endpoint Group will be in a <code>POSTPASS</code> state. A Ground Station Dataflow Endpoint Group State Change event will be emitted when the Dataflow Endpoint Group enters and exits the <code>POSTPASS</code> state.</p>
+   * @public
+   */
+  contactPostPassDurationSeconds?: number | undefined;
+
+  /**
+   * <p>Tags of a V2 dataflow endpoint group.</p>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateDataflowEndpointGroupV2Response {
+  /**
+   * <p>Dataflow endpoint group ID</p>
+   * @public
+   */
+  dataflowEndpointGroupId?: string | undefined;
+}
+
+/**
+ * <p>Request would cause a service quota to be exceeded.</p>
+ * @public
+ */
+export class ServiceQuotaExceededException extends __BaseException {
+  readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
+  readonly $fault: "client" = "client";
+  /**
+   * <p>Parameter name that caused the exception</p>
+   * @public
+   */
+  parameterName?: string | undefined;
+
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ServiceQuotaExceededException, __BaseException>) {
+    super({
+      name: "ServiceQuotaExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ServiceQuotaExceededException.prototype);
+    this.parameterName = opts.parameterName;
+  }
 }
 
 /**
@@ -3370,6 +3718,46 @@ export interface EphemerisMetaData {
    * @public
    */
   name?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetAgentTaskResponseUrlRequest {
+  /**
+   * <p>UUID of agent requesting the response URL.</p>
+   * @public
+   */
+  agentId: string | undefined;
+
+  /**
+   * <p>GUID of the agent task for which the response URL is being requested.</p>
+   * @public
+   */
+  taskId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetAgentTaskResponseUrlResponse {
+  /**
+   * <p>UUID of the agent.</p>
+   * @public
+   */
+  agentId: string | undefined;
+
+  /**
+   * <p>GUID of the agent task.</p>
+   * @public
+   */
+  taskId: string | undefined;
+
+  /**
+   * <p>Presigned URL for uploading agent task response logs.</p>
+   * @public
+   */
+  presignedLogUrl: string | undefined;
 }
 
 /**

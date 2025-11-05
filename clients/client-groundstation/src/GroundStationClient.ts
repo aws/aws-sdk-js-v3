@@ -59,6 +59,10 @@ import {
   CreateDataflowEndpointGroupCommandInput,
   CreateDataflowEndpointGroupCommandOutput,
 } from "./commands/CreateDataflowEndpointGroupCommand";
+import {
+  CreateDataflowEndpointGroupV2CommandInput,
+  CreateDataflowEndpointGroupV2CommandOutput,
+} from "./commands/CreateDataflowEndpointGroupV2Command";
 import { CreateEphemerisCommandInput, CreateEphemerisCommandOutput } from "./commands/CreateEphemerisCommand";
 import {
   CreateMissionProfileCommandInput,
@@ -80,6 +84,10 @@ import {
   GetAgentConfigurationCommandInput,
   GetAgentConfigurationCommandOutput,
 } from "./commands/GetAgentConfigurationCommand";
+import {
+  GetAgentTaskResponseUrlCommandInput,
+  GetAgentTaskResponseUrlCommandOutput,
+} from "./commands/GetAgentTaskResponseUrlCommand";
 import { GetConfigCommandInput, GetConfigCommandOutput } from "./commands/GetConfigCommand";
 import {
   GetDataflowEndpointGroupCommandInput,
@@ -134,6 +142,7 @@ export type ServiceInputTypes =
   | CancelContactCommandInput
   | CreateConfigCommandInput
   | CreateDataflowEndpointGroupCommandInput
+  | CreateDataflowEndpointGroupV2CommandInput
   | CreateEphemerisCommandInput
   | CreateMissionProfileCommandInput
   | DeleteConfigCommandInput
@@ -143,6 +152,7 @@ export type ServiceInputTypes =
   | DescribeContactCommandInput
   | DescribeEphemerisCommandInput
   | GetAgentConfigurationCommandInput
+  | GetAgentTaskResponseUrlCommandInput
   | GetConfigCommandInput
   | GetDataflowEndpointGroupCommandInput
   | GetMinuteUsageCommandInput
@@ -172,6 +182,7 @@ export type ServiceOutputTypes =
   | CancelContactCommandOutput
   | CreateConfigCommandOutput
   | CreateDataflowEndpointGroupCommandOutput
+  | CreateDataflowEndpointGroupV2CommandOutput
   | CreateEphemerisCommandOutput
   | CreateMissionProfileCommandOutput
   | DeleteConfigCommandOutput
@@ -181,6 +192,7 @@ export type ServiceOutputTypes =
   | DescribeContactCommandOutput
   | DescribeEphemerisCommandOutput
   | GetAgentConfigurationCommandOutput
+  | GetAgentTaskResponseUrlCommandOutput
   | GetConfigCommandOutput
   | GetDataflowEndpointGroupCommandOutput
   | GetMinuteUsageCommandOutput

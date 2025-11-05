@@ -39,6 +39,10 @@ import {
   CreateDataflowEndpointGroupCommandInput,
   CreateDataflowEndpointGroupCommandOutput,
 } from "../commands/CreateDataflowEndpointGroupCommand";
+import {
+  CreateDataflowEndpointGroupV2CommandInput,
+  CreateDataflowEndpointGroupV2CommandOutput,
+} from "../commands/CreateDataflowEndpointGroupV2Command";
 import { CreateEphemerisCommandInput, CreateEphemerisCommandOutput } from "../commands/CreateEphemerisCommand";
 import {
   CreateMissionProfileCommandInput,
@@ -60,6 +64,10 @@ import {
   GetAgentConfigurationCommandInput,
   GetAgentConfigurationCommandOutput,
 } from "../commands/GetAgentConfigurationCommand";
+import {
+  GetAgentTaskResponseUrlCommandInput,
+  GetAgentTaskResponseUrlCommandOutput,
+} from "../commands/GetAgentTaskResponseUrlCommand";
 import { GetConfigCommandInput, GetConfigCommandOutput } from "../commands/GetConfigCommand";
 import {
   GetDataflowEndpointGroupCommandInput,
@@ -117,12 +125,18 @@ import {
   ConnectionDetails,
   ContactData,
   ContactStatus,
+  CreateEndpointDetails,
+  DataflowDetail,
   DataflowEndpoint,
   DataflowEndpointConfig,
   DecodeConfig,
   DemodulationConfig,
   DependencyException,
   DiscoveryData,
+  DownlinkAwsGroundStationAgentEndpoint,
+  DownlinkAwsGroundStationAgentEndpointDetails,
+  DownlinkConnectionDetails,
+  DownlinkDataflowDetails,
   Eirp,
   Elevation,
   EndpointDetails,
@@ -148,6 +162,7 @@ import {
   S3RecordingConfig,
   SatelliteListItem,
   SecurityDetails,
+  ServiceQuotaExceededException,
   SocketAddress,
   SpectrumConfig,
   TimeAzEl,
@@ -156,6 +171,10 @@ import {
   TLEEphemeris,
   TrackingConfig,
   TrackingOverrides,
+  UplinkAwsGroundStationAgentEndpoint,
+  UplinkAwsGroundStationAgentEndpointDetails,
+  UplinkConnectionDetails,
+  UplinkDataflowDetails,
   UplinkEchoConfig,
   UplinkSpectrumConfig,
 } from "../models/models_0";
@@ -218,6 +237,31 @@ export const se_CreateDataflowEndpointGroupCommand = async (
       contactPostPassDurationSeconds: [],
       contactPrePassDurationSeconds: [],
       endpointDetails: (_) => _json(_),
+      tags: (_) => _json(_),
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1CreateDataflowEndpointGroupV2Command
+ */
+export const se_CreateDataflowEndpointGroupV2Command = async (
+  input: CreateDataflowEndpointGroupV2CommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/dataflowEndpointGroupV2");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      contactPostPassDurationSeconds: [],
+      contactPrePassDurationSeconds: [],
+      endpoints: (_) => _json(_),
       tags: (_) => _json(_),
     })
   );
@@ -392,6 +436,23 @@ export const se_GetAgentConfigurationCommand = async (
   const headers: any = {};
   b.bp("/agent/{agentId}/configuration");
   b.p("agentId", () => input.agentId!, "{agentId}", false);
+  let body: any;
+  b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1GetAgentTaskResponseUrlCommand
+ */
+export const se_GetAgentTaskResponseUrlCommand = async (
+  input: GetAgentTaskResponseUrlCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/agentResponseUrl/{agentId}/{taskId}");
+  b.p("agentId", () => input.agentId!, "{agentId}", false);
+  b.p("taskId", () => input.taskId!, "{taskId}", false);
   let body: any;
   b.m("GET").h(headers).b(body);
   return b.build();
@@ -922,6 +983,27 @@ export const de_CreateDataflowEndpointGroupCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1CreateDataflowEndpointGroupV2Command
+ */
+export const de_CreateDataflowEndpointGroupV2Command = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateDataflowEndpointGroupV2CommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    dataflowEndpointGroupId: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1CreateEphemerisCommand
  */
 export const de_CreateEphemerisCommand = async (
@@ -1066,7 +1148,7 @@ export const de_DescribeContactCommand = async (
   const doc = take(data, {
     contactId: __expectString,
     contactStatus: __expectString,
-    dataflowList: _json,
+    dataflowList: (_) => de_DataflowList(_, context),
     endTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     ephemeris: _json,
     errorMessage: __expectString,
@@ -1135,6 +1217,29 @@ export const de_GetAgentConfigurationCommand = async (
   const doc = take(data, {
     agentId: __expectString,
     taskingDocument: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetAgentTaskResponseUrlCommand
+ */
+export const de_GetAgentTaskResponseUrlCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetAgentTaskResponseUrlCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    agentId: __expectString,
+    presignedLogUrl: __expectString,
+    taskId: __expectString,
   });
   Object.assign(contents, doc);
   return contents;
@@ -1633,6 +1738,9 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "ResourceLimitExceededException":
     case "com.amazonaws.groundstation#ResourceLimitExceededException":
       throw await de_ResourceLimitExceededExceptionRes(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.groundstation#ServiceQuotaExceededException":
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ResourceInUseException":
     case "com.amazonaws.groundstation#ResourceInUseException":
       throw await de_ResourceInUseExceptionRes(parsedOutput, context);
@@ -1741,6 +1849,27 @@ const de_ResourceNotFoundExceptionRes = async (
   });
   Object.assign(contents, doc);
   const exception = new ResourceNotFoundException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
+};
+
+/**
+ * deserializeAws_restJson1ServiceQuotaExceededExceptionRes
+ */
+const de_ServiceQuotaExceededExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<ServiceQuotaExceededException> => {
+  const contents: any = map({});
+  const data: any = parsedOutput.body;
+  const doc = take(data, {
+    message: __expectString,
+    parameterName: __expectString,
+  });
+  Object.assign(contents, doc);
+  const exception = new ServiceQuotaExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
   });
@@ -1875,6 +2004,10 @@ const se_ConfigTypeData = (input: ConfigTypeData, context: __SerdeContext): any 
 
 // se_ConnectionDetails omitted.
 
+// se_CreateEndpointDetails omitted.
+
+// se_CreateEndpointDetailsList omitted.
+
 // se_DataflowEdge omitted.
 
 // se_DataflowEdgeList omitted.
@@ -1888,6 +2021,14 @@ const se_ConfigTypeData = (input: ConfigTypeData, context: __SerdeContext): any 
 // se_DemodulationConfig omitted.
 
 // se_DiscoveryData omitted.
+
+// se_DownlinkAwsGroundStationAgentEndpoint omitted.
+
+// se_DownlinkAwsGroundStationAgentEndpointDetails omitted.
+
+// se_DownlinkConnectionDetails omitted.
+
+// se_DownlinkDataflowDetails omitted.
 
 /**
  * serializeAws_restJson1Eirp
@@ -2060,6 +2201,14 @@ const se_TLEEphemeris = (input: TLEEphemeris, context: __SerdeContext): any => {
 
 // se_TrackingOverrides omitted.
 
+// se_UplinkAwsGroundStationAgentEndpoint omitted.
+
+// se_UplinkAwsGroundStationAgentEndpointDetails omitted.
+
+// se_UplinkConnectionDetails omitted.
+
+// se_UplinkDataflowDetails omitted.
+
 // se_UplinkEchoConfig omitted.
 
 /**
@@ -2219,13 +2368,29 @@ const de_ContactList = (output: any, context: __SerdeContext): ContactData[] => 
 
 // de_DataflowEndpointListItem omitted.
 
-// de_DataflowList omitted.
+/**
+ * deserializeAws_restJson1DataflowList
+ */
+const de_DataflowList = (output: any, context: __SerdeContext): DataflowDetail[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return _json(entry);
+    });
+  return retVal;
+};
 
 // de_DecodeConfig omitted.
 
 // de_DemodulationConfig omitted.
 
 // de_Destination omitted.
+
+// de_DownlinkAwsGroundStationAgentEndpointDetails omitted.
+
+// de_DownlinkConnectionDetails omitted.
+
+// de_DownlinkDataflowDetails omitted.
 
 /**
  * deserializeAws_restJson1Eirp
@@ -2398,6 +2563,12 @@ const de_SpectrumConfig = (output: any, context: __SerdeContext): SpectrumConfig
 // de_TrackingConfig omitted.
 
 // de_TrackingOverrides omitted.
+
+// de_UplinkAwsGroundStationAgentEndpointDetails omitted.
+
+// de_UplinkConnectionDetails omitted.
+
+// de_UplinkDataflowDetails omitted.
 
 // de_UplinkEchoConfig omitted.
 

@@ -108,6 +108,52 @@ export interface DescribeContactCommandOutput extends DescribeContactResponse, _
  * //               agentStatus: "SUCCESS" || "FAILED" || "ACTIVE" || "INACTIVE",
  * //               auditResults: "HEALTHY" || "UNHEALTHY",
  * //             },
+ * //             uplinkAwsGroundStationAgentEndpoint: { // UplinkAwsGroundStationAgentEndpointDetails
+ * //               name: "STRING_VALUE", // required
+ * //               dataflowDetails: { // UplinkDataflowDetails Union: only one key present
+ * //                 agentConnectionDetails: { // UplinkConnectionDetails
+ * //                   ingressAddressAndPort: {
+ * //                     socketAddress: "<SocketAddress>", // required
+ * //                     mtu: Number("int"),
+ * //                   },
+ * //                   agentIpAndPortAddress: {
+ * //                     socketAddress: {
+ * //                       name: "STRING_VALUE", // required
+ * //                       portRange: {
+ * //                         minimum: Number("int"), // required
+ * //                         maximum: Number("int"), // required
+ * //                       },
+ * //                     },
+ * //                     mtu: Number("int"),
+ * //                   },
+ * //                 },
+ * //               },
+ * //               agentStatus: "SUCCESS" || "FAILED" || "ACTIVE" || "INACTIVE",
+ * //               auditResults: "HEALTHY" || "UNHEALTHY",
+ * //             },
+ * //             downlinkAwsGroundStationAgentEndpoint: { // DownlinkAwsGroundStationAgentEndpointDetails
+ * //               name: "STRING_VALUE", // required
+ * //               dataflowDetails: { // DownlinkDataflowDetails Union: only one key present
+ * //                 agentConnectionDetails: { // DownlinkConnectionDetails
+ * //                   agentIpAndPortAddress: {
+ * //                     socketAddress: {
+ * //                       name: "STRING_VALUE", // required
+ * //                       portRange: {
+ * //                         minimum: Number("int"), // required
+ * //                         maximum: Number("int"), // required
+ * //                       },
+ * //                     },
+ * //                     mtu: Number("int"),
+ * //                   },
+ * //                   egressAddressAndPort: {
+ * //                     socketAddress: "<SocketAddress>", // required
+ * //                     mtu: Number("int"),
+ * //                   },
+ * //                 },
+ * //               },
+ * //               agentStatus: "SUCCESS" || "FAILED" || "ACTIVE" || "INACTIVE",
+ * //               auditResults: "HEALTHY" || "UNHEALTHY",
+ * //             },
  * //             healthStatus: "HEALTHY" || "UNHEALTHY",
  * //             healthReasons: [ // CapabilityHealthReasonList
  * //               "NO_REGISTERED_AGENT" || "INVALID_IP_OWNERSHIP" || "NOT_AUTHORIZED_TO_CREATE_SLR" || "UNVERIFIED_IP_OWNERSHIP" || "INITIALIZING_DATAPLANE" || "DATAPLANE_FAILURE" || "HEALTHY",
@@ -139,20 +185,14 @@ export interface DescribeContactCommandOutput extends DescribeContactResponse, _
  * //             },
  * //             endpoint: {
  * //               name: "STRING_VALUE",
- * //               address: {
- * //                 name: "STRING_VALUE", // required
- * //                 port: Number("int"), // required
- * //               },
+ * //               address: "<SocketAddress>",
  * //               status: "created" || "creating" || "deleted" || "deleting" || "failed",
  * //               mtu: Number("int"),
  * //             },
  * //             awsGroundStationAgentEndpoint: {
  * //               name: "STRING_VALUE", // required
  * //               egressAddress: {
- * //                 socketAddress: {
- * //                   name: "STRING_VALUE", // required
- * //                   port: Number("int"), // required
- * //                 },
+ * //                 socketAddress: "<SocketAddress>", // required
  * //                 mtu: Number("int"),
  * //               },
  * //               ingressAddress: {
@@ -164,6 +204,40 @@ export interface DescribeContactCommandOutput extends DescribeContactResponse, _
  * //                   },
  * //                 },
  * //                 mtu: Number("int"),
+ * //               },
+ * //               agentStatus: "SUCCESS" || "FAILED" || "ACTIVE" || "INACTIVE",
+ * //               auditResults: "HEALTHY" || "UNHEALTHY",
+ * //             },
+ * //             uplinkAwsGroundStationAgentEndpoint: {
+ * //               name: "STRING_VALUE", // required
+ * //               dataflowDetails: {//  Union: only one key present
+ * //                 agentConnectionDetails: {
+ * //                   ingressAddressAndPort: {
+ * //                     socketAddress: "<SocketAddress>", // required
+ * //                     mtu: Number("int"),
+ * //                   },
+ * //                   agentIpAndPortAddress: {
+ * //                     socketAddress: {
+ * //                       name: "STRING_VALUE", // required
+ * //                       portRange: {
+ * //                         minimum: Number("int"), // required
+ * //                         maximum: Number("int"), // required
+ * //                       },
+ * //                     },
+ * //                     mtu: Number("int"),
+ * //                   },
+ * //                 },
+ * //               },
+ * //               agentStatus: "SUCCESS" || "FAILED" || "ACTIVE" || "INACTIVE",
+ * //               auditResults: "HEALTHY" || "UNHEALTHY",
+ * //             },
+ * //             downlinkAwsGroundStationAgentEndpoint: {
+ * //               name: "STRING_VALUE", // required
+ * //               dataflowDetails: {//  Union: only one key present
+ * //                 agentConnectionDetails: {
+ * //                   agentIpAndPortAddress: "<RangedConnectionDetails>", // required
+ * //                   egressAddressAndPort: "<ConnectionDetails>", // required
+ * //                 },
  * //               },
  * //               agentStatus: "SUCCESS" || "FAILED" || "ACTIVE" || "INACTIVE",
  * //               auditResults: "HEALTHY" || "UNHEALTHY",
