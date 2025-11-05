@@ -32,7 +32,7 @@ allprojects {
         mavenCentral()
     }
     group = "software.amazon.smithy.typescript"
-    version = "0.36.1"
+    version = "0.37.0"
 }
 
 // The root project doesn't produce a JAR.
