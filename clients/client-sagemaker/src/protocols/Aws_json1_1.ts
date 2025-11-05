@@ -1137,7 +1137,6 @@ import {
   ClusterMetadata,
   ClusterNodeDetails,
   ClusterNodeSummary,
-  ClusterOrchestrator,
   ClusterOrchestratorEksConfig,
   CodeEditorAppImageConfig,
   CompressionType,
@@ -1228,6 +1227,7 @@ import {
   WorkspaceSettings,
 } from "../models/models_0";
 import {
+  ClusterOrchestrator,
   ClusterRestrictedInstanceGroupDetails,
   ClusterRestrictedInstanceGroupSpecification,
   ClusterSchedulerConfigSummary,
@@ -1319,7 +1319,6 @@ import {
   CreateInferenceExperimentResponse,
   CreateInferenceRecommendationsJobRequest,
   CreateInferenceRecommendationsJobResponse,
-  CreateLabelingJobRequest,
   CustomFileSystemConfig,
   CustomImage,
   CustomPosixUserConfig,
@@ -1470,6 +1469,7 @@ import {
   VectorConfig,
 } from "../models/models_1";
 import {
+  CreateLabelingJobRequest,
   CreateLabelingJobResponse,
   CreateMlflowTrackingServerRequest,
   CreateMlflowTrackingServerResponse,
@@ -1638,7 +1638,6 @@ import {
   DescribeAutoMLJobV2Request,
   DescribeAutoMLJobV2Response,
   DescribeClusterRequest,
-  DescribeClusterResponse,
   DriftCheckBaselines,
   DriftCheckBias,
   DriftCheckExplainability,
@@ -1747,6 +1746,7 @@ import {
   DescribeClusterEventResponse,
   DescribeClusterNodeRequest,
   DescribeClusterNodeResponse,
+  DescribeClusterResponse,
   DescribeClusterSchedulerConfigRequest,
   DescribeClusterSchedulerConfigResponse,
   DescribeCodeRepositoryInput,
@@ -1965,7 +1965,6 @@ import {
   RStudioServerProDomainSettingsForUpdate,
   SageMakerResourceName,
   ScalingPolicy,
-  ScalingPolicyObjective,
   SecondaryStatusTransition,
   SelectedStep,
   SelectiveExecutionConfig,
@@ -2168,7 +2167,6 @@ import {
   ListTransformJobsResponse,
   ListTrialComponentsRequest,
   ListTrialComponentsResponse,
-  ListTrialsRequest,
   ModelCardExportJobSummary,
   ModelCardSummary,
   ModelCardVersionSummary,
@@ -2206,6 +2204,7 @@ import {
   RegisterModelStepMetadata,
   ResourceCatalog,
   ScalingPolicyMetric,
+  ScalingPolicyObjective,
   SelectiveExecutionResult,
   SpaceDetails,
   SpaceSettingsSummary,
@@ -2223,6 +2222,7 @@ import {
   TuningJobStepMetaData,
 } from "../models/models_4";
 import {
+  ListTrialsRequest,
   ListTrialsResponse,
   ListUltraServersByReservedCapacityRequest,
   ListUltraServersByReservedCapacityResponse,
@@ -20224,6 +20224,7 @@ const de_ClusterEventSummary = (output: any, context: __SerdeContext): ClusterEv
  */
 const de_ClusterInstanceGroupDetails = (output: any, context: __SerdeContext): ClusterInstanceGroupDetails => {
   return take(output, {
+    ActiveSoftwareUpdateConfig: (_: any) => de_DeploymentConfiguration(_, context),
     CurrentCount: __expectInt32,
     CurrentImageId: __expectString,
     DesiredImageId: __expectString,
@@ -20235,8 +20236,10 @@ const de_ClusterInstanceGroupDetails = (output: any, context: __SerdeContext): C
     OnStartDeepHealthChecks: (_: any) => de_OnStartDeepHealthChecks(_, context),
     OverrideVpcConfig: (_: any) => de_VpcConfig(_, context),
     ScheduledUpdateConfig: (_: any) => de_ScheduledUpdateConfig(_, context),
+    SoftwareUpdateStatus: __expectString,
     Status: __expectString,
     TargetCount: __expectInt32,
+    TargetStateCount: __expectInt32,
     ThreadsPerCore: __expectInt32,
     TrainingPlanArn: __expectString,
     TrainingPlanStatus: __expectString,

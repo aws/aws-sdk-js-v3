@@ -5,7 +5,8 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DescribeClusterRequest, DescribeClusterResponse } from "../models/models_2";
+import { DescribeClusterRequest } from "../models/models_2";
+import { DescribeClusterResponse } from "../models/models_3";
 import { de_DescribeClusterCommand, se_DescribeClusterCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
@@ -106,6 +107,26 @@ export interface DescribeClusterCommandOutput extends DescribeClusterResponse, _
  * //       },
  * //       CurrentImageId: "STRING_VALUE",
  * //       DesiredImageId: "STRING_VALUE",
+ * //       TargetStateCount: Number("int"),
+ * //       SoftwareUpdateStatus: "Pending" || "InProgress" || "Succeeded" || "Failed" || "RollbackInProgress" || "RollbackComplete",
+ * //       ActiveSoftwareUpdateConfig: {
+ * //         RollingUpdatePolicy: {
+ * //           MaximumBatchSize: {
+ * //             Type: "INSTANCE_COUNT" || "CAPACITY_PERCENTAGE", // required
+ * //             Value: Number("int"), // required
+ * //           },
+ * //           RollbackMaximumBatchSize: {
+ * //             Type: "INSTANCE_COUNT" || "CAPACITY_PERCENTAGE", // required
+ * //             Value: Number("int"), // required
+ * //           },
+ * //         },
+ * //         WaitIntervalInSeconds: Number("int"),
+ * //         AutoRollbackConfiguration: [
+ * //           {
+ * //             AlarmName: "STRING_VALUE", // required
+ * //           },
+ * //         ],
+ * //       },
  * //     },
  * //   ],
  * //   RestrictedInstanceGroups: [ // ClusterRestrictedInstanceGroupDetailsList
@@ -147,10 +168,7 @@ export interface DescribeClusterCommandOutput extends DescribeClusterResponse, _
  * //               Type: "INSTANCE_COUNT" || "CAPACITY_PERCENTAGE", // required
  * //               Value: Number("int"), // required
  * //             },
- * //             RollbackMaximumBatchSize: {
- * //               Type: "INSTANCE_COUNT" || "CAPACITY_PERCENTAGE", // required
- * //               Value: Number("int"), // required
- * //             },
+ * //             RollbackMaximumBatchSize: "<CapacitySizeConfig>",
  * //           },
  * //           WaitIntervalInSeconds: Number("int"),
  * //           AutoRollbackConfiguration: [

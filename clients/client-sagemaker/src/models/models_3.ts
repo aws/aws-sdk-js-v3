@@ -21,8 +21,12 @@ import {
   CfnTemplateProviderDetail,
   Channel,
   CheckpointConfig,
+  ClusterAutoScalingConfigOutput,
   ClusterEventDetail,
+  ClusterInstanceGroupDetails,
   ClusterNodeDetails,
+  ClusterNodeProvisioningMode,
+  ClusterNodeRecovery,
   InferenceSpecification,
   ModelApprovalStatus,
   ModelPackageStatus,
@@ -43,6 +47,10 @@ import {
 
 import {
   _InstanceType,
+  ClusterOrchestrator,
+  ClusterRestrictedInstanceGroupDetails,
+  ClusterStatus,
+  ClusterTieredStorageConfig,
   CognitoConfig,
   CompilationJobStatus,
   ComputeQuotaConfig,
@@ -198,6 +206,95 @@ import {
   WorkerAccessConfiguration,
   WorkforceIpAddressType,
 } from "./models_2";
+
+/**
+ * @public
+ */
+export interface DescribeClusterResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the SageMaker HyperPod cluster.</p>
+   * @public
+   */
+  ClusterArn: string | undefined;
+
+  /**
+   * <p>The name of the SageMaker HyperPod cluster.</p>
+   * @public
+   */
+  ClusterName?: string | undefined;
+
+  /**
+   * <p>The status of the SageMaker HyperPod cluster.</p>
+   * @public
+   */
+  ClusterStatus: ClusterStatus | undefined;
+
+  /**
+   * <p>The time when the SageMaker Cluster is created.</p>
+   * @public
+   */
+  CreationTime?: Date | undefined;
+
+  /**
+   * <p>The failure message of the SageMaker HyperPod cluster.</p>
+   * @public
+   */
+  FailureMessage?: string | undefined;
+
+  /**
+   * <p>The instance groups of the SageMaker HyperPod cluster.</p>
+   * @public
+   */
+  InstanceGroups: ClusterInstanceGroupDetails[] | undefined;
+
+  /**
+   * <p>The specialized instance groups for training models like Amazon Nova to be created in the SageMaker HyperPod cluster.</p>
+   * @public
+   */
+  RestrictedInstanceGroups?: ClusterRestrictedInstanceGroupDetails[] | undefined;
+
+  /**
+   * <p>Specifies an Amazon Virtual Private Cloud (VPC) that your SageMaker jobs, hosted models, and compute resources have access to. You can control access to and from your resources by configuring a VPC. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/infrastructure-give-access.html">Give SageMaker Access to Resources in your Amazon VPC</a>. </p>
+   * @public
+   */
+  VpcConfig?: VpcConfig | undefined;
+
+  /**
+   * <p>The type of orchestrator used for the SageMaker HyperPod cluster. </p>
+   * @public
+   */
+  Orchestrator?: ClusterOrchestrator | undefined;
+
+  /**
+   * <p>The current configuration for managed tier checkpointing on the HyperPod cluster. For example, this shows whether the feature is enabled and the percentage of cluster memory allocated for checkpoint storage.</p>
+   * @public
+   */
+  TieredStorageConfig?: ClusterTieredStorageConfig | undefined;
+
+  /**
+   * <p>The node recovery mode configured for the SageMaker HyperPod cluster.</p>
+   * @public
+   */
+  NodeRecovery?: ClusterNodeRecovery | undefined;
+
+  /**
+   * <p>The mode used for provisioning nodes in the cluster.</p>
+   * @public
+   */
+  NodeProvisioningMode?: ClusterNodeProvisioningMode | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM role that HyperPod uses for cluster autoscaling operations.</p>
+   * @public
+   */
+  ClusterRole?: string | undefined;
+
+  /**
+   * <p>The current autoscaling configuration and status for the autoscaler.</p>
+   * @public
+   */
+  AutoScaling?: ClusterAutoScalingConfigOutput | undefined;
+}
 
 /**
  * @public
@@ -10575,24 +10672,6 @@ export interface GetSagemakerServicecatalogPortfolioStatusOutput {
    * @public
    */
   Status?: SagemakerServicecatalogStatus | undefined;
-}
-
-/**
- * <p>An object where you specify the anticipated traffic pattern for an endpoint.</p>
- * @public
- */
-export interface ScalingPolicyObjective {
-  /**
-   * <p>The minimum number of expected requests to your endpoint per minute.</p>
-   * @public
-   */
-  MinInvocationsPerMinute?: number | undefined;
-
-  /**
-   * <p>The maximum number of expected requests to your endpoint per minute.</p>
-   * @public
-   */
-  MaxInvocationsPerMinute?: number | undefined;
 }
 
 /**

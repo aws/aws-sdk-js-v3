@@ -131,7 +131,6 @@ import {
   RecommendationMetrics,
   ReservedCapacitySummary,
   SageMakerResourceName,
-  ScalingPolicyObjective,
   ScheduleStatus,
   SecondaryStatus,
   SpaceStatus,
@@ -145,6 +144,24 @@ import {
   WarmPoolResourceStatus,
   WarmPoolStatus,
 } from "./models_3";
+
+/**
+ * <p>An object where you specify the anticipated traffic pattern for an endpoint.</p>
+ * @public
+ */
+export interface ScalingPolicyObjective {
+  /**
+   * <p>The minimum number of expected requests to your endpoint per minute.</p>
+   * @public
+   */
+  MinInvocationsPerMinute?: number | undefined;
+
+  /**
+   * <p>The maximum number of expected requests to your endpoint per minute.</p>
+   * @public
+   */
+  MaxInvocationsPerMinute?: number | undefined;
+}
 
 /**
  * @public
@@ -9671,56 +9688,3 @@ export const SortTrialsBy = {
  * @public
  */
 export type SortTrialsBy = (typeof SortTrialsBy)[keyof typeof SortTrialsBy];
-
-/**
- * @public
- */
-export interface ListTrialsRequest {
-  /**
-   * <p>A filter that returns only trials that are part of the specified experiment.</p>
-   * @public
-   */
-  ExperimentName?: string | undefined;
-
-  /**
-   * <p>A filter that returns only trials that are associated with the specified trial component.</p>
-   * @public
-   */
-  TrialComponentName?: string | undefined;
-
-  /**
-   * <p>A filter that returns only trials created after the specified time.</p>
-   * @public
-   */
-  CreatedAfter?: Date | undefined;
-
-  /**
-   * <p>A filter that returns only trials created before the specified time.</p>
-   * @public
-   */
-  CreatedBefore?: Date | undefined;
-
-  /**
-   * <p>The property used to sort results. The default value is <code>CreationTime</code>.</p>
-   * @public
-   */
-  SortBy?: SortTrialsBy | undefined;
-
-  /**
-   * <p>The sort order. The default value is <code>Descending</code>.</p>
-   * @public
-   */
-  SortOrder?: SortOrder | undefined;
-
-  /**
-   * <p>The maximum number of trials to return in the response. The default value is 10.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>If the previous call to <code>ListTrials</code> didn't return the full set of trials, the call returns a token for getting the next set of trials.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}

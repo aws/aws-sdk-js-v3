@@ -7207,6 +7207,48 @@ export interface ClusterEventSummary {
 }
 
 /**
+ * <p>The configurations that SageMaker uses when updating the AMI versions.</p>
+ * @public
+ */
+export interface RollingDeploymentPolicy {
+  /**
+   * <p>The maximum amount of instances in the cluster that SageMaker can update at a time.</p>
+   * @public
+   */
+  MaximumBatchSize: CapacitySizeConfig | undefined;
+
+  /**
+   * <p>The maximum amount of instances in the cluster that SageMaker can roll back at a time.</p>
+   * @public
+   */
+  RollbackMaximumBatchSize?: CapacitySizeConfig | undefined;
+}
+
+/**
+ * <p>The configuration to use when updating the AMI versions.</p>
+ * @public
+ */
+export interface DeploymentConfiguration {
+  /**
+   * <p>The policy that SageMaker uses when updating the AMI versions of the cluster. </p>
+   * @public
+   */
+  RollingUpdatePolicy?: RollingDeploymentPolicy | undefined;
+
+  /**
+   * <p>The duration in seconds that SageMaker waits before updating more instances in the cluster.</p>
+   * @public
+   */
+  WaitIntervalInSeconds?: number | undefined;
+
+  /**
+   * <p>An array that contains the alarms that SageMaker monitors to know whether to roll back the AMI update.</p>
+   * @public
+   */
+  AutoRollbackConfiguration?: AlarmDetails[] | undefined;
+}
+
+/**
  * <p>Defines the configuration for attaching additional storage to the instances in the SageMaker HyperPod cluster instance group. To learn more, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-hyperpod-release-notes.html#sagemaker-hyperpod-release-notes-20240620">SageMaker HyperPod release notes: June 20, 2024</a>.</p>
  * @public
  */
@@ -7404,48 +7446,6 @@ export const DeepHealthCheckType = {
 export type DeepHealthCheckType = (typeof DeepHealthCheckType)[keyof typeof DeepHealthCheckType];
 
 /**
- * <p>The configurations that SageMaker uses when updating the AMI versions.</p>
- * @public
- */
-export interface RollingDeploymentPolicy {
-  /**
-   * <p>The maximum amount of instances in the cluster that SageMaker can update at a time.</p>
-   * @public
-   */
-  MaximumBatchSize: CapacitySizeConfig | undefined;
-
-  /**
-   * <p>The maximum amount of instances in the cluster that SageMaker can roll back at a time.</p>
-   * @public
-   */
-  RollbackMaximumBatchSize?: CapacitySizeConfig | undefined;
-}
-
-/**
- * <p>The configuration to use when updating the AMI versions.</p>
- * @public
- */
-export interface DeploymentConfiguration {
-  /**
-   * <p>The policy that SageMaker uses when updating the AMI versions of the cluster. </p>
-   * @public
-   */
-  RollingUpdatePolicy?: RollingDeploymentPolicy | undefined;
-
-  /**
-   * <p>The duration in seconds that SageMaker waits before updating more instances in the cluster.</p>
-   * @public
-   */
-  WaitIntervalInSeconds?: number | undefined;
-
-  /**
-   * <p>An array that contains the alarms that SageMaker monitors to know whether to roll back the AMI update.</p>
-   * @public
-   */
-  AutoRollbackConfiguration?: AlarmDetails[] | undefined;
-}
-
-/**
  * <p>The configuration object of the schedule that SageMaker follows when updating the AMI.</p>
  * @public
  */
@@ -7462,6 +7462,24 @@ export interface ScheduledUpdateConfig {
    */
   DeploymentConfig?: DeploymentConfiguration | undefined;
 }
+
+/**
+ * @public
+ * @enum
+ */
+export const SoftwareUpdateStatus = {
+  FAILED: "Failed",
+  IN_PROGRESS: "InProgress",
+  PENDING: "Pending",
+  ROLLBACK_COMPLETE: "RollbackComplete",
+  ROLLBACK_IN_PROGRESS: "RollbackInProgress",
+  SUCCEEDED: "Succeeded",
+} as const;
+
+/**
+ * @public
+ */
+export type SoftwareUpdateStatus = (typeof SoftwareUpdateStatus)[keyof typeof SoftwareUpdateStatus];
 
 /**
  * @public
@@ -7582,6 +7600,24 @@ export interface ClusterInstanceGroupDetails {
    * @public
    */
   DesiredImageId?: string | undefined;
+
+  /**
+   * <p>The number of nodes running a specific image ID since the last software update request.</p>
+   * @public
+   */
+  TargetStateCount?: number | undefined;
+
+  /**
+   * <p>Status of the last software udpate request.</p>
+   * @public
+   */
+  SoftwareUpdateStatus?: SoftwareUpdateStatus | undefined;
+
+  /**
+   * <p>The configuration to use when updating the AMI versions.</p>
+   * @public
+   */
+  ActiveSoftwareUpdateConfig?: DeploymentConfiguration | undefined;
 }
 
 /**
@@ -7916,16 +7952,4 @@ export interface ClusterOrchestratorEksConfig {
    * @public
    */
   ClusterArn: string | undefined;
-}
-
-/**
- * <p>The type of orchestrator used for the SageMaker HyperPod cluster.</p>
- * @public
- */
-export interface ClusterOrchestrator {
-  /**
-   * <p>The Amazon EKS cluster used as the orchestrator for the SageMaker HyperPod cluster.</p>
-   * @public
-   */
-  Eks: ClusterOrchestratorEksConfig | undefined;
 }
