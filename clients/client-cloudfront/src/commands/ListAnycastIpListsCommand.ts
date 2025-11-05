@@ -53,6 +53,8 @@ export interface ListAnycastIpListsCommandOutput extends ListAnycastIpListsResul
  * //         Arn: "STRING_VALUE", // required
  * //         IpCount: Number("int"), // required
  * //         LastModifiedTime: new Date("TIMESTAMP"), // required
+ * //         IpAddressType: "ipv4" || "ipv6" || "dualstack",
+ * //         ETag: "STRING_VALUE",
  * //       },
  * //     ],
  * //     Marker: "STRING_VALUE", // required

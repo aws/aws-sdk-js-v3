@@ -261,6 +261,21 @@ export interface AllowedMethods {
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const IpAddressType = {
+  DualStack: "dualstack",
+  Ipv4: "ipv4",
+  Ipv6: "ipv6",
+} as const;
+
+/**
+ * @public
+ */
+export type IpAddressType = (typeof IpAddressType)[keyof typeof IpAddressType];
+
+/**
  * <p>An Anycast static IP list. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/request-static-ips.html">Request Anycast static IPs to use for allowlisting</a> in the <i>Amazon CloudFront Developer Guide</i>.</p>
  * @public
  */
@@ -288,6 +303,12 @@ export interface AnycastIpList {
    * @public
    */
   Arn: string | undefined;
+
+  /**
+   * <p>The IP address type for the Anycast static IP list.</p>
+   * @public
+   */
+  IpAddressType?: IpAddressType | undefined;
 
   /**
    * <p>The static IP addresses that are allocated to the Anycast static IP list.</p>
@@ -348,6 +369,18 @@ export interface AnycastIpListSummary {
    * @public
    */
   LastModifiedTime: Date | undefined;
+
+  /**
+   * <p>The IP address type for the Anycast static IP list.</p>
+   * @public
+   */
+  IpAddressType?: IpAddressType | undefined;
+
+  /**
+   * <p>The current version (ETag value) of the Anycast static IP list.</p>
+   * @public
+   */
+  ETag?: string | undefined;
 }
 
 /**
@@ -2006,21 +2039,6 @@ export interface CustomHeaders {
  * @public
  * @enum
  */
-export const IpAddressType = {
-  DualStack: "dualstack",
-  Ipv4: "ipv4",
-  Ipv6: "ipv6",
-} as const;
-
-/**
- * @public
- */
-export type IpAddressType = (typeof IpAddressType)[keyof typeof IpAddressType];
-
-/**
- * @public
- * @enum
- */
 export const OriginProtocolPolicy = {
   http_only: "http-only",
   https_only: "https-only",
@@ -2160,6 +2178,12 @@ export interface VpcOriginConfig {
    * @public
    */
   VpcOriginId: string | undefined;
+
+  /**
+   * <p>The account ID of the Amazon Web Services account that owns the VPC origin.</p>
+   * @public
+   */
+  OwnerAccountId?: string | undefined;
 
   /**
    * <p>Specifies how long, in seconds, CloudFront waits for a response from the origin. This is also known as the <i>origin response timeout</i>. The minimum timeout is 1 second, the maximum is 120 seconds, and the default (if you don't specify otherwise) is 30 seconds.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/DownloadDistValuesOrigin.html#DownloadDistValuesOriginResponseTimeout">Response timeout</a> in the <i>Amazon CloudFront Developer Guide</i>.</p>
@@ -4032,6 +4056,12 @@ export interface CreateAnycastIpListRequest {
    * @public
    */
   Tags?: Tags | undefined;
+
+  /**
+   * <p>The IP address type for the Anycast static IP list. You can specify one of the following options:</p> <ul> <li> <p> <code>ipv4</code> - Allocate a list of only IPv4 addresses</p> </li> <li> <p> <code>ipv6</code> - Allocate a list of only IPv4 addresses</p> </li> <li> <p> <code>dualstack</code> - Allocate a list of both IPv4 and IPv6 addresses</p> </li> </ul>
+   * @public
+   */
+  IpAddressType?: IpAddressType | undefined;
 }
 
 /**

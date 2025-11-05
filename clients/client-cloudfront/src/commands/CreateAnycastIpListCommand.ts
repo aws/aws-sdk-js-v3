@@ -48,6 +48,7 @@ export interface CreateAnycastIpListCommandOutput extends CreateAnycastIpListRes
  *       },
  *     ],
  *   },
+ *   IpAddressType: "ipv4" || "ipv6" || "dualstack",
  * };
  * const command = new CreateAnycastIpListCommand(input);
  * const response = await client.send(command);
@@ -57,6 +58,7 @@ export interface CreateAnycastIpListCommandOutput extends CreateAnycastIpListRes
  * //     Name: "STRING_VALUE", // required
  * //     Status: "STRING_VALUE", // required
  * //     Arn: "STRING_VALUE", // required
+ * //     IpAddressType: "ipv4" || "ipv6" || "dualstack",
  * //     AnycastIps: [ // AnycastIps // required
  * //       "STRING_VALUE",
  * //     ],

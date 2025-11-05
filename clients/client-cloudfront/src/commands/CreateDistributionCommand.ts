@@ -88,6 +88,7 @@ export interface CreateDistributionCommandOutput extends CreateDistributionResul
  *           },
  *           VpcOriginConfig: { // VpcOriginConfig
  *             VpcOriginId: "STRING_VALUE", // required
+ *             OwnerAccountId: "STRING_VALUE",
  *             OriginReadTimeout: Number("int"),
  *             OriginKeepaliveTimeout: Number("int"),
  *           },
@@ -447,6 +448,7 @@ export interface CreateDistributionCommandOutput extends CreateDistributionResul
  * //             },
  * //             VpcOriginConfig: { // VpcOriginConfig
  * //               VpcOriginId: "STRING_VALUE", // required
+ * //               OwnerAccountId: "STRING_VALUE",
  * //               OriginReadTimeout: Number("int"),
  * //               OriginKeepaliveTimeout: Number("int"),
  * //             },

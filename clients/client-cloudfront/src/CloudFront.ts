@@ -229,6 +229,11 @@ import {
   DeleteRealtimeLogConfigCommandOutput,
 } from "./commands/DeleteRealtimeLogConfigCommand";
 import {
+  DeleteResourcePolicyCommand,
+  DeleteResourcePolicyCommandInput,
+  DeleteResourcePolicyCommandOutput,
+} from "./commands/DeleteResourcePolicyCommand";
+import {
   DeleteResponseHeadersPolicyCommand,
   DeleteResponseHeadersPolicyCommandInput,
   DeleteResponseHeadersPolicyCommandOutput,
@@ -411,6 +416,11 @@ import {
   GetRealtimeLogConfigCommandOutput,
 } from "./commands/GetRealtimeLogConfigCommand";
 import {
+  GetResourcePolicyCommand,
+  GetResourcePolicyCommandInput,
+  GetResourcePolicyCommandOutput,
+} from "./commands/GetResourcePolicyCommand";
+import {
   GetResponseHeadersPolicyCommand,
   GetResponseHeadersPolicyCommandInput,
   GetResponseHeadersPolicyCommandOutput,
@@ -490,6 +500,11 @@ import {
   ListDistributionsByOriginRequestPolicyIdCommandInput,
   ListDistributionsByOriginRequestPolicyIdCommandOutput,
 } from "./commands/ListDistributionsByOriginRequestPolicyIdCommand";
+import {
+  ListDistributionsByOwnedResourceCommand,
+  ListDistributionsByOwnedResourceCommandInput,
+  ListDistributionsByOwnedResourceCommandOutput,
+} from "./commands/ListDistributionsByOwnedResourceCommand";
 import {
   ListDistributionsByRealtimeLogConfigCommand,
   ListDistributionsByRealtimeLogConfigCommandInput,
@@ -610,6 +625,11 @@ import {
   PublishFunctionCommandInput,
   PublishFunctionCommandOutput,
 } from "./commands/PublishFunctionCommand";
+import {
+  PutResourcePolicyCommand,
+  PutResourcePolicyCommandInput,
+  PutResourcePolicyCommandOutput,
+} from "./commands/PutResourcePolicyCommand";
 import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
   TestFunctionCommand,
@@ -621,6 +641,11 @@ import {
   UntagResourceCommandInput,
   UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
+import {
+  UpdateAnycastIpListCommand,
+  UpdateAnycastIpListCommandInput,
+  UpdateAnycastIpListCommandOutput,
+} from "./commands/UpdateAnycastIpListCommand";
 import {
   UpdateCachePolicyCommand,
   UpdateCachePolicyCommandInput,
@@ -773,6 +798,7 @@ const commands = {
   DeleteOriginRequestPolicyCommand,
   DeletePublicKeyCommand,
   DeleteRealtimeLogConfigCommand,
+  DeleteResourcePolicyCommand,
   DeleteResponseHeadersPolicyCommand,
   DeleteStreamingDistributionCommand,
   DeleteVpcOriginCommand,
@@ -811,6 +837,7 @@ const commands = {
   GetPublicKeyCommand,
   GetPublicKeyConfigCommand,
   GetRealtimeLogConfigCommand,
+  GetResourcePolicyCommand,
   GetResponseHeadersPolicyCommand,
   GetResponseHeadersPolicyConfigCommand,
   GetStreamingDistributionCommand,
@@ -828,6 +855,7 @@ const commands = {
   ListDistributionsByConnectionModeCommand,
   ListDistributionsByKeyGroupCommand,
   ListDistributionsByOriginRequestPolicyIdCommand,
+  ListDistributionsByOwnedResourceCommand,
   ListDistributionsByRealtimeLogConfigCommand,
   ListDistributionsByResponseHeadersPolicyIdCommand,
   ListDistributionsByVpcOriginIdCommand,
@@ -851,9 +879,11 @@ const commands = {
   ListTagsForResourceCommand,
   ListVpcOriginsCommand,
   PublishFunctionCommand,
+  PutResourcePolicyCommand,
   TagResourceCommand,
   TestFunctionCommand,
   UntagResourceCommand,
+  UpdateAnycastIpListCommand,
   UpdateCachePolicyCommand,
   UpdateCloudFrontOriginAccessIdentityCommand,
   UpdateConnectionGroupCommand,
@@ -1621,6 +1651,23 @@ export interface CloudFront {
   ): void;
 
   /**
+   * @see {@link DeleteResourcePolicyCommand}
+   */
+  deleteResourcePolicy(
+    args: DeleteResourcePolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteResourcePolicyCommandOutput>;
+  deleteResourcePolicy(
+    args: DeleteResourcePolicyCommandInput,
+    cb: (err: any, data?: DeleteResourcePolicyCommandOutput) => void
+  ): void;
+  deleteResourcePolicy(
+    args: DeleteResourcePolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteResourcePolicyCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DeleteResponseHeadersPolicyCommand}
    */
   deleteResponseHeadersPolicy(
@@ -2238,6 +2285,23 @@ export interface CloudFront {
   ): void;
 
   /**
+   * @see {@link GetResourcePolicyCommand}
+   */
+  getResourcePolicy(
+    args: GetResourcePolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetResourcePolicyCommandOutput>;
+  getResourcePolicy(
+    args: GetResourcePolicyCommandInput,
+    cb: (err: any, data?: GetResourcePolicyCommandOutput) => void
+  ): void;
+  getResourcePolicy(
+    args: GetResourcePolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetResourcePolicyCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetResponseHeadersPolicyCommand}
    */
   getResponseHeadersPolicy(
@@ -2524,6 +2588,23 @@ export interface CloudFront {
     args: ListDistributionsByOriginRequestPolicyIdCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListDistributionsByOriginRequestPolicyIdCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListDistributionsByOwnedResourceCommand}
+   */
+  listDistributionsByOwnedResource(
+    args: ListDistributionsByOwnedResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListDistributionsByOwnedResourceCommandOutput>;
+  listDistributionsByOwnedResource(
+    args: ListDistributionsByOwnedResourceCommandInput,
+    cb: (err: any, data?: ListDistributionsByOwnedResourceCommandOutput) => void
+  ): void;
+  listDistributionsByOwnedResource(
+    args: ListDistributionsByOwnedResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListDistributionsByOwnedResourceCommandOutput) => void
   ): void;
 
   /**
@@ -2912,6 +2993,23 @@ export interface CloudFront {
   ): void;
 
   /**
+   * @see {@link PutResourcePolicyCommand}
+   */
+  putResourcePolicy(
+    args: PutResourcePolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutResourcePolicyCommandOutput>;
+  putResourcePolicy(
+    args: PutResourcePolicyCommandInput,
+    cb: (err: any, data?: PutResourcePolicyCommandOutput) => void
+  ): void;
+  putResourcePolicy(
+    args: PutResourcePolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutResourcePolicyCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link TagResourceCommand}
    */
   tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
@@ -2942,6 +3040,23 @@ export interface CloudFront {
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateAnycastIpListCommand}
+   */
+  updateAnycastIpList(
+    args: UpdateAnycastIpListCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateAnycastIpListCommandOutput>;
+  updateAnycastIpList(
+    args: UpdateAnycastIpListCommandInput,
+    cb: (err: any, data?: UpdateAnycastIpListCommandOutput) => void
+  ): void;
+  updateAnycastIpList(
+    args: UpdateAnycastIpListCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateAnycastIpListCommandOutput) => void
   ): void;
 
   /**

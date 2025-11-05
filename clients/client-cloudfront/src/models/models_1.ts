@@ -1712,6 +1712,12 @@ export interface VpcOrigin {
   Arn: string | undefined;
 
   /**
+   * <p>The account ID of the Amazon Web Services account that owns the VPC origin.</p>
+   * @public
+   */
+  AccountId?: string | undefined;
+
+  /**
    * <p>The VPC origin status.</p>
    * @public
    */
@@ -2421,6 +2427,17 @@ export class RealtimeLogConfigInUse extends __BaseException {
     Object.setPrototypeOf(this, RealtimeLogConfigInUse.prototype);
     this.Message = opts.Message;
   }
+}
+
+/**
+ * @public
+ */
+export interface DeleteResourcePolicyRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the CloudFront resource for which the resource policy should be deleted.</p>
+   * @public
+   */
+  ResourceArn: string | undefined;
 }
 
 /**
@@ -3664,6 +3681,34 @@ export interface GetRealtimeLogConfigResult {
 /**
  * @public
  */
+export interface GetResourcePolicyRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the CloudFront resource that is associated with the resource policy.</p>
+   * @public
+   */
+  ResourceArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetResourcePolicyResult {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the CloudFront resource that is associated with the resource policy.</p>
+   * @public
+   */
+  ResourceArn?: string | undefined;
+
+  /**
+   * <p>The resource policy in JSON format.</p>
+   * @public
+   */
+  PolicyDocument?: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface GetResponseHeadersPolicyRequest {
   /**
    * <p>The identifier for the response headers policy.</p> <p>If the response headers policy is attached to a distribution's cache behavior, you can get the policy's identifier using <code>ListDistributions</code> or <code>GetDistribution</code>. If the response headers policy is not attached to a cache behavior, you can get the identifier using <code>ListResponseHeadersPolicies</code>.</p>
@@ -4683,6 +4728,100 @@ export interface ListDistributionsByOriginRequestPolicyIdResult {
    * @public
    */
   DistributionIdList?: DistributionIdList | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListDistributionsByOwnedResourceRequest {
+  /**
+   * <p>The ARN of the CloudFront resource that you've shared with other Amazon Web Services accounts.</p>
+   * @public
+   */
+  ResourceArn: string | undefined;
+
+  /**
+   * <p>Use this field when paginating results to indicate where to begin in your list of distributions. The response includes distributions in the list that occur after the marker. To get the next page of the list, set this field's value to the value of <code>NextMarker</code> from the current page's response.</p>
+   * @public
+   */
+  Marker?: string | undefined;
+
+  /**
+   * <p>The maximum number of distributions to return.</p>
+   * @public
+   */
+  MaxItems?: number | undefined;
+}
+
+/**
+ * <p>A structure that pairs a CloudFront distribution ID with its owning Amazon Web Services account ID.</p>
+ * @public
+ */
+export interface DistributionIdOwner {
+  /**
+   * <p>The ID of the distribution.</p>
+   * @public
+   */
+  DistributionId: string | undefined;
+
+  /**
+   * <p>The ID of the Amazon Web Services account that owns the distribution. </p>
+   * @public
+   */
+  OwnerAccountId: string | undefined;
+}
+
+/**
+ * <p>The list of distribution IDs and the Amazon Web Services accounts that they belong to.</p>
+ * @public
+ */
+export interface DistributionIdOwnerList {
+  /**
+   * <p>Use this field when paginating results to indicate where to begin in your list of <code>DistributionIdOwner</code> objects. The response includes distributions in the list that occur after the marker. To get the next page of the list, set this field's value to the value of <code>NextMarker</code> from the current page's response.</p>
+   * @public
+   */
+  Marker: string | undefined;
+
+  /**
+   * <p>A token used for pagination of results returned in the response. You can use the token from the previous request to define where the current request should begin.</p>
+   * @public
+   */
+  NextMarker?: string | undefined;
+
+  /**
+   * <p>The maximum number of <code>DistributionIdOwner</code> objects to return.</p>
+   * @public
+   */
+  MaxItems: number | undefined;
+
+  /**
+   * <p>A flag that indicates whether more <code>DistributionIdOwner</code> objects remain to be listed. If your results were truncated, you can make a follow-up pagination request using the <code>Marker</code> request parameter to retrieve more results in the list.</p>
+   * @public
+   */
+  IsTruncated: boolean | undefined;
+
+  /**
+   * <p>Specifies the actual number of <code>DistributionIdOwner</code> objects included in the list for the current page.</p>
+   * @public
+   */
+  Quantity: number | undefined;
+
+  /**
+   * <p>The number of <code>DistributionIdOwner</code> objects.</p>
+   * @public
+   */
+  Items?: DistributionIdOwner[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListDistributionsByOwnedResourceResult {
+  /**
+   * <p>The list of distributions that are using the shared resource.</p>
+   * @public
+   */
+  DistributionList?: DistributionIdOwnerList | undefined;
 }
 
 /**
@@ -5994,131 +6133,6 @@ export interface RealtimeLogConfigs {
    * @public
    */
   NextMarker?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListRealtimeLogConfigsResult {
-  /**
-   * <p>A list of real-time log configurations.</p>
-   * @public
-   */
-  RealtimeLogConfigs?: RealtimeLogConfigs | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const ResponseHeadersPolicyType = {
-  custom: "custom",
-  managed: "managed",
-} as const;
-
-/**
- * @public
- */
-export type ResponseHeadersPolicyType = (typeof ResponseHeadersPolicyType)[keyof typeof ResponseHeadersPolicyType];
-
-/**
- * @public
- */
-export interface ListResponseHeadersPoliciesRequest {
-  /**
-   * <p>A filter to get only the specified kind of response headers policies. Valid values are:</p> <ul> <li> <p> <code>managed</code> – Gets only the managed policies created by Amazon Web Services.</p> </li> <li> <p> <code>custom</code> – Gets only the custom policies created in your Amazon Web Services account.</p> </li> </ul>
-   * @public
-   */
-  Type?: ResponseHeadersPolicyType | undefined;
-
-  /**
-   * <p>Use this field when paginating results to indicate where to begin in your list of response headers policies. The response includes response headers policies in the list that occur after the marker. To get the next page of the list, set this field's value to the value of <code>NextMarker</code> from the current page's response.</p>
-   * @public
-   */
-  Marker?: string | undefined;
-
-  /**
-   * <p>The maximum number of response headers policies that you want to get in the response.</p>
-   * @public
-   */
-  MaxItems?: number | undefined;
-}
-
-/**
- * <p>Contains a response headers policy.</p>
- * @public
- */
-export interface ResponseHeadersPolicySummary {
-  /**
-   * <p>The type of response headers policy, either <code>managed</code> (created by Amazon Web Services) or <code>custom</code> (created in this Amazon Web Services account).</p>
-   * @public
-   */
-  Type: ResponseHeadersPolicyType | undefined;
-
-  /**
-   * <p>The response headers policy.</p>
-   * @public
-   */
-  ResponseHeadersPolicy: ResponseHeadersPolicy | undefined;
-}
-
-/**
- * <p>A list of response headers policies.</p>
- * @public
- */
-export interface ResponseHeadersPolicyList {
-  /**
-   * <p>If there are more items in the list than are in this response, this element is present. It contains the value that you should use in the <code>Marker</code> field of a subsequent request to continue listing response headers policies where you left off.</p>
-   * @public
-   */
-  NextMarker?: string | undefined;
-
-  /**
-   * <p>The maximum number of response headers policies requested.</p>
-   * @public
-   */
-  MaxItems: number | undefined;
-
-  /**
-   * <p>The number of response headers policies returned.</p>
-   * @public
-   */
-  Quantity: number | undefined;
-
-  /**
-   * <p>The response headers policies in the list.</p>
-   * @public
-   */
-  Items?: ResponseHeadersPolicySummary[] | undefined;
-}
-
-/**
- * @public
- */
-export interface ListResponseHeadersPoliciesResult {
-  /**
-   * <p>A list of response headers policies.</p>
-   * @public
-   */
-  ResponseHeadersPolicyList?: ResponseHeadersPolicyList | undefined;
-}
-
-/**
- * <p>The request to list your streaming distributions.</p>
- * @public
- */
-export interface ListStreamingDistributionsRequest {
-  /**
-   * <p>The value that you provided for the <code>Marker</code> request parameter.</p>
-   * @public
-   */
-  Marker?: string | undefined;
-
-  /**
-   * <p>The value that you provided for the <code>MaxItems</code> request parameter.</p>
-   * @public
-   */
-  MaxItems?: number | undefined;
 }
 
 /**

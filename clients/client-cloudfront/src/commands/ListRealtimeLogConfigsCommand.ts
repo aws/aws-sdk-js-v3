@@ -6,7 +6,8 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListRealtimeLogConfigsRequest, ListRealtimeLogConfigsResult } from "../models/models_1";
+import { ListRealtimeLogConfigsRequest } from "../models/models_1";
+import { ListRealtimeLogConfigsResult } from "../models/models_2";
 import { de_ListRealtimeLogConfigsCommand, se_ListRealtimeLogConfigsCommand } from "../protocols/Aws_restXml";
 
 /**

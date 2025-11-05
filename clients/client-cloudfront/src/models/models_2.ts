@@ -5,6 +5,7 @@ import { CloudFrontServiceException as __BaseException } from "./CloudFrontServi
 
 import {
   Aliases,
+  AnycastIpList,
   CachePolicy,
   CachePolicyConfig,
   CloudFrontOriginAccessIdentity,
@@ -26,6 +27,7 @@ import {
   FunctionConfig,
   FunctionStage,
   FunctionSummary,
+  IpAddressType,
   KeyGroup,
   KeyGroupConfig,
   KeyValueStore,
@@ -46,6 +48,7 @@ import {
   PublicKey,
   PublicKeyConfig,
   RealtimeLogConfig,
+  RealtimeLogConfigs,
   ResponseHeadersPolicy,
   ResponseHeadersPolicyConfig,
   S3Origin,
@@ -54,6 +57,131 @@ import {
   VpcOrigin,
   VpcOriginEndpointConfig,
 } from "./models_1";
+
+/**
+ * @public
+ */
+export interface ListRealtimeLogConfigsResult {
+  /**
+   * <p>A list of real-time log configurations.</p>
+   * @public
+   */
+  RealtimeLogConfigs?: RealtimeLogConfigs | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ResponseHeadersPolicyType = {
+  custom: "custom",
+  managed: "managed",
+} as const;
+
+/**
+ * @public
+ */
+export type ResponseHeadersPolicyType = (typeof ResponseHeadersPolicyType)[keyof typeof ResponseHeadersPolicyType];
+
+/**
+ * @public
+ */
+export interface ListResponseHeadersPoliciesRequest {
+  /**
+   * <p>A filter to get only the specified kind of response headers policies. Valid values are:</p> <ul> <li> <p> <code>managed</code> – Gets only the managed policies created by Amazon Web Services.</p> </li> <li> <p> <code>custom</code> – Gets only the custom policies created in your Amazon Web Services account.</p> </li> </ul>
+   * @public
+   */
+  Type?: ResponseHeadersPolicyType | undefined;
+
+  /**
+   * <p>Use this field when paginating results to indicate where to begin in your list of response headers policies. The response includes response headers policies in the list that occur after the marker. To get the next page of the list, set this field's value to the value of <code>NextMarker</code> from the current page's response.</p>
+   * @public
+   */
+  Marker?: string | undefined;
+
+  /**
+   * <p>The maximum number of response headers policies that you want to get in the response.</p>
+   * @public
+   */
+  MaxItems?: number | undefined;
+}
+
+/**
+ * <p>Contains a response headers policy.</p>
+ * @public
+ */
+export interface ResponseHeadersPolicySummary {
+  /**
+   * <p>The type of response headers policy, either <code>managed</code> (created by Amazon Web Services) or <code>custom</code> (created in this Amazon Web Services account).</p>
+   * @public
+   */
+  Type: ResponseHeadersPolicyType | undefined;
+
+  /**
+   * <p>The response headers policy.</p>
+   * @public
+   */
+  ResponseHeadersPolicy: ResponseHeadersPolicy | undefined;
+}
+
+/**
+ * <p>A list of response headers policies.</p>
+ * @public
+ */
+export interface ResponseHeadersPolicyList {
+  /**
+   * <p>If there are more items in the list than are in this response, this element is present. It contains the value that you should use in the <code>Marker</code> field of a subsequent request to continue listing response headers policies where you left off.</p>
+   * @public
+   */
+  NextMarker?: string | undefined;
+
+  /**
+   * <p>The maximum number of response headers policies requested.</p>
+   * @public
+   */
+  MaxItems: number | undefined;
+
+  /**
+   * <p>The number of response headers policies returned.</p>
+   * @public
+   */
+  Quantity: number | undefined;
+
+  /**
+   * <p>The response headers policies in the list.</p>
+   * @public
+   */
+  Items?: ResponseHeadersPolicySummary[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListResponseHeadersPoliciesResult {
+  /**
+   * <p>A list of response headers policies.</p>
+   * @public
+   */
+  ResponseHeadersPolicyList?: ResponseHeadersPolicyList | undefined;
+}
+
+/**
+ * <p>The request to list your streaming distributions.</p>
+ * @public
+ */
+export interface ListStreamingDistributionsRequest {
+  /**
+   * <p>The value that you provided for the <code>Marker</code> request parameter.</p>
+   * @public
+   */
+  Marker?: string | undefined;
+
+  /**
+   * <p>The value that you provided for the <code>MaxItems</code> request parameter.</p>
+   * @public
+   */
+  MaxItems?: number | undefined;
+}
 
 /**
  * <p>A summary of the information for a CloudFront streaming distribution.</p>
@@ -264,6 +392,12 @@ export interface VpcOriginSummary {
   Arn: string | undefined;
 
   /**
+   * <p>The account ID of the Amazon Web Services account that owns the VPC origin.</p>
+   * @public
+   */
+  AccountId?: string | undefined;
+
+  /**
    * <p>The VPC origin summary origin endpoint ARN.</p>
    * @public
    */
@@ -349,6 +483,34 @@ export interface PublishFunctionResult {
    * @public
    */
   FunctionSummary?: FunctionSummary | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PutResourcePolicyRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the CloudFront resource for which the policy is being created.</p>
+   * @public
+   */
+  ResourceArn: string | undefined;
+
+  /**
+   * <p>The JSON-formatted resource policy to create.</p>
+   * @public
+   */
+  PolicyDocument: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PutResourcePolicyResult {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the CloudFront resource for which the policy was created.</p>
+   * @public
+   */
+  ResourceArn?: string | undefined;
 }
 
 /**
@@ -495,6 +657,46 @@ export interface UntagResourceRequest {
    * @public
    */
   TagKeys: TagKeys | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateAnycastIpListRequest {
+  /**
+   * <p>The ID of the Anycast static IP list.</p>
+   * @public
+   */
+  Id: string | undefined;
+
+  /**
+   * <p>The IP address type for the Anycast static IP list. You can specify one of the following options:</p> <ul> <li> <p> <code>ipv4</code> - Allocate a list of only IPv4 addresses</p> </li> <li> <p> <code>ipv6</code> - Allocate a list of only IPv4 addresses</p> </li> <li> <p> <code>dualstack</code> - Allocate a list of both IPv4 and IPv6 addresses</p> </li> </ul>
+   * @public
+   */
+  IpAddressType?: IpAddressType | undefined;
+
+  /**
+   * <p>The current version (ETag value) of the Anycast static IP list that you are updating.</p>
+   * @public
+   */
+  IfMatch: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateAnycastIpListResult {
+  /**
+   * <p>An Anycast static IP list. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/request-static-ips.html">Request Anycast static IPs to use for allowlisting</a> in the <i>Amazon CloudFront Developer Guide</i>.</p>
+   * @public
+   */
+  AnycastIpList?: AnycastIpList | undefined;
+
+  /**
+   * <p>The current version of the Anycast static IP list.</p>
+   * @public
+   */
+  ETag?: string | undefined;
 }
 
 /**

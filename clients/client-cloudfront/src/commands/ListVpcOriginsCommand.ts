@@ -58,6 +58,7 @@ export interface ListVpcOriginsCommandOutput extends ListVpcOriginsResult, __Met
  * //         CreatedTime: new Date("TIMESTAMP"), // required
  * //         LastModifiedTime: new Date("TIMESTAMP"), // required
  * //         Arn: "STRING_VALUE", // required
+ * //         AccountId: "STRING_VALUE",
  * //         OriginEndpointArn: "STRING_VALUE", // required
  * //       },
  * //     ],

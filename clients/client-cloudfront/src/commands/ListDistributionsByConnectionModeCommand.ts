@@ -110,6 +110,7 @@ export interface ListDistributionsByConnectionModeCommandOutput
  * //               },
  * //               VpcOriginConfig: { // VpcOriginConfig
  * //                 VpcOriginId: "STRING_VALUE", // required
+ * //                 OwnerAccountId: "STRING_VALUE",
  * //                 OriginReadTimeout: Number("int"),
  * //                 OriginKeepaliveTimeout: Number("int"),
  * //               },

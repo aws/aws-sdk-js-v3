@@ -166,6 +166,10 @@ import {
   DeleteRealtimeLogConfigCommandOutput,
 } from "../commands/DeleteRealtimeLogConfigCommand";
 import {
+  DeleteResourcePolicyCommandInput,
+  DeleteResourcePolicyCommandOutput,
+} from "../commands/DeleteResourcePolicyCommand";
+import {
   DeleteResponseHeadersPolicyCommandInput,
   DeleteResponseHeadersPolicyCommandOutput,
 } from "../commands/DeleteResponseHeadersPolicyCommand";
@@ -281,6 +285,7 @@ import {
   GetRealtimeLogConfigCommandInput,
   GetRealtimeLogConfigCommandOutput,
 } from "../commands/GetRealtimeLogConfigCommand";
+import { GetResourcePolicyCommandInput, GetResourcePolicyCommandOutput } from "../commands/GetResourcePolicyCommand";
 import {
   GetResponseHeadersPolicyCommandInput,
   GetResponseHeadersPolicyCommandOutput,
@@ -336,6 +341,10 @@ import {
   ListDistributionsByOriginRequestPolicyIdCommandInput,
   ListDistributionsByOriginRequestPolicyIdCommandOutput,
 } from "../commands/ListDistributionsByOriginRequestPolicyIdCommand";
+import {
+  ListDistributionsByOwnedResourceCommandInput,
+  ListDistributionsByOwnedResourceCommandOutput,
+} from "../commands/ListDistributionsByOwnedResourceCommand";
 import {
   ListDistributionsByRealtimeLogConfigCommandInput,
   ListDistributionsByRealtimeLogConfigCommandOutput,
@@ -408,9 +417,14 @@ import {
 } from "../commands/ListTagsForResourceCommand";
 import { ListVpcOriginsCommandInput, ListVpcOriginsCommandOutput } from "../commands/ListVpcOriginsCommand";
 import { PublishFunctionCommandInput, PublishFunctionCommandOutput } from "../commands/PublishFunctionCommand";
+import { PutResourcePolicyCommandInput, PutResourcePolicyCommandOutput } from "../commands/PutResourcePolicyCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import { TestFunctionCommandInput, TestFunctionCommandOutput } from "../commands/TestFunctionCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
+import {
+  UpdateAnycastIpListCommandInput,
+  UpdateAnycastIpListCommandOutput,
+} from "../commands/UpdateAnycastIpListCommand";
 import { UpdateCachePolicyCommandInput, UpdateCachePolicyCommandOutput } from "../commands/UpdateCachePolicyCommand";
 import {
   UpdateCloudFrontOriginAccessIdentityCommandInput,
@@ -719,6 +733,8 @@ import {
   ContinuousDeploymentPolicyList,
   ContinuousDeploymentPolicySummary,
   DistributionIdList,
+  DistributionIdOwner,
+  DistributionIdOwnerList,
   DistributionList,
   DistributionNotDisabled,
   DistributionResourceId,
@@ -789,14 +805,12 @@ import {
   ResponseHeadersPolicyCustomHeadersConfig,
   ResponseHeadersPolicyFrameOptions,
   ResponseHeadersPolicyInUse,
-  ResponseHeadersPolicyList,
   ResponseHeadersPolicyReferrerPolicy,
   ResponseHeadersPolicyRemoveHeader,
   ResponseHeadersPolicyRemoveHeadersConfig,
   ResponseHeadersPolicySecurityHeadersConfig,
   ResponseHeadersPolicyServerTimingHeadersConfig,
   ResponseHeadersPolicyStrictTransportSecurity,
-  ResponseHeadersPolicySummary,
   ResponseHeadersPolicyXSSProtection,
   S3Origin,
   StreamingDistribution,
@@ -824,6 +838,8 @@ import {
 } from "../models/models_1";
 import {
   DnsConfiguration,
+  ResponseHeadersPolicyList,
+  ResponseHeadersPolicySummary,
   StreamingDistributionList,
   StreamingDistributionSummary,
   TagKeys,
@@ -950,6 +966,7 @@ export const se_CreateAnycastIpListCommand = async (
   body = _ve;
   const bn = new __XmlNode(_CAILR);
   bn.a("xmlns", "http://cloudfront.amazonaws.com/doc/2020-05-31/");
+  bn.cc(input, _IAT);
   if (input[_IC] != null) {
     bn.c(__XmlNode.of(_i, String(input[_IC])).n(_IC));
   }
@@ -1891,6 +1908,30 @@ export const se_DeleteRealtimeLogConfigCommand = async (
 };
 
 /**
+ * serializeAws_restXmlDeleteResourcePolicyCommand
+ */
+export const se_DeleteResourcePolicyCommand = async (
+  input: DeleteResourcePolicyCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/xml",
+  };
+  b.bp("/2020-05-31/delete-resource-policy");
+  let body: any;
+  body = _ve;
+  const bn = new __XmlNode(_DRPR);
+  bn.a("xmlns", "http://cloudfront.amazonaws.com/doc/2020-05-31/");
+  if (input[_RA] != null) {
+    bn.c(__XmlNode.of(_s, input[_RA]).n(_RA));
+  }
+  body += bn.toString();
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restXmlDeleteResponseHeadersPolicyCommand
  */
 export const se_DeleteResponseHeadersPolicyCommand = async (
@@ -2532,6 +2573,30 @@ export const se_GetRealtimeLogConfigCommand = async (
 };
 
 /**
+ * serializeAws_restXmlGetResourcePolicyCommand
+ */
+export const se_GetResourcePolicyCommand = async (
+  input: GetResourcePolicyCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/xml",
+  };
+  b.bp("/2020-05-31/get-resource-policy");
+  let body: any;
+  body = _ve;
+  const bn = new __XmlNode(_GRPR);
+  bn.a("xmlns", "http://cloudfront.amazonaws.com/doc/2020-05-31/");
+  if (input[_RA] != null) {
+    bn.c(__XmlNode.of(_s, input[_RA]).n(_RA));
+  }
+  body += bn.toString();
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restXmlGetResponseHeadersPolicyCommand
  */
 export const se_GetResponseHeadersPolicyCommand = async (
@@ -2849,6 +2914,26 @@ export const se_ListDistributionsByOriginRequestPolicyIdCommand = async (
   const headers: any = {};
   b.bp("/2020-05-31/distributionsByOriginRequestPolicyId/{OriginRequestPolicyId}");
   b.p("OriginRequestPolicyId", () => input.OriginRequestPolicyId!, "{OriginRequestPolicyId}", false);
+  const query: any = map({
+    [_M]: [, input[_M]!],
+    [_MI]: [() => input.MaxItems !== void 0, () => input[_MI]!.toString()],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restXmlListDistributionsByOwnedResourceCommand
+ */
+export const se_ListDistributionsByOwnedResourceCommand = async (
+  input: ListDistributionsByOwnedResourceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/2020-05-31/distributionsByOwnedResource/{ResourceArn}");
+  b.p("ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
   const query: any = map({
     [_M]: [, input[_M]!],
     [_MI]: [() => input.MaxItems !== void 0, () => input[_MI]!.toString()],
@@ -3356,6 +3441,33 @@ export const se_PublishFunctionCommand = async (
 };
 
 /**
+ * serializeAws_restXmlPutResourcePolicyCommand
+ */
+export const se_PutResourcePolicyCommand = async (
+  input: PutResourcePolicyCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/xml",
+  };
+  b.bp("/2020-05-31/put-resource-policy");
+  let body: any;
+  body = _ve;
+  const bn = new __XmlNode(_PRPR);
+  bn.a("xmlns", "http://cloudfront.amazonaws.com/doc/2020-05-31/");
+  if (input[_PD] != null) {
+    bn.c(__XmlNode.of(_s, input[_PD]).n(_PD));
+  }
+  if (input[_RA] != null) {
+    bn.c(__XmlNode.of(_s, input[_RA]).n(_RA));
+  }
+  body += bn.toString();
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restXmlTagResourceCommand
  */
 export const se_TagResourceCommand = async (
@@ -3437,6 +3549,30 @@ export const se_UntagResourceCommand = async (
     body += contents.toString();
   }
   b.m("POST").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restXmlUpdateAnycastIpListCommand
+ */
+export const se_UpdateAnycastIpListCommand = async (
+  input: UpdateAnycastIpListCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = map({}, isSerializableHeaderValue, {
+    "content-type": "application/xml",
+    [_im]: input[_IM]!,
+  });
+  b.bp("/2020-05-31/anycast-ip-list/{Id}");
+  b.p("Id", () => input.Id!, "{Id}", false);
+  let body: any;
+  body = _ve;
+  const bn = new __XmlNode(_UAILR);
+  bn.a("xmlns", "http://cloudfront.amazonaws.com/doc/2020-05-31/");
+  bn.cc(input, _IAT);
+  body += bn.toString();
+  b.m("PUT").h(headers).b(body);
   return b.build();
 };
 
@@ -4861,6 +4997,23 @@ export const de_DeleteRealtimeLogConfigCommand = async (
 };
 
 /**
+ * deserializeAws_restXmlDeleteResourcePolicyCommand
+ */
+export const de_DeleteResourcePolicyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteResourcePolicyCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
  * deserializeAws_restXmlDeleteResponseHeadersPolicyCommand
  */
 export const de_DeleteResponseHeadersPolicyCommand = async (
@@ -5581,6 +5734,29 @@ export const de_GetRealtimeLogConfigCommand = async (
 };
 
 /**
+ * deserializeAws_restXmlGetResourcePolicyCommand
+ */
+export const de_GetResourcePolicyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetResourcePolicyCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data[_PD] != null) {
+    contents[_PD] = __expectString(data[_PD]);
+  }
+  if (data[_RA] != null) {
+    contents[_RA] = __expectString(data[_RA]);
+  }
+  return contents;
+};
+
+/**
  * deserializeAws_restXmlGetResponseHeadersPolicyCommand
  */
 export const de_GetResponseHeadersPolicyCommand = async (
@@ -5895,6 +6071,24 @@ export const de_ListDistributionsByOriginRequestPolicyIdCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.DistributionIdList = de_DistributionIdList(data, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restXmlListDistributionsByOwnedResourceCommand
+ */
+export const de_ListDistributionsByOwnedResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListDistributionsByOwnedResourceCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
+  contents.DistributionList = de_DistributionIdOwnerList(data, context);
   return contents;
 };
 
@@ -6334,6 +6528,26 @@ export const de_PublishFunctionCommand = async (
 };
 
 /**
+ * deserializeAws_restXmlPutResourcePolicyCommand
+ */
+export const de_PutResourcePolicyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutResourcePolicyCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data[_RA] != null) {
+    contents[_RA] = __expectString(data[_RA]);
+  }
+  return contents;
+};
+
+/**
  * deserializeAws_restXmlTagResourceCommand
  */
 export const de_TagResourceCommand = async (
@@ -6382,6 +6596,25 @@ export const de_UntagResourceCommand = async (
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restXmlUpdateAnycastIpListCommand
+ */
+export const de_UpdateAnycastIpListCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateAnycastIpListCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+    [_ET]: [, output.headers[_e]],
+  });
+  const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
+  contents.AnycastIpList = de_AnycastIpList(data, context);
   return contents;
 };
 
@@ -11588,7 +11821,7 @@ const se_Parameter = (input: Parameter, context: __SerdeContext): any => {
  * serializeAws_restXmlParameterDefinition
  */
 const se_ParameterDefinition = (input: ParameterDefinition, context: __SerdeContext): any => {
-  const bn = new __XmlNode(_PD);
+  const bn = new __XmlNode(_PDa);
   if (input[_N] != null) {
     bn.c(__XmlNode.of(_PN, input[_N]).n(_N));
   }
@@ -12451,7 +12684,7 @@ const se_Tags = (input: Tags, context: __SerdeContext): any => {
  */
 const se_TenantConfig = (input: TenantConfig, context: __SerdeContext): any => {
   const bn = new __XmlNode(_TCe);
-  bn.lc(input, "ParameterDefinitions", "ParameterDefinitions", () => se_ParameterDefinitions(input[_PDa]!, context));
+  bn.lc(input, "ParameterDefinitions", "ParameterDefinitions", () => se_ParameterDefinitions(input[_PDar]!, context));
   return bn;
 };
 
@@ -12544,6 +12777,9 @@ const se_VpcOriginConfig = (input: VpcOriginConfig, context: __SerdeContext): an
   const bn = new __XmlNode(_VOC);
   if (input[_VOI] != null) {
     bn.c(__XmlNode.of(_s, input[_VOI]).n(_VOI));
+  }
+  if (input[_OAIw] != null) {
+    bn.c(__XmlNode.of(_s, input[_OAIw]).n(_OAIw));
   }
   if (input[_ORT] != null) {
     bn.c(__XmlNode.of(_i, String(input[_ORT])).n(_ORT));
@@ -12765,6 +13001,9 @@ const de_AnycastIpList = (output: any, context: __SerdeContext): AnycastIpList =
   if (output[_Ar] != null) {
     contents[_Ar] = __expectString(output[_Ar]);
   }
+  if (output[_IAT] != null) {
+    contents[_IAT] = __expectString(output[_IAT]);
+  }
   if (String(output.AnycastIps).trim() === "") {
     contents[_AI] = [];
   } else if (output[_AI] != null && output[_AI][_AIn] != null) {
@@ -12840,6 +13079,12 @@ const de_AnycastIpListSummary = (output: any, context: __SerdeContext): AnycastI
   }
   if (output[_LMT] != null) {
     contents[_LMT] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_LMT]));
+  }
+  if (output[_IAT] != null) {
+    contents[_IAT] = __expectString(output[_IAT]);
+  }
+  if (output[_ET] != null) {
+    contents[_ET] = __expectString(output[_ET]);
   }
   return contents;
 };
@@ -13910,6 +14155,59 @@ const de_DistributionIdListSummary = (output: any, context: __SerdeContext): str
     .map((entry: any) => {
       return __expectString(entry) as any;
     });
+};
+
+/**
+ * deserializeAws_restXmlDistributionIdOwner
+ */
+const de_DistributionIdOwner = (output: any, context: __SerdeContext): DistributionIdOwner => {
+  const contents: any = {};
+  if (output[_DI] != null) {
+    contents[_DI] = __expectString(output[_DI]);
+  }
+  if (output[_OAIw] != null) {
+    contents[_OAIw] = __expectString(output[_OAIw]);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_restXmlDistributionIdOwnerItemList
+ */
+const de_DistributionIdOwnerItemList = (output: any, context: __SerdeContext): DistributionIdOwner[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_DistributionIdOwner(entry, context);
+    });
+};
+
+/**
+ * deserializeAws_restXmlDistributionIdOwnerList
+ */
+const de_DistributionIdOwnerList = (output: any, context: __SerdeContext): DistributionIdOwnerList => {
+  const contents: any = {};
+  if (output[_M] != null) {
+    contents[_M] = __expectString(output[_M]);
+  }
+  if (output[_NM] != null) {
+    contents[_NM] = __expectString(output[_NM]);
+  }
+  if (output[_MI] != null) {
+    contents[_MI] = __strictParseInt32(output[_MI]) as number;
+  }
+  if (output[_IT] != null) {
+    contents[_IT] = __parseBoolean(output[_IT]);
+  }
+  if (output[_Q] != null) {
+    contents[_Q] = __strictParseInt32(output[_Q]) as number;
+  }
+  if (String(output.Items).trim() === "") {
+    contents[_It] = [];
+  } else if (output[_It] != null && output[_It][_DIO] != null) {
+    contents[_It] = de_DistributionIdOwnerItemList(__getArrayIfSingleItem(output[_It][_DIO]), context);
+  }
+  return contents;
 };
 
 /**
@@ -16897,9 +17195,9 @@ const de_Tags = (output: any, context: __SerdeContext): Tags => {
 const de_TenantConfig = (output: any, context: __SerdeContext): TenantConfig => {
   const contents: any = {};
   if (String(output.ParameterDefinitions).trim() === "") {
-    contents[_PDa] = [];
-  } else if (output[_PDa] != null && output[_PDa][_m] != null) {
-    contents[_PDa] = de_ParameterDefinitions(__getArrayIfSingleItem(output[_PDa][_m]), context);
+    contents[_PDar] = [];
+  } else if (output[_PDar] != null && output[_PDar][_m] != null) {
+    contents[_PDar] = de_ParameterDefinitions(__getArrayIfSingleItem(output[_PDar][_m]), context);
   }
   return contents;
 };
@@ -17063,6 +17361,9 @@ const de_VpcOrigin = (output: any, context: __SerdeContext): VpcOrigin => {
   if (output[_Ar] != null) {
     contents[_Ar] = __expectString(output[_Ar]);
   }
+  if (output[_AIc] != null) {
+    contents[_AIc] = __expectString(output[_AIc]);
+  }
   if (output[_Sta] != null) {
     contents[_Sta] = __expectString(output[_Sta]);
   }
@@ -17085,6 +17386,9 @@ const de_VpcOriginConfig = (output: any, context: __SerdeContext): VpcOriginConf
   const contents: any = {};
   if (output[_VOI] != null) {
     contents[_VOI] = __expectString(output[_VOI]);
+  }
+  if (output[_OAIw] != null) {
+    contents[_OAIw] = __expectString(output[_OAIw]);
   }
   if (output[_ORT] != null) {
     contents[_ORT] = __strictParseInt32(output[_ORT]) as number;
@@ -17171,6 +17475,9 @@ const de_VpcOriginSummary = (output: any, context: __SerdeContext): VpcOriginSum
   }
   if (output[_Ar] != null) {
     contents[_Ar] = __expectString(output[_Ar]);
+  }
+  if (output[_AIc] != null) {
+    contents[_AIc] = __expectString(output[_AIc]);
   }
   if (output[_OEA] != null) {
     contents[_OEA] = __expectString(output[_OEA]);
@@ -17323,12 +17630,14 @@ const _DCWT = "DistributionConfigWithTags";
 const _DCi = "DistributionConfig";
 const _DCn = "DnsConfiguration";
 const _DI = "DistributionId";
+const _DIO = "DistributionIdOwner";
 const _DIo = "DomainItem";
 const _DN = "DomainName";
 const _DNn = "DnsName";
 const _DRI = "DistributionResourceId";
 const _DRLCR = "DeleteRealtimeLogConfigRequest";
 const _DRO = "DefaultRootObject";
+const _DRPR = "DeleteResourcePolicyRequest";
 const _DS = "DistributionSummary";
 const _DTAF = "DistributionTenantAssociationFilter";
 const _DTI = "DistributionTenantId";
@@ -17389,6 +17698,7 @@ const _GC = "GrpcConfig";
 const _GR = "GeoRestrictions";
 const _GRC = "GeoRestrictionCustomization";
 const _GRLCR = "GetRealtimeLogConfigRequest";
+const _GRPR = "GetResourcePolicyRequest";
 const _GRT = "GeoRestrictionType";
 const _GRe = "GeoRestriction";
 const _H = "Header";
@@ -17472,6 +17782,7 @@ const _OACS = "OriginAccessControlSummary";
 const _OACSB = "OriginAccessControlSigningBehaviors";
 const _OACSP = "OriginAccessControlSigningProtocols";
 const _OAI = "OriginAccessIdentity";
+const _OAIw = "OwnerAccountId";
 const _OCH = "OriginCustomHeader";
 const _OEA = "OriginEndpointArn";
 const _OG = "OriginGroups";
@@ -17504,10 +17815,11 @@ const _Ori = "Origins";
 const _Ov = "Override";
 const _P = "Parameters";
 const _PC = "PriceClass";
-const _PD = "ParameterDefinition";
+const _PD = "PolicyDocument";
 const _PDN = "PrimaryDomainName";
 const _PDS = "ParameterDefinitionSchema";
-const _PDa = "ParameterDefinitions";
+const _PDa = "ParameterDefinition";
+const _PDar = "ParameterDefinitions";
 const _PI = "ProfileId";
 const _PICKAFTO = "ParametersInCacheKeyAndForwardedToOrigin";
 const _PIr = "ProviderId";
@@ -17517,6 +17829,7 @@ const _PKI = "PublicKeyId";
 const _PKS = "PublicKeySummary";
 const _PN = "ParameterName";
 const _PP = "PathPattern";
+const _PRPR = "PutResourcePolicyRequest";
 const _PV = "ParameterValue";
 const _Pa = "Paths";
 const _Par = "Parameter";
@@ -17536,6 +17849,7 @@ const _QSCK = "QueryStringCacheKeys";
 const _QSN = "QueryStringNames";
 const _QSu = "QueryString";
 const _R = "Resource";
+const _RA = "ResourceArn";
 const _RARN = "RoleARN";
 const _RC = "ResponseCode";
 const _RCT = "ResponseCompletionTimeout";
@@ -17629,6 +17943,7 @@ const _TS = "TrustedSigners";
 const _TV = "TagValue";
 const _Ta = "Tag";
 const _Ty = "Type";
+const _UAILR = "UpdateAnycastIpListRequest";
 const _UCGR = "UpdateConnectionGroupRequest";
 const _UDAR = "UpdateDomainAssociationRequest";
 const _UDTR = "UpdateDistributionTenantRequest";

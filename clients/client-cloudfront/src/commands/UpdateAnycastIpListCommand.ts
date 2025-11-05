@@ -6,8 +6,8 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { GetAnycastIpListRequest, GetAnycastIpListResult } from "../models/models_1";
-import { de_GetAnycastIpListCommand, se_GetAnycastIpListCommand } from "../protocols/Aws_restXml";
+import { UpdateAnycastIpListRequest, UpdateAnycastIpListResult } from "../models/models_2";
+import { de_UpdateAnycastIpListCommand, se_UpdateAnycastIpListCommand } from "../protocols/Aws_restXml";
 
 /**
  * @public
@@ -17,32 +17,34 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link GetAnycastIpListCommand}.
+ * The input for {@link UpdateAnycastIpListCommand}.
  */
-export interface GetAnycastIpListCommandInput extends GetAnycastIpListRequest {}
+export interface UpdateAnycastIpListCommandInput extends UpdateAnycastIpListRequest {}
 /**
  * @public
  *
- * The output of {@link GetAnycastIpListCommand}.
+ * The output of {@link UpdateAnycastIpListCommand}.
  */
-export interface GetAnycastIpListCommandOutput extends GetAnycastIpListResult, __MetadataBearer {}
+export interface UpdateAnycastIpListCommandOutput extends UpdateAnycastIpListResult, __MetadataBearer {}
 
 /**
- * <p>Gets an Anycast static IP list.</p>
+ * <p>Updates an Anycast static IP list.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudFrontClient, GetAnycastIpListCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
- * // const { CloudFrontClient, GetAnycastIpListCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
+ * import { CloudFrontClient, UpdateAnycastIpListCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
+ * // const { CloudFrontClient, UpdateAnycastIpListCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
  * // import type { CloudFrontClientConfig } from "@aws-sdk/client-cloudfront";
  * const config = {}; // type is CloudFrontClientConfig
  * const client = new CloudFrontClient(config);
- * const input = { // GetAnycastIpListRequest
+ * const input = { // UpdateAnycastIpListRequest
  *   Id: "STRING_VALUE", // required
+ *   IpAddressType: "ipv4" || "ipv6" || "dualstack",
+ *   IfMatch: "STRING_VALUE", // required
  * };
- * const command = new GetAnycastIpListCommand(input);
+ * const command = new UpdateAnycastIpListCommand(input);
  * const response = await client.send(command);
- * // { // GetAnycastIpListResult
+ * // { // UpdateAnycastIpListResult
  * //   AnycastIpList: { // AnycastIpList
  * //     Id: "STRING_VALUE", // required
  * //     Name: "STRING_VALUE", // required
@@ -60,10 +62,10 @@ export interface GetAnycastIpListCommandOutput extends GetAnycastIpListResult, _
  *
  * ```
  *
- * @param GetAnycastIpListCommandInput - {@link GetAnycastIpListCommandInput}
- * @returns {@link GetAnycastIpListCommandOutput}
- * @see {@link GetAnycastIpListCommandInput} for command's `input` shape.
- * @see {@link GetAnycastIpListCommandOutput} for command's `response` shape.
+ * @param UpdateAnycastIpListCommandInput - {@link UpdateAnycastIpListCommandInput}
+ * @returns {@link UpdateAnycastIpListCommandOutput}
+ * @see {@link UpdateAnycastIpListCommandInput} for command's `input` shape.
+ * @see {@link UpdateAnycastIpListCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
  *
  * @throws {@link AccessDenied} (client fault)
@@ -75,6 +77,12 @@ export interface GetAnycastIpListCommandOutput extends GetAnycastIpListResult, _
  * @throws {@link InvalidArgument} (client fault)
  *  <p>An argument is invalid.</p>
  *
+ * @throws {@link InvalidIfMatchVersion} (client fault)
+ *  <p>The <code>If-Match</code> version is missing or not valid.</p>
+ *
+ * @throws {@link PreconditionFailed} (client fault)
+ *  <p>The precondition in one or more of the request fields evaluated to <code>false</code>.</p>
+ *
  * @throws {@link UnsupportedOperation} (client fault)
  *  <p>This operation is not supported in this Amazon Web Services Region.</p>
  *
@@ -84,10 +92,10 @@ export interface GetAnycastIpListCommandOutput extends GetAnycastIpListResult, _
  *
  * @public
  */
-export class GetAnycastIpListCommand extends $Command
+export class UpdateAnycastIpListCommand extends $Command
   .classBuilder<
-    GetAnycastIpListCommandInput,
-    GetAnycastIpListCommandOutput,
+    UpdateAnycastIpListCommandInput,
+    UpdateAnycastIpListCommandOutput,
     CloudFrontClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -99,21 +107,21 @@ export class GetAnycastIpListCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("Cloudfront2020_05_31", "GetAnycastIpList", {})
-  .n("CloudFrontClient", "GetAnycastIpListCommand")
+  .s("Cloudfront2020_05_31", "UpdateAnycastIpList", {})
+  .n("CloudFrontClient", "UpdateAnycastIpListCommand")
   .f(void 0, void 0)
-  .ser(se_GetAnycastIpListCommand)
-  .de(de_GetAnycastIpListCommand)
+  .ser(se_UpdateAnycastIpListCommand)
+  .de(de_UpdateAnycastIpListCommand)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: GetAnycastIpListRequest;
-      output: GetAnycastIpListResult;
+      input: UpdateAnycastIpListRequest;
+      output: UpdateAnycastIpListResult;
     };
     sdk: {
-      input: GetAnycastIpListCommandInput;
-      output: GetAnycastIpListCommandOutput;
+      input: UpdateAnycastIpListCommandInput;
+      output: UpdateAnycastIpListCommandOutput;
     };
   };
 }

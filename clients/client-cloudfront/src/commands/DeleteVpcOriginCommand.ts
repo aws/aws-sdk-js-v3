@@ -47,6 +47,7 @@ export interface DeleteVpcOriginCommandOutput extends DeleteVpcOriginResult, __M
  * //   VpcOrigin: { // VpcOrigin
  * //     Id: "STRING_VALUE", // required
  * //     Arn: "STRING_VALUE", // required
+ * //     AccountId: "STRING_VALUE",
  * //     Status: "STRING_VALUE", // required
  * //     CreatedTime: new Date("TIMESTAMP"), // required
  * //     LastModifiedTime: new Date("TIMESTAMP"), // required

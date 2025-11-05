@@ -192,6 +192,10 @@ import {
   DeleteRealtimeLogConfigCommandOutput,
 } from "./commands/DeleteRealtimeLogConfigCommand";
 import {
+  DeleteResourcePolicyCommandInput,
+  DeleteResourcePolicyCommandOutput,
+} from "./commands/DeleteResourcePolicyCommand";
+import {
   DeleteResponseHeadersPolicyCommandInput,
   DeleteResponseHeadersPolicyCommandOutput,
 } from "./commands/DeleteResponseHeadersPolicyCommand";
@@ -307,6 +311,7 @@ import {
   GetRealtimeLogConfigCommandInput,
   GetRealtimeLogConfigCommandOutput,
 } from "./commands/GetRealtimeLogConfigCommand";
+import { GetResourcePolicyCommandInput, GetResourcePolicyCommandOutput } from "./commands/GetResourcePolicyCommand";
 import {
   GetResponseHeadersPolicyCommandInput,
   GetResponseHeadersPolicyCommandOutput,
@@ -362,6 +367,10 @@ import {
   ListDistributionsByOriginRequestPolicyIdCommandInput,
   ListDistributionsByOriginRequestPolicyIdCommandOutput,
 } from "./commands/ListDistributionsByOriginRequestPolicyIdCommand";
+import {
+  ListDistributionsByOwnedResourceCommandInput,
+  ListDistributionsByOwnedResourceCommandOutput,
+} from "./commands/ListDistributionsByOwnedResourceCommand";
 import {
   ListDistributionsByRealtimeLogConfigCommandInput,
   ListDistributionsByRealtimeLogConfigCommandOutput,
@@ -434,9 +443,14 @@ import {
 } from "./commands/ListTagsForResourceCommand";
 import { ListVpcOriginsCommandInput, ListVpcOriginsCommandOutput } from "./commands/ListVpcOriginsCommand";
 import { PublishFunctionCommandInput, PublishFunctionCommandOutput } from "./commands/PublishFunctionCommand";
+import { PutResourcePolicyCommandInput, PutResourcePolicyCommandOutput } from "./commands/PutResourcePolicyCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { TestFunctionCommandInput, TestFunctionCommandOutput } from "./commands/TestFunctionCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import {
+  UpdateAnycastIpListCommandInput,
+  UpdateAnycastIpListCommandOutput,
+} from "./commands/UpdateAnycastIpListCommand";
 import { UpdateCachePolicyCommandInput, UpdateCachePolicyCommandOutput } from "./commands/UpdateCachePolicyCommand";
 import {
   UpdateCloudFrontOriginAccessIdentityCommandInput,
@@ -563,6 +577,7 @@ export type ServiceInputTypes =
   | DeleteOriginRequestPolicyCommandInput
   | DeletePublicKeyCommandInput
   | DeleteRealtimeLogConfigCommandInput
+  | DeleteResourcePolicyCommandInput
   | DeleteResponseHeadersPolicyCommandInput
   | DeleteStreamingDistributionCommandInput
   | DeleteVpcOriginCommandInput
@@ -601,6 +616,7 @@ export type ServiceInputTypes =
   | GetPublicKeyCommandInput
   | GetPublicKeyConfigCommandInput
   | GetRealtimeLogConfigCommandInput
+  | GetResourcePolicyCommandInput
   | GetResponseHeadersPolicyCommandInput
   | GetResponseHeadersPolicyConfigCommandInput
   | GetStreamingDistributionCommandInput
@@ -619,6 +635,7 @@ export type ServiceInputTypes =
   | ListDistributionsByConnectionModeCommandInput
   | ListDistributionsByKeyGroupCommandInput
   | ListDistributionsByOriginRequestPolicyIdCommandInput
+  | ListDistributionsByOwnedResourceCommandInput
   | ListDistributionsByRealtimeLogConfigCommandInput
   | ListDistributionsByResponseHeadersPolicyIdCommandInput
   | ListDistributionsByVpcOriginIdCommandInput
@@ -641,9 +658,11 @@ export type ServiceInputTypes =
   | ListTagsForResourceCommandInput
   | ListVpcOriginsCommandInput
   | PublishFunctionCommandInput
+  | PutResourcePolicyCommandInput
   | TagResourceCommandInput
   | TestFunctionCommandInput
   | UntagResourceCommandInput
+  | UpdateAnycastIpListCommandInput
   | UpdateCachePolicyCommandInput
   | UpdateCloudFrontOriginAccessIdentityCommandInput
   | UpdateConnectionGroupCommandInput
@@ -715,6 +734,7 @@ export type ServiceOutputTypes =
   | DeleteOriginRequestPolicyCommandOutput
   | DeletePublicKeyCommandOutput
   | DeleteRealtimeLogConfigCommandOutput
+  | DeleteResourcePolicyCommandOutput
   | DeleteResponseHeadersPolicyCommandOutput
   | DeleteStreamingDistributionCommandOutput
   | DeleteVpcOriginCommandOutput
@@ -753,6 +773,7 @@ export type ServiceOutputTypes =
   | GetPublicKeyCommandOutput
   | GetPublicKeyConfigCommandOutput
   | GetRealtimeLogConfigCommandOutput
+  | GetResourcePolicyCommandOutput
   | GetResponseHeadersPolicyCommandOutput
   | GetResponseHeadersPolicyConfigCommandOutput
   | GetStreamingDistributionCommandOutput
@@ -771,6 +792,7 @@ export type ServiceOutputTypes =
   | ListDistributionsByConnectionModeCommandOutput
   | ListDistributionsByKeyGroupCommandOutput
   | ListDistributionsByOriginRequestPolicyIdCommandOutput
+  | ListDistributionsByOwnedResourceCommandOutput
   | ListDistributionsByRealtimeLogConfigCommandOutput
   | ListDistributionsByResponseHeadersPolicyIdCommandOutput
   | ListDistributionsByVpcOriginIdCommandOutput
@@ -793,9 +815,11 @@ export type ServiceOutputTypes =
   | ListTagsForResourceCommandOutput
   | ListVpcOriginsCommandOutput
   | PublishFunctionCommandOutput
+  | PutResourcePolicyCommandOutput
   | TagResourceCommandOutput
   | TestFunctionCommandOutput
   | UntagResourceCommandOutput
+  | UpdateAnycastIpListCommandOutput
   | UpdateCachePolicyCommandOutput
   | UpdateCloudFrontOriginAccessIdentityCommandOutput
   | UpdateConnectionGroupCommandOutput
