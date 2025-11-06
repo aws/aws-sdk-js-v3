@@ -61,6 +61,7 @@ export interface ListBackupVaultsCommandOutput extends ListBackupVaultsOutput, _
  * //       MinRetentionDays: Number("long"),
  * //       MaxRetentionDays: Number("long"),
  * //       LockDate: new Date("TIMESTAMP"),
+ * //       EncryptionKeyType: "AWS_OWNED_KMS_KEY" || "CUSTOMER_MANAGED_KMS_KEY",
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

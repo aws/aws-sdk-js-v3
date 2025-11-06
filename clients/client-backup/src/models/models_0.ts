@@ -1500,6 +1500,20 @@ export type BackupVaultEvent = (typeof BackupVaultEvent)[keyof typeof BackupVaul
  * @public
  * @enum
  */
+export const EncryptionKeyType = {
+  AWS_OWNED_KMS_KEY: "AWS_OWNED_KMS_KEY",
+  CUSTOMER_MANAGED_KMS_KEY: "CUSTOMER_MANAGED_KMS_KEY",
+} as const;
+
+/**
+ * @public
+ */
+export type EncryptionKeyType = (typeof EncryptionKeyType)[keyof typeof EncryptionKeyType];
+
+/**
+ * @public
+ * @enum
+ */
 export const VaultState = {
   AVAILABLE: "AVAILABLE",
   CREATING: "CREATING",
@@ -1644,6 +1658,12 @@ export interface BackupVaultListMember {
    * @public
    */
   LockDate?: Date | undefined;
+
+  /**
+   * <p>The type of encryption key used for the backup vault. Valid values are CUSTOMER_MANAGED_KMS_KEY for customer-managed keys or Amazon Web Services_OWNED_KMS_KEY for Amazon Web Services-owned keys.</p>
+   * @public
+   */
+  EncryptionKeyType?: EncryptionKeyType | undefined;
 }
 
 /**
@@ -2676,6 +2696,12 @@ export interface CreateLogicallyAirGappedBackupVaultInput {
    * @public
    */
   MaxRetentionDays: number | undefined;
+
+  /**
+   * <p>The ARN of the customer-managed KMS key to use for encrypting the logically air-gapped backup vault. If not specified, the vault will be encrypted with an Amazon Web Services-owned key managed by Amazon Web Services Backup.</p>
+   * @public
+   */
+  EncryptionKeyArn?: string | undefined;
 }
 
 /**
@@ -3349,6 +3375,8 @@ export interface RestoreTestingSelectionForCreate {
   /**
    * <p>The unique name of the restore testing selection
    *          that belongs to the related restore testing plan.</p>
+   *          <p>The name consists of only alphanumeric characters and underscores.
+   *          Maximum length is 50.</p>
    * @public
    */
   RestoreTestingSelectionName: string | undefined;
@@ -3434,6 +3462,8 @@ export interface CreateRestoreTestingSelectionOutput {
 
   /**
    * <p>The name of the restore testing selection for the related restore testing plan.</p>
+   *          <p>The name cannot be changed after creation. The name consists of only
+   *          alphanumeric characters and underscores. Maximum length is 50.</p>
    * @public
    */
   RestoreTestingSelectionName: string | undefined;
@@ -4158,6 +4188,12 @@ export interface DescribeBackupVaultOutput {
    * @public
    */
   LatestMpaApprovalTeamUpdate?: LatestMpaApprovalTeamUpdate | undefined;
+
+  /**
+   * <p>The type of encryption key used for the backup vault. Valid values are CUSTOMER_MANAGED_KMS_KEY for customer-managed keys or Amazon Web Services_OWNED_KMS_KEY for Amazon Web Services-owned keys.</p>
+   * @public
+   */
+  EncryptionKeyType?: EncryptionKeyType | undefined;
 }
 
 /**
@@ -4719,6 +4755,12 @@ export interface DescribeRecoveryPointOutput {
    * @public
    */
   IndexStatusMessage?: string | undefined;
+
+  /**
+   * <p>The type of encryption key used for the recovery point. Valid values are CUSTOMER_MANAGED_KMS_KEY for customer-managed keys or Amazon Web Services_OWNED_KMS_KEY for Amazon Web Services-owned keys.</p>
+   * @public
+   */
+  EncryptionKeyType?: EncryptionKeyType | undefined;
 }
 
 /**
@@ -6136,6 +6178,8 @@ export interface RestoreTestingSelectionForGet {
   /**
    * <p>The unique name of the restore testing selection that
    *          belongs to the related restore testing plan.</p>
+   *          <p>The name consists of only alphanumeric characters and underscores.
+   *          Maximum length is 50.</p>
    * @public
    */
   RestoreTestingSelectionName: string | undefined;
@@ -8019,6 +8063,12 @@ export interface RecoveryPointByBackupVault {
    * @public
    */
   IndexStatusMessage?: string | undefined;
+
+  /**
+   * <p>The type of encryption key used for the recovery point. Valid values are CUSTOMER_MANAGED_KMS_KEY for customer-managed keys or Amazon Web Services_OWNED_KMS_KEY for Amazon Web Services-owned keys.</p>
+   * @public
+   */
+  EncryptionKeyType?: EncryptionKeyType | undefined;
 }
 
 /**
@@ -8263,6 +8313,12 @@ export interface RecoveryPointByResource {
    * @public
    */
   IndexStatusMessage?: string | undefined;
+
+  /**
+   * <p>The type of encryption key used for the recovery point. Valid values are CUSTOMER_MANAGED_KMS_KEY for customer-managed keys or Amazon Web Services_OWNED_KMS_KEY for Amazon Web Services-owned keys.</p>
+   * @public
+   */
+  EncryptionKeyType?: EncryptionKeyType | undefined;
 }
 
 /**
@@ -9294,6 +9350,8 @@ export interface RestoreTestingSelectionForList {
 
   /**
    * <p>Unique name of a restore testing selection.</p>
+   *          <p>The name consists of only alphanumeric characters and underscores.
+   *          Maximum length is 50.</p>
    * @public
    */
   RestoreTestingSelectionName: string | undefined;

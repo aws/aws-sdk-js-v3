@@ -89,6 +89,7 @@ export interface DescribeRecoveryPointCommandOutput extends DescribeRecoveryPoin
  * //   VaultType: "BACKUP_VAULT" || "LOGICALLY_AIR_GAPPED_BACKUP_VAULT" || "RESTORE_ACCESS_BACKUP_VAULT",
  * //   IndexStatus: "PENDING" || "ACTIVE" || "FAILED" || "DELETING",
  * //   IndexStatusMessage: "STRING_VALUE",
+ * //   EncryptionKeyType: "AWS_OWNED_KMS_KEY" || "CUSTOMER_MANAGED_KMS_KEY",
  * // };
  *
  * ```

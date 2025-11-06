@@ -61,6 +61,7 @@ export interface CreateLogicallyAirGappedBackupVaultCommandOutput
  *   CreatorRequestId: "STRING_VALUE",
  *   MinRetentionDays: Number("long"), // required
  *   MaxRetentionDays: Number("long"), // required
+ *   EncryptionKeyArn: "STRING_VALUE",
  * };
  * const command = new CreateLogicallyAirGappedBackupVaultCommand(input);
  * const response = await client.send(command);

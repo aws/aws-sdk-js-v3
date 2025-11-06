@@ -66,6 +66,7 @@ export interface DescribeBackupVaultCommandOutput extends DescribeBackupVaultOut
  * //     InitiationDate: new Date("TIMESTAMP"),
  * //     ExpiryDate: new Date("TIMESTAMP"),
  * //   },
+ * //   EncryptionKeyType: "AWS_OWNED_KMS_KEY" || "CUSTOMER_MANAGED_KMS_KEY",
  * // };
  *
  * ```
