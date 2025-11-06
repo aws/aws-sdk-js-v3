@@ -101,6 +101,10 @@ import { ListNamespacesCommandInput, ListNamespacesCommandOutput } from "./comma
 import { ListTableBucketsCommandInput, ListTableBucketsCommandOutput } from "./commands/ListTableBucketsCommand";
 import { ListTablesCommandInput, ListTablesCommandOutput } from "./commands/ListTablesCommand";
 import {
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput,
+} from "./commands/ListTagsForResourceCommand";
+import {
   PutTableBucketEncryptionCommandInput,
   PutTableBucketEncryptionCommandOutput,
 } from "./commands/PutTableBucketEncryptionCommand";
@@ -118,6 +122,8 @@ import {
 } from "./commands/PutTableMaintenanceConfigurationCommand";
 import { PutTablePolicyCommandInput, PutTablePolicyCommandOutput } from "./commands/PutTablePolicyCommand";
 import { RenameTableCommandInput, RenameTableCommandOutput } from "./commands/RenameTableCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import {
   UpdateTableMetadataLocationCommandInput,
   UpdateTableMetadataLocationCommandOutput,
@@ -160,12 +166,15 @@ export type ServiceInputTypes =
   | ListNamespacesCommandInput
   | ListTableBucketsCommandInput
   | ListTablesCommandInput
+  | ListTagsForResourceCommandInput
   | PutTableBucketEncryptionCommandInput
   | PutTableBucketMaintenanceConfigurationCommandInput
   | PutTableBucketPolicyCommandInput
   | PutTableMaintenanceConfigurationCommandInput
   | PutTablePolicyCommandInput
   | RenameTableCommandInput
+  | TagResourceCommandInput
+  | UntagResourceCommandInput
   | UpdateTableMetadataLocationCommandInput;
 
 /**
@@ -195,12 +204,15 @@ export type ServiceOutputTypes =
   | ListNamespacesCommandOutput
   | ListTableBucketsCommandOutput
   | ListTablesCommandOutput
+  | ListTagsForResourceCommandOutput
   | PutTableBucketEncryptionCommandOutput
   | PutTableBucketMaintenanceConfigurationCommandOutput
   | PutTableBucketPolicyCommandOutput
   | PutTableMaintenanceConfigurationCommandOutput
   | PutTablePolicyCommandOutput
   | RenameTableCommandOutput
+  | TagResourceCommandOutput
+  | UntagResourceCommandOutput
   | UpdateTableMetadataLocationCommandOutput;
 
 /**

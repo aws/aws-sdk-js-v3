@@ -347,6 +347,12 @@ export interface CreateTableRequest {
    * @public
    */
   encryptionConfiguration?: EncryptionConfiguration | undefined;
+
+  /**
+   * <p>A map of user-defined tags that you would like to apply to the table that you are creating. A tag is a key-value pair that you apply to your resources. Tags can help you organize, track costs for, and control access to resources. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/tagging.html">Tagging for cost allocation or attribute-based access control (ABAC)</a>.</p> <note> <p>You must have the <code>s3tables:TagResource</code> permission in addition to <code>s3tables:CreateTable</code> permission to create a table with tags.</p> </note>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -381,6 +387,12 @@ export interface CreateTableBucketRequest {
    * @public
    */
   encryptionConfiguration?: EncryptionConfiguration | undefined;
+
+  /**
+   * <p>A map of user-defined tags that you would like to apply to the table bucket that you are creating. A tag is a key-value pair that you apply to your resources. Tags can help you organize and control access to resources. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/tagging.html">Tagging for cost allocation or attribute-based access control (ABAC)</a>.</p> <note> <p>You must have the <code>s3tables:TagResource</code> permission in addition to <code>s3tables:CreateTableBucket</code> permisson to create a table bucket with tags.</p> </note>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -1171,7 +1183,7 @@ export interface GetTableMaintenanceJobStatusRequest {
   namespace: string | undefined;
 
   /**
-   * <p>The name of the maintenance job.</p>
+   * <p>The name of the table containing the maintenance job status you want to check.</p>
    * @public
    */
   name: string | undefined;
@@ -1614,6 +1626,28 @@ export interface ListTablesResponse {
 /**
  * @public
  */
+export interface ListTagsForResourceRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Amazon S3 Tables resource that you want to list tags for. The tagged resource can be a table bucket or a table. For a list of all S3 resources that support tagging, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/tagging.html#manage-tags">Managing tags for Amazon S3 resources</a>.</p>
+   * @public
+   */
+  resourceArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListTagsForResourceResponse {
+  /**
+   * <p>The user-defined tags that are applied to the resource. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/tagging.html">Tagging for cost allocation or attribute-based access control (ABAC)</a>.</p>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
 export interface PutTableBucketEncryptionRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the table bucket.</p>
@@ -1685,7 +1719,7 @@ export interface PutTableMaintenanceConfigurationRequest {
   namespace: string | undefined;
 
   /**
-   * <p>The name of the maintenance configuration.</p>
+   * <p>The name of the table.</p>
    * @public
    */
   name: string | undefined;
@@ -1842,3 +1876,47 @@ export interface UpdateTableMetadataLocationResponse {
    */
   metadataLocation: string | undefined;
 }
+
+/**
+ * @public
+ */
+export interface TagResourceRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Amazon S3 Tables resource that you're applying tags to. The tagged resource can be a table bucket or a table. For a list of all S3 resources that support tagging, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/tagging.html#manage-tags">Managing tags for Amazon S3 resources</a>.</p>
+   * @public
+   */
+  resourceArn: string | undefined;
+
+  /**
+   * <p>The user-defined tag that you want to add to the specified S3 Tables resource. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/tagging.html">Tagging for cost allocation or attribute-based access control (ABAC)</a>.</p>
+   * @public
+   */
+  tags: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface TagResourceResponse {}
+
+/**
+ * @public
+ */
+export interface UntagResourceRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Amazon S3 Tables resource that you're removing tags from. The tagged resource can be a table bucket or a table. For a list of all S3 resources that support tagging, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/tagging.html#manage-tags">Managing tags for Amazon S3 resources</a>.</p>
+   * @public
+   */
+  resourceArn: string | undefined;
+
+  /**
+   * <p>The array of tag keys that you're removing from the S3 Tables resource. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/tagging.html">Tagging for cost allocation or attribute-based access control (ABAC)</a>.</p>
+   * @public
+   */
+  tagKeys: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UntagResourceResponse {}

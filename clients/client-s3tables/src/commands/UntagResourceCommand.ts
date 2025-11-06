@@ -5,8 +5,8 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { PutTableBucketPolicyRequest } from "../models/models_0";
-import { de_PutTableBucketPolicyCommand, se_PutTableBucketPolicyCommand } from "../protocols/Aws_restJson1";
+import { UntagResourceRequest, UntagResourceResponse } from "../models/models_0";
+import { de_UntagResourceCommand, se_UntagResourceCommand } from "../protocols/Aws_restJson1";
 import { S3TablesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3TablesClient";
 
 /**
@@ -17,40 +17,42 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link PutTableBucketPolicyCommand}.
+ * The input for {@link UntagResourceCommand}.
  */
-export interface PutTableBucketPolicyCommandInput extends PutTableBucketPolicyRequest {}
+export interface UntagResourceCommandInput extends UntagResourceRequest {}
 /**
  * @public
  *
- * The output of {@link PutTableBucketPolicyCommand}.
+ * The output of {@link UntagResourceCommand}.
  */
-export interface PutTableBucketPolicyCommandOutput extends __MetadataBearer {}
+export interface UntagResourceCommandOutput extends UntagResourceResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a new table bucket policy or replaces an existing table bucket policy for a table bucket. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-bucket-policy.html#table-bucket-policy-add">Adding a table bucket policy</a> in the <i>Amazon Simple Storage Service User Guide</i>.</p> <dl> <dt>Permissions</dt> <dd> <p>You must have the <code>s3tables:PutTableBucketPolicy</code> permission to use this operation. </p> </dd> </dl>
+ * <p>Removes the specified user-defined tags from an Amazon S3 Tables resource. You can pass one or more tag keys. </p> <note> <p>For a list of S3 resources that support tagging, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/tagging.html#manage-tags">Managing tags for Amazon S3 resources</a>.</p> </note> <dl> <dt>Permissions</dt> <dd> <p>For tables and table buckets, you must have the <code>s3tables:UntagResource</code> permission to use this operation.</p> </dd> </dl>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { S3TablesClient, PutTableBucketPolicyCommand } from "@aws-sdk/client-s3tables"; // ES Modules import
- * // const { S3TablesClient, PutTableBucketPolicyCommand } = require("@aws-sdk/client-s3tables"); // CommonJS import
+ * import { S3TablesClient, UntagResourceCommand } from "@aws-sdk/client-s3tables"; // ES Modules import
+ * // const { S3TablesClient, UntagResourceCommand } = require("@aws-sdk/client-s3tables"); // CommonJS import
  * // import type { S3TablesClientConfig } from "@aws-sdk/client-s3tables";
  * const config = {}; // type is S3TablesClientConfig
  * const client = new S3TablesClient(config);
- * const input = { // PutTableBucketPolicyRequest
- *   tableBucketARN: "STRING_VALUE", // required
- *   resourcePolicy: "STRING_VALUE", // required
+ * const input = { // UntagResourceRequest
+ *   resourceArn: "STRING_VALUE", // required
+ *   tagKeys: [ // TagKeyList // required
+ *     "STRING_VALUE",
+ *   ],
  * };
- * const command = new PutTableBucketPolicyCommand(input);
+ * const command = new UntagResourceCommand(input);
  * const response = await client.send(command);
  * // {};
  *
  * ```
  *
- * @param PutTableBucketPolicyCommandInput - {@link PutTableBucketPolicyCommandInput}
- * @returns {@link PutTableBucketPolicyCommandOutput}
- * @see {@link PutTableBucketPolicyCommandInput} for command's `input` shape.
- * @see {@link PutTableBucketPolicyCommandOutput} for command's `response` shape.
+ * @param UntagResourceCommandInput - {@link UntagResourceCommandInput}
+ * @returns {@link UntagResourceCommandOutput}
+ * @see {@link UntagResourceCommandInput} for command's `input` shape.
+ * @see {@link UntagResourceCommandOutput} for command's `response` shape.
  * @see {@link S3TablesClientResolvedConfig | config} for S3TablesClient's `config` shape.
  *
  * @throws {@link BadRequestException} (client fault)
@@ -77,10 +79,10 @@ export interface PutTableBucketPolicyCommandOutput extends __MetadataBearer {}
  *
  * @public
  */
-export class PutTableBucketPolicyCommand extends $Command
+export class UntagResourceCommand extends $Command
   .classBuilder<
-    PutTableBucketPolicyCommandInput,
-    PutTableBucketPolicyCommandOutput,
+    UntagResourceCommandInput,
+    UntagResourceCommandOutput,
     S3TablesClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -92,21 +94,21 @@ export class PutTableBucketPolicyCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("S3TableBuckets", "PutTableBucketPolicy", {})
-  .n("S3TablesClient", "PutTableBucketPolicyCommand")
+  .s("S3TableBuckets", "UntagResource", {})
+  .n("S3TablesClient", "UntagResourceCommand")
   .f(void 0, void 0)
-  .ser(se_PutTableBucketPolicyCommand)
-  .de(de_PutTableBucketPolicyCommand)
+  .ser(se_UntagResourceCommand)
+  .de(de_UntagResourceCommand)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: PutTableBucketPolicyRequest;
+      input: UntagResourceRequest;
       output: {};
     };
     sdk: {
-      input: PutTableBucketPolicyCommandInput;
-      output: PutTableBucketPolicyCommandOutput;
+      input: UntagResourceCommandInput;
+      output: UntagResourceCommandOutput;
     };
   };
 }
