@@ -10,7 +10,7 @@ import {
   StartOutboundVoiceContactRequest,
   StartOutboundVoiceContactRequestFilterSensitiveLog,
   StartOutboundVoiceContactResponse,
-} from "../models/models_2";
+} from "../models/models_3";
 import { de_StartOutboundVoiceContactCommand, se_StartOutboundVoiceContactCommand } from "../protocols/Aws_restJson1";
 
 /**

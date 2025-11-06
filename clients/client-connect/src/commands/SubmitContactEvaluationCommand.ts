@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { SubmitContactEvaluationRequest, SubmitContactEvaluationResponse } from "../models/models_2";
+import { SubmitContactEvaluationRequest, SubmitContactEvaluationResponse } from "../models/models_3";
 import { de_SubmitContactEvaluationCommand, se_SubmitContactEvaluationCommand } from "../protocols/Aws_restJson1";
 
 /**
@@ -58,6 +58,9 @@ export interface SubmitContactEvaluationCommandOutput extends SubmitContactEvalu
  *     "<keys>": { // EvaluationNote
  *       Value: "STRING_VALUE",
  *     },
+ *   },
+ *   SubmittedBy: { // EvaluatorUserUnion Union: only one key present
+ *     ConnectUserArn: "STRING_VALUE",
  *   },
  * };
  * const command = new SubmitContactEvaluationCommand(input);

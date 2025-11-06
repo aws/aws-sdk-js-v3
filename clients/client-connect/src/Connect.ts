@@ -923,6 +923,11 @@ import {
   SearchAvailablePhoneNumbersCommandOutput,
 } from "./commands/SearchAvailablePhoneNumbersCommand";
 import {
+  SearchContactEvaluationsCommand,
+  SearchContactEvaluationsCommandInput,
+  SearchContactEvaluationsCommandOutput,
+} from "./commands/SearchContactEvaluationsCommand";
+import {
   SearchContactFlowModulesCommand,
   SearchContactFlowModulesCommandInput,
   SearchContactFlowModulesCommandOutput,
@@ -942,6 +947,11 @@ import {
   SearchEmailAddressesCommandInput,
   SearchEmailAddressesCommandOutput,
 } from "./commands/SearchEmailAddressesCommand";
+import {
+  SearchEvaluationFormsCommand,
+  SearchEvaluationFormsCommandInput,
+  SearchEvaluationFormsCommandOutput,
+} from "./commands/SearchEvaluationFormsCommand";
 import {
   SearchHoursOfOperationOverridesCommand,
   SearchHoursOfOperationOverridesCommandInput,
@@ -1556,10 +1566,12 @@ const commands = {
   ResumeContactRecordingCommand,
   SearchAgentStatusesCommand,
   SearchAvailablePhoneNumbersCommand,
+  SearchContactEvaluationsCommand,
   SearchContactFlowModulesCommand,
   SearchContactFlowsCommand,
   SearchContactsCommand,
   SearchEmailAddressesCommand,
+  SearchEvaluationFormsCommand,
   SearchHoursOfOperationOverridesCommand,
   SearchHoursOfOperationsCommand,
   SearchPredefinedAttributesCommand,
@@ -4755,6 +4767,23 @@ export interface Connect {
   ): void;
 
   /**
+   * @see {@link SearchContactEvaluationsCommand}
+   */
+  searchContactEvaluations(
+    args: SearchContactEvaluationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<SearchContactEvaluationsCommandOutput>;
+  searchContactEvaluations(
+    args: SearchContactEvaluationsCommandInput,
+    cb: (err: any, data?: SearchContactEvaluationsCommandOutput) => void
+  ): void;
+  searchContactEvaluations(
+    args: SearchContactEvaluationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: SearchContactEvaluationsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link SearchContactFlowModulesCommand}
    */
   searchContactFlowModules(
@@ -4817,6 +4846,23 @@ export interface Connect {
     args: SearchEmailAddressesCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: SearchEmailAddressesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link SearchEvaluationFormsCommand}
+   */
+  searchEvaluationForms(
+    args: SearchEvaluationFormsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<SearchEvaluationFormsCommandOutput>;
+  searchEvaluationForms(
+    args: SearchEvaluationFormsCommandInput,
+    cb: (err: any, data?: SearchEvaluationFormsCommandOutput) => void
+  ): void;
+  searchEvaluationForms(
+    args: SearchEvaluationFormsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: SearchEvaluationFormsCommandOutput) => void
   ): void;
 
   /**

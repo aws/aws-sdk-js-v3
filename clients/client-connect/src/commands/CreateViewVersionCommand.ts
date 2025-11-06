@@ -10,7 +10,7 @@ import {
   CreateViewVersionRequest,
   CreateViewVersionResponse,
   CreateViewVersionResponseFilterSensitiveLog,
-} from "../models/models_0";
+} from "../models/models_1";
 import { de_CreateViewVersionCommand, se_CreateViewVersionCommand } from "../protocols/Aws_restJson1";
 
 /**

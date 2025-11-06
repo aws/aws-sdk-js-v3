@@ -76,11 +76,17 @@ export interface CreateEvaluationFormCommandOutput extends CreateEvaluationFormR
  *                       MaxValue: Number("int"), // required
  *                       Score: Number("int"),
  *                       AutomaticFail: true || false,
+ *                       AutomaticFailConfiguration: { // AutomaticFailConfiguration
+ *                         TargetSection: "STRING_VALUE",
+ *                       },
  *                     },
  *                   ],
  *                   Automation: { // EvaluationFormNumericQuestionAutomation Union: only one key present
  *                     PropertyValue: { // NumericQuestionPropertyValueAutomation
- *                       Label: "OVERALL_CUSTOMER_SENTIMENT_SCORE" || "OVERALL_AGENT_SENTIMENT_SCORE" || "NON_TALK_TIME" || "NON_TALK_TIME_PERCENTAGE" || "NUMBER_OF_INTERRUPTIONS" || "CONTACT_DURATION" || "AGENT_INTERACTION_DURATION" || "CUSTOMER_HOLD_TIME", // required
+ *                       Label: "OVERALL_CUSTOMER_SENTIMENT_SCORE" || "OVERALL_AGENT_SENTIMENT_SCORE" || "NON_TALK_TIME" || "NON_TALK_TIME_PERCENTAGE" || "NUMBER_OF_INTERRUPTIONS" || "CONTACT_DURATION" || "AGENT_INTERACTION_DURATION" || "CUSTOMER_HOLD_TIME" || "LONGEST_HOLD_DURATION" || "NUMBER_OF_HOLDS" || "AGENT_INTERACTION_AND_HOLD_DURATION", // required
+ *                     },
+ *                     AnswerSource: { // EvaluationFormQuestionAutomationAnswerSource
+ *                       SourceType: "CONTACT_LENS_DATA" || "GEN_AI", // required
  *                     },
  *                   },
  *                 },
@@ -91,11 +97,14 @@ export interface CreateEvaluationFormCommandOutput extends CreateEvaluationFormR
  *                       Text: "STRING_VALUE", // required
  *                       Score: Number("int"),
  *                       AutomaticFail: true || false,
+ *                       AutomaticFailConfiguration: {
+ *                         TargetSection: "STRING_VALUE",
+ *                       },
  *                     },
  *                   ],
  *                   DisplayAs: "DROPDOWN" || "RADIO",
  *                   Automation: { // EvaluationFormSingleSelectQuestionAutomation
- *                     Options: [ // EvaluationFormSingleSelectQuestionAutomationOptionList // required
+ *                     Options: [ // EvaluationFormSingleSelectQuestionAutomationOptionList
  *                       { // EvaluationFormSingleSelectQuestionAutomationOption Union: only one key present
  *                         RuleCategory: { // SingleSelectQuestionRuleCategoryAutomation
  *                           Category: "STRING_VALUE", // required
@@ -105,8 +114,63 @@ export interface CreateEvaluationFormCommandOutput extends CreateEvaluationFormR
  *                       },
  *                     ],
  *                     DefaultOptionRefId: "STRING_VALUE",
+ *                     AnswerSource: {
+ *                       SourceType: "CONTACT_LENS_DATA" || "GEN_AI", // required
+ *                     },
  *                   },
  *                 },
+ *                 Text: { // EvaluationFormTextQuestionProperties
+ *                   Automation: { // EvaluationFormTextQuestionAutomation
+ *                     AnswerSource: {
+ *                       SourceType: "CONTACT_LENS_DATA" || "GEN_AI", // required
+ *                     },
+ *                   },
+ *                 },
+ *               },
+ *               Enablement: { // EvaluationFormItemEnablementConfiguration
+ *                 Condition: { // EvaluationFormItemEnablementCondition
+ *                   Operands: [ // EvaluationFormItemEnablementConditionOperandList // required
+ *                     { // EvaluationFormItemEnablementConditionOperand Union: only one key present
+ *                       Expression: { // EvaluationFormItemEnablementExpression
+ *                         Source: { // EvaluationFormItemEnablementSource
+ *                           Type: "QUESTION_REF_ID", // required
+ *                           RefId: "STRING_VALUE",
+ *                         },
+ *                         Values: [ // EvaluationFormItemEnablementSourceValueList // required
+ *                           { // EvaluationFormItemEnablementSourceValue
+ *                             Type: "OPTION_REF_ID", // required
+ *                             RefId: "STRING_VALUE",
+ *                           },
+ *                         ],
+ *                         Comparator: "IN" || "NOT_IN", // required
+ *                       },
+ *                       Condition: {
+ *                         Operands: [ // required
+ *                           {//  Union: only one key present
+ *                             Expression: {
+ *                               Source: {
+ *                                 Type: "QUESTION_REF_ID", // required
+ *                                 RefId: "STRING_VALUE",
+ *                               },
+ *                               Values: [ // required
+ *                                 {
+ *                                   Type: "OPTION_REF_ID", // required
+ *                                   RefId: "STRING_VALUE",
+ *                                 },
+ *                               ],
+ *                               Comparator: "IN" || "NOT_IN", // required
+ *                             },
+ *                             Condition: "<EvaluationFormItemEnablementCondition>",
+ *                           },
+ *                         ],
+ *                         Operator: "OR" || "AND",
+ *                       },
+ *                     },
+ *                   ],
+ *                   Operator: "OR" || "AND",
+ *                 },
+ *                 Action: "DISABLE" || "ENABLE", // required
+ *                 DefaultAction: "DISABLE" || "ENABLE",
  *               },
  *               Weight: Number("double"),
  *             },
@@ -130,11 +194,17 @@ export interface CreateEvaluationFormCommandOutput extends CreateEvaluationFormR
  *                 MaxValue: Number("int"), // required
  *                 Score: Number("int"),
  *                 AutomaticFail: true || false,
+ *                 AutomaticFailConfiguration: {
+ *                   TargetSection: "STRING_VALUE",
+ *                 },
  *               },
  *             ],
  *             Automation: {//  Union: only one key present
  *               PropertyValue: {
- *                 Label: "OVERALL_CUSTOMER_SENTIMENT_SCORE" || "OVERALL_AGENT_SENTIMENT_SCORE" || "NON_TALK_TIME" || "NON_TALK_TIME_PERCENTAGE" || "NUMBER_OF_INTERRUPTIONS" || "CONTACT_DURATION" || "AGENT_INTERACTION_DURATION" || "CUSTOMER_HOLD_TIME", // required
+ *                 Label: "OVERALL_CUSTOMER_SENTIMENT_SCORE" || "OVERALL_AGENT_SENTIMENT_SCORE" || "NON_TALK_TIME" || "NON_TALK_TIME_PERCENTAGE" || "NUMBER_OF_INTERRUPTIONS" || "CONTACT_DURATION" || "AGENT_INTERACTION_DURATION" || "CUSTOMER_HOLD_TIME" || "LONGEST_HOLD_DURATION" || "NUMBER_OF_HOLDS" || "AGENT_INTERACTION_AND_HOLD_DURATION", // required
+ *               },
+ *               AnswerSource: {
+ *                 SourceType: "CONTACT_LENS_DATA" || "GEN_AI", // required
  *               },
  *             },
  *           },
@@ -145,11 +215,14 @@ export interface CreateEvaluationFormCommandOutput extends CreateEvaluationFormR
  *                 Text: "STRING_VALUE", // required
  *                 Score: Number("int"),
  *                 AutomaticFail: true || false,
+ *                 AutomaticFailConfiguration: {
+ *                   TargetSection: "STRING_VALUE",
+ *                 },
  *               },
  *             ],
  *             DisplayAs: "DROPDOWN" || "RADIO",
  *             Automation: {
- *               Options: [ // required
+ *               Options: [
  *                 {//  Union: only one key present
  *                   RuleCategory: {
  *                     Category: "STRING_VALUE", // required
@@ -159,8 +232,21 @@ export interface CreateEvaluationFormCommandOutput extends CreateEvaluationFormR
  *                 },
  *               ],
  *               DefaultOptionRefId: "STRING_VALUE",
+ *               AnswerSource: {
+ *                 SourceType: "CONTACT_LENS_DATA" || "GEN_AI", // required
+ *               },
  *             },
  *           },
+ *           Text: {
+ *             Automation: {
+ *               AnswerSource: "<EvaluationFormQuestionAutomationAnswerSource>",
+ *             },
+ *           },
+ *         },
+ *         Enablement: {
+ *           Condition: "<EvaluationFormItemEnablementCondition>", // required
+ *           Action: "DISABLE" || "ENABLE", // required
+ *           DefaultAction: "DISABLE" || "ENABLE",
  *         },
  *         Weight: Number("double"),
  *       },
@@ -170,7 +256,13 @@ export interface CreateEvaluationFormCommandOutput extends CreateEvaluationFormR
  *     Mode: "QUESTION_ONLY" || "SECTION_ONLY", // required
  *     Status: "ENABLED" || "DISABLED", // required
  *   },
+ *   AutoEvaluationConfiguration: { // EvaluationFormAutoEvaluationConfiguration
+ *     Enabled: true || false, // required
+ *   },
  *   ClientToken: "STRING_VALUE",
+ *   Tags: { // TagMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
  * };
  * const command = new CreateEvaluationFormCommand(input);
  * const response = await client.send(command);

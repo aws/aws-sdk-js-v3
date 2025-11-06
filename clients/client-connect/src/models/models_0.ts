@@ -3717,6 +3717,151 @@ export interface CreateEmailAddressResponse {
 }
 
 /**
+ * <p>The automatic evaluation configuration of an evaluation form.</p>
+ * @public
+ */
+export interface EvaluationFormAutoEvaluationConfiguration {
+  /**
+   * <p>When automated evaluation is enabled.</p>
+   * @public
+   */
+  Enabled: boolean | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const EvaluationFormItemEnablementAction = {
+  DISABLE: "DISABLE",
+  ENABLE: "ENABLE",
+} as const;
+
+/**
+ * @public
+ */
+export type EvaluationFormItemEnablementAction =
+  (typeof EvaluationFormItemEnablementAction)[keyof typeof EvaluationFormItemEnablementAction];
+
+/**
+ * @public
+ * @enum
+ */
+export const EvaluationFormItemSourceValuesComparator = {
+  IN: "IN",
+  NOT_IN: "NOT_IN",
+} as const;
+
+/**
+ * @public
+ */
+export type EvaluationFormItemSourceValuesComparator =
+  (typeof EvaluationFormItemSourceValuesComparator)[keyof typeof EvaluationFormItemSourceValuesComparator];
+
+/**
+ * @public
+ * @enum
+ */
+export const EvaluationFormItemEnablementSourceType = {
+  QUESTION_REF_ID: "QUESTION_REF_ID",
+} as const;
+
+/**
+ * @public
+ */
+export type EvaluationFormItemEnablementSourceType =
+  (typeof EvaluationFormItemEnablementSourceType)[keyof typeof EvaluationFormItemEnablementSourceType];
+
+/**
+ * <p>An enablement expression source item.</p>
+ * @public
+ */
+export interface EvaluationFormItemEnablementSource {
+  /**
+   * <p>A type of source item. </p>
+   * @public
+   */
+  Type: EvaluationFormItemEnablementSourceType | undefined;
+
+  /**
+   * <p>A referenceId of the source item.</p>
+   * @public
+   */
+  RefId?: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const EvaluationFormItemEnablementSourceValueType = {
+  OPTION_REF_ID: "OPTION_REF_ID",
+} as const;
+
+/**
+ * @public
+ */
+export type EvaluationFormItemEnablementSourceValueType =
+  (typeof EvaluationFormItemEnablementSourceValueType)[keyof typeof EvaluationFormItemEnablementSourceValueType];
+
+/**
+ * <p>An enablement expression source value.</p>
+ * @public
+ */
+export interface EvaluationFormItemEnablementSourceValue {
+  /**
+   * <p>A type of source item value. </p>
+   * @public
+   */
+  Type: EvaluationFormItemEnablementSourceValueType | undefined;
+
+  /**
+   * <p>A referenceId of the source value.</p>
+   * @public
+   */
+  RefId?: string | undefined;
+}
+
+/**
+ * <p>An expression that defines a basic building block of conditional enablement.</p>
+ * @public
+ */
+export interface EvaluationFormItemEnablementExpression {
+  /**
+   * <p>A source item of enablement expression.</p>
+   * @public
+   */
+  Source: EvaluationFormItemEnablementSource | undefined;
+
+  /**
+   * <p>A list of values from source item.</p>
+   * @public
+   */
+  Values: EvaluationFormItemEnablementSourceValue[] | undefined;
+
+  /**
+   * <p>A comparator to be used against list of values. </p>
+   * @public
+   */
+  Comparator: EvaluationFormItemSourceValuesComparator | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const EvaluationFormItemEnablementOperator = {
+  AND: "AND",
+  OR: "OR",
+} as const;
+
+/**
+ * @public
+ */
+export type EvaluationFormItemEnablementOperator =
+  (typeof EvaluationFormItemEnablementOperator)[keyof typeof EvaluationFormItemEnablementOperator];
+
+/**
  * @public
  * @enum
  */
@@ -3735,12 +3880,42 @@ export type EvaluationFormQuestionType = (typeof EvaluationFormQuestionType)[key
  * @public
  * @enum
  */
+export const EvaluationFormQuestionAutomationAnswerSourceType = {
+  CONTACT_LENS_DATA: "CONTACT_LENS_DATA",
+  GEN_AI: "GEN_AI",
+} as const;
+
+/**
+ * @public
+ */
+export type EvaluationFormQuestionAutomationAnswerSourceType =
+  (typeof EvaluationFormQuestionAutomationAnswerSourceType)[keyof typeof EvaluationFormQuestionAutomationAnswerSourceType];
+
+/**
+ * <p>A question automation answer.</p>
+ * @public
+ */
+export interface EvaluationFormQuestionAutomationAnswerSource {
+  /**
+   * <p>The automation answer source type.</p>
+   * @public
+   */
+  SourceType: EvaluationFormQuestionAutomationAnswerSourceType | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
 export const NumericQuestionPropertyAutomationLabel = {
+  AGENT_INTERACTION_AND_HOLD_DURATION: "AGENT_INTERACTION_AND_HOLD_DURATION",
   AGENT_INTERACTION_DURATION: "AGENT_INTERACTION_DURATION",
   CONTACT_DURATION: "CONTACT_DURATION",
   CUSTOMER_HOLD_TIME: "CUSTOMER_HOLD_TIME",
+  LONGEST_HOLD_DURATION: "LONGEST_HOLD_DURATION",
   NON_TALK_TIME: "NON_TALK_TIME",
   NON_TALK_TIME_PERCENTAGE: "NON_TALK_TIME_PERCENTAGE",
+  NUMBER_OF_HOLDS: "NUMBER_OF_HOLDS",
   NUMBER_OF_INTERRUPTIONS: "NUMBER_OF_INTERRUPTIONS",
   OVERALL_AGENT_SENTIMENT_SCORE: "OVERALL_AGENT_SENTIMENT_SCORE",
   OVERALL_CUSTOMER_SENTIMENT_SCORE: "OVERALL_CUSTOMER_SENTIMENT_SCORE",
@@ -3788,6 +3963,7 @@ export interface NumericQuestionPropertyValueAutomation {
  * @public
  */
 export type EvaluationFormNumericQuestionAutomation =
+  | EvaluationFormNumericQuestionAutomation.AnswerSourceMember
   | EvaluationFormNumericQuestionAutomation.PropertyValueMember
   | EvaluationFormNumericQuestionAutomation.$UnknownMember;
 
@@ -3801,6 +3977,17 @@ export namespace EvaluationFormNumericQuestionAutomation {
    */
   export interface PropertyValueMember {
     PropertyValue: NumericQuestionPropertyValueAutomation;
+    AnswerSource?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>A source of automation answer for numeric question.</p>
+   * @public
+   */
+  export interface AnswerSourceMember {
+    PropertyValue?: never;
+    AnswerSource: EvaluationFormQuestionAutomationAnswerSource;
     $unknown?: never;
   }
 
@@ -3809,18 +3996,33 @@ export namespace EvaluationFormNumericQuestionAutomation {
    */
   export interface $UnknownMember {
     PropertyValue?: never;
+    AnswerSource?: never;
     $unknown: [string, any];
   }
 
   export interface Visitor<T> {
     PropertyValue: (value: NumericQuestionPropertyValueAutomation) => T;
+    AnswerSource: (value: EvaluationFormQuestionAutomationAnswerSource) => T;
     _: (name: string, value: any) => T;
   }
 
   export const visit = <T>(value: EvaluationFormNumericQuestionAutomation, visitor: Visitor<T>): T => {
     if (value.PropertyValue !== undefined) return visitor.PropertyValue(value.PropertyValue);
+    if (value.AnswerSource !== undefined) return visitor.AnswerSource(value.AnswerSource);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
+}
+
+/**
+ * <p>Information about automatic fail configuration for an evaluation form.</p>
+ * @public
+ */
+export interface AutomaticFailConfiguration {
+  /**
+   * <p>The referenceId of the target section for auto failure.</p>
+   * @public
+   */
+  TargetSection?: string | undefined;
 }
 
 /**
@@ -3852,6 +4054,12 @@ export interface EvaluationFormNumericQuestionOption {
    * @public
    */
   AutomaticFail?: boolean | undefined;
+
+  /**
+   * <p>A configuration for automatic fail.</p>
+   * @public
+   */
+  AutomaticFailConfiguration?: AutomaticFailConfiguration | undefined;
 }
 
 /**
@@ -3978,7 +4186,7 @@ export interface EvaluationFormSingleSelectQuestionAutomation {
    * <p>The automation options of the single select question.</p>
    * @public
    */
-  Options: EvaluationFormSingleSelectQuestionAutomationOption[] | undefined;
+  Options?: EvaluationFormSingleSelectQuestionAutomationOption[] | undefined;
 
   /**
    * <p>The identifier of the default answer option, when none of the automation options match the
@@ -3986,6 +4194,12 @@ export interface EvaluationFormSingleSelectQuestionAutomation {
    * @public
    */
   DefaultOptionRefId?: string | undefined;
+
+  /**
+   * <p>Automation answer source.</p>
+   * @public
+   */
+  AnswerSource?: EvaluationFormQuestionAutomationAnswerSource | undefined;
 }
 
 /**
@@ -4033,6 +4247,12 @@ export interface EvaluationFormSingleSelectQuestionOption {
    * @public
    */
   AutomaticFail?: boolean | undefined;
+
+  /**
+   * <p>Whether automatic fail is configured on a single select question. </p>
+   * @public
+   */
+  AutomaticFailConfiguration?: AutomaticFailConfiguration | undefined;
 }
 
 /**
@@ -4060,6 +4280,30 @@ export interface EvaluationFormSingleSelectQuestionProperties {
 }
 
 /**
+ * <p>Information about the automation configuration in text questions.</p>
+ * @public
+ */
+export interface EvaluationFormTextQuestionAutomation {
+  /**
+   * <p>Automation answer source.</p>
+   * @public
+   */
+  AnswerSource?: EvaluationFormQuestionAutomationAnswerSource | undefined;
+}
+
+/**
+ * <p>Information about properties for a text question in an evaluation form.</p>
+ * @public
+ */
+export interface EvaluationFormTextQuestionProperties {
+  /**
+   * <p>The automation properties of the text question.</p>
+   * @public
+   */
+  Automation?: EvaluationFormTextQuestionAutomation | undefined;
+}
+
+/**
  * <p>Information about properties for a question in an evaluation form. The question type
  *    properties must be either for a numeric question or a single select question.</p>
  * @public
@@ -4067,6 +4311,7 @@ export interface EvaluationFormSingleSelectQuestionProperties {
 export type EvaluationFormQuestionTypeProperties =
   | EvaluationFormQuestionTypeProperties.NumericMember
   | EvaluationFormQuestionTypeProperties.SingleSelectMember
+  | EvaluationFormQuestionTypeProperties.TextMember
   | EvaluationFormQuestionTypeProperties.$UnknownMember;
 
 /**
@@ -4080,6 +4325,7 @@ export namespace EvaluationFormQuestionTypeProperties {
   export interface NumericMember {
     Numeric: EvaluationFormNumericQuestionProperties;
     SingleSelect?: never;
+    Text?: never;
     $unknown?: never;
   }
 
@@ -4090,6 +4336,18 @@ export namespace EvaluationFormQuestionTypeProperties {
   export interface SingleSelectMember {
     Numeric?: never;
     SingleSelect: EvaluationFormSingleSelectQuestionProperties;
+    Text?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The properties of the text question.</p>
+   * @public
+   */
+  export interface TextMember {
+    Numeric?: never;
+    SingleSelect?: never;
+    Text: EvaluationFormTextQuestionProperties;
     $unknown?: never;
   }
 
@@ -4099,70 +4357,23 @@ export namespace EvaluationFormQuestionTypeProperties {
   export interface $UnknownMember {
     Numeric?: never;
     SingleSelect?: never;
+    Text?: never;
     $unknown: [string, any];
   }
 
   export interface Visitor<T> {
     Numeric: (value: EvaluationFormNumericQuestionProperties) => T;
     SingleSelect: (value: EvaluationFormSingleSelectQuestionProperties) => T;
+    Text: (value: EvaluationFormTextQuestionProperties) => T;
     _: (name: string, value: any) => T;
   }
 
   export const visit = <T>(value: EvaluationFormQuestionTypeProperties, visitor: Visitor<T>): T => {
     if (value.Numeric !== undefined) return visitor.Numeric(value.Numeric);
     if (value.SingleSelect !== undefined) return visitor.SingleSelect(value.SingleSelect);
+    if (value.Text !== undefined) return visitor.Text(value.Text);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
-}
-
-/**
- * <p>Information about a question from an evaluation form.</p>
- * @public
- */
-export interface EvaluationFormQuestion {
-  /**
-   * <p>The title of the question.</p>
-   * @public
-   */
-  Title: string | undefined;
-
-  /**
-   * <p>The instructions of the section.</p>
-   * @public
-   */
-  Instructions?: string | undefined;
-
-  /**
-   * <p>The identifier of the question. An identifier must be unique within the evaluation
-   *    form.</p>
-   * @public
-   */
-  RefId: string | undefined;
-
-  /**
-   * <p>The flag to enable not applicable answers to the question.</p>
-   * @public
-   */
-  NotApplicableEnabled?: boolean | undefined;
-
-  /**
-   * <p>The type of the question.</p>
-   * @public
-   */
-  QuestionType: EvaluationFormQuestionType | undefined;
-
-  /**
-   * <p>The properties of the type of question. Text questions do not have to define question type
-   *    properties.</p>
-   * @public
-   */
-  QuestionTypeProperties?: EvaluationFormQuestionTypeProperties | undefined;
-
-  /**
-   * <p>The scoring weight of the section.</p>
-   * @public
-   */
-  Weight?: number | undefined;
 }
 
 /**
@@ -7186,310 +7397,6 @@ export interface View {
 }
 
 /**
- * @public
- */
-export interface CreateViewResponse {
-  /**
-   * <p>A view resource object. Contains metadata and content necessary to render the view.</p>
-   * @public
-   */
-  View?: View | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const ResourceType = {
-  CONTACT: "CONTACT",
-  CONTACT_FLOW: "CONTACT_FLOW",
-  HIERARCHY_GROUP: "HIERARCHY_GROUP",
-  HIERARCHY_LEVEL: "HIERARCHY_LEVEL",
-  INSTANCE: "INSTANCE",
-  PARTICIPANT: "PARTICIPANT",
-  PHONE_NUMBER: "PHONE_NUMBER",
-  USER: "USER",
-} as const;
-
-/**
- * @public
- */
-export type ResourceType = (typeof ResourceType)[keyof typeof ResourceType];
-
-/**
- * <p>That resource is already in use (for example, you're trying to add a record with the same
- *    name as an existing record). If you are trying to delete a resource (for example,
- *    DeleteHoursOfOperation or DeletePredefinedAttribute), remove its reference from related resources
- *    and then try again.</p>
- * @public
- */
-export class ResourceInUseException extends __BaseException {
-  readonly name: "ResourceInUseException" = "ResourceInUseException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * <p>The type of resource.</p>
-   * @public
-   */
-  ResourceType?: ResourceType | undefined;
-
-  /**
-   * <p>The identifier for the resource.</p>
-   * @public
-   */
-  ResourceId?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceInUseException, __BaseException>) {
-    super({
-      name: "ResourceInUseException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceInUseException.prototype);
-    this.Message = opts.Message;
-    this.ResourceType = opts.ResourceType;
-    this.ResourceId = opts.ResourceId;
-  }
-}
-
-/**
- * <p>Displayed when rate-related API limits are exceeded.</p>
- * @public
- */
-export class TooManyRequestsException extends __BaseException {
-  readonly name: "TooManyRequestsException" = "TooManyRequestsException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<TooManyRequestsException, __BaseException>) {
-    super({
-      name: "TooManyRequestsException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, TooManyRequestsException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * @public
- */
-export interface CreateViewVersionRequest {
-  /**
-   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of
-   *    the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The identifier of the view. Both <code>ViewArn</code> and <code>ViewId</code> can be
-   *    used.</p>
-   * @public
-   */
-  ViewId: string | undefined;
-
-  /**
-   * <p>The description for the version being published.</p>
-   * @public
-   */
-  VersionDescription?: string | undefined;
-
-  /**
-   * <p>Indicates the checksum value of the latest published view content.</p>
-   * @public
-   */
-  ViewContentSha256?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateViewVersionResponse {
-  /**
-   * <p>All view data is contained within the View object.</p>
-   * @public
-   */
-  View?: View | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateVocabularyRequest {
-  /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *             request. If not provided, the Amazon Web Services
-   *             SDK populates this field. For more information about idempotency, see
-   *             <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>. If a create request is received more than once with same client token,
-   *    subsequent requests return the previous response without creating a vocabulary again.</p>
-   * @public
-   */
-  ClientToken?: string | undefined;
-
-  /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>A unique name of the custom vocabulary.</p>
-   * @public
-   */
-  VocabularyName: string | undefined;
-
-  /**
-   * <p>The language code of the vocabulary entries. For a list of languages and their corresponding language codes, see
-   * <a href="https://docs.aws.amazon.com/transcribe/latest/dg/transcribe-whatis.html">What is Amazon Transcribe?</a>
-   *          </p>
-   * @public
-   */
-  LanguageCode: VocabularyLanguageCode | undefined;
-
-  /**
-   * <p>The content of the custom vocabulary in plain-text format with a table of values. Each row
-   *    in the table represents a word or a phrase, described with <code>Phrase</code>, <code>IPA</code>,
-   *     <code>SoundsLike</code>, and <code>DisplayAs</code> fields. Separate the fields with TAB
-   *    characters. The size limit is 50KB. For more information, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/custom-vocabulary.html#create-vocabulary-table">Create a custom
-   *     vocabulary using a table</a>.</p>
-   * @public
-   */
-  Content: string | undefined;
-
-  /**
-   * <p>The tags used to organize, track, or control access for this resource. For example, \{ "Tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
-   * @public
-   */
-  Tags?: Record<string, string> | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const VocabularyState = {
-  ACTIVE: "ACTIVE",
-  CREATION_FAILED: "CREATION_FAILED",
-  CREATION_IN_PROGRESS: "CREATION_IN_PROGRESS",
-  DELETE_IN_PROGRESS: "DELETE_IN_PROGRESS",
-} as const;
-
-/**
- * @public
- */
-export type VocabularyState = (typeof VocabularyState)[keyof typeof VocabularyState];
-
-/**
- * @public
- */
-export interface CreateVocabularyResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the custom vocabulary.</p>
-   * @public
-   */
-  VocabularyArn: string | undefined;
-
-  /**
-   * <p>The identifier of the custom vocabulary.</p>
-   * @public
-   */
-  VocabularyId: string | undefined;
-
-  /**
-   * <p>The current state of the custom vocabulary.</p>
-   * @public
-   */
-  State: VocabularyState | undefined;
-}
-
-/**
- * @public
- */
-export interface DeactivateEvaluationFormRequest {
-  /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The unique identifier for the evaluation form.</p>
-   * @public
-   */
-  EvaluationFormId: string | undefined;
-
-  /**
-   * <p>A version of the evaluation form. If the version property is not provided, the latest version of the
-   *    evaluation form is deactivated.</p>
-   * @public
-   */
-  EvaluationFormVersion: number | undefined;
-}
-
-/**
- * @public
- */
-export interface DeactivateEvaluationFormResponse {
-  /**
-   * <p>The unique identifier for the evaluation form.</p>
-   * @public
-   */
-  EvaluationFormId: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) for the evaluation form resource.</p>
-   * @public
-   */
-  EvaluationFormArn: string | undefined;
-
-  /**
-   * <p>The version of the deactivated evaluation form resource.</p>
-   * @public
-   */
-  EvaluationFormVersion: number | undefined;
-}
-
-/**
- * Request to DeleteAttachedFile API
- * @public
- */
-export interface DeleteAttachedFileRequest {
-  /**
-   * <p>The unique identifier of the Connect instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The unique identifier of the attached file resource.</p>
-   * @public
-   */
-  FileId: string | undefined;
-
-  /**
-   * <p>The resource to which the attached file is (being) uploaded to. <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_connect-cases_CreateCase.html">Cases</a> are the only
-   *    current supported resource.</p>
-   *          <note>
-   *             <p>This value must be a valid ARN.</p>
-   *          </note>
-   * @public
-   */
-  AssociatedResourceArn: string | undefined;
-}
-
-/**
- * Response from DeleteAttachedFile API
- * @public
- */
-export interface DeleteAttachedFileResponse {}
-
-/**
  * @internal
  */
 export const CreateEmailAddressRequestFilterSensitiveLog = (obj: CreateEmailAddressRequest): any => ({
@@ -7560,20 +7467,4 @@ export const ViewFilterSensitiveLog = (obj: View): any => ({
   ...obj,
   ...(obj.Name && { Name: SENSITIVE_STRING }),
   ...(obj.Content && { Content: ViewContentFilterSensitiveLog(obj.Content) }),
-});
-
-/**
- * @internal
- */
-export const CreateViewResponseFilterSensitiveLog = (obj: CreateViewResponse): any => ({
-  ...obj,
-  ...(obj.View && { View: ViewFilterSensitiveLog(obj.View) }),
-});
-
-/**
- * @internal
- */
-export const CreateViewVersionResponseFilterSensitiveLog = (obj: CreateViewVersionResponse): any => ({
-  ...obj,
-  ...(obj.View && { View: ViewFilterSensitiveLog(obj.View) }),
 });

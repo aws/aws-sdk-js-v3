@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { CreateVocabularyRequest, CreateVocabularyResponse } from "../models/models_0";
+import { CreateVocabularyRequest, CreateVocabularyResponse } from "../models/models_1";
 import { de_CreateVocabularyCommand, se_CreateVocabularyCommand } from "../protocols/Aws_restJson1";
 
 /**

@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { UpdateAuthenticationProfileRequest } from "../models/models_2";
+import { UpdateAuthenticationProfileRequest } from "../models/models_3";
 import {
   de_UpdateAuthenticationProfileCommand,
   se_UpdateAuthenticationProfileCommand,
@@ -32,7 +32,7 @@ export interface UpdateAuthenticationProfileCommandOutput extends __MetadataBear
 
 /**
  * <p>This API is in preview release for Amazon Connect and is subject to change. To
- * request access to this API, contact Amazon Web ServicesSupport.</p>
+ * request access to this API, contact Amazon Web Services Support.</p>
  *          <p>Updates the selected authentication profile.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

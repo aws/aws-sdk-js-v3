@@ -6,12 +6,8 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  CreateViewRequest,
-  CreateViewRequestFilterSensitiveLog,
-  CreateViewResponse,
-  CreateViewResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateViewRequest, CreateViewRequestFilterSensitiveLog } from "../models/models_0";
+import { CreateViewResponse, CreateViewResponseFilterSensitiveLog } from "../models/models_1";
 import { de_CreateViewCommand, se_CreateViewCommand } from "../protocols/Aws_restJson1";
 
 /**

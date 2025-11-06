@@ -7,11 +7,11 @@ import {
   ActionSummary,
   AgentHierarchyGroups,
   AgentStatus,
-  AgentStatusState,
   AliasConfiguration,
-  AllowedCapabilities,
   Application,
   Channel,
+  ContactFlowStatus,
+  ContactFlowType,
   ContactInitiationMethod,
   ControlPlaneAttributeFilter,
   CreatedByInfo,
@@ -26,10 +26,10 @@ import {
   LexBot,
   ListFlowAssociationResourceType,
   MonitorCapability,
-  OutboundStrategy,
   ParticipantRole,
   QuickConnectType,
-  Reference,
+  ReferenceStatus,
+  ReferenceType,
   RehydrationType,
   RulePublishStatus,
   SourceType,
@@ -43,21 +43,25 @@ import {
   ViewStatus,
   ViewType,
   VocabularyLanguageCode,
-  VocabularyState,
 } from "./models_0";
 
 import {
   Attribute,
+  AutoEvaluationStatus,
   ContactFlow,
   ContactFlowModule,
-  EvaluationAnswerData,
+  ContactFlowModuleState,
+  ContactFlowState,
   EvaluationFormVersionStatus,
-  EvaluationNote,
+  EvaluationScore,
+  EvaluationStatus,
+  EvaluationType,
   HierarchyGroup,
   HierarchyGroupSummary,
   HoursOfOperation,
   HoursOfOperationOverride,
   InstanceStatus,
+  LexBotConfig,
   PhoneNumberCountryCode,
   PhoneNumberType,
   PredefinedAttribute,
@@ -67,7 +71,987 @@ import {
   RoutingProfile,
   SortOrder,
   TrafficDistributionGroupStatus,
+  VocabularyState,
 } from "./models_1";
+
+/**
+ * @public
+ */
+export interface ListBotsResponse {
+  /**
+   * <p>The names and Amazon Web Services Regions of the Amazon Lex or Amazon Lex V2 bots
+   *    associated with the specified instance.</p>
+   * @public
+   */
+  LexBots?: LexBotConfig[] | undefined;
+
+  /**
+   * <p>If there are additional results, this is the token for the next set of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListContactEvaluationsRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The identifier of the contact in this instance of Amazon Connect. </p>
+   * @public
+   */
+  ContactId: string | undefined;
+
+  /**
+   * <p>The token for the next set of results. Use the value returned in the previous
+   * response in the next request to retrieve the next set of results.</p>
+   *          <important>
+   *             <p>This is not expected to be set because the value returned in the previous response is
+   *     always null.</p>
+   *          </important>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * <p>Summary information about an evaluation acknowledgement.</p>
+ * @public
+ */
+export interface EvaluationAcknowledgementSummary {
+  /**
+   * <p>The time when an agent acknowledged the evaluation.</p>
+   * @public
+   */
+  AcknowledgedTime?: Date | undefined;
+
+  /**
+   * <p>The agent who acknowledged the evaluation.</p>
+   * @public
+   */
+  AcknowledgedBy?: string | undefined;
+
+  /**
+   * <p>A comment from the agent when they confirmed they acknowledged the evaluation.</p>
+   * @public
+   */
+  AcknowledgerComment?: string | undefined;
+}
+
+/**
+ * <p>Summary information about a contact evaluation.</p>
+ * @public
+ */
+export interface EvaluationSummary {
+  /**
+   * <p>A unique identifier for the contact evaluation.</p>
+   * @public
+   */
+  EvaluationId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) for the contact evaluation resource.</p>
+   * @public
+   */
+  EvaluationArn: string | undefined;
+
+  /**
+   * <p>A title of the evaluation form.</p>
+   * @public
+   */
+  EvaluationFormTitle: string | undefined;
+
+  /**
+   * <p>The unique identifier for the evaluation form.</p>
+   * @public
+   */
+  EvaluationFormId: string | undefined;
+
+  /**
+   * <p>The calibration session ID that this evaluation belongs to.</p>
+   * @public
+   */
+  CalibrationSessionId?: string | undefined;
+
+  /**
+   * <p>The status of the contact evaluation.</p>
+   * @public
+   */
+  Status: EvaluationStatus | undefined;
+
+  /**
+   * <p>Whether automated evaluation is enabled.</p>
+   * @public
+   */
+  AutoEvaluationEnabled?: boolean | undefined;
+
+  /**
+   * <p>The status of the contact auto evaluation. </p>
+   * @public
+   */
+  AutoEvaluationStatus?: AutoEvaluationStatus | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the user who last updated the evaluation.</p>
+   * @public
+   */
+  EvaluatorArn: string | undefined;
+
+  /**
+   * <p>The overall score of the contact evaluation.</p>
+   * @public
+   */
+  Score?: EvaluationScore | undefined;
+
+  /**
+   * <p>Information related to evaluation acknowledgement.</p>
+   * @public
+   */
+  Acknowledgement?: EvaluationAcknowledgementSummary | undefined;
+
+  /**
+   * <p>Type of the evaluation. </p>
+   * @public
+   */
+  EvaluationType?: EvaluationType | undefined;
+
+  /**
+   * <p>The timestamp for when the evaluation was created.</p>
+   * @public
+   */
+  CreatedTime: Date | undefined;
+
+  /**
+   * <p>The timestamp for when the evaluation was last updated.</p>
+   * @public
+   */
+  LastModifiedTime: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListContactEvaluationsResponse {
+  /**
+   * <p>Provides details about a list of contact evaluations belonging to an instance.</p>
+   * @public
+   */
+  EvaluationSummaryList: EvaluationSummary[] | undefined;
+
+  /**
+   * <p>If there are additional results, this is the token for the next set of results.</p>
+   *          <important>
+   *             <p>This is always returned as null in the response.</p>
+   *          </important>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListContactFlowModulesRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The token for the next set of results. Use the value returned in the previous
+   * response in the next request to retrieve the next set of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return per page.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The state of the flow module.</p>
+   * @public
+   */
+  ContactFlowModuleState?: ContactFlowModuleState | undefined;
+}
+
+/**
+ * <p>Contains summary information about a flow.</p>
+ * @public
+ */
+export interface ContactFlowModuleSummary {
+  /**
+   * <p>The identifier of the flow module.</p>
+   * @public
+   */
+  Id?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the flow module.</p>
+   * @public
+   */
+  Arn?: string | undefined;
+
+  /**
+   * <p>The name of the flow module.</p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>The type of flow module.</p>
+   * @public
+   */
+  State?: ContactFlowModuleState | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListContactFlowModulesResponse {
+  /**
+   * <p>Information about the flow module.</p>
+   * @public
+   */
+  ContactFlowModulesSummaryList?: ContactFlowModuleSummary[] | undefined;
+
+  /**
+   * <p>If there are additional results, this is the token for the next set of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListContactFlowsRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The type of flow.</p>
+   * @public
+   */
+  ContactFlowTypes?: ContactFlowType[] | undefined;
+
+  /**
+   * <p>The token for the next set of results. Use the value returned in the previous
+   * response in the next request to retrieve the next set of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return per page. The default MaxResult size is 100.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+}
+
+/**
+ * <p>Contains summary information about a flow.</p>
+ *          <p>You can also create and update flows using the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/flow-language.html">Amazon Connect
+ *    Flow language</a>.</p>
+ * @public
+ */
+export interface ContactFlowSummary {
+  /**
+   * <p>The identifier of the flow.</p>
+   * @public
+   */
+  Id?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the flow.</p>
+   * @public
+   */
+  Arn?: string | undefined;
+
+  /**
+   * <p>The name of the flow.</p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>The type of flow.</p>
+   * @public
+   */
+  ContactFlowType?: ContactFlowType | undefined;
+
+  /**
+   * <p>The type of flow.</p>
+   * @public
+   */
+  ContactFlowState?: ContactFlowState | undefined;
+
+  /**
+   * <p>The status of the flow.</p>
+   * @public
+   */
+  ContactFlowStatus?: ContactFlowStatus | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListContactFlowsResponse {
+  /**
+   * <p>Information about the flows.</p>
+   * @public
+   */
+  ContactFlowSummaryList?: ContactFlowSummary[] | undefined;
+
+  /**
+   * <p>If there are additional results, this is the token for the next set of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListContactFlowVersionsRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The identifier of the flow.</p>
+   * @public
+   */
+  ContactFlowId: string | undefined;
+
+  /**
+   * <p>The token for the next set of results. Use the value returned in the previous
+   * response in the next request to retrieve the next set of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return per page. The default MaxResult size is 100.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+}
+
+/**
+ * <p>A summary of a flow version's metadata.</p>
+ * @public
+ */
+export interface ContactFlowVersionSummary {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the view version.</p>
+   * @public
+   */
+  Arn?: string | undefined;
+
+  /**
+   * <p>The description of the flow version.</p>
+   * @public
+   */
+  VersionDescription?: string | undefined;
+
+  /**
+   * <p>The identifier of the flow version.</p>
+   * @public
+   */
+  Version?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListContactFlowVersionsResponse {
+  /**
+   * <p>A list of flow version summaries.</p>
+   * @public
+   */
+  ContactFlowVersionSummaryList?: ContactFlowVersionSummary[] | undefined;
+
+  /**
+   * <p>If there are additional results, this is the token for the next set of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListContactReferencesRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The identifier of the initial contact.</p>
+   * @public
+   */
+  ContactId: string | undefined;
+
+  /**
+   * <p>The type of reference.</p>
+   * @public
+   */
+  ReferenceTypes: ReferenceType[] | undefined;
+
+  /**
+   * <p>The token for the next set of results. Use the value returned in the previous
+   * response in the next request to retrieve the next set of results.</p>
+   *          <important>
+   *             <p>This is not expected to be set, because the value returned in the previous response is
+   *     always null.</p>
+   *          </important>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * <p>Information about a reference when the <code>referenceType</code> is
+ *    <code>ATTACHMENT</code>. Otherwise, null.</p>
+ * @public
+ */
+export interface AttachmentReference {
+  /**
+   * <p>Identifier of the attachment reference.</p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>The location path of the attachment reference.</p>
+   * @public
+   */
+  Value?: string | undefined;
+
+  /**
+   * <p>Status of the attachment reference type.</p>
+   * @public
+   */
+  Status?: ReferenceStatus | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the attachment reference.</p>
+   * @public
+   */
+  Arn?: string | undefined;
+}
+
+/**
+ * <p>Information about a reference when the <code>referenceType</code> is <code>DATE</code>.
+ *    Otherwise, null.</p>
+ * @public
+ */
+export interface DateReference {
+  /**
+   * <p>Identifier of the date reference.</p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>A valid date.</p>
+   * @public
+   */
+  Value?: string | undefined;
+}
+
+/**
+ * <p>Information about a reference when the <code>referenceType</code> is <code>EMAIL</code>.
+ *    Otherwise, null.</p>
+ * @public
+ */
+export interface EmailReference {
+  /**
+   * <p>Identifier of the email reference.</p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>A valid email address.</p>
+   * @public
+   */
+  Value?: string | undefined;
+}
+
+/**
+ * <p>Information about the reference when the referenceType is <code>EMAIL_MESSAGE</code>.
+ *    Otherwise, null.</p>
+ * @public
+ */
+export interface EmailMessageReference {
+  /**
+   * <p>The name of the email message reference</p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the email message reference</p>
+   * @public
+   */
+  Arn?: string | undefined;
+}
+
+/**
+ * <p>Information about a reference when the <code>referenceType</code> is <code>NUMBER</code>.
+ *    Otherwise, null.</p>
+ * @public
+ */
+export interface NumberReference {
+  /**
+   * <p>Identifier of the number reference.</p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>A valid number.</p>
+   * @public
+   */
+  Value?: string | undefined;
+}
+
+/**
+ * <p>Information about a reference when the <code>referenceType</code> is <code>STRING</code>.
+ *    Otherwise, null.</p>
+ * @public
+ */
+export interface StringReference {
+  /**
+   * <p>Identifier of the string reference.</p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>A valid string.</p>
+   * @public
+   */
+  Value?: string | undefined;
+}
+
+/**
+ * <p>The URL reference.</p>
+ * @public
+ */
+export interface UrlReference {
+  /**
+   * <p>Identifier of the URL reference.</p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>A valid URL.</p>
+   * @public
+   */
+  Value?: string | undefined;
+}
+
+/**
+ * <p>Contains summary information about a reference. <code>ReferenceSummary</code> contains only
+ *    one non null field between the URL and attachment based on the reference type.</p>
+ * @public
+ */
+export type ReferenceSummary =
+  | ReferenceSummary.AttachmentMember
+  | ReferenceSummary.DateMember
+  | ReferenceSummary.EmailMember
+  | ReferenceSummary.EmailMessageMember
+  | ReferenceSummary.NumberMember
+  | ReferenceSummary.StringMember
+  | ReferenceSummary.UrlMember
+  | ReferenceSummary.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace ReferenceSummary {
+  /**
+   * <p>Information about the reference when the <code>referenceType</code> is <code>URL</code>.
+   *    Otherwise, null.</p>
+   * @public
+   */
+  export interface UrlMember {
+    Url: UrlReference;
+    Attachment?: never;
+    EmailMessage?: never;
+    String?: never;
+    Number?: never;
+    Date?: never;
+    Email?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Information about the reference when the <code>referenceType</code> is
+   *     <code>ATTACHMENT</code>. Otherwise, null.</p>
+   * @public
+   */
+  export interface AttachmentMember {
+    Url?: never;
+    Attachment: AttachmentReference;
+    EmailMessage?: never;
+    String?: never;
+    Number?: never;
+    Date?: never;
+    Email?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Information about the reference when the referenceType is <code>EMAIL_MESSAGE</code>.
+   *    Otherwise, null.</p>
+   * @public
+   */
+  export interface EmailMessageMember {
+    Url?: never;
+    Attachment?: never;
+    EmailMessage: EmailMessageReference;
+    String?: never;
+    Number?: never;
+    Date?: never;
+    Email?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Information about a reference when the <code>referenceType</code> is <code>STRING</code>.
+   *    Otherwise, null.</p>
+   * @public
+   */
+  export interface StringMember {
+    Url?: never;
+    Attachment?: never;
+    EmailMessage?: never;
+    String: StringReference;
+    Number?: never;
+    Date?: never;
+    Email?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Information about a reference when the <code>referenceType</code> is <code>NUMBER</code>.
+   *    Otherwise, null.</p>
+   * @public
+   */
+  export interface NumberMember {
+    Url?: never;
+    Attachment?: never;
+    EmailMessage?: never;
+    String?: never;
+    Number: NumberReference;
+    Date?: never;
+    Email?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Information about a reference when the <code>referenceType</code> is <code>DATE</code>.
+   *    Otherwise, null.</p>
+   * @public
+   */
+  export interface DateMember {
+    Url?: never;
+    Attachment?: never;
+    EmailMessage?: never;
+    String?: never;
+    Number?: never;
+    Date: DateReference;
+    Email?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Information about a reference when the <code>referenceType</code> is <code>EMAIL</code>.
+   *    Otherwise, null.</p>
+   * @public
+   */
+  export interface EmailMember {
+    Url?: never;
+    Attachment?: never;
+    EmailMessage?: never;
+    String?: never;
+    Number?: never;
+    Date?: never;
+    Email: EmailReference;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    Url?: never;
+    Attachment?: never;
+    EmailMessage?: never;
+    String?: never;
+    Number?: never;
+    Date?: never;
+    Email?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    Url: (value: UrlReference) => T;
+    Attachment: (value: AttachmentReference) => T;
+    EmailMessage: (value: EmailMessageReference) => T;
+    String: (value: StringReference) => T;
+    Number: (value: NumberReference) => T;
+    Date: (value: DateReference) => T;
+    Email: (value: EmailReference) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: ReferenceSummary, visitor: Visitor<T>): T => {
+    if (value.Url !== undefined) return visitor.Url(value.Url);
+    if (value.Attachment !== undefined) return visitor.Attachment(value.Attachment);
+    if (value.EmailMessage !== undefined) return visitor.EmailMessage(value.EmailMessage);
+    if (value.String !== undefined) return visitor.String(value.String);
+    if (value.Number !== undefined) return visitor.Number(value.Number);
+    if (value.Date !== undefined) return visitor.Date(value.Date);
+    if (value.Email !== undefined) return visitor.Email(value.Email);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * @public
+ */
+export interface ListContactReferencesResponse {
+  /**
+   * <p>Information about the flows.</p>
+   * @public
+   */
+  ReferenceSummaryList?: ReferenceSummary[] | undefined;
+
+  /**
+   * <p>If there are additional results, this is the token for the next set of results.</p>
+   *          <important>
+   *             <p>This is always returned as null in the response.</p>
+   *          </important>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListDefaultVocabulariesRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The language code of the vocabulary entries. For a list of languages and their corresponding language codes, see
+   * <a href="https://docs.aws.amazon.com/transcribe/latest/dg/transcribe-whatis.html">What is Amazon Transcribe?</a>
+   *          </p>
+   * @public
+   */
+  LanguageCode?: VocabularyLanguageCode | undefined;
+
+  /**
+   * <p>The maximum number of results to return per page.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The token for the next set of results. Use the value returned in the previous
+   * response in the next request to retrieve the next set of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * <p>Contains information about a default vocabulary.</p>
+ * @public
+ */
+export interface DefaultVocabulary {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The language code of the vocabulary entries. For a list of languages and their corresponding language codes, see
+   * <a href="https://docs.aws.amazon.com/transcribe/latest/dg/transcribe-whatis.html">What is Amazon Transcribe?</a>
+   *          </p>
+   * @public
+   */
+  LanguageCode: VocabularyLanguageCode | undefined;
+
+  /**
+   * <p>The identifier of the custom vocabulary.</p>
+   * @public
+   */
+  VocabularyId: string | undefined;
+
+  /**
+   * <p>A unique name of the custom vocabulary.</p>
+   * @public
+   */
+  VocabularyName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListDefaultVocabulariesResponse {
+  /**
+   * <p>A list of default vocabularies.</p>
+   * @public
+   */
+  DefaultVocabularyList: DefaultVocabulary[] | undefined;
+
+  /**
+   * <p>If there are additional results, this is the token for the next set of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListEvaluationFormsRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return per page.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The token for the next set of results. Use the value returned in the previous
+   * response in the next request to retrieve the next set of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * <p>Summary information about an evaluation form.</p>
+ * @public
+ */
+export interface EvaluationFormSummary {
+  /**
+   * <p>The unique identifier for the evaluation form.</p>
+   * @public
+   */
+  EvaluationFormId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) for the evaluation form resource.</p>
+   * @public
+   */
+  EvaluationFormArn: string | undefined;
+
+  /**
+   * <p>A title of the evaluation form.</p>
+   * @public
+   */
+  Title: string | undefined;
+
+  /**
+   * <p>The timestamp for when the evaluation form was created.</p>
+   * @public
+   */
+  CreatedTime: Date | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the user who created the evaluation form.</p>
+   * @public
+   */
+  CreatedBy: string | undefined;
+
+  /**
+   * <p>The timestamp for when the evaluation form was last updated.</p>
+   * @public
+   */
+  LastModifiedTime: Date | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the user who last updated the evaluation form.</p>
+   * @public
+   */
+  LastModifiedBy: string | undefined;
+
+  /**
+   * <p>The timestamp for when the evaluation form was last activated.</p>
+   * @public
+   */
+  LastActivatedTime?: Date | undefined;
+
+  /**
+   * <p> The Amazon Resource Name (ARN) of the user who last activated the evaluation form.</p>
+   * @public
+   */
+  LastActivatedBy?: string | undefined;
+
+  /**
+   * <p>The version number of the latest evaluation form version.</p>
+   * @public
+   */
+  LatestVersion: number | undefined;
+
+  /**
+   * <p>The version of the active evaluation form version.</p>
+   * @public
+   */
+  ActiveVersion?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListEvaluationFormsResponse {
+  /**
+   * <p>Provides details about a list of evaluation forms belonging to an instance.</p>
+   * @public
+   */
+  EvaluationFormSummaryList: EvaluationFormSummary[] | undefined;
+
+  /**
+   * <p>If there are additional results, this is the token for the next set of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
 
 /**
  * @public
@@ -3927,6 +4911,378 @@ export interface SearchAvailablePhoneNumbersResponse {
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const BooleanComparisonType = {
+  IS_FALSE: "IS_FALSE",
+  IS_TRUE: "IS_TRUE",
+} as const;
+
+/**
+ * @public
+ */
+export type BooleanComparisonType = (typeof BooleanComparisonType)[keyof typeof BooleanComparisonType];
+
+/**
+ * <p>A boolean search condition for Search APIs.</p>
+ * @public
+ */
+export interface BooleanCondition {
+  /**
+   * <p>A name of the property to be searched.</p>
+   * @public
+   */
+  FieldName?: string | undefined;
+
+  /**
+   * <p>Boolean property comparison type.</p>
+   * @public
+   */
+  ComparisonType?: BooleanComparisonType | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const DateTimeComparisonType = {
+  EQUAL_TO: "EQUAL_TO",
+  GREATER_THAN: "GREATER_THAN",
+  GREATER_THAN_OR_EQUAL_TO: "GREATER_THAN_OR_EQUAL_TO",
+  LESS_THAN: "LESS_THAN",
+  LESS_THAN_OR_EQUAL_TO: "LESS_THAN_OR_EQUAL_TO",
+  RANGE: "RANGE",
+} as const;
+
+/**
+ * @public
+ */
+export type DateTimeComparisonType = (typeof DateTimeComparisonType)[keyof typeof DateTimeComparisonType];
+
+/**
+ * <p>A datetime search condition for Search APIs.</p>
+ * @public
+ */
+export interface DateTimeCondition {
+  /**
+   * <p>A name of the datetime property to be searched</p>
+   * @public
+   */
+  FieldName?: string | undefined;
+
+  /**
+   * <p>A minimum value of the property. </p>
+   * @public
+   */
+  MinValue?: string | undefined;
+
+  /**
+   * <p>A maximum value of the property. </p>
+   * @public
+   */
+  MaxValue?: string | undefined;
+
+  /**
+   * <p>Datetime property comparison type. </p>
+   * @public
+   */
+  ComparisonType?: DateTimeComparisonType | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const DecimalComparisonType = {
+  EQUAL: "EQUAL",
+  GREATER: "GREATER",
+  GREATER_OR_EQUAL: "GREATER_OR_EQUAL",
+  LESSER: "LESSER",
+  LESSER_OR_EQUAL: "LESSER_OR_EQUAL",
+  NOT_EQUAL: "NOT_EQUAL",
+  RANGE: "RANGE",
+} as const;
+
+/**
+ * @public
+ */
+export type DecimalComparisonType = (typeof DecimalComparisonType)[keyof typeof DecimalComparisonType];
+
+/**
+ * <p>A decimal search condition for Search APIs.</p>
+ * @public
+ */
+export interface DecimalCondition {
+  /**
+   * <p>A name of the decimal property to be searched.</p>
+   * @public
+   */
+  FieldName?: string | undefined;
+
+  /**
+   * <p>A minimum value of the decimal property.</p>
+   * @public
+   */
+  MinValue?: number | undefined;
+
+  /**
+   * <p>A maximum value of the decimal property.</p>
+   * @public
+   */
+  MaxValue?: number | undefined;
+
+  /**
+   * <p>The type of comparison to be made when evaluating the decimal condition. </p>
+   * @public
+   */
+  ComparisonType?: DecimalComparisonType | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const NumberComparisonType = {
+  EQUAL: "EQUAL",
+  GREATER: "GREATER",
+  GREATER_OR_EQUAL: "GREATER_OR_EQUAL",
+  LESSER: "LESSER",
+  LESSER_OR_EQUAL: "LESSER_OR_EQUAL",
+  NOT_EQUAL: "NOT_EQUAL",
+  RANGE: "RANGE",
+} as const;
+
+/**
+ * @public
+ */
+export type NumberComparisonType = (typeof NumberComparisonType)[keyof typeof NumberComparisonType];
+
+/**
+ * <p>A leaf node condition which can be used to specify a numeric condition.</p>
+ *          <note>
+ *             <p>The currently supported value for <code>FieldName</code> is <code>limit</code>.</p>
+ *          </note>
+ * @public
+ */
+export interface NumberCondition {
+  /**
+   * <p>The name of the field in the number condition.</p>
+   * @public
+   */
+  FieldName?: string | undefined;
+
+  /**
+   * <p>The minValue to be used while evaluating the number condition.</p>
+   * @public
+   */
+  MinValue?: number | undefined;
+
+  /**
+   * <p>The maxValue to be used while evaluating the number condition.</p>
+   * @public
+   */
+  MaxValue?: number | undefined;
+
+  /**
+   * <p>The type of comparison to be made when evaluating the number condition.</p>
+   * @public
+   */
+  ComparisonType?: NumberComparisonType | undefined;
+}
+
+/**
+ * <p>Filters to be applied to search results.</p>
+ * @public
+ */
+export interface EvaluationSearchFilter {
+  /**
+   * <p>An object that can be used to specify Tag conditions inside the <code>SearchFilter</code>.
+   *    This accepts an <code>OR</code> or <code>AND</code> (List of List) input where: </p>
+   *          <ul>
+   *             <li>
+   *                <p>The top level list specifies conditions that need to be applied with <code>OR</code>
+   *      operator.</p>
+   *             </li>
+   *             <li>
+   *                <p>The inner list specifies conditions that need to be applied with <code>AND</code>
+   *      operator.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  AttributeFilter?: ControlPlaneAttributeFilter | undefined;
+}
+
+/**
+ * <p>Metadata information about an evaluation search.</p>
+ * @public
+ */
+export interface EvaluationSearchMetadata {
+  /**
+   * <p>The identifier of the contact in this instance of Amazon Connect. </p>
+   * @public
+   */
+  ContactId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the person who evaluated the contact.</p>
+   * @public
+   */
+  EvaluatorArn: string | undefined;
+
+  /**
+   * <p>The unique ID of the agent who handled the contact.</p>
+   * @public
+   */
+  ContactAgentId?: string | undefined;
+
+  /**
+   * <p>The calibration session ID that this evaluation belongs to.</p>
+   * @public
+   */
+  CalibrationSessionId?: string | undefined;
+
+  /**
+   * <p>The total evaluation score expressed as a percentage.</p>
+   * @public
+   */
+  ScorePercentage?: number | undefined;
+
+  /**
+   * <p>The flag that marks the item as automatic fail. If the item or a child item gets an
+   *    automatic fail answer, this flag is true.</p>
+   * @public
+   */
+  ScoreAutomaticFail?: boolean | undefined;
+
+  /**
+   * <p>The flag to mark the item as not applicable for scoring.</p>
+   * @public
+   */
+  ScoreNotApplicable?: boolean | undefined;
+
+  /**
+   * <p>Whether auto-evaluation is enabled.</p>
+   * @public
+   */
+  AutoEvaluationEnabled?: boolean | undefined;
+
+  /**
+   * <p>The status of the contact auto evaluation. </p>
+   * @public
+   */
+  AutoEvaluationStatus?: AutoEvaluationStatus | undefined;
+
+  /**
+   * <p>When the evaluation was acknowledged by the agent.</p>
+   * @public
+   */
+  AcknowledgedTime?: Date | undefined;
+
+  /**
+   * <p>The agent who acknowledged the evaluation.</p>
+   * @public
+   */
+  AcknowledgedBy?: string | undefined;
+
+  /**
+   * <p>The comment from the agent when they acknowledged the evaluation.</p>
+   * @public
+   */
+  AcknowledgerComment?: string | undefined;
+}
+
+/**
+ * <p>Summary of evaluation obtained from the search operation.</p>
+ * @public
+ */
+export interface EvaluationSearchSummary {
+  /**
+   * <p>A unique identifier for the contact evaluation.</p>
+   * @public
+   */
+  EvaluationId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) for the contact evaluation resource.</p>
+   * @public
+   */
+  EvaluationArn: string | undefined;
+
+  /**
+   * <p>The unique identifier for the evaluation form.</p>
+   * @public
+   */
+  EvaluationFormId?: string | undefined;
+
+  /**
+   * <p>A version of the evaluation form.</p>
+   * @public
+   */
+  EvaluationFormVersion: number | undefined;
+
+  /**
+   * <p>Summary information about the evaluation search.</p>
+   * @public
+   */
+  Metadata: EvaluationSearchMetadata | undefined;
+
+  /**
+   * <p>The status of the evaluation. </p>
+   * @public
+   */
+  Status: EvaluationStatus | undefined;
+
+  /**
+   * <p>Type of the evaluation. </p>
+   * @public
+   */
+  EvaluationType?: EvaluationType | undefined;
+
+  /**
+   * <p>The date and time when the evaluation was created, in UTC time.</p>
+   * @public
+   */
+  CreatedTime: Date | undefined;
+
+  /**
+   * <p>The date and time when the evaluation was modified last time, in UTC time.</p>
+   * @public
+   */
+  LastModifiedTime: Date | undefined;
+
+  /**
+   * <p>The tags used to organize, track, or control access for this resource. For example, \{ "Tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface SearchContactEvaluationsResponse {
+  /**
+   * <p>Contains information about contact evaluations.</p>
+   * @public
+   */
+  EvaluationSearchSummaryList?: EvaluationSearchSummary[] | undefined;
+
+  /**
+   * <p>If there are additional results, this is the token for the next set of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The total number of contact evaluations that matched your search query.</p>
+   * @public
+   */
+  ApproximateTotalCount?: number | undefined;
+}
+
+/**
  * <p>An object that can be used to specify Tag conditions inside the <code>SearchFilter</code>.
  *    This accepts an <code>OR</code> of <code>AND</code> (List of List) input where: </p>
  *          <ul>
@@ -4668,6 +6024,148 @@ export interface SearchEmailAddressesResponse {
 }
 
 /**
+ * <p>Filters to be applied to search results.</p>
+ * @public
+ */
+export interface EvaluationFormSearchFilter {
+  /**
+   * <p>An object that can be used to specify Tag conditions inside the <code>SearchFilter</code>.
+   *    This accepts an <code>OR</code> or <code>AND</code> (List of List) input where: </p>
+   *          <ul>
+   *             <li>
+   *                <p>The top level list specifies conditions that need to be applied with <code>OR</code>
+   *      operator.</p>
+   *             </li>
+   *             <li>
+   *                <p>The inner list specifies conditions that need to be applied with <code>AND</code>
+   *      operator.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  AttributeFilter?: ControlPlaneAttributeFilter | undefined;
+}
+
+/**
+ * <p>Information about the returned evaluation forms.</p>
+ * @public
+ */
+export interface EvaluationFormSearchSummary {
+  /**
+   * <p>The unique identifier for the evaluation form.</p>
+   * @public
+   */
+  EvaluationFormId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) for the evaluation form resource.</p>
+   * @public
+   */
+  EvaluationFormArn: string | undefined;
+
+  /**
+   * <p>The title of the evaluation form.</p>
+   * @public
+   */
+  Title: string | undefined;
+
+  /**
+   * <p>The status of the evaluation form.</p>
+   * @public
+   */
+  Status: EvaluationFormVersionStatus | undefined;
+
+  /**
+   * <p>The description of the evaluation form.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>When the evaluation form was created.</p>
+   * @public
+   */
+  CreatedTime: Date | undefined;
+
+  /**
+   * <p>Who created the evaluation form.</p>
+   * @public
+   */
+  CreatedBy: string | undefined;
+
+  /**
+   * <p>When the evaluation form was last changed.</p>
+   * @public
+   */
+  LastModifiedTime: Date | undefined;
+
+  /**
+   * <p>Who changed the evaluation form.</p>
+   * @public
+   */
+  LastModifiedBy: string | undefined;
+
+  /**
+   * <p>When the evaluation format was last activated.</p>
+   * @public
+   */
+  LastActivatedTime?: Date | undefined;
+
+  /**
+   * <p>The ID of user who last activated evaluation form.</p>
+   * @public
+   */
+  LastActivatedBy?: string | undefined;
+
+  /**
+   * <p>Latest version of the evaluation form.</p>
+   * @public
+   */
+  LatestVersion: number | undefined;
+
+  /**
+   * <p>Active version of the evaluation form.</p>
+   * @public
+   */
+  ActiveVersion?: number | undefined;
+
+  /**
+   * <p>Whether automated evaluation is enabled.</p>
+   * @public
+   */
+  AutoEvaluationEnabled?: boolean | undefined;
+
+  /**
+   * <p>The tags used to organize, track, or control access for this resource. For example, \{ "Tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface SearchEvaluationFormsResponse {
+  /**
+   * <p>Information about the returned evaluation forms.</p>
+   * @public
+   */
+  EvaluationFormSearchSummaryList?: EvaluationFormSearchSummary[] | undefined;
+
+  /**
+   * <p>If there are additional results, this is the token for the next set of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The total number of evaluation forms that matched your search query.</p>
+   * @public
+   */
+  ApproximateTotalCount?: number | undefined;
+}
+
+/**
  * @public
  * @enum
  */
@@ -5340,58 +6838,6 @@ export interface HierarchyGroupCondition {
    * @public
    */
   HierarchyGroupMatchType?: HierarchyGroupMatchType | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const NumberComparisonType = {
-  EQUAL: "EQUAL",
-  GREATER: "GREATER",
-  GREATER_OR_EQUAL: "GREATER_OR_EQUAL",
-  LESSER: "LESSER",
-  LESSER_OR_EQUAL: "LESSER_OR_EQUAL",
-  NOT_EQUAL: "NOT_EQUAL",
-  RANGE: "RANGE",
-} as const;
-
-/**
- * @public
- */
-export type NumberComparisonType = (typeof NumberComparisonType)[keyof typeof NumberComparisonType];
-
-/**
- * <p>A leaf node condition which can be used to specify a numeric condition.</p>
- *          <note>
- *             <p>The currently supported value for <code>FieldName</code> is <code>limit</code>.</p>
- *          </note>
- * @public
- */
-export interface NumberCondition {
-  /**
-   * <p>The name of the field in the number condition.</p>
-   * @public
-   */
-  FieldName?: string | undefined;
-
-  /**
-   * <p>The minValue to be used while evaluating the number condition.</p>
-   * @public
-   */
-  MinValue?: number | undefined;
-
-  /**
-   * <p>The maxValue to be used while evaluating the number condition.</p>
-   * @public
-   */
-  MaxValue?: number | undefined;
-
-  /**
-   * <p>The type of comparison to be made when evaluating the number condition.</p>
-   * @public
-   */
-  ComparisonType?: NumberComparisonType | undefined;
 }
 
 /**
@@ -6464,6 +7910,18 @@ export interface StartChatContactResponse {
 }
 
 /**
+ * <p>Configuration information about automated evaluations.</p>
+ * @public
+ */
+export interface AutoEvaluationConfiguration {
+  /**
+   * <p>Whether automated evaluations are enabled.</p>
+   * @public
+   */
+  Enabled: boolean | undefined;
+}
+
+/**
  * @public
  */
 export interface StartContactEvaluationRequest {
@@ -6486,6 +7944,12 @@ export interface StartContactEvaluationRequest {
   EvaluationFormId: string | undefined;
 
   /**
+   * <p>Whether automated evaluations are enabled.</p>
+   * @public
+   */
+  AutoEvaluationConfiguration?: AutoEvaluationConfiguration | undefined;
+
+  /**
    * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
    *             request. If not provided, the Amazon Web Services
    *             SDK populates this field. For more information about idempotency, see
@@ -6493,6 +7957,12 @@ export interface StartContactEvaluationRequest {
    * @public
    */
   ClientToken?: string | undefined;
+
+  /**
+   * <p>The tags used to organize, track, or control access for this resource. For example, \{ "Tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -6848,1054 +8318,6 @@ export interface StartOutboundEmailContactResponse {
 }
 
 /**
- * <p>Outbound calls to the destination number are not allowed.</p>
- * @public
- */
-export class DestinationNotAllowedException extends __BaseException {
-  readonly name: "DestinationNotAllowedException" = "DestinationNotAllowedException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The message about the outbound calls.</p>
-   * @public
-   */
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<DestinationNotAllowedException, __BaseException>) {
-    super({
-      name: "DestinationNotAllowedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, DestinationNotAllowedException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The contact is not permitted.</p>
- * @public
- */
-export class OutboundContactNotPermittedException extends __BaseException {
-  readonly name: "OutboundContactNotPermittedException" = "OutboundContactNotPermittedException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The message about the contact.</p>
-   * @public
-   */
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<OutboundContactNotPermittedException, __BaseException>) {
-    super({
-      name: "OutboundContactNotPermittedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, OutboundContactNotPermittedException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>Configuration of the answering machine detection.</p>
- * @public
- */
-export interface AnswerMachineDetectionConfig {
-  /**
-   * <p>The flag to indicate if answer machine detection analysis needs to be performed for a voice
-   *    call. If set to <code>true</code>, <code>TrafficType</code> must be set as <code>CAMPAIGN</code>.
-   *   </p>
-   * @public
-   */
-  EnableAnswerMachineDetection?: boolean | undefined;
-
-  /**
-   * <p>Wait for the answering machine prompt.</p>
-   * @public
-   */
-  AwaitAnswerMachinePrompt?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface StartOutboundVoiceContactRequest {
-  /**
-   * <p>The name of a voice contact that is shown to an agent in the Contact Control Panel
-   *    (CCP).</p>
-   * @public
-   */
-  Name?: string | undefined;
-
-  /**
-   * <p>A description of the voice contact that appears in the agent's snapshot in the CCP logs. For
-   *    more information about CCP logs, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/download-ccp-logs.html">Download and review CCP logs</a> in
-   *    the <i>Amazon Connect Administrator Guide</i>.</p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p>A formatted URL that is shown to an agent in the Contact Control Panel (CCP). Contacts can
-   *    have the following reference types at the time of creation: <code>URL</code> |
-   *     <code>NUMBER</code> | <code>STRING</code> | <code>DATE</code> | <code>EMAIL</code>.
-   *     <code>ATTACHMENT</code> is not a supported reference type during voice contact creation.</p>
-   * @public
-   */
-  References?: Record<string, Reference> | undefined;
-
-  /**
-   * <p>The <code>contactId</code> that is related to this contact. Linking voice, task, or chat by
-   *    using <code>RelatedContactID</code> copies over contact attributes from the related contact to
-   *    the new contact. All updates to user-defined attributes in the new contact are limited to the
-   *    individual contact ID. There are no limits to the number of contacts that can be linked by using
-   *     <code>RelatedContactId</code>. </p>
-   * @public
-   */
-  RelatedContactId?: string | undefined;
-
-  /**
-   * <p>The phone number of the customer, in E.164 format.</p>
-   * @public
-   */
-  DestinationPhoneNumber: string | undefined;
-
-  /**
-   * <p>The
-   *    identifier of the flow for the outbound call. To see the ContactFlowId in the Amazon Connect admin website, on the
-   *    navigation menu go to <b>Routing</b>, <b>Contact
-   *     Flows</b>. Choose the flow. On the flow page, under the name of the flow, choose
-   *     <b>Show additional flow information</b>. The ContactFlowId is the last
-   *    part of the ARN, shown here in bold: </p>
-   *          <p>arn:aws:connect:us-west-2:xxxxxxxxxxxx:instance/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/contact-flow/<b>846ec553-a005-41c0-8341-xxxxxxxxxxxx</b>
-   *          </p>
-   * @public
-   */
-  ContactFlowId: string | undefined;
-
-  /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *             request. If not provided, the Amazon Web Services
-   *             SDK populates this field. For more information about idempotency, see
-   *             <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>. The token is valid for 7 days after creation. If a contact is already started,
-   *    the contact ID is returned.
-   *    </p>
-   * @public
-   */
-  ClientToken?: string | undefined;
-
-  /**
-   * <p>The phone number associated with the Amazon Connect instance, in E.164 format. If you do
-   *    not specify a source phone number, you must specify a queue.</p>
-   * @public
-   */
-  SourcePhoneNumber?: string | undefined;
-
-  /**
-   * <p>The queue for the call. If you specify a queue, the phone displayed for caller ID is the
-   *    phone number specified in the queue. If you do not specify a queue, the queue defined in the flow
-   *    is used. If you do not specify a queue, you must specify a source phone number.</p>
-   * @public
-   */
-  QueueId?: string | undefined;
-
-  /**
-   * <p>A custom key-value pair using an attribute map. The attributes are standard Amazon Connect attributes, and can be accessed in flows just like any other contact attributes.</p>
-   *          <p>There can be up to 32,768 UTF-8 bytes across all key-value pairs per contact. Attribute keys
-   *    can include only alphanumeric, dash, and underscore characters.</p>
-   * @public
-   */
-  Attributes?: Record<string, string> | undefined;
-
-  /**
-   * <p>Configuration of the answering machine detection for this outbound call. </p>
-   * @public
-   */
-  AnswerMachineDetectionConfig?: AnswerMachineDetectionConfig | undefined;
-
-  /**
-   * <p>The campaign identifier of the outbound communication.</p>
-   * @public
-   */
-  CampaignId?: string | undefined;
-
-  /**
-   * <p>Denotes the class of traffic. Calls with different traffic types are handled differently by
-   *     Amazon Connect. The default value is <code>GENERAL</code>. Use <code>CAMPAIGN</code> if
-   *     <code>EnableAnswerMachineDetection</code> is set to <code>true</code>. For all other cases, use
-   *     <code>GENERAL</code>. </p>
-   * @public
-   */
-  TrafficType?: TrafficType | undefined;
-
-  /**
-   * <p>Information about the outbound strategy.</p>
-   * @public
-   */
-  OutboundStrategy?: OutboundStrategy | undefined;
-}
-
-/**
- * @public
- */
-export interface StartOutboundVoiceContactResponse {
-  /**
-   * <p>The identifier of this contact within the Amazon Connect instance.</p>
-   * @public
-   */
-  ContactId?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface StartScreenSharingRequest {
-  /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *             request. If not provided, the Amazon Web Services
-   *             SDK populates this field. For more information about idempotency, see
-   *             <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
-   * @public
-   */
-  ClientToken?: string | undefined;
-
-  /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The identifier of the contact in this instance of Amazon Connect. </p>
-   * @public
-   */
-  ContactId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface StartScreenSharingResponse {}
-
-/**
- * @public
- */
-export interface StartTaskContactResponse {
-  /**
-   * <p>The identifier of this contact within the Amazon Connect instance.</p>
-   * @public
-   */
-  ContactId?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface StartWebRTCContactRequest {
-  /**
-   * <p>A custom key-value pair using an attribute map. The attributes are standard Amazon Connect attributes, and can be accessed in flows just like any other contact attributes.</p>
-   *          <p>There can be up to 32,768 UTF-8 bytes across all key-value pairs per contact. Attribute keys
-   *    can include only alphanumeric, -, and _ characters.</p>
-   * @public
-   */
-  Attributes?: Record<string, string> | undefined;
-
-  /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *             request. If not provided, the Amazon Web Services
-   *             SDK populates this field. For more information about idempotency, see
-   *             <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
-   *          <p>The token is valid for 7 days after creation. If a contact is already started, the contact
-   *    ID is returned.</p>
-   * @public
-   */
-  ClientToken?: string | undefined;
-
-  /**
-   * <p>The identifier of the flow for the call. To see the ContactFlowId in the Amazon Connect admin website, on the
-   *    navigation menu go to <b>Routing</b>, <b>Flows</b>. Choose the flow. On the flow page, under the name of the flow, choose
-   *     <b>Show additional flow information</b>. The ContactFlowId is the last
-   *    part of the ARN, shown here in bold: </p>
-   *          <p>arn:aws:connect:us-west-2:xxxxxxxxxxxx:instance/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/contact-flow/<b>846ec553-a005-41c0-8341-xxxxxxxxxxxx</b>
-   *          </p>
-   * @public
-   */
-  ContactFlowId: string | undefined;
-
-  /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>Information about the video sharing capabilities of the participants (customer,
-   *    agent).</p>
-   * @public
-   */
-  AllowedCapabilities?: AllowedCapabilities | undefined;
-
-  /**
-   * <p>The customer's details.</p>
-   * @public
-   */
-  ParticipantDetails: ParticipantDetails | undefined;
-
-  /**
-   * <p>The unique identifier for an Amazon Connect contact. This identifier is related to the
-   *    contact starting.</p>
-   * @public
-   */
-  RelatedContactId?: string | undefined;
-
-  /**
-   * <p>A formatted URL that is shown to an agent in the Contact Control Panel (CCP). Tasks can have
-   *    the following reference types at the time of creation: <code>URL</code> | <code>NUMBER</code> |
-   *     <code>STRING</code> | <code>DATE</code> | <code>EMAIL</code>. <code>ATTACHMENT</code> is not a
-   *    supported reference type during task creation.</p>
-   * @public
-   */
-  References?: Record<string, Reference> | undefined;
-
-  /**
-   * <p>A description of the task that is shown to an agent in the Contact Control Panel
-   *    (CCP).</p>
-   * @public
-   */
-  Description?: string | undefined;
-}
-
-/**
- * <p>The attendee information, including attendee ID and join token.</p>
- * @public
- */
-export interface Attendee {
-  /**
-   * <p>The Amazon Chime SDK attendee ID.</p>
-   * @public
-   */
-  AttendeeId?: string | undefined;
-
-  /**
-   * <p>The join token used by the Amazon Chime SDK attendee.</p>
-   * @public
-   */
-  JoinToken?: string | undefined;
-}
-
-/**
- * <p>A set of endpoints used by clients to connect to the media service group for an Amazon Chime SDK meeting.</p>
- * @public
- */
-export interface MediaPlacement {
-  /**
-   * <p>The audio host URL.</p>
-   * @public
-   */
-  AudioHostUrl?: string | undefined;
-
-  /**
-   * <p>The audio fallback URL.</p>
-   * @public
-   */
-  AudioFallbackUrl?: string | undefined;
-
-  /**
-   * <p>The signaling URL.</p>
-   * @public
-   */
-  SignalingUrl?: string | undefined;
-
-  /**
-   * <p>The turn control URL.</p>
-   * @public
-   */
-  TurnControlUrl?: string | undefined;
-
-  /**
-   * <p>The event ingestion URL to which you send client meeting events.</p>
-   * @public
-   */
-  EventIngestionUrl?: string | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const MeetingFeatureStatus = {
-  AVAILABLE: "AVAILABLE",
-  UNAVAILABLE: "UNAVAILABLE",
-} as const;
-
-/**
- * @public
- */
-export type MeetingFeatureStatus = (typeof MeetingFeatureStatus)[keyof typeof MeetingFeatureStatus];
-
-/**
- * <p>Has audio-specific configurations as the operating parameter for Echo Reduction.</p>
- * @public
- */
-export interface AudioFeatures {
-  /**
-   * <p>Makes echo reduction available to clients who connect to the meeting.</p>
-   * @public
-   */
-  EchoReduction?: MeetingFeatureStatus | undefined;
-}
-
-/**
- * <p>The configuration settings of the features available to a meeting.</p>
- * @public
- */
-export interface MeetingFeaturesConfiguration {
-  /**
-   * <p>The configuration settings for the audio features available to a meeting.</p>
-   * @public
-   */
-  Audio?: AudioFeatures | undefined;
-}
-
-/**
- * <p>A meeting created using the Amazon Chime SDK.</p>
- * @public
- */
-export interface Meeting {
-  /**
-   * <p>The Amazon Web Services Region in which you create the meeting.</p>
-   * @public
-   */
-  MediaRegion?: string | undefined;
-
-  /**
-   * <p>The media placement for the meeting.</p>
-   * @public
-   */
-  MediaPlacement?: MediaPlacement | undefined;
-
-  /**
-   * <p>The configuration settings of the features available to a meeting.</p>
-   * @public
-   */
-  MeetingFeatures?: MeetingFeaturesConfiguration | undefined;
-
-  /**
-   * <p>The Amazon Chime SDK meeting ID.</p>
-   * @public
-   */
-  MeetingId?: string | undefined;
-}
-
-/**
- * <p>Information required to join the call.</p>
- * @public
- */
-export interface ConnectionData {
-  /**
-   * <p>The attendee information, including attendee ID and join token.</p>
-   * @public
-   */
-  Attendee?: Attendee | undefined;
-
-  /**
-   * <p>A meeting created using the Amazon Chime SDK.</p>
-   * @public
-   */
-  Meeting?: Meeting | undefined;
-}
-
-/**
- * @public
- */
-export interface StartWebRTCContactResponse {
-  /**
-   * <p>Information required for the client application (mobile application or website) to connect
-   *    to the call.</p>
-   * @public
-   */
-  ConnectionData?: ConnectionData | undefined;
-
-  /**
-   * <p>The identifier of the contact in this instance of Amazon Connect. </p>
-   * @public
-   */
-  ContactId?: string | undefined;
-
-  /**
-   * <p>The identifier for a contact participant. The <code>ParticipantId</code> for a contact
-   *    participant is the same throughout the contact lifecycle.</p>
-   * @public
-   */
-  ParticipantId?: string | undefined;
-
-  /**
-   * <p>The token used by the contact participant to call the <a href="https://docs.aws.amazon.com/connect-participant/latest/APIReference/API_CreateParticipantConnection.html">CreateParticipantConnection</a> API. The participant token is valid for the lifetime of a
-   *    contact participant.</p>
-   * @public
-   */
-  ParticipantToken?: string | undefined;
-}
-
-/**
- * <p>The contact with the specified ID does not exist.</p>
- * @public
- */
-export class ContactNotFoundException extends __BaseException {
-  readonly name: "ContactNotFoundException" = "ContactNotFoundException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The message.</p>
-   * @public
-   */
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ContactNotFoundException, __BaseException>) {
-    super({
-      name: "ContactNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ContactNotFoundException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>Contains details about why a contact was disconnected. Only Amazon Connect outbound
- *    campaigns can provide this field.</p>
- * @public
- */
-export interface DisconnectReason {
-  /**
-   * <p>A code that indicates how the contact was terminated.</p>
-   * @public
-   */
-  Code?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface StopContactRequest {
-  /**
-   * <p>The ID of the contact.</p>
-   * @public
-   */
-  ContactId: string | undefined;
-
-  /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The reason a contact can be disconnected. Only Amazon Connect outbound campaigns can
-   *    provide this field. For a list and description of all the possible
-   *    disconnect reasons by channel (including outbound campaign voice contacts) see DisconnectReason under <a href="https://docs.aws.amazon.com/connect/latest/adminguide/ctr-data-model.html#ctr-ContactTraceRecord">ContactTraceRecord</a> in the <i>Amazon Connect Administrator Guide</i>. </p>
-   * @public
-   */
-  DisconnectReason?: DisconnectReason | undefined;
-}
-
-/**
- * @public
- */
-export interface StopContactResponse {}
-
-/**
- * @public
- */
-export interface StopContactRecordingRequest {
-  /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The identifier of the contact.</p>
-   * @public
-   */
-  ContactId: string | undefined;
-
-  /**
-   * <p>The identifier of the contact. This is the identifier of the contact associated with the
-   *    first interaction with the contact center.</p>
-   * @public
-   */
-  InitialContactId: string | undefined;
-
-  /**
-   * <p>The type of recording being operated on.</p>
-   * @public
-   */
-  ContactRecordingType?: ContactRecordingType | undefined;
-}
-
-/**
- * @public
- */
-export interface StopContactRecordingResponse {}
-
-/**
- * @public
- */
-export interface StopContactStreamingRequest {
-  /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The identifier of the contact. This is the identifier of the contact that is associated with
-   *    the first interaction with the contact center.</p>
-   * @public
-   */
-  ContactId: string | undefined;
-
-  /**
-   * <p>The identifier of the streaming configuration enabled. </p>
-   * @public
-   */
-  StreamingId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface StopContactStreamingResponse {}
-
-/**
- * <p>Information about input answers for a contact evaluation.</p>
- * @public
- */
-export interface EvaluationAnswerInput {
-  /**
-   * <p>The value for an answer in a contact evaluation.</p>
-   * @public
-   */
-  Value?: EvaluationAnswerData | undefined;
-}
-
-/**
- * @public
- */
-export interface SubmitContactEvaluationRequest {
-  /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>A unique identifier for the contact evaluation.</p>
-   * @public
-   */
-  EvaluationId: string | undefined;
-
-  /**
-   * <p>A map of question identifiers to answer value.</p>
-   * @public
-   */
-  Answers?: Record<string, EvaluationAnswerInput> | undefined;
-
-  /**
-   * <p>A map of question identifiers to note value.</p>
-   * @public
-   */
-  Notes?: Record<string, EvaluationNote> | undefined;
-}
-
-/**
- * @public
- */
-export interface SubmitContactEvaluationResponse {
-  /**
-   * <p>A unique identifier for the contact evaluation.</p>
-   * @public
-   */
-  EvaluationId: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) for the contact evaluation resource.</p>
-   * @public
-   */
-  EvaluationArn: string | undefined;
-}
-
-/**
- * @public
- */
-export interface SuspendContactRecordingRequest {
-  /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The identifier of the contact.</p>
-   * @public
-   */
-  ContactId: string | undefined;
-
-  /**
-   * <p>The identifier of the contact. This is the identifier of the contact associated with the
-   *    first interaction with the contact center.</p>
-   * @public
-   */
-  InitialContactId: string | undefined;
-
-  /**
-   * <p>The type of recording being operated on.</p>
-   * @public
-   */
-  ContactRecordingType?: ContactRecordingType | undefined;
-}
-
-/**
- * @public
- */
-export interface SuspendContactRecordingResponse {}
-
-/**
- * @public
- */
-export interface TagContactRequest {
-  /**
-   * <p>The identifier of the contact in this instance of Amazon Connect. </p>
-   * @public
-   */
-  ContactId: string | undefined;
-
-  /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The tags to be assigned to the contact resource. For example, \{ "Tags": \{"key1":"value1",
-   *    "key2":"value2"\} \}.</p>
-   *          <note>
-   *             <p>Authorization is not supported by this tag.</p>
-   *          </note>
-   * @public
-   */
-  Tags: Record<string, string> | undefined;
-}
-
-/**
- * @public
- */
-export interface TagContactResponse {}
-
-/**
- * @public
- */
-export interface TagResourceRequest {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the resource.</p>
-   * @public
-   */
-  resourceArn: string | undefined;
-
-  /**
-   * <p>The tags used to organize, track, or control access for this resource. For example, \{ "Tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
-   * @public
-   */
-  tags: Record<string, string> | undefined;
-}
-
-/**
- * @public
- */
-export interface TransferContactRequest {
-  /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The identifier of the contact in this instance of Amazon Connect. </p>
-   * @public
-   */
-  ContactId: string | undefined;
-
-  /**
-   * <p>The identifier for the queue.</p>
-   * @public
-   */
-  QueueId?: string | undefined;
-
-  /**
-   * <p>The identifier for the user. This can be the ID or the ARN of the user.</p>
-   * @public
-   */
-  UserId?: string | undefined;
-
-  /**
-   * <p>The identifier of the flow.</p>
-   * @public
-   */
-  ContactFlowId: string | undefined;
-
-  /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *             request. If not provided, the Amazon Web Services
-   *             SDK populates this field. For more information about idempotency, see
-   *             <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
-   * @public
-   */
-  ClientToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface TransferContactResponse {
-  /**
-   * <p>The identifier of the contact in this instance of Amazon Connect. </p>
-   * @public
-   */
-  ContactId?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the contact.</p>
-   * @public
-   */
-  ContactArn?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface UntagContactRequest {
-  /**
-   * <p>The identifier of the contact in this instance of Amazon Connect. </p>
-   * @public
-   */
-  ContactId: string | undefined;
-
-  /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>A list of tag keys. Existing tags on the contact whose keys are members of this list will be
-   *    removed.</p>
-   * @public
-   */
-  TagKeys: string[] | undefined;
-}
-
-/**
- * @public
- */
-export interface UntagContactResponse {}
-
-/**
- * @public
- */
-export interface UntagResourceRequest {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the resource.</p>
-   * @public
-   */
-  resourceArn: string | undefined;
-
-  /**
-   * <p>The tag keys.</p>
-   * @public
-   */
-  tagKeys: string[] | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateAgentStatusRequest {
-  /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The identifier of the agent status.</p>
-   * @public
-   */
-  AgentStatusId: string | undefined;
-
-  /**
-   * <p>The name of the agent status.</p>
-   * @public
-   */
-  Name?: string | undefined;
-
-  /**
-   * <p>The description of the agent status.</p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p>The state of the agent status.</p>
-   * @public
-   */
-  State?: AgentStatusState | undefined;
-
-  /**
-   * <p>The display order of the agent status.</p>
-   * @public
-   */
-  DisplayOrder?: number | undefined;
-
-  /**
-   * <p>A number indicating the reset order of the agent status.</p>
-   * @public
-   */
-  ResetOrderNumber?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateAuthenticationProfileRequest {
-  /**
-   * <p>A unique identifier for the authentication profile. </p>
-   * @public
-   */
-  AuthenticationProfileId: string | undefined;
-
-  /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The name for the authentication profile.</p>
-   * @public
-   */
-  Name?: string | undefined;
-
-  /**
-   * <p>The description for the authentication profile.</p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p>A list of IP address range strings that are allowed to access the instance. For more
-   *    information on how to configure IP addresses, see<a href="https://docs.aws.amazon.com/connect/latest/adminguide/authentication-profiles.html#configure-session-timeouts">Configure session timeouts</a> in the <i>Amazon Connect Administrator
-   *     Guide</i>.</p>
-   * @public
-   */
-  AllowedIps?: string[] | undefined;
-
-  /**
-   * <p>A list of IP address range strings that are blocked from accessing the instance. For more
-   *    information on how to configure IP addresses, For more information on how to configure IP
-   *    addresses, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/authentication-profiles.html#configure-ip-based-ac">Configure
-   *     IP-based access control</a> in the <i>Amazon Connect Administrator
-   *     Guide</i>. </p>
-   * @public
-   */
-  BlockedIps?: string[] | undefined;
-
-  /**
-   * <p>The short lived session duration configuration for users logged in to Amazon Connect, in
-   *    minutes. This value determines the maximum possible time before an agent is authenticated. For
-   *    more information, For more information on how to configure IP addresses, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/authentication-profiles.html#configure-session-timeouts">Configure session timeouts</a> in the <i>Amazon Connect Administrator
-   *     Guide</i>. </p>
-   * @public
-   */
-  PeriodicSessionDuration?: number | undefined;
-}
-
-/**
- * <p>Information about a queue.</p>
- * @public
- */
-export interface QueueInfoInput {
-  /**
-   * <p>The identifier of the queue.</p>
-   * @public
-   */
-  Id?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateContactResponse {}
-
-/**
- * @public
- */
-export interface UpdateContactAttributesRequest {
-  /**
-   * <p>The identifier of the contact. This is the identifier of the contact associated with the
-   *    first interaction with the contact center.</p>
-   * @public
-   */
-  InitialContactId: string | undefined;
-
-  /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The Amazon Connect attributes. These attributes can be accessed in flows just like any
-   *    other contact attributes.</p>
-   *          <p>You can have up to 32,768 UTF-8 bytes across all attributes for a contact. Attribute keys
-   *    can include only alphanumeric, dash, and underscore characters.</p>
-   *          <p>In the <a href="https://docs.aws.amazon.com/connect/latest/adminguide/set-contact-attributes.html">Set contact attributes</a>
-   *    block, when the attributes for a contact exceed 32 KB, the contact is routed down the Error
-   *    branch of the flow. As a mitigation, consider the following options:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Remove unnecessary attributes by setting their values to empty.</p>
-   *             </li>
-   *             <li>
-   *                <p>If the attributes are only used in one flow and don't need to be referred to outside of
-   *      that flow (for example, by a Lambda or another flow), then use flow attributes. This way you
-   *      aren't needlessly persisting the 32 KB of information from one flow to another. For more
-   *      information, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/set-contact-attributes.html">Flow block: Set contact
-   *       attributes</a> in the <i>Amazon Connect Administrator Guide</i>. </p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  Attributes: Record<string, string> | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateContactAttributesResponse {}
-
-/**
  * @internal
  */
 export const InstanceSummaryFilterSensitiveLog = (obj: InstanceSummary): any => ({
@@ -8189,45 +8611,4 @@ export const StartOutboundEmailContactRequestFilterSensitiveLog = (obj: StartOut
     AdditionalRecipients: OutboundAdditionalRecipientsFilterSensitiveLog(obj.AdditionalRecipients),
   }),
   ...(obj.EmailMessage && { EmailMessage: OutboundEmailContentFilterSensitiveLog(obj.EmailMessage) }),
-});
-
-/**
- * @internal
- */
-export const StartOutboundVoiceContactRequestFilterSensitiveLog = (obj: StartOutboundVoiceContactRequest): any => ({
-  ...obj,
-  ...(obj.Name && { Name: SENSITIVE_STRING }),
-  ...(obj.Description && { Description: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const StartWebRTCContactRequestFilterSensitiveLog = (obj: StartWebRTCContactRequest): any => ({
-  ...obj,
-  ...(obj.Description && { Description: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const AttendeeFilterSensitiveLog = (obj: Attendee): any => ({
-  ...obj,
-  ...(obj.JoinToken && { JoinToken: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const ConnectionDataFilterSensitiveLog = (obj: ConnectionData): any => ({
-  ...obj,
-  ...(obj.Attendee && { Attendee: AttendeeFilterSensitiveLog(obj.Attendee) }),
-});
-
-/**
- * @internal
- */
-export const StartWebRTCContactResponseFilterSensitiveLog = (obj: StartWebRTCContactResponse): any => ({
-  ...obj,
-  ...(obj.ConnectionData && { ConnectionData: ConnectionDataFilterSensitiveLog(obj.ConnectionData) }),
 });

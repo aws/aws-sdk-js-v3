@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { TagContactRequest, TagContactResponse } from "../models/models_2";
+import { TagContactRequest, TagContactResponse } from "../models/models_3";
 import { de_TagContactCommand, se_TagContactCommand } from "../protocols/Aws_restJson1";
 
 /**

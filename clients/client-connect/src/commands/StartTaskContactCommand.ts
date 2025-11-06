@@ -6,8 +6,11 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { StartTaskContactResponse } from "../models/models_2";
-import { StartTaskContactRequest, StartTaskContactRequestFilterSensitiveLog } from "../models/models_3";
+import {
+  StartTaskContactRequest,
+  StartTaskContactRequestFilterSensitiveLog,
+  StartTaskContactResponse,
+} from "../models/models_3";
 import { de_StartTaskContactCommand, se_StartTaskContactCommand } from "../protocols/Aws_restJson1";
 
 /**

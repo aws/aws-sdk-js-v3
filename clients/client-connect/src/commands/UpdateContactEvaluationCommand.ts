@@ -57,6 +57,9 @@ export interface UpdateContactEvaluationCommandOutput extends UpdateContactEvalu
  *       Value: "STRING_VALUE",
  *     },
  *   },
+ *   UpdatedBy: { // EvaluatorUserUnion Union: only one key present
+ *     ConnectUserArn: "STRING_VALUE",
+ *   },
  * };
  * const command = new UpdateContactEvaluationCommand(input);
  * const response = await client.send(command);

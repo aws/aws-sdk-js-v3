@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListContactEvaluationsRequest, ListContactEvaluationsResponse } from "../models/models_1";
+import { ListContactEvaluationsRequest, ListContactEvaluationsResponse } from "../models/models_2";
 import { de_ListContactEvaluationsCommand, se_ListContactEvaluationsCommand } from "../protocols/Aws_restJson1";
 
 /**
@@ -51,13 +51,22 @@ export interface ListContactEvaluationsCommandOutput extends ListContactEvaluati
  * //       EvaluationArn: "STRING_VALUE", // required
  * //       EvaluationFormTitle: "STRING_VALUE", // required
  * //       EvaluationFormId: "STRING_VALUE", // required
+ * //       CalibrationSessionId: "STRING_VALUE",
  * //       Status: "DRAFT" || "SUBMITTED", // required
+ * //       AutoEvaluationEnabled: true || false,
+ * //       AutoEvaluationStatus: "IN_PROGRESS" || "FAILED" || "SUCCEEDED",
  * //       EvaluatorArn: "STRING_VALUE", // required
  * //       Score: { // EvaluationScore
  * //         Percentage: Number("double"),
  * //         NotApplicable: true || false,
  * //         AutomaticFail: true || false,
  * //       },
+ * //       Acknowledgement: { // EvaluationAcknowledgementSummary
+ * //         AcknowledgedTime: new Date("TIMESTAMP"),
+ * //         AcknowledgedBy: "STRING_VALUE",
+ * //         AcknowledgerComment: "STRING_VALUE",
+ * //       },
+ * //       EvaluationType: "STANDARD" || "CALIBRATION",
  * //       CreatedTime: new Date("TIMESTAMP"), // required
  * //       LastModifiedTime: new Date("TIMESTAMP"), // required
  * //     },

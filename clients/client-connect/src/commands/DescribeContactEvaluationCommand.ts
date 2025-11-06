@@ -52,10 +52,20 @@ export interface DescribeContactEvaluationCommandOutput extends DescribeContactE
  * //       ContactId: "STRING_VALUE", // required
  * //       EvaluatorArn: "STRING_VALUE", // required
  * //       ContactAgentId: "STRING_VALUE",
+ * //       CalibrationSessionId: "STRING_VALUE",
  * //       Score: { // EvaluationScore
  * //         Percentage: Number("double"),
  * //         NotApplicable: true || false,
  * //         AutomaticFail: true || false,
+ * //       },
+ * //       AutoEvaluation: { // AutoEvaluationDetails
+ * //         AutoEvaluationEnabled: true || false, // required
+ * //         AutoEvaluationStatus: "IN_PROGRESS" || "FAILED" || "SUCCEEDED",
+ * //       },
+ * //       Acknowledgement: { // EvaluationAcknowledgement
+ * //         AcknowledgedTime: new Date("TIMESTAMP"), // required
+ * //         AcknowledgedBy: "STRING_VALUE", // required
+ * //         AcknowledgerComment: "STRING_VALUE",
  * //       },
  * //     },
  * //     Answers: { // EvaluationAnswersOutputMap // required
@@ -70,6 +80,49 @@ export interface DescribeContactEvaluationCommandOutput extends DescribeContactE
  * //           NumericValue: Number("double"),
  * //           NotApplicable: true || false,
  * //         },
+ * //         SuggestedAnswers: [ // EvaluationSuggestedAnswersList
+ * //           { // EvaluationSuggestedAnswer
+ * //             Value: {//  Union: only one key present
+ * //               StringValue: "STRING_VALUE",
+ * //               NumericValue: Number("double"),
+ * //               NotApplicable: true || false,
+ * //             },
+ * //             Status: "IN_PROGRESS" || "FAILED" || "SUCCEEDED", // required
+ * //             Input: { // EvaluationQuestionInputDetails
+ * //               TranscriptType: "RAW" || "REDACTED",
+ * //             },
+ * //             AnalysisType: "CONTACT_LENS_DATA" || "GEN_AI", // required
+ * //             AnalysisDetails: { // EvaluationQuestionAnswerAnalysisDetails Union: only one key present
+ * //               GenAI: { // EvaluationGenAIAnswerAnalysisDetails
+ * //                 Justification: "STRING_VALUE",
+ * //                 PointsOfInterest: [ // EvaluationTranscriptPointsOfInterest
+ * //                   { // EvaluationTranscriptPointOfInterest
+ * //                     MillisecondOffsets: { // EvaluationSuggestedAnswerTranscriptMillisecondOffsets
+ * //                       BeginOffsetMillis: Number("int"), // required
+ * //                     },
+ * //                     TranscriptSegment: "STRING_VALUE",
+ * //                   },
+ * //                 ],
+ * //               },
+ * //               ContactLens: { // EvaluationContactLensAnswerAnalysisDetails
+ * //                 MatchedRuleCategories: [ // EvaluationAutomationRuleCategoryList
+ * //                   { // EvaluationAutomationRuleCategory
+ * //                     Category: "STRING_VALUE", // required
+ * //                     Condition: "PRESENT" || "NOT_PRESENT", // required
+ * //                     PointsOfInterest: [
+ * //                       {
+ * //                         MillisecondOffsets: {
+ * //                           BeginOffsetMillis: Number("int"), // required
+ * //                         },
+ * //                         TranscriptSegment: "STRING_VALUE",
+ * //                       },
+ * //                     ],
+ * //                   },
+ * //                 ],
+ * //               },
+ * //             },
+ * //           },
+ * //         ],
  * //       },
  * //     },
  * //     Notes: { // EvaluationNotesMap // required
@@ -87,6 +140,7 @@ export interface DescribeContactEvaluationCommandOutput extends DescribeContactE
  * //     },
  * //     CreatedTime: new Date("TIMESTAMP"), // required
  * //     LastModifiedTime: new Date("TIMESTAMP"), // required
+ * //     EvaluationType: "STANDARD" || "CALIBRATION",
  * //     Tags: { // TagMap
  * //       "<keys>": "STRING_VALUE",
  * //     },
@@ -128,11 +182,17 @@ export interface DescribeContactEvaluationCommandOutput extends DescribeContactE
  * //                         MaxValue: Number("int"), // required
  * //                         Score: Number("int"),
  * //                         AutomaticFail: true || false,
+ * //                         AutomaticFailConfiguration: { // AutomaticFailConfiguration
+ * //                           TargetSection: "STRING_VALUE",
+ * //                         },
  * //                       },
  * //                     ],
  * //                     Automation: { // EvaluationFormNumericQuestionAutomation Union: only one key present
  * //                       PropertyValue: { // NumericQuestionPropertyValueAutomation
- * //                         Label: "OVERALL_CUSTOMER_SENTIMENT_SCORE" || "OVERALL_AGENT_SENTIMENT_SCORE" || "NON_TALK_TIME" || "NON_TALK_TIME_PERCENTAGE" || "NUMBER_OF_INTERRUPTIONS" || "CONTACT_DURATION" || "AGENT_INTERACTION_DURATION" || "CUSTOMER_HOLD_TIME", // required
+ * //                         Label: "OVERALL_CUSTOMER_SENTIMENT_SCORE" || "OVERALL_AGENT_SENTIMENT_SCORE" || "NON_TALK_TIME" || "NON_TALK_TIME_PERCENTAGE" || "NUMBER_OF_INTERRUPTIONS" || "CONTACT_DURATION" || "AGENT_INTERACTION_DURATION" || "CUSTOMER_HOLD_TIME" || "LONGEST_HOLD_DURATION" || "NUMBER_OF_HOLDS" || "AGENT_INTERACTION_AND_HOLD_DURATION", // required
+ * //                       },
+ * //                       AnswerSource: { // EvaluationFormQuestionAutomationAnswerSource
+ * //                         SourceType: "CONTACT_LENS_DATA" || "GEN_AI", // required
  * //                       },
  * //                     },
  * //                   },
@@ -143,11 +203,14 @@ export interface DescribeContactEvaluationCommandOutput extends DescribeContactE
  * //                         Text: "STRING_VALUE", // required
  * //                         Score: Number("int"),
  * //                         AutomaticFail: true || false,
+ * //                         AutomaticFailConfiguration: {
+ * //                           TargetSection: "STRING_VALUE",
+ * //                         },
  * //                       },
  * //                     ],
  * //                     DisplayAs: "DROPDOWN" || "RADIO",
  * //                     Automation: { // EvaluationFormSingleSelectQuestionAutomation
- * //                       Options: [ // EvaluationFormSingleSelectQuestionAutomationOptionList // required
+ * //                       Options: [ // EvaluationFormSingleSelectQuestionAutomationOptionList
  * //                         { // EvaluationFormSingleSelectQuestionAutomationOption Union: only one key present
  * //                           RuleCategory: { // SingleSelectQuestionRuleCategoryAutomation
  * //                             Category: "STRING_VALUE", // required
@@ -157,8 +220,63 @@ export interface DescribeContactEvaluationCommandOutput extends DescribeContactE
  * //                         },
  * //                       ],
  * //                       DefaultOptionRefId: "STRING_VALUE",
+ * //                       AnswerSource: {
+ * //                         SourceType: "CONTACT_LENS_DATA" || "GEN_AI", // required
+ * //                       },
  * //                     },
  * //                   },
+ * //                   Text: { // EvaluationFormTextQuestionProperties
+ * //                     Automation: { // EvaluationFormTextQuestionAutomation
+ * //                       AnswerSource: {
+ * //                         SourceType: "CONTACT_LENS_DATA" || "GEN_AI", // required
+ * //                       },
+ * //                     },
+ * //                   },
+ * //                 },
+ * //                 Enablement: { // EvaluationFormItemEnablementConfiguration
+ * //                   Condition: { // EvaluationFormItemEnablementCondition
+ * //                     Operands: [ // EvaluationFormItemEnablementConditionOperandList // required
+ * //                       { // EvaluationFormItemEnablementConditionOperand Union: only one key present
+ * //                         Expression: { // EvaluationFormItemEnablementExpression
+ * //                           Source: { // EvaluationFormItemEnablementSource
+ * //                             Type: "QUESTION_REF_ID", // required
+ * //                             RefId: "STRING_VALUE",
+ * //                           },
+ * //                           Values: [ // EvaluationFormItemEnablementSourceValueList // required
+ * //                             { // EvaluationFormItemEnablementSourceValue
+ * //                               Type: "OPTION_REF_ID", // required
+ * //                               RefId: "STRING_VALUE",
+ * //                             },
+ * //                           ],
+ * //                           Comparator: "IN" || "NOT_IN", // required
+ * //                         },
+ * //                         Condition: {
+ * //                           Operands: [ // required
+ * //                             {//  Union: only one key present
+ * //                               Expression: {
+ * //                                 Source: {
+ * //                                   Type: "QUESTION_REF_ID", // required
+ * //                                   RefId: "STRING_VALUE",
+ * //                                 },
+ * //                                 Values: [ // required
+ * //                                   {
+ * //                                     Type: "OPTION_REF_ID", // required
+ * //                                     RefId: "STRING_VALUE",
+ * //                                   },
+ * //                                 ],
+ * //                                 Comparator: "IN" || "NOT_IN", // required
+ * //                               },
+ * //                               Condition: "<EvaluationFormItemEnablementCondition>",
+ * //                             },
+ * //                           ],
+ * //                           Operator: "OR" || "AND",
+ * //                         },
+ * //                       },
+ * //                     ],
+ * //                     Operator: "OR" || "AND",
+ * //                   },
+ * //                   Action: "DISABLE" || "ENABLE", // required
+ * //                   DefaultAction: "DISABLE" || "ENABLE",
  * //                 },
  * //                 Weight: Number("double"),
  * //               },
@@ -182,11 +300,17 @@ export interface DescribeContactEvaluationCommandOutput extends DescribeContactE
  * //                   MaxValue: Number("int"), // required
  * //                   Score: Number("int"),
  * //                   AutomaticFail: true || false,
+ * //                   AutomaticFailConfiguration: {
+ * //                     TargetSection: "STRING_VALUE",
+ * //                   },
  * //                 },
  * //               ],
  * //               Automation: {//  Union: only one key present
  * //                 PropertyValue: {
- * //                   Label: "OVERALL_CUSTOMER_SENTIMENT_SCORE" || "OVERALL_AGENT_SENTIMENT_SCORE" || "NON_TALK_TIME" || "NON_TALK_TIME_PERCENTAGE" || "NUMBER_OF_INTERRUPTIONS" || "CONTACT_DURATION" || "AGENT_INTERACTION_DURATION" || "CUSTOMER_HOLD_TIME", // required
+ * //                   Label: "OVERALL_CUSTOMER_SENTIMENT_SCORE" || "OVERALL_AGENT_SENTIMENT_SCORE" || "NON_TALK_TIME" || "NON_TALK_TIME_PERCENTAGE" || "NUMBER_OF_INTERRUPTIONS" || "CONTACT_DURATION" || "AGENT_INTERACTION_DURATION" || "CUSTOMER_HOLD_TIME" || "LONGEST_HOLD_DURATION" || "NUMBER_OF_HOLDS" || "AGENT_INTERACTION_AND_HOLD_DURATION", // required
+ * //                 },
+ * //                 AnswerSource: {
+ * //                   SourceType: "CONTACT_LENS_DATA" || "GEN_AI", // required
  * //                 },
  * //               },
  * //             },
@@ -197,11 +321,14 @@ export interface DescribeContactEvaluationCommandOutput extends DescribeContactE
  * //                   Text: "STRING_VALUE", // required
  * //                   Score: Number("int"),
  * //                   AutomaticFail: true || false,
+ * //                   AutomaticFailConfiguration: {
+ * //                     TargetSection: "STRING_VALUE",
+ * //                   },
  * //                 },
  * //               ],
  * //               DisplayAs: "DROPDOWN" || "RADIO",
  * //               Automation: {
- * //                 Options: [ // required
+ * //                 Options: [
  * //                   {//  Union: only one key present
  * //                     RuleCategory: {
  * //                       Category: "STRING_VALUE", // required
@@ -211,8 +338,21 @@ export interface DescribeContactEvaluationCommandOutput extends DescribeContactE
  * //                   },
  * //                 ],
  * //                 DefaultOptionRefId: "STRING_VALUE",
+ * //                 AnswerSource: {
+ * //                   SourceType: "CONTACT_LENS_DATA" || "GEN_AI", // required
+ * //                 },
  * //               },
  * //             },
+ * //             Text: {
+ * //               Automation: {
+ * //                 AnswerSource: "<EvaluationFormQuestionAutomationAnswerSource>",
+ * //               },
+ * //             },
+ * //           },
+ * //           Enablement: {
+ * //             Condition: "<EvaluationFormItemEnablementCondition>", // required
+ * //             Action: "DISABLE" || "ENABLE", // required
+ * //             DefaultAction: "DISABLE" || "ENABLE",
  * //           },
  * //           Weight: Number("double"),
  * //         },
@@ -221,6 +361,9 @@ export interface DescribeContactEvaluationCommandOutput extends DescribeContactE
  * //     ScoringStrategy: { // EvaluationFormScoringStrategy
  * //       Mode: "QUESTION_ONLY" || "SECTION_ONLY", // required
  * //       Status: "ENABLED" || "DISABLED", // required
+ * //     },
+ * //     AutoEvaluationConfiguration: { // EvaluationFormAutoEvaluationConfiguration
+ * //       Enabled: true || false, // required
  * //     },
  * //   },
  * // };

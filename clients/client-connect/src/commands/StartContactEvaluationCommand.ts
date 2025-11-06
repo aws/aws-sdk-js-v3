@@ -48,7 +48,13 @@ export interface StartContactEvaluationCommandOutput extends StartContactEvaluat
  *   InstanceId: "STRING_VALUE", // required
  *   ContactId: "STRING_VALUE", // required
  *   EvaluationFormId: "STRING_VALUE", // required
+ *   AutoEvaluationConfiguration: { // AutoEvaluationConfiguration
+ *     Enabled: true || false, // required
+ *   },
  *   ClientToken: "STRING_VALUE",
+ *   Tags: { // TagMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
  * };
  * const command = new StartContactEvaluationCommand(input);
  * const response = await client.send(command);

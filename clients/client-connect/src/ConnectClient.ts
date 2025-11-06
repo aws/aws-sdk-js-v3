@@ -598,6 +598,10 @@ import {
   SearchAvailablePhoneNumbersCommandOutput,
 } from "./commands/SearchAvailablePhoneNumbersCommand";
 import {
+  SearchContactEvaluationsCommandInput,
+  SearchContactEvaluationsCommandOutput,
+} from "./commands/SearchContactEvaluationsCommand";
+import {
   SearchContactFlowModulesCommandInput,
   SearchContactFlowModulesCommandOutput,
 } from "./commands/SearchContactFlowModulesCommand";
@@ -607,6 +611,10 @@ import {
   SearchEmailAddressesCommandInput,
   SearchEmailAddressesCommandOutput,
 } from "./commands/SearchEmailAddressesCommand";
+import {
+  SearchEvaluationFormsCommandInput,
+  SearchEvaluationFormsCommandOutput,
+} from "./commands/SearchEvaluationFormsCommand";
 import {
   SearchHoursOfOperationOverridesCommandInput,
   SearchHoursOfOperationOverridesCommandOutput,
@@ -1085,10 +1093,12 @@ export type ServiceInputTypes =
   | ResumeContactRecordingCommandInput
   | SearchAgentStatusesCommandInput
   | SearchAvailablePhoneNumbersCommandInput
+  | SearchContactEvaluationsCommandInput
   | SearchContactFlowModulesCommandInput
   | SearchContactFlowsCommandInput
   | SearchContactsCommandInput
   | SearchEmailAddressesCommandInput
+  | SearchEvaluationFormsCommandInput
   | SearchHoursOfOperationOverridesCommandInput
   | SearchHoursOfOperationsCommandInput
   | SearchPredefinedAttributesCommandInput
@@ -1377,10 +1387,12 @@ export type ServiceOutputTypes =
   | ResumeContactRecordingCommandOutput
   | SearchAgentStatusesCommandOutput
   | SearchAvailablePhoneNumbersCommandOutput
+  | SearchContactEvaluationsCommandOutput
   | SearchContactFlowModulesCommandOutput
   | SearchContactFlowsCommandOutput
   | SearchContactsCommandOutput
   | SearchEmailAddressesCommandOutput
+  | SearchEvaluationFormsCommandOutput
   | SearchHoursOfOperationOverridesCommandOutput
   | SearchHoursOfOperationsCommandOutput
   | SearchPredefinedAttributesCommandOutput

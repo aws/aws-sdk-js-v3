@@ -581,6 +581,10 @@ import {
   SearchAvailablePhoneNumbersCommandOutput,
 } from "../commands/SearchAvailablePhoneNumbersCommand";
 import {
+  SearchContactEvaluationsCommandInput,
+  SearchContactEvaluationsCommandOutput,
+} from "../commands/SearchContactEvaluationsCommand";
+import {
   SearchContactFlowModulesCommandInput,
   SearchContactFlowModulesCommandOutput,
 } from "../commands/SearchContactFlowModulesCommand";
@@ -590,6 +594,10 @@ import {
   SearchEmailAddressesCommandInput,
   SearchEmailAddressesCommandOutput,
 } from "../commands/SearchEmailAddressesCommand";
+import {
+  SearchEvaluationFormsCommandInput,
+  SearchEvaluationFormsCommandOutput,
+} from "../commands/SearchEvaluationFormsCommand";
 import {
   SearchHoursOfOperationOverridesCommandInput,
   SearchHoursOfOperationOverridesCommandOutput,
@@ -878,6 +886,7 @@ import {
   AssignContactCategoryActionDefinition,
   AssignSlaActionDefinition,
   AudioQualityMetricsInfo,
+  AutomaticFailConfiguration,
   Campaign,
   CaseSlaConfiguration,
   Channel,
@@ -897,16 +906,22 @@ import {
   EncryptionConfig,
   EndAssociatedTasksActionDefinition,
   Endpoint,
+  EvaluationFormAutoEvaluationConfiguration,
+  EvaluationFormItemEnablementExpression,
+  EvaluationFormItemEnablementSource,
+  EvaluationFormItemEnablementSourceValue,
   EvaluationFormNumericQuestionAutomation,
   EvaluationFormNumericQuestionOption,
   EvaluationFormNumericQuestionProperties,
-  EvaluationFormQuestion,
+  EvaluationFormQuestionAutomationAnswerSource,
   EvaluationFormQuestionTypeProperties,
   EvaluationFormScoringStrategy,
   EvaluationFormSingleSelectQuestionAutomation,
   EvaluationFormSingleSelectQuestionAutomationOption,
   EvaluationFormSingleSelectQuestionOption,
   EvaluationFormSingleSelectQuestionProperties,
+  EvaluationFormTextQuestionAutomation,
+  EvaluationFormTextQuestionProperties,
   EventBridgeActionDefinition,
   FieldValue,
   FieldValueUnion,
@@ -950,7 +965,6 @@ import {
   Reference,
   RequiredFieldInfo,
   ResourceConflictException,
-  ResourceInUseException,
   ResourceNotFoundException,
   ResourceNotReadyException,
   RoutingProfileManualAssignmentQueueConfig,
@@ -973,7 +987,6 @@ import {
   TaskTemplateField,
   TaskTemplateFieldIdentifier,
   ThrottlingException,
-  TooManyRequestsException,
   UpdateCaseActionDefinition,
   UserIdentityInfo,
   UserInfo,
@@ -1005,13 +1018,13 @@ import {
   CustomerQualityMetrics,
   CustomerVoiceActivity,
   Evaluation,
+  EvaluationAcknowledgement,
   EvaluationAnswerData,
   EvaluationAnswerOutput,
-  EvaluationFormSummary,
   EvaluationMetadata,
   EvaluationNote,
   EvaluationScore,
-  EvaluationSummary,
+  EvaluationSuggestedAnswer,
   Expiry,
   Filters,
   FilterV2,
@@ -1044,6 +1057,7 @@ import {
   QuickConnect,
   Range,
   RecordingInfo,
+  ResourceInUseException,
   RoutingProfile,
   Rule,
   SecurityProfile,
@@ -1052,6 +1066,7 @@ import {
   TelephonyConfig,
   Threshold,
   ThresholdV2,
+  TooManyRequestsException,
   User,
   UserData,
   UserDataFilters,
@@ -1060,8 +1075,9 @@ import {
   Vocabulary,
 } from "../models/models_1";
 import {
-  AnswerMachineDetectionConfig,
   AttributeAndCondition,
+  AutoEvaluationConfiguration,
+  BooleanCondition,
   ChatEvent,
   ChatMessage,
   ChatStreamingConfiguration,
@@ -1069,20 +1085,26 @@ import {
   ContactAnalysis,
   ContactFlowModuleSearchFilter,
   ContactFlowSearchFilter,
-  ContactNotFoundException,
   ContactSearchSummaryAgentInfo,
   ContactSearchSummaryQueueInfo,
   ControlPlaneTagFilter,
   ControlPlaneUserAttributeFilter,
   DateCondition,
-  DestinationNotAllowedException,
-  DisconnectReason,
+  DateTimeCondition,
+  DecimalCondition,
   EmailAddressInfo,
   EmailAddressSearchFilter,
   EmailAttachment,
   EmailHeaderType,
-  EvaluationAnswerInput,
+  EvaluationAcknowledgementSummary,
+  EvaluationFormSearchFilter,
+  EvaluationFormSearchSummary,
+  EvaluationFormSummary,
   EvaluationFormVersionSummary,
+  EvaluationSearchFilter,
+  EvaluationSearchMetadata,
+  EvaluationSearchSummary,
+  EvaluationSummary,
   HierarchyGroupCondition,
   HoursOfOperationSearchFilter,
   HoursOfOperationSummary,
@@ -1096,7 +1118,6 @@ import {
   NewSessionDetails,
   NumberCondition,
   OutboundAdditionalRecipients,
-  OutboundContactNotPermittedException,
   OutboundEmailContent,
   OutboundRawMessage,
   OutputTypeNotFoundException,
@@ -1105,7 +1126,6 @@ import {
   PredefinedAttributeSummary,
   PromptSearchFilter,
   PromptSummary,
-  QueueInfoInput,
   QueueSearchFilter,
   QueueSummary,
   QuickConnectSearchFilter,
@@ -1151,27 +1171,41 @@ import {
 } from "../models/models_2";
 import {
   AgentStatusSearchCriteria,
+  AnswerMachineDetectionConfig,
   ChatParticipantRoleConfig,
   ConditionalOperationFailedException,
   Contact,
   ContactFlowModuleSearchCriteria,
   ContactFlowSearchCriteria,
+  ContactNotFoundException,
   ContactSearchSummary,
   ContactSearchSummarySegmentAttributeValue,
+  DestinationNotAllowedException,
+  DisconnectReason,
   EmailAddressSearchCriteria,
+  EvaluationAnswerInput,
   EvaluationForm,
   EvaluationFormContent,
   EvaluationFormItem,
+  EvaluationFormItemEnablementCondition,
+  EvaluationFormItemEnablementConditionOperand,
+  EvaluationFormItemEnablementConfiguration,
+  EvaluationFormQuestion,
+  EvaluationFormSearchCriteria,
   EvaluationFormSection,
+  EvaluationSearchCriteria,
+  EvaluatorUserUnion,
   Expression,
   HierarchyLevelUpdate,
   HierarchyStructureUpdate,
   HoursOfOperationOverrideSearchCriteria,
   HoursOfOperationSearchCriteria,
+  OutboundContactNotPermittedException,
   ParticipantTimerConfiguration,
   ParticipantTimerValue,
   PredefinedAttributeSearchCriteria,
   PromptSearchCriteria,
+  QueueInfoInput,
   QueueSearchCriteria,
   QuickConnectSearchCriteria,
   RoutingCriteria,
@@ -1957,10 +1991,12 @@ export const se_CreateEvaluationFormCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
+      AutoEvaluationConfiguration: (_) => _json(_),
       ClientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       Description: [],
       Items: (_) => se_EvaluationFormItemsList(_, context),
       ScoringStrategy: (_) => _json(_),
+      Tags: (_) => _json(_),
       Title: [],
     })
   );
@@ -5437,6 +5473,32 @@ export const se_SearchAvailablePhoneNumbersCommand = async (
 };
 
 /**
+ * serializeAws_restJson1SearchContactEvaluationsCommand
+ */
+export const se_SearchContactEvaluationsCommand = async (
+  input: SearchContactEvaluationsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/search-contact-evaluations");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      InstanceId: [],
+      MaxResults: [],
+      NextToken: [],
+      SearchCriteria: (_) => se_EvaluationSearchCriteria(_, context),
+      SearchFilter: (_) => _json(_),
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1SearchContactFlowModulesCommand
  */
 export const se_SearchContactFlowModulesCommand = async (
@@ -5534,6 +5596,32 @@ export const se_SearchEmailAddressesCommand = async (
       MaxResults: [],
       NextToken: [],
       SearchCriteria: (_) => se_EmailAddressSearchCriteria(_, context),
+      SearchFilter: (_) => _json(_),
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1SearchEvaluationFormsCommand
+ */
+export const se_SearchEvaluationFormsCommand = async (
+  input: SearchEvaluationFormsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/search-evaluation-forms");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      InstanceId: [],
+      MaxResults: [],
+      NextToken: [],
+      SearchCriteria: (_) => se_EvaluationFormSearchCriteria(_, context),
       SearchFilter: (_) => _json(_),
     })
   );
@@ -5989,9 +6077,11 @@ export const se_StartContactEvaluationCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
+      AutoEvaluationConfiguration: (_) => _json(_),
       ClientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       ContactId: [],
       EvaluationFormId: [],
+      Tags: (_) => _json(_),
     })
   );
   b.m("PUT").h(headers).b(body);
@@ -6360,6 +6450,7 @@ export const se_SubmitContactEvaluationCommand = async (
     take(input, {
       Answers: (_) => se_EvaluationAnswersInputMap(_, context),
       Notes: (_) => _json(_),
+      SubmittedBy: (_) => _json(_),
     })
   );
   b.m("POST").h(headers).b(body);
@@ -6634,6 +6725,7 @@ export const se_UpdateContactEvaluationCommand = async (
     take(input, {
       Answers: (_) => se_EvaluationAnswersInputMap(_, context),
       Notes: (_) => _json(_),
+      UpdatedBy: (_) => _json(_),
     })
   );
   b.m("POST").h(headers).b(body);
@@ -6858,6 +6950,7 @@ export const se_UpdateEvaluationFormCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
+      AutoEvaluationConfiguration: (_) => _json(_),
       ClientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       CreateNewVersion: [],
       Description: [],
@@ -11837,6 +11930,29 @@ export const de_SearchAvailablePhoneNumbersCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1SearchContactEvaluationsCommand
+ */
+export const de_SearchContactEvaluationsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<SearchContactEvaluationsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    ApproximateTotalCount: __expectLong,
+    EvaluationSearchSummaryList: (_) => de_EvaluationSearchSummaryList(_, context),
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1SearchContactFlowModulesCommand
  */
 export const de_SearchContactFlowModulesCommand = async (
@@ -11922,6 +12038,29 @@ export const de_SearchEmailAddressesCommand = async (
   const doc = take(data, {
     ApproximateTotalCount: __expectLong,
     EmailAddresses: _json,
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1SearchEvaluationFormsCommand
+ */
+export const de_SearchEvaluationFormsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<SearchEvaluationFormsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    ApproximateTotalCount: __expectLong,
+    EvaluationFormSearchSummaryList: (_) => de_EvaluationFormSearchSummaryList(_, context),
     NextToken: __expectString,
   });
   Object.assign(contents, doc);
@@ -14298,6 +14437,12 @@ const se_AttributeCondition = (input: AttributeCondition, context: __SerdeContex
 
 // se_Attributes omitted.
 
+// se_AutoEvaluationConfiguration omitted.
+
+// se_AutomaticFailConfiguration omitted.
+
+// se_BooleanCondition omitted.
+
 // se_Campaign omitted.
 
 /**
@@ -14441,6 +14586,20 @@ const se_CreateCaseActionDefinition = (input: CreateCaseActionDefinition, contex
 
 // se_DateCondition omitted.
 
+// se_DateTimeCondition omitted.
+
+/**
+ * serializeAws_restJson1DecimalCondition
+ */
+const se_DecimalCondition = (input: DecimalCondition, context: __SerdeContext): any => {
+  return take(input, {
+    ComparisonType: [],
+    FieldName: [],
+    MaxValue: __serializeFloat,
+    MinValue: __serializeFloat,
+  });
+};
+
 // se_DisconnectReason omitted.
 
 // se_Distribution omitted.
@@ -14523,6 +14682,8 @@ const se_EvaluationAnswersInputMap = (input: Record<string, EvaluationAnswerInpu
   }, {});
 };
 
+// se_EvaluationFormAutoEvaluationConfiguration omitted.
+
 /**
  * serializeAws_restJson1EvaluationFormItem
  */
@@ -14533,6 +14694,69 @@ const se_EvaluationFormItem = (input: EvaluationFormItem, context: __SerdeContex
     _: (name, value) => ({ [name]: value } as any),
   });
 };
+
+/**
+ * serializeAws_restJson1EvaluationFormItemEnablementCondition
+ */
+const se_EvaluationFormItemEnablementCondition = (
+  input: EvaluationFormItemEnablementCondition,
+  context: __SerdeContext
+): any => {
+  return take(input, {
+    Operands: (_) => se_EvaluationFormItemEnablementConditionOperandList(_, context),
+    Operator: [],
+  });
+};
+
+/**
+ * serializeAws_restJson1EvaluationFormItemEnablementConditionOperand
+ */
+const se_EvaluationFormItemEnablementConditionOperand = (
+  input: EvaluationFormItemEnablementConditionOperand,
+  context: __SerdeContext
+): any => {
+  return EvaluationFormItemEnablementConditionOperand.visit(input, {
+    Condition: (value) => ({ Condition: se_EvaluationFormItemEnablementCondition(value, context) }),
+    Expression: (value) => ({ Expression: _json(value) }),
+    _: (name, value) => ({ [name]: value } as any),
+  });
+};
+
+/**
+ * serializeAws_restJson1EvaluationFormItemEnablementConditionOperandList
+ */
+const se_EvaluationFormItemEnablementConditionOperandList = (
+  input: EvaluationFormItemEnablementConditionOperand[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return se_EvaluationFormItemEnablementConditionOperand(entry, context);
+    });
+};
+
+/**
+ * serializeAws_restJson1EvaluationFormItemEnablementConfiguration
+ */
+const se_EvaluationFormItemEnablementConfiguration = (
+  input: EvaluationFormItemEnablementConfiguration,
+  context: __SerdeContext
+): any => {
+  return take(input, {
+    Action: [],
+    Condition: (_) => se_EvaluationFormItemEnablementCondition(_, context),
+    DefaultAction: [],
+  });
+};
+
+// se_EvaluationFormItemEnablementExpression omitted.
+
+// se_EvaluationFormItemEnablementSource omitted.
+
+// se_EvaluationFormItemEnablementSourceValue omitted.
+
+// se_EvaluationFormItemEnablementSourceValueList omitted.
 
 /**
  * serializeAws_restJson1EvaluationFormItemsList
@@ -14558,6 +14782,7 @@ const se_EvaluationFormItemsList = (input: EvaluationFormItem[], context: __Serd
  */
 const se_EvaluationFormQuestion = (input: EvaluationFormQuestion, context: __SerdeContext): any => {
   return take(input, {
+    Enablement: (_) => se_EvaluationFormItemEnablementConfiguration(_, context),
     Instructions: [],
     NotApplicableEnabled: [],
     QuestionType: [],
@@ -14568,9 +14793,38 @@ const se_EvaluationFormQuestion = (input: EvaluationFormQuestion, context: __Ser
   });
 };
 
+// se_EvaluationFormQuestionAutomationAnswerSource omitted.
+
 // se_EvaluationFormQuestionTypeProperties omitted.
 
 // se_EvaluationFormScoringStrategy omitted.
+
+/**
+ * serializeAws_restJson1EvaluationFormSearchConditionList
+ */
+const se_EvaluationFormSearchConditionList = (input: EvaluationFormSearchCriteria[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return se_EvaluationFormSearchCriteria(entry, context);
+    });
+};
+
+/**
+ * serializeAws_restJson1EvaluationFormSearchCriteria
+ */
+const se_EvaluationFormSearchCriteria = (input: EvaluationFormSearchCriteria, context: __SerdeContext): any => {
+  return take(input, {
+    AndConditions: (_) => se_EvaluationFormSearchConditionList(_, context),
+    BooleanCondition: _json,
+    DateTimeCondition: _json,
+    NumberCondition: _json,
+    OrConditions: (_) => se_EvaluationFormSearchConditionList(_, context),
+    StringCondition: _json,
+  });
+};
+
+// se_EvaluationFormSearchFilter omitted.
 
 /**
  * serializeAws_restJson1EvaluationFormSection
@@ -14597,9 +14851,43 @@ const se_EvaluationFormSection = (input: EvaluationFormSection, context: __Serde
 
 // se_EvaluationFormSingleSelectQuestionProperties omitted.
 
+// se_EvaluationFormTextQuestionAutomation omitted.
+
+// se_EvaluationFormTextQuestionProperties omitted.
+
 // se_EvaluationNote omitted.
 
 // se_EvaluationNotesMap omitted.
+
+/**
+ * serializeAws_restJson1EvaluationSearchConditionList
+ */
+const se_EvaluationSearchConditionList = (input: EvaluationSearchCriteria[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return se_EvaluationSearchCriteria(entry, context);
+    });
+};
+
+/**
+ * serializeAws_restJson1EvaluationSearchCriteria
+ */
+const se_EvaluationSearchCriteria = (input: EvaluationSearchCriteria, context: __SerdeContext): any => {
+  return take(input, {
+    AndConditions: (_) => se_EvaluationSearchConditionList(_, context),
+    BooleanCondition: _json,
+    DateTimeCondition: _json,
+    DecimalCondition: (_) => se_DecimalCondition(_, context),
+    NumberCondition: _json,
+    OrConditions: (_) => se_EvaluationSearchConditionList(_, context),
+    StringCondition: _json,
+  });
+};
+
+// se_EvaluationSearchFilter omitted.
+
+// se_EvaluatorUserUnion omitted.
 
 // se_EventBridgeActionDefinition omitted.
 
@@ -15832,6 +16120,10 @@ const de_AuthenticationProfileSummaryList = (output: any, context: __SerdeContex
   return retVal;
 };
 
+// de_AutoEvaluationDetails omitted.
+
+// de_AutomaticFailConfiguration omitted.
+
 // de_AvailableNumbersList omitted.
 
 // de_AvailableNumberSummary omitted.
@@ -16291,12 +16583,38 @@ const de_Evaluation = (output: any, context: __SerdeContext): Evaluation => {
     CreatedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     EvaluationArn: __expectString,
     EvaluationId: __expectString,
+    EvaluationType: __expectString,
     LastModifiedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     Metadata: (_: any) => de_EvaluationMetadata(_, context),
     Notes: _json,
     Scores: (_: any) => de_EvaluationScoresMap(_, context),
     Status: __expectString,
     Tags: _json,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1EvaluationAcknowledgement
+ */
+const de_EvaluationAcknowledgement = (output: any, context: __SerdeContext): EvaluationAcknowledgement => {
+  return take(output, {
+    AcknowledgedBy: __expectString,
+    AcknowledgedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    AcknowledgerComment: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1EvaluationAcknowledgementSummary
+ */
+const de_EvaluationAcknowledgementSummary = (
+  output: any,
+  context: __SerdeContext
+): EvaluationAcknowledgementSummary => {
+  return take(output, {
+    AcknowledgedBy: __expectString,
+    AcknowledgedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    AcknowledgerComment: __expectString,
   }) as any;
 };
 
@@ -16321,6 +16639,7 @@ const de_EvaluationAnswerData = (output: any, context: __SerdeContext): Evaluati
  */
 const de_EvaluationAnswerOutput = (output: any, context: __SerdeContext): EvaluationAnswerOutput => {
   return take(output, {
+    SuggestedAnswers: (_: any) => de_EvaluationSuggestedAnswersList(_, context),
     SystemSuggestedValue: (_: any) => de_EvaluationAnswerData(__expectUnion(_), context),
     Value: (_: any) => de_EvaluationAnswerData(__expectUnion(_), context),
   }) as any;
@@ -16342,11 +16661,18 @@ const de_EvaluationAnswersOutputMap = (
   }, {} as Record<string, EvaluationAnswerOutput>);
 };
 
+// de_EvaluationAutomationRuleCategory omitted.
+
+// de_EvaluationAutomationRuleCategoryList omitted.
+
+// de_EvaluationContactLensAnswerAnalysisDetails omitted.
+
 /**
  * deserializeAws_restJson1EvaluationForm
  */
 const de_EvaluationForm = (output: any, context: __SerdeContext): EvaluationForm => {
   return take(output, {
+    AutoEvaluationConfiguration: _json,
     CreatedBy: __expectString,
     CreatedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     Description: __expectString,
@@ -16364,11 +16690,14 @@ const de_EvaluationForm = (output: any, context: __SerdeContext): EvaluationForm
   }) as any;
 };
 
+// de_EvaluationFormAutoEvaluationConfiguration omitted.
+
 /**
  * deserializeAws_restJson1EvaluationFormContent
  */
 const de_EvaluationFormContent = (output: any, context: __SerdeContext): EvaluationFormContent => {
   return take(output, {
+    AutoEvaluationConfiguration: _json,
     Description: __expectString,
     EvaluationFormArn: __expectString,
     EvaluationFormId: __expectString,
@@ -16397,6 +16726,76 @@ const de_EvaluationFormItem = (output: any, context: __SerdeContext): Evaluation
 };
 
 /**
+ * deserializeAws_restJson1EvaluationFormItemEnablementCondition
+ */
+const de_EvaluationFormItemEnablementCondition = (
+  output: any,
+  context: __SerdeContext
+): EvaluationFormItemEnablementCondition => {
+  return take(output, {
+    Operands: (_: any) => de_EvaluationFormItemEnablementConditionOperandList(_, context),
+    Operator: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1EvaluationFormItemEnablementConditionOperand
+ */
+const de_EvaluationFormItemEnablementConditionOperand = (
+  output: any,
+  context: __SerdeContext
+): EvaluationFormItemEnablementConditionOperand => {
+  if (output.Condition != null) {
+    return {
+      Condition: de_EvaluationFormItemEnablementCondition(output.Condition, context),
+    };
+  }
+  if (output.Expression != null) {
+    return {
+      Expression: _json(output.Expression),
+    };
+  }
+  return { $unknown: Object.entries(output)[0] };
+};
+
+/**
+ * deserializeAws_restJson1EvaluationFormItemEnablementConditionOperandList
+ */
+const de_EvaluationFormItemEnablementConditionOperandList = (
+  output: any,
+  context: __SerdeContext
+): EvaluationFormItemEnablementConditionOperand[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_EvaluationFormItemEnablementConditionOperand(__expectUnion(entry), context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1EvaluationFormItemEnablementConfiguration
+ */
+const de_EvaluationFormItemEnablementConfiguration = (
+  output: any,
+  context: __SerdeContext
+): EvaluationFormItemEnablementConfiguration => {
+  return take(output, {
+    Action: __expectString,
+    Condition: (_: any) => de_EvaluationFormItemEnablementCondition(_, context),
+    DefaultAction: __expectString,
+  }) as any;
+};
+
+// de_EvaluationFormItemEnablementExpression omitted.
+
+// de_EvaluationFormItemEnablementSource omitted.
+
+// de_EvaluationFormItemEnablementSourceValue omitted.
+
+// de_EvaluationFormItemEnablementSourceValueList omitted.
+
+/**
  * deserializeAws_restJson1EvaluationFormItemsList
  */
 const de_EvaluationFormItemsList = (output: any, context: __SerdeContext): EvaluationFormItem[] => {
@@ -16421,6 +16820,7 @@ const de_EvaluationFormItemsList = (output: any, context: __SerdeContext): Evalu
  */
 const de_EvaluationFormQuestion = (output: any, context: __SerdeContext): EvaluationFormQuestion => {
   return take(output, {
+    Enablement: (_: any) => de_EvaluationFormItemEnablementConfiguration(_, context),
     Instructions: __expectString,
     NotApplicableEnabled: __expectBoolean,
     QuestionType: __expectString,
@@ -16431,9 +16831,46 @@ const de_EvaluationFormQuestion = (output: any, context: __SerdeContext): Evalua
   }) as any;
 };
 
+// de_EvaluationFormQuestionAutomationAnswerSource omitted.
+
 // de_EvaluationFormQuestionTypeProperties omitted.
 
 // de_EvaluationFormScoringStrategy omitted.
+
+/**
+ * deserializeAws_restJson1EvaluationFormSearchSummary
+ */
+const de_EvaluationFormSearchSummary = (output: any, context: __SerdeContext): EvaluationFormSearchSummary => {
+  return take(output, {
+    ActiveVersion: __expectInt32,
+    AutoEvaluationEnabled: __expectBoolean,
+    CreatedBy: __expectString,
+    CreatedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Description: __expectString,
+    EvaluationFormArn: __expectString,
+    EvaluationFormId: __expectString,
+    LastActivatedBy: __expectString,
+    LastActivatedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    LastModifiedBy: __expectString,
+    LastModifiedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    LatestVersion: __expectInt32,
+    Status: __expectString,
+    Tags: _json,
+    Title: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1EvaluationFormSearchSummaryList
+ */
+const de_EvaluationFormSearchSummaryList = (output: any, context: __SerdeContext): EvaluationFormSearchSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_EvaluationFormSearchSummary(entry, context);
+    });
+  return retVal;
+};
 
 /**
  * deserializeAws_restJson1EvaluationFormSection
@@ -16491,6 +16928,10 @@ const de_EvaluationFormSummaryList = (output: any, context: __SerdeContext): Eva
   return retVal;
 };
 
+// de_EvaluationFormTextQuestionAutomation omitted.
+
+// de_EvaluationFormTextQuestionProperties omitted.
+
 /**
  * deserializeAws_restJson1EvaluationFormVersionSummary
  */
@@ -16520,11 +16961,16 @@ const de_EvaluationFormVersionSummaryList = (output: any, context: __SerdeContex
   return retVal;
 };
 
+// de_EvaluationGenAIAnswerAnalysisDetails omitted.
+
 /**
  * deserializeAws_restJson1EvaluationMetadata
  */
 const de_EvaluationMetadata = (output: any, context: __SerdeContext): EvaluationMetadata => {
   return take(output, {
+    Acknowledgement: (_: any) => de_EvaluationAcknowledgement(_, context),
+    AutoEvaluation: _json,
+    CalibrationSessionId: __expectString,
     ContactAgentId: __expectString,
     ContactId: __expectString,
     EvaluatorArn: __expectString,
@@ -16535,6 +16981,10 @@ const de_EvaluationMetadata = (output: any, context: __SerdeContext): Evaluation
 // de_EvaluationNote omitted.
 
 // de_EvaluationNotesMap omitted.
+
+// de_EvaluationQuestionAnswerAnalysisDetails omitted.
+
+// de_EvaluationQuestionInputDetails omitted.
 
 /**
  * deserializeAws_restJson1EvaluationScore
@@ -16561,15 +17011,97 @@ const de_EvaluationScoresMap = (output: any, context: __SerdeContext): Record<st
 };
 
 /**
+ * deserializeAws_restJson1EvaluationSearchMetadata
+ */
+const de_EvaluationSearchMetadata = (output: any, context: __SerdeContext): EvaluationSearchMetadata => {
+  return take(output, {
+    AcknowledgedBy: __expectString,
+    AcknowledgedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    AcknowledgerComment: __expectString,
+    AutoEvaluationEnabled: __expectBoolean,
+    AutoEvaluationStatus: __expectString,
+    CalibrationSessionId: __expectString,
+    ContactAgentId: __expectString,
+    ContactId: __expectString,
+    EvaluatorArn: __expectString,
+    ScoreAutomaticFail: __expectBoolean,
+    ScoreNotApplicable: __expectBoolean,
+    ScorePercentage: __limitedParseDouble,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1EvaluationSearchSummary
+ */
+const de_EvaluationSearchSummary = (output: any, context: __SerdeContext): EvaluationSearchSummary => {
+  return take(output, {
+    CreatedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    EvaluationArn: __expectString,
+    EvaluationFormId: __expectString,
+    EvaluationFormVersion: __expectInt32,
+    EvaluationId: __expectString,
+    EvaluationType: __expectString,
+    LastModifiedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Metadata: (_: any) => de_EvaluationSearchMetadata(_, context),
+    Status: __expectString,
+    Tags: _json,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1EvaluationSearchSummaryList
+ */
+const de_EvaluationSearchSummaryList = (output: any, context: __SerdeContext): EvaluationSearchSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_EvaluationSearchSummary(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1EvaluationSuggestedAnswer
+ */
+const de_EvaluationSuggestedAnswer = (output: any, context: __SerdeContext): EvaluationSuggestedAnswer => {
+  return take(output, {
+    AnalysisDetails: (_: any) => _json(__expectUnion(_)),
+    AnalysisType: __expectString,
+    Input: _json,
+    Status: __expectString,
+    Value: (_: any) => de_EvaluationAnswerData(__expectUnion(_), context),
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1EvaluationSuggestedAnswersList
+ */
+const de_EvaluationSuggestedAnswersList = (output: any, context: __SerdeContext): EvaluationSuggestedAnswer[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_EvaluationSuggestedAnswer(entry, context);
+    });
+  return retVal;
+};
+
+// de_EvaluationSuggestedAnswerTranscriptMillisecondOffsets omitted.
+
+/**
  * deserializeAws_restJson1EvaluationSummary
  */
 const de_EvaluationSummary = (output: any, context: __SerdeContext): EvaluationSummary => {
   return take(output, {
+    Acknowledgement: (_: any) => de_EvaluationAcknowledgementSummary(_, context),
+    AutoEvaluationEnabled: __expectBoolean,
+    AutoEvaluationStatus: __expectString,
+    CalibrationSessionId: __expectString,
     CreatedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     EvaluationArn: __expectString,
     EvaluationFormId: __expectString,
     EvaluationFormTitle: __expectString,
     EvaluationId: __expectString,
+    EvaluationType: __expectString,
     EvaluatorArn: __expectString,
     LastModifiedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     Score: (_: any) => de_EvaluationScore(_, context),
@@ -16588,6 +17120,10 @@ const de_EvaluationSummaryList = (output: any, context: __SerdeContext): Evaluat
     });
   return retVal;
 };
+
+// de_EvaluationTranscriptPointOfInterest omitted.
+
+// de_EvaluationTranscriptPointsOfInterest omitted.
 
 // de_EventBridgeActionDefinition omitted.
 

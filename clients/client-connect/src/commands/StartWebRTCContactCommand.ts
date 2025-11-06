@@ -11,7 +11,7 @@ import {
   StartWebRTCContactRequestFilterSensitiveLog,
   StartWebRTCContactResponse,
   StartWebRTCContactResponseFilterSensitiveLog,
-} from "../models/models_2";
+} from "../models/models_3";
 import { de_StartWebRTCContactCommand, se_StartWebRTCContactCommand } from "../protocols/Aws_restJson1";
 
 /**
