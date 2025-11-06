@@ -1,4 +1,4 @@
-import { ErrorSchema, NormalizedSchema, TypeRegistry } from "@smithy/core/schema";
+import { NormalizedSchema, TypeRegistry } from "@smithy/core/schema";
 import type { HttpResponse as IHttpResponse, MetadataBearer, ResponseMetadata, StaticErrorSchema } from "@smithy/types";
 
 /**
