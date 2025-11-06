@@ -2,8 +2,9 @@ import { NumericValue } from "@smithy/core/serde";
 import type { TimestampEpochSecondsSchema } from "@smithy/types";
 import { describe, expect, test as it } from "vitest";
 
-import { widget } from "../test-schema.spec";
+import { createNestingWidget, nestingWidget, widget } from "../test-schema.spec";
 import { JsonShapeDeserializer } from "./JsonShapeDeserializer";
+import { JsonShapeSerializer } from "./JsonShapeSerializer";
 
 describe(JsonShapeDeserializer.name, () => {
   let contextSourceAvailable = false;
@@ -152,5 +153,46 @@ describe(JsonShapeDeserializer.name, () => {
     expect(await deserializer.read(widget, JSON.stringify({ scalar: "Infinity" }))).toEqual({ scalar: Infinity });
     expect(await deserializer.read(widget, JSON.stringify({ scalar: "-Infinity" }))).toEqual({ scalar: -Infinity });
     expect(await deserializer.read(widget, JSON.stringify({ scalar: "NaN" }))).toEqual({ scalar: NaN });
+  });
+
+  describe("performance baseline indicator", () => {
+    const serializer = new JsonShapeSerializer({
+      jsonName: true,
+      timestampFormat: { default: 7 satisfies TimestampEpochSecondsSchema, useTrait: true },
+    });
+    serializer.setSerdeContext({
+      base64Encoder: (input: Uint8Array) => {
+        return Buffer.from(input).toString("base64");
+      },
+    } as any);
+
+    it("should deserialize JSON strings", async () => {
+      const timings: string[] = [];
+      const strings = [];
+
+      // warmup
+      for (let i = 0; i < 12; ++i) {
+        const o = createNestingWidget(2 ** i);
+        serializer.write(nestingWidget, o);
+        const json = serializer.flush();
+        strings.push(json);
+        await deserializer.read(nestingWidget, json);
+      }
+
+      for (const s of strings) {
+        const A = performance.now();
+        await deserializer.read(nestingWidget, s);
+        const B = performance.now();
+
+        timings.push(`${B - A} (JSON length = ${s.length}, ${s.length / 1024 / (B - A)} kb/ms)`);
+      }
+
+      /**
+       * No assertion here.
+       * In the initial dual-pass implementation,
+       * par time is 0 to 10ms for up to 135224 chars of JSON. Up to 20 kb/ms. (kuhe's computer)
+       */
+      console.log("JsonShapeDeserializer performance timings", timings);
+    });
   });
 });

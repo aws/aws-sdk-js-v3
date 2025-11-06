@@ -6,6 +6,8 @@ import type {
   StaticListSchema,
   StaticOperationSchema,
   StaticStructureSchema,
+  StringSchema,
+  TimestampDefaultSchema,
   TimestampEpochSecondsSchema,
 } from "@smithy/types";
 import { describe, test as it } from "vitest";
@@ -33,6 +35,28 @@ export const widget = [
     1 satisfies NumericSchema,
   ],
 ] satisfies StaticStructureSchema;
+
+export const nestingWidget: StaticStructureSchema = [
+  3,
+  "ns",
+  "Struct",
+  0,
+  ["string", "date", "blob", "nested"],
+  [0 satisfies StringSchema, 4 satisfies TimestampDefaultSchema, 21 satisfies BlobSchema, () => nestingWidget],
+];
+
+export function createNestingWidget(nesting = 0) {
+  const object = {
+    string: "hello, world",
+    date: new Date(0),
+    blob: new Uint8Array([0, 1, 2, 3, 4, 5, 6, 7]),
+    nested: undefined,
+  } as any;
+  if (nesting > 0) {
+    object.nested = createNestingWidget(nesting - 1);
+  }
+  return object;
+}
 
 export const deleteObjects: StaticOperationSchema = [
   9,
