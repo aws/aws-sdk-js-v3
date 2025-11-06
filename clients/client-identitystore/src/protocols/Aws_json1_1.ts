@@ -1,10 +1,19 @@
 // smithy-typescript generated code
-import { loadRestJsonErrorCode, parseJsonBody as parseBody, parseJsonErrorBody as parseErrorBody } from "@aws-sdk/core";
+import {
+  awsExpectUnion as __expectUnion,
+  loadRestJsonErrorCode,
+  parseJsonBody as parseBody,
+  parseJsonErrorBody as parseErrorBody,
+} from "@aws-sdk/core";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import {
   _json,
   collectBody,
   decorateServiceException as __decorateServiceException,
+  expectNonNull as __expectNonNull,
+  expectNumber as __expectNumber,
+  expectString as __expectString,
+  parseEpochTimestamp as __parseEpochTimestamp,
   take,
   withBaseException,
 } from "@smithy/smithy-client";
@@ -67,29 +76,40 @@ import {
   DeleteGroupRequest,
   DeleteUserRequest,
   DescribeGroupMembershipRequest,
+  DescribeGroupMembershipResponse,
   DescribeGroupRequest,
+  DescribeGroupResponse,
   DescribeUserRequest,
+  DescribeUserResponse,
   Email,
   ExternalId,
   Filter,
   GetGroupIdRequest,
   GetGroupMembershipIdRequest,
   GetUserIdRequest,
+  Group,
+  GroupMembership,
   InternalServerException,
   IsMemberInGroupsRequest,
   ListGroupMembershipsForMemberRequest,
+  ListGroupMembershipsForMemberResponse,
   ListGroupMembershipsRequest,
+  ListGroupMembershipsResponse,
   ListGroupsRequest,
+  ListGroupsResponse,
   ListUsersRequest,
+  ListUsersResponse,
   MemberId,
   Name,
   PhoneNumber,
+  Photo,
   ResourceNotFoundException,
   ServiceQuotaExceededException,
   ThrottlingException,
   UniqueAttribute,
   UpdateGroupRequest,
   UpdateUserRequest,
+  User,
   ValidationException,
 } from "../models/models_0";
 
@@ -472,7 +492,7 @@ export const de_DescribeGroupCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = _json(data);
+  contents = de_DescribeGroupResponse(data, context);
   const response: DescribeGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -492,7 +512,7 @@ export const de_DescribeGroupMembershipCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = _json(data);
+  contents = de_DescribeGroupMembershipResponse(data, context);
   const response: DescribeGroupMembershipCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -512,7 +532,7 @@ export const de_DescribeUserCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = _json(data);
+  contents = de_DescribeUserResponse(data, context);
   const response: DescribeUserCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -612,7 +632,7 @@ export const de_ListGroupMembershipsCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = _json(data);
+  contents = de_ListGroupMembershipsResponse(data, context);
   const response: ListGroupMembershipsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -632,7 +652,7 @@ export const de_ListGroupMembershipsForMemberCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = _json(data);
+  contents = de_ListGroupMembershipsForMemberResponse(data, context);
   const response: ListGroupMembershipsForMemberCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -652,7 +672,7 @@ export const de_ListGroupsCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = _json(data);
+  contents = de_ListGroupsResponse(data, context);
   const response: ListGroupsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -672,7 +692,7 @@ export const de_ListUsersCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = _json(data);
+  contents = de_ListUsersResponse(data, context);
   const response: ListUsersCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -977,6 +997,10 @@ const se_GetUserIdRequest = (input: GetUserIdRequest, context: __SerdeContext): 
 
 // se_PhoneNumbers omitted.
 
+// se_Photo omitted.
+
+// se_Photos omitted.
+
 /**
  * serializeAws_json1_1UniqueAttribute
  */
@@ -1029,11 +1053,70 @@ const se_UpdateUserRequest = (input: UpdateUserRequest, context: __SerdeContext)
 
 // de_DeleteUserResponse omitted.
 
-// de_DescribeGroupMembershipResponse omitted.
+/**
+ * deserializeAws_json1_1DescribeGroupMembershipResponse
+ */
+const de_DescribeGroupMembershipResponse = (output: any, context: __SerdeContext): DescribeGroupMembershipResponse => {
+  return take(output, {
+    CreatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    CreatedBy: __expectString,
+    GroupId: __expectString,
+    IdentityStoreId: __expectString,
+    MemberId: (_: any) => _json(__expectUnion(_)),
+    MembershipId: __expectString,
+    UpdatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    UpdatedBy: __expectString,
+  }) as any;
+};
 
-// de_DescribeGroupResponse omitted.
+/**
+ * deserializeAws_json1_1DescribeGroupResponse
+ */
+const de_DescribeGroupResponse = (output: any, context: __SerdeContext): DescribeGroupResponse => {
+  return take(output, {
+    CreatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    CreatedBy: __expectString,
+    Description: __expectString,
+    DisplayName: __expectString,
+    ExternalIds: _json,
+    GroupId: __expectString,
+    IdentityStoreId: __expectString,
+    UpdatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    UpdatedBy: __expectString,
+  }) as any;
+};
 
-// de_DescribeUserResponse omitted.
+/**
+ * deserializeAws_json1_1DescribeUserResponse
+ */
+const de_DescribeUserResponse = (output: any, context: __SerdeContext): DescribeUserResponse => {
+  return take(output, {
+    Addresses: _json,
+    Birthdate: __expectString,
+    CreatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    CreatedBy: __expectString,
+    DisplayName: __expectString,
+    Emails: _json,
+    ExternalIds: _json,
+    IdentityStoreId: __expectString,
+    Locale: __expectString,
+    Name: _json,
+    NickName: __expectString,
+    PhoneNumbers: _json,
+    Photos: _json,
+    PreferredLanguage: __expectString,
+    ProfileUrl: __expectString,
+    Timezone: __expectString,
+    Title: __expectString,
+    UpdatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    UpdatedBy: __expectString,
+    UserId: __expectString,
+    UserName: __expectString,
+    UserStatus: __expectString,
+    UserType: __expectString,
+    Website: __expectString,
+  }) as any;
+};
 
 // de_Email omitted.
 
@@ -1049,29 +1132,113 @@ const se_UpdateUserRequest = (input: UpdateUserRequest, context: __SerdeContext)
 
 // de_GetUserIdResponse omitted.
 
-// de_Group omitted.
+/**
+ * deserializeAws_json1_1Group
+ */
+const de_Group = (output: any, context: __SerdeContext): Group => {
+  return take(output, {
+    CreatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    CreatedBy: __expectString,
+    Description: __expectString,
+    DisplayName: __expectString,
+    ExternalIds: _json,
+    GroupId: __expectString,
+    IdentityStoreId: __expectString,
+    UpdatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    UpdatedBy: __expectString,
+  }) as any;
+};
 
-// de_GroupMembership omitted.
+/**
+ * deserializeAws_json1_1GroupMembership
+ */
+const de_GroupMembership = (output: any, context: __SerdeContext): GroupMembership => {
+  return take(output, {
+    CreatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    CreatedBy: __expectString,
+    GroupId: __expectString,
+    IdentityStoreId: __expectString,
+    MemberId: (_: any) => _json(__expectUnion(_)),
+    MembershipId: __expectString,
+    UpdatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    UpdatedBy: __expectString,
+  }) as any;
+};
 
 // de_GroupMembershipExistenceResult omitted.
 
 // de_GroupMembershipExistenceResults omitted.
 
-// de_GroupMemberships omitted.
+/**
+ * deserializeAws_json1_1GroupMemberships
+ */
+const de_GroupMemberships = (output: any, context: __SerdeContext): GroupMembership[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_GroupMembership(entry, context);
+    });
+  return retVal;
+};
 
-// de_Groups omitted.
+/**
+ * deserializeAws_json1_1Groups
+ */
+const de_Groups = (output: any, context: __SerdeContext): Group[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_Group(entry, context);
+    });
+  return retVal;
+};
 
 // de_InternalServerException omitted.
 
 // de_IsMemberInGroupsResponse omitted.
 
-// de_ListGroupMembershipsForMemberResponse omitted.
+/**
+ * deserializeAws_json1_1ListGroupMembershipsForMemberResponse
+ */
+const de_ListGroupMembershipsForMemberResponse = (
+  output: any,
+  context: __SerdeContext
+): ListGroupMembershipsForMemberResponse => {
+  return take(output, {
+    GroupMemberships: (_: any) => de_GroupMemberships(_, context),
+    NextToken: __expectString,
+  }) as any;
+};
 
-// de_ListGroupMembershipsResponse omitted.
+/**
+ * deserializeAws_json1_1ListGroupMembershipsResponse
+ */
+const de_ListGroupMembershipsResponse = (output: any, context: __SerdeContext): ListGroupMembershipsResponse => {
+  return take(output, {
+    GroupMemberships: (_: any) => de_GroupMemberships(_, context),
+    NextToken: __expectString,
+  }) as any;
+};
 
-// de_ListGroupsResponse omitted.
+/**
+ * deserializeAws_json1_1ListGroupsResponse
+ */
+const de_ListGroupsResponse = (output: any, context: __SerdeContext): ListGroupsResponse => {
+  return take(output, {
+    Groups: (_: any) => de_Groups(_, context),
+    NextToken: __expectString,
+  }) as any;
+};
 
-// de_ListUsersResponse omitted.
+/**
+ * deserializeAws_json1_1ListUsersResponse
+ */
+const de_ListUsersResponse = (output: any, context: __SerdeContext): ListUsersResponse => {
+  return take(output, {
+    NextToken: __expectString,
+    Users: (_: any) => de_Users(_, context),
+  }) as any;
+};
 
 // de_MemberId omitted.
 
@@ -1080,6 +1247,10 @@ const se_UpdateUserRequest = (input: UpdateUserRequest, context: __SerdeContext)
 // de_PhoneNumber omitted.
 
 // de_PhoneNumbers omitted.
+
+// de_Photo omitted.
+
+// de_Photos omitted.
 
 // de_ResourceNotFoundException omitted.
 
@@ -1091,9 +1262,49 @@ const se_UpdateUserRequest = (input: UpdateUserRequest, context: __SerdeContext)
 
 // de_UpdateUserResponse omitted.
 
-// de_User omitted.
+/**
+ * deserializeAws_json1_1User
+ */
+const de_User = (output: any, context: __SerdeContext): User => {
+  return take(output, {
+    Addresses: _json,
+    Birthdate: __expectString,
+    CreatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    CreatedBy: __expectString,
+    DisplayName: __expectString,
+    Emails: _json,
+    ExternalIds: _json,
+    IdentityStoreId: __expectString,
+    Locale: __expectString,
+    Name: _json,
+    NickName: __expectString,
+    PhoneNumbers: _json,
+    Photos: _json,
+    PreferredLanguage: __expectString,
+    ProfileUrl: __expectString,
+    Timezone: __expectString,
+    Title: __expectString,
+    UpdatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    UpdatedBy: __expectString,
+    UserId: __expectString,
+    UserName: __expectString,
+    UserStatus: __expectString,
+    UserType: __expectString,
+    Website: __expectString,
+  }) as any;
+};
 
-// de_Users omitted.
+/**
+ * deserializeAws_json1_1Users
+ */
+const de_Users = (output: any, context: __SerdeContext): User[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_User(entry, context);
+    });
+  return retVal;
+};
 
 // de_ValidationException omitted.
 

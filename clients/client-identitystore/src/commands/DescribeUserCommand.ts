@@ -28,12 +28,7 @@ export interface DescribeUserCommandInput extends DescribeUserRequest {}
 export interface DescribeUserCommandOutput extends DescribeUserResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves the user metadata and attributes from the <code>UserId</code> in an identity store.</p>
- *          <note>
- *             <p>If you have administrator access to a member account, you can use this API from the member account.
- *          Read about <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_access.html">member accounts</a> in the
- *          <i>Organizations User Guide</i>. </p>
- *          </note>
+ * <p>Retrieves the user metadata and attributes from the <code>UserId</code> in an identity store.</p> <note> <p>If you have access to a member account, you can use this API operation from the member account. For more information, see <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/manage-your-accounts.html#limiting-access-from-member-accounts">Limiting access to the identity store from member accounts</a> in the <i> IAM Identity Center User Guide</i>.</p> </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -49,8 +44,9 @@ export interface DescribeUserCommandOutput extends DescribeUserResponse, __Metad
  * const command = new DescribeUserCommand(input);
  * const response = await client.send(command);
  * // { // DescribeUserResponse
- * //   UserName: "STRING_VALUE",
+ * //   IdentityStoreId: "STRING_VALUE", // required
  * //   UserId: "STRING_VALUE", // required
+ * //   UserName: "STRING_VALUE",
  * //   ExternalIds: [ // ExternalIds
  * //     { // ExternalId
  * //       Issuer: "STRING_VALUE", // required
@@ -99,7 +95,21 @@ export interface DescribeUserCommandOutput extends DescribeUserResponse, __Metad
  * //   PreferredLanguage: "STRING_VALUE",
  * //   Locale: "STRING_VALUE",
  * //   Timezone: "STRING_VALUE",
- * //   IdentityStoreId: "STRING_VALUE", // required
+ * //   UserStatus: "ENABLED" || "DISABLED",
+ * //   Photos: [ // Photos
+ * //     { // Photo
+ * //       Value: "STRING_VALUE", // required
+ * //       Type: "STRING_VALUE",
+ * //       Display: "STRING_VALUE",
+ * //       Primary: true || false,
+ * //     },
+ * //   ],
+ * //   Website: "STRING_VALUE",
+ * //   Birthdate: "STRING_VALUE",
+ * //   CreatedAt: new Date("TIMESTAMP"),
+ * //   CreatedBy: "STRING_VALUE",
+ * //   UpdatedAt: new Date("TIMESTAMP"),
+ * //   UpdatedBy: "STRING_VALUE",
  * // };
  *
  * ```

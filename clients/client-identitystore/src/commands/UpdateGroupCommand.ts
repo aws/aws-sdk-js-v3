@@ -28,7 +28,7 @@ export interface UpdateGroupCommandInput extends UpdateGroupRequest {}
 export interface UpdateGroupCommandOutput extends UpdateGroupResponse, __MetadataBearer {}
 
 /**
- * <p>For the specified group in the specified identity store, updates the group metadata and attributes.</p>
+ * <p>Updates the specified group metadata and attributes in the specified identity store.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -60,15 +60,7 @@ export interface UpdateGroupCommandOutput extends UpdateGroupResponse, __Metadat
  * @see {@link IdentitystoreClientResolvedConfig | config} for IdentitystoreClient's `config` shape.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>This request cannot be completed for one of the following reasons:</p>
- *          <ul>
- *             <li>
- *                <p>Performing the requested operation would violate an existing uniqueness claim in the identity store. Resolve the conflict before retrying this request.</p>
- *             </li>
- *             <li>
- *                <p>The requested resource was being concurrently modified by another request.</p>
- *             </li>
- *          </ul>
+ *  <p>This request cannot be completed for one of the following reasons:</p> <ul> <li> <p>Performing the requested operation would violate an existing uniqueness claim in the identity store. Resolve the conflict before retrying this request.</p> </li> <li> <p>The requested resource was being concurrently modified by another request.</p> </li> </ul>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Indicates that a requested resource is not found.</p>

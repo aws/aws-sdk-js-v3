@@ -33,12 +33,7 @@ export interface ListGroupMembershipsForMemberCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>For the specified member in the specified identity store, returns the list of all <code>GroupMembership</code> objects and returns results in paginated form.</p>
- *          <note>
- *             <p>If you have administrator access to a member account, you can use this API from the member account.
- *          Read about <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_access.html">member accounts</a> in the
- *          <i>Organizations User Guide</i>. </p>
- *          </note>
+ * <p>For the specified member in the specified identity store, returns the list of all <code> GroupMembership</code> objects and returns results in paginated form.</p> <note> <p>If you have access to a member account, you can use this API operation from the member account. For more information, see <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/manage-your-accounts.html#limiting-access-from-member-accounts">Limiting access to the identity store from member accounts</a> in the <i> IAM Identity Center User Guide</i>.</p> </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -66,6 +61,10 @@ export interface ListGroupMembershipsForMemberCommandOutput
  * //       MemberId: { // MemberId Union: only one key present
  * //         UserId: "STRING_VALUE",
  * //       },
+ * //       CreatedAt: new Date("TIMESTAMP"),
+ * //       UpdatedAt: new Date("TIMESTAMP"),
+ * //       CreatedBy: "STRING_VALUE",
+ * //       UpdatedBy: "STRING_VALUE",
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

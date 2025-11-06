@@ -82,12 +82,22 @@ export interface CreateUserCommandOutput extends CreateUserResponse, __MetadataB
  *   PreferredLanguage: "STRING_VALUE",
  *   Locale: "STRING_VALUE",
  *   Timezone: "STRING_VALUE",
+ *   Photos: [ // Photos
+ *     { // Photo
+ *       Value: "STRING_VALUE", // required
+ *       Type: "STRING_VALUE",
+ *       Display: "STRING_VALUE",
+ *       Primary: true || false,
+ *     },
+ *   ],
+ *   Website: "STRING_VALUE",
+ *   Birthdate: "STRING_VALUE",
  * };
  * const command = new CreateUserCommand(input);
  * const response = await client.send(command);
  * // { // CreateUserResponse
- * //   UserId: "STRING_VALUE", // required
  * //   IdentityStoreId: "STRING_VALUE", // required
+ * //   UserId: "STRING_VALUE", // required
  * // };
  *
  * ```
@@ -99,15 +109,7 @@ export interface CreateUserCommandOutput extends CreateUserResponse, __MetadataB
  * @see {@link IdentitystoreClientResolvedConfig | config} for IdentitystoreClient's `config` shape.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>This request cannot be completed for one of the following reasons:</p>
- *          <ul>
- *             <li>
- *                <p>Performing the requested operation would violate an existing uniqueness claim in the identity store. Resolve the conflict before retrying this request.</p>
- *             </li>
- *             <li>
- *                <p>The requested resource was being concurrently modified by another request.</p>
- *             </li>
- *          </ul>
+ *  <p>This request cannot be completed for one of the following reasons:</p> <ul> <li> <p>Performing the requested operation would violate an existing uniqueness claim in the identity store. Resolve the conflict before retrying this request.</p> </li> <li> <p>The requested resource was being concurrently modified by another request.</p> </li> </ul>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Indicates that a requested resource is not found.</p>
