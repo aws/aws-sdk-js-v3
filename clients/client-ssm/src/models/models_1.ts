@@ -21,8 +21,6 @@ import {
   InstanceAssociationOutputLocation,
   MaintenanceWindowExecutionStatus,
   MaintenanceWindowFilter,
-  MaintenanceWindowIdentity,
-  MaintenanceWindowIdentityFilterSensitiveLog,
   MaintenanceWindowTaskType,
   MetadataValue,
   OperatingSystem,
@@ -52,6 +50,90 @@ import {
 } from "./models_0";
 
 import { SSMServiceException as __BaseException } from "./SSMServiceException";
+
+/**
+ * <p>Information about the maintenance window.</p>
+ * @public
+ */
+export interface MaintenanceWindowIdentity {
+  /**
+   * <p>The ID of the maintenance window.</p>
+   * @public
+   */
+  WindowId?: string | undefined;
+
+  /**
+   * <p>The name of the maintenance window.</p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>A description of the maintenance window.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>Indicates whether the maintenance window is enabled.</p>
+   * @public
+   */
+  Enabled?: boolean | undefined;
+
+  /**
+   * <p>The duration of the maintenance window in hours.</p>
+   * @public
+   */
+  Duration?: number | undefined;
+
+  /**
+   * <p>The number of hours before the end of the maintenance window that Amazon Web Services Systems Manager stops scheduling
+   *    new tasks for execution.</p>
+   * @public
+   */
+  Cutoff?: number | undefined;
+
+  /**
+   * <p>The schedule of the maintenance window in the form of a cron or rate expression.</p>
+   * @public
+   */
+  Schedule?: string | undefined;
+
+  /**
+   * <p>The time zone that the scheduled maintenance window executions are based on, in Internet
+   *    Assigned Numbers Authority (IANA) format.</p>
+   * @public
+   */
+  ScheduleTimezone?: string | undefined;
+
+  /**
+   * <p>The number of days to wait to run a maintenance window after the scheduled cron expression
+   *    date and time.</p>
+   * @public
+   */
+  ScheduleOffset?: number | undefined;
+
+  /**
+   * <p>The date and time, in ISO-8601 Extended format, for when the maintenance window is scheduled
+   *    to become inactive.</p>
+   * @public
+   */
+  EndDate?: string | undefined;
+
+  /**
+   * <p>The date and time, in ISO-8601 Extended format, for when the maintenance window is scheduled
+   *    to become active.</p>
+   * @public
+   */
+  StartDate?: string | undefined;
+
+  /**
+   * <p>The next time the maintenance window will actually run, taking into account any specified
+   *    times for the maintenance window to become active or inactive.</p>
+   * @public
+   */
+  NextExecutionTime?: string | undefined;
+}
 
 /**
  * @public
@@ -2985,11 +3067,10 @@ export interface GetDeployablePatchSnapshotForInstanceRequest {
   BaselineOverride?: BaselineOverride | undefined;
 
   /**
-   * <p>Specifies whether to use S3 dualstack endpoints
-   *    for the patch snapshot download URL. Set to <code>true</code> to receive a presigned URL that
-   *    supports both IPv4 and IPv6 connectivity. Set to <code>false</code> to use standard IPv4-only
-   *    endpoints. Default is <code>false</code>. This parameter is required for managed nodes in
-   *    IPv6-only environments. </p>
+   * <p>Specifies whether to use S3 dualstack endpoints for the patch snapshot download URL. Set to
+   *     <code>true</code> to receive a presigned URL that supports both IPv4 and IPv6 connectivity. Set
+   *    to <code>false</code> to use standard IPv4-only endpoints. Default is <code>false</code>. This
+   *    parameter is required for managed nodes in IPv6-only environments. </p>
    * @public
    */
   UseS3DualStackEndpoint?: boolean | undefined;
@@ -10729,21 +10810,12 @@ export interface RegisterDefaultPatchBaselineResult {
 }
 
 /**
- * @public
+ * @internal
  */
-export interface RegisterPatchBaselineForPatchGroupRequest {
-  /**
-   * <p>The ID of the patch baseline to register with the patch group.</p>
-   * @public
-   */
-  BaselineId: string | undefined;
-
-  /**
-   * <p>The name of the patch group to be registered with the patch baseline.</p>
-   * @public
-   */
-  PatchGroup: string | undefined;
-}
+export const MaintenanceWindowIdentityFilterSensitiveLog = (obj: MaintenanceWindowIdentity): any => ({
+  ...obj,
+  ...(obj.Description && { Description: SENSITIVE_STRING }),
+});
 
 /**
  * @internal

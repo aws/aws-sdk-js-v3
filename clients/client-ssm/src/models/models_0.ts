@@ -1428,7 +1428,8 @@ export interface CreateAssociationRequest {
    *    association. Use this action to create an association in multiple Regions and multiple
    *    accounts.</p>
    *          <note>
-   *             <p>The <code>IncludeChildOrganizationUnits</code> parameter is not supported by State Manager.</p>
+   *             <p>The <code>IncludeChildOrganizationUnits</code> parameter is not supported by State
+   *     Manager.</p>
    *          </note>
    * @public
    */
@@ -3033,6 +3034,28 @@ export class MaxDocumentSizeExceeded extends __BaseException {
 }
 
 /**
+ * <p>The requested operation is no longer supported by Systems Manager.</p>
+ * @public
+ */
+export class NoLongerSupportedException extends __BaseException {
+  readonly name: "NoLongerSupportedException" = "NoLongerSupportedException";
+  readonly $fault: "client" = "client";
+  Message?: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<NoLongerSupportedException, __BaseException>) {
+    super({
+      name: "NoLongerSupportedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, NoLongerSupportedException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
  * @public
  */
 export interface CreateMaintenanceWindowRequest {
@@ -3302,17 +3325,23 @@ export interface CreateOpsItemRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>/aws/changerequest</code>
-   *                </p>
-   *                <p>This type of OpsItem is used by Change Manager for reviewing and approving or rejecting change
-   *      requests. </p>
-   *             </li>
-   *             <li>
-   *                <p>
    *                   <code>/aws/insight</code>
    *                </p>
    *                <p>This type of OpsItem is used by OpsCenter for aggregating and reporting on duplicate
    *      OpsItems. </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>/aws/changerequest</code>
+   *                </p>
+   *                <p>This type of OpsItem is used by Change Manager for reviewing and approving or rejecting change
+   *      requests. </p>
+   *                <important>
+   *                   <p>Amazon Web Services Systems Manager Change Manager will no longer be open to new
+   *   customers starting November 7, 2025. If you would like to use Change Manager, sign up prior to that date. Existing customers can
+   *   continue to use the service as normal. For more information, see
+   * <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/change-manager-availability-change.html">Amazon Web Services Systems Manager Change Manager availability change</a>.</p>
+   *                </important>
    *             </li>
    *          </ul>
    * @public
@@ -3770,6 +3799,10 @@ export interface PatchRule {
    * <p>The number of days after the release date of each patch matched by the rule that the patch
    *    is marked as approved in the patch baseline. For example, a value of <code>7</code> means that
    *    patches are approved seven days after they are released.</p>
+   *          <p>Patch Manager evaluates patch release dates using Coordinated Universal Time (UTC). If the
+   *    day represented by <code>7</code> is <code>2025-11-16</code>, patches released between
+   *     <code>2025-11-16T00:00:00Z</code> and <code>2025-11-16T23:59:59Z</code> will be included in the
+   *    approval.</p>
    *          <p>This parameter is marked as <code>Required: No</code>, but your request must include a value
    *    for either <code>ApproveAfterDays</code> or <code>ApproveUntilDate</code>.</p>
    *          <p>Not supported for Debian Server or Ubuntu Server.</p>
@@ -3788,7 +3821,11 @@ export interface PatchRule {
    * <p>The cutoff date for auto approval of released patches. Any patches released on or before
    *    this date are installed automatically.</p>
    *          <p>Enter dates in the format <code>YYYY-MM-DD</code>. For example,
-   *    <code>2024-12-31</code>.</p>
+   *    <code>2025-11-16</code>.</p>
+   *          <p>Patch Manager evaluates patch release dates using Coordinated Universal Time (UTC). If you
+   *    enter the date <code>2025-11-16</code>, patches released between
+   *     <code>2025-11-16T00:00:00Z</code> and <code>2025-11-16T23:59:59Z</code> will be included in the
+   *    approval.</p>
    *          <p>This parameter is marked as <code>Required: No</code>, but your request must include a value
    *    for either <code>ApproveUntilDate</code> or <code>ApproveAfterDays</code>.</p>
    *          <p>Not supported for Debian Server or Ubuntu Server.</p>
@@ -9595,90 +9632,6 @@ export interface DescribeMaintenanceWindowsRequest {
 }
 
 /**
- * <p>Information about the maintenance window.</p>
- * @public
- */
-export interface MaintenanceWindowIdentity {
-  /**
-   * <p>The ID of the maintenance window.</p>
-   * @public
-   */
-  WindowId?: string | undefined;
-
-  /**
-   * <p>The name of the maintenance window.</p>
-   * @public
-   */
-  Name?: string | undefined;
-
-  /**
-   * <p>A description of the maintenance window.</p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p>Indicates whether the maintenance window is enabled.</p>
-   * @public
-   */
-  Enabled?: boolean | undefined;
-
-  /**
-   * <p>The duration of the maintenance window in hours.</p>
-   * @public
-   */
-  Duration?: number | undefined;
-
-  /**
-   * <p>The number of hours before the end of the maintenance window that Amazon Web Services Systems Manager stops scheduling
-   *    new tasks for execution.</p>
-   * @public
-   */
-  Cutoff?: number | undefined;
-
-  /**
-   * <p>The schedule of the maintenance window in the form of a cron or rate expression.</p>
-   * @public
-   */
-  Schedule?: string | undefined;
-
-  /**
-   * <p>The time zone that the scheduled maintenance window executions are based on, in Internet
-   *    Assigned Numbers Authority (IANA) format.</p>
-   * @public
-   */
-  ScheduleTimezone?: string | undefined;
-
-  /**
-   * <p>The number of days to wait to run a maintenance window after the scheduled cron expression
-   *    date and time.</p>
-   * @public
-   */
-  ScheduleOffset?: number | undefined;
-
-  /**
-   * <p>The date and time, in ISO-8601 Extended format, for when the maintenance window is scheduled
-   *    to become inactive.</p>
-   * @public
-   */
-  EndDate?: string | undefined;
-
-  /**
-   * <p>The date and time, in ISO-8601 Extended format, for when the maintenance window is scheduled
-   *    to become active.</p>
-   * @public
-   */
-  StartDate?: string | undefined;
-
-  /**
-   * <p>The next time the maintenance window will actually run, taking into account any specified
-   *    times for the maintenance window to become active or inactive.</p>
-   * @public
-   */
-  NextExecutionTime?: string | undefined;
-}
-
-/**
  * @internal
  */
 export const CreateAssociationRequestFilterSensitiveLog = (obj: CreateAssociationRequest): any => ({
@@ -9862,12 +9815,4 @@ export const DescribeMaintenanceWindowExecutionTaskInvocationsResultFilterSensit
       MaintenanceWindowExecutionTaskInvocationIdentityFilterSensitiveLog(item)
     ),
   }),
-});
-
-/**
- * @internal
- */
-export const MaintenanceWindowIdentityFilterSensitiveLog = (obj: MaintenanceWindowIdentity): any => ({
-  ...obj,
-  ...(obj.Description && { Description: SENSITIVE_STRING }),
 });

@@ -30,7 +30,13 @@ export interface ListDocumentMetadataHistoryCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Information about approval reviews for a version of a change template in Change Manager.</p>
+ * <important>
+ *             <p>Amazon Web Services Systems Manager Change Manager will no longer be open to new
+ *   customers starting November 7, 2025. If you would like to use Change Manager, sign up prior to that date. Existing customers can
+ *   continue to use the service as normal. For more information, see
+ * <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/change-manager-availability-change.html">Amazon Web Services Systems Manager Change Manager availability change</a>.</p>
+ *          </important>
+ *          <p>Information about approval reviews for a version of a change template in Change Manager.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

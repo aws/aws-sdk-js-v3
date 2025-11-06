@@ -28,7 +28,13 @@ export interface StartChangeRequestExecutionCommandInput extends StartChangeRequ
 export interface StartChangeRequestExecutionCommandOutput extends StartChangeRequestExecutionResult, __MetadataBearer {}
 
 /**
- * <p>Creates a change request for Change Manager. The Automation runbooks specified in the
+ * <important>
+ *             <p>Amazon Web Services Systems Manager Change Manager will no longer be open to new
+ *   customers starting November 7, 2025. If you would like to use Change Manager, sign up prior to that date. Existing customers can
+ *   continue to use the service as normal. For more information, see
+ * <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/change-manager-availability-change.html">Amazon Web Services Systems Manager Change Manager availability change</a>.</p>
+ *          </important>
+ *          <p>Creates a change request for Change Manager. The Automation runbooks specified in the
  *    change request run only after all required approvals for the change request have been
  *    received.</p>
  * @example
@@ -163,6 +169,9 @@ export interface StartChangeRequestExecutionCommandOutput extends StartChangeReq
  *  <p>The supplied parameters for invoking the specified Automation runbook are incorrect. For
  *    example, they may not match the set of parameters permitted for the specified Automation
  *    document.</p>
+ *
+ * @throws {@link NoLongerSupportedException} (client fault)
+ *  <p>The requested operation is no longer supported by Systems Manager.</p>
  *
  * @throws {@link SSMServiceException}
  * <p>Base exception class for all service exceptions from SSM service.</p>

@@ -612,6 +612,7 @@ import {
   MalformedResourcePolicyDocumentException,
   MaxDocumentSizeExceeded,
   MetadataValue,
+  NoLongerSupportedException,
   OpsItemAccessDeniedException,
   OpsItemAlreadyExistsException,
   OpsItemConflictException,
@@ -843,7 +844,6 @@ import {
   PutParameterRequest,
   PutResourcePolicyRequest,
   RegisterDefaultPatchBaselineRequest,
-  RegisterPatchBaselineForPatchGroupRequest,
   ResourceComplianceSummaryItem,
   ResourceDataSyncItem,
   ResourcePolicyLimitExceededException,
@@ -892,6 +892,7 @@ import {
   NodeAggregator,
   OpsAggregator,
   OpsMetadataKeyLimitExceededException,
+  RegisterPatchBaselineForPatchGroupRequest,
   RegisterTargetWithMaintenanceWindowRequest,
   RegisterTaskWithMaintenanceWindowRequest,
   RemoveTagsFromResourceRequest,
@@ -5854,6 +5855,9 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "MaxDocumentSizeExceeded":
     case "com.amazonaws.ssm#MaxDocumentSizeExceeded":
       throw await de_MaxDocumentSizeExceededRes(parsedOutput, context);
+    case "NoLongerSupportedException":
+    case "com.amazonaws.ssm#NoLongerSupportedException":
+      throw await de_NoLongerSupportedExceptionRes(parsedOutput, context);
     case "IdempotentParameterMismatch":
     case "com.amazonaws.ssm#IdempotentParameterMismatch":
       throw await de_IdempotentParameterMismatchRes(parsedOutput, context);
@@ -7461,6 +7465,22 @@ const de_MaxDocumentSizeExceededRes = async (
   const body = parsedOutput.body;
   const deserialized: any = _json(body);
   const exception = new MaxDocumentSizeExceeded({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+/**
+ * deserializeAws_json1_1NoLongerSupportedExceptionRes
+ */
+const de_NoLongerSupportedExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<NoLongerSupportedException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = _json(body);
+  const exception = new NoLongerSupportedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
   });
@@ -11438,6 +11458,8 @@ const de_NodeList = (output: any, context: __SerdeContext): Node[] => {
 // de_NodeSummaryList omitted.
 
 // de_NodeType omitted.
+
+// de_NoLongerSupportedException omitted.
 
 // de_NonCompliantSummary omitted.
 

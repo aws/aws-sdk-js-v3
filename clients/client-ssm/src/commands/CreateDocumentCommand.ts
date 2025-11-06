@@ -170,6 +170,9 @@ export interface CreateDocumentCommandOutput extends CreateDocumentResult, __Met
  * @throws {@link MaxDocumentSizeExceeded} (client fault)
  *  <p>The size limit of a document is 64 KB.</p>
  *
+ * @throws {@link NoLongerSupportedException} (client fault)
+ *  <p>The requested operation is no longer supported by Systems Manager.</p>
+ *
  * @throws {@link TooManyUpdates} (client fault)
  *  <p>There are concurrent updates for a resource that supports one update at a time.</p>
  *

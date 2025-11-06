@@ -65,6 +65,23 @@ import { SSMServiceException as __BaseException } from "./SSMServiceException";
 /**
  * @public
  */
+export interface RegisterPatchBaselineForPatchGroupRequest {
+  /**
+   * <p>The ID of the patch baseline to register with the patch group.</p>
+   * @public
+   */
+  BaselineId: string | undefined;
+
+  /**
+   * <p>The name of the patch group to be registered with the patch baseline.</p>
+   * @public
+   */
+  PatchGroup: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface RegisterPatchBaselineForPatchGroupResult {
   /**
    * <p>The ID of the patch baseline the patch group was registered with.</p>
@@ -2016,7 +2033,8 @@ export interface UpdateAssociationRequest {
    *    association. Use this action to update an association in multiple Regions and multiple
    *    accounts.</p>
    *          <note>
-   *             <p>The <code>IncludeChildOrganizationUnits</code> parameter is not supported by State Manager.</p>
+   *             <p>The <code>IncludeChildOrganizationUnits</code> parameter is not supported by State
+   *     Manager.</p>
    *          </note>
    * @public
    */
