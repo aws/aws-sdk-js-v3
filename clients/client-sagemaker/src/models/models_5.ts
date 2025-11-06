@@ -18,6 +18,7 @@ import {
   CheckpointConfig,
   ClusterAutoScalingConfig,
   ClusterInstanceGroupSpecification,
+  ClusterNodeProvisioningMode,
   ClusterNodeRecovery,
   CodeEditorAppImageConfig,
   DeploymentConfiguration,
@@ -3880,6 +3881,12 @@ export interface UpdateClusterRequest {
   InstanceGroupsToDelete?: string[] | undefined;
 
   /**
+   * <p>Determines how instance provisioning is handled during cluster operations. In <code>Continuous</code> mode, the cluster provisions available instances incrementally and retries until the target count is reached. The cluster becomes operational once cluster-level resources are ready. Use <code>CurrentCount</code> and <code>TargetCount</code> in <code>DescribeCluster</code> to track provisioning progress.</p>
+   * @public
+   */
+  NodeProvisioningMode?: ClusterNodeProvisioningMode | undefined;
+
+  /**
    * <p>The Amazon Resource Name (ARN) of the IAM role that HyperPod assumes for cluster autoscaling operations. Cannot be updated while autoscaling is enabled.</p>
    * @public
    */
@@ -4230,6 +4237,12 @@ export interface UpdateDomainRequest {
    * @public
    */
   TagPropagation?: TagPropagation | undefined;
+
+  /**
+   * <p>The identifier for the VPC used by the domain for network communication. Use this field only when adding VPC configuration to a SageMaker AI domain used in Amazon SageMaker Unified Studio that was created without VPC settings. SageMaker AI doesn't automatically apply VPC updates to existing applications. Stop and restart your applications to apply the changes.</p>
+   * @public
+   */
+  VpcId?: string | undefined;
 }
 
 /**

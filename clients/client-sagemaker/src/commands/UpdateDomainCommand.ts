@@ -384,6 +384,7 @@ export interface UpdateDomainCommandOutput extends UpdateDomainResponse, __Metad
  *   ],
  *   AppNetworkAccessType: "PublicInternetOnly" || "VpcOnly",
  *   TagPropagation: "ENABLED" || "DISABLED",
+ *   VpcId: "STRING_VALUE",
  * };
  * const command = new UpdateDomainCommand(input);
  * const response = await client.send(command);

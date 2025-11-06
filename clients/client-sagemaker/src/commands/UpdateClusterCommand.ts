@@ -160,6 +160,7 @@ export interface UpdateClusterCommandOutput extends UpdateClusterResponse, __Met
  *   InstanceGroupsToDelete: [ // ClusterInstanceGroupsToDelete
  *     "STRING_VALUE",
  *   ],
+ *   NodeProvisioningMode: "Continuous",
  *   ClusterRole: "STRING_VALUE",
  *   AutoScaling: { // ClusterAutoScalingConfig
  *     Mode: "Enable" || "Disable", // required
