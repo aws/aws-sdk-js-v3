@@ -72,6 +72,7 @@ import {
   NotFoundException,
   PutInputVector,
   QueryOutputVector,
+  RequestTimeoutException,
   ServiceQuotaExceededException,
   ServiceUnavailableException,
   TooManyRequestsException,
@@ -496,7 +497,11 @@ export const de_CreateIndexCommand = async (
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
-  await collectBody(output.body, context);
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    indexArn: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -513,7 +518,11 @@ export const de_CreateVectorBucketCommand = async (
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
-  await collectBody(output.body, context);
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    vectorBucketArn: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -784,6 +793,7 @@ export const de_QueryVectorsCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
+    distanceMetric: __expectString,
     vectors: (_) => de_QueryVectorsOutputList(_, context),
   });
   Object.assign(contents, doc);
@@ -812,6 +822,9 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "NotFoundException":
     case "com.amazonaws.s3vectors#NotFoundException":
       throw await de_NotFoundExceptionRes(parsedOutput, context);
+    case "RequestTimeoutException":
+    case "com.amazonaws.s3vectors#RequestTimeoutException":
+      throw await de_RequestTimeoutExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.s3vectors#ServiceQuotaExceededException":
       throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
@@ -995,6 +1008,26 @@ const de_NotFoundExceptionRes = async (parsedOutput: any, context: __SerdeContex
   });
   Object.assign(contents, doc);
   const exception = new NotFoundException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
+};
+
+/**
+ * deserializeAws_restJson1RequestTimeoutExceptionRes
+ */
+const de_RequestTimeoutExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<RequestTimeoutException> => {
+  const contents: any = map({});
+  const data: any = parsedOutput.body;
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
+  const exception = new RequestTimeoutException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
   });

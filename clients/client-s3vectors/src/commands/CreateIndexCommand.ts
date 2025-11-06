@@ -52,7 +52,9 @@ export interface CreateIndexCommandOutput extends CreateIndexOutput, __MetadataB
  * };
  * const command = new CreateIndexCommand(input);
  * const response = await client.send(command);
- * // {};
+ * // { // CreateIndexOutput
+ * //   indexArn: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *
@@ -68,6 +70,9 @@ export interface CreateIndexCommandOutput extends CreateIndexOutput, __MetadataB
  * @throws {@link NotFoundException} (client fault)
  *  <p>The request was rejected because the specified resource can't be found.</p>
  *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p>Your request exceeds a service quota. </p>
+ *
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The service is unavailable. Wait briefly and retry your request. If it continues to fail, increase your waiting time between retries.</p>
  *
@@ -77,8 +82,8 @@ export interface CreateIndexCommandOutput extends CreateIndexOutput, __MetadataB
  * @throws {@link InternalServerException} (server fault)
  *  <p>The request failed due to an internal server error.</p>
  *
- * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>Your request exceeds a service quota. </p>
+ * @throws {@link RequestTimeoutException} (client fault)
+ *  <p>The request timed out. Retry your request.</p>
  *
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>The request was denied due to request throttling.</p>
@@ -117,7 +122,7 @@ export class CreateIndexCommand extends $Command
   protected declare static __types: {
     api: {
       input: CreateIndexInput;
-      output: {};
+      output: CreateIndexOutput;
     };
     sdk: {
       input: CreateIndexCommandInput;

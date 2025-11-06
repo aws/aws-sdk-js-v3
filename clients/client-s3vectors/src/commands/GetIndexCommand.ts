@@ -81,8 +81,8 @@ export interface GetIndexCommandOutput extends GetIndexOutput, __MetadataBearer 
  * @throws {@link InternalServerException} (server fault)
  *  <p>The request failed due to an internal server error.</p>
  *
- * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>Your request exceeds a service quota. </p>
+ * @throws {@link RequestTimeoutException} (client fault)
+ *  <p>The request timed out. Retry your request.</p>
  *
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>The request was denied due to request throttling.</p>

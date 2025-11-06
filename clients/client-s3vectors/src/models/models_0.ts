@@ -134,7 +134,13 @@ export interface CreateIndexInput {
 /**
  * @public
  */
-export interface CreateIndexOutput {}
+export interface CreateIndexOutput {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the newly created vector index.</p>
+   * @public
+   */
+  indexArn: string | undefined;
+}
 
 /**
  * <p>The request failed due to an internal server error.</p>
@@ -174,6 +180,27 @@ export class NotFoundException extends __BaseException {
       ...opts,
     });
     Object.setPrototypeOf(this, NotFoundException.prototype);
+  }
+}
+
+/**
+ * <p>The request timed out. Retry your request.</p>
+ * @public
+ */
+export class RequestTimeoutException extends __BaseException {
+  readonly name: "RequestTimeoutException" = "RequestTimeoutException";
+  readonly $fault: "client" = "client";
+  $retryable = {};
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<RequestTimeoutException, __BaseException>) {
+    super({
+      name: "RequestTimeoutException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, RequestTimeoutException.prototype);
   }
 }
 
@@ -338,7 +365,13 @@ export interface CreateVectorBucketInput {
 /**
  * @public
  */
-export interface CreateVectorBucketOutput {}
+export interface CreateVectorBucketOutput {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the newly created vector bucket.</p>
+   * @public
+   */
+  vectorBucketArn: string | undefined;
+}
 
 /**
  * @public
@@ -1146,6 +1179,12 @@ export interface QueryVectorsOutput {
    * @public
    */
   vectors: QueryOutputVector[] | undefined;
+
+  /**
+   * <p>The distance metric that was used for the similarity search calculation. This is the same distance metric that was configured for the vector index when it was created.</p>
+   * @public
+   */
+  distanceMetric: DistanceMetric | undefined;
 }
 
 /**

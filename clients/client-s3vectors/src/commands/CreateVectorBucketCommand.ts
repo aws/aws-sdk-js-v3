@@ -46,7 +46,9 @@ export interface CreateVectorBucketCommandOutput extends CreateVectorBucketOutpu
  * };
  * const command = new CreateVectorBucketCommand(input);
  * const response = await client.send(command);
- * // {};
+ * // { // CreateVectorBucketOutput
+ * //   vectorBucketArn: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *
@@ -59,6 +61,9 @@ export interface CreateVectorBucketCommandOutput extends CreateVectorBucketOutpu
  * @throws {@link ConflictException} (client fault)
  *  <p>The request failed because a vector bucket name or a vector index name already exists. Vector bucket names must be unique within your Amazon Web Services account for each Amazon Web Services Region. Vector index names must be unique within your vector bucket. Choose a different vector bucket name or vector index name, and try again.</p>
  *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p>Your request exceeds a service quota. </p>
+ *
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The service is unavailable. Wait briefly and retry your request. If it continues to fail, increase your waiting time between retries.</p>
  *
@@ -68,8 +73,8 @@ export interface CreateVectorBucketCommandOutput extends CreateVectorBucketOutpu
  * @throws {@link InternalServerException} (server fault)
  *  <p>The request failed due to an internal server error.</p>
  *
- * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>Your request exceeds a service quota. </p>
+ * @throws {@link RequestTimeoutException} (client fault)
+ *  <p>The request timed out. Retry your request.</p>
  *
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>The request was denied due to request throttling.</p>
@@ -108,7 +113,7 @@ export class CreateVectorBucketCommand extends $Command
   protected declare static __types: {
     api: {
       input: CreateVectorBucketInput;
-      output: {};
+      output: CreateVectorBucketOutput;
     };
     sdk: {
       input: CreateVectorBucketCommandInput;
