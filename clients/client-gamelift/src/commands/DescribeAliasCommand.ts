@@ -28,7 +28,9 @@ export interface DescribeAliasCommandInput extends DescribeAliasInput {}
 export interface DescribeAliasCommandOutput extends DescribeAliasOutput, __MetadataBearer {}
 
 /**
- * <p>Retrieves properties for an alias. This operation returns all alias metadata and
+ * <p>
+ *             <b>This API works with the following fleet types:</b> EC2, Anywhere, Container</p>
+ *          <p>Retrieves properties for an alias. This operation returns all alias metadata and
  *             settings. To get an alias's target fleet ID only, use <code>ResolveAlias</code>. </p>
  *          <p>To get alias properties, specify the alias ID. If successful, the requested alias
  *             record is returned.</p>

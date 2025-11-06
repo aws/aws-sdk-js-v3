@@ -28,7 +28,9 @@ export interface ListScriptsCommandInput extends ListScriptsInput {}
 export interface ListScriptsCommandOutput extends ListScriptsOutput, __MetadataBearer {}
 
 /**
- * <p>Retrieves script records for all Realtime scripts that are associated with the Amazon Web Services
+ * <p>
+ *             <b>This API works with the following fleet types:</b> EC2</p>
+ *          <p>Retrieves script records for all Realtime scripts that are associated with the Amazon Web Services
  *             account in use. </p>
  *          <p>
  *             <b>Learn more</b>

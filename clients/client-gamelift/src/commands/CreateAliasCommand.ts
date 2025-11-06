@@ -28,7 +28,9 @@ export interface CreateAliasCommandInput extends CreateAliasInput {}
 export interface CreateAliasCommandOutput extends CreateAliasOutput, __MetadataBearer {}
 
 /**
- * <p>Creates an alias for a fleet. In most situations, you can use an alias ID in place of
+ * <p>
+ *             <b>This API works with the following fleet types:</b> EC2, Anywhere, Container</p>
+ *          <p>Creates an alias for a fleet. In most situations, you can use an alias ID in place of
  *             a fleet ID. An alias provides a level of abstraction for a fleet that is useful when
  *             redirecting player traffic from one fleet to another, such as when updating your game
  *             build. </p>

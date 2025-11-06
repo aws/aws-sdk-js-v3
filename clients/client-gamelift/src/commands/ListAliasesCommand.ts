@@ -28,7 +28,9 @@ export interface ListAliasesCommandInput extends ListAliasesInput {}
 export interface ListAliasesCommandOutput extends ListAliasesOutput, __MetadataBearer {}
 
 /**
- * <p>Retrieves all aliases for this Amazon Web Services account. You can filter the result set by alias
+ * <p>
+ *             <b>This API works with the following fleet types:</b> EC2, Anywhere, Container</p>
+ *          <p>Retrieves all aliases for this Amazon Web Services account. You can filter the result set by alias
  *             name and/or routing strategy type. Use the pagination parameters to retrieve results in
  *             sequential pages.</p>
  *          <note>

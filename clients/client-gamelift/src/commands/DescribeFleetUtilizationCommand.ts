@@ -28,7 +28,9 @@ export interface DescribeFleetUtilizationCommandInput extends DescribeFleetUtili
 export interface DescribeFleetUtilizationCommandOutput extends DescribeFleetUtilizationOutput, __MetadataBearer {}
 
 /**
- * <p>Retrieves utilization statistics for one or more fleets. Utilization data provides a
+ * <p>
+ *             <b>This API works with the following fleet types:</b> EC2, Container</p>
+ *          <p>Retrieves utilization statistics for one or more fleets. Utilization data provides a
  *             snapshot of how the fleet's hosting resources are currently being used. For fleets with
  *             remote locations, this operation retrieves data for the fleet's home Region only. See
  *                 <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeFleetLocationUtilization.html">DescribeFleetLocationUtilization</a> to get utilization statistics for a

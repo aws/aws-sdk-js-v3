@@ -28,7 +28,9 @@ export interface UpdateGameSessionQueueCommandInput extends UpdateGameSessionQue
 export interface UpdateGameSessionQueueCommandOutput extends UpdateGameSessionQueueOutput, __MetadataBearer {}
 
 /**
- * <p>Updates the configuration of a game session queue, which determines how the queue
+ * <p>
+ *             <b>This API works with the following fleet types:</b> EC2, Anywhere, Container</p>
+ *          <p>Updates the configuration of a game session queue, which determines how the queue
  *             processes new game session requests. To update settings, specify the queue name to be
  *             updated and provide the new settings. When updating destinations, provide a complete
  *             list of destinations. </p>

@@ -32,7 +32,9 @@ export interface SearchGameSessionsCommandInput extends SearchGameSessionsInput 
 export interface SearchGameSessionsCommandOutput extends SearchGameSessionsOutput, __MetadataBearer {}
 
 /**
- * <p>Retrieves all active game sessions that match a set of search criteria and sorts them
+ * <p>
+ *             <b>This API works with the following fleet types:</b> EC2, Anywhere, Container</p>
+ *          <p>Retrieves all active game sessions that match a set of search criteria and sorts them
  *             into a specified order. </p>
  *          <p>This operation is not designed to continually track game session status because that practice can cause you to exceed your API limit and generate errors. Instead, configure an Amazon Simple Notification Service (Amazon SNS) topic to receive notifications from a matchmaker or a game session placement queue.</p>
  *          <p>When searching for game sessions, you specify exactly where you want to search and

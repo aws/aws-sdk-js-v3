@@ -28,7 +28,9 @@ export interface StopFleetActionsCommandInput extends StopFleetActionsInput {}
 export interface StopFleetActionsCommandOutput extends StopFleetActionsOutput, __MetadataBearer {}
 
 /**
- * <p>Suspends certain types of activity in a fleet location. Currently, this operation is
+ * <p>
+ *             <b>This API works with the following fleet types:</b> EC2, Container</p>
+ *          <p>Suspends certain types of activity in a fleet location. Currently, this operation is
  *             used to stop auto-scaling activity. For multi-location fleets, fleet actions are managed
  *             separately for each location. </p>
  *          <p>Stopping fleet actions has several potential purposes. It allows you to temporarily

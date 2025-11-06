@@ -28,7 +28,9 @@ export interface DescribeFleetCapacityCommandInput extends DescribeFleetCapacity
 export interface DescribeFleetCapacityCommandOutput extends DescribeFleetCapacityOutput, __MetadataBearer {}
 
 /**
- * <p>Retrieves the resource capacity settings for one or more fleets.  For a container
+ * <p>
+ *             <b>This API works with the following fleet types:</b> EC2, Container</p>
+ *          <p>Retrieves the resource capacity settings for one or more fleets.  For a container
  *             fleet, this operation also returns counts for game server container groups.</p>
  *          <p>With multi-location fleets, this operation retrieves data for the fleet's home Region
  *             only. To retrieve capacity for remote locations, see

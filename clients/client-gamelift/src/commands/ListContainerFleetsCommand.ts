@@ -32,7 +32,9 @@ export interface ListContainerFleetsCommandInput extends ListContainerFleetsInpu
 export interface ListContainerFleetsCommandOutput extends ListContainerFleetsOutput, __MetadataBearer {}
 
 /**
- * <p>Retrieves a collection of container fleet resources in an Amazon Web Services Region. For fleets
+ * <p>
+ *             <b>This API works with the following fleet types:</b> Container</p>
+ *          <p>Retrieves a collection of container fleet resources in an Amazon Web Services Region. For fleets
  *             that have multiple locations, this operation retrieves fleets based on their home Region
  *             only.</p>
  *          <p>

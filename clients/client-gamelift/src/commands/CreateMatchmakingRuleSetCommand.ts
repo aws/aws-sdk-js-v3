@@ -28,7 +28,9 @@ export interface CreateMatchmakingRuleSetCommandInput extends CreateMatchmakingR
 export interface CreateMatchmakingRuleSetCommandOutput extends CreateMatchmakingRuleSetOutput, __MetadataBearer {}
 
 /**
- * <p>Creates a new rule set for FlexMatch matchmaking. A rule set describes the type of match
+ * <p>
+ *             <b>This API works with the following fleet types:</b> EC2, Anywhere, Container</p>
+ *          <p>Creates a new rule set for FlexMatch matchmaking. A rule set describes the type of match
  *             to create, such as the number and size of teams. It also sets the parameters for
  *             acceptable player matches, such as minimum skill level or character type.</p>
  *          <p>To create a matchmaking rule set, provide unique rule set name and the rule set body

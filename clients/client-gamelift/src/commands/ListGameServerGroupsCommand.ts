@@ -28,7 +28,9 @@ export interface ListGameServerGroupsCommandInput extends ListGameServerGroupsIn
 export interface ListGameServerGroupsCommandOutput extends ListGameServerGroupsOutput, __MetadataBearer {}
 
 /**
- * <p>Lists a game server groups.</p>
+ * <p>
+ *             <b>This API works with the following fleet types:</b> EC2 (FleetIQ)</p>
+ *          <p>Lists a game server groups.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

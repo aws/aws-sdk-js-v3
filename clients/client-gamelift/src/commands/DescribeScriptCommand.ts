@@ -28,7 +28,9 @@ export interface DescribeScriptCommandInput extends DescribeScriptInput {}
 export interface DescribeScriptCommandOutput extends DescribeScriptOutput, __MetadataBearer {}
 
 /**
- * <p>Retrieves properties for a Realtime script. </p>
+ * <p>
+ *             <b>This API works with the following fleet types:</b> EC2</p>
+ *          <p>Retrieves properties for a Realtime script. </p>
  *          <p>To request a script record, specify the script ID. If successful, an object containing
  *             the script properties is returned.</p>
  *          <p>

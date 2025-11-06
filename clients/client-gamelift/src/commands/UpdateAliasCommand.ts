@@ -28,8 +28,11 @@ export interface UpdateAliasCommandInput extends UpdateAliasInput {}
 export interface UpdateAliasCommandOutput extends UpdateAliasOutput, __MetadataBearer {}
 
 /**
- * <p>Updates properties for an alias. Specify the unique identifier of the alias to be
- *             updated and the new property values. When reassigning an alias to a new fleet, provide
+ * <p>
+ *             <b>This API works with the following fleet types:</b> EC2, Anywhere, Container</p>
+ *          <p>Updates properties for an alias. Specify the unique identifier of the alias to be
+ *             updated and the new property values.</p>
+ *          <p>When reassigning an alias to a new fleet, provide
  *             an updated routing strategy. If successful, the updated alias record is returned.</p>
  *          <p>
  *             <b>Related actions</b>

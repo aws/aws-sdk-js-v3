@@ -29,8 +29,7 @@ export interface ClaimGameServerCommandOutput extends ClaimGameServerOutput, __M
 
 /**
  * <p>
- *             <b>This operation is used with the Amazon GameLift Servers FleetIQ solution and game server groups.</b>
- *          </p>
+ *             <b>This API works with the following fleet types:</b> EC2 (FleetIQ)</p>
  *          <p>Locates an available game server and
  *             temporarily reserves it to host gameplay and players. This operation is called from a
  *             game client or client service (such as a matchmaker) to request hosting resources for a

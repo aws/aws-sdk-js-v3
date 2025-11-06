@@ -379,6 +379,7 @@ export const OperatingSystem = {
   AMAZON_LINUX_2023: "AMAZON_LINUX_2023",
   WINDOWS_2012: "WINDOWS_2012",
   WINDOWS_2016: "WINDOWS_2016",
+  WINDOWS_2022: "WINDOWS_2022",
 } as const;
 
 /**
@@ -557,9 +558,6 @@ export type FilterInstanceStatus = (typeof FilterInstanceStatus)[keyof typeof Fi
 
 /**
  * <p>
- *             <b>This data type is used with the Amazon GameLift Servers FleetIQ and game server groups.</b>
- *          </p>
- *          <p>
  *         Filters which game servers may be claimed when calling <code>ClaimGameServer</code>.
  *     </p>
  * @public
@@ -634,10 +632,7 @@ export type GameServerUtilizationStatus =
   (typeof GameServerUtilizationStatus)[keyof typeof GameServerUtilizationStatus];
 
 /**
- * <p>
- *             <b>This data type is used with the Amazon GameLift Servers FleetIQ and game server groups.</b>
- *          </p>
- *          <p>Properties describing a game server that
+ * <p>Properties describing a game server that
  *             is running on an instance in a game server group. </p>
  *          <p>A game server is created by a successful call to <code>RegisterGameServer</code> and
  *             deleted by calling <code>DeregisterGameServer</code>. A game server is claimed to host a
@@ -1455,7 +1450,10 @@ export interface Compute {
 
   /**
    * <p>Current status of the compute. A compute must have an <code>ACTIVE</code> status to
-   *             host game sessions.</p>
+   *             host game sessions. Valid values include <code>PENDING</code>, <code>ACTIVE</code>, <code>TERMINATING</code>, and <code>IMPAIRED</code>.</p>
+   *          <note>
+   *             <p>While the ComputeStatus enum type is valid for Container based servers, the result may also include other non-enumerated string values such as "Active" for fleets which are not Container-based.</p>
+   *          </note>
    * @public
    */
   ComputeStatus?: ComputeStatus | undefined;
@@ -4502,10 +4500,7 @@ export class InvalidFleetStatusException extends __BaseException {
 }
 
 /**
- * <p>
- *             <b>This data type is used with the Amazon GameLift Servers FleetIQ and game server groups.</b>
- *          </p>
- *          <p>Settings for a
+ * <p>Settings for a
  *             target-based scaling policy as part of a <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_GameServerGroupAutoScalingPolicy.html">GameServerGroupAutoScalingPolicy</a> . These settings are used to create a
  *             target-based policy that tracks the Amazon GameLift Servers FleetIQ metric
  *                 <code>"PercentUtilizedGameServers"</code> and specifies a target value for the
@@ -4522,10 +4517,7 @@ export interface TargetTrackingConfiguration {
 }
 
 /**
- * <p>
- *             <b>This data type is used with the Amazon GameLift Servers FleetIQ and game server groups.</b>
- *          </p>
- *          <p>Configuration
+ * <p>Configuration
  *             settings for intelligent automatic scaling that uses target tracking. These settings are
  *             used to add an Auto Scaling policy when creating the corresponding Auto Scaling group.
  *             After the Auto Scaling group is created, all updates to Auto Scaling policies, including
@@ -4670,10 +4662,7 @@ export type GameServerGroupInstanceType =
   (typeof GameServerGroupInstanceType)[keyof typeof GameServerGroupInstanceType];
 
 /**
- * <p>
- *             <b>This data type is used with the Amazon GameLift Servers FleetIQ and game server groups.</b>
- *          </p>
- *          <p>An allowed instance type for a
+ * <p>An allowed instance type for a
  *             game server group. All game server groups must have at least two instance types defined
  *             for it. Amazon GameLift Servers FleetIQ periodically evaluates each defined instance type for viability. It then
  *             updates the Auto Scaling group with the list of viable instance types.</p>
@@ -4699,10 +4688,7 @@ export interface InstanceDefinition {
 }
 
 /**
- * <p>
- *             <b>This data type is used with the Amazon GameLift Servers FleetIQ and game server groups.</b>
- *          </p>
- *          <p>An Amazon Elastic Compute Cloud launch
+ * <p>An Amazon Elastic Compute Cloud launch
  *             template that contains configuration settings and game server code to be deployed to all
  *             instances in a game server group. The launch template is specified when creating a new
  *             game server group. </p>
@@ -4906,10 +4892,7 @@ export const GameServerGroupAction = {
 export type GameServerGroupAction = (typeof GameServerGroupAction)[keyof typeof GameServerGroupAction];
 
 /**
- * <p>
- *             <b>This data type is used with the Amazon GameLift Servers FleetIQ and game server groups.</b>
- *          </p>
- *          <p>Properties that describe a game
+ * <p>Properties that describe a game
  *             server group resource. A game server group manages certain properties related to a
  *             corresponding Amazon EC2 Auto Scaling group. </p>
  *          <p>A game server group is created by a successful call to
@@ -8702,10 +8685,7 @@ export const GameServerInstanceStatus = {
 export type GameServerInstanceStatus = (typeof GameServerInstanceStatus)[keyof typeof GameServerInstanceStatus];
 
 /**
- * <p>
- *             <b>This data type is used with the Amazon GameLift Servers FleetIQ and game server groups.</b>
- *          </p>
- *          <p> Additional properties,
+ * <p> Additional properties,
  *             including status, that describe an EC2 instance in a game server group. Instance
  *             configurations are set with game server group properties (see
  *                 <code>DescribeGameServerGroup</code> and with the EC2 launch template that was used

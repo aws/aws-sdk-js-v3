@@ -32,7 +32,9 @@ export interface DescribeMatchmakingCommandInput extends DescribeMatchmakingInpu
 export interface DescribeMatchmakingCommandOutput extends DescribeMatchmakingOutput, __MetadataBearer {}
 
 /**
- * <p>Retrieves one or more matchmaking tickets. Use this operation to retrieve ticket
+ * <p>
+ *             <b>This API works with the following fleet types:</b> EC2, Anywhere, Container</p>
+ *          <p>Retrieves one or more matchmaking tickets. Use this operation to retrieve ticket
  *             information, including--after a successful match is made--connection information for the
  *             resulting new game session. </p>
  *          <p>To request matchmaking tickets, provide a list of up to 10 ticket IDs. If the request

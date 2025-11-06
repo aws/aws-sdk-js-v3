@@ -33,7 +33,9 @@ export interface StartMatchmakingCommandInput extends StartMatchmakingInput {}
 export interface StartMatchmakingCommandOutput extends StartMatchmakingOutput, __MetadataBearer {}
 
 /**
- * <p>Uses FlexMatch to create a game match for a group of players based on custom matchmaking
+ * <p>
+ *             <b>This API works with the following fleet types:</b> EC2, Anywhere, Container</p>
+ *          <p>Uses FlexMatch to create a game match for a group of players based on custom matchmaking
  *             rules. With games that use Amazon GameLift Servers managed hosting, this operation also triggers Amazon GameLift Servers
  *             to find hosting resources and start a new game session for the new match. Each
  *             matchmaking request includes information on one or more players and specifies the

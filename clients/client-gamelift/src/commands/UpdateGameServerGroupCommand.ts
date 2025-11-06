@@ -29,8 +29,7 @@ export interface UpdateGameServerGroupCommandOutput extends UpdateGameServerGrou
 
 /**
  * <p>
- *             <b>This operation is used with the Amazon GameLift Servers FleetIQ solution and game server groups.</b>
- *          </p>
+ *             <b>This API works with the following fleet types:</b> EC2 (FleetIQ)</p>
  *          <p>Updates Amazon GameLift Servers FleetIQ-specific
  *             properties for a game server group. Many Auto Scaling group properties are updated on
  *             the Auto Scaling group directly, including the launch template, Auto Scaling policies,

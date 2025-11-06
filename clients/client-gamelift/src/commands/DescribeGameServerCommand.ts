@@ -29,8 +29,7 @@ export interface DescribeGameServerCommandOutput extends DescribeGameServerOutpu
 
 /**
  * <p>
- *             <b>This operation is used with the Amazon GameLift Servers FleetIQ solution and game server groups.</b>
- *          </p>
+ *             <b>This API works with the following fleet types:</b> EC2 (FleetIQ)</p>
  *          <p>Retrieves information for a
  *             registered game server. Information includes game server status, health check info, and
  *             the instance that the game server is running on. </p>

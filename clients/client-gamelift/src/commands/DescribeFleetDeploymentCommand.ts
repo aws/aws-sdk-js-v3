@@ -28,7 +28,9 @@ export interface DescribeFleetDeploymentCommandInput extends DescribeFleetDeploy
 export interface DescribeFleetDeploymentCommandOutput extends DescribeFleetDeploymentOutput, __MetadataBearer {}
 
 /**
- * <p>Retrieves information about a managed container fleet deployment. </p>
+ * <p>
+ *             <b>This API works with the following fleet types:</b> Container</p>
+ *          <p>Retrieves information about a managed container fleet deployment. </p>
  *          <p>
  *             <b>Request options</b>
  *          </p>

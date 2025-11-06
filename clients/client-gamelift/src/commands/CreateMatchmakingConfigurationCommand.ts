@@ -33,7 +33,9 @@ export interface CreateMatchmakingConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Defines a new matchmaking configuration for use with FlexMatch. Whether your are using
+ * <p>
+ *             <b>This API works with the following fleet types:</b> EC2, Anywhere, Container</p>
+ *          <p>Defines a new matchmaking configuration for use with FlexMatch. Whether your are using
  *             FlexMatch with Amazon GameLift Servers hosting or as a standalone matchmaking service, the matchmaking
  *             configuration sets out rules for matching players and forming teams. If you're also
  *             using Amazon GameLift Servers hosting, it defines how to start game sessions for each match. Your

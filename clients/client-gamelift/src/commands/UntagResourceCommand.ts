@@ -28,7 +28,9 @@ export interface UntagResourceCommandInput extends UntagResourceRequest {}
 export interface UntagResourceCommandOutput extends UntagResourceResponse, __MetadataBearer {}
 
 /**
- * <p>Removes a tag assigned to a Amazon GameLift Servers resource. You can use resource tags to organize
+ * <p>
+ *             <b>This API works with the following fleet types:</b> EC2, Anywhere, Container</p>
+ *          <p>Removes a tag assigned to a Amazon GameLift Servers resource. You can use resource tags to organize
  *             Amazon Web Services resources for a range of purposes. This operation handles the permissions
  *             necessary to manage tags for Amazon GameLift Servers resources that support tagging.</p>
  *          <p>To remove a tag from a resource, specify the unique ARN value for the resource and

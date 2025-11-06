@@ -33,7 +33,9 @@ export interface DescribeVpcPeeringAuthorizationsCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Retrieves valid VPC peering authorizations that are pending for the Amazon Web Services account.
+ * <p>
+ *             <b>This API works with the following fleet types:</b> EC2</p>
+ *          <p>Retrieves valid VPC peering authorizations that are pending for the Amazon Web Services account.
  *             This operation returns all VPC peering authorizations and requests for peering. This
  *             includes those initiated and received by this account. </p>
  *          <p>

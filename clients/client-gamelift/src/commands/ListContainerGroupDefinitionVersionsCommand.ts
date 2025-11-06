@@ -37,7 +37,9 @@ export interface ListContainerGroupDefinitionVersionsCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Retrieves all versions of a container group definition. Use the pagination parameters to
+ * <p>
+ *             <b>This API works with the following fleet types:</b> Container</p>
+ *          <p>Retrieves all versions of a container group definition. Use the pagination parameters to
  *       retrieve results in a set of sequential pages.</p>
  *          <p>
  *             <b>Request options:</b>

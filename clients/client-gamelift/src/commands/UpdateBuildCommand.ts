@@ -28,7 +28,9 @@ export interface UpdateBuildCommandInput extends UpdateBuildInput {}
 export interface UpdateBuildCommandOutput extends UpdateBuildOutput, __MetadataBearer {}
 
 /**
- * <p>Updates metadata in a build resource, including the build name and version. To update
+ * <p>
+ *             <b>This API works with the following fleet types:</b> EC2</p>
+ *          <p>Updates metadata in a build resource, including the build name and version. To update
  *             the metadata, specify the build ID to update and provide the new values. If successful,
  *             a build object containing the updated metadata is returned.</p>
  *          <p>
@@ -64,7 +66,7 @@ export interface UpdateBuildCommandOutput extends UpdateBuildOutput, __MetadataB
  * //     Version: "STRING_VALUE",
  * //     Status: "INITIALIZED" || "READY" || "FAILED",
  * //     SizeOnDisk: Number("long"),
- * //     OperatingSystem: "WINDOWS_2012" || "AMAZON_LINUX" || "AMAZON_LINUX_2" || "WINDOWS_2016" || "AMAZON_LINUX_2023",
+ * //     OperatingSystem: "WINDOWS_2012" || "AMAZON_LINUX" || "AMAZON_LINUX_2" || "WINDOWS_2016" || "AMAZON_LINUX_2023" || "WINDOWS_2022",
  * //     CreationTime: new Date("TIMESTAMP"),
  * //     ServerSdkVersion: "STRING_VALUE",
  * //   },

@@ -32,7 +32,9 @@ export interface UpdateFleetPortSettingsCommandInput extends UpdateFleetPortSett
 export interface UpdateFleetPortSettingsCommandOutput extends UpdateFleetPortSettingsOutput, __MetadataBearer {}
 
 /**
- * <p>Updates permissions that allow inbound traffic to connect to game sessions in the
+ * <p>
+ *             <b>This API works with the following fleet types:</b> EC2, Container</p>
+ *          <p>Updates permissions that allow inbound traffic to connect to game sessions in the
  *             fleet. </p>
  *          <p>To update settings, specify the fleet ID to be updated and specify the changes to be
  *             made. List the permissions you want to add in

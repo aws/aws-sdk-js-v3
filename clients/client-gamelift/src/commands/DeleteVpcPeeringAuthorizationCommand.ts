@@ -33,7 +33,9 @@ export interface DeleteVpcPeeringAuthorizationCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Cancels a pending VPC peering authorization for the specified VPC. If you need to
+ * <p>
+ *             <b>This API works with the following fleet types:</b> EC2</p>
+ *          <p>Cancels a pending VPC peering authorization for the specified VPC. If you need to
  *             delete an existing VPC peering connection, use <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_DeleteVpcPeeringConnection.html">DeleteVpcPeeringConnection</a>.</p>
  *          <p>
  *             <b>Related actions</b>

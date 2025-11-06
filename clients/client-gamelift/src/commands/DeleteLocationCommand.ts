@@ -28,7 +28,9 @@ export interface DeleteLocationCommandInput extends DeleteLocationInput {}
 export interface DeleteLocationCommandOutput extends DeleteLocationOutput, __MetadataBearer {}
 
 /**
- * <p>Deletes a custom location.</p>
+ * <p>
+ *             <b>This API works with the following fleet types:</b> Anywhere</p>
+ *          <p>Deletes a custom location.</p>
  *          <p>Before deleting a custom location, review any fleets currently using the custom
  *             location and deregister the location if it is in use. For more information, see <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_DeregisterCompute.html">DeregisterCompute</a>.</p>
  * @example

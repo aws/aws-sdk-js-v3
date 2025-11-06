@@ -28,7 +28,9 @@ export interface DescribeBuildCommandInput extends DescribeBuildInput {}
 export interface DescribeBuildCommandOutput extends DescribeBuildOutput, __MetadataBearer {}
 
 /**
- * <p>Retrieves properties for a custom game build. To request a build resource, specify a
+ * <p>
+ *             <b>This API works with the following fleet types:</b> EC2</p>
+ *          <p>Retrieves properties for a custom game build. To request a build resource, specify a
  *             build ID. If successful, an object containing the build properties is returned.</p>
  *          <p>
  *             <b>Learn more</b>
@@ -61,7 +63,7 @@ export interface DescribeBuildCommandOutput extends DescribeBuildOutput, __Metad
  * //     Version: "STRING_VALUE",
  * //     Status: "INITIALIZED" || "READY" || "FAILED",
  * //     SizeOnDisk: Number("long"),
- * //     OperatingSystem: "WINDOWS_2012" || "AMAZON_LINUX" || "AMAZON_LINUX_2" || "WINDOWS_2016" || "AMAZON_LINUX_2023",
+ * //     OperatingSystem: "WINDOWS_2012" || "AMAZON_LINUX" || "AMAZON_LINUX_2" || "WINDOWS_2016" || "AMAZON_LINUX_2023" || "WINDOWS_2022",
  * //     CreationTime: new Date("TIMESTAMP"),
  * //     ServerSdkVersion: "STRING_VALUE",
  * //   },

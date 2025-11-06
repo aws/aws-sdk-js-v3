@@ -28,7 +28,9 @@ export interface DeleteMatchmakingRuleSetCommandInput extends DeleteMatchmakingR
 export interface DeleteMatchmakingRuleSetCommandOutput extends DeleteMatchmakingRuleSetOutput, __MetadataBearer {}
 
 /**
- * <p>Deletes an existing matchmaking rule set. To delete the rule set, provide the rule set
+ * <p>
+ *             <b>This API works with the following fleet types:</b> EC2, Anywhere, Container</p>
+ *          <p>Deletes an existing matchmaking rule set. To delete the rule set, provide the rule set
  *             name. Rule sets cannot be deleted if they are currently being used by a matchmaking
  *             configuration. </p>
  *          <p>

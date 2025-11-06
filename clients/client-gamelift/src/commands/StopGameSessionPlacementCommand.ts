@@ -32,7 +32,9 @@ export interface StopGameSessionPlacementCommandInput extends StopGameSessionPla
 export interface StopGameSessionPlacementCommandOutput extends StopGameSessionPlacementOutput, __MetadataBearer {}
 
 /**
- * <p>Cancels a game session placement that's in <code>PENDING</code> status. To stop a
+ * <p>
+ *             <b>This API works with the following fleet types:</b> EC2, Anywhere, Container</p>
+ *          <p>Cancels a game session placement that's in <code>PENDING</code> status. To stop a
  *             placement, provide the placement ID value. </p>
  *          <p>Results</p>
  *          <p>If successful, this operation removes the placement request from the queue and moves

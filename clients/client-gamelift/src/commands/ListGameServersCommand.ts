@@ -29,8 +29,7 @@ export interface ListGameServersCommandOutput extends ListGameServersOutput, __M
 
 /**
  * <p>
- *             <b>This operation is used with the Amazon GameLift Servers FleetIQ solution and game server groups.</b>
- *          </p>
+ *             <b>This API works with the following fleet types:</b> EC2 (FleetIQ)</p>
  *          <p>Retrieves information on all game
  *             servers that are currently active in a specified game server group. You can opt to sort
  *             the list by game server age. Use the pagination parameters to retrieve results in a set

@@ -28,7 +28,9 @@ export interface DescribeEC2InstanceLimitsCommandInput extends DescribeEC2Instan
 export interface DescribeEC2InstanceLimitsCommandOutput extends DescribeEC2InstanceLimitsOutput, __MetadataBearer {}
 
 /**
- * <p>Retrieves the instance limits and current utilization for an Amazon Web Services Region or location.
+ * <p>
+ *             <b>This API works with the following fleet types:</b> EC2</p>
+ *          <p>Retrieves the instance limits and current utilization for an Amazon Web Services Region or location.
  *             Instance limits control the number of instances, per instance type, per location, that
  *             your Amazon Web Services account can use. Learn more at <a href="http://aws.amazon.com/ec2/instance-types/">Amazon EC2 Instance Types</a>. The information
  *             returned includes the maximum number of instances allowed and your account's current

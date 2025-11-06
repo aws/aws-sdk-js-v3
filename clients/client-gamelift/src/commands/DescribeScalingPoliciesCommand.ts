@@ -28,7 +28,9 @@ export interface DescribeScalingPoliciesCommandInput extends DescribeScalingPoli
 export interface DescribeScalingPoliciesCommandOutput extends DescribeScalingPoliciesOutput, __MetadataBearer {}
 
 /**
- * <p>Retrieves all scaling policies applied to a fleet.</p>
+ * <p>
+ *             <b>This API works with the following fleet types:</b> EC2</p>
+ *          <p>Retrieves all scaling policies applied to a fleet.</p>
  *          <p>To get a fleet's scaling policies, specify the fleet ID. You can filter this request
  *             by policy status, such as to retrieve only active scaling policies. Use the pagination
  *             parameters to retrieve results as a set of sequential pages. If successful, set of

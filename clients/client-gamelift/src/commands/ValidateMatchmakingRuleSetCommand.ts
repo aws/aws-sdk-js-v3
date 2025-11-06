@@ -28,7 +28,9 @@ export interface ValidateMatchmakingRuleSetCommandInput extends ValidateMatchmak
 export interface ValidateMatchmakingRuleSetCommandOutput extends ValidateMatchmakingRuleSetOutput, __MetadataBearer {}
 
 /**
- * <p>Validates the syntax of a matchmaking rule or rule set. This operation checks that the
+ * <p>
+ *             <b>This API works with the following fleet types:</b> EC2, Anywhere, Container</p>
+ *          <p>Validates the syntax of a matchmaking rule or rule set. This operation checks that the
  *             rule set is using syntactically correct JSON and that it conforms to allowed property
  *             expressions. To validate syntax, provide a rule set JSON string.</p>
  *          <p>

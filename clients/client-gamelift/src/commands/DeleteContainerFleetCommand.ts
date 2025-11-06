@@ -28,7 +28,9 @@ export interface DeleteContainerFleetCommandInput extends DeleteContainerFleetIn
 export interface DeleteContainerFleetCommandOutput extends DeleteContainerFleetOutput, __MetadataBearer {}
 
 /**
- * <p>Deletes all resources and information related to a container fleet and shuts down
+ * <p>
+ *             <b>This API works with the following fleet types:</b> Container</p>
+ *          <p>Deletes all resources and information related to a container fleet and shuts down
  *             currently running fleet instances, including those in remote locations. The container
  *             fleet must be in <code>ACTIVE</code> status to be deleted.</p>
  *          <p>To delete a fleet, specify the fleet ID to be terminated. During the deletion process,

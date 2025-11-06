@@ -37,7 +37,9 @@ export interface DescribeContainerGroupDefinitionCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Retrieves the properties of a container group definition, including all container
+ * <p>
+ *             <b>This API works with the following fleet types:</b> Container</p>
+ *          <p>Retrieves the properties of a container group definition, including all container
  *       definitions in the group. </p>
  *          <p>
  *             <b>Request options:</b>

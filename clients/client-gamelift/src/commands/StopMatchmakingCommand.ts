@@ -28,7 +28,9 @@ export interface StopMatchmakingCommandInput extends StopMatchmakingInput {}
 export interface StopMatchmakingCommandOutput extends StopMatchmakingOutput, __MetadataBearer {}
 
 /**
- * <p>Cancels a matchmaking ticket or match backfill ticket that is currently being
+ * <p>
+ *             <b>This API works with the following fleet types:</b> EC2, Anywhere, Container</p>
+ *          <p>Cancels a matchmaking ticket or match backfill ticket that is currently being
  *             processed. To stop the matchmaking operation, specify the ticket ID. If successful, work
  *             on the ticket is stopped, and the ticket status is changed to
  *             <code>CANCELLED</code>.</p>

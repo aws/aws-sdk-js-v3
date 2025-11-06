@@ -33,7 +33,9 @@ export interface CreatePlayerSessionsCommandInput extends CreatePlayerSessionsIn
 export interface CreatePlayerSessionsCommandOutput extends CreatePlayerSessionsOutput, __MetadataBearer {}
 
 /**
- * <p>Reserves open slots in a game session for a group of players. New player sessions can
+ * <p>
+ *             <b>This API works with the following fleet types:</b> EC2, Anywhere, Container</p>
+ *          <p>Reserves open slots in a game session for a group of players. New player sessions can
  *             be created in any game session with an open slot that is in <code>ACTIVE</code> status
  *             and has a player creation policy of <code>ACCEPT_ALL</code>. To add a single player to a
  *             game session, use <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_CreatePlayerSession.html">CreatePlayerSession</a>

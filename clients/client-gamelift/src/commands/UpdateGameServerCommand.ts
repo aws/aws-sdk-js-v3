@@ -29,8 +29,7 @@ export interface UpdateGameServerCommandOutput extends UpdateGameServerOutput, _
 
 /**
  * <p>
- *             <b>This operation is used with the Amazon GameLift Servers FleetIQ solution and game server groups.</b>
- *          </p>
+ *             <b>This API works with the following fleet types:</b> EC2 (FleetIQ)</p>
  *          <p>Updates information about a registered game server to help Amazon GameLift Servers FleetIQ track game server
  *             availability. This operation is called by a game server process that is running on an
  *             instance in a game server group. </p>

@@ -29,8 +29,7 @@ export interface DescribeGameServerInstancesCommandOutput extends DescribeGameSe
 
 /**
  * <p>
- *             <b>This operation is used with the Amazon GameLift Servers FleetIQ solution and game server groups.</b>
- *          </p>
+ *             <b>This API works with the following fleet types:</b> EC2 (FleetIQ)</p>
  *          <p>Retrieves status
  *             information about the Amazon EC2 instances associated with a Amazon GameLift Servers FleetIQ game server group.
  *             Use this operation to detect when instances are active or not available to host new game

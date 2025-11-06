@@ -28,7 +28,9 @@ export interface CreateScriptCommandInput extends CreateScriptInput {}
 export interface CreateScriptCommandOutput extends CreateScriptOutput, __MetadataBearer {}
 
 /**
- * <p>Creates a new script record for your Amazon GameLift Servers Realtime script. Realtime scripts are JavaScript that
+ * <p>
+ *             <b>This API works with the following fleet types:</b> EC2, Anywhere</p>
+ *          <p>Creates a new script record for your Amazon GameLift Servers Realtime script. Realtime scripts are JavaScript that
  *             provide configuration settings and optional custom game logic for your game. The script
  *             is deployed when you create a Amazon GameLift Servers Realtime fleet to host your game sessions. Script logic is
  *             executed during an active game session. </p>

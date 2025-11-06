@@ -33,7 +33,9 @@ export interface DescribeVpcPeeringConnectionsCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Retrieves information on VPC peering connections. Use this operation to get peering
+ * <p>
+ *             <b>This API works with the following fleet types:</b> EC2</p>
+ *          <p>Retrieves information on VPC peering connections. Use this operation to get peering
  *             information for all fleets or for one specific fleet ID. </p>
  *          <p>To retrieve connection information, call this operation from the Amazon Web Services account that is
  *             used to manage the Amazon GameLift Servers fleets. Specify a fleet ID or leave the parameter empty to

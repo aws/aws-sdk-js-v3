@@ -28,7 +28,9 @@ export interface CreateVpcPeeringConnectionCommandInput extends CreateVpcPeering
 export interface CreateVpcPeeringConnectionCommandOutput extends CreateVpcPeeringConnectionOutput, __MetadataBearer {}
 
 /**
- * <p>Establishes a VPC peering connection between a virtual private cloud (VPC) in an Amazon Web Services account with the VPC
+ * <p>
+ *             <b>This API works with the following fleet types:</b> EC2</p>
+ *          <p>Establishes a VPC peering connection between a virtual private cloud (VPC) in an Amazon Web Services account with the VPC
  *             for your Amazon GameLift Servers fleet. VPC peering enables the game servers on your fleet to communicate
  *             directly with other Amazon Web Services resources. You can peer with VPCs in any Amazon Web Services account that
  *             you have access to, including the account that you use to manage your Amazon GameLift Servers fleets. You

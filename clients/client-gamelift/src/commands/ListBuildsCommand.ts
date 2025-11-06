@@ -28,10 +28,12 @@ export interface ListBuildsCommandInput extends ListBuildsInput {}
 export interface ListBuildsCommandOutput extends ListBuildsOutput, __MetadataBearer {}
 
 /**
- * <p>Retrieves build resources for all builds associated with the Amazon Web Services account in use. You
+ * <p>
+ *             <b>This API works with the following fleet types:</b> EC2</p>
+ *          <p>Retrieves build resources for all builds associated with the Amazon Web Services account in use. You
  *             can limit results to builds that are in a specific status by using the
  *                 <code>Status</code> parameter. Use the pagination parameters to retrieve results in
- *             a set of sequential pages. </p>
+ * </p>
  *          <note>
  *             <p>Build resources are not listed in any particular order.</p>
  *          </note>
@@ -69,7 +71,7 @@ export interface ListBuildsCommandOutput extends ListBuildsOutput, __MetadataBea
  * //       Version: "STRING_VALUE",
  * //       Status: "INITIALIZED" || "READY" || "FAILED",
  * //       SizeOnDisk: Number("long"),
- * //       OperatingSystem: "WINDOWS_2012" || "AMAZON_LINUX" || "AMAZON_LINUX_2" || "WINDOWS_2016" || "AMAZON_LINUX_2023",
+ * //       OperatingSystem: "WINDOWS_2012" || "AMAZON_LINUX" || "AMAZON_LINUX_2" || "WINDOWS_2016" || "AMAZON_LINUX_2023" || "WINDOWS_2022",
  * //       CreationTime: new Date("TIMESTAMP"),
  * //       ServerSdkVersion: "STRING_VALUE",
  * //     },

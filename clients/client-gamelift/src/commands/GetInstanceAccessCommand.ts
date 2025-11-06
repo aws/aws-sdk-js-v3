@@ -32,7 +32,9 @@ export interface GetInstanceAccessCommandInput extends GetInstanceAccessInput {}
 export interface GetInstanceAccessCommandOutput extends GetInstanceAccessOutput, __MetadataBearer {}
 
 /**
- * <p>Requests authorization to remotely connect to an instance in an Amazon GameLift Servers managed fleet.
+ * <p>
+ *             <b>This API works with the following fleet types:</b> EC2</p>
+ *          <p>Requests authorization to remotely connect to an instance in an Amazon GameLift Servers managed fleet.
  *             Use this operation to connect to instances with game servers that use Amazon GameLift Servers server SDK
  *             4.x or earlier. To connect to instances with game servers that use server SDK 5.x or
  *             later, call <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_GetComputeAccess">https://docs.aws.amazon.com/gamelift/latest/apireference/API_GetComputeAccess</a>.</p>
@@ -88,7 +90,7 @@ export interface GetInstanceAccessCommandOutput extends GetInstanceAccessOutput,
  * //     FleetId: "STRING_VALUE",
  * //     InstanceId: "STRING_VALUE",
  * //     IpAddress: "STRING_VALUE",
- * //     OperatingSystem: "WINDOWS_2012" || "AMAZON_LINUX" || "AMAZON_LINUX_2" || "WINDOWS_2016" || "AMAZON_LINUX_2023",
+ * //     OperatingSystem: "WINDOWS_2012" || "AMAZON_LINUX" || "AMAZON_LINUX_2" || "WINDOWS_2016" || "AMAZON_LINUX_2023" || "WINDOWS_2022",
  * //     Credentials: { // InstanceCredentials
  * //       UserName: "STRING_VALUE",
  * //       Secret: "STRING_VALUE",

@@ -32,7 +32,9 @@ export interface TerminateGameSessionCommandInput extends TerminateGameSessionIn
 export interface TerminateGameSessionCommandOutput extends TerminateGameSessionOutput, __MetadataBearer {}
 
 /**
- * <p>Ends a game session that's currently in progress. Use this action to terminate any
+ * <p>
+ *             <b>This API works with the following fleet types:</b> EC2, Anywhere, Container</p>
+ *          <p>Ends a game session that's currently in progress. Use this action to terminate any
  *             game session that isn't in <code>ERROR</code> status. Terminating a game session is the
  *             most efficient way to free up a server process when it's hosting a game session that's
  *             in a bad state or not ending properly. You can use this action to terminate a game

@@ -32,7 +32,9 @@ export interface GetComputeAccessCommandInput extends GetComputeAccessInput {}
 export interface GetComputeAccessCommandOutput extends GetComputeAccessOutput, __MetadataBearer {}
 
 /**
- * <p>Requests authorization to remotely connect to a hosting resource in a Amazon GameLift Servers managed
+ * <p>
+ *             <b>This API works with the following fleet types:</b> EC2, Container</p>
+ *          <p>Requests authorization to remotely connect to a hosting resource in a Amazon GameLift Servers managed
  *             fleet. This operation is not used with Amazon GameLift Servers Anywhere fleets.</p>
  *          <p>
  *             <b>Request options</b>

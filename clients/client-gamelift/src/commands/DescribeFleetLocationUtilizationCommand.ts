@@ -33,7 +33,9 @@ export interface DescribeFleetLocationUtilizationCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Retrieves current usage data for a fleet location. Utilization data provides a
+ * <p>
+ *             <b>This API works with the following fleet types:</b> EC2, Anywhere, Container</p>
+ *          <p>Retrieves current usage data for a fleet location. Utilization data provides a
  *             snapshot of current game hosting activity at the requested location. Use this operation
  *             to retrieve utilization information for a fleet's remote location or home Region (you
  *             can also retrieve home Region utilization by calling

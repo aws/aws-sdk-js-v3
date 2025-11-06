@@ -29,8 +29,7 @@ export interface DescribeGameServerGroupCommandOutput extends DescribeGameServer
 
 /**
  * <p>
- *             <b>This operation is used with the Amazon GameLift Servers FleetIQ solution and game server groups.</b>
- *          </p>
+ *             <b>This API works with the following fleet types:</b> EC2 (FleetIQ)</p>
  *          <p>Retrieves information on a
  *             game server group. This operation returns only properties related to Amazon GameLift Servers FleetIQ. To view or
  *             update properties for the corresponding Auto Scaling group, such as launch template,

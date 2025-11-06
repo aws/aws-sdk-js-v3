@@ -28,7 +28,9 @@ export interface DeleteBuildCommandInput extends DeleteBuildInput {}
 export interface DeleteBuildCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes a build. This operation permanently deletes the build resource and any
+ * <p>
+ *             <b>This API works with the following fleet types:</b> EC2</p>
+ *          <p>Deletes a build. This operation permanently deletes the build resource and any
  *             uploaded build files. Deleting a build does not affect the status of any active fleets
  *             using the build, but you can no longer create new fleets with the deleted build.</p>
  *          <p>To delete a build, specify the build ID. </p>

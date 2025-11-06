@@ -33,7 +33,9 @@ export interface StartGameSessionPlacementCommandInput extends StartGameSessionP
 export interface StartGameSessionPlacementCommandOutput extends StartGameSessionPlacementOutput, __MetadataBearer {}
 
 /**
- * <p>Makes a request to start a new game session using a game session queue. When
+ * <p>
+ *             <b>This API works with the following fleet types:</b> EC2, Anywhere, Container</p>
+ *          <p>Makes a request to start a new game session using a game session queue. When
  *             processing a placement request, Amazon GameLift Servers looks for the best possible available resource to
  *             host the game session, based on how the queue is configured to prioritize factors such
  *             as resource cost, latency, and location. After selecting an available resource, Amazon GameLift Servers

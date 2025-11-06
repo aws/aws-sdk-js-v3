@@ -33,10 +33,12 @@ export interface DeleteContainerGroupDefinitionCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Deletes a container group definition. </p>
+ * <p>
+ *             <b>This API works with the following fleet types:</b> Container</p>
  *          <p>
  *             <b>Request options:</b>
  *          </p>
+ *          <p>Deletes a container group definition. </p>
  *          <ul>
  *             <li>
  *                <p>Delete an entire container group definition, including all versions. Specify the

@@ -28,7 +28,9 @@ export interface CreateLocationCommandInput extends CreateLocationInput {}
 export interface CreateLocationCommandOutput extends CreateLocationOutput, __MetadataBearer {}
 
 /**
- * <p>Creates a custom location for use in an Anywhere fleet.</p>
+ * <p>
+ *             <b>This API works with the following fleet types:</b> Anywhere</p>
+ *          <p>Creates a custom location for use in an Anywhere fleet.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

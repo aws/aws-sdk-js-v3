@@ -28,7 +28,9 @@ export interface DeleteScriptCommandInput extends DeleteScriptInput {}
 export interface DeleteScriptCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes a Realtime script. This operation permanently deletes the script record. If
+ * <p>
+ *             <b>This API works with the following fleet types:</b> EC2</p>
+ *          <p>Deletes a Realtime script. This operation permanently deletes the script record. If
  *             script files were uploaded, they are also deleted (files stored in an S3 bucket are not
  *             deleted). </p>
  *          <p>To delete a script, specify the script ID. Before deleting a script, be sure to

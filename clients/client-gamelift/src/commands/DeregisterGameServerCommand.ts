@@ -29,8 +29,7 @@ export interface DeregisterGameServerCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>
- *             <b>This operation is used with the Amazon GameLift Servers FleetIQ solution and game server groups.</b>
- *          </p>
+ *             <b>This API works with the following fleet types:</b> EC2 (FleetIQ)</p>
  *          <p>Removes the game server from a
  *             game server group. As a result of this operation, the deregistered game server can no
  *             longer be claimed and will not be returned in a list of active game servers. </p>

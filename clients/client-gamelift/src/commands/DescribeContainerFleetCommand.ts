@@ -32,7 +32,9 @@ export interface DescribeContainerFleetCommandInput extends DescribeContainerFle
 export interface DescribeContainerFleetCommandOutput extends DescribeContainerFleetOutput, __MetadataBearer {}
 
 /**
- * <p>Retrieves the properties for a container fleet. When requesting attributes for
+ * <p>
+ *             <b>This API works with the following fleet types:</b> Container</p>
+ *          <p>Retrieves the properties for a container fleet. When requesting attributes for
  *             multiple fleets, use the pagination parameters to retrieve results as a set of
  *             sequential pages.  </p>
  *          <p>

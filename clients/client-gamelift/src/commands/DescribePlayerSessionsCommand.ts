@@ -33,7 +33,9 @@ export interface DescribePlayerSessionsCommandInput extends DescribePlayerSessio
 export interface DescribePlayerSessionsCommandOutput extends DescribePlayerSessionsOutput, __MetadataBearer {}
 
 /**
- * <p>Retrieves properties for one or more player sessions. </p>
+ * <p>
+ *             <b>This API works with the following fleet types:</b> EC2, Anywhere, Container</p>
+ *          <p>Retrieves properties for one or more player sessions. </p>
  *          <p>This action can be used in the following ways: </p>
  *          <ul>
  *             <li>

@@ -28,7 +28,9 @@ export interface UpdateFleetCapacityCommandInput extends UpdateFleetCapacityInpu
 export interface UpdateFleetCapacityCommandOutput extends UpdateFleetCapacityOutput, __MetadataBearer {}
 
 /**
- * <p>Updates capacity settings for a managed EC2 fleet or managed container fleet. For these
+ * <p>
+ *             <b>This API works with the following fleet types:</b> EC2, Container</p>
+ *          <p>Updates capacity settings for a managed EC2 fleet or managed container fleet. For these
  *             fleets, you adjust capacity by changing the number of instances in the fleet. Fleet
  *             capacity determines the number of game sessions and players that the fleet can host
  *             based on its configuration. For fleets with multiple locations, use this operation to

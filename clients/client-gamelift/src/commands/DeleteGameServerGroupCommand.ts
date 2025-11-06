@@ -29,8 +29,7 @@ export interface DeleteGameServerGroupCommandOutput extends DeleteGameServerGrou
 
 /**
  * <p>
- *             <b>This operation is used with the Amazon GameLift Servers FleetIQ solution and game server groups.</b>
- *          </p>
+ *             <b>This API works with the following fleet types:</b> EC2 (FleetIQ)</p>
  *          <p>Terminates a game server group
  *             and permanently deletes the game server group record. You have several options for how
  *             these resources are impacted when deleting the game server group. Depending on the type

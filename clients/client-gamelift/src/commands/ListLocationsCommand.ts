@@ -28,7 +28,9 @@ export interface ListLocationsCommandInput extends ListLocationsInput {}
 export interface ListLocationsCommandOutput extends ListLocationsOutput, __MetadataBearer {}
 
 /**
- * <p>Lists all custom and Amazon Web Services locations where Amazon GameLift Servers can host game servers. </p>
+ * <p>
+ *             <b>This API works with the following fleet types:</b> Anywhere</p>
+ *          <p>Lists all custom and Amazon Web Services locations where Amazon GameLift Servers can host game servers. </p>
  *          <p>Note that if you call this API using a location that doesn't have a service endpoint,
  *             such as one that can only be a remote location in a multi-location fleet, the API
  *             returns an error.</p>

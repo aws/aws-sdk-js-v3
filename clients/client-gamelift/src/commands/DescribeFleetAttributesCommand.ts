@@ -28,7 +28,9 @@ export interface DescribeFleetAttributesCommandInput extends DescribeFleetAttrib
 export interface DescribeFleetAttributesCommandOutput extends DescribeFleetAttributesOutput, __MetadataBearer {}
 
 /**
- * <p>Retrieves core fleet-wide properties for fleets in an Amazon Web Services Region. Properties include the computing
+ * <p>
+ *             <b>This API works with the following fleet types:</b> EC2, Anywhere, Container</p>
+ *          <p>Retrieves core fleet-wide properties for fleets in an Amazon Web Services Region. Properties include the computing
  *             hardware and deployment configuration for instances in the fleet.</p>
  *          <p>You can use this operation in the following ways: </p>
  *          <ul>
@@ -94,7 +96,7 @@ export interface DescribeFleetAttributesCommandOutput extends DescribeFleetAttri
  * //         "STRING_VALUE",
  * //       ],
  * //       NewGameSessionProtectionPolicy: "NoProtection" || "FullProtection",
- * //       OperatingSystem: "WINDOWS_2012" || "AMAZON_LINUX" || "AMAZON_LINUX_2" || "WINDOWS_2016" || "AMAZON_LINUX_2023",
+ * //       OperatingSystem: "WINDOWS_2012" || "AMAZON_LINUX" || "AMAZON_LINUX_2" || "WINDOWS_2016" || "AMAZON_LINUX_2023" || "WINDOWS_2022",
  * //       ResourceCreationLimitPolicy: { // ResourceCreationLimitPolicy
  * //         NewGameSessionsPerCreator: Number("int"),
  * //         PolicyPeriodInMinutes: Number("int"),

@@ -33,7 +33,9 @@ export interface UpdateMatchmakingConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Updates settings for a FlexMatch matchmaking configuration. These changes affect all
+ * <p>
+ *             <b>This API works with the following fleet types:</b> EC2, Anywhere, Container</p>
+ *          <p>Updates settings for a FlexMatch matchmaking configuration. These changes affect all
  *             matches and game sessions that are created after the update. To update settings, specify
  *             the configuration name to be updated and provide the new settings. </p>
  *          <p>

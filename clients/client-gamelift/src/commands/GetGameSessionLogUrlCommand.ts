@@ -28,7 +28,9 @@ export interface GetGameSessionLogUrlCommandInput extends GetGameSessionLogUrlIn
 export interface GetGameSessionLogUrlCommandOutput extends GetGameSessionLogUrlOutput, __MetadataBearer {}
 
 /**
- * <p>Retrieves the location of stored game session logs for a specified game session on
+ * <p>
+ *             <b>This API works with the following fleet types:</b> EC2</p>
+ *          <p>Retrieves the location of stored game session logs for a specified game session on
  *             Amazon GameLift Servers managed fleets. When a game session is terminated, Amazon GameLift Servers automatically stores
  *             the logs in Amazon S3 and retains them for 14 days. Use this URL to download the logs.</p>
  *          <note>

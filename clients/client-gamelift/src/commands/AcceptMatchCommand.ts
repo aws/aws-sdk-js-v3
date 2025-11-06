@@ -28,7 +28,9 @@ export interface AcceptMatchCommandInput extends AcceptMatchInput {}
 export interface AcceptMatchCommandOutput extends AcceptMatchOutput, __MetadataBearer {}
 
 /**
- * <p>Registers a player's acceptance or rejection of a proposed FlexMatch match. A
+ * <p>
+ *             <b>This API works with the following fleet types:</b> EC2, Anywhere, Container</p>
+ *          <p>Registers a player's acceptance or rejection of a proposed FlexMatch match. A
  *             matchmaking configuration may require player acceptance; if so, then matches built with
  *             that configuration cannot be completed unless all players accept the proposed match
  *             within a specified time limit. </p>

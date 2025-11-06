@@ -28,7 +28,9 @@ export interface PutScalingPolicyCommandInput extends PutScalingPolicyInput {}
 export interface PutScalingPolicyCommandOutput extends PutScalingPolicyOutput, __MetadataBearer {}
 
 /**
- * <p>Creates or updates a scaling policy for a fleet. Scaling policies are used to
+ * <p>
+ *             <b>This API works with the following fleet types:</b> EC2</p>
+ *          <p>Creates or updates a scaling policy for a fleet. Scaling policies are used to
  *             automatically scale a fleet's hosting capacity to meet player demand. An active scaling
  *             policy instructs Amazon GameLift Servers to track a fleet metric and automatically change the fleet's
  *             capacity when a certain threshold is reached. There are two types of scaling policies:

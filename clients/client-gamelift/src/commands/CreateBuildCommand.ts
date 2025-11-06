@@ -28,7 +28,9 @@ export interface CreateBuildCommandInput extends CreateBuildInput {}
 export interface CreateBuildCommandOutput extends CreateBuildOutput, __MetadataBearer {}
 
 /**
- * <p>Creates a new Amazon GameLift Servers build resource for your game server binary files. Combine game
+ * <p>
+ *             <b>This API works with the following fleet types:</b> EC2, Anywhere</p>
+ *          <p>Creates a new Amazon GameLift Servers build resource for your game server binary files. Combine game
  *             server binaries into a zip file for use with Amazon GameLift Servers. </p>
  *          <important>
  *             <p>When setting up a new game build for Amazon GameLift Servers, we recommend using the CLI command <b>
@@ -88,7 +90,7 @@ export interface CreateBuildCommandOutput extends CreateBuildOutput, __MetadataB
  *     RoleArn: "STRING_VALUE",
  *     ObjectVersion: "STRING_VALUE",
  *   },
- *   OperatingSystem: "WINDOWS_2012" || "AMAZON_LINUX" || "AMAZON_LINUX_2" || "WINDOWS_2016" || "AMAZON_LINUX_2023",
+ *   OperatingSystem: "WINDOWS_2012" || "AMAZON_LINUX" || "AMAZON_LINUX_2" || "WINDOWS_2016" || "AMAZON_LINUX_2023" || "WINDOWS_2022",
  *   Tags: [ // TagList
  *     { // Tag
  *       Key: "STRING_VALUE", // required
@@ -107,7 +109,7 @@ export interface CreateBuildCommandOutput extends CreateBuildOutput, __MetadataB
  * //     Version: "STRING_VALUE",
  * //     Status: "INITIALIZED" || "READY" || "FAILED",
  * //     SizeOnDisk: Number("long"),
- * //     OperatingSystem: "WINDOWS_2012" || "AMAZON_LINUX" || "AMAZON_LINUX_2" || "WINDOWS_2016" || "AMAZON_LINUX_2023",
+ * //     OperatingSystem: "WINDOWS_2012" || "AMAZON_LINUX" || "AMAZON_LINUX_2" || "WINDOWS_2016" || "AMAZON_LINUX_2023" || "WINDOWS_2022",
  * //     CreationTime: new Date("TIMESTAMP"),
  * //     ServerSdkVersion: "STRING_VALUE",
  * //   },

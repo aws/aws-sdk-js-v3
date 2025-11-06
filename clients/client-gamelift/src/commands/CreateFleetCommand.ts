@@ -28,8 +28,10 @@ export interface CreateFleetCommandInput extends CreateFleetInput {}
 export interface CreateFleetCommandOutput extends CreateFleetOutput, __MetadataBearer {}
 
 /**
- * <p>Creates a fleet of compute resources to host your game servers. Use this operation to
- *             set up the following types of fleets based on compute type: </p>
+ * <p>
+ *             <b>This API works with the following fleet types:</b> EC2, Anywhere, Container</p>
+ *          <p>Creates a fleet of compute resources to host your game servers. Use this operation to
+ *             set up a fleet for the following compute types: </p>
  *          <p>
  *             <b>Managed EC2 fleet</b>
  *          </p>
@@ -81,6 +83,16 @@ export interface CreateFleetCommandOutput extends CreateFleetOutput, __MetadataB
  *             need them and closing them when you're finished. </p>
  *          <p>When the fleet status is ACTIVE, you can adjust capacity settings and turn autoscaling
  *             on/off for each location.</p>
+ *          <note>
+ *             <p>A managed fleet's runtime environment depends on the Amazon Machine Image (AMI)
+ *                 version it uses. When a new fleet is created, Amazon GameLift Servers assigns the
+ *                 latest available AMI version to the fleet, and all compute instances in that fleet
+ *                 are deployed with that version. To update the AMI version, you must create a new
+ *                 fleet. As a best practice, we recommend replacing your managed fleets every 30
+ *                 days to maintain a secure and up-to-date runtime environment for your hosted game
+ *                 servers. For guidance, see <a href="https://docs.aws.amazon.com/gameliftservers/latest/developerguide/security-best-practices.html">
+ *                     Security best practices for Amazon GameLift Servers</a>.</p>
+ *          </note>
  *          <p>
  *             <b>Anywhere fleet</b>
  *          </p>
@@ -213,7 +225,7 @@ export interface CreateFleetCommandOutput extends CreateFleetOutput, __MetadataB
  * //       "STRING_VALUE",
  * //     ],
  * //     NewGameSessionProtectionPolicy: "NoProtection" || "FullProtection",
- * //     OperatingSystem: "WINDOWS_2012" || "AMAZON_LINUX" || "AMAZON_LINUX_2" || "WINDOWS_2016" || "AMAZON_LINUX_2023",
+ * //     OperatingSystem: "WINDOWS_2012" || "AMAZON_LINUX" || "AMAZON_LINUX_2" || "WINDOWS_2016" || "AMAZON_LINUX_2023" || "WINDOWS_2022",
  * //     ResourceCreationLimitPolicy: { // ResourceCreationLimitPolicy
  * //       NewGameSessionsPerCreator: Number("int"),
  * //       PolicyPeriodInMinutes: Number("int"),

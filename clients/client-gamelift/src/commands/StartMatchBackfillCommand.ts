@@ -33,7 +33,9 @@ export interface StartMatchBackfillCommandInput extends StartMatchBackfillInput 
 export interface StartMatchBackfillCommandOutput extends StartMatchBackfillOutput, __MetadataBearer {}
 
 /**
- * <p>Finds new players to fill open slots in currently running game sessions. The backfill
+ * <p>
+ *             <b>This API works with the following fleet types:</b> EC2, Anywhere, Container</p>
+ *          <p>Finds new players to fill open slots in currently running game sessions. The backfill
  *             match process is essentially identical to the process of forming new matches. Backfill
  *             requests use the same matchmaker that was used to make the original match, and they
  *             provide matchmaking data for all players currently in the game session. FlexMatch uses

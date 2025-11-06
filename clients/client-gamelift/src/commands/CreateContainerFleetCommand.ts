@@ -33,7 +33,9 @@ export interface CreateContainerFleetCommandInput extends CreateContainerFleetIn
 export interface CreateContainerFleetCommandOutput extends CreateContainerFleetOutput, __MetadataBearer {}
 
 /**
- * <p>Creates a managed fleet of Amazon Elastic Compute Cloud (Amazon EC2) instances to host your containerized game
+ * <p>
+ *             <b>This API works with the following fleet types:</b> Container</p>
+ *          <p>Creates a managed fleet of Amazon Elastic Compute Cloud (Amazon EC2) instances to host your containerized game
  *             servers. Use this operation to define how to deploy a container architecture onto each
  *             fleet instance and configure fleet settings. You can create a container fleet in any
  *             Amazon Web Services Regions that Amazon GameLift Servers supports for multi-location fleets. A container fleet can be
@@ -124,8 +126,19 @@ export interface CreateContainerFleetCommandOutput extends CreateContainerFleetO
  *             starts a fleet deployment and transitions the status to <code>ACTIVE</code>. Fleets
  *             without a container group are placed in <code>CREATED</code> status.</p>
  *          <p>You can update most of the properties of a fleet, including container group
- *             definitions, and deploy the update across all fleet instances. Use a fleet update to
- *             deploy a new game server version update across the container fleet. </p>
+ *             definitions, and deploy the update across all fleet instances. Use
+ *             <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_UpdateContainerFleet.html">UpdateContainerFleet</a>
+ *             to deploy a new game server version update across the container fleet. </p>
+ *          <note>
+ *             <p>A managed fleet's runtime environment depends on the Amazon Machine Image (AMI)
+ *                 version it uses. When a new fleet is created, Amazon GameLift Servers assigns the
+ *                 latest available AMI version to the fleet, and all compute instances in that fleet
+ *                 are deployed with that version. To update the AMI version, you must create a new
+ *                 fleet. As a best practice, we recommend replacing your managed fleets every 30
+ *                 days to maintain a secure and up-to-date runtime environment for your hosted game
+ *                 servers. For guidance, see <a href="https://docs.aws.amazon.com/gameliftservers/latest/developerguide/security-best-practices.html">
+ *                     Security best practices for Amazon GameLift Servers</a>.</p>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

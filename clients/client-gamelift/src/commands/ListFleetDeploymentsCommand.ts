@@ -28,7 +28,9 @@ export interface ListFleetDeploymentsCommandInput extends ListFleetDeploymentsIn
 export interface ListFleetDeploymentsCommandOutput extends ListFleetDeploymentsOutput, __MetadataBearer {}
 
 /**
- * <p>Retrieves a collection of container fleet deployments in an Amazon Web Services Region. Use the
+ * <p>
+ *             <b>This API works with the following fleet types:</b> Container</p>
+ *          <p>Retrieves a collection of container fleet deployments in an Amazon Web Services Region. Use the
  *             pagination parameters to retrieve results as a set of sequential pages.  </p>
  *          <p>
  *             <b>Request options</b>

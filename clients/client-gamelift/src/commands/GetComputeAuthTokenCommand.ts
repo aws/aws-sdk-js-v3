@@ -28,7 +28,9 @@ export interface GetComputeAuthTokenCommandInput extends GetComputeAuthTokenInpu
 export interface GetComputeAuthTokenCommandOutput extends GetComputeAuthTokenOutput, __MetadataBearer {}
 
 /**
- * <p>Requests an authentication token from Amazon GameLift Servers for a compute resource in an Amazon GameLift Servers
+ * <p>
+ *             <b>This API works with the following fleet types:</b> EC2, Anywhere, Container</p>
+ *          <p>Requests an authentication token from Amazon GameLift Servers for a compute resource in an Amazon GameLift Servers
  *             fleet. Game servers that are running on the compute use this token to communicate
  *             with the Amazon GameLift Servers service, such as when calling the Amazon GameLift Servers server SDK action
  *                 <code>InitSDK()</code>. Authentication tokens are valid for a limited time span, so

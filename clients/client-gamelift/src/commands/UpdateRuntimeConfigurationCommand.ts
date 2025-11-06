@@ -28,7 +28,9 @@ export interface UpdateRuntimeConfigurationCommandInput extends UpdateRuntimeCon
 export interface UpdateRuntimeConfigurationCommandOutput extends UpdateRuntimeConfigurationOutput, __MetadataBearer {}
 
 /**
- * <p>Updates the runtime configuration for the specified fleet. The runtime configuration
+ * <p>
+ *             <b>This API works with the following fleet types:</b> EC2</p>
+ *          <p>Updates the runtime configuration for the specified fleet. The runtime configuration
  *             tells Amazon GameLift Servers how to launch server processes on computes in managed EC2 and Anywhere fleets. You
  *             can update a fleet's runtime configuration at any time after the fleet is created; it
  *             does not need to be in <code>ACTIVE</code> status.</p>

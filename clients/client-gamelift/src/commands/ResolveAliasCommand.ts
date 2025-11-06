@@ -28,7 +28,9 @@ export interface ResolveAliasCommandInput extends ResolveAliasInput {}
 export interface ResolveAliasCommandOutput extends ResolveAliasOutput, __MetadataBearer {}
 
 /**
- * <p>Attempts to retrieve a fleet ID that is associated with an alias. Specify a unique
+ * <p>
+ *             <b>This API works with the following fleet types:</b> EC2, Anywhere, Container</p>
+ *          <p>Attempts to retrieve a fleet ID that is associated with an alias. Specify a unique
  *             alias identifier.</p>
  *          <p>If the alias has a <code>SIMPLE</code> routing strategy, Amazon GameLift Servers returns a fleet ID.
  *             If the alias has a <code>TERMINAL</code> routing strategy, the result is a

@@ -33,11 +33,12 @@ export interface DescribeRuntimeConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Retrieves a fleet's runtime configuration settings. The runtime configuration
+ * <p>
+ *             <b>This API works with the following fleet types:</b> EC2</p>
+ *          <p>Retrieves a fleet's runtime configuration settings. The runtime configuration
  *             determines which server processes run, and how, on computes in the fleet. For managed
  *             EC2 fleets, the runtime configuration describes server processes that run on each fleet
- *             instance.
- *             can update a fleet's runtime configuration at any time using
+ *             instance. You can update a fleet's runtime configuration at any time using
  *             <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_UpdateRuntimeConfiguration.html">UpdateRuntimeConfiguration</a>.</p>
  *          <p>To get the current runtime configuration for a fleet, provide the fleet ID. </p>
  *          <p>If successful, a <code>RuntimeConfiguration</code> object is returned for the

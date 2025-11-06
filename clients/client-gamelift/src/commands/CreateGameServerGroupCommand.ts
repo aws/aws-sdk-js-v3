@@ -29,8 +29,7 @@ export interface CreateGameServerGroupCommandOutput extends CreateGameServerGrou
 
 /**
  * <p>
- *             <b>This operation is used with the Amazon GameLift Servers FleetIQ solution and game server groups.</b>
- *          </p>
+ *             <b>This API works with the following fleet types:</b> EC2 (FleetIQ)</p>
  *          <p>Creates a Amazon GameLift Servers FleetIQ game server
  *             group for managing game hosting on a collection of Amazon Elastic Compute Cloud instances for game hosting.
  *             This operation creates the game server group, creates an Auto Scaling group in your

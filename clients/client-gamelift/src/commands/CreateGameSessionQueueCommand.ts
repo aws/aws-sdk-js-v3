@@ -28,7 +28,9 @@ export interface CreateGameSessionQueueCommandInput extends CreateGameSessionQue
 export interface CreateGameSessionQueueCommandOutput extends CreateGameSessionQueueOutput, __MetadataBearer {}
 
 /**
- * <p>Creates a placement queue that processes requests for new game sessions. A queue uses
+ * <p>
+ *             <b>This API works with the following fleet types:</b> EC2, Anywhere, Container</p>
+ *          <p>Creates a placement queue that processes requests for new game sessions. A queue uses
  *             FleetIQ algorithms to locate the best available placement locations for a new game
  *             session, and then prompts the game server process to start a new game session.</p>
  *          <p>A game session queue is configured with a set of destinations (Amazon GameLift Servers fleets or

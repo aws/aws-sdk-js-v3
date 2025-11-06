@@ -37,7 +37,9 @@ export interface DescribeGameSessionPlacementCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Retrieves information, including current status, about a game session placement
+ * <p>
+ *             <b>This API works with the following fleet types:</b> EC2, Anywhere, Container</p>
+ *          <p>Retrieves information, including current status, about a game session placement
  *             request. </p>
  *          <p>To get game session placement details, specify the placement ID.</p>
  *          <p>This operation is not designed to be continually called to track game session status.
