@@ -70,9 +70,9 @@ describe(XmlShapeSerializer.name, () => {
       /**
        * No assertion here.
        * In the initial dual-pass implementation,
-       * par time is 0 to 170ms for up to 426106 chars of XML. Up to 25 kb/ms. (kuhe's computer)
+       * par time is 0 to 600ms for up to 1810892 chars of XML. Up to 28 kb/ms. (kuhe's computer)
        */
       console.log("XmlShapeSerializer performance timings", timings);
     });
-  });
+  }, 30_000);
 });

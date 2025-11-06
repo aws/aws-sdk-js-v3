@@ -41,13 +41,28 @@ export const nestingWidget: StaticStructureSchema = [
   "ns",
   "Struct",
   0,
-  ["string", "date", "blob", "nested"],
-  [0 satisfies StringSchema, 4 satisfies TimestampDefaultSchema, 21 satisfies BlobSchema, () => nestingWidget],
+  ["string", "date", "blob", "number", "list", "map", "nested"],
+  [
+    0 satisfies StringSchema,
+    4 satisfies TimestampDefaultSchema,
+    21 satisfies BlobSchema,
+    1 satisfies NumericSchema,
+    64 | 1,
+    128 | 0,
+    () => nestingWidget,
+  ],
 ];
 
 export function createNestingWidget(nesting = 0) {
   const object = {
     string: "hello, world",
+    number: 100000,
+    list: [1, 2, 3, 4, 5, 6, 7, 8, 9],
+    map: {
+      a: "A",
+      b: "B",
+      c: "C",
+    },
     date: new Date(0),
     blob: new Uint8Array([0, 1, 2, 3, 4, 5, 6, 7]),
     nested: undefined,

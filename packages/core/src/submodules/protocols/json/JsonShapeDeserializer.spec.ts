@@ -190,9 +190,9 @@ describe(JsonShapeDeserializer.name, () => {
       /**
        * No assertion here.
        * In the initial dual-pass implementation,
-       * par time is 0 to 10ms for up to 135224 chars of JSON. Up to 20 kb/ms. (kuhe's computer)
+       * par time is 0 to 25ms for up to 288899 chars of JSON. Up to 13 kb/ms. (kuhe's computer)
        */
       console.log("JsonShapeDeserializer performance timings", timings);
     });
-  });
+  }, 30_000);
 });

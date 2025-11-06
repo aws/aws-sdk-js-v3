@@ -46,7 +46,7 @@ describe(XmlShapeDeserializer.name, () => {
       const strings = [];
 
       // warmup
-      for (let i = 0; i < 13; ++i) {
+      for (let i = 0; i < 12; ++i) {
         const o = createNestingWidget(2 ** i);
         serializer.write(nestingWidget, o);
         const json = serializer.flush();
@@ -65,9 +65,9 @@ describe(XmlShapeDeserializer.name, () => {
       /**
        * No assertion here.
        * In the initial dual-pass implementation,
-       * par time is 0 to 45ms for up to 426106 chars of XML. Up to 10 kb/ms. (kuhe's computer)
+       * par time is 0 to 187ms for up to 905676 chars of XML. Up to 10 kb/ms. (kuhe's computer)
        */
       console.log("XmlShapeDeserializer performance timings", timings);
     });
-  });
+  }, 30_000);
 });

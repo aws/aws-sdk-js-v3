@@ -36,7 +36,7 @@ describe("performance baseline indicator", () => {
     /**
      * No assertion here.
      * In the initial dual-pass implementation,
-     * par time is 0 to 10ms for up to 200746 bytes of CBOR. Up to 30 kb/ms. (kuhe's computer)
+     * par time is 0 to 23ms for up to 381014 bytes of CBOR. Up to 15 kb/ms. (kuhe's computer)
      */
     console.log("CborShapeSerializer performance timings", timings);
   });
@@ -65,8 +65,8 @@ describe("performance baseline indicator", () => {
     /**
      * No assertion here.
      * In the initial dual-pass implementation,
-     * par time is 0 to 3ms for up to 100394 bytes of CBOR. Up to 45 kb/ms. (kuhe's computer)
+     * par time is 0 to 9ms for up to 190550 bytes of CBOR. Up to 23 kb/ms. (kuhe's computer)
      */
     console.log("CborShapeDeserializer performance timings", timings);
   });
-});
+}, 30_000);
