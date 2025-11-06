@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.926.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.925.0...v3.926.0) (2025-11-06)
+
+
+### Features
+
+* **client-gamelift:** Amazon GameLift Servers now supports game builds that use the Windows 2022 operating system. ([e38ba81](https://github.com/aws/aws-sdk-js-v3/commit/e38ba8197ef89a5dbc5b2daaf3bd4ecba2cb06d3))
+
+
+
+
+
 # [3.925.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.924.0...v3.925.0) (2025-11-05)
 
 **Note:** Version bump only for package @aws-sdk/client-gamelift

@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.926.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.925.0...v3.926.0) (2025-11-06)
+
+
+### Features
+
+* **client-accessanalyzer:** New field totalActiveErrors added to getFindingsStatistics response. ([595167c](https://github.com/aws/aws-sdk-js-v3/commit/595167c760f07460b15fb009c8ded30c956470e5))
+* **client-backup:** AWS Backup now supports customer-managed keys (CMK) for logically air-gapped vaults, enabling customers to maintain full control over their encryption key lifecycle. This feature helps organizations meet specific internal governance requirements or external regulatory compliance standards. ([b83f5f9](https://github.com/aws/aws-sdk-js-v3/commit/b83f5f99e2cb10f8951de7fe920b3daf07cf17a5))
+* **client-connect:** Added support for Conditional Questions in Evaluation Forms. Introduced Auto Evaluation capability for Evaluation Forms and Contact Evaluations. Added new API operations: SearchEvaluationForms and SearchContactEvaluations. ([45c43b4](https://github.com/aws/aws-sdk-js-v3/commit/45c43b474cbe04d639fa2d9bec06f472b97d5ecf))
+* **client-ec2:** Add Amazon EC2 R8a instance types ([7cb1367](https://github.com/aws/aws-sdk-js-v3/commit/7cb136792ee69d87da3be7e5c743056f81c0af65))
+* **client-gamelift:** Amazon GameLift Servers now supports game builds that use the Windows 2022 operating system. ([e38ba81](https://github.com/aws/aws-sdk-js-v3/commit/e38ba8197ef89a5dbc5b2daaf3bd4ecba2cb06d3))
+* **client-identitystore:** IdentityStore API: added new KMSExceptionReason fields to the Exception object; added multiple new fields to the User APIs - UserStatus, Birthdate, Website and Photos; added multiple new metadata fields for User, Groups and Membership APIs - CreatedAt, CreatedBy, UpdatedAt and UpdatedBy. ([28d8504](https://github.com/aws/aws-sdk-js-v3/commit/28d8504757b345c604fe7649854485b67c0cb868))
+* **client-quicksight:** Support for New Data Prep Experience ([02e87fe](https://github.com/aws/aws-sdk-js-v3/commit/02e87fe92536d05b4d8ba926cc1019b0f3cfbae7))
+* **client-s3tables:** Adds support for tagging APIs for S3 Tables ([4c26817](https://github.com/aws/aws-sdk-js-v3/commit/4c2681765ddd50aab2fb87868d56e82e0375439d))
+* **client-s3vectors:** Amazon S3 Vectors provides cost-effective, elastic, and durable vector storage for queries based on semantic meaning and similarity. ([cb2626e](https://github.com/aws/aws-sdk-js-v3/commit/cb2626e6e19a052002ccae1337790ad8f426e119))
+* **client-sagemaker:** Added NodeProvisioningMode parameter to UpdateCluster API to determine how instance provisioning is handled during cluster operations; in Continuous mode. Added VpcId field in UpdateDomain request for SageMaker Unified Studio domains with no VPC to add a customer VPC. ([382a2ff](https://github.com/aws/aws-sdk-js-v3/commit/382a2ff383a9eec8841f3fa030912a8aaabf6ad9))
+* **client-ssm:** Provides NoLongerSupportedException error message ([70be2a3](https://github.com/aws/aws-sdk-js-v3/commit/70be2a35105b234a082308dbfddd62e70d6204b6))
+* **clients:** update client endpoints as of 2025-11-06 ([4d3f152](https://github.com/aws/aws-sdk-js-v3/commit/4d3f1528fafad7be09fd8271f8c6a0ab333cbf39))
+
+
+
+
+
 # [3.925.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.924.0...v3.925.0) (2025-11-05)
 
 

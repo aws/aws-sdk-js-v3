@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.926.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.925.0...v3.926.0) (2025-11-06)
+
+
+### Features
+
+* **client-sagemaker:** Added NodeProvisioningMode parameter to UpdateCluster API to determine how instance provisioning is handled during cluster operations; in Continuous mode. Added VpcId field in UpdateDomain request for SageMaker Unified Studio domains with no VPC to add a customer VPC. ([382a2ff](https://github.com/aws/aws-sdk-js-v3/commit/382a2ff383a9eec8841f3fa030912a8aaabf6ad9))
+
+
+
+
+
 # [3.925.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.924.0...v3.925.0) (2025-11-05)
 
 

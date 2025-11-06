@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.926.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.925.0...v3.926.0) (2025-11-06)
+
+
+### Features
+
+* **client-backup:** AWS Backup now supports customer-managed keys (CMK) for logically air-gapped vaults, enabling customers to maintain full control over their encryption key lifecycle. This feature helps organizations meet specific internal governance requirements or external regulatory compliance standards. ([b83f5f9](https://github.com/aws/aws-sdk-js-v3/commit/b83f5f99e2cb10f8951de7fe920b3daf07cf17a5))
+
+
+
+
+
 # [3.925.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.924.0...v3.925.0) (2025-11-05)
 
 **Note:** Version bump only for package @aws-sdk/client-backup

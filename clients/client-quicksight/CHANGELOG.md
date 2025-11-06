@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.926.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.925.0...v3.926.0) (2025-11-06)
+
+
+### Features
+
+* **client-quicksight:** Support for New Data Prep Experience ([02e87fe](https://github.com/aws/aws-sdk-js-v3/commit/02e87fe92536d05b4d8ba926cc1019b0f3cfbae7))
+
+
+
+
+
 # [3.925.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.924.0...v3.925.0) (2025-11-05)
 
 **Note:** Version bump only for package @aws-sdk/client-quicksight
