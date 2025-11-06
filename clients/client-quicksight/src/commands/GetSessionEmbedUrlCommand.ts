@@ -9,7 +9,7 @@ import {
   GetSessionEmbedUrlRequest,
   GetSessionEmbedUrlResponse,
   GetSessionEmbedUrlResponseFilterSensitiveLog,
-} from "../models/models_4";
+} from "../models/models_5";
 import { de_GetSessionEmbedUrlCommand, se_GetSessionEmbedUrlCommand } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
@@ -44,7 +44,7 @@ export interface GetSessionEmbedUrlCommandOutput extends GetSessionEmbedUrlRespo
  *                <a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/API_RegisterUser.html">RegisterUser</a>
  *             </code> API operation to add a new user with a custom
  *             permission profile attached. For more information, see the following sections in the
- *                     <i>Amazon QuickSight User Guide</i>:</p>
+ *                     <i>Amazon Quick Suite User Guide</i>:</p>
  *          <ul>
  *             <li>
  *                <p>
@@ -54,7 +54,7 @@ export interface GetSessionEmbedUrlCommandOutput extends GetSessionEmbedUrlRespo
  *             </li>
  *             <li>
  *                <p>
- *                   <a href="https://docs.aws.amazon.com/quicksight/latest/user/customizing-permissions-to-the-quicksight-console.html">Customizing Access to the Amazon QuickSight Console</a>
+ *                   <a href="https://docs.aws.amazon.com/quicksight/latest/user/customizing-permissions-to-the-quicksight-console.html">Customizing Access to the Amazon Quick Suite Console</a>
  *                </p>
  *             </li>
  *          </ul>

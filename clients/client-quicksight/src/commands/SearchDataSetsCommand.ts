@@ -68,6 +68,15 @@ export interface SearchDataSetsCommandOutput extends SearchDataSetsResponse, __M
  * //         FormatVersion: "VERSION_1" || "VERSION_2",
  * //         Status: "ENABLED" || "DISABLED",
  * //       },
+ * //       RowLevelPermissionDataSetMap: { // RowLevelPermissionDataSetMap
+ * //         "<keys>": {
+ * //           Namespace: "STRING_VALUE",
+ * //           Arn: "STRING_VALUE", // required
+ * //           PermissionPolicy: "GRANT_ACCESS" || "DENY_ACCESS", // required
+ * //           FormatVersion: "VERSION_1" || "VERSION_2",
+ * //           Status: "ENABLED" || "DISABLED",
+ * //         },
+ * //       },
  * //       RowLevelPermissionTagConfigurationApplied: true || false,
  * //       ColumnLevelPermissionRulesApplied: true || false,
  * //       UseAs: "RLS_RULES",

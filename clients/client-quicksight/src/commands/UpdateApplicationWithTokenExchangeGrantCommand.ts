@@ -37,7 +37,7 @@ export interface UpdateApplicationWithTokenExchangeGrantCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Updates an QuickSight application with a token exchange grant. This operation only supports QuickSight applications that are registered with IAM Identity Center.</p>
+ * <p>Updates an Quick Suite application with a token exchange grant. This operation only supports Quick Suite applications that are registered with IAM Identity Center.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

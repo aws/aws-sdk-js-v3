@@ -3,21 +3,17 @@ import { SENSITIVE_STRING } from "@smithy/smithy-client";
 
 import {
   AggregationFunction,
-  AxisDisplayOptions,
+  AxisDataOptions,
   BarsArrangement,
   CategoricalAggregationFunction,
-  ChartAxisLabelOptions,
   ColumnIdentifier,
   ColumnSort,
-  ContributionAnalysisDefault,
   CustomActionFilterOperation,
   CustomActionNavigationOperation,
   CustomActionSetParametersOperation,
   CustomActionSetParametersOperationFilterSensitiveLog,
   CustomActionURLOperation,
   DashboardBehavior,
-  DataPathLabelType,
-  DataPathLabelTypeFilterSensitiveLog,
   DateAggregationFunction,
   DateTimeFormatConfiguration,
   DateTimeFormatConfigurationFilterSensitiveLog,
@@ -38,9 +34,207 @@ import {
   StringFormatConfigurationFilterSensitiveLog,
   TimeGranularity,
   Visibility,
+  VisibleRangeOptions,
   VisualCustomAction,
   WidgetStatus,
 } from "./models_0";
+
+/**
+ * <p>The visual display options for a data zoom scroll bar.</p>
+ * @public
+ */
+export interface ScrollBarOptions {
+  /**
+   * <p>The visibility of the data zoom scroll bar.</p>
+   * @public
+   */
+  Visibility?: Visibility | undefined;
+
+  /**
+   * <p>The visibility range for the data zoom scroll bar.</p>
+   * @public
+   */
+  VisibleRange?: VisibleRangeOptions | undefined;
+}
+
+/**
+ * <p>The tick label options of an axis.</p>
+ * @public
+ */
+export interface AxisTickLabelOptions {
+  /**
+   * <p>Determines whether or not the axis ticks are visible.</p>
+   * @public
+   */
+  LabelOptions?: LabelOptions | undefined;
+
+  /**
+   * <p>The rotation angle of the axis tick labels.</p>
+   * @public
+   */
+  RotationAngle?: number | undefined;
+}
+
+/**
+ * <p>The display options for the axis label.</p>
+ * @public
+ */
+export interface AxisDisplayOptions {
+  /**
+   * <p>The tick label options of an axis.</p>
+   * @public
+   */
+  TickLabelOptions?: AxisTickLabelOptions | undefined;
+
+  /**
+   * <p>Determines whether or not the axis line is visible.</p>
+   * @public
+   */
+  AxisLineVisibility?: Visibility | undefined;
+
+  /**
+   * <p>Determines whether or not the grid line is visible.</p>
+   * @public
+   */
+  GridLineVisibility?: Visibility | undefined;
+
+  /**
+   * <p>The data options for an axis.</p>
+   * @public
+   */
+  DataOptions?: AxisDataOptions | undefined;
+
+  /**
+   * <p>The scroll bar options for an axis.</p>
+   * @public
+   */
+  ScrollbarOptions?: ScrollBarOptions | undefined;
+
+  /**
+   * <p>The offset value that determines the starting placement of the axis within a visual's bounds.</p>
+   * @public
+   */
+  AxisOffset?: string | undefined;
+}
+
+/**
+ * <p>The reference that specifies where the axis label is applied to.</p>
+ * @public
+ */
+export interface AxisLabelReferenceOptions {
+  /**
+   * <p>The field that the axis label is targeted to.</p>
+   * @public
+   */
+  FieldId: string | undefined;
+
+  /**
+   * <p>The column that the axis label is targeted to.</p>
+   * @public
+   */
+  Column: ColumnIdentifier | undefined;
+}
+
+/**
+ * <p>The label options for a chart axis. You must specify the field that the label is targeted to.</p>
+ * @public
+ */
+export interface AxisLabelOptions {
+  /**
+   * <p>The font configuration of the axis label.</p>
+   * @public
+   */
+  FontConfiguration?: FontConfiguration | undefined;
+
+  /**
+   * <p>The text for the axis label.</p>
+   * @public
+   */
+  CustomLabel?: string | undefined;
+
+  /**
+   * <p>The options that indicate which field the label belongs to.</p>
+   * @public
+   */
+  ApplyTo?: AxisLabelReferenceOptions | undefined;
+}
+
+/**
+ * <p>The label options for an axis on a chart.</p>
+ * @public
+ */
+export interface ChartAxisLabelOptions {
+  /**
+   * <p>The visibility of an axis label on a chart. Choose one of the following options:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>VISIBLE</code>: Shows the axis.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>HIDDEN</code>: Hides the axis.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Visibility?: Visibility | undefined;
+
+  /**
+   * <p>The visibility configuration of the sort icon on a chart's axis label.</p>
+   * @public
+   */
+  SortIconVisibility?: Visibility | undefined;
+
+  /**
+   * <p>The label options for a chart axis.</p>
+   * @public
+   */
+  AxisLabelOptions?: AxisLabelOptions[] | undefined;
+}
+
+/**
+ * <p>The contribution analysis visual display for a line, pie, or bar chart.</p>
+ * @public
+ */
+export interface ContributionAnalysisDefault {
+  /**
+   * <p>The measure field that is used in the contribution analysis.</p>
+   * @public
+   */
+  MeasureFieldId: string | undefined;
+
+  /**
+   * <p>The dimensions columns that are used in the contribution analysis,
+   *             usually a list of <code>ColumnIdentifiers</code>.</p>
+   * @public
+   */
+  ContributorDimensions: ColumnIdentifier[] | undefined;
+}
+
+/**
+ * <p>The option that specifies individual data values for labels.</p>
+ * @public
+ */
+export interface DataPathLabelType {
+  /**
+   * <p>The field ID of the field that the data label needs to be applied to.</p>
+   * @public
+   */
+  FieldId?: string | undefined;
+
+  /**
+   * <p>The actual value of the field that is labeled.</p>
+   * @public
+   */
+  FieldValue?: string | undefined;
+
+  /**
+   * <p>The visibility of the data label.</p>
+   * @public
+   */
+  Visibility?: Visibility | undefined;
+}
 
 /**
  * <p>The field label type.</p>
@@ -7668,155 +7862,12 @@ export interface PivotTableFieldOption {
 }
 
 /**
- * <p>The field options for a pivot table visual.</p>
- * @public
+ * @internal
  */
-export interface PivotTableFieldOptions {
-  /**
-   * <p>The selected field options for the pivot table field options.</p>
-   * @public
-   */
-  SelectedFieldOptions?: PivotTableFieldOption[] | undefined;
-
-  /**
-   * <p>The data path options for the pivot table field options.</p>
-   * @public
-   */
-  DataPathOptions?: PivotTableDataPathOption[] | undefined;
-
-  /**
-   * <p>The collapse state options for the pivot table field options.</p>
-   * @public
-   */
-  CollapseStateOptions?: PivotTableFieldCollapseStateOption[] | undefined;
-}
-
-/**
- * <p>The aggregated field well for the pivot table.</p>
- * @public
- */
-export interface PivotTableAggregatedFieldWells {
-  /**
-   * <p>The rows field well for a pivot table. Values are grouped by rows fields.</p>
-   * @public
-   */
-  Rows?: DimensionField[] | undefined;
-
-  /**
-   * <p>The columns field well for a pivot table. Values are grouped by columns fields.</p>
-   * @public
-   */
-  Columns?: DimensionField[] | undefined;
-
-  /**
-   * <p>The values field well for a pivot table. Values are aggregated based on rows and columns fields.</p>
-   * @public
-   */
-  Values?: MeasureField[] | undefined;
-}
-
-/**
- * <p>The field wells for a pivot table visual.</p>
- *          <p>This is a union type structure. For this structure to be valid, only one of the attributes can be defined.</p>
- * @public
- */
-export interface PivotTableFieldWells {
-  /**
-   * <p>The aggregated field well for the pivot table.</p>
-   * @public
-   */
-  PivotTableAggregatedFieldWells?: PivotTableAggregatedFieldWells | undefined;
-}
-
-/**
- * <p>The paginated report options for a pivot table visual.</p>
- * @public
- */
-export interface PivotTablePaginatedReportOptions {
-  /**
-   * <p>The visibility of the printing table overflow across pages.</p>
-   * @public
-   */
-  VerticalOverflowVisibility?: Visibility | undefined;
-
-  /**
-   * <p>The visibility of the repeating header rows on each page.</p>
-   * @public
-   */
-  OverflowColumnHeaderVisibility?: Visibility | undefined;
-}
-
-/**
- * <p>Allows data paths to be sorted by a specific data value.</p>
- * @public
- */
-export interface DataPathSort {
-  /**
-   * <p>Determines the sort direction.</p>
-   * @public
-   */
-  Direction: SortDirection | undefined;
-
-  /**
-   * <p>The list of data paths that need to be sorted.</p>
-   * @public
-   */
-  SortPaths: DataPathValue[] | undefined;
-}
-
-/**
- * <p>The sort by field for the field sort options.</p>
- * @public
- */
-export interface PivotTableSortBy {
-  /**
-   * <p>The field sort (field id, direction) for the pivot table sort by options.</p>
-   * @public
-   */
-  Field?: FieldSort | undefined;
-
-  /**
-   * <p>The column sort (field id, direction) for the pivot table sort by options.</p>
-   * @public
-   */
-  Column?: ColumnSort | undefined;
-
-  /**
-   * <p>The data path sort (data path value, direction) for the pivot table sort by options.</p>
-   * @public
-   */
-  DataPath?: DataPathSort | undefined;
-}
-
-/**
- * <p>The field sort options for a pivot table sort configuration.</p>
- * @public
- */
-export interface PivotFieldSortOptions {
-  /**
-   * <p>The field ID for the field sort options.</p>
-   * @public
-   */
-  FieldId: string | undefined;
-
-  /**
-   * <p>The sort by field for the field sort options.</p>
-   * @public
-   */
-  SortBy: PivotTableSortBy | undefined;
-}
-
-/**
- * <p>The sort configuration for a <code>PivotTableVisual</code>.</p>
- * @public
- */
-export interface PivotTableSortConfiguration {
-  /**
-   * <p>The field sort options for a pivot table sort configuration.</p>
-   * @public
-   */
-  FieldSortOptions?: PivotFieldSortOptions[] | undefined;
-}
+export const DataPathLabelTypeFilterSensitiveLog = (obj: DataPathLabelType): any => ({
+  ...obj,
+  ...(obj.FieldValue && { FieldValue: SENSITIVE_STRING }),
+});
 
 /**
  * @internal
@@ -8889,57 +8940,4 @@ export const PivotTableFieldCollapseStateOptionFilterSensitiveLog = (obj: PivotT
 export const PivotTableDataPathOptionFilterSensitiveLog = (obj: PivotTableDataPathOption): any => ({
   ...obj,
   ...(obj.DataPathList && { DataPathList: obj.DataPathList.map((item) => DataPathValueFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const PivotTableFieldOptionsFilterSensitiveLog = (obj: PivotTableFieldOptions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PivotTableAggregatedFieldWellsFilterSensitiveLog = (obj: PivotTableAggregatedFieldWells): any => ({
-  ...obj,
-  ...(obj.Values && { Values: obj.Values.map((item) => MeasureFieldFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const PivotTableFieldWellsFilterSensitiveLog = (obj: PivotTableFieldWells): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DataPathSortFilterSensitiveLog = (obj: DataPathSort): any => ({
-  ...obj,
-  ...(obj.SortPaths && { SortPaths: obj.SortPaths.map((item) => DataPathValueFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const PivotTableSortByFilterSensitiveLog = (obj: PivotTableSortBy): any => ({
-  ...obj,
-  ...(obj.DataPath && { DataPath: DataPathSortFilterSensitiveLog(obj.DataPath) }),
-});
-
-/**
- * @internal
- */
-export const PivotFieldSortOptionsFilterSensitiveLog = (obj: PivotFieldSortOptions): any => ({
-  ...obj,
-  ...(obj.SortBy && { SortBy: PivotTableSortByFilterSensitiveLog(obj.SortBy) }),
-});
-
-/**
- * @internal
- */
-export const PivotTableSortConfigurationFilterSensitiveLog = (obj: PivotTableSortConfiguration): any => ({
-  ...obj,
 });

@@ -56,7 +56,7 @@ export interface UpdatePublicSharingSettingsCommandOutput
  *             account.</p>
  *          <p>Before you can turn on public sharing on your account, make sure to give public
  *             sharing permissions to an administrative user in the Identity and Access Management (IAM) console. For more information on using IAM with Amazon
- *             Quick Sight, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/security_iam_service-with-iam.html">Using QuickSight with IAM</a> in the <i>Amazon Quick Sight
+ *             Quick Sight, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/security_iam_service-with-iam.html">Using Quick Suite with IAM</a> in the <i>Amazon Quick Sight
  *                 User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

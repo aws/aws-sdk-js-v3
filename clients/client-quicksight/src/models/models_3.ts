@@ -6,6 +6,9 @@ import {
   ActionConnectorType,
   AdHocFilteringOption,
   AggFunction,
+  AggregateOperation,
+  AggregationPartitionBy,
+  AggType,
   AnalysisDefaults,
   AssetOptions,
   CalculatedField,
@@ -13,19 +16,19 @@ import {
   ColumnConfiguration,
   ColumnConfigurationFilterSensitiveLog,
   DashboardBehavior,
+  DataPrepAggregationFunction,
+  DataSetColumnIdMapping,
   DataSetIdentifierDeclaration,
   Edition,
-  Entity,
   FilterGroup,
-  FilterOperator,
   NumberScale,
   ParameterDeclaration,
   ParameterDeclarationFilterSensitiveLog,
   QueryExecutionOptions,
   ResourceStatus,
-  Sheet,
   TimeGranularity,
   TopicTimeGranularity,
+  TransformOperationSource,
 } from "./models_0";
 
 import { VisualMenuOption } from "./models_1";
@@ -33,31 +36,327 @@ import { VisualMenuOption } from "./models_1";
 import {
   AnalysisDefinition,
   AnalysisSourceEntity,
+  Anchor,
+  AppendOperation,
   ApplicationTheme,
   AssignmentStatus,
   AuthConfig,
   AuthConfigFilterSensitiveLog,
   AuthenticationMethodOption,
   AuthorSpecifiedAggregation,
-  ConstantType,
   ContributionAnalysisDirection,
   ContributionAnalysisFactor,
   ContributionAnalysisSortType,
-  ContributionAnalysisTimeRanges,
   DataSetReference,
   DataSourceParameters,
-  FilterClass,
   Identifier,
   SheetDefinition,
   SslProperties,
   StaticFile,
   Tag,
-  TopicIRFilterOption,
   TopicSortDirection,
   VpcConnectionProperties,
 } from "./models_2";
 
 import { QuickSightServiceException as __BaseException } from "./QuickSightServiceException";
+
+/**
+ * <p>The definition for the <code>FilterAggMetrics</code>.</p>
+ * @public
+ */
+export interface FilterAggMetrics {
+  /**
+   * <p>The metric operand of the <code>FilterAggMetrics</code>.</p>
+   * @public
+   */
+  MetricOperand?: Identifier | undefined;
+
+  /**
+   * <p>The function for the <code>FilterAggMetrics</code>.</p>
+   * @public
+   */
+  Function?: AggType | undefined;
+
+  /**
+   * <p>The sort direction for <code>FilterAggMetrics</code>.</p>
+   * @public
+   */
+  SortDirection?: TopicSortDirection | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ConstantType = {
+  COLLECTIVE: "COLLECTIVE",
+  RANGE: "RANGE",
+  SINGULAR: "SINGULAR",
+} as const;
+
+/**
+ * @public
+ */
+export type ConstantType = (typeof ConstantType)[keyof typeof ConstantType];
+
+/**
+ * <p>The definition for a <code>CollectiveConstantEntry</code>.</p>
+ * @public
+ */
+export interface CollectiveConstantEntry {
+  /**
+   * <p>The <code>ConstantType</code> of a <code>CollectiveConstantEntry</code>.</p>
+   * @public
+   */
+  ConstantType?: ConstantType | undefined;
+
+  /**
+   * <p>The value of a <code>CollectiveConstantEntry</code>.</p>
+   * @public
+   */
+  Value?: string | undefined;
+}
+
+/**
+ * <p>The definition for a <code>TopicConstantValue</code>.</p>
+ * @public
+ */
+export interface TopicConstantValue {
+  /**
+   * <p>The constant type of a <code>TopicConstantValue</code>.</p>
+   * @public
+   */
+  ConstantType?: ConstantType | undefined;
+
+  /**
+   * <p>The value of the <code>TopicConstantValue</code>.</p>
+   * @public
+   */
+  Value?: string | undefined;
+
+  /**
+   * <p>The minimum for the <code>TopicConstantValue</code>.</p>
+   * @public
+   */
+  Minimum?: string | undefined;
+
+  /**
+   * <p>The maximum for the <code>TopicConstantValue</code>.</p>
+   * @public
+   */
+  Maximum?: string | undefined;
+
+  /**
+   * <p>The value list of the <code>TopicConstantValue</code>.</p>
+   * @public
+   */
+  ValueList?: CollectiveConstantEntry[] | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const FilterClass = {
+  CONDITIONAL_VALUE_FILTER: "CONDITIONAL_VALUE_FILTER",
+  ENFORCED_VALUE_FILTER: "ENFORCED_VALUE_FILTER",
+  NAMED_VALUE_FILTER: "NAMED_VALUE_FILTER",
+} as const;
+
+/**
+ * @public
+ */
+export type FilterClass = (typeof FilterClass)[keyof typeof FilterClass];
+
+/**
+ * @public
+ * @enum
+ */
+export const TopicIRFilterType = {
+  ACCEPT_ALL_FILTER: "ACCEPT_ALL_FILTER",
+  CATEGORY_FILTER: "CATEGORY_FILTER",
+  DATE_RANGE_FILTER: "DATE_RANGE_FILTER",
+  EQUALS: "EQUALS",
+  NUMERIC_EQUALITY_FILTER: "NUMERIC_EQUALITY_FILTER",
+  NUMERIC_RANGE_FILTER: "NUMERIC_RANGE_FILTER",
+  RANK_LIMIT_FILTER: "RANK_LIMIT_FILTER",
+  RELATIVE_DATE_FILTER: "RELATIVE_DATE_FILTER",
+  TOP_BOTTOM_FILTER: "TOP_BOTTOM_FILTER",
+} as const;
+
+/**
+ * @public
+ */
+export type TopicIRFilterType = (typeof TopicIRFilterType)[keyof typeof TopicIRFilterType];
+
+/**
+ * @public
+ * @enum
+ */
+export const TopicIRFilterFunction = {
+  CONTAINS: "CONTAINS",
+  CONTAINS_STRING: "CONTAINS_STRING",
+  ENDS_WITH: "ENDS_WITH",
+  EXACT: "EXACT",
+  LAST: "LAST",
+  NEXT: "NEXT",
+  NOW: "NOW",
+  PREVIOUS: "PREVIOUS",
+  STARTS_WITH: "STARTS_WITH",
+  THIS: "THIS",
+} as const;
+
+/**
+ * @public
+ */
+export type TopicIRFilterFunction = (typeof TopicIRFilterFunction)[keyof typeof TopicIRFilterFunction];
+
+/**
+ * @public
+ * @enum
+ */
+export const NullFilterOption = {
+  ALL_VALUES: "ALL_VALUES",
+  NON_NULLS_ONLY: "NON_NULLS_ONLY",
+  NULLS_ONLY: "NULLS_ONLY",
+} as const;
+
+/**
+ * @public
+ */
+export type NullFilterOption = (typeof NullFilterOption)[keyof typeof NullFilterOption];
+
+/**
+ * <p>The definition for a <code>TopicIRFilterOption</code>.</p>
+ * @public
+ */
+export interface TopicIRFilterOption {
+  /**
+   * <p>The filter type for the <code>TopicIRFilterOption</code>.</p>
+   * @public
+   */
+  FilterType?: TopicIRFilterType | undefined;
+
+  /**
+   * <p>The filter class for the <code>TopicIRFilterOption</code>.</p>
+   * @public
+   */
+  FilterClass?: FilterClass | undefined;
+
+  /**
+   * <p>The operand field for the <code>TopicIRFilterOption</code>.</p>
+   * @public
+   */
+  OperandField?: Identifier | undefined;
+
+  /**
+   * <p>The function for the <code>TopicIRFilterOption</code>.</p>
+   * @public
+   */
+  Function?: TopicIRFilterFunction | undefined;
+
+  /**
+   * <p>The constant for the <code>TopicIRFilterOption</code>.</p>
+   * @public
+   */
+  Constant?: TopicConstantValue | undefined;
+
+  /**
+   * <p>The inverse for the <code>TopicIRFilterOption</code>.</p>
+   * @public
+   */
+  Inverse?: boolean | undefined;
+
+  /**
+   * <p>The null filter for the <code>TopicIRFilterOption</code>.</p>
+   * @public
+   */
+  NullFilter?: NullFilterOption | undefined;
+
+  /**
+   * <p>The aggregation for the <code>TopicIRFilterOption</code>.</p>
+   * @public
+   */
+  Aggregation?: AggType | undefined;
+
+  /**
+   * <p>The aggregation function parameters for the <code>TopicIRFilterOption</code>.</p>
+   * @public
+   */
+  AggregationFunctionParameters?: Record<string, string> | undefined;
+
+  /**
+   * <p>The <code>AggregationPartitionBy</code> for the <code>TopicIRFilterOption</code>.</p>
+   * @public
+   */
+  AggregationPartitionBy?: AggregationPartitionBy[] | undefined;
+
+  /**
+   * <p>The range for the <code>TopicIRFilterOption</code>.</p>
+   * @public
+   */
+  Range?: TopicConstantValue | undefined;
+
+  /**
+   * <p>The inclusive for the <code>TopicIRFilterOption</code>.</p>
+   * @public
+   */
+  Inclusive?: boolean | undefined;
+
+  /**
+   * <p>The time granularity for the <code>TopicIRFilterOption</code>.</p>
+   * @public
+   */
+  TimeGranularity?: TimeGranularity | undefined;
+
+  /**
+   * <p>The last next offset for the <code>TopicIRFilterOption</code>.</p>
+   * @public
+   */
+  LastNextOffset?: TopicConstantValue | undefined;
+
+  /**
+   * <p>The agg metrics for the <code>TopicIRFilterOption</code>.</p>
+   * @public
+   */
+  AggMetrics?: FilterAggMetrics[] | undefined;
+
+  /**
+   * <p>The <code>TopBottomLimit</code> for the <code>TopicIRFilterOption</code>.</p>
+   * @public
+   */
+  TopBottomLimit?: TopicConstantValue | undefined;
+
+  /**
+   * <p>The sort direction for the <code>TopicIRFilterOption</code>.</p>
+   * @public
+   */
+  SortDirection?: TopicSortDirection | undefined;
+
+  /**
+   * <p>The anchor for the <code>TopicIRFilterOption</code>.</p>
+   * @public
+   */
+  Anchor?: Anchor | undefined;
+}
+
+/**
+ * <p>The definition for the <code>ContributionAnalysisTimeRanges</code>.</p>
+ * @public
+ */
+export interface ContributionAnalysisTimeRanges {
+  /**
+   * <p>The start range for the <code>ContributionAnalysisTimeRanges</code>.</p>
+   * @public
+   */
+  StartRange?: TopicIRFilterOption | undefined;
+
+  /**
+   * <p>The end range for the <code>ContributionAnalysisTimeRanges</code>.</p>
+   * @public
+   */
+  EndRange?: TopicIRFilterOption | undefined;
+}
 
 /**
  * <p>The definition for a <code>TopicIRContributionAnalysis</code>.</p>
@@ -1112,7 +1411,7 @@ export type BrandVersionStatus = (typeof BrandVersionStatus)[keyof typeof BrandV
  */
 export interface BrandDetail {
   /**
-   * <p>The ID of the QuickSight brand.</p>
+   * <p>The ID of the Quick Suite brand.</p>
    * @public
    */
   BrandId: string | undefined;
@@ -1178,7 +1477,7 @@ export interface BrandSummary {
   Arn?: string | undefined;
 
   /**
-   * <p>The ID of the QuickSight brand.</p>
+   * <p>The ID of the Quick Suite brand.</p>
    * @public
    */
   BrandId?: string | undefined;
@@ -1631,6 +1930,30 @@ export interface CastColumnTypeOperation {
 }
 
 /**
+ * <p>A transform operation that changes the data types of one or more columns in the dataset.</p>
+ * @public
+ */
+export interface CastColumnTypesOperation {
+  /**
+   * <p>Alias for this operation.</p>
+   * @public
+   */
+  Alias: string | undefined;
+
+  /**
+   * <p>The source transform operation that provides input data for the type casting.</p>
+   * @public
+   */
+  Source: TransformOperationSource | undefined;
+
+  /**
+   * <p>The list of column type casting operations to perform.</p>
+   * @public
+   */
+  CastColumnTypeOperations: CastColumnTypeOperation[] | undefined;
+}
+
+/**
  * @public
  * @enum
  */
@@ -1914,6 +2237,24 @@ export const ColumnTagName = {
  * @public
  */
 export type ColumnTagName = (typeof ColumnTagName)[keyof typeof ColumnTagName];
+
+/**
+ * <p>Specifies a column to be unpivoted, transforming it from a column into rows with associated values.</p>
+ * @public
+ */
+export interface ColumnToUnpivot {
+  /**
+   * <p>The name of the column to unpivot from the source data.</p>
+   * @public
+   */
+  ColumnName?: string | undefined;
+
+  /**
+   * <p>The value to assign to this column in the unpivoted result, typically the column name or a descriptive label.</p>
+   * @public
+   */
+  NewValue?: string | undefined;
+}
 
 /**
  * @public
@@ -2793,7 +3134,7 @@ export interface CreateBrandRequest {
   AwsAccountId: string | undefined;
 
   /**
-   * <p>The ID of the QuickSight brand.</p>
+   * <p>The ID of the Quick Suite brand.</p>
    * @public
    */
   BrandId: string | undefined;
@@ -2890,6 +3231,18 @@ export class InvalidRequestException extends __BaseException {
  * @public
  */
 export interface CreateColumnsOperation {
+  /**
+   * <p>Alias for this operation.</p>
+   * @public
+   */
+  Alias?: string | undefined;
+
+  /**
+   * <p>The source transform operation that provides input data for creating new calculated columns.</p>
+   * @public
+   */
+  Source?: TransformOperationSource | undefined;
+
   /**
    * <p>Calculated columns to create.</p>
    * @public
@@ -3552,6 +3905,939 @@ export interface CreateDashboardResponse {
 }
 
 /**
+ * <p>Specifies the source of data for a destination table, including the transform operation and column mappings.</p>
+ * @public
+ */
+export interface DestinationTableSource {
+  /**
+   * <p>The identifier of the transform operation that provides data to the destination table.</p>
+   * @public
+   */
+  TransformOperationId: string | undefined;
+}
+
+/**
+ * <p>Defines a destination table in data preparation that receives the final transformed data.</p>
+ * @public
+ */
+export interface DestinationTable {
+  /**
+   * <p>Alias for the destination table.</p>
+   * @public
+   */
+  Alias: string | undefined;
+
+  /**
+   * <p>The source configuration that specifies which transform operation provides data to this destination table.</p>
+   * @public
+   */
+  Source: DestinationTableSource | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const InputColumnDataType = {
+  BIT: "BIT",
+  BOOLEAN: "BOOLEAN",
+  DATETIME: "DATETIME",
+  DECIMAL: "DECIMAL",
+  INTEGER: "INTEGER",
+  JSON: "JSON",
+  STRING: "STRING",
+} as const;
+
+/**
+ * @public
+ */
+export type InputColumnDataType = (typeof InputColumnDataType)[keyof typeof InputColumnDataType];
+
+/**
+ * <p>Metadata for a column that is used as the input of a transform operation.</p>
+ * @public
+ */
+export interface InputColumn {
+  /**
+   * <p>The name of this column in the underlying data source.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>A unique identifier for the input column.</p>
+   * @public
+   */
+  Id?: string | undefined;
+
+  /**
+   * <p>The data type of the column.</p>
+   * @public
+   */
+  Type: InputColumnDataType | undefined;
+
+  /**
+   * <p>The sub data type of the column. Sub types are only available for decimal columns that are part of a SPICE dataset.</p>
+   * @public
+   */
+  SubType?: ColumnDataSubType | undefined;
+}
+
+/**
+ * <p>References a parent dataset that serves as a data source, including its columns and metadata.</p>
+ * @public
+ */
+export interface ParentDataSet {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the parent dataset.</p>
+   * @public
+   */
+  DataSetArn: string | undefined;
+
+  /**
+   * <p>The list of input columns available from the parent dataset.</p>
+   * @public
+   */
+  InputColumns: InputColumn[] | undefined;
+}
+
+/**
+ * <p>A source table that provides initial data from either a physical table or parent dataset.</p>
+ * @public
+ */
+export interface SourceTable {
+  /**
+   * <p>The identifier of the physical table that serves as the data source.</p>
+   * @public
+   */
+  PhysicalTableId?: string | undefined;
+
+  /**
+   * <p>A parent dataset that serves as the data source instead of a physical table.</p>
+   * @public
+   */
+  DataSet?: ParentDataSet | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const DataSetDateComparisonFilterOperator = {
+  AFTER: "AFTER",
+  AFTER_OR_EQUALS_TO: "AFTER_OR_EQUALS_TO",
+  BEFORE: "BEFORE",
+  BEFORE_OR_EQUALS_TO: "BEFORE_OR_EQUALS_TO",
+} as const;
+
+/**
+ * @public
+ */
+export type DataSetDateComparisonFilterOperator =
+  (typeof DataSetDateComparisonFilterOperator)[keyof typeof DataSetDateComparisonFilterOperator];
+
+/**
+ * <p>Represents a date value used in filter conditions.</p>
+ * @public
+ */
+export interface DataSetDateFilterValue {
+  /**
+   * <p>A static date value used for filtering.</p>
+   * @public
+   */
+  StaticValue?: Date | undefined;
+}
+
+/**
+ * <p>A filter condition that compares date values using operators like <code>BEFORE</code>, <code>AFTER</code>, or
+ *            their inclusive variants.</p>
+ * @public
+ */
+export interface DataSetDateComparisonFilterCondition {
+  /**
+   * <p>The comparison operator to use, such as <code>BEFORE</code>, <code>BEFORE_OR_EQUALS_TO</code>, <code>AFTER</code>,
+   *            or <code>AFTER_OR_EQUALS_TO</code>.</p>
+   * @public
+   */
+  Operator: DataSetDateComparisonFilterOperator | undefined;
+
+  /**
+   * <p>The date value to compare against.</p>
+   * @public
+   */
+  Value?: DataSetDateFilterValue | undefined;
+}
+
+/**
+ * <p>A filter condition that filters date values within a specified range.</p>
+ * @public
+ */
+export interface DataSetDateRangeFilterCondition {
+  /**
+   * <p>The minimum date value for the range filter.</p>
+   * @public
+   */
+  RangeMinimum?: DataSetDateFilterValue | undefined;
+
+  /**
+   * <p>The maximum date value for the range filter.</p>
+   * @public
+   */
+  RangeMaximum?: DataSetDateFilterValue | undefined;
+
+  /**
+   * <p>Whether to include the minimum value in the filter range.</p>
+   * @public
+   */
+  IncludeMinimum?: boolean | undefined;
+
+  /**
+   * <p>Whether to include the maximum value in the filter range.</p>
+   * @public
+   */
+  IncludeMaximum?: boolean | undefined;
+}
+
+/**
+ * <p>A filter condition for date columns, supporting both comparison and range-based filtering.</p>
+ * @public
+ */
+export interface DataSetDateFilterCondition {
+  /**
+   * <p>The name of the date column to filter.</p>
+   * @public
+   */
+  ColumnName?: string | undefined;
+
+  /**
+   * <p>A comparison-based filter condition for the date column.</p>
+   * @public
+   */
+  ComparisonFilterCondition?: DataSetDateComparisonFilterCondition | undefined;
+
+  /**
+   * <p>A range-based filter condition for the date column, filtering values between minimum and maximum dates.</p>
+   * @public
+   */
+  RangeFilterCondition?: DataSetDateRangeFilterCondition | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const DataSetNumericComparisonFilterOperator = {
+  DOES_NOT_EQUAL: "DOES_NOT_EQUAL",
+  EQUALS: "EQUALS",
+  GREATER_THAN: "GREATER_THAN",
+  GREATER_THAN_OR_EQUALS_TO: "GREATER_THAN_OR_EQUALS_TO",
+  LESS_THAN: "LESS_THAN",
+  LESS_THAN_OR_EQUALS_TO: "LESS_THAN_OR_EQUALS_TO",
+} as const;
+
+/**
+ * @public
+ */
+export type DataSetNumericComparisonFilterOperator =
+  (typeof DataSetNumericComparisonFilterOperator)[keyof typeof DataSetNumericComparisonFilterOperator];
+
+/**
+ * <p>Represents a numeric value used in filter conditions.</p>
+ * @public
+ */
+export interface DataSetNumericFilterValue {
+  /**
+   * <p>A static numeric value used for filtering.</p>
+   * @public
+   */
+  StaticValue?: number | undefined;
+}
+
+/**
+ * <p>A filter condition that compares numeric values using operators like <code>EQUALS</code>, <code>GREATER_THAN</code>,
+ *            or <code>LESS_THAN</code>.</p>
+ * @public
+ */
+export interface DataSetNumericComparisonFilterCondition {
+  /**
+   * <p>The comparison operator to use, such as <code>EQUALS</code>, <code>GREATER_THAN</code>, <code>LESS_THAN</code>,
+   *            or their variants.</p>
+   * @public
+   */
+  Operator: DataSetNumericComparisonFilterOperator | undefined;
+
+  /**
+   * <p>The numeric value to compare against.</p>
+   * @public
+   */
+  Value?: DataSetNumericFilterValue | undefined;
+}
+
+/**
+ * <p>A filter condition that filters numeric values within a specified range.</p>
+ * @public
+ */
+export interface DataSetNumericRangeFilterCondition {
+  /**
+   * <p>The minimum numeric value for the range filter.</p>
+   * @public
+   */
+  RangeMinimum?: DataSetNumericFilterValue | undefined;
+
+  /**
+   * <p>The maximum numeric value for the range filter.</p>
+   * @public
+   */
+  RangeMaximum?: DataSetNumericFilterValue | undefined;
+
+  /**
+   * <p>Whether to include the minimum value in the filter range.</p>
+   * @public
+   */
+  IncludeMinimum?: boolean | undefined;
+
+  /**
+   * <p>Whether to include the maximum value in the filter range.</p>
+   * @public
+   */
+  IncludeMaximum?: boolean | undefined;
+}
+
+/**
+ * <p>A filter condition for numeric columns, supporting both comparison and range-based filtering.</p>
+ * @public
+ */
+export interface DataSetNumericFilterCondition {
+  /**
+   * <p>The name of the numeric column to filter.</p>
+   * @public
+   */
+  ColumnName?: string | undefined;
+
+  /**
+   * <p>A comparison-based filter condition for the numeric column.</p>
+   * @public
+   */
+  ComparisonFilterCondition?: DataSetNumericComparisonFilterCondition | undefined;
+
+  /**
+   * <p>A range-based filter condition for the numeric column, filtering values between minimum and maximum numbers.</p>
+   * @public
+   */
+  RangeFilterCondition?: DataSetNumericRangeFilterCondition | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const DataSetStringComparisonFilterOperator = {
+  CONTAINS: "CONTAINS",
+  DOES_NOT_CONTAIN: "DOES_NOT_CONTAIN",
+  DOES_NOT_EQUAL: "DOES_NOT_EQUAL",
+  ENDS_WITH: "ENDS_WITH",
+  EQUALS: "EQUALS",
+  STARTS_WITH: "STARTS_WITH",
+} as const;
+
+/**
+ * @public
+ */
+export type DataSetStringComparisonFilterOperator =
+  (typeof DataSetStringComparisonFilterOperator)[keyof typeof DataSetStringComparisonFilterOperator];
+
+/**
+ * <p>Represents a string value used in filter conditions.</p>
+ * @public
+ */
+export interface DataSetStringFilterValue {
+  /**
+   * <p>A static string value used for filtering.</p>
+   * @public
+   */
+  StaticValue?: string | undefined;
+}
+
+/**
+ * <p>A filter condition that compares string values using operators like <code>EQUALS</code>, <code>CONTAINS</code>,
+ *            or <code>STARTS_WITH</code>.</p>
+ * @public
+ */
+export interface DataSetStringComparisonFilterCondition {
+  /**
+   * <p>The comparison operator to use, such as <code>EQUALS</code>, <code>CONTAINS</code>, <code>STARTS_WITH</code>,
+   *            <code>ENDS_WITH</code>, or their negations.</p>
+   * @public
+   */
+  Operator: DataSetStringComparisonFilterOperator | undefined;
+
+  /**
+   * <p>The string value to compare against.</p>
+   * @public
+   */
+  Value?: DataSetStringFilterValue | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const DataSetStringListFilterOperator = {
+  EXCLUDE: "EXCLUDE",
+  INCLUDE: "INCLUDE",
+} as const;
+
+/**
+ * @public
+ */
+export type DataSetStringListFilterOperator =
+  (typeof DataSetStringListFilterOperator)[keyof typeof DataSetStringListFilterOperator];
+
+/**
+ * <p>Represents a list of string values used in filter conditions.</p>
+ * @public
+ */
+export interface DataSetStringListFilterValue {
+  /**
+   * <p>A list of static string values used for filtering.</p>
+   * @public
+   */
+  StaticValues?: string[] | undefined;
+}
+
+/**
+ * <p>A filter condition that includes or excludes string values from a specified list.</p>
+ * @public
+ */
+export interface DataSetStringListFilterCondition {
+  /**
+   * <p>The list operator to use, either <code>INCLUDE</code> to match values in the list or <code>EXCLUDE</code> to
+   *            filter out values in the list.</p>
+   * @public
+   */
+  Operator: DataSetStringListFilterOperator | undefined;
+
+  /**
+   * <p>The list of string values to include or exclude in the filter.</p>
+   * @public
+   */
+  Values?: DataSetStringListFilterValue | undefined;
+}
+
+/**
+ * <p>A filter condition for string columns, supporting both comparison and list-based filtering.</p>
+ * @public
+ */
+export interface DataSetStringFilterCondition {
+  /**
+   * <p>The name of the string column to filter.</p>
+   * @public
+   */
+  ColumnName?: string | undefined;
+
+  /**
+   * <p>A comparison-based filter condition for the string column.</p>
+   * @public
+   */
+  ComparisonFilterCondition?: DataSetStringComparisonFilterCondition | undefined;
+
+  /**
+   * <p>A list-based filter condition that includes or excludes values from a specified list.</p>
+   * @public
+   */
+  ListFilterCondition?: DataSetStringListFilterCondition | undefined;
+}
+
+/**
+ * <p>A transform operation that filters rows based on a condition.</p>
+ * @public
+ */
+export interface FilterOperation {
+  /**
+   * <p>An expression that must evaluate to a Boolean value. Rows for which the expression
+   *             evaluates to true are kept in the dataset.</p>
+   * @public
+   */
+  ConditionExpression?: string | undefined;
+
+  /**
+   * <p>A string-based filter condition within a filter operation.</p>
+   * @public
+   */
+  StringFilterCondition?: DataSetStringFilterCondition | undefined;
+
+  /**
+   * <p>A numeric-based filter condition within a filter operation.</p>
+   * @public
+   */
+  NumericFilterCondition?: DataSetNumericFilterCondition | undefined;
+
+  /**
+   * <p>A date-based filter condition within a filter operation.</p>
+   * @public
+   */
+  DateFilterCondition?: DataSetDateFilterCondition | undefined;
+}
+
+/**
+ * <p>A transform operation that applies one or more filter conditions.</p>
+ * @public
+ */
+export interface FiltersOperation {
+  /**
+   * <p>Alias for this operation.</p>
+   * @public
+   */
+  Alias: string | undefined;
+
+  /**
+   * <p>The source transform operation that provides input data for filtering.</p>
+   * @public
+   */
+  Source: TransformOperationSource | undefined;
+
+  /**
+   * <p>The list of filter operations to apply.</p>
+   * @public
+   */
+  FilterOperations: FilterOperation[] | undefined;
+}
+
+/**
+ * <p>Specifies the source table and column mappings for an import table operation.</p>
+ * @public
+ */
+export interface ImportTableOperationSource {
+  /**
+   * <p>The identifier of the source table to import data from.</p>
+   * @public
+   */
+  SourceTableId: string | undefined;
+
+  /**
+   * <p>The mappings between source column identifiers and target column identifiers during the import.</p>
+   * @public
+   */
+  ColumnIdMappings?: DataSetColumnIdMapping[] | undefined;
+}
+
+/**
+ * <p>A transform operation that imports data from a source table.</p>
+ * @public
+ */
+export interface ImportTableOperation {
+  /**
+   * <p>Alias for this operation.</p>
+   * @public
+   */
+  Alias: string | undefined;
+
+  /**
+   * <p>The source configuration that specifies which source table to import and any column mappings.</p>
+   * @public
+   */
+  Source: ImportTableOperationSource | undefined;
+}
+
+/**
+ * <p>Specifies a mapping to override the name of an output column from a transform operation.</p>
+ * @public
+ */
+export interface OutputColumnNameOverride {
+  /**
+   * <p>The original name of the column from the source transform operation.</p>
+   * @public
+   */
+  SourceColumnName?: string | undefined;
+
+  /**
+   * <p>The new name to assign to the column in the output.</p>
+   * @public
+   */
+  OutputColumnName: string | undefined;
+}
+
+/**
+ * <p>Properties that control how columns are handled for a join operand, including column name overrides.</p>
+ * @public
+ */
+export interface JoinOperandProperties {
+  /**
+   * <p>A list of column name overrides to apply to the join operand's output columns.</p>
+   * @public
+   */
+  OutputColumnNameOverrides: OutputColumnNameOverride[] | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const JoinOperationType = {
+  INNER: "INNER",
+  LEFT: "LEFT",
+  OUTER: "OUTER",
+  RIGHT: "RIGHT",
+} as const;
+
+/**
+ * @public
+ */
+export type JoinOperationType = (typeof JoinOperationType)[keyof typeof JoinOperationType];
+
+/**
+ * <p>A transform operation that combines data from two sources based on specified join conditions.</p>
+ * @public
+ */
+export interface JoinOperation {
+  /**
+   * <p>Alias for this operation.</p>
+   * @public
+   */
+  Alias: string | undefined;
+
+  /**
+   * <p>The left operand for the join operation.</p>
+   * @public
+   */
+  LeftOperand: TransformOperationSource | undefined;
+
+  /**
+   * <p>The right operand for the join operation.</p>
+   * @public
+   */
+  RightOperand: TransformOperationSource | undefined;
+
+  /**
+   * <p>The type of join to perform, such as <code>INNER</code>, <code>LEFT</code>, <code>RIGHT</code>, or <code>OUTER</code>.</p>
+   * @public
+   */
+  Type: JoinOperationType | undefined;
+
+  /**
+   * <p>The join condition that specifies how to match rows between the left and right operands.</p>
+   * @public
+   */
+  OnClause: string | undefined;
+
+  /**
+   * <p>Properties that control how the left operand's columns are handled in the join result.</p>
+   * @public
+   */
+  LeftOperandProperties?: JoinOperandProperties | undefined;
+
+  /**
+   * <p>Properties that control how the right operand's columns are handled in the join result.</p>
+   * @public
+   */
+  RightOperandProperties?: JoinOperandProperties | undefined;
+}
+
+/**
+ * <p>Specifies a label value to be pivoted into a separate column, including the new column name and identifier.</p>
+ * @public
+ */
+export interface PivotedLabel {
+  /**
+   * <p>The label value from the source data to be pivoted.</p>
+   * @public
+   */
+  LabelName: string | undefined;
+
+  /**
+   * <p>The name for the new column created from this pivoted label.</p>
+   * @public
+   */
+  NewColumnName: string | undefined;
+
+  /**
+   * <p>A unique identifier for the new column created from this pivoted label.</p>
+   * @public
+   */
+  NewColumnId: string | undefined;
+}
+
+/**
+ * <p>Configuration for a pivot operation, specifying which column contains labels and how to pivot them.</p>
+ * @public
+ */
+export interface PivotConfiguration {
+  /**
+   * <p>The name of the column that contains the labels to be pivoted into separate columns.</p>
+   * @public
+   */
+  LabelColumnName?: string | undefined;
+
+  /**
+   * <p>The list of specific label values to pivot into separate columns.</p>
+   * @public
+   */
+  PivotedLabels: PivotedLabel[] | undefined;
+}
+
+/**
+ * <p>Configuration for how to handle value columns in pivot operations, including aggregation settings.</p>
+ * @public
+ */
+export interface ValueColumnConfiguration {
+  /**
+   * <p>The aggregation function to apply when multiple values map to the same pivoted cell.</p>
+   * @public
+   */
+  AggregationFunction?: DataPrepAggregationFunction | undefined;
+}
+
+/**
+ * <p>A transform operation that pivots data by converting row values into columns.</p>
+ * @public
+ */
+export interface PivotOperation {
+  /**
+   * <p>Alias for this operation.</p>
+   * @public
+   */
+  Alias: string | undefined;
+
+  /**
+   * <p>The source transform operation that provides input data for pivoting.</p>
+   * @public
+   */
+  Source: TransformOperationSource | undefined;
+
+  /**
+   * <p>The list of column names to group by when performing the pivot operation.</p>
+   * @public
+   */
+  GroupByColumnNames?: string[] | undefined;
+
+  /**
+   * <p>Configuration for how to aggregate values when multiple rows map to the same pivoted column.</p>
+   * @public
+   */
+  ValueColumnConfiguration: ValueColumnConfiguration | undefined;
+
+  /**
+   * <p>Configuration that specifies which labels to pivot and how to structure the resulting columns.</p>
+   * @public
+   */
+  PivotConfiguration: PivotConfiguration | undefined;
+}
+
+/**
+ * <p>A transform operation that projects columns. Operations that come after a projection
+ *             can only refer to projected columns.</p>
+ * @public
+ */
+export interface ProjectOperation {
+  /**
+   * <p>Alias for this operation.</p>
+   * @public
+   */
+  Alias?: string | undefined;
+
+  /**
+   * <p>The source transform operation that provides input data for column projection.</p>
+   * @public
+   */
+  Source?: TransformOperationSource | undefined;
+
+  /**
+   * <p>Projected columns.</p>
+   * @public
+   */
+  ProjectedColumns: string[] | undefined;
+}
+
+/**
+ * <p>A transform operation that renames a column.</p>
+ * @public
+ */
+export interface RenameColumnOperation {
+  /**
+   * <p>The name of the column to be renamed.</p>
+   * @public
+   */
+  ColumnName: string | undefined;
+
+  /**
+   * <p>The new name for the column.</p>
+   * @public
+   */
+  NewColumnName: string | undefined;
+}
+
+/**
+ * <p>A transform operation that renames one or more columns in the dataset.</p>
+ * @public
+ */
+export interface RenameColumnsOperation {
+  /**
+   * <p>Alias for this operation.</p>
+   * @public
+   */
+  Alias: string | undefined;
+
+  /**
+   * <p>The source transform operation that provides input data for column renaming.</p>
+   * @public
+   */
+  Source: TransformOperationSource | undefined;
+
+  /**
+   * <p>The list of column rename operations to perform, specifying old and new column names.</p>
+   * @public
+   */
+  RenameColumnOperations: RenameColumnOperation[] | undefined;
+}
+
+/**
+ * <p>A transform operation that converts columns into rows, normalizing the data structure.</p>
+ * @public
+ */
+export interface UnpivotOperation {
+  /**
+   * <p>Alias for this operation.</p>
+   * @public
+   */
+  Alias: string | undefined;
+
+  /**
+   * <p>The source transform operation that provides input data for unpivoting.</p>
+   * @public
+   */
+  Source: TransformOperationSource | undefined;
+
+  /**
+   * <p>The list of columns to unpivot from the source data.</p>
+   * @public
+   */
+  ColumnsToUnpivot: ColumnToUnpivot[] | undefined;
+
+  /**
+   * <p>The name for the new column that will contain the unpivoted column names.</p>
+   * @public
+   */
+  UnpivotedLabelColumnName: string | undefined;
+
+  /**
+   * <p>A unique identifier for the new column that will contain the unpivoted column names.</p>
+   * @public
+   */
+  UnpivotedLabelColumnId: string | undefined;
+
+  /**
+   * <p>The name for the new column that will contain the unpivoted values.</p>
+   * @public
+   */
+  UnpivotedValueColumnName: string | undefined;
+
+  /**
+   * <p>A unique identifier for the new column that will contain the unpivoted values.</p>
+   * @public
+   */
+  UnpivotedValueColumnId: string | undefined;
+}
+
+/**
+ * <p>A step in data preparation that performs a specific operation on the data.</p>
+ * @public
+ */
+export interface TransformStep {
+  /**
+   * <p>A transform step that brings data from a source table.</p>
+   * @public
+   */
+  ImportTableStep?: ImportTableOperation | undefined;
+
+  /**
+   * <p>A transform operation that projects columns. Operations that come after a projection
+   *             can only refer to projected columns.</p>
+   * @public
+   */
+  ProjectStep?: ProjectOperation | undefined;
+
+  /**
+   * <p>A transform step that applies filter conditions.</p>
+   * @public
+   */
+  FiltersStep?: FiltersOperation | undefined;
+
+  /**
+   * <p>A transform operation that creates calculated columns. Columns created in one such
+   *             operation form a lexical closure.</p>
+   * @public
+   */
+  CreateColumnsStep?: CreateColumnsOperation | undefined;
+
+  /**
+   * <p>A transform step that changes the names of one or more columns.</p>
+   * @public
+   */
+  RenameColumnsStep?: RenameColumnsOperation | undefined;
+
+  /**
+   * <p>A transform step that changes the data types of one or more columns.</p>
+   * @public
+   */
+  CastColumnTypesStep?: CastColumnTypesOperation | undefined;
+
+  /**
+   * <p>A transform step that combines data from two sources based on specified join conditions.</p>
+   * @public
+   */
+  JoinStep?: JoinOperation | undefined;
+
+  /**
+   * <p>A transform step that groups data and applies aggregation functions to calculate summary values.</p>
+   * @public
+   */
+  AggregateStep?: AggregateOperation | undefined;
+
+  /**
+   * <p>A transform step that converts row values into columns to reshape the data structure.</p>
+   * @public
+   */
+  PivotStep?: PivotOperation | undefined;
+
+  /**
+   * <p>A transform step that converts columns into rows to normalize the data structure.</p>
+   * @public
+   */
+  UnpivotStep?: UnpivotOperation | undefined;
+
+  /**
+   * <p>A transform step that combines rows from multiple sources by stacking them vertically.</p>
+   * @public
+   */
+  AppendStep?: AppendOperation | undefined;
+}
+
+/**
+ * <p>Configuration for data preparation operations, defining the complete pipeline from source tables
+ *            through transformations to destination tables.</p>
+ * @public
+ */
+export interface DataPrepConfiguration {
+  /**
+   * <p>A map of source tables that provide information about underlying sources.</p>
+   * @public
+   */
+  SourceTableMap: Record<string, SourceTable> | undefined;
+
+  /**
+   * <p>A map of transformation steps that process the data.</p>
+   * @public
+   */
+  TransformStepMap: Record<string, TransformStep> | undefined;
+
+  /**
+   * <p>A map of destination tables that receive the final prepared data.</p>
+   * @public
+   */
+  DestinationTableMap: Record<string, DestinationTable> | undefined;
+}
+
+/**
  * <p>The default values of a date time parameter.</p>
  * @public
  */
@@ -3820,19 +5106,6 @@ export const DataSetImportMode = {
 export type DataSetImportMode = (typeof DataSetImportMode)[keyof typeof DataSetImportMode];
 
 /**
- * <p>A transform operation that filters rows based on a condition.</p>
- * @public
- */
-export interface FilterOperation {
-  /**
-   * <p>An expression that must evaluate to a Boolean value. Rows for which the expression
-   *             evaluates to true are kept in the dataset.</p>
-   * @public
-   */
-  ConditionExpression: string | undefined;
-}
-
-/**
  * <p>The configuration that overrides the existing default values for a dataset parameter that is inherited from another dataset.</p>
  * @public
  */
@@ -3884,37 +5157,6 @@ export interface OverrideDatasetParameterOperation {
    * @public
    */
   NewDefaultValues?: NewDefaultValues | undefined;
-}
-
-/**
- * <p>A transform operation that projects columns. Operations that come after a projection
- *             can only refer to projected columns.</p>
- * @public
- */
-export interface ProjectOperation {
-  /**
-   * <p>Projected columns.</p>
-   * @public
-   */
-  ProjectedColumns: string[] | undefined;
-}
-
-/**
- * <p>A transform operation that renames a column.</p>
- * @public
- */
-export interface RenameColumnOperation {
-  /**
-   * <p>The name of the column to be renamed.</p>
-   * @public
-   */
-  ColumnName: string | undefined;
-
-  /**
-   * <p>The new name for the column.</p>
-   * @public
-   */
-  NewColumnName: string | undefined;
 }
 
 /**
@@ -4298,49 +5540,6 @@ export interface PerformanceConfiguration {
 }
 
 /**
- * @public
- * @enum
- */
-export const InputColumnDataType = {
-  BIT: "BIT",
-  BOOLEAN: "BOOLEAN",
-  DATETIME: "DATETIME",
-  DECIMAL: "DECIMAL",
-  INTEGER: "INTEGER",
-  JSON: "JSON",
-  STRING: "STRING",
-} as const;
-
-/**
- * @public
- */
-export type InputColumnDataType = (typeof InputColumnDataType)[keyof typeof InputColumnDataType];
-
-/**
- * <p>Metadata for a column that is used as the input of a transform operation.</p>
- * @public
- */
-export interface InputColumn {
-  /**
-   * <p>The name of this column in the underlying data source.</p>
-   * @public
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>The data type of the column.</p>
-   * @public
-   */
-  Type: InputColumnDataType | undefined;
-
-  /**
-   * <p>The sub data type of the column. Sub types are only available for decimal columns that are part of a SPICE dataset.</p>
-   * @public
-   */
-  SubType?: ColumnDataSubType | undefined;
-}
-
-/**
  * <p>A physical table type built from the results of the custom SQL query.</p>
  * @public
  */
@@ -4472,6 +5671,12 @@ export interface UploadSettings {
    * @public
    */
   Delimiter?: string | undefined;
+
+  /**
+   * <p>A custom cell address range for Excel files, specifying which cells to import from the spreadsheet.</p>
+   * @public
+   */
+  CustomCellAddressRange?: string | undefined;
 }
 
 /**
@@ -4502,6 +5707,48 @@ export interface S3Source {
 }
 
 /**
+ * <p>An element in the hierarchical path to a table within a data source, containing both name and identifier.</p>
+ * @public
+ */
+export interface TablePathElement {
+  /**
+   * <p>The name of the path element.</p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>The unique identifier of the path element.</p>
+   * @public
+   */
+  Id?: string | undefined;
+}
+
+/**
+ * <p>A table from a Software-as-a-Service (SaaS) data source, including connection details and column definitions.</p>
+ * @public
+ */
+export interface SaaSTable {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the SaaS data source.</p>
+   * @public
+   */
+  DataSourceArn: string | undefined;
+
+  /**
+   * <p>The hierarchical path to the table within the SaaS data source.</p>
+   * @public
+   */
+  TablePath: TablePathElement[] | undefined;
+
+  /**
+   * <p>The list of input columns available from the SaaS table.</p>
+   * @public
+   */
+  InputColumns: InputColumn[] | undefined;
+}
+
+/**
  * <p>A view of a data source that contains information about the shape of the data in the
  *             underlying source. This is a variant type structure. For this structure to be valid,
  *             only one of the attributes can be non-null.</p>
@@ -4511,6 +5758,7 @@ export type PhysicalTable =
   | PhysicalTable.CustomSqlMember
   | PhysicalTable.RelationalTableMember
   | PhysicalTable.S3SourceMember
+  | PhysicalTable.SaaSTableMember
   | PhysicalTable.$UnknownMember;
 
 /**
@@ -4525,6 +5773,7 @@ export namespace PhysicalTable {
     RelationalTable: RelationalTable;
     CustomSql?: never;
     S3Source?: never;
+    SaaSTable?: never;
     $unknown?: never;
   }
 
@@ -4536,6 +5785,7 @@ export namespace PhysicalTable {
     RelationalTable?: never;
     CustomSql: CustomSql;
     S3Source?: never;
+    SaaSTable?: never;
     $unknown?: never;
   }
 
@@ -4547,6 +5797,19 @@ export namespace PhysicalTable {
     RelationalTable?: never;
     CustomSql?: never;
     S3Source: S3Source;
+    SaaSTable?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>A physical table type for Software-as-a-Service (SaaS) sources.</p>
+   * @public
+   */
+  export interface SaaSTableMember {
+    RelationalTable?: never;
+    CustomSql?: never;
+    S3Source?: never;
+    SaaSTable: SaaSTable;
     $unknown?: never;
   }
 
@@ -4557,6 +5820,7 @@ export namespace PhysicalTable {
     RelationalTable?: never;
     CustomSql?: never;
     S3Source?: never;
+    SaaSTable?: never;
     $unknown: [string, any];
   }
 
@@ -4564,6 +5828,7 @@ export namespace PhysicalTable {
     RelationalTable: (value: RelationalTable) => T;
     CustomSql: (value: CustomSql) => T;
     S3Source: (value: S3Source) => T;
+    SaaSTable: (value: SaaSTable) => T;
     _: (name: string, value: any) => T;
   }
 
@@ -4571,6 +5836,7 @@ export namespace PhysicalTable {
     if (value.RelationalTable !== undefined) return visitor.RelationalTable(value.RelationalTable);
     if (value.CustomSql !== undefined) return visitor.CustomSql(value.CustomSql);
     if (value.S3Source !== undefined) return visitor.S3Source(value.S3Source);
+    if (value.SaaSTable !== undefined) return visitor.SaaSTable(value.SaaSTable);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
 }
@@ -4716,6 +5982,65 @@ export interface RowLevelPermissionTagConfiguration {
 }
 
 /**
+ * <p>Configuration for row level security.</p>
+ * @public
+ */
+export interface RowLevelPermissionConfiguration {
+  /**
+   * <p>The configuration of tags on a dataset to set row-level security. </p>
+   * @public
+   */
+  TagConfiguration?: RowLevelPermissionTagConfiguration | undefined;
+
+  /**
+   * <p>Information about a dataset that contains permissions for row-level security (RLS).
+   *             The permissions dataset maps fields to users or groups. For more information, see
+   *             <a href="https://docs.aws.amazon.com/quicksight/latest/user/restrict-access-to-a-data-set-using-row-level-security.html">Using Row-Level Security (RLS) to Restrict Access to a Dataset</a> in the <i>Quick Sight User
+   *                 Guide</i>.</p>
+   *          <p>The option to deny permissions by setting <code>PermissionPolicy</code> to <code>DENY_ACCESS</code> is
+   *             not supported for new RLS datasets.</p>
+   * @public
+   */
+  RowLevelPermissionDataSet?: RowLevelPermissionDataSet | undefined;
+}
+
+/**
+ * <p>A semantic table that represents the final analytical structure of the data.</p>
+ * @public
+ */
+export interface SemanticTable {
+  /**
+   * <p>Alias for the semantic table.</p>
+   * @public
+   */
+  Alias: string | undefined;
+
+  /**
+   * <p>The identifier of the destination table from data preparation that provides data to this semantic table.</p>
+   * @public
+   */
+  DestinationTableId: string | undefined;
+
+  /**
+   * <p>Configuration for row level security that control data access for this semantic table.</p>
+   * @public
+   */
+  RowLevelPermissionConfiguration?: RowLevelPermissionConfiguration | undefined;
+}
+
+/**
+ * <p>Configuration for the semantic model that defines how prepared data is structured for analysis and reporting.</p>
+ * @public
+ */
+export interface SemanticModelConfiguration {
+  /**
+   * <p>A map of semantic tables that define the analytical structure.</p>
+   * @public
+   */
+  TableMap?: Record<string, SemanticTable> | undefined;
+}
+
+/**
  * @public
  * @enum
  */
@@ -4758,7 +6083,9 @@ export interface CreateDataSetRequest {
 
   /**
    * <p>Configures the combination and transformation of the data from the physical
-   * 			tables.</p>
+   * 			tables. This parameter is used with the legacy data preparation experience.</p>
+   *
+   * @deprecated Only used in the legacy data preparation experience.
    * @public
    */
   LogicalTableMap?: Record<string, LogicalTable> | undefined;
@@ -4789,14 +6116,20 @@ export interface CreateDataSetRequest {
   Permissions?: ResourcePermission[] | undefined;
 
   /**
-   * <p>The row-level security configuration for the data that you want to create.</p>
+   * <p>The row-level security configuration for the data that you want to create. This parameter is
+   * 			used with the legacy data preparation experience.</p>
+   *
+   * @deprecated Only used in the legacy data preparation experience.
    * @public
    */
   RowLevelPermissionDataSet?: RowLevelPermissionDataSet | undefined;
 
   /**
    * <p>The configuration of tags on a dataset to set row-level security. Row-level security
-   * 			tags are currently supported for anonymous embedding only.</p>
+   * 			tags are currently supported for anonymous embedding only. This parameter is
+   * 			used with the legacy data preparation experience.</p>
+   *
+   * @deprecated Only used in the legacy data preparation experience.
    * @public
    */
   RowLevelPermissionTagConfiguration?: RowLevelPermissionTagConfiguration | undefined;
@@ -4848,6 +6181,22 @@ export interface CreateDataSetRequest {
    * @public
    */
   UseAs?: DataSetUseAs | undefined;
+
+  /**
+   * <p>The data preparation configuration for the dataset. This configuration defines the source tables,
+   * 			transformation steps, and destination tables used to prepare the data.
+   * 			Required when using the new data preparation experience.</p>
+   * @public
+   */
+  DataPrepConfiguration?: DataPrepConfiguration | undefined;
+
+  /**
+   * <p>The semantic model configuration for the dataset. This configuration defines how the prepared
+   * 			data is structured for an analysis, including table mappings and row-level security configurations.
+   * 			Required when using the new data preparation experience.</p>
+   * @public
+   */
+  SemanticModelConfiguration?: SemanticModelConfiguration | undefined;
 }
 
 /**
@@ -4891,6 +6240,34 @@ export interface CreateDataSetResponse {
    * @public
    */
   Status?: number | undefined;
+}
+
+/**
+ * <p>An exception thrown when an invalid parameter value is provided for dataset operations.</p>
+ * @public
+ */
+export class InvalidDataSetParameterValueException extends __BaseException {
+  readonly name: "InvalidDataSetParameterValueException" = "InvalidDataSetParameterValueException";
+  readonly $fault: "client" = "client";
+  Message?: string | undefined;
+  /**
+   * <p>The Amazon Web Services request ID for this request.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidDataSetParameterValueException, __BaseException>) {
+    super({
+      name: "InvalidDataSetParameterValueException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidDataSetParameterValueException.prototype);
+    this.Message = opts.Message;
+    this.RequestId = opts.RequestId;
+  }
 }
 
 /**
@@ -7386,1895 +8763,6 @@ export interface TopicCategoryFilter {
 }
 
 /**
- * <p>A structure that represents a range constant.</p>
- * @public
- */
-export interface RangeConstant {
-  /**
-   * <p>The minimum value for a range constant.</p>
-   * @public
-   */
-  Minimum?: string | undefined;
-
-  /**
-   * <p>The maximum value for a range constant.</p>
-   * @public
-   */
-  Maximum?: string | undefined;
-}
-
-/**
- * <p>A constant value that is used in a range filter to specify the endpoints of the range.</p>
- * @public
- */
-export interface TopicRangeFilterConstant {
-  /**
-   * <p>The data type of the constant value that is used in a range filter. Valid values for this structure are <code>RANGE</code>.</p>
-   * @public
-   */
-  ConstantType?: ConstantType | undefined;
-
-  /**
-   * <p>The value of the constant that is used to specify the endpoints of a range filter.</p>
-   * @public
-   */
-  RangeConstant?: RangeConstant | undefined;
-}
-
-/**
- * <p>A filter used to restrict data based on a range of dates or times.</p>
- * @public
- */
-export interface TopicDateRangeFilter {
-  /**
-   * <p>A Boolean value that indicates whether the date range filter should include the boundary values. If
-   *          set to true, the filter includes the start and end dates. If set to false, the filter
-   *          excludes them.</p>
-   * @public
-   */
-  Inclusive?: boolean | undefined;
-
-  /**
-   * <p>The constant used in a date range filter.</p>
-   * @public
-   */
-  Constant?: TopicRangeFilterConstant | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const NamedFilterType = {
-  CATEGORY_FILTER: "CATEGORY_FILTER",
-  DATE_RANGE_FILTER: "DATE_RANGE_FILTER",
-  NULL_FILTER: "NULL_FILTER",
-  NUMERIC_EQUALITY_FILTER: "NUMERIC_EQUALITY_FILTER",
-  NUMERIC_RANGE_FILTER: "NUMERIC_RANGE_FILTER",
-  RELATIVE_DATE_FILTER: "RELATIVE_DATE_FILTER",
-} as const;
-
-/**
- * @public
- */
-export type NamedFilterType = (typeof NamedFilterType)[keyof typeof NamedFilterType];
-
-/**
- * <p>A structure that represents a singular filter constant, used in filters to specify a single value to match against.</p>
- * @public
- */
-export interface TopicSingularFilterConstant {
-  /**
-   * <p>The type of the singular filter constant. Valid values for this structure are <code>SINGULAR</code>.</p>
-   * @public
-   */
-  ConstantType?: ConstantType | undefined;
-
-  /**
-   * <p>The value of the singular filter constant.</p>
-   * @public
-   */
-  SingularConstant?: string | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const NullFilterType = {
-  ALL_VALUES: "ALL_VALUES",
-  NON_NULLS_ONLY: "NON_NULLS_ONLY",
-  NULLS_ONLY: "NULLS_ONLY",
-} as const;
-
-/**
- * @public
- */
-export type NullFilterType = (typeof NullFilterType)[keyof typeof NullFilterType];
-
-/**
- * <p>The structure that represents a null filter.</p>
- * @public
- */
-export interface TopicNullFilter {
-  /**
-   * <p>The type of the null filter. Valid values for this type are <code>NULLS_ONLY</code>, <code>NON_NULLS_ONLY</code>, and <code>ALL_VALUES</code>.</p>
-   * @public
-   */
-  NullFilterType?: NullFilterType | undefined;
-
-  /**
-   * <p>A structure that represents a singular filter constant, used in filters to specify a single value to match against.</p>
-   * @public
-   */
-  Constant?: TopicSingularFilterConstant | undefined;
-
-  /**
-   * <p>A Boolean value that indicates if the filter is inverse.</p>
-   * @public
-   */
-  Inverse?: boolean | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const NamedFilterAggType = {
-  AVERAGE: "AVERAGE",
-  COUNT: "COUNT",
-  DISTINCT_COUNT: "DISTINCT_COUNT",
-  MAX: "MAX",
-  MEDIAN: "MEDIAN",
-  MIN: "MIN",
-  NO_AGGREGATION: "NO_AGGREGATION",
-  STDEV: "STDEV",
-  STDEVP: "STDEVP",
-  SUM: "SUM",
-  VAR: "VAR",
-  VARP: "VARP",
-} as const;
-
-/**
- * @public
- */
-export type NamedFilterAggType = (typeof NamedFilterAggType)[keyof typeof NamedFilterAggType];
-
-/**
- * <p>A filter that filters topics based on the value of a numeric field. The filter includes only topics whose numeric field value matches the specified value.</p>
- * @public
- */
-export interface TopicNumericEqualityFilter {
-  /**
-   * <p>The constant used in a numeric equality filter.</p>
-   * @public
-   */
-  Constant?: TopicSingularFilterConstant | undefined;
-
-  /**
-   * <p>An aggregation function that specifies how to calculate the value of a numeric field for
-   *          a topic. Valid values for this structure are <code>NO_AGGREGATION</code>, <code>SUM</code>,
-   *             <code>AVERAGE</code>, <code>COUNT</code>, <code>DISTINCT_COUNT</code>, <code>MAX</code>,
-   *             <code>MEDIAN</code>, <code>MIN</code>, <code>STDEV</code>, <code>STDEVP</code>,
-   *             <code>VAR</code>,
-   *          and <code>VARP</code>.</p>
-   * @public
-   */
-  Aggregation?: NamedFilterAggType | undefined;
-}
-
-/**
- * <p>A filter that filters topics based on the value of a numeric field. The filter includes only topics whose numeric field value falls within the specified range.</p>
- * @public
- */
-export interface TopicNumericRangeFilter {
-  /**
-   * <p>A Boolean value that indicates whether the endpoints of the numeric range are included in the filter.
-   *          If set to true, topics whose numeric field value is equal to the endpoint values will be
-   *          included in the filter. If set to false, topics whose numeric field value is equal to the
-   *          endpoint values will be excluded from the filter.</p>
-   * @public
-   */
-  Inclusive?: boolean | undefined;
-
-  /**
-   * <p>The constant used in a
-   *          numeric range filter.</p>
-   * @public
-   */
-  Constant?: TopicRangeFilterConstant | undefined;
-
-  /**
-   * <p>An aggregation function that specifies how to calculate the value of a numeric field for
-   *          a topic, Valid values for this structure are <code>NO_AGGREGATION</code>, <code>SUM</code>,
-   *             <code>AVERAGE</code>, <code>COUNT</code>, <code>DISTINCT_COUNT</code>, <code>MAX</code>,
-   *             <code>MEDIAN</code>, <code>MIN</code>, <code>STDEV</code>, <code>STDEVP</code>,
-   *             <code>VAR</code>,
-   *          and <code>VARP</code>.</p>
-   * @public
-   */
-  Aggregation?: NamedFilterAggType | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const TopicRelativeDateFilterFunction = {
-  LAST: "LAST",
-  NEXT: "NEXT",
-  NOW: "NOW",
-  PREVIOUS: "PREVIOUS",
-  THIS: "THIS",
-} as const;
-
-/**
- * @public
- */
-export type TopicRelativeDateFilterFunction =
-  (typeof TopicRelativeDateFilterFunction)[keyof typeof TopicRelativeDateFilterFunction];
-
-/**
- * <p>A structure that represents a relative date filter.</p>
- * @public
- */
-export interface TopicRelativeDateFilter {
-  /**
-   * <p>The level of time precision that is used to aggregate <code>DateTime</code> values.</p>
-   * @public
-   */
-  TimeGranularity?: TopicTimeGranularity | undefined;
-
-  /**
-   * <p>The function to be used in a relative date filter to determine the range of dates to include in the results. Valid values for this structure are <code>BEFORE</code>, <code>AFTER</code>, and <code>BETWEEN</code>.</p>
-   * @public
-   */
-  RelativeDateFilterFunction?: TopicRelativeDateFilterFunction | undefined;
-
-  /**
-   * <p>The constant used in a
-   *          relative date filter.</p>
-   * @public
-   */
-  Constant?: TopicSingularFilterConstant | undefined;
-}
-
-/**
- * <p>A structure that represents a filter used to select items for a topic.</p>
- * @public
- */
-export interface TopicFilter {
-  /**
-   * <p>A description of the filter used to select items for a topic.</p>
-   * @public
-   */
-  FilterDescription?: string | undefined;
-
-  /**
-   * <p>The class of the filter. Valid values for this structure are
-   *             <code>ENFORCED_VALUE_FILTER</code>,
-   *          <code>CONDITIONAL_VALUE_FILTER</code>,
-   *          and <code>NAMED_VALUE_FILTER</code>.</p>
-   * @public
-   */
-  FilterClass?: FilterClass | undefined;
-
-  /**
-   * <p>The name of the filter.</p>
-   * @public
-   */
-  FilterName: string | undefined;
-
-  /**
-   * <p>The other names or aliases for the filter.</p>
-   * @public
-   */
-  FilterSynonyms?: string[] | undefined;
-
-  /**
-   * <p>The name of the field that the filter operates on.</p>
-   * @public
-   */
-  OperandFieldName: string | undefined;
-
-  /**
-   * <p>The type of the filter. Valid values for this structure are
-   *          <code>CATEGORY_FILTER</code>, <code>NUMERIC_EQUALITY_FILTER</code>,
-   *             <code>NUMERIC_RANGE_FILTER</code>,
-   *          <code>DATE_RANGE_FILTER</code>,
-   *          and <code>RELATIVE_DATE_FILTER</code>.</p>
-   * @public
-   */
-  FilterType?: NamedFilterType | undefined;
-
-  /**
-   * <p>The category filter that is associated with this filter.</p>
-   * @public
-   */
-  CategoryFilter?: TopicCategoryFilter | undefined;
-
-  /**
-   * <p>The numeric equality filter.</p>
-   * @public
-   */
-  NumericEqualityFilter?: TopicNumericEqualityFilter | undefined;
-
-  /**
-   * <p>The numeric range filter.</p>
-   * @public
-   */
-  NumericRangeFilter?: TopicNumericRangeFilter | undefined;
-
-  /**
-   * <p>The date range filter.</p>
-   * @public
-   */
-  DateRangeFilter?: TopicDateRangeFilter | undefined;
-
-  /**
-   * <p>The relative date filter.</p>
-   * @public
-   */
-  RelativeDateFilter?: TopicRelativeDateFilter | undefined;
-
-  /**
-   * <p>The null filter.</p>
-   * @public
-   */
-  NullFilter?: TopicNullFilter | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const NamedEntityAggType = {
-  AVERAGE: "AVERAGE",
-  COUNT: "COUNT",
-  CUSTOM: "CUSTOM",
-  DISTINCT_COUNT: "DISTINCT_COUNT",
-  MAX: "MAX",
-  MEDIAN: "MEDIAN",
-  MIN: "MIN",
-  PERCENTILE: "PERCENTILE",
-  STDEV: "STDEV",
-  STDEVP: "STDEVP",
-  SUM: "SUM",
-  VAR: "VAR",
-  VARP: "VARP",
-} as const;
-
-/**
- * @public
- */
-export type NamedEntityAggType = (typeof NamedEntityAggType)[keyof typeof NamedEntityAggType];
-
-/**
- * <p>A structure that represents a metric.</p>
- * @public
- */
-export interface NamedEntityDefinitionMetric {
-  /**
-   * <p>The aggregation of a named entity. Valid values for this structure are <code>SUM</code>,
-   *             <code>MIN</code>, <code>MAX</code>, <code>COUNT</code>, <code>AVERAGE</code>,
-   *             <code>DISTINCT_COUNT</code>, <code>STDEV</code>, <code>STDEVP</code>, <code>VAR</code>,
-   *             <code>VARP</code>, <code>PERCENTILE</code>,
-   *          <code>MEDIAN</code>,
-   *          and <code>CUSTOM</code>.</p>
-   * @public
-   */
-  Aggregation?: NamedEntityAggType | undefined;
-
-  /**
-   * <p>The additional parameters for an aggregation function.</p>
-   * @public
-   */
-  AggregationFunctionParameters?: Record<string, string> | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const PropertyRole = {
-  ID: "ID",
-  PRIMARY: "PRIMARY",
-} as const;
-
-/**
- * @public
- */
-export type PropertyRole = (typeof PropertyRole)[keyof typeof PropertyRole];
-
-/**
- * @public
- * @enum
- */
-export const PropertyUsage = {
-  DIMENSION: "DIMENSION",
-  INHERIT: "INHERIT",
-  MEASURE: "MEASURE",
-} as const;
-
-/**
- * @public
- */
-export type PropertyUsage = (typeof PropertyUsage)[keyof typeof PropertyUsage];
-
-/**
- * <p>A structure that represents a named entity.</p>
- * @public
- */
-export interface NamedEntityDefinition {
-  /**
-   * <p>The name of the entity.</p>
-   * @public
-   */
-  FieldName?: string | undefined;
-
-  /**
-   * <p>The property name to be used for the named entity.</p>
-   * @public
-   */
-  PropertyName?: string | undefined;
-
-  /**
-   * <p>The property role. Valid values for this structure are <code>PRIMARY</code> and <code>ID</code>.</p>
-   * @public
-   */
-  PropertyRole?: PropertyRole | undefined;
-
-  /**
-   * <p>The property usage. Valid values for this structure are <code>INHERIT</code>,
-   *             <code>DIMENSION</code>,
-   *          and <code>MEASURE</code>.</p>
-   * @public
-   */
-  PropertyUsage?: PropertyUsage | undefined;
-
-  /**
-   * <p>The definition of a metric.</p>
-   * @public
-   */
-  Metric?: NamedEntityDefinitionMetric | undefined;
-}
-
-/**
- * <p>A structure that represents a semantic entity type.</p>
- * @public
- */
-export interface SemanticEntityType {
-  /**
-   * <p>The semantic entity type name.</p>
-   * @public
-   */
-  TypeName?: string | undefined;
-
-  /**
-   * <p>The semantic entity sub type name.</p>
-   * @public
-   */
-  SubTypeName?: string | undefined;
-
-  /**
-   * <p>The semantic entity type parameters.</p>
-   * @public
-   */
-  TypeParameters?: Record<string, string> | undefined;
-}
-
-/**
- * <p>A structure that represents a named entity.</p>
- * @public
- */
-export interface TopicNamedEntity {
-  /**
-   * <p>The name of the named entity.</p>
-   * @public
-   */
-  EntityName: string | undefined;
-
-  /**
-   * <p>The description of the named entity.</p>
-   * @public
-   */
-  EntityDescription?: string | undefined;
-
-  /**
-   * <p>The other
-   *          names or aliases for the named entity.</p>
-   * @public
-   */
-  EntitySynonyms?: string[] | undefined;
-
-  /**
-   * <p>The type of named entity that a topic represents.</p>
-   * @public
-   */
-  SemanticEntityType?: SemanticEntityType | undefined;
-
-  /**
-   * <p>The definition of a named entity.</p>
-   * @public
-   */
-  Definition?: NamedEntityDefinition[] | undefined;
-}
-
-/**
- * <p>A structure that represents a dataset.</p>
- * @public
- */
-export interface DatasetMetadata {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the dataset.</p>
-   * @public
-   */
-  DatasetArn: string | undefined;
-
-  /**
-   * <p>The name of the dataset.</p>
-   * @public
-   */
-  DatasetName?: string | undefined;
-
-  /**
-   * <p>The description of the dataset.</p>
-   * @public
-   */
-  DatasetDescription?: string | undefined;
-
-  /**
-   * <p>The definition of a data aggregation.</p>
-   * @public
-   */
-  DataAggregation?: DataAggregation | undefined;
-
-  /**
-   * <p>The list of filter definitions.</p>
-   * @public
-   */
-  Filters?: TopicFilter[] | undefined;
-
-  /**
-   * <p>The list of column definitions.</p>
-   * @public
-   */
-  Columns?: TopicColumn[] | undefined;
-
-  /**
-   * <p>The list of calculated field definitions.</p>
-   * @public
-   */
-  CalculatedFields?: TopicCalculatedField[] | undefined;
-
-  /**
-   * <p>The list of named entities definitions.</p>
-   * @public
-   */
-  NamedEntities?: TopicNamedEntity[] | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const TopicUserExperienceVersion = {
-  LEGACY: "LEGACY",
-  NEW_READER_EXPERIENCE: "NEW_READER_EXPERIENCE",
-} as const;
-
-/**
- * @public
- */
-export type TopicUserExperienceVersion = (typeof TopicUserExperienceVersion)[keyof typeof TopicUserExperienceVersion];
-
-/**
- * <p>A structure that describes the details of a topic, such as its name, description, and associated data sets.</p>
- * @public
- */
-export interface TopicDetails {
-  /**
-   * <p>The name of the topic.</p>
-   * @public
-   */
-  Name?: string | undefined;
-
-  /**
-   * <p>The description of the topic.</p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p>The user experience version of a topic.</p>
-   * @public
-   */
-  UserExperienceVersion?: TopicUserExperienceVersion | undefined;
-
-  /**
-   * <p>The data sets that the topic is associated with.</p>
-   * @public
-   */
-  DataSets?: DatasetMetadata[] | undefined;
-
-  /**
-   * <p>Configuration options for a <code>Topic</code>.</p>
-   * @public
-   */
-  ConfigOptions?: TopicConfigOptions | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateTopicRequest {
-  /**
-   * <p>The ID of the Amazon Web Services account that you want to create a topic in.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The ID for the topic that you want to create. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>
-   * @public
-   */
-  TopicId: string | undefined;
-
-  /**
-   * <p>The definition of a topic to create.</p>
-   * @public
-   */
-  Topic: TopicDetails | undefined;
-
-  /**
-   * <p>Contains a map of the key-value pairs for the resource tag or tags that are assigned to
-   *          the dataset.</p>
-   * @public
-   */
-  Tags?: Tag[] | undefined;
-
-  /**
-   * <p>The Folder ARN of the folder that you want the topic to reside in.</p>
-   * @public
-   */
-  FolderArns?: string[] | undefined;
-
-  /**
-   * <p>Custom instructions for the topic.</p>
-   * @public
-   */
-  CustomInstructions?: CustomInstructions | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateTopicResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the topic.</p>
-   * @public
-   */
-  Arn?: string | undefined;
-
-  /**
-   * <p>The ID for the topic that you want to create. This ID is unique per Amazon Web Services Region
-   *          for each Amazon Web Services account.</p>
-   * @public
-   */
-  TopicId?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the topic refresh.</p>
-   * @public
-   */
-  RefreshArn?: string | undefined;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const TopicScheduleType = {
-  DAILY: "DAILY",
-  HOURLY: "HOURLY",
-  MONTHLY: "MONTHLY",
-  WEEKLY: "WEEKLY",
-} as const;
-
-/**
- * @public
- */
-export type TopicScheduleType = (typeof TopicScheduleType)[keyof typeof TopicScheduleType];
-
-/**
- * <p>A structure that represents a topic refresh schedule.</p>
- * @public
- */
-export interface TopicRefreshSchedule {
-  /**
-   * <p>A Boolean value that controls whether to schedule is enabled.</p>
-   * @public
-   */
-  IsEnabled: boolean | undefined;
-
-  /**
-   * <p>A Boolean value that controls whether to schedule runs at the same schedule that is specified in
-   *          SPICE dataset.</p>
-   * @public
-   */
-  BasedOnSpiceSchedule: boolean | undefined;
-
-  /**
-   * <p>The starting date and time for the refresh schedule.</p>
-   * @public
-   */
-  StartingAt?: Date | undefined;
-
-  /**
-   * <p>The timezone that you want the refresh schedule to use.</p>
-   * @public
-   */
-  Timezone?: string | undefined;
-
-  /**
-   * <p>The time of day when the refresh should run, for
-   *          example, Monday-Sunday.</p>
-   * @public
-   */
-  RepeatAt?: string | undefined;
-
-  /**
-   * <p>The type of refresh schedule. Valid values for this structure are <code>HOURLY</code>,
-   *             <code>DAILY</code>,
-   *          <code>WEEKLY</code>,
-   *          and <code>MONTHLY</code>.</p>
-   * @public
-   */
-  TopicScheduleType?: TopicScheduleType | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateTopicRefreshScheduleRequest {
-  /**
-   * <p>The ID of the Amazon Web Services account that contains the topic
-   *          you're creating a refresh schedule for.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The ID of the topic that you want to modify. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>
-   * @public
-   */
-  TopicId: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the dataset.</p>
-   * @public
-   */
-  DatasetArn: string | undefined;
-
-  /**
-   * <p>The name of the dataset.</p>
-   * @public
-   */
-  DatasetName?: string | undefined;
-
-  /**
-   * <p>The definition of a refresh schedule.</p>
-   * @public
-   */
-  RefreshSchedule: TopicRefreshSchedule | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateTopicRefreshScheduleResponse {
-  /**
-   * <p>The ID of the topic that you want to modify. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>
-   * @public
-   */
-  TopicId?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the topic.</p>
-   * @public
-   */
-  TopicArn?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the dataset.</p>
-   * @public
-   */
-  DatasetArn?: string | undefined;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateVPCConnectionRequest {
-  /**
-   * <p>The Amazon Web Services account ID of the account where you want to create a new VPC
-   * 			connection.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The ID of the VPC connection that
-   * 			you're creating. This ID is a unique identifier for each Amazon Web Services Region in an
-   * 				Amazon Web Services account.</p>
-   * @public
-   */
-  VPCConnectionId: string | undefined;
-
-  /**
-   * <p>The display name for the VPC connection.</p>
-   * @public
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>A list of subnet IDs for the VPC connection.</p>
-   * @public
-   */
-  SubnetIds: string[] | undefined;
-
-  /**
-   * <p>A list of security group IDs for the VPC connection.</p>
-   * @public
-   */
-  SecurityGroupIds: string[] | undefined;
-
-  /**
-   * <p>A list of IP addresses of DNS resolver endpoints for the VPC connection.</p>
-   * @public
-   */
-  DnsResolvers?: string[] | undefined;
-
-  /**
-   * <p>The IAM role to associate with the VPC connection.</p>
-   * @public
-   */
-  RoleArn: string | undefined;
-
-  /**
-   * <p>A map of the key-value pairs for the resource tag or tags assigned to the VPC
-   * 			connection.</p>
-   * @public
-   */
-  Tags?: Tag[] | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const VPCConnectionAvailabilityStatus = {
-  AVAILABLE: "AVAILABLE",
-  PARTIALLY_AVAILABLE: "PARTIALLY_AVAILABLE",
-  UNAVAILABLE: "UNAVAILABLE",
-} as const;
-
-/**
- * @public
- */
-export type VPCConnectionAvailabilityStatus =
-  (typeof VPCConnectionAvailabilityStatus)[keyof typeof VPCConnectionAvailabilityStatus];
-
-/**
- * @public
- * @enum
- */
-export const VPCConnectionResourceStatus = {
-  CREATION_FAILED: "CREATION_FAILED",
-  CREATION_IN_PROGRESS: "CREATION_IN_PROGRESS",
-  CREATION_SUCCESSFUL: "CREATION_SUCCESSFUL",
-  DELETED: "DELETED",
-  DELETION_FAILED: "DELETION_FAILED",
-  DELETION_IN_PROGRESS: "DELETION_IN_PROGRESS",
-  UPDATE_FAILED: "UPDATE_FAILED",
-  UPDATE_IN_PROGRESS: "UPDATE_IN_PROGRESS",
-  UPDATE_SUCCESSFUL: "UPDATE_SUCCESSFUL",
-} as const;
-
-/**
- * @public
- */
-export type VPCConnectionResourceStatus =
-  (typeof VPCConnectionResourceStatus)[keyof typeof VPCConnectionResourceStatus];
-
-/**
- * @public
- */
-export interface CreateVPCConnectionResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the VPC connection.</p>
-   * @public
-   */
-  Arn?: string | undefined;
-
-  /**
-   * <p>The ID for the VPC connection that
-   * 			you're creating. This ID is unique per Amazon Web Services Region for each Amazon Web Services
-   * 			account.</p>
-   * @public
-   */
-  VPCConnectionId?: string | undefined;
-
-  /**
-   * <p>The status of the creation of the VPC connection.</p>
-   * @public
-   */
-  CreationStatus?: VPCConnectionResourceStatus | undefined;
-
-  /**
-   * <p>The availability status of the VPC connection.</p>
-   * @public
-   */
-  AvailabilityStatus?: VPCConnectionAvailabilityStatus | undefined;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-}
-
-/**
- * <p>The custom permissions profile.</p>
- * @public
- */
-export interface CustomPermissions {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the custom permissions profile.</p>
-   * @public
-   */
-  Arn?: string | undefined;
-
-  /**
-   * <p>The name of the custom permissions profile.</p>
-   * @public
-   */
-  CustomPermissionsName?: string | undefined;
-
-  /**
-   * <p>A set of actions in the custom permissions profile.</p>
-   * @public
-   */
-  Capabilities?: Capabilities | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const DashboardErrorType = {
-  ACCESS_DENIED: "ACCESS_DENIED",
-  COLUMN_GEOGRAPHIC_ROLE_MISMATCH: "COLUMN_GEOGRAPHIC_ROLE_MISMATCH",
-  COLUMN_REPLACEMENT_MISSING: "COLUMN_REPLACEMENT_MISSING",
-  COLUMN_TYPE_MISMATCH: "COLUMN_TYPE_MISMATCH",
-  DATA_SET_NOT_FOUND: "DATA_SET_NOT_FOUND",
-  INTERNAL_FAILURE: "INTERNAL_FAILURE",
-  PARAMETER_NOT_FOUND: "PARAMETER_NOT_FOUND",
-  PARAMETER_TYPE_INVALID: "PARAMETER_TYPE_INVALID",
-  PARAMETER_VALUE_INCOMPATIBLE: "PARAMETER_VALUE_INCOMPATIBLE",
-  SOURCE_NOT_FOUND: "SOURCE_NOT_FOUND",
-} as const;
-
-/**
- * @public
- */
-export type DashboardErrorType = (typeof DashboardErrorType)[keyof typeof DashboardErrorType];
-
-/**
- * <p>Dashboard error.</p>
- * @public
- */
-export interface DashboardError {
-  /**
-   * <p>Type.</p>
-   * @public
-   */
-  Type?: DashboardErrorType | undefined;
-
-  /**
-   * <p>Message.</p>
-   * @public
-   */
-  Message?: string | undefined;
-
-  /**
-   * <p>Lists the violated entities that caused the dashboard error.</p>
-   * @public
-   */
-  ViolatedEntities?: Entity[] | undefined;
-}
-
-/**
- * <p>Dashboard version.</p>
- * @public
- */
-export interface DashboardVersion {
-  /**
-   * <p>The time that this dashboard version was created.</p>
-   * @public
-   */
-  CreatedTime?: Date | undefined;
-
-  /**
-   * <p>Errors associated with this dashboard version.</p>
-   * @public
-   */
-  Errors?: DashboardError[] | undefined;
-
-  /**
-   * <p>Version number for this version of the dashboard.</p>
-   * @public
-   */
-  VersionNumber?: number | undefined;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: ResourceStatus | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the resource.</p>
-   * @public
-   */
-  Arn?: string | undefined;
-
-  /**
-   * <p>Source entity ARN.</p>
-   * @public
-   */
-  SourceEntityArn?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Numbers (ARNs) for the datasets that are associated with this
-   *             version of the dashboard.</p>
-   * @public
-   */
-  DataSetArns?: string[] | undefined;
-
-  /**
-   * <p>Description.</p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p>The ARN of the theme associated with a version of the dashboard.</p>
-   * @public
-   */
-  ThemeArn?: string | undefined;
-
-  /**
-   * <p>A list of the associated sheets with the unique identifier and name of each sheet.</p>
-   * @public
-   */
-  Sheets?: Sheet[] | undefined;
-}
-
-/**
- * <p>Dashboard.</p>
- * @public
- */
-export interface Dashboard {
-  /**
-   * <p>Dashboard ID.</p>
-   * @public
-   */
-  DashboardId?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the resource.</p>
-   * @public
-   */
-  Arn?: string | undefined;
-
-  /**
-   * <p>A display name for the dashboard.</p>
-   * @public
-   */
-  Name?: string | undefined;
-
-  /**
-   * <p>Version.</p>
-   * @public
-   */
-  Version?: DashboardVersion | undefined;
-
-  /**
-   * <p>The time that this dashboard was created.</p>
-   * @public
-   */
-  CreatedTime?: Date | undefined;
-
-  /**
-   * <p>The last time that this dashboard was published.</p>
-   * @public
-   */
-  LastPublishedTime?: Date | undefined;
-
-  /**
-   * <p>The last time that this dashboard was updated.</p>
-   * @public
-   */
-  LastUpdatedTime?: Date | undefined;
-
-  /**
-   * <p>A list of analysis Amazon Resource Names (ARNs) to be linked to the dashboard.</p>
-   * @public
-   */
-  LinkEntities?: string[] | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const DashboardFilterAttribute = {
-  DASHBOARD_NAME: "DASHBOARD_NAME",
-  DIRECT_QUICKSIGHT_OWNER: "DIRECT_QUICKSIGHT_OWNER",
-  DIRECT_QUICKSIGHT_SOLE_OWNER: "DIRECT_QUICKSIGHT_SOLE_OWNER",
-  DIRECT_QUICKSIGHT_VIEWER_OR_OWNER: "DIRECT_QUICKSIGHT_VIEWER_OR_OWNER",
-  QUICKSIGHT_OWNER: "QUICKSIGHT_OWNER",
-  QUICKSIGHT_USER: "QUICKSIGHT_USER",
-  QUICKSIGHT_VIEWER_OR_OWNER: "QUICKSIGHT_VIEWER_OR_OWNER",
-} as const;
-
-/**
- * @public
- */
-export type DashboardFilterAttribute = (typeof DashboardFilterAttribute)[keyof typeof DashboardFilterAttribute];
-
-/**
- * <p>A filter that you apply when searching for dashboards. </p>
- * @public
- */
-export interface DashboardSearchFilter {
-  /**
-   * <p>The comparison operator that you want to use as a filter, for example  <code>"Operator": "StringEquals"</code>. Valid values are <code>"StringEquals"</code> and  <code>"StringLike"</code>.</p>
-   *          <p>If you set the operator value to <code>"StringEquals"</code>, you need to provide an ownership related filter in the <code>"NAME"</code> field and the arn of the user or group whose folders you want to search in the <code>"Value"</code> field. For example,  <code>"Name":"DIRECT_QUICKSIGHT_OWNER", "Operator": "StringEquals", "Value": "arn:aws:quicksight:us-east-1:1:user/default/UserName1"</code>.</p>
-   *          <p>If you set the value to <code>"StringLike"</code>, you need to provide the name of the folders you are searching for. For example, <code>"Name":"DASHBOARD_NAME", "Operator": "StringLike", "Value": "Test"</code>. The <code>"StringLike"</code> operator only supports the <code>NAME</code> value <code>DASHBOARD_NAME</code>.</p>
-   * @public
-   */
-  Operator: FilterOperator | undefined;
-
-  /**
-   * <p>The name of the value that you want to use as a filter, for example, <code>"Name":
-   *             "QUICKSIGHT_OWNER"</code>.</p>
-   *          <p>Valid values are defined as follows:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>QUICKSIGHT_VIEWER_OR_OWNER</code>: Provide an ARN of a user or group, and any dashboards with that ARN listed as one of the dashboards's owners or viewers are returned. Implicit permissions from folders or groups are considered.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>QUICKSIGHT_OWNER</code>: Provide an ARN of a user or group, and any dashboards with that ARN listed as one of the owners of the dashboards are returned. Implicit permissions from folders or groups are considered.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>DIRECT_QUICKSIGHT_SOLE_OWNER</code>: Provide an ARN of a user or group, and any dashboards with that ARN listed as the only owner of the dashboard are returned. Implicit permissions from folders or groups are not considered.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>DIRECT_QUICKSIGHT_OWNER</code>: Provide an ARN of a user or group, and any dashboards with that ARN listed as one of the owners of the dashboards are returned. Implicit permissions from folders or groups are not considered.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>DIRECT_QUICKSIGHT_VIEWER_OR_OWNER</code>: Provide an ARN of a user or group, and any dashboards with that ARN listed as one of the owners or viewers of the dashboards are returned. Implicit permissions from folders or groups are not considered.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>DASHBOARD_NAME</code>: Any dashboards whose names have a substring match to this value will be returned.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  Name?: DashboardFilterAttribute | undefined;
-
-  /**
-   * <p>The value of the named item, in this case <code>QUICKSIGHT_USER</code>, that you want
-   *             to use as a filter, for example, <code>"Value":
-   *             "arn:aws:quicksight:us-east-1:1:user/default/UserName1"</code>. </p>
-   * @public
-   */
-  Value?: string | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const DashboardsQAStatus = {
-  DISABLED: "DISABLED",
-  ENABLED: "ENABLED",
-} as const;
-
-/**
- * @public
- */
-export type DashboardsQAStatus = (typeof DashboardsQAStatus)[keyof typeof DashboardsQAStatus];
-
-/**
- * <p>Dashboard summary.</p>
- * @public
- */
-export interface DashboardSummary {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the resource.</p>
-   * @public
-   */
-  Arn?: string | undefined;
-
-  /**
-   * <p>Dashboard ID.</p>
-   * @public
-   */
-  DashboardId?: string | undefined;
-
-  /**
-   * <p>A display name for the dashboard.</p>
-   * @public
-   */
-  Name?: string | undefined;
-
-  /**
-   * <p>The time that this dashboard was created.</p>
-   * @public
-   */
-  CreatedTime?: Date | undefined;
-
-  /**
-   * <p>The last time that this dashboard was updated.</p>
-   * @public
-   */
-  LastUpdatedTime?: Date | undefined;
-
-  /**
-   * <p>Published version number.</p>
-   * @public
-   */
-  PublishedVersionNumber?: number | undefined;
-
-  /**
-   * <p>The last time that this dashboard was published.</p>
-   * @public
-   */
-  LastPublishedTime?: Date | undefined;
-}
-
-/**
- * <p>Dashboard version summary.</p>
- * @public
- */
-export interface DashboardVersionSummary {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the resource.</p>
-   * @public
-   */
-  Arn?: string | undefined;
-
-  /**
-   * <p>The time that this dashboard version was created.</p>
-   * @public
-   */
-  CreatedTime?: Date | undefined;
-
-  /**
-   * <p>Version number.</p>
-   * @public
-   */
-  VersionNumber?: number | undefined;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: ResourceStatus | undefined;
-
-  /**
-   * <p>Source entity ARN.</p>
-   * @public
-   */
-  SourceEntityArn?: string | undefined;
-
-  /**
-   * <p>Description.</p>
-   * @public
-   */
-  Description?: string | undefined;
-}
-
-/**
- * <p>The QA result that is made from dashboard visual.</p>
- * @public
- */
-export interface DashboardVisualResult {
-  /**
-   * <p>The ID of the dashboard.</p>
-   * @public
-   */
-  DashboardId?: string | undefined;
-
-  /**
-   * <p>The name of the dashboard.</p>
-   * @public
-   */
-  DashboardName?: string | undefined;
-
-  /**
-   * <p>The ID of the sheet.</p>
-   * @public
-   */
-  SheetId?: string | undefined;
-
-  /**
-   * <p>The name of the sheet.</p>
-   * @public
-   */
-  SheetName?: string | undefined;
-
-  /**
-   * <p>The ID of the visual.</p>
-   * @public
-   */
-  VisualId?: string | undefined;
-
-  /**
-   * <p>The title of the visual.</p>
-   * @public
-   */
-  VisualTitle?: string | undefined;
-
-  /**
-   * <p>The subtitle of the visual.</p>
-   * @public
-   */
-  VisualSubtitle?: string | undefined;
-
-  /**
-   * <p>The URL of the dashboard.</p>
-   * @public
-   */
-  DashboardUrl?: string | undefined;
-}
-
-/**
- * <p>Output column.</p>
- * @public
- */
-export interface OutputColumn {
-  /**
-   * <p>The display name of the column..</p>
-   * @public
-   */
-  Name?: string | undefined;
-
-  /**
-   * <p>A description for a column.</p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p>The data type of the column.</p>
-   * @public
-   */
-  Type?: ColumnDataType | undefined;
-
-  /**
-   * <p>The sub data type of the column.</p>
-   * @public
-   */
-  SubType?: ColumnDataSubType | undefined;
-}
-
-/**
- * <p>Dataset.</p>
- * @public
- */
-export interface DataSet {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the resource.</p>
-   * @public
-   */
-  Arn?: string | undefined;
-
-  /**
-   * <p>The ID of the dataset. Limited to 96 characters.</p>
-   * @public
-   */
-  DataSetId?: string | undefined;
-
-  /**
-   * <p>A display name for the dataset.</p>
-   * @public
-   */
-  Name?: string | undefined;
-
-  /**
-   * <p>The time that this dataset was created.</p>
-   * @public
-   */
-  CreatedTime?: Date | undefined;
-
-  /**
-   * <p>The last time that this dataset was updated.</p>
-   * @public
-   */
-  LastUpdatedTime?: Date | undefined;
-
-  /**
-   * <p>Declares the physical tables that are available in the underlying data sources.</p>
-   * @public
-   */
-  PhysicalTableMap?: Record<string, PhysicalTable> | undefined;
-
-  /**
-   * <p>Configures the combination and transformation of the data from the physical
-   *             tables.</p>
-   * @public
-   */
-  LogicalTableMap?: Record<string, LogicalTable> | undefined;
-
-  /**
-   * <p>The list of columns after all transforms. These columns are available in templates,
-   *             analyses, and dashboards.</p>
-   * @public
-   */
-  OutputColumns?: OutputColumn[] | undefined;
-
-  /**
-   * <p>A value that indicates whether you want to import the data into SPICE.</p>
-   * @public
-   */
-  ImportMode?: DataSetImportMode | undefined;
-
-  /**
-   * <p>The amount of SPICE capacity used by this dataset. This is 0 if the dataset isn't
-   *             imported into SPICE.</p>
-   * @public
-   */
-  ConsumedSpiceCapacityInBytes?: number | undefined;
-
-  /**
-   * <p>Groupings of columns that work together in certain Quick Sight features.
-   *             Currently, only geospatial hierarchy is supported.</p>
-   * @public
-   */
-  ColumnGroups?: ColumnGroup[] | undefined;
-
-  /**
-   * <p>The folder that contains fields and nested subfolders for your dataset.</p>
-   * @public
-   */
-  FieldFolders?: Record<string, FieldFolder> | undefined;
-
-  /**
-   * <p>The row-level security configuration for the dataset.</p>
-   * @public
-   */
-  RowLevelPermissionDataSet?: RowLevelPermissionDataSet | undefined;
-
-  /**
-   * <p>The element you can use to define tags for row-level security.</p>
-   * @public
-   */
-  RowLevelPermissionTagConfiguration?: RowLevelPermissionTagConfiguration | undefined;
-
-  /**
-   * <p>A set of one or more definitions of a <code>
-   *                <a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ColumnLevelPermissionRule.html">ColumnLevelPermissionRule</a>
-   *             </code>.</p>
-   * @public
-   */
-  ColumnLevelPermissionRules?: ColumnLevelPermissionRule[] | undefined;
-
-  /**
-   * <p>The usage configuration to apply to child datasets that reference this dataset as a source.</p>
-   * @public
-   */
-  DataSetUsageConfiguration?: DataSetUsageConfiguration | undefined;
-
-  /**
-   * <p>The parameters that are declared in a dataset.</p>
-   * @public
-   */
-  DatasetParameters?: DatasetParameter[] | undefined;
-
-  /**
-   * <p>The performance optimization configuration of a dataset.</p>
-   * @public
-   */
-  PerformanceConfiguration?: PerformanceConfiguration | undefined;
-
-  /**
-   * <p>The usage of the dataset.</p>
-   * @public
-   */
-  UseAs?: DataSetUseAs | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const DataSetFilterAttribute = {
-  DATASET_NAME: "DATASET_NAME",
-  DIRECT_QUICKSIGHT_OWNER: "DIRECT_QUICKSIGHT_OWNER",
-  DIRECT_QUICKSIGHT_SOLE_OWNER: "DIRECT_QUICKSIGHT_SOLE_OWNER",
-  DIRECT_QUICKSIGHT_VIEWER_OR_OWNER: "DIRECT_QUICKSIGHT_VIEWER_OR_OWNER",
-  QUICKSIGHT_OWNER: "QUICKSIGHT_OWNER",
-  QUICKSIGHT_VIEWER_OR_OWNER: "QUICKSIGHT_VIEWER_OR_OWNER",
-} as const;
-
-/**
- * @public
- */
-export type DataSetFilterAttribute = (typeof DataSetFilterAttribute)[keyof typeof DataSetFilterAttribute];
-
-/**
- * <p>A filter that you apply when searching for datasets.</p>
- * @public
- */
-export interface DataSetSearchFilter {
-  /**
-   * <p>The comparison operator that you want to use as a filter, for example <code>"Operator": "StringEquals"</code>. Valid values are <code>"StringEquals"</code> and <code>"StringLike"</code>.</p>
-   *          <p>If you set the operator value to <code>"StringEquals"</code>, you need to provide an ownership related filter in the <code>"NAME"</code> field and the arn of the user or group whose datasets you want to search in the <code>"Value"</code> field. For example, <code>"Name":"QUICKSIGHT_OWNER", "Operator": "StringEquals", "Value": "arn:aws:quicksight:us-east- 1:1:user/default/UserName1"</code>.</p>
-   *          <p>If you set the value to <code>"StringLike"</code>, you need to provide the name of the datasets you are searching for. For example, <code>"Name":"DATASET_NAME", "Operator": "StringLike", "Value": "Test"</code>. The <code>"StringLike"</code> operator only supports the <code>NAME</code> value <code>DATASET_NAME</code>.</p>
-   * @public
-   */
-  Operator: FilterOperator | undefined;
-
-  /**
-   * <p>The name of the value that you want to use as a filter, for example, <code>"Name":
-   *             "QUICKSIGHT_OWNER"</code>.</p>
-   *          <p>Valid values are defined as follows:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>QUICKSIGHT_VIEWER_OR_OWNER</code>: Provide an ARN of a user or group, and any datasets with that ARN listed as one of the dataset owners or viewers are returned. Implicit permissions from folders or groups are considered.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>QUICKSIGHT_OWNER</code>: Provide an ARN of a user or group, and any datasets with that ARN listed as one of the owners of the dataset are returned. Implicit permissions from folders or groups are considered.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>DIRECT_QUICKSIGHT_SOLE_OWNER</code>: Provide an ARN of a user or group, and any datasets with that ARN listed as the only owner of the dataset are returned. Implicit permissions from folders or groups are not considered.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>DIRECT_QUICKSIGHT_OWNER</code>: Provide an ARN of a user or group, and any datasets with that ARN listed as one of the owners if the dataset are returned. Implicit permissions from folders or groups are not considered.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>DIRECT_QUICKSIGHT_VIEWER_OR_OWNER</code>: Provide an ARN of a user or group, and any datasets with that ARN listed as one of the owners or viewers of the dataset are returned. Implicit permissions from folders or groups are not considered.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>DATASET_NAME</code>: Any datasets whose names have a substring match to this value will be returned.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  Name: DataSetFilterAttribute | undefined;
-
-  /**
-   * <p>The value of the named item, in this case <code>QUICKSIGHT_OWNER</code>, that you want
-   *             to use as a filter, for example, <code>"Value":
-   *             "arn:aws:quicksight:us-east-1:1:user/default/UserName1"</code>.</p>
-   * @public
-   */
-  Value: string | undefined;
-}
-
-/**
- * <p>Dataset summary.</p>
- * @public
- */
-export interface DataSetSummary {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the dataset.</p>
-   * @public
-   */
-  Arn?: string | undefined;
-
-  /**
-   * <p>The ID of the dataset.</p>
-   * @public
-   */
-  DataSetId?: string | undefined;
-
-  /**
-   * <p>A display name for the dataset.</p>
-   * @public
-   */
-  Name?: string | undefined;
-
-  /**
-   * <p>The time that this dataset was created.</p>
-   * @public
-   */
-  CreatedTime?: Date | undefined;
-
-  /**
-   * <p>The last time that this dataset was updated.</p>
-   * @public
-   */
-  LastUpdatedTime?: Date | undefined;
-
-  /**
-   * <p>A value that indicates whether you want to import the data into SPICE.</p>
-   * @public
-   */
-  ImportMode?: DataSetImportMode | undefined;
-
-  /**
-   * <p>The row-level security configuration for the dataset.</p>
-   * @public
-   */
-  RowLevelPermissionDataSet?: RowLevelPermissionDataSet | undefined;
-
-  /**
-   * <p>Whether or not the row level permission tags are applied.</p>
-   * @public
-   */
-  RowLevelPermissionTagConfigurationApplied?: boolean | undefined;
-
-  /**
-   * <p>A value that indicates if the dataset has column level permission configured.</p>
-   * @public
-   */
-  ColumnLevelPermissionRulesApplied?: boolean | undefined;
-
-  /**
-   * <p>The usage of the dataset.</p>
-   * @public
-   */
-  UseAs?: DataSetUseAs | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const DataSourceErrorInfoType = {
-  ACCESS_DENIED: "ACCESS_DENIED",
-  CONFLICT: "CONFLICT",
-  COPY_SOURCE_NOT_FOUND: "COPY_SOURCE_NOT_FOUND",
-  ENGINE_VERSION_NOT_SUPPORTED: "ENGINE_VERSION_NOT_SUPPORTED",
-  GENERIC_SQL_FAILURE: "GENERIC_SQL_FAILURE",
-  TIMEOUT: "TIMEOUT",
-  UNKNOWN: "UNKNOWN",
-  UNKNOWN_HOST: "UNKNOWN_HOST",
-} as const;
-
-/**
- * @public
- */
-export type DataSourceErrorInfoType = (typeof DataSourceErrorInfoType)[keyof typeof DataSourceErrorInfoType];
-
-/**
- * <p>Error information for the data source creation or update.</p>
- * @public
- */
-export interface DataSourceErrorInfo {
-  /**
-   * <p>Error type.</p>
-   * @public
-   */
-  Type?: DataSourceErrorInfoType | undefined;
-
-  /**
-   * <p>Error message.</p>
-   * @public
-   */
-  Message?: string | undefined;
-}
-
-/**
- * <p>The structure of a data source.</p>
- * @public
- */
-export interface DataSource {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the data source.</p>
-   * @public
-   */
-  Arn?: string | undefined;
-
-  /**
-   * <p>The ID of the data source. This ID is unique per Amazon Web Services Region for each
-   *             Amazon Web Services account.</p>
-   * @public
-   */
-  DataSourceId?: string | undefined;
-
-  /**
-   * <p>A display name for the data source.</p>
-   * @public
-   */
-  Name?: string | undefined;
-
-  /**
-   * <p>The type of the data source. This type indicates which database engine the data source
-   *             connects to.</p>
-   * @public
-   */
-  Type?: DataSourceType | undefined;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: ResourceStatus | undefined;
-
-  /**
-   * <p>The time that this data source was created.</p>
-   * @public
-   */
-  CreatedTime?: Date | undefined;
-
-  /**
-   * <p>The last time that this data source was updated.</p>
-   * @public
-   */
-  LastUpdatedTime?: Date | undefined;
-
-  /**
-   * <p>The parameters that Quick Sight uses to connect to your underlying source. This
-   *             is a variant type structure. For this structure to be valid, only one of the attributes
-   *             can be non-null.</p>
-   * @public
-   */
-  DataSourceParameters?: DataSourceParameters | undefined;
-
-  /**
-   * <p>A set of alternate data source parameters that you want to share for the credentials
-   *             stored with this data source. The credentials are applied in tandem with the data source
-   *             parameters when you copy a data source by using a create or update request. The API
-   *             operation compares the <code>DataSourceParameters</code> structure that's in the request
-   *             with the structures in the <code>AlternateDataSourceParameters</code> allow list. If the
-   *             structures are an exact match, the request is allowed to use the credentials from this
-   *             existing data source. If the <code>AlternateDataSourceParameters</code> list is null,
-   *             the <code>Credentials</code> originally used with this <code>DataSourceParameters</code>
-   *             are automatically allowed.</p>
-   * @public
-   */
-  AlternateDataSourceParameters?: DataSourceParameters[] | undefined;
-
-  /**
-   * <p>The VPC connection information. You need to use this parameter only when you want
-   *             Quick Sight to use a VPC connection when connecting to your underlying source.</p>
-   * @public
-   */
-  VpcConnectionProperties?: VpcConnectionProperties | undefined;
-
-  /**
-   * <p>Secure Socket Layer (SSL) properties that apply when Quick Sight connects to your
-   *             underlying source.</p>
-   * @public
-   */
-  SslProperties?: SslProperties | undefined;
-
-  /**
-   * <p>Error information from the last update or the creation of the data source.</p>
-   * @public
-   */
-  ErrorInfo?: DataSourceErrorInfo | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the secret associated with the data source in Amazon Secrets Manager.</p>
-   * @public
-   */
-  SecretArn?: string | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const DataSourceFilterAttribute = {
-  DATASOURCE_NAME: "DATASOURCE_NAME",
-  DIRECT_QUICKSIGHT_OWNER: "DIRECT_QUICKSIGHT_OWNER",
-  DIRECT_QUICKSIGHT_SOLE_OWNER: "DIRECT_QUICKSIGHT_SOLE_OWNER",
-  DIRECT_QUICKSIGHT_VIEWER_OR_OWNER: "DIRECT_QUICKSIGHT_VIEWER_OR_OWNER",
-} as const;
-
-/**
- * @public
- */
-export type DataSourceFilterAttribute = (typeof DataSourceFilterAttribute)[keyof typeof DataSourceFilterAttribute];
-
-/**
- * <p>A filter that you apply when searching for data sources.</p>
- * @public
- */
-export interface DataSourceSearchFilter {
-  /**
-   * <p>The comparison operator that you want to use as a filter, for example <code>"Operator": "StringEquals"</code>. Valid values are <code>"StringEquals"</code> and <code>"StringLike"</code>.</p>
-   *          <p>If you set the operator value to <code>"StringEquals"</code>, you need to provide an ownership related filter in the <code>"NAME"</code> field and the arn of the user or group whose data sources you want to search in the <code>"Value"</code> field. For example, <code>"Name":"DIRECT_QUICKSIGHT_OWNER", "Operator": "StringEquals", "Value": "arn:aws:quicksight:us-east-1:1:user/default/UserName1"</code>.</p>
-   *          <p>If you set the value to <code>"StringLike"</code>, you need to provide the name of the data sources you are searching for. For example, <code>"Name":"DATASOURCE_NAME", "Operator": "StringLike", "Value": "Test"</code>. The <code>"StringLike"</code> operator only supports the <code>NAME</code> value <code>DATASOURCE_NAME</code>.</p>
-   * @public
-   */
-  Operator: FilterOperator | undefined;
-
-  /**
-   * <p>The name of the value that you want to use as a filter, for example, <code>"Name":
-   *             "DIRECT_QUICKSIGHT_OWNER"</code>.</p>
-   *          <p>Valid values are defined as follows:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>DIRECT_QUICKSIGHT_VIEWER_OR_OWNER</code>: Provide an ARN of a user or group, and any data sources with that ARN listed as one of the owners or viewers of the data sources are returned. Implicit permissions from folders or groups are not considered.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>DIRECT_QUICKSIGHT_OWNER</code>: Provide an ARN of a user or group, and any data sources with that ARN listed as one of the owners if the data source are returned. Implicit permissions from folders or groups are not considered.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>DIRECT_QUICKSIGHT_SOLE_OWNER</code>: Provide an ARN of a user or group, and any data sources with that ARN listed as the only owner of the data source are returned. Implicit permissions from folders or groups are not considered.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>DATASOURCE_NAME</code>: Any data sources whose names have a substring match to the provided value are returned.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  Name: DataSourceFilterAttribute | undefined;
-
-  /**
-   * <p>The value of the named item, for example <code>DIRECT_QUICKSIGHT_OWNER</code>, that you want
-   *             to use as a filter, for example, <code>"Value":
-   *             "arn:aws:quicksight:us-east-1:1:user/default/UserName1"</code>.</p>
-   * @public
-   */
-  Value: string | undefined;
-}
-
-/**
  * @internal
  */
 export const TopicIRMetricFilterSensitiveLog = (obj: TopicIRMetric): any => ({
@@ -9418,9 +8906,184 @@ export const CreateDashboardRequestFilterSensitiveLog = (obj: CreateDashboardReq
 /**
  * @internal
  */
+export const DataSetDateFilterValueFilterSensitiveLog = (obj: DataSetDateFilterValue): any => ({
+  ...obj,
+  ...(obj.StaticValue && { StaticValue: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const DataSetDateComparisonFilterConditionFilterSensitiveLog = (
+  obj: DataSetDateComparisonFilterCondition
+): any => ({
+  ...obj,
+  ...(obj.Value && { Value: DataSetDateFilterValueFilterSensitiveLog(obj.Value) }),
+});
+
+/**
+ * @internal
+ */
+export const DataSetDateRangeFilterConditionFilterSensitiveLog = (obj: DataSetDateRangeFilterCondition): any => ({
+  ...obj,
+  ...(obj.RangeMinimum && { RangeMinimum: DataSetDateFilterValueFilterSensitiveLog(obj.RangeMinimum) }),
+  ...(obj.RangeMaximum && { RangeMaximum: DataSetDateFilterValueFilterSensitiveLog(obj.RangeMaximum) }),
+});
+
+/**
+ * @internal
+ */
+export const DataSetDateFilterConditionFilterSensitiveLog = (obj: DataSetDateFilterCondition): any => ({
+  ...obj,
+  ...(obj.ComparisonFilterCondition && {
+    ComparisonFilterCondition: DataSetDateComparisonFilterConditionFilterSensitiveLog(obj.ComparisonFilterCondition),
+  }),
+  ...(obj.RangeFilterCondition && {
+    RangeFilterCondition: DataSetDateRangeFilterConditionFilterSensitiveLog(obj.RangeFilterCondition),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const DataSetNumericFilterValueFilterSensitiveLog = (obj: DataSetNumericFilterValue): any => ({
+  ...obj,
+  ...(obj.StaticValue && { StaticValue: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const DataSetNumericComparisonFilterConditionFilterSensitiveLog = (
+  obj: DataSetNumericComparisonFilterCondition
+): any => ({
+  ...obj,
+  ...(obj.Value && { Value: DataSetNumericFilterValueFilterSensitiveLog(obj.Value) }),
+});
+
+/**
+ * @internal
+ */
+export const DataSetNumericRangeFilterConditionFilterSensitiveLog = (obj: DataSetNumericRangeFilterCondition): any => ({
+  ...obj,
+  ...(obj.RangeMinimum && { RangeMinimum: DataSetNumericFilterValueFilterSensitiveLog(obj.RangeMinimum) }),
+  ...(obj.RangeMaximum && { RangeMaximum: DataSetNumericFilterValueFilterSensitiveLog(obj.RangeMaximum) }),
+});
+
+/**
+ * @internal
+ */
+export const DataSetNumericFilterConditionFilterSensitiveLog = (obj: DataSetNumericFilterCondition): any => ({
+  ...obj,
+  ...(obj.ComparisonFilterCondition && {
+    ComparisonFilterCondition: DataSetNumericComparisonFilterConditionFilterSensitiveLog(obj.ComparisonFilterCondition),
+  }),
+  ...(obj.RangeFilterCondition && {
+    RangeFilterCondition: DataSetNumericRangeFilterConditionFilterSensitiveLog(obj.RangeFilterCondition),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const DataSetStringFilterValueFilterSensitiveLog = (obj: DataSetStringFilterValue): any => ({
+  ...obj,
+  ...(obj.StaticValue && { StaticValue: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const DataSetStringComparisonFilterConditionFilterSensitiveLog = (
+  obj: DataSetStringComparisonFilterCondition
+): any => ({
+  ...obj,
+  ...(obj.Value && { Value: DataSetStringFilterValueFilterSensitiveLog(obj.Value) }),
+});
+
+/**
+ * @internal
+ */
+export const DataSetStringListFilterValueFilterSensitiveLog = (obj: DataSetStringListFilterValue): any => ({
+  ...obj,
+  ...(obj.StaticValues && { StaticValues: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const DataSetStringListFilterConditionFilterSensitiveLog = (obj: DataSetStringListFilterCondition): any => ({
+  ...obj,
+  ...(obj.Values && { Values: DataSetStringListFilterValueFilterSensitiveLog(obj.Values) }),
+});
+
+/**
+ * @internal
+ */
+export const DataSetStringFilterConditionFilterSensitiveLog = (obj: DataSetStringFilterCondition): any => ({
+  ...obj,
+  ...(obj.ComparisonFilterCondition && {
+    ComparisonFilterCondition: DataSetStringComparisonFilterConditionFilterSensitiveLog(obj.ComparisonFilterCondition),
+  }),
+  ...(obj.ListFilterCondition && {
+    ListFilterCondition: DataSetStringListFilterConditionFilterSensitiveLog(obj.ListFilterCondition),
+  }),
+});
+
+/**
+ * @internal
+ */
 export const FilterOperationFilterSensitiveLog = (obj: FilterOperation): any => ({
   ...obj,
   ...(obj.ConditionExpression && { ConditionExpression: SENSITIVE_STRING }),
+  ...(obj.StringFilterCondition && {
+    StringFilterCondition: DataSetStringFilterConditionFilterSensitiveLog(obj.StringFilterCondition),
+  }),
+  ...(obj.NumericFilterCondition && {
+    NumericFilterCondition: DataSetNumericFilterConditionFilterSensitiveLog(obj.NumericFilterCondition),
+  }),
+  ...(obj.DateFilterCondition && {
+    DateFilterCondition: DataSetDateFilterConditionFilterSensitiveLog(obj.DateFilterCondition),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const FiltersOperationFilterSensitiveLog = (obj: FiltersOperation): any => ({
+  ...obj,
+  ...(obj.FilterOperations && {
+    FilterOperations: obj.FilterOperations.map((item) => FilterOperationFilterSensitiveLog(item)),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const JoinOperationFilterSensitiveLog = (obj: JoinOperation): any => ({
+  ...obj,
+  ...(obj.OnClause && { OnClause: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const TransformStepFilterSensitiveLog = (obj: TransformStep): any => ({
+  ...obj,
+  ...(obj.JoinStep && { JoinStep: JoinOperationFilterSensitiveLog(obj.JoinStep) }),
+});
+
+/**
+ * @internal
+ */
+export const DataPrepConfigurationFilterSensitiveLog = (obj: DataPrepConfiguration): any => ({
+  ...obj,
+  ...(obj.TransformStepMap && {
+    TransformStepMap: Object.entries(obj.TransformStepMap).reduce(
+      (acc: any, [key, value]: [string, TransformStep]) => ((acc[key] = TransformStepFilterSensitiveLog(value)), acc),
+      {}
+    ),
+  }),
 });
 
 /**
@@ -9463,6 +9126,25 @@ export const LogicalTableFilterSensitiveLog = (obj: LogicalTable): any => ({
 /**
  * @internal
  */
+export const CustomSqlFilterSensitiveLog = (obj: CustomSql): any => ({
+  ...obj,
+  ...(obj.SqlQuery && { SqlQuery: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const PhysicalTableFilterSensitiveLog = (obj: PhysicalTable): any => {
+  if (obj.RelationalTable !== undefined) return { RelationalTable: obj.RelationalTable };
+  if (obj.CustomSql !== undefined) return { CustomSql: CustomSqlFilterSensitiveLog(obj.CustomSql) };
+  if (obj.S3Source !== undefined) return { S3Source: obj.S3Source };
+  if (obj.SaaSTable !== undefined) return { SaaSTable: obj.SaaSTable };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @internal
+ */
 export const RowLevelPermissionTagRuleFilterSensitiveLog = (obj: RowLevelPermissionTagRule): any => ({
   ...obj,
   ...(obj.MatchAllValue && { MatchAllValue: SENSITIVE_STRING }),
@@ -9479,11 +9161,46 @@ export const RowLevelPermissionTagConfigurationFilterSensitiveLog = (obj: RowLev
 /**
  * @internal
  */
+export const RowLevelPermissionConfigurationFilterSensitiveLog = (obj: RowLevelPermissionConfiguration): any => ({
+  ...obj,
+  ...(obj.TagConfiguration && {
+    TagConfiguration: RowLevelPermissionTagConfigurationFilterSensitiveLog(obj.TagConfiguration),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const SemanticTableFilterSensitiveLog = (obj: SemanticTable): any => ({
+  ...obj,
+  ...(obj.RowLevelPermissionConfiguration && {
+    RowLevelPermissionConfiguration: RowLevelPermissionConfigurationFilterSensitiveLog(
+      obj.RowLevelPermissionConfiguration
+    ),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const SemanticModelConfigurationFilterSensitiveLog = (obj: SemanticModelConfiguration): any => ({
+  ...obj,
+  ...(obj.TableMap && {
+    TableMap: Object.entries(obj.TableMap).reduce(
+      (acc: any, [key, value]: [string, SemanticTable]) => ((acc[key] = SemanticTableFilterSensitiveLog(value)), acc),
+      {}
+    ),
+  }),
+});
+
+/**
+ * @internal
+ */
 export const CreateDataSetRequestFilterSensitiveLog = (obj: CreateDataSetRequest): any => ({
   ...obj,
   ...(obj.PhysicalTableMap && {
     PhysicalTableMap: Object.entries(obj.PhysicalTableMap).reduce(
-      (acc: any, [key, value]: [string, PhysicalTable]) => ((acc[key] = value), acc),
+      (acc: any, [key, value]: [string, PhysicalTable]) => ((acc[key] = PhysicalTableFilterSensitiveLog(value)), acc),
       {}
     ),
   }),
@@ -9497,6 +9214,9 @@ export const CreateDataSetRequestFilterSensitiveLog = (obj: CreateDataSetRequest
     RowLevelPermissionTagConfiguration: RowLevelPermissionTagConfigurationFilterSensitiveLog(
       obj.RowLevelPermissionTagConfiguration
     ),
+  }),
+  ...(obj.SemanticModelConfiguration && {
+    SemanticModelConfiguration: SemanticModelConfigurationFilterSensitiveLog(obj.SemanticModelConfiguration),
   }),
 });
 
@@ -9589,151 +9309,4 @@ export const TopicCategoryFilterConstantFilterSensitiveLog = (obj: TopicCategory
 export const TopicCategoryFilterFilterSensitiveLog = (obj: TopicCategoryFilter): any => ({
   ...obj,
   ...(obj.Constant && { Constant: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const TopicRangeFilterConstantFilterSensitiveLog = (obj: TopicRangeFilterConstant): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TopicDateRangeFilterFilterSensitiveLog = (obj: TopicDateRangeFilter): any => ({
-  ...obj,
-  ...(obj.Constant && { Constant: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const TopicSingularFilterConstantFilterSensitiveLog = (obj: TopicSingularFilterConstant): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TopicNullFilterFilterSensitiveLog = (obj: TopicNullFilter): any => ({
-  ...obj,
-  ...(obj.Constant && { Constant: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const TopicNumericEqualityFilterFilterSensitiveLog = (obj: TopicNumericEqualityFilter): any => ({
-  ...obj,
-  ...(obj.Constant && { Constant: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const TopicNumericRangeFilterFilterSensitiveLog = (obj: TopicNumericRangeFilter): any => ({
-  ...obj,
-  ...(obj.Constant && { Constant: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const TopicRelativeDateFilterFilterSensitiveLog = (obj: TopicRelativeDateFilter): any => ({
-  ...obj,
-  ...(obj.Constant && { Constant: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const TopicFilterFilterSensitiveLog = (obj: TopicFilter): any => ({
-  ...obj,
-  ...(obj.CategoryFilter && { CategoryFilter: TopicCategoryFilterFilterSensitiveLog(obj.CategoryFilter) }),
-  ...(obj.NumericEqualityFilter && {
-    NumericEqualityFilter: TopicNumericEqualityFilterFilterSensitiveLog(obj.NumericEqualityFilter),
-  }),
-  ...(obj.NumericRangeFilter && {
-    NumericRangeFilter: TopicNumericRangeFilterFilterSensitiveLog(obj.NumericRangeFilter),
-  }),
-  ...(obj.DateRangeFilter && { DateRangeFilter: TopicDateRangeFilterFilterSensitiveLog(obj.DateRangeFilter) }),
-  ...(obj.RelativeDateFilter && {
-    RelativeDateFilter: TopicRelativeDateFilterFilterSensitiveLog(obj.RelativeDateFilter),
-  }),
-  ...(obj.NullFilter && { NullFilter: TopicNullFilterFilterSensitiveLog(obj.NullFilter) }),
-});
-
-/**
- * @internal
- */
-export const DatasetMetadataFilterSensitiveLog = (obj: DatasetMetadata): any => ({
-  ...obj,
-  ...(obj.Filters && { Filters: obj.Filters.map((item) => TopicFilterFilterSensitiveLog(item)) }),
-  ...(obj.Columns && { Columns: obj.Columns.map((item) => TopicColumnFilterSensitiveLog(item)) }),
-  ...(obj.CalculatedFields && {
-    CalculatedFields: obj.CalculatedFields.map((item) => TopicCalculatedFieldFilterSensitiveLog(item)),
-  }),
-});
-
-/**
- * @internal
- */
-export const TopicDetailsFilterSensitiveLog = (obj: TopicDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateTopicRequestFilterSensitiveLog = (obj: CreateTopicRequest): any => ({
-  ...obj,
-  ...(obj.CustomInstructions && { CustomInstructions: CustomInstructionsFilterSensitiveLog(obj.CustomInstructions) }),
-});
-
-/**
- * @internal
- */
-export const DashboardVersionFilterSensitiveLog = (obj: DashboardVersion): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DashboardFilterSensitiveLog = (obj: Dashboard): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const OutputColumnFilterSensitiveLog = (obj: OutputColumn): any => ({
-  ...obj,
-  ...(obj.Description && { Description: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const DataSetFilterSensitiveLog = (obj: DataSet): any => ({
-  ...obj,
-  ...(obj.PhysicalTableMap && {
-    PhysicalTableMap: Object.entries(obj.PhysicalTableMap).reduce(
-      (acc: any, [key, value]: [string, PhysicalTable]) => ((acc[key] = value), acc),
-      {}
-    ),
-  }),
-  ...(obj.LogicalTableMap && {
-    LogicalTableMap: Object.entries(obj.LogicalTableMap).reduce(
-      (acc: any, [key, value]: [string, LogicalTable]) => ((acc[key] = LogicalTableFilterSensitiveLog(value)), acc),
-      {}
-    ),
-  }),
-  ...(obj.OutputColumns && { OutputColumns: obj.OutputColumns.map((item) => OutputColumnFilterSensitiveLog(item)) }),
-  ...(obj.RowLevelPermissionTagConfiguration && {
-    RowLevelPermissionTagConfiguration: RowLevelPermissionTagConfigurationFilterSensitiveLog(
-      obj.RowLevelPermissionTagConfiguration
-    ),
-  }),
 });

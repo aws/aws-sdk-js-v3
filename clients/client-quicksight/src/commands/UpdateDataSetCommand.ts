@@ -56,6 +56,7 @@ export interface UpdateDataSetCommandOutput extends UpdateDataSetResponse, __Met
  *         InputColumns: [ // InputColumnList // required
  *           { // InputColumn
  *             Name: "STRING_VALUE", // required
+ *             Id: "STRING_VALUE",
  *             Type: "STRING" || "INTEGER" || "DECIMAL" || "DATETIME" || "BIT" || "BOOLEAN" || "JSON", // required
  *             SubType: "FLOAT" || "FIXED",
  *           },
@@ -68,6 +69,7 @@ export interface UpdateDataSetCommandOutput extends UpdateDataSetResponse, __Met
  *         Columns: [
  *           {
  *             Name: "STRING_VALUE", // required
+ *             Id: "STRING_VALUE",
  *             Type: "STRING" || "INTEGER" || "DECIMAL" || "DATETIME" || "BIT" || "BOOLEAN" || "JSON", // required
  *             SubType: "FLOAT" || "FIXED",
  *           },
@@ -81,10 +83,29 @@ export interface UpdateDataSetCommandOutput extends UpdateDataSetResponse, __Met
  *           ContainsHeader: true || false,
  *           TextQualifier: "DOUBLE_QUOTE" || "SINGLE_QUOTE",
  *           Delimiter: "STRING_VALUE",
+ *           CustomCellAddressRange: "STRING_VALUE",
  *         },
  *         InputColumns: [ // required
  *           {
  *             Name: "STRING_VALUE", // required
+ *             Id: "STRING_VALUE",
+ *             Type: "STRING" || "INTEGER" || "DECIMAL" || "DATETIME" || "BIT" || "BOOLEAN" || "JSON", // required
+ *             SubType: "FLOAT" || "FIXED",
+ *           },
+ *         ],
+ *       },
+ *       SaaSTable: { // SaaSTable
+ *         DataSourceArn: "STRING_VALUE", // required
+ *         TablePath: [ // TablePathElementList // required
+ *           { // TablePathElement
+ *             Name: "STRING_VALUE",
+ *             Id: "STRING_VALUE",
+ *           },
+ *         ],
+ *         InputColumns: [ // required
+ *           {
+ *             Name: "STRING_VALUE", // required
+ *             Id: "STRING_VALUE",
  *             Type: "STRING" || "INTEGER" || "DECIMAL" || "DATETIME" || "BIT" || "BOOLEAN" || "JSON", // required
  *             SubType: "FLOAT" || "FIXED",
  *           },
@@ -98,14 +119,89 @@ export interface UpdateDataSetCommandOutput extends UpdateDataSetResponse, __Met
  *       DataTransforms: [ // TransformOperationList
  *         { // TransformOperation Union: only one key present
  *           ProjectOperation: { // ProjectOperation
- *             ProjectedColumns: [ // ProjectedColumnList // required
+ *             Alias: "STRING_VALUE",
+ *             Source: { // TransformOperationSource
+ *               TransformOperationId: "STRING_VALUE", // required
+ *               ColumnIdMappings: [ // DataSetColumnIdMappingList
+ *                 { // DataSetColumnIdMapping
+ *                   SourceColumnId: "STRING_VALUE", // required
+ *                   TargetColumnId: "STRING_VALUE", // required
+ *                 },
+ *               ],
+ *             },
+ *             ProjectedColumns: [ // ProjectedColumnNameList // required
  *               "STRING_VALUE",
  *             ],
  *           },
  *           FilterOperation: { // FilterOperation
- *             ConditionExpression: "STRING_VALUE", // required
+ *             ConditionExpression: "STRING_VALUE",
+ *             StringFilterCondition: { // DataSetStringFilterCondition
+ *               ColumnName: "STRING_VALUE",
+ *               ComparisonFilterCondition: { // DataSetStringComparisonFilterCondition
+ *                 Operator: "EQUALS" || "DOES_NOT_EQUAL" || "CONTAINS" || "DOES_NOT_CONTAIN" || "STARTS_WITH" || "ENDS_WITH", // required
+ *                 Value: { // DataSetStringFilterValue
+ *                   StaticValue: "STRING_VALUE",
+ *                 },
+ *               },
+ *               ListFilterCondition: { // DataSetStringListFilterCondition
+ *                 Operator: "INCLUDE" || "EXCLUDE", // required
+ *                 Values: { // DataSetStringListFilterValue
+ *                   StaticValues: [ // DataSetStringFilterStaticValueList
+ *                     "STRING_VALUE",
+ *                   ],
+ *                 },
+ *               },
+ *             },
+ *             NumericFilterCondition: { // DataSetNumericFilterCondition
+ *               ColumnName: "STRING_VALUE",
+ *               ComparisonFilterCondition: { // DataSetNumericComparisonFilterCondition
+ *                 Operator: "EQUALS" || "DOES_NOT_EQUAL" || "GREATER_THAN" || "GREATER_THAN_OR_EQUALS_TO" || "LESS_THAN" || "LESS_THAN_OR_EQUALS_TO", // required
+ *                 Value: { // DataSetNumericFilterValue
+ *                   StaticValue: Number("double"),
+ *                 },
+ *               },
+ *               RangeFilterCondition: { // DataSetNumericRangeFilterCondition
+ *                 RangeMinimum: {
+ *                   StaticValue: Number("double"),
+ *                 },
+ *                 RangeMaximum: {
+ *                   StaticValue: Number("double"),
+ *                 },
+ *                 IncludeMinimum: true || false,
+ *                 IncludeMaximum: true || false,
+ *               },
+ *             },
+ *             DateFilterCondition: { // DataSetDateFilterCondition
+ *               ColumnName: "STRING_VALUE",
+ *               ComparisonFilterCondition: { // DataSetDateComparisonFilterCondition
+ *                 Operator: "BEFORE" || "BEFORE_OR_EQUALS_TO" || "AFTER" || "AFTER_OR_EQUALS_TO", // required
+ *                 Value: { // DataSetDateFilterValue
+ *                   StaticValue: new Date("TIMESTAMP"),
+ *                 },
+ *               },
+ *               RangeFilterCondition: { // DataSetDateRangeFilterCondition
+ *                 RangeMinimum: {
+ *                   StaticValue: new Date("TIMESTAMP"),
+ *                 },
+ *                 RangeMaximum: {
+ *                   StaticValue: new Date("TIMESTAMP"),
+ *                 },
+ *                 IncludeMinimum: true || false,
+ *                 IncludeMaximum: true || false,
+ *               },
+ *             },
  *           },
  *           CreateColumnsOperation: { // CreateColumnsOperation
+ *             Alias: "STRING_VALUE",
+ *             Source: {
+ *               TransformOperationId: "STRING_VALUE", // required
+ *               ColumnIdMappings: [
+ *                 {
+ *                   SourceColumnId: "STRING_VALUE", // required
+ *                   TargetColumnId: "STRING_VALUE", // required
+ *                 },
+ *               ],
+ *             },
  *             Columns: [ // CalculatedColumnList // required
  *               { // CalculatedColumn
  *                 ColumnName: "STRING_VALUE", // required
@@ -227,7 +323,7 @@ export interface UpdateDataSetCommandOutput extends UpdateDataSetResponse, __Met
  *       Principals: [ // PrincipalList
  *         "STRING_VALUE",
  *       ],
- *       ColumnNames: [ // ColumnNameList
+ *       ColumnNames: [ // ColumnLevelPermissionRuleColumnNameList
  *         "STRING_VALUE",
  *       ],
  *     },
@@ -290,6 +386,302 @@ export interface UpdateDataSetCommandOutput extends UpdateDataSetResponse, __Met
  *       },
  *     ],
  *   },
+ *   DataPrepConfiguration: { // DataPrepConfiguration
+ *     SourceTableMap: { // SourceTableMap // required
+ *       "<keys>": { // SourceTable
+ *         PhysicalTableId: "STRING_VALUE",
+ *         DataSet: { // ParentDataSet
+ *           DataSetArn: "STRING_VALUE", // required
+ *           InputColumns: [ // required
+ *             {
+ *               Name: "STRING_VALUE", // required
+ *               Id: "STRING_VALUE",
+ *               Type: "STRING" || "INTEGER" || "DECIMAL" || "DATETIME" || "BIT" || "BOOLEAN" || "JSON", // required
+ *               SubType: "FLOAT" || "FIXED",
+ *             },
+ *           ],
+ *         },
+ *       },
+ *     },
+ *     TransformStepMap: { // TransformStepMap // required
+ *       "<keys>": { // TransformStep
+ *         ImportTableStep: { // ImportTableOperation
+ *           Alias: "STRING_VALUE", // required
+ *           Source: { // ImportTableOperationSource
+ *             SourceTableId: "STRING_VALUE", // required
+ *             ColumnIdMappings: [
+ *               {
+ *                 SourceColumnId: "STRING_VALUE", // required
+ *                 TargetColumnId: "STRING_VALUE", // required
+ *               },
+ *             ],
+ *           },
+ *         },
+ *         ProjectStep: {
+ *           Alias: "STRING_VALUE",
+ *           Source: {
+ *             TransformOperationId: "STRING_VALUE", // required
+ *             ColumnIdMappings: [
+ *               {
+ *                 SourceColumnId: "STRING_VALUE", // required
+ *                 TargetColumnId: "STRING_VALUE", // required
+ *               },
+ *             ],
+ *           },
+ *           ProjectedColumns: [ // required
+ *             "STRING_VALUE",
+ *           ],
+ *         },
+ *         FiltersStep: { // FiltersOperation
+ *           Alias: "STRING_VALUE", // required
+ *           Source: {
+ *             TransformOperationId: "STRING_VALUE", // required
+ *             ColumnIdMappings: [
+ *               {
+ *                 SourceColumnId: "STRING_VALUE", // required
+ *                 TargetColumnId: "STRING_VALUE", // required
+ *               },
+ *             ],
+ *           },
+ *           FilterOperations: [ // FilterOperationList // required
+ *             {
+ *               ConditionExpression: "STRING_VALUE",
+ *               StringFilterCondition: {
+ *                 ColumnName: "STRING_VALUE",
+ *                 ComparisonFilterCondition: {
+ *                   Operator: "EQUALS" || "DOES_NOT_EQUAL" || "CONTAINS" || "DOES_NOT_CONTAIN" || "STARTS_WITH" || "ENDS_WITH", // required
+ *                   Value: {
+ *                     StaticValue: "STRING_VALUE",
+ *                   },
+ *                 },
+ *                 ListFilterCondition: {
+ *                   Operator: "INCLUDE" || "EXCLUDE", // required
+ *                   Values: {
+ *                     StaticValues: [
+ *                       "STRING_VALUE",
+ *                     ],
+ *                   },
+ *                 },
+ *               },
+ *               NumericFilterCondition: {
+ *                 ColumnName: "STRING_VALUE",
+ *                 ComparisonFilterCondition: {
+ *                   Operator: "EQUALS" || "DOES_NOT_EQUAL" || "GREATER_THAN" || "GREATER_THAN_OR_EQUALS_TO" || "LESS_THAN" || "LESS_THAN_OR_EQUALS_TO", // required
+ *                   Value: {
+ *                     StaticValue: Number("double"),
+ *                   },
+ *                 },
+ *                 RangeFilterCondition: {
+ *                   RangeMinimum: {
+ *                     StaticValue: Number("double"),
+ *                   },
+ *                   RangeMaximum: "<DataSetNumericFilterValue>",
+ *                   IncludeMinimum: true || false,
+ *                   IncludeMaximum: true || false,
+ *                 },
+ *               },
+ *               DateFilterCondition: {
+ *                 ColumnName: "STRING_VALUE",
+ *                 ComparisonFilterCondition: {
+ *                   Operator: "BEFORE" || "BEFORE_OR_EQUALS_TO" || "AFTER" || "AFTER_OR_EQUALS_TO", // required
+ *                   Value: {
+ *                     StaticValue: new Date("TIMESTAMP"),
+ *                   },
+ *                 },
+ *                 RangeFilterCondition: {
+ *                   RangeMinimum: {
+ *                     StaticValue: new Date("TIMESTAMP"),
+ *                   },
+ *                   RangeMaximum: "<DataSetDateFilterValue>",
+ *                   IncludeMinimum: true || false,
+ *                   IncludeMaximum: true || false,
+ *                 },
+ *               },
+ *             },
+ *           ],
+ *         },
+ *         CreateColumnsStep: {
+ *           Alias: "STRING_VALUE",
+ *           Source: {
+ *             TransformOperationId: "STRING_VALUE", // required
+ *             ColumnIdMappings: "<DataSetColumnIdMappingList>",
+ *           },
+ *           Columns: [ // required
+ *             {
+ *               ColumnName: "STRING_VALUE", // required
+ *               ColumnId: "STRING_VALUE", // required
+ *               Expression: "STRING_VALUE", // required
+ *             },
+ *           ],
+ *         },
+ *         RenameColumnsStep: { // RenameColumnsOperation
+ *           Alias: "STRING_VALUE", // required
+ *           Source: "<TransformOperationSource>", // required
+ *           RenameColumnOperations: [ // RenameColumnOperationList // required
+ *             {
+ *               ColumnName: "STRING_VALUE", // required
+ *               NewColumnName: "STRING_VALUE", // required
+ *             },
+ *           ],
+ *         },
+ *         CastColumnTypesStep: { // CastColumnTypesOperation
+ *           Alias: "STRING_VALUE", // required
+ *           Source: "<TransformOperationSource>", // required
+ *           CastColumnTypeOperations: [ // CastColumnTypeOperationList // required
+ *             {
+ *               ColumnName: "STRING_VALUE", // required
+ *               NewColumnType: "STRING" || "INTEGER" || "DECIMAL" || "DATETIME", // required
+ *               SubType: "FLOAT" || "FIXED",
+ *               Format: "STRING_VALUE",
+ *             },
+ *           ],
+ *         },
+ *         JoinStep: { // JoinOperation
+ *           Alias: "STRING_VALUE", // required
+ *           LeftOperand: "<TransformOperationSource>", // required
+ *           RightOperand: "<TransformOperationSource>", // required
+ *           Type: "INNER" || "OUTER" || "LEFT" || "RIGHT", // required
+ *           OnClause: "STRING_VALUE", // required
+ *           LeftOperandProperties: { // JoinOperandProperties
+ *             OutputColumnNameOverrides: [ // OutputColumnNameOverrideList // required
+ *               { // OutputColumnNameOverride
+ *                 SourceColumnName: "STRING_VALUE",
+ *                 OutputColumnName: "STRING_VALUE", // required
+ *               },
+ *             ],
+ *           },
+ *           RightOperandProperties: {
+ *             OutputColumnNameOverrides: [ // required
+ *               {
+ *                 SourceColumnName: "STRING_VALUE",
+ *                 OutputColumnName: "STRING_VALUE", // required
+ *               },
+ *             ],
+ *           },
+ *         },
+ *         AggregateStep: { // AggregateOperation
+ *           Alias: "STRING_VALUE", // required
+ *           Source: "<TransformOperationSource>", // required
+ *           GroupByColumnNames: [ // GroupByColumnNameList
+ *             "STRING_VALUE",
+ *           ],
+ *           Aggregations: [ // AggregationList // required
+ *             { // Aggregation
+ *               AggregationFunction: { // DataPrepAggregationFunction
+ *                 SimpleAggregation: { // DataPrepSimpleAggregationFunction
+ *                   InputColumnName: "STRING_VALUE",
+ *                   FunctionType: "COUNT" || "DISTINCT_COUNT" || "SUM" || "AVERAGE" || "MAX" || "MIN", // required
+ *                 },
+ *                 ListAggregation: { // DataPrepListAggregationFunction
+ *                   InputColumnName: "STRING_VALUE",
+ *                   Separator: "STRING_VALUE", // required
+ *                   Distinct: true || false, // required
+ *                 },
+ *               },
+ *               NewColumnName: "STRING_VALUE", // required
+ *               NewColumnId: "STRING_VALUE", // required
+ *             },
+ *           ],
+ *         },
+ *         PivotStep: { // PivotOperation
+ *           Alias: "STRING_VALUE", // required
+ *           Source: "<TransformOperationSource>", // required
+ *           GroupByColumnNames: [ // PivotGroupByColumnNameList
+ *             "STRING_VALUE",
+ *           ],
+ *           ValueColumnConfiguration: { // ValueColumnConfiguration
+ *             AggregationFunction: {
+ *               SimpleAggregation: {
+ *                 InputColumnName: "STRING_VALUE",
+ *                 FunctionType: "COUNT" || "DISTINCT_COUNT" || "SUM" || "AVERAGE" || "MAX" || "MIN", // required
+ *               },
+ *               ListAggregation: {
+ *                 InputColumnName: "STRING_VALUE",
+ *                 Separator: "STRING_VALUE", // required
+ *                 Distinct: true || false, // required
+ *               },
+ *             },
+ *           },
+ *           PivotConfiguration: { // PivotConfiguration
+ *             LabelColumnName: "STRING_VALUE",
+ *             PivotedLabels: [ // PivotedLabelList // required
+ *               { // PivotedLabel
+ *                 LabelName: "STRING_VALUE", // required
+ *                 NewColumnName: "STRING_VALUE", // required
+ *                 NewColumnId: "STRING_VALUE", // required
+ *               },
+ *             ],
+ *           },
+ *         },
+ *         UnpivotStep: { // UnpivotOperation
+ *           Alias: "STRING_VALUE", // required
+ *           Source: "<TransformOperationSource>", // required
+ *           ColumnsToUnpivot: [ // ColumnToUnpivotList // required
+ *             { // ColumnToUnpivot
+ *               ColumnName: "STRING_VALUE",
+ *               NewValue: "STRING_VALUE",
+ *             },
+ *           ],
+ *           UnpivotedLabelColumnName: "STRING_VALUE", // required
+ *           UnpivotedLabelColumnId: "STRING_VALUE", // required
+ *           UnpivotedValueColumnName: "STRING_VALUE", // required
+ *           UnpivotedValueColumnId: "STRING_VALUE", // required
+ *         },
+ *         AppendStep: { // AppendOperation
+ *           Alias: "STRING_VALUE", // required
+ *           FirstSource: "<TransformOperationSource>",
+ *           SecondSource: "<TransformOperationSource>",
+ *           AppendedColumns: [ // AppendedColumnList // required
+ *             { // AppendedColumn
+ *               ColumnName: "STRING_VALUE", // required
+ *               NewColumnId: "STRING_VALUE", // required
+ *             },
+ *           ],
+ *         },
+ *       },
+ *     },
+ *     DestinationTableMap: { // DestinationTableMap // required
+ *       "<keys>": { // DestinationTable
+ *         Alias: "STRING_VALUE", // required
+ *         Source: { // DestinationTableSource
+ *           TransformOperationId: "STRING_VALUE", // required
+ *         },
+ *       },
+ *     },
+ *   },
+ *   SemanticModelConfiguration: { // SemanticModelConfiguration
+ *     TableMap: { // SemanticTableMap
+ *       "<keys>": { // SemanticTable
+ *         Alias: "STRING_VALUE", // required
+ *         DestinationTableId: "STRING_VALUE", // required
+ *         RowLevelPermissionConfiguration: { // RowLevelPermissionConfiguration
+ *           TagConfiguration: {
+ *             Status: "ENABLED" || "DISABLED",
+ *             TagRules: [ // required
+ *               {
+ *                 TagKey: "STRING_VALUE", // required
+ *                 ColumnName: "STRING_VALUE", // required
+ *                 TagMultiValueDelimiter: "STRING_VALUE",
+ *                 MatchAllValue: "STRING_VALUE",
+ *               },
+ *             ],
+ *             TagRuleConfigurations: [
+ *               [
+ *                 "STRING_VALUE",
+ *               ],
+ *             ],
+ *           },
+ *           RowLevelPermissionDataSet: {
+ *             Namespace: "STRING_VALUE",
+ *             Arn: "STRING_VALUE", // required
+ *             PermissionPolicy: "GRANT_ACCESS" || "DENY_ACCESS", // required
+ *             FormatVersion: "VERSION_1" || "VERSION_2",
+ *             Status: "ENABLED" || "DISABLED",
+ *           },
+ *         },
+ *       },
+ *     },
+ *   },
  * };
  * const command = new UpdateDataSetCommand(input);
  * const response = await client.send(command);
@@ -321,6 +713,9 @@ export interface UpdateDataSetCommandOutput extends UpdateDataSetResponse, __Met
  *
  * @throws {@link InternalFailureException} (server fault)
  *  <p>An internal failure occurred.</p>
+ *
+ * @throws {@link InvalidDataSetParameterValueException} (client fault)
+ *  <p>An exception thrown when an invalid parameter value is provided for dataset operations.</p>
  *
  * @throws {@link InvalidParameterValueException} (client fault)
  *  <p>One or more parameters has a value that isn't valid.</p>

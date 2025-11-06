@@ -2,20 +2,17 @@
 import { SENSITIVE_STRING } from "@smithy/smithy-client";
 
 import {
-  AggregationPartitionBy,
-  AggType,
   AmazonElasticsearchParameters,
   AmazonOpenSearchParameters,
   AnalysisDefaults,
   AssetOptions,
   AuthorizationCodeGrantCredentialsSource,
-  AxisDisplayOptions,
   CalculatedField,
   CalculatedFieldFilterSensitiveLog,
-  ChartAxisLabelOptions,
   ClientCredentialsSource,
   ColumnConfiguration,
   ColumnConfigurationFilterSensitiveLog,
+  ColumnSort,
   ConnectionAuthType,
   DataSetIdentifierDeclaration,
   FilterControl,
@@ -32,7 +29,9 @@ import {
   SheetControlLayout,
   SheetImage,
   SheetTextBox,
+  SortDirection,
   TimeGranularity,
+  TransformOperationSource,
   URLTargetConfiguration,
   Visibility,
   VisualCustomAction,
@@ -41,8 +40,10 @@ import {
 } from "./models_0";
 
 import {
+  AxisDisplayOptions,
   BarChartVisual,
   BoxPlotVisual,
+  ChartAxisLabelOptions,
   ColorScale,
   ColumnHierarchy,
   ComboChartVisual,
@@ -53,8 +54,11 @@ import {
   CustomContentVisual,
   DataLabelOptions,
   DataLabelOptionsFilterSensitiveLog,
+  DataPathValue,
+  DataPathValueFilterSensitiveLog,
   DimensionField,
   EmptyVisual,
+  FieldSort,
   FieldSortOptions,
   FilledMapVisual,
   FunnelChartVisual,
@@ -78,10 +82,9 @@ import {
   MeasureFieldFilterSensitiveLog,
   PaginationConfiguration,
   PieChartVisual,
-  PivotTableFieldOptions,
-  PivotTableFieldWells,
-  PivotTablePaginatedReportOptions,
-  PivotTableSortConfiguration,
+  PivotTableDataPathOption,
+  PivotTableFieldCollapseStateOption,
+  PivotTableFieldOption,
   TooltipOptions,
   UnaggregatedField,
   UnaggregatedFieldFilterSensitiveLog,
@@ -91,6 +94,157 @@ import {
   VisualSubtitleLabelOptions,
   VisualTitleLabelOptions,
 } from "./models_1";
+
+/**
+ * <p>The field options for a pivot table visual.</p>
+ * @public
+ */
+export interface PivotTableFieldOptions {
+  /**
+   * <p>The selected field options for the pivot table field options.</p>
+   * @public
+   */
+  SelectedFieldOptions?: PivotTableFieldOption[] | undefined;
+
+  /**
+   * <p>The data path options for the pivot table field options.</p>
+   * @public
+   */
+  DataPathOptions?: PivotTableDataPathOption[] | undefined;
+
+  /**
+   * <p>The collapse state options for the pivot table field options.</p>
+   * @public
+   */
+  CollapseStateOptions?: PivotTableFieldCollapseStateOption[] | undefined;
+}
+
+/**
+ * <p>The aggregated field well for the pivot table.</p>
+ * @public
+ */
+export interface PivotTableAggregatedFieldWells {
+  /**
+   * <p>The rows field well for a pivot table. Values are grouped by rows fields.</p>
+   * @public
+   */
+  Rows?: DimensionField[] | undefined;
+
+  /**
+   * <p>The columns field well for a pivot table. Values are grouped by columns fields.</p>
+   * @public
+   */
+  Columns?: DimensionField[] | undefined;
+
+  /**
+   * <p>The values field well for a pivot table. Values are aggregated based on rows and columns fields.</p>
+   * @public
+   */
+  Values?: MeasureField[] | undefined;
+}
+
+/**
+ * <p>The field wells for a pivot table visual.</p>
+ *          <p>This is a union type structure. For this structure to be valid, only one of the attributes can be defined.</p>
+ * @public
+ */
+export interface PivotTableFieldWells {
+  /**
+   * <p>The aggregated field well for the pivot table.</p>
+   * @public
+   */
+  PivotTableAggregatedFieldWells?: PivotTableAggregatedFieldWells | undefined;
+}
+
+/**
+ * <p>The paginated report options for a pivot table visual.</p>
+ * @public
+ */
+export interface PivotTablePaginatedReportOptions {
+  /**
+   * <p>The visibility of the printing table overflow across pages.</p>
+   * @public
+   */
+  VerticalOverflowVisibility?: Visibility | undefined;
+
+  /**
+   * <p>The visibility of the repeating header rows on each page.</p>
+   * @public
+   */
+  OverflowColumnHeaderVisibility?: Visibility | undefined;
+}
+
+/**
+ * <p>Allows data paths to be sorted by a specific data value.</p>
+ * @public
+ */
+export interface DataPathSort {
+  /**
+   * <p>Determines the sort direction.</p>
+   * @public
+   */
+  Direction: SortDirection | undefined;
+
+  /**
+   * <p>The list of data paths that need to be sorted.</p>
+   * @public
+   */
+  SortPaths: DataPathValue[] | undefined;
+}
+
+/**
+ * <p>The sort by field for the field sort options.</p>
+ * @public
+ */
+export interface PivotTableSortBy {
+  /**
+   * <p>The field sort (field id, direction) for the pivot table sort by options.</p>
+   * @public
+   */
+  Field?: FieldSort | undefined;
+
+  /**
+   * <p>The column sort (field id, direction) for the pivot table sort by options.</p>
+   * @public
+   */
+  Column?: ColumnSort | undefined;
+
+  /**
+   * <p>The data path sort (data path value, direction) for the pivot table sort by options.</p>
+   * @public
+   */
+  DataPath?: DataPathSort | undefined;
+}
+
+/**
+ * <p>The field sort options for a pivot table sort configuration.</p>
+ * @public
+ */
+export interface PivotFieldSortOptions {
+  /**
+   * <p>The field ID for the field sort options.</p>
+   * @public
+   */
+  FieldId: string | undefined;
+
+  /**
+   * <p>The sort by field for the field sort options.</p>
+   * @public
+   */
+  SortBy: PivotTableSortBy | undefined;
+}
+
+/**
+ * <p>The sort configuration for a <code>PivotTableVisual</code>.</p>
+ * @public
+ */
+export interface PivotTableSortConfiguration {
+  /**
+   * <p>The field sort options for a pivot table sort configuration.</p>
+   * @public
+   */
+  FieldSortOptions?: PivotFieldSortOptions[] | undefined;
+}
 
 /**
  * @public
@@ -3223,7 +3377,7 @@ export interface SheetDefinition {
   Description?: string | undefined;
 
   /**
-   * <p>The name of the sheet. This name is displayed on the sheet's tab in the QuickSight
+   * <p>The name of the sheet. This name is displayed on the sheet's tab in the Quick Suite
    *             console.</p>
    * @public
    */
@@ -3794,7 +3948,7 @@ export interface DashboardVisualId {
   /**
    * <p>The ID of the dashboard that has the visual that you want to embed. The
    *                 <code>DashboardId</code> can be found in the <code>IDs for developers</code> section
-   *             of the <code>Embed visual</code> pane of the visual's on-visual menu of the QuickSight console. You can also get the <code>DashboardId</code> with a
+   *             of the <code>Embed visual</code> pane of the visual's on-visual menu of the Quick Suite console. You can also get the <code>DashboardId</code> with a
    *                 <code>ListDashboards</code> API operation.</p>
    * @public
    */
@@ -3803,7 +3957,7 @@ export interface DashboardVisualId {
   /**
    * <p>The ID of the sheet that the has visual that you want to embed. The
    *                 <code>SheetId</code> can be found in the <code>IDs for developers</code> section of
-   *             the <code>Embed visual</code> pane of the visual's on-visual menu of the QuickSight console.</p>
+   *             the <code>Embed visual</code> pane of the visual's on-visual menu of the Quick Suite console.</p>
    * @public
    */
   SheetId: string | undefined;
@@ -3862,7 +4016,7 @@ export interface AnonymousUserQSearchBarEmbeddingConfiguration {
 }
 
 /**
- * <p>The type of experience you want to embed. For anonymous users, you can embed QuickSight dashboards.</p>
+ * <p>The type of experience you want to embed. For anonymous users, you can embed Quick Suite dashboards.</p>
  * @public
  */
 export interface AnonymousUserEmbeddingExperienceConfiguration {
@@ -4107,6 +4261,54 @@ export interface APIKeyConnectionMetadata {
    * @public
    */
   Email?: string | undefined;
+}
+
+/**
+ * <p>Represents a column that will be included in the result of an append operation, combining data from multiple sources.</p>
+ * @public
+ */
+export interface AppendedColumn {
+  /**
+   * <p>The name of the column to include in the appended result.</p>
+   * @public
+   */
+  ColumnName: string | undefined;
+
+  /**
+   * <p>A unique identifier for the column in the appended result.</p>
+   * @public
+   */
+  NewColumnId: string | undefined;
+}
+
+/**
+ * <p>A transform operation that combines rows from two data sources by stacking them vertically (union operation).</p>
+ * @public
+ */
+export interface AppendOperation {
+  /**
+   * <p>Alias for this operation.</p>
+   * @public
+   */
+  Alias: string | undefined;
+
+  /**
+   * <p>The first data source to be included in the append operation.</p>
+   * @public
+   */
+  FirstSource?: TransformOperationSource | undefined;
+
+  /**
+   * <p>The second data source to be appended to the first source.</p>
+   * @public
+   */
+  SecondSource?: TransformOperationSource | undefined;
+
+  /**
+   * <p>The list of columns to include in the appended result, mapping columns from both sources.</p>
+   * @public
+   */
+  AppendedColumns: AppendedColumn[] | undefined;
 }
 
 /**
@@ -8762,302 +8964,57 @@ export const TopicSortDirection = {
 export type TopicSortDirection = (typeof TopicSortDirection)[keyof typeof TopicSortDirection];
 
 /**
- * <p>The definition for the <code>FilterAggMetrics</code>.</p>
- * @public
+ * @internal
  */
-export interface FilterAggMetrics {
-  /**
-   * <p>The metric operand of the <code>FilterAggMetrics</code>.</p>
-   * @public
-   */
-  MetricOperand?: Identifier | undefined;
-
-  /**
-   * <p>The function for the <code>FilterAggMetrics</code>.</p>
-   * @public
-   */
-  Function?: AggType | undefined;
-
-  /**
-   * <p>The sort direction for <code>FilterAggMetrics</code>.</p>
-   * @public
-   */
-  SortDirection?: TopicSortDirection | undefined;
-}
+export const PivotTableFieldOptionsFilterSensitiveLog = (obj: PivotTableFieldOptions): any => ({
+  ...obj,
+});
 
 /**
- * @public
- * @enum
+ * @internal
  */
-export const ConstantType = {
-  COLLECTIVE: "COLLECTIVE",
-  RANGE: "RANGE",
-  SINGULAR: "SINGULAR",
-} as const;
+export const PivotTableAggregatedFieldWellsFilterSensitiveLog = (obj: PivotTableAggregatedFieldWells): any => ({
+  ...obj,
+  ...(obj.Values && { Values: obj.Values.map((item) => MeasureFieldFilterSensitiveLog(item)) }),
+});
 
 /**
- * @public
+ * @internal
  */
-export type ConstantType = (typeof ConstantType)[keyof typeof ConstantType];
+export const PivotTableFieldWellsFilterSensitiveLog = (obj: PivotTableFieldWells): any => ({
+  ...obj,
+});
 
 /**
- * <p>The definition for a <code>CollectiveConstantEntry</code>.</p>
- * @public
+ * @internal
  */
-export interface CollectiveConstantEntry {
-  /**
-   * <p>The <code>ConstantType</code> of a <code>CollectiveConstantEntry</code>.</p>
-   * @public
-   */
-  ConstantType?: ConstantType | undefined;
-
-  /**
-   * <p>The value of a <code>CollectiveConstantEntry</code>.</p>
-   * @public
-   */
-  Value?: string | undefined;
-}
+export const DataPathSortFilterSensitiveLog = (obj: DataPathSort): any => ({
+  ...obj,
+  ...(obj.SortPaths && { SortPaths: obj.SortPaths.map((item) => DataPathValueFilterSensitiveLog(item)) }),
+});
 
 /**
- * <p>The definition for a <code>TopicConstantValue</code>.</p>
- * @public
+ * @internal
  */
-export interface TopicConstantValue {
-  /**
-   * <p>The constant type of a <code>TopicConstantValue</code>.</p>
-   * @public
-   */
-  ConstantType?: ConstantType | undefined;
-
-  /**
-   * <p>The value of the <code>TopicConstantValue</code>.</p>
-   * @public
-   */
-  Value?: string | undefined;
-
-  /**
-   * <p>The minimum for the <code>TopicConstantValue</code>.</p>
-   * @public
-   */
-  Minimum?: string | undefined;
-
-  /**
-   * <p>The maximum for the <code>TopicConstantValue</code>.</p>
-   * @public
-   */
-  Maximum?: string | undefined;
-
-  /**
-   * <p>The value list of the <code>TopicConstantValue</code>.</p>
-   * @public
-   */
-  ValueList?: CollectiveConstantEntry[] | undefined;
-}
+export const PivotTableSortByFilterSensitiveLog = (obj: PivotTableSortBy): any => ({
+  ...obj,
+  ...(obj.DataPath && { DataPath: DataPathSortFilterSensitiveLog(obj.DataPath) }),
+});
 
 /**
- * @public
- * @enum
+ * @internal
  */
-export const FilterClass = {
-  CONDITIONAL_VALUE_FILTER: "CONDITIONAL_VALUE_FILTER",
-  ENFORCED_VALUE_FILTER: "ENFORCED_VALUE_FILTER",
-  NAMED_VALUE_FILTER: "NAMED_VALUE_FILTER",
-} as const;
+export const PivotFieldSortOptionsFilterSensitiveLog = (obj: PivotFieldSortOptions): any => ({
+  ...obj,
+  ...(obj.SortBy && { SortBy: PivotTableSortByFilterSensitiveLog(obj.SortBy) }),
+});
 
 /**
- * @public
+ * @internal
  */
-export type FilterClass = (typeof FilterClass)[keyof typeof FilterClass];
-
-/**
- * @public
- * @enum
- */
-export const TopicIRFilterType = {
-  ACCEPT_ALL_FILTER: "ACCEPT_ALL_FILTER",
-  CATEGORY_FILTER: "CATEGORY_FILTER",
-  DATE_RANGE_FILTER: "DATE_RANGE_FILTER",
-  EQUALS: "EQUALS",
-  NUMERIC_EQUALITY_FILTER: "NUMERIC_EQUALITY_FILTER",
-  NUMERIC_RANGE_FILTER: "NUMERIC_RANGE_FILTER",
-  RANK_LIMIT_FILTER: "RANK_LIMIT_FILTER",
-  RELATIVE_DATE_FILTER: "RELATIVE_DATE_FILTER",
-  TOP_BOTTOM_FILTER: "TOP_BOTTOM_FILTER",
-} as const;
-
-/**
- * @public
- */
-export type TopicIRFilterType = (typeof TopicIRFilterType)[keyof typeof TopicIRFilterType];
-
-/**
- * @public
- * @enum
- */
-export const TopicIRFilterFunction = {
-  CONTAINS: "CONTAINS",
-  CONTAINS_STRING: "CONTAINS_STRING",
-  ENDS_WITH: "ENDS_WITH",
-  EXACT: "EXACT",
-  LAST: "LAST",
-  NEXT: "NEXT",
-  NOW: "NOW",
-  PREVIOUS: "PREVIOUS",
-  STARTS_WITH: "STARTS_WITH",
-  THIS: "THIS",
-} as const;
-
-/**
- * @public
- */
-export type TopicIRFilterFunction = (typeof TopicIRFilterFunction)[keyof typeof TopicIRFilterFunction];
-
-/**
- * @public
- * @enum
- */
-export const NullFilterOption = {
-  ALL_VALUES: "ALL_VALUES",
-  NON_NULLS_ONLY: "NON_NULLS_ONLY",
-  NULLS_ONLY: "NULLS_ONLY",
-} as const;
-
-/**
- * @public
- */
-export type NullFilterOption = (typeof NullFilterOption)[keyof typeof NullFilterOption];
-
-/**
- * <p>The definition for a <code>TopicIRFilterOption</code>.</p>
- * @public
- */
-export interface TopicIRFilterOption {
-  /**
-   * <p>The filter type for the <code>TopicIRFilterOption</code>.</p>
-   * @public
-   */
-  FilterType?: TopicIRFilterType | undefined;
-
-  /**
-   * <p>The filter class for the <code>TopicIRFilterOption</code>.</p>
-   * @public
-   */
-  FilterClass?: FilterClass | undefined;
-
-  /**
-   * <p>The operand field for the <code>TopicIRFilterOption</code>.</p>
-   * @public
-   */
-  OperandField?: Identifier | undefined;
-
-  /**
-   * <p>The function for the <code>TopicIRFilterOption</code>.</p>
-   * @public
-   */
-  Function?: TopicIRFilterFunction | undefined;
-
-  /**
-   * <p>The constant for the <code>TopicIRFilterOption</code>.</p>
-   * @public
-   */
-  Constant?: TopicConstantValue | undefined;
-
-  /**
-   * <p>The inverse for the <code>TopicIRFilterOption</code>.</p>
-   * @public
-   */
-  Inverse?: boolean | undefined;
-
-  /**
-   * <p>The null filter for the <code>TopicIRFilterOption</code>.</p>
-   * @public
-   */
-  NullFilter?: NullFilterOption | undefined;
-
-  /**
-   * <p>The aggregation for the <code>TopicIRFilterOption</code>.</p>
-   * @public
-   */
-  Aggregation?: AggType | undefined;
-
-  /**
-   * <p>The aggregation function parameters for the <code>TopicIRFilterOption</code>.</p>
-   * @public
-   */
-  AggregationFunctionParameters?: Record<string, string> | undefined;
-
-  /**
-   * <p>The <code>AggregationPartitionBy</code> for the <code>TopicIRFilterOption</code>.</p>
-   * @public
-   */
-  AggregationPartitionBy?: AggregationPartitionBy[] | undefined;
-
-  /**
-   * <p>The range for the <code>TopicIRFilterOption</code>.</p>
-   * @public
-   */
-  Range?: TopicConstantValue | undefined;
-
-  /**
-   * <p>The inclusive for the <code>TopicIRFilterOption</code>.</p>
-   * @public
-   */
-  Inclusive?: boolean | undefined;
-
-  /**
-   * <p>The time granularity for the <code>TopicIRFilterOption</code>.</p>
-   * @public
-   */
-  TimeGranularity?: TimeGranularity | undefined;
-
-  /**
-   * <p>The last next offset for the <code>TopicIRFilterOption</code>.</p>
-   * @public
-   */
-  LastNextOffset?: TopicConstantValue | undefined;
-
-  /**
-   * <p>The agg metrics for the <code>TopicIRFilterOption</code>.</p>
-   * @public
-   */
-  AggMetrics?: FilterAggMetrics[] | undefined;
-
-  /**
-   * <p>The <code>TopBottomLimit</code> for the <code>TopicIRFilterOption</code>.</p>
-   * @public
-   */
-  TopBottomLimit?: TopicConstantValue | undefined;
-
-  /**
-   * <p>The sort direction for the <code>TopicIRFilterOption</code>.</p>
-   * @public
-   */
-  SortDirection?: TopicSortDirection | undefined;
-
-  /**
-   * <p>The anchor for the <code>TopicIRFilterOption</code>.</p>
-   * @public
-   */
-  Anchor?: Anchor | undefined;
-}
-
-/**
- * <p>The definition for the <code>ContributionAnalysisTimeRanges</code>.</p>
- * @public
- */
-export interface ContributionAnalysisTimeRanges {
-  /**
-   * <p>The start range for the <code>ContributionAnalysisTimeRanges</code>.</p>
-   * @public
-   */
-  StartRange?: TopicIRFilterOption | undefined;
-
-  /**
-   * <p>The end range for the <code>ContributionAnalysisTimeRanges</code>.</p>
-   * @public
-   */
-  EndRange?: TopicIRFilterOption | undefined;
-}
+export const PivotTableSortConfigurationFilterSensitiveLog = (obj: PivotTableSortConfiguration): any => ({
+  ...obj,
+});
 
 /**
  * @internal

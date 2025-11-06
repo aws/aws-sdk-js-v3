@@ -9,7 +9,7 @@ import {
   ListActionConnectorsRequest,
   ListActionConnectorsResponse,
   ListActionConnectorsResponseFilterSensitiveLog,
-} from "../models/models_4";
+} from "../models/models_5";
 import { de_ListActionConnectorsCommand, se_ListActionConnectorsCommand } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 

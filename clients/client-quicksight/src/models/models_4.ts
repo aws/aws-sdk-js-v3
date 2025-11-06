@@ -7,8 +7,6 @@ import {
   AccountSettings,
   ActionConnector,
   ActionConnectorFilterSensitiveLog,
-  ActionConnectorSummary,
-  ActionConnectorSummaryFilterSensitiveLog,
   AmazonQInQuickSightConsoleConfigurations,
   AmazonQInQuickSightDashboardConfigurations,
   Analysis,
@@ -17,18 +15,17 @@ import {
   FilterOperator,
   ResourceStatus,
   Sheet,
+  TopicTimeGranularity,
 } from "./models_0";
 
 import {
   AnalysisDefinition,
-  AnalysisSummary,
   AnonymousUserEmbeddingExperienceConfiguration,
   AnonymousUserSnapshotJobResult,
   AssetBundleCloudFormationOverridePropertyConfiguration,
   AssetBundleExportFormat,
   AssetBundleExportJobError,
   AssetBundleExportJobStatus,
-  AssetBundleExportJobSummary,
   AssetBundleExportJobValidationStrategy,
   AssetBundleExportJobWarning,
   AssetBundleImportFailureAction,
@@ -38,17 +35,20 @@ import {
   AssetBundleImportJobOverrideTags,
   AssetBundleImportJobOverrideValidationStrategy,
   AssetBundleImportJobStatus,
-  AssetBundleImportJobSummary,
   AssetBundleImportJobWarning,
   AssetBundleImportSourceDescription,
   AssetBundleImportSourceDescriptionFilterSensitiveLog,
   AssignmentStatus,
   DashboardVisualId,
   DataSetRefreshProperties,
+  DataSourceParameters,
   ServiceType,
   SharedViewConfigurations,
   SnapshotFile,
   SnapshotS3DestinationConfiguration,
+  SslProperties,
+  Tag,
+  VpcConnectionProperties,
 } from "./models_2";
 
 import {
@@ -57,46 +57,1975 @@ import {
   BookmarksConfigurations,
   BrandDefinition,
   BrandDetail,
-  BrandSummary,
+  Capabilities,
+  ColumnDataSubType,
+  ColumnDataType,
+  ColumnGroup,
+  ColumnLevelPermissionRule,
+  ConstantType,
   CustomInstructions,
   CustomInstructionsFilterSensitiveLog,
-  CustomPermissions,
-  Dashboard,
-  DashboardError,
   DashboardPublishOptions,
-  DashboardsQAStatus,
-  DashboardSummary,
   DashboardVersionDefinition,
-  DashboardVersionSummary,
-  DataSet,
+  DataAggregation,
+  DataPrepConfiguration,
   DataSetConfiguration,
-  DataSetFilterSensitiveLog,
-  DataSetSummary,
-  DataSource,
+  DataSetImportMode,
+  DatasetParameter,
+  DataSetUsageConfiguration,
+  DataSetUseAs,
   DataSourceType,
+  FieldFolder,
+  FilterClass,
   FolderType,
   Group,
   GroupMember,
   IdentityStore,
   IngestionStatus,
   LinkSharingConfiguration,
+  LogicalTable,
+  LogicalTableFilterSensitiveLog,
   MemberType,
   NamespaceStatus,
+  PerformanceConfiguration,
+  PhysicalTable,
+  PhysicalTableFilterSensitiveLog,
   RefreshSchedule,
   ResourcePermission,
   Role,
+  RowLevelPermissionDataSet,
+  RowLevelPermissionTagConfiguration,
+  RowLevelPermissionTagConfigurationFilterSensitiveLog,
+  SemanticModelConfiguration,
+  SemanticModelConfigurationFilterSensitiveLog,
   SharingModel,
   TemplateAlias,
   TemplateVersionDefinition,
   ThemeAlias,
   ThemeConfiguration,
-  TopicDetails,
-  TopicRefreshSchedule,
-  VPCConnectionAvailabilityStatus,
-  VPCConnectionResourceStatus,
+  TopicCalculatedField,
+  TopicCalculatedFieldFilterSensitiveLog,
+  TopicCategoryFilter,
+  TopicCategoryFilterFilterSensitiveLog,
+  TopicColumn,
+  TopicColumnFilterSensitiveLog,
+  TopicConfigOptions,
 } from "./models_3";
 
 import { QuickSightServiceException as __BaseException } from "./QuickSightServiceException";
+
+/**
+ * <p>A structure that represents a range constant.</p>
+ * @public
+ */
+export interface RangeConstant {
+  /**
+   * <p>The minimum value for a range constant.</p>
+   * @public
+   */
+  Minimum?: string | undefined;
+
+  /**
+   * <p>The maximum value for a range constant.</p>
+   * @public
+   */
+  Maximum?: string | undefined;
+}
+
+/**
+ * <p>A constant value that is used in a range filter to specify the endpoints of the range.</p>
+ * @public
+ */
+export interface TopicRangeFilterConstant {
+  /**
+   * <p>The data type of the constant value that is used in a range filter. Valid values for this structure are <code>RANGE</code>.</p>
+   * @public
+   */
+  ConstantType?: ConstantType | undefined;
+
+  /**
+   * <p>The value of the constant that is used to specify the endpoints of a range filter.</p>
+   * @public
+   */
+  RangeConstant?: RangeConstant | undefined;
+}
+
+/**
+ * <p>A filter used to restrict data based on a range of dates or times.</p>
+ * @public
+ */
+export interface TopicDateRangeFilter {
+  /**
+   * <p>A Boolean value that indicates whether the date range filter should include the boundary values. If
+   *          set to true, the filter includes the start and end dates. If set to false, the filter
+   *          excludes them.</p>
+   * @public
+   */
+  Inclusive?: boolean | undefined;
+
+  /**
+   * <p>The constant used in a date range filter.</p>
+   * @public
+   */
+  Constant?: TopicRangeFilterConstant | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const NamedFilterType = {
+  CATEGORY_FILTER: "CATEGORY_FILTER",
+  DATE_RANGE_FILTER: "DATE_RANGE_FILTER",
+  NULL_FILTER: "NULL_FILTER",
+  NUMERIC_EQUALITY_FILTER: "NUMERIC_EQUALITY_FILTER",
+  NUMERIC_RANGE_FILTER: "NUMERIC_RANGE_FILTER",
+  RELATIVE_DATE_FILTER: "RELATIVE_DATE_FILTER",
+} as const;
+
+/**
+ * @public
+ */
+export type NamedFilterType = (typeof NamedFilterType)[keyof typeof NamedFilterType];
+
+/**
+ * <p>A structure that represents a singular filter constant, used in filters to specify a single value to match against.</p>
+ * @public
+ */
+export interface TopicSingularFilterConstant {
+  /**
+   * <p>The type of the singular filter constant. Valid values for this structure are <code>SINGULAR</code>.</p>
+   * @public
+   */
+  ConstantType?: ConstantType | undefined;
+
+  /**
+   * <p>The value of the singular filter constant.</p>
+   * @public
+   */
+  SingularConstant?: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const NullFilterType = {
+  ALL_VALUES: "ALL_VALUES",
+  NON_NULLS_ONLY: "NON_NULLS_ONLY",
+  NULLS_ONLY: "NULLS_ONLY",
+} as const;
+
+/**
+ * @public
+ */
+export type NullFilterType = (typeof NullFilterType)[keyof typeof NullFilterType];
+
+/**
+ * <p>The structure that represents a null filter.</p>
+ * @public
+ */
+export interface TopicNullFilter {
+  /**
+   * <p>The type of the null filter. Valid values for this type are <code>NULLS_ONLY</code>, <code>NON_NULLS_ONLY</code>, and <code>ALL_VALUES</code>.</p>
+   * @public
+   */
+  NullFilterType?: NullFilterType | undefined;
+
+  /**
+   * <p>A structure that represents a singular filter constant, used in filters to specify a single value to match against.</p>
+   * @public
+   */
+  Constant?: TopicSingularFilterConstant | undefined;
+
+  /**
+   * <p>A Boolean value that indicates if the filter is inverse.</p>
+   * @public
+   */
+  Inverse?: boolean | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const NamedFilterAggType = {
+  AVERAGE: "AVERAGE",
+  COUNT: "COUNT",
+  DISTINCT_COUNT: "DISTINCT_COUNT",
+  MAX: "MAX",
+  MEDIAN: "MEDIAN",
+  MIN: "MIN",
+  NO_AGGREGATION: "NO_AGGREGATION",
+  STDEV: "STDEV",
+  STDEVP: "STDEVP",
+  SUM: "SUM",
+  VAR: "VAR",
+  VARP: "VARP",
+} as const;
+
+/**
+ * @public
+ */
+export type NamedFilterAggType = (typeof NamedFilterAggType)[keyof typeof NamedFilterAggType];
+
+/**
+ * <p>A filter that filters topics based on the value of a numeric field. The filter includes only topics whose numeric field value matches the specified value.</p>
+ * @public
+ */
+export interface TopicNumericEqualityFilter {
+  /**
+   * <p>The constant used in a numeric equality filter.</p>
+   * @public
+   */
+  Constant?: TopicSingularFilterConstant | undefined;
+
+  /**
+   * <p>An aggregation function that specifies how to calculate the value of a numeric field for
+   *          a topic. Valid values for this structure are <code>NO_AGGREGATION</code>, <code>SUM</code>,
+   *             <code>AVERAGE</code>, <code>COUNT</code>, <code>DISTINCT_COUNT</code>, <code>MAX</code>,
+   *             <code>MEDIAN</code>, <code>MIN</code>, <code>STDEV</code>, <code>STDEVP</code>,
+   *             <code>VAR</code>,
+   *          and <code>VARP</code>.</p>
+   * @public
+   */
+  Aggregation?: NamedFilterAggType | undefined;
+}
+
+/**
+ * <p>A filter that filters topics based on the value of a numeric field. The filter includes only topics whose numeric field value falls within the specified range.</p>
+ * @public
+ */
+export interface TopicNumericRangeFilter {
+  /**
+   * <p>A Boolean value that indicates whether the endpoints of the numeric range are included in the filter.
+   *          If set to true, topics whose numeric field value is equal to the endpoint values will be
+   *          included in the filter. If set to false, topics whose numeric field value is equal to the
+   *          endpoint values will be excluded from the filter.</p>
+   * @public
+   */
+  Inclusive?: boolean | undefined;
+
+  /**
+   * <p>The constant used in a
+   *          numeric range filter.</p>
+   * @public
+   */
+  Constant?: TopicRangeFilterConstant | undefined;
+
+  /**
+   * <p>An aggregation function that specifies how to calculate the value of a numeric field for
+   *          a topic, Valid values for this structure are <code>NO_AGGREGATION</code>, <code>SUM</code>,
+   *             <code>AVERAGE</code>, <code>COUNT</code>, <code>DISTINCT_COUNT</code>, <code>MAX</code>,
+   *             <code>MEDIAN</code>, <code>MIN</code>, <code>STDEV</code>, <code>STDEVP</code>,
+   *             <code>VAR</code>,
+   *          and <code>VARP</code>.</p>
+   * @public
+   */
+  Aggregation?: NamedFilterAggType | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const TopicRelativeDateFilterFunction = {
+  LAST: "LAST",
+  NEXT: "NEXT",
+  NOW: "NOW",
+  PREVIOUS: "PREVIOUS",
+  THIS: "THIS",
+} as const;
+
+/**
+ * @public
+ */
+export type TopicRelativeDateFilterFunction =
+  (typeof TopicRelativeDateFilterFunction)[keyof typeof TopicRelativeDateFilterFunction];
+
+/**
+ * <p>A structure that represents a relative date filter.</p>
+ * @public
+ */
+export interface TopicRelativeDateFilter {
+  /**
+   * <p>The level of time precision that is used to aggregate <code>DateTime</code> values.</p>
+   * @public
+   */
+  TimeGranularity?: TopicTimeGranularity | undefined;
+
+  /**
+   * <p>The function to be used in a relative date filter to determine the range of dates to include in the results. Valid values for this structure are <code>BEFORE</code>, <code>AFTER</code>, and <code>BETWEEN</code>.</p>
+   * @public
+   */
+  RelativeDateFilterFunction?: TopicRelativeDateFilterFunction | undefined;
+
+  /**
+   * <p>The constant used in a
+   *          relative date filter.</p>
+   * @public
+   */
+  Constant?: TopicSingularFilterConstant | undefined;
+}
+
+/**
+ * <p>A structure that represents a filter used to select items for a topic.</p>
+ * @public
+ */
+export interface TopicFilter {
+  /**
+   * <p>A description of the filter used to select items for a topic.</p>
+   * @public
+   */
+  FilterDescription?: string | undefined;
+
+  /**
+   * <p>The class of the filter. Valid values for this structure are
+   *             <code>ENFORCED_VALUE_FILTER</code>,
+   *          <code>CONDITIONAL_VALUE_FILTER</code>,
+   *          and <code>NAMED_VALUE_FILTER</code>.</p>
+   * @public
+   */
+  FilterClass?: FilterClass | undefined;
+
+  /**
+   * <p>The name of the filter.</p>
+   * @public
+   */
+  FilterName: string | undefined;
+
+  /**
+   * <p>The other names or aliases for the filter.</p>
+   * @public
+   */
+  FilterSynonyms?: string[] | undefined;
+
+  /**
+   * <p>The name of the field that the filter operates on.</p>
+   * @public
+   */
+  OperandFieldName: string | undefined;
+
+  /**
+   * <p>The type of the filter. Valid values for this structure are
+   *          <code>CATEGORY_FILTER</code>, <code>NUMERIC_EQUALITY_FILTER</code>,
+   *             <code>NUMERIC_RANGE_FILTER</code>,
+   *          <code>DATE_RANGE_FILTER</code>,
+   *          and <code>RELATIVE_DATE_FILTER</code>.</p>
+   * @public
+   */
+  FilterType?: NamedFilterType | undefined;
+
+  /**
+   * <p>The category filter that is associated with this filter.</p>
+   * @public
+   */
+  CategoryFilter?: TopicCategoryFilter | undefined;
+
+  /**
+   * <p>The numeric equality filter.</p>
+   * @public
+   */
+  NumericEqualityFilter?: TopicNumericEqualityFilter | undefined;
+
+  /**
+   * <p>The numeric range filter.</p>
+   * @public
+   */
+  NumericRangeFilter?: TopicNumericRangeFilter | undefined;
+
+  /**
+   * <p>The date range filter.</p>
+   * @public
+   */
+  DateRangeFilter?: TopicDateRangeFilter | undefined;
+
+  /**
+   * <p>The relative date filter.</p>
+   * @public
+   */
+  RelativeDateFilter?: TopicRelativeDateFilter | undefined;
+
+  /**
+   * <p>The null filter.</p>
+   * @public
+   */
+  NullFilter?: TopicNullFilter | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const NamedEntityAggType = {
+  AVERAGE: "AVERAGE",
+  COUNT: "COUNT",
+  CUSTOM: "CUSTOM",
+  DISTINCT_COUNT: "DISTINCT_COUNT",
+  MAX: "MAX",
+  MEDIAN: "MEDIAN",
+  MIN: "MIN",
+  PERCENTILE: "PERCENTILE",
+  STDEV: "STDEV",
+  STDEVP: "STDEVP",
+  SUM: "SUM",
+  VAR: "VAR",
+  VARP: "VARP",
+} as const;
+
+/**
+ * @public
+ */
+export type NamedEntityAggType = (typeof NamedEntityAggType)[keyof typeof NamedEntityAggType];
+
+/**
+ * <p>A structure that represents a metric.</p>
+ * @public
+ */
+export interface NamedEntityDefinitionMetric {
+  /**
+   * <p>The aggregation of a named entity. Valid values for this structure are <code>SUM</code>,
+   *             <code>MIN</code>, <code>MAX</code>, <code>COUNT</code>, <code>AVERAGE</code>,
+   *             <code>DISTINCT_COUNT</code>, <code>STDEV</code>, <code>STDEVP</code>, <code>VAR</code>,
+   *             <code>VARP</code>, <code>PERCENTILE</code>,
+   *          <code>MEDIAN</code>,
+   *          and <code>CUSTOM</code>.</p>
+   * @public
+   */
+  Aggregation?: NamedEntityAggType | undefined;
+
+  /**
+   * <p>The additional parameters for an aggregation function.</p>
+   * @public
+   */
+  AggregationFunctionParameters?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const PropertyRole = {
+  ID: "ID",
+  PRIMARY: "PRIMARY",
+} as const;
+
+/**
+ * @public
+ */
+export type PropertyRole = (typeof PropertyRole)[keyof typeof PropertyRole];
+
+/**
+ * @public
+ * @enum
+ */
+export const PropertyUsage = {
+  DIMENSION: "DIMENSION",
+  INHERIT: "INHERIT",
+  MEASURE: "MEASURE",
+} as const;
+
+/**
+ * @public
+ */
+export type PropertyUsage = (typeof PropertyUsage)[keyof typeof PropertyUsage];
+
+/**
+ * <p>A structure that represents a named entity.</p>
+ * @public
+ */
+export interface NamedEntityDefinition {
+  /**
+   * <p>The name of the entity.</p>
+   * @public
+   */
+  FieldName?: string | undefined;
+
+  /**
+   * <p>The property name to be used for the named entity.</p>
+   * @public
+   */
+  PropertyName?: string | undefined;
+
+  /**
+   * <p>The property role. Valid values for this structure are <code>PRIMARY</code> and <code>ID</code>.</p>
+   * @public
+   */
+  PropertyRole?: PropertyRole | undefined;
+
+  /**
+   * <p>The property usage. Valid values for this structure are <code>INHERIT</code>,
+   *             <code>DIMENSION</code>,
+   *          and <code>MEASURE</code>.</p>
+   * @public
+   */
+  PropertyUsage?: PropertyUsage | undefined;
+
+  /**
+   * <p>The definition of a metric.</p>
+   * @public
+   */
+  Metric?: NamedEntityDefinitionMetric | undefined;
+}
+
+/**
+ * <p>A structure that represents a semantic entity type.</p>
+ * @public
+ */
+export interface SemanticEntityType {
+  /**
+   * <p>The semantic entity type name.</p>
+   * @public
+   */
+  TypeName?: string | undefined;
+
+  /**
+   * <p>The semantic entity sub type name.</p>
+   * @public
+   */
+  SubTypeName?: string | undefined;
+
+  /**
+   * <p>The semantic entity type parameters.</p>
+   * @public
+   */
+  TypeParameters?: Record<string, string> | undefined;
+}
+
+/**
+ * <p>A structure that represents a named entity.</p>
+ * @public
+ */
+export interface TopicNamedEntity {
+  /**
+   * <p>The name of the named entity.</p>
+   * @public
+   */
+  EntityName: string | undefined;
+
+  /**
+   * <p>The description of the named entity.</p>
+   * @public
+   */
+  EntityDescription?: string | undefined;
+
+  /**
+   * <p>The other
+   *          names or aliases for the named entity.</p>
+   * @public
+   */
+  EntitySynonyms?: string[] | undefined;
+
+  /**
+   * <p>The type of named entity that a topic represents.</p>
+   * @public
+   */
+  SemanticEntityType?: SemanticEntityType | undefined;
+
+  /**
+   * <p>The definition of a named entity.</p>
+   * @public
+   */
+  Definition?: NamedEntityDefinition[] | undefined;
+}
+
+/**
+ * <p>A structure that represents a dataset.</p>
+ * @public
+ */
+export interface DatasetMetadata {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the dataset.</p>
+   * @public
+   */
+  DatasetArn: string | undefined;
+
+  /**
+   * <p>The name of the dataset.</p>
+   * @public
+   */
+  DatasetName?: string | undefined;
+
+  /**
+   * <p>The description of the dataset.</p>
+   * @public
+   */
+  DatasetDescription?: string | undefined;
+
+  /**
+   * <p>The definition of a data aggregation.</p>
+   * @public
+   */
+  DataAggregation?: DataAggregation | undefined;
+
+  /**
+   * <p>The list of filter definitions.</p>
+   * @public
+   */
+  Filters?: TopicFilter[] | undefined;
+
+  /**
+   * <p>The list of column definitions.</p>
+   * @public
+   */
+  Columns?: TopicColumn[] | undefined;
+
+  /**
+   * <p>The list of calculated field definitions.</p>
+   * @public
+   */
+  CalculatedFields?: TopicCalculatedField[] | undefined;
+
+  /**
+   * <p>The list of named entities definitions.</p>
+   * @public
+   */
+  NamedEntities?: TopicNamedEntity[] | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const TopicUserExperienceVersion = {
+  LEGACY: "LEGACY",
+  NEW_READER_EXPERIENCE: "NEW_READER_EXPERIENCE",
+} as const;
+
+/**
+ * @public
+ */
+export type TopicUserExperienceVersion = (typeof TopicUserExperienceVersion)[keyof typeof TopicUserExperienceVersion];
+
+/**
+ * <p>A structure that describes the details of a topic, such as its name, description, and associated data sets.</p>
+ * @public
+ */
+export interface TopicDetails {
+  /**
+   * <p>The name of the topic.</p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>The description of the topic.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The user experience version of a topic.</p>
+   * @public
+   */
+  UserExperienceVersion?: TopicUserExperienceVersion | undefined;
+
+  /**
+   * <p>The data sets that the topic is associated with.</p>
+   * @public
+   */
+  DataSets?: DatasetMetadata[] | undefined;
+
+  /**
+   * <p>Configuration options for a <code>Topic</code>.</p>
+   * @public
+   */
+  ConfigOptions?: TopicConfigOptions | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateTopicRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account that you want to create a topic in.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The ID for the topic that you want to create. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>
+   * @public
+   */
+  TopicId: string | undefined;
+
+  /**
+   * <p>The definition of a topic to create.</p>
+   * @public
+   */
+  Topic: TopicDetails | undefined;
+
+  /**
+   * <p>Contains a map of the key-value pairs for the resource tag or tags that are assigned to
+   *          the dataset.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+
+  /**
+   * <p>The Folder ARN of the folder that you want the topic to reside in.</p>
+   * @public
+   */
+  FolderArns?: string[] | undefined;
+
+  /**
+   * <p>Custom instructions for the topic.</p>
+   * @public
+   */
+  CustomInstructions?: CustomInstructions | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateTopicResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the topic.</p>
+   * @public
+   */
+  Arn?: string | undefined;
+
+  /**
+   * <p>The ID for the topic that you want to create. This ID is unique per Amazon Web Services Region
+   *          for each Amazon Web Services account.</p>
+   * @public
+   */
+  TopicId?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the topic refresh.</p>
+   * @public
+   */
+  RefreshArn?: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   * @public
+   */
+  Status?: number | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const TopicScheduleType = {
+  DAILY: "DAILY",
+  HOURLY: "HOURLY",
+  MONTHLY: "MONTHLY",
+  WEEKLY: "WEEKLY",
+} as const;
+
+/**
+ * @public
+ */
+export type TopicScheduleType = (typeof TopicScheduleType)[keyof typeof TopicScheduleType];
+
+/**
+ * <p>A structure that represents a topic refresh schedule.</p>
+ * @public
+ */
+export interface TopicRefreshSchedule {
+  /**
+   * <p>A Boolean value that controls whether to schedule is enabled.</p>
+   * @public
+   */
+  IsEnabled: boolean | undefined;
+
+  /**
+   * <p>A Boolean value that controls whether to schedule runs at the same schedule that is specified in
+   *          SPICE dataset.</p>
+   * @public
+   */
+  BasedOnSpiceSchedule: boolean | undefined;
+
+  /**
+   * <p>The starting date and time for the refresh schedule.</p>
+   * @public
+   */
+  StartingAt?: Date | undefined;
+
+  /**
+   * <p>The timezone that you want the refresh schedule to use.</p>
+   * @public
+   */
+  Timezone?: string | undefined;
+
+  /**
+   * <p>The time of day when the refresh should run, for
+   *          example, Monday-Sunday.</p>
+   * @public
+   */
+  RepeatAt?: string | undefined;
+
+  /**
+   * <p>The type of refresh schedule. Valid values for this structure are <code>HOURLY</code>,
+   *             <code>DAILY</code>,
+   *          <code>WEEKLY</code>,
+   *          and <code>MONTHLY</code>.</p>
+   * @public
+   */
+  TopicScheduleType?: TopicScheduleType | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateTopicRefreshScheduleRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account that contains the topic
+   *          you're creating a refresh schedule for.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The ID of the topic that you want to modify. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>
+   * @public
+   */
+  TopicId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the dataset.</p>
+   * @public
+   */
+  DatasetArn: string | undefined;
+
+  /**
+   * <p>The name of the dataset.</p>
+   * @public
+   */
+  DatasetName?: string | undefined;
+
+  /**
+   * <p>The definition of a refresh schedule.</p>
+   * @public
+   */
+  RefreshSchedule: TopicRefreshSchedule | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateTopicRefreshScheduleResponse {
+  /**
+   * <p>The ID of the topic that you want to modify. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>
+   * @public
+   */
+  TopicId?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the topic.</p>
+   * @public
+   */
+  TopicArn?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the dataset.</p>
+   * @public
+   */
+  DatasetArn?: string | undefined;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   * @public
+   */
+  Status?: number | undefined;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateVPCConnectionRequest {
+  /**
+   * <p>The Amazon Web Services account ID of the account where you want to create a new VPC
+   * 			connection.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The ID of the VPC connection that
+   * 			you're creating. This ID is a unique identifier for each Amazon Web Services Region in an
+   * 				Amazon Web Services account.</p>
+   * @public
+   */
+  VPCConnectionId: string | undefined;
+
+  /**
+   * <p>The display name for the VPC connection.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>A list of subnet IDs for the VPC connection.</p>
+   * @public
+   */
+  SubnetIds: string[] | undefined;
+
+  /**
+   * <p>A list of security group IDs for the VPC connection.</p>
+   * @public
+   */
+  SecurityGroupIds: string[] | undefined;
+
+  /**
+   * <p>A list of IP addresses of DNS resolver endpoints for the VPC connection.</p>
+   * @public
+   */
+  DnsResolvers?: string[] | undefined;
+
+  /**
+   * <p>The IAM role to associate with the VPC connection.</p>
+   * @public
+   */
+  RoleArn: string | undefined;
+
+  /**
+   * <p>A map of the key-value pairs for the resource tag or tags assigned to the VPC
+   * 			connection.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const VPCConnectionAvailabilityStatus = {
+  AVAILABLE: "AVAILABLE",
+  PARTIALLY_AVAILABLE: "PARTIALLY_AVAILABLE",
+  UNAVAILABLE: "UNAVAILABLE",
+} as const;
+
+/**
+ * @public
+ */
+export type VPCConnectionAvailabilityStatus =
+  (typeof VPCConnectionAvailabilityStatus)[keyof typeof VPCConnectionAvailabilityStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const VPCConnectionResourceStatus = {
+  CREATION_FAILED: "CREATION_FAILED",
+  CREATION_IN_PROGRESS: "CREATION_IN_PROGRESS",
+  CREATION_SUCCESSFUL: "CREATION_SUCCESSFUL",
+  DELETED: "DELETED",
+  DELETION_FAILED: "DELETION_FAILED",
+  DELETION_IN_PROGRESS: "DELETION_IN_PROGRESS",
+  UPDATE_FAILED: "UPDATE_FAILED",
+  UPDATE_IN_PROGRESS: "UPDATE_IN_PROGRESS",
+  UPDATE_SUCCESSFUL: "UPDATE_SUCCESSFUL",
+} as const;
+
+/**
+ * @public
+ */
+export type VPCConnectionResourceStatus =
+  (typeof VPCConnectionResourceStatus)[keyof typeof VPCConnectionResourceStatus];
+
+/**
+ * @public
+ */
+export interface CreateVPCConnectionResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the VPC connection.</p>
+   * @public
+   */
+  Arn?: string | undefined;
+
+  /**
+   * <p>The ID for the VPC connection that
+   * 			you're creating. This ID is unique per Amazon Web Services Region for each Amazon Web Services
+   * 			account.</p>
+   * @public
+   */
+  VPCConnectionId?: string | undefined;
+
+  /**
+   * <p>The status of the creation of the VPC connection.</p>
+   * @public
+   */
+  CreationStatus?: VPCConnectionResourceStatus | undefined;
+
+  /**
+   * <p>The availability status of the VPC connection.</p>
+   * @public
+   */
+  AvailabilityStatus?: VPCConnectionAvailabilityStatus | undefined;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   * @public
+   */
+  Status?: number | undefined;
+}
+
+/**
+ * <p>The custom permissions profile.</p>
+ * @public
+ */
+export interface CustomPermissions {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the custom permissions profile.</p>
+   * @public
+   */
+  Arn?: string | undefined;
+
+  /**
+   * <p>The name of the custom permissions profile.</p>
+   * @public
+   */
+  CustomPermissionsName?: string | undefined;
+
+  /**
+   * <p>A set of actions in the custom permissions profile.</p>
+   * @public
+   */
+  Capabilities?: Capabilities | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const DashboardErrorType = {
+  ACCESS_DENIED: "ACCESS_DENIED",
+  COLUMN_GEOGRAPHIC_ROLE_MISMATCH: "COLUMN_GEOGRAPHIC_ROLE_MISMATCH",
+  COLUMN_REPLACEMENT_MISSING: "COLUMN_REPLACEMENT_MISSING",
+  COLUMN_TYPE_MISMATCH: "COLUMN_TYPE_MISMATCH",
+  DATA_SET_NOT_FOUND: "DATA_SET_NOT_FOUND",
+  INTERNAL_FAILURE: "INTERNAL_FAILURE",
+  PARAMETER_NOT_FOUND: "PARAMETER_NOT_FOUND",
+  PARAMETER_TYPE_INVALID: "PARAMETER_TYPE_INVALID",
+  PARAMETER_VALUE_INCOMPATIBLE: "PARAMETER_VALUE_INCOMPATIBLE",
+  SOURCE_NOT_FOUND: "SOURCE_NOT_FOUND",
+} as const;
+
+/**
+ * @public
+ */
+export type DashboardErrorType = (typeof DashboardErrorType)[keyof typeof DashboardErrorType];
+
+/**
+ * <p>Dashboard error.</p>
+ * @public
+ */
+export interface DashboardError {
+  /**
+   * <p>Type.</p>
+   * @public
+   */
+  Type?: DashboardErrorType | undefined;
+
+  /**
+   * <p>Message.</p>
+   * @public
+   */
+  Message?: string | undefined;
+
+  /**
+   * <p>Lists the violated entities that caused the dashboard error.</p>
+   * @public
+   */
+  ViolatedEntities?: Entity[] | undefined;
+}
+
+/**
+ * <p>Dashboard version.</p>
+ * @public
+ */
+export interface DashboardVersion {
+  /**
+   * <p>The time that this dashboard version was created.</p>
+   * @public
+   */
+  CreatedTime?: Date | undefined;
+
+  /**
+   * <p>Errors associated with this dashboard version.</p>
+   * @public
+   */
+  Errors?: DashboardError[] | undefined;
+
+  /**
+   * <p>Version number for this version of the dashboard.</p>
+   * @public
+   */
+  VersionNumber?: number | undefined;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   * @public
+   */
+  Status?: ResourceStatus | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the resource.</p>
+   * @public
+   */
+  Arn?: string | undefined;
+
+  /**
+   * <p>Source entity ARN.</p>
+   * @public
+   */
+  SourceEntityArn?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Numbers (ARNs) for the datasets that are associated with this
+   *             version of the dashboard.</p>
+   * @public
+   */
+  DataSetArns?: string[] | undefined;
+
+  /**
+   * <p>Description.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The ARN of the theme associated with a version of the dashboard.</p>
+   * @public
+   */
+  ThemeArn?: string | undefined;
+
+  /**
+   * <p>A list of the associated sheets with the unique identifier and name of each sheet.</p>
+   * @public
+   */
+  Sheets?: Sheet[] | undefined;
+}
+
+/**
+ * <p>Dashboard.</p>
+ * @public
+ */
+export interface Dashboard {
+  /**
+   * <p>Dashboard ID.</p>
+   * @public
+   */
+  DashboardId?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the resource.</p>
+   * @public
+   */
+  Arn?: string | undefined;
+
+  /**
+   * <p>A display name for the dashboard.</p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>Version.</p>
+   * @public
+   */
+  Version?: DashboardVersion | undefined;
+
+  /**
+   * <p>The time that this dashboard was created.</p>
+   * @public
+   */
+  CreatedTime?: Date | undefined;
+
+  /**
+   * <p>The last time that this dashboard was published.</p>
+   * @public
+   */
+  LastPublishedTime?: Date | undefined;
+
+  /**
+   * <p>The last time that this dashboard was updated.</p>
+   * @public
+   */
+  LastUpdatedTime?: Date | undefined;
+
+  /**
+   * <p>A list of analysis Amazon Resource Names (ARNs) to be linked to the dashboard.</p>
+   * @public
+   */
+  LinkEntities?: string[] | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const DashboardFilterAttribute = {
+  DASHBOARD_NAME: "DASHBOARD_NAME",
+  DIRECT_QUICKSIGHT_OWNER: "DIRECT_QUICKSIGHT_OWNER",
+  DIRECT_QUICKSIGHT_SOLE_OWNER: "DIRECT_QUICKSIGHT_SOLE_OWNER",
+  DIRECT_QUICKSIGHT_VIEWER_OR_OWNER: "DIRECT_QUICKSIGHT_VIEWER_OR_OWNER",
+  QUICKSIGHT_OWNER: "QUICKSIGHT_OWNER",
+  QUICKSIGHT_USER: "QUICKSIGHT_USER",
+  QUICKSIGHT_VIEWER_OR_OWNER: "QUICKSIGHT_VIEWER_OR_OWNER",
+} as const;
+
+/**
+ * @public
+ */
+export type DashboardFilterAttribute = (typeof DashboardFilterAttribute)[keyof typeof DashboardFilterAttribute];
+
+/**
+ * <p>A filter that you apply when searching for dashboards. </p>
+ * @public
+ */
+export interface DashboardSearchFilter {
+  /**
+   * <p>The comparison operator that you want to use as a filter, for example  <code>"Operator": "StringEquals"</code>. Valid values are <code>"StringEquals"</code> and  <code>"StringLike"</code>.</p>
+   *          <p>If you set the operator value to <code>"StringEquals"</code>, you need to provide an ownership related filter in the <code>"NAME"</code> field and the arn of the user or group whose folders you want to search in the <code>"Value"</code> field. For example,  <code>"Name":"DIRECT_QUICKSIGHT_OWNER", "Operator": "StringEquals", "Value": "arn:aws:quicksight:us-east-1:1:user/default/UserName1"</code>.</p>
+   *          <p>If you set the value to <code>"StringLike"</code>, you need to provide the name of the folders you are searching for. For example, <code>"Name":"DASHBOARD_NAME", "Operator": "StringLike", "Value": "Test"</code>. The <code>"StringLike"</code> operator only supports the <code>NAME</code> value <code>DASHBOARD_NAME</code>.</p>
+   * @public
+   */
+  Operator: FilterOperator | undefined;
+
+  /**
+   * <p>The name of the value that you want to use as a filter, for example, <code>"Name":
+   *             "QUICKSIGHT_OWNER"</code>.</p>
+   *          <p>Valid values are defined as follows:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>QUICKSIGHT_VIEWER_OR_OWNER</code>: Provide an ARN of a user or group, and any dashboards with that ARN listed as one of the dashboards's owners or viewers are returned. Implicit permissions from folders or groups are considered.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>QUICKSIGHT_OWNER</code>: Provide an ARN of a user or group, and any dashboards with that ARN listed as one of the owners of the dashboards are returned. Implicit permissions from folders or groups are considered.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DIRECT_QUICKSIGHT_SOLE_OWNER</code>: Provide an ARN of a user or group, and any dashboards with that ARN listed as the only owner of the dashboard are returned. Implicit permissions from folders or groups are not considered.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DIRECT_QUICKSIGHT_OWNER</code>: Provide an ARN of a user or group, and any dashboards with that ARN listed as one of the owners of the dashboards are returned. Implicit permissions from folders or groups are not considered.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DIRECT_QUICKSIGHT_VIEWER_OR_OWNER</code>: Provide an ARN of a user or group, and any dashboards with that ARN listed as one of the owners or viewers of the dashboards are returned. Implicit permissions from folders or groups are not considered.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DASHBOARD_NAME</code>: Any dashboards whose names have a substring match to this value will be returned.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Name?: DashboardFilterAttribute | undefined;
+
+  /**
+   * <p>The value of the named item, in this case <code>QUICKSIGHT_USER</code>, that you want
+   *             to use as a filter, for example, <code>"Value":
+   *             "arn:aws:quicksight:us-east-1:1:user/default/UserName1"</code>. </p>
+   * @public
+   */
+  Value?: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const DashboardsQAStatus = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type DashboardsQAStatus = (typeof DashboardsQAStatus)[keyof typeof DashboardsQAStatus];
+
+/**
+ * <p>Dashboard summary.</p>
+ * @public
+ */
+export interface DashboardSummary {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the resource.</p>
+   * @public
+   */
+  Arn?: string | undefined;
+
+  /**
+   * <p>Dashboard ID.</p>
+   * @public
+   */
+  DashboardId?: string | undefined;
+
+  /**
+   * <p>A display name for the dashboard.</p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>The time that this dashboard was created.</p>
+   * @public
+   */
+  CreatedTime?: Date | undefined;
+
+  /**
+   * <p>The last time that this dashboard was updated.</p>
+   * @public
+   */
+  LastUpdatedTime?: Date | undefined;
+
+  /**
+   * <p>Published version number.</p>
+   * @public
+   */
+  PublishedVersionNumber?: number | undefined;
+
+  /**
+   * <p>The last time that this dashboard was published.</p>
+   * @public
+   */
+  LastPublishedTime?: Date | undefined;
+}
+
+/**
+ * <p>Dashboard version summary.</p>
+ * @public
+ */
+export interface DashboardVersionSummary {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the resource.</p>
+   * @public
+   */
+  Arn?: string | undefined;
+
+  /**
+   * <p>The time that this dashboard version was created.</p>
+   * @public
+   */
+  CreatedTime?: Date | undefined;
+
+  /**
+   * <p>Version number.</p>
+   * @public
+   */
+  VersionNumber?: number | undefined;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   * @public
+   */
+  Status?: ResourceStatus | undefined;
+
+  /**
+   * <p>Source entity ARN.</p>
+   * @public
+   */
+  SourceEntityArn?: string | undefined;
+
+  /**
+   * <p>Description.</p>
+   * @public
+   */
+  Description?: string | undefined;
+}
+
+/**
+ * <p>The QA result that is made from dashboard visual.</p>
+ * @public
+ */
+export interface DashboardVisualResult {
+  /**
+   * <p>The ID of the dashboard.</p>
+   * @public
+   */
+  DashboardId?: string | undefined;
+
+  /**
+   * <p>The name of the dashboard.</p>
+   * @public
+   */
+  DashboardName?: string | undefined;
+
+  /**
+   * <p>The ID of the sheet.</p>
+   * @public
+   */
+  SheetId?: string | undefined;
+
+  /**
+   * <p>The name of the sheet.</p>
+   * @public
+   */
+  SheetName?: string | undefined;
+
+  /**
+   * <p>The ID of the visual.</p>
+   * @public
+   */
+  VisualId?: string | undefined;
+
+  /**
+   * <p>The title of the visual.</p>
+   * @public
+   */
+  VisualTitle?: string | undefined;
+
+  /**
+   * <p>The subtitle of the visual.</p>
+   * @public
+   */
+  VisualSubtitle?: string | undefined;
+
+  /**
+   * <p>The URL of the dashboard.</p>
+   * @public
+   */
+  DashboardUrl?: string | undefined;
+}
+
+/**
+ * <p>Output column.</p>
+ * @public
+ */
+export interface OutputColumn {
+  /**
+   * <p>The display name of the column..</p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>A unique identifier for the output column.</p>
+   * @public
+   */
+  Id?: string | undefined;
+
+  /**
+   * <p>A description for a column.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The data type of the column.</p>
+   * @public
+   */
+  Type?: ColumnDataType | undefined;
+
+  /**
+   * <p>The sub data type of the column.</p>
+   * @public
+   */
+  SubType?: ColumnDataSubType | undefined;
+}
+
+/**
+ * <p>Dataset.</p>
+ * @public
+ */
+export interface DataSet {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the resource.</p>
+   * @public
+   */
+  Arn?: string | undefined;
+
+  /**
+   * <p>The ID of the dataset. Limited to 96 characters.</p>
+   * @public
+   */
+  DataSetId?: string | undefined;
+
+  /**
+   * <p>A display name for the dataset.</p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>The time that this dataset was created.</p>
+   * @public
+   */
+  CreatedTime?: Date | undefined;
+
+  /**
+   * <p>The last time that this dataset was updated.</p>
+   * @public
+   */
+  LastUpdatedTime?: Date | undefined;
+
+  /**
+   * <p>Declares the physical tables that are available in the underlying data sources.</p>
+   * @public
+   */
+  PhysicalTableMap?: Record<string, PhysicalTable> | undefined;
+
+  /**
+   * <p>Configures the combination and transformation of the data from the physical
+   *             tables.</p>
+   * @public
+   */
+  LogicalTableMap?: Record<string, LogicalTable> | undefined;
+
+  /**
+   * <p>The list of columns after all transforms. These columns are available in templates,
+   *             analyses, and dashboards.</p>
+   * @public
+   */
+  OutputColumns?: OutputColumn[] | undefined;
+
+  /**
+   * <p>A value that indicates whether you want to import the data into SPICE.</p>
+   * @public
+   */
+  ImportMode?: DataSetImportMode | undefined;
+
+  /**
+   * <p>The amount of SPICE capacity used by this dataset. This is 0 if the dataset isn't
+   *             imported into SPICE.</p>
+   * @public
+   */
+  ConsumedSpiceCapacityInBytes?: number | undefined;
+
+  /**
+   * <p>Groupings of columns that work together in certain Quick Sight features.
+   *             Currently, only geospatial hierarchy is supported.</p>
+   * @public
+   */
+  ColumnGroups?: ColumnGroup[] | undefined;
+
+  /**
+   * <p>The folder that contains fields and nested subfolders for your dataset.</p>
+   * @public
+   */
+  FieldFolders?: Record<string, FieldFolder> | undefined;
+
+  /**
+   * <p>The row-level security configuration for the dataset.</p>
+   * @public
+   */
+  RowLevelPermissionDataSet?: RowLevelPermissionDataSet | undefined;
+
+  /**
+   * <p>The element you can use to define tags for row-level security.</p>
+   * @public
+   */
+  RowLevelPermissionTagConfiguration?: RowLevelPermissionTagConfiguration | undefined;
+
+  /**
+   * <p>A set of one or more definitions of a <code>
+   *                <a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ColumnLevelPermissionRule.html">ColumnLevelPermissionRule</a>
+   *             </code>.</p>
+   * @public
+   */
+  ColumnLevelPermissionRules?: ColumnLevelPermissionRule[] | undefined;
+
+  /**
+   * <p>The usage configuration to apply to child datasets that reference this dataset as a source.</p>
+   * @public
+   */
+  DataSetUsageConfiguration?: DataSetUsageConfiguration | undefined;
+
+  /**
+   * <p>The parameters that are declared in a dataset.</p>
+   * @public
+   */
+  DatasetParameters?: DatasetParameter[] | undefined;
+
+  /**
+   * <p>The performance optimization configuration of a dataset.</p>
+   * @public
+   */
+  PerformanceConfiguration?: PerformanceConfiguration | undefined;
+
+  /**
+   * <p>The usage of the dataset.</p>
+   * @public
+   */
+  UseAs?: DataSetUseAs | undefined;
+
+  /**
+   * <p>The data preparation configuration associated with this dataset.</p>
+   * @public
+   */
+  DataPrepConfiguration?: DataPrepConfiguration | undefined;
+
+  /**
+   * <p>The semantic model configuration associated with this dataset.</p>
+   * @public
+   */
+  SemanticModelConfiguration?: SemanticModelConfiguration | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const DataSetFilterAttribute = {
+  DATASET_NAME: "DATASET_NAME",
+  DIRECT_QUICKSIGHT_OWNER: "DIRECT_QUICKSIGHT_OWNER",
+  DIRECT_QUICKSIGHT_SOLE_OWNER: "DIRECT_QUICKSIGHT_SOLE_OWNER",
+  DIRECT_QUICKSIGHT_VIEWER_OR_OWNER: "DIRECT_QUICKSIGHT_VIEWER_OR_OWNER",
+  QUICKSIGHT_OWNER: "QUICKSIGHT_OWNER",
+  QUICKSIGHT_VIEWER_OR_OWNER: "QUICKSIGHT_VIEWER_OR_OWNER",
+} as const;
+
+/**
+ * @public
+ */
+export type DataSetFilterAttribute = (typeof DataSetFilterAttribute)[keyof typeof DataSetFilterAttribute];
+
+/**
+ * <p>A filter that you apply when searching for datasets.</p>
+ * @public
+ */
+export interface DataSetSearchFilter {
+  /**
+   * <p>The comparison operator that you want to use as a filter, for example <code>"Operator": "StringEquals"</code>. Valid values are <code>"StringEquals"</code> and <code>"StringLike"</code>.</p>
+   *          <p>If you set the operator value to <code>"StringEquals"</code>, you need to provide an ownership related filter in the <code>"NAME"</code> field and the arn of the user or group whose datasets you want to search in the <code>"Value"</code> field. For example, <code>"Name":"QUICKSIGHT_OWNER", "Operator": "StringEquals", "Value": "arn:aws:quicksight:us-east- 1:1:user/default/UserName1"</code>.</p>
+   *          <p>If you set the value to <code>"StringLike"</code>, you need to provide the name of the datasets you are searching for. For example, <code>"Name":"DATASET_NAME", "Operator": "StringLike", "Value": "Test"</code>. The <code>"StringLike"</code> operator only supports the <code>NAME</code> value <code>DATASET_NAME</code>.</p>
+   * @public
+   */
+  Operator: FilterOperator | undefined;
+
+  /**
+   * <p>The name of the value that you want to use as a filter, for example, <code>"Name":
+   *             "QUICKSIGHT_OWNER"</code>.</p>
+   *          <p>Valid values are defined as follows:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>QUICKSIGHT_VIEWER_OR_OWNER</code>: Provide an ARN of a user or group, and any datasets with that ARN listed as one of the dataset owners or viewers are returned. Implicit permissions from folders or groups are considered.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>QUICKSIGHT_OWNER</code>: Provide an ARN of a user or group, and any datasets with that ARN listed as one of the owners of the dataset are returned. Implicit permissions from folders or groups are considered.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DIRECT_QUICKSIGHT_SOLE_OWNER</code>: Provide an ARN of a user or group, and any datasets with that ARN listed as the only owner of the dataset are returned. Implicit permissions from folders or groups are not considered.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DIRECT_QUICKSIGHT_OWNER</code>: Provide an ARN of a user or group, and any datasets with that ARN listed as one of the owners if the dataset are returned. Implicit permissions from folders or groups are not considered.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DIRECT_QUICKSIGHT_VIEWER_OR_OWNER</code>: Provide an ARN of a user or group, and any datasets with that ARN listed as one of the owners or viewers of the dataset are returned. Implicit permissions from folders or groups are not considered.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DATASET_NAME</code>: Any datasets whose names have a substring match to this value will be returned.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Name: DataSetFilterAttribute | undefined;
+
+  /**
+   * <p>The value of the named item, in this case <code>QUICKSIGHT_OWNER</code>, that you want
+   *             to use as a filter, for example, <code>"Value":
+   *             "arn:aws:quicksight:us-east-1:1:user/default/UserName1"</code>.</p>
+   * @public
+   */
+  Value: string | undefined;
+}
+
+/**
+ * <p>Dataset summary.</p>
+ * @public
+ */
+export interface DataSetSummary {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the dataset.</p>
+   * @public
+   */
+  Arn?: string | undefined;
+
+  /**
+   * <p>The ID of the dataset.</p>
+   * @public
+   */
+  DataSetId?: string | undefined;
+
+  /**
+   * <p>A display name for the dataset.</p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>The time that this dataset was created.</p>
+   * @public
+   */
+  CreatedTime?: Date | undefined;
+
+  /**
+   * <p>The last time that this dataset was updated.</p>
+   * @public
+   */
+  LastUpdatedTime?: Date | undefined;
+
+  /**
+   * <p>A value that indicates whether you want to import the data into SPICE.</p>
+   * @public
+   */
+  ImportMode?: DataSetImportMode | undefined;
+
+  /**
+   * <p>The row-level security configuration for the dataset in the legacy data preparation experience.</p>
+   * @public
+   */
+  RowLevelPermissionDataSet?: RowLevelPermissionDataSet | undefined;
+
+  /**
+   * <p>The row-level security configuration for the dataset in the new data preparation experience.</p>
+   * @public
+   */
+  RowLevelPermissionDataSetMap?: Record<string, RowLevelPermissionDataSet> | undefined;
+
+  /**
+   * <p>Whether or not the row level permission tags are applied.</p>
+   * @public
+   */
+  RowLevelPermissionTagConfigurationApplied?: boolean | undefined;
+
+  /**
+   * <p>A value that indicates if the dataset has column level permission configured.</p>
+   * @public
+   */
+  ColumnLevelPermissionRulesApplied?: boolean | undefined;
+
+  /**
+   * <p>The usage of the dataset.</p>
+   * @public
+   */
+  UseAs?: DataSetUseAs | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const DataSourceErrorInfoType = {
+  ACCESS_DENIED: "ACCESS_DENIED",
+  CONFLICT: "CONFLICT",
+  COPY_SOURCE_NOT_FOUND: "COPY_SOURCE_NOT_FOUND",
+  ENGINE_VERSION_NOT_SUPPORTED: "ENGINE_VERSION_NOT_SUPPORTED",
+  GENERIC_SQL_FAILURE: "GENERIC_SQL_FAILURE",
+  TIMEOUT: "TIMEOUT",
+  UNKNOWN: "UNKNOWN",
+  UNKNOWN_HOST: "UNKNOWN_HOST",
+} as const;
+
+/**
+ * @public
+ */
+export type DataSourceErrorInfoType = (typeof DataSourceErrorInfoType)[keyof typeof DataSourceErrorInfoType];
+
+/**
+ * <p>Error information for the data source creation or update.</p>
+ * @public
+ */
+export interface DataSourceErrorInfo {
+  /**
+   * <p>Error type.</p>
+   * @public
+   */
+  Type?: DataSourceErrorInfoType | undefined;
+
+  /**
+   * <p>Error message.</p>
+   * @public
+   */
+  Message?: string | undefined;
+}
+
+/**
+ * <p>The structure of a data source.</p>
+ * @public
+ */
+export interface DataSource {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the data source.</p>
+   * @public
+   */
+  Arn?: string | undefined;
+
+  /**
+   * <p>The ID of the data source. This ID is unique per Amazon Web Services Region for each
+   *             Amazon Web Services account.</p>
+   * @public
+   */
+  DataSourceId?: string | undefined;
+
+  /**
+   * <p>A display name for the data source.</p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>The type of the data source. This type indicates which database engine the data source
+   *             connects to.</p>
+   * @public
+   */
+  Type?: DataSourceType | undefined;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   * @public
+   */
+  Status?: ResourceStatus | undefined;
+
+  /**
+   * <p>The time that this data source was created.</p>
+   * @public
+   */
+  CreatedTime?: Date | undefined;
+
+  /**
+   * <p>The last time that this data source was updated.</p>
+   * @public
+   */
+  LastUpdatedTime?: Date | undefined;
+
+  /**
+   * <p>The parameters that Quick Sight uses to connect to your underlying source. This
+   *             is a variant type structure. For this structure to be valid, only one of the attributes
+   *             can be non-null.</p>
+   * @public
+   */
+  DataSourceParameters?: DataSourceParameters | undefined;
+
+  /**
+   * <p>A set of alternate data source parameters that you want to share for the credentials
+   *             stored with this data source. The credentials are applied in tandem with the data source
+   *             parameters when you copy a data source by using a create or update request. The API
+   *             operation compares the <code>DataSourceParameters</code> structure that's in the request
+   *             with the structures in the <code>AlternateDataSourceParameters</code> allow list. If the
+   *             structures are an exact match, the request is allowed to use the credentials from this
+   *             existing data source. If the <code>AlternateDataSourceParameters</code> list is null,
+   *             the <code>Credentials</code> originally used with this <code>DataSourceParameters</code>
+   *             are automatically allowed.</p>
+   * @public
+   */
+  AlternateDataSourceParameters?: DataSourceParameters[] | undefined;
+
+  /**
+   * <p>The VPC connection information. You need to use this parameter only when you want
+   *             Quick Sight to use a VPC connection when connecting to your underlying source.</p>
+   * @public
+   */
+  VpcConnectionProperties?: VpcConnectionProperties | undefined;
+
+  /**
+   * <p>Secure Socket Layer (SSL) properties that apply when Quick Sight connects to your
+   *             underlying source.</p>
+   * @public
+   */
+  SslProperties?: SslProperties | undefined;
+
+  /**
+   * <p>Error information from the last update or the creation of the data source.</p>
+   * @public
+   */
+  ErrorInfo?: DataSourceErrorInfo | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the secret associated with the data source in Amazon Secrets Manager.</p>
+   * @public
+   */
+  SecretArn?: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const DataSourceFilterAttribute = {
+  DATASOURCE_NAME: "DATASOURCE_NAME",
+  DIRECT_QUICKSIGHT_OWNER: "DIRECT_QUICKSIGHT_OWNER",
+  DIRECT_QUICKSIGHT_SOLE_OWNER: "DIRECT_QUICKSIGHT_SOLE_OWNER",
+  DIRECT_QUICKSIGHT_VIEWER_OR_OWNER: "DIRECT_QUICKSIGHT_VIEWER_OR_OWNER",
+} as const;
+
+/**
+ * @public
+ */
+export type DataSourceFilterAttribute = (typeof DataSourceFilterAttribute)[keyof typeof DataSourceFilterAttribute];
+
+/**
+ * <p>A filter that you apply when searching for data sources.</p>
+ * @public
+ */
+export interface DataSourceSearchFilter {
+  /**
+   * <p>The comparison operator that you want to use as a filter, for example <code>"Operator": "StringEquals"</code>. Valid values are <code>"StringEquals"</code> and <code>"StringLike"</code>.</p>
+   *          <p>If you set the operator value to <code>"StringEquals"</code>, you need to provide an ownership related filter in the <code>"NAME"</code> field and the arn of the user or group whose data sources you want to search in the <code>"Value"</code> field. For example, <code>"Name":"DIRECT_QUICKSIGHT_OWNER", "Operator": "StringEquals", "Value": "arn:aws:quicksight:us-east-1:1:user/default/UserName1"</code>.</p>
+   *          <p>If you set the value to <code>"StringLike"</code>, you need to provide the name of the data sources you are searching for. For example, <code>"Name":"DATASOURCE_NAME", "Operator": "StringLike", "Value": "Test"</code>. The <code>"StringLike"</code> operator only supports the <code>NAME</code> value <code>DATASOURCE_NAME</code>.</p>
+   * @public
+   */
+  Operator: FilterOperator | undefined;
+
+  /**
+   * <p>The name of the value that you want to use as a filter, for example, <code>"Name":
+   *             "DIRECT_QUICKSIGHT_OWNER"</code>.</p>
+   *          <p>Valid values are defined as follows:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>DIRECT_QUICKSIGHT_VIEWER_OR_OWNER</code>: Provide an ARN of a user or group, and any data sources with that ARN listed as one of the owners or viewers of the data sources are returned. Implicit permissions from folders or groups are not considered.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DIRECT_QUICKSIGHT_OWNER</code>: Provide an ARN of a user or group, and any data sources with that ARN listed as one of the owners if the data source are returned. Implicit permissions from folders or groups are not considered.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DIRECT_QUICKSIGHT_SOLE_OWNER</code>: Provide an ARN of a user or group, and any data sources with that ARN listed as the only owner of the data source are returned. Implicit permissions from folders or groups are not considered.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DATASOURCE_NAME</code>: Any data sources whose names have a substring match to the provided value are returned.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Name: DataSourceFilterAttribute | undefined;
+
+  /**
+   * <p>The value of the named item, for example <code>DIRECT_QUICKSIGHT_OWNER</code>, that you want
+   *             to use as a filter, for example, <code>"Value":
+   *             "arn:aws:quicksight:us-east-1:1:user/default/UserName1"</code>.</p>
+   * @public
+   */
+  Value: string | undefined;
+}
 
 /**
  * <p>A <code>DataSourceSummary</code> object that returns a summary of a data source.</p>
@@ -355,7 +2284,7 @@ export interface DeleteBrandRequest {
   AwsAccountId: string | undefined;
 
   /**
-   * <p>The ID of the QuickSight brand.</p>
+   * <p>The ID of the Quick Suite brand.</p>
    * @public
    */
   BrandId: string | undefined;
@@ -499,7 +2428,7 @@ export interface DeleteDataSetRequest {
   AwsAccountId: string | undefined;
 
   /**
-   * <p>The ID for the dataset that you want to create. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>
+   * <p>The ID for the dataset that you want to delete. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>
    * @public
    */
   DataSetId: string | undefined;
@@ -516,7 +2445,7 @@ export interface DeleteDataSetResponse {
   Arn?: string | undefined;
 
   /**
-   * <p>The ID for the dataset that you want to create. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>
+   * <p>The ID for the dataset that you want to delete. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>
    * @public
    */
   DataSetId?: string | undefined;
@@ -1728,7 +3657,7 @@ export interface DescribeAccountSettingsResponse {
    *          <p>In the Quick Sight console, the Amazon Quick Sight subscription is sometimes referred to
    *             as a Quick Sight "account" even though it's technically not an account by
    *             itself. Instead, it's a subscription to the Amazon Quick Sight service for your
-   *                 Amazon Web Services account. The edition that you subscribe to applies to QuickSight in every Amazon Web Services Region where you use it.</p>
+   *                 Amazon Web Services account. The edition that you subscribe to applies to Quick Suite in every Amazon Web Services Region where you use it.</p>
    * @public
    */
   AccountSettings?: AccountSettings | undefined;
@@ -2437,7 +4366,7 @@ export interface DescribeBrandRequest {
   AwsAccountId: string | undefined;
 
   /**
-   * <p>The ID of the QuickSight brand.</p>
+   * <p>The ID of the Quick Suite brand.</p>
    * @public
    */
   BrandId: string | undefined;
@@ -2511,7 +4440,7 @@ export interface DescribeBrandPublishedVersionRequest {
   AwsAccountId: string | undefined;
 
   /**
-   * <p>The ID of the QuickSight brand.</p>
+   * <p>The ID of the Quick Suite brand.</p>
    * @public
    */
   BrandId: string | undefined;
@@ -3236,7 +5165,7 @@ export interface DescribeDataSetRequest {
   AwsAccountId: string | undefined;
 
   /**
-   * <p>The ID for the dataset that you want to create. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>
+   * <p>The ID for the dataset that you want to describe. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>
    * @public
    */
   DataSetId: string | undefined;
@@ -3276,7 +5205,7 @@ export interface DescribeDataSetPermissionsRequest {
   AwsAccountId: string | undefined;
 
   /**
-   * <p>The ID for the dataset that you want to create. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>
+   * <p>The ID for the dataset that you want to describe. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>
    * @public
    */
   DataSetId: string | undefined;
@@ -3293,7 +5222,7 @@ export interface DescribeDataSetPermissionsResponse {
   DataSetArn?: string | undefined;
 
   /**
-   * <p>The ID for the dataset that you want to create. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>
+   * <p>The ID for the dataset that you want to describe. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>
    * @public
    */
   DataSetId?: string | undefined;
@@ -6586,7 +8515,7 @@ export interface GenerateEmbedUrlForAnonymousUserRequest {
 
   /**
    * <p>The Amazon Quick Sight namespace that the anonymous user virtually belongs to. If you
-   *             are not using an Amazon QuickSight custom namespace, set this to
+   *             are not using an Amazon Quick Suite custom namespace, set this to
    *                 <code>default</code>.</p>
    * @public
    */
@@ -6660,7 +8589,7 @@ export interface GenerateEmbedUrlForAnonymousUserResponse {
   RequestId: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) to use for the anonymous Amazon QuickSight
+   * <p>The Amazon Resource Name (ARN) to use for the anonymous Amazon Quick Suite
    *             user.</p>
    * @public
    */
@@ -6876,7 +8805,7 @@ export interface RegisteredUserDashboardVisualEmbeddingConfiguration {
 export interface RegisteredUserGenerativeQnAEmbeddingConfiguration {
   /**
    * <p>The ID of the new Q reader experience topic that you want to make the starting topic
-   *             in the Generative Q&A experience. You can find a topic ID by navigating to the Topics pane in the QuickSight application and opening a topic. The ID is in the URL for the topic that
+   *             in the Generative Q&A experience. You can find a topic ID by navigating to the Topics pane in the Quick Suite application and opening a topic. The ID is in the URL for the topic that
    *             you open.</p>
    *          <p>If you don't specify an initial topic or you specify a legacy topic, a list of all
    *             shared new reader experience topics is shown in the Generative Q&A experience for
@@ -6951,1712 +8880,154 @@ export interface RegisteredUserConsoleFeatureConfigurations {
 }
 
 /**
- * <p>Information about the Amazon Quick Sight console that you want to embed.</p>
- * @public
+ * @internal
  */
-export interface RegisteredUserQuickSightConsoleEmbeddingConfiguration {
-  /**
-   * <p>The initial URL path for the Amazon Quick Sight console. <code>InitialPath</code> is
-   *             required.</p>
-   *          <p>The entry point URL is constrained to the following paths:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>/start</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>/start/analyses</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>/start/dashboards</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>/start/favorites</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>/dashboards/DashboardId</code>. <i>DashboardId</i> is the
-   *                     actual ID key from the Amazon Quick Sight console URL of the dashboard.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>/analyses/AnalysisId</code>. <i>AnalysisId</i> is the
-   *                     actual ID key from the Amazon Quick Sight console URL of the analysis.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  InitialPath?: string | undefined;
-
-  /**
-   * <p>The embedding configuration of an embedded Amazon Quick Sight console.</p>
-   * @public
-   */
-  FeatureConfigurations?: RegisteredUserConsoleFeatureConfigurations | undefined;
-}
+export const TopicRangeFilterConstantFilterSensitiveLog = (obj: TopicRangeFilterConstant): any => ({
+  ...obj,
+});
 
 /**
- * <p>The type of experience you want to embed. For registered users, you can embed QuickSight dashboards or the Amazon Quick Sight console.</p>
- *          <note>
- *             <p>Exactly one of the experience configurations is required. You can choose
- *                     <code>Dashboard</code> or <code>QuickSightConsole</code>. You cannot choose more
- *                 than one experience configuration.</p>
- *          </note>
- * @public
+ * @internal
  */
-export interface RegisteredUserEmbeddingExperienceConfiguration {
-  /**
-   * <p>The configuration details for providing a dashboard embedding experience.</p>
-   * @public
-   */
-  Dashboard?: RegisteredUserDashboardEmbeddingConfiguration | undefined;
-
-  /**
-   * <p>The configuration details for providing each Amazon Quick Sight console embedding
-   *             experience. This can be used along with custom permissions to restrict access to certain
-   *             features. For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/customizing-permissions-to-the-quicksight-console.html">Customizing Access to the Amazon Quick Sight Console</a> in the
-   *                     <i>Amazon QuickSight User Guide</i>.</p>
-   *          <p>Use <code>
-   *                <a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/API_GenerateEmbedUrlForRegisteredUser.html">GenerateEmbedUrlForRegisteredUser</a>
-   *             </code> where you want to provide an
-   *             authoring portal that allows users to create data sources, datasets, analyses, and
-   *             dashboards. The users who accesses an embedded Amazon Quick Sight console needs to belong
-   *             to the author or admin security cohort. If you want to restrict permissions to some of
-   *             these features, add a custom permissions profile to the user with the <code>
-   *                <a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/API_UpdateUser.html">UpdateUser</a>
-   *             </code> API operation. Use the <code>
-   *                <a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/API_RegisterUser.html">RegisterUser</a>
-   *             </code> API operation to add a new user with a custom
-   *             permission profile attached. For more information, see the following sections in the
-   *                     <i>Amazon QuickSight User Guide</i>:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <a href="https://docs.aws.amazon.com/quicksight/latest/user/embedded-analytics-full-console-for-authenticated-users.html">Embedding the Full Functionality of the Amazon Quick Sight Console for
-   *                         Authenticated Users</a>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <a href="https://docs.aws.amazon.com/quicksight/latest/user/customizing-permissions-to-the-quicksight-console.html">Customizing Access to the Amazon QuickSight Console</a>
-   *                </p>
-   *             </li>
-   *          </ul>
-   *          <p>For more information about the high-level steps for embedding and for an interactive
-   *             demo of the ways you can customize embedding, visit the <a href="https://docs.aws.amazon.com/quicksight/latest/user/quicksight-dev-portal.html">Amazon QuickSight
-   *                 Developer Portal</a>.</p>
-   * @public
-   */
-  QuickSightConsole?: RegisteredUserQuickSightConsoleEmbeddingConfiguration | undefined;
-
-  /**
-   * <p>The configuration details for embedding the Q search bar.</p>
-   *          <p>For more information about embedding the Q search bar, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/embedding-overview.html">Embedding Overview</a> in
-   *             the <i>Amazon Quick Sight User Guide</i>.</p>
-   * @public
-   */
-  QSearchBar?: RegisteredUserQSearchBarEmbeddingConfiguration | undefined;
-
-  /**
-   * <p>The type of embedding experience. In this case, Amazon Quick Sight visuals.</p>
-   * @public
-   */
-  DashboardVisual?: RegisteredUserDashboardVisualEmbeddingConfiguration | undefined;
-
-  /**
-   * <p>The configuration details for embedding the Generative Q&A experience.</p>
-   *          <p>For more information about embedding the Generative Q&A experience, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/embedding-overview.html">Embedding Overview</a> in
-   *             the <i>Amazon Quick Sight User Guide</i>.</p>
-   * @public
-   */
-  GenerativeQnA?: RegisteredUserGenerativeQnAEmbeddingConfiguration | undefined;
-}
+export const TopicDateRangeFilterFilterSensitiveLog = (obj: TopicDateRangeFilter): any => ({
+  ...obj,
+  ...(obj.Constant && { Constant: SENSITIVE_STRING }),
+});
 
 /**
- * @public
+ * @internal
  */
-export interface GenerateEmbedUrlForRegisteredUserRequest {
-  /**
-   * <p>The ID for the Amazon Web Services account that contains the dashboard that you're
-   *             embedding.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>How many minutes the session is valid. The session lifetime must be in [15-600]
-   *             minutes range.</p>
-   * @public
-   */
-  SessionLifetimeInMinutes?: number | undefined;
-
-  /**
-   * <p>The Amazon Resource Name for the registered user.</p>
-   * @public
-   */
-  UserArn: string | undefined;
-
-  /**
-   * <p>The experience that you want to embed. For registered users, you can embed QuickSight dashboards, Amazon Quick Sight visuals, the Amazon Quick Sight Q search bar,
-   *             the Amazon Quick Sight Generative Q&A experience, or the entire Amazon Quick Sight console.</p>
-   * @public
-   */
-  ExperienceConfiguration: RegisteredUserEmbeddingExperienceConfiguration | undefined;
-
-  /**
-   * <p>The domains that you want to add to the allow list for access to the generated URL
-   *             that is then embedded. This optional parameter overrides the static domains that are
-   *             configured in the Manage Quick Sight menu in the Amazon Quick Sight console. Instead, it
-   *             allows only the domains that you include in this parameter. You can list up to three
-   *             domains or subdomains in each API call.</p>
-   *          <p>To include all subdomains under a specific domain to the allow list, use
-   *                 <code>*</code>. For example, <code>https://*.sapp.amazon.com</code> includes all
-   *             subdomains under <code>https://sapp.amazon.com</code>.</p>
-   * @public
-   */
-  AllowedDomains?: string[] | undefined;
-}
+export const TopicSingularFilterConstantFilterSensitiveLog = (obj: TopicSingularFilterConstant): any => ({
+  ...obj,
+});
 
 /**
- * @public
+ * @internal
  */
-export interface GenerateEmbedUrlForRegisteredUserResponse {
-  /**
-   * <p>The embed URL for the Amazon Quick Sight dashboard, visual, Q search bar, Generative Q&A experience, or
-   *             console.</p>
-   * @public
-   */
-  EmbedUrl: string | undefined;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status: number | undefined;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId: string | undefined;
-}
+export const TopicNullFilterFilterSensitiveLog = (obj: TopicNullFilter): any => ({
+  ...obj,
+  ...(obj.Constant && { Constant: SENSITIVE_STRING }),
+});
 
 /**
- * <p>The user with the provided name isn't found. This error can happen in any operation
- * 			that requires finding a user based on a provided user name, such as
- * 				<code>DeleteUser</code>, <code>DescribeUser</code>, and so on.</p>
- * @public
+ * @internal
  */
-export class QuickSightUserNotFoundException extends __BaseException {
-  readonly name: "QuickSightUserNotFoundException" = "QuickSightUserNotFoundException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * <p>The Amazon Web Services request ID for this request.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<QuickSightUserNotFoundException, __BaseException>) {
-    super({
-      name: "QuickSightUserNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, QuickSightUserNotFoundException.prototype);
-    this.Message = opts.Message;
-    this.RequestId = opts.RequestId;
-  }
-}
+export const TopicNumericEqualityFilterFilterSensitiveLog = (obj: TopicNumericEqualityFilter): any => ({
+  ...obj,
+  ...(obj.Constant && { Constant: SENSITIVE_STRING }),
+});
 
 /**
- * @public
+ * @internal
  */
-export interface GenerateEmbedUrlForRegisteredUserWithIdentityRequest {
-  /**
-   * <p>The ID of the Amazon Web Services registered user.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The validity of the session in minutes.</p>
-   * @public
-   */
-  SessionLifetimeInMinutes?: number | undefined;
-
-  /**
-   * <p>The type of experience you want to embed. For registered users, you can embed QuickSight dashboards or the Amazon Quick Sight console.</p>
-   *          <note>
-   *             <p>Exactly one of the experience configurations is required. You can choose
-   *                     <code>Dashboard</code> or <code>QuickSightConsole</code>. You cannot choose more
-   *                 than one experience configuration.</p>
-   *          </note>
-   * @public
-   */
-  ExperienceConfiguration: RegisteredUserEmbeddingExperienceConfiguration | undefined;
-
-  /**
-   * <p>A list of domains to be allowed to generate the embed URL.</p>
-   * @public
-   */
-  AllowedDomains?: string[] | undefined;
-}
+export const TopicNumericRangeFilterFilterSensitiveLog = (obj: TopicNumericRangeFilter): any => ({
+  ...obj,
+  ...(obj.Constant && { Constant: SENSITIVE_STRING }),
+});
 
 /**
- * @public
+ * @internal
  */
-export interface GenerateEmbedUrlForRegisteredUserWithIdentityResponse {
-  /**
-   * <p>The generated embed URL for the registered user.</p>
-   * @public
-   */
-  EmbedUrl: string | undefined;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status: number | undefined;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId: string | undefined;
-}
+export const TopicRelativeDateFilterFilterSensitiveLog = (obj: TopicRelativeDateFilter): any => ({
+  ...obj,
+  ...(obj.Constant && { Constant: SENSITIVE_STRING }),
+});
 
 /**
- * @public
+ * @internal
  */
-export interface GetDashboardEmbedUrlRequest {
-  /**
-   * <p>The ID for the Amazon Web Services account that contains the dashboard that you're
-   *             embedding.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The ID for the dashboard, also added to the Identity and Access Management (IAM) policy.</p>
-   * @public
-   */
-  DashboardId: string | undefined;
-
-  /**
-   * <p>The authentication method that the user uses to sign in.</p>
-   * @public
-   */
-  IdentityType: EmbeddingIdentityType | undefined;
-
-  /**
-   * <p>How many minutes the session is valid. The session lifetime must be 15-600
-   *             minutes.</p>
-   * @public
-   */
-  SessionLifetimeInMinutes?: number | undefined;
-
-  /**
-   * <p>Remove the undo/redo button on the embedded dashboard. The default is FALSE, which
-   *             enables the undo/redo button.</p>
-   * @public
-   */
-  UndoRedoDisabled?: boolean | undefined;
-
-  /**
-   * <p>Remove the reset button on the embedded dashboard. The default is FALSE, which enables
-   *             the reset button.</p>
-   * @public
-   */
-  ResetDisabled?: boolean | undefined;
-
-  /**
-   * <p>Adds persistence of state for the user session in an embedded dashboard. Persistence
-   *             applies to the sheet and the parameter settings. These are control settings that the
-   *             dashboard subscriber (Amazon Quick Sight reader) chooses while viewing the dashboard. If
-   *             this is set to <code>TRUE</code>, the settings are the same when the subscriber reopens
-   *             the same dashboard URL. The state is stored in Amazon Quick Sight, not in a browser
-   *             cookie. If this is set to FALSE, the state of the user session is not persisted. The
-   *             default is <code>FALSE</code>.</p>
-   * @public
-   */
-  StatePersistenceEnabled?: boolean | undefined;
-
-  /**
-   * <p>The Amazon QuickSight user's Amazon Resource Name (ARN), for use with
-   *                 <code>QUICKSIGHT</code> identity type. You can use this for any Amazon QuickSight users in your account (readers, authors, or admins) authenticated as one of the
-   *             following:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Active Directory (AD) users or group members</p>
-   *             </li>
-   *             <li>
-   *                <p>Invited nonfederated users</p>
-   *             </li>
-   *             <li>
-   *                <p>IAM users and IAM role-based sessions
-   *                     authenticated through Federated Single Sign-On using SAML, OpenID Connect, or
-   *                         IAM federation.</p>
-   *             </li>
-   *          </ul>
-   *          <p>Omit this parameter for users in the third group – IAM users and IAM
-   *             role-based sessions.</p>
-   * @public
-   */
-  UserArn?: string | undefined;
-
-  /**
-   * <p>The Amazon Quick Sight namespace that contains the dashboard IDs in this request. If
-   *             you're not using a custom namespace, set <code>Namespace = default</code>.</p>
-   * @public
-   */
-  Namespace?: string | undefined;
-
-  /**
-   * <p>A list of one or more dashboard IDs that you want anonymous users to have tempporary
-   *             access to. Currently, the <code>IdentityType</code> parameter must be set to
-   *                 <code>ANONYMOUS</code> because other identity types authenticate as QuickSight or IAM users. For example, if you set "<code>--dashboard-id
-   *                 dash_id1 --dashboard-id dash_id2 dash_id3 identity-type ANONYMOUS</code>", the
-   *             session can access all three dashboards.</p>
-   * @public
-   */
-  AdditionalDashboardIds?: string[] | undefined;
-}
+export const TopicFilterFilterSensitiveLog = (obj: TopicFilter): any => ({
+  ...obj,
+  ...(obj.CategoryFilter && { CategoryFilter: TopicCategoryFilterFilterSensitiveLog(obj.CategoryFilter) }),
+  ...(obj.NumericEqualityFilter && {
+    NumericEqualityFilter: TopicNumericEqualityFilterFilterSensitiveLog(obj.NumericEqualityFilter),
+  }),
+  ...(obj.NumericRangeFilter && {
+    NumericRangeFilter: TopicNumericRangeFilterFilterSensitiveLog(obj.NumericRangeFilter),
+  }),
+  ...(obj.DateRangeFilter && { DateRangeFilter: TopicDateRangeFilterFilterSensitiveLog(obj.DateRangeFilter) }),
+  ...(obj.RelativeDateFilter && {
+    RelativeDateFilter: TopicRelativeDateFilterFilterSensitiveLog(obj.RelativeDateFilter),
+  }),
+  ...(obj.NullFilter && { NullFilter: TopicNullFilterFilterSensitiveLog(obj.NullFilter) }),
+});
 
 /**
- * <p>Output returned from the <code>GetDashboardEmbedUrl</code> operation.</p>
- * @public
+ * @internal
  */
-export interface GetDashboardEmbedUrlResponse {
-  /**
-   * <p>A single-use URL that you can put into your server-side webpage to embed your
-   *             dashboard. This URL is valid for 5 minutes. The API operation provides the URL with an
-   *                 <code>auth_code</code> value that enables one (and only one) sign-on to a user
-   *             session that is valid for 10 hours. </p>
-   * @public
-   */
-  EmbedUrl?: string | undefined;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-}
+export const DatasetMetadataFilterSensitiveLog = (obj: DatasetMetadata): any => ({
+  ...obj,
+  ...(obj.Filters && { Filters: obj.Filters.map((item) => TopicFilterFilterSensitiveLog(item)) }),
+  ...(obj.Columns && { Columns: obj.Columns.map((item) => TopicColumnFilterSensitiveLog(item)) }),
+  ...(obj.CalculatedFields && {
+    CalculatedFields: obj.CalculatedFields.map((item) => TopicCalculatedFieldFilterSensitiveLog(item)),
+  }),
+});
 
 /**
- * <p>The identity type specified isn't supported. Supported identity types include
- * 				<code>IAM</code> and <code>QUICKSIGHT</code>.</p>
- * @public
+ * @internal
  */
-export class IdentityTypeNotSupportedException extends __BaseException {
-  readonly name: "IdentityTypeNotSupportedException" = "IdentityTypeNotSupportedException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * <p>The Amazon Web Services request ID for this request.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<IdentityTypeNotSupportedException, __BaseException>) {
-    super({
-      name: "IdentityTypeNotSupportedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, IdentityTypeNotSupportedException.prototype);
-    this.Message = opts.Message;
-    this.RequestId = opts.RequestId;
-  }
-}
+export const TopicDetailsFilterSensitiveLog = (obj: TopicDetails): any => ({
+  ...obj,
+});
 
 /**
- * @public
+ * @internal
  */
-export interface GetFlowMetadataInput {
-  /**
-   * <p>The ID of the Amazon Web Services account that contains the flow that you are getting metadata for.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The unique identifier of the flow.</p>
-   * @public
-   */
-  FlowId: string | undefined;
-}
+export const CreateTopicRequestFilterSensitiveLog = (obj: CreateTopicRequest): any => ({
+  ...obj,
+  ...(obj.CustomInstructions && { CustomInstructions: CustomInstructionsFilterSensitiveLog(obj.CustomInstructions) }),
+});
 
 /**
- * @public
+ * @internal
  */
-export interface GetFlowMetadataOutput {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the flow.</p>
-   * @public
-   */
-  Arn: string | undefined;
-
-  /**
-   * <p>The unique identifier of the flow.</p>
-   * @public
-   */
-  FlowId: string | undefined;
-
-  /**
-   * <p>A display name for the flow.</p>
-   * @public
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>The description for the flow.</p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p>The publish state for the flow. Valid values are <code>DRAFT</code>, <code>PUBLISHED</code>,
-   *             or <code>PENDING_APPROVAL</code>.</p>
-   * @public
-   */
-  PublishState?: FlowPublishState | undefined;
-
-  /**
-   * <p>The number of users who have used the flow.</p>
-   * @public
-   */
-  UserCount?: number | undefined;
-
-  /**
-   * <p>The number of runs done for the flow.</p>
-   * @public
-   */
-  RunCount?: number | undefined;
-
-  /**
-   * <p>The time this flow was created.</p>
-   * @public
-   */
-  CreatedTime: Date | undefined;
-
-  /**
-   * <p>The last time this flow was modified.</p>
-   * @public
-   */
-  LastUpdatedTime?: Date | undefined;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-}
+export const DashboardVersionFilterSensitiveLog = (obj: DashboardVersion): any => ({
+  ...obj,
+});
 
 /**
- * @public
+ * @internal
  */
-export interface GetFlowPermissionsInput {
-  /**
-   * <p>The ID of the Amazon Web Services account that contains the flow that you are getting permissions for.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The unique identifier of the flow to get permissions from.</p>
-   * @public
-   */
-  FlowId: string | undefined;
-}
+export const DashboardFilterSensitiveLog = (obj: Dashboard): any => ({
+  ...obj,
+});
 
 /**
- * <p>A structure that contains the permission information for one principal against one flow.</p>
- * @public
+ * @internal
  */
-export interface Permission {
-  /**
-   * <p>A list of actions that the principal can perform against the flow.</p>
-   *          <p>The following are the list of values to set a principal as a flow owner:</p>
-   *          <ul>
-   *             <li>
-   *                <p>quicksight:PublishFlow</p>
-   *             </li>
-   *             <li>
-   *                <p>quicksight:GetFlow</p>
-   *             </li>
-   *             <li>
-   *                <p>quicksight:UpdateFlowPermissions</p>
-   *             </li>
-   *             <li>
-   *                <p>quicksight:GetFlowSession</p>
-   *             </li>
-   *             <li>
-   *                <p>quicksight:StartFlowSession</p>
-   *             </li>
-   *             <li>
-   *                <p>quicksight:StopFlowSession</p>
-   *             </li>
-   *             <li>
-   *                <p>quicksight:UpdateFlowSession</p>
-   *             </li>
-   *             <li>
-   *                <p>quicksight:UnpublishFlow</p>
-   *             </li>
-   *             <li>
-   *                <p>quicksight:GetFlowStages</p>
-   *             </li>
-   *             <li>
-   *                <p>quicksight:DeleteFlow</p>
-   *             </li>
-   *             <li>
-   *                <p>quicksight:DescribeFlowPermissions</p>
-   *             </li>
-   *             <li>
-   *                <p>quicksight:UpdateFlow</p>
-   *             </li>
-   *             <li>
-   *                <p>quicksight:CreatePresignedUrl</p>
-   *             </li>
-   *          </ul>
-   *          <p>The following are the list of values to set a principal as a flow viewer:</p>
-   *          <ul>
-   *             <li>
-   *                <p>quicksight:GetFlow</p>
-   *             </li>
-   *             <li>
-   *                <p>quicksight:UpdateFlowSession</p>
-   *             </li>
-   *             <li>
-   *                <p>quicksight:StartFlowSession</p>
-   *             </li>
-   *             <li>
-   *                <p>quicksight:StopFlowSession</p>
-   *             </li>
-   *             <li>
-   *                <p>quicksight:GetFlowSession</p>
-   *             </li>
-   *             <li>
-   *                <p>quicksight:CreatePresignedUrl</p>
-   *             </li>
-   *             <li>
-   *                <p>quicksight:GetFlowStages</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  Actions: string[] | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the principal.
-   *             This can be an Amazon QuickSight user, group or namespace associated with the flow.
-   *             Namespace principal can only be set as a viewer and will grant everyone in the same namespace viewer permissions.</p>
-   * @public
-   */
-  Principal: string | undefined;
-}
+export const OutputColumnFilterSensitiveLog = (obj: OutputColumn): any => ({
+  ...obj,
+  ...(obj.Description && { Description: SENSITIVE_STRING }),
+});
 
 /**
- * @public
+ * @internal
  */
-export interface GetFlowPermissionsOutput {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the flow you are getting permissions against.</p>
-   * @public
-   */
-  Arn: string | undefined;
-
-  /**
-   * <p>The unique identifier of the flow with permissions.</p>
-   * @public
-   */
-  FlowId: string | undefined;
-
-  /**
-   * <p>A structure that contains the permissions for the flow.</p>
-   * @public
-   */
-  Permissions: Permission[] | undefined;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface GetSessionEmbedUrlRequest {
-  /**
-   * <p>The ID for the Amazon Web Services account associated with your Amazon Quick Sight
-   *             subscription.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The URL you use to access the embedded session. The entry point URL is constrained to
-   *             the following paths:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>/start</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>/start/analyses</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>/start/dashboards</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>/start/favorites</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>/dashboards/<i>DashboardId</i>
-   *                   </code> - where
-   *                         <code>DashboardId</code> is the actual ID key from the Amazon Quick Sight
-   *                     console URL of the dashboard</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>/analyses/<i>AnalysisId</i>
-   *                   </code> - where
-   *                         <code>AnalysisId</code> is the actual ID key from the Amazon Quick Sight
-   *                     console URL of the analysis</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  EntryPoint?: string | undefined;
-
-  /**
-   * <p>How many minutes the session is valid. The session lifetime must be 15-600
-   *             minutes.</p>
-   * @public
-   */
-  SessionLifetimeInMinutes?: number | undefined;
-
-  /**
-   * <p>The Amazon QuickSight user's Amazon Resource Name (ARN), for use with
-   *                 <code>QUICKSIGHT</code> identity type. You can use this for any type of Amazon QuickSight users in your account (readers, authors, or admins). They need to be
-   *             authenticated as one of the following:</p>
-   *          <ol>
-   *             <li>
-   *                <p>Active Directory (AD) users or group members</p>
-   *             </li>
-   *             <li>
-   *                <p>Invited nonfederated users</p>
-   *             </li>
-   *             <li>
-   *                <p>IAM users and IAM role-based sessions
-   *                     authenticated through Federated Single Sign-On using SAML, OpenID Connect, or
-   *                         IAM federation</p>
-   *             </li>
-   *          </ol>
-   *          <p>Omit this parameter for users in the third group, IAM users and IAM role-based sessions.</p>
-   * @public
-   */
-  UserArn?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetSessionEmbedUrlResponse {
-  /**
-   * <p>A single-use URL that you can put into your server-side web page to embed your QuickSight session. This URL is valid for 5 minutes. The API operation provides the
-   *             URL with an <code>auth_code</code> value that enables one (and only one) sign-on to a
-   *             user session that is valid for 10 hours. </p>
-   * @public
-   */
-  EmbedUrl?: string | undefined;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const GroupFilterAttribute = {
-  GROUP_NAME: "GROUP_NAME",
-} as const;
-
-/**
- * @public
- */
-export type GroupFilterAttribute = (typeof GroupFilterAttribute)[keyof typeof GroupFilterAttribute];
-
-/**
- * @public
- * @enum
- */
-export const GroupFilterOperator = {
-  StartsWith: "StartsWith",
-} as const;
-
-/**
- * @public
- */
-export type GroupFilterOperator = (typeof GroupFilterOperator)[keyof typeof GroupFilterOperator];
-
-/**
- * <p>A <code>GroupSearchFilter</code> object that you want to apply to your search.</p>
- * @public
- */
-export interface GroupSearchFilter {
-  /**
-   * <p>The comparison operator that you want to use as a filter, for example <code>"Operator":
-   *                 "StartsWith"</code>. Currently, the only supported operator is
-   *                 <code>StartsWith</code>.</p>
-   * @public
-   */
-  Operator: GroupFilterOperator | undefined;
-
-  /**
-   * <p>The name of the value that you want to use as a filter, for example <code>"Name":
-   *                 "GROUP_NAME"</code>. Currently, the only supported name is
-   *             <code>GROUP_NAME</code>.</p>
-   * @public
-   */
-  Name: GroupFilterAttribute | undefined;
-
-  /**
-   * <p>The value of the named item, in this case <code>GROUP_NAME</code>, that you want to use as a filter.</p>
-   * @public
-   */
-  Value: string | undefined;
-}
-
-/**
- * <p>IAM policy assignment summary.</p>
- * @public
- */
-export interface IAMPolicyAssignmentSummary {
-  /**
-   * <p>Assignment name.</p>
-   * @public
-   */
-  AssignmentName?: string | undefined;
-
-  /**
-   * <p>Assignment status.</p>
-   * @public
-   */
-  AssignmentStatus?: AssignmentStatus | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const IncludeGeneratedAnswer = {
-  EXCLUDE: "EXCLUDE",
-  INCLUDE: "INCLUDE",
-} as const;
-
-/**
- * @public
- */
-export type IncludeGeneratedAnswer = (typeof IncludeGeneratedAnswer)[keyof typeof IncludeGeneratedAnswer];
-
-/**
- * @public
- * @enum
- */
-export const IncludeQuickSightQIndex = {
-  EXCLUDE: "EXCLUDE",
-  INCLUDE: "INCLUDE",
-} as const;
-
-/**
- * @public
- */
-export type IncludeQuickSightQIndex = (typeof IncludeQuickSightQIndex)[keyof typeof IncludeQuickSightQIndex];
-
-/**
- * @public
- */
-export interface ListActionConnectorsRequest {
-  /**
-   * <p>The Amazon Web Services account ID for which to list action connectors.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The maximum number of action connectors to return in a single response. Valid range is 1 to 100.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>A pagination token to retrieve the next set of results. Use the token returned from a previous call to continue listing action connectors.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListActionConnectorsResponse {
-  /**
-   * <p>A list of action connector summaries containing basic information about each connector.</p>
-   * @public
-   */
-  ActionConnectorSummaries: ActionConnectorSummary[] | undefined;
-
-  /**
-   * <p>A pagination token to retrieve the next set of results. If null, there are no more results to retrieve.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-
-  /**
-   * <p>The HTTP status code of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface ListAnalysesRequest {
-  /**
-   * <p>The ID of the Amazon Web Services account that contains the analyses.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>A pagination token that can be used in a subsequent request.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of results to return.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface ListAnalysesResponse {
-  /**
-   * <p>Metadata describing each of the analyses that are listed.</p>
-   * @public
-   */
-  AnalysisSummaryList?: AnalysisSummary[] | undefined;
-
-  /**
-   * <p>A pagination token that can be used in a subsequent request.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListAssetBundleExportJobsRequest {
-  /**
-   * <p>The ID of the Amazon Web Services account that the export jobs were executed in. </p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The token for the next set of results, or null if there are no more results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of results to be returned per request.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface ListAssetBundleExportJobsResponse {
-  /**
-   * <p>A list of export job summaries.</p>
-   * @public
-   */
-  AssetBundleExportJobSummaryList?: AssetBundleExportJobSummary[] | undefined;
-
-  /**
-   * <p>The token for the next set of results, or null if there are no more results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface ListAssetBundleImportJobsRequest {
-  /**
-   * <p>The ID of the Amazon Web Services account that the import jobs were executed in.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The token for the next set of results, or null if there are no more results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of results to be returned per request.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface ListAssetBundleImportJobsResponse {
-  /**
-   * <p>A list of import job summaries.</p>
-   * @public
-   */
-  AssetBundleImportJobSummaryList?: AssetBundleImportJobSummary[] | undefined;
-
-  /**
-   * <p>The token for the next set of results, or null if there are no more results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-
-  /**
-   * <p>The HTTP status of the response.</p>
-   * @public
-   */
-  Status?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface ListBrandsRequest {
-  /**
-   * <p>The ID of the Amazon Web Services account that owns the brands that you want to list.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The maximum number of results to be returned in a single request.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>The token for the next set of results, or null if there are no more results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListBrandsResponse {
-  /**
-   * <p>The token for the next set of results, or null if there are no more results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>A list of all brands in your Amazon Web Services account. This structure provides basic
-   * 	          information about each brand.</p>
-   * @public
-   */
-  Brands?: BrandSummary[] | undefined;
-}
-
-/**
- * @public
- */
-export interface ListCustomPermissionsRequest {
-  /**
-   * <p>The ID of the Amazon Web Services account that contains the custom permissions profiles that you want to list.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The maximum number of results to return.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>The token for the next set of results, or null if there are no more results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListCustomPermissionsResponse {
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-
-  /**
-   * <p>A list of custom permissions profiles.</p>
-   * @public
-   */
-  CustomPermissionsList?: CustomPermissions[] | undefined;
-
-  /**
-   * <p>The token for the next set of results, or null if there are no more results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListDashboardsRequest {
-  /**
-   * <p>The ID of the Amazon Web Services account that contains the dashboards that you're
-   *             listing.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The token for the next set of results, or null if there are no more results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of results to be returned per request.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface ListDashboardsResponse {
-  /**
-   * <p>A structure that contains all of the dashboards in your Amazon Web Services account.
-   *             This structure provides basic information about the dashboards.</p>
-   * @public
-   */
-  DashboardSummaryList?: DashboardSummary[] | undefined;
-
-  /**
-   * <p>The token for the next set of results, or null if there are no more results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListDashboardVersionsRequest {
-  /**
-   * <p>The ID of the Amazon Web Services account that contains the dashboard that you're
-   *             listing versions for.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The ID for the dashboard.</p>
-   * @public
-   */
-  DashboardId: string | undefined;
-
-  /**
-   * <p>The token for the next set of results, or null if there are no more results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of results to be returned per request.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface ListDashboardVersionsResponse {
-  /**
-   * <p>A structure that contains information about each version of the dashboard.</p>
-   * @public
-   */
-  DashboardVersionSummaryList?: DashboardVersionSummary[] | undefined;
-
-  /**
-   * <p>The token for the next set of results, or null if there are no more results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListDataSetsRequest {
-  /**
-   * <p>The Amazon Web Services account ID.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The token for the next set of results, or null if there are no more results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of results to be returned per request.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface ListDataSetsResponse {
-  /**
-   * <p>The list of dataset summaries.</p>
-   * @public
-   */
-  DataSetSummaries?: DataSetSummary[] | undefined;
-
-  /**
-   * <p>The token for the next set of results, or null if there are no more results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface ListDataSourcesRequest {
-  /**
-   * <p>The Amazon Web Services account ID.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The token for the next set of results, or null if there are no more results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of results to be returned per request.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface ListDataSourcesResponse {
-  /**
-   * <p>A list of data sources.</p>
-   * @public
-   */
-  DataSources?: DataSource[] | undefined;
-
-  /**
-   * <p>The token for the next set of results, or null if there are no more results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface ListFlowsInput {
-  /**
-   * <p>The ID of the Amazon Web Services account that contains the flow list that you are getting.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The token to request the next set of results, or null if you want to retrieve the first set.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of results to be returned per request.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface ListFlowsOutput {
-  /**
-   * <p>A structure that contains all of the flows in your Amazon Web Services account. This structure
-   *             provides basic information about the flows.</p>
-   * @public
-   */
-  FlowSummaryList?: FlowSummary[] | undefined;
-
-  /**
-   * <p>The token for the next set of results, or null if there are no more results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface ListFolderMembersRequest {
-  /**
-   * <p>The ID for the Amazon Web Services account that contains the folder.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The ID of the folder.</p>
-   * @public
-   */
-  FolderId: string | undefined;
-
-  /**
-   * <p>The token for the next set of results, or null if there are no more results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of results to be returned per request.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface ListFolderMembersResponse {
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-
-  /**
-   * <p>A structure that contains all of the folder members (dashboards, analyses, and datasets) in the folder.</p>
-   * @public
-   */
-  FolderMemberList?: MemberIdArnPair[] | undefined;
-
-  /**
-   * <p>The token for the next set of results, or null if there are no more results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListFoldersRequest {
-  /**
-   * <p>The ID for the Amazon Web Services account that contains the folder.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The token for the next set of results, or null if there are no more results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of results to be returned per request.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface ListFoldersResponse {
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-
-  /**
-   * <p>A structure that contains all of the folders in the Amazon Web Services account. This structure provides basic information about the folders.</p>
-   * @public
-   */
-  FolderSummaryList?: FolderSummary[] | undefined;
-
-  /**
-   * <p>The token for the next set of results, or null if there are no more results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListFoldersForResourceRequest {
-  /**
-   * <p>The ID for the Amazon Web Services account that contains the resource.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) the resource whose folders you need to list.</p>
-   * @public
-   */
-  ResourceArn: string | undefined;
-
-  /**
-   * <p>The token for the next set of results, or null if there are no more results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of results to be returned per request.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface ListFoldersForResourceResponse {
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-
-  /**
-   * <p>A list that contains the Amazon Resource Names (ARNs) of all folders that the resource is a member of.</p>
-   * @public
-   */
-  Folders?: string[] | undefined;
-
-  /**
-   * <p>The token for the next set of results, or null if there are no more results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListGroupMembershipsRequest {
-  /**
-   * <p>The name of the group that you want to see a membership list of.</p>
-   * @public
-   */
-  GroupName: string | undefined;
-
-  /**
-   * <p>A pagination token that can be used in a subsequent request.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of results to return from this request.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>The ID for the Amazon Web Services account that the group is in. Currently, you use the ID for the
-   * 			Amazon Web Services account that contains your Amazon Quick Sight account.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The namespace of the group that you want a list of users from.</p>
-   * @public
-   */
-  Namespace: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListGroupMembershipsResponse {
-  /**
-   * <p>The list of the members of the group.</p>
-   * @public
-   */
-  GroupMemberList?: GroupMember[] | undefined;
-
-  /**
-   * <p>A pagination token that can be used in a subsequent request.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface ListGroupsRequest {
-  /**
-   * <p>The ID for the Amazon Web Services account that the group is in. Currently, you use the ID for the
-   * 			Amazon Web Services account that contains your Amazon Quick Sight account.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>A pagination token that can be used in a subsequent request.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of results to return.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>The namespace that you want a list of groups from.</p>
-   * @public
-   */
-  Namespace: string | undefined;
-}
+export const DataSetFilterSensitiveLog = (obj: DataSet): any => ({
+  ...obj,
+  ...(obj.PhysicalTableMap && {
+    PhysicalTableMap: Object.entries(obj.PhysicalTableMap).reduce(
+      (acc: any, [key, value]: [string, PhysicalTable]) => ((acc[key] = PhysicalTableFilterSensitiveLog(value)), acc),
+      {}
+    ),
+  }),
+  ...(obj.LogicalTableMap && {
+    LogicalTableMap: Object.entries(obj.LogicalTableMap).reduce(
+      (acc: any, [key, value]: [string, LogicalTable]) => ((acc[key] = LogicalTableFilterSensitiveLog(value)), acc),
+      {}
+    ),
+  }),
+  ...(obj.OutputColumns && { OutputColumns: obj.OutputColumns.map((item) => OutputColumnFilterSensitiveLog(item)) }),
+  ...(obj.RowLevelPermissionTagConfiguration && {
+    RowLevelPermissionTagConfiguration: RowLevelPermissionTagConfigurationFilterSensitiveLog(
+      obj.RowLevelPermissionTagConfiguration
+    ),
+  }),
+  ...(obj.SemanticModelConfiguration && {
+    SemanticModelConfiguration: SemanticModelConfigurationFilterSensitiveLog(obj.SemanticModelConfiguration),
+  }),
+});
 
 /**
  * @internal
@@ -8830,52 +9201,4 @@ export const GenerateEmbedUrlForAnonymousUserResponseFilterSensitiveLog = (
 ): any => ({
   ...obj,
   ...(obj.EmbedUrl && { EmbedUrl: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const GenerateEmbedUrlForRegisteredUserResponseFilterSensitiveLog = (
-  obj: GenerateEmbedUrlForRegisteredUserResponse
-): any => ({
-  ...obj,
-  ...(obj.EmbedUrl && { EmbedUrl: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const GenerateEmbedUrlForRegisteredUserWithIdentityResponseFilterSensitiveLog = (
-  obj: GenerateEmbedUrlForRegisteredUserWithIdentityResponse
-): any => ({
-  ...obj,
-  ...(obj.EmbedUrl && { EmbedUrl: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const GetDashboardEmbedUrlResponseFilterSensitiveLog = (obj: GetDashboardEmbedUrlResponse): any => ({
-  ...obj,
-  ...(obj.EmbedUrl && { EmbedUrl: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const GetSessionEmbedUrlResponseFilterSensitiveLog = (obj: GetSessionEmbedUrlResponse): any => ({
-  ...obj,
-  ...(obj.EmbedUrl && { EmbedUrl: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const ListActionConnectorsResponseFilterSensitiveLog = (obj: ListActionConnectorsResponse): any => ({
-  ...obj,
-  ...(obj.ActionConnectorSummaries && {
-    ActionConnectorSummaries: obj.ActionConnectorSummaries.map((item) =>
-      ActionConnectorSummaryFilterSensitiveLog(item)
-    ),
-  }),
 });

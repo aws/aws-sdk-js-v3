@@ -5,7 +5,7 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListDataSetsRequest, ListDataSetsResponse } from "../models/models_4";
+import { ListDataSetsRequest, ListDataSetsResponse } from "../models/models_5";
 import { de_ListDataSetsCommand, se_ListDataSetsCommand } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
@@ -62,6 +62,15 @@ export interface ListDataSetsCommandOutput extends ListDataSetsResponse, __Metad
  * //         PermissionPolicy: "GRANT_ACCESS" || "DENY_ACCESS", // required
  * //         FormatVersion: "VERSION_1" || "VERSION_2",
  * //         Status: "ENABLED" || "DISABLED",
+ * //       },
+ * //       RowLevelPermissionDataSetMap: { // RowLevelPermissionDataSetMap
+ * //         "<keys>": {
+ * //           Namespace: "STRING_VALUE",
+ * //           Arn: "STRING_VALUE", // required
+ * //           PermissionPolicy: "GRANT_ACCESS" || "DENY_ACCESS", // required
+ * //           FormatVersion: "VERSION_1" || "VERSION_2",
+ * //           Status: "ENABLED" || "DISABLED",
+ * //         },
  * //       },
  * //       RowLevelPermissionTagConfigurationApplied: true || false,
  * //       ColumnLevelPermissionRulesApplied: true || false,

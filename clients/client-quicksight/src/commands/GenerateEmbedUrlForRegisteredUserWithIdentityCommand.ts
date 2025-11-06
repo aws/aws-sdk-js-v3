@@ -9,7 +9,7 @@ import {
   GenerateEmbedUrlForRegisteredUserWithIdentityRequest,
   GenerateEmbedUrlForRegisteredUserWithIdentityResponse,
   GenerateEmbedUrlForRegisteredUserWithIdentityResponseFilterSensitiveLog,
-} from "../models/models_4";
+} from "../models/models_5";
 import {
   de_GenerateEmbedUrlForRegisteredUserWithIdentityCommand,
   se_GenerateEmbedUrlForRegisteredUserWithIdentityCommand,

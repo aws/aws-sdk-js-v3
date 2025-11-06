@@ -38,7 +38,7 @@ export interface GenerateEmbedUrlForAnonymousUserCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Generates an embed URL that you can use to embed an Amazon QuickSight dashboard or
+ * <p>Generates an embed URL that you can use to embed an Amazon Quick Suite dashboard or
  *             visual in your website, without having to register any reader users. Before you use this
  *             action, make sure that you have configured the dashboards and permissions.</p>
  *          <p>The following rules apply to the generated URL:</p>
@@ -56,13 +56,13 @@ export interface GenerateEmbedUrlForAnonymousUserCommandOutput
  *                     session duration is 10 hours.</p>
  *             </li>
  *             <li>
- *                <p>You are charged only when the URL is used or there is interaction with Amazon QuickSight.</p>
+ *                <p>You are charged only when the URL is used or there is interaction with Amazon Quick Suite.</p>
  *             </li>
  *          </ul>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/embedded-analytics.html">Embedded Analytics</a> in
- *             the <i>Amazon QuickSight User Guide</i>.</p>
+ *             the <i>Amazon Quick Suite User Guide</i>.</p>
  *          <p>For more information about the high-level steps for embedding and for an interactive
- *             demo of the ways you can customize embedding, visit the <a href="https://docs.aws.amazon.com/quicksight/latest/user/quicksight-dev-portal.html">Amazon QuickSight
+ *             demo of the ways you can customize embedding, visit the <a href="https://docs.aws.amazon.com/quicksight/latest/user/quicksight-dev-portal.html">Amazon Quick Suite
  *                 Developer Portal</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

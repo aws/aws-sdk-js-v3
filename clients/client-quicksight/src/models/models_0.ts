@@ -68,8 +68,8 @@ export const Edition = {
 export type Edition = (typeof Edition)[keyof typeof Edition];
 
 /**
- * <p>A structure that contains the following account information
- *             elements:</p>
+ * <p>A structure that contains the following account information elements:
+ *           </p>
  *          <ul>
  *             <li>
  *                <p>Your Quick Sight account name.</p>
@@ -93,7 +93,7 @@ export type Edition = (typeof Edition)[keyof typeof Edition];
 export interface AccountInfo {
   /**
    * <p>The account name that you provided for the Amazon Quick Sight subscription in your
-   *                 Amazon Web Services account. You create this name when you sign up for QuickSight. It's unique over all of Amazon Web Services, and it appears only when
+   *                 Amazon Web Services account. You create this name when you sign up for Quick Suite. It's unique over all of Amazon Web Services, and it appears only when
    *             users sign in.</p>
    * @public
    */
@@ -163,7 +163,7 @@ export interface AccountSettings {
   NotificationEmail?: string | undefined;
 
   /**
-   * <p>A Boolean value that indicates whether public sharing is turned on for an QuickSight account. For more information about turning on public sharing, see <a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/API_UpdatePublicSharingSettings.html">UpdatePublicSharingSettings</a>.</p>
+   * <p>A Boolean value that indicates whether public sharing is turned on for an Quick Suite account. For more information about turning on public sharing, see <a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/API_UpdatePublicSharingSettings.html">UpdatePublicSharingSettings</a>.</p>
    * @public
    */
   PublicSharingEnabled?: boolean | undefined;
@@ -1024,6 +1024,185 @@ export interface AggFunction {
    * @public
    */
   PeriodField?: string | undefined;
+}
+
+/**
+ * <p>An aggregation function that concatenates values from multiple rows into a single string with a specified
+ *            separator.</p>
+ * @public
+ */
+export interface DataPrepListAggregationFunction {
+  /**
+   * <p>The name of the column containing values to be concatenated.</p>
+   * @public
+   */
+  InputColumnName?: string | undefined;
+
+  /**
+   * <p>The string used to separate values in the concatenated result.</p>
+   * @public
+   */
+  Separator: string | undefined;
+
+  /**
+   * <p>Whether to include only distinct values in the concatenated result, removing duplicates.</p>
+   * @public
+   */
+  Distinct: boolean | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const DataPrepSimpleAggregationFunctionType = {
+  AVERAGE: "AVERAGE",
+  COUNT: "COUNT",
+  DISTINCT_COUNT: "DISTINCT_COUNT",
+  MAX: "MAX",
+  MIN: "MIN",
+  SUM: "SUM",
+} as const;
+
+/**
+ * @public
+ */
+export type DataPrepSimpleAggregationFunctionType =
+  (typeof DataPrepSimpleAggregationFunctionType)[keyof typeof DataPrepSimpleAggregationFunctionType];
+
+/**
+ * <p>A simple aggregation function that performs standard statistical operations on a column.</p>
+ * @public
+ */
+export interface DataPrepSimpleAggregationFunction {
+  /**
+   * <p>The name of the column on which to perform the aggregation function.</p>
+   * @public
+   */
+  InputColumnName?: string | undefined;
+
+  /**
+   * <p>The type of aggregation function to perform, such as <code>COUNT</code>, <code>SUM</code>, <code>AVERAGE</code>,
+   *            <code>MIN</code>, <code>MAX</code>, <code>MEDIAN</code>, <code>VARIANCE</code>, or <code>STANDARD_DEVIATION</code>.</p>
+   * @public
+   */
+  FunctionType: DataPrepSimpleAggregationFunctionType | undefined;
+}
+
+/**
+ * <p>Defines the type of aggregation function to apply to data during data preparation, supporting simple
+ *           and list aggregations.</p>
+ * @public
+ */
+export interface DataPrepAggregationFunction {
+  /**
+   * <p>A simple aggregation function such as <code>SUM</code>, <code>COUNT</code>, <code>AVERAGE</code>,
+   *            <code>MIN</code>, <code>MAX</code>, <code>MEDIAN</code>, <code>VARIANCE</code>, or <code>STANDARD_DEVIATION</code>.</p>
+   * @public
+   */
+  SimpleAggregation?: DataPrepSimpleAggregationFunction | undefined;
+
+  /**
+   * <p>A list aggregation function that concatenates values from multiple rows into a single delimited string.</p>
+   * @public
+   */
+  ListAggregation?: DataPrepListAggregationFunction | undefined;
+}
+
+/**
+ * <p>Defines an aggregation function to be applied to grouped data, creating a new column with
+ *            the calculated result.</p>
+ * @public
+ */
+export interface Aggregation {
+  /**
+   * <p>The aggregation function to apply, such as <code>SUM</code>, <code>COUNT</code>, <code>AVERAGE</code>,
+   *            <code>MIN</code>, <code>MAX</code>
+   *          </p>
+   * @public
+   */
+  AggregationFunction: DataPrepAggregationFunction | undefined;
+
+  /**
+   * <p>The name for the new column that will contain the aggregated values.</p>
+   * @public
+   */
+  NewColumnName: string | undefined;
+
+  /**
+   * <p>A unique identifier for the new column that will contain the aggregated values.</p>
+   * @public
+   */
+  NewColumnId: string | undefined;
+}
+
+/**
+ * <p>Maps a source column identifier to a target column identifier during transform operations.</p>
+ * @public
+ */
+export interface DataSetColumnIdMapping {
+  /**
+   * <p>Source column ID.</p>
+   * @public
+   */
+  SourceColumnId: string | undefined;
+
+  /**
+   * <p>Target column ID.</p>
+   * @public
+   */
+  TargetColumnId: string | undefined;
+}
+
+/**
+ * <p>Specifies the source of data for a transform operation, including the source operation and column mappings.</p>
+ * @public
+ */
+export interface TransformOperationSource {
+  /**
+   * <p>The identifier of the transform operation that provides input data.</p>
+   * @public
+   */
+  TransformOperationId: string | undefined;
+
+  /**
+   * <p>The mappings between source column identifiers and target column identifiers for this transformation.</p>
+   * @public
+   */
+  ColumnIdMappings?: DataSetColumnIdMapping[] | undefined;
+}
+
+/**
+ * <p>A transform operation that groups rows by specified columns and applies aggregation functions
+ *            to calculate summary values.</p>
+ * @public
+ */
+export interface AggregateOperation {
+  /**
+   * <p>Alias for this operation.</p>
+   * @public
+   */
+  Alias: string | undefined;
+
+  /**
+   * <p>The source transform operation that provides input data for the aggregation.</p>
+   * @public
+   */
+  Source: TransformOperationSource | undefined;
+
+  /**
+   * <p>The list of column names to group by when performing the aggregation. Rows with the same values in
+   *            these columns will be grouped together.</p>
+   * @public
+   */
+  GroupByColumnNames?: string[] | undefined;
+
+  /**
+   * <p>The list of aggregation functions to apply to the grouped data, such as <code>SUM</code>,
+   *            <code>COUNT</code>, or <code>AVERAGE</code>.</p>
+   * @public
+   */
+  Aggregations: Aggregation[] | undefined;
 }
 
 /**
@@ -7275,203 +7454,6 @@ export interface VisibleRangeOptions {
 }
 
 /**
- * <p>The visual display options for a data zoom scroll bar.</p>
- * @public
- */
-export interface ScrollBarOptions {
-  /**
-   * <p>The visibility of the data zoom scroll bar.</p>
-   * @public
-   */
-  Visibility?: Visibility | undefined;
-
-  /**
-   * <p>The visibility range for the data zoom scroll bar.</p>
-   * @public
-   */
-  VisibleRange?: VisibleRangeOptions | undefined;
-}
-
-/**
- * <p>The tick label options of an axis.</p>
- * @public
- */
-export interface AxisTickLabelOptions {
-  /**
-   * <p>Determines whether or not the axis ticks are visible.</p>
-   * @public
-   */
-  LabelOptions?: LabelOptions | undefined;
-
-  /**
-   * <p>The rotation angle of the axis tick labels.</p>
-   * @public
-   */
-  RotationAngle?: number | undefined;
-}
-
-/**
- * <p>The display options for the axis label.</p>
- * @public
- */
-export interface AxisDisplayOptions {
-  /**
-   * <p>The tick label options of an axis.</p>
-   * @public
-   */
-  TickLabelOptions?: AxisTickLabelOptions | undefined;
-
-  /**
-   * <p>Determines whether or not the axis line is visible.</p>
-   * @public
-   */
-  AxisLineVisibility?: Visibility | undefined;
-
-  /**
-   * <p>Determines whether or not the grid line is visible.</p>
-   * @public
-   */
-  GridLineVisibility?: Visibility | undefined;
-
-  /**
-   * <p>The data options for an axis.</p>
-   * @public
-   */
-  DataOptions?: AxisDataOptions | undefined;
-
-  /**
-   * <p>The scroll bar options for an axis.</p>
-   * @public
-   */
-  ScrollbarOptions?: ScrollBarOptions | undefined;
-
-  /**
-   * <p>The offset value that determines the starting placement of the axis within a visual's bounds.</p>
-   * @public
-   */
-  AxisOffset?: string | undefined;
-}
-
-/**
- * <p>The reference that specifies where the axis label is applied to.</p>
- * @public
- */
-export interface AxisLabelReferenceOptions {
-  /**
-   * <p>The field that the axis label is targeted to.</p>
-   * @public
-   */
-  FieldId: string | undefined;
-
-  /**
-   * <p>The column that the axis label is targeted to.</p>
-   * @public
-   */
-  Column: ColumnIdentifier | undefined;
-}
-
-/**
- * <p>The label options for a chart axis. You must specify the field that the label is targeted to.</p>
- * @public
- */
-export interface AxisLabelOptions {
-  /**
-   * <p>The font configuration of the axis label.</p>
-   * @public
-   */
-  FontConfiguration?: FontConfiguration | undefined;
-
-  /**
-   * <p>The text for the axis label.</p>
-   * @public
-   */
-  CustomLabel?: string | undefined;
-
-  /**
-   * <p>The options that indicate which field the label belongs to.</p>
-   * @public
-   */
-  ApplyTo?: AxisLabelReferenceOptions | undefined;
-}
-
-/**
- * <p>The label options for an axis on a chart.</p>
- * @public
- */
-export interface ChartAxisLabelOptions {
-  /**
-   * <p>The visibility of an axis label on a chart. Choose one of the following options:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>VISIBLE</code>: Shows the axis.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>HIDDEN</code>: Hides the axis.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  Visibility?: Visibility | undefined;
-
-  /**
-   * <p>The visibility configuration of the sort icon on a chart's axis label.</p>
-   * @public
-   */
-  SortIconVisibility?: Visibility | undefined;
-
-  /**
-   * <p>The label options for a chart axis.</p>
-   * @public
-   */
-  AxisLabelOptions?: AxisLabelOptions[] | undefined;
-}
-
-/**
- * <p>The contribution analysis visual display for a line, pie, or bar chart.</p>
- * @public
- */
-export interface ContributionAnalysisDefault {
-  /**
-   * <p>The measure field that is used in the contribution analysis.</p>
-   * @public
-   */
-  MeasureFieldId: string | undefined;
-
-  /**
-   * <p>The dimensions columns that are used in the contribution analysis,
-   *             usually a list of <code>ColumnIdentifiers</code>.</p>
-   * @public
-   */
-  ContributorDimensions: ColumnIdentifier[] | undefined;
-}
-
-/**
- * <p>The option that specifies individual data values for labels.</p>
- * @public
- */
-export interface DataPathLabelType {
-  /**
-   * <p>The field ID of the field that the data label needs to be applied to.</p>
-   * @public
-   */
-  FieldId?: string | undefined;
-
-  /**
-   * <p>The actual value of the field that is labeled.</p>
-   * @public
-   */
-  FieldValue?: string | undefined;
-
-  /**
-   * <p>The visibility of the data label.</p>
-   * @public
-   */
-  Visibility?: Visibility | undefined;
-}
-
-/**
  * @internal
  */
 export const ReadAPIKeyConnectionMetadataFilterSensitiveLog = (obj: ReadAPIKeyConnectionMetadata): any => ({
@@ -8056,12 +8038,4 @@ export const VisualCustomActionOperationFilterSensitiveLog = (obj: VisualCustomA
  */
 export const VisualCustomActionFilterSensitiveLog = (obj: VisualCustomAction): any => ({
   ...obj,
-});
-
-/**
- * @internal
- */
-export const DataPathLabelTypeFilterSensitiveLog = (obj: DataPathLabelType): any => ({
-  ...obj,
-  ...(obj.FieldValue && { FieldValue: SENSITIVE_STRING }),
 });

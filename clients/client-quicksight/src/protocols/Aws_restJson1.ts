@@ -677,6 +677,8 @@ import {
   ActionConnectorSummary,
   AdHocFilteringOption,
   AggFunction,
+  AggregateOperation,
+  Aggregation,
   AggregationFunction,
   AggregationPartitionBy,
   AggregationSortConfiguration,
@@ -693,14 +695,10 @@ import {
   AxisDataOptions,
   AxisDisplayDataDrivenRange,
   AxisDisplayMinMaxRange,
-  AxisDisplayOptions,
   AxisDisplayRange,
-  AxisLabelOptions,
-  AxisLabelReferenceOptions,
   AxisLinearScale,
   AxisLogarithmicScale,
   AxisScale,
-  AxisTickLabelOptions,
   BodySectionConfiguration,
   BodySectionContent,
   BodySectionDynamicCategoryDimensionConfiguration,
@@ -714,12 +712,10 @@ import {
   CategoryFilter,
   CategoryFilterConfiguration,
   CategoryInnerFilter,
-  ChartAxisLabelOptions,
   ColorsConfiguration,
   ColumnConfiguration,
   ColumnIdentifier,
   ColumnSort,
-  ContributionAnalysisDefault,
   CurrencyDisplayFormatConfiguration,
   CustomActionFilterOperation,
   CustomActionNavigationOperation,
@@ -730,8 +726,11 @@ import {
   CustomFilterListConfiguration,
   CustomParameterValues,
   CustomValuesConfiguration,
-  DataPathLabelType,
+  DataPrepAggregationFunction,
+  DataPrepListAggregationFunction,
+  DataPrepSimpleAggregationFunction,
   DataQnAConfigurations,
+  DataSetColumnIdMapping,
   DataSetIdentifierDeclaration,
   DataStoriesConfigurations,
   DateAxisOptions,
@@ -843,7 +842,6 @@ import {
   RelativeDateTimeControlDisplayOptions,
   RollingDateConfiguration,
   SameSheetTargetVisualConfiguration,
-  ScrollBarOptions,
   SectionAfterPageBreak,
   SectionBasedLayoutCanvasSizeOptions,
   SectionBasedLayoutConfiguration,
@@ -883,6 +881,7 @@ import {
   TimeRangeFilter,
   TimeRangeFilterValue,
   TopBottomFilter,
+  TransformOperationSource,
   VisibleRangeOptions,
   VisualCustomAction,
   VisualCustomActionDefaults,
@@ -894,6 +893,10 @@ import {
   ArcAxisDisplayRange,
   ArcConfiguration,
   ArcOptions,
+  AxisDisplayOptions,
+  AxisLabelOptions,
+  AxisLabelReferenceOptions,
+  AxisTickLabelOptions,
   BarChartAggregatedFieldWells,
   BarChartConfiguration,
   BarChartFieldWells,
@@ -912,6 +915,7 @@ import {
   CategoricalDimensionField,
   CategoricalMeasureField,
   CategoryDrillDownFilter,
+  ChartAxisLabelOptions,
   ClusterMarker,
   ClusterMarkerConfiguration,
   ColorScale,
@@ -934,6 +938,7 @@ import {
   ConditionalFormattingIconSet,
   ConditionalFormattingSolidColor,
   ContextMenuOption,
+  ContributionAnalysisDefault,
   CustomContentConfiguration,
   CustomContentVisual,
   CustomNarrativeOptions,
@@ -942,7 +947,7 @@ import {
   DataLabelOptions,
   DataLabelType,
   DataPathColor,
-  DataPathSort,
+  DataPathLabelType,
   DataPathType,
   DataPathValue,
   DateDimensionField,
@@ -1089,17 +1094,10 @@ import {
   PieChartFieldWells,
   PieChartSortConfiguration,
   PieChartVisual,
-  PivotFieldSortOptions,
-  PivotTableAggregatedFieldWells,
   PivotTableDataPathOption,
   PivotTableFieldCollapseStateOption,
   PivotTableFieldCollapseStateTarget,
   PivotTableFieldOption,
-  PivotTableFieldOptions,
-  PivotTableFieldWells,
-  PivotTablePaginatedReportOptions,
-  PivotTableSortBy,
-  PivotTableSortConfiguration,
   PredefinedHierarchy,
   ProgressBarOptions,
   RangeEndsLabelType,
@@ -1111,6 +1109,7 @@ import {
   ReferenceLineStaticDataConfiguration,
   ReferenceLineStyleConfiguration,
   ReferenceLineValueLabelConfiguration,
+  ScrollBarOptions,
   SecondaryValueOptions,
   SeriesItem,
   ShapeConditionalFormat,
@@ -1154,6 +1153,8 @@ import {
   AnonymousUserGenerativeQnAEmbeddingConfiguration,
   AnonymousUserQSearchBarEmbeddingConfiguration,
   APIKeyConnectionMetadata,
+  AppendedColumn,
+  AppendOperation,
   ApplicationTheme,
   AssetBundleCloudFormationOverridePropertyConfiguration,
   AssetBundleExportJobAnalysisOverrideProperties,
@@ -1224,20 +1225,18 @@ import {
   ClientCredentialsDetails,
   ClientCredentialsGrantDetails,
   ClientCredentialsGrantMetadata,
-  CollectiveConstantEntry,
   ConfluenceParameters,
   ContextualAccentPalette,
   ContributionAnalysisFactor,
-  ContributionAnalysisTimeRanges,
   CustomConnectionParameters,
   DashboardVisualId,
   DataBarsOptions,
   DatabricksParameters,
+  DataPathSort,
   DataSetReference,
   DataSetRefreshProperties,
   DataSourceParameters,
   ExasolParameters,
-  FilterAggMetrics,
   GlobalTableBorderOptions,
   IAMConnectionMetadata,
   Identifier,
@@ -1255,14 +1254,21 @@ import {
   OAuthParameters,
   OracleParameters,
   Palette,
+  PivotFieldSortOptions,
+  PivotTableAggregatedFieldWells,
   PivotTableCellConditionalFormatting,
   PivotTableConditionalFormatting,
   PivotTableConditionalFormattingOption,
   PivotTableConditionalFormattingScope,
   PivotTableConfiguration,
+  PivotTableFieldOptions,
   PivotTableFieldSubtotalOptions,
+  PivotTableFieldWells,
   PivotTableOptions,
+  PivotTablePaginatedReportOptions,
   PivotTableRowsLabelOptions,
+  PivotTableSortBy,
+  PivotTableSortConfiguration,
   PivotTableTotalOptions,
   PivotTableVisual,
   PivotTotalOptions,
@@ -1352,8 +1358,6 @@ import {
   Tag,
   TeradataParameters,
   TextConditionalFormat,
-  TopicConstantValue,
-  TopicIRFilterOption,
   TotalAggregationFunction,
   TotalAggregationOption,
   TotalOptions,
@@ -1393,8 +1397,10 @@ import {
   CalculatedColumn,
   Capabilities,
   CastColumnTypeOperation,
+  CastColumnTypesOperation,
   CellValueSynonym,
   CollectiveConstant,
+  CollectiveConstantEntry,
   ColumnDescription,
   ColumnGroup,
   ColumnGroupColumnSchema,
@@ -1403,41 +1409,46 @@ import {
   ColumnSchema,
   ColumnTag,
   ColumnTagName,
+  ColumnToUnpivot,
   ComparativeOrder,
   ConcurrentUpdatingException,
   ConflictException,
+  ContributionAnalysisTimeRanges,
   CreateColumnsOperation,
   CredentialPair,
   CustomerManagedKeyUnavailableException,
   CustomInstructions,
   CustomSql,
-  Dashboard,
   DashboardPublishOptions,
-  DashboardSearchFilter,
   DashboardSourceEntity,
   DashboardSourceTemplate,
-  DashboardSummary,
-  DashboardVersion,
   DashboardVersionDefinition,
-  DashboardVersionSummary,
   DashboardVisualPublishOptions,
   DataAggregation,
   DataColorPalette,
   DataPointDrillUpDownOption,
   DataPointMenuLabelOption,
   DataPointTooltipOption,
+  DataPrepConfiguration,
   DataQAEnabledOption,
-  DataSet,
   DataSetConfiguration,
-  DatasetMetadata,
+  DataSetDateComparisonFilterCondition,
+  DataSetDateFilterCondition,
+  DataSetDateFilterValue,
+  DataSetDateRangeFilterCondition,
+  DataSetNumericComparisonFilterCondition,
+  DataSetNumericFilterCondition,
+  DataSetNumericFilterValue,
+  DataSetNumericRangeFilterCondition,
   DatasetParameter,
   DataSetSchema,
-  DataSetSearchFilter,
-  DataSetSummary,
+  DataSetStringComparisonFilterCondition,
+  DataSetStringFilterCondition,
+  DataSetStringFilterValue,
+  DataSetStringListFilterCondition,
+  DataSetStringListFilterValue,
   DataSetUsageConfiguration,
-  DataSource,
   DataSourceCredentials,
-  DataSourceSearchFilter,
   DataStoriesSharingOption,
   DateTimeDatasetParameter,
   DateTimeDatasetParameterDefaultValues,
@@ -1446,29 +1457,38 @@ import {
   DecimalDatasetParameterDefaultValues,
   DecimalParameter,
   DefaultFormatting,
+  DestinationTable,
+  DestinationTableSource,
   DisplayFormatOptions,
   ExecutiveSummaryOption,
   ExportHiddenFieldsOption,
   ExportToCSVOption,
   ExportWithHiddenFieldsOption,
   FieldFolder,
+  FilterAggMetrics,
   FilterOperation,
+  FiltersOperation,
   Font,
   GeoSpatialColumnGroup,
   GutterStyle,
   ImageConfiguration,
   ImageSetConfiguration,
   ImageSource,
+  ImportTableOperation,
+  ImportTableOperationSource,
   InputColumn,
   IntegerDatasetParameter,
   IntegerDatasetParameterDefaultValues,
   IntegerParameter,
   InternalFailureException,
   InternalServerException,
+  InvalidDataSetParameterValueException,
   InvalidParameterValueException,
   InvalidRequestException,
   JoinInstruction,
   JoinKeyProperties,
+  JoinOperandProperties,
+  JoinOperation,
   LimitExceededException,
   LinkSharingConfiguration,
   LogicalTable,
@@ -1476,40 +1496,48 @@ import {
   LogoConfiguration,
   LogoSetConfiguration,
   MarginStyle,
-  NamedEntityDefinition,
-  NamedEntityDefinitionMetric,
   NamedEntityRef,
   NegativeFormat,
   NewDefaultValues,
+  OutputColumnNameOverride,
   OverrideDatasetParameterOperation,
+  ParentDataSet,
   PerformanceConfiguration,
   PhysicalTable,
+  PivotConfiguration,
+  PivotedLabel,
+  PivotOperation,
   PreconditionNotMetException,
   ProjectOperation,
   QuickSuiteActionsOption,
-  RangeConstant,
   RefreshFrequency,
   RefreshSchedule,
   RelationalTable,
   RenameColumnOperation,
+  RenameColumnsOperation,
   ResourceExistsException,
   ResourceNotFoundException,
   ResourcePermission,
   ResourceUnavailableException,
+  RowLevelPermissionConfiguration,
   RowLevelPermissionDataSet,
   RowLevelPermissionTagConfiguration,
   RowLevelPermissionTagRule,
   S3Source,
+  SaaSTable,
   ScheduleRefreshOnEntity,
-  SemanticEntityType,
+  SemanticModelConfiguration,
+  SemanticTable,
   SemanticType,
   SheetControlsOption,
   SheetLayoutElementMaximizationOption,
   SheetStyle,
   Slot,
+  SourceTable,
   StringDatasetParameter,
   StringDatasetParameterDefaultValues,
   StringParameter,
+  TablePathElement,
   TagColumnOperation,
   TemplateSourceAnalysis,
   TemplateSourceEntity,
@@ -1524,60 +1552,63 @@ import {
   TopicCategoryFilterConstant,
   TopicColumn,
   TopicConfigOptions,
-  TopicDateRangeFilter,
-  TopicDetails,
-  TopicFilter,
+  TopicConstantValue,
   TopicIR,
   TopicIRComparisonMethod,
   TopicIRContributionAnalysis,
+  TopicIRFilterOption,
   TopicIRGroupBy,
   TopicIRMetric,
-  TopicNamedEntity,
-  TopicNullFilter,
-  TopicNumericEqualityFilter,
-  TopicNumericRangeFilter,
-  TopicRangeFilterConstant,
-  TopicRefreshSchedule,
-  TopicRelativeDateFilter,
-  TopicSingularFilterConstant,
   TopicSortClause,
   TopicTemplate,
   TransformOperation,
+  TransformStep,
   Typography,
   UIColorPalette,
   UniqueKey,
+  UnpivotOperation,
   UnsupportedUserEditionException,
   UntagColumnOperation,
   UploadSettings,
   ValidationStrategy,
+  ValueColumnConfiguration,
   VisualAxisSortOption,
   VisualOptions,
   WebProxyCredentials,
 } from "../models/models_3";
 import {
+  Dashboard,
+  DashboardSearchFilter,
+  DashboardSummary,
+  DashboardVersion,
+  DashboardVersionSummary,
+  DataSet,
+  DatasetMetadata,
+  DataSetSearchFilter,
+  DataSetSummary,
+  DataSource,
+  DataSourceSearchFilter,
   DataSourceSummary,
   DomainNotWhitelistedException,
   FlowSummary,
   Folder,
   FolderSearchFilter,
   FolderSummary,
-  GroupSearchFilter,
-  IdentityTypeNotSupportedException,
   Ingestion,
   InvalidNextTokenException,
-  Permission,
-  QuickSightUserNotFoundException,
+  NamedEntityDefinition,
+  NamedEntityDefinitionMetric,
+  RangeConstant,
   RecentSnapshotsConfigurations,
   RegisteredCustomerManagedKey,
   RegisteredUserConsoleFeatureConfigurations,
   RegisteredUserDashboardEmbeddingConfiguration,
   RegisteredUserDashboardFeatureConfigurations,
   RegisteredUserDashboardVisualEmbeddingConfiguration,
-  RegisteredUserEmbeddingExperienceConfiguration,
   RegisteredUserGenerativeQnAEmbeddingConfiguration,
   RegisteredUserQSearchBarEmbeddingConfiguration,
-  RegisteredUserQuickSightConsoleEmbeddingConfiguration,
   SchedulesConfigurations,
+  SemanticEntityType,
   SessionLifetimeInMinutesInvalidException,
   SessionTag,
   SnapshotConfiguration,
@@ -1589,11 +1620,28 @@ import {
   Theme,
   ThemeVersion,
   ThresholdAlertsConfigurations,
+  TopicDateRangeFilter,
+  TopicDetails,
+  TopicFilter,
+  TopicNamedEntity,
+  TopicNullFilter,
+  TopicNumericEqualityFilter,
+  TopicNumericRangeFilter,
+  TopicRangeFilterConstant,
+  TopicRefreshSchedule,
+  TopicRelativeDateFilter,
+  TopicSingularFilterConstant,
   UnsupportedPricingPlanException,
   VPCConnection,
 } from "../models/models_4";
 import {
   CreateTopicReviewedAnswer,
+  GroupSearchFilter,
+  IdentityTypeNotSupportedException,
+  Permission,
+  QuickSightUserNotFoundException,
+  RegisteredUserEmbeddingExperienceConfiguration,
+  RegisteredUserQuickSightConsoleEmbeddingConfiguration,
   SearchFlowsFilter,
   SnapshotAnonymousUser,
   SnapshotUserConfiguration,
@@ -1908,6 +1956,7 @@ export const se_CreateDataSetCommand = async (
     take(input, {
       ColumnGroups: (_) => _json(_),
       ColumnLevelPermissionRules: (_) => _json(_),
+      DataPrepConfiguration: (_) => se_DataPrepConfiguration(_, context),
       DataSetId: [],
       DataSetUsageConfiguration: (_) => _json(_),
       DatasetParameters: (_) => se_DatasetParameterList(_, context),
@@ -1921,6 +1970,7 @@ export const se_CreateDataSetCommand = async (
       PhysicalTableMap: (_) => _json(_),
       RowLevelPermissionDataSet: (_) => _json(_),
       RowLevelPermissionTagConfiguration: (_) => _json(_),
+      SemanticModelConfiguration: (_) => _json(_),
       Tags: (_) => _json(_),
       UseAs: [],
     })
@@ -5725,6 +5775,7 @@ export const se_UpdateDataSetCommand = async (
     take(input, {
       ColumnGroups: (_) => _json(_),
       ColumnLevelPermissionRules: (_) => _json(_),
+      DataPrepConfiguration: (_) => se_DataPrepConfiguration(_, context),
       DataSetUsageConfiguration: (_) => _json(_),
       DatasetParameters: (_) => se_DatasetParameterList(_, context),
       FieldFolders: (_) => _json(_),
@@ -5735,6 +5786,7 @@ export const se_UpdateDataSetCommand = async (
       PhysicalTableMap: (_) => _json(_),
       RowLevelPermissionDataSet: (_) => _json(_),
       RowLevelPermissionTagConfiguration: (_) => _json(_),
+      SemanticModelConfiguration: (_) => _json(_),
     })
   );
   b.m("PUT").h(headers).b(body);
@@ -12361,6 +12413,9 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "InvalidRequestException":
     case "com.amazonaws.quicksight#InvalidRequestException":
       throw await de_InvalidRequestExceptionRes(parsedOutput, context);
+    case "InvalidDataSetParameterValueException":
+    case "com.amazonaws.quicksight#InvalidDataSetParameterValueException":
+      throw await de_InvalidDataSetParameterValueExceptionRes(parsedOutput, context);
     case "CustomerManagedKeyUnavailableException":
     case "com.amazonaws.quicksight#CustomerManagedKeyUnavailableException":
       throw await de_CustomerManagedKeyUnavailableExceptionRes(parsedOutput, context);
@@ -12554,6 +12609,27 @@ const de_InternalServerExceptionRes = async (
   });
   Object.assign(contents, doc);
   const exception = new InternalServerException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
+};
+
+/**
+ * deserializeAws_restJson1InvalidDataSetParameterValueExceptionRes
+ */
+const de_InvalidDataSetParameterValueExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<InvalidDataSetParameterValueException> => {
+  const contents: any = map({});
+  const data: any = parsedOutput.body;
+  const doc = take(data, {
+    Message: __expectString,
+    RequestId: __expectString,
+  });
+  Object.assign(contents, doc);
+  const exception = new InvalidDataSetParameterValueException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
   });
@@ -12850,6 +12926,10 @@ const de_UnsupportedUserEditionExceptionRes = async (
 
 // se_AggFunctionParamMap omitted.
 
+// se_AggregateOperation omitted.
+
+// se_Aggregation omitted.
+
 /**
  * serializeAws_restJson1AggregationFunction
  */
@@ -12863,6 +12943,8 @@ const se_AggregationFunction = (input: AggregationFunction, context: __SerdeCont
 };
 
 // se_AggregationFunctionParameters omitted.
+
+// se_AggregationList omitted.
 
 // se_AggregationPartitionBy omitted.
 
@@ -12951,6 +13033,12 @@ const se_AnalysisDefinition = (input: AnalysisDefinition, context: __SerdeContex
 // se_AnswerIds omitted.
 
 // se_APIKeyConnectionMetadata omitted.
+
+// se_AppendedColumn omitted.
+
+// se_AppendedColumnList omitted.
+
+// se_AppendOperation omitted.
 
 // se_ApplicationTheme omitted.
 
@@ -13628,6 +13716,10 @@ const se_BoxPlotVisual = (input: BoxPlotVisual, context: __SerdeContext): any =>
 
 // se_CastColumnTypeOperation omitted.
 
+// se_CastColumnTypeOperationList omitted.
+
+// se_CastColumnTypesOperation omitted.
+
 // se_CategoricalDimensionField omitted.
 
 // se_CategoricalMeasureField omitted.
@@ -13753,11 +13845,11 @@ const se_ColumnHierarchyList = (input: ColumnHierarchy[], context: __SerdeContex
 
 // se_ColumnLevelPermissionRule omitted.
 
+// se_ColumnLevelPermissionRuleColumnNameList omitted.
+
 // se_ColumnLevelPermissionRuleList omitted.
 
 // se_ColumnList omitted.
-
-// se_ColumnNameList omitted.
 
 // se_ColumnSchema omitted.
 
@@ -13792,6 +13884,10 @@ const se_ColumnTooltipItem = (input: ColumnTooltipItem, context: __SerdeContext)
     Visibility: [],
   });
 };
+
+// se_ColumnToUnpivot omitted.
+
+// se_ColumnToUnpivotList omitted.
 
 /**
  * serializeAws_restJson1ComboChartAggregatedFieldWells
@@ -14140,21 +14236,135 @@ const se_DataColor = (input: DataColor, context: __SerdeContext): any => {
 
 // se_DataPointTooltipOption omitted.
 
+// se_DataPrepAggregationFunction omitted.
+
+/**
+ * serializeAws_restJson1DataPrepConfiguration
+ */
+const se_DataPrepConfiguration = (input: DataPrepConfiguration, context: __SerdeContext): any => {
+  return take(input, {
+    DestinationTableMap: _json,
+    SourceTableMap: _json,
+    TransformStepMap: (_) => se_TransformStepMap(_, context),
+  });
+};
+
+// se_DataPrepListAggregationFunction omitted.
+
+// se_DataPrepSimpleAggregationFunction omitted.
+
 // se_DataQAEnabledOption omitted.
 
 // se_DataQnAConfigurations omitted.
 
 // se_DataSetArnsList omitted.
 
+// se_DataSetColumnIdMapping omitted.
+
+// se_DataSetColumnIdMappingList omitted.
+
 // se_DataSetConfiguration omitted.
 
 // se_DataSetConfigurationList omitted.
+
+/**
+ * serializeAws_restJson1DataSetDateComparisonFilterCondition
+ */
+const se_DataSetDateComparisonFilterCondition = (
+  input: DataSetDateComparisonFilterCondition,
+  context: __SerdeContext
+): any => {
+  return take(input, {
+    Operator: [],
+    Value: (_) => se_DataSetDateFilterValue(_, context),
+  });
+};
+
+/**
+ * serializeAws_restJson1DataSetDateFilterCondition
+ */
+const se_DataSetDateFilterCondition = (input: DataSetDateFilterCondition, context: __SerdeContext): any => {
+  return take(input, {
+    ColumnName: [],
+    ComparisonFilterCondition: (_) => se_DataSetDateComparisonFilterCondition(_, context),
+    RangeFilterCondition: (_) => se_DataSetDateRangeFilterCondition(_, context),
+  });
+};
+
+/**
+ * serializeAws_restJson1DataSetDateFilterValue
+ */
+const se_DataSetDateFilterValue = (input: DataSetDateFilterValue, context: __SerdeContext): any => {
+  return take(input, {
+    StaticValue: (_) => _.getTime() / 1_000,
+  });
+};
+
+/**
+ * serializeAws_restJson1DataSetDateRangeFilterCondition
+ */
+const se_DataSetDateRangeFilterCondition = (input: DataSetDateRangeFilterCondition, context: __SerdeContext): any => {
+  return take(input, {
+    IncludeMaximum: [],
+    IncludeMinimum: [],
+    RangeMaximum: (_) => se_DataSetDateFilterValue(_, context),
+    RangeMinimum: (_) => se_DataSetDateFilterValue(_, context),
+  });
+};
 
 // se_DataSetIdentifierDeclaration omitted.
 
 // se_DataSetIdentifierDeclarationList omitted.
 
 // se_DatasetMetadata omitted.
+
+/**
+ * serializeAws_restJson1DataSetNumericComparisonFilterCondition
+ */
+const se_DataSetNumericComparisonFilterCondition = (
+  input: DataSetNumericComparisonFilterCondition,
+  context: __SerdeContext
+): any => {
+  return take(input, {
+    Operator: [],
+    Value: (_) => se_DataSetNumericFilterValue(_, context),
+  });
+};
+
+/**
+ * serializeAws_restJson1DataSetNumericFilterCondition
+ */
+const se_DataSetNumericFilterCondition = (input: DataSetNumericFilterCondition, context: __SerdeContext): any => {
+  return take(input, {
+    ColumnName: [],
+    ComparisonFilterCondition: (_) => se_DataSetNumericComparisonFilterCondition(_, context),
+    RangeFilterCondition: (_) => se_DataSetNumericRangeFilterCondition(_, context),
+  });
+};
+
+/**
+ * serializeAws_restJson1DataSetNumericFilterValue
+ */
+const se_DataSetNumericFilterValue = (input: DataSetNumericFilterValue, context: __SerdeContext): any => {
+  return take(input, {
+    StaticValue: __serializeFloat,
+  });
+};
+
+/**
+ * serializeAws_restJson1DataSetNumericRangeFilterCondition
+ */
+const se_DataSetNumericRangeFilterCondition = (
+  input: DataSetNumericRangeFilterCondition,
+  context: __SerdeContext
+): any => {
+  return take(input, {
+    IncludeMaximum: [],
+    IncludeMinimum: [],
+    RangeMaximum: (_) => se_DataSetNumericFilterValue(_, context),
+    RangeMinimum: (_) => se_DataSetNumericFilterValue(_, context),
+  });
+};
 
 /**
  * serializeAws_restJson1DatasetParameter
@@ -14192,6 +14402,18 @@ const se_DatasetParameterList = (input: DatasetParameter[], context: __SerdeCont
 // se_DataSetSearchFilter omitted.
 
 // se_DataSetSearchFilterList omitted.
+
+// se_DataSetStringComparisonFilterCondition omitted.
+
+// se_DataSetStringFilterCondition omitted.
+
+// se_DataSetStringFilterStaticValueList omitted.
+
+// se_DataSetStringFilterValue omitted.
+
+// se_DataSetStringListFilterCondition omitted.
+
+// se_DataSetStringListFilterValue omitted.
 
 // se_DataSetUsageConfiguration omitted.
 
@@ -14521,6 +14743,12 @@ const se_DestinationParameterValueConfiguration = (
     SourceParameterName: [],
   });
 };
+
+// se_DestinationTable omitted.
+
+// se_DestinationTableMap omitted.
+
+// se_DestinationTableSource omitted.
 
 // se_DimensionField omitted.
 
@@ -14858,7 +15086,28 @@ const se_FilterList = (input: Filter[], context: __SerdeContext): any => {
 
 // se_FilterListControl omitted.
 
-// se_FilterOperation omitted.
+/**
+ * serializeAws_restJson1FilterOperation
+ */
+const se_FilterOperation = (input: FilterOperation, context: __SerdeContext): any => {
+  return take(input, {
+    ConditionExpression: [],
+    DateFilterCondition: (_) => se_DataSetDateFilterCondition(_, context),
+    NumericFilterCondition: (_) => se_DataSetNumericFilterCondition(_, context),
+    StringFilterCondition: _json,
+  });
+};
+
+/**
+ * serializeAws_restJson1FilterOperationList
+ */
+const se_FilterOperationList = (input: FilterOperation[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return se_FilterOperation(entry, context);
+    });
+};
 
 // se_FilterOperationSelectedFieldsConfiguration omitted.
 
@@ -14883,6 +15132,17 @@ const se_FilterSliderControl = (input: FilterSliderControl, context: __SerdeCont
     StepSize: __serializeFloat,
     Title: [],
     Type: [],
+  });
+};
+
+/**
+ * serializeAws_restJson1FiltersOperation
+ */
+const se_FiltersOperation = (input: FiltersOperation, context: __SerdeContext): any => {
+  return take(input, {
+    Alias: [],
+    FilterOperations: (_) => se_FilterOperationList(_, context),
+    Source: _json,
   });
 };
 
@@ -15591,6 +15851,8 @@ const se_GradientStopList = (input: GradientStop[], context: __SerdeContext): an
 
 // se_GridLayoutScreenCanvasSizeOptions omitted.
 
+// se_GroupByColumnNameList omitted.
+
 // se_GroupSearchFilter omitted.
 
 // se_GroupSearchFilterList omitted.
@@ -15837,6 +16099,10 @@ const se_ImageCustomActionOperationList = (input: ImageCustomActionOperation[], 
 
 // se_ImpalaParameters omitted.
 
+// se_ImportTableOperation omitted.
+
+// se_ImportTableOperationSource omitted.
+
 // se_IncrementalRefresh omitted.
 
 /**
@@ -15905,6 +16171,10 @@ const se_InsightVisual = (input: InsightVisual, context: __SerdeContext): any =>
 // se_JoinInstruction omitted.
 
 // se_JoinKeyProperties omitted.
+
+// se_JoinOperandProperties omitted.
+
+// se_JoinOperation omitted.
 
 // se_KeyRegistration omitted.
 
@@ -16506,6 +16776,10 @@ const se_NumericRangeFilterValue = (input: NumericRangeFilterValue, context: __S
 
 // se_OracleParameters omitted.
 
+// se_OutputColumnNameOverride omitted.
+
+// se_OutputColumnNameOverrideList omitted.
+
 /**
  * serializeAws_restJson1OverrideDatasetParameterOperation
  */
@@ -16616,6 +16890,8 @@ const se_ParameterSliderControl = (input: ParameterSliderControl, context: __Ser
 // se_ParameterTextAreaControl omitted.
 
 // se_ParameterTextFieldControl omitted.
+
+// se_ParentDataSet omitted.
 
 // se_PercentageDisplayFormatConfiguration omitted.
 
@@ -16738,6 +17014,12 @@ const se_PieChartVisual = (input: PieChartVisual, context: __SerdeContext): any 
   });
 };
 
+// se_PivotConfiguration omitted.
+
+// se_PivotedLabel omitted.
+
+// se_PivotedLabelList omitted.
+
 /**
  * serializeAws_restJson1PivotFieldSortOptions
  */
@@ -16759,6 +17041,8 @@ const se_PivotFieldSortOptionsList = (input: PivotFieldSortOptions[], context: _
     });
 };
 
+// se_PivotGroupByColumnNameList omitted.
+
 /**
  * serializeAws_restJson1PivotMeasureFieldList
  */
@@ -16769,6 +17053,8 @@ const se_PivotMeasureFieldList = (input: MeasureField[], context: __SerdeContext
       return se_MeasureField(entry, context);
     });
 };
+
+// se_PivotOperation omitted.
 
 /**
  * serializeAws_restJson1PivotTableAggregatedFieldWells
@@ -17023,7 +17309,7 @@ const se_PredefinedHierarchy = (input: PredefinedHierarchy, context: __SerdeCont
 
 // se_ProgressBarOptions omitted.
 
-// se_ProjectedColumnList omitted.
+// se_ProjectedColumnNameList omitted.
 
 // se_ProjectOperation omitted.
 
@@ -17268,6 +17554,10 @@ const se_RelativeDatesFilter = (input: RelativeDatesFilter, context: __SerdeCont
 
 // se_RenameColumnOperation omitted.
 
+// se_RenameColumnOperationList omitted.
+
+// se_RenameColumnsOperation omitted.
+
 // se_ResourcePermission omitted.
 
 // se_ResourcePermissionList omitted.
@@ -17277,6 +17567,8 @@ const se_RelativeDatesFilter = (input: RelativeDatesFilter, context: __SerdeCont
 // se_RowAlternateColorList omitted.
 
 // se_RowAlternateColorOptions omitted.
+
+// se_RowLevelPermissionConfiguration omitted.
 
 // se_RowLevelPermissionDataSet omitted.
 
@@ -17308,6 +17600,8 @@ const se_RowSortList = (input: FieldSortOptions[], context: __SerdeContext): any
 // se_S3Parameters omitted.
 
 // se_S3Source omitted.
+
+// se_SaaSTable omitted.
 
 // se_SameSheetTargetVisualConfiguration omitted.
 
@@ -17500,6 +17794,12 @@ const se_SectionBasedLayoutConfiguration = (input: SectionBasedLayoutConfigurati
 // se_SelectedSheetsFilterScopeConfiguration omitted.
 
 // se_SemanticEntityType omitted.
+
+// se_SemanticModelConfiguration omitted.
+
+// se_SemanticTable omitted.
+
+// se_SemanticTableMap omitted.
 
 // se_SemanticType omitted.
 
@@ -17727,6 +18027,10 @@ const se_SnapshotConfiguration = (input: SnapshotConfiguration, context: __Serde
 
 // se_SnowflakeParameters omitted.
 
+// se_SourceTable omitted.
+
+// se_SourceTableMap omitted.
+
 // se_Spacing omitted.
 
 // se_SparkParameters omitted.
@@ -17891,6 +18195,10 @@ const se_TableFieldWells = (input: TableFieldWells, context: __SerdeContext): an
 // se_TableOptions omitted.
 
 // se_TablePaginatedReportOptions omitted.
+
+// se_TablePathElement omitted.
+
+// se_TablePathElementList omitted.
 
 // se_TablePinnedFieldOptions omitted.
 
@@ -18282,7 +18590,7 @@ const se_TransformOperation = (input: TransformOperation, context: __SerdeContex
   return TransformOperation.visit(input, {
     CastColumnTypeOperation: (value) => ({ CastColumnTypeOperation: _json(value) }),
     CreateColumnsOperation: (value) => ({ CreateColumnsOperation: _json(value) }),
-    FilterOperation: (value) => ({ FilterOperation: _json(value) }),
+    FilterOperation: (value) => ({ FilterOperation: se_FilterOperation(value, context) }),
     OverrideDatasetParameterOperation: (value) => ({
       OverrideDatasetParameterOperation: se_OverrideDatasetParameterOperation(value, context),
     }),
@@ -18303,6 +18611,40 @@ const se_TransformOperationList = (input: TransformOperation[], context: __Serde
     .map((entry) => {
       return se_TransformOperation(entry, context);
     });
+};
+
+// se_TransformOperationSource omitted.
+
+/**
+ * serializeAws_restJson1TransformStep
+ */
+const se_TransformStep = (input: TransformStep, context: __SerdeContext): any => {
+  return take(input, {
+    AggregateStep: _json,
+    AppendStep: _json,
+    CastColumnTypesStep: _json,
+    CreateColumnsStep: _json,
+    FiltersStep: (_) => se_FiltersOperation(_, context),
+    ImportTableStep: _json,
+    JoinStep: _json,
+    PivotStep: _json,
+    ProjectStep: _json,
+    RenameColumnsStep: _json,
+    UnpivotStep: _json,
+  });
+};
+
+/**
+ * serializeAws_restJson1TransformStepMap
+ */
+const se_TransformStepMap = (input: Record<string, TransformStep>, context: __SerdeContext): any => {
+  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    acc[key] = se_TransformStep(value, context);
+    return acc;
+  }, {});
 };
 
 // se_TransposedTableOption omitted.
@@ -18409,6 +18751,8 @@ const se_TreeMapVisual = (input: TreeMapVisual, context: __SerdeContext): any =>
 
 // se_UniqueValuesComputation omitted.
 
+// se_UnpivotOperation omitted.
+
 // se_UntagColumnOperation omitted.
 
 // se_UpdateFlowPermissionsInputGrantPermissionsList omitted.
@@ -18422,6 +18766,8 @@ const se_TreeMapVisual = (input: TreeMapVisual, context: __SerdeContext): any =>
 // se_UploadSettings omitted.
 
 // se_ValidationStrategy omitted.
+
+// se_ValueColumnConfiguration omitted.
 
 /**
  * serializeAws_restJson1VisibleRangeOptions
@@ -18792,6 +19138,10 @@ const de_ActionConnectorSummaryList = (output: any, context: __SerdeContext): Ac
 
 // de_AggFunctionParamMap omitted.
 
+// de_AggregateOperation omitted.
+
+// de_Aggregation omitted.
+
 /**
  * deserializeAws_restJson1AggregationFunction
  */
@@ -18805,6 +19155,8 @@ const de_AggregationFunction = (output: any, context: __SerdeContext): Aggregati
 };
 
 // de_AggregationFunctionParameters omitted.
+
+// de_AggregationList omitted.
 
 // de_AggregationPartitionBy omitted.
 
@@ -18914,6 +19266,12 @@ const de_AnalysisSummaryList = (output: any, context: __SerdeContext): AnalysisS
 // de_AnonymousUserSnapshotJobResult omitted.
 
 // de_AnonymousUserSnapshotJobResultList omitted.
+
+// de_AppendedColumn omitted.
+
+// de_AppendedColumnList omitted.
+
+// de_AppendOperation omitted.
 
 // de_ApplicationTheme omitted.
 
@@ -19689,6 +20047,10 @@ const de_BrandSummaryList = (output: any, context: __SerdeContext): BrandSummary
 
 // de_CastColumnTypeOperation omitted.
 
+// de_CastColumnTypeOperationList omitted.
+
+// de_CastColumnTypesOperation omitted.
+
 // de_CategoricalDimensionField omitted.
 
 // de_CategoricalMeasureField omitted.
@@ -19810,11 +20172,11 @@ const de_ColumnHierarchyList = (output: any, context: __SerdeContext): ColumnHie
 
 // de_ColumnLevelPermissionRule omitted.
 
+// de_ColumnLevelPermissionRuleColumnNameList omitted.
+
 // de_ColumnLevelPermissionRuleList omitted.
 
 // de_ColumnList omitted.
-
-// de_ColumnNameList omitted.
 
 // de_ColumnSchema omitted.
 
@@ -19849,6 +20211,10 @@ const de_ColumnTooltipItem = (output: any, context: __SerdeContext): ColumnToolt
     Visibility: __expectString,
   }) as any;
 };
+
+// de_ColumnToUnpivot omitted.
+
+// de_ColumnToUnpivotList omitted.
 
 /**
  * deserializeAws_restJson1ComboChartAggregatedFieldWells
@@ -20258,6 +20624,23 @@ const de_DataColor = (output: any, context: __SerdeContext): DataColor => {
 
 // de_DataPointTooltipOption omitted.
 
+// de_DataPrepAggregationFunction omitted.
+
+/**
+ * deserializeAws_restJson1DataPrepConfiguration
+ */
+const de_DataPrepConfiguration = (output: any, context: __SerdeContext): DataPrepConfiguration => {
+  return take(output, {
+    DestinationTableMap: _json,
+    SourceTableMap: _json,
+    TransformStepMap: (_: any) => de_TransformStepMap(_, context),
+  }) as any;
+};
+
+// de_DataPrepListAggregationFunction omitted.
+
+// de_DataPrepSimpleAggregationFunction omitted.
+
 // de_DataQAEnabledOption omitted.
 
 /**
@@ -20270,6 +20653,7 @@ const de_DataSet = (output: any, context: __SerdeContext): DataSet => {
     ColumnLevelPermissionRules: _json,
     ConsumedSpiceCapacityInBytes: __expectLong,
     CreatedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    DataPrepConfiguration: (_: any) => de_DataPrepConfiguration(_, context),
     DataSetId: __expectString,
     DataSetUsageConfiguration: _json,
     DatasetParameters: (_: any) => de_DatasetParameterList(_, context),
@@ -20283,21 +20667,119 @@ const de_DataSet = (output: any, context: __SerdeContext): DataSet => {
     PhysicalTableMap: _json,
     RowLevelPermissionDataSet: _json,
     RowLevelPermissionTagConfiguration: _json,
+    SemanticModelConfiguration: _json,
     UseAs: __expectString,
   }) as any;
 };
 
 // de_DataSetArnsList omitted.
 
+// de_DataSetColumnIdMapping omitted.
+
+// de_DataSetColumnIdMappingList omitted.
+
 // de_DataSetConfiguration omitted.
 
 // de_DataSetConfigurationList omitted.
+
+/**
+ * deserializeAws_restJson1DataSetDateComparisonFilterCondition
+ */
+const de_DataSetDateComparisonFilterCondition = (
+  output: any,
+  context: __SerdeContext
+): DataSetDateComparisonFilterCondition => {
+  return take(output, {
+    Operator: __expectString,
+    Value: (_: any) => de_DataSetDateFilterValue(_, context),
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1DataSetDateFilterCondition
+ */
+const de_DataSetDateFilterCondition = (output: any, context: __SerdeContext): DataSetDateFilterCondition => {
+  return take(output, {
+    ColumnName: __expectString,
+    ComparisonFilterCondition: (_: any) => de_DataSetDateComparisonFilterCondition(_, context),
+    RangeFilterCondition: (_: any) => de_DataSetDateRangeFilterCondition(_, context),
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1DataSetDateFilterValue
+ */
+const de_DataSetDateFilterValue = (output: any, context: __SerdeContext): DataSetDateFilterValue => {
+  return take(output, {
+    StaticValue: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1DataSetDateRangeFilterCondition
+ */
+const de_DataSetDateRangeFilterCondition = (output: any, context: __SerdeContext): DataSetDateRangeFilterCondition => {
+  return take(output, {
+    IncludeMaximum: __expectBoolean,
+    IncludeMinimum: __expectBoolean,
+    RangeMaximum: (_: any) => de_DataSetDateFilterValue(_, context),
+    RangeMinimum: (_: any) => de_DataSetDateFilterValue(_, context),
+  }) as any;
+};
 
 // de_DataSetIdentifierDeclaration omitted.
 
 // de_DataSetIdentifierDeclarationList omitted.
 
 // de_DatasetMetadata omitted.
+
+/**
+ * deserializeAws_restJson1DataSetNumericComparisonFilterCondition
+ */
+const de_DataSetNumericComparisonFilterCondition = (
+  output: any,
+  context: __SerdeContext
+): DataSetNumericComparisonFilterCondition => {
+  return take(output, {
+    Operator: __expectString,
+    Value: (_: any) => de_DataSetNumericFilterValue(_, context),
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1DataSetNumericFilterCondition
+ */
+const de_DataSetNumericFilterCondition = (output: any, context: __SerdeContext): DataSetNumericFilterCondition => {
+  return take(output, {
+    ColumnName: __expectString,
+    ComparisonFilterCondition: (_: any) => de_DataSetNumericComparisonFilterCondition(_, context),
+    RangeFilterCondition: (_: any) => de_DataSetNumericRangeFilterCondition(_, context),
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1DataSetNumericFilterValue
+ */
+const de_DataSetNumericFilterValue = (output: any, context: __SerdeContext): DataSetNumericFilterValue => {
+  return take(output, {
+    StaticValue: __limitedParseDouble,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1DataSetNumericRangeFilterCondition
+ */
+const de_DataSetNumericRangeFilterCondition = (
+  output: any,
+  context: __SerdeContext
+): DataSetNumericRangeFilterCondition => {
+  return take(output, {
+    IncludeMaximum: __expectBoolean,
+    IncludeMinimum: __expectBoolean,
+    RangeMaximum: (_: any) => de_DataSetNumericFilterValue(_, context),
+    RangeMinimum: (_: any) => de_DataSetNumericFilterValue(_, context),
+  }) as any;
+};
 
 /**
  * deserializeAws_restJson1DatasetParameter
@@ -20329,6 +20811,18 @@ const de_DatasetParameterList = (output: any, context: __SerdeContext): DatasetP
 
 // de_DataSetSchema omitted.
 
+// de_DataSetStringComparisonFilterCondition omitted.
+
+// de_DataSetStringFilterCondition omitted.
+
+// de_DataSetStringFilterStaticValueList omitted.
+
+// de_DataSetStringFilterValue omitted.
+
+// de_DataSetStringListFilterCondition omitted.
+
+// de_DataSetStringListFilterValue omitted.
+
 /**
  * deserializeAws_restJson1DataSetSummary
  */
@@ -20342,6 +20836,7 @@ const de_DataSetSummary = (output: any, context: __SerdeContext): DataSetSummary
     LastUpdatedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     Name: __expectString,
     RowLevelPermissionDataSet: _json,
+    RowLevelPermissionDataSetMap: _json,
     RowLevelPermissionTagConfigurationApplied: __expectBoolean,
     UseAs: __expectString,
   }) as any;
@@ -20747,6 +21242,12 @@ const de_DestinationParameterValueConfiguration = (
   }) as any;
 };
 
+// de_DestinationTable omitted.
+
+// de_DestinationTableMap omitted.
+
+// de_DestinationTableSource omitted.
+
 // de_DimensionField omitted.
 
 // de_DimensionFieldList omitted.
@@ -21100,7 +21601,29 @@ const de_FilterList = (output: any, context: __SerdeContext): Filter[] => {
 
 // de_FilterListControl omitted.
 
-// de_FilterOperation omitted.
+/**
+ * deserializeAws_restJson1FilterOperation
+ */
+const de_FilterOperation = (output: any, context: __SerdeContext): FilterOperation => {
+  return take(output, {
+    ConditionExpression: __expectString,
+    DateFilterCondition: (_: any) => de_DataSetDateFilterCondition(_, context),
+    NumericFilterCondition: (_: any) => de_DataSetNumericFilterCondition(_, context),
+    StringFilterCondition: _json,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1FilterOperationList
+ */
+const de_FilterOperationList = (output: any, context: __SerdeContext): FilterOperation[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_FilterOperation(entry, context);
+    });
+  return retVal;
+};
 
 // de_FilterOperationSelectedFieldsConfiguration omitted.
 
@@ -21125,6 +21648,17 @@ const de_FilterSliderControl = (output: any, context: __SerdeContext): FilterSli
     StepSize: __limitedParseDouble,
     Title: __expectString,
     Type: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1FiltersOperation
+ */
+const de_FiltersOperation = (output: any, context: __SerdeContext): FiltersOperation => {
+  return take(output, {
+    Alias: __expectString,
+    FilterOperations: (_: any) => de_FilterOperationList(_, context),
+    Source: _json,
   }) as any;
 };
 
@@ -21920,6 +22454,8 @@ const de_GradientStopList = (output: any, context: __SerdeContext): GradientStop
 
 // de_Group omitted.
 
+// de_GroupByColumnNameList omitted.
+
 // de_GroupList omitted.
 
 // de_GroupMember omitted.
@@ -22180,6 +22716,10 @@ const de_ImageCustomActionOperationList = (output: any, context: __SerdeContext)
 
 // de_ImpalaParameters omitted.
 
+// de_ImportTableOperation omitted.
+
+// de_ImportTableOperationSource omitted.
+
 // de_IncrementalRefresh omitted.
 
 /**
@@ -22283,6 +22823,10 @@ const de_InsightVisual = (output: any, context: __SerdeContext): InsightVisual =
 // de_JoinInstruction omitted.
 
 // de_JoinKeyProperties omitted.
+
+// de_JoinOperandProperties omitted.
+
+// de_JoinOperation omitted.
 
 // de_KeyRegistration omitted.
 
@@ -22907,6 +23451,10 @@ const de_NumericRangeFilterValue = (output: any, context: __SerdeContext): Numer
 
 // de_OutputColumnList omitted.
 
+// de_OutputColumnNameOverride omitted.
+
+// de_OutputColumnNameOverrideList omitted.
+
 /**
  * deserializeAws_restJson1OverrideDatasetParameterOperation
  */
@@ -23019,6 +23567,8 @@ const de_ParameterSliderControl = (output: any, context: __SerdeContext): Parame
 // de_ParameterTextAreaControl omitted.
 
 // de_ParameterTextFieldControl omitted.
+
+// de_ParentDataSet omitted.
 
 // de_Path omitted.
 
@@ -23145,6 +23695,12 @@ const de_PieChartVisual = (output: any, context: __SerdeContext): PieChartVisual
   }) as any;
 };
 
+// de_PivotConfiguration omitted.
+
+// de_PivotedLabel omitted.
+
+// de_PivotedLabelList omitted.
+
 /**
  * deserializeAws_restJson1PivotFieldSortOptions
  */
@@ -23167,6 +23723,8 @@ const de_PivotFieldSortOptionsList = (output: any, context: __SerdeContext): Piv
   return retVal;
 };
 
+// de_PivotGroupByColumnNameList omitted.
+
 /**
  * deserializeAws_restJson1PivotMeasureFieldList
  */
@@ -23178,6 +23736,8 @@ const de_PivotMeasureFieldList = (output: any, context: __SerdeContext): Measure
     });
   return retVal;
 };
+
+// de_PivotOperation omitted.
 
 /**
  * deserializeAws_restJson1PivotTableAggregatedFieldWells
@@ -23434,7 +23994,7 @@ const de_PredefinedHierarchy = (output: any, context: __SerdeContext): Predefine
 
 // de_ProgressBarOptions omitted.
 
-// de_ProjectedColumnList omitted.
+// de_ProjectedColumnNameList omitted.
 
 // de_ProjectOperation omitted.
 
@@ -23707,6 +24267,10 @@ const de_RelativeDatesFilter = (output: any, context: __SerdeContext): RelativeD
 
 // de_RenameColumnOperation omitted.
 
+// de_RenameColumnOperationList omitted.
+
+// de_RenameColumnsOperation omitted.
+
 // de_ResourcePermission omitted.
 
 // de_ResourcePermissionList omitted.
@@ -23719,7 +24283,11 @@ const de_RelativeDatesFilter = (output: any, context: __SerdeContext): RelativeD
 
 // de_RowInfo omitted.
 
+// de_RowLevelPermissionConfiguration omitted.
+
 // de_RowLevelPermissionDataSet omitted.
+
+// de_RowLevelPermissionDataSetMap omitted.
 
 // de_RowLevelPermissionTagConfiguration omitted.
 
@@ -23750,6 +24318,8 @@ const de_RowSortList = (output: any, context: __SerdeContext): FieldSortOptions[
 // de_S3Parameters omitted.
 
 // de_S3Source omitted.
+
+// de_SaaSTable omitted.
 
 // de_SameSheetTargetVisualConfiguration omitted.
 
@@ -23937,6 +24507,12 @@ const de_SectionBasedLayoutConfiguration = (output: any, context: __SerdeContext
 // de_SelectedSheetsFilterScopeConfiguration omitted.
 
 // de_SemanticEntityType omitted.
+
+// de_SemanticModelConfiguration omitted.
+
+// de_SemanticTable omitted.
+
+// de_SemanticTableMap omitted.
 
 // de_SemanticType omitted.
 
@@ -24206,6 +24782,10 @@ const de_SnapshotConfiguration = (output: any, context: __SerdeContext): Snapsho
 
 // de_SnowflakeParameters omitted.
 
+// de_SourceTable omitted.
+
+// de_SourceTableMap omitted.
+
 // de_Spacing omitted.
 
 // de_SparkParameters omitted.
@@ -24380,6 +24960,10 @@ const de_TableFieldWells = (output: any, context: __SerdeContext): TableFieldWel
 // de_TableOptions omitted.
 
 // de_TablePaginatedReportOptions omitted.
+
+// de_TablePathElement omitted.
+
+// de_TablePathElementList omitted.
 
 // de_TablePinnedFieldOptions omitted.
 
@@ -25007,7 +25591,7 @@ const de_TransformOperation = (output: any, context: __SerdeContext): TransformO
   }
   if (output.FilterOperation != null) {
     return {
-      FilterOperation: _json(output.FilterOperation),
+      FilterOperation: de_FilterOperation(output.FilterOperation, context),
     };
   }
   if (output.OverrideDatasetParameterOperation != null) {
@@ -25051,6 +25635,40 @@ const de_TransformOperationList = (output: any, context: __SerdeContext): Transf
       return de_TransformOperation(__expectUnion(entry), context);
     });
   return retVal;
+};
+
+// de_TransformOperationSource omitted.
+
+/**
+ * deserializeAws_restJson1TransformStep
+ */
+const de_TransformStep = (output: any, context: __SerdeContext): TransformStep => {
+  return take(output, {
+    AggregateStep: _json,
+    AppendStep: _json,
+    CastColumnTypesStep: _json,
+    CreateColumnsStep: _json,
+    FiltersStep: (_: any) => de_FiltersOperation(_, context),
+    ImportTableStep: _json,
+    JoinStep: _json,
+    PivotStep: _json,
+    ProjectStep: _json,
+    RenameColumnsStep: _json,
+    UnpivotStep: _json,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1TransformStepMap
+ */
+const de_TransformStepMap = (output: any, context: __SerdeContext): Record<string, TransformStep> => {
+  return Object.entries(output).reduce((acc: Record<string, TransformStep>, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    acc[key as string] = de_TransformStep(value, context);
+    return acc;
+  }, {} as Record<string, TransformStep>);
 };
 
 // de_TransposedTableOption omitted.
@@ -25158,6 +25776,8 @@ const de_TreeMapVisual = (output: any, context: __SerdeContext): TreeMapVisual =
 
 // de_UniqueValuesComputation omitted.
 
+// de_UnpivotOperation omitted.
+
 // de_UntagColumnOperation omitted.
 
 // de_UpdateResourcePermissionList omitted.
@@ -25167,6 +25787,8 @@ const de_TreeMapVisual = (output: any, context: __SerdeContext): TreeMapVisual =
 // de_User omitted.
 
 // de_UserList omitted.
+
+// de_ValueColumnConfiguration omitted.
 
 /**
  * deserializeAws_restJson1VisibleRangeOptions
