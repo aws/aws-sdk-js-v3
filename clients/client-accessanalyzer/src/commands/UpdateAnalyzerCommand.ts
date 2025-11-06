@@ -28,7 +28,7 @@ export interface UpdateAnalyzerCommandInput extends UpdateAnalyzerRequest {}
 export interface UpdateAnalyzerCommandOutput extends UpdateAnalyzerResponse, __MetadataBearer {}
 
 /**
- * <p>Modifies the configuration of an existing analyzer.</p>
+ * <p>Modifies the configuration of an existing analyzer.</p> <note> <p>This action is not supported for external access analyzers.</p> </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

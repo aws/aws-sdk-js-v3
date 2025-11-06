@@ -28,7 +28,7 @@ export interface GetAnalyzedResourceCommandInput extends GetAnalyzedResourceRequ
 export interface GetAnalyzedResourceCommandOutput extends GetAnalyzedResourceResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves information about a resource that was analyzed.</p>
+ * <p>Retrieves information about a resource that was analyzed.</p> <note> <p>This action is supported only for external access analyzers.</p> </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

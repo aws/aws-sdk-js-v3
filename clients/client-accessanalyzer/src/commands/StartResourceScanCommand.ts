@@ -28,7 +28,7 @@ export interface StartResourceScanCommandInput extends StartResourceScanRequest 
 export interface StartResourceScanCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Immediately starts a scan of the policies applied to the specified resource.</p>
+ * <p>Immediately starts a scan of the policies applied to the specified resource.</p> <note> <p>This action is supported only for external access analyzers.</p> </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

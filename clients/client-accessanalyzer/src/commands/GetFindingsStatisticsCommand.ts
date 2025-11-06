@@ -50,6 +50,7 @@ export interface GetFindingsStatisticsCommandOutput extends GetFindingsStatistic
  * //           "<keys>": { // ResourceTypeDetails
  * //             totalActivePublic: Number("int"),
  * //             totalActiveCrossAccount: Number("int"),
+ * //             totalActiveErrors: Number("int"),
  * //           },
  * //         },
  * //         totalActiveFindings: Number("int"),

@@ -816,7 +816,7 @@ export interface AnalyzerSummary {
   name: string | undefined;
 
   /**
-   * <p>The type of analyzer, which corresponds to the zone of trust chosen for the analyzer.</p>
+   * <p>The type represents the zone of trust or scope for the analyzer.</p>
    * @public
    */
   type: Type | undefined;
@@ -840,7 +840,7 @@ export interface AnalyzerSummary {
   lastResourceAnalyzedAt?: Date | undefined;
 
   /**
-   * <p>The tags added to the analyzer.</p>
+   * <p>An array of key-value pairs applied to the analyzer. The key-value pairs consist of the set of Unicode letters, digits, whitespace, <code>_</code>, <code>.</code>, <code>/</code>, <code>=</code>, <code>+</code>, and <code>-</code>.</p> <p>The tag key is a value that is 1 to 128 characters in length and cannot be prefixed with <code>aws:</code>.</p> <p>The tag value is a value that is 0 to 256 characters in length.</p>
    * @public
    */
   tags?: Record<string, string> | undefined;
@@ -858,7 +858,7 @@ export interface AnalyzerSummary {
   statusReason?: StatusReason | undefined;
 
   /**
-   * <p>Specifies if the analyzer is an external access, unused access, or internal access analyzer.</p>
+   * <p>Specifies if the analyzer is an external access, unused access, or internal access analyzer. The <a href="https://docs.aws.amazon.com/access-analyzer/latest/APIReference/API_GetAnalyzer.html">GetAnalyzer</a> action includes this property in its response if a configuration is specified, while the <a href="https://docs.aws.amazon.com/access-analyzer/latest/APIReference/API_ListAnalyzers.html">ListAnalyzers</a> action omits it.</p>
    * @public
    */
   configuration?: AnalyzerConfiguration | undefined;
@@ -2971,6 +2971,12 @@ export interface ResourceTypeDetails {
    * @public
    */
   totalActiveCrossAccount?: number | undefined;
+
+  /**
+   * <p>The total number of active errors for the resource type.</p>
+   * @public
+   */
+  totalActiveErrors?: number | undefined;
 }
 
 /**
