@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
-import { ElasticBeanstalkServiceException as __BaseException } from "./ElasticBeanstalkServiceException";
+import { ElasticBeanstalkSyntheticServiceException as __BaseException } from "./ElasticBeanstalkSyntheticServiceException";
 
 /**
  * <p></p>

@@ -107,7 +107,7 @@ export interface CreateApplicationCommandOutput extends ApplicationDescriptionMe
  * @throws {@link TooManyApplicationsException} (client fault)
  *  <p>The specified account has reached its limit of applications.</p>
  *
- * @throws {@link ElasticBeanstalkServiceException}
+ * @throws {@link ElasticBeanstalkSyntheticServiceException}
  * <p>Base exception class for all service exceptions from ElasticBeanstalk service.</p>
  *
  *

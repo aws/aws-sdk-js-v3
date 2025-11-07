@@ -100,7 +100,7 @@ export interface UpdateTagsForResourceCommandOutput extends __MetadataBearer {}
  *          <p>To calculate this, the operation considers both the number of tags the resource already has
  *       and the tags this operation would add if it succeeded.</p>
  *
- * @throws {@link ElasticBeanstalkServiceException}
+ * @throws {@link ElasticBeanstalkSyntheticServiceException}
  * <p>Base exception class for all service exceptions from ElasticBeanstalk service.</p>
  *
  *

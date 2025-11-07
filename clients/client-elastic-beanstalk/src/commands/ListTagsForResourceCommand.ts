@@ -73,7 +73,7 @@ export interface ListTagsForResourceCommandOutput extends ResourceTagsDescriptio
  * @throws {@link ResourceTypeNotSupportedException} (client fault)
  *  <p>The type of the specified Amazon Resource Name (ARN) isn't supported for this operation.</p>
  *
- * @throws {@link ElasticBeanstalkServiceException}
+ * @throws {@link ElasticBeanstalkSyntheticServiceException}
  * <p>Base exception class for all service exceptions from ElasticBeanstalk service.</p>
  *
  *

@@ -187,7 +187,7 @@ import {
   ValidateConfigurationSettingsCommandInput,
   ValidateConfigurationSettingsCommandOutput,
 } from "../commands/ValidateConfigurationSettingsCommand";
-import { ElasticBeanstalkServiceException as __BaseException } from "../models/ElasticBeanstalkServiceException";
+import { ElasticBeanstalkSyntheticServiceException as __BaseException } from "../models/ElasticBeanstalkSyntheticServiceException";
 import {
   AbortEnvironmentUpdateMessage,
   ApplicationDescription,

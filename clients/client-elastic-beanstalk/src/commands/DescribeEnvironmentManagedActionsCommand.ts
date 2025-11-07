@@ -72,7 +72,7 @@ export interface DescribeEnvironmentManagedActionsCommandOutput
  * @throws {@link ElasticBeanstalkServiceException} (client fault)
  *  <p>A generic service exception has occurred.</p>
  *
- * @throws {@link ElasticBeanstalkServiceException}
+ * @throws {@link ElasticBeanstalkSyntheticServiceException}
  * <p>Base exception class for all service exceptions from ElasticBeanstalk service.</p>
  *
  *

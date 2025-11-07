@@ -72,7 +72,7 @@ export interface ApplyEnvironmentManagedActionCommandOutput
  * @throws {@link ManagedActionInvalidStateException} (client fault)
  *  <p>Cannot modify the managed action in its current state.</p>
  *
- * @throws {@link ElasticBeanstalkServiceException}
+ * @throws {@link ElasticBeanstalkSyntheticServiceException}
  * <p>Base exception class for all service exceptions from ElasticBeanstalk service.</p>
  *
  *

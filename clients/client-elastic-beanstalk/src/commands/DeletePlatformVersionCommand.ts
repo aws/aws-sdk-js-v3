@@ -85,7 +85,7 @@ export interface DeletePlatformVersionCommandOutput extends DeletePlatformVersio
  * @throws {@link PlatformVersionStillReferencedException} (client fault)
  *  <p>You cannot delete the platform version because there are still environments running on it.</p>
  *
- * @throws {@link ElasticBeanstalkServiceException}
+ * @throws {@link ElasticBeanstalkSyntheticServiceException}
  * <p>Base exception class for all service exceptions from ElasticBeanstalk service.</p>
  *
  *

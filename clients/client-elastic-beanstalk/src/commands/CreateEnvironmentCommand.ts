@@ -137,7 +137,7 @@ export interface CreateEnvironmentCommandOutput extends EnvironmentDescription, 
  * @throws {@link TooManyEnvironmentsException} (client fault)
  *  <p>The specified account has reached its limit of environments.</p>
  *
- * @throws {@link ElasticBeanstalkServiceException}
+ * @throws {@link ElasticBeanstalkSyntheticServiceException}
  * <p>Base exception class for all service exceptions from ElasticBeanstalk service.</p>
  *
  *

@@ -1966,7 +1966,7 @@ export var XmlTimestampsResponse: StaticStructureSchema = [
 export var XmlUnionsRequest: StaticStructureSchema = [3, n1, _XUR, 0, [_uV], [() => XmlUnionShape]];
 export var XmlUnionsResponse: StaticStructureSchema = [3, n1, _XURm, 0, [_uV], [() => XmlUnionShape]];
 export var GreetingStruct: StaticStructureSchema = [3, n0, _GS, 0, [_hi], [0]];
-export var Unit = "unit" as const;
+export var __Unit = "unit" as const;
 
 export var RestXmlProtocolServiceException: StaticErrorSchema = [-3, _sm, "RestXmlProtocolServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(RestXmlProtocolServiceException, __RestXmlProtocolServiceException);
@@ -2188,7 +2188,7 @@ export var AllQueryStringTypes: StaticOperationSchema = [
     [_http_]: ["GET", "/AllQueryStringTypesInput", 200],
   },
   () => AllQueryStringTypesInput,
-  () => Unit,
+  () => __Unit,
 ];
 export var BodyWithXmlName: StaticOperationSchema = [
   9,
@@ -2208,7 +2208,7 @@ export var ConstantAndVariableQueryString: StaticOperationSchema = [
     [_http_]: ["GET", "/ConstantAndVariableQueryString?foo=bar", 200],
   },
   () => ConstantAndVariableQueryStringInput,
-  () => Unit,
+  () => __Unit,
 ];
 export var ConstantQueryString: StaticOperationSchema = [
   9,
@@ -2218,7 +2218,7 @@ export var ConstantQueryString: StaticOperationSchema = [
     [_http_]: ["GET", "/ConstantQueryString/{hello}?foo=bar&hello", 200],
   },
   () => ConstantQueryStringInput,
-  () => Unit,
+  () => __Unit,
 ];
 export var ContentTypeParameters: StaticOperationSchema = [
   9,
@@ -2237,7 +2237,7 @@ export var DatetimeOffsets: StaticOperationSchema = [
   {
     [_http_]: ["POST", "/DatetimeOffsets", 200],
   },
-  () => Unit,
+  () => __Unit,
   () => DatetimeOffsetsOutput,
 ];
 export var EmptyInputAndEmptyOutput: StaticOperationSchema = [
@@ -2258,8 +2258,8 @@ export var EndpointOperation: StaticOperationSchema = [
     [_http_]: ["POST", "/EndpointOperation", 200],
     [_end]: ["foo."],
   },
-  () => Unit,
-  () => Unit,
+  () => __Unit,
+  () => __Unit,
 ];
 export var EndpointWithHostLabelHeaderOperation: StaticOperationSchema = [
   9,
@@ -2270,7 +2270,7 @@ export var EndpointWithHostLabelHeaderOperation: StaticOperationSchema = [
     [_end]: ["{accountId}."],
   },
   () => HostLabelHeaderInput,
-  () => Unit,
+  () => __Unit,
 ];
 export var EndpointWithHostLabelOperation: StaticOperationSchema = [
   9,
@@ -2281,7 +2281,7 @@ export var EndpointWithHostLabelOperation: StaticOperationSchema = [
     [_end]: ["foo.{label}."],
   },
   () => EndpointWithHostLabelOperationRequest,
-  () => Unit,
+  () => __Unit,
 ];
 export var FlattenedXmlMap: StaticOperationSchema = [
   9,
@@ -2310,7 +2310,7 @@ export var FlattenedXmlMapWithXmlNamespace: StaticOperationSchema = [
   {
     [_http_]: ["POST", "/FlattenedXmlMapWithXmlNamespace", 200],
   },
-  () => Unit,
+  () => __Unit,
   () => FlattenedXmlMapWithXmlNamespaceOutput,
 ];
 export var FractionalSeconds: StaticOperationSchema = [
@@ -2320,7 +2320,7 @@ export var FractionalSeconds: StaticOperationSchema = [
   {
     [_http_]: ["POST", "/FractionalSeconds", 200],
   },
-  () => Unit,
+  () => __Unit,
   () => FractionalSecondsOutput,
 ];
 export var GreetingWithErrors: StaticOperationSchema = [
@@ -2330,7 +2330,7 @@ export var GreetingWithErrors: StaticOperationSchema = [
   {
     [_http_]: ["PUT", "/GreetingWithErrors", 200],
   },
-  () => Unit,
+  () => __Unit,
   () => GreetingWithErrorsOutput,
 ];
 export var HttpEmptyPrefixHeaders: StaticOperationSchema = [
@@ -2451,7 +2451,7 @@ export var HttpRequestWithFloatLabels: StaticOperationSchema = [
     [_http_]: ["GET", "/FloatHttpLabels/{float}/{double}", 200],
   },
   () => HttpRequestWithFloatLabelsInput,
-  () => Unit,
+  () => __Unit,
 ];
 export var HttpRequestWithGreedyLabelInPath: StaticOperationSchema = [
   9,
@@ -2461,7 +2461,7 @@ export var HttpRequestWithGreedyLabelInPath: StaticOperationSchema = [
     [_http_]: ["GET", "/HttpRequestWithGreedyLabelInPath/foo/{foo}/baz/{baz+}", 200],
   },
   () => HttpRequestWithGreedyLabelInPathInput,
-  () => Unit,
+  () => __Unit,
 ];
 export var HttpRequestWithLabels: StaticOperationSchema = [
   9,
@@ -2475,7 +2475,7 @@ export var HttpRequestWithLabels: StaticOperationSchema = [
     ],
   },
   () => HttpRequestWithLabelsInput,
-  () => Unit,
+  () => __Unit,
 ];
 export var HttpRequestWithLabelsAndTimestampFormat: StaticOperationSchema = [
   9,
@@ -2489,7 +2489,7 @@ export var HttpRequestWithLabelsAndTimestampFormat: StaticOperationSchema = [
     ],
   },
   () => HttpRequestWithLabelsAndTimestampFormatInput,
-  () => Unit,
+  () => __Unit,
 ];
 export var HttpResponseCode: StaticOperationSchema = [
   9,
@@ -2498,7 +2498,7 @@ export var HttpResponseCode: StaticOperationSchema = [
   {
     [_http_]: ["PUT", "/HttpResponseCode", 200],
   },
-  () => Unit,
+  () => __Unit,
   () => HttpResponseCodeOutput,
 ];
 export var HttpStringPayload: StaticOperationSchema = [
@@ -2518,7 +2518,7 @@ export var IgnoreQueryParamsInResponse: StaticOperationSchema = [
   {
     [_http_]: ["GET", "/IgnoreQueryParamsInResponse", 200],
   },
-  () => Unit,
+  () => __Unit,
   () => IgnoreQueryParamsInResponseOutput,
 ];
 export var InputAndOutputWithHeaders: StaticOperationSchema = [
@@ -2558,8 +2558,8 @@ export var NoInputAndNoOutput: StaticOperationSchema = [
   {
     [_http_]: ["POST", "/NoInputAndNoOutput", 200],
   },
-  () => Unit,
-  () => Unit,
+  () => __Unit,
+  () => __Unit,
 ];
 export var NoInputAndOutput: StaticOperationSchema = [
   9,
@@ -2568,7 +2568,7 @@ export var NoInputAndOutput: StaticOperationSchema = [
   {
     [_http_]: ["POST", "/NoInputAndOutputOutput", 200],
   },
-  () => Unit,
+  () => __Unit,
   () => NoInputAndOutputOutput,
 ];
 export var NullAndEmptyHeadersClient: StaticOperationSchema = [
@@ -2599,7 +2599,7 @@ export var OmitsNullSerializesEmptyString: StaticOperationSchema = [
     [_http_]: ["GET", "/OmitsNullSerializesEmptyString", 200],
   },
   () => OmitsNullSerializesEmptyStringInput,
-  () => Unit,
+  () => __Unit,
 ];
 export var PutWithContentEncoding: StaticOperationSchema = [
   9,
@@ -2609,7 +2609,7 @@ export var PutWithContentEncoding: StaticOperationSchema = [
     [_http_]: ["POST", "/requestcompression/putcontentwithencoding", 200],
   },
   () => PutWithContentEncodingInput,
-  () => Unit,
+  () => __Unit,
 ];
 export var QueryIdempotencyTokenAutoFill: StaticOperationSchema = [
   9,
@@ -2619,7 +2619,7 @@ export var QueryIdempotencyTokenAutoFill: StaticOperationSchema = [
     [_http_]: ["POST", "/QueryIdempotencyTokenAutoFill", 200],
   },
   () => QueryIdempotencyTokenAutoFillInput,
-  () => Unit,
+  () => __Unit,
 ];
 export var QueryParamsAsStringListMap: StaticOperationSchema = [
   9,
@@ -2629,7 +2629,7 @@ export var QueryParamsAsStringListMap: StaticOperationSchema = [
     [_http_]: ["POST", "/StringListMap", 200],
   },
   () => QueryParamsAsStringListMapInput,
-  () => Unit,
+  () => __Unit,
 ];
 export var QueryPrecedence: StaticOperationSchema = [
   9,
@@ -2639,7 +2639,7 @@ export var QueryPrecedence: StaticOperationSchema = [
     [_http_]: ["POST", "/Precedence", 200],
   },
   () => QueryPrecedenceInput,
-  () => Unit,
+  () => __Unit,
 ];
 export var RecursiveShapes: StaticOperationSchema = [
   9,

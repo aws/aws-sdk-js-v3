@@ -106,7 +106,7 @@ export var ResourceNotFoundException: StaticErrorSchema = [
 ];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
 
-export var Unit = "unit" as const;
+export var __Unit = "unit" as const;
 
 export var MachineLearningServiceException: StaticErrorSchema = [-3, _sm, "MachineLearningServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(MachineLearningServiceException, __MachineLearningServiceException);

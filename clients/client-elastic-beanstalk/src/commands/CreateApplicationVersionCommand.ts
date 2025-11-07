@@ -142,7 +142,7 @@ export interface CreateApplicationVersionCommandOutput extends ApplicationVersio
  * @throws {@link TooManyApplicationVersionsException} (client fault)
  *  <p>The specified account has reached its limit of application versions.</p>
  *
- * @throws {@link ElasticBeanstalkServiceException}
+ * @throws {@link ElasticBeanstalkSyntheticServiceException}
  * <p>Base exception class for all service exceptions from ElasticBeanstalk service.</p>
  *
  *
