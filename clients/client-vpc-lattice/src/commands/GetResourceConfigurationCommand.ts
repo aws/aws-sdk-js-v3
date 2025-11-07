@@ -72,6 +72,10 @@ export interface GetResourceConfigurationCommandOutput extends GetResourceConfig
  * //   amazonManaged: true || false,
  * //   failureReason: "STRING_VALUE",
  * //   lastUpdatedAt: new Date("TIMESTAMP"),
+ * //   domainVerificationId: "STRING_VALUE",
+ * //   domainVerificationArn: "STRING_VALUE",
+ * //   domainVerificationStatus: "STRING_VALUE",
+ * //   groupDomain: "STRING_VALUE",
  * // };
  *
  * ```

@@ -64,6 +64,13 @@ export interface ListServiceNetworkVpcAssociationsCommandOutput
  * //       serviceNetworkId: "STRING_VALUE",
  * //       serviceNetworkName: "STRING_VALUE",
  * //       serviceNetworkArn: "STRING_VALUE",
+ * //       privateDnsEnabled: true || false,
+ * //       dnsOptions: { // DnsOptions
+ * //         privateDnsPreference: "STRING_VALUE",
+ * //         privateDnsSpecifiedDomains: [ // PrivateDnsSpecifiedDomainsList
+ * //           "STRING_VALUE",
+ * //         ],
+ * //       },
  * //       vpcId: "STRING_VALUE",
  * //       lastUpdatedAt: new Date("TIMESTAMP"),
  * //     },

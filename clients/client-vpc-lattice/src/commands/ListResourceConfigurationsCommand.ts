@@ -40,6 +40,7 @@ export interface ListResourceConfigurationsCommandOutput extends ListResourceCon
  * const input = { // ListResourceConfigurationsRequest
  *   resourceGatewayIdentifier: "STRING_VALUE",
  *   resourceConfigurationGroupIdentifier: "STRING_VALUE",
+ *   domainVerificationIdentifier: "STRING_VALUE",
  *   maxResults: Number("int"),
  *   nextToken: "STRING_VALUE",
  * };
@@ -58,6 +59,9 @@ export interface ListResourceConfigurationsCommandOutput extends ListResourceCon
  * //       amazonManaged: true || false,
  * //       createdAt: new Date("TIMESTAMP"),
  * //       lastUpdatedAt: new Date("TIMESTAMP"),
+ * //       customDomainName: "STRING_VALUE",
+ * //       domainVerificationId: "STRING_VALUE",
+ * //       groupDomain: "STRING_VALUE",
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",

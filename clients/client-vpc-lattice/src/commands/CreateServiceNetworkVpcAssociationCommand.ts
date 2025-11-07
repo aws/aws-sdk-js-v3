@@ -49,11 +49,18 @@ export interface CreateServiceNetworkVpcAssociationCommandOutput
  *   clientToken: "STRING_VALUE",
  *   serviceNetworkIdentifier: "STRING_VALUE", // required
  *   vpcIdentifier: "STRING_VALUE", // required
+ *   privateDnsEnabled: true || false,
  *   securityGroupIds: [ // SecurityGroupList
  *     "STRING_VALUE",
  *   ],
  *   tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
+ *   },
+ *   dnsOptions: { // DnsOptions
+ *     privateDnsPreference: "STRING_VALUE",
+ *     privateDnsSpecifiedDomains: [ // PrivateDnsSpecifiedDomainsList
+ *       "STRING_VALUE",
+ *     ],
  *   },
  * };
  * const command = new CreateServiceNetworkVpcAssociationCommand(input);
@@ -66,6 +73,13 @@ export interface CreateServiceNetworkVpcAssociationCommandOutput
  * //   securityGroupIds: [ // SecurityGroupList
  * //     "STRING_VALUE",
  * //   ],
+ * //   privateDnsEnabled: true || false,
+ * //   dnsOptions: { // DnsOptions
+ * //     privateDnsPreference: "STRING_VALUE",
+ * //     privateDnsSpecifiedDomains: [ // PrivateDnsSpecifiedDomainsList
+ * //       "STRING_VALUE",
+ * //     ],
+ * //   },
  * // };
  *
  * ```

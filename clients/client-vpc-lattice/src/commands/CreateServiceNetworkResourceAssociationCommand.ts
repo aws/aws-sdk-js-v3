@@ -50,6 +50,7 @@ export interface CreateServiceNetworkResourceAssociationCommandOutput
  *   clientToken: "STRING_VALUE",
  *   resourceConfigurationIdentifier: "STRING_VALUE", // required
  *   serviceNetworkIdentifier: "STRING_VALUE", // required
+ *   privateDnsEnabled: true || false,
  *   tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
  *   },
@@ -61,6 +62,7 @@ export interface CreateServiceNetworkResourceAssociationCommandOutput
  * //   arn: "STRING_VALUE",
  * //   status: "STRING_VALUE",
  * //   createdBy: "STRING_VALUE",
+ * //   privateDnsEnabled: true || false,
  * // };
  *
  * ```

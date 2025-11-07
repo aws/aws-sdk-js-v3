@@ -60,9 +60,16 @@ export interface GetServiceNetworkVpcAssociationCommandOutput
  * //   securityGroupIds: [ // SecurityGroupList
  * //     "STRING_VALUE",
  * //   ],
+ * //   privateDnsEnabled: true || false,
  * //   failureMessage: "STRING_VALUE",
  * //   failureCode: "STRING_VALUE",
  * //   lastUpdatedAt: new Date("TIMESTAMP"),
+ * //   dnsOptions: { // DnsOptions
+ * //     privateDnsPreference: "STRING_VALUE",
+ * //     privateDnsSpecifiedDomains: [ // PrivateDnsSpecifiedDomainsList
+ * //       "STRING_VALUE",
+ * //     ],
+ * //   },
  * // };
  *
  * ```

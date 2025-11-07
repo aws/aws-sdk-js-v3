@@ -317,6 +317,14 @@ DeleteAuthPolicy
 </details>
 <details>
 <summary>
+DeleteDomainVerification
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/vpc-lattice/command/DeleteDomainVerificationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-vpc-lattice/Interface/DeleteDomainVerificationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-vpc-lattice/Interface/DeleteDomainVerificationCommandOutput/)
+
+</details>
+<details>
+<summary>
 DeleteListener
 </summary>
 
@@ -437,6 +445,14 @@ GetAuthPolicy
 </details>
 <details>
 <summary>
+GetDomainVerification
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/vpc-lattice/command/GetDomainVerificationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-vpc-lattice/Interface/GetDomainVerificationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-vpc-lattice/Interface/GetDomainVerificationCommandOutput/)
+
+</details>
+<details>
+<summary>
 GetListener
 </summary>
 
@@ -529,6 +545,14 @@ ListAccessLogSubscriptions
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/vpc-lattice/command/ListAccessLogSubscriptionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-vpc-lattice/Interface/ListAccessLogSubscriptionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-vpc-lattice/Interface/ListAccessLogSubscriptionsCommandOutput/)
+
+</details>
+<details>
+<summary>
+ListDomainVerifications
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/vpc-lattice/command/ListDomainVerificationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-vpc-lattice/Interface/ListDomainVerificationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-vpc-lattice/Interface/ListDomainVerificationsCommandOutput/)
 
 </details>
 <details>
@@ -665,6 +689,14 @@ RegisterTargets
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/vpc-lattice/command/RegisterTargetsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-vpc-lattice/Interface/RegisterTargetsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-vpc-lattice/Interface/RegisterTargetsCommandOutput/)
+
+</details>
+<details>
+<summary>
+StartDomainVerification
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/vpc-lattice/command/StartDomainVerificationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-vpc-lattice/Interface/StartDomainVerificationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-vpc-lattice/Interface/StartDomainVerificationCommandOutput/)
 
 </details>
 <details>

@@ -69,11 +69,13 @@ export interface GetServiceNetworkResourceAssociationCommandOutput
  * //     domainName: "STRING_VALUE",
  * //     hostedZoneId: "STRING_VALUE",
  * //   },
+ * //   privateDnsEnabled: true || false,
  * //   dnsEntry: {
  * //     domainName: "STRING_VALUE",
  * //     hostedZoneId: "STRING_VALUE",
  * //   },
  * //   isManagedAssociation: true || false,
+ * //   domainVerificationStatus: "STRING_VALUE",
  * // };
  *
  * ```

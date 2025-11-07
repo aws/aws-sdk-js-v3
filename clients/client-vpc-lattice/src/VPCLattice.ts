@@ -69,6 +69,11 @@ import {
   DeleteAuthPolicyCommandOutput,
 } from "./commands/DeleteAuthPolicyCommand";
 import {
+  DeleteDomainVerificationCommand,
+  DeleteDomainVerificationCommandInput,
+  DeleteDomainVerificationCommandOutput,
+} from "./commands/DeleteDomainVerificationCommand";
+import {
   DeleteListenerCommand,
   DeleteListenerCommandInput,
   DeleteListenerCommandOutput,
@@ -139,6 +144,11 @@ import {
   GetAuthPolicyCommandInput,
   GetAuthPolicyCommandOutput,
 } from "./commands/GetAuthPolicyCommand";
+import {
+  GetDomainVerificationCommand,
+  GetDomainVerificationCommandInput,
+  GetDomainVerificationCommandOutput,
+} from "./commands/GetDomainVerificationCommand";
 import { GetListenerCommand, GetListenerCommandInput, GetListenerCommandOutput } from "./commands/GetListenerCommand";
 import {
   GetResourceConfigurationCommand,
@@ -187,6 +197,11 @@ import {
   ListAccessLogSubscriptionsCommandInput,
   ListAccessLogSubscriptionsCommandOutput,
 } from "./commands/ListAccessLogSubscriptionsCommand";
+import {
+  ListDomainVerificationsCommand,
+  ListDomainVerificationsCommandInput,
+  ListDomainVerificationsCommandOutput,
+} from "./commands/ListDomainVerificationsCommand";
 import {
   ListListenersCommand,
   ListListenersCommandInput,
@@ -264,6 +279,11 @@ import {
   RegisterTargetsCommandInput,
   RegisterTargetsCommandOutput,
 } from "./commands/RegisterTargetsCommand";
+import {
+  StartDomainVerificationCommand,
+  StartDomainVerificationCommandInput,
+  StartDomainVerificationCommandOutput,
+} from "./commands/StartDomainVerificationCommand";
 import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
   UntagResourceCommand,
@@ -328,6 +348,7 @@ const commands = {
   CreateTargetGroupCommand,
   DeleteAccessLogSubscriptionCommand,
   DeleteAuthPolicyCommand,
+  DeleteDomainVerificationCommand,
   DeleteListenerCommand,
   DeleteResourceConfigurationCommand,
   DeleteResourceEndpointAssociationCommand,
@@ -343,6 +364,7 @@ const commands = {
   DeregisterTargetsCommand,
   GetAccessLogSubscriptionCommand,
   GetAuthPolicyCommand,
+  GetDomainVerificationCommand,
   GetListenerCommand,
   GetResourceConfigurationCommand,
   GetResourceGatewayCommand,
@@ -355,6 +377,7 @@ const commands = {
   GetServiceNetworkVpcAssociationCommand,
   GetTargetGroupCommand,
   ListAccessLogSubscriptionsCommand,
+  ListDomainVerificationsCommand,
   ListListenersCommand,
   ListResourceConfigurationsCommand,
   ListResourceEndpointAssociationsCommand,
@@ -372,6 +395,7 @@ const commands = {
   PutAuthPolicyCommand,
   PutResourcePolicyCommand,
   RegisterTargetsCommand,
+  StartDomainVerificationCommand,
   TagResourceCommand,
   UntagResourceCommand,
   UpdateAccessLogSubscriptionCommand,
@@ -604,6 +628,23 @@ export interface VPCLattice {
     args: DeleteAuthPolicyCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteAuthPolicyCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteDomainVerificationCommand}
+   */
+  deleteDomainVerification(
+    args: DeleteDomainVerificationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteDomainVerificationCommandOutput>;
+  deleteDomainVerification(
+    args: DeleteDomainVerificationCommandInput,
+    cb: (err: any, data?: DeleteDomainVerificationCommandOutput) => void
+  ): void;
+  deleteDomainVerification(
+    args: DeleteDomainVerificationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteDomainVerificationCommandOutput) => void
   ): void;
 
   /**
@@ -841,6 +882,23 @@ export interface VPCLattice {
   ): void;
 
   /**
+   * @see {@link GetDomainVerificationCommand}
+   */
+  getDomainVerification(
+    args: GetDomainVerificationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetDomainVerificationCommandOutput>;
+  getDomainVerification(
+    args: GetDomainVerificationCommandInput,
+    cb: (err: any, data?: GetDomainVerificationCommandOutput) => void
+  ): void;
+  getDomainVerification(
+    args: GetDomainVerificationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetDomainVerificationCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetListenerCommand}
    */
   getListener(args: GetListenerCommandInput, options?: __HttpHandlerOptions): Promise<GetListenerCommandOutput>;
@@ -1021,6 +1079,24 @@ export interface VPCLattice {
     args: ListAccessLogSubscriptionsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListAccessLogSubscriptionsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListDomainVerificationsCommand}
+   */
+  listDomainVerifications(): Promise<ListDomainVerificationsCommandOutput>;
+  listDomainVerifications(
+    args: ListDomainVerificationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListDomainVerificationsCommandOutput>;
+  listDomainVerifications(
+    args: ListDomainVerificationsCommandInput,
+    cb: (err: any, data?: ListDomainVerificationsCommandOutput) => void
+  ): void;
+  listDomainVerifications(
+    args: ListDomainVerificationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListDomainVerificationsCommandOutput) => void
   ): void;
 
   /**
@@ -1285,6 +1361,23 @@ export interface VPCLattice {
     args: RegisterTargetsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: RegisterTargetsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StartDomainVerificationCommand}
+   */
+  startDomainVerification(
+    args: StartDomainVerificationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartDomainVerificationCommandOutput>;
+  startDomainVerification(
+    args: StartDomainVerificationCommandInput,
+    cb: (err: any, data?: StartDomainVerificationCommandOutput) => void
+  ): void;
+  startDomainVerification(
+    args: StartDomainVerificationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartDomainVerificationCommandOutput) => void
   ): void;
 
   /**

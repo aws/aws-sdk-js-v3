@@ -70,6 +70,10 @@ import {
   DeleteAccessLogSubscriptionCommandOutput,
 } from "../commands/DeleteAccessLogSubscriptionCommand";
 import { DeleteAuthPolicyCommandInput, DeleteAuthPolicyCommandOutput } from "../commands/DeleteAuthPolicyCommand";
+import {
+  DeleteDomainVerificationCommandInput,
+  DeleteDomainVerificationCommandOutput,
+} from "../commands/DeleteDomainVerificationCommand";
 import { DeleteListenerCommandInput, DeleteListenerCommandOutput } from "../commands/DeleteListenerCommand";
 import {
   DeleteResourceConfigurationCommandInput,
@@ -112,6 +116,10 @@ import {
   GetAccessLogSubscriptionCommandOutput,
 } from "../commands/GetAccessLogSubscriptionCommand";
 import { GetAuthPolicyCommandInput, GetAuthPolicyCommandOutput } from "../commands/GetAuthPolicyCommand";
+import {
+  GetDomainVerificationCommandInput,
+  GetDomainVerificationCommandOutput,
+} from "../commands/GetDomainVerificationCommand";
 import { GetListenerCommandInput, GetListenerCommandOutput } from "../commands/GetListenerCommand";
 import {
   GetResourceConfigurationCommandInput,
@@ -139,6 +147,10 @@ import {
   ListAccessLogSubscriptionsCommandInput,
   ListAccessLogSubscriptionsCommandOutput,
 } from "../commands/ListAccessLogSubscriptionsCommand";
+import {
+  ListDomainVerificationsCommandInput,
+  ListDomainVerificationsCommandOutput,
+} from "../commands/ListDomainVerificationsCommand";
 import { ListListenersCommandInput, ListListenersCommandOutput } from "../commands/ListListenersCommand";
 import {
   ListResourceConfigurationsCommandInput,
@@ -183,6 +195,10 @@ import { ListTargetsCommandInput, ListTargetsCommandOutput } from "../commands/L
 import { PutAuthPolicyCommandInput, PutAuthPolicyCommandOutput } from "../commands/PutAuthPolicyCommand";
 import { PutResourcePolicyCommandInput, PutResourcePolicyCommandOutput } from "../commands/PutResourcePolicyCommand";
 import { RegisterTargetsCommandInput, RegisterTargetsCommandOutput } from "../commands/RegisterTargetsCommand";
+import {
+  StartDomainVerificationCommandInput,
+  StartDomainVerificationCommandOutput,
+} from "../commands/StartDomainVerificationCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
 import {
@@ -214,7 +230,9 @@ import {
   AccessLogSubscriptionSummary,
   ArnResource,
   ConflictException,
+  DnsOptions,
   DnsResource,
+  DomainVerificationSummary,
   FixedResponseAction,
   ForwardAction,
   HeaderMatch,
@@ -348,6 +366,9 @@ export const se_CreateResourceConfigurationCommand = async (
     take(input, {
       allowAssociationToShareableServiceNetwork: [],
       clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
+      customDomainName: [],
+      domainVerificationIdentifier: [],
+      groupDomain: [],
       name: [],
       portRanges: (_) => _json(_),
       protocol: [],
@@ -489,6 +510,7 @@ export const se_CreateServiceNetworkResourceAssociationCommand = async (
   body = JSON.stringify(
     take(input, {
       clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
+      privateDnsEnabled: [],
       resourceConfigurationIdentifier: [],
       serviceNetworkIdentifier: [],
       tags: (_) => _json(_),
@@ -539,6 +561,8 @@ export const se_CreateServiceNetworkVpcAssociationCommand = async (
   body = JSON.stringify(
     take(input, {
       clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
+      dnsOptions: (_) => _json(_),
+      privateDnsEnabled: [],
       securityGroupIds: (_) => _json(_),
       serviceNetworkIdentifier: [],
       tags: (_) => _json(_),
@@ -607,6 +631,27 @@ export const se_DeleteAuthPolicyCommand = async (
   const headers: any = {};
   b.bp("/authpolicy/{resourceIdentifier}");
   b.p("resourceIdentifier", () => input.resourceIdentifier!, "{resourceIdentifier}", false);
+  let body: any;
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1DeleteDomainVerificationCommand
+ */
+export const se_DeleteDomainVerificationCommand = async (
+  input: DeleteDomainVerificationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/domainverifications/{domainVerificationIdentifier}");
+  b.p(
+    "domainVerificationIdentifier",
+    () => input.domainVerificationIdentifier!,
+    "{domainVerificationIdentifier}",
+    false
+  );
   let body: any;
   b.m("DELETE").h(headers).b(body);
   return b.build();
@@ -893,6 +938,27 @@ export const se_GetAuthPolicyCommand = async (
 };
 
 /**
+ * serializeAws_restJson1GetDomainVerificationCommand
+ */
+export const se_GetDomainVerificationCommand = async (
+  input: GetDomainVerificationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/domainverifications/{domainVerificationIdentifier}");
+  b.p(
+    "domainVerificationIdentifier",
+    () => input.domainVerificationIdentifier!,
+    "{domainVerificationIdentifier}",
+    false
+  );
+  let body: any;
+  b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1GetListenerCommand
  */
 export const se_GetListenerCommand = async (
@@ -1112,6 +1178,25 @@ export const se_ListAccessLogSubscriptionsCommand = async (
 };
 
 /**
+ * serializeAws_restJson1ListDomainVerificationsCommand
+ */
+export const se_ListDomainVerificationsCommand = async (
+  input: ListDomainVerificationsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/domainverifications");
+  const query: any = map({
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+    [_nT]: [, input[_nT]!],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1ListListenersCommand
  */
 export const se_ListListenersCommand = async (
@@ -1144,6 +1229,7 @@ export const se_ListResourceConfigurationsCommand = async (
   const query: any = map({
     [_rGI]: [, input[_rGI]!],
     [_rCGI]: [, input[_rCGI]!],
+    [_dVI]: [, input[_dVI]!],
     [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
     [_nT]: [, input[_nT]!],
   });
@@ -1464,6 +1550,30 @@ export const se_RegisterTargetsCommand = async (
   body = JSON.stringify(
     take(input, {
       targets: (_) => _json(_),
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1StartDomainVerificationCommand
+ */
+export const se_StartDomainVerificationCommand = async (
+  input: StartDomainVerificationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/domainverifications");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
+      domainName: [],
+      tags: (_) => _json(_),
     })
   );
   b.m("POST").h(headers).b(body);
@@ -1836,7 +1946,11 @@ export const de_CreateResourceConfigurationCommand = async (
     allowAssociationToShareableServiceNetwork: __expectBoolean,
     arn: __expectString,
     createdAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    customDomainName: __expectString,
+    domainVerificationArn: __expectString,
+    domainVerificationId: __expectString,
     failureReason: __expectString,
+    groupDomain: __expectString,
     id: __expectString,
     name: __expectString,
     portRanges: _json,
@@ -1977,6 +2091,7 @@ export const de_CreateServiceNetworkResourceAssociationCommand = async (
     arn: __expectString,
     createdBy: __expectString,
     id: __expectString,
+    privateDnsEnabled: __expectBoolean,
     status: __expectString,
   });
   Object.assign(contents, doc);
@@ -2026,7 +2141,9 @@ export const de_CreateServiceNetworkVpcAssociationCommand = async (
   const doc = take(data, {
     arn: __expectString,
     createdBy: __expectString,
+    dnsOptions: _json,
     id: __expectString,
+    privateDnsEnabled: __expectBoolean,
     securityGroupIds: _json,
     status: __expectString,
   });
@@ -2085,6 +2202,23 @@ export const de_DeleteAuthPolicyCommand = async (
   context: __SerdeContext
 ): Promise<DeleteAuthPolicyCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DeleteDomainVerificationCommand
+ */
+export const de_DeleteDomainVerificationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteDomainVerificationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return de_CommandError(output, context);
   }
   const contents: any = map({
@@ -2419,6 +2553,34 @@ export const de_GetAuthPolicyCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1GetDomainVerificationCommand
+ */
+export const de_GetDomainVerificationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetDomainVerificationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    arn: __expectString,
+    createdAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    domainName: __expectString,
+    id: __expectString,
+    lastVerifiedTime: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    status: __expectString,
+    tags: _json,
+    txtMethodConfig: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1GetListenerCommand
  */
 export const de_GetListenerCommand = async (
@@ -2468,7 +2630,11 @@ export const de_GetResourceConfigurationCommand = async (
     arn: __expectString,
     createdAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     customDomainName: __expectString,
+    domainVerificationArn: __expectString,
+    domainVerificationId: __expectString,
+    domainVerificationStatus: __expectString,
     failureReason: __expectString,
+    groupDomain: __expectString,
     id: __expectString,
     lastUpdatedAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     name: __expectString,
@@ -2645,11 +2811,13 @@ export const de_GetServiceNetworkResourceAssociationCommand = async (
     createdAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     createdBy: __expectString,
     dnsEntry: _json,
+    domainVerificationStatus: __expectString,
     failureCode: __expectString,
     failureReason: __expectString,
     id: __expectString,
     isManagedAssociation: __expectBoolean,
     lastUpdatedAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    privateDnsEnabled: __expectBoolean,
     privateDnsEntry: _json,
     resourceConfigurationArn: __expectString,
     resourceConfigurationId: __expectString,
@@ -2716,10 +2884,12 @@ export const de_GetServiceNetworkVpcAssociationCommand = async (
     arn: __expectString,
     createdAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     createdBy: __expectString,
+    dnsOptions: _json,
     failureCode: __expectString,
     failureMessage: __expectString,
     id: __expectString,
     lastUpdatedAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    privateDnsEnabled: __expectBoolean,
     securityGroupIds: _json,
     serviceNetworkArn: __expectString,
     serviceNetworkId: __expectString,
@@ -2778,6 +2948,28 @@ export const de_ListAccessLogSubscriptionsCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     items: (_) => de_AccessLogSubscriptionList(_, context),
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListDomainVerificationsCommand
+ */
+export const de_ListDomainVerificationsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListDomainVerificationsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    items: (_) => de_DomainVerificationList(_, context),
     nextToken: __expectString,
   });
   Object.assign(contents, doc);
@@ -3147,6 +3339,31 @@ export const de_RegisterTargetsCommand = async (
   const doc = take(data, {
     successful: _json,
     unsuccessful: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1StartDomainVerificationCommand
+ */
+export const de_StartDomainVerificationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartDomainVerificationCommandOutput> => {
+  if (output.statusCode !== 201 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    arn: __expectString,
+    domainName: __expectString,
+    id: __expectString,
+    status: __expectString,
+    txtMethodConfig: _json,
   });
   Object.assign(contents, doc);
   return contents;
@@ -3617,6 +3834,8 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_ArnResource omitted.
 
+// se_DnsOptions omitted.
+
 // se_DnsResource omitted.
 
 // se_FixedResponseAction omitted.
@@ -3642,6 +3861,8 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 // se_PathMatchType omitted.
 
 // se_PortRangeList omitted.
+
+// se_PrivateDnsSpecifiedDomainsList omitted.
 
 // se_ResourceConfigurationDefinition omitted.
 
@@ -3703,7 +3924,37 @@ const de_AccessLogSubscriptionSummary = (output: any, context: __SerdeContext): 
 
 // de_DnsEntry omitted.
 
+// de_DnsOptions omitted.
+
 // de_DnsResource omitted.
+
+/**
+ * deserializeAws_restJson1DomainVerificationList
+ */
+const de_DomainVerificationList = (output: any, context: __SerdeContext): DomainVerificationSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_DomainVerificationSummary(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1DomainVerificationSummary
+ */
+const de_DomainVerificationSummary = (output: any, context: __SerdeContext): DomainVerificationSummary => {
+  return take(output, {
+    arn: __expectString,
+    createdAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    domainName: __expectString,
+    id: __expectString,
+    lastVerifiedTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    status: __expectString,
+    tags: _json,
+    txtMethodConfig: _json,
+  }) as any;
+};
 
 // de_FixedResponseAction omitted.
 
@@ -3756,6 +4007,8 @@ const de_ListenerSummaryList = (output: any, context: __SerdeContext): ListenerS
 
 // de_PortRangeList omitted.
 
+// de_PrivateDnsSpecifiedDomainsList omitted.
+
 // de_ResourceConfigurationDefinition omitted.
 
 /**
@@ -3766,6 +4019,9 @@ const de_ResourceConfigurationSummary = (output: any, context: __SerdeContext): 
     amazonManaged: __expectBoolean,
     arn: __expectString,
     createdAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    customDomainName: __expectString,
+    domainVerificationId: __expectString,
+    groupDomain: __expectString,
     id: __expectString,
     lastUpdatedAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     name: __expectString,
@@ -3969,6 +4225,7 @@ const de_ServiceNetworkResourceAssociationSummary = (
     failureCode: __expectString,
     id: __expectString,
     isManagedAssociation: __expectBoolean,
+    privateDnsEnabled: __expectBoolean,
     privateDnsEntry: _json,
     resourceConfigurationArn: __expectString,
     resourceConfigurationId: __expectString,
@@ -4061,8 +4318,10 @@ const de_ServiceNetworkVpcAssociationSummary = (
     arn: __expectString,
     createdAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     createdBy: __expectString,
+    dnsOptions: _json,
     id: __expectString,
     lastUpdatedAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    privateDnsEnabled: __expectBoolean,
     serviceNetworkArn: __expectString,
     serviceNetworkId: __expectString,
     serviceNetworkName: __expectString,
@@ -4155,6 +4414,8 @@ const de_TargetGroupSummary = (output: any, context: __SerdeContext): TargetGrou
 
 // de_TargetSummaryList omitted.
 
+// de_TxtMethodConfig omitted.
+
 // de_ValidationExceptionField omitted.
 
 // de_ValidationExceptionFieldList omitted.
@@ -4175,6 +4436,7 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
 
+const _dVI = "domainVerificationIdentifier";
 const _iC = "includeChildren";
 const _mR = "maxResults";
 const _nT = "nextToken";

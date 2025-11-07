@@ -64,6 +64,9 @@ export interface CreateResourceConfigurationCommandOutput
  *     },
  *   },
  *   allowAssociationToShareableServiceNetwork: true || false,
+ *   customDomainName: "STRING_VALUE",
+ *   groupDomain: "STRING_VALUE",
+ *   domainVerificationIdentifier: "STRING_VALUE",
  *   clientToken: "STRING_VALUE",
  *   tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
@@ -98,6 +101,10 @@ export interface CreateResourceConfigurationCommandOutput
  * //   allowAssociationToShareableServiceNetwork: true || false,
  * //   createdAt: new Date("TIMESTAMP"),
  * //   failureReason: "STRING_VALUE",
+ * //   customDomainName: "STRING_VALUE",
+ * //   domainVerificationId: "STRING_VALUE",
+ * //   groupDomain: "STRING_VALUE",
+ * //   domainVerificationArn: "STRING_VALUE",
  * // };
  *
  * ```

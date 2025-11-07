@@ -1453,6 +1453,24 @@ export interface CreateResourceConfigurationRequest {
   allowAssociationToShareableServiceNetwork?: boolean | undefined;
 
   /**
+   * <p> A custom domain name for your resource configuration. Additionally, provide a DomainVerificationID to prove your ownership of a domain. </p>
+   * @public
+   */
+  customDomainName?: string | undefined;
+
+  /**
+   * <p> (GROUP) The group domain for a group resource configuration. Any domains that you create for the child resource are subdomains of the group domain. Child resources inherit the verification status of the domain. </p>
+   * @public
+   */
+  groupDomain?: string | undefined;
+
+  /**
+   * <p> The domain verification ID of your verified custom domain name. If you don't provide an ID, you must configure the DNS settings yourself. </p>
+   * @public
+   */
+  domainVerificationIdentifier?: string | undefined;
+
+  /**
    * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If you retry a request that completed successfully using the same client token and parameters, the retry succeeds without performing any actions. If the parameters aren't identical, the retry fails.</p>
    * @public
    */
@@ -1587,6 +1605,30 @@ export interface CreateResourceConfigurationResponse {
    * @public
    */
   failureReason?: string | undefined;
+
+  /**
+   * <p> The custom domain name for your resource configuration. </p>
+   * @public
+   */
+  customDomainName?: string | undefined;
+
+  /**
+   * <p> The domain name verification ID. </p>
+   * @public
+   */
+  domainVerificationId?: string | undefined;
+
+  /**
+   * <p> (GROUP) The group domain for a group resource configuration. Any domains that you create for the child resource are subdomains of the group domain. Child resources inherit the verification status of the domain. </p>
+   * @public
+   */
+  groupDomain?: string | undefined;
+
+  /**
+   * <p> The verification ID ARN </p>
+   * @public
+   */
+  domainVerificationArn?: string | undefined;
 }
 
 /**
@@ -2109,6 +2151,12 @@ export interface CreateServiceNetworkResourceAssociationRequest {
   serviceNetworkIdentifier: string | undefined;
 
   /**
+   * <p> Indicates if private DNS is enabled for the service network resource association. </p>
+   * @public
+   */
+  privateDnsEnabled?: boolean | undefined;
+
+  /**
    * <p>A key-value pair to associate with a resource.</p>
    * @public
    */
@@ -2179,6 +2227,12 @@ export interface CreateServiceNetworkResourceAssociationResponse {
    * @public
    */
   createdBy?: string | undefined;
+
+  /**
+   * <p> Indicates if private DNS is is enabled for the service network resource association. </p>
+   * @public
+   */
+  privateDnsEnabled?: boolean | undefined;
 }
 
 /**
@@ -2286,6 +2340,40 @@ export interface CreateServiceNetworkServiceAssociationResponse {
 
 /**
  * @public
+ * @enum
+ */
+export const PrivateDnsPreference = {
+  ALL_DOMAINS: "ALL_DOMAINS",
+  SPECIFIED_DOMAINS_ONLY: "SPECIFIED_DOMAINS_ONLY",
+  VERIFIED_DOMAINS_AND_SPECIFIED_DOMAINS: "VERIFIED_DOMAINS_AND_SPECIFIED_DOMAINS",
+  VERIFIED_DOMAINS_ONLY: "VERIFIED_DOMAINS_ONLY",
+} as const;
+
+/**
+ * @public
+ */
+export type PrivateDnsPreference = (typeof PrivateDnsPreference)[keyof typeof PrivateDnsPreference];
+
+/**
+ * <p> The DNS configuration options. </p>
+ * @public
+ */
+export interface DnsOptions {
+  /**
+   * <p> The preference for which private domains have a private hosted zone created for and associated with the specified VPC. Only supported when private DNS is enabled and when the VPC endpoint type is ServiceNetwork or Resource. </p> <ul> <li> <p> <code>ALL_DOMAINS</code> - VPC Lattice provisions private hosted zones for all custom domain names.</p> </li> <li> <p> <code>VERIFIED_DOMAINS_ONLY</code> - VPC Lattice provisions a private hosted zone only if custom domain name has been verified by the provider.</p> </li> <li> <p> <code>VERIFIED_DOMAINS_AND_SPECIFIED_DOMAINS</code> - VPC Lattice provisions private hosted zones for all verified custom domain names and other domain names that the resource consumer specifies. The resource consumer specifies the domain names in the privateDnsSpecifiedDomains parameter.</p> </li> <li> <p> <code>SPECIFIED_DOMAINS_ONLY</code> - VPC Lattice provisions a private hosted zone for domain names specified by the resource consumer. The resource consumer specifies the domain names in the privateDnsSpecifiedDomains parameter.</p> </li> </ul>
+   * @public
+   */
+  privateDnsPreference?: PrivateDnsPreference | undefined;
+
+  /**
+   * <p> Indicates which of the private domains to create private hosted zones for and associate with the specified VPC. Only supported when private DNS is enabled and the private DNS preference is <code>VERIFIED_DOMAINS_AND_SPECIFIED_DOMAINS</code> or <code>SPECIFIED_DOMAINS_ONLY</code>. </p>
+   * @public
+   */
+  privateDnsSpecifiedDomains?: string[] | undefined;
+}
+
+/**
+ * @public
  */
 export interface CreateServiceNetworkVpcAssociationRequest {
   /**
@@ -2307,6 +2395,12 @@ export interface CreateServiceNetworkVpcAssociationRequest {
   vpcIdentifier: string | undefined;
 
   /**
+   * <p> Indicates if private DNS is enabled for the VPC association. </p>
+   * @public
+   */
+  privateDnsEnabled?: boolean | undefined;
+
+  /**
    * <p>The IDs of the security groups. Security groups aren't added by default. You can add a security group to apply network level controls to control which resources in a VPC are allowed to access the service network and its services. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html">Control traffic to resources using security groups</a> in the <i>Amazon VPC User Guide</i>.</p>
    * @public
    */
@@ -2317,6 +2411,12 @@ export interface CreateServiceNetworkVpcAssociationRequest {
    * @public
    */
   tags?: Record<string, string> | undefined;
+
+  /**
+   * <p> DNS options for the service network VPC association. </p>
+   * @public
+   */
+  dnsOptions?: DnsOptions | undefined;
 }
 
 /**
@@ -2393,6 +2493,18 @@ export interface CreateServiceNetworkVpcAssociationResponse {
    * @public
    */
   securityGroupIds?: string[] | undefined;
+
+  /**
+   * <p> Indicates if private DNS is enabled for the VPC association. </p>
+   * @public
+   */
+  privateDnsEnabled?: boolean | undefined;
+
+  /**
+   * <p> The DNS configuration options. </p>
+   * @public
+   */
+  dnsOptions?: DnsOptions | undefined;
 }
 
 /**
@@ -2807,6 +2919,22 @@ export interface DeleteAuthPolicyRequest {
  * @public
  */
 export interface DeleteAuthPolicyResponse {}
+
+/**
+ * @public
+ */
+export interface DeleteDomainVerificationRequest {
+  /**
+   * <p> The ID of the domain verification to delete. </p>
+   * @public
+   */
+  domainVerificationIdentifier: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteDomainVerificationResponse {}
 
 /**
  * @public
@@ -3253,6 +3381,249 @@ export interface DeregisterTargetsResponse {
 /**
  * @public
  */
+export interface GetDomainVerificationRequest {
+  /**
+   * <p> The ID or ARN of the domain verification to retrieve. </p>
+   * @public
+   */
+  domainVerificationIdentifier: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const VerificationStatus = {
+  PENDING: "PENDING",
+  VERIFICATION_TIMED_OUT: "VERIFICATION_TIMED_OUT",
+  VERIFIED: "VERIFIED",
+} as const;
+
+/**
+ * @public
+ */
+export type VerificationStatus = (typeof VerificationStatus)[keyof typeof VerificationStatus];
+
+/**
+ * <p> Configuration for TXT record-based domain verification method. </p>
+ * @public
+ */
+export interface TxtMethodConfig {
+  /**
+   * <p> The value that must be added to the TXT record for domain verification. </p>
+   * @public
+   */
+  value: string | undefined;
+
+  /**
+   * <p> The name of the TXT record that must be created for domain verification. </p>
+   * @public
+   */
+  name: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetDomainVerificationResponse {
+  /**
+   * <p> The ID of the domain verification. </p>
+   * @public
+   */
+  id: string | undefined;
+
+  /**
+   * <p> The Amazon Resource Name (ARN) of the domain verification. </p>
+   * @public
+   */
+  arn: string | undefined;
+
+  /**
+   * <p> The domain name being verified. </p>
+   * @public
+   */
+  domainName: string | undefined;
+
+  /**
+   * <p> The current status of the domain verification process. </p>
+   * @public
+   */
+  status: VerificationStatus | undefined;
+
+  /**
+   * <p> The TXT record configuration used for domain verification. </p>
+   * @public
+   */
+  txtMethodConfig?: TxtMethodConfig | undefined;
+
+  /**
+   * <p> The date and time that the domain verification was created, in ISO-8601 format. </p>
+   * @public
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p> The date and time that the domain was last successfully verified, in ISO-8601 format. </p>
+   * @public
+   */
+  lastVerifiedTime?: Date | undefined;
+
+  /**
+   * <p> The tags associated with the domain verification. </p>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListDomainVerificationsRequest {
+  /**
+   * <p> The maximum number of results to return. </p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p> A pagination token for the next page of results. </p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * <p> Summary information about a domain verification. </p>
+ * @public
+ */
+export interface DomainVerificationSummary {
+  /**
+   * <p> The ID of the domain verification. </p>
+   * @public
+   */
+  id: string | undefined;
+
+  /**
+   * <p> The Amazon Resource Name (ARN) of the domain verification. </p>
+   * @public
+   */
+  arn: string | undefined;
+
+  /**
+   * <p> The domain name being verified. </p>
+   * @public
+   */
+  domainName: string | undefined;
+
+  /**
+   * <p> The current status of the domain verification process. </p>
+   * @public
+   */
+  status: VerificationStatus | undefined;
+
+  /**
+   * <p> The TXT record configuration used for domain verification. </p>
+   * @public
+   */
+  txtMethodConfig?: TxtMethodConfig | undefined;
+
+  /**
+   * <p> The date and time that the domain verification was created, in ISO-8601 format. </p>
+   * @public
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p> The date and time that the domain was last successfully verified, in ISO-8601 format. </p>
+   * @public
+   */
+  lastVerifiedTime?: Date | undefined;
+
+  /**
+   * <p> The tags associated with the domain verification. </p>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListDomainVerificationsResponse {
+  /**
+   * <p> Information about the domain verifications. </p>
+   * @public
+   */
+  items: DomainVerificationSummary[] | undefined;
+
+  /**
+   * <p> A pagination token for the next page of results. </p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartDomainVerificationRequest {
+  /**
+   * <p> A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If you retry a request that completed successfully using the same client token and parameters, the retry succeeds without performing any actions. If the parameters aren't identical, the retry fails. </p>
+   * @public
+   */
+  clientToken?: string | undefined;
+
+  /**
+   * <p> The domain name to verify ownership for. </p>
+   * @public
+   */
+  domainName: string | undefined;
+
+  /**
+   * <p> The tags for the domain verification. </p>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartDomainVerificationResponse {
+  /**
+   * <p> The ID of the domain verification. </p>
+   * @public
+   */
+  id: string | undefined;
+
+  /**
+   * <p> The Amazon Resource Name (ARN) of the domain verification. </p>
+   * @public
+   */
+  arn: string | undefined;
+
+  /**
+   * <p> The domain name being verified. </p>
+   * @public
+   */
+  domainName: string | undefined;
+
+  /**
+   * <p> The current status of the domain verification process. </p>
+   * @public
+   */
+  status: VerificationStatus | undefined;
+
+  /**
+   * <p> The TXT record configuration used for domain verification. </p>
+   * @public
+   */
+  txtMethodConfig?: TxtMethodConfig | undefined;
+}
+
+/**
+ * @public
+ */
 export interface GetAuthPolicyRequest {
   /**
    * <p>The ID or ARN of the service network or service.</p>
@@ -3482,6 +3853,30 @@ export interface GetResourceConfigurationResponse {
    * @public
    */
   lastUpdatedAt?: Date | undefined;
+
+  /**
+   * <p> The domain verification ID. </p>
+   * @public
+   */
+  domainVerificationId?: string | undefined;
+
+  /**
+   * <p> The ARN of the domain verification. </p>
+   * @public
+   */
+  domainVerificationArn?: string | undefined;
+
+  /**
+   * <p> The domain verification status. </p>
+   * @public
+   */
+  domainVerificationStatus?: VerificationStatus | undefined;
+
+  /**
+   * <p> (GROUP) The group domain for a group resource configuration. Any domains that you create for the child resource are subdomains of the group domain. Child resources inherit the verification status of the domain. </p>
+   * @public
+   */
+  groupDomain?: string | undefined;
 }
 
 /**
@@ -3934,6 +4329,12 @@ export interface GetServiceNetworkResourceAssociationResponse {
   privateDnsEntry?: DnsEntry | undefined;
 
   /**
+   * <p> Indicates if private DNS is enabled in the service network resource association. </p>
+   * @public
+   */
+  privateDnsEnabled?: boolean | undefined;
+
+  /**
    * <p>The DNS entry for the service.</p>
    * @public
    */
@@ -3944,6 +4345,12 @@ export interface GetServiceNetworkResourceAssociationResponse {
    * @public
    */
   isManagedAssociation?: boolean | undefined;
+
+  /**
+   * <p> The domain verification status in the service network resource association. </p>
+   * @public
+   */
+  domainVerificationStatus?: VerificationStatus | undefined;
 }
 
 /**
@@ -4128,6 +4535,12 @@ export interface GetServiceNetworkVpcAssociationResponse {
   securityGroupIds?: string[] | undefined;
 
   /**
+   * <p> Indicates if private DNS is enabled in the VPC association. </p>
+   * @public
+   */
+  privateDnsEnabled?: boolean | undefined;
+
+  /**
    * <p>The failure message.</p>
    * @public
    */
@@ -4144,6 +4557,12 @@ export interface GetServiceNetworkVpcAssociationResponse {
    * @public
    */
   lastUpdatedAt?: Date | undefined;
+
+  /**
+   * <p> DNS options for the service network VPC association. </p>
+   * @public
+   */
+  dnsOptions?: DnsOptions | undefined;
 }
 
 /**
@@ -4409,6 +4828,12 @@ export interface ListResourceConfigurationsRequest {
   resourceConfigurationGroupIdentifier?: string | undefined;
 
   /**
+   * <p> The domain verification ID. </p>
+   * @public
+   */
+  domainVerificationIdentifier?: string | undefined;
+
+  /**
    * <p>The maximum page size.</p>
    * @public
    */
@@ -4485,6 +4910,24 @@ export interface ResourceConfigurationSummary {
    * @public
    */
   lastUpdatedAt?: Date | undefined;
+
+  /**
+   * <p> The custom domain name. </p>
+   * @public
+   */
+  customDomainName?: string | undefined;
+
+  /**
+   * <p> The domain verification ID. </p>
+   * @public
+   */
+  domainVerificationId?: string | undefined;
+
+  /**
+   * <p> (GROUP) The group domain for a group resource configuration. Any domains that you create for the child resource are subdomains of the group domain. Child resources inherit the verification status of the domain. </p>
+   * @public
+   */
+  groupDomain?: string | undefined;
 }
 
 /**
@@ -4951,6 +5394,12 @@ export interface ServiceNetworkResourceAssociationSummary {
    * @public
    */
   failureCode?: string | undefined;
+
+  /**
+   * <p> Indicates if private DNS is enabled for the service network resource association. </p>
+   * @public
+   */
+  privateDnsEnabled?: boolean | undefined;
 }
 
 /**
@@ -5269,6 +5718,18 @@ export interface ServiceNetworkVpcAssociationSummary {
    * @public
    */
   serviceNetworkArn?: string | undefined;
+
+  /**
+   * <p> Indicates if private DNS is enabled for the service network VPC association. </p>
+   * @public
+   */
+  privateDnsEnabled?: boolean | undefined;
+
+  /**
+   * <p> The DNS options for the service network VPC association. </p>
+   * @public
+   */
+  dnsOptions?: DnsOptions | undefined;
 
   /**
    * <p>The ID of the VPC.</p>

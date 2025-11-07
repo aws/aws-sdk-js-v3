@@ -79,6 +79,7 @@ export interface ListServiceNetworkResourceAssociationsCommandOutput
  * //       },
  * //       isManagedAssociation: true || false,
  * //       failureCode: "STRING_VALUE",
+ * //       privateDnsEnabled: true || false,
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",

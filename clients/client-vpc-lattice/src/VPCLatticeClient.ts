@@ -91,6 +91,10 @@ import {
   DeleteAccessLogSubscriptionCommandOutput,
 } from "./commands/DeleteAccessLogSubscriptionCommand";
 import { DeleteAuthPolicyCommandInput, DeleteAuthPolicyCommandOutput } from "./commands/DeleteAuthPolicyCommand";
+import {
+  DeleteDomainVerificationCommandInput,
+  DeleteDomainVerificationCommandOutput,
+} from "./commands/DeleteDomainVerificationCommand";
 import { DeleteListenerCommandInput, DeleteListenerCommandOutput } from "./commands/DeleteListenerCommand";
 import {
   DeleteResourceConfigurationCommandInput,
@@ -133,6 +137,10 @@ import {
   GetAccessLogSubscriptionCommandOutput,
 } from "./commands/GetAccessLogSubscriptionCommand";
 import { GetAuthPolicyCommandInput, GetAuthPolicyCommandOutput } from "./commands/GetAuthPolicyCommand";
+import {
+  GetDomainVerificationCommandInput,
+  GetDomainVerificationCommandOutput,
+} from "./commands/GetDomainVerificationCommand";
 import { GetListenerCommandInput, GetListenerCommandOutput } from "./commands/GetListenerCommand";
 import {
   GetResourceConfigurationCommandInput,
@@ -160,6 +168,10 @@ import {
   ListAccessLogSubscriptionsCommandInput,
   ListAccessLogSubscriptionsCommandOutput,
 } from "./commands/ListAccessLogSubscriptionsCommand";
+import {
+  ListDomainVerificationsCommandInput,
+  ListDomainVerificationsCommandOutput,
+} from "./commands/ListDomainVerificationsCommand";
 import { ListListenersCommandInput, ListListenersCommandOutput } from "./commands/ListListenersCommand";
 import {
   ListResourceConfigurationsCommandInput,
@@ -204,6 +216,10 @@ import { ListTargetsCommandInput, ListTargetsCommandOutput } from "./commands/Li
 import { PutAuthPolicyCommandInput, PutAuthPolicyCommandOutput } from "./commands/PutAuthPolicyCommand";
 import { PutResourcePolicyCommandInput, PutResourcePolicyCommandOutput } from "./commands/PutResourcePolicyCommand";
 import { RegisterTargetsCommandInput, RegisterTargetsCommandOutput } from "./commands/RegisterTargetsCommand";
+import {
+  StartDomainVerificationCommandInput,
+  StartDomainVerificationCommandOutput,
+} from "./commands/StartDomainVerificationCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import {
@@ -259,6 +275,7 @@ export type ServiceInputTypes =
   | CreateTargetGroupCommandInput
   | DeleteAccessLogSubscriptionCommandInput
   | DeleteAuthPolicyCommandInput
+  | DeleteDomainVerificationCommandInput
   | DeleteListenerCommandInput
   | DeleteResourceConfigurationCommandInput
   | DeleteResourceEndpointAssociationCommandInput
@@ -274,6 +291,7 @@ export type ServiceInputTypes =
   | DeregisterTargetsCommandInput
   | GetAccessLogSubscriptionCommandInput
   | GetAuthPolicyCommandInput
+  | GetDomainVerificationCommandInput
   | GetListenerCommandInput
   | GetResourceConfigurationCommandInput
   | GetResourceGatewayCommandInput
@@ -286,6 +304,7 @@ export type ServiceInputTypes =
   | GetServiceNetworkVpcAssociationCommandInput
   | GetTargetGroupCommandInput
   | ListAccessLogSubscriptionsCommandInput
+  | ListDomainVerificationsCommandInput
   | ListListenersCommandInput
   | ListResourceConfigurationsCommandInput
   | ListResourceEndpointAssociationsCommandInput
@@ -303,6 +322,7 @@ export type ServiceInputTypes =
   | PutAuthPolicyCommandInput
   | PutResourcePolicyCommandInput
   | RegisterTargetsCommandInput
+  | StartDomainVerificationCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
   | UpdateAccessLogSubscriptionCommandInput
@@ -333,6 +353,7 @@ export type ServiceOutputTypes =
   | CreateTargetGroupCommandOutput
   | DeleteAccessLogSubscriptionCommandOutput
   | DeleteAuthPolicyCommandOutput
+  | DeleteDomainVerificationCommandOutput
   | DeleteListenerCommandOutput
   | DeleteResourceConfigurationCommandOutput
   | DeleteResourceEndpointAssociationCommandOutput
@@ -348,6 +369,7 @@ export type ServiceOutputTypes =
   | DeregisterTargetsCommandOutput
   | GetAccessLogSubscriptionCommandOutput
   | GetAuthPolicyCommandOutput
+  | GetDomainVerificationCommandOutput
   | GetListenerCommandOutput
   | GetResourceConfigurationCommandOutput
   | GetResourceGatewayCommandOutput
@@ -360,6 +382,7 @@ export type ServiceOutputTypes =
   | GetServiceNetworkVpcAssociationCommandOutput
   | GetTargetGroupCommandOutput
   | ListAccessLogSubscriptionsCommandOutput
+  | ListDomainVerificationsCommandOutput
   | ListListenersCommandOutput
   | ListResourceConfigurationsCommandOutput
   | ListResourceEndpointAssociationsCommandOutput
@@ -377,6 +400,7 @@ export type ServiceOutputTypes =
   | PutAuthPolicyCommandOutput
   | PutResourcePolicyCommandOutput
   | RegisterTargetsCommandOutput
+  | StartDomainVerificationCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
   | UpdateAccessLogSubscriptionCommandOutput
