@@ -1,12 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GetOpsItemRequest, GetOpsItemResponse } from "../models/models_1";
-import { de_GetOpsItemCommand, se_GetOpsItemCommand } from "../protocols/Aws_json1_1";
+import { GetOpsItem } from "../schemas/schemas_0";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
@@ -124,16 +123,11 @@ export class GetOpsItemCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SSMClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonSSM", "GetOpsItem", {})
   .n("SSMClient", "GetOpsItemCommand")
-  .f(void 0, void 0)
-  .ser(se_GetOpsItemCommand)
-  .de(de_GetOpsItemCommand)
+  .sc(GetOpsItem)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

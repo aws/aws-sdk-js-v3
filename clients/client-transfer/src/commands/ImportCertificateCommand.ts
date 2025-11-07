@@ -1,16 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  ImportCertificateRequest,
-  ImportCertificateRequestFilterSensitiveLog,
-  ImportCertificateResponse,
-} from "../models/models_0";
-import { de_ImportCertificateCommand, se_ImportCertificateCommand } from "../protocols/Aws_json1_1";
+import { ImportCertificateRequest, ImportCertificateResponse } from "../models/models_0";
+import { ImportCertificate } from "../schemas/schemas_0";
 import { ServiceInputTypes, ServiceOutputTypes, TransferClientResolvedConfig } from "../TransferClient";
 
 /**
@@ -98,16 +93,11 @@ export class ImportCertificateCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: TransferClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("TransferService", "ImportCertificate", {})
   .n("TransferClient", "ImportCertificateCommand")
-  .f(ImportCertificateRequestFilterSensitiveLog, void 0)
-  .ser(se_ImportCertificateCommand)
-  .de(de_ImportCertificateCommand)
+  .sc(ImportCertificate)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

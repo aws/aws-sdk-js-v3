@@ -1,16 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DeleteEnvironmentAccountConnectionInput, DeleteEnvironmentAccountConnectionOutput } from "../models/models_0";
-import {
-  de_DeleteEnvironmentAccountConnectionCommand,
-  se_DeleteEnvironmentAccountConnectionCommand,
-} from "../protocols/Aws_json1_0";
 import { ProtonClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ProtonClient";
+import { DeleteEnvironmentAccountConnection } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -112,16 +108,11 @@ export class DeleteEnvironmentAccountConnectionCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ProtonClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AwsProton20200720", "DeleteEnvironmentAccountConnection", {})
   .n("ProtonClient", "DeleteEnvironmentAccountConnectionCommand")
-  .f(void 0, void 0)
-  .ser(se_DeleteEnvironmentAccountConnectionCommand)
-  .de(de_DeleteEnvironmentAccountConnectionCommand)
+  .sc(DeleteEnvironmentAccountConnection)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

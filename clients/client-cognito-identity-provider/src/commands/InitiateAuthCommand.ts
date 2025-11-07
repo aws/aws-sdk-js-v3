@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -10,13 +9,8 @@ import {
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  InitiateAuthRequest,
-  InitiateAuthRequestFilterSensitiveLog,
-  InitiateAuthResponse,
-  InitiateAuthResponseFilterSensitiveLog,
-} from "../models/models_1";
-import { de_InitiateAuthCommand, se_InitiateAuthCommand } from "../protocols/Aws_json1_1";
+import { InitiateAuthRequest, InitiateAuthResponse } from "../models/models_1";
+import { InitiateAuth } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -238,16 +232,11 @@ export class InitiateAuthCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CognitoIdentityProviderClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSCognitoIdentityProviderService", "InitiateAuth", {})
   .n("CognitoIdentityProviderClient", "InitiateAuthCommand")
-  .f(InitiateAuthRequestFilterSensitiveLog, InitiateAuthResponseFilterSensitiveLog)
-  .ser(se_InitiateAuthCommand)
-  .de(de_InitiateAuthCommand)
+  .sc(InitiateAuth)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

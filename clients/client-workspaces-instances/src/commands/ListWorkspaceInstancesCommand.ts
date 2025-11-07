@@ -1,17 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  ListWorkspaceInstancesRequest,
-  ListWorkspaceInstancesRequestFilterSensitiveLog,
-  ListWorkspaceInstancesResponse,
-  ListWorkspaceInstancesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { de_ListWorkspaceInstancesCommand, se_ListWorkspaceInstancesCommand } from "../protocols/Aws_json1_0";
+import { ListWorkspaceInstancesRequest, ListWorkspaceInstancesResponse } from "../models/models_0";
+import { ListWorkspaceInstances } from "../schemas/schemas_0";
 import {
   ServiceInputTypes,
   ServiceOutputTypes,
@@ -104,16 +98,11 @@ export class ListWorkspaceInstancesCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WorkspacesInstancesClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("EUCMIFrontendAPIService", "ListWorkspaceInstances", {})
   .n("WorkspacesInstancesClient", "ListWorkspaceInstancesCommand")
-  .f(ListWorkspaceInstancesRequestFilterSensitiveLog, ListWorkspaceInstancesResponseFilterSensitiveLog)
-  .ser(se_ListWorkspaceInstancesCommand)
-  .de(de_ListWorkspaceInstancesCommand)
+  .sc(ListWorkspaceInstances)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

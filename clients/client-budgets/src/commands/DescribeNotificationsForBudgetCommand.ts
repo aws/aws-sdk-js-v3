@@ -1,16 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { BudgetsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BudgetsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DescribeNotificationsForBudgetRequest, DescribeNotificationsForBudgetResponse } from "../models/models_0";
-import {
-  de_DescribeNotificationsForBudgetCommand,
-  se_DescribeNotificationsForBudgetCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeNotificationsForBudget } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -109,16 +105,11 @@ export class DescribeNotificationsForBudgetCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: BudgetsClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSBudgetServiceGateway", "DescribeNotificationsForBudget", {})
   .n("BudgetsClient", "DescribeNotificationsForBudgetCommand")
-  .f(void 0, void 0)
-  .ser(se_DescribeNotificationsForBudgetCommand)
-  .de(de_DescribeNotificationsForBudgetCommand)
+  .sc(DescribeNotificationsForBudget)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

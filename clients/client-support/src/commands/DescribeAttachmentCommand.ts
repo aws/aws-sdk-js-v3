@@ -1,12 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DescribeAttachmentRequest, DescribeAttachmentResponse } from "../models/models_0";
-import { de_DescribeAttachmentCommand, se_DescribeAttachmentCommand } from "../protocols/Aws_json1_1";
+import { DescribeAttachment } from "../schemas/schemas_0";
 import { ServiceInputTypes, ServiceOutputTypes, SupportClientResolvedConfig } from "../SupportClient";
 
 /**
@@ -101,16 +100,11 @@ export class DescribeAttachmentCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SupportClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSSupport_20130415", "DescribeAttachment", {})
   .n("SupportClient", "DescribeAttachmentCommand")
-  .f(void 0, void 0)
-  .ser(se_DescribeAttachmentCommand)
-  .de(de_DescribeAttachmentCommand)
+  .sc(DescribeAttachment)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

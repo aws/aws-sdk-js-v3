@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GetOperationDetailRequest, GetOperationDetailResponse } from "../models/models_0";
-import { de_GetOperationDetailCommand, se_GetOperationDetailCommand } from "../protocols/Aws_json1_1";
 import { Route53DomainsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53DomainsClient";
+import { GetOperationDetail } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -84,16 +83,11 @@ export class GetOperationDetailCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: Route53DomainsClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("Route53Domains_v20140515", "GetOperationDetail", {})
   .n("Route53DomainsClient", "GetOperationDetailCommand")
-  .f(void 0, void 0)
-  .ser(se_GetOperationDetailCommand)
-  .de(de_GetOperationDetailCommand)
+  .sc(GetOperationDetail)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

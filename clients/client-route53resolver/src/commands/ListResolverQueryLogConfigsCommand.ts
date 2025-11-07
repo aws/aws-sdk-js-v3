@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { ListResolverQueryLogConfigsRequest, ListResolverQueryLogConfigsResponse } from "../models/models_0";
-import { de_ListResolverQueryLogConfigsCommand, se_ListResolverQueryLogConfigsCommand } from "../protocols/Aws_json1_1";
 import { Route53ResolverClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53ResolverClient";
+import { ListResolverQueryLogConfigs } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -120,16 +119,11 @@ export class ListResolverQueryLogConfigsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: Route53ResolverClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("Route53Resolver", "ListResolverQueryLogConfigs", {})
   .n("Route53ResolverClient", "ListResolverQueryLogConfigsCommand")
-  .f(void 0, void 0)
-  .ser(se_ListResolverQueryLogConfigsCommand)
-  .de(de_ListResolverQueryLogConfigsCommand)
+  .sc(ListResolverQueryLogConfigs)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

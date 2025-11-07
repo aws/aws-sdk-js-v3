@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DAXClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DAXClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DescribeDefaultParametersRequest, DescribeDefaultParametersResponse } from "../models/models_0";
-import { de_DescribeDefaultParametersCommand, se_DescribeDefaultParametersCommand } from "../protocols/Aws_json1_1";
+import { DescribeDefaultParameters } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -100,16 +99,11 @@ export class DescribeDefaultParametersCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DAXClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonDAXV3", "DescribeDefaultParameters", {})
   .n("DAXClient", "DescribeDefaultParametersCommand")
-  .f(void 0, void 0)
-  .ser(se_DescribeDefaultParametersCommand)
-  .de(de_DescribeDefaultParametersCommand)
+  .sc(DescribeDefaultParameters)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,12 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { CreateStandbyWorkspacesRequest, CreateStandbyWorkspacesResult } from "../models/models_0";
-import { de_CreateStandbyWorkspacesCommand, se_CreateStandbyWorkspacesCommand } from "../protocols/Aws_json1_1";
+import { CreateStandbyWorkspaces } from "../schemas/schemas_0";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
 /**
@@ -124,16 +123,11 @@ export class CreateStandbyWorkspacesCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WorkSpacesClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("WorkspacesService", "CreateStandbyWorkspaces", {})
   .n("WorkSpacesClient", "CreateStandbyWorkspacesCommand")
-  .f(void 0, void 0)
-  .ser(se_CreateStandbyWorkspacesCommand)
-  .de(de_CreateStandbyWorkspacesCommand)
+  .sc(CreateStandbyWorkspaces)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

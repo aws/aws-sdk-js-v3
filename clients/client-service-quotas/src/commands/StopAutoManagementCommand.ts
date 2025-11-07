@@ -1,12 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { StopAutoManagementRequest, StopAutoManagementResponse } from "../models/models_0";
-import { de_StopAutoManagementCommand, se_StopAutoManagementCommand } from "../protocols/Aws_json1_1";
+import { StopAutoManagement } from "../schemas/schemas_0";
 import { ServiceInputTypes, ServiceOutputTypes, ServiceQuotasClientResolvedConfig } from "../ServiceQuotasClient";
 
 /**
@@ -84,16 +83,11 @@ export class StopAutoManagementCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ServiceQuotasClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("ServiceQuotasV20190624", "StopAutoManagement", {})
   .n("ServiceQuotasClient", "StopAutoManagementCommand")
-  .f(void 0, void 0)
-  .ser(se_StopAutoManagementCommand)
-  .de(de_StopAutoManagementCommand)
+  .sc(StopAutoManagement)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

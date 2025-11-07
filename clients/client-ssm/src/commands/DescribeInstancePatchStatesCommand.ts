@@ -1,16 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  DescribeInstancePatchStatesRequest,
-  DescribeInstancePatchStatesResult,
-  DescribeInstancePatchStatesResultFilterSensitiveLog,
-} from "../models/models_0";
-import { de_DescribeInstancePatchStatesCommand, se_DescribeInstancePatchStatesCommand } from "../protocols/Aws_json1_1";
+import { DescribeInstancePatchStatesRequest, DescribeInstancePatchStatesResult } from "../models/models_0";
+import { DescribeInstancePatchStates } from "../schemas/schemas_0";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
@@ -111,16 +106,11 @@ export class DescribeInstancePatchStatesCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SSMClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonSSM", "DescribeInstancePatchStates", {})
   .n("SSMClient", "DescribeInstancePatchStatesCommand")
-  .f(void 0, DescribeInstancePatchStatesResultFilterSensitiveLog)
-  .ser(se_DescribeInstancePatchStatesCommand)
-  .de(de_DescribeInstancePatchStatesCommand)
+  .sc(DescribeInstancePatchStates)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

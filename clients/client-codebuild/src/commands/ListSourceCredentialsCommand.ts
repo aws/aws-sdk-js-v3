@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CodeBuildClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeBuildClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { ListSourceCredentialsInput, ListSourceCredentialsOutput } from "../models/models_0";
-import { de_ListSourceCredentialsCommand, se_ListSourceCredentialsCommand } from "../protocols/Aws_json1_1";
+import { ListSourceCredentials } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -78,16 +77,11 @@ export class ListSourceCredentialsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CodeBuildClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("CodeBuild_20161006", "ListSourceCredentials", {})
   .n("CodeBuildClient", "ListSourceCredentialsCommand")
-  .f(void 0, void 0)
-  .ser(se_ListSourceCredentialsCommand)
-  .de(de_ListSourceCredentialsCommand)
+  .sc(ListSourceCredentials)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

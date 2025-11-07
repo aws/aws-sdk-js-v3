@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -14,10 +13,7 @@ import {
   DescribeMetadataModelExportsAsScriptMessage,
   DescribeMetadataModelExportsAsScriptResponse,
 } from "../models/models_0";
-import {
-  de_DescribeMetadataModelExportsAsScriptCommand,
-  se_DescribeMetadataModelExportsAsScriptCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeMetadataModelExportsAsScript } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -143,16 +139,11 @@ export class DescribeMetadataModelExportsAsScriptCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DatabaseMigrationServiceClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonDMSv20160101", "DescribeMetadataModelExportsAsScript", {})
   .n("DatabaseMigrationServiceClient", "DescribeMetadataModelExportsAsScriptCommand")
-  .f(void 0, void 0)
-  .ser(se_DescribeMetadataModelExportsAsScriptCommand)
-  .de(de_DescribeMetadataModelExportsAsScriptCommand)
+  .sc(DescribeMetadataModelExportsAsScript)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

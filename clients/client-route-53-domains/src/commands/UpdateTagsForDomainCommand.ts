@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { UpdateTagsForDomainRequest, UpdateTagsForDomainResponse } from "../models/models_0";
-import { de_UpdateTagsForDomainCommand, se_UpdateTagsForDomainCommand } from "../protocols/Aws_json1_1";
 import { Route53DomainsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53DomainsClient";
+import { UpdateTagsForDomain } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -89,16 +88,11 @@ export class UpdateTagsForDomainCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: Route53DomainsClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("Route53Domains_v20140515", "UpdateTagsForDomain", {})
   .n("Route53DomainsClient", "UpdateTagsForDomainCommand")
-  .f(void 0, void 0)
-  .ser(se_UpdateTagsForDomainCommand)
-  .de(de_UpdateTagsForDomainCommand)
+  .sc(UpdateTagsForDomain)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

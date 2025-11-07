@@ -1,16 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  SetLocalConsolePasswordInput,
-  SetLocalConsolePasswordInputFilterSensitiveLog,
-  SetLocalConsolePasswordOutput,
-} from "../models/models_0";
-import { de_SetLocalConsolePasswordCommand, se_SetLocalConsolePasswordCommand } from "../protocols/Aws_json1_1";
+import { SetLocalConsolePasswordInput, SetLocalConsolePasswordOutput } from "../models/models_0";
+import { SetLocalConsolePassword } from "../schemas/schemas_0";
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
 /**
@@ -102,16 +97,11 @@ export class SetLocalConsolePasswordCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: StorageGatewayClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("StorageGateway_20130630", "SetLocalConsolePassword", {})
   .n("StorageGatewayClient", "SetLocalConsolePasswordCommand")
-  .f(SetLocalConsolePasswordInputFilterSensitiveLog, void 0)
-  .ser(se_SetLocalConsolePasswordCommand)
-  .de(de_SetLocalConsolePasswordCommand)
+  .sc(SetLocalConsolePassword)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

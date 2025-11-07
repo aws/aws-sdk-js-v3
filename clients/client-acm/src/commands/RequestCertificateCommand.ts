@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ACMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ACMClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { RequestCertificateRequest, RequestCertificateResponse } from "../models/models_0";
-import { de_RequestCertificateCommand, se_RequestCertificateCommand } from "../protocols/Aws_json1_1";
+import { RequestCertificate } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -115,16 +114,11 @@ export class RequestCertificateCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ACMClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("CertificateManager", "RequestCertificate", {})
   .n("ACMClient", "RequestCertificateCommand")
-  .f(void 0, void 0)
-  .ser(se_RequestCertificateCommand)
-  .de(de_RequestCertificateCommand)
+  .sc(RequestCertificate)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

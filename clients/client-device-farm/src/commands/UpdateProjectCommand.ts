@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DeviceFarmClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeviceFarmClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { UpdateProjectRequest, UpdateProjectResult } from "../models/models_0";
-import { de_UpdateProjectCommand, se_UpdateProjectCommand } from "../protocols/Aws_json1_1";
+import { UpdateProject } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -108,16 +107,11 @@ export class UpdateProjectCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DeviceFarmClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("DeviceFarm_20150623", "UpdateProject", {})
   .n("DeviceFarmClient", "UpdateProjectCommand")
-  .f(void 0, void 0)
-  .ser(se_UpdateProjectCommand)
-  .de(de_UpdateProjectCommand)
+  .sc(UpdateProject)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

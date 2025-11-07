@@ -1,18 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { B2biClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../B2biClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  CreateProfileRequest,
-  CreateProfileRequestFilterSensitiveLog,
-  CreateProfileResponse,
-  CreateProfileResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { de_CreateProfileCommand, se_CreateProfileCommand } from "../protocols/Aws_json1_0";
+import { CreateProfileRequest, CreateProfileResponse } from "../models/models_0";
+import { CreateProfile } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -149,16 +143,11 @@ export class CreateProfileCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: B2biClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("B2BI", "CreateProfile", {})
   .n("B2biClient", "CreateProfileCommand")
-  .f(CreateProfileRequestFilterSensitiveLog, CreateProfileResponseFilterSensitiveLog)
-  .ser(se_CreateProfileCommand)
-  .de(de_CreateProfileCommand)
+  .sc(CreateProfile)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

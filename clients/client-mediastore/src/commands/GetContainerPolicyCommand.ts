@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { MediaStoreClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaStoreClient";
 import { GetContainerPolicyInput, GetContainerPolicyOutput } from "../models/models_0";
-import { de_GetContainerPolicyCommand, se_GetContainerPolicyCommand } from "../protocols/Aws_json1_1";
+import { GetContainerPolicy } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -85,16 +84,11 @@ export class GetContainerPolicyCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MediaStoreClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("MediaStore_20170901", "GetContainerPolicy", {})
   .n("MediaStoreClient", "GetContainerPolicyCommand")
-  .f(void 0, void 0)
-  .ser(se_GetContainerPolicyCommand)
-  .de(de_GetContainerPolicyCommand)
+  .sc(GetContainerPolicy)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

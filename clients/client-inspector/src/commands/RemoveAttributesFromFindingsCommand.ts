@@ -1,16 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { InspectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../InspectorClient";
 import { RemoveAttributesFromFindingsRequest, RemoveAttributesFromFindingsResponse } from "../models/models_0";
-import {
-  de_RemoveAttributesFromFindingsCommand,
-  se_RemoveAttributesFromFindingsCommand,
-} from "../protocols/Aws_json1_1";
+import { RemoveAttributesFromFindings } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -123,16 +119,11 @@ export class RemoveAttributesFromFindingsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: InspectorClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("InspectorService", "RemoveAttributesFromFindings", {})
   .n("InspectorClient", "RemoveAttributesFromFindingsCommand")
-  .f(void 0, void 0)
-  .ser(se_RemoveAttributesFromFindingsCommand)
-  .de(de_RemoveAttributesFromFindingsCommand)
+  .sc(RemoveAttributesFromFindings)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

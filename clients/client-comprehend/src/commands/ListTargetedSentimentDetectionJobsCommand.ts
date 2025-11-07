@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -10,10 +9,7 @@ import {
   ListTargetedSentimentDetectionJobsRequest,
   ListTargetedSentimentDetectionJobsResponse,
 } from "../models/models_0";
-import {
-  de_ListTargetedSentimentDetectionJobsCommand,
-  se_ListTargetedSentimentDetectionJobsCommand,
-} from "../protocols/Aws_json1_1";
+import { ListTargetedSentimentDetectionJobs } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -135,16 +131,11 @@ export class ListTargetedSentimentDetectionJobsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ComprehendClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("Comprehend_20171127", "ListTargetedSentimentDetectionJobs", {})
   .n("ComprehendClient", "ListTargetedSentimentDetectionJobsCommand")
-  .f(void 0, void 0)
-  .ser(se_ListTargetedSentimentDetectionJobsCommand)
-  .de(de_ListTargetedSentimentDetectionJobsCommand)
+  .sc(ListTargetedSentimentDetectionJobs)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

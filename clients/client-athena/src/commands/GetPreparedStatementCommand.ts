@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { AthenaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AthenaClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GetPreparedStatementInput, GetPreparedStatementOutput } from "../models/models_0";
-import { de_GetPreparedStatementCommand, se_GetPreparedStatementCommand } from "../protocols/Aws_json1_1";
+import { GetPreparedStatement } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -89,16 +88,11 @@ export class GetPreparedStatementCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AthenaClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonAthena", "GetPreparedStatement", {})
   .n("AthenaClient", "GetPreparedStatementCommand")
-  .f(void 0, void 0)
-  .ser(se_GetPreparedStatementCommand)
-  .de(de_GetPreparedStatementCommand)
+  .sc(GetPreparedStatement)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,12 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { CancelClusterRequest, CancelClusterResult } from "../models/models_0";
-import { de_CancelClusterCommand, se_CancelClusterCommand } from "../protocols/Aws_json1_1";
+import { CancelCluster } from "../schemas/schemas_0";
 import { ServiceInputTypes, ServiceOutputTypes, SnowballClientResolvedConfig } from "../SnowballClient";
 
 /**
@@ -95,16 +94,11 @@ export class CancelClusterCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SnowballClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSIESnowballJobManagementService", "CancelCluster", {})
   .n("SnowballClient", "CancelClusterCommand")
-  .f(void 0, void 0)
-  .ser(se_CancelClusterCommand)
-  .de(de_CancelClusterCommand)
+  .sc(CancelCluster)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

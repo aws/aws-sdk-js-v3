@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { FSxClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FSxClient";
 import { DeleteStorageVirtualMachineRequest, DeleteStorageVirtualMachineResponse } from "../models/models_0";
-import { de_DeleteStorageVirtualMachineCommand, se_DeleteStorageVirtualMachineCommand } from "../protocols/Aws_json1_1";
+import { DeleteStorageVirtualMachine } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -89,16 +88,11 @@ export class DeleteStorageVirtualMachineCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: FSxClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSSimbaAPIService_v20180301", "DeleteStorageVirtualMachine", {})
   .n("FSxClient", "DeleteStorageVirtualMachineCommand")
-  .f(void 0, void 0)
-  .ser(se_DeleteStorageVirtualMachineCommand)
-  .de(de_DeleteStorageVirtualMachineCommand)
+  .sc(DeleteStorageVirtualMachine)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

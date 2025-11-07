@@ -1,14 +1,13 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { FSxClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FSxClient";
-import { UpdateFileSystemRequest, UpdateFileSystemRequestFilterSensitiveLog } from "../models/models_0";
-import { UpdateFileSystemResponse, UpdateFileSystemResponseFilterSensitiveLog } from "../models/models_1";
-import { de_UpdateFileSystemCommand, se_UpdateFileSystemCommand } from "../protocols/Aws_json1_1";
+import { UpdateFileSystemRequest } from "../models/models_0";
+import { UpdateFileSystemResponse } from "../models/models_1";
+import { UpdateFileSystem } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -1050,16 +1049,11 @@ export class UpdateFileSystemCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: FSxClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSSimbaAPIService_v20180301", "UpdateFileSystem", {})
   .n("FSxClient", "UpdateFileSystemCommand")
-  .f(UpdateFileSystemRequestFilterSensitiveLog, UpdateFileSystemResponseFilterSensitiveLog)
-  .ser(se_UpdateFileSystemCommand)
-  .de(de_UpdateFileSystemCommand)
+  .sc(UpdateFileSystem)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

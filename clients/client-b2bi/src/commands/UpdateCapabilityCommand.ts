@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { B2biClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../B2biClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { UpdateCapabilityRequest, UpdateCapabilityResponse } from "../models/models_0";
-import { de_UpdateCapabilityCommand, se_UpdateCapabilityCommand } from "../protocols/Aws_json1_0";
+import { UpdateCapability } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -220,16 +219,11 @@ export class UpdateCapabilityCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: B2biClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("B2BI", "UpdateCapability", {})
   .n("B2biClient", "UpdateCapabilityCommand")
-  .f(void 0, void 0)
-  .ser(se_UpdateCapabilityCommand)
-  .de(de_UpdateCapabilityCommand)
+  .sc(UpdateCapability)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

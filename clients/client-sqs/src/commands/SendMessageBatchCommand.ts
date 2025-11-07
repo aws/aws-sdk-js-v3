@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getSendMessageBatchPlugin } from "@aws-sdk/middleware-sdk-sqs";
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { SendMessageBatchRequest, SendMessageBatchResult } from "../models/models_0";
-import { de_SendMessageBatchCommand, se_SendMessageBatchCommand } from "../protocols/Aws_json1_0";
+import { SendMessageBatch } from "../schemas/schemas_0";
 import { ServiceInputTypes, ServiceOutputTypes, SQSClientResolvedConfig } from "../SQSClient";
 
 /**
@@ -219,17 +218,11 @@ export class SendMessageBatchCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SQSClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-      getSendMessageBatchPlugin(config),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions()), getSendMessageBatchPlugin(config)];
   })
   .s("AmazonSQS", "SendMessageBatch", {})
   .n("SQSClient", "SendMessageBatchCommand")
-  .f(void 0, void 0)
-  .ser(se_SendMessageBatchCommand)
-  .de(de_SendMessageBatchCommand)
+  .sc(SendMessageBatch)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

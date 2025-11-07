@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { InspectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../InspectorClient";
 import { GetTelemetryMetadataRequest, GetTelemetryMetadataResponse } from "../models/models_0";
-import { de_GetTelemetryMetadataCommand, se_GetTelemetryMetadataCommand } from "../protocols/Aws_json1_1";
+import { GetTelemetryMetadata } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -252,16 +251,11 @@ export class GetTelemetryMetadataCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: InspectorClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("InspectorService", "GetTelemetryMetadata", {})
   .n("InspectorClient", "GetTelemetryMetadataCommand")
-  .f(void 0, void 0)
-  .ser(se_GetTelemetryMetadataCommand)
-  .de(de_GetTelemetryMetadataCommand)
+  .sc(GetTelemetryMetadata)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,12 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { AddAttachmentsToSetRequest, AddAttachmentsToSetResponse } from "../models/models_0";
-import { de_AddAttachmentsToSetCommand, se_AddAttachmentsToSetCommand } from "../protocols/Aws_json1_1";
+import { AddAttachmentsToSet } from "../schemas/schemas_0";
 import { ServiceInputTypes, ServiceOutputTypes, SupportClientResolvedConfig } from "../SupportClient";
 
 /**
@@ -112,16 +111,11 @@ export class AddAttachmentsToSetCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SupportClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSSupport_20130415", "AddAttachmentsToSet", {})
   .n("SupportClient", "AddAttachmentsToSetCommand")
-  .f(void 0, void 0)
-  .ser(se_AddAttachmentsToSetCommand)
-  .de(de_AddAttachmentsToSetCommand)
+  .sc(AddAttachmentsToSet)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,16 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
 import { GetRelationalDatabaseParametersRequest, GetRelationalDatabaseParametersResult } from "../models/models_1";
-import {
-  de_GetRelationalDatabaseParametersCommand,
-  se_GetRelationalDatabaseParametersCommand,
-} from "../protocols/Aws_json1_1";
+import { GetRelationalDatabaseParameters } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -126,16 +122,11 @@ export class GetRelationalDatabaseParametersCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LightsailClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("Lightsail_20161128", "GetRelationalDatabaseParameters", {})
   .n("LightsailClient", "GetRelationalDatabaseParametersCommand")
-  .f(void 0, void 0)
-  .ser(se_GetRelationalDatabaseParametersCommand)
-  .de(de_GetRelationalDatabaseParametersCommand)
+  .sc(GetRelationalDatabaseParameters)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

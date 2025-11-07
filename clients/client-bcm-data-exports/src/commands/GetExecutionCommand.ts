@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { BCMDataExportsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BCMDataExportsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GetExecutionRequest, GetExecutionResponse } from "../models/models_0";
-import { de_GetExecutionCommand, se_GetExecutionCommand } from "../protocols/Aws_json1_1";
+import { GetExecution } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -121,16 +120,11 @@ export class GetExecutionCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: BCMDataExportsClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSBillingAndCostManagementDataExports", "GetExecution", {})
   .n("BCMDataExportsClient", "GetExecutionCommand")
-  .f(void 0, void 0)
-  .ser(se_GetExecutionCommand)
-  .de(de_GetExecutionCommand)
+  .sc(GetExecution)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

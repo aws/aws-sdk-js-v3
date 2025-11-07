@@ -1,12 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { CreateCachediSCSIVolumeInput, CreateCachediSCSIVolumeOutput } from "../models/models_0";
-import { de_CreateCachediSCSIVolumeCommand, se_CreateCachediSCSIVolumeCommand } from "../protocols/Aws_json1_1";
+import { CreateCachediSCSIVolume } from "../schemas/schemas_0";
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
 /**
@@ -128,16 +127,11 @@ export class CreateCachediSCSIVolumeCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: StorageGatewayClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("StorageGateway_20130630", "CreateCachediSCSIVolume", {})
   .n("StorageGatewayClient", "CreateCachediSCSIVolumeCommand")
-  .f(void 0, void 0)
-  .ser(se_CreateCachediSCSIVolumeCommand)
-  .de(de_CreateCachediSCSIVolumeCommand)
+  .sc(CreateCachediSCSIVolume)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

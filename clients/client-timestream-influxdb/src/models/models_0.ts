@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@smithy/smithy-client";
+import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
 import { TimestreamInfluxDBServiceException as __BaseException } from "./TimestreamInfluxDBServiceException";
 
@@ -3173,21 +3173,3 @@ export interface UntagResourceRequest {
    */
   tagKeys: string[] | undefined;
 }
-
-/**
- * @internal
- */
-export const CreateDbClusterInputFilterSensitiveLog = (obj: CreateDbClusterInput): any => ({
-  ...obj,
-  ...(obj.username && { username: SENSITIVE_STRING }),
-  ...(obj.password && { password: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const CreateDbInstanceInputFilterSensitiveLog = (obj: CreateDbInstanceInput): any => ({
-  ...obj,
-  ...(obj.username && { username: SENSITIVE_STRING }),
-  ...(obj.password && { password: SENSITIVE_STRING }),
-});

@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { MediaStoreClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaStoreClient";
 import { DeleteLifecyclePolicyInput, DeleteLifecyclePolicyOutput } from "../models/models_0";
-import { de_DeleteLifecyclePolicyCommand, se_DeleteLifecyclePolicyCommand } from "../protocols/Aws_json1_1";
+import { DeleteLifecyclePolicy } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -81,16 +80,11 @@ export class DeleteLifecyclePolicyCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MediaStoreClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("MediaStore_20170901", "DeleteLifecyclePolicy", {})
   .n("MediaStoreClient", "DeleteLifecyclePolicyCommand")
-  .f(void 0, void 0)
-  .ser(se_DeleteLifecyclePolicyCommand)
-  .de(de_DeleteLifecyclePolicyCommand)
+  .sc(DeleteLifecyclePolicy)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

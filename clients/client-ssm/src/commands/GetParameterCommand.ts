@@ -1,12 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { GetParameterRequest, GetParameterResult, GetParameterResultFilterSensitiveLog } from "../models/models_1";
-import { de_GetParameterCommand, se_GetParameterCommand } from "../protocols/Aws_json1_1";
+import { GetParameterRequest, GetParameterResult } from "../models/models_1";
+import { GetParameter } from "../schemas/schemas_0";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
@@ -105,16 +104,11 @@ export class GetParameterCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SSMClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonSSM", "GetParameter", {})
   .n("SSMClient", "GetParameterCommand")
-  .f(void 0, GetParameterResultFilterSensitiveLog)
-  .ser(se_GetParameterCommand)
-  .de(de_GetParameterCommand)
+  .sc(GetParameter)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

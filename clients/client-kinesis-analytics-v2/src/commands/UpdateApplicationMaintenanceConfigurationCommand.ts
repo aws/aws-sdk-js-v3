@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -14,10 +13,7 @@ import {
   UpdateApplicationMaintenanceConfigurationRequest,
   UpdateApplicationMaintenanceConfigurationResponse,
 } from "../models/models_0";
-import {
-  de_UpdateApplicationMaintenanceConfigurationCommand,
-  se_UpdateApplicationMaintenanceConfigurationCommand,
-} from "../protocols/Aws_json1_1";
+import { UpdateApplicationMaintenanceConfiguration } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -123,16 +119,11 @@ export class UpdateApplicationMaintenanceConfigurationCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: KinesisAnalyticsV2ClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("KinesisAnalytics_20180523", "UpdateApplicationMaintenanceConfiguration", {})
   .n("KinesisAnalyticsV2Client", "UpdateApplicationMaintenanceConfigurationCommand")
-  .f(void 0, void 0)
-  .ser(se_UpdateApplicationMaintenanceConfigurationCommand)
-  .de(de_UpdateApplicationMaintenanceConfigurationCommand)
+  .sc(UpdateApplicationMaintenanceConfiguration)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

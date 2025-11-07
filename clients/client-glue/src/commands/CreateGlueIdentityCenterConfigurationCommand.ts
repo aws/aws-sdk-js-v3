@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -10,10 +9,7 @@ import {
   CreateGlueIdentityCenterConfigurationRequest,
   CreateGlueIdentityCenterConfigurationResponse,
 } from "../models/models_1";
-import {
-  de_CreateGlueIdentityCenterConfigurationCommand,
-  se_CreateGlueIdentityCenterConfigurationCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateGlueIdentityCenterConfiguration } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -102,16 +98,11 @@ export class CreateGlueIdentityCenterConfigurationCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GlueClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSGlue", "CreateGlueIdentityCenterConfiguration", {})
   .n("GlueClient", "CreateGlueIdentityCenterConfigurationCommand")
-  .f(void 0, void 0)
-  .ser(se_CreateGlueIdentityCenterConfigurationCommand)
-  .de(de_CreateGlueIdentityCenterConfigurationCommand)
+  .sc(CreateGlueIdentityCenterConfiguration)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

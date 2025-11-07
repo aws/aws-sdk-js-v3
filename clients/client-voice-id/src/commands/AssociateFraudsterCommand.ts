@@ -1,16 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  AssociateFraudsterRequest,
-  AssociateFraudsterRequestFilterSensitiveLog,
-  AssociateFraudsterResponse,
-} from "../models/models_0";
-import { de_AssociateFraudsterCommand, se_AssociateFraudsterCommand } from "../protocols/Aws_json1_0";
+import { AssociateFraudsterRequest, AssociateFraudsterResponse } from "../models/models_0";
+import { AssociateFraudster } from "../schemas/schemas_0";
 import { ServiceInputTypes, ServiceOutputTypes, VoiceIDClientResolvedConfig } from "../VoiceIDClient";
 
 /**
@@ -111,16 +106,11 @@ export class AssociateFraudsterCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: VoiceIDClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("VoiceID", "AssociateFraudster", {})
   .n("VoiceIDClient", "AssociateFraudsterCommand")
-  .f(AssociateFraudsterRequestFilterSensitiveLog, void 0)
-  .ser(se_AssociateFraudsterCommand)
-  .de(de_AssociateFraudsterCommand)
+  .sc(AssociateFraudster)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

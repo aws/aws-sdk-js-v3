@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ARCRegionSwitchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ARCRegionSwitchClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { CreatePlanRequest, CreatePlanResponse } from "../models/models_0";
-import { de_CreatePlanCommand, se_CreatePlanCommand } from "../protocols/Aws_json1_0";
+import { CreatePlan } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -698,16 +697,11 @@ export class CreatePlanCommand extends $Command
     UseControlPlaneEndpoint: { type: "staticContextParams", value: true },
   })
   .m(function (this: any, Command: any, cs: any, config: ARCRegionSwitchClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("ArcRegionSwitch", "CreatePlan", {})
   .n("ARCRegionSwitchClient", "CreatePlanCommand")
-  .f(void 0, void 0)
-  .ser(se_CreatePlanCommand)
-  .de(de_CreatePlanCommand)
+  .sc(CreatePlan)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

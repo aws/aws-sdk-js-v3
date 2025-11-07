@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GetResolverRuleRequest, GetResolverRuleResponse } from "../models/models_0";
-import { de_GetResolverRuleCommand, se_GetResolverRuleCommand } from "../protocols/Aws_json1_1";
 import { Route53ResolverClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53ResolverClient";
+import { GetResolverRule } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -107,16 +106,11 @@ export class GetResolverRuleCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: Route53ResolverClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("Route53Resolver", "GetResolverRule", {})
   .n("Route53ResolverClient", "GetResolverRuleCommand")
-  .f(void 0, void 0)
-  .ser(se_GetResolverRuleCommand)
-  .de(de_GetResolverRuleCommand)
+  .sc(GetResolverRule)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

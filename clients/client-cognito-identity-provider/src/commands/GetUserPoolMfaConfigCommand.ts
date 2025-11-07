@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -11,7 +10,7 @@ import {
 } from "../CognitoIdentityProviderClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GetUserPoolMfaConfigRequest, GetUserPoolMfaConfigResponse } from "../models/models_1";
-import { de_GetUserPoolMfaConfigCommand, se_GetUserPoolMfaConfigCommand } from "../protocols/Aws_json1_1";
+import { GetUserPoolMfaConfig } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -149,16 +148,11 @@ export class GetUserPoolMfaConfigCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CognitoIdentityProviderClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSCognitoIdentityProviderService", "GetUserPoolMfaConfig", {})
   .n("CognitoIdentityProviderClient", "GetUserPoolMfaConfigCommand")
-  .f(void 0, void 0)
-  .ser(se_GetUserPoolMfaConfigCommand)
-  .de(de_GetUserPoolMfaConfigCommand)
+  .sc(GetUserPoolMfaConfig)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

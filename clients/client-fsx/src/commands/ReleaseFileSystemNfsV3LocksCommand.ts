@@ -1,17 +1,13 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { FSxClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FSxClient";
 import { ReleaseFileSystemNfsV3LocksRequest } from "../models/models_0";
-import {
-  ReleaseFileSystemNfsV3LocksResponse,
-  ReleaseFileSystemNfsV3LocksResponseFilterSensitiveLog,
-} from "../models/models_1";
-import { de_ReleaseFileSystemNfsV3LocksCommand, se_ReleaseFileSystemNfsV3LocksCommand } from "../protocols/Aws_json1_1";
+import { ReleaseFileSystemNfsV3LocksResponse } from "../models/models_1";
+import { ReleaseFileSystemNfsV3Locks } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -700,16 +696,11 @@ export class ReleaseFileSystemNfsV3LocksCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: FSxClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSSimbaAPIService_v20180301", "ReleaseFileSystemNfsV3Locks", {})
   .n("FSxClient", "ReleaseFileSystemNfsV3LocksCommand")
-  .f(void 0, ReleaseFileSystemNfsV3LocksResponseFilterSensitiveLog)
-  .ser(se_ReleaseFileSystemNfsV3LocksCommand)
-  .de(de_ReleaseFileSystemNfsV3LocksCommand)
+  .sc(ReleaseFileSystemNfsV3Locks)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

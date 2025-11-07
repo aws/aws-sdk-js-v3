@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -10,13 +9,8 @@ import {
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  RespondToAuthChallengeRequest,
-  RespondToAuthChallengeRequestFilterSensitiveLog,
-  RespondToAuthChallengeResponse,
-  RespondToAuthChallengeResponseFilterSensitiveLog,
-} from "../models/models_1";
-import { de_RespondToAuthChallengeCommand, se_RespondToAuthChallengeCommand } from "../protocols/Aws_json1_1";
+import { RespondToAuthChallengeRequest, RespondToAuthChallengeResponse } from "../models/models_1";
+import { RespondToAuthChallenge } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -226,16 +220,11 @@ export class RespondToAuthChallengeCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CognitoIdentityProviderClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSCognitoIdentityProviderService", "RespondToAuthChallenge", {})
   .n("CognitoIdentityProviderClient", "RespondToAuthChallengeCommand")
-  .f(RespondToAuthChallengeRequestFilterSensitiveLog, RespondToAuthChallengeResponseFilterSensitiveLog)
-  .ser(se_RespondToAuthChallengeCommand)
-  .de(de_RespondToAuthChallengeCommand)
+  .sc(RespondToAuthChallenge)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

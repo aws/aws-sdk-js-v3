@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@smithy/smithy-client";
+import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
 import { CodePipelineServiceException as __BaseException } from "./CodePipelineServiceException";
 
@@ -6925,77 +6925,3 @@ export interface UpdatePipelineOutput {
    */
   pipeline?: PipelineDeclaration | undefined;
 }
-
-/**
- * @internal
- */
-export const AWSSessionCredentialsFilterSensitiveLog = (obj: AWSSessionCredentials): any => ({
-  ...obj,
-  ...(obj.accessKeyId && { accessKeyId: SENSITIVE_STRING }),
-  ...(obj.secretAccessKey && { secretAccessKey: SENSITIVE_STRING }),
-  ...(obj.sessionToken && { sessionToken: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const JobDataFilterSensitiveLog = (obj: JobData): any => ({
-  ...obj,
-  ...(obj.artifactCredentials && { artifactCredentials: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const JobDetailsFilterSensitiveLog = (obj: JobDetails): any => ({
-  ...obj,
-  ...(obj.data && { data: JobDataFilterSensitiveLog(obj.data) }),
-});
-
-/**
- * @internal
- */
-export const GetJobDetailsOutputFilterSensitiveLog = (obj: GetJobDetailsOutput): any => ({
-  ...obj,
-  ...(obj.jobDetails && { jobDetails: JobDetailsFilterSensitiveLog(obj.jobDetails) }),
-});
-
-/**
- * @internal
- */
-export const ThirdPartyJobDataFilterSensitiveLog = (obj: ThirdPartyJobData): any => ({
-  ...obj,
-  ...(obj.artifactCredentials && { artifactCredentials: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const ThirdPartyJobDetailsFilterSensitiveLog = (obj: ThirdPartyJobDetails): any => ({
-  ...obj,
-  ...(obj.data && { data: ThirdPartyJobDataFilterSensitiveLog(obj.data) }),
-});
-
-/**
- * @internal
- */
-export const GetThirdPartyJobDetailsOutputFilterSensitiveLog = (obj: GetThirdPartyJobDetailsOutput): any => ({
-  ...obj,
-  ...(obj.jobDetails && { jobDetails: ThirdPartyJobDetailsFilterSensitiveLog(obj.jobDetails) }),
-});
-
-/**
- * @internal
- */
-export const JobFilterSensitiveLog = (obj: Job): any => ({
-  ...obj,
-  ...(obj.data && { data: JobDataFilterSensitiveLog(obj.data) }),
-});
-
-/**
- * @internal
- */
-export const PollForJobsOutputFilterSensitiveLog = (obj: PollForJobsOutput): any => ({
-  ...obj,
-  ...(obj.jobs && { jobs: obj.jobs.map((item) => JobFilterSensitiveLog(item)) }),
-});

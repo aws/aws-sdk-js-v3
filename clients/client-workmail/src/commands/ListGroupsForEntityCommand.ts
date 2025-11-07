@@ -1,12 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { ListGroupsForEntityRequest, ListGroupsForEntityResponse } from "../models/models_0";
-import { de_ListGroupsForEntityCommand, se_ListGroupsForEntityCommand } from "../protocols/Aws_json1_1";
+import { ListGroupsForEntity } from "../schemas/schemas_0";
 import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
 /**
@@ -101,16 +100,11 @@ export class ListGroupsForEntityCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WorkMailClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("WorkMailService", "ListGroupsForEntity", {})
   .n("WorkMailClient", "ListGroupsForEntityCommand")
-  .f(void 0, void 0)
-  .ser(se_ListGroupsForEntityCommand)
-  .de(de_ListGroupsForEntityCommand)
+  .sc(ListGroupsForEntity)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

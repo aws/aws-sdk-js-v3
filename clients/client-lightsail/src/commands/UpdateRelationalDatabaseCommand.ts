@@ -1,17 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
-import {
-  UpdateRelationalDatabaseRequest,
-  UpdateRelationalDatabaseRequestFilterSensitiveLog,
-  UpdateRelationalDatabaseResult,
-} from "../models/models_1";
-import { de_UpdateRelationalDatabaseCommand, se_UpdateRelationalDatabaseCommand } from "../protocols/Aws_json1_1";
+import { UpdateRelationalDatabaseRequest, UpdateRelationalDatabaseResult } from "../models/models_1";
+import { UpdateRelationalDatabase } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -141,16 +136,11 @@ export class UpdateRelationalDatabaseCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LightsailClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("Lightsail_20161128", "UpdateRelationalDatabase", {})
   .n("LightsailClient", "UpdateRelationalDatabaseCommand")
-  .f(UpdateRelationalDatabaseRequestFilterSensitiveLog, void 0)
-  .ser(se_UpdateRelationalDatabaseCommand)
-  .de(de_UpdateRelationalDatabaseCommand)
+  .sc(UpdateRelationalDatabase)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

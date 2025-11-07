@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GetStatementResultV2Request, GetStatementResultV2Response } from "../models/models_0";
-import { de_GetStatementResultV2Command, se_GetStatementResultV2Command } from "../protocols/Aws_json1_1";
 import { RedshiftDataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftDataClient";
+import { GetStatementResultV2 } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -109,16 +108,11 @@ export class GetStatementResultV2Command extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RedshiftDataClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("RedshiftData", "GetStatementResultV2", {})
   .n("RedshiftDataClient", "GetStatementResultV2Command")
-  .f(void 0, void 0)
-  .ser(se_GetStatementResultV2Command)
-  .de(de_GetStatementResultV2Command)
+  .sc(GetStatementResultV2)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -19,6 +19,7 @@ import {
   getHttpAuthSchemeEndpointRuleSetPlugin,
   getHttpSigningPlugin,
 } from "@smithy/core";
+import { getSchemaSerdePlugin } from "@smithy/core/schema";
 import { getContentLengthPlugin } from "@smithy/middleware-content-length";
 import { EndpointInputConfig, EndpointResolvedConfig, resolveEndpointConfig } from "@smithy/middleware-endpoint";
 import { getRetryPlugin, resolveRetryConfig, RetryInputConfig, RetryResolvedConfig } from "@smithy/middleware-retry";
@@ -34,11 +35,14 @@ import {
   BodyLengthCalculator as __BodyLengthCalculator,
   CheckOptionalClientConfig as __CheckOptionalClientConfig,
   ChecksumConstructor as __ChecksumConstructor,
+  ClientProtocol,
   Decoder as __Decoder,
   Encoder as __Encoder,
   EndpointV2 as __EndpointV2,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
+  HttpRequest,
+  HttpResponse,
   Logger as __Logger,
   Provider as __Provider,
   Provider,
@@ -943,6 +947,16 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
   extensions?: RuntimeExtension[];
 
   /**
+   * The protocol controlling the message type (e.g. HTTP) and format (e.g. JSON)
+   * may be overridden. A default will always be set by the client.
+   * Available options depend on the service's supported protocols and will not be validated by
+   * the client.
+   * @alpha
+   *
+   */
+  protocol?: ClientProtocol<HttpRequest, HttpResponse>;
+
+  /**
    * The {@link @smithy/smithy-client#DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
    */
   defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
@@ -1052,6 +1066,7 @@ export class SSMClient extends __Client<
     const _config_7 = resolveHttpAuthSchemeConfig(_config_6);
     const _config_8 = resolveRuntimeExtensions(_config_7, configuration?.extensions || []);
     this.config = _config_8;
+    this.middlewareStack.use(getSchemaSerdePlugin(this.config));
     this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(getRetryPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));

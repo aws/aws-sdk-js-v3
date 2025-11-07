@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@smithy/smithy-client";
+import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
 import { DatabaseMigrationServiceServiceException as __BaseException } from "./DatabaseMigrationServiceServiceException";
 
@@ -8,47 +8,34 @@ import {
   ComputeConfig,
   Connection,
   DataMigration,
-  DataMigrationFilterSensitiveLog,
   DataProvider,
   DataProviderDescriptorDefinition,
   DataProviderSettings,
   DmsSslModeValue,
   DmsTransferSettings,
   DocDbSettings,
-  DocDbSettingsFilterSensitiveLog,
   DynamoDbSettings,
   ElasticsearchSettings,
   Endpoint,
-  EndpointFilterSensitiveLog,
   EventSubscription,
   Filter,
   GcpMySQLSettings,
-  GcpMySQLSettingsFilterSensitiveLog,
   IBMDb2Settings,
-  IBMDb2SettingsFilterSensitiveLog,
   InstanceProfile,
   KafkaSettings,
-  KafkaSettingsFilterSensitiveLog,
   KerberosAuthenticationSettings,
   KinesisSettings,
   MicrosoftSQLServerSettings,
-  MicrosoftSQLServerSettingsFilterSensitiveLog,
   MigrationProject,
   MigrationTypeValue,
   MongoDbSettings,
-  MongoDbSettingsFilterSensitiveLog,
   MySQLSettings,
-  MySQLSettingsFilterSensitiveLog,
   NeptuneSettings,
   OracleSettings,
-  OracleSettingsFilterSensitiveLog,
   PostgreSQLSettings,
-  PostgreSQLSettingsFilterSensitiveLog,
   RecommendationSettings,
   RedisSettings,
-  RedisSettingsFilterSensitiveLog,
   RedshiftSettings,
-  RedshiftSettingsFilterSensitiveLog,
   RefreshSchemasStatus,
   Replication,
   ReplicationConfig,
@@ -61,7 +48,6 @@ import {
   SCApplicationAttributes,
   SourceDataSetting,
   SybaseSettings,
-  SybaseSettingsFilterSensitiveLog,
   TableStatistics,
   Tag,
   TargetDataSetting,
@@ -2731,73 +2717,3 @@ export interface UpdateSubscriptionsToEventBridgeResponse {
    */
   Result?: string | undefined;
 }
-
-/**
- * @internal
- */
-export const ImportCertificateMessageFilterSensitiveLog = (obj: ImportCertificateMessage): any => ({
-  ...obj,
-  ...(obj.CertificatePem && { CertificatePem: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const ModifyDataMigrationMessageFilterSensitiveLog = (obj: ModifyDataMigrationMessage): any => ({
-  ...obj,
-  ...(obj.SelectionRules && { SelectionRules: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const ModifyDataMigrationResponseFilterSensitiveLog = (obj: ModifyDataMigrationResponse): any => ({
-  ...obj,
-  ...(obj.DataMigration && { DataMigration: DataMigrationFilterSensitiveLog(obj.DataMigration) }),
-});
-
-/**
- * @internal
- */
-export const ModifyEndpointMessageFilterSensitiveLog = (obj: ModifyEndpointMessage): any => ({
-  ...obj,
-  ...(obj.Password && { Password: SENSITIVE_STRING }),
-  ...(obj.MongoDbSettings && { MongoDbSettings: MongoDbSettingsFilterSensitiveLog(obj.MongoDbSettings) }),
-  ...(obj.KafkaSettings && { KafkaSettings: KafkaSettingsFilterSensitiveLog(obj.KafkaSettings) }),
-  ...(obj.RedshiftSettings && { RedshiftSettings: RedshiftSettingsFilterSensitiveLog(obj.RedshiftSettings) }),
-  ...(obj.PostgreSQLSettings && { PostgreSQLSettings: PostgreSQLSettingsFilterSensitiveLog(obj.PostgreSQLSettings) }),
-  ...(obj.MySQLSettings && { MySQLSettings: MySQLSettingsFilterSensitiveLog(obj.MySQLSettings) }),
-  ...(obj.OracleSettings && { OracleSettings: OracleSettingsFilterSensitiveLog(obj.OracleSettings) }),
-  ...(obj.SybaseSettings && { SybaseSettings: SybaseSettingsFilterSensitiveLog(obj.SybaseSettings) }),
-  ...(obj.MicrosoftSQLServerSettings && {
-    MicrosoftSQLServerSettings: MicrosoftSQLServerSettingsFilterSensitiveLog(obj.MicrosoftSQLServerSettings),
-  }),
-  ...(obj.IBMDb2Settings && { IBMDb2Settings: IBMDb2SettingsFilterSensitiveLog(obj.IBMDb2Settings) }),
-  ...(obj.DocDbSettings && { DocDbSettings: DocDbSettingsFilterSensitiveLog(obj.DocDbSettings) }),
-  ...(obj.RedisSettings && { RedisSettings: RedisSettingsFilterSensitiveLog(obj.RedisSettings) }),
-  ...(obj.GcpMySQLSettings && { GcpMySQLSettings: GcpMySQLSettingsFilterSensitiveLog(obj.GcpMySQLSettings) }),
-});
-
-/**
- * @internal
- */
-export const ModifyEndpointResponseFilterSensitiveLog = (obj: ModifyEndpointResponse): any => ({
-  ...obj,
-  ...(obj.Endpoint && { Endpoint: EndpointFilterSensitiveLog(obj.Endpoint) }),
-});
-
-/**
- * @internal
- */
-export const StartDataMigrationResponseFilterSensitiveLog = (obj: StartDataMigrationResponse): any => ({
-  ...obj,
-  ...(obj.DataMigration && { DataMigration: DataMigrationFilterSensitiveLog(obj.DataMigration) }),
-});
-
-/**
- * @internal
- */
-export const StopDataMigrationResponseFilterSensitiveLog = (obj: StopDataMigrationResponse): any => ({
-  ...obj,
-  ...(obj.DataMigration && { DataMigration: DataMigrationFilterSensitiveLog(obj.DataMigration) }),
-});

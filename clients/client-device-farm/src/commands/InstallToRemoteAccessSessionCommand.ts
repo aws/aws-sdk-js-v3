@@ -1,20 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DeviceFarmClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeviceFarmClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  InstallToRemoteAccessSessionRequest,
-  InstallToRemoteAccessSessionResult,
-  InstallToRemoteAccessSessionResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  de_InstallToRemoteAccessSessionCommand,
-  se_InstallToRemoteAccessSessionCommand,
-} from "../protocols/Aws_json1_1";
+import { InstallToRemoteAccessSessionRequest, InstallToRemoteAccessSessionResult } from "../models/models_0";
+import { InstallToRemoteAccessSession } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -121,16 +113,11 @@ export class InstallToRemoteAccessSessionCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DeviceFarmClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("DeviceFarm_20150623", "InstallToRemoteAccessSession", {})
   .n("DeviceFarmClient", "InstallToRemoteAccessSessionCommand")
-  .f(void 0, InstallToRemoteAccessSessionResultFilterSensitiveLog)
-  .ser(se_InstallToRemoteAccessSessionCommand)
-  .de(de_InstallToRemoteAccessSessionCommand)
+  .sc(InstallToRemoteAccessSession)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,6 +1,4 @@
 // smithy-typescript generated code
-import { SENSITIVE_STRING } from "@smithy/smithy-client";
-
 import {
   ActivationState,
   AdditionalInferenceSpecificationDefinition,
@@ -159,7 +157,6 @@ import {
   ModelLifeCycle,
   ModelMetrics,
   ModelPackageModelCard,
-  ModelPackageModelCardFilterSensitiveLog,
   ModelPackageSecurityConfig,
   ModelPackageValidationSpecification,
   ModelQualityAppSpecification,
@@ -10673,19 +10670,3 @@ export interface GetSagemakerServicecatalogPortfolioStatusOutput {
    */
   Status?: SagemakerServicecatalogStatus | undefined;
 }
-
-/**
- * @internal
- */
-export const DescribeModelCardResponseFilterSensitiveLog = (obj: DescribeModelCardResponse): any => ({
-  ...obj,
-  ...(obj.Content && { Content: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const DescribeModelPackageOutputFilterSensitiveLog = (obj: DescribeModelPackageOutput): any => ({
-  ...obj,
-  ...(obj.ModelCard && { ModelCard: ModelPackageModelCardFilterSensitiveLog(obj.ModelCard) }),
-});

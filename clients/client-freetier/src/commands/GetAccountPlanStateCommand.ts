@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { FreeTierClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FreeTierClient";
 import { GetAccountPlanStateRequest, GetAccountPlanStateResponse } from "../models/models_0";
-import { de_GetAccountPlanStateCommand, se_GetAccountPlanStateCommand } from "../protocols/Aws_json1_0";
+import { GetAccountPlanState } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -154,16 +153,11 @@ export class GetAccountPlanStateCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: FreeTierClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSFreeTierService", "GetAccountPlanState", {})
   .n("FreeTierClient", "GetAccountPlanStateCommand")
-  .f(void 0, void 0)
-  .ser(se_GetAccountPlanStateCommand)
-  .de(de_GetAccountPlanStateCommand)
+  .sc(GetAccountPlanState)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

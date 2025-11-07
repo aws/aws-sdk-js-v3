@@ -1,6 +1,4 @@
 // smithy-typescript generated code
-import { SENSITIVE_STRING } from "@smithy/smithy-client";
-
 import {
   Alias,
   AnywhereConfiguration,
@@ -10,18 +8,14 @@ import {
   Build,
   ComparisonOperatorType,
   Compute,
-  ComputeFilterSensitiveLog,
   ConnectionPortRange,
-  ConnectionPortRangeFilterSensitiveLog,
   ContainerFleet,
-  ContainerFleetFilterSensitiveLog,
   ContainerFleetRemoveAttribute,
   ContainerGroupDefinition,
   ContainerGroupType,
   ContainerOperatingSystem,
   DeploymentConfiguration,
   DesiredPlayerSession,
-  DesiredPlayerSessionFilterSensitiveLog,
   FilterConfiguration,
   FleetAction,
   FleetDeployment,
@@ -35,25 +29,19 @@ import {
   GameServerUtilizationStatus,
   GameSession,
   GameSessionCreationLimitPolicy,
-  GameSessionFilterSensitiveLog,
   GameSessionPlacement,
-  GameSessionPlacementFilterSensitiveLog,
   GameSessionQueue,
   GameSessionQueueDestination,
   InstanceDefinition,
   IpPermission,
-  IpPermissionFilterSensitiveLog,
   ListComputeInputStatus,
   LocationModel,
   LogConfiguration,
   MatchmakingConfiguration,
   MatchmakingTicket,
-  MatchmakingTicketFilterSensitiveLog,
   MetricName,
   Player,
-  PlayerFilterSensitiveLog,
   PlayerLatency,
-  PlayerLatencyFilterSensitiveLog,
   PlayerLatencyPolicy,
   PlayerSessionCreationPolicy,
   PolicyType,
@@ -2608,213 +2596,3 @@ export interface ValidateMatchmakingRuleSetOutput {
    */
   Valid?: boolean | undefined;
 }
-
-/**
- * @internal
- */
-export const ListComputeOutputFilterSensitiveLog = (obj: ListComputeOutput): any => ({
-  ...obj,
-  ...(obj.ComputeList && { ComputeList: obj.ComputeList.map((item) => ComputeFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const ListContainerFleetsOutputFilterSensitiveLog = (obj: ListContainerFleetsOutput): any => ({
-  ...obj,
-  ...(obj.ContainerFleets && {
-    ContainerFleets: obj.ContainerFleets.map((item) => ContainerFleetFilterSensitiveLog(item)),
-  }),
-});
-
-/**
- * @internal
- */
-export const ListContainerGroupDefinitionsOutputFilterSensitiveLog = (
-  obj: ListContainerGroupDefinitionsOutput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListContainerGroupDefinitionVersionsOutputFilterSensitiveLog = (
-  obj: ListContainerGroupDefinitionVersionsOutput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RegisterComputeInputFilterSensitiveLog = (obj: RegisterComputeInput): any => ({
-  ...obj,
-  ...(obj.IpAddress && { IpAddress: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const RegisterComputeOutputFilterSensitiveLog = (obj: RegisterComputeOutput): any => ({
-  ...obj,
-  ...(obj.Compute && { Compute: ComputeFilterSensitiveLog(obj.Compute) }),
-});
-
-/**
- * @internal
- */
-export const RequestUploadCredentialsOutputFilterSensitiveLog = (obj: RequestUploadCredentialsOutput): any => ({
-  ...obj,
-  ...(obj.UploadCredentials && { UploadCredentials: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const SearchGameSessionsOutputFilterSensitiveLog = (obj: SearchGameSessionsOutput): any => ({
-  ...obj,
-  ...(obj.GameSessions && { GameSessions: obj.GameSessions.map((item) => GameSessionFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const StartGameSessionPlacementInputFilterSensitiveLog = (obj: StartGameSessionPlacementInput): any => ({
-  ...obj,
-  ...(obj.PlayerLatencies && {
-    PlayerLatencies: obj.PlayerLatencies.map((item) => PlayerLatencyFilterSensitiveLog(item)),
-  }),
-  ...(obj.DesiredPlayerSessions && {
-    DesiredPlayerSessions: obj.DesiredPlayerSessions.map((item) => DesiredPlayerSessionFilterSensitiveLog(item)),
-  }),
-});
-
-/**
- * @internal
- */
-export const StartGameSessionPlacementOutputFilterSensitiveLog = (obj: StartGameSessionPlacementOutput): any => ({
-  ...obj,
-  ...(obj.GameSessionPlacement && {
-    GameSessionPlacement: GameSessionPlacementFilterSensitiveLog(obj.GameSessionPlacement),
-  }),
-});
-
-/**
- * @internal
- */
-export const StartMatchBackfillInputFilterSensitiveLog = (obj: StartMatchBackfillInput): any => ({
-  ...obj,
-  ...(obj.Players && { Players: obj.Players.map((item) => PlayerFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const StartMatchBackfillOutputFilterSensitiveLog = (obj: StartMatchBackfillOutput): any => ({
-  ...obj,
-  ...(obj.MatchmakingTicket && { MatchmakingTicket: MatchmakingTicketFilterSensitiveLog(obj.MatchmakingTicket) }),
-});
-
-/**
- * @internal
- */
-export const StartMatchmakingInputFilterSensitiveLog = (obj: StartMatchmakingInput): any => ({
-  ...obj,
-  ...(obj.Players && { Players: obj.Players.map((item) => PlayerFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const StartMatchmakingOutputFilterSensitiveLog = (obj: StartMatchmakingOutput): any => ({
-  ...obj,
-  ...(obj.MatchmakingTicket && { MatchmakingTicket: MatchmakingTicketFilterSensitiveLog(obj.MatchmakingTicket) }),
-});
-
-/**
- * @internal
- */
-export const StopGameSessionPlacementOutputFilterSensitiveLog = (obj: StopGameSessionPlacementOutput): any => ({
-  ...obj,
-  ...(obj.GameSessionPlacement && {
-    GameSessionPlacement: GameSessionPlacementFilterSensitiveLog(obj.GameSessionPlacement),
-  }),
-});
-
-/**
- * @internal
- */
-export const TerminateGameSessionOutputFilterSensitiveLog = (obj: TerminateGameSessionOutput): any => ({
-  ...obj,
-  ...(obj.GameSession && { GameSession: GameSessionFilterSensitiveLog(obj.GameSession) }),
-});
-
-/**
- * @internal
- */
-export const UpdateContainerFleetInputFilterSensitiveLog = (obj: UpdateContainerFleetInput): any => ({
-  ...obj,
-  ...(obj.InstanceConnectionPortRange && {
-    InstanceConnectionPortRange: ConnectionPortRangeFilterSensitiveLog(obj.InstanceConnectionPortRange),
-  }),
-  ...(obj.InstanceInboundPermissionAuthorizations && {
-    InstanceInboundPermissionAuthorizations: obj.InstanceInboundPermissionAuthorizations.map((item) =>
-      IpPermissionFilterSensitiveLog(item)
-    ),
-  }),
-  ...(obj.InstanceInboundPermissionRevocations && {
-    InstanceInboundPermissionRevocations: obj.InstanceInboundPermissionRevocations.map((item) =>
-      IpPermissionFilterSensitiveLog(item)
-    ),
-  }),
-});
-
-/**
- * @internal
- */
-export const UpdateContainerFleetOutputFilterSensitiveLog = (obj: UpdateContainerFleetOutput): any => ({
-  ...obj,
-  ...(obj.ContainerFleet && { ContainerFleet: ContainerFleetFilterSensitiveLog(obj.ContainerFleet) }),
-});
-
-/**
- * @internal
- */
-export const UpdateContainerGroupDefinitionInputFilterSensitiveLog = (
-  obj: UpdateContainerGroupDefinitionInput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateContainerGroupDefinitionOutputFilterSensitiveLog = (
-  obj: UpdateContainerGroupDefinitionOutput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateFleetPortSettingsInputFilterSensitiveLog = (obj: UpdateFleetPortSettingsInput): any => ({
-  ...obj,
-  ...(obj.InboundPermissionAuthorizations && {
-    InboundPermissionAuthorizations: obj.InboundPermissionAuthorizations.map((item) =>
-      IpPermissionFilterSensitiveLog(item)
-    ),
-  }),
-  ...(obj.InboundPermissionRevocations && {
-    InboundPermissionRevocations: obj.InboundPermissionRevocations.map((item) => IpPermissionFilterSensitiveLog(item)),
-  }),
-});
-
-/**
- * @internal
- */
-export const UpdateGameSessionOutputFilterSensitiveLog = (obj: UpdateGameSessionOutput): any => ({
-  ...obj,
-  ...(obj.GameSession && { GameSession: GameSessionFilterSensitiveLog(obj.GameSession) }),
-});

@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -11,7 +10,7 @@ import {
 } from "../ComprehendMedicalClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { ListICD10CMInferenceJobsRequest, ListICD10CMInferenceJobsResponse } from "../models/models_0";
-import { de_ListICD10CMInferenceJobsCommand, se_ListICD10CMInferenceJobsCommand } from "../protocols/Aws_json1_1";
+import { ListICD10CMInferenceJobs } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -121,16 +120,11 @@ export class ListICD10CMInferenceJobsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ComprehendMedicalClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("ComprehendMedical_20181030", "ListICD10CMInferenceJobs", {})
   .n("ComprehendMedicalClient", "ListICD10CMInferenceJobsCommand")
-  .f(void 0, void 0)
-  .ser(se_ListICD10CMInferenceJobsCommand)
-  .de(de_ListICD10CMInferenceJobsCommand)
+  .sc(ListICD10CMInferenceJobs)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

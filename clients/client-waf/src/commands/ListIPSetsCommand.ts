@@ -1,12 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { ListIPSetsRequest, ListIPSetsResponse } from "../models/models_0";
-import { de_ListIPSetsCommand, se_ListIPSetsCommand } from "../protocols/Aws_json1_1";
+import { ListIPSets } from "../schemas/schemas_0";
 import { ServiceInputTypes, ServiceOutputTypes, WAFClientResolvedConfig } from "../WAFClient";
 
 /**
@@ -111,16 +110,11 @@ export class ListIPSetsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WAFClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSWAF_20150824", "ListIPSets", {})
   .n("WAFClient", "ListIPSetsCommand")
-  .f(void 0, void 0)
-  .ser(se_ListIPSetsCommand)
-  .de(de_ListIPSetsCommand)
+  .sc(ListIPSets)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

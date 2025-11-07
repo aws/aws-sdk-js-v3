@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { MachineLearningClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MachineLearningClient";
 import { DescribeDataSourcesInput, DescribeDataSourcesOutput } from "../models/models_0";
-import { de_DescribeDataSourcesCommand, se_DescribeDataSourcesCommand } from "../protocols/Aws_json1_1";
+import { DescribeDataSources } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -125,16 +124,11 @@ export class DescribeDataSourcesCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MachineLearningClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonML_20141212", "DescribeDataSources", {})
   .n("MachineLearningClient", "DescribeDataSourcesCommand")
-  .f(void 0, void 0)
-  .ser(se_DescribeDataSourcesCommand)
-  .de(de_DescribeDataSourcesCommand)
+  .sc(DescribeDataSources)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DirectConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { CreateInterconnectRequest, Interconnect } from "../models/models_0";
-import { de_CreateInterconnectCommand, se_CreateInterconnectCommand } from "../protocols/Aws_json1_1";
+import { CreateInterconnect } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -138,16 +137,11 @@ export class CreateInterconnectCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DirectConnectClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("OvertureService", "CreateInterconnect", {})
   .n("DirectConnectClient", "CreateInterconnectCommand")
-  .f(void 0, void 0)
-  .ser(se_CreateInterconnectCommand)
-  .de(de_CreateInterconnectCommand)
+  .sc(CreateInterconnect)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

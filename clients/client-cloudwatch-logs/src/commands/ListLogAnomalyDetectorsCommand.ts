@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CloudWatchLogsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchLogsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { ListLogAnomalyDetectorsRequest, ListLogAnomalyDetectorsResponse } from "../models/models_0";
-import { de_ListLogAnomalyDetectorsCommand, se_ListLogAnomalyDetectorsCommand } from "../protocols/Aws_json1_1";
+import { ListLogAnomalyDetectors } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -100,16 +99,11 @@ export class ListLogAnomalyDetectorsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudWatchLogsClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("Logs_20140328", "ListLogAnomalyDetectors", {})
   .n("CloudWatchLogsClient", "ListLogAnomalyDetectorsCommand")
-  .f(void 0, void 0)
-  .ser(se_ListLogAnomalyDetectorsCommand)
-  .de(de_ListLogAnomalyDetectorsCommand)
+  .sc(ListLogAnomalyDetectors)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

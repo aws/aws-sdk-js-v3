@@ -1,12 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { RestoreWorkspaceRequest, RestoreWorkspaceResult } from "../models/models_1";
-import { de_RestoreWorkspaceCommand, se_RestoreWorkspaceCommand } from "../protocols/Aws_json1_1";
+import { RestoreWorkspace } from "../schemas/schemas_0";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
 /**
@@ -87,16 +86,11 @@ export class RestoreWorkspaceCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WorkSpacesClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("WorkspacesService", "RestoreWorkspace", {})
   .n("WorkSpacesClient", "RestoreWorkspaceCommand")
-  .f(void 0, void 0)
-  .ser(se_RestoreWorkspaceCommand)
-  .de(de_RestoreWorkspaceCommand)
+  .sc(RestoreWorkspace)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

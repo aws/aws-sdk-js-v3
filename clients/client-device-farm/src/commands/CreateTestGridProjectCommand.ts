@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DeviceFarmClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeviceFarmClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { CreateTestGridProjectRequest, CreateTestGridProjectResult } from "../models/models_0";
-import { de_CreateTestGridProjectCommand, se_CreateTestGridProjectCommand } from "../protocols/Aws_json1_1";
+import { CreateTestGridProject } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -105,16 +104,11 @@ export class CreateTestGridProjectCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DeviceFarmClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("DeviceFarm_20150623", "CreateTestGridProject", {})
   .n("DeviceFarmClient", "CreateTestGridProjectCommand")
-  .f(void 0, void 0)
-  .ser(se_CreateTestGridProjectCommand)
-  .de(de_CreateTestGridProjectCommand)
+  .sc(CreateTestGridProject)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

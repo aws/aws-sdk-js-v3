@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
 import { DeleteGameServerGroupInput, DeleteGameServerGroupOutput } from "../models/models_0";
-import { de_DeleteGameServerGroupCommand, se_DeleteGameServerGroupCommand } from "../protocols/Aws_json1_1";
+import { DeleteGameServerGroup } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -138,16 +137,11 @@ export class DeleteGameServerGroupCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GameLiftClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("GameLift", "DeleteGameServerGroup", {})
   .n("GameLiftClient", "DeleteGameServerGroupCommand")
-  .f(void 0, void 0)
-  .ser(se_DeleteGameServerGroupCommand)
-  .de(de_DeleteGameServerGroupCommand)
+  .sc(DeleteGameServerGroup)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

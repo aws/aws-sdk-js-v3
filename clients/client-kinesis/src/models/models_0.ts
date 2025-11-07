@@ -3471,28 +3471,3 @@ export interface UpdateStreamWarmThroughputOutput {
    */
   WarmThroughput?: WarmThroughputObject | undefined;
 }
-
-/**
- * @internal
- */
-export const SubscribeToShardEventStreamFilterSensitiveLog = (obj: SubscribeToShardEventStream): any => {
-  if (obj.SubscribeToShardEvent !== undefined) return { SubscribeToShardEvent: obj.SubscribeToShardEvent };
-  if (obj.ResourceNotFoundException !== undefined) return { ResourceNotFoundException: obj.ResourceNotFoundException };
-  if (obj.ResourceInUseException !== undefined) return { ResourceInUseException: obj.ResourceInUseException };
-  if (obj.KMSDisabledException !== undefined) return { KMSDisabledException: obj.KMSDisabledException };
-  if (obj.KMSInvalidStateException !== undefined) return { KMSInvalidStateException: obj.KMSInvalidStateException };
-  if (obj.KMSAccessDeniedException !== undefined) return { KMSAccessDeniedException: obj.KMSAccessDeniedException };
-  if (obj.KMSNotFoundException !== undefined) return { KMSNotFoundException: obj.KMSNotFoundException };
-  if (obj.KMSOptInRequired !== undefined) return { KMSOptInRequired: obj.KMSOptInRequired };
-  if (obj.KMSThrottlingException !== undefined) return { KMSThrottlingException: obj.KMSThrottlingException };
-  if (obj.InternalFailureException !== undefined) return { InternalFailureException: obj.InternalFailureException };
-  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-};
-
-/**
- * @internal
- */
-export const SubscribeToShardOutputFilterSensitiveLog = (obj: SubscribeToShardOutput): any => ({
-  ...obj,
-  ...(obj.EventStream && { EventStream: "STREAMING_CONTENT" }),
-});

@@ -1,0 +1,1122 @@
+export const _ACITA = "AssociateConfigurationItemsToApplication";
+export const _ACITAR = "AssociateConfigurationItemsToApplicationRequest";
+export const _ACITARs = "AssociateConfigurationItemsToApplicationResponse";
+export const _ACS = "AgentConfigurationStatus";
+export const _ACSL = "AgentConfigurationStatusList";
+export const _AEE = "AuthorizationErrorException";
+export const _AI = "AgentInfo";
+export const _AIg = "AgentsInfo";
+export const _ANI = "AgentNetworkInfo";
+export const _ANIL = "AgentNetworkInfoList";
+export const _BDA = "BatchDeleteAgents";
+export const _BDAE = "BatchDeleteAgentError";
+export const _BDAEa = "BatchDeleteAgentErrors";
+export const _BDAR = "BatchDeleteAgentsRequest";
+export const _BDARa = "BatchDeleteAgentsResponse";
+export const _BDCT = "BatchDeleteConfigurationTask";
+export const _BDID = "BatchDeleteImportData";
+export const _BDIDE = "BatchDeleteImportDataError";
+export const _BDIDEL = "BatchDeleteImportDataErrorList";
+export const _BDIDR = "BatchDeleteImportDataRequest";
+export const _BDIDRa = "BatchDeleteImportDataResponse";
+export const _C = "Configurations";
+export const _CA = "CreateApplication";
+export const _CACI = "CustomerAgentlessCollectorInfo";
+export const _CAI = "CustomerAgentInfo";
+export const _CAR = "CreateApplicationRequest";
+export const _CARr = "CreateApplicationResponse";
+export const _CCI = "CustomerConnectorInfo";
+export const _CED = "ContinuousExportDescription";
+export const _CEDo = "ContinuousExportDescriptions";
+export const _CEE = "ConflictErrorException";
+export const _CMCI = "CustomerMeCollectorInfo";
+export const _CT = "ConfigurationTag";
+export const _CTR = "CreateTagsRequest";
+export const _CTRr = "CreateTagsResponse";
+export const _CTS = "ConfigurationTagSet";
+export const _CTr = "CreateTags";
+export const _DA = "DeleteAgent";
+export const _DAR = "DeleteApplicationsRequest";
+export const _DARe = "DeleteApplicationsResponse";
+export const _DARes = "DescribeAgentsRequest";
+export const _DAResc = "DescribeAgentsResponse";
+export const _DAe = "DeleteAgents";
+export const _DAel = "DeleteApplications";
+export const _DAes = "DescribeAgents";
+export const _DBDCT = "DescribeBatchDeleteConfigurationTask";
+export const _DBDCTR = "DescribeBatchDeleteConfigurationTaskRequest";
+export const _DBDCTRe = "DescribeBatchDeleteConfigurationTaskResponse";
+export const _DC = "DescribeConfigurations";
+export const _DCA = "DescribeConfigurationsAttributes";
+export const _DCE = "DescribeContinuousExports";
+export const _DCER = "DescribeContinuousExportsRequest";
+export const _DCERe = "DescribeContinuousExportsResponse";
+export const _DCIFA = "DisassociateConfigurationItemsFromApplication";
+export const _DCIFAR = "DisassociateConfigurationItemsFromApplicationRequest";
+export const _DCIFARi = "DisassociateConfigurationItemsFromApplicationResponse";
+export const _DCR = "DescribeConfigurationsRequest";
+export const _DCRe = "DescribeConfigurationsResponse";
+export const _DEC = "DescribeExportConfigurations";
+export const _DECR = "DescribeExportConfigurationsRequest";
+export const _DECRe = "DescribeExportConfigurationsResponse";
+export const _DET = "DescribeExportTasks";
+export const _DETR = "DescribeExportTasksRequest";
+export const _DETRe = "DescribeExportTasksResponse";
+export const _DIT = "DescribeImportTasks";
+export const _DITFL = "DescribeImportTasksFilterList";
+export const _DITR = "DescribeImportTasksRequest";
+export const _DITRe = "DescribeImportTasksResponse";
+export const _DT = "DeleteTags";
+export const _DTR = "DeleteTagsRequest";
+export const _DTRe = "DeleteTagsResponse";
+export const _DTRes = "DescribeTagsRequest";
+export const _DTResc = "DescribeTagsResponse";
+export const _DTe = "DescribeTags";
+export const _DW = "DeletionWarning";
+export const _DWL = "DeletionWarningsList";
+export const _EC = "ExportConfigurations";
+export const _ECR = "ExportConfigurationsResponse";
+export const _EF = "ExportFilter";
+export const _EFx = "ExportFilters";
+export const _EI = "ExportInfo";
+export const _EIx = "ExportsInfo";
+export const _EP = "ExportPreferences";
+export const _EREP = "Ec2RecommendationsExportPreferences";
+export const _F = "Filter";
+export const _FC = "FailedConfiguration";
+export const _FCL = "FailedConfigurationList";
+export const _FV = "FilterValues";
+export const _Fi = "Filters";
+export const _GDS = "GetDiscoverySummary";
+export const _GDSR = "GetDiscoverySummaryRequest";
+export const _GDSRe = "GetDiscoverySummaryResponse";
+export const _HRNSE = "HomeRegionNotSetException";
+export const _IPE = "InvalidParameterException";
+export const _IPVE = "InvalidParameterValueException";
+export const _IT = "ImportTask";
+export const _ITF = "ImportTaskFilter";
+export const _ITL = "ImportTaskList";
+export const _LC = "ListConfigurations";
+export const _LCR = "ListConfigurationsRequest";
+export const _LCRi = "ListConfigurationsResponse";
+export const _LEE = "LimitExceededException";
+export const _LSN = "ListServerNeighbors";
+export const _LSNR = "ListServerNeighborsRequest";
+export const _LSNRi = "ListServerNeighborsResponse";
+export const _NCD = "NeighborConnectionDetail";
+export const _NDL = "NeighborDetailsList";
+export const _OBE = "OrderByElement";
+export const _OBL = "OrderByList";
+export const _ONPE = "OperationNotPermittedException";
+export const _RIO = "ReservedInstanceOptions";
+export const _RIUE = "ResourceInUseException";
+export const _RNFE = "ResourceNotFoundException";
+export const _SBDCT = "StartBatchDeleteConfigurationTask";
+export const _SBDCTR = "StartBatchDeleteConfigurationTaskRequest";
+export const _SBDCTRt = "StartBatchDeleteConfigurationTaskResponse";
+export const _SCE = "StartContinuousExport";
+export const _SCER = "StartContinuousExportRequest";
+export const _SCERt = "StartContinuousExportResponse";
+export const _SCERto = "StopContinuousExportRequest";
+export const _SCERtop = "StopContinuousExportResponse";
+export const _SCEt = "StopContinuousExport";
+export const _SDCBAI = "StartDataCollectionByAgentIds";
+export const _SDCBAIR = "StartDataCollectionByAgentIdsRequest";
+export const _SDCBAIRt = "StartDataCollectionByAgentIdsResponse";
+export const _SDCBAIRto = "StopDataCollectionByAgentIdsRequest";
+export const _SDCBAIRtop = "StopDataCollectionByAgentIdsResponse";
+export const _SDCBAIt = "StopDataCollectionByAgentIds";
+export const _SET = "StartExportTask";
+export const _SETR = "StartExportTaskRequest";
+export const _SETRt = "StartExportTaskResponse";
+export const _SIEE = "ServerInternalErrorException";
+export const _SIT = "StartImportTask";
+export const _SITR = "StartImportTaskRequest";
+export const _SITRt = "StartImportTaskResponse";
+export const _T = "Tag";
+export const _TF = "TagFilter";
+export const _TFa = "TagFilters";
+export const _TS = "TagSet";
+export const _UA = "UpdateApplication";
+export const _UAR = "UpdateApplicationRequest";
+export const _UARp = "UpdateApplicationResponse";
+export const _UMB = "UsageMetricBasis";
+export const _a = "applications";
+export const _aA = "activeAgents";
+export const _aAC = "activeAgentlessCollectors";
+export const _aC = "activeConnectors";
+export const _aCI = "applicationConfigurationId";
+export const _aCS = "agentlessCollectorSummary";
+export const _aCSg = "agentsConfigurationStatus";
+export const _aI = "agentId";
+export const _aIF = "applicationImportFailure";
+export const _aIS = "applicationImportSuccess";
+export const _aIg = "agentIds";
+export const _aIge = "agentsInfo";
+export const _aMC = "activeMeCollectors";
+export const _aNIL = "agentNetworkInfoList";
+export const _aS = "agentSummary";
+export const _aT = "agentType";
+export const _bLA = "blackListedAgents";
+export const _bLC = "blackListedConnectors";
+export const _c = "client";
+export const _cC = "connectionsCount";
+export const _cDU = "configurationsDownloadUrl";
+export const _cI = "connectorId";
+export const _cIo = "configurationIds";
+export const _cIon = "configurationId";
+export const _cPMB = "cpuPerformanceMetricBasis";
+export const _cRT = "clientRequestToken";
+export const _cS = "collectionStatus";
+export const _cSo = "connectorSummary";
+export const _cT = "configurationType";
+export const _co = "configurations";
+export const _con = "condition";
+export const _d = "description";
+export const _dA = "deleteAgents";
+export const _dC = "deletedConfigurations";
+export const _dH = "deleteHistory";
+export const _dLAC = "denyListedAgentlessCollectors";
+export const _dLMC = "denyListedMeCollectors";
+export const _dP = "destinationPort";
+export const _dS = "dataSource";
+export const _dSI = "destinationServerId";
+export const _dW = "deletionWarnings";
+export const _de = "descriptions";
+export const _e = "error";
+export const _eAFEZ = "errorsAndFailedEntriesZip";
+export const _eC = "errorCode";
+export const _eD = "errorDescription";
+export const _eDF = "exportDataFormat";
+export const _eI = "exportId";
+export const _eIT = "excludedInstanceTypes";
+export const _eIx = "exportIds";
+export const _eIxp = "exportsInfo";
+export const _eM = "errorMessage";
+export const _eRP = "ec2RecommendationsPreferences";
+export const _eRT = "exportRequestTime";
+export const _eS = "exportStatus";
+export const _eSC = "errorStatusCode";
+export const _eT = "endTime";
+export const _en = "enabled";
+export const _er = "errors";
+export const _f = "force";
+export const _fC = "failedConfigurations";
+export const _fCi = "fileClassification";
+export const _fN = "fieldName";
+export const _fi = "filters";
+export const _h = "health";
+export const _hA = "healthyAgents";
+export const _hAC = "healthyAgentlessCollectors";
+export const _hC = "healthyConnectors";
+export const _hE = "httpError";
+export const _hMC = "healthyMeCollectors";
+export const _hN = "hostName";
+export const _i = "item";
+export const _iA = "ipAddress";
+export const _iCT = "importCompletionTime";
+export const _iDT = "importDeletedTime";
+export const _iRT = "importRequestTime";
+export const _iT = "isTruncated";
+export const _iTI = "importTaskId";
+export const _iTIm = "importTaskIds";
+export const _iU = "importUrl";
+export const _k = "key";
+export const _kDC = "knownDependencyCount";
+export const _lHPT = "lastHealthPingTime";
+export const _m = "message";
+export const _mA = "macAddress";
+export const _mCS = "meCollectorSummary";
+export const _mR = "maxResults";
+export const _n = "name";
+export const _nCI = "neighborConfigurationIds";
+export const _nT = "nextToken";
+export const _ne = "neighbors";
+export const _oB = "orderBy";
+export const _oC = "offeringClass";
+export const _oS = "operationSucceeded";
+export const _p = "preferences";
+export const _pA = "percentageAdjust";
+export const _pIN = "portInformationNeeded";
+export const _pO = "purchasingOption";
+export const _pR = "preferredRegion";
+export const _rC = "requestedConfigurations";
+export const _rET = "requestedEndTime";
+export const _rIO = "reservedInstanceOptions";
+export const _rPMB = "ramPerformanceMetricBasis";
+export const _rST = "requestedStartTime";
+export const _rT = "registeredTime";
+export const _s = "status";
+export const _sA = "shutdownAgents";
+export const _sAC = "shutdownAgentlessCollectors";
+export const _sB = "s3Bucket";
+export const _sC = "shutdownConnectors";
+export const _sD = "statusDetail";
+export const _sIF = "serverImportFailure";
+export const _sIS = "serverImportSuccess";
+export const _sM = "statusMessage";
+export const _sMC = "shutdownMeCollectors";
+export const _sMT = "serversMappedtoTags";
+export const _sMTA = "serversMappedToApplications";
+export const _sO = "sortOrder";
+export const _sSC = "schemaStorageConfig";
+export const _sSI = "sourceServerId";
+export const _sT = "startTime";
+export const _sTt = "stopTime";
+export const _se = "servers";
+export const _ser = "server";
+export const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.applicationdiscoveryservice";
+export const _t = "tags";
+export const _tA = "totalAgents";
+export const _tAC = "totalAgentlessCollectors";
+export const _tC = "totalConnectors";
+export const _tI = "taskId";
+export const _tL = "termLength";
+export const _tMC = "totalMeCollectors";
+export const _tOC = "timeOfCreation";
+export const _tP = "transportProtocol";
+export const _ta = "task";
+export const _tas = "tasks";
+export const _te = "tenancy";
+export const _uA = "unhealthyAgents";
+export const _uAC = "unhealthyAgentlessCollectors";
+export const _uACn = "unknownAgentlessCollectors";
+export const _uAn = "unknownAgents";
+export const _uC = "unhealthyConnectors";
+export const _uCn = "unknownConnectors";
+export const _uMC = "unhealthyMeCollectors";
+export const _uMCn = "unknownMeCollectors";
+export const _v = "version";
+export const _va = "value";
+export const _val = "values";
+export const _w = "wave";
+export const _wC = "warningCode";
+export const _wT = "warningText";
+export const _xN = "xmlName";
+export const n0 = "com.amazonaws.applicationdiscoveryservice";
+
+// smithy-typescript generated code
+import { TypeRegistry } from "@smithy/core/schema";
+import {
+  StaticErrorSchema,
+  StaticListSchema,
+  StaticMapSchema,
+  StaticOperationSchema,
+  StaticStructureSchema,
+} from "@smithy/types";
+
+import { ApplicationDiscoveryServiceServiceException as __ApplicationDiscoveryServiceServiceException } from "../models/ApplicationDiscoveryServiceServiceException";
+import {
+  AuthorizationErrorException as __AuthorizationErrorException,
+  ConflictErrorException as __ConflictErrorException,
+  HomeRegionNotSetException as __HomeRegionNotSetException,
+  InvalidParameterException as __InvalidParameterException,
+  InvalidParameterValueException as __InvalidParameterValueException,
+  LimitExceededException as __LimitExceededException,
+  OperationNotPermittedException as __OperationNotPermittedException,
+  ResourceInUseException as __ResourceInUseException,
+  ResourceNotFoundException as __ResourceNotFoundException,
+  ServerInternalErrorException as __ServerInternalErrorException,
+} from "../models/index";
+
+/* eslint no-var: 0 */
+
+export var AgentConfigurationStatus: StaticStructureSchema = [3, n0, _ACS, 0, [_aI, _oS, _d], [0, 2, 0]];
+export var AgentInfo: StaticStructureSchema = [
+  3,
+  n0,
+  _AI,
+  0,
+  [_aI, _hN, _aNIL, _cI, _v, _h, _lHPT, _cS, _aT, _rT],
+  [0, 0, [() => AgentNetworkInfoList, 0], 0, 0, 0, 0, 0, 0, 0],
+];
+export var AgentNetworkInfo: StaticStructureSchema = [3, n0, _ANI, 8, [_iA, _mA], [0, 0]];
+export var AssociateConfigurationItemsToApplicationRequest: StaticStructureSchema = [
+  3,
+  n0,
+  _ACITAR,
+  0,
+  [_aCI, _cIo],
+  [0, 64 | 0],
+];
+export var AssociateConfigurationItemsToApplicationResponse: StaticStructureSchema = [3, n0, _ACITARs, 0, [], []];
+export var AuthorizationErrorException: StaticErrorSchema = [
+  -3,
+  n0,
+  _AEE,
+  {
+    [_e]: _c,
+    [_hE]: 403,
+  },
+  [_m],
+  [0],
+];
+TypeRegistry.for(n0).registerError(AuthorizationErrorException, __AuthorizationErrorException);
+
+export var BatchDeleteAgentError: StaticStructureSchema = [3, n0, _BDAE, 0, [_aI, _eM, _eC], [0, 0, 0]];
+export var BatchDeleteAgentsRequest: StaticStructureSchema = [3, n0, _BDAR, 0, [_dA], [() => DeleteAgents]];
+export var BatchDeleteAgentsResponse: StaticStructureSchema = [3, n0, _BDARa, 0, [_er], [() => BatchDeleteAgentErrors]];
+export var BatchDeleteConfigurationTask: StaticStructureSchema = [
+  3,
+  n0,
+  _BDCT,
+  0,
+  [_tI, _s, _sT, _eT, _cT, _rC, _dC, _fC, _dW],
+  [0, 0, 4, 4, 0, 64 | 0, 64 | 0, () => FailedConfigurationList, () => DeletionWarningsList],
+];
+export var BatchDeleteImportDataError: StaticStructureSchema = [3, n0, _BDIDE, 0, [_iTI, _eC, _eD], [0, 0, 0]];
+export var BatchDeleteImportDataRequest: StaticStructureSchema = [3, n0, _BDIDR, 0, [_iTIm, _dH], [64 | 0, 2]];
+export var BatchDeleteImportDataResponse: StaticStructureSchema = [
+  3,
+  n0,
+  _BDIDRa,
+  0,
+  [_er],
+  [() => BatchDeleteImportDataErrorList],
+];
+export var ConfigurationTag: StaticStructureSchema = [3, n0, _CT, 0, [_cT, _cIon, _k, _va, _tOC], [0, 0, 0, 0, 4]];
+export var ConflictErrorException: StaticErrorSchema = [
+  -3,
+  n0,
+  _CEE,
+  {
+    [_e]: _c,
+    [_hE]: 409,
+  },
+  [_m],
+  [0],
+];
+TypeRegistry.for(n0).registerError(ConflictErrorException, __ConflictErrorException);
+
+export var ContinuousExportDescription: StaticStructureSchema = [
+  3,
+  n0,
+  _CED,
+  0,
+  [_eI, _s, _sD, _sB, _sT, _sTt, _dS, _sSC],
+  [0, 0, 0, 0, 4, 4, 0, 128 | 0],
+];
+export var CreateApplicationRequest: StaticStructureSchema = [3, n0, _CAR, 0, [_n, _d, _w], [0, 0, 0]];
+export var CreateApplicationResponse: StaticStructureSchema = [3, n0, _CARr, 0, [_cIon], [0]];
+export var CreateTagsRequest: StaticStructureSchema = [3, n0, _CTR, 0, [_cIo, _t], [64 | 0, [() => TagSet, 0]]];
+export var CreateTagsResponse: StaticStructureSchema = [3, n0, _CTRr, 0, [], []];
+export var CustomerAgentInfo: StaticStructureSchema = [
+  3,
+  n0,
+  _CAI,
+  0,
+  [_aA, _hA, _bLA, _sA, _uA, _tA, _uAn],
+  [1, 1, 1, 1, 1, 1, 1],
+];
+export var CustomerAgentlessCollectorInfo: StaticStructureSchema = [
+  3,
+  n0,
+  _CACI,
+  0,
+  [_aAC, _hAC, _dLAC, _sAC, _uAC, _tAC, _uACn],
+  [1, 1, 1, 1, 1, 1, 1],
+];
+export var CustomerConnectorInfo: StaticStructureSchema = [
+  3,
+  n0,
+  _CCI,
+  0,
+  [_aC, _hC, _bLC, _sC, _uC, _tC, _uCn],
+  [1, 1, 1, 1, 1, 1, 1],
+];
+export var CustomerMeCollectorInfo: StaticStructureSchema = [
+  3,
+  n0,
+  _CMCI,
+  0,
+  [_aMC, _hMC, _dLMC, _sMC, _uMC, _tMC, _uMCn],
+  [1, 1, 1, 1, 1, 1, 1],
+];
+export var DeleteAgent: StaticStructureSchema = [3, n0, _DA, 0, [_aI, _f], [0, 2]];
+export var DeleteApplicationsRequest: StaticStructureSchema = [3, n0, _DAR, 0, [_cIo], [64 | 0]];
+export var DeleteApplicationsResponse: StaticStructureSchema = [3, n0, _DARe, 0, [], []];
+export var DeleteTagsRequest: StaticStructureSchema = [3, n0, _DTR, 0, [_cIo, _t], [64 | 0, [() => TagSet, 0]]];
+export var DeleteTagsResponse: StaticStructureSchema = [3, n0, _DTRe, 0, [], []];
+export var DeletionWarning: StaticStructureSchema = [3, n0, _DW, 0, [_cIon, _wC, _wT], [0, 1, 0]];
+export var DescribeAgentsRequest: StaticStructureSchema = [
+  3,
+  n0,
+  _DARes,
+  0,
+  [_aIg, _fi, _mR, _nT],
+  [64 | 0, [() => Filters, 0], 1, 0],
+];
+export var DescribeAgentsResponse: StaticStructureSchema = [
+  3,
+  n0,
+  _DAResc,
+  0,
+  [_aIge, _nT],
+  [[() => AgentsInfo, 0], 0],
+];
+export var DescribeBatchDeleteConfigurationTaskRequest: StaticStructureSchema = [3, n0, _DBDCTR, 0, [_tI], [0]];
+export var DescribeBatchDeleteConfigurationTaskResponse: StaticStructureSchema = [
+  3,
+  n0,
+  _DBDCTRe,
+  0,
+  [_ta],
+  [() => BatchDeleteConfigurationTask],
+];
+export var DescribeConfigurationsRequest: StaticStructureSchema = [3, n0, _DCR, 0, [_cIo], [64 | 0]];
+export var DescribeConfigurationsResponse: StaticStructureSchema = [
+  3,
+  n0,
+  _DCRe,
+  0,
+  [_co],
+  [[1, n0, _DCA, 0, 128 | 0]],
+];
+export var DescribeContinuousExportsRequest: StaticStructureSchema = [
+  3,
+  n0,
+  _DCER,
+  0,
+  [_eIx, _mR, _nT],
+  [64 | 0, 1, 0],
+];
+export var DescribeContinuousExportsResponse: StaticStructureSchema = [
+  3,
+  n0,
+  _DCERe,
+  0,
+  [_de, _nT],
+  [() => ContinuousExportDescriptions, 0],
+];
+export var DescribeExportConfigurationsRequest: StaticStructureSchema = [
+  3,
+  n0,
+  _DECR,
+  0,
+  [_eIx, _mR, _nT],
+  [64 | 0, 1, 0],
+];
+export var DescribeExportConfigurationsResponse: StaticStructureSchema = [
+  3,
+  n0,
+  _DECRe,
+  0,
+  [_eIxp, _nT],
+  [() => ExportsInfo, 0],
+];
+export var DescribeExportTasksRequest: StaticStructureSchema = [
+  3,
+  n0,
+  _DETR,
+  0,
+  [_eIx, _fi, _mR, _nT],
+  [64 | 0, [() => ExportFilters, 0], 1, 0],
+];
+export var DescribeExportTasksResponse: StaticStructureSchema = [
+  3,
+  n0,
+  _DETRe,
+  0,
+  [_eIxp, _nT],
+  [() => ExportsInfo, 0],
+];
+export var DescribeImportTasksRequest: StaticStructureSchema = [
+  3,
+  n0,
+  _DITR,
+  0,
+  [_fi, _mR, _nT],
+  [() => DescribeImportTasksFilterList, 1, 0],
+];
+export var DescribeImportTasksResponse: StaticStructureSchema = [
+  3,
+  n0,
+  _DITRe,
+  0,
+  [_nT, _tas],
+  [0, () => ImportTaskList],
+];
+export var DescribeTagsRequest: StaticStructureSchema = [
+  3,
+  n0,
+  _DTRes,
+  0,
+  [_fi, _mR, _nT],
+  [[() => TagFilters, 0], 1, 0],
+];
+export var DescribeTagsResponse: StaticStructureSchema = [
+  3,
+  n0,
+  _DTResc,
+  0,
+  [_t, _nT],
+  [[() => ConfigurationTagSet, 0], 0],
+];
+export var DisassociateConfigurationItemsFromApplicationRequest: StaticStructureSchema = [
+  3,
+  n0,
+  _DCIFAR,
+  0,
+  [_aCI, _cIo],
+  [0, 64 | 0],
+];
+export var DisassociateConfigurationItemsFromApplicationResponse: StaticStructureSchema = [3, n0, _DCIFARi, 0, [], []];
+export var Ec2RecommendationsExportPreferences: StaticStructureSchema = [
+  3,
+  n0,
+  _EREP,
+  0,
+  [_en, _cPMB, _rPMB, _te, _eIT, _pR, _rIO],
+  [2, () => UsageMetricBasis, () => UsageMetricBasis, 0, 64 | 0, 0, () => ReservedInstanceOptions],
+];
+export var ExportConfigurationsResponse: StaticStructureSchema = [3, n0, _ECR, 0, [_eI], [0]];
+export var ExportFilter: StaticStructureSchema = [3, n0, _EF, 0, [_n, _val, _con], [0, [() => FilterValues, 0], 0]];
+export var ExportInfo: StaticStructureSchema = [
+  3,
+  n0,
+  _EI,
+  0,
+  [_eI, _eS, _sM, _cDU, _eRT, _iT, _rST, _rET],
+  [0, 0, 0, 0, 4, 2, 4, 4],
+];
+export var FailedConfiguration: StaticStructureSchema = [3, n0, _FC, 0, [_cIon, _eSC, _eM], [0, 1, 0]];
+export var Filter: StaticStructureSchema = [3, n0, _F, 0, [_n, _val, _con], [0, [() => FilterValues, 0], 0]];
+export var GetDiscoverySummaryRequest: StaticStructureSchema = [3, n0, _GDSR, 0, [], []];
+export var GetDiscoverySummaryResponse: StaticStructureSchema = [
+  3,
+  n0,
+  _GDSRe,
+  0,
+  [_se, _a, _sMTA, _sMT, _aS, _cSo, _mCS, _aCS],
+  [
+    1,
+    1,
+    1,
+    1,
+    () => CustomerAgentInfo,
+    () => CustomerConnectorInfo,
+    () => CustomerMeCollectorInfo,
+    () => CustomerAgentlessCollectorInfo,
+  ],
+];
+export var HomeRegionNotSetException: StaticErrorSchema = [
+  -3,
+  n0,
+  _HRNSE,
+  {
+    [_e]: _c,
+    [_hE]: 400,
+  },
+  [_m],
+  [0],
+];
+TypeRegistry.for(n0).registerError(HomeRegionNotSetException, __HomeRegionNotSetException);
+
+export var ImportTask: StaticStructureSchema = [
+  3,
+  n0,
+  _IT,
+  0,
+  [_iTI, _cRT, _n, _iU, _s, _iRT, _iCT, _iDT, _fCi, _sIS, _sIF, _aIS, _aIF, _eAFEZ],
+  [0, 0, 0, 0, 0, 4, 4, 4, 0, 1, 1, 1, 1, 0],
+];
+export var ImportTaskFilter: StaticStructureSchema = [3, n0, _ITF, 0, [_n, _val], [0, 64 | 0]];
+export var InvalidParameterException: StaticErrorSchema = [
+  -3,
+  n0,
+  _IPE,
+  {
+    [_e]: _c,
+    [_hE]: 400,
+  },
+  [_m],
+  [0],
+];
+TypeRegistry.for(n0).registerError(InvalidParameterException, __InvalidParameterException);
+
+export var InvalidParameterValueException: StaticErrorSchema = [
+  -3,
+  n0,
+  _IPVE,
+  {
+    [_e]: _c,
+    [_hE]: 400,
+  },
+  [_m],
+  [0],
+];
+TypeRegistry.for(n0).registerError(InvalidParameterValueException, __InvalidParameterValueException);
+
+export var LimitExceededException: StaticErrorSchema = [
+  -3,
+  n0,
+  _LEE,
+  {
+    [_e]: _c,
+    [_hE]: 400,
+  },
+  [_m],
+  [0],
+];
+TypeRegistry.for(n0).registerError(LimitExceededException, __LimitExceededException);
+
+export var ListConfigurationsRequest: StaticStructureSchema = [
+  3,
+  n0,
+  _LCR,
+  0,
+  [_cT, _fi, _mR, _nT, _oB],
+  [0, [() => Filters, 0], 1, 0, () => OrderByList],
+];
+export var ListConfigurationsResponse: StaticStructureSchema = [
+  3,
+  n0,
+  _LCRi,
+  0,
+  [_co, _nT],
+  [[1, n0, _C, 0, 128 | 0], 0],
+];
+export var ListServerNeighborsRequest: StaticStructureSchema = [
+  3,
+  n0,
+  _LSNR,
+  0,
+  [_cIon, _pIN, _nCI, _mR, _nT],
+  [0, 2, 64 | 0, 1, 0],
+];
+export var ListServerNeighborsResponse: StaticStructureSchema = [
+  3,
+  n0,
+  _LSNRi,
+  0,
+  [_ne, _nT, _kDC],
+  [() => NeighborDetailsList, 0, 1],
+];
+export var NeighborConnectionDetail: StaticStructureSchema = [
+  3,
+  n0,
+  _NCD,
+  0,
+  [_sSI, _dSI, _dP, _tP, _cC],
+  [0, 0, 1, 0, 1],
+];
+export var OperationNotPermittedException: StaticErrorSchema = [
+  -3,
+  n0,
+  _ONPE,
+  {
+    [_e]: _c,
+    [_hE]: 429,
+  },
+  [_m],
+  [0],
+];
+TypeRegistry.for(n0).registerError(OperationNotPermittedException, __OperationNotPermittedException);
+
+export var OrderByElement: StaticStructureSchema = [3, n0, _OBE, 0, [_fN, _sO], [0, 0]];
+export var ReservedInstanceOptions: StaticStructureSchema = [3, n0, _RIO, 0, [_pO, _oC, _tL], [0, 0, 0]];
+export var ResourceInUseException: StaticErrorSchema = [
+  -3,
+  n0,
+  _RIUE,
+  {
+    [_e]: _c,
+    [_hE]: 400,
+  },
+  [_m],
+  [0],
+];
+TypeRegistry.for(n0).registerError(ResourceInUseException, __ResourceInUseException);
+
+export var ResourceNotFoundException: StaticErrorSchema = [
+  -3,
+  n0,
+  _RNFE,
+  {
+    [_e]: _c,
+    [_hE]: 400,
+  },
+  [_m],
+  [0],
+];
+TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
+
+export var ServerInternalErrorException: StaticErrorSchema = [
+  -3,
+  n0,
+  _SIEE,
+  {
+    [_e]: _ser,
+    [_hE]: 500,
+  },
+  [_m],
+  [0],
+];
+TypeRegistry.for(n0).registerError(ServerInternalErrorException, __ServerInternalErrorException);
+
+export var StartBatchDeleteConfigurationTaskRequest: StaticStructureSchema = [
+  3,
+  n0,
+  _SBDCTR,
+  0,
+  [_cT, _cIo],
+  [0, 64 | 0],
+];
+export var StartBatchDeleteConfigurationTaskResponse: StaticStructureSchema = [3, n0, _SBDCTRt, 0, [_tI], [0]];
+export var StartContinuousExportRequest: StaticStructureSchema = [3, n0, _SCER, 0, [], []];
+export var StartContinuousExportResponse: StaticStructureSchema = [
+  3,
+  n0,
+  _SCERt,
+  0,
+  [_eI, _sB, _sT, _dS, _sSC],
+  [0, 0, 4, 0, 128 | 0],
+];
+export var StartDataCollectionByAgentIdsRequest: StaticStructureSchema = [3, n0, _SDCBAIR, 0, [_aIg], [64 | 0]];
+export var StartDataCollectionByAgentIdsResponse: StaticStructureSchema = [
+  3,
+  n0,
+  _SDCBAIRt,
+  0,
+  [_aCSg],
+  [() => AgentConfigurationStatusList],
+];
+export var StartExportTaskRequest: StaticStructureSchema = [
+  3,
+  n0,
+  _SETR,
+  0,
+  [_eDF, _fi, _sT, _eT, _p],
+  [64 | 0, [() => ExportFilters, 0], 4, 4, () => ExportPreferences],
+];
+export var StartExportTaskResponse: StaticStructureSchema = [3, n0, _SETRt, 0, [_eI], [0]];
+export var StartImportTaskRequest: StaticStructureSchema = [3, n0, _SITR, 0, [_cRT, _n, _iU], [[0, 4], 0, 0]];
+export var StartImportTaskResponse: StaticStructureSchema = [3, n0, _SITRt, 0, [_ta], [() => ImportTask]];
+export var StopContinuousExportRequest: StaticStructureSchema = [3, n0, _SCERto, 0, [_eI], [0]];
+export var StopContinuousExportResponse: StaticStructureSchema = [3, n0, _SCERtop, 0, [_sT, _sTt], [4, 4]];
+export var StopDataCollectionByAgentIdsRequest: StaticStructureSchema = [3, n0, _SDCBAIRto, 0, [_aIg], [64 | 0]];
+export var StopDataCollectionByAgentIdsResponse: StaticStructureSchema = [
+  3,
+  n0,
+  _SDCBAIRtop,
+  0,
+  [_aCSg],
+  [() => AgentConfigurationStatusList],
+];
+export var Tag: StaticStructureSchema = [3, n0, _T, 0, [_k, _va], [0, 0]];
+export var TagFilter: StaticStructureSchema = [3, n0, _TF, 0, [_n, _val], [0, [() => FilterValues, 0]]];
+export var UpdateApplicationRequest: StaticStructureSchema = [3, n0, _UAR, 0, [_cIon, _n, _d, _w], [0, 0, 0, 0]];
+export var UpdateApplicationResponse: StaticStructureSchema = [3, n0, _UARp, 0, [], []];
+export var UsageMetricBasis: StaticStructureSchema = [3, n0, _UMB, 0, [_n, _pA], [0, 1]];
+export var __Unit = "unit" as const;
+
+export var ApplicationDiscoveryServiceServiceException: StaticErrorSchema = [
+  -3,
+  _sm,
+  "ApplicationDiscoveryServiceServiceException",
+  0,
+  [],
+  [],
+];
+TypeRegistry.for(_sm).registerError(
+  ApplicationDiscoveryServiceServiceException,
+  __ApplicationDiscoveryServiceServiceException
+);
+
+export var AgentConfigurationStatusList: StaticListSchema = [1, n0, _ACSL, 0, () => AgentConfigurationStatus];
+export var AgentIds = 64 | 0;
+
+export var AgentNetworkInfoList: StaticListSchema = [1, n0, _ANIL, 0, [() => AgentNetworkInfo, 0]];
+export var AgentsInfo: StaticListSchema = [1, n0, _AIg, 0, [() => AgentInfo, 0]];
+export var ApplicationIdsList = 64 | 0;
+
+export var BatchDeleteAgentErrors: StaticListSchema = [1, n0, _BDAEa, 0, () => BatchDeleteAgentError];
+export var BatchDeleteImportDataErrorList: StaticListSchema = [1, n0, _BDIDEL, 0, () => BatchDeleteImportDataError];
+export var ConfigurationIdList = 64 | 0;
+
+export var Configurations: StaticListSchema = [1, n0, _C, 0, 128 | 0];
+export var ConfigurationTagSet: StaticListSchema = [
+  1,
+  n0,
+  _CTS,
+  0,
+  [
+    () => ConfigurationTag,
+    {
+      [_xN]: _i,
+    },
+  ],
+];
+export var ContinuousExportDescriptions: StaticListSchema = [1, n0, _CEDo, 0, () => ContinuousExportDescription];
+export var ContinuousExportIds = 64 | 0;
+
+export var DeleteAgents: StaticListSchema = [1, n0, _DAe, 0, () => DeleteAgent];
+export var DeletionWarningsList: StaticListSchema = [1, n0, _DWL, 0, () => DeletionWarning];
+export var DescribeConfigurationsAttributes: StaticListSchema = [1, n0, _DCA, 0, 128 | 0];
+export var DescribeImportTasksFilterList: StaticListSchema = [1, n0, _DITFL, 0, () => ImportTaskFilter];
+export var ExcludedInstanceTypes = 64 | 0;
+
+export var ExportDataFormats = 64 | 0;
+
+export var ExportFilters: StaticListSchema = [1, n0, _EFx, 0, [() => ExportFilter, 0]];
+export var ExportIds = 64 | 0;
+
+export var ExportsInfo: StaticListSchema = [1, n0, _EIx, 0, () => ExportInfo];
+export var FailedConfigurationList: StaticListSchema = [1, n0, _FCL, 0, () => FailedConfiguration];
+export var Filters: StaticListSchema = [1, n0, _Fi, 0, [() => Filter, 0]];
+export var FilterValues: StaticListSchema = [
+  1,
+  n0,
+  _FV,
+  0,
+  [
+    0,
+    {
+      [_xN]: _i,
+    },
+  ],
+];
+export var ImportTaskFilterValueList = 64 | 0;
+
+export var ImportTaskList: StaticListSchema = [1, n0, _ITL, 0, () => ImportTask];
+export var NeighborDetailsList: StaticListSchema = [1, n0, _NDL, 0, () => NeighborConnectionDetail];
+export var OrderByList: StaticListSchema = [1, n0, _OBL, 0, () => OrderByElement];
+export var TagFilters: StaticListSchema = [1, n0, _TFa, 0, [() => TagFilter, 0]];
+export var TagSet: StaticListSchema = [
+  1,
+  n0,
+  _TS,
+  0,
+  [
+    () => Tag,
+    {
+      [_xN]: _i,
+    },
+  ],
+];
+export var ToDeleteIdentifierList = 64 | 0;
+
+export var Configuration = 128 | 0;
+
+export var DescribeConfigurationsAttribute = 128 | 0;
+
+export var SchemaStorageConfig = 128 | 0;
+
+export var ExportPreferences: StaticStructureSchema = [
+  3,
+  n0,
+  _EP,
+  0,
+  [_eRP],
+  [() => Ec2RecommendationsExportPreferences],
+];
+export var AssociateConfigurationItemsToApplication: StaticOperationSchema = [
+  9,
+  n0,
+  _ACITA,
+  0,
+  () => AssociateConfigurationItemsToApplicationRequest,
+  () => AssociateConfigurationItemsToApplicationResponse,
+];
+export var BatchDeleteAgents: StaticOperationSchema = [
+  9,
+  n0,
+  _BDA,
+  0,
+  () => BatchDeleteAgentsRequest,
+  () => BatchDeleteAgentsResponse,
+];
+export var BatchDeleteImportData: StaticOperationSchema = [
+  9,
+  n0,
+  _BDID,
+  0,
+  () => BatchDeleteImportDataRequest,
+  () => BatchDeleteImportDataResponse,
+];
+export var CreateApplication: StaticOperationSchema = [
+  9,
+  n0,
+  _CA,
+  0,
+  () => CreateApplicationRequest,
+  () => CreateApplicationResponse,
+];
+export var CreateTags: StaticOperationSchema = [9, n0, _CTr, 0, () => CreateTagsRequest, () => CreateTagsResponse];
+export var DeleteApplications: StaticOperationSchema = [
+  9,
+  n0,
+  _DAel,
+  0,
+  () => DeleteApplicationsRequest,
+  () => DeleteApplicationsResponse,
+];
+export var DeleteTags: StaticOperationSchema = [9, n0, _DT, 0, () => DeleteTagsRequest, () => DeleteTagsResponse];
+export var DescribeAgents: StaticOperationSchema = [
+  9,
+  n0,
+  _DAes,
+  0,
+  () => DescribeAgentsRequest,
+  () => DescribeAgentsResponse,
+];
+export var DescribeBatchDeleteConfigurationTask: StaticOperationSchema = [
+  9,
+  n0,
+  _DBDCT,
+  0,
+  () => DescribeBatchDeleteConfigurationTaskRequest,
+  () => DescribeBatchDeleteConfigurationTaskResponse,
+];
+export var DescribeConfigurations: StaticOperationSchema = [
+  9,
+  n0,
+  _DC,
+  0,
+  () => DescribeConfigurationsRequest,
+  () => DescribeConfigurationsResponse,
+];
+export var DescribeContinuousExports: StaticOperationSchema = [
+  9,
+  n0,
+  _DCE,
+  0,
+  () => DescribeContinuousExportsRequest,
+  () => DescribeContinuousExportsResponse,
+];
+export var DescribeExportConfigurations: StaticOperationSchema = [
+  9,
+  n0,
+  _DEC,
+  0,
+  () => DescribeExportConfigurationsRequest,
+  () => DescribeExportConfigurationsResponse,
+];
+export var DescribeExportTasks: StaticOperationSchema = [
+  9,
+  n0,
+  _DET,
+  0,
+  () => DescribeExportTasksRequest,
+  () => DescribeExportTasksResponse,
+];
+export var DescribeImportTasks: StaticOperationSchema = [
+  9,
+  n0,
+  _DIT,
+  0,
+  () => DescribeImportTasksRequest,
+  () => DescribeImportTasksResponse,
+];
+export var DescribeTags: StaticOperationSchema = [
+  9,
+  n0,
+  _DTe,
+  0,
+  () => DescribeTagsRequest,
+  () => DescribeTagsResponse,
+];
+export var DisassociateConfigurationItemsFromApplication: StaticOperationSchema = [
+  9,
+  n0,
+  _DCIFA,
+  0,
+  () => DisassociateConfigurationItemsFromApplicationRequest,
+  () => DisassociateConfigurationItemsFromApplicationResponse,
+];
+export var ExportConfigurations: StaticOperationSchema = [
+  9,
+  n0,
+  _EC,
+  0,
+  () => __Unit,
+  () => ExportConfigurationsResponse,
+];
+export var GetDiscoverySummary: StaticOperationSchema = [
+  9,
+  n0,
+  _GDS,
+  0,
+  () => GetDiscoverySummaryRequest,
+  () => GetDiscoverySummaryResponse,
+];
+export var ListConfigurations: StaticOperationSchema = [
+  9,
+  n0,
+  _LC,
+  0,
+  () => ListConfigurationsRequest,
+  () => ListConfigurationsResponse,
+];
+export var ListServerNeighbors: StaticOperationSchema = [
+  9,
+  n0,
+  _LSN,
+  0,
+  () => ListServerNeighborsRequest,
+  () => ListServerNeighborsResponse,
+];
+export var StartBatchDeleteConfigurationTask: StaticOperationSchema = [
+  9,
+  n0,
+  _SBDCT,
+  0,
+  () => StartBatchDeleteConfigurationTaskRequest,
+  () => StartBatchDeleteConfigurationTaskResponse,
+];
+export var StartContinuousExport: StaticOperationSchema = [
+  9,
+  n0,
+  _SCE,
+  0,
+  () => StartContinuousExportRequest,
+  () => StartContinuousExportResponse,
+];
+export var StartDataCollectionByAgentIds: StaticOperationSchema = [
+  9,
+  n0,
+  _SDCBAI,
+  0,
+  () => StartDataCollectionByAgentIdsRequest,
+  () => StartDataCollectionByAgentIdsResponse,
+];
+export var StartExportTask: StaticOperationSchema = [
+  9,
+  n0,
+  _SET,
+  0,
+  () => StartExportTaskRequest,
+  () => StartExportTaskResponse,
+];
+export var StartImportTask: StaticOperationSchema = [
+  9,
+  n0,
+  _SIT,
+  0,
+  () => StartImportTaskRequest,
+  () => StartImportTaskResponse,
+];
+export var StopContinuousExport: StaticOperationSchema = [
+  9,
+  n0,
+  _SCEt,
+  0,
+  () => StopContinuousExportRequest,
+  () => StopContinuousExportResponse,
+];
+export var StopDataCollectionByAgentIds: StaticOperationSchema = [
+  9,
+  n0,
+  _SDCBAIt,
+  0,
+  () => StopDataCollectionByAgentIdsRequest,
+  () => StopDataCollectionByAgentIdsResponse,
+];
+export var UpdateApplication: StaticOperationSchema = [
+  9,
+  n0,
+  _UA,
+  0,
+  () => UpdateApplicationRequest,
+  () => UpdateApplicationResponse,
+];

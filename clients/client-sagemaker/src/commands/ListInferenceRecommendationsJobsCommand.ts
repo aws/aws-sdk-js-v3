@@ -1,16 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { ListInferenceRecommendationsJobsRequest, ListInferenceRecommendationsJobsResponse } from "../models/models_4";
-import {
-  de_ListInferenceRecommendationsJobsCommand,
-  se_ListInferenceRecommendationsJobsCommand,
-} from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
+import { ListInferenceRecommendationsJobs } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -103,16 +99,11 @@ export class ListInferenceRecommendationsJobsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("SageMaker", "ListInferenceRecommendationsJobs", {})
   .n("SageMakerClient", "ListInferenceRecommendationsJobsCommand")
-  .f(void 0, void 0)
-  .ser(se_ListInferenceRecommendationsJobsCommand)
-  .de(de_ListInferenceRecommendationsJobsCommand)
+  .sc(ListInferenceRecommendationsJobs)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -11,7 +10,7 @@ import {
 } from "../CognitoIdentityProviderClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GetSigningCertificateRequest, GetSigningCertificateResponse } from "../models/models_0";
-import { de_GetSigningCertificateCommand, se_GetSigningCertificateCommand } from "../protocols/Aws_json1_1";
+import { GetSigningCertificate } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -110,16 +109,11 @@ export class GetSigningCertificateCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CognitoIdentityProviderClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSCognitoIdentityProviderService", "GetSigningCertificate", {})
   .n("CognitoIdentityProviderClient", "GetSigningCertificateCommand")
-  .f(void 0, void 0)
-  .ser(se_GetSigningCertificateCommand)
-  .de(de_GetSigningCertificateCommand)
+  .sc(GetSigningCertificate)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

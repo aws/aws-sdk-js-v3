@@ -1,17 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  CreateDataDeletionJobRequest,
-  CreateDataDeletionJobRequestFilterSensitiveLog,
-  CreateDataDeletionJobResponse,
-} from "../models/models_0";
+import { CreateDataDeletionJobRequest, CreateDataDeletionJobResponse } from "../models/models_0";
 import { PersonalizeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PersonalizeClient";
-import { de_CreateDataDeletionJobCommand, se_CreateDataDeletionJobCommand } from "../protocols/Aws_json1_1";
+import { CreateDataDeletionJob } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -153,16 +148,11 @@ export class CreateDataDeletionJobCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: PersonalizeClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonPersonalize", "CreateDataDeletionJob", {})
   .n("PersonalizeClient", "CreateDataDeletionJobCommand")
-  .f(CreateDataDeletionJobRequestFilterSensitiveLog, void 0)
-  .ser(se_CreateDataDeletionJobCommand)
-  .de(de_CreateDataDeletionJobCommand)
+  .sc(CreateDataDeletionJob)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

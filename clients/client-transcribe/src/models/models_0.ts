@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@smithy/smithy-client";
+import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
 import { TranscribeServiceException as __BaseException } from "./TranscribeServiceException";
 
@@ -6088,29 +6088,3 @@ export interface UpdateVocabularyFilterResponse {
    */
   LastModifiedTime?: Date | undefined;
 }
-
-/**
- * @internal
- */
-export const MedicalScribePatientContextFilterSensitiveLog = (obj: MedicalScribePatientContext): any => ({
-  ...obj,
-  ...(obj.Pronouns && { Pronouns: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const MedicalScribeContextFilterSensitiveLog = (obj: MedicalScribeContext): any => ({
-  ...obj,
-  ...(obj.PatientContext && { PatientContext: MedicalScribePatientContextFilterSensitiveLog(obj.PatientContext) }),
-});
-
-/**
- * @internal
- */
-export const StartMedicalScribeJobRequestFilterSensitiveLog = (obj: StartMedicalScribeJobRequest): any => ({
-  ...obj,
-  ...(obj.MedicalScribeContext && {
-    MedicalScribeContext: MedicalScribeContextFilterSensitiveLog(obj.MedicalScribeContext),
-  }),
-});

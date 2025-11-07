@@ -1,12 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { ListVolumesInput, ListVolumesOutput } from "../models/models_0";
-import { de_ListVolumesCommand, se_ListVolumesCommand } from "../protocols/Aws_json1_1";
+import { ListVolumes } from "../schemas/schemas_0";
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
 /**
@@ -136,16 +135,11 @@ export class ListVolumesCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: StorageGatewayClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("StorageGateway_20130630", "ListVolumes", {})
   .n("StorageGatewayClient", "ListVolumesCommand")
-  .f(void 0, void 0)
-  .ser(se_ListVolumesCommand)
-  .de(de_ListVolumesCommand)
+  .sc(ListVolumes)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

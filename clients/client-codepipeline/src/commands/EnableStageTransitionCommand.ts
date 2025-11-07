@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CodePipelineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodePipelineClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { EnableStageTransitionInput } from "../models/models_0";
-import { de_EnableStageTransitionCommand, se_EnableStageTransitionCommand } from "../protocols/Aws_json1_1";
+import { EnableStageTransition } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -79,16 +78,11 @@ export class EnableStageTransitionCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CodePipelineClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("CodePipeline_20150709", "EnableStageTransition", {})
   .n("CodePipelineClient", "EnableStageTransitionCommand")
-  .f(void 0, void 0)
-  .ser(se_EnableStageTransitionCommand)
-  .de(de_EnableStageTransitionCommand)
+  .sc(EnableStageTransition)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

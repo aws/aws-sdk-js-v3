@@ -1,16 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DeletePendingAggregationRequestRequest } from "../models/models_0";
-import {
-  de_DeletePendingAggregationRequestCommand,
-  se_DeletePendingAggregationRequestCommand,
-} from "../protocols/Aws_json1_1";
+import { DeletePendingAggregationRequest } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -77,16 +73,11 @@ export class DeletePendingAggregationRequestCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ConfigServiceClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("StarlingDoveService", "DeletePendingAggregationRequest", {})
   .n("ConfigServiceClient", "DeletePendingAggregationRequestCommand")
-  .f(void 0, void 0)
-  .ser(se_DeletePendingAggregationRequestCommand)
-  .de(de_DeletePendingAggregationRequestCommand)
+  .sc(DeletePendingAggregationRequest)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

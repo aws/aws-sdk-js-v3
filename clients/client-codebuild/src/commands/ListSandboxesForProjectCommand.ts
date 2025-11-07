@@ -1,17 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CodeBuildClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeBuildClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  ListSandboxesForProjectInput,
-  ListSandboxesForProjectInputFilterSensitiveLog,
-  ListSandboxesForProjectOutput,
-} from "../models/models_0";
-import { de_ListSandboxesForProjectCommand, se_ListSandboxesForProjectCommand } from "../protocols/Aws_json1_1";
+import { ListSandboxesForProjectInput, ListSandboxesForProjectOutput } from "../models/models_0";
+import { ListSandboxesForProject } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -86,16 +81,11 @@ export class ListSandboxesForProjectCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CodeBuildClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("CodeBuild_20161006", "ListSandboxesForProject", {})
   .n("CodeBuildClient", "ListSandboxesForProjectCommand")
-  .f(ListSandboxesForProjectInputFilterSensitiveLog, void 0)
-  .ser(se_ListSandboxesForProjectCommand)
-  .de(de_ListSandboxesForProjectCommand)
+  .sc(ListSandboxesForProject)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

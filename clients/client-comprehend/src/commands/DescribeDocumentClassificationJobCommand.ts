@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -10,10 +9,7 @@ import {
   DescribeDocumentClassificationJobRequest,
   DescribeDocumentClassificationJobResponse,
 } from "../models/models_0";
-import {
-  de_DescribeDocumentClassificationJobCommand,
-  se_DescribeDocumentClassificationJobCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeDocumentClassificationJob } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -126,16 +122,11 @@ export class DescribeDocumentClassificationJobCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ComprehendClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("Comprehend_20171127", "DescribeDocumentClassificationJob", {})
   .n("ComprehendClient", "DescribeDocumentClassificationJobCommand")
-  .f(void 0, void 0)
-  .ser(se_DescribeDocumentClassificationJobCommand)
-  .de(de_DescribeDocumentClassificationJobCommand)
+  .sc(DescribeDocumentClassificationJob)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

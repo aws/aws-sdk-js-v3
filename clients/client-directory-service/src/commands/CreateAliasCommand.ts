@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DirectoryServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectoryServiceClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { CreateAliasRequest, CreateAliasResult } from "../models/models_0";
-import { de_CreateAliasCommand, se_CreateAliasCommand } from "../protocols/Aws_json1_1";
+import { CreateAlias } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -109,16 +108,11 @@ export class CreateAliasCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DirectoryServiceClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("DirectoryService_20150416", "CreateAlias", {})
   .n("DirectoryServiceClient", "CreateAliasCommand")
-  .f(void 0, void 0)
-  .ser(se_CreateAliasCommand)
-  .de(de_CreateAliasCommand)
+  .sc(CreateAlias)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

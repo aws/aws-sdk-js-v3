@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -14,10 +13,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../PinpointSMSVoiceV2Client";
-import {
-  de_DescribeRegistrationFieldDefinitionsCommand,
-  se_DescribeRegistrationFieldDefinitionsCommand,
-} from "../protocols/Aws_json1_0";
+import { DescribeRegistrationFieldDefinitions } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -137,16 +133,11 @@ export class DescribeRegistrationFieldDefinitionsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: PinpointSMSVoiceV2ClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("PinpointSMSVoiceV2", "DescribeRegistrationFieldDefinitions", {})
   .n("PinpointSMSVoiceV2Client", "DescribeRegistrationFieldDefinitionsCommand")
-  .f(void 0, void 0)
-  .ser(se_DescribeRegistrationFieldDefinitionsCommand)
-  .de(de_DescribeRegistrationFieldDefinitionsCommand)
+  .sc(DescribeRegistrationFieldDefinitions)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

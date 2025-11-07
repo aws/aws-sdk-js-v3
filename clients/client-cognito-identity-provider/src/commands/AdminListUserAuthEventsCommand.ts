@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -10,12 +9,8 @@ import {
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  AdminListUserAuthEventsRequest,
-  AdminListUserAuthEventsRequestFilterSensitiveLog,
-  AdminListUserAuthEventsResponse,
-} from "../models/models_0";
-import { de_AdminListUserAuthEventsCommand, se_AdminListUserAuthEventsCommand } from "../protocols/Aws_json1_1";
+import { AdminListUserAuthEventsRequest, AdminListUserAuthEventsResponse } from "../models/models_0";
+import { AdminListUserAuthEvents } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -157,16 +152,11 @@ export class AdminListUserAuthEventsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CognitoIdentityProviderClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSCognitoIdentityProviderService", "AdminListUserAuthEvents", {})
   .n("CognitoIdentityProviderClient", "AdminListUserAuthEventsCommand")
-  .f(AdminListUserAuthEventsRequestFilterSensitiveLog, void 0)
-  .ser(se_AdminListUserAuthEventsCommand)
-  .de(de_AdminListUserAuthEventsCommand)
+  .sc(AdminListUserAuthEvents)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

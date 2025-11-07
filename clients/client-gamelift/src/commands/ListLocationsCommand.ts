@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
 import { ListLocationsInput, ListLocationsOutput } from "../models/models_1";
-import { de_ListLocationsCommand, se_ListLocationsCommand } from "../protocols/Aws_json1_1";
+import { ListLocations } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -111,16 +110,11 @@ export class ListLocationsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GameLiftClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("GameLift", "ListLocations", {})
   .n("GameLiftClient", "ListLocationsCommand")
-  .f(void 0, void 0)
-  .ser(se_ListLocationsCommand)
-  .de(de_ListLocationsCommand)
+  .sc(ListLocations)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

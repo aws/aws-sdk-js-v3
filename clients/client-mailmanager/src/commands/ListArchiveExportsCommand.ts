@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { MailManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MailManagerClient";
 import { ListArchiveExportsRequest, ListArchiveExportsResponse } from "../models/models_0";
-import { de_ListArchiveExportsCommand, se_ListArchiveExportsCommand } from "../protocols/Aws_json1_0";
+import { ListArchiveExports } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -95,16 +94,11 @@ export class ListArchiveExportsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MailManagerClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("MailManagerSvc", "ListArchiveExports", {})
   .n("MailManagerClient", "ListArchiveExportsCommand")
-  .f(void 0, void 0)
-  .ser(se_ListArchiveExportsCommand)
-  .de(de_ListArchiveExportsCommand)
+  .sc(ListArchiveExports)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

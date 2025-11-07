@@ -1,17 +1,16 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GetComplianceSummaryInput, GetComplianceSummaryOutput } from "../models/models_0";
-import { de_GetComplianceSummaryCommand, se_GetComplianceSummaryCommand } from "../protocols/Aws_json1_1";
 import {
   ResourceGroupsTaggingAPIClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ResourceGroupsTaggingAPIClient";
+import { GetComplianceSummary } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -164,16 +163,11 @@ export class GetComplianceSummaryCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ResourceGroupsTaggingAPIClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("ResourceGroupsTaggingAPI_20170126", "GetComplianceSummary", {})
   .n("ResourceGroupsTaggingAPIClient", "GetComplianceSummaryCommand")
-  .f(void 0, void 0)
-  .ser(se_GetComplianceSummaryCommand)
-  .de(de_GetComplianceSummaryCommand)
+  .sc(GetComplianceSummary)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

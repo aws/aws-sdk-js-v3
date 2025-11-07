@@ -1,17 +1,16 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { ListUsageLimitsRequest, ListUsageLimitsResponse } from "../models/models_0";
-import { de_ListUsageLimitsCommand, se_ListUsageLimitsCommand } from "../protocols/Aws_json1_1";
 import {
   RedshiftServerlessClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../RedshiftServerlessClient";
+import { ListUsageLimits } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -103,16 +102,11 @@ export class ListUsageLimitsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RedshiftServerlessClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("RedshiftServerless", "ListUsageLimits", {})
   .n("RedshiftServerlessClient", "ListUsageLimitsCommand")
-  .f(void 0, void 0)
-  .ser(se_ListUsageLimitsCommand)
-  .de(de_ListUsageLimitsCommand)
+  .sc(ListUsageLimits)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

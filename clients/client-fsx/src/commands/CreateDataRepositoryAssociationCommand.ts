@@ -1,16 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { FSxClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FSxClient";
 import { CreateDataRepositoryAssociationRequest, CreateDataRepositoryAssociationResponse } from "../models/models_0";
-import {
-  de_CreateDataRepositoryAssociationCommand,
-  se_CreateDataRepositoryAssociationCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateDataRepositoryAssociation } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -183,16 +179,11 @@ export class CreateDataRepositoryAssociationCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: FSxClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSSimbaAPIService_v20180301", "CreateDataRepositoryAssociation", {})
   .n("FSxClient", "CreateDataRepositoryAssociationCommand")
-  .f(void 0, void 0)
-  .ser(se_CreateDataRepositoryAssociationCommand)
-  .de(de_CreateDataRepositoryAssociationCommand)
+  .sc(CreateDataRepositoryAssociation)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,17 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
-import {
-  UpdateFleetPortSettingsInput,
-  UpdateFleetPortSettingsInputFilterSensitiveLog,
-  UpdateFleetPortSettingsOutput,
-} from "../models/models_1";
-import { de_UpdateFleetPortSettingsCommand, se_UpdateFleetPortSettingsCommand } from "../protocols/Aws_json1_1";
+import { UpdateFleetPortSettingsInput, UpdateFleetPortSettingsOutput } from "../models/models_1";
+import { UpdateFleetPortSettings } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -139,16 +134,11 @@ export class UpdateFleetPortSettingsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GameLiftClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("GameLift", "UpdateFleetPortSettings", {})
   .n("GameLiftClient", "UpdateFleetPortSettingsCommand")
-  .f(UpdateFleetPortSettingsInputFilterSensitiveLog, void 0)
-  .ser(se_UpdateFleetPortSettingsCommand)
-  .de(de_UpdateFleetPortSettingsCommand)
+  .sc(UpdateFleetPortSettings)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

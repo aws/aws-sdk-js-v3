@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@smithy/smithy-client";
+import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
 import { IoTSecureTunnelingServiceException as __BaseException } from "./IoTSecureTunnelingServiceException";
 
@@ -536,21 +536,3 @@ export interface UntagResourceRequest {
  * @public
  */
 export interface UntagResourceResponse {}
-
-/**
- * @internal
- */
-export const OpenTunnelResponseFilterSensitiveLog = (obj: OpenTunnelResponse): any => ({
-  ...obj,
-  ...(obj.sourceAccessToken && { sourceAccessToken: SENSITIVE_STRING }),
-  ...(obj.destinationAccessToken && { destinationAccessToken: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const RotateTunnelAccessTokenResponseFilterSensitiveLog = (obj: RotateTunnelAccessTokenResponse): any => ({
-  ...obj,
-  ...(obj.sourceAccessToken && { sourceAccessToken: SENSITIVE_STRING }),
-  ...(obj.destinationAccessToken && { destinationAccessToken: SENSITIVE_STRING }),
-});

@@ -1,5 +1,6 @@
 // smithy-typescript generated code
 import { AwsSdkSigV4Signer } from "@aws-sdk/core";
+import { AwsJson1_1Protocol } from "@aws-sdk/core/protocols";
 import { NoOpLogger } from "@smithy/smithy-client";
 import { IdentityProviderConfig } from "@smithy/types";
 import { parseUrl } from "@smithy/url-parser";
@@ -30,6 +31,13 @@ export const getRuntimeConfig = (config: ApplicationDiscoveryServiceClientConfig
       },
     ],
     logger: config?.logger ?? new NoOpLogger(),
+    protocol:
+      config?.protocol ??
+      new AwsJson1_1Protocol({
+        defaultNamespace: "com.amazonaws.applicationdiscoveryservice",
+        serviceTarget: "AWSPoseidonService_V2015_11_01",
+        awsQueryCompatible: false,
+      }),
     serviceId: config?.serviceId ?? "Application Discovery Service",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

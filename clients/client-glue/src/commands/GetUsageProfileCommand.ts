@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
 import { GetUsageProfileRequest, GetUsageProfileResponse } from "../models/models_2";
-import { de_GetUsageProfileCommand, se_GetUsageProfileCommand } from "../protocols/Aws_json1_1";
+import { GetUsageProfile } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -110,16 +109,11 @@ export class GetUsageProfileCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GlueClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSGlue", "GetUsageProfile", {})
   .n("GlueClient", "GetUsageProfileCommand")
-  .f(void 0, void 0)
-  .ser(se_GetUsageProfileCommand)
-  .de(de_GetUsageProfileCommand)
+  .sc(GetUsageProfile)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

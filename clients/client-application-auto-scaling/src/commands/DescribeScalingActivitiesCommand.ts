@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -11,7 +10,7 @@ import {
 } from "../ApplicationAutoScalingClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DescribeScalingActivitiesRequest, DescribeScalingActivitiesResponse } from "../models/models_0";
-import { de_DescribeScalingActivitiesCommand, se_DescribeScalingActivitiesCommand } from "../protocols/Aws_json1_1";
+import { DescribeScalingActivities } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -150,16 +149,11 @@ export class DescribeScalingActivitiesCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ApplicationAutoScalingClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AnyScaleFrontendService", "DescribeScalingActivities", {})
   .n("ApplicationAutoScalingClient", "DescribeScalingActivitiesCommand")
-  .f(void 0, void 0)
-  .ser(se_DescribeScalingActivitiesCommand)
-  .de(de_DescribeScalingActivitiesCommand)
+  .sc(DescribeScalingActivities)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,16 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  SendTaskFailureInput,
-  SendTaskFailureInputFilterSensitiveLog,
-  SendTaskFailureOutput,
-} from "../models/models_0";
-import { de_SendTaskFailureCommand, se_SendTaskFailureCommand } from "../protocols/Aws_json1_0";
+import { SendTaskFailureInput, SendTaskFailureOutput } from "../models/models_0";
+import { SendTaskFailure } from "../schemas/schemas_0";
 import { ServiceInputTypes, ServiceOutputTypes, SFNClientResolvedConfig } from "../SFNClient";
 
 /**
@@ -95,16 +90,11 @@ export class SendTaskFailureCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SFNClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSStepFunctions", "SendTaskFailure", {})
   .n("SFNClient", "SendTaskFailureCommand")
-  .f(SendTaskFailureInputFilterSensitiveLog, void 0)
-  .ser(se_SendTaskFailureCommand)
-  .de(de_SendTaskFailureCommand)
+  .sc(SendTaskFailure)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

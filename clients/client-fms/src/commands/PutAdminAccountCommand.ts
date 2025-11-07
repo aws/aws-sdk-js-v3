@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { FMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FMSClient";
 import { PutAdminAccountRequest } from "../models/models_0";
-import { de_PutAdminAccountCommand, se_PutAdminAccountCommand } from "../protocols/Aws_json1_1";
+import { PutAdminAccount } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -117,16 +116,11 @@ export class PutAdminAccountCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: FMSClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSFMS_20180101", "PutAdminAccount", {})
   .n("FMSClient", "PutAdminAccountCommand")
-  .f(void 0, void 0)
-  .ser(se_PutAdminAccountCommand)
-  .de(de_PutAdminAccountCommand)
+  .sc(PutAdminAccount)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

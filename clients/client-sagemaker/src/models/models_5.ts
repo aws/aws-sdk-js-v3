@@ -1,6 +1,4 @@
 // smithy-typescript generated code
-import { SENSITIVE_STRING } from "@smithy/smithy-client";
-
 import {
   ActionStatus,
   ActivationState,
@@ -89,7 +87,6 @@ import {
   ModelLifeCycle,
   ModelMetrics,
   ModelPackageModelCard,
-  ModelPackageModelCardFilterSensitiveLog,
   ModelPackageSecurityConfig,
   ModelPackageValidationSpecification,
   MonitoringScheduleConfig,
@@ -99,7 +96,6 @@ import {
   NotebookInstanceLifecycleHook,
   NotificationConfiguration,
   OidcConfig,
-  OidcConfigFilterSensitiveLog,
   ParallelismConfiguration,
   PartnerAppConfig,
   PartnerAppMaintenanceConfig,
@@ -5970,62 +5966,3 @@ export interface SearchRequest {
    */
   VisibilityConditions?: VisibilityConditions[] | undefined;
 }
-
-/**
- * @internal
- */
-export const ModelCardFilterSensitiveLog = (obj: ModelCard): any => ({
-  ...obj,
-  ...(obj.Content && { Content: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const ModelPackageFilterSensitiveLog = (obj: ModelPackage): any => ({
-  ...obj,
-  ...(obj.ModelCard && { ModelCard: ModelPackageModelCardFilterSensitiveLog(obj.ModelCard) }),
-});
-
-/**
- * @internal
- */
-export const SearchRecordFilterSensitiveLog = (obj: SearchRecord): any => ({
-  ...obj,
-  ...(obj.TrialComponent && { TrialComponent: obj.TrialComponent }),
-  ...(obj.ModelPackage && { ModelPackage: ModelPackageFilterSensitiveLog(obj.ModelPackage) }),
-  ...(obj.FeatureGroup && { FeatureGroup: obj.FeatureGroup }),
-  ...(obj.ModelCard && { ModelCard: ModelCardFilterSensitiveLog(obj.ModelCard) }),
-});
-
-/**
- * @internal
- */
-export const SearchResponseFilterSensitiveLog = (obj: SearchResponse): any => ({
-  ...obj,
-  ...(obj.Results && { Results: obj.Results.map((item) => SearchRecordFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const UpdateModelCardRequestFilterSensitiveLog = (obj: UpdateModelCardRequest): any => ({
-  ...obj,
-  ...(obj.Content && { Content: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const UpdateModelPackageInputFilterSensitiveLog = (obj: UpdateModelPackageInput): any => ({
-  ...obj,
-  ...(obj.ModelCard && { ModelCard: ModelPackageModelCardFilterSensitiveLog(obj.ModelCard) }),
-});
-
-/**
- * @internal
- */
-export const UpdateWorkforceRequestFilterSensitiveLog = (obj: UpdateWorkforceRequest): any => ({
-  ...obj,
-  ...(obj.OidcConfig && { OidcConfig: OidcConfigFilterSensitiveLog(obj.OidcConfig) }),
-});

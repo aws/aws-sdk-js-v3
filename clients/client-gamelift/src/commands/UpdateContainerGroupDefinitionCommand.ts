@@ -1,21 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
-import {
-  UpdateContainerGroupDefinitionInput,
-  UpdateContainerGroupDefinitionInputFilterSensitiveLog,
-  UpdateContainerGroupDefinitionOutput,
-  UpdateContainerGroupDefinitionOutputFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  de_UpdateContainerGroupDefinitionCommand,
-  se_UpdateContainerGroupDefinitionCommand,
-} from "../protocols/Aws_json1_1";
+import { UpdateContainerGroupDefinitionInput, UpdateContainerGroupDefinitionOutput } from "../models/models_1";
+import { UpdateContainerGroupDefinition } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -321,16 +312,11 @@ export class UpdateContainerGroupDefinitionCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GameLiftClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("GameLift", "UpdateContainerGroupDefinition", {})
   .n("GameLiftClient", "UpdateContainerGroupDefinitionCommand")
-  .f(UpdateContainerGroupDefinitionInputFilterSensitiveLog, UpdateContainerGroupDefinitionOutputFilterSensitiveLog)
-  .ser(se_UpdateContainerGroupDefinitionCommand)
-  .de(de_UpdateContainerGroupDefinitionCommand)
+  .sc(UpdateContainerGroupDefinition)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

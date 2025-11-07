@@ -1,16 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
 import { StartColumnStatisticsTaskRunRequest, StartColumnStatisticsTaskRunResponse } from "../models/models_3";
-import {
-  de_StartColumnStatisticsTaskRunCommand,
-  se_StartColumnStatisticsTaskRunCommand,
-} from "../protocols/Aws_json1_1";
+import { StartColumnStatisticsTaskRun } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -101,16 +97,11 @@ export class StartColumnStatisticsTaskRunCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GlueClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSGlue", "StartColumnStatisticsTaskRun", {})
   .n("GlueClient", "StartColumnStatisticsTaskRunCommand")
-  .f(void 0, void 0)
-  .ser(se_StartColumnStatisticsTaskRunCommand)
-  .de(de_StartColumnStatisticsTaskRunCommand)
+  .sc(StartColumnStatisticsTaskRun)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

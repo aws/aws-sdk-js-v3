@@ -1,16 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { KendraRankingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KendraRankingClient";
 import { DescribeRescoreExecutionPlanRequest, DescribeRescoreExecutionPlanResponse } from "../models/models_0";
-import {
-  de_DescribeRescoreExecutionPlanCommand,
-  se_DescribeRescoreExecutionPlanCommand,
-} from "../protocols/Aws_json1_0";
+import { DescribeRescoreExecutionPlan } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -113,16 +109,11 @@ export class DescribeRescoreExecutionPlanCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: KendraRankingClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSKendraRerankingFrontendService", "DescribeRescoreExecutionPlan", {})
   .n("KendraRankingClient", "DescribeRescoreExecutionPlanCommand")
-  .f(void 0, void 0)
-  .ser(se_DescribeRescoreExecutionPlanCommand)
-  .de(de_DescribeRescoreExecutionPlanCommand)
+  .sc(DescribeRescoreExecutionPlan)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

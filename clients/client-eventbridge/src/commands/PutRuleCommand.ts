@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { EventBridgeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EventBridgeClient";
 import { PutRuleRequest, PutRuleResponse } from "../models/models_0";
-import { de_PutRuleCommand, se_PutRuleCommand } from "../protocols/Aws_json1_1";
+import { PutRule } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -147,16 +146,11 @@ export class PutRuleCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EventBridgeClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSEvents", "PutRule", {})
   .n("EventBridgeClient", "PutRuleCommand")
-  .f(void 0, void 0)
-  .ser(se_PutRuleCommand)
-  .de(de_PutRuleCommand)
+  .sc(PutRule)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

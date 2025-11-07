@@ -1,6 +1,4 @@
 // smithy-typescript generated code
-import { SENSITIVE_STRING } from "@smithy/smithy-client";
-
 import {
   AccessDirection,
   AccessRules,
@@ -7134,29 +7132,3 @@ export interface UpdateRelationalDatabaseParametersResult {
    */
   operations?: Operation[] | undefined;
 }
-
-/**
- * @internal
- */
-export const GetRelationalDatabaseMasterUserPasswordResultFilterSensitiveLog = (
-  obj: GetRelationalDatabaseMasterUserPasswordResult
-): any => ({
-  ...obj,
-  ...(obj.masterUserPassword && { masterUserPassword: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const SetupInstanceHttpsRequestFilterSensitiveLog = (obj: SetupInstanceHttpsRequest): any => ({
-  ...obj,
-  ...(obj.emailAddress && { emailAddress: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const UpdateRelationalDatabaseRequestFilterSensitiveLog = (obj: UpdateRelationalDatabaseRequest): any => ({
-  ...obj,
-  ...(obj.masterUserPassword && { masterUserPassword: SENSITIVE_STRING }),
-});

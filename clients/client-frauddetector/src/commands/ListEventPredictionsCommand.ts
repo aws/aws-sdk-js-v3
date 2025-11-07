@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { FraudDetectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FraudDetectorClient";
 import { ListEventPredictionsRequest, ListEventPredictionsResult } from "../models/models_0";
-import { de_ListEventPredictionsCommand, se_ListEventPredictionsCommand } from "../protocols/Aws_json1_1";
+import { ListEventPredictions } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -120,16 +119,11 @@ export class ListEventPredictionsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: FraudDetectorClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSHawksNestServiceFacade", "ListEventPredictions", {})
   .n("FraudDetectorClient", "ListEventPredictionsCommand")
-  .f(void 0, void 0)
-  .ser(se_ListEventPredictionsCommand)
-  .de(de_ListEventPredictionsCommand)
+  .sc(ListEventPredictions)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

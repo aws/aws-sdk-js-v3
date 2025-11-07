@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@smithy/smithy-client";
+import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
 import { LightsailServiceException as __BaseException } from "./LightsailServiceException";
 
@@ -9373,53 +9373,3 @@ export interface GetContainerServiceDeploymentsResult {
    */
   deployments?: ContainerServiceDeployment[] | undefined;
 }
-
-/**
- * @internal
- */
-export const AccessKeyFilterSensitiveLog = (obj: AccessKey): any => ({
-  ...obj,
-  ...(obj.accessKeyId && { accessKeyId: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const CreateBucketAccessKeyResultFilterSensitiveLog = (obj: CreateBucketAccessKeyResult): any => ({
-  ...obj,
-  ...(obj.accessKey && { accessKey: AccessKeyFilterSensitiveLog(obj.accessKey) }),
-});
-
-/**
- * @internal
- */
-export const SessionFilterSensitiveLog = (obj: Session): any => ({
-  ...obj,
-  ...(obj.url && { url: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const CreateGUISessionAccessDetailsResultFilterSensitiveLog = (
-  obj: CreateGUISessionAccessDetailsResult
-): any => ({
-  ...obj,
-  ...(obj.sessions && { sessions: obj.sessions.map((item) => SessionFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const CreateRelationalDatabaseRequestFilterSensitiveLog = (obj: CreateRelationalDatabaseRequest): any => ({
-  ...obj,
-  ...(obj.masterUserPassword && { masterUserPassword: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const GetBucketAccessKeysResultFilterSensitiveLog = (obj: GetBucketAccessKeysResult): any => ({
-  ...obj,
-  ...(obj.accessKeys && { accessKeys: obj.accessKeys.map((item) => AccessKeyFilterSensitiveLog(item)) }),
-});

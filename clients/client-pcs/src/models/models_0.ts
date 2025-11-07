@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@smithy/smithy-client";
+import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
 import { PCSServiceException as __BaseException } from "./PCSServiceException";
 
@@ -2009,13 +2009,3 @@ export interface UntagResourceRequest {
    */
   tagKeys: string[] | undefined;
 }
-
-/**
- * @internal
- */
-export const RegisterComputeNodeGroupInstanceResponseFilterSensitiveLog = (
-  obj: RegisterComputeNodeGroupInstanceResponse
-): any => ({
-  ...obj,
-  ...(obj.sharedSecret && { sharedSecret: SENSITIVE_STRING }),
-});

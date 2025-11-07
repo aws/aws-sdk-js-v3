@@ -1,15 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { RequestCancelWorkflowExecutionInput } from "../models/models_0";
-import {
-  de_RequestCancelWorkflowExecutionCommand,
-  se_RequestCancelWorkflowExecutionCommand,
-} from "../protocols/Aws_json1_0";
+import { RequestCancelWorkflowExecution } from "../schemas/schemas_0";
 import { ServiceInputTypes, ServiceOutputTypes, SWFClientResolvedConfig } from "../SWFClient";
 
 /**
@@ -115,16 +111,11 @@ export class RequestCancelWorkflowExecutionCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SWFClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("SimpleWorkflowService", "RequestCancelWorkflowExecution", {})
   .n("SWFClient", "RequestCancelWorkflowExecutionCommand")
-  .f(void 0, void 0)
-  .ser(se_RequestCancelWorkflowExecutionCommand)
-  .de(de_RequestCancelWorkflowExecutionCommand)
+  .sc(RequestCancelWorkflowExecution)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

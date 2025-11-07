@@ -1,17 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  DescribeModelCardRequest,
-  DescribeModelCardResponse,
-  DescribeModelCardResponseFilterSensitiveLog,
-} from "../models/models_3";
-import { de_DescribeModelCardCommand, se_DescribeModelCardCommand } from "../protocols/Aws_json1_1";
+import { DescribeModelCardRequest, DescribeModelCardResponse } from "../models/models_3";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
+import { DescribeModelCard } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -108,16 +103,11 @@ export class DescribeModelCardCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("SageMaker", "DescribeModelCard", {})
   .n("SageMakerClient", "DescribeModelCardCommand")
-  .f(void 0, DescribeModelCardResponseFilterSensitiveLog)
-  .ser(se_DescribeModelCardCommand)
-  .de(de_DescribeModelCardCommand)
+  .sc(DescribeModelCard)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,12 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DeleteAccountAssignmentRequest, DeleteAccountAssignmentResponse } from "../models/models_0";
-import { de_DeleteAccountAssignmentCommand, se_DeleteAccountAssignmentCommand } from "../protocols/Aws_json1_1";
+import { DeleteAccountAssignment } from "../schemas/schemas_0";
 import { ServiceInputTypes, ServiceOutputTypes, SSOAdminClientResolvedConfig } from "../SSOAdminClient";
 
 /**
@@ -103,16 +102,11 @@ export class DeleteAccountAssignmentCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SSOAdminClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("SWBExternalService", "DeleteAccountAssignment", {})
   .n("SSOAdminClient", "DeleteAccountAssignmentCommand")
-  .f(void 0, void 0)
-  .ser(se_DeleteAccountAssignmentCommand)
-  .de(de_DeleteAccountAssignmentCommand)
+  .sc(DeleteAccountAssignment)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

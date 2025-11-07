@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -14,10 +13,7 @@ import {
   DescribeReplicationTaskIndividualAssessmentsMessage,
   DescribeReplicationTaskIndividualAssessmentsResponse,
 } from "../models/models_1";
-import {
-  de_DescribeReplicationTaskIndividualAssessmentsCommand,
-  se_DescribeReplicationTaskIndividualAssessmentsCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeReplicationTaskIndividualAssessments } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -106,16 +102,11 @@ export class DescribeReplicationTaskIndividualAssessmentsCommand extends $Comman
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DatabaseMigrationServiceClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonDMSv20160101", "DescribeReplicationTaskIndividualAssessments", {})
   .n("DatabaseMigrationServiceClient", "DescribeReplicationTaskIndividualAssessmentsCommand")
-  .f(void 0, void 0)
-  .ser(se_DescribeReplicationTaskIndividualAssessmentsCommand)
-  .de(de_DescribeReplicationTaskIndividualAssessmentsCommand)
+  .sc(DescribeReplicationTaskIndividualAssessments)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

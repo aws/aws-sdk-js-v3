@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -9,10 +8,7 @@ import {
   DeleteInlinePolicyFromPermissionSetRequest,
   DeleteInlinePolicyFromPermissionSetResponse,
 } from "../models/models_0";
-import {
-  de_DeleteInlinePolicyFromPermissionSetCommand,
-  se_DeleteInlinePolicyFromPermissionSetCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteInlinePolicyFromPermissionSet } from "../schemas/schemas_0";
 import { ServiceInputTypes, ServiceOutputTypes, SSOAdminClientResolvedConfig } from "../SSOAdminClient";
 
 /**
@@ -95,16 +91,11 @@ export class DeleteInlinePolicyFromPermissionSetCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SSOAdminClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("SWBExternalService", "DeleteInlinePolicyFromPermissionSet", {})
   .n("SSOAdminClient", "DeleteInlinePolicyFromPermissionSetCommand")
-  .f(void 0, void 0)
-  .ser(se_DeleteInlinePolicyFromPermissionSetCommand)
-  .de(de_DeleteInlinePolicyFromPermissionSetCommand)
+  .sc(DeleteInlinePolicyFromPermissionSet)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

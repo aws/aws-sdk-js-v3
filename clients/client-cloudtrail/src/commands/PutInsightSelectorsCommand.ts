@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CloudTrailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudTrailClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { PutInsightSelectorsRequest, PutInsightSelectorsResponse } from "../models/models_0";
-import { de_PutInsightSelectorsCommand, se_PutInsightSelectorsCommand } from "../protocols/Aws_json1_1";
+import { PutInsightSelectors } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -198,16 +197,11 @@ export class PutInsightSelectorsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudTrailClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("CloudTrail_20131101", "PutInsightSelectors", {})
   .n("CloudTrailClient", "PutInsightSelectorsCommand")
-  .f(void 0, void 0)
-  .ser(se_PutInsightSelectorsCommand)
-  .de(de_PutInsightSelectorsCommand)
+  .sc(PutInsightSelectors)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

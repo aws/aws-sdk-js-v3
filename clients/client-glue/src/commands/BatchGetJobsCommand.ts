@@ -1,14 +1,13 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
 import { BatchGetJobsRequest } from "../models/models_0";
-import { BatchGetJobsResponse, BatchGetJobsResponseFilterSensitiveLog } from "../models/models_3";
-import { de_BatchGetJobsCommand, se_BatchGetJobsCommand } from "../protocols/Aws_json1_1";
+import { BatchGetJobsResponse } from "../models/models_3";
+import { BatchGetJobs } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -1340,16 +1339,11 @@ export class BatchGetJobsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GlueClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSGlue", "BatchGetJobs", {})
   .n("GlueClient", "BatchGetJobsCommand")
-  .f(void 0, BatchGetJobsResponseFilterSensitiveLog)
-  .ser(se_BatchGetJobsCommand)
-  .de(de_BatchGetJobsCommand)
+  .sc(BatchGetJobs)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
-import { CreateBuildInput, CreateBuildOutput, CreateBuildOutputFilterSensitiveLog } from "../models/models_0";
-import { de_CreateBuildCommand, se_CreateBuildCommand } from "../protocols/Aws_json1_1";
+import { CreateBuildInput, CreateBuildOutput } from "../models/models_0";
+import { CreateBuild } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -172,16 +171,11 @@ export class CreateBuildCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GameLiftClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("GameLift", "CreateBuild", {})
   .n("GameLiftClient", "CreateBuildCommand")
-  .f(void 0, CreateBuildOutputFilterSensitiveLog)
-  .ser(se_CreateBuildCommand)
-  .de(de_CreateBuildCommand)
+  .sc(CreateBuild)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

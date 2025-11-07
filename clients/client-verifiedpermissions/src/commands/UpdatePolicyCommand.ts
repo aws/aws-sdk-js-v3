@@ -1,17 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  UpdatePolicyInput,
-  UpdatePolicyInputFilterSensitiveLog,
-  UpdatePolicyOutput,
-  UpdatePolicyOutputFilterSensitiveLog,
-} from "../models/models_0";
-import { de_UpdatePolicyCommand, se_UpdatePolicyCommand } from "../protocols/Aws_json1_0";
+import { UpdatePolicyInput, UpdatePolicyOutput } from "../models/models_0";
+import { UpdatePolicy } from "../schemas/schemas_0";
 import {
   ServiceInputTypes,
   ServiceOutputTypes,
@@ -155,16 +149,11 @@ export class UpdatePolicyCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: VerifiedPermissionsClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("VerifiedPermissions", "UpdatePolicy", {})
   .n("VerifiedPermissionsClient", "UpdatePolicyCommand")
-  .f(UpdatePolicyInputFilterSensitiveLog, UpdatePolicyOutputFilterSensitiveLog)
-  .ser(se_UpdatePolicyCommand)
-  .de(de_UpdatePolicyCommand)
+  .sc(UpdatePolicy)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,12 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { ListApplicationGrantsRequest, ListApplicationGrantsResponse } from "../models/models_0";
-import { de_ListApplicationGrantsCommand, se_ListApplicationGrantsCommand } from "../protocols/Aws_json1_1";
+import { ListApplicationGrants } from "../schemas/schemas_0";
 import { ServiceInputTypes, ServiceOutputTypes, SSOAdminClientResolvedConfig } from "../SSOAdminClient";
 
 /**
@@ -110,16 +109,11 @@ export class ListApplicationGrantsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SSOAdminClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("SWBExternalService", "ListApplicationGrants", {})
   .n("SSOAdminClient", "ListApplicationGrantsCommand")
-  .f(void 0, void 0)
-  .ser(se_ListApplicationGrantsCommand)
-  .de(de_ListApplicationGrantsCommand)
+  .sc(ListApplicationGrants)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

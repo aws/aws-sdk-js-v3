@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -10,13 +9,8 @@ import {
   ServiceOutputTypes,
 } from "../DatabaseMigrationServiceClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  CreateDataMigrationMessage,
-  CreateDataMigrationMessageFilterSensitiveLog,
-  CreateDataMigrationResponse,
-  CreateDataMigrationResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { de_CreateDataMigrationCommand, se_CreateDataMigrationCommand } from "../protocols/Aws_json1_1";
+import { CreateDataMigrationMessage, CreateDataMigrationResponse } from "../models/models_0";
+import { CreateDataMigration } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -167,16 +161,11 @@ export class CreateDataMigrationCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DatabaseMigrationServiceClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonDMSv20160101", "CreateDataMigration", {})
   .n("DatabaseMigrationServiceClient", "CreateDataMigrationCommand")
-  .f(CreateDataMigrationMessageFilterSensitiveLog, CreateDataMigrationResponseFilterSensitiveLog)
-  .ser(se_CreateDataMigrationCommand)
-  .de(de_CreateDataMigrationCommand)
+  .sc(CreateDataMigration)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

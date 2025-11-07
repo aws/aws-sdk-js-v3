@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointDiscoveryPlugin } from "@aws-sdk/middleware-endpoint-discovery";
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { UpdateAccountSettingsRequest, UpdateAccountSettingsResponse } from "../models/models_0";
-import { de_UpdateAccountSettingsCommand, se_UpdateAccountSettingsCommand } from "../protocols/Aws_json1_0";
+import { UpdateAccountSettings } from "../schemas/schemas_0";
 import { ServiceInputTypes, ServiceOutputTypes, TimestreamQueryClientResolvedConfig } from "../TimestreamQueryClient";
 
 /**
@@ -121,7 +120,6 @@ export class UpdateAccountSettingsCommand extends $Command
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: TimestreamQueryClientResolvedConfig, o: any) {
     return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
       getEndpointDiscoveryPlugin(config, {
         clientStack: cs,
@@ -132,9 +130,7 @@ export class UpdateAccountSettingsCommand extends $Command
   })
   .s("Timestream_20181101", "UpdateAccountSettings", {})
   .n("TimestreamQueryClient", "UpdateAccountSettingsCommand")
-  .f(void 0, void 0)
-  .ser(se_UpdateAccountSettingsCommand)
-  .de(de_UpdateAccountSettingsCommand)
+  .sc(UpdateAccountSettings)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

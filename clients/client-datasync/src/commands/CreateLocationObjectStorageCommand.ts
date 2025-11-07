@@ -1,17 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DataSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataSyncClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  CreateLocationObjectStorageRequest,
-  CreateLocationObjectStorageRequestFilterSensitiveLog,
-  CreateLocationObjectStorageResponse,
-} from "../models/models_0";
-import { de_CreateLocationObjectStorageCommand, se_CreateLocationObjectStorageCommand } from "../protocols/Aws_json1_1";
+import { CreateLocationObjectStorageRequest, CreateLocationObjectStorageResponse } from "../models/models_0";
+import { CreateLocationObjectStorage } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -110,16 +105,11 @@ export class CreateLocationObjectStorageCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DataSyncClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("FmrsService", "CreateLocationObjectStorage", {})
   .n("DataSyncClient", "CreateLocationObjectStorageCommand")
-  .f(CreateLocationObjectStorageRequestFilterSensitiveLog, void 0)
-  .ser(se_CreateLocationObjectStorageCommand)
-  .de(de_CreateLocationObjectStorageCommand)
+  .sc(CreateLocationObjectStorage)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

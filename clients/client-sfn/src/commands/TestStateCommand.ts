@@ -1,17 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  TestStateInput,
-  TestStateInputFilterSensitiveLog,
-  TestStateOutput,
-  TestStateOutputFilterSensitiveLog,
-} from "../models/models_0";
-import { de_TestStateCommand, se_TestStateCommand } from "../protocols/Aws_json1_0";
+import { TestStateInput, TestStateOutput } from "../models/models_0";
+import { TestState } from "../schemas/schemas_0";
 import { ServiceInputTypes, ServiceOutputTypes, SFNClientResolvedConfig } from "../SFNClient";
 
 /**
@@ -169,16 +163,11 @@ export class TestStateCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SFNClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSStepFunctions", "TestState", {})
   .n("SFNClient", "TestStateCommand")
-  .f(TestStateInputFilterSensitiveLog, TestStateOutputFilterSensitiveLog)
-  .ser(se_TestStateCommand)
-  .de(de_TestStateCommand)
+  .sc(TestState)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

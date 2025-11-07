@@ -1,17 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  OptOutSpeakerRequest,
-  OptOutSpeakerRequestFilterSensitiveLog,
-  OptOutSpeakerResponse,
-  OptOutSpeakerResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { de_OptOutSpeakerCommand, se_OptOutSpeakerCommand } from "../protocols/Aws_json1_0";
+import { OptOutSpeakerRequest, OptOutSpeakerResponse } from "../models/models_0";
+import { OptOutSpeaker } from "../schemas/schemas_0";
 import { ServiceInputTypes, ServiceOutputTypes, VoiceIDClientResolvedConfig } from "../VoiceIDClient";
 
 /**
@@ -117,16 +111,11 @@ export class OptOutSpeakerCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: VoiceIDClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("VoiceID", "OptOutSpeaker", {})
   .n("VoiceIDClient", "OptOutSpeakerCommand")
-  .f(OptOutSpeakerRequestFilterSensitiveLog, OptOutSpeakerResponseFilterSensitiveLog)
-  .ser(se_OptOutSpeakerCommand)
-  .de(de_OptOutSpeakerCommand)
+  .sc(OptOutSpeaker)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

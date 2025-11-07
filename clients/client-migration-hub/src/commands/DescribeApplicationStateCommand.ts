@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { MigrationHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MigrationHubClient";
 import { DescribeApplicationStateRequest, DescribeApplicationStateResult } from "../models/models_0";
-import { de_DescribeApplicationStateCommand, se_DescribeApplicationStateCommand } from "../protocols/Aws_json1_1";
+import { DescribeApplicationState } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -102,16 +101,11 @@ export class DescribeApplicationStateCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MigrationHubClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSMigrationHub", "DescribeApplicationState", {})
   .n("MigrationHubClient", "DescribeApplicationStateCommand")
-  .f(void 0, void 0)
-  .ser(se_DescribeApplicationStateCommand)
-  .de(de_DescribeApplicationStateCommand)
+  .sc(DescribeApplicationState)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

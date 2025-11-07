@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@smithy/smithy-client";
+import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
 import { Cloud9ServiceException as __BaseException } from "./Cloud9ServiceException";
 
@@ -1171,69 +1171,3 @@ export interface UpdateEnvironmentMembershipResult {
    */
   membership?: EnvironmentMember | undefined;
 }
-
-/**
- * @internal
- */
-export const TagFilterSensitiveLog = (obj: Tag): any => ({
-  ...obj,
-  ...(obj.Key && { Key: SENSITIVE_STRING }),
-  ...(obj.Value && { Value: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const CreateEnvironmentEC2RequestFilterSensitiveLog = (obj: CreateEnvironmentEC2Request): any => ({
-  ...obj,
-  ...(obj.description && { description: SENSITIVE_STRING }),
-  ...(obj.tags && { tags: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const EnvironmentFilterSensitiveLog = (obj: Environment): any => ({
-  ...obj,
-  ...(obj.description && { description: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const DescribeEnvironmentsResultFilterSensitiveLog = (obj: DescribeEnvironmentsResult): any => ({
-  ...obj,
-  ...(obj.environments && { environments: obj.environments.map((item) => EnvironmentFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
-  ...obj,
-  ...(obj.Tags && { Tags: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
-  ...obj,
-  ...(obj.Tags && { Tags: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
-  ...obj,
-  ...(obj.TagKeys && { TagKeys: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const UpdateEnvironmentRequestFilterSensitiveLog = (obj: UpdateEnvironmentRequest): any => ({
-  ...obj,
-  ...(obj.description && { description: SENSITIVE_STRING }),
-});

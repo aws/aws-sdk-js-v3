@@ -1,12 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { ListRotationOverridesRequest, ListRotationOverridesResult } from "../models/models_0";
-import { de_ListRotationOverridesCommand, se_ListRotationOverridesCommand } from "../protocols/Aws_json1_1";
+import { ListRotationOverrides } from "../schemas/schemas_0";
 import { ServiceInputTypes, ServiceOutputTypes, SSMContactsClientResolvedConfig } from "../SSMContactsClient";
 
 /**
@@ -101,16 +100,11 @@ export class ListRotationOverridesCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SSMContactsClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("SSMContacts", "ListRotationOverrides", {})
   .n("SSMContactsClient", "ListRotationOverridesCommand")
-  .f(void 0, void 0)
-  .ser(se_ListRotationOverridesCommand)
-  .de(de_ListRotationOverridesCommand)
+  .sc(ListRotationOverrides)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

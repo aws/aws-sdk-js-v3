@@ -1,12 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DeleteBandwidthRateLimitInput, DeleteBandwidthRateLimitOutput } from "../models/models_0";
-import { de_DeleteBandwidthRateLimitCommand, se_DeleteBandwidthRateLimitCommand } from "../protocols/Aws_json1_1";
+import { DeleteBandwidthRateLimit } from "../schemas/schemas_0";
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
 /**
@@ -99,16 +98,11 @@ export class DeleteBandwidthRateLimitCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: StorageGatewayClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("StorageGateway_20130630", "DeleteBandwidthRateLimit", {})
   .n("StorageGatewayClient", "DeleteBandwidthRateLimitCommand")
-  .f(void 0, void 0)
-  .ser(se_DeleteBandwidthRateLimitCommand)
-  .de(de_DeleteBandwidthRateLimitCommand)
+  .sc(DeleteBandwidthRateLimit)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

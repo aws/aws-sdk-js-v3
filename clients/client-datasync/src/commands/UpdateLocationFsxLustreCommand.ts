@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DataSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataSyncClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { UpdateLocationFsxLustreRequest, UpdateLocationFsxLustreResponse } from "../models/models_0";
-import { de_UpdateLocationFsxLustreCommand, se_UpdateLocationFsxLustreCommand } from "../protocols/Aws_json1_1";
+import { UpdateLocationFsxLustre } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -79,16 +78,11 @@ export class UpdateLocationFsxLustreCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DataSyncClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("FmrsService", "UpdateLocationFsxLustre", {})
   .n("DataSyncClient", "UpdateLocationFsxLustreCommand")
-  .f(void 0, void 0)
-  .ser(se_UpdateLocationFsxLustreCommand)
-  .de(de_UpdateLocationFsxLustreCommand)
+  .sc(UpdateLocationFsxLustre)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

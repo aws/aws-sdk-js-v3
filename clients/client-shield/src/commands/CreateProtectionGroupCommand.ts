@@ -1,12 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { CreateProtectionGroupRequest, CreateProtectionGroupResponse } from "../models/models_0";
-import { de_CreateProtectionGroupCommand, se_CreateProtectionGroupCommand } from "../protocols/Aws_json1_1";
+import { CreateProtectionGroup } from "../schemas/schemas_0";
 import { ServiceInputTypes, ServiceOutputTypes, ShieldClientResolvedConfig } from "../ShieldClient";
 
 /**
@@ -99,16 +98,11 @@ export class CreateProtectionGroupCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ShieldClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSShield_20160616", "CreateProtectionGroup", {})
   .n("ShieldClient", "CreateProtectionGroupCommand")
-  .f(void 0, void 0)
-  .ser(se_CreateProtectionGroupCommand)
-  .de(de_CreateProtectionGroupCommand)
+  .sc(CreateProtectionGroup)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

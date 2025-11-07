@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DeleteMetricAttributionRequest } from "../models/models_0";
 import { PersonalizeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PersonalizeClient";
-import { de_DeleteMetricAttributionCommand, se_DeleteMetricAttributionCommand } from "../protocols/Aws_json1_1";
+import { DeleteMetricAttribution } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -77,16 +76,11 @@ export class DeleteMetricAttributionCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: PersonalizeClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonPersonalize", "DeleteMetricAttribution", {})
   .n("PersonalizeClient", "DeleteMetricAttributionCommand")
-  .f(void 0, void 0)
-  .ser(se_DeleteMetricAttributionCommand)
-  .de(de_DeleteMetricAttributionCommand)
+  .sc(DeleteMetricAttribution)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,12 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { ListRegexMatchSetsRequest, ListRegexMatchSetsResponse } from "../models/models_0";
-import { de_ListRegexMatchSetsCommand, se_ListRegexMatchSetsCommand } from "../protocols/Aws_json1_1";
+import { ListRegexMatchSets } from "../schemas/schemas_0";
 import { ServiceInputTypes, ServiceOutputTypes, WAFRegionalClientResolvedConfig } from "../WAFRegionalClient";
 
 /**
@@ -91,16 +90,11 @@ export class ListRegexMatchSetsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WAFRegionalClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSWAF_Regional_20161128", "ListRegexMatchSets", {})
   .n("WAFRegionalClient", "ListRegexMatchSetsCommand")
-  .f(void 0, void 0)
-  .ser(se_ListRegexMatchSetsCommand)
-  .de(de_ListRegexMatchSetsCommand)
+  .sc(ListRegexMatchSets)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

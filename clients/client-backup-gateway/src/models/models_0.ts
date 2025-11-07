@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@smithy/smithy-client";
+import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
 import { BackupGatewayServiceException as __BaseException } from "./BackupGatewayServiceException";
 
@@ -1521,30 +1521,3 @@ export interface ListVirtualMachinesOutput {
    */
   NextToken?: string | undefined;
 }
-
-/**
- * @internal
- */
-export const TestHypervisorConfigurationInputFilterSensitiveLog = (obj: TestHypervisorConfigurationInput): any => ({
-  ...obj,
-  ...(obj.Username && { Username: SENSITIVE_STRING }),
-  ...(obj.Password && { Password: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const ImportHypervisorConfigurationInputFilterSensitiveLog = (obj: ImportHypervisorConfigurationInput): any => ({
-  ...obj,
-  ...(obj.Username && { Username: SENSITIVE_STRING }),
-  ...(obj.Password && { Password: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const UpdateHypervisorInputFilterSensitiveLog = (obj: UpdateHypervisorInput): any => ({
-  ...obj,
-  ...(obj.Username && { Username: SENSITIVE_STRING }),
-  ...(obj.Password && { Password: SENSITIVE_STRING }),
-});

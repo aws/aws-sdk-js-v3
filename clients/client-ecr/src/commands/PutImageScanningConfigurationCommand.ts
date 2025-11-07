@@ -1,16 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ECRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECRClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { PutImageScanningConfigurationRequest, PutImageScanningConfigurationResponse } from "../models/models_0";
-import {
-  de_PutImageScanningConfigurationCommand,
-  se_PutImageScanningConfigurationCommand,
-} from "../protocols/Aws_json1_1";
+import { PutImageScanningConfiguration } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -102,16 +98,11 @@ export class PutImageScanningConfigurationCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ECRClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonEC2ContainerRegistry_V20150921", "PutImageScanningConfiguration", {})
   .n("ECRClient", "PutImageScanningConfigurationCommand")
-  .f(void 0, void 0)
-  .ser(se_PutImageScanningConfigurationCommand)
-  .de(de_PutImageScanningConfigurationCommand)
+  .sc(PutImageScanningConfiguration)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

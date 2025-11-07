@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
 import { CreateUserDefinedFunctionRequest, CreateUserDefinedFunctionResponse } from "../models/models_1";
-import { de_CreateUserDefinedFunctionCommand, se_CreateUserDefinedFunctionCommand } from "../protocols/Aws_json1_1";
+import { CreateUserDefinedFunction } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -102,16 +101,11 @@ export class CreateUserDefinedFunctionCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GlueClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSGlue", "CreateUserDefinedFunction", {})
   .n("GlueClient", "CreateUserDefinedFunctionCommand")
-  .f(void 0, void 0)
-  .ser(se_CreateUserDefinedFunctionCommand)
-  .de(de_CreateUserDefinedFunctionCommand)
+  .sc(CreateUserDefinedFunction)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

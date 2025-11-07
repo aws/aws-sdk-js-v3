@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { FMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FMSClient";
 import { BatchDisassociateResourceRequest, BatchDisassociateResourceResponse } from "../models/models_0";
-import { de_BatchDisassociateResourceCommand, se_BatchDisassociateResourceCommand } from "../protocols/Aws_json1_1";
+import { BatchDisassociateResource } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -96,16 +95,11 @@ export class BatchDisassociateResourceCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: FMSClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSFMS_20180101", "BatchDisassociateResource", {})
   .n("FMSClient", "BatchDisassociateResourceCommand")
-  .f(void 0, void 0)
-  .ser(se_BatchDisassociateResourceCommand)
-  .de(de_BatchDisassociateResourceCommand)
+  .sc(BatchDisassociateResource)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

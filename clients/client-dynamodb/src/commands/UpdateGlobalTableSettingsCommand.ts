@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DynamoDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { UpdateGlobalTableSettingsInput, UpdateGlobalTableSettingsOutput } from "../models/models_0";
-import { de_UpdateGlobalTableSettingsCommand, se_UpdateGlobalTableSettingsCommand } from "../protocols/Aws_json1_0";
+import { UpdateGlobalTableSettings } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -285,16 +284,11 @@ export class UpdateGlobalTableSettingsCommand extends $Command
     ResourceArn: { type: "contextParams", name: "GlobalTableName" },
   })
   .m(function (this: any, Command: any, cs: any, config: DynamoDBClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("DynamoDB_20120810", "UpdateGlobalTableSettings", {})
   .n("DynamoDBClient", "UpdateGlobalTableSettingsCommand")
-  .f(void 0, void 0)
-  .ser(se_UpdateGlobalTableSettingsCommand)
-  .de(de_UpdateGlobalTableSettingsCommand)
+  .sc(UpdateGlobalTableSettings)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

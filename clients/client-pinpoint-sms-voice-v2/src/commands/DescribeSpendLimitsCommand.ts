@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -11,7 +10,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../PinpointSMSVoiceV2Client";
-import { de_DescribeSpendLimitsCommand, se_DescribeSpendLimitsCommand } from "../protocols/Aws_json1_0";
+import { DescribeSpendLimits } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -95,16 +94,11 @@ export class DescribeSpendLimitsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: PinpointSMSVoiceV2ClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("PinpointSMSVoiceV2", "DescribeSpendLimits", {})
   .n("PinpointSMSVoiceV2Client", "DescribeSpendLimitsCommand")
-  .f(void 0, void 0)
-  .ser(se_DescribeSpendLimitsCommand)
-  .de(de_DescribeSpendLimitsCommand)
+  .sc(DescribeSpendLimits)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,17 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  EnableAllFeaturesRequest,
-  EnableAllFeaturesResponse,
-  EnableAllFeaturesResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { EnableAllFeaturesRequest, EnableAllFeaturesResponse } from "../models/models_0";
 import { OrganizationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OrganizationsClient";
-import { de_EnableAllFeaturesCommand, se_EnableAllFeaturesCommand } from "../protocols/Aws_json1_1";
+import { EnableAllFeatures } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -564,16 +559,11 @@ export class EnableAllFeaturesCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: OrganizationsClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSOrganizationsV20161128", "EnableAllFeatures", {})
   .n("OrganizationsClient", "EnableAllFeaturesCommand")
-  .f(void 0, EnableAllFeaturesResponseFilterSensitiveLog)
-  .ser(se_EnableAllFeaturesCommand)
-  .de(de_EnableAllFeaturesCommand)
+  .sc(EnableAllFeatures)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

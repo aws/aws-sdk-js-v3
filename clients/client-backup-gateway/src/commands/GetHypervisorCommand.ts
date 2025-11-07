@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { BackupGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupGatewayClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GetHypervisorInput, GetHypervisorOutput } from "../models/models_0";
-import { de_GetHypervisorCommand, se_GetHypervisorCommand } from "../protocols/Aws_json1_0";
+import { GetHypervisor } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -95,16 +94,11 @@ export class GetHypervisorCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: BackupGatewayClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("BackupOnPremises_v20210101", "GetHypervisor", {})
   .n("BackupGatewayClient", "GetHypervisorCommand")
-  .f(void 0, void 0)
-  .ser(se_GetHypervisorCommand)
-  .de(de_GetHypervisorCommand)
+  .sc(GetHypervisor)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -12,13 +11,9 @@ import {
 import { commonParams } from "../endpoint/EndpointParameters";
 import {
   DescribeManagedLoginBrandingByClientRequest,
-  DescribeManagedLoginBrandingByClientRequestFilterSensitiveLog,
   DescribeManagedLoginBrandingByClientResponse,
 } from "../models/models_0";
-import {
-  de_DescribeManagedLoginBrandingByClientCommand,
-  se_DescribeManagedLoginBrandingByClientCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeManagedLoginBrandingByClient } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -120,16 +115,11 @@ export class DescribeManagedLoginBrandingByClientCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CognitoIdentityProviderClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSCognitoIdentityProviderService", "DescribeManagedLoginBrandingByClient", {})
   .n("CognitoIdentityProviderClient", "DescribeManagedLoginBrandingByClientCommand")
-  .f(DescribeManagedLoginBrandingByClientRequestFilterSensitiveLog, void 0)
-  .ser(se_DescribeManagedLoginBrandingByClientCommand)
-  .de(de_DescribeManagedLoginBrandingByClientCommand)
+  .sc(DescribeManagedLoginBrandingByClient)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

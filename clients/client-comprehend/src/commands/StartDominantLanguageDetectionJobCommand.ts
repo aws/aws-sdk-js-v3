@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -10,10 +9,7 @@ import {
   StartDominantLanguageDetectionJobRequest,
   StartDominantLanguageDetectionJobResponse,
 } from "../models/models_0";
-import {
-  de_StartDominantLanguageDetectionJobCommand,
-  se_StartDominantLanguageDetectionJobCommand,
-} from "../protocols/Aws_json1_1";
+import { StartDominantLanguageDetectionJob } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -136,16 +132,11 @@ export class StartDominantLanguageDetectionJobCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ComprehendClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("Comprehend_20171127", "StartDominantLanguageDetectionJob", {})
   .n("ComprehendClient", "StartDominantLanguageDetectionJobCommand")
-  .f(void 0, void 0)
-  .ser(se_StartDominantLanguageDetectionJobCommand)
-  .de(de_StartDominantLanguageDetectionJobCommand)
+  .sc(StartDominantLanguageDetectionJob)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

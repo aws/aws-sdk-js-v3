@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@smithy/smithy-client";
+import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
 import { GlueServiceException as __BaseException } from "./GlueServiceException";
 
@@ -10,7 +10,6 @@ import {
   AmazonRedshiftTarget,
   AthenaConnectorSource,
   AuthenticationConfigurationInput,
-  AuthenticationConfigurationInputFilterSensitiveLog,
   BasicCatalogTarget,
   CatalogDeltaSource,
   CatalogHudiSource,
@@ -119,7 +118,6 @@ import {
   CatalogInput,
   Compatibility,
   ConnectionInput,
-  ConnectionInputFilterSensitiveLog,
   ConnectionPropertyKey,
   ConnectionType,
   CsvHeaderOption,
@@ -5885,87 +5883,3 @@ export interface GetJobsResponse {
    */
   NextToken?: string | undefined;
 }
-
-/**
- * @internal
- */
-export const TestConnectionInputFilterSensitiveLog = (obj: TestConnectionInput): any => ({
-  ...obj,
-  ...(obj.AuthenticationConfiguration && {
-    AuthenticationConfiguration: AuthenticationConfigurationInputFilterSensitiveLog(obj.AuthenticationConfiguration),
-  }),
-});
-
-/**
- * @internal
- */
-export const TestConnectionRequestFilterSensitiveLog = (obj: TestConnectionRequest): any => ({
-  ...obj,
-  ...(obj.TestConnectionInput && {
-    TestConnectionInput: TestConnectionInputFilterSensitiveLog(obj.TestConnectionInput),
-  }),
-});
-
-/**
- * @internal
- */
-export const UpdateConnectionRequestFilterSensitiveLog = (obj: UpdateConnectionRequest): any => ({
-  ...obj,
-  ...(obj.ConnectionInput && { ConnectionInput: ConnectionInputFilterSensitiveLog(obj.ConnectionInput) }),
-});
-
-/**
- * @internal
- */
-export const CreateJobRequestFilterSensitiveLog = (obj: CreateJobRequest): any => ({
-  ...obj,
-  ...(obj.CodeGenConfigurationNodes && { CodeGenConfigurationNodes: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const JobFilterSensitiveLog = (obj: Job): any => ({
-  ...obj,
-  ...(obj.CodeGenConfigurationNodes && { CodeGenConfigurationNodes: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const JobUpdateFilterSensitiveLog = (obj: JobUpdate): any => ({
-  ...obj,
-  ...(obj.CodeGenConfigurationNodes && { CodeGenConfigurationNodes: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const GetJobResponseFilterSensitiveLog = (obj: GetJobResponse): any => ({
-  ...obj,
-  ...(obj.Job && { Job: JobFilterSensitiveLog(obj.Job) }),
-});
-
-/**
- * @internal
- */
-export const UpdateJobRequestFilterSensitiveLog = (obj: UpdateJobRequest): any => ({
-  ...obj,
-  ...(obj.JobUpdate && { JobUpdate: JobUpdateFilterSensitiveLog(obj.JobUpdate) }),
-});
-
-/**
- * @internal
- */
-export const BatchGetJobsResponseFilterSensitiveLog = (obj: BatchGetJobsResponse): any => ({
-  ...obj,
-  ...(obj.Jobs && { Jobs: obj.Jobs.map((item) => JobFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const GetJobsResponseFilterSensitiveLog = (obj: GetJobsResponse): any => ({
-  ...obj,
-  ...(obj.Jobs && { Jobs: obj.Jobs.map((item) => JobFilterSensitiveLog(item)) }),
-});

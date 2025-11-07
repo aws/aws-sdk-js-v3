@@ -1,21 +1,16 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  RestoreFromRecoveryPointRequest,
-  RestoreFromRecoveryPointResponse,
-  RestoreFromRecoveryPointResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { de_RestoreFromRecoveryPointCommand, se_RestoreFromRecoveryPointCommand } from "../protocols/Aws_json1_1";
+import { RestoreFromRecoveryPointRequest, RestoreFromRecoveryPointResponse } from "../models/models_0";
 import {
   RedshiftServerlessClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../RedshiftServerlessClient";
+import { RestoreFromRecoveryPoint } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -111,16 +106,11 @@ export class RestoreFromRecoveryPointCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RedshiftServerlessClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("RedshiftServerless", "RestoreFromRecoveryPoint", {})
   .n("RedshiftServerlessClient", "RestoreFromRecoveryPointCommand")
-  .f(void 0, RestoreFromRecoveryPointResponseFilterSensitiveLog)
-  .ser(se_RestoreFromRecoveryPointCommand)
-  .de(de_RestoreFromRecoveryPointCommand)
+  .sc(RestoreFromRecoveryPoint)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

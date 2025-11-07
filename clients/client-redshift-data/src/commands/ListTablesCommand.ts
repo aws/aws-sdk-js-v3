@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { ListTablesRequest, ListTablesResponse } from "../models/models_0";
-import { de_ListTablesCommand, se_ListTablesCommand } from "../protocols/Aws_json1_1";
 import { RedshiftDataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftDataClient";
+import { ListTables } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -135,16 +134,11 @@ export class ListTablesCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RedshiftDataClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("RedshiftData", "ListTables", {})
   .n("RedshiftDataClient", "ListTablesCommand")
-  .f(void 0, void 0)
-  .ser(se_ListTablesCommand)
-  .de(de_ListTablesCommand)
+  .sc(ListTables)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

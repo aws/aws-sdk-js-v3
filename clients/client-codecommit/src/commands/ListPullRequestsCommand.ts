@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { ListPullRequestsInput, ListPullRequestsOutput } from "../models/models_1";
-import { de_ListPullRequestsCommand, se_ListPullRequestsCommand } from "../protocols/Aws_json1_1";
+import { ListPullRequests } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -122,16 +121,11 @@ export class ListPullRequestsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CodeCommitClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("CodeCommit_20150413", "ListPullRequests", {})
   .n("CodeCommitClient", "ListPullRequestsCommand")
-  .f(void 0, void 0)
-  .ser(se_ListPullRequestsCommand)
-  .de(de_ListPullRequestsCommand)
+  .sc(ListPullRequests)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

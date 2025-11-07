@@ -1,16 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ComprehendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComprehendClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { ListDocumentClassifierSummariesRequest, ListDocumentClassifierSummariesResponse } from "../models/models_0";
-import {
-  de_ListDocumentClassifierSummariesCommand,
-  se_ListDocumentClassifierSummariesCommand,
-} from "../protocols/Aws_json1_1";
+import { ListDocumentClassifierSummaries } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -94,16 +90,11 @@ export class ListDocumentClassifierSummariesCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ComprehendClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("Comprehend_20171127", "ListDocumentClassifierSummaries", {})
   .n("ComprehendClient", "ListDocumentClassifierSummariesCommand")
-  .f(void 0, void 0)
-  .ser(se_ListDocumentClassifierSummariesCommand)
-  .de(de_ListDocumentClassifierSummariesCommand)
+  .sc(ListDocumentClassifierSummaries)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

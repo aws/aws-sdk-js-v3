@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -11,7 +10,7 @@ import {
 } from "../CognitoIdentityProviderClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { SetLogDeliveryConfigurationRequest, SetLogDeliveryConfigurationResponse } from "../models/models_1";
-import { de_SetLogDeliveryConfigurationCommand, se_SetLogDeliveryConfigurationCommand } from "../protocols/Aws_json1_1";
+import { SetLogDeliveryConfiguration } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -133,16 +132,11 @@ export class SetLogDeliveryConfigurationCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CognitoIdentityProviderClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSCognitoIdentityProviderService", "SetLogDeliveryConfiguration", {})
   .n("CognitoIdentityProviderClient", "SetLogDeliveryConfigurationCommand")
-  .f(void 0, void 0)
-  .ser(se_SetLogDeliveryConfigurationCommand)
-  .de(de_SetLogDeliveryConfigurationCommand)
+  .sc(SetLogDeliveryConfiguration)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

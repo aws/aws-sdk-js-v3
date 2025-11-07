@@ -1,14 +1,13 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { FSxClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FSxClient";
-import { CreateFileSystemRequest, CreateFileSystemRequestFilterSensitiveLog } from "../models/models_0";
-import { CreateFileSystemResponse, CreateFileSystemResponseFilterSensitiveLog } from "../models/models_1";
-import { de_CreateFileSystemCommand, se_CreateFileSystemCommand } from "../protocols/Aws_json1_1";
+import { CreateFileSystemRequest } from "../models/models_0";
+import { CreateFileSystemResponse } from "../models/models_1";
+import { CreateFileSystem } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -906,16 +905,11 @@ export class CreateFileSystemCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: FSxClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSSimbaAPIService_v20180301", "CreateFileSystem", {})
   .n("FSxClient", "CreateFileSystemCommand")
-  .f(CreateFileSystemRequestFilterSensitiveLog, CreateFileSystemResponseFilterSensitiveLog)
-  .ser(se_CreateFileSystemCommand)
-  .de(de_CreateFileSystemCommand)
+  .sc(CreateFileSystem)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

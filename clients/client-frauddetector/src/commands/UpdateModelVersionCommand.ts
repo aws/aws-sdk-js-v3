@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { FraudDetectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FraudDetectorClient";
 import { UpdateModelVersionRequest, UpdateModelVersionResult } from "../models/models_0";
-import { de_UpdateModelVersionCommand, se_UpdateModelVersionCommand } from "../protocols/Aws_json1_1";
+import { UpdateModelVersion } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -109,16 +108,11 @@ export class UpdateModelVersionCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: FraudDetectorClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSHawksNestServiceFacade", "UpdateModelVersion", {})
   .n("FraudDetectorClient", "UpdateModelVersionCommand")
-  .f(void 0, void 0)
-  .ser(se_UpdateModelVersionCommand)
-  .de(de_UpdateModelVersionCommand)
+  .sc(UpdateModelVersion)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

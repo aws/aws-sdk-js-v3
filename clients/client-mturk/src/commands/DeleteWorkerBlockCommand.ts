@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DeleteWorkerBlockRequest, DeleteWorkerBlockResponse } from "../models/models_0";
 import { MTurkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MTurkClient";
-import { de_DeleteWorkerBlockCommand, se_DeleteWorkerBlockCommand } from "../protocols/Aws_json1_1";
+import { DeleteWorkerBlock } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -75,16 +74,11 @@ export class DeleteWorkerBlockCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MTurkClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("MTurkRequesterServiceV20170117", "DeleteWorkerBlock", {})
   .n("MTurkClient", "DeleteWorkerBlockCommand")
-  .f(void 0, void 0)
-  .ser(se_DeleteWorkerBlockCommand)
-  .de(de_DeleteWorkerBlockCommand)
+  .sc(DeleteWorkerBlock)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

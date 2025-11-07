@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { ListConfigurationRecordersRequest, ListConfigurationRecordersResponse } from "../models/models_1";
-import { de_ListConfigurationRecordersCommand, se_ListConfigurationRecordersCommand } from "../protocols/Aws_json1_1";
+import { ListConfigurationRecorders } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -123,16 +122,11 @@ export class ListConfigurationRecordersCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ConfigServiceClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("StarlingDoveService", "ListConfigurationRecorders", {})
   .n("ConfigServiceClient", "ListConfigurationRecordersCommand")
-  .f(void 0, void 0)
-  .ser(se_ListConfigurationRecordersCommand)
-  .de(de_ListConfigurationRecordersCommand)
+  .sc(ListConfigurationRecorders)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

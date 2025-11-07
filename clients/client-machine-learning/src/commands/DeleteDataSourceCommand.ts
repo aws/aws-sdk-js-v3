@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { MachineLearningClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MachineLearningClient";
 import { DeleteDataSourceInput, DeleteDataSourceOutput } from "../models/models_0";
-import { de_DeleteDataSourceCommand, se_DeleteDataSourceCommand } from "../protocols/Aws_json1_1";
+import { DeleteDataSource } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -82,16 +81,11 @@ export class DeleteDataSourceCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MachineLearningClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonML_20141212", "DeleteDataSource", {})
   .n("MachineLearningClient", "DeleteDataSourceCommand")
-  .f(void 0, void 0)
-  .ser(se_DeleteDataSourceCommand)
-  .de(de_DeleteDataSourceCommand)
+  .sc(DeleteDataSource)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

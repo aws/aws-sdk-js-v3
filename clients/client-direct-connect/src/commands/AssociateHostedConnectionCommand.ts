@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DirectConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { AssociateHostedConnectionRequest, Connection } from "../models/models_0";
-import { de_AssociateHostedConnectionCommand, se_AssociateHostedConnectionCommand } from "../protocols/Aws_json1_1";
+import { AssociateHostedConnection } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -118,16 +117,11 @@ export class AssociateHostedConnectionCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DirectConnectClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("OvertureService", "AssociateHostedConnection", {})
   .n("DirectConnectClient", "AssociateHostedConnectionCommand")
-  .f(void 0, void 0)
-  .ser(se_AssociateHostedConnectionCommand)
-  .de(de_AssociateHostedConnectionCommand)
+  .sc(AssociateHostedConnection)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

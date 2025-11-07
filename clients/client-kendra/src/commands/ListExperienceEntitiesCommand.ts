@@ -1,17 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { KendraClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KendraClient";
-import {
-  ListExperienceEntitiesRequest,
-  ListExperienceEntitiesResponse,
-  ListExperienceEntitiesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { de_ListExperienceEntitiesCommand, se_ListExperienceEntitiesCommand } from "../protocols/Aws_json1_1";
+import { ListExperienceEntitiesRequest, ListExperienceEntitiesResponse } from "../models/models_0";
+import { ListExperienceEntities } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -113,16 +108,11 @@ export class ListExperienceEntitiesCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: KendraClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSKendraFrontendService", "ListExperienceEntities", {})
   .n("KendraClient", "ListExperienceEntitiesCommand")
-  .f(void 0, ListExperienceEntitiesResponseFilterSensitiveLog)
-  .ser(se_ListExperienceEntitiesCommand)
-  .de(de_ListExperienceEntitiesCommand)
+  .sc(ListExperienceEntities)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

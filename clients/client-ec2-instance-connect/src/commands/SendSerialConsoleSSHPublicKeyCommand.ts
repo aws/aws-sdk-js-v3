@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -11,10 +10,7 @@ import {
 } from "../EC2InstanceConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { SendSerialConsoleSSHPublicKeyRequest, SendSerialConsoleSSHPublicKeyResponse } from "../models/models_0";
-import {
-  de_SendSerialConsoleSSHPublicKeyCommand,
-  se_SendSerialConsoleSSHPublicKeyCommand,
-} from "../protocols/Aws_json1_1";
+import { SendSerialConsoleSSHPublicKey } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -127,16 +123,11 @@ export class SendSerialConsoleSSHPublicKeyCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2InstanceConnectClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSEC2InstanceConnectService", "SendSerialConsoleSSHPublicKey", {})
   .n("EC2InstanceConnectClient", "SendSerialConsoleSSHPublicKeyCommand")
-  .f(void 0, void 0)
-  .ser(se_SendSerialConsoleSSHPublicKeyCommand)
-  .de(de_SendSerialConsoleSSHPublicKeyCommand)
+  .sc(SendSerialConsoleSSHPublicKey)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
