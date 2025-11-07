@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.927.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.926.0...v3.927.0) (2025-11-07)
+
+
+### Features
+
+* **client-kms:** Added support for new ECC_NIST_EDWARDS25519 AWS KMS key spec ([1d8341d](https://github.com/aws/aws-sdk-js-v3/commit/1d8341dbaec4d00aaba28e52ced92a5dce0810ca))
+
+
+
+
+
 # [3.926.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.925.0...v3.926.0) (2025-11-06)
 
 **Note:** Version bump only for package @aws-sdk/client-kms

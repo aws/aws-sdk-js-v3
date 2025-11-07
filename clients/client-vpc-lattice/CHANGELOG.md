@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.927.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.926.0...v3.927.0) (2025-11-07)
+
+
+### Features
+
+* **client-vpc-lattice:** Amazon VPC Lattice now supports custom domain name for resource configurations ([f46fcf1](https://github.com/aws/aws-sdk-js-v3/commit/f46fcf1f7eead88a046399f2c9a7fe5ad0c5fc69))
+
+
+
+
+
 # [3.926.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.925.0...v3.926.0) (2025-11-06)
 
 **Note:** Version bump only for package @aws-sdk/client-vpc-lattice

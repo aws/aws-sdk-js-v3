@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.927.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.926.0...v3.927.0) (2025-11-07)
+
+
+### Bug Fixes
+
+* **client-elastic-beanstalk:** differentiate modeled and synthesized service base exception name ([5e1e54b](https://github.com/aws/aws-sdk-js-v3/commit/5e1e54b44d6ba6b2857bc229b512d879c7515a62))
+
+
+### Features
+
+* **client-controltower:** Added Parent Identifier support to ListEnabledControls and GetEnabledControl API. Implemented RemediationType support for Landing Zone operations: CreateLandingZone, UpdateLandingZone and GetLandingZone APIs ([89c1f79](https://github.com/aws/aws-sdk-js-v3/commit/89c1f79da173f980d13f6916678790b86d1c3ed6))
+* **client-ec2:** Adds PrivateDnsPreference and PrivateDnsSpecifiedDomains to control private DNS resolution for resource and service network VPC endpoints and IpamScopeExternalAuthorityConfiguration to integrate Amazon VPC IPAM with a third-party IPAM service ([650aa6d](https://github.com/aws/aws-sdk-js-v3/commit/650aa6de99e961e06fb85b3e447bced743b30a12))
+* **client-kms:** Added support for new ECC_NIST_EDWARDS25519 AWS KMS key spec ([1d8341d](https://github.com/aws/aws-sdk-js-v3/commit/1d8341dbaec4d00aaba28e52ced92a5dce0810ca))
+* **client-opensearch:** This release introduces the Default Application feature, allowing users to set, change, or unset a preferred OpenSearch UI application on a per-region basis for a streamlined and consistent user experience. ([ea5f4e4](https://github.com/aws/aws-sdk-js-v3/commit/ea5f4e473adbbbfee8d099c5b01e97a6b052e095))
+* **client-vpc-lattice:** Amazon VPC Lattice now supports custom domain name for resource configurations ([f46fcf1](https://github.com/aws/aws-sdk-js-v3/commit/f46fcf1f7eead88a046399f2c9a7fe5ad0c5fc69))
+
+
+
+
+
 # [3.926.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.925.0...v3.926.0) (2025-11-06)
 
 
