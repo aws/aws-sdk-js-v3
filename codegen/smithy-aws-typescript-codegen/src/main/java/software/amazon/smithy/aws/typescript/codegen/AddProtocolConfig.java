@@ -19,6 +19,7 @@ import software.amazon.smithy.aws.traits.protocols.RestJson1Trait;
 import software.amazon.smithy.aws.traits.protocols.RestXmlTrait;
 import software.amazon.smithy.codegen.core.SymbolProvider;
 import software.amazon.smithy.model.Model;
+import software.amazon.smithy.model.shapes.ShapeId;
 import software.amazon.smithy.model.traits.XmlNamespaceTrait;
 import software.amazon.smithy.protocol.traits.Rpcv2CborTrait;
 import software.amazon.smithy.typescript.codegen.LanguageTarget;
@@ -37,11 +38,20 @@ import software.amazon.smithy.utils.SmithyInternalApi;
 public final class AddProtocolConfig implements TypeScriptIntegration {
 
     public AddProtocolConfig() {
-        SchemaGenerationAllowlist.allow("com.amazonaws.s3#AmazonS3");
-        SchemaGenerationAllowlist.allow("com.amazonaws.dynamodb#DynamoDB_20120810");
-        SchemaGenerationAllowlist.allow("com.amazonaws.lambda#AWSGirApiService");
-        SchemaGenerationAllowlist.allow("com.amazonaws.cloudwatchlogs#Logs_20140328");
-        SchemaGenerationAllowlist.allow("com.amazonaws.sts#AWSSecurityTokenServiceV20110615");
+        List<ShapeId> allowed = List.of(
+            AwsJson1_0Trait.ID,
+            AwsJson1_1Trait.ID
+        );
+        List<ShapeId> pending = List.of(
+            RestJson1Trait.ID,
+            Ec2QueryTrait.ID,
+            AwsQueryTrait.ID,
+            RestXmlTrait.ID
+        );
+        for (ShapeId shapeId : allowed) {
+            SchemaGenerationAllowlist.allowProtocol(shapeId);
+            assert !pending.contains(shapeId);
+        }
 
         // protocol tests
         SchemaGenerationAllowlist.allow("aws.protocoltests.json10#JsonRpc10");
