@@ -28,8 +28,8 @@ export interface ListVpcEndpointsForDomainCommandInput extends ListVpcEndpointsF
 export interface ListVpcEndpointsForDomainCommandOutput extends ListVpcEndpointsForDomainResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves all Amazon OpenSearch Service-managed VPC endpoints associated with a particular
- *    domain.</p>
+ * <p>Retrieves all Amazon OpenSearch Service-managed VPC endpoints associated with a
+ *             particular domain.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

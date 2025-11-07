@@ -5,8 +5,7 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListDomainNamesRequest } from "../models/models_0";
-import { ListDomainNamesResponse } from "../models/models_1";
+import { ListDomainNamesRequest, ListDomainNamesResponse } from "../models/models_1";
 import { OpenSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpenSearchClient";
 import { de_ListDomainNamesCommand, se_ListDomainNamesCommand } from "../protocols/Aws_restJson1";
 
@@ -29,8 +28,8 @@ export interface ListDomainNamesCommandInput extends ListDomainNamesRequest {}
 export interface ListDomainNamesCommandOutput extends ListDomainNamesResponse, __MetadataBearer {}
 
 /**
- * <p>Returns the names of all Amazon OpenSearch Service domains owned by the current user in the
- *    active Region.</p>
+ * <p>Returns the names of all Amazon OpenSearch Service domains owned by the current user
+ *             in the active Region.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

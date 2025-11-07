@@ -209,6 +209,11 @@ import {
   GetDataSourceCommandOutput,
 } from "./commands/GetDataSourceCommand";
 import {
+  GetDefaultApplicationSettingCommand,
+  GetDefaultApplicationSettingCommandInput,
+  GetDefaultApplicationSettingCommandOutput,
+} from "./commands/GetDefaultApplicationSettingCommand";
+import {
   GetDirectQueryDataSourceCommand,
   GetDirectQueryDataSourceCommandInput,
   GetDirectQueryDataSourceCommandOutput,
@@ -304,6 +309,11 @@ import {
   PurchaseReservedInstanceOfferingCommandInput,
   PurchaseReservedInstanceOfferingCommandOutput,
 } from "./commands/PurchaseReservedInstanceOfferingCommand";
+import {
+  PutDefaultApplicationSettingCommand,
+  PutDefaultApplicationSettingCommandInput,
+  PutDefaultApplicationSettingCommandOutput,
+} from "./commands/PutDefaultApplicationSettingCommand";
 import {
   RejectInboundConnectionCommand,
   RejectInboundConnectionCommandInput,
@@ -415,6 +425,7 @@ const commands = {
   GetApplicationCommand,
   GetCompatibleVersionsCommand,
   GetDataSourceCommand,
+  GetDefaultApplicationSettingCommand,
   GetDirectQueryDataSourceCommand,
   GetDomainMaintenanceStatusCommand,
   GetPackageVersionHistoryCommand,
@@ -435,6 +446,7 @@ const commands = {
   ListVpcEndpointsCommand,
   ListVpcEndpointsForDomainCommand,
   PurchaseReservedInstanceOfferingCommand,
+  PutDefaultApplicationSettingCommand,
   RejectInboundConnectionCommand,
   RemoveTagsCommand,
   RevokeVpcEndpointAccessCommand,
@@ -1122,6 +1134,24 @@ export interface OpenSearch {
   ): void;
 
   /**
+   * @see {@link GetDefaultApplicationSettingCommand}
+   */
+  getDefaultApplicationSetting(): Promise<GetDefaultApplicationSettingCommandOutput>;
+  getDefaultApplicationSetting(
+    args: GetDefaultApplicationSettingCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetDefaultApplicationSettingCommandOutput>;
+  getDefaultApplicationSetting(
+    args: GetDefaultApplicationSettingCommandInput,
+    cb: (err: any, data?: GetDefaultApplicationSettingCommandOutput) => void
+  ): void;
+  getDefaultApplicationSetting(
+    args: GetDefaultApplicationSettingCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetDefaultApplicationSettingCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetDirectQueryDataSourceCommand}
    */
   getDirectQueryDataSource(
@@ -1449,6 +1479,23 @@ export interface OpenSearch {
   ): void;
 
   /**
+   * @see {@link PutDefaultApplicationSettingCommand}
+   */
+  putDefaultApplicationSetting(
+    args: PutDefaultApplicationSettingCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutDefaultApplicationSettingCommandOutput>;
+  putDefaultApplicationSetting(
+    args: PutDefaultApplicationSettingCommandInput,
+    cb: (err: any, data?: PutDefaultApplicationSettingCommandOutput) => void
+  ): void;
+  putDefaultApplicationSetting(
+    args: PutDefaultApplicationSettingCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutDefaultApplicationSettingCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link RejectInboundConnectionCommand}
    */
   rejectInboundConnection(
@@ -1671,10 +1718,10 @@ export interface OpenSearch {
 
 /**
  * <p>Use the Amazon OpenSearch Service configuration API to create, configure, and manage
- *    OpenSearch Service domains. The endpoint for configuration service requests is Region specific:
- *     es.<i>region</i>.amazonaws.com. For example, es.us-east-1.amazonaws.com. For a
- *    current list of supported Regions and endpoints, see <a href="https://docs.aws.amazon.com/general/latest/gr/rande.html#service-regions">Amazon Web Services service
- *    endpoints</a>.</p>
+ *             OpenSearch Service domains. The endpoint for configuration service requests is Region
+ *             specific: es.<i>region</i>.amazonaws.com. For example,
+ *             es.us-east-1.amazonaws.com. For a current list of supported Regions and endpoints, see
+ *                 <a href="https://docs.aws.amazon.com/general/latest/gr/rande.html#service-regions">Amazon Web Services service endpoints</a>.</p>
  * @public
  */
 export class OpenSearch extends OpenSearchClient implements OpenSearch {}

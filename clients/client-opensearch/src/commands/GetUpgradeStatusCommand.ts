@@ -28,8 +28,8 @@ export interface GetUpgradeStatusCommandInput extends GetUpgradeStatusRequest {}
 export interface GetUpgradeStatusCommandOutput extends GetUpgradeStatusResponse, __MetadataBearer {}
 
 /**
- * <p>Returns the most recent status of the last upgrade or upgrade eligibility check performed on
- *    an Amazon OpenSearch Service domain.</p>
+ * <p>Returns the most recent status of the last upgrade or upgrade eligibility check
+ *             performed on an Amazon OpenSearch Service domain.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

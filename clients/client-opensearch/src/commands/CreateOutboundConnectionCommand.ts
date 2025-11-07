@@ -28,9 +28,8 @@ export interface CreateOutboundConnectionCommandInput extends CreateOutboundConn
 export interface CreateOutboundConnectionCommandOutput extends CreateOutboundConnectionResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a new cross-cluster search connection from a source Amazon OpenSearch Service domain
- *    to a destination domain. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/cross-cluster-search.html">Cross-cluster search
- *     for Amazon OpenSearch Service</a>.</p>
+ * <p>Creates a new cross-cluster search connection from a source Amazon OpenSearch Service
+ *             domain to a destination domain. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/cross-cluster-search.html">Cross-cluster search for Amazon OpenSearch Service</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

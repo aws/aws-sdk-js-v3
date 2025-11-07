@@ -28,8 +28,9 @@ export interface DescribeDomainNodesCommandInput extends DescribeDomainNodesRequ
 export interface DescribeDomainNodesCommandOutput extends DescribeDomainNodesResponse, __MetadataBearer {}
 
 /**
- * <p>Returns information about domain and nodes, including data nodes, master nodes, ultrawarm
- *    nodes, Availability Zone(s), standby nodes, node configurations, and node states.</p>
+ * <p>Returns information about domain and nodes, including data nodes, master nodes,
+ *             ultrawarm nodes, Availability Zone(s), standby nodes, node configurations, and node
+ *             states.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

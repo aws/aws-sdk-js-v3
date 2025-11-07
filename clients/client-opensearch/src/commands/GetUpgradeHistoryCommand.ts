@@ -28,8 +28,8 @@ export interface GetUpgradeHistoryCommandInput extends GetUpgradeHistoryRequest 
 export interface GetUpgradeHistoryCommandOutput extends GetUpgradeHistoryResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves the complete history of the last 10 upgrades performed on an Amazon OpenSearch
- *    Service domain.</p>
+ * <p>Retrieves the complete history of the last 10 upgrades performed on an Amazon
+ *             OpenSearch Service domain.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

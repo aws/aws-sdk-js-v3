@@ -28,9 +28,9 @@ export interface DescribeReservedInstancesCommandInput extends DescribeReservedI
 export interface DescribeReservedInstancesCommandOutput extends DescribeReservedInstancesResponse, __MetadataBearer {}
 
 /**
- * <p>Describes the Amazon OpenSearch Service instances that you have reserved in a given Region.
- *    For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/ri.html">Reserved Instances in Amazon OpenSearch
- *     Service</a>.</p>
+ * <p>Describes the Amazon OpenSearch Service instances that you have reserved in a given
+ *             Region. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/ri.html">Reserved Instances in Amazon
+ *                 OpenSearch Service</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

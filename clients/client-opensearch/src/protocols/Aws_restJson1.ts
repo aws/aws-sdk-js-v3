@@ -142,6 +142,10 @@ import {
 } from "../commands/GetCompatibleVersionsCommand";
 import { GetDataSourceCommandInput, GetDataSourceCommandOutput } from "../commands/GetDataSourceCommand";
 import {
+  GetDefaultApplicationSettingCommandInput,
+  GetDefaultApplicationSettingCommandOutput,
+} from "../commands/GetDefaultApplicationSettingCommand";
+import {
   GetDirectQueryDataSourceCommandInput,
   GetDirectQueryDataSourceCommandOutput,
 } from "../commands/GetDirectQueryDataSourceCommand";
@@ -197,6 +201,10 @@ import {
   PurchaseReservedInstanceOfferingCommandInput,
   PurchaseReservedInstanceOfferingCommandOutput,
 } from "../commands/PurchaseReservedInstanceOfferingCommand";
+import {
+  PutDefaultApplicationSettingCommandInput,
+  PutDefaultApplicationSettingCommandOutput,
+} from "../commands/PutDefaultApplicationSettingCommand";
 import {
   RejectInboundConnectionCommandInput,
   RejectInboundConnectionCommandOutput,
@@ -1220,6 +1228,21 @@ export const se_GetDataSourceCommand = async (
 };
 
 /**
+ * serializeAws_restJson1GetDefaultApplicationSettingCommand
+ */
+export const se_GetDefaultApplicationSettingCommand = async (
+  input: GetDefaultApplicationSettingCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/2021-01-01/opensearch/defaultApplicationSetting");
+  let body: any;
+  b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1GetDirectQueryDataSourceCommand
  */
 export const se_GetDirectQueryDataSourceCommand = async (
@@ -1601,6 +1624,29 @@ export const se_PurchaseReservedInstanceOfferingCommand = async (
     })
   );
   b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1PutDefaultApplicationSettingCommand
+ */
+export const se_PutDefaultApplicationSettingCommand = async (
+  input: PutDefaultApplicationSettingCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/2021-01-01/opensearch/defaultApplicationSetting");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      applicationArn: [],
+      setAsDefault: [],
+    })
+  );
+  b.m("PUT").h(headers).b(body);
   return b.build();
 };
 
@@ -2876,6 +2922,27 @@ export const de_GetDataSourceCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1GetDefaultApplicationSettingCommand
+ */
+export const de_GetDefaultApplicationSettingCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetDefaultApplicationSettingCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    applicationArn: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1GetDirectQueryDataSourceCommand
  */
 export const de_GetDirectQueryDataSourceCommand = async (
@@ -3316,6 +3383,27 @@ export const de_PurchaseReservedInstanceOfferingCommand = async (
   const doc = take(data, {
     ReservationName: __expectString,
     ReservedInstanceId: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1PutDefaultApplicationSettingCommand
+ */
+export const de_PutDefaultApplicationSettingCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutDefaultApplicationSettingCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    applicationArn: __expectString,
   });
   Object.assign(contents, doc);
   return contents;

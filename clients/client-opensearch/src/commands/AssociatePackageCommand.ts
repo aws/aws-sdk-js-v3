@@ -28,9 +28,9 @@ export interface AssociatePackageCommandInput extends AssociatePackageRequest {}
 export interface AssociatePackageCommandOutput extends AssociatePackageResponse, __MetadataBearer {}
 
 /**
- * <p>Associates a package with an Amazon OpenSearch Service domain. For more information, see
- *     <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/custom-packages.html">Custom packages
- *     for Amazon OpenSearch Service</a>.</p>
+ * <p>Associates a package with an Amazon OpenSearch Service domain. For more information,
+ *             see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/custom-packages.html">Custom packages
+ *                 for Amazon OpenSearch Service</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

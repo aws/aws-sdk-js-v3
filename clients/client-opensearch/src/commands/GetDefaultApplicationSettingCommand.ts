@@ -5,11 +5,11 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DeleteDirectQueryDataSourceRequest } from "../models/models_0";
+import { GetDefaultApplicationSettingRequest, GetDefaultApplicationSettingResponse } from "../models/models_0";
 import { OpenSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpenSearchClient";
 import {
-  de_DeleteDirectQueryDataSourceCommand,
-  se_DeleteDirectQueryDataSourceCommand,
+  de_GetDefaultApplicationSettingCommand,
+  se_GetDefaultApplicationSettingCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -20,47 +20,47 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link DeleteDirectQueryDataSourceCommand}.
+ * The input for {@link GetDefaultApplicationSettingCommand}.
  */
-export interface DeleteDirectQueryDataSourceCommandInput extends DeleteDirectQueryDataSourceRequest {}
+export interface GetDefaultApplicationSettingCommandInput extends GetDefaultApplicationSettingRequest {}
 /**
  * @public
  *
- * The output of {@link DeleteDirectQueryDataSourceCommand}.
+ * The output of {@link GetDefaultApplicationSettingCommand}.
  */
-export interface DeleteDirectQueryDataSourceCommandOutput extends __MetadataBearer {}
+export interface GetDefaultApplicationSettingCommandOutput
+  extends GetDefaultApplicationSettingResponse,
+    __MetadataBearer {}
 
 /**
- * <p> Deletes a previously configured direct query data source from Amazon OpenSearch
- *             Service. </p>
+ * <p>Gets the ARN of the current default application.</p>
+ *          <p> If the default application isn't set, the operation returns a resource not found
+ *             error.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { OpenSearchClient, DeleteDirectQueryDataSourceCommand } from "@aws-sdk/client-opensearch"; // ES Modules import
- * // const { OpenSearchClient, DeleteDirectQueryDataSourceCommand } = require("@aws-sdk/client-opensearch"); // CommonJS import
+ * import { OpenSearchClient, GetDefaultApplicationSettingCommand } from "@aws-sdk/client-opensearch"; // ES Modules import
+ * // const { OpenSearchClient, GetDefaultApplicationSettingCommand } = require("@aws-sdk/client-opensearch"); // CommonJS import
  * // import type { OpenSearchClientConfig } from "@aws-sdk/client-opensearch";
  * const config = {}; // type is OpenSearchClientConfig
  * const client = new OpenSearchClient(config);
- * const input = { // DeleteDirectQueryDataSourceRequest
- *   DataSourceName: "STRING_VALUE", // required
- * };
- * const command = new DeleteDirectQueryDataSourceCommand(input);
+ * const input = {};
+ * const command = new GetDefaultApplicationSettingCommand(input);
  * const response = await client.send(command);
- * // {};
+ * // { // GetDefaultApplicationSettingResponse
+ * //   applicationArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *
- * @param DeleteDirectQueryDataSourceCommandInput - {@link DeleteDirectQueryDataSourceCommandInput}
- * @returns {@link DeleteDirectQueryDataSourceCommandOutput}
- * @see {@link DeleteDirectQueryDataSourceCommandInput} for command's `input` shape.
- * @see {@link DeleteDirectQueryDataSourceCommandOutput} for command's `response` shape.
+ * @param GetDefaultApplicationSettingCommandInput - {@link GetDefaultApplicationSettingCommandInput}
+ * @returns {@link GetDefaultApplicationSettingCommandOutput}
+ * @see {@link GetDefaultApplicationSettingCommandInput} for command's `input` shape.
+ * @see {@link GetDefaultApplicationSettingCommandOutput} for command's `response` shape.
  * @see {@link OpenSearchClientResolvedConfig | config} for OpenSearchClient's `config` shape.
  *
- * @throws {@link BaseException} (client fault)
- *  <p>An error occurred while processing the request.</p>
- *
- * @throws {@link DisabledOperationException} (client fault)
- *  <p>An error occured because the client wanted to access an unsupported operation.</p>
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>An error occurred because you don't have permissions to access the resource.</p>
  *
  * @throws {@link InternalException} (server fault)
  *  <p>Request processing failed because of an unknown error, exception, or internal failure.</p>
@@ -77,10 +77,10 @@ export interface DeleteDirectQueryDataSourceCommandOutput extends __MetadataBear
  *
  * @public
  */
-export class DeleteDirectQueryDataSourceCommand extends $Command
+export class GetDefaultApplicationSettingCommand extends $Command
   .classBuilder<
-    DeleteDirectQueryDataSourceCommandInput,
-    DeleteDirectQueryDataSourceCommandOutput,
+    GetDefaultApplicationSettingCommandInput,
+    GetDefaultApplicationSettingCommandOutput,
     OpenSearchClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -92,21 +92,21 @@ export class DeleteDirectQueryDataSourceCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("AmazonOpenSearchService", "DeleteDirectQueryDataSource", {})
-  .n("OpenSearchClient", "DeleteDirectQueryDataSourceCommand")
+  .s("AmazonOpenSearchService", "GetDefaultApplicationSetting", {})
+  .n("OpenSearchClient", "GetDefaultApplicationSettingCommand")
   .f(void 0, void 0)
-  .ser(se_DeleteDirectQueryDataSourceCommand)
-  .de(de_DeleteDirectQueryDataSourceCommand)
+  .ser(se_GetDefaultApplicationSettingCommand)
+  .de(de_GetDefaultApplicationSettingCommand)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: DeleteDirectQueryDataSourceRequest;
-      output: {};
+      input: {};
+      output: GetDefaultApplicationSettingResponse;
     };
     sdk: {
-      input: DeleteDirectQueryDataSourceCommandInput;
-      output: DeleteDirectQueryDataSourceCommandOutput;
+      input: GetDefaultApplicationSettingCommandInput;
+      output: GetDefaultApplicationSettingCommandOutput;
     };
   };
 }

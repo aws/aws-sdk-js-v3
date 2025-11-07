@@ -7,10 +7,10 @@
 AWS SDK for JavaScript OpenSearch Client for Node.js, Browser and React Native.
 
 <p>Use the Amazon OpenSearch Service configuration API to create, configure, and manage
-OpenSearch Service domains. The endpoint for configuration service requests is Region specific:
-es.<i>region</i>.amazonaws.com. For example, es.us-east-1.amazonaws.com. For a
-current list of supported Regions and endpoints, see <a href="https://docs.aws.amazon.com/general/latest/gr/rande.html#service-regions">Amazon Web Services service
-endpoints</a>.</p>
+OpenSearch Service domains. The endpoint for configuration service requests is Region
+specific: es.<i>region</i>.amazonaws.com. For example,
+es.us-east-1.amazonaws.com. For a current list of supported Regions and endpoints, see
+<a href="https://docs.aws.amazon.com/general/latest/gr/rande.html#service-regions">Amazon Web Services service endpoints</a>.</p>
 
 ## Installing
 
@@ -545,6 +545,14 @@ GetDataSource
 </details>
 <details>
 <summary>
+GetDefaultApplicationSetting
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/opensearch/command/GetDefaultApplicationSettingCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-opensearch/Interface/GetDefaultApplicationSettingCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-opensearch/Interface/GetDefaultApplicationSettingCommandOutput/)
+
+</details>
+<details>
+<summary>
 GetDirectQueryDataSource
 </summary>
 
@@ -701,6 +709,14 @@ PurchaseReservedInstanceOffering
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/opensearch/command/PurchaseReservedInstanceOfferingCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-opensearch/Interface/PurchaseReservedInstanceOfferingCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-opensearch/Interface/PurchaseReservedInstanceOfferingCommandOutput/)
+
+</details>
+<details>
+<summary>
+PutDefaultApplicationSetting
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/opensearch/command/PutDefaultApplicationSettingCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-opensearch/Interface/PutDefaultApplicationSettingCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-opensearch/Interface/PutDefaultApplicationSettingCommandOutput/)
 
 </details>
 <details>

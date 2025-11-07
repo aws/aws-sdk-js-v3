@@ -28,8 +28,8 @@ export interface RevokeVpcEndpointAccessCommandInput extends RevokeVpcEndpointAc
 export interface RevokeVpcEndpointAccessCommandOutput extends RevokeVpcEndpointAccessResponse, __MetadataBearer {}
 
 /**
- * <p>Revokes access to an Amazon OpenSearch Service domain that was provided through an interface
- *    VPC endpoint.</p>
+ * <p>Revokes access to an Amazon OpenSearch Service domain that was provided through an
+ *             interface VPC endpoint.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

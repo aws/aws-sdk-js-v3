@@ -28,8 +28,8 @@ export interface ListInstanceTypeDetailsCommandInput extends ListInstanceTypeDet
 export interface ListInstanceTypeDetailsCommandOutput extends ListInstanceTypeDetailsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists all instance types and available features for a given OpenSearch or Elasticsearch
- *    version.</p>
+ * <p>Lists all instance types and available features for a given OpenSearch or
+ *             Elasticsearch version.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

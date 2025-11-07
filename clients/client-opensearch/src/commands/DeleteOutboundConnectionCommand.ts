@@ -28,9 +28,8 @@ export interface DeleteOutboundConnectionCommandInput extends DeleteOutboundConn
 export interface DeleteOutboundConnectionCommandOutput extends DeleteOutboundConnectionResponse, __MetadataBearer {}
 
 /**
- * <p>Allows the source Amazon OpenSearch Service domain owner to delete an existing outbound
- *    cross-cluster search connection. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/cross-cluster-search.html">Cross-cluster search
- *     for Amazon OpenSearch Service</a>.</p>
+ * <p>Allows the source Amazon OpenSearch Service domain owner to delete an existing
+ *             outbound cross-cluster search connection. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/cross-cluster-search.html">Cross-cluster search for Amazon OpenSearch Service</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

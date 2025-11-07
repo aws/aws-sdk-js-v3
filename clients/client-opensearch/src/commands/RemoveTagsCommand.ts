@@ -28,8 +28,8 @@ export interface RemoveTagsCommandInput extends RemoveTagsRequest {}
 export interface RemoveTagsCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Removes the specified set of tags from an Amazon OpenSearch Service domain, data source, or
- *    application. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains.html#managedomains-awsresorcetagging"> Tagging Amazon OpenSearch Service resources</a>.</p>
+ * <p>Removes the specified set of tags from an Amazon OpenSearch Service domain, data
+ *             source, or application. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains.html#managedomains-awsresorcetagging"> Tagging Amazon OpenSearch Service resources</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -29,8 +29,8 @@ export interface StartServiceSoftwareUpdateCommandOutput extends StartServiceSof
 
 /**
  * <p>Schedules a service software update for an Amazon OpenSearch Service domain. For more
- *    information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/service-software.html">Service software updates in
- *     Amazon OpenSearch Service</a>.</p>
+ *             information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/service-software.html">Service
+ *                 software updates in Amazon OpenSearch Service</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

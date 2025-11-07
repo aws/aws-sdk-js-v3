@@ -28,10 +28,11 @@ export interface DissociatePackageCommandInput extends DissociatePackageRequest 
 export interface DissociatePackageCommandOutput extends DissociatePackageResponse, __MetadataBearer {}
 
 /**
- * <p>Removes a package from the specified Amazon OpenSearch Service domain. The package can't be
- *    in use with any OpenSearch index for the dissociation to succeed. The package is still available
- *    in OpenSearch Service for association later. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/custom-packages.html">Custom
- *     packages for Amazon OpenSearch Service</a>.</p>
+ * <p>Removes a package from the specified Amazon OpenSearch Service domain. The package
+ *             can't be in use with any OpenSearch index for the dissociation to succeed. The package
+ *             is still available in OpenSearch Service for association later. For more information,
+ *             see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/custom-packages.html">Custom packages
+ *                 for Amazon OpenSearch Service</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

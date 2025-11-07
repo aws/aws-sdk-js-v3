@@ -28,8 +28,8 @@ export interface RejectInboundConnectionCommandInput extends RejectInboundConnec
 export interface RejectInboundConnectionCommandOutput extends RejectInboundConnectionResponse, __MetadataBearer {}
 
 /**
- * <p>Allows the remote Amazon OpenSearch Service domain owner to reject an inbound cross-cluster
- *    connection request.</p>
+ * <p>Allows the remote Amazon OpenSearch Service domain owner to reject an inbound
+ *             cross-cluster connection request.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

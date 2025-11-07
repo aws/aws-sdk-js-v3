@@ -29,7 +29,7 @@ export interface DescribeDomainsCommandOutput extends DescribeDomainsResponse, _
 
 /**
  * <p>Returns domain configuration information about the specified Amazon OpenSearch Service
- *    domains.</p>
+ *             domains.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

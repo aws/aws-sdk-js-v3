@@ -28,8 +28,8 @@ export interface AuthorizeVpcEndpointAccessCommandInput extends AuthorizeVpcEndp
 export interface AuthorizeVpcEndpointAccessCommandOutput extends AuthorizeVpcEndpointAccessResponse, __MetadataBearer {}
 
 /**
- * <p>Provides access to an Amazon OpenSearch Service domain through the use of an interface VPC
- *    endpoint.</p>
+ * <p>Provides access to an Amazon OpenSearch Service domain through the use of an interface
+ *             VPC endpoint.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

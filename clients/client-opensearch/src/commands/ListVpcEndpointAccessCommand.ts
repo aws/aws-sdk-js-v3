@@ -28,8 +28,9 @@ export interface ListVpcEndpointAccessCommandInput extends ListVpcEndpointAccess
 export interface ListVpcEndpointAccessCommandOutput extends ListVpcEndpointAccessResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves information about each Amazon Web Services principal that is allowed to access a
- *    given Amazon OpenSearch Service domain through the use of an interface VPC endpoint.</p>
+ * <p>Retrieves information about each Amazon Web Services principal that is allowed to
+ *             access a given Amazon OpenSearch Service domain through the use of an interface VPC
+ *             endpoint.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -29,8 +29,8 @@ export interface ListDomainsForPackageCommandOutput extends ListDomainsForPackag
 
 /**
  * <p>Lists all Amazon OpenSearch Service domains associated with a given package. For more
- *    information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/custom-packages.html">Custom packages for Amazon
- *     OpenSearch Service</a>.</p>
+ *             information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/custom-packages.html">Custom packages
+ *                 for Amazon OpenSearch Service</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

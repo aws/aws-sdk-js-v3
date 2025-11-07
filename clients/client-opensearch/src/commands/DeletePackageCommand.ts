@@ -28,8 +28,8 @@ export interface DeletePackageCommandInput extends DeletePackageRequest {}
 export interface DeletePackageCommandOutput extends DeletePackageResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes an Amazon OpenSearch Service package. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/custom-packages.html">Custom
- *     packages for Amazon OpenSearch Service</a>.</p>
+ * <p>Deletes an Amazon OpenSearch Service package. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/custom-packages.html">Custom packages
+ *                 for Amazon OpenSearch Service</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

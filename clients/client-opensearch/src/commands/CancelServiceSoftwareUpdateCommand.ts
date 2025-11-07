@@ -33,9 +33,11 @@ export interface CancelServiceSoftwareUpdateCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Cancels a scheduled service software update for an Amazon OpenSearch Service domain. You can
- *    only perform this operation before the <code>AutomatedUpdateDate</code> and when the domain's
- *     <code>UpdateStatus</code> is <code>PENDING_UPDATE</code>. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/service-software.html">Service software updates in Amazon OpenSearch Service</a>.</p>
+ * <p>Cancels a scheduled service software update for an Amazon OpenSearch Service domain.
+ *             You can only perform this operation before the <code>AutomatedUpdateDate</code> and when
+ *             the domain's <code>UpdateStatus</code> is <code>PENDING_UPDATE</code>. For more
+ *             information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/service-software.html">Service
+ *                 software updates in Amazon OpenSearch Service</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

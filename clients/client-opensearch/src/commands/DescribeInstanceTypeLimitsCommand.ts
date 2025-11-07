@@ -28,8 +28,8 @@ export interface DescribeInstanceTypeLimitsCommandInput extends DescribeInstance
 export interface DescribeInstanceTypeLimitsCommandOutput extends DescribeInstanceTypeLimitsResponse, __MetadataBearer {}
 
 /**
- * <p>Describes the instance count, storage, and master node limits for a given OpenSearch or
- *    Elasticsearch version and instance type.</p>
+ * <p>Describes the instance count, storage, and master node limits for a given OpenSearch
+ *             or Elasticsearch version and instance type.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

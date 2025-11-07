@@ -28,8 +28,8 @@ export interface UpgradeDomainCommandInput extends UpgradeDomainRequest {}
 export interface UpgradeDomainCommandOutput extends UpgradeDomainResponse, __MetadataBearer {}
 
 /**
- * <p>Allows you to either upgrade your Amazon OpenSearch Service domain or perform an upgrade
- *    eligibility check to a compatible version of OpenSearch or Elasticsearch.</p>
+ * <p>Allows you to either upgrade your Amazon OpenSearch Service domain or perform an
+ *             upgrade eligibility check to a compatible version of OpenSearch or Elasticsearch.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

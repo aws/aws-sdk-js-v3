@@ -29,8 +29,7 @@ export interface ListTagsCommandOutput extends ListTagsResponse, __MetadataBeare
 
 /**
  * <p>Returns all resource tags for an Amazon OpenSearch Service domain, data source, or
- *    application. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains-awsresourcetagging.html">Tagging
- *     Amazon OpenSearch Service resources</a>.</p>
+ *             application. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains-awsresourcetagging.html">Tagging Amazon OpenSearch Service resources</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -29,7 +29,7 @@ export interface DescribeDomainCommandOutput extends DescribeDomainResponse, __M
 
 /**
  * <p>Describes the domain configuration for the specified Amazon OpenSearch Service domain,
- *    including the domain ID, domain service endpoint, and domain ARN.</p>
+ *             including the domain ID, domain service endpoint, and domain ARN.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

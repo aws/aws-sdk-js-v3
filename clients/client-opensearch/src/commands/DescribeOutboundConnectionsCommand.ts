@@ -33,9 +33,8 @@ export interface DescribeOutboundConnectionsCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Lists all the outbound cross-cluster connections for a local (source) Amazon OpenSearch
- *    Service domain. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/cross-cluster-search.html">Cross-cluster search
- *     for Amazon OpenSearch Service</a>.</p>
+ * <p>Lists all the outbound cross-cluster connections for a local (source) Amazon
+ *             OpenSearch Service domain. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/cross-cluster-search.html">Cross-cluster search for Amazon OpenSearch Service</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
