@@ -55,7 +55,6 @@ import {
   FleetReplacementStrategy,
   FleetType,
   HostnameType,
-  InstanceBandwidthWeighting,
   InstanceLifecycle,
   LaunchTemplateAndOverridesResponse,
   LogDestinationType,
@@ -75,12 +74,80 @@ import {
 import {
   CapacityReservationTargetResponse,
   GroupIdentifier,
+  InstanceBandwidthWeighting,
   InstanceIpv6Address,
   NetworkInterfaceStatus,
   StateReason,
 } from "./models_2";
 
-import { Filter, FleetStateCode, IdFormat, InstanceTagNotificationAttribute, Subscription } from "./models_3";
+import { Filter, FleetStateCode, IdFormat, InstanceTagNotificationAttribute, MetricType } from "./models_3";
+
+/**
+ * @public
+ * @enum
+ */
+export const PeriodType = {
+  fifteen_minutes: "fifteen-minutes",
+  five_minutes: "five-minutes",
+  one_day: "one-day",
+  one_hour: "one-hour",
+  one_week: "one-week",
+  three_hours: "three-hours",
+} as const;
+
+/**
+ * @public
+ */
+export type PeriodType = (typeof PeriodType)[keyof typeof PeriodType];
+
+/**
+ * @public
+ * @enum
+ */
+export const StatisticType = {
+  p50: "p50",
+} as const;
+
+/**
+ * @public
+ */
+export type StatisticType = (typeof StatisticType)[keyof typeof StatisticType];
+
+/**
+ * <p>Describes an Infrastructure Performance subscription.</p>
+ * @public
+ */
+export interface Subscription {
+  /**
+   * <p>The Region or Availability Zone that's the source for the subscription. For example, <code>us-east-1</code>.</p>
+   * @public
+   */
+  Source?: string | undefined;
+
+  /**
+   * <p>The Region or Availability Zone that's the target for the subscription. For example, <code>eu-west-1</code>.</p>
+   * @public
+   */
+  Destination?: string | undefined;
+
+  /**
+   * <p>The metric used for the subscription.</p>
+   * @public
+   */
+  Metric?: MetricType | undefined;
+
+  /**
+   * <p>The statistic used for the subscription.</p>
+   * @public
+   */
+  Statistic?: StatisticType | undefined;
+
+  /**
+   * <p>The data aggregation time for the subscription.</p>
+   * @public
+   */
+  Period?: PeriodType | undefined;
+}
 
 /**
  * @public
@@ -13092,79 +13159,6 @@ export interface DescribeInstanceTypesRequest {
    */
   NextToken?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const AttachmentLimitType = {
-  DEDICATED: "dedicated",
-  SHARED: "shared",
-} as const;
-
-/**
- * @public
- */
-export type AttachmentLimitType = (typeof AttachmentLimitType)[keyof typeof AttachmentLimitType];
-
-/**
- * <p>Describes the optimized EBS performance for supported instance types.</p>
- * @public
- */
-export interface EbsOptimizedInfo {
-  /**
-   * <p>The baseline bandwidth performance for an EBS-optimized instance type, in Mbps.</p>
-   * @public
-   */
-  BaselineBandwidthInMbps?: number | undefined;
-
-  /**
-   * <p>The baseline throughput performance for an EBS-optimized instance type, in MB/s.</p>
-   * @public
-   */
-  BaselineThroughputInMBps?: number | undefined;
-
-  /**
-   * <p>The baseline input/output storage operations per seconds for an EBS-optimized instance
-   *    type.</p>
-   * @public
-   */
-  BaselineIops?: number | undefined;
-
-  /**
-   * <p>The maximum bandwidth performance for an EBS-optimized instance type, in Mbps.</p>
-   * @public
-   */
-  MaximumBandwidthInMbps?: number | undefined;
-
-  /**
-   * <p>The maximum throughput performance for an EBS-optimized instance type, in MB/s.</p>
-   * @public
-   */
-  MaximumThroughputInMBps?: number | undefined;
-
-  /**
-   * <p>The maximum input/output storage operations per second for an EBS-optimized instance
-   *    type.</p>
-   * @public
-   */
-  MaximumIops?: number | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const EbsOptimizedSupport = {
-  default: "default",
-  supported: "supported",
-  unsupported: "unsupported",
-} as const;
-
-/**
- * @public
- */
-export type EbsOptimizedSupport = (typeof EbsOptimizedSupport)[keyof typeof EbsOptimizedSupport];
 
 /**
  * @internal

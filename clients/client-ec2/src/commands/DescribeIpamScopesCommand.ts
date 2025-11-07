@@ -75,6 +75,10 @@ export interface DescribeIpamScopesCommandOutput extends DescribeIpamScopesResul
  * //           Value: "STRING_VALUE",
  * //         },
  * //       ],
+ * //       ExternalAuthorityConfiguration: { // IpamScopeExternalAuthorityConfiguration
+ * //         Type: "infoblox",
+ * //         ExternalResourceIdentifier: "STRING_VALUE",
+ * //       },
  * //     },
  * //   ],
  * // };

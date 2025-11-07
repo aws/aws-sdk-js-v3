@@ -35,7 +35,6 @@ import {
   CreditSpecificationRequest,
   ElasticGpuSpecification,
   HostnameType,
-  InstanceBandwidthWeighting,
   InstanceInterruptionBehavior,
   IpAddressType,
   MarketType,
@@ -48,6 +47,7 @@ import {
 
 import {
   IcmpTypeCode,
+  InstanceBandwidthWeighting,
   InstanceIpv6Address,
   LocalGatewayRoute,
   ManagedPrefixList,
@@ -57,7 +57,6 @@ import {
   TransitGatewayRoute,
   VerifiedAccessEndpoint,
   VerifiedAccessEndpointProtocol,
-  VerifiedAccessGroup,
   VerifiedAccessSseSpecificationRequest,
 } from "./models_2";
 
@@ -77,6 +76,7 @@ import {
   Phase2EncryptionAlgorithmsRequestListValue,
   Phase2IntegrityAlgorithmsRequestListValue,
   SubnetConfiguration,
+  VerifiedAccessGroup,
   VpcBlockPublicAccessExclusion,
   VpnConnection,
   VpnConnectionFilterSensitiveLog,
@@ -125,12 +125,48 @@ import {
   VpcBlockPublicAccessOptions,
 } from "./models_6";
 
-import {
-  CapacityReservationSpecification,
-  ModifyVerifiedAccessEndpointCidrOptions,
-  ModifyVerifiedAccessEndpointPortRange,
-  Purchase,
-} from "./models_7";
+import { CapacityReservationSpecification, Purchase } from "./models_7";
+
+/**
+ * @public
+ */
+export interface ModifyTransitGatewayVpcAttachmentResult {
+  /**
+   * <p>Information about the modified attachment.</p>
+   * @public
+   */
+  TransitGatewayVpcAttachment?: TransitGatewayVpcAttachment | undefined;
+}
+
+/**
+ * <p>Describes the port range for a Verified Access endpoint.</p>
+ * @public
+ */
+export interface ModifyVerifiedAccessEndpointPortRange {
+  /**
+   * <p>The start of the port range.</p>
+   * @public
+   */
+  FromPort?: number | undefined;
+
+  /**
+   * <p>The end of the port range.</p>
+   * @public
+   */
+  ToPort?: number | undefined;
+}
+
+/**
+ * <p>The CIDR options for a Verified Access endpoint.</p>
+ * @public
+ */
+export interface ModifyVerifiedAccessEndpointCidrOptions {
+  /**
+   * <p>The port ranges.</p>
+   * @public
+   */
+  PortRanges?: ModifyVerifiedAccessEndpointPortRange[] | undefined;
+}
 
 /**
  * <p>Describes a load balancer when creating an Amazon Web Services Verified Access endpoint using the

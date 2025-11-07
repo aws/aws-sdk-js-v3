@@ -67,6 +67,10 @@ export interface ModifyVpcEndpointCommandOutput extends ModifyVpcEndpointResult,
  *   DnsOptions: { // DnsOptionsSpecification
  *     DnsRecordIpType: "ipv4" || "dualstack" || "ipv6" || "service-defined",
  *     PrivateDnsOnlyForInboundResolverEndpoint: true || false,
+ *     PrivateDnsPreference: "STRING_VALUE",
+ *     PrivateDnsSpecifiedDomains: [ // PrivateDnsSpecifiedDomainSet
+ *       "STRING_VALUE",
+ *     ],
  *   },
  *   PrivateDnsEnabled: true || false,
  *   SubnetConfigurations: [ // SubnetConfigurationsList

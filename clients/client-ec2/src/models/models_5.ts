@@ -24,7 +24,6 @@ import {
   TransitGatewayAttachmentState,
   TransitGatewayPeeringAttachment,
   TransitGatewayVpcAttachment,
-  TrunkInterfaceAssociation,
   UserIdGroupPair,
 } from "./models_0";
 
@@ -50,7 +49,6 @@ import {
   Ipv6PrefixSpecificationRequest,
   KeyType,
   MacModificationTask,
-  PrivateIpAddressSpecification,
   SpotInstanceType,
   Subnet,
   TargetCapacityUnitType,
@@ -77,6 +75,7 @@ import {
   NetworkInterfaceAttachment,
   NetworkInterfacePermission,
   PlacementGroup,
+  PrivateIpAddressSpecification,
   ReplaceRootVolumeTask,
   RouteServer,
   RouteServerEndpoint,
@@ -98,21 +97,84 @@ import {
   TransitGatewayPolicyTable,
   TransitGatewayRouteTable,
   TransitGatewayRouteTableAnnouncement,
-  VerifiedAccessEndpoint,
 } from "./models_2";
 
 import { Byoasn, Filter, IdFormat } from "./models_3";
 
-import {
-  AttachmentLimitType,
-  AttributeBooleanValue,
-  EbsOptimizedInfo,
-  EbsOptimizedSupport,
-  EventInformation,
-  PermissionGroup,
-  ProductCode,
-  VirtualizationType,
-} from "./models_4";
+import { AttributeBooleanValue, EventInformation, PermissionGroup, ProductCode, VirtualizationType } from "./models_4";
+
+/**
+ * @public
+ * @enum
+ */
+export const AttachmentLimitType = {
+  DEDICATED: "dedicated",
+  SHARED: "shared",
+} as const;
+
+/**
+ * @public
+ */
+export type AttachmentLimitType = (typeof AttachmentLimitType)[keyof typeof AttachmentLimitType];
+
+/**
+ * <p>Describes the optimized EBS performance for supported instance types.</p>
+ * @public
+ */
+export interface EbsOptimizedInfo {
+  /**
+   * <p>The baseline bandwidth performance for an EBS-optimized instance type, in Mbps.</p>
+   * @public
+   */
+  BaselineBandwidthInMbps?: number | undefined;
+
+  /**
+   * <p>The baseline throughput performance for an EBS-optimized instance type, in MB/s.</p>
+   * @public
+   */
+  BaselineThroughputInMBps?: number | undefined;
+
+  /**
+   * <p>The baseline input/output storage operations per seconds for an EBS-optimized instance
+   *    type.</p>
+   * @public
+   */
+  BaselineIops?: number | undefined;
+
+  /**
+   * <p>The maximum bandwidth performance for an EBS-optimized instance type, in Mbps.</p>
+   * @public
+   */
+  MaximumBandwidthInMbps?: number | undefined;
+
+  /**
+   * <p>The maximum throughput performance for an EBS-optimized instance type, in MB/s.</p>
+   * @public
+   */
+  MaximumThroughputInMBps?: number | undefined;
+
+  /**
+   * <p>The maximum input/output storage operations per second for an EBS-optimized instance
+   *    type.</p>
+   * @public
+   */
+  MaximumIops?: number | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const EbsOptimizedSupport = {
+  default: "default",
+  supported: "supported",
+  unsupported: "unsupported",
+} as const;
+
+/**
+ * @public
+ */
+export type EbsOptimizedSupport = (typeof EbsOptimizedSupport)[keyof typeof EbsOptimizedSupport];
 
 /**
  * @public
@@ -12081,90 +12143,6 @@ export interface DescribeTrunkInterfaceAssociationsRequest {
    * @public
    */
   MaxResults?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeTrunkInterfaceAssociationsResult {
-  /**
-   * <p>Information about the trunk associations.</p>
-   * @public
-   */
-  InterfaceAssociations?: TrunkInterfaceAssociation[] | undefined;
-
-  /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeVerifiedAccessEndpointsRequest {
-  /**
-   * <p>The ID of the Verified Access endpoint.</p>
-   * @public
-   */
-  VerifiedAccessEndpointIds?: string[] | undefined;
-
-  /**
-   * <p>The ID of the Verified Access instance.</p>
-   * @public
-   */
-  VerifiedAccessInstanceId?: string | undefined;
-
-  /**
-   * <p>The ID of the Verified Access group.</p>
-   * @public
-   */
-  VerifiedAccessGroupId?: string | undefined;
-
-  /**
-   * <p>The maximum number of results to return with a single call.
-   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>The token for the next page of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>One or more filters. Filter names and values are case-sensitive.</p>
-   * @public
-   */
-  Filters?: Filter[] | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeVerifiedAccessEndpointsResult {
-  /**
-   * <p>Details about the Verified Access endpoints.</p>
-   * @public
-   */
-  VerifiedAccessEndpoints?: VerifiedAccessEndpoint[] | undefined;
-
-  /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
 }
 
 /**

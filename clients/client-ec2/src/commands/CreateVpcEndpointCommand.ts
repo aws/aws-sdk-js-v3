@@ -59,6 +59,10 @@ export interface CreateVpcEndpointCommandOutput extends CreateVpcEndpointResult,
  *   DnsOptions: { // DnsOptionsSpecification
  *     DnsRecordIpType: "ipv4" || "dualstack" || "ipv6" || "service-defined",
  *     PrivateDnsOnlyForInboundResolverEndpoint: true || false,
+ *     PrivateDnsPreference: "STRING_VALUE",
+ *     PrivateDnsSpecifiedDomains: [ // PrivateDnsSpecifiedDomainSet
+ *       "STRING_VALUE",
+ *     ],
  *   },
  *   ClientToken: "STRING_VALUE",
  *   PrivateDnsEnabled: true || false,
@@ -110,6 +114,10 @@ export interface CreateVpcEndpointCommandOutput extends CreateVpcEndpointResult,
  * //     DnsOptions: { // DnsOptions
  * //       DnsRecordIpType: "ipv4" || "dualstack" || "ipv6" || "service-defined",
  * //       PrivateDnsOnlyForInboundResolverEndpoint: true || false,
+ * //       PrivateDnsPreference: "STRING_VALUE",
+ * //       PrivateDnsSpecifiedDomains: [ // PrivateDnsSpecifiedDomainSet
+ * //         "STRING_VALUE",
+ * //       ],
  * //     },
  * //     PrivateDnsEnabled: true || false,
  * //     RequesterManaged: true || false,

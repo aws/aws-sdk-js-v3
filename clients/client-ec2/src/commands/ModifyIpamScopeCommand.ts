@@ -41,6 +41,11 @@ export interface ModifyIpamScopeCommandOutput extends ModifyIpamScopeResult, __M
  *   DryRun: true || false,
  *   IpamScopeId: "STRING_VALUE", // required
  *   Description: "STRING_VALUE",
+ *   ExternalAuthorityConfiguration: { // ExternalAuthorityConfiguration
+ *     Type: "infoblox",
+ *     ExternalResourceIdentifier: "STRING_VALUE",
+ *   },
+ *   RemoveExternalAuthorityConfiguration: true || false,
  * };
  * const command = new ModifyIpamScopeCommand(input);
  * const response = await client.send(command);
@@ -62,6 +67,10 @@ export interface ModifyIpamScopeCommandOutput extends ModifyIpamScopeResult, __M
  * //         Value: "STRING_VALUE",
  * //       },
  * //     ],
+ * //     ExternalAuthorityConfiguration: { // IpamScopeExternalAuthorityConfiguration
+ * //       Type: "infoblox",
+ * //       ExternalResourceIdentifier: "STRING_VALUE",
+ * //     },
  * //   },
  * // };
  *

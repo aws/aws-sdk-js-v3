@@ -2853,6 +2853,7 @@ import {
   ExportTask,
   ExportToS3Task,
   ExportToS3TaskSpecification,
+  ExternalAuthorityConfiguration,
   FederatedAuthenticationRequest,
   FleetBlockDeviceMappingRequest,
   FleetCapacityReservation,
@@ -2890,6 +2891,7 @@ import {
   IpamResourceDiscovery,
   IpamResourceTag,
   IpamScope,
+  IpamScopeExternalAuthorityConfiguration,
   Ipv4PrefixSpecificationRequest,
   Ipv6PrefixSpecificationRequest,
   KeyPair,
@@ -2905,7 +2907,6 @@ import {
   LaunchTemplateInstanceMaintenanceOptionsRequest,
   LaunchTemplateInstanceMarketOptionsRequest,
   LaunchTemplateInstanceMetadataOptionsRequest,
-  LaunchTemplateInstanceNetworkInterfaceSpecificationRequest,
   LaunchTemplateLicenseConfigurationRequest,
   LaunchTemplatesMonitoringRequest,
   LaunchTemplateSpotMarketOptionsRequest,
@@ -2928,7 +2929,6 @@ import {
   Placement,
   PlacementResponse,
   PrivateDnsNameOptionsOnLaunch,
-  PrivateIpAddressSpecification,
   RequestIpamResourceTag,
   ReservationFleetInstanceSpecification,
   SpotOptionsRequest,
@@ -3058,8 +3058,6 @@ import {
   CreateVerifiedAccessEndpointPortRange,
   CreateVerifiedAccessEndpointRdsOptions,
   CreateVerifiedAccessEndpointRequest,
-  CreateVerifiedAccessEndpointResult,
-  CreateVerifiedAccessGroupRequest,
   CreditSpecification,
   ElasticGpuSpecificationResponse,
   FilterPortRange,
@@ -3085,6 +3083,7 @@ import {
   LaunchTemplateInstanceMarketOptions,
   LaunchTemplateInstanceMetadataOptions,
   LaunchTemplateInstanceNetworkInterfaceSpecification,
+  LaunchTemplateInstanceNetworkInterfaceSpecificationRequest,
   LaunchTemplateLicenseConfiguration,
   LaunchTemplateNetworkPerformanceOptions,
   LaunchTemplateNetworkPerformanceOptionsRequest,
@@ -3124,6 +3123,7 @@ import {
   PathRequestFilter,
   PlacementGroup,
   PriceScheduleSpecification,
+  PrivateIpAddressSpecification,
   PropagatingVgw,
   ProvisionedBandwidth,
   PublicIpDnsNameOptions,
@@ -3182,7 +3182,6 @@ import {
   VerifiedAccessEndpointPortRange,
   VerifiedAccessEndpointRdsOptions,
   VerifiedAccessEndpointStatus,
-  VerifiedAccessGroup,
   VerifiedAccessSseSpecificationRequest,
 } from "../models/models_2";
 import {
@@ -3192,6 +3191,8 @@ import {
   CloudWatchLogOptions,
   CloudWatchLogOptionsSpecification,
   ConnectionNotification,
+  CreateVerifiedAccessEndpointResult,
+  CreateVerifiedAccessGroupRequest,
   CreateVerifiedAccessGroupResult,
   CreateVerifiedAccessInstanceRequest,
   CreateVerifiedAccessInstanceResult,
@@ -3440,12 +3441,12 @@ import {
   ServiceTypeDetail,
   SubnetConfiguration,
   SubnetIpPrefixes,
-  Subscription,
   SuccessfulQueuedPurchaseDeletion,
   SupportedRegionDetail,
   TransitGatewayMulticastDeregisteredGroupMembers,
   TransitGatewayMulticastDeregisteredGroupSources,
   TunnelOption,
+  VerifiedAccessGroup,
   VgwTelemetry,
   VpcBlockPublicAccessExclusion,
   VpcEndpoint,
@@ -3619,7 +3620,6 @@ import {
   DiskImageDescription,
   DiskImageVolumeDescription,
   EbsInstanceBlockDevice,
-  EbsOptimizedInfo,
   EbsStatusDetails,
   EbsStatusSummary,
   ElasticGpuAssociation,
@@ -3700,6 +3700,7 @@ import {
   SnapshotDetail,
   SnapshotTaskDetail,
   SpotOptions,
+  Subscription,
   TargetCapacitySpecification,
   TargetNetwork,
   UserBucketDetails,
@@ -3880,11 +3881,9 @@ import {
   DescribeTransitGatewayVpcAttachmentsRequest,
   DescribeTransitGatewayVpcAttachmentsResult,
   DescribeTrunkInterfaceAssociationsRequest,
-  DescribeTrunkInterfaceAssociationsResult,
-  DescribeVerifiedAccessEndpointsRequest,
-  DescribeVerifiedAccessEndpointsResult,
   DiskInfo,
   EbsInfo,
+  EbsOptimizedInfo,
   EfaInfo,
   FpgaDeviceInfo,
   FpgaDeviceMemoryInfo,
@@ -3982,7 +3981,6 @@ import {
   AttributeSummary,
   CapacityManagerCondition,
   CapacityManagerDimension,
-  CapacityReservationGroup,
   ClassicLinkDnsSupport,
   ClientCertificateRevocationListStatus,
   CoipAddressUsage,
@@ -3990,6 +3988,9 @@ import {
   DataQuery,
   DataResponse,
   DeprecationTimeCondition,
+  DescribeTrunkInterfaceAssociationsResult,
+  DescribeVerifiedAccessEndpointsRequest,
+  DescribeVerifiedAccessEndpointsResult,
   DescribeVerifiedAccessGroupsRequest,
   DescribeVerifiedAccessGroupsResult,
   DescribeVerifiedAccessInstanceLoggingConfigurationsRequest,
@@ -4212,8 +4213,6 @@ import {
   GetEbsEncryptionByDefaultRequest,
   GetEbsEncryptionByDefaultResult,
   GetFlowLogsIntegrationTemplateRequest,
-  GetFlowLogsIntegrationTemplateResult,
-  GetGroupsForCapacityReservationRequest,
   GroupBy,
   ImageCriterion,
   InitializationStatusDetails,
@@ -4254,6 +4253,7 @@ import {
 } from "../models/models_6";
 import {
   BlobAttributeValue,
+  CapacityReservationGroup,
   CapacityReservationSpecification,
   ClientData,
   CreateVolumePermissionModifications,
@@ -4261,6 +4261,8 @@ import {
   DiskImageDetail,
   DnsServersOptionsModifyStructure,
   EbsInstanceBlockDeviceSpecification,
+  GetFlowLogsIntegrationTemplateResult,
+  GetGroupsForCapacityReservationRequest,
   GetGroupsForCapacityReservationResult,
   GetHostReservationPurchasePreviewRequest,
   GetHostReservationPurchasePreviewResult,
@@ -4490,9 +4492,6 @@ import {
   ModifyTransitGatewayResult,
   ModifyTransitGatewayVpcAttachmentRequest,
   ModifyTransitGatewayVpcAttachmentRequestOptions,
-  ModifyTransitGatewayVpcAttachmentResult,
-  ModifyVerifiedAccessEndpointCidrOptions,
-  ModifyVerifiedAccessEndpointPortRange,
   NetworkInterfaceAttachmentChanges,
   PrefixListAssociation,
   PrefixListEntry,
@@ -4549,10 +4548,13 @@ import {
   IpamCidrAuthorizationContext,
   LaunchTemplateSpecification,
   LicenseConfigurationRequest,
+  ModifyTransitGatewayVpcAttachmentResult,
+  ModifyVerifiedAccessEndpointCidrOptions,
   ModifyVerifiedAccessEndpointEniOptions,
   ModifyVerifiedAccessEndpointLoadBalancerOptions,
   ModifyVerifiedAccessEndpointPolicyRequest,
   ModifyVerifiedAccessEndpointPolicyResult,
+  ModifyVerifiedAccessEndpointPortRange,
   ModifyVerifiedAccessEndpointRdsOptions,
   ModifyVerifiedAccessEndpointRequest,
   ModifyVerifiedAccessEndpointResult,
@@ -35110,6 +35112,13 @@ const se_CreateIpamScopeRequest = (input: CreateIpamScopeRequest, context: __Ser
   if (input[_CTl] != null) {
     entries[_CTl] = input[_CTl];
   }
+  if (input[_EAC] != null) {
+    const memberEntries = se_ExternalAuthorityConfiguration(input[_EAC], context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `ExternalAuthorityConfiguration.${key}`;
+      entries[loc] = value;
+    });
+  }
   return entries;
 };
 
@@ -46197,6 +46206,16 @@ const se_DnsOptionsSpecification = (input: DnsOptionsSpecification, context: __S
   if (input[_PDOFIRE] != null) {
     entries[_PDOFIRE] = input[_PDOFIRE];
   }
+  if (input[_PDP] != null) {
+    entries[_PDP] = input[_PDP];
+  }
+  if (input[_PDSD] != null) {
+    const memberEntries = se_PrivateDnsSpecifiedDomainSet(input[_PDSD], context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `PrivateDnsSpecifiedDomain.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
   return entries;
 };
 
@@ -47085,6 +47104,20 @@ const se_ExportVerifiedAccessInstanceClientConfigurationRequest = (
   }
   if (input[_DRr] != null) {
     entries[_DRr] = input[_DRr];
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_ec2ExternalAuthorityConfiguration
+ */
+const se_ExternalAuthorityConfiguration = (input: ExternalAuthorityConfiguration, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input[_T] != null) {
+    entries[_T] = input[_T];
+  }
+  if (input[_ERI] != null) {
+    entries[_ERI] = input[_ERI];
   }
   return entries;
 };
@@ -53654,6 +53687,16 @@ const se_ModifyIpamScopeRequest = (input: ModifyIpamScopeRequest, context: __Ser
   if (input[_De] != null) {
     entries[_De] = input[_De];
   }
+  if (input[_EAC] != null) {
+    const memberEntries = se_ExternalAuthorityConfiguration(input[_EAC], context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `ExternalAuthorityConfiguration.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input[_REAC] != null) {
+    entries[_REAC] = input[_REAC];
+  }
   return entries;
 };
 
@@ -56534,6 +56577,22 @@ const se_PrivateDnsNameOptionsRequest = (input: PrivateDnsNameOptionsRequest, co
   }
   if (input[_ERNDAAAAR] != null) {
     entries[_ERNDAAAAR] = input[_ERNDAAAAR];
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_ec2PrivateDnsSpecifiedDomainSet
+ */
+const se_PrivateDnsSpecifiedDomainSet = (input: string[], context: __SerdeContext): any => {
+  const entries: any = {};
+  let counter = 1;
+  for (const entry of input) {
+    if (entry === null) {
+      continue;
+    }
+    entries[`Item.${counter}`] = entry;
+    counter++;
   }
   return entries;
 };
@@ -73297,6 +73356,14 @@ const de_DnsOptions = (output: any, context: __SerdeContext): DnsOptions => {
   if (output[_pDOFIRE] != null) {
     contents[_PDOFIRE] = __parseBoolean(output[_pDOFIRE]);
   }
+  if (output[_pDP] != null) {
+    contents[_PDP] = __expectString(output[_pDP]);
+  }
+  if (String(output.privateDnsSpecifiedDomainSet).trim() === "") {
+    contents[_PDSD] = [];
+  } else if (output[_pDSDS] != null && output[_pDSDS][_i] != null) {
+    contents[_PDSD] = de_PrivateDnsSpecifiedDomainSet(__getArrayIfSingleItem(output[_pDSDS][_i]), context);
+  }
   return contents;
 };
 
@@ -81063,6 +81130,26 @@ const de_IpamScope = (output: any, context: __SerdeContext): IpamScope => {
   } else if (output[_tS] != null && output[_tS][_i] != null) {
     contents[_Ta] = de_TagList(__getArrayIfSingleItem(output[_tS][_i]), context);
   }
+  if (output[_eAC] != null) {
+    contents[_EAC] = de_IpamScopeExternalAuthorityConfiguration(output[_eAC], context);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_ec2IpamScopeExternalAuthorityConfiguration
+ */
+const de_IpamScopeExternalAuthorityConfiguration = (
+  output: any,
+  context: __SerdeContext
+): IpamScopeExternalAuthorityConfiguration => {
+  const contents: any = {};
+  if (output[_ty] != null) {
+    contents[_T] = __expectString(output[_ty]);
+  }
+  if (output[_eRI] != null) {
+    contents[_ERI] = __expectString(output[_eRI]);
+  }
   return contents;
 };
 
@@ -86305,6 +86392,17 @@ const de_PrivateDnsNameOptionsResponse = (output: any, context: __SerdeContext):
     contents[_ERNDAAAAR] = __parseBoolean(output[_eRNDAAAAR]);
   }
   return contents;
+};
+
+/**
+ * deserializeAws_ec2PrivateDnsSpecifiedDomainSet
+ */
+const de_PrivateDnsSpecifiedDomainSet = (output: any, context: __SerdeContext): string[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return __expectString(entry) as any;
+    });
 };
 
 /**
@@ -96432,6 +96530,7 @@ const _Du = "Duration";
 const _Dua = "Dualstack";
 const _E = "Ebs";
 const _EA = "EnableAcceleration";
+const _EAC = "ExternalAuthorityConfiguration";
 const _EAIS = "EnableAllowedImagesSettings";
 const _EANPMS = "EnableAwsNetworkPerformanceMetricSubscription";
 const _EAT = "EnableAddressTransfer";
@@ -96525,6 +96624,7 @@ const _EPI = "EnablePrimaryIpv6";
 const _EPg = "EgressPackets";
 const _EQC = "EnaQueueCount";
 const _ERAOS = "EnableReachabilityAnalyzerOrganizationSharing";
+const _ERI = "ExternalResourceIdentifier";
 const _ERNDAAAAR = "EnableResourceNameDnsAAAARecord";
 const _ERNDAAAAROL = "EnableResourceNameDnsAAAARecordOnLaunch";
 const _ERNDAR = "EnableResourceNameDnsARecord";
@@ -97491,7 +97591,9 @@ const _PDNr = "PrivateDnsNames";
 const _PDNu = "PublicDnsNames";
 const _PDNub = "PublicDnsName";
 const _PDOFIRE = "PrivateDnsOnlyForInboundResolverEndpoint";
+const _PDP = "PrivateDnsPreference";
 const _PDRTI = "PropagationDefaultRouteTableId";
+const _PDSD = "PrivateDnsSpecifiedDomains";
 const _PDSDN = "PublicDualStackDnsName";
 const _PDSI = "PublicDefaultScopeId";
 const _PDSIr = "PrivateDefaultScopeId";
@@ -97669,6 +97771,7 @@ const _RDPA = "RdsDbProxyArn";
 const _RDS = "ResourceDiscoveryStatus";
 const _RDT = "RootDeviceType";
 const _RE = "RdsEndpoint";
+const _REAC = "RemoveExternalAuthorityConfiguration";
 const _RED = "RemoveEndDate";
 const _REDKKI = "ResetEbsDefaultKmsKeyId";
 const _REDT = "ReservationEndDateType";
@@ -98857,6 +98960,7 @@ const _du = "duration";
 const _dua = "dualstack";
 const _e = "egress";
 const _eA = "eniAddress";
+const _eAC = "externalAuthorityConfiguration";
 const _eAn = "enableAcceleration";
 const _eAx = "exclusionsAllowed";
 const _eB = "egressBytes";
@@ -98923,6 +99027,7 @@ const _eP = "egressPackets";
 const _ePG = "enablePrivateGua";
 const _ePS = "excludePathSet";
 const _eQC = "enaQueueCount";
+const _eRI = "externalResourceIdentifier";
 const _eRNDAAAAR = "enableResourceNameDnsAAAARecord";
 const _eRNDAR = "enableResourceNameDnsARecord";
 const _eS = "ephemeralStorage";
@@ -99628,9 +99733,11 @@ const _pDNVS = "privateDnsNameVerificationState";
 const _pDNr = "privateDnsName";
 const _pDNu = "publicDnsName";
 const _pDOFIRE = "privateDnsOnlyForInboundResolverEndpoint";
+const _pDP = "privateDnsPreference";
 const _pDRTI = "propagationDefaultRouteTableId";
 const _pDS = "pricingDetailsSet";
 const _pDSDN = "publicDualStackDnsName";
+const _pDSDS = "privateDnsSpecifiedDomainSet";
 const _pDSI = "publicDefaultScopeId";
 const _pDSIr = "privateDefaultScopeId";
 const _pDa = "paymentDue";

@@ -19,6 +19,7 @@ import {
   UnsuccessfulItem,
   UserTrustProviderType,
   VerifiedAccessInstance,
+  VerifiedAccessSseSpecificationResponse,
   VerifiedAccessTrustProvider,
   VerifiedAccessTrustProviderFilterSensitiveLog,
   VpcAttachment,
@@ -70,9 +71,135 @@ import {
   TransitGatewayRouteTable,
   TransitGatewayRouteTableAnnouncement,
   VerifiedAccessEndpoint,
-  VerifiedAccessGroup,
   VerifiedAccessSseSpecificationRequest,
 } from "./models_2";
+
+/**
+ * @public
+ */
+export interface CreateVerifiedAccessEndpointResult {
+  /**
+   * <p>Details about the Verified Access endpoint.</p>
+   * @public
+   */
+  VerifiedAccessEndpoint?: VerifiedAccessEndpoint | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateVerifiedAccessGroupRequest {
+  /**
+   * <p>The ID of the Verified Access instance.</p>
+   * @public
+   */
+  VerifiedAccessInstanceId: string | undefined;
+
+  /**
+   * <p>A description for the Verified Access group.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The Verified Access policy document.</p>
+   * @public
+   */
+  PolicyDocument?: string | undefined;
+
+  /**
+   * <p>The tags to assign to the Verified Access group.</p>
+   * @public
+   */
+  TagSpecifications?: TagSpecification[] | undefined;
+
+  /**
+   * <p>A unique, case-sensitive token that you provide to ensure idempotency of your
+   *             modification request. For more information, see <a href="https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html">Ensuring idempotency</a>.</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The options for server side encryption.</p>
+   * @public
+   */
+  SseSpecification?: VerifiedAccessSseSpecificationRequest | undefined;
+}
+
+/**
+ * <p>Describes a Verified Access group.</p>
+ * @public
+ */
+export interface VerifiedAccessGroup {
+  /**
+   * <p>The ID of the Verified Access group.</p>
+   * @public
+   */
+  VerifiedAccessGroupId?: string | undefined;
+
+  /**
+   * <p>The ID of the Amazon Web Services Verified Access instance.</p>
+   * @public
+   */
+  VerifiedAccessInstanceId?: string | undefined;
+
+  /**
+   * <p>A description for the Amazon Web Services Verified Access group.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services account number that owns the group.</p>
+   * @public
+   */
+  Owner?: string | undefined;
+
+  /**
+   * <p>The ARN of the Verified Access group.</p>
+   * @public
+   */
+  VerifiedAccessGroupArn?: string | undefined;
+
+  /**
+   * <p>The creation time.</p>
+   * @public
+   */
+  CreationTime?: string | undefined;
+
+  /**
+   * <p>The last updated time.</p>
+   * @public
+   */
+  LastUpdatedTime?: string | undefined;
+
+  /**
+   * <p>The deletion time.</p>
+   * @public
+   */
+  DeletionTime?: string | undefined;
+
+  /**
+   * <p>The tags.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+
+  /**
+   * <p>The options in use for server side encryption.</p>
+   * @public
+   */
+  SseSpecification?: VerifiedAccessSseSpecificationResponse | undefined;
+}
 
 /**
  * @public
@@ -906,6 +1033,40 @@ export interface DnsOptionsSpecification {
    * @public
    */
   PrivateDnsOnlyForInboundResolverEndpoint?: boolean | undefined;
+
+  /**
+   * <p>
+   *     The preference for which private domains have a private hosted zone created for and associated with the specified VPC. Only supported when private DNS is enabled and when the VPC endpoint type is ServiceNetwork or Resource.
+   *   </p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ALL_DOMAINS</code> - VPC Lattice provisions private hosted zones for all custom domain names.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>VERIFIED_DOMAINS_ONLY</code> - VPC Lattice provisions a private hosted zone only if custom domain name has been verified by the provider.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>VERIFIED_DOMAINS_AND_SPECIFIED_DOMAINS</code> - VPC Lattice provisions private hosted zones for all verified custom domain names and other domain names that the resource consumer specifies. The resource consumer specifies the domain names in the PrivateDnsSpecifiedDomains parameter.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SPECIFIED_DOMAINS_ONLY</code> - VPC Lattice provisions a private hosted zone for domain names specified by the resource consumer. The resource consumer specifies the domain names in the PrivateDnsSpecifiedDomains parameter.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  PrivateDnsPreference?: string | undefined;
+
+  /**
+   * <p>
+   * Indicates which of the private domains to create private hosted zones for and associate with the specified VPC. Only supported when private DNS is enabled and the private DNS preference is verified-domains-and-specified-domains or specified-domains-only.
+   * </p>
+   * @public
+   */
+  PrivateDnsSpecifiedDomains?: string[] | undefined;
 }
 
 /**
@@ -1120,6 +1281,40 @@ export interface DnsOptions {
    * @public
    */
   PrivateDnsOnlyForInboundResolverEndpoint?: boolean | undefined;
+
+  /**
+   * <p>
+   * The preference for which private domains have a private hosted zone created for and associated with the specified VPC. Only supported when private DNS is enabled and when the VPC endpoint type is ServiceNetwork or Resource.
+   * </p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ALL_DOMAINS</code> - VPC Lattice provisions private hosted zones for all custom domain names.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>VERIFIED_DOMAINS_ONLY</code> - VPC Lattice provisions a private hosted zone only if custom domain name has been verified by the provider.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>VERIFIED_DOMAINS_AND_SPECIFIED_DOMAINS</code> - VPC Lattice provisions private hosted zones for all verified custom domain names and other domain names that the resource consumer specifies. The resource consumer specifies the domain names in the PrivateDnsSpecifiedDomains parameter.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SPECIFIED_DOMAINS_ONLY</code> - VPC Lattice provisions a private hosted zone for domain names specified by the resource consumer. The resource consumer specifies the domain names in the PrivateDnsSpecifiedDomains parameter.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  PrivateDnsPreference?: string | undefined;
+
+  /**
+   * <p>
+   * Indicates which of the private domains to create private hosted zones for and associate with the specified VPC. Only supported when private DNS is enabled and the private DNS preference is <code>VERIFIED_DOMAINS_AND_SPECIFIED_DOMAINS</code> or <code>SPECIFIED_DOMAINS_ONLY</code>.
+   * </p>
+   * @public
+   */
+  PrivateDnsSpecifiedDomains?: string[] | undefined;
 }
 
 /**
@@ -1620,7 +1815,7 @@ export type DnsNameState = (typeof DnsNameState)[keyof typeof DnsNameState];
 export interface PrivateDnsNameConfiguration {
   /**
    * <p>The verification state of the VPC endpoint service.</p>
-   *          <p>>Consumers
+   *          <p>Consumers
    *             of the endpoint service can use the private name only when the state is
    *                 <code>verified</code>.</p>
    * @public
@@ -7251,73 +7446,6 @@ export const MetricType = {
  * @public
  */
 export type MetricType = (typeof MetricType)[keyof typeof MetricType];
-
-/**
- * @public
- * @enum
- */
-export const PeriodType = {
-  fifteen_minutes: "fifteen-minutes",
-  five_minutes: "five-minutes",
-  one_day: "one-day",
-  one_hour: "one-hour",
-  one_week: "one-week",
-  three_hours: "three-hours",
-} as const;
-
-/**
- * @public
- */
-export type PeriodType = (typeof PeriodType)[keyof typeof PeriodType];
-
-/**
- * @public
- * @enum
- */
-export const StatisticType = {
-  p50: "p50",
-} as const;
-
-/**
- * @public
- */
-export type StatisticType = (typeof StatisticType)[keyof typeof StatisticType];
-
-/**
- * <p>Describes an Infrastructure Performance subscription.</p>
- * @public
- */
-export interface Subscription {
-  /**
-   * <p>The Region or Availability Zone that's the source for the subscription. For example, <code>us-east-1</code>.</p>
-   * @public
-   */
-  Source?: string | undefined;
-
-  /**
-   * <p>The Region or Availability Zone that's the target for the subscription. For example, <code>eu-west-1</code>.</p>
-   * @public
-   */
-  Destination?: string | undefined;
-
-  /**
-   * <p>The metric used for the subscription.</p>
-   * @public
-   */
-  Metric?: MetricType | undefined;
-
-  /**
-   * <p>The statistic used for the subscription.</p>
-   * @public
-   */
-  Statistic?: StatisticType | undefined;
-
-  /**
-   * <p>The data aggregation time for the subscription.</p>
-   * @public
-   */
-  Period?: PeriodType | undefined;
-}
 
 /**
  * @internal

@@ -27,7 +27,6 @@ import {
   TransitGatewayAssociationState,
   TransitGatewayAttachmentResourceType,
   TransitGatewayPolicyTableAssociation,
-  TransitGatewayVpcAttachment,
   UnsuccessfulItem,
 } from "./models_0";
 
@@ -43,10 +42,10 @@ import {
   ConnectionTrackingSpecificationRequest,
   DiskImageFormat,
   EndDateType,
+  ExternalAuthorityConfiguration,
   FleetExcessCapacityTerminationPolicy,
   FleetLaunchTemplateConfigRequest,
   HostnameType,
-  InstanceBandwidthWeighting,
   InstanceEventWindowTimeRangeRequest,
   InstanceMatchCriteria,
   InstanceRequirementsRequest,
@@ -77,6 +76,7 @@ import {
   AutoAcceptSharedAttachmentsValue,
   DefaultRouteTableAssociationValue,
   DefaultRouteTablePropagationValue,
+  InstanceBandwidthWeighting,
   LaunchTemplate,
   LocalGatewayRoute,
   ManagedPrefixList,
@@ -140,7 +140,6 @@ import {
 } from "./models_5";
 
 import {
-  CapacityReservationGroup,
   InstanceFamilyCreditSpecification,
   ManagedBy,
   RouteServerPropagation,
@@ -148,6 +147,67 @@ import {
   TransitGatewayPropagationState,
   UnlimitedSupportedInstanceFamily,
 } from "./models_6";
+
+/**
+ * @public
+ */
+export interface GetFlowLogsIntegrationTemplateResult {
+  /**
+   * <p>The generated CloudFormation template.</p>
+   * @public
+   */
+  Result?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetGroupsForCapacityReservationRequest {
+  /**
+   * <p>The ID of the Capacity Reservation. If you specify a Capacity Reservation that is
+   * 			shared with you, the operation returns only Capacity Reservation groups that you
+   * 			own.</p>
+   * @public
+   */
+  CapacityReservationId: string | undefined;
+
+  /**
+   * <p>The token to use to retrieve the next page of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of items to return for this request. To get the next page of items, make another request with the token returned in the output. For more information,
+   *     see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * <p>Describes a resource group to which a Capacity Reservation has been added.</p>
+ * @public
+ */
+export interface CapacityReservationGroup {
+  /**
+   * <p>The ARN of the resource group.</p>
+   * @public
+   */
+  GroupArn?: string | undefined;
+
+  /**
+   * <p>The ID of the Amazon Web Services account that owns the resource group.</p>
+   * @public
+   */
+  OwnerId?: string | undefined;
+}
 
 /**
  * @public
@@ -8239,6 +8299,19 @@ export interface ModifyIpamScopeRequest {
    * @public
    */
   Description?: string | undefined;
+
+  /**
+   * <p>The configuration that links an Amazon VPC IPAM scope to an external authority system. It specifies the type of external system and the external resource identifier that identifies your account or instance in that system.</p>
+   *          <p>In IPAM, an external authority is a third-party IP address management system that provides CIDR blocks when you provision address space for top-level IPAM pools. This allows you to use your existing IP management system to control which address ranges are allocated to Amazon Web Services while using Amazon VPC IPAM to manage subnets within those ranges.</p>
+   * @public
+   */
+  ExternalAuthorityConfiguration?: ExternalAuthorityConfiguration | undefined;
+
+  /**
+   * <p>Remove the external authority configuration. <code>true</code> to remove.</p>
+   * @public
+   */
+  RemoveExternalAuthorityConfiguration?: boolean | undefined;
 }
 
 /**
@@ -9719,47 +9792,6 @@ export interface ModifyTransitGatewayVpcAttachmentRequest {
    * @public
    */
   DryRun?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface ModifyTransitGatewayVpcAttachmentResult {
-  /**
-   * <p>Information about the modified attachment.</p>
-   * @public
-   */
-  TransitGatewayVpcAttachment?: TransitGatewayVpcAttachment | undefined;
-}
-
-/**
- * <p>Describes the port range for a Verified Access endpoint.</p>
- * @public
- */
-export interface ModifyVerifiedAccessEndpointPortRange {
-  /**
-   * <p>The start of the port range.</p>
-   * @public
-   */
-  FromPort?: number | undefined;
-
-  /**
-   * <p>The end of the port range.</p>
-   * @public
-   */
-  ToPort?: number | undefined;
-}
-
-/**
- * <p>The CIDR options for a Verified Access endpoint.</p>
- * @public
- */
-export interface ModifyVerifiedAccessEndpointCidrOptions {
-  /**
-   * <p>The port ranges.</p>
-   * @public
-   */
-  PortRanges?: ModifyVerifiedAccessEndpointPortRange[] | undefined;
 }
 
 /**

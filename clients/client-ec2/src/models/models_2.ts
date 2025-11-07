@@ -35,9 +35,10 @@ import {
   ConnectionTrackingSpecificationRequest,
   CreditSpecificationRequest,
   ElasticGpuSpecification,
+  EnaSrdSpecificationRequest,
   HostnameType,
-  InstanceBandwidthWeighting,
   InstanceInterruptionBehavior,
+  InstanceIpv6AddressRequest,
   InstanceRequirements,
   InstanceRequirementsRequest,
   Ipv4PrefixSpecificationRequest,
@@ -57,14 +58,12 @@ import {
   LaunchTemplateInstanceMetadataOptionsRequest,
   LaunchTemplateInstanceMetadataProtocolIpv6,
   LaunchTemplateInstanceMetadataTagsState,
-  LaunchTemplateInstanceNetworkInterfaceSpecificationRequest,
   LaunchTemplateLicenseConfigurationRequest,
   LaunchTemplatesMonitoringRequest,
   MacModificationTask,
   MacSystemIntegrityProtectionSettingStatus,
   MarketType,
   OperatorResponse,
-  PrivateIpAddressSpecification,
   ShutdownBehavior,
   SnapshotLocationEnum,
   SpotInstanceType,
@@ -73,6 +72,221 @@ import {
   Tenancy,
   VolumeType,
 } from "./models_1";
+
+/**
+ * <p>Describes a secondary private IPv4 address for a network interface.</p>
+ * @public
+ */
+export interface PrivateIpAddressSpecification {
+  /**
+   * <p>Indicates whether the private IPv4 address is the primary private IPv4 address. Only
+   *             one IPv4 address can be designated as primary.</p>
+   * @public
+   */
+  Primary?: boolean | undefined;
+
+  /**
+   * <p>The private IPv4 address.</p>
+   * @public
+   */
+  PrivateIpAddress?: string | undefined;
+}
+
+/**
+ * <p>The parameters for a network interface.</p>
+ * @public
+ */
+export interface LaunchTemplateInstanceNetworkInterfaceSpecificationRequest {
+  /**
+   * <p>Associates a Carrier IP address with eth0 for a new network interface.</p>
+   *          <p>Use this option when you launch an instance in a Wavelength Zone and want to associate
+   *             a Carrier IP address with the network interface. For more information about Carrier IP
+   *             addresses, see <a href="https://docs.aws.amazon.com/wavelength/latest/developerguide/how-wavelengths-work.html#provider-owned-ip">Carrier IP addresses</a> in the <i>Wavelength Developer
+   *             Guide</i>.</p>
+   * @public
+   */
+  AssociateCarrierIpAddress?: boolean | undefined;
+
+  /**
+   * <p>Associates a public IPv4 address with eth0 for a new network interface.</p>
+   *          <p>Amazon Web Services charges for all public IPv4 addresses, including public IPv4 addresses
+   * associated with running instances and Elastic IP addresses. For more information, see the <i>Public IPv4 Address</i> tab on the <a href="http://aws.amazon.com/vpc/pricing/">Amazon VPC pricing page</a>.</p>
+   * @public
+   */
+  AssociatePublicIpAddress?: boolean | undefined;
+
+  /**
+   * <p>Indicates whether the network interface is deleted when the instance is
+   *             terminated.</p>
+   * @public
+   */
+  DeleteOnTermination?: boolean | undefined;
+
+  /**
+   * <p>A description for the network interface.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The device index for the network interface attachment. The primary network interface
+   *             has a device index of 0. Each network interface is of type <code>interface</code>, you
+   *             must specify a device index. If you create a launch template that includes secondary
+   *             network interfaces but not a primary network interface, then you must add a primary
+   *             network interface as a launch parameter when you launch an instance from the
+   *             template.</p>
+   * @public
+   */
+  DeviceIndex?: number | undefined;
+
+  /**
+   * <p>The IDs of one or more security groups.</p>
+   * @public
+   */
+  Groups?: string[] | undefined;
+
+  /**
+   * <p>The type of network interface. To create an Elastic Fabric Adapter (EFA), specify
+   *                 <code>efa</code> or <code>efa</code>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/efa.html">Elastic Fabric Adapter for AI/ML
+   *                 and HPC workloads on Amazon EC2</a> in the
+   *             <i>Amazon EC2 User Guide</i>.</p>
+   *          <p>If you are not creating an EFA, specify <code>interface</code> or omit this
+   *             parameter.</p>
+   *          <p>If you specify <code>efa-only</code>, do not assign any IP addresses to the network
+   *             interface. EFA-only network interfaces do not support IP addresses.</p>
+   *          <p>Valid values: <code>interface</code> | <code>efa</code> | <code>efa-only</code>
+   *          </p>
+   * @public
+   */
+  InterfaceType?: string | undefined;
+
+  /**
+   * <p>The number of IPv6 addresses to assign to a network interface. Amazon EC2
+   *             automatically selects the IPv6 addresses from the subnet range. You can't use this
+   *             option if specifying specific IPv6 addresses.</p>
+   * @public
+   */
+  Ipv6AddressCount?: number | undefined;
+
+  /**
+   * <p>One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet. You
+   *             can't use this option if you're specifying a number of IPv6 addresses.</p>
+   * @public
+   */
+  Ipv6Addresses?: InstanceIpv6AddressRequest[] | undefined;
+
+  /**
+   * <p>The ID of the network interface.</p>
+   * @public
+   */
+  NetworkInterfaceId?: string | undefined;
+
+  /**
+   * <p>The primary private IPv4 address of the network interface.</p>
+   * @public
+   */
+  PrivateIpAddress?: string | undefined;
+
+  /**
+   * <p>One or more private IPv4 addresses.</p>
+   * @public
+   */
+  PrivateIpAddresses?: PrivateIpAddressSpecification[] | undefined;
+
+  /**
+   * <p>The number of secondary private IPv4 addresses to assign to a network
+   *             interface.</p>
+   * @public
+   */
+  SecondaryPrivateIpAddressCount?: number | undefined;
+
+  /**
+   * <p>The ID of the subnet for the network interface.</p>
+   * @public
+   */
+  SubnetId?: string | undefined;
+
+  /**
+   * <p>The index of the network card. Some instance types support multiple network cards. The
+   *             primary network interface must be assigned to network card index 0. The default is
+   *             network card index 0.</p>
+   * @public
+   */
+  NetworkCardIndex?: number | undefined;
+
+  /**
+   * <p>One or more IPv4 prefixes to be assigned to the network interface. You cannot use this
+   *             option if you use the <code>Ipv4PrefixCount</code> option.</p>
+   * @public
+   */
+  Ipv4Prefixes?: Ipv4PrefixSpecificationRequest[] | undefined;
+
+  /**
+   * <p>The number of IPv4 prefixes to be automatically assigned to the network interface. You
+   *             cannot use this option if you use the <code>Ipv4Prefix</code> option.</p>
+   * @public
+   */
+  Ipv4PrefixCount?: number | undefined;
+
+  /**
+   * <p>One or more IPv6 prefixes to be assigned to the network interface. You cannot use this
+   *             option if you use the <code>Ipv6PrefixCount</code> option.</p>
+   * @public
+   */
+  Ipv6Prefixes?: Ipv6PrefixSpecificationRequest[] | undefined;
+
+  /**
+   * <p>The number of IPv6 prefixes to be automatically assigned to the network interface. You
+   *             cannot use this option if you use the <code>Ipv6Prefix</code> option.</p>
+   * @public
+   */
+  Ipv6PrefixCount?: number | undefined;
+
+  /**
+   * <p>The primary IPv6 address of the network interface. When you enable an IPv6 GUA address
+   *             to be a primary IPv6, the first IPv6 GUA will be made the primary IPv6 address until the
+   *             instance is terminated or the network interface is detached. For more information about
+   *             primary IPv6 addresses, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html">RunInstances</a>.</p>
+   * @public
+   */
+  PrimaryIpv6?: boolean | undefined;
+
+  /**
+   * <p>Configure ENA Express settings for your launch template.</p>
+   * @public
+   */
+  EnaSrdSpecification?: EnaSrdSpecificationRequest | undefined;
+
+  /**
+   * <p>A security group connection tracking specification that enables you to set the timeout
+   *             for connection tracking on an Elastic network interface. For more information, see
+   *                 <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-connection-tracking.html#connection-tracking-timeouts">Idle connection tracking timeout</a> in the
+   *                 <i>Amazon EC2 User Guide</i>.</p>
+   * @public
+   */
+  ConnectionTrackingSpecification?: ConnectionTrackingSpecificationRequest | undefined;
+
+  /**
+   * <p>The number of ENA queues to be created with the instance.</p>
+   * @public
+   */
+  EnaQueueCount?: number | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const InstanceBandwidthWeighting = {
+  DEFAULT: "default",
+  EBS_1: "ebs-1",
+  VPC_1: "vpc-1",
+} as const;
+
+/**
+ * @public
+ */
+export type InstanceBandwidthWeighting = (typeof InstanceBandwidthWeighting)[keyof typeof InstanceBandwidthWeighting];
 
 /**
  * <p>When you configure network performance options in your launch template, your instance
@@ -10774,133 +10988,6 @@ export interface VerifiedAccessEndpoint {
    * @public
    */
   CidrOptions?: VerifiedAccessEndpointCidrOptions | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateVerifiedAccessEndpointResult {
-  /**
-   * <p>Details about the Verified Access endpoint.</p>
-   * @public
-   */
-  VerifiedAccessEndpoint?: VerifiedAccessEndpoint | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateVerifiedAccessGroupRequest {
-  /**
-   * <p>The ID of the Verified Access instance.</p>
-   * @public
-   */
-  VerifiedAccessInstanceId: string | undefined;
-
-  /**
-   * <p>A description for the Verified Access group.</p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p>The Verified Access policy document.</p>
-   * @public
-   */
-  PolicyDocument?: string | undefined;
-
-  /**
-   * <p>The tags to assign to the Verified Access group.</p>
-   * @public
-   */
-  TagSpecifications?: TagSpecification[] | undefined;
-
-  /**
-   * <p>A unique, case-sensitive token that you provide to ensure idempotency of your
-   *             modification request. For more information, see <a href="https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html">Ensuring idempotency</a>.</p>
-   * @public
-   */
-  ClientToken?: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The options for server side encryption.</p>
-   * @public
-   */
-  SseSpecification?: VerifiedAccessSseSpecificationRequest | undefined;
-}
-
-/**
- * <p>Describes a Verified Access group.</p>
- * @public
- */
-export interface VerifiedAccessGroup {
-  /**
-   * <p>The ID of the Verified Access group.</p>
-   * @public
-   */
-  VerifiedAccessGroupId?: string | undefined;
-
-  /**
-   * <p>The ID of the Amazon Web Services Verified Access instance.</p>
-   * @public
-   */
-  VerifiedAccessInstanceId?: string | undefined;
-
-  /**
-   * <p>A description for the Amazon Web Services Verified Access group.</p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p>The Amazon Web Services account number that owns the group.</p>
-   * @public
-   */
-  Owner?: string | undefined;
-
-  /**
-   * <p>The ARN of the Verified Access group.</p>
-   * @public
-   */
-  VerifiedAccessGroupArn?: string | undefined;
-
-  /**
-   * <p>The creation time.</p>
-   * @public
-   */
-  CreationTime?: string | undefined;
-
-  /**
-   * <p>The last updated time.</p>
-   * @public
-   */
-  LastUpdatedTime?: string | undefined;
-
-  /**
-   * <p>The deletion time.</p>
-   * @public
-   */
-  DeletionTime?: string | undefined;
-
-  /**
-   * <p>The tags.</p>
-   * @public
-   */
-  Tags?: Tag[] | undefined;
-
-  /**
-   * <p>The options in use for server side encryption.</p>
-   * @public
-   */
-  SseSpecification?: VerifiedAccessSseSpecificationResponse | undefined;
 }
 
 /**

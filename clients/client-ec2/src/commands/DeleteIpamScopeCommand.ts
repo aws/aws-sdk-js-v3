@@ -63,6 +63,10 @@ export interface DeleteIpamScopeCommandOutput extends DeleteIpamScopeResult, __M
  * //         Value: "STRING_VALUE",
  * //       },
  * //     ],
+ * //     ExternalAuthorityConfiguration: { // IpamScopeExternalAuthorityConfiguration
+ * //       Type: "infoblox",
+ * //       ExternalResourceIdentifier: "STRING_VALUE",
+ * //     },
  * //   },
  * // };
  *

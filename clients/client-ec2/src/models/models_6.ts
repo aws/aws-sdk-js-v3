@@ -23,6 +23,7 @@ import {
   TransitGatewayAttachmentResourceType,
   TransitGatewayMulticastDomainAssociations,
   TransitGatewayPolicyTableAssociation,
+  TrunkInterfaceAssociation,
   UserTrustProviderType,
   VerifiedAccessInstance,
   VerifiedAccessTrustProvider,
@@ -34,7 +35,7 @@ import {
 
 import { CapacityReservationState, DiskImageFormat, IpAddressType, SSEType, Volume, VolumeType, Vpc } from "./models_1";
 
-import { VerifiedAccessGroup } from "./models_2";
+import { VerifiedAccessEndpoint } from "./models_2";
 
 import {
   ConnectionNotification,
@@ -43,12 +44,11 @@ import {
   Filter,
   MetricType,
   PayerResponsibility,
-  PeriodType,
   ServiceConfiguration,
   ServiceConnectivityType,
   ServiceTypeDetail,
   State,
-  StatisticType,
+  VerifiedAccessGroup,
   VpcBlockPublicAccessExclusion,
   VpcEndpoint,
   VpnConnection,
@@ -64,9 +64,95 @@ import {
   FastLaunchSnapshotConfigurationResponse,
   FastLaunchStateCode,
   FastSnapshotRestoreStateCode,
+  PeriodType,
   ProductCode,
   ReservationState,
+  StatisticType,
 } from "./models_4";
+
+/**
+ * @public
+ */
+export interface DescribeTrunkInterfaceAssociationsResult {
+  /**
+   * <p>Information about the trunk associations.</p>
+   * @public
+   */
+  InterfaceAssociations?: TrunkInterfaceAssociation[] | undefined;
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeVerifiedAccessEndpointsRequest {
+  /**
+   * <p>The ID of the Verified Access endpoint.</p>
+   * @public
+   */
+  VerifiedAccessEndpointIds?: string[] | undefined;
+
+  /**
+   * <p>The ID of the Verified Access instance.</p>
+   * @public
+   */
+  VerifiedAccessInstanceId?: string | undefined;
+
+  /**
+   * <p>The ID of the Verified Access group.</p>
+   * @public
+   */
+  VerifiedAccessGroupId?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return with a single call.
+   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The token for the next page of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>One or more filters. Filter names and values are case-sensitive.</p>
+   * @public
+   */
+  Filters?: Filter[] | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeVerifiedAccessEndpointsResult {
+  /**
+   * <p>Details about the Verified Access endpoints.</p>
+   * @public
+   */
+  VerifiedAccessEndpoints?: VerifiedAccessEndpoint[] | undefined;
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
 
 /**
  * @public
@@ -8386,67 +8472,6 @@ export interface GetFlowLogsIntegrationTemplateRequest {
    * @public
    */
   IntegrateServices: IntegrateServices | undefined;
-}
-
-/**
- * @public
- */
-export interface GetFlowLogsIntegrationTemplateResult {
-  /**
-   * <p>The generated CloudFormation template.</p>
-   * @public
-   */
-  Result?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetGroupsForCapacityReservationRequest {
-  /**
-   * <p>The ID of the Capacity Reservation. If you specify a Capacity Reservation that is
-   * 			shared with you, the operation returns only Capacity Reservation groups that you
-   * 			own.</p>
-   * @public
-   */
-  CapacityReservationId: string | undefined;
-
-  /**
-   * <p>The token to use to retrieve the next page of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of items to return for this request. To get the next page of items, make another request with the token returned in the output. For more information,
-   *     see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-}
-
-/**
- * <p>Describes a resource group to which a Capacity Reservation has been added.</p>
- * @public
- */
-export interface CapacityReservationGroup {
-  /**
-   * <p>The ARN of the resource group.</p>
-   * @public
-   */
-  GroupArn?: string | undefined;
-
-  /**
-   * <p>The ID of the Amazon Web Services account that owns the resource group.</p>
-   * @public
-   */
-  OwnerId?: string | undefined;
 }
 
 /**

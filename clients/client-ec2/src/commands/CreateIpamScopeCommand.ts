@@ -54,6 +54,10 @@ export interface CreateIpamScopeCommandOutput extends CreateIpamScopeResult, __M
  *     },
  *   ],
  *   ClientToken: "STRING_VALUE",
+ *   ExternalAuthorityConfiguration: { // ExternalAuthorityConfiguration
+ *     Type: "infoblox",
+ *     ExternalResourceIdentifier: "STRING_VALUE",
+ *   },
  * };
  * const command = new CreateIpamScopeCommand(input);
  * const response = await client.send(command);
@@ -75,6 +79,10 @@ export interface CreateIpamScopeCommandOutput extends CreateIpamScopeResult, __M
  * //         Value: "STRING_VALUE",
  * //       },
  * //     ],
+ * //     ExternalAuthorityConfiguration: { // IpamScopeExternalAuthorityConfiguration
+ * //       Type: "infoblox",
+ * //       ExternalResourceIdentifier: "STRING_VALUE",
+ * //     },
  * //   },
  * // };
  *
