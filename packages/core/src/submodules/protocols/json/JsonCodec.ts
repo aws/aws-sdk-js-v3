@@ -5,7 +5,7 @@ import { JsonShapeDeserializer } from "./JsonShapeDeserializer";
 import { JsonShapeSerializer } from "./JsonShapeSerializer";
 
 /**
- * @alpha
+ * @public
  */
 export type JsonSettings = CodecSettings & {
   jsonName: boolean;

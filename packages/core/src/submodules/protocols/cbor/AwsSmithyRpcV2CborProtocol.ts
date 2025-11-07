@@ -15,7 +15,7 @@ import { ProtocolLib } from "../ProtocolLib";
 /**
  * Extends the Smithy implementation to add AwsQueryCompatibility support.
  *
- * @alpha
+ * @public
  */
 export class AwsSmithyRpcV2CborProtocol extends SmithyRpcV2CborProtocol {
   private readonly awsQueryCompatible: boolean;

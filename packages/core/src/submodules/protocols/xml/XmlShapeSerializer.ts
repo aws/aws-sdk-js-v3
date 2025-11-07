@@ -18,7 +18,7 @@ import { XmlSettings } from "./XmlCodec";
 type XmlNamespaceAttributeValuePair = [string, string] | [undefined, undefined];
 
 /**
- * @alpha
+ * @public
  */
 export class XmlShapeSerializer extends SerdeContextConfig implements ShapeSerializer<string | Uint8Array> {
   private stringBuffer?: string;

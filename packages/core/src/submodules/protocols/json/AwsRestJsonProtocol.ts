@@ -22,7 +22,7 @@ import { JsonCodec, JsonSettings } from "./JsonCodec";
 import { loadRestJsonErrorCode } from "./parseJsonBody";
 
 /**
- * @alpha
+ * @public
  */
 export class AwsRestJsonProtocol extends HttpBindingProtocol {
   protected serializer: ShapeSerializer<string | Uint8Array>;

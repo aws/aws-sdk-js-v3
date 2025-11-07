@@ -2,7 +2,7 @@ import { AwsQueryProtocol } from "./AwsQueryProtocol";
 import { QuerySerializerSettings } from "./QuerySerializerSettings";
 
 /**
- * @alpha
+ * @public
  */
 export class AwsEc2QueryProtocol extends AwsQueryProtocol {
   public constructor(

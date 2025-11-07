@@ -23,7 +23,7 @@ import { loadRestXmlErrorCode } from "./parseXmlBody";
 import { XmlCodec, XmlSettings } from "./XmlCodec";
 
 /**
- * @alpha
+ * @public
  */
 export class AwsRestXmlProtocol extends HttpBindingProtocol {
   private readonly codec: XmlCodec;

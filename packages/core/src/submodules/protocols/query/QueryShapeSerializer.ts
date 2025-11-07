@@ -15,7 +15,7 @@ import { SerdeContextConfig } from "../ConfigurableSerdeContext";
 import type { QuerySerializerSettings } from "./QuerySerializerSettings";
 
 /**
- * @alpha
+ * @public
  */
 export class QueryShapeSerializer extends SerdeContextConfig implements ShapeSerializer<string | Uint8Array> {
   private buffer: string | undefined;

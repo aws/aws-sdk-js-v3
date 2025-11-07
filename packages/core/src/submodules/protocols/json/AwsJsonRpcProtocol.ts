@@ -18,7 +18,7 @@ import { JsonCodec } from "./JsonCodec";
 import { loadRestJsonErrorCode } from "./parseJsonBody";
 
 /**
- * @alpha
+ * @public
  */
 export abstract class AwsJsonRpcProtocol extends RpcProtocol {
   protected serializer: ShapeSerializer<string | Uint8Array>;

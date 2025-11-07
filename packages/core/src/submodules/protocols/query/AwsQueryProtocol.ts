@@ -20,7 +20,7 @@ import { XmlShapeDeserializer } from "../xml/XmlShapeDeserializer";
 import { QueryShapeSerializer } from "./QueryShapeSerializer";
 
 /**
- * @alpha
+ * @public
  */
 export class AwsQueryProtocol extends RpcProtocol {
   protected serializer: QueryShapeSerializer;
