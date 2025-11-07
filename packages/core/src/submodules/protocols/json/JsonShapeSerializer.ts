@@ -102,10 +102,7 @@ export class JsonShapeSerializer extends SerdeContextConfig implements ShapeSeri
       if (ns === this.rootSchema) {
         return value;
       }
-      if (!this.serdeContext?.base64Encoder) {
-        return toBase64(value);
-      }
-      return this.serdeContext?.base64Encoder(value);
+      return (this.serdeContext?.base64Encoder ?? toBase64)(value);
     }
 
     if ((ns.isTimestampSchema() || ns.isDocumentSchema()) && value instanceof Date) {
