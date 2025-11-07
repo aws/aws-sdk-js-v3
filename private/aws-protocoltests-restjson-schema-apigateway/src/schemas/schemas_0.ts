@@ -151,7 +151,7 @@ export var UnauthorizedException: StaticErrorSchema = [
 ];
 TypeRegistry.for(n0).registerError(UnauthorizedException, __UnauthorizedException);
 
-export var Unit = "unit" as const;
+export var __Unit = "unit" as const;
 
 export var APIGatewayServiceException: StaticErrorSchema = [-3, _s, "APIGatewayServiceException", 0, [], []];
 TypeRegistry.for(_s).registerError(APIGatewayServiceException, __APIGatewayServiceException);

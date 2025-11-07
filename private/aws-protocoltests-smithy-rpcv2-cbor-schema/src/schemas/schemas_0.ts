@@ -149,7 +149,7 @@ import { RpcV2ProtocolServiceException as __RpcV2ProtocolServiceException } from
 
 /* eslint no-var: 0 */
 
-export var Unit = "unit" as const;
+export var __Unit = "unit" as const;
 
 export var ValidationException: StaticErrorSchema = [
   -3,
@@ -436,10 +436,10 @@ export var SparseStringMap: StaticMapSchema = [
   0,
 ];
 export var EmptyInputOutput: StaticOperationSchema = [9, n1, _EIO, 0, () => EmptyStructure, () => EmptyStructure];
-export var Float16: StaticOperationSchema = [9, n1, _Fl, 0, () => Unit, () => Float16Output];
-export var FractionalSeconds: StaticOperationSchema = [9, n1, _FS, 0, () => Unit, () => FractionalSecondsOutput];
-export var GreetingWithErrors: StaticOperationSchema = [9, n1, _GWE, 2, () => Unit, () => GreetingWithErrorsOutput];
-export var NoInputOutput: StaticOperationSchema = [9, n1, _NIO, 0, () => Unit, () => Unit];
+export var Float16: StaticOperationSchema = [9, n1, _Fl, 0, () => __Unit, () => Float16Output];
+export var FractionalSeconds: StaticOperationSchema = [9, n1, _FS, 0, () => __Unit, () => FractionalSecondsOutput];
+export var GreetingWithErrors: StaticOperationSchema = [9, n1, _GWE, 2, () => __Unit, () => GreetingWithErrorsOutput];
+export var NoInputOutput: StaticOperationSchema = [9, n1, _NIO, 0, () => __Unit, () => __Unit];
 export var OperationWithDefaults: StaticOperationSchema = [
   9,
   n1,

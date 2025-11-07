@@ -62,7 +62,7 @@ export interface DeleteApplicationCommandOutput extends __MetadataBearer {}
  *  <p>Unable to perform the specified operation because another operation that effects an
  *       element in this activity is already in progress.</p>
  *
- * @throws {@link ElasticBeanstalkServiceException}
+ * @throws {@link ElasticBeanstalkSyntheticServiceException}
  * <p>Base exception class for all service exceptions from ElasticBeanstalk service.</p>
  *
  *

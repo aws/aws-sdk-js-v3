@@ -13,12 +13,12 @@ export { __ServiceException };
  *
  * Base exception class for all service exceptions from ElasticBeanstalk service.
  */
-export class ElasticBeanstalkServiceException extends __ServiceException {
+export class ElasticBeanstalkSyntheticServiceException extends __ServiceException {
   /**
    * @internal
    */
   constructor(options: __ServiceExceptionOptions) {
     super(options);
-    Object.setPrototypeOf(this, ElasticBeanstalkServiceException.prototype);
+    Object.setPrototypeOf(this, ElasticBeanstalkSyntheticServiceException.prototype);
   }
 }

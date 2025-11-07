@@ -2216,7 +2216,7 @@ export var TopLevel: StaticStructureSchema = [
 export var UnionInputOutput: StaticStructureSchema = [3, n0, _UIO, 0, [_con], [() => MyUnion]];
 export var GreetingStruct: StaticStructureSchema = [3, n2, _GS, 0, [_sa], [0]];
 export var GreetingStruct_n1: StaticStructureSchema = [3, n1, _GS, 0, [_hi], [0]];
-export var Unit = "unit" as const;
+export var __Unit = "unit" as const;
 
 export var RestJsonProtocolServiceException: StaticErrorSchema = [
   -3,
@@ -2355,7 +2355,7 @@ export var MyUnion: StaticStructureSchema = [
   [_sV, _bVo, _nVu, _bVl, _tV, _eV, _lVi, _mV, _sVt, _rSV],
   [0, 2, 1, 21, 4, 0, 64 | 0, 128 | 0, () => GreetingStruct_n1, () => GreetingStruct],
 ];
-export var PlayerAction: StaticStructureSchema = [3, n0, _PA, 0, [_qu], [() => Unit]];
+export var PlayerAction: StaticStructureSchema = [3, n0, _PA, 0, [_qu], [() => __Unit]];
 export var SimpleUnion: StaticStructureSchema = [3, n0, _SU, 0, [_int, _st], [1, 0]];
 export var UnionPayload: StaticStructureSchema = [3, n0, _UP, 0, [_g], [0]];
 export var UnionWithJsonName: StaticStructureSchema = [
@@ -2388,7 +2388,7 @@ export var AllQueryStringTypes: StaticOperationSchema = [
     [_ht]: ["GET", "/AllQueryStringTypesInput", 200],
   },
   () => AllQueryStringTypesInput,
-  () => Unit,
+  () => __Unit,
 ];
 export var ConstantAndVariableQueryString: StaticOperationSchema = [
   9,
@@ -2398,7 +2398,7 @@ export var ConstantAndVariableQueryString: StaticOperationSchema = [
     [_ht]: ["GET", "/ConstantAndVariableQueryString?foo=bar", 200],
   },
   () => ConstantAndVariableQueryStringInput,
-  () => Unit,
+  () => __Unit,
 ];
 export var ConstantQueryString: StaticOperationSchema = [
   9,
@@ -2408,7 +2408,7 @@ export var ConstantQueryString: StaticOperationSchema = [
     [_ht]: ["GET", "/ConstantQueryString/{hello}?foo=bar&hello", 200],
   },
   () => ConstantQueryStringInput,
-  () => Unit,
+  () => __Unit,
 ];
 export var ContentTypeParameters: StaticOperationSchema = [
   9,
@@ -2427,7 +2427,7 @@ export var DatetimeOffsets: StaticOperationSchema = [
   {
     [_ht]: ["POST", "/DatetimeOffsets", 200],
   },
-  () => Unit,
+  () => __Unit,
   () => DatetimeOffsetsOutput,
 ];
 export var DocumentType: StaticOperationSchema = [
@@ -2478,8 +2478,8 @@ export var EndpointOperation: StaticOperationSchema = [
     [_ht]: ["POST", "/EndpointOperation", 200],
     [_end]: ["foo."],
   },
-  () => Unit,
-  () => Unit,
+  () => __Unit,
+  () => __Unit,
 ];
 export var EndpointWithHostLabelOperation: StaticOperationSchema = [
   9,
@@ -2490,7 +2490,7 @@ export var EndpointWithHostLabelOperation: StaticOperationSchema = [
     [_end]: ["foo.{label}."],
   },
   () => HostLabelInput,
-  () => Unit,
+  () => __Unit,
 ];
 export var FractionalSeconds: StaticOperationSchema = [
   9,
@@ -2499,7 +2499,7 @@ export var FractionalSeconds: StaticOperationSchema = [
   {
     [_ht]: ["POST", "/FractionalSeconds", 200],
   },
-  () => Unit,
+  () => __Unit,
   () => FractionalSecondsOutput,
 ];
 export var GreetingWithErrors: StaticOperationSchema = [
@@ -2509,7 +2509,7 @@ export var GreetingWithErrors: StaticOperationSchema = [
   {
     [_ht]: ["PUT", "/GreetingWithErrors", 200],
   },
-  () => Unit,
+  () => __Unit,
   () => GreetingWithErrorsOutput,
 ];
 export var HostWithPathOperation: StaticOperationSchema = [
@@ -2519,8 +2519,8 @@ export var HostWithPathOperation: StaticOperationSchema = [
   {
     [_ht]: ["GET", "/HostWithPathOperation", 200],
   },
-  () => Unit,
-  () => Unit,
+  () => __Unit,
+  () => __Unit,
 ];
 export var HttpChecksumRequired: StaticOperationSchema = [
   9,
@@ -2621,7 +2621,7 @@ export var HttpRequestWithFloatLabels: StaticOperationSchema = [
     [_ht]: ["GET", "/FloatHttpLabels/{float}/{double}", 200],
   },
   () => HttpRequestWithFloatLabelsInput,
-  () => Unit,
+  () => __Unit,
 ];
 export var HttpRequestWithGreedyLabelInPath: StaticOperationSchema = [
   9,
@@ -2631,7 +2631,7 @@ export var HttpRequestWithGreedyLabelInPath: StaticOperationSchema = [
     [_ht]: ["GET", "/HttpRequestWithGreedyLabelInPath/foo/{foo}/baz/{baz+}", 200],
   },
   () => HttpRequestWithGreedyLabelInPathInput,
-  () => Unit,
+  () => __Unit,
 ];
 export var HttpRequestWithLabels: StaticOperationSchema = [
   9,
@@ -2645,7 +2645,7 @@ export var HttpRequestWithLabels: StaticOperationSchema = [
     ],
   },
   () => HttpRequestWithLabelsInput,
-  () => Unit,
+  () => __Unit,
 ];
 export var HttpRequestWithLabelsAndTimestampFormat: StaticOperationSchema = [
   9,
@@ -2659,7 +2659,7 @@ export var HttpRequestWithLabelsAndTimestampFormat: StaticOperationSchema = [
     ],
   },
   () => HttpRequestWithLabelsAndTimestampFormatInput,
-  () => Unit,
+  () => __Unit,
 ];
 export var HttpRequestWithRegexLiteral: StaticOperationSchema = [
   9,
@@ -2669,7 +2669,7 @@ export var HttpRequestWithRegexLiteral: StaticOperationSchema = [
     [_ht]: ["GET", "/ReDosLiteral/{str}/(a+)+", 200],
   },
   () => HttpRequestWithRegexLiteralInput,
-  () => Unit,
+  () => __Unit,
 ];
 export var HttpResponseCode: StaticOperationSchema = [
   9,
@@ -2678,7 +2678,7 @@ export var HttpResponseCode: StaticOperationSchema = [
   {
     [_ht]: ["PUT", "/HttpResponseCode", 200],
   },
-  () => Unit,
+  () => __Unit,
   () => HttpResponseCodeOutput,
 ];
 export var HttpStringPayload: StaticOperationSchema = [
@@ -2698,7 +2698,7 @@ export var IgnoreQueryParamsInResponse: StaticOperationSchema = [
   {
     [_ht]: ["GET", "/IgnoreQueryParamsInResponse", 200],
   },
-  () => Unit,
+  () => __Unit,
   () => IgnoreQueryParamsInResponseOutput,
 ];
 export var InputAndOutputWithHeaders: StaticOperationSchema = [
@@ -2788,7 +2788,7 @@ export var MalformedAcceptWithBody: StaticOperationSchema = [
   {
     [_ht]: ["POST", "/MalformedAcceptWithBody", 200],
   },
-  () => Unit,
+  () => __Unit,
   () => GreetingStruct_n1,
 ];
 export var MalformedAcceptWithGenericString: StaticOperationSchema = [
@@ -2798,7 +2798,7 @@ export var MalformedAcceptWithGenericString: StaticOperationSchema = [
   {
     [_ht]: ["POST", "/MalformedAcceptWithGenericString", 200],
   },
-  () => Unit,
+  () => __Unit,
   () => MalformedAcceptWithGenericStringOutput,
 ];
 export var MalformedAcceptWithPayload: StaticOperationSchema = [
@@ -2808,7 +2808,7 @@ export var MalformedAcceptWithPayload: StaticOperationSchema = [
   {
     [_ht]: ["POST", "/MalformedAcceptWithPayload", 200],
   },
-  () => Unit,
+  () => __Unit,
   () => MalformedAcceptWithPayloadOutput,
 ];
 export var MalformedBlob: StaticOperationSchema = [
@@ -2819,7 +2819,7 @@ export var MalformedBlob: StaticOperationSchema = [
     [_ht]: ["POST", "/MalformedBlob", 200],
   },
   () => MalformedBlobInput,
-  () => Unit,
+  () => __Unit,
 ];
 export var MalformedBoolean: StaticOperationSchema = [
   9,
@@ -2829,7 +2829,7 @@ export var MalformedBoolean: StaticOperationSchema = [
     [_ht]: ["POST", "/MalformedBoolean/{booleanInPath}", 200],
   },
   () => MalformedBooleanInput,
-  () => Unit,
+  () => __Unit,
 ];
 export var MalformedByte: StaticOperationSchema = [
   9,
@@ -2839,7 +2839,7 @@ export var MalformedByte: StaticOperationSchema = [
     [_ht]: ["POST", "/MalformedByte/{byteInPath}", 200],
   },
   () => MalformedByteInput,
-  () => Unit,
+  () => __Unit,
 ];
 export var MalformedContentTypeWithBody: StaticOperationSchema = [
   9,
@@ -2849,7 +2849,7 @@ export var MalformedContentTypeWithBody: StaticOperationSchema = [
     [_ht]: ["POST", "/MalformedContentTypeWithBody", 200],
   },
   () => GreetingStruct_n1,
-  () => Unit,
+  () => __Unit,
 ];
 export var MalformedContentTypeWithGenericString: StaticOperationSchema = [
   9,
@@ -2859,7 +2859,7 @@ export var MalformedContentTypeWithGenericString: StaticOperationSchema = [
     [_ht]: ["POST", "/MalformedContentTypeWithGenericString", 200],
   },
   () => MalformedContentTypeWithGenericStringInput,
-  () => Unit,
+  () => __Unit,
 ];
 export var MalformedContentTypeWithoutBody: StaticOperationSchema = [
   9,
@@ -2868,8 +2868,8 @@ export var MalformedContentTypeWithoutBody: StaticOperationSchema = [
   {
     [_ht]: ["POST", "/MalformedContentTypeWithoutBody", 200],
   },
-  () => Unit,
-  () => Unit,
+  () => __Unit,
+  () => __Unit,
 ];
 export var MalformedContentTypeWithoutBodyEmptyInput: StaticOperationSchema = [
   9,
@@ -2879,7 +2879,7 @@ export var MalformedContentTypeWithoutBodyEmptyInput: StaticOperationSchema = [
     [_ht]: ["POST", "/MalformedContentTypeWithoutBodyEmptyInput", 200],
   },
   () => MalformedContentTypeWithoutBodyEmptyInputInput,
-  () => Unit,
+  () => __Unit,
 ];
 export var MalformedContentTypeWithPayload: StaticOperationSchema = [
   9,
@@ -2889,7 +2889,7 @@ export var MalformedContentTypeWithPayload: StaticOperationSchema = [
     [_ht]: ["POST", "/MalformedContentTypeWithPayload", 200],
   },
   () => MalformedContentTypeWithPayloadInput,
-  () => Unit,
+  () => __Unit,
 ];
 export var MalformedDouble: StaticOperationSchema = [
   9,
@@ -2899,7 +2899,7 @@ export var MalformedDouble: StaticOperationSchema = [
     [_ht]: ["POST", "/MalformedDouble/{doubleInPath}", 200],
   },
   () => MalformedDoubleInput,
-  () => Unit,
+  () => __Unit,
 ];
 export var MalformedFloat: StaticOperationSchema = [
   9,
@@ -2909,7 +2909,7 @@ export var MalformedFloat: StaticOperationSchema = [
     [_ht]: ["POST", "/MalformedFloat/{floatInPath}", 200],
   },
   () => MalformedFloatInput,
-  () => Unit,
+  () => __Unit,
 ];
 export var MalformedInteger: StaticOperationSchema = [
   9,
@@ -2919,7 +2919,7 @@ export var MalformedInteger: StaticOperationSchema = [
     [_ht]: ["POST", "/MalformedInteger/{integerInPath}", 200],
   },
   () => MalformedIntegerInput,
-  () => Unit,
+  () => __Unit,
 ];
 export var MalformedList: StaticOperationSchema = [
   9,
@@ -2929,7 +2929,7 @@ export var MalformedList: StaticOperationSchema = [
     [_ht]: ["POST", "/MalformedList", 200],
   },
   () => MalformedListInput,
-  () => Unit,
+  () => __Unit,
 ];
 export var MalformedLong: StaticOperationSchema = [
   9,
@@ -2939,7 +2939,7 @@ export var MalformedLong: StaticOperationSchema = [
     [_ht]: ["POST", "/MalformedLong/{longInPath}", 200],
   },
   () => MalformedLongInput,
-  () => Unit,
+  () => __Unit,
 ];
 export var MalformedMap: StaticOperationSchema = [
   9,
@@ -2949,7 +2949,7 @@ export var MalformedMap: StaticOperationSchema = [
     [_ht]: ["POST", "/MalformedMap", 200],
   },
   () => MalformedMapInput,
-  () => Unit,
+  () => __Unit,
 ];
 export var MalformedRequestBody: StaticOperationSchema = [
   9,
@@ -2959,7 +2959,7 @@ export var MalformedRequestBody: StaticOperationSchema = [
     [_ht]: ["POST", "/MalformedRequestBody", 200],
   },
   () => MalformedRequestBodyInput,
-  () => Unit,
+  () => __Unit,
 ];
 export var MalformedShort: StaticOperationSchema = [
   9,
@@ -2969,7 +2969,7 @@ export var MalformedShort: StaticOperationSchema = [
     [_ht]: ["POST", "/MalformedShort/{shortInPath}", 200],
   },
   () => MalformedShortInput,
-  () => Unit,
+  () => __Unit,
 ];
 export var MalformedString: StaticOperationSchema = [
   9,
@@ -2979,7 +2979,7 @@ export var MalformedString: StaticOperationSchema = [
     [_ht]: ["POST", "/MalformedString", 200],
   },
   () => MalformedStringInput,
-  () => Unit,
+  () => __Unit,
 ];
 export var MalformedTimestampBodyDateTime: StaticOperationSchema = [
   9,
@@ -2989,7 +2989,7 @@ export var MalformedTimestampBodyDateTime: StaticOperationSchema = [
     [_ht]: ["POST", "/MalformedTimestampBodyDateTime", 200],
   },
   () => MalformedTimestampBodyDateTimeInput,
-  () => Unit,
+  () => __Unit,
 ];
 export var MalformedTimestampBodyDefault: StaticOperationSchema = [
   9,
@@ -2999,7 +2999,7 @@ export var MalformedTimestampBodyDefault: StaticOperationSchema = [
     [_ht]: ["POST", "/MalformedTimestampBodyDefault", 200],
   },
   () => MalformedTimestampBodyDefaultInput,
-  () => Unit,
+  () => __Unit,
 ];
 export var MalformedTimestampBodyHttpDate: StaticOperationSchema = [
   9,
@@ -3009,7 +3009,7 @@ export var MalformedTimestampBodyHttpDate: StaticOperationSchema = [
     [_ht]: ["POST", "/MalformedTimestampBodyHttpDate", 200],
   },
   () => MalformedTimestampBodyHttpDateInput,
-  () => Unit,
+  () => __Unit,
 ];
 export var MalformedTimestampHeaderDateTime: StaticOperationSchema = [
   9,
@@ -3019,7 +3019,7 @@ export var MalformedTimestampHeaderDateTime: StaticOperationSchema = [
     [_ht]: ["POST", "/MalformedTimestampHeaderDateTime", 200],
   },
   () => MalformedTimestampHeaderDateTimeInput,
-  () => Unit,
+  () => __Unit,
 ];
 export var MalformedTimestampHeaderDefault: StaticOperationSchema = [
   9,
@@ -3029,7 +3029,7 @@ export var MalformedTimestampHeaderDefault: StaticOperationSchema = [
     [_ht]: ["POST", "/MalformedTimestampHeaderDefault", 200],
   },
   () => MalformedTimestampHeaderDefaultInput,
-  () => Unit,
+  () => __Unit,
 ];
 export var MalformedTimestampHeaderEpoch: StaticOperationSchema = [
   9,
@@ -3039,7 +3039,7 @@ export var MalformedTimestampHeaderEpoch: StaticOperationSchema = [
     [_ht]: ["POST", "/MalformedTimestampHeaderEpoch", 200],
   },
   () => MalformedTimestampHeaderEpochInput,
-  () => Unit,
+  () => __Unit,
 ];
 export var MalformedTimestampPathDefault: StaticOperationSchema = [
   9,
@@ -3049,7 +3049,7 @@ export var MalformedTimestampPathDefault: StaticOperationSchema = [
     [_ht]: ["POST", "/MalformedTimestampPathDefault/{timestamp}", 200],
   },
   () => MalformedTimestampPathDefaultInput,
-  () => Unit,
+  () => __Unit,
 ];
 export var MalformedTimestampPathEpoch: StaticOperationSchema = [
   9,
@@ -3059,7 +3059,7 @@ export var MalformedTimestampPathEpoch: StaticOperationSchema = [
     [_ht]: ["POST", "/MalformedTimestampPathEpoch/{timestamp}", 200],
   },
   () => MalformedTimestampPathEpochInput,
-  () => Unit,
+  () => __Unit,
 ];
 export var MalformedTimestampPathHttpDate: StaticOperationSchema = [
   9,
@@ -3069,7 +3069,7 @@ export var MalformedTimestampPathHttpDate: StaticOperationSchema = [
     [_ht]: ["POST", "/MalformedTimestampPathHttpDate/{timestamp}", 200],
   },
   () => MalformedTimestampPathHttpDateInput,
-  () => Unit,
+  () => __Unit,
 ];
 export var MalformedTimestampQueryDefault: StaticOperationSchema = [
   9,
@@ -3079,7 +3079,7 @@ export var MalformedTimestampQueryDefault: StaticOperationSchema = [
     [_ht]: ["POST", "/MalformedTimestampQueryDefault", 200],
   },
   () => MalformedTimestampQueryDefaultInput,
-  () => Unit,
+  () => __Unit,
 ];
 export var MalformedTimestampQueryEpoch: StaticOperationSchema = [
   9,
@@ -3089,7 +3089,7 @@ export var MalformedTimestampQueryEpoch: StaticOperationSchema = [
     [_ht]: ["POST", "/MalformedTimestampQueryEpoch", 200],
   },
   () => MalformedTimestampQueryEpochInput,
-  () => Unit,
+  () => __Unit,
 ];
 export var MalformedTimestampQueryHttpDate: StaticOperationSchema = [
   9,
@@ -3099,7 +3099,7 @@ export var MalformedTimestampQueryHttpDate: StaticOperationSchema = [
     [_ht]: ["POST", "/MalformedTimestampQueryHttpDate", 200],
   },
   () => MalformedTimestampQueryHttpDateInput,
-  () => Unit,
+  () => __Unit,
 ];
 export var MalformedUnion: StaticOperationSchema = [
   9,
@@ -3109,7 +3109,7 @@ export var MalformedUnion: StaticOperationSchema = [
     [_ht]: ["POST", "/MalformedUnion", 200],
   },
   () => MalformedUnionInput,
-  () => Unit,
+  () => __Unit,
 ];
 export var MediaTypeHeader: StaticOperationSchema = [
   9,
@@ -3128,8 +3128,8 @@ export var NoInputAndNoOutput: StaticOperationSchema = [
   {
     [_ht]: ["POST", "/NoInputAndNoOutput", 200],
   },
-  () => Unit,
-  () => Unit,
+  () => __Unit,
+  () => __Unit,
 ];
 export var NoInputAndOutput: StaticOperationSchema = [
   9,
@@ -3138,7 +3138,7 @@ export var NoInputAndOutput: StaticOperationSchema = [
   {
     [_ht]: ["POST", "/NoInputAndOutputOutput", 200],
   },
-  () => Unit,
+  () => __Unit,
   () => NoInputAndOutputOutput,
 ];
 export var NullAndEmptyHeadersClient: StaticOperationSchema = [
@@ -3169,7 +3169,7 @@ export var OmitsNullSerializesEmptyString: StaticOperationSchema = [
     [_ht]: ["GET", "/OmitsNullSerializesEmptyString", 200],
   },
   () => OmitsNullSerializesEmptyStringInput,
-  () => Unit,
+  () => __Unit,
 ];
 export var OmitsSerializingEmptyLists: StaticOperationSchema = [
   9,
@@ -3179,7 +3179,7 @@ export var OmitsSerializingEmptyLists: StaticOperationSchema = [
     [_ht]: ["POST", "/OmitsSerializingEmptyLists", 200],
   },
   () => OmitsSerializingEmptyListsInput,
-  () => Unit,
+  () => __Unit,
 ];
 export var OperationWithDefaults: StaticOperationSchema = [
   9,
@@ -3229,7 +3229,7 @@ export var PutWithContentEncoding: StaticOperationSchema = [
     [_ht]: ["POST", "/requestcompression/putcontentwithencoding", 200],
   },
   () => PutWithContentEncodingInput,
-  () => Unit,
+  () => __Unit,
 ];
 export var QueryIdempotencyTokenAutoFill: StaticOperationSchema = [
   9,
@@ -3239,7 +3239,7 @@ export var QueryIdempotencyTokenAutoFill: StaticOperationSchema = [
     [_ht]: ["POST", "/QueryIdempotencyTokenAutoFill", 200],
   },
   () => QueryIdempotencyTokenAutoFillInput,
-  () => Unit,
+  () => __Unit,
 ];
 export var QueryParamsAsStringListMap: StaticOperationSchema = [
   9,
@@ -3249,7 +3249,7 @@ export var QueryParamsAsStringListMap: StaticOperationSchema = [
     [_ht]: ["POST", "/StringListMap", 200],
   },
   () => QueryParamsAsStringListMapInput,
-  () => Unit,
+  () => __Unit,
 ];
 export var QueryPrecedence: StaticOperationSchema = [
   9,
@@ -3259,7 +3259,7 @@ export var QueryPrecedence: StaticOperationSchema = [
     [_ht]: ["POST", "/Precedence", 200],
   },
   () => QueryPrecedenceInput,
-  () => Unit,
+  () => __Unit,
 ];
 export var RecursiveShapes: StaticOperationSchema = [
   9,
@@ -3288,7 +3288,7 @@ export var ResponseCodeRequired: StaticOperationSchema = [
   {
     [_ht]: ["GET", "/responseCodeRequired", 200],
   },
-  () => Unit,
+  () => __Unit,
   () => ResponseCodeRequiredOutput,
 ];
 export var SimpleScalarProperties: StaticOperationSchema = [
@@ -3339,7 +3339,7 @@ export var StreamingTraitsRequireLength: StaticOperationSchema = [
     [_ht]: ["POST", "/StreamingTraitsRequireLength", 200],
   },
   () => StreamingTraitsRequireLengthInput,
-  () => Unit,
+  () => __Unit,
 ];
 export var StreamingTraitsWithMediaType: StaticOperationSchema = [
   9,
@@ -3368,7 +3368,7 @@ export var TestGetNoInputNoPayload: StaticOperationSchema = [
   {
     [_ht]: ["GET", "/no_input_no_payload", 200],
   },
-  () => Unit,
+  () => __Unit,
   () => TestNoPayloadInputOutput,
 ];
 export var TestGetNoPayload: StaticOperationSchema = [
@@ -3408,7 +3408,7 @@ export var TestPostNoInputNoPayload: StaticOperationSchema = [
   {
     [_ht]: ["POST", "/no_input_no_payload", 200],
   },
-  () => Unit,
+  () => __Unit,
   () => TestNoPayloadInputOutput,
 ];
 export var TestPostNoPayload: StaticOperationSchema = [
@@ -3438,6 +3438,6 @@ export var UnitInputAndOutput: StaticOperationSchema = [
   {
     [_ht]: ["POST", "/UnitInputAndOutput", 200],
   },
-  () => Unit,
-  () => Unit,
+  () => __Unit,
+  () => __Unit,
 ];

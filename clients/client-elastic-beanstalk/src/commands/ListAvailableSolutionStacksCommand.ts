@@ -65,7 +65,7 @@ export interface ListAvailableSolutionStacksCommandOutput
  * @see {@link ListAvailableSolutionStacksCommandOutput} for command's `response` shape.
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.
  *
- * @throws {@link ElasticBeanstalkServiceException}
+ * @throws {@link ElasticBeanstalkSyntheticServiceException}
  * <p>Base exception class for all service exceptions from ElasticBeanstalk service.</p>
  *
  *

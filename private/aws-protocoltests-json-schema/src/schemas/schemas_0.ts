@@ -391,7 +391,7 @@ export var StructWithJsonName: StaticStructureSchema = [
 ];
 export var UnionInputOutput: StaticStructureSchema = [3, n0, _UIO, 0, [_co], [() => MyUnion]];
 export var GreetingStruct: StaticStructureSchema = [3, n1, _GS, 0, [_h], [0]];
-export var Unit = "unit" as const;
+export var __Unit = "unit" as const;
 
 export var JsonProtocolServiceException: StaticErrorSchema = [-3, _sm, "JsonProtocolServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(JsonProtocolServiceException, __JsonProtocolServiceException);
@@ -459,8 +459,8 @@ export var ContentTypeParameters: StaticOperationSchema = [
   () => ContentTypeParametersInput,
   () => ContentTypeParametersOutput,
 ];
-export var DatetimeOffsets: StaticOperationSchema = [9, n0, _DO, 0, () => Unit, () => DatetimeOffsetsOutput];
-export var EmptyOperation: StaticOperationSchema = [9, n0, _EO, 0, () => Unit, () => Unit];
+export var DatetimeOffsets: StaticOperationSchema = [9, n0, _DO, 0, () => __Unit, () => DatetimeOffsetsOutput];
+export var EmptyOperation: StaticOperationSchema = [9, n0, _EO, 0, () => __Unit, () => __Unit];
 export var EndpointOperation: StaticOperationSchema = [
   9,
   n0,
@@ -468,8 +468,8 @@ export var EndpointOperation: StaticOperationSchema = [
   {
     [_end]: ["foo."],
   },
-  () => Unit,
-  () => Unit,
+  () => __Unit,
+  () => __Unit,
 ];
 export var EndpointWithHostLabelOperation: StaticOperationSchema = [
   9,
@@ -479,11 +479,11 @@ export var EndpointWithHostLabelOperation: StaticOperationSchema = [
     [_end]: ["foo.{label}."],
   },
   () => HostLabelInput,
-  () => Unit,
+  () => __Unit,
 ];
-export var FractionalSeconds: StaticOperationSchema = [9, n0, _FS, 0, () => Unit, () => FractionalSecondsOutput];
-export var GreetingWithErrors: StaticOperationSchema = [9, n0, _GWE, 2, () => Unit, () => GreetingWithErrorsOutput];
-export var HostWithPathOperation: StaticOperationSchema = [9, n0, _HWPO, 0, () => Unit, () => Unit];
+export var FractionalSeconds: StaticOperationSchema = [9, n0, _FS, 0, () => __Unit, () => FractionalSecondsOutput];
+export var GreetingWithErrors: StaticOperationSchema = [9, n0, _GWE, 2, () => __Unit, () => GreetingWithErrorsOutput];
+export var HostWithPathOperation: StaticOperationSchema = [9, n0, _HWPO, 0, () => __Unit, () => __Unit];
 export var JsonEnums: StaticOperationSchema = [9, n0, _JE, 2, () => JsonEnumsInputOutput, () => JsonEnumsInputOutput];
 export var JsonIntEnums: StaticOperationSchema = [
   9,
@@ -525,7 +525,7 @@ export var PutWithContentEncoding: StaticOperationSchema = [
   _PWCE,
   0,
   () => PutWithContentEncodingInput,
-  () => Unit,
+  () => __Unit,
 ];
 export var SimpleScalarProperties: StaticOperationSchema = [
   9,

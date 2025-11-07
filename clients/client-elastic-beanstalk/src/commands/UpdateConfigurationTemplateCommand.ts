@@ -107,7 +107,7 @@ export interface UpdateConfigurationTemplateCommandOutput extends ConfigurationS
  * @throws {@link TooManyBucketsException} (client fault)
  *  <p>The specified account has reached its limit of Amazon S3 buckets.</p>
  *
- * @throws {@link ElasticBeanstalkServiceException}
+ * @throws {@link ElasticBeanstalkSyntheticServiceException}
  * <p>Base exception class for all service exceptions from ElasticBeanstalk service.</p>
  *
  *

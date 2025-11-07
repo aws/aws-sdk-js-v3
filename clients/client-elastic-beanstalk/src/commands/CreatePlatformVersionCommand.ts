@@ -104,7 +104,7 @@ export interface CreatePlatformVersionCommandOutput extends CreatePlatformVersio
  * @throws {@link TooManyPlatformsException} (client fault)
  *  <p>You have exceeded the maximum number of allowed platforms associated with the account.</p>
  *
- * @throws {@link ElasticBeanstalkServiceException}
+ * @throws {@link ElasticBeanstalkSyntheticServiceException}
  * <p>Base exception class for all service exceptions from ElasticBeanstalk service.</p>
  *
  *

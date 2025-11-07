@@ -27,4 +27,4 @@ export * from "./pagination";
 export * from "./waiters";
 export * from "./models";
 
-export { ElasticBeanstalkServiceException } from "./models/ElasticBeanstalkServiceException";
+export { ElasticBeanstalkSyntheticServiceException } from "./models/ElasticBeanstalkSyntheticServiceException";

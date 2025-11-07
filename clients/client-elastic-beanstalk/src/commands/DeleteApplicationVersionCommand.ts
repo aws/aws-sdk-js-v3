@@ -85,7 +85,7 @@ export interface DeleteApplicationVersionCommandOutput extends __MetadataBearer 
  *  <p>Unable to delete the Amazon S3 source bundle associated with the application version.
  *       The application version was deleted successfully.</p>
  *
- * @throws {@link ElasticBeanstalkServiceException}
+ * @throws {@link ElasticBeanstalkSyntheticServiceException}
  * <p>Base exception class for all service exceptions from ElasticBeanstalk service.</p>
  *
  *

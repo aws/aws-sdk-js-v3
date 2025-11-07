@@ -366,7 +366,7 @@ export var TopLevel: StaticStructureSchema = [
   [() => Dialog, () => DialogList, () => DialogMap],
 ];
 export var GreetingStruct: StaticStructureSchema = [3, n1, _GS, 0, [_h], [0]];
-export var Unit = "unit" as const;
+export var __Unit = "unit" as const;
 
 export var JSONRPC10ServiceException: StaticErrorSchema = [-3, _sm, "JSONRPC10ServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(JSONRPC10ServiceException, __JSONRPC10ServiceException);
@@ -416,8 +416,8 @@ export var EndpointOperation: StaticOperationSchema = [
   {
     [_end]: ["foo."],
   },
-  () => Unit,
-  () => Unit,
+  () => __Unit,
+  () => __Unit,
 ];
 export var EndpointWithHostLabelOperation: StaticOperationSchema = [
   9,
@@ -427,7 +427,7 @@ export var EndpointWithHostLabelOperation: StaticOperationSchema = [
     [_end]: ["foo.{label}."],
   },
   () => EndpointWithHostLabelOperationInput,
-  () => Unit,
+  () => __Unit,
 ];
 export var GreetingWithErrors: StaticOperationSchema = [
   9,
@@ -437,10 +437,10 @@ export var GreetingWithErrors: StaticOperationSchema = [
   () => GreetingWithErrorsInput,
   () => GreetingWithErrorsOutput,
 ];
-export var HostWithPathOperation: StaticOperationSchema = [9, n0, _HWPO, 0, () => Unit, () => Unit];
+export var HostWithPathOperation: StaticOperationSchema = [9, n0, _HWPO, 0, () => __Unit, () => __Unit];
 export var JsonUnions: StaticOperationSchema = [9, n0, _JU, 2, () => JsonUnionsInput, () => JsonUnionsOutput];
-export var NoInputAndNoOutput: StaticOperationSchema = [9, n0, _NIANO, 0, () => Unit, () => Unit];
-export var NoInputAndOutput: StaticOperationSchema = [9, n0, _NIAO, 0, () => Unit, () => NoInputAndOutputOutput];
+export var NoInputAndNoOutput: StaticOperationSchema = [9, n0, _NIANO, 0, () => __Unit, () => __Unit];
+export var NoInputAndOutput: StaticOperationSchema = [9, n0, _NIAO, 0, () => __Unit, () => NoInputAndOutputOutput];
 export var OperationWithDefaults: StaticOperationSchema = [
   9,
   n0,
@@ -462,7 +462,7 @@ export var OperationWithRequiredMembers: StaticOperationSchema = [
   n0,
   _OWRM,
   0,
-  () => Unit,
+  () => __Unit,
   () => OperationWithRequiredMembersOutput,
 ];
 export var OperationWithRequiredMembersWithDefaults: StaticOperationSchema = [
@@ -470,7 +470,7 @@ export var OperationWithRequiredMembersWithDefaults: StaticOperationSchema = [
   n0,
   _OWRMWD,
   0,
-  () => Unit,
+  () => __Unit,
   () => OperationWithRequiredMembersWithDefaultsOutput,
 ];
 export var PutWithContentEncoding: StaticOperationSchema = [
@@ -479,9 +479,9 @@ export var PutWithContentEncoding: StaticOperationSchema = [
   _PWCE,
   0,
   () => PutWithContentEncodingInput,
-  () => Unit,
+  () => __Unit,
 ];
-export var QueryIncompatibleOperation: StaticOperationSchema = [9, n0, _QIO, 2, () => Unit, () => Unit];
+export var QueryIncompatibleOperation: StaticOperationSchema = [9, n0, _QIO, 2, () => __Unit, () => __Unit];
 export var SimpleScalarProperties: StaticOperationSchema = [
   9,
   n0,

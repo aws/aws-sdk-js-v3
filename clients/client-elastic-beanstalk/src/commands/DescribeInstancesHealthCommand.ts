@@ -123,7 +123,7 @@ export interface DescribeInstancesHealthCommandOutput extends DescribeInstancesH
  *  <p>One or more input parameters is not valid. Please correct the input parameters and try
  *       the operation again.</p>
  *
- * @throws {@link ElasticBeanstalkServiceException}
+ * @throws {@link ElasticBeanstalkSyntheticServiceException}
  * <p>Base exception class for all service exceptions from ElasticBeanstalk service.</p>
  *
  *

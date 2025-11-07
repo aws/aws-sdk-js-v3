@@ -63,7 +63,7 @@ export interface DisassociateEnvironmentOperationsRoleCommandOutput extends __Me
  *  <p>The specified account does not have sufficient privileges for one or more AWS
  *       services.</p>
  *
- * @throws {@link ElasticBeanstalkServiceException}
+ * @throws {@link ElasticBeanstalkSyntheticServiceException}
  * <p>Base exception class for all service exceptions from ElasticBeanstalk service.</p>
  *
  *

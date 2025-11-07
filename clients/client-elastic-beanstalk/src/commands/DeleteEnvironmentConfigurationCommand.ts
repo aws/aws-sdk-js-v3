@@ -61,7 +61,7 @@ export interface DeleteEnvironmentConfigurationCommandOutput extends __MetadataB
  * @see {@link DeleteEnvironmentConfigurationCommandOutput} for command's `response` shape.
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.
  *
- * @throws {@link ElasticBeanstalkServiceException}
+ * @throws {@link ElasticBeanstalkSyntheticServiceException}
  * <p>Base exception class for all service exceptions from ElasticBeanstalk service.</p>
  *
  *
