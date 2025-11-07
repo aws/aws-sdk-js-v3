@@ -219,6 +219,7 @@ export interface ControlTower {
   /**
    * @see {@link DisableControlCommand}
    */
+  disableControl(): Promise<DisableControlCommandOutput>;
   disableControl(
     args: DisableControlCommandInput,
     options?: __HttpHandlerOptions

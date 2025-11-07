@@ -594,13 +594,19 @@ export interface DisableControlInput {
    * <p>The ARN of the control. Only <b>Strongly recommended</b> and <b>Elective</b> controls are permitted, with the exception of the <b>Region deny</b> control. For information on how to find the <code>controlIdentifier</code>, see <a href="https://docs.aws.amazon.com/controltower/latest/APIReference/Welcome.html">the overview page</a>.</p>
    * @public
    */
-  controlIdentifier: string | undefined;
+  controlIdentifier?: string | undefined;
 
   /**
    * <p>The ARN of the organizational unit. For information on how to find the <code>targetIdentifier</code>, see <a href="https://docs.aws.amazon.com/controltower/latest/APIReference/Welcome.html">the overview page</a>.</p>
    * @public
    */
-  targetIdentifier: string | undefined;
+  targetIdentifier?: string | undefined;
+
+  /**
+   * <p>The ARN of the enabled control to be disabled, which uniquely identifies the control instance on the target organizational unit.</p>
+   * @public
+   */
+  enabledControlIdentifier?: string | undefined;
 }
 
 /**
@@ -615,7 +621,7 @@ export interface DisableControlOutput {
 }
 
 /**
- * <p>The request would cause a service quota to be exceeded. The limit is 100 concurrent operations.</p>
+ * <p>The request would cause a service quota to be exceeded. See <a href="https://docs.aws.amazon.com/controltower/latest/userguide/request-an-increase.html">Service quotas</a>.</p>
  * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {
@@ -1181,6 +1187,48 @@ export const DriftStatus = {
 export type DriftStatus = (typeof DriftStatus)[keyof typeof DriftStatus];
 
 /**
+ * <p>Represents drift information related to control inheritance between organizational units.</p>
+ * @public
+ */
+export interface EnabledControlInheritanceDrift {
+  /**
+   * <p>The status of inheritance drift for the enabled control, indicating whether inheritance configuration matches expectations.</p>
+   * @public
+   */
+  status?: DriftStatus | undefined;
+}
+
+/**
+ * <p>Represents drift information related to the underlying Amazon Web Services resources managed by the control.</p>
+ * @public
+ */
+export interface EnabledControlResourceDrift {
+  /**
+   * <p>The status of resource drift for the enabled control, indicating whether the underlying resources match the expected configuration.</p>
+   * @public
+   */
+  status?: DriftStatus | undefined;
+}
+
+/**
+ * <p>Defines the various categories of drift that can occur for an enabled control resource.</p>
+ * @public
+ */
+export interface EnabledControlDriftTypes {
+  /**
+   * <p>Indicates drift related to inheritance configuration between parent and child controls.</p>
+   * @public
+   */
+  inheritance?: EnabledControlInheritanceDrift | undefined;
+
+  /**
+   * <p>Indicates drift related to the underlying Amazon Web Services resources managed by the control.</p>
+   * @public
+   */
+  resource?: EnabledControlResourceDrift | undefined;
+}
+
+/**
  * <p>The drift summary of the enabled control.</p> <p>Amazon Web Services Control Tower expects the enabled control configuration to include all supported and governed Regions. If the enabled control differs from the expected configuration, it is defined to be in a state of drift. You can repair this drift by resetting the enabled control.</p>
  * @public
  */
@@ -1190,6 +1238,12 @@ export interface DriftStatusSummary {
    * @public
    */
   driftStatus?: DriftStatus | undefined;
+
+  /**
+   * <p>An object that categorizes the different types of drift detected for the enabled control.</p>
+   * @public
+   */
+  types?: EnabledControlDriftTypes | undefined;
 }
 
 /**
@@ -1246,12 +1300,6 @@ export interface EnabledControlDetails {
   targetIdentifier?: string | undefined;
 
   /**
-   * <p>Target Amazon Web Services Regions for the enabled control.</p>
-   * @public
-   */
-  targetRegions?: Region[] | undefined;
-
-  /**
    * <p>The deployment summary of the enabled control.</p>
    * @public
    */
@@ -1262,6 +1310,18 @@ export interface EnabledControlDetails {
    * @public
    */
   driftStatusSummary?: DriftStatusSummary | undefined;
+
+  /**
+   * <p>The ARN of the parent enabled control from which this control inherits its configuration, if applicable.</p>
+   * @public
+   */
+  parentIdentifier?: string | undefined;
+
+  /**
+   * <p>Target Amazon Web Services Regions for the enabled control.</p>
+   * @public
+   */
+  targetRegions?: Region[] | undefined;
 
   /**
    * <p>Array of <code>EnabledControlParameter</code> objects.</p>
@@ -1303,6 +1363,24 @@ export interface EnabledControlFilter {
    * @public
    */
   driftStatuses?: DriftStatus[] | undefined;
+
+  /**
+   * <p>Filters enabled controls by their parent control identifiers, allowing you to find child controls of specific parent controls.</p>
+   * @public
+   */
+  parentIdentifiers?: string[] | undefined;
+
+  /**
+   * <p>Filters enabled controls by their inheritance drift status, allowing you to find controls with specific inheritance-related drift conditions.</p>
+   * @public
+   */
+  inheritanceDriftStatuses?: DriftStatus[] | undefined;
+
+  /**
+   * <p>Filters enabled controls by their resource drift status, allowing you to find controls with specific resource-related drift conditions.</p>
+   * @public
+   */
+  resourceDriftStatuses?: DriftStatus[] | undefined;
 }
 
 /**
@@ -1332,6 +1410,12 @@ export interface ListEnabledControlsInput {
    * @public
    */
   filter?: EnabledControlFilter | undefined;
+
+  /**
+   * <p>A boolean value that determines whether to include enabled controls from child organizational units in the response.</p>
+   * @public
+   */
+  includeChildren?: boolean | undefined;
 }
 
 /**
@@ -1340,16 +1424,16 @@ export interface ListEnabledControlsInput {
  */
 export interface EnabledControlSummary {
   /**
-   * <p>The <code>controlIdentifier</code> of the enabled control.</p>
-   * @public
-   */
-  controlIdentifier?: string | undefined;
-
-  /**
    * <p>The ARN of the enabled control.</p>
    * @public
    */
   arn?: string | undefined;
+
+  /**
+   * <p>The <code>controlIdentifier</code> of the enabled control.</p>
+   * @public
+   */
+  controlIdentifier?: string | undefined;
 
   /**
    * <p>The ARN of the organizational unit.</p>
@@ -1368,6 +1452,12 @@ export interface EnabledControlSummary {
    * @public
    */
   driftStatusSummary?: DriftStatusSummary | undefined;
+
+  /**
+   * <p>The ARN of the parent enabled control from which this control inherits its configuration, if applicable.</p>
+   * @public
+   */
+  parentIdentifier?: string | undefined;
 }
 
 /**
@@ -1616,6 +1706,19 @@ export interface ListLandingZoneOperationsOutput {
 
 /**
  * @public
+ * @enum
+ */
+export const RemediationType = {
+  INHERITANCE_DRIFT: "INHERITANCE_DRIFT",
+} as const;
+
+/**
+ * @public
+ */
+export type RemediationType = (typeof RemediationType)[keyof typeof RemediationType];
+
+/**
+ * @public
  */
 export interface CreateLandingZoneInput {
   /**
@@ -1629,6 +1732,12 @@ export interface CreateLandingZoneInput {
    * @public
    */
   manifest: __DocumentType | undefined;
+
+  /**
+   * <p>Specifies the types of remediation actions to apply when creating the landing zone, such as automatic drift correction or compliance enforcement.</p>
+   * @public
+   */
+  remediationTypes?: RemediationType[] | undefined;
 
   /**
    * <p>Tags to be applied to the landing zone. </p>
@@ -1744,6 +1853,12 @@ export interface LandingZoneDetail {
    * @public
    */
   manifest: __DocumentType | undefined;
+
+  /**
+   * <p>The types of remediation actions configured for the landing zone, such as automatic drift correction or compliance enforcement.</p>
+   * @public
+   */
+  remediationTypes?: RemediationType[] | undefined;
 
   /**
    * <p>The ARN of the landing zone.</p>
@@ -1864,6 +1979,12 @@ export interface UpdateLandingZoneInput {
    * @public
    */
   manifest: __DocumentType | undefined;
+
+  /**
+   * <p>Specifies the types of remediation actions to apply when updating the landing zone configuration.</p>
+   * @public
+   */
+  remediationTypes?: RemediationType[] | undefined;
 
   /**
    * <p>The unique identifier of the landing zone.</p>

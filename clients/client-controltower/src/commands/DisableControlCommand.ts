@@ -38,8 +38,9 @@ export interface DisableControlCommandOutput extends DisableControlOutput, __Met
  * const config = {}; // type is ControlTowerClientConfig
  * const client = new ControlTowerClient(config);
  * const input = { // DisableControlInput
- *   controlIdentifier: "STRING_VALUE", // required
- *   targetIdentifier: "STRING_VALUE", // required
+ *   controlIdentifier: "STRING_VALUE",
+ *   targetIdentifier: "STRING_VALUE",
+ *   enabledControlIdentifier: "STRING_VALUE",
  * };
  * const command = new DisableControlCommand(input);
  * const response = await client.send(command);
@@ -68,7 +69,7 @@ export interface DisableControlCommandOutput extends DisableControlOutput, __Met
  *  <p>The request references a resource that does not exist.</p>
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>The request would cause a service quota to be exceeded. The limit is 100 concurrent operations.</p>
+ *  <p>The request would cause a service quota to be exceeded. See <a href="https://docs.aws.amazon.com/controltower/latest/userguide/request-an-increase.html">Service quotas</a>.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied due to request throttling.</p>

@@ -47,18 +47,27 @@ export interface GetEnabledControlCommandOutput extends GetEnabledControlOutput,
  * //     arn: "STRING_VALUE",
  * //     controlIdentifier: "STRING_VALUE",
  * //     targetIdentifier: "STRING_VALUE",
- * //     targetRegions: [ // TargetRegions
- * //       { // Region
- * //         name: "STRING_VALUE",
- * //       },
- * //     ],
  * //     statusSummary: { // EnablementStatusSummary
  * //       status: "SUCCEEDED" || "FAILED" || "UNDER_CHANGE",
  * //       lastOperationIdentifier: "STRING_VALUE",
  * //     },
  * //     driftStatusSummary: { // DriftStatusSummary
  * //       driftStatus: "DRIFTED" || "IN_SYNC" || "NOT_CHECKING" || "UNKNOWN",
+ * //       types: { // EnabledControlDriftTypes
+ * //         inheritance: { // EnabledControlInheritanceDrift
+ * //           status: "DRIFTED" || "IN_SYNC" || "NOT_CHECKING" || "UNKNOWN",
+ * //         },
+ * //         resource: { // EnabledControlResourceDrift
+ * //           status: "DRIFTED" || "IN_SYNC" || "NOT_CHECKING" || "UNKNOWN",
+ * //         },
+ * //       },
  * //     },
+ * //     parentIdentifier: "STRING_VALUE",
+ * //     targetRegions: [ // TargetRegions
+ * //       { // Region
+ * //         name: "STRING_VALUE",
+ * //       },
+ * //     ],
  * //     parameters: [ // EnabledControlParameterSummaries
  * //       { // EnabledControlParameterSummary
  * //         key: "STRING_VALUE", // required

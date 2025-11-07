@@ -51,15 +51,25 @@ export interface ListEnabledControlsCommandOutput extends ListEnabledControlsOut
  *     driftStatuses: [ // DriftStatuses
  *       "DRIFTED" || "IN_SYNC" || "NOT_CHECKING" || "UNKNOWN",
  *     ],
+ *     parentIdentifiers: [ // ParentIdentifiers
+ *       "STRING_VALUE",
+ *     ],
+ *     inheritanceDriftStatuses: [
+ *       "DRIFTED" || "IN_SYNC" || "NOT_CHECKING" || "UNKNOWN",
+ *     ],
+ *     resourceDriftStatuses: [
+ *       "DRIFTED" || "IN_SYNC" || "NOT_CHECKING" || "UNKNOWN",
+ *     ],
  *   },
+ *   includeChildren: true || false,
  * };
  * const command = new ListEnabledControlsCommand(input);
  * const response = await client.send(command);
  * // { // ListEnabledControlsOutput
  * //   enabledControls: [ // EnabledControls // required
  * //     { // EnabledControlSummary
- * //       controlIdentifier: "STRING_VALUE",
  * //       arn: "STRING_VALUE",
+ * //       controlIdentifier: "STRING_VALUE",
  * //       targetIdentifier: "STRING_VALUE",
  * //       statusSummary: { // EnablementStatusSummary
  * //         status: "SUCCEEDED" || "FAILED" || "UNDER_CHANGE",
@@ -67,7 +77,16 @@ export interface ListEnabledControlsCommandOutput extends ListEnabledControlsOut
  * //       },
  * //       driftStatusSummary: { // DriftStatusSummary
  * //         driftStatus: "DRIFTED" || "IN_SYNC" || "NOT_CHECKING" || "UNKNOWN",
+ * //         types: { // EnabledControlDriftTypes
+ * //           inheritance: { // EnabledControlInheritanceDrift
+ * //             status: "DRIFTED" || "IN_SYNC" || "NOT_CHECKING" || "UNKNOWN",
+ * //           },
+ * //           resource: { // EnabledControlResourceDrift
+ * //             status: "DRIFTED" || "IN_SYNC" || "NOT_CHECKING" || "UNKNOWN",
+ * //           },
+ * //         },
  * //       },
+ * //       parentIdentifier: "STRING_VALUE",
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",

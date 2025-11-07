@@ -28,7 +28,7 @@ export interface ResetEnabledControlCommandInput extends ResetEnabledControlInpu
 export interface ResetEnabledControlCommandOutput extends ResetEnabledControlOutput, __MetadataBearer {}
 
 /**
- * <p>Resets an enabled control.</p>
+ * <p>Resets an enabled control. Does not work for controls implemented with SCPs.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -67,7 +67,7 @@ export interface ResetEnabledControlCommandOutput extends ResetEnabledControlOut
  *  <p>The request references a resource that does not exist.</p>
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>The request would cause a service quota to be exceeded. The limit is 100 concurrent operations.</p>
+ *  <p>The request would cause a service quota to be exceeded. See <a href="https://docs.aws.amazon.com/controltower/latest/userguide/request-an-increase.html">Service quotas</a>.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied due to request throttling.</p>

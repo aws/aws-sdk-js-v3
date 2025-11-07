@@ -40,6 +40,9 @@ export interface CreateLandingZoneCommandOutput extends CreateLandingZoneOutput,
  * const input = { // CreateLandingZoneInput
  *   version: "STRING_VALUE", // required
  *   manifest: "DOCUMENT_VALUE", // required
+ *   remediationTypes: [ // RemediationTypes
+ *     "INHERITANCE_DRIFT",
+ *   ],
  *   tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
  *   },

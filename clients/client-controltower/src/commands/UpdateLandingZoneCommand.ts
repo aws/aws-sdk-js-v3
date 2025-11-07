@@ -40,6 +40,9 @@ export interface UpdateLandingZoneCommandOutput extends UpdateLandingZoneOutput,
  * const input = { // UpdateLandingZoneInput
  *   version: "STRING_VALUE", // required
  *   manifest: "DOCUMENT_VALUE", // required
+ *   remediationTypes: [ // RemediationTypes
+ *     "INHERITANCE_DRIFT",
+ *   ],
  *   landingZoneIdentifier: "STRING_VALUE", // required
  * };
  * const command = new UpdateLandingZoneCommand(input);

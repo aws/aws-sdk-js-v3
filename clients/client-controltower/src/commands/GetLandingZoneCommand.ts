@@ -46,6 +46,9 @@ export interface GetLandingZoneCommandOutput extends GetLandingZoneOutput, __Met
  * //   landingZone: { // LandingZoneDetail
  * //     version: "STRING_VALUE", // required
  * //     manifest: "DOCUMENT_VALUE", // required
+ * //     remediationTypes: [ // RemediationTypes
+ * //       "INHERITANCE_DRIFT",
+ * //     ],
  * //     arn: "STRING_VALUE",
  * //     status: "ACTIVE" || "PROCESSING" || "FAILED",
  * //     latestAvailableVersion: "STRING_VALUE",

@@ -115,6 +115,7 @@ import {
   LandingZoneOperationFilter,
   LandingZoneOperationStatus,
   LandingZoneOperationType,
+  RemediationType,
   ResourceNotFoundException,
   ServiceQuotaExceededException,
   ThrottlingException,
@@ -137,6 +138,7 @@ export const se_CreateLandingZoneCommand = async (
   body = JSON.stringify(
     take(input, {
       manifest: (_) => se_Manifest(_, context),
+      remediationTypes: (_) => _json(_),
       tags: (_) => _json(_),
       version: [],
     })
@@ -205,6 +207,7 @@ export const se_DisableControlCommand = async (
   body = JSON.stringify(
     take(input, {
       controlIdentifier: [],
+      enabledControlIdentifier: [],
       targetIdentifier: [],
     })
   );
@@ -505,6 +508,7 @@ export const se_ListEnabledControlsCommand = async (
   body = JSON.stringify(
     take(input, {
       filter: (_) => _json(_),
+      includeChildren: [],
       maxResults: [],
       nextToken: [],
       targetIdentifier: [],
@@ -749,6 +753,7 @@ export const se_UpdateLandingZoneCommand = async (
     take(input, {
       landingZoneIdentifier: [],
       manifest: (_) => se_Manifest(_, context),
+      remediationTypes: (_) => _json(_),
       version: [],
     })
   );
@@ -1614,6 +1619,10 @@ const se_Manifest = (input: __DocumentType, context: __SerdeContext): any => {
   return input;
 };
 
+// se_ParentIdentifiers omitted.
+
+// se_RemediationTypes omitted.
+
 // se_TagMap omitted.
 
 // se_TargetIdentifiers omitted.
@@ -1758,11 +1767,16 @@ const de_EnabledControlDetails = (output: any, context: __SerdeContext): Enabled
     controlIdentifier: __expectString,
     driftStatusSummary: _json,
     parameters: (_: any) => de_EnabledControlParameterSummaries(_, context),
+    parentIdentifier: __expectString,
     statusSummary: _json,
     targetIdentifier: __expectString,
     targetRegions: _json,
   }) as any;
 };
+
+// de_EnabledControlDriftTypes omitted.
+
+// de_EnabledControlInheritanceDrift omitted.
 
 /**
  * deserializeAws_restJson1EnabledControlParameterSummaries
@@ -1789,6 +1803,8 @@ const de_EnabledControlParameterSummary = (output: any, context: __SerdeContext)
   }) as any;
 };
 
+// de_EnabledControlResourceDrift omitted.
+
 // de_EnabledControls omitted.
 
 // de_EnabledControlSummary omitted.
@@ -1804,6 +1820,7 @@ const de_LandingZoneDetail = (output: any, context: __SerdeContext): LandingZone
     driftStatus: _json,
     latestAvailableVersion: __expectString,
     manifest: (_: any) => de_Manifest(_, context),
+    remediationTypes: _json,
     status: __expectString,
     version: __expectString,
   }) as any;
@@ -1841,6 +1858,8 @@ const de_Manifest = (output: any, context: __SerdeContext): __DocumentType => {
 };
 
 // de_Region omitted.
+
+// de_RemediationTypes omitted.
 
 // de_TagMap omitted.
 
