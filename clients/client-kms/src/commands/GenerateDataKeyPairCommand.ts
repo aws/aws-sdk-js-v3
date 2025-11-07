@@ -65,12 +65,12 @@ export interface GenerateDataKeyPairCommandOutput extends GenerateDataKeyPairRes
  *          <p>
  *             <code>GenerateDataKeyPair</code> also supports <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitro-enclave.html">Amazon Web Services Nitro Enclaves</a>, which provide an
  *       isolated compute environment in Amazon EC2. To call <code>GenerateDataKeyPair</code> for an Amazon Web Services
- *       Nitro enclave or NitroTPM, use the <a href="https://docs.aws.amazon.com/enclaves/latest/user/developing-applications.html#sdk">Amazon Web Services Nitro Enclaves SDK</a> or any Amazon Web Services SDK. Use the <code>Recipient</code>
- *       parameter to provide the attestation document for the attested environment.
- *         <code>GenerateDataKeyPair</code> returns the public data key and a copy of the private data
- *       key encrypted under the specified KMS key, as usual. But instead of a plaintext copy of the
- *       private data key (<code>PrivateKeyPlaintext</code>), the response includes a copy of the
- *       private data key encrypted under the public key from the attestation document
+ *       Nitro enclave or NitroTPM, use the <a href="https://docs.aws.amazon.com/enclaves/latest/user/developing-applications.html#sdk">Amazon Web Services Nitro Enclaves SDK</a> or any Amazon Web Services SDK. Use the
+ *         <code>Recipient</code> parameter to provide the attestation document for the attested
+ *       environment. <code>GenerateDataKeyPair</code> returns the public data key and a copy of the
+ *       private data key encrypted under the specified KMS key, as usual. But instead of a plaintext
+ *       copy of the private data key (<code>PrivateKeyPlaintext</code>), the response includes a copy
+ *       of the private data key encrypted under the public key from the attestation document
  *         (<code>CiphertextForRecipient</code>). For information about the interaction between KMS and Amazon Web Services Nitro Enclaves or Amazon Web Services NitroTPM, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/cryptographic-attestation.html">Cryptographic attestation support in KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>
  *          <p>You can use an optional encryption context to add additional security to the encryption
  *       operation. If you specify an <code>EncryptionContext</code>, you must specify the same
@@ -130,7 +130,7 @@ export interface GenerateDataKeyPairCommandOutput extends GenerateDataKeyPairRes
  *     "<keys>": "STRING_VALUE",
  *   },
  *   KeyId: "STRING_VALUE", // required
- *   KeyPairSpec: "RSA_2048" || "RSA_3072" || "RSA_4096" || "ECC_NIST_P256" || "ECC_NIST_P384" || "ECC_NIST_P521" || "ECC_SECG_P256K1" || "SM2", // required
+ *   KeyPairSpec: "RSA_2048" || "RSA_3072" || "RSA_4096" || "ECC_NIST_P256" || "ECC_NIST_P384" || "ECC_NIST_P521" || "ECC_SECG_P256K1" || "SM2" || "ECC_NIST_EDWARDS25519", // required
  *   GrantTokens: [ // GrantTokenList
  *     "STRING_VALUE",
  *   ],
@@ -147,7 +147,7 @@ export interface GenerateDataKeyPairCommandOutput extends GenerateDataKeyPairRes
  * //   PrivateKeyPlaintext: new Uint8Array(),
  * //   PublicKey: new Uint8Array(),
  * //   KeyId: "STRING_VALUE",
- * //   KeyPairSpec: "RSA_2048" || "RSA_3072" || "RSA_4096" || "ECC_NIST_P256" || "ECC_NIST_P384" || "ECC_NIST_P521" || "ECC_SECG_P256K1" || "SM2",
+ * //   KeyPairSpec: "RSA_2048" || "RSA_3072" || "RSA_4096" || "ECC_NIST_P256" || "ECC_NIST_P384" || "ECC_NIST_P521" || "ECC_SECG_P256K1" || "SM2" || "ECC_NIST_EDWARDS25519",
  * //   CiphertextForRecipient: new Uint8Array(),
  * //   KeyMaterialId: "STRING_VALUE",
  * // };

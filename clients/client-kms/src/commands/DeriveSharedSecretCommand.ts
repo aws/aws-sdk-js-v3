@@ -34,7 +34,7 @@ export interface DeriveSharedSecretCommandOutput extends DeriveSharedSecretRespo
 /**
  * <p>Derives a shared secret using a key agreement algorithm.</p>
  *          <note>
- *             <p>You must use an asymmetric NIST-recommended elliptic curve (ECC) or SM2 (China Regions
+ *             <p>You must use an asymmetric NIST-standard elliptic curve (ECC) or SM2 (China Regions
  *         only) KMS key pair with a <code>KeyUsage</code> value of <code>KEY_AGREEMENT</code> to call
  *         DeriveSharedSecret.</p>
  *          </note>
@@ -53,14 +53,14 @@ export interface DeriveSharedSecretCommandOutput extends DeriveSharedSecretRespo
  *                   <b>Alice</b> calls <a>CreateKey</a> to create an
  *           asymmetric KMS key pair with a <code>KeyUsage</code> value of
  *           <code>KEY_AGREEMENT</code>.</p>
- *                <p>The asymmetric KMS key must use a NIST-recommended elliptic curve (ECC) or SM2 (China
+ *                <p>The asymmetric KMS key must use a NIST-standard elliptic curve (ECC) or SM2 (China
  *           Regions only) key spec.</p>
  *             </li>
  *             <li>
  *                <p>
  *                   <b>Bob</b> creates an elliptic curve key pair.</p>
  *                <p>Bob can call <a>CreateKey</a> to create an asymmetric KMS key pair or
- *           generate a key pair outside of KMS. Bob's key pair must use the same NIST-recommended
+ *           generate a key pair outside of KMS. Bob's key pair must use the same NIST-standard
  *           elliptic curve (ECC) or SM2 (China Regions ony) curve as Alice.</p>
  *             </li>
  *             <li>
@@ -88,8 +88,8 @@ export interface DeriveSharedSecretCommandOutput extends DeriveSharedSecretRespo
  *             </li>
  *          </ol>
  *          <p>To derive a shared secret you must provide a key agreement algorithm, the private key of
- *       the caller's asymmetric NIST-recommended elliptic curve or SM2 (China Regions only) KMS key
- *       pair, and the public key from your peer's NIST-recommended elliptic curve or SM2 (China
+ *       the caller's asymmetric NIST-standard elliptic curve or SM2 (China Regions only) KMS key
+ *       pair, and the public key from your peer's NIST-standard elliptic curve or SM2 (China
  *       Regions only) key pair. The public key can be from another asymmetric KMS key pair or from a
  *       key pair generated outside of KMS, but both key pairs must be on the same elliptic
  *       curve.</p>

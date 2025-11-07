@@ -1446,6 +1446,7 @@ export type CustomerMasterKeySpec = (typeof CustomerMasterKeySpec)[keyof typeof 
  * @enum
  */
 export const KeySpec = {
+  ECC_NIST_EDWARDS25519: "ECC_NIST_EDWARDS25519",
   ECC_NIST_P256: "ECC_NIST_P256",
   ECC_NIST_P384: "ECC_NIST_P384",
   ECC_NIST_P521: "ECC_NIST_P521",
@@ -1604,7 +1605,7 @@ export interface CreateKeyRequest {
    *             <code>SIGN_VERIFY</code>.</p>
    *             </li>
    *             <li>
-   *                <p>For asymmetric KMS keys with NIST-recommended elliptic curve key pairs, specify
+   *                <p>For asymmetric KMS keys with NIST-standard elliptic curve key pairs, specify
    *             <code>SIGN_VERIFY</code> or <code>KEY_AGREEMENT</code>.</p>
    *             </li>
    *             <li>
@@ -1716,7 +1717,7 @@ export interface CreateKeyRequest {
    *                </ul>
    *             </li>
    *             <li>
-   *                <p>Asymmetric NIST-recommended elliptic curve key pairs (signing and verification -or-
+   *                <p>Asymmetric NIST-standard elliptic curve key pairs (signing and verification -or-
    *           deriving shared secrets)</p>
    *                <ul>
    *                   <li>
@@ -1730,6 +1731,21 @@ export interface CreateKeyRequest {
    *                   <li>
    *                      <p>
    *                         <code>ECC_NIST_P521</code> (secp521r1)</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>ECC_NIST_EDWARDS25519</code> (ed25519) - signing and verification only</p>
+   *                      <ul>
+   *                         <li>
+   *                            <p>
+   *                               <b>Note:</b> For ECC_NIST_EDWARDS25519 KMS keys, the
+   *                           ED25519_SHA_512 signing algorithm requires <a href="kms/latest/APIReference/API_Sign.html#KMS-Sign-request-MessageType">
+   *                                  <code>MessageType:RAW</code>
+   *                               </a>, while ED25519_PH_SHA_512 requires <a href="kms/latest/APIReference/API_Sign.html#KMS-Sign-request-MessageType">
+   *                                  <code>MessageType:DIGEST</code>
+   *                               </a>. These message types cannot be used interchangeably.</p>
+   *                         </li>
+   *                      </ul>
    *                   </li>
    *                </ul>
    *             </li>
@@ -2059,6 +2075,8 @@ export const SigningAlgorithmSpec = {
   ECDSA_SHA_256: "ECDSA_SHA_256",
   ECDSA_SHA_384: "ECDSA_SHA_384",
   ECDSA_SHA_512: "ECDSA_SHA_512",
+  ED25519_PH_SHA_512: "ED25519_PH_SHA_512",
+  ED25519_SHA_512: "ED25519_SHA_512",
   ML_DSA_SHAKE_256: "ML_DSA_SHAKE_256",
   RSASSA_PKCS1_V1_5_SHA_256: "RSASSA_PKCS1_V1_5_SHA_256",
   RSASSA_PKCS1_V1_5_SHA_384: "RSASSA_PKCS1_V1_5_SHA_384",
@@ -2835,6 +2853,7 @@ export interface CustomKeyStoresListEntry {
  * @enum
  */
 export const DataKeyPairSpec = {
+  ECC_NIST_EDWARDS25519: "ECC_NIST_EDWARDS25519",
   ECC_NIST_P256: "ECC_NIST_P256",
   ECC_NIST_P384: "ECC_NIST_P384",
   ECC_NIST_P521: "ECC_NIST_P521",
@@ -2880,8 +2899,8 @@ export type KeyEncryptionMechanism = (typeof KeyEncryptionMechanism)[keyof typeo
 /**
  * <p>Contains information about the party that receives the response from the API
  *       operation.</p>
- *          <p>This data type is designed to support Amazon Web Services Nitro Enclaves and Amazon Web Services NitroTPM, which lets you create an attested
- *       environment in Amazon EC2. For information about the interaction between KMS and Amazon Web Services Nitro Enclaves or Amazon Web Services NitroTPM, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/cryptographic-attestation.html">Cryptographic attestation support in KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>
+ *          <p>This data type is designed to support Amazon Web Services Nitro Enclaves and Amazon Web Services NitroTPM,
+ *       which lets you create an attested environment in Amazon EC2. For information about the interaction between KMS and Amazon Web Services Nitro Enclaves or Amazon Web Services NitroTPM, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/cryptographic-attestation.html">Cryptographic attestation support in KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>
  * @public
  */
 export interface RecipientInfo {
@@ -2894,8 +2913,8 @@ export interface RecipientInfo {
   KeyEncryptionAlgorithm?: KeyEncryptionMechanism | undefined;
 
   /**
-   * <p>The attestation document for an Amazon Web Services Nitro Enclave or a NitroTPM. This document includes the enclave's
-   *       public key.</p>
+   * <p>The attestation document for an Amazon Web Services Nitro Enclave or a NitroTPM. This document includes
+   *       the enclave's public key.</p>
    * @public
    */
   AttestationDocument?: Uint8Array | undefined;
@@ -2978,16 +2997,16 @@ export interface DecryptRequest {
 
   /**
    * <p>A signed <a href="https://docs.aws.amazon.com/enclaves/latest/user/nitro-enclave-concepts.html#term-attestdoc">attestation
-   *         document</a> from an Amazon Web Services Nitro enclave or NitroTPM, and the encryption algorithm to use with the
-   *       public key in the attestation document. The only valid encryption algorithm is <code>RSAES_OAEP_SHA_256</code>. </p>
-   *          <p>This parameter supports the <a href="https://docs.aws.amazon.com/enclaves/latest/user/developing-applications.html#sdk">Amazon Web Services Nitro Enclaves SDK</a> or any Amazon Web Services SDK for Amazon Web Services Nitro Enclaves. It supports
-   *       any Amazon Web Services SDK for Amazon Web Services NitroTPM.
-   *     </p>
+   *         document</a> from an Amazon Web Services Nitro enclave or NitroTPM, and the encryption algorithm to
+   *       use with the public key in the attestation document. The only valid encryption algorithm is
+   *         <code>RSAES_OAEP_SHA_256</code>. </p>
+   *          <p>This parameter supports the <a href="https://docs.aws.amazon.com/enclaves/latest/user/developing-applications.html#sdk">Amazon Web Services Nitro Enclaves SDK</a> or any Amazon Web Services SDK for
+   *       Amazon Web Services Nitro Enclaves. It supports any Amazon Web Services SDK for Amazon Web Services NitroTPM. </p>
    *          <p>When you use this parameter, instead of returning the plaintext data, KMS encrypts the
    *       plaintext data with the public key in the attestation document, and returns the resulting
    *       ciphertext in the <code>CiphertextForRecipient</code> field in the response. This ciphertext
-   *       can be decrypted only with the private key in the attested environment. The <code>Plaintext</code> field in
-   *       the response is null or empty.</p>
+   *       can be decrypted only with the private key in the attested environment. The
+   *         <code>Plaintext</code> field in the response is null or empty.</p>
    *          <p>For information about the interaction between KMS and Amazon Web Services Nitro Enclaves or Amazon Web Services NitroTPM, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/cryptographic-attestation.html">Cryptographic attestation support in KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>
    * @public
    */
@@ -3237,7 +3256,7 @@ export interface DeleteImportedKeyMaterialResponse {
  */
 export interface DeriveSharedSecretRequest {
   /**
-   * <p>Identifies an asymmetric NIST-recommended ECC or SM2 (China Regions only) KMS key. KMS
+   * <p>Identifies an asymmetric NIST-standard ECC or SM2 (China Regions only) KMS key. KMS
    *       uses the private key in the specified key pair to derive the shared secret. The key usage of
    *       the KMS key must be <code>KEY_AGREEMENT</code>. To find the <code>KeyUsage</code> of a KMS
    *       key, use the <a>DescribeKey</a> operation.</p>
@@ -3274,7 +3293,7 @@ export interface DeriveSharedSecretRequest {
   KeyAgreementAlgorithm: KeyAgreementAlgorithmSpec | undefined;
 
   /**
-   * <p>Specifies the public key in your peer's NIST-recommended elliptic curve (ECC) or SM2
+   * <p>Specifies the public key in your peer's NIST-standard elliptic curve (ECC) or SM2
    *       (China Regions only) key pair.</p>
    *          <p>The public key must be a DER-encoded X.509 public key, also known as
    *         <code>SubjectPublicKeyInfo</code> (SPKI), as defined in <a href="https://tools.ietf.org/html/rfc5280">RFC 5280</a>.</p>
@@ -3309,20 +3328,22 @@ export interface DeriveSharedSecretRequest {
 
   /**
    * <p>A signed <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitro-enclave-how.html#term-attestdoc">attestation document</a> from
-   *       an Amazon Web Services Nitro enclave or NitroTPM, and the encryption algorithm to use with the public key in the attestation document. The
-   *       only valid encryption algorithm is <code>RSAES_OAEP_SHA_256</code>. </p>
-   *          <p>This parameter only supports attestation documents for Amazon Web Services Nitro Enclaves or Amazon Web Services NitroTPM. To call
-   *       DeriveSharedSecret generate an attestation document use either <a href="https://docs.aws.amazon.com/enclaves/latest/user/developing-applications.html#sdk">Amazon Web Services Nitro Enclaves SDK</a> for an Amazon Web Services Nitro Enclaves or
-   *       <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/attestation-get-doc.html">Amazon Web Services NitroTPM tools</a> for Amazon Web Services NitroTPM. Then use the Recipient parameter from any Amazon Web Services SDK to provide the
+   *       an Amazon Web Services Nitro enclave or NitroTPM, and the encryption algorithm to use with the public key in
+   *       the attestation document. The only valid encryption algorithm is
+   *         <code>RSAES_OAEP_SHA_256</code>. </p>
+   *          <p>This parameter only supports attestation documents for Amazon Web Services Nitro Enclaves or
+   *       Amazon Web Services NitroTPM. To call DeriveSharedSecret generate an attestation document use either
+   *       <a href="https://docs.aws.amazon.com/enclaves/latest/user/developing-applications.html#sdk">Amazon Web Services Nitro Enclaves SDK</a> for an Amazon Web Services Nitro Enclaves or <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/attestation-get-doc.html">Amazon Web Services NitroTPM tools</a> for
+   *       Amazon Web Services NitroTPM. Then use the Recipient parameter from any Amazon Web Services SDK to provide the
    *       attestation document for the attested environment.</p>
    *          <p>When you use this parameter, instead of returning a plaintext copy of the shared secret,
    *       KMS encrypts the plaintext shared secret under the public key in the attestation document,
    *       and returns the resulting ciphertext in the <code>CiphertextForRecipient</code> field in the
-   *       response. This ciphertext can be decrypted only with the private key in the attested environment. The
-   *         <code>CiphertextBlob</code> field in the response contains the encrypted shared secret
-   *       derived from the KMS key specified by the <code>KeyId</code> parameter and public key
-   *       specified by the <code>PublicKey</code> parameter. The <code>SharedSecret</code> field in the
-   *       response is null or empty.</p>
+   *       response. This ciphertext can be decrypted only with the private key in the attested
+   *       environment. The <code>CiphertextBlob</code> field in the response contains the encrypted
+   *       shared secret derived from the KMS key specified by the <code>KeyId</code> parameter and
+   *       public key specified by the <code>PublicKey</code> parameter. The <code>SharedSecret</code>
+   *       field in the response is null or empty.</p>
    *          <p>For information about the interaction between KMS and Amazon Web Services Nitro Enclaves or Amazon Web Services NitroTPM, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/cryptographic-attestation.html">Cryptographic attestation support in KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>
    * @public
    */
@@ -3349,8 +3370,8 @@ export interface DeriveSharedSecretResponse {
   SharedSecret?: Uint8Array | undefined;
 
   /**
-   * <p>The plaintext shared secret encrypted with the public key from the attestation document. This
-   *       ciphertext can be decrypted only by using a private key from the attested environment. </p>
+   * <p>The plaintext shared secret encrypted with the public key from the attestation document.
+   *       This ciphertext can be decrypted only by using a private key from the attested environment. </p>
    *          <p>This field is included in the response only when the <code>Recipient</code> parameter in
    *       the request includes a valid attestation document from an Amazon Web Services Nitro enclave or NitroTPM.
    *       For information about the interaction between KMS and Amazon Web Services Nitro Enclaves or Amazon Web Services NitroTPM, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/cryptographic-attestation.html">Cryptographic attestation support in KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>
@@ -3853,11 +3874,11 @@ export interface GenerateDataKeyRequest {
 
   /**
    * <p>A signed <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitro-enclave-how.html#term-attestdoc">attestation document</a> from
-   *       an Amazon Web Services Nitro enclave or NitroTPM, and the encryption algorithm to use with the public key in the attestation document. The
-   *       only valid encryption algorithm is <code>RSAES_OAEP_SHA_256</code>. </p>
-   *          <p>This parameter supports the <a href="https://docs.aws.amazon.com/enclaves/latest/user/developing-applications.html#sdk">Amazon Web Services Nitro Enclaves SDK</a> or any Amazon Web Services SDK for Amazon Web Services Nitro Enclaves. It supports
-   *       any Amazon Web Services SDK for Amazon Web Services NitroTPM.
-   *     </p>
+   *       an Amazon Web Services Nitro enclave or NitroTPM, and the encryption algorithm to use with the public key in
+   *       the attestation document. The only valid encryption algorithm is
+   *         <code>RSAES_OAEP_SHA_256</code>. </p>
+   *          <p>This parameter supports the <a href="https://docs.aws.amazon.com/enclaves/latest/user/developing-applications.html#sdk">Amazon Web Services Nitro Enclaves SDK</a> or any Amazon Web Services SDK for
+   *       Amazon Web Services Nitro Enclaves. It supports any Amazon Web Services SDK for Amazon Web Services NitroTPM. </p>
    *          <p>When you use this parameter, instead of returning the plaintext data key, KMS encrypts
    *       the plaintext data key under the public key in the attestation document, and returns the
    *       resulting ciphertext in the <code>CiphertextForRecipient</code> field in the response. This
@@ -3986,19 +4007,21 @@ export interface GenerateDataKeyPairRequest {
 
   /**
    * <p>A signed <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitro-enclave-how.html#term-attestdoc">attestation document</a> from
-   *       an Amazon Web Services Nitro enclave or NitroTPM, and the encryption algorithm to use with the public key in the attestation document. The
-   *       only valid encryption algorithm is <code>RSAES_OAEP_SHA_256</code>. </p>
-   *          <p>This parameter only supports attestation documents for Amazon Web Services Nitro Enclaves or Amazon Web Services NitroTPM. To call
-   *       GenerateDataKeyPair generate an attestation document use either <a href="https://docs.aws.amazon.com/enclaves/latest/user/developing-applications.html#sdk">Amazon Web Services Nitro Enclaves SDK</a> for an Amazon Web Services Nitro Enclaves or
-   *       <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/attestation-get-doc.html">Amazon Web Services NitroTPM tools</a> for Amazon Web Services NitroTPM. Then use the Recipient parameter from any Amazon Web Services SDK to provide the
+   *       an Amazon Web Services Nitro enclave or NitroTPM, and the encryption algorithm to use with the public key in
+   *       the attestation document. The only valid encryption algorithm is
+   *         <code>RSAES_OAEP_SHA_256</code>. </p>
+   *          <p>This parameter only supports attestation documents for Amazon Web Services Nitro Enclaves or
+   *       Amazon Web Services NitroTPM. To call GenerateDataKeyPair generate an attestation document use either
+   *       <a href="https://docs.aws.amazon.com/enclaves/latest/user/developing-applications.html#sdk">Amazon Web Services Nitro Enclaves SDK</a> for an Amazon Web Services Nitro Enclaves or <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/attestation-get-doc.html">Amazon Web Services NitroTPM tools</a> for
+   *       Amazon Web Services NitroTPM. Then use the Recipient parameter from any Amazon Web Services SDK to provide the
    *       attestation document for the attested environment.</p>
    *          <p>When you use this parameter, instead of returning a plaintext copy of the private data
    *       key, KMS encrypts the plaintext private data key under the public key in the attestation
    *       document, and returns the resulting ciphertext in the <code>CiphertextForRecipient</code>
    *       field in the response. This ciphertext can be decrypted only with the private key in the
-   *       attested environment. The <code>CiphertextBlob</code> field in the response contains a copy of the private
-   *       data key encrypted under the KMS key specified by the <code>KeyId</code> parameter. The
-   *         <code>PrivateKeyPlaintext</code> field in the response is null or empty.</p>
+   *       attested environment. The <code>CiphertextBlob</code> field in the response contains a copy of
+   *       the private data key encrypted under the KMS key specified by the <code>KeyId</code>
+   *       parameter. The <code>PrivateKeyPlaintext</code> field in the response is null or empty.</p>
    *          <p>For information about the interaction between KMS and Amazon Web Services Nitro Enclaves or Amazon Web Services NitroTPM, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/cryptographic-attestation.html">Cryptographic attestation support in KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>
    * @public
    */
@@ -4049,8 +4072,9 @@ export interface GenerateDataKeyPairResponse {
   KeyPairSpec?: DataKeyPairSpec | undefined;
 
   /**
-   * <p>The plaintext private data key encrypted with the public key from the attestation document. This
-   *       ciphertext can be decrypted only by using a private key from the attested environment. </p>
+   * <p>The plaintext private data key encrypted with the public key from the attestation
+   *       document. This ciphertext can be decrypted only by using a private key from the attested
+   *       environment. </p>
    *          <p>This field is included in the response only when the <code>Recipient</code> parameter in
    *       the request includes a valid attestation document from an Amazon Web Services Nitro enclave or NitroTPM.
    *       For information about the interaction between KMS and Amazon Web Services Nitro Enclaves or Amazon Web Services NitroTPM, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/cryptographic-attestation.html">Cryptographic attestation support in KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>
@@ -4367,16 +4391,16 @@ export interface GenerateRandomRequest {
 
   /**
    * <p>A signed <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitro-enclave-how.html#term-attestdoc">attestation document</a> from
-   *       an Amazon Web Services Nitro enclave or NitroTPM, and the encryption algorithm to use with the public key in the attestation document. The
-   *       only valid encryption algorithm is <code>RSAES_OAEP_SHA_256</code>. </p>
-   *          <p>This parameter supports the <a href="https://docs.aws.amazon.com/enclaves/latest/user/developing-applications.html#sdk">Amazon Web Services Nitro Enclaves SDK</a> or any Amazon Web Services SDK for Amazon Web Services Nitro Enclaves. It supports
-   *       any Amazon Web Services SDK for Amazon Web Services NitroTPM.
-   *     </p>
+   *       an Amazon Web Services Nitro enclave or NitroTPM, and the encryption algorithm to use with the public key in
+   *       the attestation document. The only valid encryption algorithm is
+   *         <code>RSAES_OAEP_SHA_256</code>. </p>
+   *          <p>This parameter supports the <a href="https://docs.aws.amazon.com/enclaves/latest/user/developing-applications.html#sdk">Amazon Web Services Nitro Enclaves SDK</a> or any Amazon Web Services SDK for
+   *       Amazon Web Services Nitro Enclaves. It supports any Amazon Web Services SDK for Amazon Web Services NitroTPM. </p>
    *          <p>When you use this parameter, instead of returning plaintext bytes, KMS encrypts the
    *       plaintext bytes under the public key in the attestation document, and returns the resulting
    *       ciphertext in the <code>CiphertextForRecipient</code> field in the response. This ciphertext
-   *       can be decrypted only with the private key in the attested environment. The <code>Plaintext</code> field in
-   *       the response is null or empty.</p>
+   *       can be decrypted only with the private key in the attested environment. The
+   *         <code>Plaintext</code> field in the response is null or empty.</p>
    *          <p>For information about the interaction between KMS and Amazon Web Services Nitro Enclaves or Amazon Web Services NitroTPM, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/cryptographic-attestation.html">Cryptographic attestation support in KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>
    * @public
    */
@@ -4396,8 +4420,8 @@ export interface GenerateRandomResponse {
   Plaintext?: Uint8Array | undefined;
 
   /**
-   * <p>The plaintext random bytes encrypted with the public key from the attestation document. This
-   *       ciphertext can be decrypted only by using a private key from the attested environment. </p>
+   * <p>The plaintext random bytes encrypted with the public key from the attestation document.
+   *       This ciphertext can be decrypted only by using a private key from the attested environment. </p>
    *          <p>This field is included in the response only when the <code>Recipient</code> parameter in
    *       the request includes a valid attestation document from an Amazon Web Services Nitro enclave or NitroTPM.
    *       For information about the interaction between KMS and Amazon Web Services Nitro Enclaves or Amazon Web Services NitroTPM, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/cryptographic-attestation.html">Cryptographic attestation support in KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>
@@ -6441,6 +6465,17 @@ export interface SignRequest {
    *         value with an unhashed message, the security of the signing operation can be
    *         compromised.</p>
    *          </important>
+   *          <p>When using ECC_NIST_EDWARDS25519 KMS keys:</p>
+   *          <ul>
+   *             <li>
+   *                <p>ED25519_SHA_512 signing algorithm requires KMS <code>MessageType:RAW</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>ED25519_PH_SHA_512 signing algorithm requires KMS <code>MessageType:DIGEST</code>
+   *                </p>
+   *             </li>
+   *          </ul>
    *          <p>When the value of <code>MessageType</code> is <code>DIGEST</code>, the length of the
    *         <code>Message</code> value must match the length of hashed messages for the specified
    *       signing algorithm.</p>
@@ -6910,6 +6945,17 @@ export interface VerifyRequest {
    *         value with an unhashed message, the security of the signing operation can be
    *         compromised.</p>
    *          </important>
+   *          <p>When using ECC_NIST_EDWARDS25519 KMS keys:</p>
+   *          <ul>
+   *             <li>
+   *                <p>ED25519_SHA_512 signing algorithm requires KMS <code>MessageType:RAW</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>ED25519_PH_SHA_512 signing algorithm requires KMS <code>MessageType:DIGEST</code>
+   *                </p>
+   *             </li>
+   *          </ul>
    *          <p>When the value of <code>MessageType</code> is <code>DIGEST</code>, the length of the
    *         <code>Message</code> value must match the length of hashed messages for the specified
    *       signing algorithm.</p>
