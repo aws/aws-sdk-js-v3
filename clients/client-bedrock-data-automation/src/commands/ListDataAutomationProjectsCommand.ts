@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -10,12 +9,8 @@ import {
   ServiceOutputTypes,
 } from "../BedrockDataAutomationClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  ListDataAutomationProjectsRequest,
-  ListDataAutomationProjectsResponse,
-  ListDataAutomationProjectsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { de_ListDataAutomationProjectsCommand, se_ListDataAutomationProjectsCommand } from "../protocols/Aws_restJson1";
+import { ListDataAutomationProjectsRequest, ListDataAutomationProjectsResponse } from "../models/models_0";
+import { ListDataAutomationProjects } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -109,16 +104,11 @@ export class ListDataAutomationProjectsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: BedrockDataAutomationClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonBedrockKeystoneBuildTimeService", "ListDataAutomationProjects", {})
   .n("BedrockDataAutomationClient", "ListDataAutomationProjectsCommand")
-  .f(void 0, ListDataAutomationProjectsResponseFilterSensitiveLog)
-  .ser(se_ListDataAutomationProjectsCommand)
-  .de(de_ListDataAutomationProjectsCommand)
+  .sc(ListDataAutomationProjects)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

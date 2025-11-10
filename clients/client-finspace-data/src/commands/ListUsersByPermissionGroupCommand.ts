@@ -1,17 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { FinspaceDataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FinspaceDataClient";
-import {
-  ListUsersByPermissionGroupRequest,
-  ListUsersByPermissionGroupResponse,
-  ListUsersByPermissionGroupResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { de_ListUsersByPermissionGroupCommand, se_ListUsersByPermissionGroupCommand } from "../protocols/Aws_restJson1";
+import { ListUsersByPermissionGroupRequest, ListUsersByPermissionGroupResponse } from "../models/models_0";
+import { ListUsersByPermissionGroup } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -107,16 +102,11 @@ export class ListUsersByPermissionGroupCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: FinspaceDataClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSHabaneroPublicAPI", "ListUsersByPermissionGroup", {})
   .n("FinspaceDataClient", "ListUsersByPermissionGroupCommand")
-  .f(void 0, ListUsersByPermissionGroupResponseFilterSensitiveLog)
-  .ser(se_ListUsersByPermissionGroupCommand)
-  .de(de_ListUsersByPermissionGroupCommand)
+  .sc(ListUsersByPermissionGroup)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -11,10 +10,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../NetworkFlowMonitorClient";
-import {
-  de_StartQueryMonitorTopContributorsCommand,
-  se_StartQueryMonitorTopContributorsCommand,
-} from "../protocols/Aws_restJson1";
+import { StartQueryMonitorTopContributors } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -99,16 +95,11 @@ export class StartQueryMonitorTopContributorsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: NetworkFlowMonitorClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("NetworkFlowMonitor", "StartQueryMonitorTopContributors", {})
   .n("NetworkFlowMonitorClient", "StartQueryMonitorTopContributorsCommand")
-  .f(void 0, void 0)
-  .ser(se_StartQueryMonitorTopContributorsCommand)
-  .de(de_StartQueryMonitorTopContributorsCommand)
+  .sc(StartQueryMonitorTopContributors)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

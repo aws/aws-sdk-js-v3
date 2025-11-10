@@ -1,12 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GetApplicationPolicyRequest, GetApplicationPolicyResponse } from "../models/models_0";
-import { de_GetApplicationPolicyCommand, se_GetApplicationPolicyCommand } from "../protocols/Aws_restJson1";
+import { GetApplicationPolicy } from "../schemas/schemas_0";
 import {
   ServerlessApplicationRepositoryClientResolvedConfig,
   ServiceInputTypes,
@@ -102,16 +101,11 @@ export class GetApplicationPolicyCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ServerlessApplicationRepositoryClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("ServerlessApplicationRepository", "GetApplicationPolicy", {})
   .n("ServerlessApplicationRepositoryClient", "GetApplicationPolicyCommand")
-  .f(void 0, void 0)
-  .ser(se_GetApplicationPolicyCommand)
-  .de(de_GetApplicationPolicyCommand)
+  .sc(GetApplicationPolicy)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

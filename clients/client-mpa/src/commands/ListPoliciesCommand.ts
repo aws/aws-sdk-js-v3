@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { ListPoliciesRequest, ListPoliciesResponse } from "../models/models_0";
 import { MPAClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MPAClient";
-import { de_ListPoliciesCommand, se_ListPoliciesCommand } from "../protocols/Aws_restJson1";
+import { ListPolicies } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -91,16 +90,11 @@ export class ListPoliciesCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MPAClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSFluffyCoreService", "ListPolicies", {})
   .n("MPAClient", "ListPoliciesCommand")
-  .f(void 0, void 0)
-  .ser(se_ListPoliciesCommand)
-  .de(de_ListPoliciesCommand)
+  .sc(ListPolicies)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

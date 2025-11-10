@@ -1,17 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ChimeSDKIdentityClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeSDKIdentityClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  CreateAppInstanceRequest,
-  CreateAppInstanceRequestFilterSensitiveLog,
-  CreateAppInstanceResponse,
-} from "../models/models_0";
-import { de_CreateAppInstanceCommand, se_CreateAppInstanceCommand } from "../protocols/Aws_restJson1";
+import { CreateAppInstanceRequest, CreateAppInstanceResponse } from "../models/models_0";
+import { CreateAppInstance } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -110,16 +105,11 @@ export class CreateAppInstanceCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ChimeSDKIdentityClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("ChimeIdentityService", "CreateAppInstance", {})
   .n("ChimeSDKIdentityClient", "CreateAppInstanceCommand")
-  .f(CreateAppInstanceRequestFilterSensitiveLog, void 0)
-  .ser(se_CreateAppInstanceCommand)
-  .de(de_CreateAppInstanceCommand)
+  .sc(CreateAppInstance)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

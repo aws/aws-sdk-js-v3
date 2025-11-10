@@ -1,17 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DataBrewClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataBrewClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  SendProjectSessionActionRequest,
-  SendProjectSessionActionRequestFilterSensitiveLog,
-  SendProjectSessionActionResponse,
-} from "../models/models_0";
-import { de_SendProjectSessionActionCommand, se_SendProjectSessionActionCommand } from "../protocols/Aws_restJson1";
+import { SendProjectSessionActionRequest, SendProjectSessionActionResponse } from "../models/models_0";
+import { SendProjectSessionAction } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -114,16 +109,11 @@ export class SendProjectSessionActionCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DataBrewClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSGlueDataBrew", "SendProjectSessionAction", {})
   .n("DataBrewClient", "SendProjectSessionActionCommand")
-  .f(SendProjectSessionActionRequestFilterSensitiveLog, void 0)
-  .ser(se_SendProjectSessionActionCommand)
-  .de(de_SendProjectSessionActionCommand)
+  .sc(SendProjectSessionAction)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

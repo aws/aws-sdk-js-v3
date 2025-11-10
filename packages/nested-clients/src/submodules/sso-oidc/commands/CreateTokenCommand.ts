@@ -1,17 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  CreateTokenRequest,
-  CreateTokenRequestFilterSensitiveLog,
-  CreateTokenResponse,
-  CreateTokenResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { de_CreateTokenCommand, se_CreateTokenCommand } from "../protocols/Aws_restJson1";
+import { CreateTokenRequest, CreateTokenResponse } from "../models/models_0";
+import { CreateToken } from "../schemas/schemas_0";
 import { ServiceInputTypes, ServiceOutputTypes, SSOOIDCClientResolvedConfig } from "../SSOOIDCClient";
 
 /**
@@ -177,16 +171,11 @@ export class CreateTokenCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SSOOIDCClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSSSOOIDCService", "CreateToken", {})
   .n("SSOOIDCClient", "CreateTokenCommand")
-  .f(CreateTokenRequestFilterSensitiveLog, CreateTokenResponseFilterSensitiveLog)
-  .ser(se_CreateTokenCommand)
-  .de(de_CreateTokenCommand)
+  .sc(CreateToken)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

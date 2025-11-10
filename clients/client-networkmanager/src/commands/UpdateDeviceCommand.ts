@@ -1,18 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  UpdateDeviceRequest,
-  UpdateDeviceRequestFilterSensitiveLog,
-  UpdateDeviceResponse,
-  UpdateDeviceResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { UpdateDeviceRequest, UpdateDeviceResponse } from "../models/models_0";
 import { NetworkManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkManagerClient";
-import { de_UpdateDeviceCommand, se_UpdateDeviceCommand } from "../protocols/Aws_restJson1";
+import { UpdateDevice } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -138,16 +132,11 @@ export class UpdateDeviceCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: NetworkManagerClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("NetworkManager", "UpdateDevice", {})
   .n("NetworkManagerClient", "UpdateDeviceCommand")
-  .f(UpdateDeviceRequestFilterSensitiveLog, UpdateDeviceResponseFilterSensitiveLog)
-  .ser(se_UpdateDeviceCommand)
-  .de(de_UpdateDeviceCommand)
+  .sc(UpdateDevice)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

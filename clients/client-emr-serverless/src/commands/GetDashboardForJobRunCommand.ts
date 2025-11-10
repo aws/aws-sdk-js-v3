@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EMRServerlessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRServerlessClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GetDashboardForJobRunRequest, GetDashboardForJobRunResponse } from "../models/models_0";
-import { de_GetDashboardForJobRunCommand, se_GetDashboardForJobRunCommand } from "../protocols/Aws_restJson1";
+import { GetDashboardForJobRun } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -82,16 +81,11 @@ export class GetDashboardForJobRunCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EMRServerlessClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AwsToledoWebService", "GetDashboardForJobRun", {})
   .n("EMRServerlessClient", "GetDashboardForJobRunCommand")
-  .f(void 0, void 0)
-  .ser(se_GetDashboardForJobRunCommand)
-  .de(de_GetDashboardForJobRunCommand)
+  .sc(GetDashboardForJobRun)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

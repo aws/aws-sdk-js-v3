@@ -1,17 +1,16 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { UntagResourceInput, UntagResourceInputFilterSensitiveLog, UntagResourceOutput } from "../models/models_0";
-import { de_UntagResourceCommand, se_UntagResourceCommand } from "../protocols/Aws_restJson1";
+import { UntagResourceInput, UntagResourceOutput } from "../models/models_0";
 import {
   ResourceExplorer2ClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ResourceExplorer2Client";
+import { UntagResource } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -93,16 +92,11 @@ export class UntagResourceCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ResourceExplorer2ClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("ResourceExplorer", "UntagResource", {})
   .n("ResourceExplorer2Client", "UntagResourceCommand")
-  .f(UntagResourceInputFilterSensitiveLog, void 0)
-  .ser(se_UntagResourceCommand)
-  .de(de_UntagResourceCommand)
+  .sc(UntagResource)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

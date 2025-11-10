@@ -1,16 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  PutTaxRegistrationRequest,
-  PutTaxRegistrationRequestFilterSensitiveLog,
-  PutTaxRegistrationResponse,
-} from "../models/models_0";
-import { de_PutTaxRegistrationCommand, se_PutTaxRegistrationCommand } from "../protocols/Aws_restJson1";
+import { PutTaxRegistrationRequest, PutTaxRegistrationResponse } from "../models/models_0";
+import { PutTaxRegistration } from "../schemas/schemas_0";
 import { ServiceInputTypes, ServiceOutputTypes, TaxSettingsClientResolvedConfig } from "../TaxSettingsClient";
 
 /**
@@ -403,16 +398,11 @@ export class PutTaxRegistrationCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: TaxSettingsClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("TaxSettings", "PutTaxRegistration", {})
   .n("TaxSettingsClient", "PutTaxRegistrationCommand")
-  .f(PutTaxRegistrationRequestFilterSensitiveLog, void 0)
-  .ser(se_PutTaxRegistrationCommand)
-  .de(de_PutTaxRegistrationCommand)
+  .sc(PutTaxRegistration)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

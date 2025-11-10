@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { LexModelsV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LexModelsV2Client";
-import { StartImportRequest, StartImportRequestFilterSensitiveLog, StartImportResponse } from "../models/models_1";
-import { de_StartImportCommand, se_StartImportCommand } from "../protocols/Aws_restJson1";
+import { StartImportRequest, StartImportResponse } from "../models/models_1";
+import { StartImport } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -204,16 +203,11 @@ export class StartImportCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LexModelsV2ClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("LexModelBuildingServiceV2", "StartImport", {})
   .n("LexModelsV2Client", "StartImportCommand")
-  .f(StartImportRequestFilterSensitiveLog, void 0)
-  .ser(se_StartImportCommand)
-  .de(de_StartImportCommand)
+  .sc(StartImport)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

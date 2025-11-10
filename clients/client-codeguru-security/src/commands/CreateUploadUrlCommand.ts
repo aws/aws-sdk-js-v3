@@ -1,17 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CodeGuruSecurityClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeGuruSecurityClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  CreateUploadUrlRequest,
-  CreateUploadUrlResponse,
-  CreateUploadUrlResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { de_CreateUploadUrlCommand, se_CreateUploadUrlCommand } from "../protocols/Aws_restJson1";
+import { CreateUploadUrlRequest, CreateUploadUrlResponse } from "../models/models_0";
+import { CreateUploadUrl } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -90,16 +85,11 @@ export class CreateUploadUrlCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CodeGuruSecurityClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AwsCodeGuruSecurity", "CreateUploadUrl", {})
   .n("CodeGuruSecurityClient", "CreateUploadUrlCommand")
-  .f(void 0, CreateUploadUrlResponseFilterSensitiveLog)
-  .ser(se_CreateUploadUrlCommand)
-  .de(de_CreateUploadUrlCommand)
+  .sc(CreateUploadUrl)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

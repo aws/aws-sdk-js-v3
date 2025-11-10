@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { AmplifyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmplifyClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { GetBranchRequest, GetBranchResult, GetBranchResultFilterSensitiveLog } from "../models/models_0";
-import { de_GetBranchCommand, se_GetBranchCommand } from "../protocols/Aws_restJson1";
+import { GetBranchRequest, GetBranchResult } from "../models/models_0";
+import { GetBranch } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -124,16 +123,11 @@ export class GetBranchCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AmplifyClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("Amplify", "GetBranch", {})
   .n("AmplifyClient", "GetBranchCommand")
-  .f(void 0, GetBranchResultFilterSensitiveLog)
-  .ser(se_GetBranchCommand)
-  .de(de_GetBranchCommand)
+  .sc(GetBranch)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GameLiftStreamsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftStreamsClient";
 import { ExportStreamSessionFilesInput, ExportStreamSessionFilesOutput } from "../models/models_0";
-import { de_ExportStreamSessionFilesCommand, se_ExportStreamSessionFilesCommand } from "../protocols/Aws_restJson1";
+import { ExportStreamSessionFiles } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -85,16 +84,11 @@ export class ExportStreamSessionFilesCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GameLiftStreamsClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("GameLiftStreams", "ExportStreamSessionFiles", {})
   .n("GameLiftStreamsClient", "ExportStreamSessionFilesCommand")
-  .f(void 0, void 0)
-  .ser(se_ExportStreamSessionFilesCommand)
-  .de(de_ExportStreamSessionFilesCommand)
+  .sc(ExportStreamSessionFiles)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

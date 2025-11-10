@@ -1,20 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DataZoneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataZoneClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  ListDataSourceRunActivitiesInput,
-  ListDataSourceRunActivitiesOutput,
-  ListDataSourceRunActivitiesOutputFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  de_ListDataSourceRunActivitiesCommand,
-  se_ListDataSourceRunActivitiesCommand,
-} from "../protocols/Aws_restJson1";
+import { ListDataSourceRunActivitiesInput, ListDataSourceRunActivitiesOutput } from "../models/models_1";
+import { ListDataSourceRunActivities } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -127,16 +119,11 @@ export class ListDataSourceRunActivitiesCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DataZoneClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("DataZone", "ListDataSourceRunActivities", {})
   .n("DataZoneClient", "ListDataSourceRunActivitiesCommand")
-  .f(void 0, ListDataSourceRunActivitiesOutputFilterSensitiveLog)
-  .ser(se_ListDataSourceRunActivitiesCommand)
-  .de(de_ListDataSourceRunActivitiesCommand)
+  .sc(ListDataSourceRunActivities)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

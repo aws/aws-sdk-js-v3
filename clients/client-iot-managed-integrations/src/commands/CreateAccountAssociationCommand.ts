@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -10,13 +9,8 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../IoTManagedIntegrationsClient";
-import {
-  CreateAccountAssociationRequest,
-  CreateAccountAssociationRequestFilterSensitiveLog,
-  CreateAccountAssociationResponse,
-  CreateAccountAssociationResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { de_CreateAccountAssociationCommand, se_CreateAccountAssociationCommand } from "../protocols/Aws_restJson1";
+import { CreateAccountAssociationRequest, CreateAccountAssociationResponse } from "../models/models_0";
+import { CreateAccountAssociation } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -112,16 +106,11 @@ export class CreateAccountAssociationCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTManagedIntegrationsClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("IotManagedIntegrations", "CreateAccountAssociation", {})
   .n("IoTManagedIntegrationsClient", "CreateAccountAssociationCommand")
-  .f(CreateAccountAssociationRequestFilterSensitiveLog, CreateAccountAssociationResponseFilterSensitiveLog)
-  .ser(se_CreateAccountAssociationCommand)
-  .de(de_CreateAccountAssociationCommand)
+  .sc(CreateAccountAssociation)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

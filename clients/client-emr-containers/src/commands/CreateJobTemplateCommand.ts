@@ -1,17 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EMRContainersClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRContainersClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  CreateJobTemplateRequest,
-  CreateJobTemplateRequestFilterSensitiveLog,
-  CreateJobTemplateResponse,
-} from "../models/models_0";
-import { de_CreateJobTemplateCommand, se_CreateJobTemplateCommand } from "../protocols/Aws_restJson1";
+import { CreateJobTemplateRequest, CreateJobTemplateResponse } from "../models/models_0";
+import { CreateJobTemplate } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -149,16 +144,11 @@ export class CreateJobTemplateCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EMRContainersClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AwsChicagoWebService", "CreateJobTemplate", {})
   .n("EMRContainersClient", "CreateJobTemplateCommand")
-  .f(CreateJobTemplateRequestFilterSensitiveLog, void 0)
-  .ser(se_CreateJobTemplateCommand)
-  .de(de_CreateJobTemplateCommand)
+  .sc(CreateJobTemplate)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

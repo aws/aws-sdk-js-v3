@@ -1,17 +1,16 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DeleteRoutingControlRequest, DeleteRoutingControlResponse } from "../models/models_0";
-import { de_DeleteRoutingControlCommand, se_DeleteRoutingControlCommand } from "../protocols/Aws_restJson1";
 import {
   Route53RecoveryControlConfigClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../Route53RecoveryControlConfigClient";
+import { DeleteRoutingControl } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -90,16 +89,11 @@ export class DeleteRoutingControlCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: Route53RecoveryControlConfigClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("Route53RecoveryControlConfig", "DeleteRoutingControl", {})
   .n("Route53RecoveryControlConfigClient", "DeleteRoutingControlCommand")
-  .f(void 0, void 0)
-  .ser(se_DeleteRoutingControlCommand)
-  .de(de_DeleteRoutingControlCommand)
+  .sc(DeleteRoutingControl)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { BedrockClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BedrockClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { ListModelCustomizationJobsRequest, ListModelCustomizationJobsResponse } from "../models/models_1";
-import { de_ListModelCustomizationJobsCommand, se_ListModelCustomizationJobsCommand } from "../protocols/Aws_restJson1";
+import { ListModelCustomizationJobs } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -120,16 +119,11 @@ export class ListModelCustomizationJobsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: BedrockClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonBedrockControlPlaneService", "ListModelCustomizationJobs", {})
   .n("BedrockClient", "ListModelCustomizationJobsCommand")
-  .f(void 0, void 0)
-  .ser(se_ListModelCustomizationJobsCommand)
-  .de(de_ListModelCustomizationJobsCommand)
+  .sc(ListModelCustomizationJobs)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { MediaConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaConnectClient";
 import { RemoveFlowMediaStreamRequest, RemoveFlowMediaStreamResponse } from "../models/models_0";
-import { de_RemoveFlowMediaStreamCommand, se_RemoveFlowMediaStreamCommand } from "../protocols/Aws_restJson1";
+import { RemoveFlowMediaStream } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -90,16 +89,11 @@ export class RemoveFlowMediaStreamCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MediaConnectClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("MediaConnect", "RemoveFlowMediaStream", {})
   .n("MediaConnectClient", "RemoveFlowMediaStreamCommand")
-  .f(void 0, void 0)
-  .ser(se_RemoveFlowMediaStreamCommand)
-  .de(de_RemoveFlowMediaStreamCommand)
+  .sc(RemoveFlowMediaStream)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

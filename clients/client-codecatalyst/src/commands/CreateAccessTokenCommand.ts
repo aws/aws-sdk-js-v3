@@ -1,17 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CodeCatalystClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCatalystClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  CreateAccessTokenRequest,
-  CreateAccessTokenResponse,
-  CreateAccessTokenResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { de_CreateAccessTokenCommand, se_CreateAccessTokenCommand } from "../protocols/Aws_restJson1";
+import { CreateAccessTokenRequest, CreateAccessTokenResponse } from "../models/models_0";
+import { CreateAccessToken } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -102,16 +97,11 @@ export class CreateAccessTokenCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CodeCatalystClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("CodeCatalyst", "CreateAccessToken", {})
   .n("CodeCatalystClient", "CreateAccessTokenCommand")
-  .f(void 0, CreateAccessTokenResponseFilterSensitiveLog)
-  .ser(se_CreateAccessTokenCommand)
-  .de(de_CreateAccessTokenCommand)
+  .sc(CreateAccessToken)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

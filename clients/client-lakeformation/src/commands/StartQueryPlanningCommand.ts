@@ -1,17 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { LakeFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LakeFormationClient";
-import {
-  StartQueryPlanningRequest,
-  StartQueryPlanningRequestFilterSensitiveLog,
-  StartQueryPlanningResponse,
-} from "../models/models_0";
-import { de_StartQueryPlanningCommand, se_StartQueryPlanningCommand } from "../protocols/Aws_restJson1";
+import { StartQueryPlanningRequest, StartQueryPlanningResponse } from "../models/models_0";
+import { StartQueryPlanning } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -96,16 +91,11 @@ export class StartQueryPlanningCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LakeFormationClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSLakeFormation", "StartQueryPlanning", {})
   .n("LakeFormationClient", "StartQueryPlanningCommand")
-  .f(StartQueryPlanningRequestFilterSensitiveLog, void 0)
-  .ser(se_StartQueryPlanningCommand)
-  .de(de_StartQueryPlanningCommand)
+  .sc(StartQueryPlanning)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

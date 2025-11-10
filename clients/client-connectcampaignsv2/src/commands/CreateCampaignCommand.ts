@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -10,12 +9,8 @@ import {
   ServiceOutputTypes,
 } from "../ConnectCampaignsV2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  CreateCampaignRequest,
-  CreateCampaignRequestFilterSensitiveLog,
-  CreateCampaignResponse,
-} from "../models/models_0";
-import { de_CreateCampaignCommand, se_CreateCampaignCommand } from "../protocols/Aws_restJson1";
+import { CreateCampaignRequest, CreateCampaignResponse } from "../models/models_0";
+import { CreateCampaign } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -255,16 +250,11 @@ export class CreateCampaignCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ConnectCampaignsV2ClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonConnectCampaignServiceV2", "CreateCampaign", {})
   .n("ConnectCampaignsV2Client", "CreateCampaignCommand")
-  .f(CreateCampaignRequestFilterSensitiveLog, void 0)
-  .ser(se_CreateCampaignCommand)
-  .de(de_CreateCampaignCommand)
+  .sc(CreateCampaign)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

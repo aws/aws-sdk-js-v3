@@ -1,16 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ChatbotClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChatbotClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DeleteChimeWebhookConfigurationRequest, DeleteChimeWebhookConfigurationResult } from "../models/models_0";
-import {
-  de_DeleteChimeWebhookConfigurationCommand,
-  se_DeleteChimeWebhookConfigurationCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteChimeWebhookConfiguration } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -85,16 +81,11 @@ export class DeleteChimeWebhookConfigurationCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ChatbotClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("WheatleyOrchestration_20171011", "DeleteChimeWebhookConfiguration", {})
   .n("ChatbotClient", "DeleteChimeWebhookConfigurationCommand")
-  .f(void 0, void 0)
-  .ser(se_DeleteChimeWebhookConfigurationCommand)
-  .de(de_DeleteChimeWebhookConfigurationCommand)
+  .sc(DeleteChimeWebhookConfiguration)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,12 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GetAdministratorAccountRequest, GetAdministratorAccountResponse } from "../models/models_2";
-import { de_GetAdministratorAccountCommand, se_GetAdministratorAccountCommand } from "../protocols/Aws_restJson1";
+import { GetAdministratorAccount } from "../schemas/schemas_0";
 import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
 /**
@@ -92,16 +91,11 @@ export class GetAdministratorAccountCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SecurityHubClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("SecurityHubAPIService", "GetAdministratorAccount", {})
   .n("SecurityHubClient", "GetAdministratorAccountCommand")
-  .f(void 0, void 0)
-  .ser(se_GetAdministratorAccountCommand)
-  .de(de_GetAdministratorAccountCommand)
+  .sc(GetAdministratorAccount)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,17 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CustomerProfilesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CustomerProfilesClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  UpdateProfileRequest,
-  UpdateProfileRequestFilterSensitiveLog,
-  UpdateProfileResponse,
-} from "../models/models_1";
-import { de_UpdateProfileCommand, se_UpdateProfileCommand } from "../protocols/Aws_restJson1";
+import { UpdateProfileRequest, UpdateProfileResponse } from "../models/models_1";
+import { UpdateProfile } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -182,16 +177,11 @@ export class UpdateProfileCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CustomerProfilesClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("CustomerProfiles_20200815", "UpdateProfile", {})
   .n("CustomerProfilesClient", "UpdateProfileCommand")
-  .f(UpdateProfileRequestFilterSensitiveLog, void 0)
-  .ser(se_UpdateProfileCommand)
-  .de(de_UpdateProfileCommand)
+  .sc(UpdateProfile)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

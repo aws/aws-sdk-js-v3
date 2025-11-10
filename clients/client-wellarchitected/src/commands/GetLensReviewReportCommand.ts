@@ -1,12 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GetLensReviewReportInput, GetLensReviewReportOutput } from "../models/models_0";
-import { de_GetLensReviewReportCommand, se_GetLensReviewReportCommand } from "../protocols/Aws_restJson1";
+import { GetLensReviewReport } from "../schemas/schemas_0";
 import { ServiceInputTypes, ServiceOutputTypes, WellArchitectedClientResolvedConfig } from "../WellArchitectedClient";
 
 /**
@@ -93,16 +92,11 @@ export class GetLensReviewReportCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WellArchitectedClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("WellArchitectedApiServiceLambda", "GetLensReviewReport", {})
   .n("WellArchitectedClient", "GetLensReviewReportCommand")
-  .f(void 0, void 0)
-  .ser(se_GetLensReviewReportCommand)
-  .de(de_GetLensReviewReportCommand)
+  .sc(GetLensReviewReport)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { EvidentlyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EvidentlyClient";
 import { ListSegmentReferencesRequest, ListSegmentReferencesResponse } from "../models/models_0";
-import { de_ListSegmentReferencesCommand, se_ListSegmentReferencesCommand } from "../protocols/Aws_restJson1";
+import { ListSegmentReferences } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -96,16 +95,11 @@ export class ListSegmentReferencesCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EvidentlyClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("Evidently", "ListSegmentReferences", {})
   .n("EvidentlyClient", "ListSegmentReferencesCommand")
-  .f(void 0, void 0)
-  .ser(se_ListSegmentReferencesCommand)
-  .de(de_ListSegmentReferencesCommand)
+  .sc(ListSegmentReferences)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

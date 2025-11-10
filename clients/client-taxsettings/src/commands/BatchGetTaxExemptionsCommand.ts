@@ -1,12 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { BatchGetTaxExemptionsRequest, BatchGetTaxExemptionsResponse } from "../models/models_0";
-import { de_BatchGetTaxExemptionsCommand, se_BatchGetTaxExemptionsCommand } from "../protocols/Aws_restJson1";
+import { BatchGetTaxExemptions } from "../schemas/schemas_0";
 import { ServiceInputTypes, ServiceOutputTypes, TaxSettingsClientResolvedConfig } from "../TaxSettingsClient";
 
 /**
@@ -114,16 +113,11 @@ export class BatchGetTaxExemptionsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: TaxSettingsClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("TaxSettings", "BatchGetTaxExemptions", {})
   .n("TaxSettingsClient", "BatchGetTaxExemptionsCommand")
-  .f(void 0, void 0)
-  .ser(se_BatchGetTaxExemptionsCommand)
-  .de(de_BatchGetTaxExemptionsCommand)
+  .sc(BatchGetTaxExemptions)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

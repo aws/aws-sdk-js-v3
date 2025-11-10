@@ -1,18 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ChimeSDKVoiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeSDKVoiceClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  ValidateE911AddressRequest,
-  ValidateE911AddressRequestFilterSensitiveLog,
-  ValidateE911AddressResponse,
-  ValidateE911AddressResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { de_ValidateE911AddressCommand, se_ValidateE911AddressCommand } from "../protocols/Aws_restJson1";
+import { ValidateE911AddressRequest, ValidateE911AddressResponse } from "../models/models_0";
+import { ValidateE911Address } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -132,16 +126,11 @@ export class ValidateE911AddressCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ChimeSDKVoiceClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("ChimeSDKTelephonyService", "ValidateE911Address", {})
   .n("ChimeSDKVoiceClient", "ValidateE911AddressCommand")
-  .f(ValidateE911AddressRequestFilterSensitiveLog, ValidateE911AddressResponseFilterSensitiveLog)
-  .ser(se_ValidateE911AddressCommand)
-  .de(de_ValidateE911AddressCommand)
+  .sc(ValidateE911Address)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

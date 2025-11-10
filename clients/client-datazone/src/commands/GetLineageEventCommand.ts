@@ -1,18 +1,13 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { Uint8ArrayBlobAdapter } from "@smithy/util-stream";
 
 import { DataZoneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataZoneClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  GetLineageEventInput,
-  GetLineageEventOutput,
-  GetLineageEventOutputFilterSensitiveLog,
-} from "../models/models_1";
-import { de_GetLineageEventCommand, se_GetLineageEventCommand } from "../protocols/Aws_restJson1";
+import { GetLineageEventInput, GetLineageEventOutput } from "../models/models_1";
+import { GetLineageEvent } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -107,16 +102,11 @@ export class GetLineageEventCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DataZoneClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("DataZone", "GetLineageEvent", {})
   .n("DataZoneClient", "GetLineageEventCommand")
-  .f(void 0, GetLineageEventOutputFilterSensitiveLog)
-  .ser(se_GetLineageEventCommand)
-  .de(de_GetLineageEventCommand)
+  .sc(GetLineageEvent)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,18 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DrsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DrsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  CreateExtendedSourceServerRequest,
-  CreateExtendedSourceServerRequestFilterSensitiveLog,
-  CreateExtendedSourceServerResponse,
-  CreateExtendedSourceServerResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { de_CreateExtendedSourceServerCommand, se_CreateExtendedSourceServerCommand } from "../protocols/Aws_restJson1";
+import { CreateExtendedSourceServerRequest, CreateExtendedSourceServerResponse } from "../models/models_0";
+import { CreateExtendedSourceServer } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -204,16 +198,11 @@ export class CreateExtendedSourceServerCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DrsClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("ElasticDisasterRecoveryService", "CreateExtendedSourceServer", {})
   .n("DrsClient", "CreateExtendedSourceServerCommand")
-  .f(CreateExtendedSourceServerRequestFilterSensitiveLog, CreateExtendedSourceServerResponseFilterSensitiveLog)
-  .ser(se_CreateExtendedSourceServerCommand)
-  .de(de_CreateExtendedSourceServerCommand)
+  .sc(CreateExtendedSourceServer)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

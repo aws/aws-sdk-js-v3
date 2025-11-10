@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -11,7 +10,7 @@ import {
   ServiceOutputTypes,
 } from "../LexModelBuildingServiceClient";
 import { DeleteBotRequest } from "../models/models_0";
-import { de_DeleteBotCommand, se_DeleteBotCommand } from "../protocols/Aws_restJson1";
+import { DeleteBot } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -124,16 +123,11 @@ export class DeleteBotCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LexModelBuildingServiceClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSDeepSenseModelBuildingService", "DeleteBot", {})
   .n("LexModelBuildingServiceClient", "DeleteBotCommand")
-  .f(void 0, void 0)
-  .ser(se_DeleteBotCommand)
-  .de(de_DeleteBotCommand)
+  .sc(DeleteBot)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

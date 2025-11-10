@@ -1,21 +1,16 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  GetEarthObservationJobInput,
-  GetEarthObservationJobOutput,
-  GetEarthObservationJobOutputFilterSensitiveLog,
-} from "../models/models_0";
-import { de_GetEarthObservationJobCommand, se_GetEarthObservationJobCommand } from "../protocols/Aws_restJson1";
+import { GetEarthObservationJobInput, GetEarthObservationJobOutput } from "../models/models_0";
 import {
   SageMakerGeospatialClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../SageMakerGeospatialClient";
+import { GetEarthObservationJob } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -261,16 +256,11 @@ export class GetEarthObservationJobCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SageMakerGeospatialClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("SageMakerGeospatial", "GetEarthObservationJob", {})
   .n("SageMakerGeospatialClient", "GetEarthObservationJobCommand")
-  .f(void 0, GetEarthObservationJobOutputFilterSensitiveLog)
-  .ser(se_GetEarthObservationJobCommand)
-  .de(de_GetEarthObservationJobCommand)
+  .sc(GetEarthObservationJob)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

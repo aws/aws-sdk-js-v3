@@ -1,17 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  CreateAnalysisRequest,
-  CreateAnalysisRequestFilterSensitiveLog,
-  CreateAnalysisResponse,
-} from "../models/models_3";
-import { de_CreateAnalysisCommand, se_CreateAnalysisCommand } from "../protocols/Aws_restJson1";
+import { CreateAnalysisRequest, CreateAnalysisResponse } from "../models/models_3";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
+import { CreateAnalysis } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -5586,16 +5581,11 @@ export class CreateAnalysisCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: QuickSightClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("QuickSight_20180401", "CreateAnalysis", {})
   .n("QuickSightClient", "CreateAnalysisCommand")
-  .f(CreateAnalysisRequestFilterSensitiveLog, void 0)
-  .ser(se_CreateAnalysisCommand)
-  .de(de_CreateAnalysisCommand)
+  .sc(CreateAnalysis)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

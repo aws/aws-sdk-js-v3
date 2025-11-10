@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
 import { CreateMultiplexRequest, CreateMultiplexResponse } from "../models/models_2";
-import { de_CreateMultiplexCommand, se_CreateMultiplexCommand } from "../protocols/Aws_restJson1";
+import { CreateMultiplex } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -133,16 +132,11 @@ export class CreateMultiplexCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MediaLiveClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("MediaLive", "CreateMultiplex", {})
   .n("MediaLiveClient", "CreateMultiplexCommand")
-  .f(void 0, void 0)
-  .ser(se_CreateMultiplexCommand)
-  .de(de_CreateMultiplexCommand)
+  .sc(CreateMultiplex)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

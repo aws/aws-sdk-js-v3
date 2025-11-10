@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { IoTSiteWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTSiteWiseClient";
 import { DescribeAccessPolicyRequest, DescribeAccessPolicyResponse } from "../models/models_0";
-import { de_DescribeAccessPolicyCommand, se_DescribeAccessPolicyCommand } from "../protocols/Aws_restJson1";
+import { DescribeAccessPolicy } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -113,16 +112,11 @@ export class DescribeAccessPolicyCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTSiteWiseClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSIoTSiteWise", "DescribeAccessPolicy", {})
   .n("IoTSiteWiseClient", "DescribeAccessPolicyCommand")
-  .f(void 0, void 0)
-  .ser(se_DescribeAccessPolicyCommand)
-  .de(de_DescribeAccessPolicyCommand)
+  .sc(DescribeAccessPolicy)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { FinspaceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FinspaceClient";
 import { ListKxEnvironmentsRequest, ListKxEnvironmentsResponse } from "../models/models_0";
-import { de_ListKxEnvironmentsCommand, se_ListKxEnvironmentsCommand } from "../protocols/Aws_restJson1";
+import { ListKxEnvironments } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -128,16 +127,11 @@ export class ListKxEnvironmentsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: FinspaceClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSHabaneroManagementService", "ListKxEnvironments", {})
   .n("FinspaceClient", "ListKxEnvironmentsCommand")
-  .f(void 0, void 0)
-  .ser(se_ListKxEnvironmentsCommand)
-  .de(de_ListKxEnvironmentsCommand)
+  .sc(ListKxEnvironments)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

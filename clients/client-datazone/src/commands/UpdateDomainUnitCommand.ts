@@ -1,18 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DataZoneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataZoneClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  UpdateDomainUnitInput,
-  UpdateDomainUnitInputFilterSensitiveLog,
-  UpdateDomainUnitOutput,
-  UpdateDomainUnitOutputFilterSensitiveLog,
-} from "../models/models_1";
-import { de_UpdateDomainUnitCommand, se_UpdateDomainUnitCommand } from "../protocols/Aws_restJson1";
+import { UpdateDomainUnitInput, UpdateDomainUnitOutput } from "../models/models_1";
+import { UpdateDomainUnit } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -117,16 +111,11 @@ export class UpdateDomainUnitCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DataZoneClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("DataZone", "UpdateDomainUnit", {})
   .n("DataZoneClient", "UpdateDomainUnitCommand")
-  .f(UpdateDomainUnitInputFilterSensitiveLog, UpdateDomainUnitOutputFilterSensitiveLog)
-  .ser(se_UpdateDomainUnitCommand)
-  .de(de_UpdateDomainUnitCommand)
+  .sc(UpdateDomainUnit)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

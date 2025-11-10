@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { GetSitesRequest, GetSitesResponse, GetSitesResponseFilterSensitiveLog } from "../models/models_0";
+import { GetSitesRequest, GetSitesResponse } from "../models/models_0";
 import { NetworkManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkManagerClient";
-import { de_GetSitesCommand, se_GetSitesCommand } from "../protocols/Aws_restJson1";
+import { GetSites } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -111,16 +110,11 @@ export class GetSitesCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: NetworkManagerClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("NetworkManager", "GetSites", {})
   .n("NetworkManagerClient", "GetSitesCommand")
-  .f(void 0, GetSitesResponseFilterSensitiveLog)
-  .ser(se_GetSitesCommand)
-  .de(de_GetSitesCommand)
+  .sc(GetSites)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

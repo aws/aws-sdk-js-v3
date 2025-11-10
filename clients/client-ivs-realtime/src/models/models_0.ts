@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@smithy/smithy-client";
+import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
 import { IVSRealTimeServiceException as __BaseException } from "./IVSRealTimeServiceException";
 
@@ -4005,67 +4005,3 @@ export interface UpdateStageResponse {
    */
   stage?: Stage | undefined;
 }
-
-/**
- * @internal
- */
-export const IngestConfigurationFilterSensitiveLog = (obj: IngestConfiguration): any => ({
-  ...obj,
-  ...(obj.streamKey && { streamKey: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const CreateIngestConfigurationResponseFilterSensitiveLog = (obj: CreateIngestConfigurationResponse): any => ({
-  ...obj,
-  ...(obj.ingestConfiguration && {
-    ingestConfiguration: IngestConfigurationFilterSensitiveLog(obj.ingestConfiguration),
-  }),
-});
-
-/**
- * @internal
- */
-export const ParticipantTokenFilterSensitiveLog = (obj: ParticipantToken): any => ({
-  ...obj,
-  ...(obj.token && { token: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const CreateParticipantTokenResponseFilterSensitiveLog = (obj: CreateParticipantTokenResponse): any => ({
-  ...obj,
-  ...(obj.participantToken && { participantToken: ParticipantTokenFilterSensitiveLog(obj.participantToken) }),
-});
-
-/**
- * @internal
- */
-export const CreateStageResponseFilterSensitiveLog = (obj: CreateStageResponse): any => ({
-  ...obj,
-  ...(obj.participantTokens && {
-    participantTokens: obj.participantTokens.map((item) => ParticipantTokenFilterSensitiveLog(item)),
-  }),
-});
-
-/**
- * @internal
- */
-export const GetIngestConfigurationResponseFilterSensitiveLog = (obj: GetIngestConfigurationResponse): any => ({
-  ...obj,
-  ...(obj.ingestConfiguration && {
-    ingestConfiguration: IngestConfigurationFilterSensitiveLog(obj.ingestConfiguration),
-  }),
-});
-
-/**
- * @internal
- */
-export const UpdateIngestConfigurationResponseFilterSensitiveLog = (obj: UpdateIngestConfigurationResponse): any => ({
-  ...obj,
-  ...(obj.ingestConfiguration && {
-    ingestConfiguration: IngestConfigurationFilterSensitiveLog(obj.ingestConfiguration),
-  }),
-});

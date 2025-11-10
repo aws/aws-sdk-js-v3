@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { MediaPackageV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaPackageV2Client";
 import { DeleteOriginEndpointPolicyRequest, DeleteOriginEndpointPolicyResponse } from "../models/models_0";
-import { de_DeleteOriginEndpointPolicyCommand, se_DeleteOriginEndpointPolicyCommand } from "../protocols/Aws_restJson1";
+import { DeleteOriginEndpointPolicy } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -100,16 +99,11 @@ export class DeleteOriginEndpointPolicyCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MediaPackageV2ClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("mediapackagev2", "DeleteOriginEndpointPolicy", {})
   .n("MediaPackageV2Client", "DeleteOriginEndpointPolicyCommand")
-  .f(void 0, void 0)
-  .ser(se_DeleteOriginEndpointPolicyCommand)
-  .de(de_DeleteOriginEndpointPolicyCommand)
+  .sc(DeleteOriginEndpointPolicy)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

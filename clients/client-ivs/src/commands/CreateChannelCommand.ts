@@ -1,17 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { IvsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IvsClient";
-import {
-  CreateChannelRequest,
-  CreateChannelResponse,
-  CreateChannelResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { de_CreateChannelCommand, se_CreateChannelCommand } from "../protocols/Aws_restJson1";
+import { CreateChannelRequest, CreateChannelResponse } from "../models/models_0";
+import { CreateChannel } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -138,16 +133,11 @@ export class CreateChannelCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IvsClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonInteractiveVideoService", "CreateChannel", {})
   .n("IvsClient", "CreateChannelCommand")
-  .f(void 0, CreateChannelResponseFilterSensitiveLog)
-  .ser(se_CreateChannelCommand)
-  .de(de_CreateChannelCommand)
+  .sc(CreateChannel)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

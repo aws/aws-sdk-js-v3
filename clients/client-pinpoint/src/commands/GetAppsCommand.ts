@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GetAppsRequest, GetAppsResponse } from "../models/models_0";
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
-import { de_GetAppsCommand, se_GetAppsCommand } from "../protocols/Aws_restJson1";
+import { GetApps } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -105,16 +104,11 @@ export class GetAppsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: PinpointClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("Pinpoint", "GetApps", {})
   .n("PinpointClient", "GetAppsCommand")
-  .f(void 0, void 0)
-  .ser(se_GetAppsCommand)
-  .de(de_GetAppsCommand)
+  .sc(GetApps)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

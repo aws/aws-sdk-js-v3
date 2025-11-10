@@ -1,22 +1,16 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  ReEncryptDataInput,
-  ReEncryptDataInputFilterSensitiveLog,
-  ReEncryptDataOutput,
-  ReEncryptDataOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { ReEncryptDataInput, ReEncryptDataOutput } from "../models/models_0";
 import {
   PaymentCryptographyDataClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../PaymentCryptographyDataClient";
-import { de_ReEncryptDataCommand, se_ReEncryptDataCommand } from "../protocols/Aws_restJson1";
+import { ReEncryptData } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -154,16 +148,11 @@ export class ReEncryptDataCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: PaymentCryptographyDataClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("PaymentCryptographyDataPlane", "ReEncryptData", {})
   .n("PaymentCryptographyDataClient", "ReEncryptDataCommand")
-  .f(ReEncryptDataInputFilterSensitiveLog, ReEncryptDataOutputFilterSensitiveLog)
-  .ser(se_ReEncryptDataCommand)
-  .de(de_ReEncryptDataCommand)
+  .sc(ReEncryptData)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

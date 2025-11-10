@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ConnectCampaignsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectCampaignsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DescribeCampaignRequest, DescribeCampaignResponse } from "../models/models_0";
-import { de_DescribeCampaignCommand, se_DescribeCampaignCommand } from "../protocols/Aws_restJson1";
+import { DescribeCampaign } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -112,16 +111,11 @@ export class DescribeCampaignCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ConnectCampaignsClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonConnectCampaignService", "DescribeCampaign", {})
   .n("ConnectCampaignsClient", "DescribeCampaignCommand")
-  .f(void 0, void 0)
-  .ser(se_DescribeCampaignCommand)
-  .de(de_DescribeCampaignCommand)
+  .sc(DescribeCampaign)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { IvschatClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IvschatClient";
 import { DeleteLoggingConfigurationRequest } from "../models/models_0";
-import { de_DeleteLoggingConfigurationCommand, se_DeleteLoggingConfigurationCommand } from "../protocols/Aws_restJson1";
+import { DeleteLoggingConfiguration } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -83,16 +82,11 @@ export class DeleteLoggingConfigurationCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IvschatClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonInteractiveVideoServiceChat", "DeleteLoggingConfiguration", {})
   .n("IvschatClient", "DeleteLoggingConfigurationCommand")
-  .f(void 0, void 0)
-  .ser(se_DeleteLoggingConfigurationCommand)
-  .de(de_DeleteLoggingConfigurationCommand)
+  .sc(DeleteLoggingConfiguration)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

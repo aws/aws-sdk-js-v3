@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -9,11 +8,8 @@ import {
   DescribeAppVersionResourcesResolutionStatusRequest,
   DescribeAppVersionResourcesResolutionStatusResponse,
 } from "../models/models_0";
-import {
-  de_DescribeAppVersionResourcesResolutionStatusCommand,
-  se_DescribeAppVersionResourcesResolutionStatusCommand,
-} from "../protocols/Aws_restJson1";
 import { ResiliencehubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResiliencehubClient";
+import { DescribeAppVersionResourcesResolutionStatus } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -105,16 +101,11 @@ export class DescribeAppVersionResourcesResolutionStatusCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ResiliencehubClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AwsResilienceHub", "DescribeAppVersionResourcesResolutionStatus", {})
   .n("ResiliencehubClient", "DescribeAppVersionResourcesResolutionStatusCommand")
-  .f(void 0, void 0)
-  .ser(se_DescribeAppVersionResourcesResolutionStatusCommand)
-  .de(de_DescribeAppVersionResourcesResolutionStatusCommand)
+  .sc(DescribeAppVersionResourcesResolutionStatus)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

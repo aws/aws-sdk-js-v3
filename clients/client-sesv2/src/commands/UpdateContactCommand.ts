@@ -1,12 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { UpdateContactRequest, UpdateContactResponse } from "../models/models_1";
-import { de_UpdateContactCommand, se_UpdateContactCommand } from "../protocols/Aws_restJson1";
+import { UpdateContact } from "../schemas/schemas_0";
 import { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
 /**
@@ -94,16 +93,11 @@ export class UpdateContactCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SESv2ClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("SimpleEmailService_v2", "UpdateContact", {})
   .n("SESv2Client", "UpdateContactCommand")
-  .f(void 0, void 0)
-  .ser(se_UpdateContactCommand)
-  .de(de_UpdateContactCommand)
+  .sc(UpdateContact)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

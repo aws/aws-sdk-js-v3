@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -9,12 +8,8 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import {
   GetManagedEndpointSessionCredentialsRequest,
   GetManagedEndpointSessionCredentialsResponse,
-  GetManagedEndpointSessionCredentialsResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  de_GetManagedEndpointSessionCredentialsCommand,
-  se_GetManagedEndpointSessionCredentialsCommand,
-} from "../protocols/Aws_restJson1";
+import { GetManagedEndpointSessionCredentials } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -101,16 +96,11 @@ export class GetManagedEndpointSessionCredentialsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EMRContainersClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AwsChicagoWebService", "GetManagedEndpointSessionCredentials", {})
   .n("EMRContainersClient", "GetManagedEndpointSessionCredentialsCommand")
-  .f(void 0, GetManagedEndpointSessionCredentialsResponseFilterSensitiveLog)
-  .ser(se_GetManagedEndpointSessionCredentialsCommand)
-  .de(de_GetManagedEndpointSessionCredentialsCommand)
+  .sc(GetManagedEndpointSessionCredentials)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@smithy/smithy-client";
+import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
 import { StreamingBlobTypes } from "@smithy/types";
 
@@ -1458,34 +1458,3 @@ export interface SynthesizeSpeechOutput {
    */
   RequestCharacters?: number | undefined;
 }
-
-/**
- * @internal
- */
-export const LexiconFilterSensitiveLog = (obj: Lexicon): any => ({
-  ...obj,
-  ...(obj.Content && { Content: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const GetLexiconOutputFilterSensitiveLog = (obj: GetLexiconOutput): any => ({
-  ...obj,
-  ...(obj.Lexicon && { Lexicon: LexiconFilterSensitiveLog(obj.Lexicon) }),
-});
-
-/**
- * @internal
- */
-export const PutLexiconInputFilterSensitiveLog = (obj: PutLexiconInput): any => ({
-  ...obj,
-  ...(obj.Content && { Content: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const SynthesizeSpeechOutputFilterSensitiveLog = (obj: SynthesizeSpeechOutput): any => ({
-  ...obj,
-});

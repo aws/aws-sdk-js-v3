@@ -1,17 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import {
-  UpdatePackageVersionRequest,
-  UpdatePackageVersionRequestFilterSensitiveLog,
-  UpdatePackageVersionResponse,
-} from "../models/models_2";
-import { de_UpdatePackageVersionCommand, se_UpdatePackageVersionCommand } from "../protocols/Aws_restJson1";
+import { UpdatePackageVersionRequest, UpdatePackageVersionResponse } from "../models/models_2";
+import { UpdatePackageVersion } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -104,16 +99,11 @@ export class UpdatePackageVersionCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSIotService", "UpdatePackageVersion", {})
   .n("IoTClient", "UpdatePackageVersionCommand")
-  .f(UpdatePackageVersionRequestFilterSensitiveLog, void 0)
-  .ser(se_UpdatePackageVersionCommand)
-  .de(de_UpdatePackageVersionCommand)
+  .sc(UpdatePackageVersion)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
 import { DescribeDefaultAuthorizerRequest, DescribeDefaultAuthorizerResponse } from "../models/models_1";
-import { de_DescribeDefaultAuthorizerCommand, se_DescribeDefaultAuthorizerCommand } from "../protocols/Aws_restJson1";
+import { DescribeDefaultAuthorizer } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -100,16 +99,11 @@ export class DescribeDefaultAuthorizerCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSIotService", "DescribeDefaultAuthorizer", {})
   .n("IoTClient", "DescribeDefaultAuthorizerCommand")
-  .f(void 0, void 0)
-  .ser(se_DescribeDefaultAuthorizerCommand)
-  .de(de_DescribeDefaultAuthorizerCommand)
+  .sc(DescribeDefaultAuthorizer)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

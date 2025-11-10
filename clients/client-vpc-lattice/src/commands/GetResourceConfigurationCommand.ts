@@ -1,12 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GetResourceConfigurationRequest, GetResourceConfigurationResponse } from "../models/models_0";
-import { de_GetResourceConfigurationCommand, se_GetResourceConfigurationCommand } from "../protocols/Aws_restJson1";
+import { GetResourceConfiguration } from "../schemas/schemas_0";
 import { ServiceInputTypes, ServiceOutputTypes, VPCLatticeClientResolvedConfig } from "../VPCLatticeClient";
 
 /**
@@ -117,16 +116,11 @@ export class GetResourceConfigurationCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: VPCLatticeClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("MercuryControlPlane", "GetResourceConfiguration", {})
   .n("VPCLatticeClient", "GetResourceConfigurationCommand")
-  .f(void 0, void 0)
-  .ser(se_GetResourceConfigurationCommand)
-  .de(de_GetResourceConfigurationCommand)
+  .sc(GetResourceConfiguration)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

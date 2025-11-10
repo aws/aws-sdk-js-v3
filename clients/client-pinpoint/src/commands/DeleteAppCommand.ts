@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DeleteAppRequest, DeleteAppResponse } from "../models/models_0";
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
-import { de_DeleteAppCommand, se_DeleteAppCommand } from "../protocols/Aws_restJson1";
+import { DeleteApp } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -99,16 +98,11 @@ export class DeleteAppCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: PinpointClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("Pinpoint", "DeleteApp", {})
   .n("PinpointClient", "DeleteAppCommand")
-  .f(void 0, void 0)
-  .ser(se_DeleteAppCommand)
-  .de(de_DeleteAppCommand)
+  .sc(DeleteApp)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

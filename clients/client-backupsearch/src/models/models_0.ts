@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@smithy/smithy-client";
+import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
 import { BackupSearchServiceException as __BaseException } from "./BackupSearchServiceException";
 
@@ -1444,36 +1444,3 @@ export interface UntagResourceRequest {
  * @public
  */
 export interface UntagResourceResponse {}
-
-/**
- * @internal
- */
-export const EBSResultItemFilterSensitiveLog = (obj: EBSResultItem): any => ({
-  ...obj,
-  ...(obj.FilePath && { FilePath: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const S3ResultItemFilterSensitiveLog = (obj: S3ResultItem): any => ({
-  ...obj,
-  ...(obj.ObjectKey && { ObjectKey: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const ResultItemFilterSensitiveLog = (obj: ResultItem): any => {
-  if (obj.S3ResultItem !== undefined) return { S3ResultItem: S3ResultItemFilterSensitiveLog(obj.S3ResultItem) };
-  if (obj.EBSResultItem !== undefined) return { EBSResultItem: EBSResultItemFilterSensitiveLog(obj.EBSResultItem) };
-  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-};
-
-/**
- * @internal
- */
-export const ListSearchJobResultsOutputFilterSensitiveLog = (obj: ListSearchJobResultsOutput): any => ({
-  ...obj,
-  ...(obj.Results && { Results: obj.Results.map((item) => ResultItemFilterSensitiveLog(item)) }),
-});

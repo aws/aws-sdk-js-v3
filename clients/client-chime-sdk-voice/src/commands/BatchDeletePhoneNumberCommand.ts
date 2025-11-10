@@ -1,17 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ChimeSDKVoiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeSDKVoiceClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  BatchDeletePhoneNumberRequest,
-  BatchDeletePhoneNumberResponse,
-  BatchDeletePhoneNumberResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { de_BatchDeletePhoneNumberCommand, se_BatchDeletePhoneNumberCommand } from "../protocols/Aws_restJson1";
+import { BatchDeletePhoneNumberRequest, BatchDeletePhoneNumberResponse } from "../models/models_0";
+import { BatchDeletePhoneNumber } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -110,16 +105,11 @@ export class BatchDeletePhoneNumberCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ChimeSDKVoiceClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("ChimeSDKTelephonyService", "BatchDeletePhoneNumber", {})
   .n("ChimeSDKVoiceClient", "BatchDeletePhoneNumberCommand")
-  .f(void 0, BatchDeletePhoneNumberResponseFilterSensitiveLog)
-  .ser(se_BatchDeletePhoneNumberCommand)
-  .de(de_BatchDeletePhoneNumberCommand)
+  .sc(BatchDeletePhoneNumber)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

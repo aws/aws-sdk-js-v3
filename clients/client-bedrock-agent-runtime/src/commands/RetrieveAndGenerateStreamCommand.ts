@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -10,13 +9,8 @@ import {
   ServiceOutputTypes,
 } from "../BedrockAgentRuntimeClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  RetrieveAndGenerateStreamRequest,
-  RetrieveAndGenerateStreamRequestFilterSensitiveLog,
-  RetrieveAndGenerateStreamResponse,
-  RetrieveAndGenerateStreamResponseFilterSensitiveLog,
-} from "../models/models_1";
-import { de_RetrieveAndGenerateStreamCommand, se_RetrieveAndGenerateStreamCommand } from "../protocols/Aws_restJson1";
+import { RetrieveAndGenerateStreamRequest, RetrieveAndGenerateStreamResponse } from "../models/models_1";
+import { RetrieveAndGenerateStream } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -456,10 +450,7 @@ export class RetrieveAndGenerateStreamCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: BedrockAgentRuntimeClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonBedrockAgentRunTimeService", "RetrieveAndGenerateStream", {
     /**
@@ -470,9 +461,7 @@ export class RetrieveAndGenerateStreamCommand extends $Command
     },
   })
   .n("BedrockAgentRuntimeClient", "RetrieveAndGenerateStreamCommand")
-  .f(RetrieveAndGenerateStreamRequestFilterSensitiveLog, RetrieveAndGenerateStreamResponseFilterSensitiveLog)
-  .ser(se_RetrieveAndGenerateStreamCommand)
-  .de(de_RetrieveAndGenerateStreamCommand)
+  .sc(RetrieveAndGenerateStream)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

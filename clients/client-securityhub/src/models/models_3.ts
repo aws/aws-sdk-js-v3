@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@smithy/smithy-client";
+import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
 import { DocumentType as __DocumentType } from "@smithy/types";
 
@@ -2926,12 +2926,3 @@ export interface GetResourcesStatisticsV2Request {
    */
   MaxStatisticResults?: number | undefined;
 }
-
-/**
- * @internal
- */
-export const UpdateConnectorV2RequestFilterSensitiveLog = (obj: UpdateConnectorV2Request): any => ({
-  ...obj,
-  ...(obj.ClientSecret && { ClientSecret: SENSITIVE_STRING }),
-  ...(obj.Provider && { Provider: obj.Provider }),
-});

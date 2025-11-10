@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@smithy/smithy-client";
+import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
 import { IoTServiceException as __BaseException } from "./IoTServiceException";
 
@@ -7424,37 +7424,3 @@ export interface CommandExecutionSummary {
    */
   completedAt?: Date | undefined;
 }
-
-/**
- * @internal
- */
-export const GetPackageResponseFilterSensitiveLog = (obj: GetPackageResponse): any => ({
-  ...obj,
-  ...(obj.description && { description: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const GetPackageVersionResponseFilterSensitiveLog = (obj: GetPackageVersionResponse): any => ({
-  ...obj,
-  ...(obj.description && { description: SENSITIVE_STRING }),
-  ...(obj.attributes && { attributes: SENSITIVE_STRING }),
-  ...(obj.recipe && { recipe: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const GetThingConnectivityDataRequestFilterSensitiveLog = (obj: GetThingConnectivityDataRequest): any => ({
-  ...obj,
-  ...(obj.thingName && { thingName: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const GetThingConnectivityDataResponseFilterSensitiveLog = (obj: GetThingConnectivityDataResponse): any => ({
-  ...obj,
-  ...(obj.thingName && { thingName: SENSITIVE_STRING }),
-});

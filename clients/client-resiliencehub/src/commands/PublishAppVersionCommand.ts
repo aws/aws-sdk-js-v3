@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { PublishAppVersionRequest, PublishAppVersionResponse } from "../models/models_0";
-import { de_PublishAppVersionCommand, se_PublishAppVersionCommand } from "../protocols/Aws_restJson1";
 import { ResiliencehubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResiliencehubClient";
+import { PublishAppVersion } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -98,16 +97,11 @@ export class PublishAppVersionCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ResiliencehubClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AwsResilienceHub", "PublishAppVersion", {})
   .n("ResiliencehubClient", "PublishAppVersionCommand")
-  .f(void 0, void 0)
-  .ser(se_PublishAppVersionCommand)
-  .de(de_PublishAppVersionCommand)
+  .sc(PublishAppVersion)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GuardDutyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GuardDutyClient";
 import { DeleteIPSetRequest, DeleteIPSetResponse } from "../models/models_0";
-import { de_DeleteIPSetCommand, se_DeleteIPSetCommand } from "../protocols/Aws_restJson1";
+import { DeleteIPSet } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -76,16 +75,11 @@ export class DeleteIPSetCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GuardDutyClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("GuardDutyAPIService", "DeleteIPSet", {})
   .n("GuardDutyClient", "DeleteIPSetCommand")
-  .f(void 0, void 0)
-  .ser(se_DeleteIPSetCommand)
-  .de(de_DeleteIPSetCommand)
+  .sc(DeleteIPSet)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

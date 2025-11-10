@@ -1,17 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer, StreamingBlobPayloadInputTypes } from "@smithy/types";
 
 import { CodeartifactClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeartifactClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  PublishPackageVersionRequest,
-  PublishPackageVersionRequestFilterSensitiveLog,
-  PublishPackageVersionResult,
-} from "../models/models_0";
-import { de_PublishPackageVersionCommand, se_PublishPackageVersionCommand } from "../protocols/Aws_restJson1";
+import { PublishPackageVersionRequest, PublishPackageVersionResult } from "../models/models_0";
+import { PublishPackageVersion } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -141,16 +136,11 @@ export class PublishPackageVersionCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CodeartifactClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("CodeArtifactControlPlaneService", "PublishPackageVersion", {})
   .n("CodeartifactClient", "PublishPackageVersionCommand")
-  .f(PublishPackageVersionRequestFilterSensitiveLog, void 0)
-  .ser(se_PublishPackageVersionCommand)
-  .de(de_PublishPackageVersionCommand)
+  .sc(PublishPackageVersion)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,18 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DrsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DrsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  StartSourceNetworkRecoveryRequest,
-  StartSourceNetworkRecoveryRequestFilterSensitiveLog,
-  StartSourceNetworkRecoveryResponse,
-  StartSourceNetworkRecoveryResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { de_StartSourceNetworkRecoveryCommand, se_StartSourceNetworkRecoveryCommand } from "../protocols/Aws_restJson1";
+import { StartSourceNetworkRecoveryRequest, StartSourceNetworkRecoveryResponse } from "../models/models_0";
+import { StartSourceNetworkRecovery } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -156,16 +150,11 @@ export class StartSourceNetworkRecoveryCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DrsClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("ElasticDisasterRecoveryService", "StartSourceNetworkRecovery", {})
   .n("DrsClient", "StartSourceNetworkRecoveryCommand")
-  .f(StartSourceNetworkRecoveryRequestFilterSensitiveLog, StartSourceNetworkRecoveryResponseFilterSensitiveLog)
-  .ser(se_StartSourceNetworkRecoveryCommand)
-  .de(de_StartSourceNetworkRecoveryCommand)
+  .sc(StartSourceNetworkRecovery)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

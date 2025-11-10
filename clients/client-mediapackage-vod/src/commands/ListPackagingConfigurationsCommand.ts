@@ -1,16 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { MediaPackageVodClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaPackageVodClient";
 import { ListPackagingConfigurationsRequest, ListPackagingConfigurationsResponse } from "../models/models_0";
-import {
-  de_ListPackagingConfigurationsCommand,
-  se_ListPackagingConfigurationsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListPackagingConfigurations } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -234,16 +230,11 @@ export class ListPackagingConfigurationsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MediaPackageVodClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("MediaPackageVod", "ListPackagingConfigurations", {})
   .n("MediaPackageVodClient", "ListPackagingConfigurationsCommand")
-  .f(void 0, void 0)
-  .ser(se_ListPackagingConfigurationsCommand)
-  .de(de_ListPackagingConfigurationsCommand)
+  .sc(ListPackagingConfigurations)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

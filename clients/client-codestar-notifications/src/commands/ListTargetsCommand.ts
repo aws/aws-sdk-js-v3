@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -10,8 +9,8 @@ import {
   ServiceOutputTypes,
 } from "../CodestarNotificationsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListTargetsRequest, ListTargetsResult, ListTargetsResultFilterSensitiveLog } from "../models/models_0";
-import { de_ListTargetsCommand, se_ListTargetsCommand } from "../protocols/Aws_restJson1";
+import { ListTargetsRequest, ListTargetsResult } from "../models/models_0";
+import { ListTargets } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -94,16 +93,11 @@ export class ListTargetsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CodestarNotificationsClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("CodeStarNotifications_20191015", "ListTargets", {})
   .n("CodestarNotificationsClient", "ListTargetsCommand")
-  .f(void 0, ListTargetsResultFilterSensitiveLog)
-  .ser(se_ListTargetsCommand)
-  .de(de_ListTargetsCommand)
+  .sc(ListTargets)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

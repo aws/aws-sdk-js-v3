@@ -1,17 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  DescribeActivitiesRequest,
-  DescribeActivitiesRequestFilterSensitiveLog,
-  DescribeActivitiesResponse,
-  DescribeActivitiesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { de_DescribeActivitiesCommand, se_DescribeActivitiesCommand } from "../protocols/Aws_restJson1";
+import { DescribeActivitiesRequest, DescribeActivitiesResponse } from "../models/models_0";
+import { DescribeActivities } from "../schemas/schemas_0";
 import { ServiceInputTypes, ServiceOutputTypes, WorkDocsClientResolvedConfig } from "../WorkDocsClient";
 
 /**
@@ -181,16 +175,11 @@ export class DescribeActivitiesCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WorkDocsClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSGorillaBoyService", "DescribeActivities", {})
   .n("WorkDocsClient", "DescribeActivitiesCommand")
-  .f(DescribeActivitiesRequestFilterSensitiveLog, DescribeActivitiesResponseFilterSensitiveLog)
-  .ser(se_DescribeActivitiesCommand)
-  .de(de_DescribeActivitiesCommand)
+  .sc(DescribeActivities)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

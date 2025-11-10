@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -12,14 +11,9 @@ import {
 import { commonParams } from "../endpoint/EndpointParameters";
 import {
   CreateMediaPipelineKinesisVideoStreamPoolRequest,
-  CreateMediaPipelineKinesisVideoStreamPoolRequestFilterSensitiveLog,
   CreateMediaPipelineKinesisVideoStreamPoolResponse,
-  CreateMediaPipelineKinesisVideoStreamPoolResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  de_CreateMediaPipelineKinesisVideoStreamPoolCommand,
-  se_CreateMediaPipelineKinesisVideoStreamPoolCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateMediaPipelineKinesisVideoStreamPool } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -148,19 +142,11 @@ export class CreateMediaPipelineKinesisVideoStreamPoolCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ChimeSDKMediaPipelinesClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("ChimeSDKMediaPipelinesService", "CreateMediaPipelineKinesisVideoStreamPool", {})
   .n("ChimeSDKMediaPipelinesClient", "CreateMediaPipelineKinesisVideoStreamPoolCommand")
-  .f(
-    CreateMediaPipelineKinesisVideoStreamPoolRequestFilterSensitiveLog,
-    CreateMediaPipelineKinesisVideoStreamPoolResponseFilterSensitiveLog
-  )
-  .ser(se_CreateMediaPipelineKinesisVideoStreamPoolCommand)
-  .de(de_CreateMediaPipelineKinesisVideoStreamPoolCommand)
+  .sc(CreateMediaPipelineKinesisVideoStreamPool)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

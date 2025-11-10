@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GroundStationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GroundStationClient";
 import { CreateEphemerisRequest, EphemerisIdResponse } from "../models/models_0";
-import { de_CreateEphemerisCommand, se_CreateEphemerisCommand } from "../protocols/Aws_restJson1";
+import { CreateEphemeris } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -143,16 +142,11 @@ export class CreateEphemerisCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GroundStationClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("GroundStation", "CreateEphemeris", {})
   .n("GroundStationClient", "CreateEphemerisCommand")
-  .f(void 0, void 0)
-  .ser(se_CreateEphemerisCommand)
-  .de(de_CreateEphemerisCommand)
+  .sc(CreateEphemeris)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

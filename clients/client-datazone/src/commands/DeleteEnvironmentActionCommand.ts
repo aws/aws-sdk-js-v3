@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DataZoneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataZoneClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DeleteEnvironmentActionInput } from "../models/models_1";
-import { de_DeleteEnvironmentActionCommand, se_DeleteEnvironmentActionCommand } from "../protocols/Aws_restJson1";
+import { DeleteEnvironmentAction } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -91,16 +90,11 @@ export class DeleteEnvironmentActionCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DataZoneClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("DataZone", "DeleteEnvironmentAction", {})
   .n("DataZoneClient", "DeleteEnvironmentActionCommand")
-  .f(void 0, void 0)
-  .ser(se_DeleteEnvironmentActionCommand)
-  .de(de_DeleteEnvironmentActionCommand)
+  .sc(DeleteEnvironmentAction)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

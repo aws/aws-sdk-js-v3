@@ -1,21 +1,16 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  GetActionRecommendationsRequest,
-  GetActionRecommendationsRequestFilterSensitiveLog,
-  GetActionRecommendationsResponse,
-} from "../models/models_0";
+import { GetActionRecommendationsRequest, GetActionRecommendationsResponse } from "../models/models_0";
 import {
   PersonalizeRuntimeClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../PersonalizeRuntimeClient";
-import { de_GetActionRecommendationsCommand, se_GetActionRecommendationsCommand } from "../protocols/Aws_restJson1";
+import { GetActionRecommendations } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -101,16 +96,11 @@ export class GetActionRecommendationsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: PersonalizeRuntimeClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonPersonalizeRuntime", "GetActionRecommendations", {})
   .n("PersonalizeRuntimeClient", "GetActionRecommendationsCommand")
-  .f(GetActionRecommendationsRequestFilterSensitiveLog, void 0)
-  .ser(se_GetActionRecommendationsCommand)
-  .de(de_GetActionRecommendationsCommand)
+  .sc(GetActionRecommendations)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

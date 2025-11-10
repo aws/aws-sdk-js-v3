@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GetAnnotationStoreRequest, GetAnnotationStoreResponse } from "../models/models_0";
 import { OmicsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OmicsClient";
-import { de_GetAnnotationStoreCommand, se_GetAnnotationStoreCommand } from "../protocols/Aws_restJson1";
+import { GetAnnotationStore } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -118,16 +117,11 @@ export class GetAnnotationStoreCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: OmicsClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("Omics", "GetAnnotationStore", {})
   .n("OmicsClient", "GetAnnotationStoreCommand")
-  .f(void 0, void 0)
-  .ser(se_GetAnnotationStoreCommand)
-  .de(de_GetAnnotationStoreCommand)
+  .sc(GetAnnotationStore)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

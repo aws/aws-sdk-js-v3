@@ -1,17 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CustomerProfilesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CustomerProfilesClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  CreateIntegrationWorkflowRequest,
-  CreateIntegrationWorkflowRequestFilterSensitiveLog,
-  CreateIntegrationWorkflowResponse,
-} from "../models/models_0";
-import { de_CreateIntegrationWorkflowCommand, se_CreateIntegrationWorkflowCommand } from "../protocols/Aws_restJson1";
+import { CreateIntegrationWorkflowRequest, CreateIntegrationWorkflowResponse } from "../models/models_0";
+import { CreateIntegrationWorkflow } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -172,16 +167,11 @@ export class CreateIntegrationWorkflowCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CustomerProfilesClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("CustomerProfiles_20200815", "CreateIntegrationWorkflow", {})
   .n("CustomerProfilesClient", "CreateIntegrationWorkflowCommand")
-  .f(CreateIntegrationWorkflowRequestFilterSensitiveLog, void 0)
-  .ser(se_CreateIntegrationWorkflowCommand)
-  .de(de_CreateIntegrationWorkflowCommand)
+  .sc(CreateIntegrationWorkflow)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

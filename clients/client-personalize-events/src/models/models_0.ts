@@ -2,7 +2,6 @@
 import {
   AutomaticJsonStringConversion as __AutomaticJsonStringConversion,
   ExceptionOptionType as __ExceptionOptionType,
-  SENSITIVE_STRING,
 } from "@smithy/smithy-client";
 
 import { PersonalizeEventsServiceException as __BaseException } from "./PersonalizeEventsServiceException";
@@ -473,91 +472,3 @@ export interface PutUsersRequest {
    */
   users: User[] | undefined;
 }
-
-/**
- * @internal
- */
-export const ActionFilterSensitiveLog = (obj: Action): any => ({
-  ...obj,
-  ...(obj.properties && { properties: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const ActionInteractionFilterSensitiveLog = (obj: ActionInteraction): any => ({
-  ...obj,
-  ...(obj.actionId && { actionId: SENSITIVE_STRING }),
-  ...(obj.userId && { userId: SENSITIVE_STRING }),
-  ...(obj.impression && { impression: SENSITIVE_STRING }),
-  ...(obj.properties && { properties: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const PutActionInteractionsRequestFilterSensitiveLog = (obj: PutActionInteractionsRequest): any => ({
-  ...obj,
-  ...(obj.actionInteractions && {
-    actionInteractions: obj.actionInteractions.map((item) => ActionInteractionFilterSensitiveLog(item)),
-  }),
-});
-
-/**
- * @internal
- */
-export const PutActionsRequestFilterSensitiveLog = (obj: PutActionsRequest): any => ({
-  ...obj,
-  ...(obj.actions && { actions: obj.actions.map((item) => ActionFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const EventFilterSensitiveLog = (obj: Event): any => ({
-  ...obj,
-  ...(obj.itemId && { itemId: SENSITIVE_STRING }),
-  ...(obj.properties && { properties: SENSITIVE_STRING }),
-  ...(obj.impression && { impression: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const PutEventsRequestFilterSensitiveLog = (obj: PutEventsRequest): any => ({
-  ...obj,
-  ...(obj.userId && { userId: SENSITIVE_STRING }),
-  ...(obj.eventList && { eventList: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const ItemFilterSensitiveLog = (obj: Item): any => ({
-  ...obj,
-  ...(obj.properties && { properties: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const PutItemsRequestFilterSensitiveLog = (obj: PutItemsRequest): any => ({
-  ...obj,
-  ...(obj.items && { items: obj.items.map((item) => ItemFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const UserFilterSensitiveLog = (obj: User): any => ({
-  ...obj,
-  ...(obj.properties && { properties: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const PutUsersRequestFilterSensitiveLog = (obj: PutUsersRequest): any => ({
-  ...obj,
-  ...(obj.users && { users: obj.users.map((item) => UserFilterSensitiveLog(item)) }),
-});

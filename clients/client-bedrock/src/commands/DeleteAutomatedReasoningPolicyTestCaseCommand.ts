@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -10,10 +9,7 @@ import {
   DeleteAutomatedReasoningPolicyTestCaseRequest,
   DeleteAutomatedReasoningPolicyTestCaseResponse,
 } from "../models/models_0";
-import {
-  de_DeleteAutomatedReasoningPolicyTestCaseCommand,
-  se_DeleteAutomatedReasoningPolicyTestCaseCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteAutomatedReasoningPolicyTestCase } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -100,16 +96,11 @@ export class DeleteAutomatedReasoningPolicyTestCaseCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: BedrockClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonBedrockControlPlaneService", "DeleteAutomatedReasoningPolicyTestCase", {})
   .n("BedrockClient", "DeleteAutomatedReasoningPolicyTestCaseCommand")
-  .f(void 0, void 0)
-  .ser(se_DeleteAutomatedReasoningPolicyTestCaseCommand)
-  .de(de_DeleteAutomatedReasoningPolicyTestCaseCommand)
+  .sc(DeleteAutomatedReasoningPolicyTestCase)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

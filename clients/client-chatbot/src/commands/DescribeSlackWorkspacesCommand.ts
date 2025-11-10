@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ChatbotClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChatbotClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DescribeSlackWorkspacesRequest, DescribeSlackWorkspacesResult } from "../models/models_0";
-import { de_DescribeSlackWorkspacesCommand, se_DescribeSlackWorkspacesCommand } from "../protocols/Aws_restJson1";
+import { DescribeSlackWorkspaces } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -88,16 +87,11 @@ export class DescribeSlackWorkspacesCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ChatbotClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("WheatleyOrchestration_20171011", "DescribeSlackWorkspaces", {})
   .n("ChatbotClient", "DescribeSlackWorkspacesCommand")
-  .f(void 0, void 0)
-  .ser(se_DescribeSlackWorkspacesCommand)
-  .de(de_DescribeSlackWorkspacesCommand)
+  .sc(DescribeSlackWorkspaces)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,17 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { BedrockRuntimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BedrockRuntimeClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  ListAsyncInvokesRequest,
-  ListAsyncInvokesResponse,
-  ListAsyncInvokesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { de_ListAsyncInvokesCommand, se_ListAsyncInvokesCommand } from "../protocols/Aws_restJson1";
+import { ListAsyncInvokesRequest, ListAsyncInvokesResponse } from "../models/models_0";
+import { ListAsyncInvokes } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -111,16 +106,11 @@ export class ListAsyncInvokesCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: BedrockRuntimeClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonBedrockFrontendService", "ListAsyncInvokes", {})
   .n("BedrockRuntimeClient", "ListAsyncInvokesCommand")
-  .f(void 0, ListAsyncInvokesResponseFilterSensitiveLog)
-  .ser(se_ListAsyncInvokesCommand)
-  .de(de_ListAsyncInvokesCommand)
+  .sc(ListAsyncInvokes)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

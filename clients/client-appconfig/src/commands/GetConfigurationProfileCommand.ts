@@ -1,17 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { AppConfigClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppConfigClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  ConfigurationProfile,
-  ConfigurationProfileFilterSensitiveLog,
-  GetConfigurationProfileRequest,
-} from "../models/models_0";
-import { de_GetConfigurationProfileCommand, se_GetConfigurationProfileCommand } from "../protocols/Aws_restJson1";
+import { ConfigurationProfile, GetConfigurationProfileRequest } from "../models/models_0";
+import { GetConfigurationProfile } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -118,16 +113,11 @@ export class GetConfigurationProfileCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AppConfigClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonAppConfig", "GetConfigurationProfile", {})
   .n("AppConfigClient", "GetConfigurationProfileCommand")
-  .f(void 0, ConfigurationProfileFilterSensitiveLog)
-  .ser(se_GetConfigurationProfileCommand)
-  .de(de_GetConfigurationProfileCommand)
+  .sc(GetConfigurationProfile)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

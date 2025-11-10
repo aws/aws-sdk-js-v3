@@ -1,17 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  CreateQuickResponseRequest,
-  CreateQuickResponseRequestFilterSensitiveLog,
-  CreateQuickResponseResponse,
-  CreateQuickResponseResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { de_CreateQuickResponseCommand, se_CreateQuickResponseCommand } from "../protocols/Aws_restJson1";
+import { CreateQuickResponseRequest, CreateQuickResponseResponse } from "../models/models_0";
+import { CreateQuickResponse } from "../schemas/schemas_0";
 import { ServiceInputTypes, ServiceOutputTypes, WisdomClientResolvedConfig } from "../WisdomClient";
 
 /**
@@ -151,16 +145,11 @@ export class CreateQuickResponseCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WisdomClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("WisdomService", "CreateQuickResponse", {})
   .n("WisdomClient", "CreateQuickResponseCommand")
-  .f(CreateQuickResponseRequestFilterSensitiveLog, CreateQuickResponseResponseFilterSensitiveLog)
-  .ser(se_CreateQuickResponseCommand)
-  .de(de_CreateQuickResponseCommand)
+  .sc(CreateQuickResponse)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

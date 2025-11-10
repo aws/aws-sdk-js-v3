@@ -1,17 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { FinspaceDataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FinspaceDataClient";
-import {
-  UpdatePermissionGroupRequest,
-  UpdatePermissionGroupRequestFilterSensitiveLog,
-  UpdatePermissionGroupResponse,
-} from "../models/models_0";
-import { de_UpdatePermissionGroupCommand, se_UpdatePermissionGroupCommand } from "../protocols/Aws_restJson1";
+import { UpdatePermissionGroupRequest, UpdatePermissionGroupResponse } from "../models/models_0";
+import { UpdatePermissionGroup } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -101,16 +96,11 @@ export class UpdatePermissionGroupCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: FinspaceDataClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSHabaneroPublicAPI", "UpdatePermissionGroup", {})
   .n("FinspaceDataClient", "UpdatePermissionGroupCommand")
-  .f(UpdatePermissionGroupRequestFilterSensitiveLog, void 0)
-  .ser(se_UpdatePermissionGroupCommand)
-  .de(de_UpdatePermissionGroupCommand)
+  .sc(UpdatePermissionGroup)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

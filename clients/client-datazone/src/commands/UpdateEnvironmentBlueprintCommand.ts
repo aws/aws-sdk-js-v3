@@ -1,18 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DataZoneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataZoneClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  UpdateEnvironmentBlueprintInput,
-  UpdateEnvironmentBlueprintInputFilterSensitiveLog,
-  UpdateEnvironmentBlueprintOutput,
-  UpdateEnvironmentBlueprintOutputFilterSensitiveLog,
-} from "../models/models_2";
-import { de_UpdateEnvironmentBlueprintCommand, se_UpdateEnvironmentBlueprintCommand } from "../protocols/Aws_restJson1";
+import { UpdateEnvironmentBlueprintInput, UpdateEnvironmentBlueprintOutput } from "../models/models_2";
+import { UpdateEnvironmentBlueprint } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -145,16 +139,11 @@ export class UpdateEnvironmentBlueprintCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DataZoneClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("DataZone", "UpdateEnvironmentBlueprint", {})
   .n("DataZoneClient", "UpdateEnvironmentBlueprintCommand")
-  .f(UpdateEnvironmentBlueprintInputFilterSensitiveLog, UpdateEnvironmentBlueprintOutputFilterSensitiveLog)
-  .ser(se_UpdateEnvironmentBlueprintCommand)
-  .de(de_UpdateEnvironmentBlueprintCommand)
+  .sc(UpdateEnvironmentBlueprint)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

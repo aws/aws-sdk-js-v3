@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ChimeSDKIdentityClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeSDKIdentityClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DeleteAppInstanceBotRequest } from "../models/models_0";
-import { de_DeleteAppInstanceBotCommand, se_DeleteAppInstanceBotCommand } from "../protocols/Aws_restJson1";
+import { DeleteAppInstanceBot } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -93,16 +92,11 @@ export class DeleteAppInstanceBotCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ChimeSDKIdentityClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("ChimeIdentityService", "DeleteAppInstanceBot", {})
   .n("ChimeSDKIdentityClient", "DeleteAppInstanceBotCommand")
-  .f(void 0, void 0)
-  .ser(se_DeleteAppInstanceBotCommand)
-  .de(de_DeleteAppInstanceBotCommand)
+  .sc(DeleteAppInstanceBot)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

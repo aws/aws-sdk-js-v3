@@ -1,15 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { PutAccountSuppressionAttributesRequest, PutAccountSuppressionAttributesResponse } from "../models/models_1";
-import {
-  de_PutAccountSuppressionAttributesCommand,
-  se_PutAccountSuppressionAttributesCommand,
-} from "../protocols/Aws_restJson1";
+import { PutAccountSuppressionAttributes } from "../schemas/schemas_0";
 import { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
 /**
@@ -81,16 +77,11 @@ export class PutAccountSuppressionAttributesCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SESv2ClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("SimpleEmailService_v2", "PutAccountSuppressionAttributes", {})
   .n("SESv2Client", "PutAccountSuppressionAttributesCommand")
-  .f(void 0, void 0)
-  .ser(se_PutAccountSuppressionAttributesCommand)
-  .de(de_PutAccountSuppressionAttributesCommand)
+  .sc(PutAccountSuppressionAttributes)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

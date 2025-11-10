@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { IoTSiteWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTSiteWiseClient";
 import { DescribeActionRequest, DescribeActionResponse } from "../models/models_0";
-import { de_DescribeActionCommand, se_DescribeActionCommand } from "../protocols/Aws_restJson1";
+import { DescribeAction } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -98,16 +97,11 @@ export class DescribeActionCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTSiteWiseClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSIoTSiteWise", "DescribeAction", {})
   .n("IoTSiteWiseClient", "DescribeActionCommand")
-  .f(void 0, void 0)
-  .ser(se_DescribeActionCommand)
-  .de(de_DescribeActionCommand)
+  .sc(DescribeAction)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

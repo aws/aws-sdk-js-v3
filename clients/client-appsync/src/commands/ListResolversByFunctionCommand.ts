@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { AppSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppSyncClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { ListResolversByFunctionRequest, ListResolversByFunctionResponse } from "../models/models_0";
-import { de_ListResolversByFunctionCommand, se_ListResolversByFunctionCommand } from "../protocols/Aws_restJson1";
+import { ListResolversByFunction } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -123,16 +122,11 @@ export class ListResolversByFunctionCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AppSyncClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSDeepdishControlPlaneService", "ListResolversByFunction", {})
   .n("AppSyncClient", "ListResolversByFunctionCommand")
-  .f(void 0, void 0)
-  .ser(se_ListResolversByFunctionCommand)
-  .de(de_ListResolversByFunctionCommand)
+  .sc(ListResolversByFunction)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

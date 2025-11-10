@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -10,10 +9,7 @@ import {
   StartBulkAssociateWirelessDeviceWithMulticastGroupRequest,
   StartBulkAssociateWirelessDeviceWithMulticastGroupResponse,
 } from "../models/models_1";
-import {
-  de_StartBulkAssociateWirelessDeviceWithMulticastGroupCommand,
-  se_StartBulkAssociateWirelessDeviceWithMulticastGroupCommand,
-} from "../protocols/Aws_restJson1";
+import { StartBulkAssociateWirelessDeviceWithMulticastGroup } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -100,16 +96,11 @@ export class StartBulkAssociateWirelessDeviceWithMulticastGroupCommand extends $
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTWirelessClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("iotwireless", "StartBulkAssociateWirelessDeviceWithMulticastGroup", {})
   .n("IoTWirelessClient", "StartBulkAssociateWirelessDeviceWithMulticastGroupCommand")
-  .f(void 0, void 0)
-  .ser(se_StartBulkAssociateWirelessDeviceWithMulticastGroupCommand)
-  .de(de_StartBulkAssociateWirelessDeviceWithMulticastGroupCommand)
+  .sc(StartBulkAssociateWirelessDeviceWithMulticastGroup)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

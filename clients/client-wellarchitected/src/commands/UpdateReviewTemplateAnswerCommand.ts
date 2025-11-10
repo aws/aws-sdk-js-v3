@@ -1,12 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { UpdateReviewTemplateAnswerInput, UpdateReviewTemplateAnswerOutput } from "../models/models_0";
-import { de_UpdateReviewTemplateAnswerCommand, se_UpdateReviewTemplateAnswerCommand } from "../protocols/Aws_restJson1";
+import { UpdateReviewTemplateAnswer } from "../schemas/schemas_0";
 import { ServiceInputTypes, ServiceOutputTypes, WellArchitectedClientResolvedConfig } from "../WellArchitectedClient";
 
 /**
@@ -154,16 +153,11 @@ export class UpdateReviewTemplateAnswerCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WellArchitectedClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("WellArchitectedApiServiceLambda", "UpdateReviewTemplateAnswer", {})
   .n("WellArchitectedClient", "UpdateReviewTemplateAnswerCommand")
-  .f(void 0, void 0)
-  .ser(se_UpdateReviewTemplateAnswerCommand)
-  .de(de_UpdateReviewTemplateAnswerCommand)
+  .sc(UpdateReviewTemplateAnswer)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

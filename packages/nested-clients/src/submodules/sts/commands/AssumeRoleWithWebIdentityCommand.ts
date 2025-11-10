@@ -96,7 +96,8 @@ export interface AssumeRoleWithWebIdentityCommandOutput extends AssumeRoleWithWe
  *          </p>
  *          <p>(Optional) You can configure your IdP to pass attributes into your web identity token as
  *          session tags. Each session tag consists of a key name and an associated value. For more
- *          information about session tags, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_session-tags.html">Passing Session Tags in STS</a> in the
+ *          information about session tags, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_session-tags.html#id_session-tags_adding-assume-role-idp">Passing
+ *             session tags using AssumeRoleWithWebIdentity</a> in the
  *             <i>IAM User Guide</i>.</p>
  *          <p>You can pass up to 50 session tags. The plaintext session tag keys can’t exceed 128
  *          characters and the values can’t exceed 256 characters. For these and additional limits, see
@@ -238,7 +239,7 @@ export interface AssumeRoleWithWebIdentityCommandOutput extends AssumeRoleWithWe
  * @throws {@link RegionDisabledException} (client fault)
  *  <p>STS is not activated in the requested region for the account that is being asked to
  *             generate credentials. The account administrator must use the IAM console to activate
- *             STS in that region. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html">Activating and
+ *             STS in that region. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html#sts-regions-activate-deactivate">Activating and
  *                 Deactivating STS in an Amazon Web Services Region</a> in the <i>IAM User
  *                 Guide</i>.</p>
  *
@@ -251,7 +252,7 @@ export interface AssumeRoleWithWebIdentityCommandOutput extends AssumeRoleWithWe
  * //
  * const input = {
  *   DurationSeconds: 3600,
- *   Policy: `{"Version":"2012-10-17","Statement":[{"Sid":"Stmt1","Effect":"Allow","Action":"s3:ListAllMyBuckets","Resource":"*"}]}`,
+ *   Policy: "escaped-JSON-IAM-POLICY",
  *   ProviderId: "www.amazon.com",
  *   RoleArn: "arn:aws:iam::123456789012:role/FederatedWebIdentityRole",
  *   RoleSessionName: "app1",

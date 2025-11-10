@@ -1,6 +1,4 @@
 // smithy-typescript generated code
-import { SENSITIVE_STRING } from "@smithy/smithy-client";
-
 import {
   ActiveContext,
   AgentTurnResult,
@@ -10313,68 +10311,3 @@ export interface UpdateIntentResponse {
    */
   qInConnectIntentConfiguration?: QInConnectIntentConfiguration | undefined;
 }
-
-/**
- * @internal
- */
-export const EncryptionSettingFilterSensitiveLog = (obj: EncryptionSetting): any => ({
-  ...obj,
-  ...(obj.botLocaleExportPassword && { botLocaleExportPassword: SENSITIVE_STRING }),
-  ...(obj.associatedTranscriptsPassword && { associatedTranscriptsPassword: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const DescribeBotRecommendationResponseFilterSensitiveLog = (obj: DescribeBotRecommendationResponse): any => ({
-  ...obj,
-  ...(obj.encryptionSetting && { encryptionSetting: EncryptionSettingFilterSensitiveLog(obj.encryptionSetting) }),
-});
-
-/**
- * @internal
- */
-export const StartBotRecommendationRequestFilterSensitiveLog = (obj: StartBotRecommendationRequest): any => ({
-  ...obj,
-  ...(obj.encryptionSetting && { encryptionSetting: EncryptionSettingFilterSensitiveLog(obj.encryptionSetting) }),
-});
-
-/**
- * @internal
- */
-export const StartBotRecommendationResponseFilterSensitiveLog = (obj: StartBotRecommendationResponse): any => ({
-  ...obj,
-  ...(obj.encryptionSetting && { encryptionSetting: EncryptionSettingFilterSensitiveLog(obj.encryptionSetting) }),
-});
-
-/**
- * @internal
- */
-export const StartImportRequestFilterSensitiveLog = (obj: StartImportRequest): any => ({
-  ...obj,
-  ...(obj.filePassword && { filePassword: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const UpdateBotRecommendationRequestFilterSensitiveLog = (obj: UpdateBotRecommendationRequest): any => ({
-  ...obj,
-  ...(obj.encryptionSetting && { encryptionSetting: EncryptionSettingFilterSensitiveLog(obj.encryptionSetting) }),
-});
-
-/**
- * @internal
- */
-export const UpdateBotRecommendationResponseFilterSensitiveLog = (obj: UpdateBotRecommendationResponse): any => ({
-  ...obj,
-  ...(obj.encryptionSetting && { encryptionSetting: EncryptionSettingFilterSensitiveLog(obj.encryptionSetting) }),
-});
-
-/**
- * @internal
- */
-export const UpdateExportRequestFilterSensitiveLog = (obj: UpdateExportRequest): any => ({
-  ...obj,
-  ...(obj.filePassword && { filePassword: SENSITIVE_STRING }),
-});

@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -10,10 +9,7 @@ import {
   PutConfigurationSetReputationOptionsResponse,
 } from "../models/models_0";
 import { PinpointEmailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointEmailClient";
-import {
-  de_PutConfigurationSetReputationOptionsCommand,
-  se_PutConfigurationSetReputationOptionsCommand,
-} from "../protocols/Aws_restJson1";
+import { PutConfigurationSetReputationOptions } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -87,16 +83,11 @@ export class PutConfigurationSetReputationOptionsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: PinpointEmailClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonPinpointEmailService", "PutConfigurationSetReputationOptions", {})
   .n("PinpointEmailClient", "PutConfigurationSetReputationOptionsCommand")
-  .f(void 0, void 0)
-  .ser(se_PutConfigurationSetReputationOptionsCommand)
-  .de(de_PutConfigurationSetReputationOptionsCommand)
+  .sc(PutConfigurationSetReputationOptions)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

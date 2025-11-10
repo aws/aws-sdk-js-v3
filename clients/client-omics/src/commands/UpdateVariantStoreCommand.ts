@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { UpdateVariantStoreRequest, UpdateVariantStoreResponse } from "../models/models_1";
 import { OmicsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OmicsClient";
-import { de_UpdateVariantStoreCommand, se_UpdateVariantStoreCommand } from "../protocols/Aws_restJson1";
+import { UpdateVariantStore } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -94,16 +93,11 @@ export class UpdateVariantStoreCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: OmicsClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("Omics", "UpdateVariantStore", {})
   .n("OmicsClient", "UpdateVariantStoreCommand")
-  .f(void 0, void 0)
-  .ser(se_UpdateVariantStoreCommand)
-  .de(de_UpdateVariantStoreCommand)
+  .sc(UpdateVariantStore)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

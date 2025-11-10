@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { IoTWirelessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTWirelessClient";
 import { ResetAllResourceLogLevelsRequest, ResetAllResourceLogLevelsResponse } from "../models/models_1";
-import { de_ResetAllResourceLogLevelsCommand, se_ResetAllResourceLogLevelsCommand } from "../protocols/Aws_restJson1";
+import { ResetAllResourceLogLevels } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -82,16 +81,11 @@ export class ResetAllResourceLogLevelsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTWirelessClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("iotwireless", "ResetAllResourceLogLevels", {})
   .n("IoTWirelessClient", "ResetAllResourceLogLevelsCommand")
-  .f(void 0, void 0)
-  .ser(se_ResetAllResourceLogLevelsCommand)
-  .de(de_ResetAllResourceLogLevelsCommand)
+  .sc(ResetAllResourceLogLevels)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

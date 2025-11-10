@@ -1,18 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ConnectCasesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectCasesClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  SearchAllRelatedItemsRequest,
-  SearchAllRelatedItemsRequestFilterSensitiveLog,
-  SearchAllRelatedItemsResponse,
-  SearchAllRelatedItemsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { de_SearchAllRelatedItemsCommand, se_SearchAllRelatedItemsCommand } from "../protocols/Aws_restJson1";
+import { SearchAllRelatedItemsRequest, SearchAllRelatedItemsResponse } from "../models/models_0";
+import { SearchAllRelatedItems } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -264,16 +258,11 @@ export class SearchAllRelatedItemsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ConnectCasesClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonConnectCases", "SearchAllRelatedItems", {})
   .n("ConnectCasesClient", "SearchAllRelatedItemsCommand")
-  .f(SearchAllRelatedItemsRequestFilterSensitiveLog, SearchAllRelatedItemsResponseFilterSensitiveLog)
-  .ser(se_SearchAllRelatedItemsCommand)
-  .de(de_SearchAllRelatedItemsCommand)
+  .sc(SearchAllRelatedItems)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

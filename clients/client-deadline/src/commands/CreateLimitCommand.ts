@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DeadlineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeadlineClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { CreateLimitRequest, CreateLimitRequestFilterSensitiveLog, CreateLimitResponse } from "../models/models_0";
-import { de_CreateLimitCommand, se_CreateLimitCommand } from "../protocols/Aws_restJson1";
+import { CreateLimitRequest, CreateLimitResponse } from "../models/models_0";
+import { CreateLimit } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -99,16 +98,11 @@ export class CreateLimitCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DeadlineClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("Deadline", "CreateLimit", {})
   .n("DeadlineClient", "CreateLimitCommand")
-  .f(CreateLimitRequestFilterSensitiveLog, void 0)
-  .ser(se_CreateLimitCommand)
-  .de(de_CreateLimitCommand)
+  .sc(CreateLimit)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

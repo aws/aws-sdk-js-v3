@@ -1,12 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GetFindingsRequest, GetFindingsResponse } from "../models/models_2";
-import { de_GetFindingsCommand, se_GetFindingsCommand } from "../protocols/Aws_restJson1";
+import { GetFindings } from "../schemas/schemas_0";
 import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
 /**
@@ -4739,16 +4738,11 @@ export class GetFindingsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SecurityHubClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("SecurityHubAPIService", "GetFindings", {})
   .n("SecurityHubClient", "GetFindingsCommand")
-  .f(void 0, void 0)
-  .ser(se_GetFindingsCommand)
-  .de(de_GetFindingsCommand)
+  .sc(GetFindings)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

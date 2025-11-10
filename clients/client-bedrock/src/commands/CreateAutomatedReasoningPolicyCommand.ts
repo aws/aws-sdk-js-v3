@@ -1,21 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { BedrockClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BedrockClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  CreateAutomatedReasoningPolicyRequest,
-  CreateAutomatedReasoningPolicyRequestFilterSensitiveLog,
-  CreateAutomatedReasoningPolicyResponse,
-  CreateAutomatedReasoningPolicyResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  de_CreateAutomatedReasoningPolicyCommand,
-  se_CreateAutomatedReasoningPolicyCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateAutomatedReasoningPolicyRequest, CreateAutomatedReasoningPolicyResponse } from "../models/models_0";
+import { CreateAutomatedReasoningPolicy } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -148,16 +139,11 @@ export class CreateAutomatedReasoningPolicyCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: BedrockClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonBedrockControlPlaneService", "CreateAutomatedReasoningPolicy", {})
   .n("BedrockClient", "CreateAutomatedReasoningPolicyCommand")
-  .f(CreateAutomatedReasoningPolicyRequestFilterSensitiveLog, CreateAutomatedReasoningPolicyResponseFilterSensitiveLog)
-  .ser(se_CreateAutomatedReasoningPolicyCommand)
-  .de(de_CreateAutomatedReasoningPolicyCommand)
+  .sc(CreateAutomatedReasoningPolicy)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

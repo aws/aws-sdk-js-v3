@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DataZoneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataZoneClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { GetAccountPoolInput, GetAccountPoolOutput, GetAccountPoolOutputFilterSensitiveLog } from "../models/models_1";
-import { de_GetAccountPoolCommand, se_GetAccountPoolCommand } from "../protocols/Aws_restJson1";
+import { GetAccountPoolInput, GetAccountPoolOutput } from "../models/models_1";
+import { GetAccountPool } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -113,16 +112,11 @@ export class GetAccountPoolCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DataZoneClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("DataZone", "GetAccountPool", {})
   .n("DataZoneClient", "GetAccountPoolCommand")
-  .f(void 0, GetAccountPoolOutputFilterSensitiveLog)
-  .ser(se_GetAccountPoolCommand)
-  .de(de_GetAccountPoolCommand)
+  .sc(GetAccountPool)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

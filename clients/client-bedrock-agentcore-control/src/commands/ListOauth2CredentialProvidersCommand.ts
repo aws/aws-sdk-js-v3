@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -11,10 +10,7 @@ import {
 } from "../BedrockAgentCoreControlClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { ListOauth2CredentialProvidersRequest, ListOauth2CredentialProvidersResponse } from "../models/models_0";
-import {
-  de_ListOauth2CredentialProvidersCommand,
-  se_ListOauth2CredentialProvidersCommand,
-} from "../protocols/Aws_restJson1";
+import { ListOauth2CredentialProviders } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -107,16 +103,11 @@ export class ListOauth2CredentialProvidersCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: BedrockAgentCoreControlClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonBedrockAgentCoreControl", "ListOauth2CredentialProviders", {})
   .n("BedrockAgentCoreControlClient", "ListOauth2CredentialProvidersCommand")
-  .f(void 0, void 0)
-  .ser(se_ListOauth2CredentialProvidersCommand)
-  .de(de_ListOauth2CredentialProvidersCommand)
+  .sc(ListOauth2CredentialProviders)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

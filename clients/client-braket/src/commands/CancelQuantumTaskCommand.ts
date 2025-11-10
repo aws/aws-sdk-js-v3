@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { BraketClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BraketClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { CancelQuantumTaskRequest, CancelQuantumTaskResponse } from "../models/models_0";
-import { de_CancelQuantumTaskCommand, se_CancelQuantumTaskCommand } from "../protocols/Aws_restJson1";
+import { CancelQuantumTask } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -90,16 +89,11 @@ export class CancelQuantumTaskCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: BraketClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("Braket", "CancelQuantumTask", {})
   .n("BraketClient", "CancelQuantumTaskCommand")
-  .f(void 0, void 0)
-  .ser(se_CancelQuantumTaskCommand)
-  .de(de_CancelQuantumTaskCommand)
+  .sc(CancelQuantumTask)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

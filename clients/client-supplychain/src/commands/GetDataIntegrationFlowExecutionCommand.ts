@@ -1,15 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GetDataIntegrationFlowExecutionRequest, GetDataIntegrationFlowExecutionResponse } from "../models/models_0";
-import {
-  de_GetDataIntegrationFlowExecutionCommand,
-  se_GetDataIntegrationFlowExecutionCommand,
-} from "../protocols/Aws_restJson1";
+import { GetDataIntegrationFlowExecution } from "../schemas/schemas_0";
 import { ServiceInputTypes, ServiceOutputTypes, SupplyChainClientResolvedConfig } from "../SupplyChainClient";
 
 /**
@@ -180,16 +176,11 @@ export class GetDataIntegrationFlowExecutionCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SupplyChainClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("GalaxyPublicAPIGateway", "GetDataIntegrationFlowExecution", {})
   .n("SupplyChainClient", "GetDataIntegrationFlowExecutionCommand")
-  .f(void 0, void 0)
-  .ser(se_GetDataIntegrationFlowExecutionCommand)
-  .de(de_GetDataIntegrationFlowExecutionCommand)
+  .sc(GetDataIntegrationFlowExecution)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,17 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  StartDashboardSnapshotJobRequest,
-  StartDashboardSnapshotJobRequestFilterSensitiveLog,
-  StartDashboardSnapshotJobResponse,
-} from "../models/models_5";
-import { de_StartDashboardSnapshotJobCommand, se_StartDashboardSnapshotJobCommand } from "../protocols/Aws_restJson1";
+import { StartDashboardSnapshotJobRequest, StartDashboardSnapshotJobResponse } from "../models/models_5";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
+import { StartDashboardSnapshotJob } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -256,16 +251,11 @@ export class StartDashboardSnapshotJobCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: QuickSightClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("QuickSight_20180401", "StartDashboardSnapshotJob", {})
   .n("QuickSightClient", "StartDashboardSnapshotJobCommand")
-  .f(StartDashboardSnapshotJobRequestFilterSensitiveLog, void 0)
-  .ser(se_StartDashboardSnapshotJobCommand)
-  .de(de_StartDashboardSnapshotJobCommand)
+  .sc(StartDashboardSnapshotJob)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

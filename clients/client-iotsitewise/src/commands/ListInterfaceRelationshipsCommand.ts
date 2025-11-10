@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { IoTSiteWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTSiteWiseClient";
 import { ListInterfaceRelationshipsRequest, ListInterfaceRelationshipsResponse } from "../models/models_1";
-import { de_ListInterfaceRelationshipsCommand, se_ListInterfaceRelationshipsCommand } from "../protocols/Aws_restJson1";
+import { ListInterfaceRelationships } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -94,16 +93,11 @@ export class ListInterfaceRelationshipsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTSiteWiseClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSIoTSiteWise", "ListInterfaceRelationships", {})
   .n("IoTSiteWiseClient", "ListInterfaceRelationshipsCommand")
-  .f(void 0, void 0)
-  .ser(se_ListInterfaceRelationshipsCommand)
-  .de(de_ListInterfaceRelationshipsCommand)
+  .sc(ListInterfaceRelationships)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

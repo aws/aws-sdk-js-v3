@@ -1,15 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { ListConfigurationCheckDefinitionsInput, ListConfigurationCheckDefinitionsOutput } from "../models/models_0";
-import {
-  de_ListConfigurationCheckDefinitionsCommand,
-  se_ListConfigurationCheckDefinitionsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListConfigurationCheckDefinitions } from "../schemas/schemas_0";
 import { ServiceInputTypes, ServiceOutputTypes, SsmSapClientResolvedConfig } from "../SsmSapClient";
 
 /**
@@ -92,16 +88,11 @@ export class ListConfigurationCheckDefinitionsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SsmSapClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("SsmSap", "ListConfigurationCheckDefinitions", {})
   .n("SsmSapClient", "ListConfigurationCheckDefinitionsCommand")
-  .f(void 0, void 0)
-  .ser(se_ListConfigurationCheckDefinitionsCommand)
-  .de(de_ListConfigurationCheckDefinitionsCommand)
+  .sc(ListConfigurationCheckDefinitions)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

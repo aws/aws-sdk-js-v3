@@ -1,14 +1,13 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { Uint8ArrayBlobAdapter } from "@smithy/util-stream";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { LocationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LocationClient";
-import { GetMapGlyphsRequest, GetMapGlyphsRequestFilterSensitiveLog, GetMapGlyphsResponse } from "../models/models_0";
-import { de_GetMapGlyphsCommand, se_GetMapGlyphsCommand } from "../protocols/Aws_restJson1";
+import { GetMapGlyphsRequest, GetMapGlyphsResponse } from "../models/models_0";
+import { GetMapGlyphs } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -98,16 +97,11 @@ export class GetMapGlyphsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LocationClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("LocationService", "GetMapGlyphs", {})
   .n("LocationClient", "GetMapGlyphsCommand")
-  .f(GetMapGlyphsRequestFilterSensitiveLog, void 0)
-  .ser(se_GetMapGlyphsCommand)
-  .de(de_GetMapGlyphsCommand)
+  .sc(GetMapGlyphs)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

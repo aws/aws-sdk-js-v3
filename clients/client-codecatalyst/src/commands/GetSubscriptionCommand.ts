@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CodeCatalystClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCatalystClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GetSubscriptionRequest, GetSubscriptionResponse } from "../models/models_0";
-import { de_GetSubscriptionCommand, se_GetSubscriptionCommand } from "../protocols/Aws_restJson1";
+import { GetSubscription } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -94,16 +93,11 @@ export class GetSubscriptionCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CodeCatalystClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("CodeCatalyst", "GetSubscription", {})
   .n("CodeCatalystClient", "GetSubscriptionCommand")
-  .f(void 0, void 0)
-  .ser(se_GetSubscriptionCommand)
-  .de(de_GetSubscriptionCommand)
+  .sc(GetSubscription)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

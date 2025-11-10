@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DescribeVoicesInput, DescribeVoicesOutput } from "../models/models_0";
 import { PollyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PollyClient";
-import { de_DescribeVoicesCommand, se_DescribeVoicesCommand } from "../protocols/Aws_restJson1";
+import { DescribeVoices } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -147,16 +146,11 @@ export class DescribeVoicesCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: PollyClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("Parrot_v1", "DescribeVoices", {})
   .n("PollyClient", "DescribeVoicesCommand")
-  .f(void 0, void 0)
-  .ser(se_DescribeVoicesCommand)
-  .de(de_DescribeVoicesCommand)
+  .sc(DescribeVoices)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

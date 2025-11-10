@@ -1,16 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { LexModelsV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LexModelsV2Client";
 import { DeleteResourcePolicyStatementRequest, DeleteResourcePolicyStatementResponse } from "../models/models_0";
-import {
-  de_DeleteResourcePolicyStatementCommand,
-  se_DeleteResourcePolicyStatementCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteResourcePolicyStatement } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -101,16 +97,11 @@ export class DeleteResourcePolicyStatementCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LexModelsV2ClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("LexModelBuildingServiceV2", "DeleteResourcePolicyStatement", {})
   .n("LexModelsV2Client", "DeleteResourcePolicyStatementCommand")
-  .f(void 0, void 0)
-  .ser(se_DeleteResourcePolicyStatementCommand)
-  .de(de_DeleteResourcePolicyStatementCommand)
+  .sc(DeleteResourcePolicyStatement)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

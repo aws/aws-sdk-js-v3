@@ -1,15 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GetPortalServiceProviderMetadataRequest, GetPortalServiceProviderMetadataResponse } from "../models/models_0";
-import {
-  de_GetPortalServiceProviderMetadataCommand,
-  se_GetPortalServiceProviderMetadataCommand,
-} from "../protocols/Aws_restJson1";
+import { GetPortalServiceProviderMetadata } from "../schemas/schemas_0";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesWebClientResolvedConfig } from "../WorkSpacesWebClient";
 
 /**
@@ -91,16 +87,11 @@ export class GetPortalServiceProviderMetadataCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WorkSpacesWebClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSErmineControlPlaneService", "GetPortalServiceProviderMetadata", {})
   .n("WorkSpacesWebClient", "GetPortalServiceProviderMetadataCommand")
-  .f(void 0, void 0)
-  .ser(se_GetPortalServiceProviderMetadataCommand)
-  .de(de_GetPortalServiceProviderMetadataCommand)
+  .sc(GetPortalServiceProviderMetadata)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

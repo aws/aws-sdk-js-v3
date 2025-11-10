@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { GetBackupPlanInput, GetBackupPlanOutput, GetBackupPlanOutputFilterSensitiveLog } from "../models/models_0";
-import { de_GetBackupPlanCommand, se_GetBackupPlanCommand } from "../protocols/Aws_restJson1";
+import { GetBackupPlanInput, GetBackupPlanOutput } from "../models/models_0";
+import { GetBackupPlan } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -155,16 +154,11 @@ export class GetBackupPlanCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: BackupClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("CryoControllerUserManager", "GetBackupPlan", {})
   .n("BackupClient", "GetBackupPlanCommand")
-  .f(void 0, GetBackupPlanOutputFilterSensitiveLog)
-  .ser(se_GetBackupPlanCommand)
-  .de(de_GetBackupPlanCommand)
+  .sc(GetBackupPlan)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

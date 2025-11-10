@@ -1,17 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DataZoneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataZoneClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  ListSubscriptionTargetsInput,
-  ListSubscriptionTargetsOutput,
-  ListSubscriptionTargetsOutputFilterSensitiveLog,
-} from "../models/models_2";
-import { de_ListSubscriptionTargetsCommand, se_ListSubscriptionTargetsCommand } from "../protocols/Aws_restJson1";
+import { ListSubscriptionTargetsInput, ListSubscriptionTargetsOutput } from "../models/models_2";
+import { ListSubscriptionTargets } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -125,16 +120,11 @@ export class ListSubscriptionTargetsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DataZoneClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("DataZone", "ListSubscriptionTargets", {})
   .n("DataZoneClient", "ListSubscriptionTargetsCommand")
-  .f(void 0, ListSubscriptionTargetsOutputFilterSensitiveLog)
-  .ser(se_ListSubscriptionTargetsCommand)
-  .de(de_ListSubscriptionTargetsCommand)
+  .sc(ListSubscriptionTargets)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

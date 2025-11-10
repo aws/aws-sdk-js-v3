@@ -1,16 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  RegisterApplicationInput,
-  RegisterApplicationInputFilterSensitiveLog,
-  RegisterApplicationOutput,
-} from "../models/models_0";
-import { de_RegisterApplicationCommand, se_RegisterApplicationCommand } from "../protocols/Aws_restJson1";
+import { RegisterApplicationInput, RegisterApplicationOutput } from "../models/models_0";
+import { RegisterApplication } from "../schemas/schemas_0";
 import { ServiceInputTypes, ServiceOutputTypes, SsmSapClientResolvedConfig } from "../SsmSapClient";
 
 /**
@@ -126,16 +121,11 @@ export class RegisterApplicationCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SsmSapClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("SsmSap", "RegisterApplication", {})
   .n("SsmSapClient", "RegisterApplicationCommand")
-  .f(RegisterApplicationInputFilterSensitiveLog, void 0)
-  .ser(se_RegisterApplicationCommand)
-  .de(de_RegisterApplicationCommand)
+  .sc(RegisterApplication)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

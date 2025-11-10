@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -8,14 +7,9 @@ import { ChimeSDKVoiceClientResolvedConfig, ServiceInputTypes, ServiceOutputType
 import { commonParams } from "../endpoint/EndpointParameters";
 import {
   PutVoiceConnectorEmergencyCallingConfigurationRequest,
-  PutVoiceConnectorEmergencyCallingConfigurationRequestFilterSensitiveLog,
   PutVoiceConnectorEmergencyCallingConfigurationResponse,
-  PutVoiceConnectorEmergencyCallingConfigurationResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  de_PutVoiceConnectorEmergencyCallingConfigurationCommand,
-  se_PutVoiceConnectorEmergencyCallingConfigurationCommand,
-} from "../protocols/Aws_restJson1";
+import { PutVoiceConnectorEmergencyCallingConfiguration } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -119,19 +113,11 @@ export class PutVoiceConnectorEmergencyCallingConfigurationCommand extends $Comm
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ChimeSDKVoiceClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("ChimeSDKTelephonyService", "PutVoiceConnectorEmergencyCallingConfiguration", {})
   .n("ChimeSDKVoiceClient", "PutVoiceConnectorEmergencyCallingConfigurationCommand")
-  .f(
-    PutVoiceConnectorEmergencyCallingConfigurationRequestFilterSensitiveLog,
-    PutVoiceConnectorEmergencyCallingConfigurationResponseFilterSensitiveLog
-  )
-  .ser(se_PutVoiceConnectorEmergencyCallingConfigurationCommand)
-  .de(de_PutVoiceConnectorEmergencyCallingConfigurationCommand)
+  .sc(PutVoiceConnectorEmergencyCallingConfiguration)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

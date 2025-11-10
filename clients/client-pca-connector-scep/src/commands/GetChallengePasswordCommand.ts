@@ -1,17 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  GetChallengePasswordRequest,
-  GetChallengePasswordResponse,
-  GetChallengePasswordResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetChallengePasswordRequest, GetChallengePasswordResponse } from "../models/models_0";
 import { PcaConnectorScepClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PcaConnectorScepClient";
-import { de_GetChallengePasswordCommand, se_GetChallengePasswordCommand } from "../protocols/Aws_restJson1";
+import { GetChallengePassword } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -94,16 +89,11 @@ export class GetChallengePasswordCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: PcaConnectorScepClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("PcaConnectorScep", "GetChallengePassword", {})
   .n("PcaConnectorScepClient", "GetChallengePasswordCommand")
-  .f(void 0, GetChallengePasswordResponseFilterSensitiveLog)
-  .ser(se_GetChallengePasswordCommand)
-  .de(de_GetChallengePasswordCommand)
+  .sc(GetChallengePassword)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

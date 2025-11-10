@@ -1,12 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DescribeRegistryRequest, DescribeRegistryResponse } from "../models/models_0";
-import { de_DescribeRegistryCommand, se_DescribeRegistryCommand } from "../protocols/Aws_restJson1";
+import { DescribeRegistry } from "../schemas/schemas_0";
 import { SchemasClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SchemasClient";
 
 /**
@@ -87,16 +86,11 @@ export class DescribeRegistryCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SchemasClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("schemas", "DescribeRegistry", {})
   .n("SchemasClient", "DescribeRegistryCommand")
-  .f(void 0, void 0)
-  .ser(se_DescribeRegistryCommand)
-  .de(de_DescribeRegistryCommand)
+  .sc(DescribeRegistry)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

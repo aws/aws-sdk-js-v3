@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { EntityResolutionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EntityResolutionClient";
 import { GetIdMappingWorkflowInput, GetIdMappingWorkflowOutput } from "../models/models_0";
-import { de_GetIdMappingWorkflowCommand, se_GetIdMappingWorkflowCommand } from "../protocols/Aws_restJson1";
+import { GetIdMappingWorkflow } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -132,16 +131,11 @@ export class GetIdMappingWorkflowCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EntityResolutionClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSVeniceService", "GetIdMappingWorkflow", {})
   .n("EntityResolutionClient", "GetIdMappingWorkflowCommand")
-  .f(void 0, void 0)
-  .ser(se_GetIdMappingWorkflowCommand)
-  .de(de_GetIdMappingWorkflowCommand)
+  .sc(GetIdMappingWorkflow)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

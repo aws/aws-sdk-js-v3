@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { ListMLModelTrainingJobsInput, ListMLModelTrainingJobsOutput } from "../models/models_0";
 import { NeptunedataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptunedataClient";
-import { de_ListMLModelTrainingJobsCommand, se_ListMLModelTrainingJobsCommand } from "../protocols/Aws_restJson1";
+import { ListMLModelTrainingJobs } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -106,16 +105,11 @@ export class ListMLModelTrainingJobsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: NeptunedataClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonNeptuneDataplane", "ListMLModelTrainingJobs", {})
   .n("NeptunedataClient", "ListMLModelTrainingJobsCommand")
-  .f(void 0, void 0)
-  .ser(se_ListMLModelTrainingJobsCommand)
-  .de(de_ListMLModelTrainingJobsCommand)
+  .sc(ListMLModelTrainingJobs)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

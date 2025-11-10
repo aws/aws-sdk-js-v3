@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -10,16 +9,8 @@ import {
   ServiceOutputTypes,
 } from "../ChimeSDKMediaPipelinesClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  CreateMediaLiveConnectorPipelineRequest,
-  CreateMediaLiveConnectorPipelineRequestFilterSensitiveLog,
-  CreateMediaLiveConnectorPipelineResponse,
-  CreateMediaLiveConnectorPipelineResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  de_CreateMediaLiveConnectorPipelineCommand,
-  se_CreateMediaLiveConnectorPipelineCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateMediaLiveConnectorPipelineRequest, CreateMediaLiveConnectorPipelineResponse } from "../models/models_0";
+import { CreateMediaLiveConnectorPipeline } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -239,19 +230,11 @@ export class CreateMediaLiveConnectorPipelineCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ChimeSDKMediaPipelinesClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("ChimeSDKMediaPipelinesService", "CreateMediaLiveConnectorPipeline", {})
   .n("ChimeSDKMediaPipelinesClient", "CreateMediaLiveConnectorPipelineCommand")
-  .f(
-    CreateMediaLiveConnectorPipelineRequestFilterSensitiveLog,
-    CreateMediaLiveConnectorPipelineResponseFilterSensitiveLog
-  )
-  .ser(se_CreateMediaLiveConnectorPipelineCommand)
-  .de(de_CreateMediaLiveConnectorPipelineCommand)
+  .sc(CreateMediaLiveConnectorPipeline)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

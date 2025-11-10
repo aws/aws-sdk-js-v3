@@ -1,17 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DataZoneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataZoneClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  UpdateGroupProfileInput,
-  UpdateGroupProfileOutput,
-  UpdateGroupProfileOutputFilterSensitiveLog,
-} from "../models/models_2";
-import { de_UpdateGroupProfileCommand, se_UpdateGroupProfileCommand } from "../protocols/Aws_restJson1";
+import { UpdateGroupProfileInput, UpdateGroupProfileOutput } from "../models/models_2";
+import { UpdateGroupProfile } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -97,16 +92,11 @@ export class UpdateGroupProfileCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DataZoneClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("DataZone", "UpdateGroupProfile", {})
   .n("DataZoneClient", "UpdateGroupProfileCommand")
-  .f(void 0, UpdateGroupProfileOutputFilterSensitiveLog)
-  .ser(se_UpdateGroupProfileCommand)
-  .de(de_UpdateGroupProfileCommand)
+  .sc(UpdateGroupProfile)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

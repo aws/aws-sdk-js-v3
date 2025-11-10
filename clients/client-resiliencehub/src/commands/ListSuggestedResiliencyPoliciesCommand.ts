@@ -1,20 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  ListSuggestedResiliencyPoliciesRequest,
-  ListSuggestedResiliencyPoliciesResponse,
-  ListSuggestedResiliencyPoliciesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  de_ListSuggestedResiliencyPoliciesCommand,
-  se_ListSuggestedResiliencyPoliciesCommand,
-} from "../protocols/Aws_restJson1";
+import { ListSuggestedResiliencyPoliciesRequest, ListSuggestedResiliencyPoliciesResponse } from "../models/models_0";
 import { ResiliencehubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResiliencehubClient";
+import { ListSuggestedResiliencyPolicies } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -119,16 +111,11 @@ export class ListSuggestedResiliencyPoliciesCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ResiliencehubClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AwsResilienceHub", "ListSuggestedResiliencyPolicies", {})
   .n("ResiliencehubClient", "ListSuggestedResiliencyPoliciesCommand")
-  .f(void 0, ListSuggestedResiliencyPoliciesResponseFilterSensitiveLog)
-  .ser(se_ListSuggestedResiliencyPoliciesCommand)
-  .de(de_ListSuggestedResiliencyPoliciesCommand)
+  .sc(ListSuggestedResiliencyPolicies)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

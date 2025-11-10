@@ -1,22 +1,16 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  DecryptDataInput,
-  DecryptDataInputFilterSensitiveLog,
-  DecryptDataOutput,
-  DecryptDataOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { DecryptDataInput, DecryptDataOutput } from "../models/models_0";
 import {
   PaymentCryptographyDataClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../PaymentCryptographyDataClient";
-import { de_DecryptDataCommand, se_DecryptDataCommand } from "../protocols/Aws_restJson1";
+import { DecryptData } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -136,16 +130,11 @@ export class DecryptDataCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: PaymentCryptographyDataClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("PaymentCryptographyDataPlane", "DecryptData", {})
   .n("PaymentCryptographyDataClient", "DecryptDataCommand")
-  .f(DecryptDataInputFilterSensitiveLog, DecryptDataOutputFilterSensitiveLog)
-  .ser(se_DecryptDataCommand)
-  .de(de_DecryptDataCommand)
+  .sc(DecryptData)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

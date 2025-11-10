@@ -1,16 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  StartImportJobRequest,
-  StartImportJobResponse,
-  StartImportJobResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { de_StartImportJobCommand, se_StartImportJobCommand } from "../protocols/Aws_restJson1";
+import { StartImportJobRequest, StartImportJobResponse } from "../models/models_0";
+import { StartImportJob } from "../schemas/schemas_0";
 import { ServiceInputTypes, ServiceOutputTypes, WisdomClientResolvedConfig } from "../WisdomClient";
 
 /**
@@ -136,16 +131,11 @@ export class StartImportJobCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WisdomClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("WisdomService", "StartImportJob", {})
   .n("WisdomClient", "StartImportJobCommand")
-  .f(void 0, StartImportJobResponseFilterSensitiveLog)
-  .ser(se_StartImportJobCommand)
-  .de(de_StartImportJobCommand)
+  .sc(StartImportJob)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

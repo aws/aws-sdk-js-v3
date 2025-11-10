@@ -1,17 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  CreateWebLoginTokenRequest,
-  CreateWebLoginTokenResponse,
-  CreateWebLoginTokenResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateWebLoginTokenRequest, CreateWebLoginTokenResponse } from "../models/models_0";
 import { MWAAClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MWAAClient";
-import { de_CreateWebLoginTokenCommand, se_CreateWebLoginTokenCommand } from "../protocols/Aws_restJson1";
+import { CreateWebLoginToken } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -89,16 +84,11 @@ export class CreateWebLoginTokenCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MWAAClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonMWAA", "CreateWebLoginToken", {})
   .n("MWAAClient", "CreateWebLoginTokenCommand")
-  .f(void 0, CreateWebLoginTokenResponseFilterSensitiveLog)
-  .ser(se_CreateWebLoginTokenCommand)
-  .de(de_CreateWebLoginTokenCommand)
+  .sc(CreateWebLoginToken)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

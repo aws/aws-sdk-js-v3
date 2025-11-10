@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
 import { ListThingPrincipalsRequest, ListThingPrincipalsResponse } from "../models/models_2";
-import { de_ListThingPrincipalsCommand, se_ListThingPrincipalsCommand } from "../protocols/Aws_restJson1";
+import { ListThingPrincipals } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -96,16 +95,11 @@ export class ListThingPrincipalsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSIotService", "ListThingPrincipals", {})
   .n("IoTClient", "ListThingPrincipalsCommand")
-  .f(void 0, void 0)
-  .ser(se_ListThingPrincipalsCommand)
-  .de(de_ListThingPrincipalsCommand)
+  .sc(ListThingPrincipals)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

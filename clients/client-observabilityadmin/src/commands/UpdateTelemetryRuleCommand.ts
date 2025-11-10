@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -11,7 +10,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ObservabilityAdminClient";
-import { de_UpdateTelemetryRuleCommand, se_UpdateTelemetryRuleCommand } from "../protocols/Aws_restJson1";
+import { UpdateTelemetryRule } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -108,16 +107,11 @@ export class UpdateTelemetryRuleCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ObservabilityAdminClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("ObservabilityAdmin", "UpdateTelemetryRule", {})
   .n("ObservabilityAdminClient", "UpdateTelemetryRuleCommand")
-  .f(void 0, void 0)
-  .ser(se_UpdateTelemetryRuleCommand)
-  .de(de_UpdateTelemetryRuleCommand)
+  .sc(UpdateTelemetryRule)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

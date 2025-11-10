@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DeadlineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeadlineClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { ListMonitorsRequest, ListMonitorsResponse } from "../models/models_1";
-import { de_ListMonitorsCommand, se_ListMonitorsCommand } from "../protocols/Aws_restJson1";
+import { ListMonitors } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -99,16 +98,11 @@ export class ListMonitorsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DeadlineClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("Deadline", "ListMonitors", {})
   .n("DeadlineClient", "ListMonitorsCommand")
-  .f(void 0, void 0)
-  .ser(se_ListMonitorsCommand)
-  .de(de_ListMonitorsCommand)
+  .sc(ListMonitors)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

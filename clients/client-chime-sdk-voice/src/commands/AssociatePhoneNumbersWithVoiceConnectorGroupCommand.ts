@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -8,14 +7,9 @@ import { ChimeSDKVoiceClientResolvedConfig, ServiceInputTypes, ServiceOutputType
 import { commonParams } from "../endpoint/EndpointParameters";
 import {
   AssociatePhoneNumbersWithVoiceConnectorGroupRequest,
-  AssociatePhoneNumbersWithVoiceConnectorGroupRequestFilterSensitiveLog,
   AssociatePhoneNumbersWithVoiceConnectorGroupResponse,
-  AssociatePhoneNumbersWithVoiceConnectorGroupResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  de_AssociatePhoneNumbersWithVoiceConnectorGroupCommand,
-  se_AssociatePhoneNumbersWithVoiceConnectorGroupCommand,
-} from "../protocols/Aws_restJson1";
+import { AssociatePhoneNumbersWithVoiceConnectorGroup } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -115,19 +109,11 @@ export class AssociatePhoneNumbersWithVoiceConnectorGroupCommand extends $Comman
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ChimeSDKVoiceClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("ChimeSDKTelephonyService", "AssociatePhoneNumbersWithVoiceConnectorGroup", {})
   .n("ChimeSDKVoiceClient", "AssociatePhoneNumbersWithVoiceConnectorGroupCommand")
-  .f(
-    AssociatePhoneNumbersWithVoiceConnectorGroupRequestFilterSensitiveLog,
-    AssociatePhoneNumbersWithVoiceConnectorGroupResponseFilterSensitiveLog
-  )
-  .ser(se_AssociatePhoneNumbersWithVoiceConnectorGroupCommand)
-  .de(de_AssociatePhoneNumbersWithVoiceConnectorGroupCommand)
+  .sc(AssociatePhoneNumbersWithVoiceConnectorGroup)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

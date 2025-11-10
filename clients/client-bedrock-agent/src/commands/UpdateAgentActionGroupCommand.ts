@@ -1,18 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { BedrockAgentClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BedrockAgentClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  UpdateAgentActionGroupRequest,
-  UpdateAgentActionGroupRequestFilterSensitiveLog,
-  UpdateAgentActionGroupResponse,
-  UpdateAgentActionGroupResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { de_UpdateAgentActionGroupCommand, se_UpdateAgentActionGroupCommand } from "../protocols/Aws_restJson1";
+import { UpdateAgentActionGroupRequest, UpdateAgentActionGroupResponse } from "../models/models_0";
+import { UpdateAgentActionGroup } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -173,16 +167,11 @@ export class UpdateAgentActionGroupCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: BedrockAgentClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonBedrockAgentBuildTimeLambda", "UpdateAgentActionGroup", {})
   .n("BedrockAgentClient", "UpdateAgentActionGroupCommand")
-  .f(UpdateAgentActionGroupRequestFilterSensitiveLog, UpdateAgentActionGroupResponseFilterSensitiveLog)
-  .ser(se_UpdateAgentActionGroupCommand)
-  .de(de_UpdateAgentActionGroupCommand)
+  .sc(UpdateAgentActionGroup)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

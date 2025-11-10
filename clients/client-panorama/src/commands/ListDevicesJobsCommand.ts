@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { ListDevicesJobsRequest, ListDevicesJobsResponse } from "../models/models_0";
 import { PanoramaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PanoramaClient";
-import { de_ListDevicesJobsCommand, se_ListDevicesJobsCommand } from "../protocols/Aws_restJson1";
+import { ListDevicesJobs } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -96,16 +95,11 @@ export class ListDevicesJobsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: PanoramaClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("OmniCloudServiceLambda", "ListDevicesJobs", {})
   .n("PanoramaClient", "ListDevicesJobsCommand")
-  .f(void 0, void 0)
-  .ser(se_ListDevicesJobsCommand)
-  .de(de_ListDevicesJobsCommand)
+  .sc(ListDevicesJobs)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

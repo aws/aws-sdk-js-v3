@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { AppIntegrationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppIntegrationsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DeleteEventIntegrationRequest, DeleteEventIntegrationResponse } from "../models/models_0";
-import { de_DeleteEventIntegrationCommand, se_DeleteEventIntegrationCommand } from "../protocols/Aws_restJson1";
+import { DeleteEventIntegration } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -84,16 +83,11 @@ export class DeleteEventIntegrationCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AppIntegrationsClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonAppIntegrationService", "DeleteEventIntegration", {})
   .n("AppIntegrationsClient", "DeleteEventIntegrationCommand")
-  .f(void 0, void 0)
-  .ser(se_DeleteEventIntegrationCommand)
-  .de(de_DeleteEventIntegrationCommand)
+  .sc(DeleteEventIntegration)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

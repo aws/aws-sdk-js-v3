@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DataZoneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataZoneClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { SearchTypesInput, SearchTypesOutput, SearchTypesOutputFilterSensitiveLog } from "../models/models_2";
-import { de_SearchTypesCommand, se_SearchTypesCommand } from "../protocols/Aws_restJson1";
+import { SearchTypesInput, SearchTypesOutput } from "../models/models_2";
+import { SearchTypes } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -185,16 +184,11 @@ export class SearchTypesCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DataZoneClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("DataZone", "SearchTypes", {})
   .n("DataZoneClient", "SearchTypesCommand")
-  .f(void 0, SearchTypesOutputFilterSensitiveLog)
-  .ser(se_SearchTypesCommand)
-  .de(de_SearchTypesCommand)
+  .sc(SearchTypes)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

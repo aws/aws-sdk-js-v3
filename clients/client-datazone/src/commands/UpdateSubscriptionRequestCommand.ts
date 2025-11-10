@@ -1,18 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DataZoneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataZoneClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  UpdateSubscriptionRequestInput,
-  UpdateSubscriptionRequestInputFilterSensitiveLog,
-  UpdateSubscriptionRequestOutput,
-  UpdateSubscriptionRequestOutputFilterSensitiveLog,
-} from "../models/models_2";
-import { de_UpdateSubscriptionRequestCommand, se_UpdateSubscriptionRequestCommand } from "../protocols/Aws_restJson1";
+import { UpdateSubscriptionRequestInput, UpdateSubscriptionRequestOutput } from "../models/models_2";
+import { UpdateSubscriptionRequest } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -175,16 +169,11 @@ export class UpdateSubscriptionRequestCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DataZoneClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("DataZone", "UpdateSubscriptionRequest", {})
   .n("DataZoneClient", "UpdateSubscriptionRequestCommand")
-  .f(UpdateSubscriptionRequestInputFilterSensitiveLog, UpdateSubscriptionRequestOutputFilterSensitiveLog)
-  .ser(se_UpdateSubscriptionRequestCommand)
-  .de(de_UpdateSubscriptionRequestCommand)
+  .sc(UpdateSubscriptionRequest)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

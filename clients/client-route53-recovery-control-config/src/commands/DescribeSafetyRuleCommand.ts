@@ -1,17 +1,16 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DescribeSafetyRuleRequest, DescribeSafetyRuleResponse } from "../models/models_0";
-import { de_DescribeSafetyRuleCommand, se_DescribeSafetyRuleCommand } from "../protocols/Aws_restJson1";
 import {
   Route53RecoveryControlConfigClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../Route53RecoveryControlConfigClient";
+import { DescribeSafetyRule } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -114,16 +113,11 @@ export class DescribeSafetyRuleCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: Route53RecoveryControlConfigClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("Route53RecoveryControlConfig", "DescribeSafetyRule", {})
   .n("Route53RecoveryControlConfigClient", "DescribeSafetyRuleCommand")
-  .f(void 0, void 0)
-  .ser(se_DescribeSafetyRuleCommand)
-  .de(de_DescribeSafetyRuleCommand)
+  .sc(DescribeSafetyRule)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

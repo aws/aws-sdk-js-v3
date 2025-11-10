@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DocDBElasticClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DocDBElasticClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { RestoreClusterFromSnapshotInput, RestoreClusterFromSnapshotOutput } from "../models/models_0";
-import { de_RestoreClusterFromSnapshotCommand, se_RestoreClusterFromSnapshotCommand } from "../protocols/Aws_restJson1";
+import { RestoreClusterFromSnapshot } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -132,16 +131,11 @@ export class RestoreClusterFromSnapshotCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DocDBElasticClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("ChimeraDbLionfishServiceLambda", "RestoreClusterFromSnapshot", {})
   .n("DocDBElasticClient", "RestoreClusterFromSnapshotCommand")
-  .f(void 0, void 0)
-  .ser(se_RestoreClusterFromSnapshotCommand)
-  .de(de_RestoreClusterFromSnapshotCommand)
+  .sc(RestoreClusterFromSnapshot)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

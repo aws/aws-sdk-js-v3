@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { GetPluginRequest, GetPluginResponse, GetPluginResponseFilterSensitiveLog } from "../models/models_0";
-import { de_GetPluginCommand, se_GetPluginCommand } from "../protocols/Aws_restJson1";
+import { GetPluginRequest, GetPluginResponse } from "../models/models_0";
 import { QBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QBusinessClient";
+import { GetPlugin } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -123,16 +122,11 @@ export class GetPluginCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: QBusinessClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("ExpertQ", "GetPlugin", {})
   .n("QBusinessClient", "GetPluginCommand")
-  .f(void 0, GetPluginResponseFilterSensitiveLog)
-  .ser(se_GetPluginCommand)
-  .de(de_GetPluginCommand)
+  .sc(GetPlugin)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

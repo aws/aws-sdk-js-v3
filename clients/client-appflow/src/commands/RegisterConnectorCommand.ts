@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { AppflowClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppflowClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { RegisterConnectorRequest, RegisterConnectorResponse } from "../models/models_0";
-import { de_RegisterConnectorCommand, se_RegisterConnectorCommand } from "../protocols/Aws_restJson1";
+import { RegisterConnector } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -112,16 +111,11 @@ export class RegisterConnectorCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AppflowClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("SandstoneConfigurationServiceLambda", "RegisterConnector", {})
   .n("AppflowClient", "RegisterConnectorCommand")
-  .f(void 0, void 0)
-  .ser(se_RegisterConnectorCommand)
-  .de(de_RegisterConnectorCommand)
+  .sc(RegisterConnector)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

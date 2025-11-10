@@ -1,16 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { Macie2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Macie2Client";
 import { UpdateOrganizationConfigurationRequest, UpdateOrganizationConfigurationResponse } from "../models/models_1";
-import {
-  de_UpdateOrganizationConfigurationCommand,
-  se_UpdateOrganizationConfigurationCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateOrganizationConfiguration } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -94,16 +90,11 @@ export class UpdateOrganizationConfigurationCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: Macie2ClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("Macie2", "UpdateOrganizationConfiguration", {})
   .n("Macie2Client", "UpdateOrganizationConfigurationCommand")
-  .f(void 0, void 0)
-  .ser(se_UpdateOrganizationConfigurationCommand)
-  .de(de_UpdateOrganizationConfigurationCommand)
+  .sc(UpdateOrganizationConfiguration)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

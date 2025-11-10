@@ -1,21 +1,16 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  ListEmailContactsRequest,
-  ListEmailContactsResponse,
-  ListEmailContactsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListEmailContactsRequest, ListEmailContactsResponse } from "../models/models_0";
 import {
   NotificationsContactsClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../NotificationsContactsClient";
-import { de_ListEmailContactsCommand, se_ListEmailContactsCommand } from "../protocols/Aws_restJson1";
+import { ListEmailContacts } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -101,16 +96,11 @@ export class ListEmailContactsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: NotificationsContactsClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("NotificationsContacts", "ListEmailContacts", {})
   .n("NotificationsContactsClient", "ListEmailContactsCommand")
-  .f(void 0, ListEmailContactsResponseFilterSensitiveLog)
-  .ser(se_ListEmailContactsCommand)
-  .de(de_ListEmailContactsCommand)
+  .sc(ListEmailContacts)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

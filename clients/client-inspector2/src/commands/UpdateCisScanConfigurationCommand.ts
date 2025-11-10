@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { Inspector2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Inspector2Client";
 import { UpdateCisScanConfigurationRequest, UpdateCisScanConfigurationResponse } from "../models/models_1";
-import { de_UpdateCisScanConfigurationCommand, se_UpdateCisScanConfigurationCommand } from "../protocols/Aws_restJson1";
+import { UpdateCisScanConfiguration } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -161,16 +160,11 @@ export class UpdateCisScanConfigurationCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: Inspector2ClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("Inspector2", "UpdateCisScanConfiguration", {})
   .n("Inspector2Client", "UpdateCisScanConfigurationCommand")
-  .f(void 0, void 0)
-  .ser(se_UpdateCisScanConfigurationCommand)
-  .de(de_UpdateCisScanConfigurationCommand)
+  .sc(UpdateCisScanConfiguration)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

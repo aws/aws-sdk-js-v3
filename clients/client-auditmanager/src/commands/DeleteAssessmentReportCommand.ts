@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { AuditManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AuditManagerClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DeleteAssessmentReportRequest, DeleteAssessmentReportResponse } from "../models/models_0";
-import { de_DeleteAssessmentReportCommand, se_DeleteAssessmentReportCommand } from "../protocols/Aws_restJson1";
+import { DeleteAssessmentReport } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -104,16 +103,11 @@ export class DeleteAssessmentReportCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AuditManagerClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("BedrockAssessmentManagerLambda", "DeleteAssessmentReport", {})
   .n("AuditManagerClient", "DeleteAssessmentReportCommand")
-  .f(void 0, void 0)
-  .ser(se_DeleteAssessmentReportCommand)
-  .de(de_DeleteAssessmentReportCommand)
+  .sc(DeleteAssessmentReport)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

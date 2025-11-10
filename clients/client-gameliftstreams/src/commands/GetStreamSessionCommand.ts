@@ -1,17 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GameLiftStreamsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftStreamsClient";
-import {
-  GetStreamSessionInput,
-  GetStreamSessionOutput,
-  GetStreamSessionOutputFilterSensitiveLog,
-} from "../models/models_0";
-import { de_GetStreamSessionCommand, se_GetStreamSessionCommand } from "../protocols/Aws_restJson1";
+import { GetStreamSessionInput, GetStreamSessionOutput } from "../models/models_0";
+import { GetStreamSession } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -117,16 +112,11 @@ export class GetStreamSessionCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GameLiftStreamsClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("GameLiftStreams", "GetStreamSession", {})
   .n("GameLiftStreamsClient", "GetStreamSessionCommand")
-  .f(void 0, GetStreamSessionOutputFilterSensitiveLog)
-  .ser(se_GetStreamSessionCommand)
-  .de(de_GetStreamSessionCommand)
+  .sc(GetStreamSession)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

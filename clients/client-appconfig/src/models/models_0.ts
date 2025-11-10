@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@smithy/smithy-client";
+import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
 import { AppConfigServiceException as __BaseException } from "./AppConfigServiceException";
 
@@ -3080,69 +3080,3 @@ export interface ValidateConfigurationRequest {
    */
   ConfigurationVersion: string | undefined;
 }
-
-/**
- * @internal
- */
-export const ValidatorFilterSensitiveLog = (obj: Validator): any => ({
-  ...obj,
-  ...(obj.Content && { Content: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const ConfigurationProfileFilterSensitiveLog = (obj: ConfigurationProfile): any => ({
-  ...obj,
-  ...(obj.Validators && { Validators: obj.Validators.map((item) => ValidatorFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const CreateConfigurationProfileRequestFilterSensitiveLog = (obj: CreateConfigurationProfileRequest): any => ({
-  ...obj,
-  ...(obj.Validators && { Validators: obj.Validators.map((item) => ValidatorFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const CreateHostedConfigurationVersionRequestFilterSensitiveLog = (
-  obj: CreateHostedConfigurationVersionRequest
-): any => ({
-  ...obj,
-  ...(obj.Content && { Content: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const HostedConfigurationVersionFilterSensitiveLog = (obj: HostedConfigurationVersion): any => ({
-  ...obj,
-  ...(obj.Content && { Content: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const ConfigurationFilterSensitiveLog = (obj: Configuration): any => ({
-  ...obj,
-  ...(obj.Content && { Content: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const StartDeploymentRequestFilterSensitiveLog = (obj: StartDeploymentRequest): any => ({
-  ...obj,
-  ...(obj.DynamicExtensionParameters && { DynamicExtensionParameters: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const UpdateConfigurationProfileRequestFilterSensitiveLog = (obj: UpdateConfigurationProfileRequest): any => ({
-  ...obj,
-  ...(obj.Validators && { Validators: obj.Validators.map((item) => ValidatorFilterSensitiveLog(item)) }),
-});

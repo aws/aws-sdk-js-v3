@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { AmplifyBackendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmplifyBackendClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DeleteBackendAuthRequest, DeleteBackendAuthResponse } from "../models/models_0";
-import { de_DeleteBackendAuthCommand, se_DeleteBackendAuthCommand } from "../protocols/Aws_restJson1";
+import { DeleteBackendAuth } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -89,16 +88,11 @@ export class DeleteBackendAuthCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AmplifyBackendClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmplifyBackend", "DeleteBackendAuth", {})
   .n("AmplifyBackendClient", "DeleteBackendAuthCommand")
-  .f(void 0, void 0)
-  .ser(se_DeleteBackendAuthCommand)
-  .de(de_DeleteBackendAuthCommand)
+  .sc(DeleteBackendAuth)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

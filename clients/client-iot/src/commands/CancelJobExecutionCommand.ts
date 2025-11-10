@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
 import { CancelJobExecutionRequest } from "../models/models_0";
-import { de_CancelJobExecutionCommand, se_CancelJobExecutionCommand } from "../protocols/Aws_restJson1";
+import { CancelJobExecution } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -97,16 +96,11 @@ export class CancelJobExecutionCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSIotService", "CancelJobExecution", {})
   .n("IoTClient", "CancelJobExecutionCommand")
-  .f(void 0, void 0)
-  .ser(se_CancelJobExecutionCommand)
-  .de(de_CancelJobExecutionCommand)
+  .sc(CancelJobExecution)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

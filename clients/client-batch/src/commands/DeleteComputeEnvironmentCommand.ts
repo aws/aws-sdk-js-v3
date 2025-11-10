@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { BatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BatchClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DeleteComputeEnvironmentRequest, DeleteComputeEnvironmentResponse } from "../models/models_0";
-import { de_DeleteComputeEnvironmentCommand, se_DeleteComputeEnvironmentCommand } from "../protocols/Aws_restJson1";
+import { DeleteComputeEnvironment } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -95,16 +94,11 @@ export class DeleteComputeEnvironmentCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: BatchClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSBatchV20160810", "DeleteComputeEnvironment", {})
   .n("BatchClient", "DeleteComputeEnvironmentCommand")
-  .f(void 0, void 0)
-  .ser(se_DeleteComputeEnvironmentCommand)
-  .de(de_DeleteComputeEnvironmentCommand)
+  .sc(DeleteComputeEnvironment)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

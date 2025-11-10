@@ -1,17 +1,16 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { CreateIndexInput, CreateIndexInputFilterSensitiveLog, CreateIndexOutput } from "../models/models_0";
-import { de_CreateIndexCommand, se_CreateIndexCommand } from "../protocols/Aws_restJson1";
+import { CreateIndexInput, CreateIndexOutput } from "../models/models_0";
 import {
   ResourceExplorer2ClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ResourceExplorer2Client";
+import { CreateIndex } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -94,16 +93,11 @@ export class CreateIndexCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ResourceExplorer2ClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("ResourceExplorer", "CreateIndex", {})
   .n("ResourceExplorer2Client", "CreateIndexCommand")
-  .f(CreateIndexInputFilterSensitiveLog, void 0)
-  .ser(se_CreateIndexCommand)
-  .de(de_CreateIndexCommand)
+  .sc(CreateIndex)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

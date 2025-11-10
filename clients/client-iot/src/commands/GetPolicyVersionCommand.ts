@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
 import { GetPolicyVersionRequest, GetPolicyVersionResponse } from "../models/models_1";
-import { de_GetPolicyVersionCommand, se_GetPolicyVersionCommand } from "../protocols/Aws_restJson1";
+import { GetPolicyVersion } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -97,16 +96,11 @@ export class GetPolicyVersionCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSIotService", "GetPolicyVersion", {})
   .n("IoTClient", "GetPolicyVersionCommand")
-  .f(void 0, void 0)
-  .ser(se_GetPolicyVersionCommand)
-  .de(de_GetPolicyVersionCommand)
+  .sc(GetPolicyVersion)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

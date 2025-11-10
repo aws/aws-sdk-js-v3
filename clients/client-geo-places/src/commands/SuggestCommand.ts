@@ -1,18 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GeoPlacesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GeoPlacesClient";
-import {
-  SuggestRequest,
-  SuggestRequestFilterSensitiveLog,
-  SuggestResponse,
-  SuggestResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { de_SuggestCommand, se_SuggestCommand } from "../protocols/Aws_restJson1";
+import { SuggestRequest, SuggestResponse } from "../models/models_0";
+import { Suggest } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -296,16 +290,11 @@ export class SuggestCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GeoPlacesClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("PlacesService", "Suggest", {})
   .n("GeoPlacesClient", "SuggestCommand")
-  .f(SuggestRequestFilterSensitiveLog, SuggestResponseFilterSensitiveLog)
-  .ser(se_SuggestCommand)
-  .de(de_SuggestCommand)
+  .sc(Suggest)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

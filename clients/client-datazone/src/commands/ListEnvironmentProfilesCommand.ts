@@ -1,18 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DataZoneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataZoneClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  ListEnvironmentProfilesInput,
-  ListEnvironmentProfilesInputFilterSensitiveLog,
-  ListEnvironmentProfilesOutput,
-  ListEnvironmentProfilesOutputFilterSensitiveLog,
-} from "../models/models_1";
-import { de_ListEnvironmentProfilesCommand, se_ListEnvironmentProfilesCommand } from "../protocols/Aws_restJson1";
+import { ListEnvironmentProfilesInput, ListEnvironmentProfilesOutput } from "../models/models_1";
+import { ListEnvironmentProfiles } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -112,16 +106,11 @@ export class ListEnvironmentProfilesCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DataZoneClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("DataZone", "ListEnvironmentProfiles", {})
   .n("DataZoneClient", "ListEnvironmentProfilesCommand")
-  .f(ListEnvironmentProfilesInputFilterSensitiveLog, ListEnvironmentProfilesOutputFilterSensitiveLog)
-  .ser(se_ListEnvironmentProfilesCommand)
-  .de(de_ListEnvironmentProfilesCommand)
+  .sc(ListEnvironmentProfiles)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

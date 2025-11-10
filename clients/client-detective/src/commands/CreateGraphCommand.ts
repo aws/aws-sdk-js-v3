@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DetectiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DetectiveClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { CreateGraphRequest, CreateGraphResponse } from "../models/models_0";
-import { de_CreateGraphCommand, se_CreateGraphCommand } from "../protocols/Aws_restJson1";
+import { CreateGraph } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -104,16 +103,11 @@ export class CreateGraphCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DetectiveClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonDetective", "CreateGraph", {})
   .n("DetectiveClient", "CreateGraphCommand")
-  .f(void 0, void 0)
-  .ser(se_CreateGraphCommand)
-  .de(de_CreateGraphCommand)
+  .sc(CreateGraph)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

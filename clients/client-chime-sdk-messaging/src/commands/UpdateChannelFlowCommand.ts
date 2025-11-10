@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -10,12 +9,8 @@ import {
   ServiceOutputTypes,
 } from "../ChimeSDKMessagingClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  UpdateChannelFlowRequest,
-  UpdateChannelFlowRequestFilterSensitiveLog,
-  UpdateChannelFlowResponse,
-} from "../models/models_0";
-import { de_UpdateChannelFlowCommand, se_UpdateChannelFlowCommand } from "../protocols/Aws_restJson1";
+import { UpdateChannelFlowRequest, UpdateChannelFlowResponse } from "../models/models_0";
+import { UpdateChannelFlow } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -114,16 +109,11 @@ export class UpdateChannelFlowCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ChimeSDKMessagingClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("ChimeMessagingService", "UpdateChannelFlow", {})
   .n("ChimeSDKMessagingClient", "UpdateChannelFlowCommand")
-  .f(UpdateChannelFlowRequestFilterSensitiveLog, void 0)
-  .ser(se_UpdateChannelFlowCommand)
-  .de(de_UpdateChannelFlowCommand)
+  .sc(UpdateChannelFlow)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

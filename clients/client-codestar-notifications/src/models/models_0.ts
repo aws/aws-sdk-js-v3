@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@smithy/smithy-client";
+import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
 import { CodestarNotificationsServiceException as __BaseException } from "./CodestarNotificationsServiceException";
 
@@ -980,78 +980,3 @@ export interface UpdateNotificationRuleRequest {
  * @public
  */
 export interface UpdateNotificationRuleResult {}
-
-/**
- * @internal
- */
-export const TargetFilterSensitiveLog = (obj: Target): any => ({
-  ...obj,
-  ...(obj.TargetAddress && { TargetAddress: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const CreateNotificationRuleRequestFilterSensitiveLog = (obj: CreateNotificationRuleRequest): any => ({
-  ...obj,
-  ...(obj.Name && { Name: SENSITIVE_STRING }),
-  ...(obj.Targets && { Targets: obj.Targets.map((item) => TargetFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const DeleteTargetRequestFilterSensitiveLog = (obj: DeleteTargetRequest): any => ({
-  ...obj,
-  ...(obj.TargetAddress && { TargetAddress: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const TargetSummaryFilterSensitiveLog = (obj: TargetSummary): any => ({
-  ...obj,
-  ...(obj.TargetAddress && { TargetAddress: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const DescribeNotificationRuleResultFilterSensitiveLog = (obj: DescribeNotificationRuleResult): any => ({
-  ...obj,
-  ...(obj.Name && { Name: SENSITIVE_STRING }),
-  ...(obj.Targets && { Targets: obj.Targets.map((item) => TargetSummaryFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const ListTargetsResultFilterSensitiveLog = (obj: ListTargetsResult): any => ({
-  ...obj,
-  ...(obj.Targets && { Targets: obj.Targets.map((item) => TargetSummaryFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const SubscribeRequestFilterSensitiveLog = (obj: SubscribeRequest): any => ({
-  ...obj,
-  ...(obj.Target && { Target: TargetFilterSensitiveLog(obj.Target) }),
-});
-
-/**
- * @internal
- */
-export const UnsubscribeRequestFilterSensitiveLog = (obj: UnsubscribeRequest): any => ({
-  ...obj,
-  ...(obj.TargetAddress && { TargetAddress: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const UpdateNotificationRuleRequestFilterSensitiveLog = (obj: UpdateNotificationRuleRequest): any => ({
-  ...obj,
-  ...(obj.Name && { Name: SENSITIVE_STRING }),
-  ...(obj.Targets && { Targets: obj.Targets.map((item) => TargetFilterSensitiveLog(item)) }),
-});

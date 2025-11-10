@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GreengrassClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassClient";
 import { ListCoreDefinitionVersionsRequest, ListCoreDefinitionVersionsResponse } from "../models/models_0";
-import { de_ListCoreDefinitionVersionsCommand, se_ListCoreDefinitionVersionsCommand } from "../protocols/Aws_restJson1";
+import { ListCoreDefinitionVersions } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -83,16 +82,11 @@ export class ListCoreDefinitionVersionsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GreengrassClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("Greengrass", "ListCoreDefinitionVersions", {})
   .n("GreengrassClient", "ListCoreDefinitionVersionsCommand")
-  .f(void 0, void 0)
-  .ser(se_ListCoreDefinitionVersionsCommand)
-  .de(de_ListCoreDefinitionVersionsCommand)
+  .sc(ListCoreDefinitionVersions)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

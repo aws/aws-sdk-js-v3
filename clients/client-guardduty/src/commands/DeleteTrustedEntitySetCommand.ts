@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GuardDutyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GuardDutyClient";
 import { DeleteTrustedEntitySetRequest, DeleteTrustedEntitySetResponse } from "../models/models_0";
-import { de_DeleteTrustedEntitySetCommand, se_DeleteTrustedEntitySetCommand } from "../protocols/Aws_restJson1";
+import { DeleteTrustedEntitySet } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -76,16 +75,11 @@ export class DeleteTrustedEntitySetCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GuardDutyClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("GuardDutyAPIService", "DeleteTrustedEntitySet", {})
   .n("GuardDutyClient", "DeleteTrustedEntitySetCommand")
-  .f(void 0, void 0)
-  .ser(se_DeleteTrustedEntitySetCommand)
-  .de(de_DeleteTrustedEntitySetCommand)
+  .sc(DeleteTrustedEntitySet)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

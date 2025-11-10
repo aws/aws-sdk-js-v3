@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -10,13 +9,8 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../MigrationHubOrchestratorClient";
-import {
-  CreateMigrationWorkflowRequest,
-  CreateMigrationWorkflowRequestFilterSensitiveLog,
-  CreateMigrationWorkflowResponse,
-  CreateMigrationWorkflowResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { de_CreateWorkflowCommand, se_CreateWorkflowCommand } from "../protocols/Aws_restJson1";
+import { CreateMigrationWorkflowRequest, CreateMigrationWorkflowResponse } from "../models/models_0";
+import { CreateWorkflow } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -137,16 +131,11 @@ export class CreateWorkflowCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MigrationHubOrchestratorClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSMigrationHubOrchestrator", "CreateWorkflow", {})
   .n("MigrationHubOrchestratorClient", "CreateWorkflowCommand")
-  .f(CreateMigrationWorkflowRequestFilterSensitiveLog, CreateMigrationWorkflowResponseFilterSensitiveLog)
-  .ser(se_CreateWorkflowCommand)
-  .de(de_CreateWorkflowCommand)
+  .sc(CreateWorkflow)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

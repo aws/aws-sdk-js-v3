@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { AuditManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AuditManagerClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { GetControlRequest, GetControlResponse, GetControlResponseFilterSensitiveLog } from "../models/models_0";
-import { de_GetControlCommand, se_GetControlCommand } from "../protocols/Aws_restJson1";
+import { GetControlRequest, GetControlResponse } from "../models/models_0";
+import { GetControl } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -117,16 +116,11 @@ export class GetControlCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AuditManagerClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("BedrockAssessmentManagerLambda", "GetControl", {})
   .n("AuditManagerClient", "GetControlCommand")
-  .f(void 0, GetControlResponseFilterSensitiveLog)
-  .ser(se_GetControlCommand)
-  .de(de_GetControlCommand)
+  .sc(GetControl)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

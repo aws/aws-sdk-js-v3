@@ -1,12 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DeleteServiceNetworkRequest, DeleteServiceNetworkResponse } from "../models/models_0";
-import { de_DeleteServiceNetworkCommand, se_DeleteServiceNetworkCommand } from "../protocols/Aws_restJson1";
+import { DeleteServiceNetwork } from "../schemas/schemas_0";
 import { ServiceInputTypes, ServiceOutputTypes, VPCLatticeClientResolvedConfig } from "../VPCLatticeClient";
 
 /**
@@ -86,16 +85,11 @@ export class DeleteServiceNetworkCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: VPCLatticeClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("MercuryControlPlane", "DeleteServiceNetwork", {})
   .n("VPCLatticeClient", "DeleteServiceNetworkCommand")
-  .f(void 0, void 0)
-  .ser(se_DeleteServiceNetworkCommand)
-  .de(de_DeleteServiceNetworkCommand)
+  .sc(DeleteServiceNetwork)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

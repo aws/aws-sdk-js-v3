@@ -1,16 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ARCZonalShiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ARCZonalShiftClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { UpdatePracticeRunConfigurationRequest, UpdatePracticeRunConfigurationResponse } from "../models/models_0";
-import {
-  de_UpdatePracticeRunConfigurationCommand,
-  se_UpdatePracticeRunConfigurationCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdatePracticeRunConfiguration } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -139,16 +135,11 @@ export class UpdatePracticeRunConfigurationCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ARCZonalShiftClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("PercDataPlane", "UpdatePracticeRunConfiguration", {})
   .n("ARCZonalShiftClient", "UpdatePracticeRunConfigurationCommand")
-  .f(void 0, void 0)
-  .ser(se_UpdatePracticeRunConfigurationCommand)
-  .de(de_UpdatePracticeRunConfigurationCommand)
+  .sc(UpdatePracticeRunConfiguration)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

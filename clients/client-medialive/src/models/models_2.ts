@@ -9670,12 +9670,3 @@ export interface UpdateReservationRequest {
    */
   ReservationId: string | undefined;
 }
-
-/**
- * @internal
- */
-export const DescribeInputDeviceThumbnailResponseFilterSensitiveLog = (
-  obj: DescribeInputDeviceThumbnailResponse
-): any => ({
-  ...obj,
-});

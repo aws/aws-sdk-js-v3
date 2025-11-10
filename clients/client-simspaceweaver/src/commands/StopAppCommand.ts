@@ -1,12 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { StopAppInput, StopAppOutput } from "../models/models_0";
-import { de_StopAppCommand, se_StopAppCommand } from "../protocols/Aws_restJson1";
+import { StopApp } from "../schemas/schemas_0";
 import { ServiceInputTypes, ServiceOutputTypes, SimSpaceWeaverClientResolvedConfig } from "../SimSpaceWeaverClient";
 
 /**
@@ -85,16 +84,11 @@ export class StopAppCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SimSpaceWeaverClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("SimSpaceWeaver", "StopApp", {})
   .n("SimSpaceWeaverClient", "StopAppCommand")
-  .f(void 0, void 0)
-  .ser(se_StopAppCommand)
-  .de(de_StopAppCommand)
+  .sc(StopApp)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

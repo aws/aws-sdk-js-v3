@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -10,10 +9,7 @@ import {
   UpdateInfrastructureConfigurationRequest,
   UpdateInfrastructureConfigurationResponse,
 } from "../models/models_1";
-import {
-  de_UpdateInfrastructureConfigurationCommand,
-  se_UpdateInfrastructureConfigurationCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateInfrastructureConfiguration } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -142,16 +138,11 @@ export class UpdateInfrastructureConfigurationCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ImagebuilderClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("imagebuilder", "UpdateInfrastructureConfiguration", {})
   .n("ImagebuilderClient", "UpdateInfrastructureConfigurationCommand")
-  .f(void 0, void 0)
-  .ser(se_UpdateInfrastructureConfigurationCommand)
-  .de(de_UpdateInfrastructureConfigurationCommand)
+  .sc(UpdateInfrastructureConfiguration)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

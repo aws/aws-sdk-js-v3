@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { AuditManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AuditManagerClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { ListKeywordsForDataSourceRequest, ListKeywordsForDataSourceResponse } from "../models/models_0";
-import { de_ListKeywordsForDataSourceCommand, se_ListKeywordsForDataSourceCommand } from "../protocols/Aws_restJson1";
+import { ListKeywordsForDataSource } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -87,16 +86,11 @@ export class ListKeywordsForDataSourceCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AuditManagerClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("BedrockAssessmentManagerLambda", "ListKeywordsForDataSource", {})
   .n("AuditManagerClient", "ListKeywordsForDataSourceCommand")
-  .f(void 0, void 0)
-  .ser(se_ListKeywordsForDataSourceCommand)
-  .de(de_ListKeywordsForDataSourceCommand)
+  .sc(ListKeywordsForDataSource)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

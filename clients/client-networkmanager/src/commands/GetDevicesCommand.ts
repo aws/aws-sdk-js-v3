@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { GetDevicesRequest, GetDevicesResponse, GetDevicesResponseFilterSensitiveLog } from "../models/models_0";
+import { GetDevicesRequest, GetDevicesResponse } from "../models/models_0";
 import { NetworkManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkManagerClient";
-import { de_GetDevicesCommand, se_GetDevicesCommand } from "../protocols/Aws_restJson1";
+import { GetDevices } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -121,16 +120,11 @@ export class GetDevicesCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: NetworkManagerClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("NetworkManager", "GetDevices", {})
   .n("NetworkManagerClient", "GetDevicesCommand")
-  .f(void 0, GetDevicesResponseFilterSensitiveLog)
-  .ser(se_GetDevicesCommand)
-  .de(de_GetDevicesCommand)
+  .sc(GetDevices)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

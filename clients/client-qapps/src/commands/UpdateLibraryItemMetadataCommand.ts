@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { UpdateLibraryItemMetadataInput } from "../models/models_0";
-import { de_UpdateLibraryItemMetadataCommand, se_UpdateLibraryItemMetadataCommand } from "../protocols/Aws_restJson1";
 import { QAppsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QAppsClient";
+import { UpdateLibraryItemMetadata } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -106,16 +105,11 @@ export class UpdateLibraryItemMetadataCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: QAppsClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("QAppsService", "UpdateLibraryItemMetadata", {})
   .n("QAppsClient", "UpdateLibraryItemMetadataCommand")
-  .f(void 0, void 0)
-  .ser(se_UpdateLibraryItemMetadataCommand)
-  .de(de_UpdateLibraryItemMetadataCommand)
+  .sc(UpdateLibraryItemMetadata)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

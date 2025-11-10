@@ -1,17 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ChimeSDKVoiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeSDKVoiceClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  GetVoiceConnectorProxyRequest,
-  GetVoiceConnectorProxyResponse,
-  GetVoiceConnectorProxyResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { de_GetVoiceConnectorProxyCommand, se_GetVoiceConnectorProxyCommand } from "../protocols/Aws_restJson1";
+import { GetVoiceConnectorProxyRequest, GetVoiceConnectorProxyResponse } from "../models/models_0";
+import { GetVoiceConnectorProxy } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -103,16 +98,11 @@ export class GetVoiceConnectorProxyCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ChimeSDKVoiceClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("ChimeSDKTelephonyService", "GetVoiceConnectorProxy", {})
   .n("ChimeSDKVoiceClient", "GetVoiceConnectorProxyCommand")
-  .f(void 0, GetVoiceConnectorProxyResponseFilterSensitiveLog)
-  .ser(se_GetVoiceConnectorProxyCommand)
-  .de(de_GetVoiceConnectorProxyCommand)
+  .sc(GetVoiceConnectorProxy)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { FinspaceDataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FinspaceDataClient";
 import { GetWorkingLocationRequest, GetWorkingLocationResponse } from "../models/models_0";
-import { de_GetWorkingLocationCommand, se_GetWorkingLocationCommand } from "../protocols/Aws_restJson1";
+import { GetWorkingLocation } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -88,16 +87,11 @@ export class GetWorkingLocationCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: FinspaceDataClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSHabaneroPublicAPI", "GetWorkingLocation", {})
   .n("FinspaceDataClient", "GetWorkingLocationCommand")
-  .f(void 0, void 0)
-  .ser(se_GetWorkingLocationCommand)
-  .de(de_GetWorkingLocationCommand)
+  .sc(GetWorkingLocation)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

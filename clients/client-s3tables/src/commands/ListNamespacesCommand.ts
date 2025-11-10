@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { ListNamespacesRequest, ListNamespacesResponse } from "../models/models_0";
-import { de_ListNamespacesCommand, se_ListNamespacesCommand } from "../protocols/Aws_restJson1";
 import { S3TablesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3TablesClient";
+import { ListNamespaces } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -106,16 +105,11 @@ export class ListNamespacesCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: S3TablesClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("S3TableBuckets", "ListNamespaces", {})
   .n("S3TablesClient", "ListNamespacesCommand")
-  .f(void 0, void 0)
-  .ser(se_ListNamespacesCommand)
-  .de(de_ListNamespacesCommand)
+  .sc(ListNamespaces)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

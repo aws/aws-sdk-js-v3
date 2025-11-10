@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { ListGroupingStatusesInput, ListGroupingStatusesOutput } from "../models/models_0";
-import { de_ListGroupingStatusesCommand, se_ListGroupingStatusesCommand } from "../protocols/Aws_restJson1";
 import { ResourceGroupsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResourceGroupsClient";
+import { ListGroupingStatuses } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -108,16 +107,11 @@ export class ListGroupingStatusesCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ResourceGroupsClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("Ardi", "ListGroupingStatuses", {})
   .n("ResourceGroupsClient", "ListGroupingStatusesCommand")
-  .f(void 0, void 0)
-  .ser(se_ListGroupingStatusesCommand)
-  .de(de_ListGroupingStatusesCommand)
+  .sc(ListGroupingStatuses)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

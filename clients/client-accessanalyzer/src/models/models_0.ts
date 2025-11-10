@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@smithy/smithy-client";
+import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
 import { AccessAnalyzerServiceException as __BaseException } from "./AccessAnalyzerServiceException";
 
@@ -5209,28 +5209,3 @@ export interface ValidatePolicyResponse {
    */
   nextToken?: string | undefined;
 }
-
-/**
- * @internal
- */
-export const CheckAccessNotGrantedRequestFilterSensitiveLog = (obj: CheckAccessNotGrantedRequest): any => ({
-  ...obj,
-  ...(obj.policyDocument && { policyDocument: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const CheckNoNewAccessRequestFilterSensitiveLog = (obj: CheckNoNewAccessRequest): any => ({
-  ...obj,
-  ...(obj.newPolicyDocument && { newPolicyDocument: SENSITIVE_STRING }),
-  ...(obj.existingPolicyDocument && { existingPolicyDocument: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const CheckNoPublicAccessRequestFilterSensitiveLog = (obj: CheckNoPublicAccessRequest): any => ({
-  ...obj,
-  ...(obj.policyDocument && { policyDocument: SENSITIVE_STRING }),
-});

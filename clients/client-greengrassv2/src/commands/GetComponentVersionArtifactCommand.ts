@@ -1,16 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GreengrassV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassV2Client";
 import { GetComponentVersionArtifactRequest, GetComponentVersionArtifactResponse } from "../models/models_0";
-import {
-  de_GetComponentVersionArtifactCommand,
-  se_GetComponentVersionArtifactCommand,
-} from "../protocols/Aws_restJson1";
+import { GetComponentVersionArtifact } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -97,16 +93,11 @@ export class GetComponentVersionArtifactCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GreengrassV2ClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("GreengrassV2", "GetComponentVersionArtifact", {})
   .n("GreengrassV2Client", "GetComponentVersionArtifactCommand")
-  .f(void 0, void 0)
-  .ser(se_GetComponentVersionArtifactCommand)
-  .de(de_GetComponentVersionArtifactCommand)
+  .sc(GetComponentVersionArtifact)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

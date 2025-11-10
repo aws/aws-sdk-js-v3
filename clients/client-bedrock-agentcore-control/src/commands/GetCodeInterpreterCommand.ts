@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -10,12 +9,8 @@ import {
   ServiceOutputTypes,
 } from "../BedrockAgentCoreControlClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  GetCodeInterpreterRequest,
-  GetCodeInterpreterResponse,
-  GetCodeInterpreterResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { de_GetCodeInterpreterCommand, se_GetCodeInterpreterCommand } from "../protocols/Aws_restJson1";
+import { GetCodeInterpreterRequest, GetCodeInterpreterResponse } from "../models/models_0";
+import { GetCodeInterpreter } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -112,16 +107,11 @@ export class GetCodeInterpreterCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: BedrockAgentCoreControlClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonBedrockAgentCoreControl", "GetCodeInterpreter", {})
   .n("BedrockAgentCoreControlClient", "GetCodeInterpreterCommand")
-  .f(void 0, GetCodeInterpreterResponseFilterSensitiveLog)
-  .ser(se_GetCodeInterpreterCommand)
-  .de(de_GetCodeInterpreterCommand)
+  .sc(GetCodeInterpreter)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

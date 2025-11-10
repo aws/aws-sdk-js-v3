@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { ListMLEndpointsInput, ListMLEndpointsOutput } from "../models/models_0";
 import { NeptunedataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptunedataClient";
-import { de_ListMLEndpointsCommand, se_ListMLEndpointsCommand } from "../protocols/Aws_restJson1";
+import { ListMLEndpoints } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -106,16 +105,11 @@ export class ListMLEndpointsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: NeptunedataClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonNeptuneDataplane", "ListMLEndpoints", {})
   .n("NeptunedataClient", "ListMLEndpointsCommand")
-  .f(void 0, void 0)
-  .ser(se_ListMLEndpointsCommand)
-  .de(de_ListMLEndpointsCommand)
+  .sc(ListMLEndpoints)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

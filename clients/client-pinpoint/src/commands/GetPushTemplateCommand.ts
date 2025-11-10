@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GetPushTemplateRequest, GetPushTemplateResponse } from "../models/models_1";
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
-import { de_GetPushTemplateCommand, se_GetPushTemplateCommand } from "../protocols/Aws_restJson1";
+import { GetPushTemplate } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -154,16 +153,11 @@ export class GetPushTemplateCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: PinpointClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("Pinpoint", "GetPushTemplate", {})
   .n("PinpointClient", "GetPushTemplateCommand")
-  .f(void 0, void 0)
-  .ser(se_GetPushTemplateCommand)
-  .de(de_GetPushTemplateCommand)
+  .sc(GetPushTemplate)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { LakeFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LakeFormationClient";
 import { GetLFTagRequest, GetLFTagResponse } from "../models/models_0";
-import { de_GetLFTagCommand, se_GetLFTagCommand } from "../protocols/Aws_restJson1";
+import { GetLFTag } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -90,16 +89,11 @@ export class GetLFTagCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LakeFormationClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSLakeFormation", "GetLFTag", {})
   .n("LakeFormationClient", "GetLFTagCommand")
-  .f(void 0, void 0)
-  .ser(se_GetLFTagCommand)
-  .de(de_GetLFTagCommand)
+  .sc(GetLFTag)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DataExchangeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataExchangeClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { StartJobRequest, StartJobResponse } from "../models/models_0";
-import { de_StartJobCommand, se_StartJobCommand } from "../protocols/Aws_restJson1";
+import { StartJob } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -87,16 +86,11 @@ export class StartJobCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DataExchangeClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("DataExchange", "StartJob", {})
   .n("DataExchangeClient", "StartJobCommand")
-  .f(void 0, void 0)
-  .ser(se_StartJobCommand)
-  .de(de_StartJobCommand)
+  .sc(StartJob)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

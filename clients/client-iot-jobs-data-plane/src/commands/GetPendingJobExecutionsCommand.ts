@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { IoTJobsDataPlaneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTJobsDataPlaneClient";
 import { GetPendingJobExecutionsRequest, GetPendingJobExecutionsResponse } from "../models/models_0";
-import { de_GetPendingJobExecutionsCommand, se_GetPendingJobExecutionsCommand } from "../protocols/Aws_restJson1";
+import { GetPendingJobExecutions } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -105,16 +104,11 @@ export class GetPendingJobExecutionsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTJobsDataPlaneClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("IotLaserThingJobManagerExternalService", "GetPendingJobExecutions", {})
   .n("IoTJobsDataPlaneClient", "GetPendingJobExecutionsCommand")
-  .f(void 0, void 0)
-  .ser(se_GetPendingJobExecutionsCommand)
-  .de(de_GetPendingJobExecutionsCommand)
+  .sc(GetPendingJobExecutions)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

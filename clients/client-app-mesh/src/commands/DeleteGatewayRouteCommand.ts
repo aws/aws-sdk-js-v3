@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { AppMeshClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppMeshClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DeleteGatewayRouteInput, DeleteGatewayRouteOutput } from "../models/models_0";
-import { de_DeleteGatewayRouteCommand, se_DeleteGatewayRouteCommand } from "../protocols/Aws_restJson1";
+import { DeleteGatewayRoute } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -274,16 +273,11 @@ export class DeleteGatewayRouteCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AppMeshClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AppMesh", "DeleteGatewayRoute", {})
   .n("AppMeshClient", "DeleteGatewayRouteCommand")
-  .f(void 0, void 0)
-  .ser(se_DeleteGatewayRouteCommand)
-  .de(de_DeleteGatewayRouteCommand)
+  .sc(DeleteGatewayRoute)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

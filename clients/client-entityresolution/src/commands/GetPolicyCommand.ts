@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { EntityResolutionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EntityResolutionClient";
 import { GetPolicyInput, GetPolicyOutput } from "../models/models_0";
-import { de_GetPolicyCommand, se_GetPolicyCommand } from "../protocols/Aws_restJson1";
+import { GetPolicy } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -87,16 +86,11 @@ export class GetPolicyCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EntityResolutionClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSVeniceService", "GetPolicy", {})
   .n("EntityResolutionClient", "GetPolicyCommand")
-  .f(void 0, void 0)
-  .ser(se_GetPolicyCommand)
-  .de(de_GetPolicyCommand)
+  .sc(GetPolicy)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

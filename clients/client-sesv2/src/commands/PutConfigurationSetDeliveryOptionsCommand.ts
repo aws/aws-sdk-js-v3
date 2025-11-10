@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -9,10 +8,7 @@ import {
   PutConfigurationSetDeliveryOptionsRequest,
   PutConfigurationSetDeliveryOptionsResponse,
 } from "../models/models_1";
-import {
-  de_PutConfigurationSetDeliveryOptionsCommand,
-  se_PutConfigurationSetDeliveryOptionsCommand,
-} from "../protocols/Aws_restJson1";
+import { PutConfigurationSetDeliveryOptions } from "../schemas/schemas_0";
 import { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
 /**
@@ -89,16 +85,11 @@ export class PutConfigurationSetDeliveryOptionsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SESv2ClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("SimpleEmailService_v2", "PutConfigurationSetDeliveryOptions", {})
   .n("SESv2Client", "PutConfigurationSetDeliveryOptionsCommand")
-  .f(void 0, void 0)
-  .ser(se_PutConfigurationSetDeliveryOptionsCommand)
-  .de(de_PutConfigurationSetDeliveryOptionsCommand)
+  .sc(PutConfigurationSetDeliveryOptions)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

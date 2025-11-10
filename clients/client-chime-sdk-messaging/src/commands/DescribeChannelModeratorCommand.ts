@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -10,12 +9,8 @@ import {
   ServiceOutputTypes,
 } from "../ChimeSDKMessagingClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  DescribeChannelModeratorRequest,
-  DescribeChannelModeratorResponse,
-  DescribeChannelModeratorResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { de_DescribeChannelModeratorCommand, se_DescribeChannelModeratorCommand } from "../protocols/Aws_restJson1";
+import { DescribeChannelModeratorRequest, DescribeChannelModeratorResponse } from "../models/models_0";
+import { DescribeChannelModerator } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -117,16 +112,11 @@ export class DescribeChannelModeratorCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ChimeSDKMessagingClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("ChimeMessagingService", "DescribeChannelModerator", {})
   .n("ChimeSDKMessagingClient", "DescribeChannelModeratorCommand")
-  .f(void 0, DescribeChannelModeratorResponseFilterSensitiveLog)
-  .ser(se_DescribeChannelModeratorCommand)
-  .de(de_DescribeChannelModeratorCommand)
+  .sc(DescribeChannelModerator)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

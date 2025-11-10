@@ -1,17 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer, StreamingBlobPayloadOutputTypes } from "@smithy/types";
 
 import { EBSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EBSClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  GetSnapshotBlockRequest,
-  GetSnapshotBlockResponse,
-  GetSnapshotBlockResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { de_GetSnapshotBlockCommand, se_GetSnapshotBlockCommand } from "../protocols/Aws_restJson1";
+import { GetSnapshotBlockRequest, GetSnapshotBlockResponse } from "../models/models_0";
+import { GetSnapshotBlock } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -111,16 +106,11 @@ export class GetSnapshotBlockCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EBSClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("Ebs", "GetSnapshotBlock", {})
   .n("EBSClient", "GetSnapshotBlockCommand")
-  .f(void 0, GetSnapshotBlockResponseFilterSensitiveLog)
-  .ser(se_GetSnapshotBlockCommand)
-  .de(de_GetSnapshotBlockCommand)
+  .sc(GetSnapshotBlock)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

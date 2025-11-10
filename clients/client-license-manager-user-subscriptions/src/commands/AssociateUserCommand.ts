@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -10,12 +9,8 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../LicenseManagerUserSubscriptionsClient";
-import {
-  AssociateUserRequest,
-  AssociateUserRequestFilterSensitiveLog,
-  AssociateUserResponse,
-} from "../models/models_0";
-import { de_AssociateUserCommand, se_AssociateUserCommand } from "../protocols/Aws_restJson1";
+import { AssociateUserRequest, AssociateUserResponse } from "../models/models_0";
+import { AssociateUser } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -165,16 +160,11 @@ export class AssociateUserCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LicenseManagerUserSubscriptionsClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("LicenseManagerUserSubscriptions", "AssociateUser", {})
   .n("LicenseManagerUserSubscriptionsClient", "AssociateUserCommand")
-  .f(AssociateUserRequestFilterSensitiveLog, void 0)
-  .ser(se_AssociateUserCommand)
-  .de(de_AssociateUserCommand)
+  .sc(AssociateUser)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

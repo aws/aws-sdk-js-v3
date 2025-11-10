@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -10,13 +9,8 @@ import {
   ServiceOutputTypes,
 } from "../BedrockAgentCoreControlClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  CreateGatewayRequest,
-  CreateGatewayRequestFilterSensitiveLog,
-  CreateGatewayResponse,
-  CreateGatewayResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { de_CreateGatewayCommand, se_CreateGatewayCommand } from "../protocols/Aws_restJson1";
+import { CreateGatewayRequest, CreateGatewayResponse } from "../models/models_0";
+import { CreateGateway } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -165,16 +159,11 @@ export class CreateGatewayCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: BedrockAgentCoreControlClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonBedrockAgentCoreControl", "CreateGateway", {})
   .n("BedrockAgentCoreControlClient", "CreateGatewayCommand")
-  .f(CreateGatewayRequestFilterSensitiveLog, CreateGatewayResponseFilterSensitiveLog)
-  .ser(se_CreateGatewayCommand)
-  .de(de_CreateGatewayCommand)
+  .sc(CreateGateway)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

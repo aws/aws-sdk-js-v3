@@ -1,18 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CustomerProfilesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CustomerProfilesClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  CreateSegmentDefinitionRequest,
-  CreateSegmentDefinitionRequestFilterSensitiveLog,
-  CreateSegmentDefinitionResponse,
-  CreateSegmentDefinitionResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { de_CreateSegmentDefinitionCommand, se_CreateSegmentDefinitionCommand } from "../protocols/Aws_restJson1";
+import { CreateSegmentDefinitionRequest, CreateSegmentDefinitionResponse } from "../models/models_0";
+import { CreateSegmentDefinition } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -231,16 +225,11 @@ export class CreateSegmentDefinitionCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CustomerProfilesClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("CustomerProfiles_20200815", "CreateSegmentDefinition", {})
   .n("CustomerProfilesClient", "CreateSegmentDefinitionCommand")
-  .f(CreateSegmentDefinitionRequestFilterSensitiveLog, CreateSegmentDefinitionResponseFilterSensitiveLog)
-  .ser(se_CreateSegmentDefinitionCommand)
-  .de(de_CreateSegmentDefinitionCommand)
+  .sc(CreateSegmentDefinition)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

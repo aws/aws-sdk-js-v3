@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { SearchDashboardsRequest, SearchDashboardsResponse } from "../models/models_5";
-import { de_SearchDashboardsCommand, se_SearchDashboardsCommand } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
+import { SearchDashboards } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -117,16 +116,11 @@ export class SearchDashboardsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: QuickSightClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("QuickSight_20180401", "SearchDashboards", {})
   .n("QuickSightClient", "SearchDashboardsCommand")
-  .f(void 0, void 0)
-  .ser(se_SearchDashboardsCommand)
-  .de(de_SearchDashboardsCommand)
+  .sc(SearchDashboards)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

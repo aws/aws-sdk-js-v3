@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -10,12 +9,8 @@ import {
   ServiceOutputTypes,
 } from "../ChimeSDKMessagingClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  UpdateChannelRequest,
-  UpdateChannelRequestFilterSensitiveLog,
-  UpdateChannelResponse,
-} from "../models/models_0";
-import { de_UpdateChannelCommand, se_UpdateChannelCommand } from "../protocols/Aws_restJson1";
+import { UpdateChannelRequest, UpdateChannelResponse } from "../models/models_0";
+import { UpdateChannel } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -111,16 +106,11 @@ export class UpdateChannelCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ChimeSDKMessagingClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("ChimeMessagingService", "UpdateChannel", {})
   .n("ChimeSDKMessagingClient", "UpdateChannelCommand")
-  .f(UpdateChannelRequestFilterSensitiveLog, void 0)
-  .ser(se_UpdateChannelCommand)
-  .de(de_UpdateChannelCommand)
+  .sc(UpdateChannel)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

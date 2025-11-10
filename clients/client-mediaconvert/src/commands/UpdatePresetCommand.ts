@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { MediaConvertClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaConvertClient";
 import { UpdatePresetRequest, UpdatePresetResponse } from "../models/models_2";
-import { de_UpdatePresetCommand, se_UpdatePresetCommand } from "../protocols/Aws_restJson1";
+import { UpdatePreset } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -1807,16 +1806,11 @@ export class UpdatePresetCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MediaConvertClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("MediaConvert", "UpdatePreset", {})
   .n("MediaConvertClient", "UpdatePresetCommand")
-  .f(void 0, void 0)
-  .ser(se_UpdatePresetCommand)
-  .de(de_UpdatePresetCommand)
+  .sc(UpdatePreset)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

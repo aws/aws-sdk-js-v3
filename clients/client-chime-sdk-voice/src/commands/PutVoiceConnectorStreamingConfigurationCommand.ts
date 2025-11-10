@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -8,14 +7,9 @@ import { ChimeSDKVoiceClientResolvedConfig, ServiceInputTypes, ServiceOutputType
 import { commonParams } from "../endpoint/EndpointParameters";
 import {
   PutVoiceConnectorStreamingConfigurationRequest,
-  PutVoiceConnectorStreamingConfigurationRequestFilterSensitiveLog,
   PutVoiceConnectorStreamingConfigurationResponse,
-  PutVoiceConnectorStreamingConfigurationResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  de_PutVoiceConnectorStreamingConfigurationCommand,
-  se_PutVoiceConnectorStreamingConfigurationCommand,
-} from "../protocols/Aws_restJson1";
+import { PutVoiceConnectorStreamingConfiguration } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -127,19 +121,11 @@ export class PutVoiceConnectorStreamingConfigurationCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ChimeSDKVoiceClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("ChimeSDKTelephonyService", "PutVoiceConnectorStreamingConfiguration", {})
   .n("ChimeSDKVoiceClient", "PutVoiceConnectorStreamingConfigurationCommand")
-  .f(
-    PutVoiceConnectorStreamingConfigurationRequestFilterSensitiveLog,
-    PutVoiceConnectorStreamingConfigurationResponseFilterSensitiveLog
-  )
-  .ser(se_PutVoiceConnectorStreamingConfigurationCommand)
-  .de(de_PutVoiceConnectorStreamingConfigurationCommand)
+  .sc(PutVoiceConnectorStreamingConfiguration)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,16 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  PostWhatsAppMessageMediaInput,
-  PostWhatsAppMessageMediaInputFilterSensitiveLog,
-  PostWhatsAppMessageMediaOutput,
-} from "../models/models_0";
-import { de_PostWhatsAppMessageMediaCommand, se_PostWhatsAppMessageMediaCommand } from "../protocols/Aws_restJson1";
+import { PostWhatsAppMessageMediaInput, PostWhatsAppMessageMediaOutput } from "../models/models_0";
+import { PostWhatsAppMessageMedia } from "../schemas/schemas_0";
 import { ServiceInputTypes, ServiceOutputTypes, SocialMessagingClientResolvedConfig } from "../SocialMessagingClient";
 
 /**
@@ -113,16 +108,11 @@ export class PostWhatsAppMessageMediaCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SocialMessagingClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("SocialMessaging", "PostWhatsAppMessageMedia", {})
   .n("SocialMessagingClient", "PostWhatsAppMessageMediaCommand")
-  .f(PostWhatsAppMessageMediaInputFilterSensitiveLog, void 0)
-  .ser(se_PostWhatsAppMessageMediaCommand)
-  .de(de_PostWhatsAppMessageMediaCommand)
+  .sc(PostWhatsAppMessageMedia)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

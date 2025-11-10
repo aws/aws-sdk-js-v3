@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { CreateTemplateAliasRequest, CreateTemplateAliasResponse } from "../models/models_3";
-import { de_CreateTemplateAliasCommand, se_CreateTemplateAliasCommand } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
+import { CreateTemplateAlias } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -103,16 +102,11 @@ export class CreateTemplateAliasCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: QuickSightClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("QuickSight_20180401", "CreateTemplateAlias", {})
   .n("QuickSightClient", "CreateTemplateAliasCommand")
-  .f(void 0, void 0)
-  .ser(se_CreateTemplateAliasCommand)
-  .de(de_CreateTemplateAliasCommand)
+  .sc(CreateTemplateAlias)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@smithy/smithy-client";
+import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
 import { IoTSiteWiseServiceException as __BaseException } from "./IoTSiteWiseServiceException";
 
@@ -3780,37 +3780,3 @@ export interface ExecuteQueryResponse {
    */
   nextToken?: string | undefined;
 }
-
-/**
- * @internal
- */
-export const ResponseStreamFilterSensitiveLog = (obj: ResponseStream): any => {
-  if (obj.trace !== undefined) return { trace: obj.trace };
-  if (obj.output !== undefined) return { output: obj.output };
-  if (obj.accessDeniedException !== undefined) return { accessDeniedException: obj.accessDeniedException };
-  if (obj.conflictingOperationException !== undefined)
-    return { conflictingOperationException: obj.conflictingOperationException };
-  if (obj.internalFailureException !== undefined) return { internalFailureException: obj.internalFailureException };
-  if (obj.invalidRequestException !== undefined) return { invalidRequestException: obj.invalidRequestException };
-  if (obj.limitExceededException !== undefined) return { limitExceededException: obj.limitExceededException };
-  if (obj.resourceNotFoundException !== undefined) return { resourceNotFoundException: obj.resourceNotFoundException };
-  if (obj.throttlingException !== undefined) return { throttlingException: obj.throttlingException };
-  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-};
-
-/**
- * @internal
- */
-export const InvokeAssistantResponseFilterSensitiveLog = (obj: InvokeAssistantResponse): any => ({
-  ...obj,
-  ...(obj.body && { body: "STREAMING_CONTENT" }),
-});
-
-/**
- * @internal
- */
-export const UpdatePortalRequestFilterSensitiveLog = (obj: UpdatePortalRequest): any => ({
-  ...obj,
-  ...(obj.portalContactEmail && { portalContactEmail: SENSITIVE_STRING }),
-  ...(obj.notificationSenderEmail && { notificationSenderEmail: SENSITIVE_STRING }),
-});

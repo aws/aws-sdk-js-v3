@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -9,12 +8,8 @@ import { MgnClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "
 import {
   DescribeReplicationConfigurationTemplatesRequest,
   DescribeReplicationConfigurationTemplatesResponse,
-  DescribeReplicationConfigurationTemplatesResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  de_DescribeReplicationConfigurationTemplatesCommand,
-  se_DescribeReplicationConfigurationTemplatesCommand,
-} from "../protocols/Aws_restJson1";
+import { DescribeReplicationConfigurationTemplates } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -119,16 +114,11 @@ export class DescribeReplicationConfigurationTemplatesCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MgnClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("ApplicationMigrationService", "DescribeReplicationConfigurationTemplates", {})
   .n("MgnClient", "DescribeReplicationConfigurationTemplatesCommand")
-  .f(void 0, DescribeReplicationConfigurationTemplatesResponseFilterSensitiveLog)
-  .ser(se_DescribeReplicationConfigurationTemplatesCommand)
-  .de(de_DescribeReplicationConfigurationTemplatesCommand)
+  .sc(DescribeReplicationConfigurationTemplates)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

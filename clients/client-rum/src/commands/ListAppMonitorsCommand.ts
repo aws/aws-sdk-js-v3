@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { ListAppMonitorsRequest, ListAppMonitorsResponse } from "../models/models_0";
-import { de_ListAppMonitorsCommand, se_ListAppMonitorsCommand } from "../protocols/Aws_restJson1";
 import { RUMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RUMClient";
+import { ListAppMonitors } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -92,16 +91,11 @@ export class ListAppMonitorsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RUMClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("RUM", "ListAppMonitors", {})
   .n("RUMClient", "ListAppMonitorsCommand")
-  .f(void 0, void 0)
-  .ser(se_ListAppMonitorsCommand)
-  .de(de_ListAppMonitorsCommand)
+  .sc(ListAppMonitors)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

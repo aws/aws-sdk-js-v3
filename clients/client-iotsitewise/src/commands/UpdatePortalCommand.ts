@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { IoTSiteWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTSiteWiseClient";
-import { UpdatePortalRequest, UpdatePortalRequestFilterSensitiveLog, UpdatePortalResponse } from "../models/models_1";
-import { de_UpdatePortalCommand, se_UpdatePortalCommand } from "../protocols/Aws_restJson1";
+import { UpdatePortalRequest, UpdatePortalResponse } from "../models/models_1";
+import { UpdatePortal } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -121,16 +120,11 @@ export class UpdatePortalCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTSiteWiseClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSIoTSiteWise", "UpdatePortal", {})
   .n("IoTSiteWiseClient", "UpdatePortalCommand")
-  .f(UpdatePortalRequestFilterSensitiveLog, void 0)
-  .ser(se_UpdatePortalCommand)
-  .de(de_UpdatePortalCommand)
+  .sc(UpdatePortal)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

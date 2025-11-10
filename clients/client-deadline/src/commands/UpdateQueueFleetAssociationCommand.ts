@@ -1,16 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DeadlineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeadlineClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { UpdateQueueFleetAssociationRequest, UpdateQueueFleetAssociationResponse } from "../models/models_1";
-import {
-  de_UpdateQueueFleetAssociationCommand,
-  se_UpdateQueueFleetAssociationCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateQueueFleetAssociation } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -92,16 +88,11 @@ export class UpdateQueueFleetAssociationCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DeadlineClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("Deadline", "UpdateQueueFleetAssociation", {})
   .n("DeadlineClient", "UpdateQueueFleetAssociationCommand")
-  .f(void 0, void 0)
-  .ser(se_UpdateQueueFleetAssociationCommand)
-  .de(de_UpdateQueueFleetAssociationCommand)
+  .sc(UpdateQueueFleetAssociation)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

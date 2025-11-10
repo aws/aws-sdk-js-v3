@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CleanRoomsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CleanRoomsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GetIdMappingTableInput, GetIdMappingTableOutput } from "../models/models_0";
-import { de_GetIdMappingTableCommand, se_GetIdMappingTableCommand } from "../protocols/Aws_restJson1";
+import { GetIdMappingTable } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -110,16 +109,11 @@ export class GetIdMappingTableCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CleanRoomsClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSBastionControlPlaneServiceLambda", "GetIdMappingTable", {})
   .n("CleanRoomsClient", "GetIdMappingTableCommand")
-  .f(void 0, void 0)
-  .ser(se_GetIdMappingTableCommand)
-  .de(de_GetIdMappingTableCommand)
+  .sc(GetIdMappingTable)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

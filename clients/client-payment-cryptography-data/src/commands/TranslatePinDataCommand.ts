@@ -1,22 +1,16 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  TranslatePinDataInput,
-  TranslatePinDataInputFilterSensitiveLog,
-  TranslatePinDataOutput,
-  TranslatePinDataOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { TranslatePinDataInput, TranslatePinDataOutput } from "../models/models_0";
 import {
   PaymentCryptographyDataClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../PaymentCryptographyDataClient";
-import { de_TranslatePinDataCommand, se_TranslatePinDataCommand } from "../protocols/Aws_restJson1";
+import { TranslatePinData } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -158,16 +152,11 @@ export class TranslatePinDataCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: PaymentCryptographyDataClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("PaymentCryptographyDataPlane", "TranslatePinData", {})
   .n("PaymentCryptographyDataClient", "TranslatePinDataCommand")
-  .f(TranslatePinDataInputFilterSensitiveLog, TranslatePinDataOutputFilterSensitiveLog)
-  .ser(se_TranslatePinDataCommand)
-  .de(de_TranslatePinDataCommand)
+  .sc(TranslatePinData)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

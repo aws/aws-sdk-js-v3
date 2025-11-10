@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -11,7 +10,7 @@ import {
   ServiceOutputTypes,
 } from "../MigrationHubOrchestratorClient";
 import { StartMigrationWorkflowRequest, StartMigrationWorkflowResponse } from "../models/models_0";
-import { de_StartWorkflowCommand, se_StartWorkflowCommand } from "../protocols/Aws_restJson1";
+import { StartWorkflow } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -93,16 +92,11 @@ export class StartWorkflowCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MigrationHubOrchestratorClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSMigrationHubOrchestrator", "StartWorkflow", {})
   .n("MigrationHubOrchestratorClient", "StartWorkflowCommand")
-  .f(void 0, void 0)
-  .ser(se_StartWorkflowCommand)
-  .de(de_StartWorkflowCommand)
+  .sc(StartWorkflow)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

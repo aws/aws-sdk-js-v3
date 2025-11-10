@@ -1,21 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ChatbotClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChatbotClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  CreateChimeWebhookConfigurationRequest,
-  CreateChimeWebhookConfigurationRequestFilterSensitiveLog,
-  CreateChimeWebhookConfigurationResult,
-  CreateChimeWebhookConfigurationResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  de_CreateChimeWebhookConfigurationCommand,
-  se_CreateChimeWebhookConfigurationCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateChimeWebhookConfigurationRequest, CreateChimeWebhookConfigurationResult } from "../models/models_0";
+import { CreateChimeWebhookConfiguration } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -125,16 +116,11 @@ export class CreateChimeWebhookConfigurationCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ChatbotClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("WheatleyOrchestration_20171011", "CreateChimeWebhookConfiguration", {})
   .n("ChatbotClient", "CreateChimeWebhookConfigurationCommand")
-  .f(CreateChimeWebhookConfigurationRequestFilterSensitiveLog, CreateChimeWebhookConfigurationResultFilterSensitiveLog)
-  .ser(se_CreateChimeWebhookConfigurationCommand)
-  .de(de_CreateChimeWebhookConfigurationCommand)
+  .sc(CreateChimeWebhookConfiguration)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

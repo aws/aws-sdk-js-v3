@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -10,10 +9,7 @@ import {
   PutEmailIdentityFeedbackAttributesResponse,
 } from "../models/models_0";
 import { PinpointEmailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointEmailClient";
-import {
-  de_PutEmailIdentityFeedbackAttributesCommand,
-  se_PutEmailIdentityFeedbackAttributesCommand,
-} from "../protocols/Aws_restJson1";
+import { PutEmailIdentityFeedbackAttributes } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -96,16 +92,11 @@ export class PutEmailIdentityFeedbackAttributesCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: PinpointEmailClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonPinpointEmailService", "PutEmailIdentityFeedbackAttributes", {})
   .n("PinpointEmailClient", "PutEmailIdentityFeedbackAttributesCommand")
-  .f(void 0, void 0)
-  .ser(se_PutEmailIdentityFeedbackAttributesCommand)
-  .de(de_PutEmailIdentityFeedbackAttributesCommand)
+  .sc(PutEmailIdentityFeedbackAttributes)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

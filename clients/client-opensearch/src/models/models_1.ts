@@ -6,7 +6,6 @@ import {
   ActionStatus,
   ActionType,
   AdvancedSecurityOptionsInput,
-  AdvancedSecurityOptionsInputFilterSensitiveLog,
   AIMLOptionsInput,
   AppConfig,
   AuthorizedPrincipal,
@@ -1599,13 +1598,3 @@ export interface UpgradeDomainResponse {
    */
   ChangeProgressDetails?: ChangeProgressDetails | undefined;
 }
-
-/**
- * @internal
- */
-export const UpdateDomainConfigRequestFilterSensitiveLog = (obj: UpdateDomainConfigRequest): any => ({
-  ...obj,
-  ...(obj.AdvancedSecurityOptions && {
-    AdvancedSecurityOptions: AdvancedSecurityOptionsInputFilterSensitiveLog(obj.AdvancedSecurityOptions),
-  }),
-});

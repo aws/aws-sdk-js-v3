@@ -1,17 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { BedrockClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BedrockClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  ListGuardrailsRequest,
-  ListGuardrailsResponse,
-  ListGuardrailsResponseFilterSensitiveLog,
-} from "../models/models_1";
-import { de_ListGuardrailsCommand, se_ListGuardrailsCommand } from "../protocols/Aws_restJson1";
+import { ListGuardrailsRequest, ListGuardrailsResponse } from "../models/models_1";
+import { ListGuardrails } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -107,16 +102,11 @@ export class ListGuardrailsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: BedrockClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonBedrockControlPlaneService", "ListGuardrails", {})
   .n("BedrockClient", "ListGuardrailsCommand")
-  .f(void 0, ListGuardrailsResponseFilterSensitiveLog)
-  .ser(se_ListGuardrailsCommand)
-  .de(de_ListGuardrailsCommand)
+  .sc(ListGuardrails)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

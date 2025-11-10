@@ -1,5 +1,6 @@
 // smithy-typescript generated code
 import { AwsSdkSigV4ASigner, AwsSdkSigV4Signer } from "@aws-sdk/core";
+import { AwsRestJsonProtocol } from "@aws-sdk/core/protocols";
 import { SignatureV4MultiRegion } from "@aws-sdk/signature-v4-multi-region";
 import { NoOpLogger } from "@smithy/smithy-client";
 import { IdentityProviderConfig } from "@smithy/types";
@@ -36,6 +37,7 @@ export const getRuntimeConfig = (config: SESv2ClientConfig) => {
       },
     ],
     logger: config?.logger ?? new NoOpLogger(),
+    protocol: config?.protocol ?? new AwsRestJsonProtocol({ defaultNamespace: "com.amazonaws.sesv2" }),
     serviceId: config?.serviceId ?? "SESv2",
     signerConstructor: config?.signerConstructor ?? SignatureV4MultiRegion,
     urlParser: config?.urlParser ?? parseUrl,

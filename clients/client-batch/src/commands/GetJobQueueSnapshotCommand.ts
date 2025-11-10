@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { BatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BatchClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GetJobQueueSnapshotRequest, GetJobQueueSnapshotResponse } from "../models/models_0";
-import { de_GetJobQueueSnapshotCommand, se_GetJobQueueSnapshotCommand } from "../protocols/Aws_restJson1";
+import { GetJobQueueSnapshot } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -86,16 +85,11 @@ export class GetJobQueueSnapshotCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: BatchClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSBatchV20160810", "GetJobQueueSnapshot", {})
   .n("BatchClient", "GetJobQueueSnapshotCommand")
-  .f(void 0, void 0)
-  .ser(se_GetJobQueueSnapshotCommand)
-  .de(de_GetJobQueueSnapshotCommand)
+  .sc(GetJobQueueSnapshot)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

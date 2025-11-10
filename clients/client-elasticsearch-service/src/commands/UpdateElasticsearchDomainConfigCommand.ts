@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -10,15 +9,8 @@ import {
   ServiceOutputTypes,
 } from "../ElasticsearchServiceClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  UpdateElasticsearchDomainConfigRequest,
-  UpdateElasticsearchDomainConfigRequestFilterSensitiveLog,
-  UpdateElasticsearchDomainConfigResponse,
-} from "../models/models_0";
-import {
-  de_UpdateElasticsearchDomainConfigCommand,
-  se_UpdateElasticsearchDomainConfigCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateElasticsearchDomainConfigRequest, UpdateElasticsearchDomainConfigResponse } from "../models/models_0";
+import { UpdateElasticsearchDomainConfig } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -403,16 +395,11 @@ export class UpdateElasticsearchDomainConfigCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ElasticsearchServiceClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonElasticsearchService2015", "UpdateElasticsearchDomainConfig", {})
   .n("ElasticsearchServiceClient", "UpdateElasticsearchDomainConfigCommand")
-  .f(UpdateElasticsearchDomainConfigRequestFilterSensitiveLog, void 0)
-  .ser(se_UpdateElasticsearchDomainConfigCommand)
-  .de(de_UpdateElasticsearchDomainConfigCommand)
+  .sc(UpdateElasticsearchDomainConfig)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

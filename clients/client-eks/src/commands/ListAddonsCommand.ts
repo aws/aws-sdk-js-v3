@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EKSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EKSClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { ListAddonsRequest, ListAddonsResponse } from "../models/models_0";
-import { de_ListAddonsCommand, se_ListAddonsCommand } from "../protocols/Aws_restJson1";
+import { ListAddons } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -97,16 +96,11 @@ export class ListAddonsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EKSClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSWesleyFrontend", "ListAddons", {})
   .n("EKSClient", "ListAddonsCommand")
-  .f(void 0, void 0)
-  .ser(se_ListAddonsCommand)
-  .de(de_ListAddonsCommand)
+  .sc(ListAddons)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { AppflowClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppflowClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { CancelFlowExecutionsRequest, CancelFlowExecutionsResponse } from "../models/models_0";
-import { de_CancelFlowExecutionsCommand, se_CancelFlowExecutionsCommand } from "../protocols/Aws_restJson1";
+import { CancelFlowExecutions } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -110,16 +109,11 @@ export class CancelFlowExecutionsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AppflowClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("SandstoneConfigurationServiceLambda", "CancelFlowExecutions", {})
   .n("AppflowClient", "CancelFlowExecutionsCommand")
-  .f(void 0, void 0)
-  .ser(se_CancelFlowExecutionsCommand)
-  .de(de_CancelFlowExecutionsCommand)
+  .sc(CancelFlowExecutions)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

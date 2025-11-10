@@ -1,17 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  DescribeCommentsRequest,
-  DescribeCommentsRequestFilterSensitiveLog,
-  DescribeCommentsResponse,
-  DescribeCommentsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { de_DescribeCommentsCommand, se_DescribeCommentsCommand } from "../protocols/Aws_restJson1";
+import { DescribeCommentsRequest, DescribeCommentsResponse } from "../models/models_0";
+import { DescribeComments } from "../schemas/schemas_0";
 import { ServiceInputTypes, ServiceOutputTypes, WorkDocsClientResolvedConfig } from "../WorkDocsClient";
 
 /**
@@ -134,16 +128,11 @@ export class DescribeCommentsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WorkDocsClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSGorillaBoyService", "DescribeComments", {})
   .n("WorkDocsClient", "DescribeCommentsCommand")
-  .f(DescribeCommentsRequestFilterSensitiveLog, DescribeCommentsResponseFilterSensitiveLog)
-  .ser(se_DescribeCommentsCommand)
-  .de(de_DescribeCommentsCommand)
+  .sc(DescribeComments)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

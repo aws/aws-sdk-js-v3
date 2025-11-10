@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -10,13 +9,8 @@ import {
   ServiceOutputTypes,
 } from "../BedrockAgentRuntimeClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  RetrieveRequest,
-  RetrieveRequestFilterSensitiveLog,
-  RetrieveResponse,
-  RetrieveResponseFilterSensitiveLog,
-} from "../models/models_1";
-import { de_RetrieveCommand, se_RetrieveCommand } from "../protocols/Aws_restJson1";
+import { RetrieveRequest, RetrieveResponse } from "../models/models_1";
+import { Retrieve } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -257,16 +251,11 @@ export class RetrieveCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: BedrockAgentRuntimeClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonBedrockAgentRunTimeService", "Retrieve", {})
   .n("BedrockAgentRuntimeClient", "RetrieveCommand")
-  .f(RetrieveRequestFilterSensitiveLog, RetrieveResponseFilterSensitiveLog)
-  .ser(se_RetrieveCommand)
-  .de(de_RetrieveCommand)
+  .sc(Retrieve)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

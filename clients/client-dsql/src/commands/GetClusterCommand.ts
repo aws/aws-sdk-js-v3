@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DSQLClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DSQLClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GetClusterInput, GetClusterOutput } from "../models/models_0";
-import { de_GetClusterCommand, se_GetClusterCommand } from "../protocols/Aws_restJson1";
+import { GetCluster } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -117,16 +116,11 @@ export class GetClusterCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DSQLClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("DSQL", "GetCluster", {})
   .n("DSQLClient", "GetClusterCommand")
-  .f(void 0, void 0)
-  .ser(se_GetClusterCommand)
-  .de(de_GetClusterCommand)
+  .sc(GetCluster)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

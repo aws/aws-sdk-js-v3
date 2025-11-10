@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DeadlineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeadlineClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListTasksRequest, ListTasksResponse, ListTasksResponseFilterSensitiveLog } from "../models/models_1";
-import { de_ListTasksCommand, se_ListTasksCommand } from "../protocols/Aws_restJson1";
+import { ListTasksRequest, ListTasksResponse } from "../models/models_1";
+import { ListTasks } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -115,16 +114,11 @@ export class ListTasksCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DeadlineClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("Deadline", "ListTasks", {})
   .n("DeadlineClient", "ListTasksCommand")
-  .f(void 0, ListTasksResponseFilterSensitiveLog)
-  .ser(se_ListTasksCommand)
-  .de(de_ListTasksCommand)
+  .sc(ListTasks)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

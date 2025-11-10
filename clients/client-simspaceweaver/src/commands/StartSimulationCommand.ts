@@ -1,16 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  StartSimulationInput,
-  StartSimulationInputFilterSensitiveLog,
-  StartSimulationOutput,
-} from "../models/models_0";
-import { de_StartSimulationCommand, se_StartSimulationCommand } from "../protocols/Aws_restJson1";
+import { StartSimulationInput, StartSimulationOutput } from "../models/models_0";
+import { StartSimulation } from "../schemas/schemas_0";
 import { ServiceInputTypes, ServiceOutputTypes, SimSpaceWeaverClientResolvedConfig } from "../SimSpaceWeaverClient";
 
 /**
@@ -111,16 +106,11 @@ export class StartSimulationCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SimSpaceWeaverClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("SimSpaceWeaver", "StartSimulation", {})
   .n("SimSpaceWeaverClient", "StartSimulationCommand")
-  .f(StartSimulationInputFilterSensitiveLog, void 0)
-  .ser(se_StartSimulationCommand)
-  .de(de_StartSimulationCommand)
+  .sc(StartSimulation)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

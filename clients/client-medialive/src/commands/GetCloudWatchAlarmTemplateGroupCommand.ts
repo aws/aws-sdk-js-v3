@@ -1,16 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
 import { GetCloudWatchAlarmTemplateGroupRequest, GetCloudWatchAlarmTemplateGroupResponse } from "../models/models_2";
-import {
-  de_GetCloudWatchAlarmTemplateGroupCommand,
-  se_GetCloudWatchAlarmTemplateGroupCommand,
-} from "../protocols/Aws_restJson1";
+import { GetCloudWatchAlarmTemplateGroup } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -98,16 +94,11 @@ export class GetCloudWatchAlarmTemplateGroupCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MediaLiveClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("MediaLive", "GetCloudWatchAlarmTemplateGroup", {})
   .n("MediaLiveClient", "GetCloudWatchAlarmTemplateGroupCommand")
-  .f(void 0, void 0)
-  .ser(se_GetCloudWatchAlarmTemplateGroupCommand)
-  .de(de_GetCloudWatchAlarmTemplateGroupCommand)
+  .sc(GetCloudWatchAlarmTemplateGroup)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

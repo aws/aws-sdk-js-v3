@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -11,7 +10,7 @@ import {
   ServiceOutputTypes,
 } from "../IoTManagedIntegrationsClient";
 import { DeleteAccountAssociationRequest } from "../models/models_0";
-import { de_DeleteAccountAssociationCommand, se_DeleteAccountAssociationCommand } from "../protocols/Aws_restJson1";
+import { DeleteAccountAssociation } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -90,16 +89,11 @@ export class DeleteAccountAssociationCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTManagedIntegrationsClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("IotManagedIntegrations", "DeleteAccountAssociation", {})
   .n("IoTManagedIntegrationsClient", "DeleteAccountAssociationCommand")
-  .f(void 0, void 0)
-  .ser(se_DeleteAccountAssociationCommand)
-  .de(de_DeleteAccountAssociationCommand)
+  .sc(DeleteAccountAssociation)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

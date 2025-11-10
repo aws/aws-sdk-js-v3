@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DeleteQueuedSavingsPlanRequest, DeleteQueuedSavingsPlanResponse } from "../models/models_0";
-import { de_DeleteQueuedSavingsPlanCommand, se_DeleteQueuedSavingsPlanCommand } from "../protocols/Aws_restJson1";
 import { SavingsplansClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SavingsplansClient";
+import { DeleteQueuedSavingsPlan } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -80,16 +79,11 @@ export class DeleteQueuedSavingsPlanCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SavingsplansClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSSavingsPlan", "DeleteQueuedSavingsPlan", {})
   .n("SavingsplansClient", "DeleteQueuedSavingsPlanCommand")
-  .f(void 0, void 0)
-  .ser(se_DeleteQueuedSavingsPlanCommand)
-  .de(de_DeleteQueuedSavingsPlanCommand)
+  .sc(DeleteQueuedSavingsPlan)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

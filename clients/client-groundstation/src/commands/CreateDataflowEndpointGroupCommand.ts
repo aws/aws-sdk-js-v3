@@ -1,16 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GroundStationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GroundStationClient";
 import { CreateDataflowEndpointGroupRequest, DataflowEndpointGroupIdResponse } from "../models/models_0";
-import {
-  de_CreateDataflowEndpointGroupCommand,
-  se_CreateDataflowEndpointGroupCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateDataflowEndpointGroup } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -180,16 +176,11 @@ export class CreateDataflowEndpointGroupCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GroundStationClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("GroundStation", "CreateDataflowEndpointGroup", {})
   .n("GroundStationClient", "CreateDataflowEndpointGroupCommand")
-  .f(void 0, void 0)
-  .ser(se_CreateDataflowEndpointGroupCommand)
-  .de(de_CreateDataflowEndpointGroupCommand)
+  .sc(CreateDataflowEndpointGroup)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

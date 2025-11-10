@@ -1,17 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  DescribeRootFoldersRequest,
-  DescribeRootFoldersRequestFilterSensitiveLog,
-  DescribeRootFoldersResponse,
-  DescribeRootFoldersResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { de_DescribeRootFoldersCommand, se_DescribeRootFoldersCommand } from "../protocols/Aws_restJson1";
+import { DescribeRootFoldersRequest, DescribeRootFoldersResponse } from "../models/models_0";
+import { DescribeRootFolders } from "../schemas/schemas_0";
 import { ServiceInputTypes, ServiceOutputTypes, WorkDocsClientResolvedConfig } from "../WorkDocsClient";
 
 /**
@@ -119,16 +113,11 @@ export class DescribeRootFoldersCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WorkDocsClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSGorillaBoyService", "DescribeRootFolders", {})
   .n("WorkDocsClient", "DescribeRootFoldersCommand")
-  .f(DescribeRootFoldersRequestFilterSensitiveLog, DescribeRootFoldersResponseFilterSensitiveLog)
-  .ser(se_DescribeRootFoldersCommand)
-  .de(de_DescribeRootFoldersCommand)
+  .sc(DescribeRootFolders)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

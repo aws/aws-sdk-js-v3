@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { MediaConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaConnectClient";
 import { DescribeGatewayInstanceRequest, DescribeGatewayInstanceResponse } from "../models/models_0";
-import { de_DescribeGatewayInstanceCommand, se_DescribeGatewayInstanceCommand } from "../protocols/Aws_restJson1";
+import { DescribeGatewayInstance } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -106,16 +105,11 @@ export class DescribeGatewayInstanceCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MediaConnectClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("MediaConnect", "DescribeGatewayInstance", {})
   .n("MediaConnectClient", "DescribeGatewayInstanceCommand")
-  .f(void 0, void 0)
-  .ser(se_DescribeGatewayInstanceCommand)
-  .de(de_DescribeGatewayInstanceCommand)
+  .sc(DescribeGatewayInstance)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

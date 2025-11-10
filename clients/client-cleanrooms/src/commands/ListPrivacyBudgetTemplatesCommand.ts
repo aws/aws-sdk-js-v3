@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CleanRoomsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CleanRoomsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { ListPrivacyBudgetTemplatesInput, ListPrivacyBudgetTemplatesOutput } from "../models/models_1";
-import { de_ListPrivacyBudgetTemplatesCommand, se_ListPrivacyBudgetTemplatesCommand } from "../protocols/Aws_restJson1";
+import { ListPrivacyBudgetTemplates } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -100,16 +99,11 @@ export class ListPrivacyBudgetTemplatesCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CleanRoomsClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSBastionControlPlaneServiceLambda", "ListPrivacyBudgetTemplates", {})
   .n("CleanRoomsClient", "ListPrivacyBudgetTemplatesCommand")
-  .f(void 0, void 0)
-  .ser(se_ListPrivacyBudgetTemplatesCommand)
-  .de(de_ListPrivacyBudgetTemplatesCommand)
+  .sc(ListPrivacyBudgetTemplates)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

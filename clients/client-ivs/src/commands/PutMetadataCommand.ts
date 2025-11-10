@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { IvsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IvsClient";
-import { PutMetadataRequest, PutMetadataRequestFilterSensitiveLog } from "../models/models_0";
-import { de_PutMetadataCommand, se_PutMetadataCommand } from "../protocols/Aws_restJson1";
+import { PutMetadataRequest } from "../models/models_0";
+import { PutMetadata } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -88,16 +87,11 @@ export class PutMetadataCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IvsClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonInteractiveVideoService", "PutMetadata", {})
   .n("IvsClient", "PutMetadataCommand")
-  .f(PutMetadataRequestFilterSensitiveLog, void 0)
-  .ser(se_PutMetadataCommand)
-  .de(de_PutMetadataCommand)
+  .sc(PutMetadata)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

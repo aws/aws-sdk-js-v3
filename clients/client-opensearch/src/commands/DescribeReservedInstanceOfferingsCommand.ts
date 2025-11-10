@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -10,10 +9,7 @@ import {
   DescribeReservedInstanceOfferingsResponse,
 } from "../models/models_0";
 import { OpenSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpenSearchClient";
-import {
-  de_DescribeReservedInstanceOfferingsCommand,
-  se_DescribeReservedInstanceOfferingsCommand,
-} from "../protocols/Aws_restJson1";
+import { DescribeReservedInstanceOfferings } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -111,16 +107,11 @@ export class DescribeReservedInstanceOfferingsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: OpenSearchClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonOpenSearchService", "DescribeReservedInstanceOfferings", {})
   .n("OpenSearchClient", "DescribeReservedInstanceOfferingsCommand")
-  .f(void 0, void 0)
-  .ser(se_DescribeReservedInstanceOfferingsCommand)
-  .de(de_DescribeReservedInstanceOfferingsCommand)
+  .sc(DescribeReservedInstanceOfferings)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

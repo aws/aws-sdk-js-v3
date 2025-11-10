@@ -1,22 +1,16 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  ListVectorEnrichmentJobInput,
-  ListVectorEnrichmentJobInputFilterSensitiveLog,
-  ListVectorEnrichmentJobOutput,
-  ListVectorEnrichmentJobOutputFilterSensitiveLog,
-} from "../models/models_0";
-import { de_ListVectorEnrichmentJobsCommand, se_ListVectorEnrichmentJobsCommand } from "../protocols/Aws_restJson1";
+import { ListVectorEnrichmentJobInput, ListVectorEnrichmentJobOutput } from "../models/models_0";
 import {
   SageMakerGeospatialClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../SageMakerGeospatialClient";
+import { ListVectorEnrichmentJobs } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -111,16 +105,11 @@ export class ListVectorEnrichmentJobsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SageMakerGeospatialClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("SageMakerGeospatial", "ListVectorEnrichmentJobs", {})
   .n("SageMakerGeospatialClient", "ListVectorEnrichmentJobsCommand")
-  .f(ListVectorEnrichmentJobInputFilterSensitiveLog, ListVectorEnrichmentJobOutputFilterSensitiveLog)
-  .ser(se_ListVectorEnrichmentJobsCommand)
-  .de(de_ListVectorEnrichmentJobsCommand)
+  .sc(ListVectorEnrichmentJobs)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

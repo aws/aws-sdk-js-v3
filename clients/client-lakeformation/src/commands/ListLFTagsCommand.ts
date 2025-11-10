@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { LakeFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LakeFormationClient";
 import { ListLFTagsRequest, ListLFTagsResponse } from "../models/models_0";
-import { de_ListLFTagsCommand, se_ListLFTagsCommand } from "../protocols/Aws_restJson1";
+import { ListLFTags } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -97,16 +96,11 @@ export class ListLFTagsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LakeFormationClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSLakeFormation", "ListLFTags", {})
   .n("LakeFormationClient", "ListLFTagsCommand")
-  .f(void 0, void 0)
-  .ser(se_ListLFTagsCommand)
-  .de(de_ListLFTagsCommand)
+  .sc(ListLFTags)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { FinspaceDataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FinspaceDataClient";
 import { UpdateChangesetRequest, UpdateChangesetResponse } from "../models/models_0";
-import { de_UpdateChangesetCommand, se_UpdateChangesetCommand } from "../protocols/Aws_restJson1";
+import { UpdateChangeset } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -100,16 +99,11 @@ export class UpdateChangesetCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: FinspaceDataClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSHabaneroPublicAPI", "UpdateChangeset", {})
   .n("FinspaceDataClient", "UpdateChangesetCommand")
-  .f(void 0, void 0)
-  .ser(se_UpdateChangesetCommand)
-  .de(de_UpdateChangesetCommand)
+  .sc(UpdateChangeset)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

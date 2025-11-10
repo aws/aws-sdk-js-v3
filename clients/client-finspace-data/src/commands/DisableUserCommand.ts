@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { FinspaceDataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FinspaceDataClient";
 import { DisableUserRequest, DisableUserResponse } from "../models/models_0";
-import { de_DisableUserCommand, se_DisableUserCommand } from "../protocols/Aws_restJson1";
+import { DisableUser } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -92,16 +91,11 @@ export class DisableUserCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: FinspaceDataClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSHabaneroPublicAPI", "DisableUser", {})
   .n("FinspaceDataClient", "DisableUserCommand")
-  .f(void 0, void 0)
-  .ser(se_DisableUserCommand)
-  .de(de_DisableUserCommand)
+  .sc(DisableUser)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

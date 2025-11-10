@@ -1,18 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ChimeSDKIdentityClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeSDKIdentityClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  ListAppInstanceAdminsRequest,
-  ListAppInstanceAdminsRequestFilterSensitiveLog,
-  ListAppInstanceAdminsResponse,
-  ListAppInstanceAdminsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { de_ListAppInstanceAdminsCommand, se_ListAppInstanceAdminsCommand } from "../protocols/Aws_restJson1";
+import { ListAppInstanceAdminsRequest, ListAppInstanceAdminsResponse } from "../models/models_0";
+import { ListAppInstanceAdmins } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -107,16 +101,11 @@ export class ListAppInstanceAdminsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ChimeSDKIdentityClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("ChimeIdentityService", "ListAppInstanceAdmins", {})
   .n("ChimeSDKIdentityClient", "ListAppInstanceAdminsCommand")
-  .f(ListAppInstanceAdminsRequestFilterSensitiveLog, ListAppInstanceAdminsResponseFilterSensitiveLog)
-  .ser(se_ListAppInstanceAdminsCommand)
-  .de(de_ListAppInstanceAdminsCommand)
+  .sc(ListAppInstanceAdmins)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { CancelMLModelTrainingJobInput, CancelMLModelTrainingJobOutput } from "../models/models_0";
 import { NeptunedataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptunedataClient";
-import { de_CancelMLModelTrainingJobCommand, se_CancelMLModelTrainingJobCommand } from "../protocols/Aws_restJson1";
+import { CancelMLModelTrainingJob } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -105,16 +104,11 @@ export class CancelMLModelTrainingJobCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: NeptunedataClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonNeptuneDataplane", "CancelMLModelTrainingJob", {})
   .n("NeptunedataClient", "CancelMLModelTrainingJobCommand")
-  .f(void 0, void 0)
-  .ser(se_CancelMLModelTrainingJobCommand)
-  .de(de_CancelMLModelTrainingJobCommand)
+  .sc(CancelMLModelTrainingJob)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

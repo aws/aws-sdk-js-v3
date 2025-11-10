@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { AccessAnalyzerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AccessAnalyzerClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { ListFindingsRequest, ListFindingsResponse } from "../models/models_0";
-import { de_ListFindingsCommand, se_ListFindingsCommand } from "../protocols/Aws_restJson1";
+import { ListFindings } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -138,16 +137,11 @@ export class ListFindingsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AccessAnalyzerClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AccessAnalyzer", "ListFindings", {})
   .n("AccessAnalyzerClient", "ListFindingsCommand")
-  .f(void 0, void 0)
-  .ser(se_ListFindingsCommand)
-  .de(de_ListFindingsCommand)
+  .sc(ListFindings)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

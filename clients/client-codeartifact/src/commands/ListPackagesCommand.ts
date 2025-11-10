@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CodeartifactClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeartifactClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { ListPackagesRequest, ListPackagesResult } from "../models/models_0";
-import { de_ListPackagesCommand, se_ListPackagesCommand } from "../protocols/Aws_restJson1";
+import { ListPackages } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -119,16 +118,11 @@ export class ListPackagesCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CodeartifactClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("CodeArtifactControlPlaneService", "ListPackages", {})
   .n("CodeartifactClient", "ListPackagesCommand")
-  .f(void 0, void 0)
-  .ser(se_ListPackagesCommand)
-  .de(de_ListPackagesCommand)
+  .sc(ListPackages)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

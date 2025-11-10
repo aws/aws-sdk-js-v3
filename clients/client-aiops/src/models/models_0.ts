@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@smithy/smithy-client";
+import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
 import { AIOpsServiceException as __BaseException } from "./AIOpsServiceException";
 
@@ -652,19 +652,3 @@ export interface UntagResourceRequest {
  * @public
  */
 export interface UntagResourceResponse {}
-
-/**
- * @internal
- */
-export const ListInvestigationGroupsInputFilterSensitiveLog = (obj: ListInvestigationGroupsInput): any => ({
-  ...obj,
-  ...(obj.nextToken && { nextToken: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const ListInvestigationGroupsOutputFilterSensitiveLog = (obj: ListInvestigationGroupsOutput): any => ({
-  ...obj,
-  ...(obj.nextToken && { nextToken: SENSITIVE_STRING }),
-});

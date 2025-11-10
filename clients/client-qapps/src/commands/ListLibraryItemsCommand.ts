@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { ListLibraryItemsInput, ListLibraryItemsOutput } from "../models/models_0";
-import { de_ListLibraryItemsCommand, se_ListLibraryItemsCommand } from "../protocols/Aws_restJson1";
 import { QAppsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QAppsClient";
+import { ListLibraryItems } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -197,16 +196,11 @@ export class ListLibraryItemsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: QAppsClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("QAppsService", "ListLibraryItems", {})
   .n("QAppsClient", "ListLibraryItemsCommand")
-  .f(void 0, void 0)
-  .ser(se_ListLibraryItemsCommand)
-  .de(de_ListLibraryItemsCommand)
+  .sc(ListLibraryItems)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

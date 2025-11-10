@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient";
 import { CreateFunctionUrlConfigRequest, CreateFunctionUrlConfigResponse } from "../models/models_0";
-import { de_CreateFunctionUrlConfigCommand, se_CreateFunctionUrlConfigCommand } from "../protocols/Aws_restJson1";
+import { CreateFunctionUrlConfig } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -124,16 +123,11 @@ export class CreateFunctionUrlConfigCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LambdaClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSGirApiService", "CreateFunctionUrlConfig", {})
   .n("LambdaClient", "CreateFunctionUrlConfigCommand")
-  .f(void 0, void 0)
-  .ser(se_CreateFunctionUrlConfigCommand)
-  .de(de_CreateFunctionUrlConfigCommand)
+  .sc(CreateFunctionUrlConfig)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -11,7 +10,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../NetworkFlowMonitorClient";
-import { de_UpdateScopeCommand, se_UpdateScopeCommand } from "../protocols/Aws_restJson1";
+import { UpdateScope } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -122,16 +121,11 @@ export class UpdateScopeCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: NetworkFlowMonitorClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("NetworkFlowMonitor", "UpdateScope", {})
   .n("NetworkFlowMonitorClient", "UpdateScopeCommand")
-  .f(void 0, void 0)
-  .ser(se_UpdateScopeCommand)
-  .de(de_UpdateScopeCommand)
+  .sc(UpdateScope)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

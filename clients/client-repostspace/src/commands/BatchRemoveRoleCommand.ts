@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { BatchRemoveRoleInput, BatchRemoveRoleOutput } from "../models/models_0";
-import { de_BatchRemoveRoleCommand, se_BatchRemoveRoleCommand } from "../protocols/Aws_restJson1";
 import { RepostspaceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RepostspaceClient";
+import { BatchRemoveRole } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -120,16 +119,11 @@ export class BatchRemoveRoleCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RepostspaceClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("RepostSpace", "BatchRemoveRole", {})
   .n("RepostspaceClient", "BatchRemoveRoleCommand")
-  .f(void 0, void 0)
-  .ser(se_BatchRemoveRoleCommand)
-  .de(de_BatchRemoveRoleCommand)
+  .sc(BatchRemoveRole)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
