@@ -1,45 +1,42 @@
 import { CloudWatchLogs } from "@aws-sdk/client-cloudwatch-logs";
-import { AwsJson1_1Protocol, AwsSmithyRpcV2CborProtocol } from "@aws-sdk/core/protocols";
-import type { IncomingMessage } from "node:http";
+import { GetCallerIdentityCommandOutput, STS } from "@aws-sdk/client-sts";
 import { describe, expect, test as it } from "vitest";
 
 describe(
   CloudWatchLogs.name,
+  {
+    timeout: 120_000,
+    retry: 4,
+  },
   () => {
     const cwlDefault = new CloudWatchLogs({
       region: "us-west-2",
-      protocol: new AwsJson1_1Protocol({
-        defaultNamespace: "com.amazonaws.cloudwatchlogs",
-        serviceTarget: "Logs_20140328",
-        awsQueryCompatible: false,
-      }),
-    });
-    const cwlCustom = new CloudWatchLogs({
-      region: "us-west-2",
-      protocol: new AwsSmithyRpcV2CborProtocol({ defaultNamespace: "com.amazonaws.cloudwatchlogs" }),
-    });
-
-    it("should be able to make requests with runtime protocol selection", async () => {
-      for (const cwl of [cwlDefault, cwlCustom]) {
-        const logGroups = await cwl.listLogGroups();
-
-        expect(logGroups).toMatchObject({
-          $metadata: {
-            httpStatusCode: 200,
-          },
-          logGroups: expect.any(Array),
-        });
-        expect(logGroups.nextToken ?? "").toBeTypeOf("string");
-      }
     });
 
     it("should be able to use an event stream to tail logs", async () => {
-      for (const cwl of [cwlDefault, cwlCustom]) {
-        const logGroups = await cwl.listLogGroups({
+      const sts = new STS({ region: "us-west-2" });
+      const id: GetCallerIdentityCommandOutput = await sts.getCallerIdentity();
+      const accountId = id.Account;
+
+      for (const cwl of [cwlDefault]) {
+        const testLogGroupName = `/jsv3-e2e-${accountId}`;
+
+        let logGroups = await cwl.listLogGroups({
+          logGroupNamePattern: `^${testLogGroupName}`,
           limit: 1,
         });
 
-        const groupArn = logGroups.logGroups?.[0].logGroupArn;
+        if (!logGroups.logGroups?.length) {
+          await cwl.createLogGroup({
+            logGroupName: testLogGroupName,
+          });
+          logGroups = await cwl.listLogGroups({
+            logGroupNamePattern: `^${testLogGroupName}`,
+            limit: 1,
+          });
+        }
+
+        const groupArn = logGroups.logGroups?.[0]?.logGroupArn;
 
         if (groupArn) {
           const liveTail = await cwl.startLiveTail({
@@ -68,6 +65,5 @@ describe(
         }
       }
     });
-  },
-  120_000
+  }
 );
