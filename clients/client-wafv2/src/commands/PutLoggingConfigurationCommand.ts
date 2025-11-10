@@ -172,7 +172,7 @@ export interface PutLoggingConfigurationCommandOutput extends PutLoggingConfigur
  *       DefaultBehavior: "KEEP" || "DROP", // required
  *     },
  *     LogType: "WAF_LOGS",
- *     LogScope: "CUSTOMER" || "SECURITY_LAKE",
+ *     LogScope: "CUSTOMER" || "SECURITY_LAKE" || "CLOUDWATCH_TELEMETRY_RULE_MANAGED",
  *   },
  * };
  * const command = new PutLoggingConfigurationCommand(input);
@@ -270,7 +270,7 @@ export interface PutLoggingConfigurationCommandOutput extends PutLoggingConfigur
  * //       DefaultBehavior: "KEEP" || "DROP", // required
  * //     },
  * //     LogType: "WAF_LOGS",
- * //     LogScope: "CUSTOMER" || "SECURITY_LAKE",
+ * //     LogScope: "CUSTOMER" || "SECURITY_LAKE" || "CLOUDWATCH_TELEMETRY_RULE_MANAGED",
  * //   },
  * // };
  *

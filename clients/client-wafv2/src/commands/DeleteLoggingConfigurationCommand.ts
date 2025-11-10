@@ -39,7 +39,7 @@ export interface DeleteLoggingConfigurationCommandOutput extends DeleteLoggingCo
  * const input = { // DeleteLoggingConfigurationRequest
  *   ResourceArn: "STRING_VALUE", // required
  *   LogType: "WAF_LOGS",
- *   LogScope: "CUSTOMER" || "SECURITY_LAKE",
+ *   LogScope: "CUSTOMER" || "SECURITY_LAKE" || "CLOUDWATCH_TELEMETRY_RULE_MANAGED",
  * };
  * const command = new DeleteLoggingConfigurationCommand(input);
  * const response = await client.send(command);

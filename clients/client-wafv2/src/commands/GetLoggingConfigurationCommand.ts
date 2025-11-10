@@ -39,7 +39,7 @@ export interface GetLoggingConfigurationCommandOutput extends GetLoggingConfigur
  * const input = { // GetLoggingConfigurationRequest
  *   ResourceArn: "STRING_VALUE", // required
  *   LogType: "WAF_LOGS",
- *   LogScope: "CUSTOMER" || "SECURITY_LAKE",
+ *   LogScope: "CUSTOMER" || "SECURITY_LAKE" || "CLOUDWATCH_TELEMETRY_RULE_MANAGED",
  * };
  * const command = new GetLoggingConfigurationCommand(input);
  * const response = await client.send(command);
@@ -136,7 +136,7 @@ export interface GetLoggingConfigurationCommandOutput extends GetLoggingConfigur
  * //       DefaultBehavior: "KEEP" || "DROP", // required
  * //     },
  * //     LogType: "WAF_LOGS",
- * //     LogScope: "CUSTOMER" || "SECURITY_LAKE",
+ * //     LogScope: "CUSTOMER" || "SECURITY_LAKE" || "CLOUDWATCH_TELEMETRY_RULE_MANAGED",
  * //   },
  * // };
  *
