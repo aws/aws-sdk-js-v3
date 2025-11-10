@@ -28,71 +28,7 @@ export interface CreateClusterCommandInput extends CreateClusterInput {}
 export interface CreateClusterCommandOutput extends CreateClusterOutput, __MetadataBearer {}
 
 /**
- * <p>The CreateCluster API allows you to create both single-Region clusters and multi-Region
- *          clusters. With the addition of the <i>multiRegionProperties</i> parameter,
- *          you can create a cluster with witness Region support and establish peer relationships with
- *          clusters in other Regions during creation.</p>
- *          <note>
- *             <p>Creating multi-Region clusters requires additional IAM permissions beyond those
- *                needed for single-Region clusters, as detailed in the <b>Required permissions</b> section
- *             below.</p>
- *          </note>
- *          <p>
- *             <b>Required permissions</b>
- *          </p>
- *          <dl>
- *             <dt>dsql:CreateCluster</dt>
- *             <dd>
- *                <p>Required to create a cluster.</p>
- *                <p>Resources: <code>arn:aws:dsql:region:account-id:cluster/*</code>
- *                </p>
- *             </dd>
- *             <dt>dsql:TagResource</dt>
- *             <dd>
- *                <p>Permission to add tags to a resource.</p>
- *                <p>Resources: <code>arn:aws:dsql:region:account-id:cluster/*</code>
- *                </p>
- *             </dd>
- *             <dt>dsql:PutMultiRegionProperties</dt>
- *             <dd>
- *                <p>Permission to configure multi-Region properties for a cluster.</p>
- *                <p>Resources: <code>arn:aws:dsql:region:account-id:cluster/*</code>
- *                </p>
- *             </dd>
- *             <dt>dsql:AddPeerCluster</dt>
- *             <dd>
- *                <p>When specifying <code>multiRegionProperties.clusters</code>, permission to
- *                   add peer clusters.</p>
- *                <p>Resources:</p>
- *                <ul>
- *                   <li>
- *                      <p>Local cluster: <code>arn:aws:dsql:region:account-id:cluster/*</code>
- *                      </p>
- *                   </li>
- *                   <li>
- *                      <p>Each peer cluster: exact ARN of each specified peer cluster</p>
- *                   </li>
- *                </ul>
- *             </dd>
- *             <dt>dsql:PutWitnessRegion</dt>
- *             <dd>
- *                <p>When specifying <code>multiRegionProperties.witnessRegion</code>, permission
- *                   to set a witness Region. This permission is checked both in the cluster Region and
- *                   in the witness Region.</p>
- *                <p>Resources: <code>arn:aws:dsql:region:account-id:cluster/*</code>
- *                </p>
- *                <p>Condition Keys: <code>dsql:WitnessRegion</code> (matching the specified witness region)</p>
- *             </dd>
- *          </dl>
- *          <important>
- *             <ul>
- *                <li>
- *                   <p>The witness Region specified in
- *                      <code>multiRegionProperties.witnessRegion</code> cannot be the same as the
- *                   cluster's Region.</p>
- *                </li>
- *             </ul>
- *          </important>
+ * <p>The CreateCluster API allows you to create both single-Region clusters and multi-Region clusters. With the addition of the <i>multiRegionProperties</i> parameter, you can create a cluster with witness Region support and establish peer relationships with clusters in other Regions during creation.</p> <note> <p>Creating multi-Region clusters requires additional IAM permissions beyond those needed for single-Region clusters, as detailed in the <b>Required permissions</b> section below.</p> </note> <p> <b>Required permissions</b> </p> <dl> <dt>dsql:CreateCluster</dt> <dd> <p>Required to create a cluster.</p> <p>Resources: <code>arn:aws:dsql:region:account-id:cluster/*</code> </p> </dd> <dt>dsql:TagResource</dt> <dd> <p>Permission to add tags to a resource.</p> <p>Resources: <code>arn:aws:dsql:region:account-id:cluster/*</code> </p> </dd> <dt>dsql:PutMultiRegionProperties</dt> <dd> <p>Permission to configure multi-Region properties for a cluster.</p> <p>Resources: <code>arn:aws:dsql:region:account-id:cluster/*</code> </p> </dd> <dt>dsql:AddPeerCluster</dt> <dd> <p>When specifying <code>multiRegionProperties.clusters</code>, permission to add peer clusters.</p> <p>Resources:</p> <ul> <li> <p>Local cluster: <code>arn:aws:dsql:region:account-id:cluster/*</code> </p> </li> <li> <p>Each peer cluster: exact ARN of each specified peer cluster</p> </li> </ul> </dd> <dt>dsql:PutWitnessRegion</dt> <dd> <p>When specifying <code>multiRegionProperties.witnessRegion</code>, permission to set a witness Region. This permission is checked both in the cluster Region and in the witness Region.</p> <p>Resources: <code>arn:aws:dsql:region:account-id:cluster/*</code> </p> <p>Condition Keys: <code>dsql:WitnessRegion</code> (matching the specified witness region)</p> </dd> </dl> <important> <ul> <li> <p>The witness Region specified in <code>multiRegionProperties.witnessRegion</code> cannot be the same as the cluster's Region.</p> </li> </ul> </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -136,6 +72,7 @@ export interface CreateClusterCommandOutput extends CreateClusterOutput, __Metad
  * //     encryptionStatus: "ENABLED" || "UPDATING" || "KMS_KEY_INACCESSIBLE" || "ENABLING", // required
  * //   },
  * //   deletionProtectionEnabled: true || false, // required
+ * //   endpoint: "STRING_VALUE",
  * // };
  *
  * ```
@@ -159,8 +96,7 @@ export interface CreateClusterCommandOutput extends CreateClusterOutput, __Metad
  *  <p>You do not have sufficient access to perform this action.</p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The request processing has failed because of an unknown error, exception or
- *          failure.</p>
+ *  <p>The request processing has failed because of an unknown error, exception or failure.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied due to request throttling.</p>

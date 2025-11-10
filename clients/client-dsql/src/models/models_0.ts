@@ -85,13 +85,13 @@ export class ConflictException extends __BaseException {
  */
 export interface MultiRegionProperties {
   /**
-   * <p>The  Region that serves as the witness region for a multi-Region cluster. The witness Region helps maintain cluster consistency and quorum.</p>
+   * <p>The Region that serves as the witness region for a multi-Region cluster. The witness Region helps maintain cluster consistency and quorum.</p>
    * @public
    */
   witnessRegion?: string | undefined;
 
   /**
-   * <p>The set of peered clusters that form the multi-Region cluster configuration. Each peered cluster represents a database instance in a different  Region.</p>
+   * <p>The set of peered clusters that form the multi-Region cluster configuration. Each peered cluster represents a database instance in a different Region.</p>
    * @public
    */
   clusters?: string[] | undefined;
@@ -102,8 +102,7 @@ export interface MultiRegionProperties {
  */
 export interface CreateClusterInput {
   /**
-   * <p>If enabled, you can't delete your cluster. You must first disable this property before
-   *          you can delete your cluster.</p>
+   * <p>If enabled, you can't delete your cluster. You must first disable this property before you can delete your cluster.</p>
    * @public
    */
   deletionProtectionEnabled?: boolean | undefined;
@@ -121,13 +120,7 @@ export interface CreateClusterInput {
   tags?: Record<string, string> | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *          request. Idempotency ensures that an API request completes only once. With an idempotent
-   *          request, if the original request completes successfully, the subsequent retries with the
-   *          same client token return the result from the original successful request and they have no
-   *          additional effect.</p>
-   *          <p>If you don't specify a client token, the Amazon Web Services SDK automatically generates
-   *          one.</p>
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. Idempotency ensures that an API request completes only once. With an idempotent request, if the original request completes successfully, the subsequent retries with the same client token return the result from the original successful request and they have no additional effect.</p> <p>If you don't specify a client token, the Amazon Web Services SDK automatically generates one.</p>
    * @public
    */
   clientToken?: string | undefined;
@@ -229,7 +222,7 @@ export interface CreateClusterOutput {
   status: ClusterStatus | undefined;
 
   /**
-   * <p>The time of when  created the cluster.</p>
+   * <p>The time of when created the cluster.</p>
    * @public
    */
   creationTime: Date | undefined;
@@ -251,11 +244,16 @@ export interface CreateClusterOutput {
    * @public
    */
   deletionProtectionEnabled: boolean | undefined;
+
+  /**
+   * <p>The connection endpoint for the created cluster.</p>
+   * @public
+   */
+  endpoint?: string | undefined;
 }
 
 /**
- * <p>The request processing has failed because of an unknown error, exception or
- *          failure.</p>
+ * <p>The request processing has failed because of an unknown error, exception or failure.</p>
  * @public
  */
 export class InternalServerException extends __BaseException {
@@ -375,8 +373,7 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * <p>Stores information about a field passed inside a request that resulted in an validation
- *          error.</p>
+ * <p>Stores information about a field passed inside a request that resulted in an validation error.</p>
  * @public
  */
 export interface ValidationExceptionField {
@@ -455,13 +452,7 @@ export interface DeleteClusterInput {
   identifier: string | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *          request. Idempotency ensures that an API request completes only once. With an idempotent
-   *          request, if the original request completes successfully. The subsequent retries with the
-   *          same client token return the result from the original successful request and they have no
-   *          additional effect.</p>
-   *          <p>If you don't specify a client token, the Amazon Web Services SDK automatically generates
-   *          one.</p>
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. Idempotency ensures that an API request completes only once. With an idempotent request, if the original request completes successfully. The subsequent retries with the same client token return the result from the original successful request and they have no additional effect.</p> <p>If you don't specify a client token, the Amazon Web Services SDK automatically generates one.</p>
    * @public
    */
   clientToken?: string | undefined;
@@ -628,6 +619,12 @@ export interface GetClusterOutput {
    * @public
    */
   encryptionDetails?: EncryptionDetails | undefined;
+
+  /**
+   * <p>The connection endpoint for the cluster.</p>
+   * @public
+   */
+  endpoint?: string | undefined;
 }
 
 /**
@@ -685,16 +682,13 @@ export interface GetVpcEndpointServiceNameOutput {
  */
 export interface ListClustersInput {
   /**
-   * <p>An optional parameter that specifies the maximum number of results to return. You can
-   *          use nextToken to display the next page of results.</p>
+   * <p>An optional parameter that specifies the maximum number of results to return. You can use nextToken to display the next page of results.</p>
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>If your initial ListClusters operation returns a nextToken, you can include the returned
-   *          nextToken in following ListClusters operations, which returns results in the next
-   *          page.</p>
+   * <p>If your initial ListClusters operation returns a nextToken, you can include the returned nextToken in following ListClusters operations, which returns results in the next page.</p>
    * @public
    */
   nextToken?: string | undefined;
@@ -723,9 +717,7 @@ export interface ClusterSummary {
  */
 export interface ListClustersOutput {
   /**
-   * <p>If nextToken is returned, there are more results available. The value of nextToken is a
-   *          unique pagination token for each page. To retrieve the next page, make the call again using
-   *          the returned token.</p>
+   * <p>If nextToken is returned, there are more results available. The value of nextToken is a unique pagination token for each page. To retrieve the next page, make the call again using the returned token.</p>
    * @public
    */
   nextToken?: string | undefined;
@@ -806,13 +798,7 @@ export interface UpdateClusterInput {
   kmsEncryptionKey?: string | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *          request. Idempotency ensures that an API request completes only once. With an idempotent
-   *          request, if the original request completes successfully. The subsequent retries with the
-   *          same client token return the result from the original successful request and they have no
-   *          additional effect.</p>
-   *          <p>If you don't specify a client token, the Amazon Web Services SDK automatically generates
-   *          one.</p>
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. Idempotency ensures that an API request completes only once. With an idempotent request, if the original request completes successfully. The subsequent retries with the same client token return the result from the original successful request and they have no additional effect.</p> <p>If you don't specify a client token, the Amazon Web Services SDK automatically generates one.</p>
    * @public
    */
   clientToken?: string | undefined;
