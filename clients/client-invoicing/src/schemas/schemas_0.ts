@@ -32,6 +32,8 @@ const _DIU = "DeleteInvoiceUnit";
 const _DIUR = "DeleteInvoiceUnitRequest";
 const _DIURe = "DeleteInvoiceUnitResponse";
 const _DOC = "DistrictOrCounty";
+const _DU = "DocumentUrl";
+const _DUED = "DocumentUrlExpirationDate";
 const _De = "Description";
 const _E = "Entity";
 const _ED = "EndDate";
@@ -41,6 +43,9 @@ const _FBA = "FeesBreakdownAmount";
 const _FBAL = "FeesBreakdownAmountList";
 const _Fi = "Filters";
 const _Fil = "Filter";
+const _GIPDF = "GetInvoicePDF";
+const _GIPDFR = "GetInvoicePDFRequest";
+const _GIPDFRe = "GetInvoicePDFResponse";
 const _GIU = "GetInvoiceUnit";
 const _GIUR = "GetInvoiceUnitRequest";
 const _GIURe = "GetInvoiceUnitResponse";
@@ -50,6 +55,7 @@ const _ID = "IssuedDate";
 const _IE = "InvoicingEntity";
 const _II = "InvoiceId";
 const _IP = "InvoiceProfile";
+const _IPDF = "InvoicePDF";
 const _IR = "InvoiceReceiver";
 const _IRn = "InvoiceReceivers";
 const _IS = "InvoiceSummary";
@@ -102,6 +108,8 @@ const _S = "Selector";
 const _SBSWS = "SensitiveBasicStringWithoutSpace";
 const _SCC = "SourceCurrencyCode";
 const _SD = "StartDate";
+const _SDu = "SupplementalDocuments";
+const _SDup = "SupplementalDocument";
 const _SOR = "StateOrRegion";
 const _SQEE = "ServiceQuotaExceededException";
 const _STA = "SubTotalAmount";
@@ -220,6 +228,8 @@ export var Entity: StaticStructureSchema = [3, n0, _E, 0, [_IE], [0]];
 export var FeesBreakdown: StaticStructureSchema = [3, n0, _FB, 0, [_B, _TA], [() => FeesBreakdownAmountList, 0]];
 export var FeesBreakdownAmount: StaticStructureSchema = [3, n0, _FBA, 0, [_De, _A, _Ra], [0, 0, 0]];
 export var Filters: StaticStructureSchema = [3, n0, _Fi, 0, [_Na, _IRn, _Ac], [64 | 0, 64 | 0, 64 | 0]];
+export var GetInvoicePDFRequest: StaticStructureSchema = [3, n0, _GIPDFR, 0, [_II], [0]];
+export var GetInvoicePDFResponse: StaticStructureSchema = [3, n0, _GIPDFRe, 0, [_IPDF], [() => InvoicePDF]];
 export var GetInvoiceUnitRequest: StaticStructureSchema = [3, n0, _GIUR, 0, [_IUA, _AO], [0, 4]];
 export var GetInvoiceUnitResponse: StaticStructureSchema = [
   3,
@@ -258,6 +268,14 @@ export var InvoiceCurrencyAmount: StaticStructureSchema = [
   0,
   [_TA, _TABT, _CC, _AB, _CED],
   [0, 0, 0, () => AmountBreakdown, () => CurrencyExchangeDetails],
+];
+export var InvoicePDF: StaticStructureSchema = [
+  3,
+  n0,
+  _IPDF,
+  0,
+  [_II, _DU, _DUED, _SDu],
+  [0, 0, 4, () => SupplementalDocuments],
 ];
 export var InvoiceProfile: StaticStructureSchema = [
   3,
@@ -377,6 +395,7 @@ export var ServiceQuotaExceededException: StaticErrorSchema = [
 ];
 TypeRegistry.for(n0).registerError(ServiceQuotaExceededException, __ServiceQuotaExceededException);
 
+export var SupplementalDocument: StaticStructureSchema = [3, n0, _SDup, 0, [_DU, _DUED], [0, 4]];
 export var TagResourceRequest: StaticStructureSchema = [3, n0, _TRR, 0, [_RAes, _RT], [0, () => ResourceTagList]];
 export var TagResourceResponse: StaticStructureSchema = [3, n0, _TRRa, 0, [], []];
 export var TaxesBreakdown: StaticStructureSchema = [3, n0, _TB, 0, [_B, _TA], [() => TaxesBreakdownAmountList, 0]];
@@ -438,6 +457,7 @@ export var ProfileList: StaticListSchema = [1, n0, _PL, 0, [() => InvoiceProfile
 export var ResourceTagKeyList = 64 | 0;
 
 export var ResourceTagList: StaticListSchema = [1, n0, _RTL, 0, () => ResourceTag];
+export var SupplementalDocuments: StaticListSchema = [1, n0, _SDu, 0, () => SupplementalDocument];
 export var TaxesBreakdownAmountList: StaticListSchema = [1, n0, _TBAL, 0, () => TaxesBreakdownAmount];
 export var ValidationExceptionFieldList: StaticListSchema = [1, n0, _VEFL, 0, () => ValidationExceptionField];
 export var BatchGetInvoiceProfile: StaticOperationSchema = [
@@ -463,6 +483,14 @@ export var DeleteInvoiceUnit: StaticOperationSchema = [
   0,
   () => DeleteInvoiceUnitRequest,
   () => DeleteInvoiceUnitResponse,
+];
+export var GetInvoicePDF: StaticOperationSchema = [
+  9,
+  n0,
+  _GIPDF,
+  0,
+  () => GetInvoicePDFRequest,
+  () => GetInvoicePDFResponse,
 ];
 export var GetInvoiceUnit: StaticOperationSchema = [
   9,

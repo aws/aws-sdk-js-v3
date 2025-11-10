@@ -672,6 +672,76 @@ export interface Filters {
 /**
  * @public
  */
+export interface GetInvoicePDFRequest {
+  /**
+   * <p> Your unique invoice ID. </p>
+   * @public
+   */
+  InvoiceId: string | undefined;
+}
+
+/**
+ * <p>Supplemental document associated with the invoice.</p>
+ * @public
+ */
+export interface SupplementalDocument {
+  /**
+   * <p>The pre-signed URL to download invoice supplemental document.</p>
+   * @public
+   */
+  DocumentUrl?: string | undefined;
+
+  /**
+   * <p>The pre-signed URL expiration date of invoice supplemental document.</p>
+   * @public
+   */
+  DocumentUrlExpirationDate?: Date | undefined;
+}
+
+/**
+ * <p> Invoice document data. </p>
+ * @public
+ */
+export interface InvoicePDF {
+  /**
+   * <p> Your unique invoice ID. </p>
+   * @public
+   */
+  InvoiceId?: string | undefined;
+
+  /**
+   * <p>The pre-signed URL to download the invoice document. </p>
+   * @public
+   */
+  DocumentUrl?: string | undefined;
+
+  /**
+   * <p>The pre-signed URL expiration date of the invoice document.</p>
+   * @public
+   */
+  DocumentUrlExpirationDate?: Date | undefined;
+
+  /**
+   * <p>List of supplemental documents associated with the invoice.</p>
+   * @public
+   */
+  SupplementalDocuments?: SupplementalDocument[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetInvoicePDFResponse {
+  /**
+   * <p> The invoice document and supplemental documents associated with the invoice. </p>
+   * @public
+   */
+  InvoicePDF?: InvoicePDF | undefined;
+}
+
+/**
+ * @public
+ */
 export interface GetInvoiceUnitRequest {
   /**
    * <p> The ARN to identify an invoice unit. This information can't be modified or deleted. </p>

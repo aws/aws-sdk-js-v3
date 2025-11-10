@@ -229,6 +229,14 @@ DeleteInvoiceUnit
 </details>
 <details>
 <summary>
+GetInvoicePDF
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/invoicing/command/GetInvoicePDFCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-invoicing/Interface/GetInvoicePDFCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-invoicing/Interface/GetInvoicePDFCommandOutput/)
+
+</details>
+<details>
+<summary>
 GetInvoiceUnit
 </summary>
 

@@ -2,6 +2,7 @@
 export * from "./BatchGetInvoiceProfileCommand";
 export * from "./CreateInvoiceUnitCommand";
 export * from "./DeleteInvoiceUnitCommand";
+export * from "./GetInvoicePDFCommand";
 export * from "./GetInvoiceUnitCommand";
 export * from "./ListInvoiceSummariesCommand";
 export * from "./ListInvoiceUnitsCommand";

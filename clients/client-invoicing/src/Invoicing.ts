@@ -18,6 +18,11 @@ import {
   DeleteInvoiceUnitCommandOutput,
 } from "./commands/DeleteInvoiceUnitCommand";
 import {
+  GetInvoicePDFCommand,
+  GetInvoicePDFCommandInput,
+  GetInvoicePDFCommandOutput,
+} from "./commands/GetInvoicePDFCommand";
+import {
   GetInvoiceUnitCommand,
   GetInvoiceUnitCommandInput,
   GetInvoiceUnitCommandOutput,
@@ -54,6 +59,7 @@ const commands = {
   BatchGetInvoiceProfileCommand,
   CreateInvoiceUnitCommand,
   DeleteInvoiceUnitCommand,
+  GetInvoicePDFCommand,
   GetInvoiceUnitCommand,
   ListInvoiceSummariesCommand,
   ListInvoiceUnitsCommand,
@@ -113,6 +119,17 @@ export interface Invoicing {
     args: DeleteInvoiceUnitCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteInvoiceUnitCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetInvoicePDFCommand}
+   */
+  getInvoicePDF(args: GetInvoicePDFCommandInput, options?: __HttpHandlerOptions): Promise<GetInvoicePDFCommandOutput>;
+  getInvoicePDF(args: GetInvoicePDFCommandInput, cb: (err: any, data?: GetInvoicePDFCommandOutput) => void): void;
+  getInvoicePDF(
+    args: GetInvoicePDFCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetInvoicePDFCommandOutput) => void
   ): void;
 
   /**

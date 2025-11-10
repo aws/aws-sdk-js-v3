@@ -63,6 +63,7 @@ import {
 } from "./commands/BatchGetInvoiceProfileCommand";
 import { CreateInvoiceUnitCommandInput, CreateInvoiceUnitCommandOutput } from "./commands/CreateInvoiceUnitCommand";
 import { DeleteInvoiceUnitCommandInput, DeleteInvoiceUnitCommandOutput } from "./commands/DeleteInvoiceUnitCommand";
+import { GetInvoicePDFCommandInput, GetInvoicePDFCommandOutput } from "./commands/GetInvoicePDFCommand";
 import { GetInvoiceUnitCommandInput, GetInvoiceUnitCommandOutput } from "./commands/GetInvoiceUnitCommand";
 import {
   ListInvoiceSummariesCommandInput,
@@ -94,6 +95,7 @@ export type ServiceInputTypes =
   | BatchGetInvoiceProfileCommandInput
   | CreateInvoiceUnitCommandInput
   | DeleteInvoiceUnitCommandInput
+  | GetInvoicePDFCommandInput
   | GetInvoiceUnitCommandInput
   | ListInvoiceSummariesCommandInput
   | ListInvoiceUnitsCommandInput
@@ -109,6 +111,7 @@ export type ServiceOutputTypes =
   | BatchGetInvoiceProfileCommandOutput
   | CreateInvoiceUnitCommandOutput
   | DeleteInvoiceUnitCommandOutput
+  | GetInvoicePDFCommandOutput
   | GetInvoiceUnitCommandOutput
   | ListInvoiceSummariesCommandOutput
   | ListInvoiceUnitsCommandOutput
