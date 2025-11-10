@@ -58,6 +58,9 @@ export interface DescribePublishingDestinationCommandOutput
  * //     DestinationArn: "STRING_VALUE",
  * //     KmsKeyArn: "STRING_VALUE",
  * //   },
+ * //   Tags: { // TagMap
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
  * // };
  *
  * ```

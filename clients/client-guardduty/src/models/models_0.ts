@@ -3466,6 +3466,12 @@ export interface CreatePublishingDestinationRequest {
    * @public
    */
   ClientToken?: string | undefined;
+
+  /**
+   * <p>The tags to be added to a new publishing destination resource.</p>
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -5057,6 +5063,12 @@ export interface DescribePublishingDestinationResponse {
    * @public
    */
   DestinationProperties: DestinationProperties | undefined;
+
+  /**
+   * <p>The tags of the publishing destination resource.</p>
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
 }
 
 /**

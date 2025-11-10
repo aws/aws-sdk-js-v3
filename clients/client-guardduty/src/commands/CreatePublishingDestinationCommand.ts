@@ -51,6 +51,9 @@ export interface CreatePublishingDestinationCommandOutput
  *     KmsKeyArn: "STRING_VALUE",
  *   },
  *   ClientToken: "STRING_VALUE",
+ *   Tags: { // TagMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
  * };
  * const command = new CreatePublishingDestinationCommand(input);
  * const response = await client.send(command);

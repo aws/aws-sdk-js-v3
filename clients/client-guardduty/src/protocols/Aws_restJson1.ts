@@ -715,6 +715,7 @@ export const se_CreatePublishingDestinationCommand = async (
       clientToken: [true, (_) => _ ?? generateIdempotencyToken(), `ClientToken`],
       destinationProperties: [, (_) => se_DestinationProperties(_, context), `DestinationProperties`],
       destinationType: [, , `DestinationType`],
+      tags: [, (_) => _json(_), `Tags`],
     })
   );
   b.m("POST").h(headers).b(body);
@@ -2837,6 +2838,7 @@ export const de_DescribePublishingDestinationCommand = async (
     DestinationType: [, __expectString, `destinationType`],
     PublishingFailureStartTimestamp: [, __expectLong, `publishingFailureStartTimestamp`],
     Status: [, __expectString, `status`],
+    Tags: [, _json, `tags`],
   });
   Object.assign(contents, doc);
   return contents;
