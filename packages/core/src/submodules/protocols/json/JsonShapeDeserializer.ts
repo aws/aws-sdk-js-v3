@@ -23,7 +23,7 @@ import { jsonReviver } from "./jsonReviver";
 import { parseJsonBody } from "./parseJsonBody";
 
 /**
- * @alpha
+ * @public
  */
 export class JsonShapeDeserializer extends SerdeContextConfig implements ShapeDeserializer<string> {
   public constructor(public readonly settings: JsonSettings) {

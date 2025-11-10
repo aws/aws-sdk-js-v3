@@ -15,7 +15,7 @@ import type { JsonSettings } from "./JsonCodec";
 import { JsonReplacer } from "./jsonReplacer";
 
 /**
- * @alpha
+ * @public
  */
 export class JsonShapeSerializer extends SerdeContextConfig implements ShapeSerializer<string> {
   private buffer: any;

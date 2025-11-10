@@ -8,7 +8,7 @@ import { NumericValue } from "@smithy/core/serde";
  *
  * @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/parse#browser_compatibility
  *
- * @alpha
+ * @internal
  *
  * @returns transformed value.
  */

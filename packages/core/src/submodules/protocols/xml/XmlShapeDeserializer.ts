@@ -9,7 +9,7 @@ import { SerdeContextConfig } from "../ConfigurableSerdeContext";
 import type { XmlSettings } from "./XmlCodec";
 
 /**
- * @alpha
+ * @public
  */
 export class XmlShapeDeserializer extends SerdeContextConfig implements ShapeDeserializer<Uint8Array | string> {
   private stringDeserializer: FromStringShapeDeserializer;
