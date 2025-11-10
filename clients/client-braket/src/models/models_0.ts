@@ -38,13 +38,13 @@ export interface ActionMetadata {
   actionType: string | undefined;
 
   /**
-   * <p>The number of programs in a program set. This is only available for a Program Set.</p>
+   * <p>The number of programs in a program set. This is only available for a program set.</p>
    * @public
    */
   programCount?: number | undefined;
 
   /**
-   * <p>The number of executables in a program set. This is only available for a Program Set.</p>
+   * <p>The number of executables in a program set. This is only available for a program set.</p>
    * @public
    */
   executableCount?: number | undefined;
@@ -1358,6 +1358,59 @@ export interface CancelQuantumTaskResponse {
 
 /**
  * @public
+ * @enum
+ */
+export const ExperimentalCapabilitiesEnablementType = {
+  ALL: "ALL",
+  NONE: "NONE",
+} as const;
+
+/**
+ * @public
+ */
+export type ExperimentalCapabilitiesEnablementType =
+  (typeof ExperimentalCapabilitiesEnablementType)[keyof typeof ExperimentalCapabilitiesEnablementType];
+
+/**
+ * <p>Enabled experimental capabilities for quantum hardware. Note that the use of these features may impact device capabilities and performance beyond its standard specifications.</p>
+ * @public
+ */
+export type ExperimentalCapabilities = ExperimentalCapabilities.EnabledMember | ExperimentalCapabilities.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace ExperimentalCapabilities {
+  /**
+   * <p>Enabled experimental capabilities.</p>
+   * @public
+   */
+  export interface EnabledMember {
+    enabled: ExperimentalCapabilitiesEnablementType;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    enabled?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    enabled: (value: ExperimentalCapabilitiesEnablementType) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: ExperimentalCapabilities, visitor: Visitor<T>): T => {
+    if (value.enabled !== undefined) return visitor.enabled(value.enabled);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * @public
  */
 export interface CreateQuantumTaskRequest {
   /**
@@ -1419,6 +1472,12 @@ export interface CreateQuantumTaskRequest {
    * @public
    */
   associations?: Association[] | undefined;
+
+  /**
+   * <p>Enable experimental capabilities for the quantum task.</p>
+   * @public
+   */
+  experimentalCapabilities?: ExperimentalCapabilities | undefined;
 }
 
 /**
@@ -1611,6 +1670,12 @@ export interface GetQuantumTaskResponse {
    * @public
    */
   actionMetadata?: ActionMetadata | undefined;
+
+  /**
+   * <p>Enabled experimental capabilities for the quantum task, if any.</p>
+   * @public
+   */
+  experimentalCapabilities?: ExperimentalCapabilities | undefined;
 }
 
 /**

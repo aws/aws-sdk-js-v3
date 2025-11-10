@@ -1,5 +1,10 @@
 // smithy-typescript generated code
-import { loadRestJsonErrorCode, parseJsonBody as parseBody, parseJsonErrorBody as parseErrorBody } from "@aws-sdk/core";
+import {
+  awsExpectUnion as __expectUnion,
+  loadRestJsonErrorCode,
+  parseJsonBody as parseBody,
+  parseJsonErrorBody as parseErrorBody,
+} from "@aws-sdk/core";
 import { requestBuilder as rb } from "@smithy/core";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import {
@@ -53,6 +58,7 @@ import {
   DeviceConfig,
   DeviceOfflineException,
   DeviceRetiredException,
+  ExperimentalCapabilities,
   InputFileConfig,
   InstanceConfig,
   InternalServiceException,
@@ -166,6 +172,7 @@ export const se_CreateQuantumTaskCommand = async (
       clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       deviceArn: [],
       deviceParameters: (_) => __LazyJsonString.from(_),
+      experimentalCapabilities: (_) => _json(_),
       jobToken: [],
       outputS3Bucket: [],
       outputS3KeyPrefix: [],
@@ -533,6 +540,7 @@ export const de_GetQuantumTaskCommand = async (
     deviceArn: __expectString,
     deviceParameters: __LazyJsonString.from,
     endedAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    experimentalCapabilities: (_) => _json(__expectUnion(_)),
     failureReason: __expectString,
     jobArn: __expectString,
     numSuccessfulShots: __expectLong,
@@ -902,6 +910,8 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_DeviceConfig omitted.
 
+// se_ExperimentalCapabilities omitted.
+
 // se_HyperParameters omitted.
 
 // se_InputConfigList omitted.
@@ -957,6 +967,8 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 // de_DeviceSummary omitted.
 
 // de_DeviceSummaryList omitted.
+
+// de_ExperimentalCapabilities omitted.
 
 // de_HybridJobQueueInfo omitted.
 

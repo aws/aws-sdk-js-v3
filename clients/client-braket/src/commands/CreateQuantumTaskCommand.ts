@@ -55,6 +55,9 @@ export interface CreateQuantumTaskCommandOutput extends CreateQuantumTaskRespons
  *       type: "STRING_VALUE", // required
  *     },
  *   ],
+ *   experimentalCapabilities: { // ExperimentalCapabilities Union: only one key present
+ *     enabled: "STRING_VALUE",
+ *   },
  * };
  * const command = new CreateQuantumTaskCommand(input);
  * const response = await client.send(command);

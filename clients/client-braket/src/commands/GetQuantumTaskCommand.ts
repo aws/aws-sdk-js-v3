@@ -78,6 +78,9 @@ export interface GetQuantumTaskCommandOutput extends GetQuantumTaskResponse, __M
  * //     programCount: Number("long"),
  * //     executableCount: Number("long"),
  * //   },
+ * //   experimentalCapabilities: { // ExperimentalCapabilities Union: only one key present
+ * //     enabled: "STRING_VALUE",
+ * //   },
  * // };
  *
  * ```
