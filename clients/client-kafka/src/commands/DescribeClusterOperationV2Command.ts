@@ -167,6 +167,9 @@ export interface DescribeClusterOperationV2CommandOutput extends DescribeCluster
  * //             Number("double"),
  * //           ],
  * //         },
+ * //         Rebalancing: { // Rebalancing
+ * //           Status: "PAUSED" || "ACTIVE",
+ * //         },
  * //       },
  * //       TargetClusterInfo: {
  * //         BrokerEBSVolumeInfo: [
@@ -270,6 +273,9 @@ export interface DescribeClusterOperationV2CommandOutput extends DescribeCluster
  * //           DeletedBrokerIds: [
  * //             Number("double"),
  * //           ],
+ * //         },
+ * //         Rebalancing: {
+ * //           Status: "PAUSED" || "ACTIVE",
  * //         },
  * //       },
  * //       VpcConnectionInfo: { // VpcConnectionInfo

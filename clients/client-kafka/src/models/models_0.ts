@@ -642,6 +642,32 @@ export interface OpenMonitoringInfo {
  * @public
  * @enum
  */
+export const RebalancingStatus = {
+  ACTIVE: "ACTIVE",
+  PAUSED: "PAUSED",
+} as const;
+
+/**
+ * @public
+ */
+export type RebalancingStatus = (typeof RebalancingStatus)[keyof typeof RebalancingStatus];
+
+/**
+ * <p>Specifies whether or not intelligent rebalancing is turned on for a newly created MSK Provisioned cluster with Express brokers. Intelligent rebalancing performs automatic partition balancing operations when you scale your clusters up or down. By default, intelligent rebalancing is ACTIVE for all new Express-based clusters.</p>
+ * @public
+ */
+export interface Rebalancing {
+  /**
+   * <p>Intelligent rebalancing status. The default intelligent rebalancing status is ACTIVE for all new Express-based clusters.</p>
+   * @public
+   */
+  Status?: RebalancingStatus | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
 export const StorageMode = {
   LOCAL: "LOCAL",
   TIERED: "TIERED",
@@ -662,6 +688,12 @@ export interface Provisioned {
    * @public
    */
   BrokerNodeGroupInfo: BrokerNodeGroupInfo | undefined;
+
+  /**
+   * <p>Specifies whether or not intelligent rebalancing is turned on for a newly created MSK Provisioned cluster with Express brokers. Intelligent rebalancing performs automatic partition balancing operations when you scale your clusters up or down.  By default, intelligent rebalancing is ACTIVE for all new Express-based clusters.</p>
+   * @public
+   */
+  Rebalancing?: Rebalancing | undefined;
 
   /**
    * <p>Information about the Apache Kafka version deployed on the brokers.</p>
@@ -962,6 +994,12 @@ export interface ClusterInfo {
   BrokerNodeGroupInfo?: BrokerNodeGroupInfo | undefined;
 
   /**
+   * <p>Contains information about intelligent rebalancing for new MSK Provisioned clusters with Express brokers. By default, intelligent rebalancing status is ACTIVE.</p>
+   * @public
+   */
+  Rebalancing?: Rebalancing | undefined;
+
+  /**
    * <p>Includes all client authentication information.</p>
    * @public
    */
@@ -1226,6 +1264,12 @@ export interface MutableClusterInfo {
    * @public
    */
   BrokerCountUpdateInfo?: BrokerCountUpdateInfo | undefined;
+
+  /**
+   * <p>Describes the intelligent rebalancing configuration of an MSK Provisioned cluster with Express brokers.</p>
+   * @public
+   */
+  Rebalancing?: Rebalancing | undefined;
 }
 
 /**
@@ -2679,6 +2723,12 @@ export interface CreateClusterRequest {
   BrokerNodeGroupInfo: BrokerNodeGroupInfo | undefined;
 
   /**
+   * <p>Specifies if intelligent rebalancing should be turned on for the new MSK Provisioned cluster with Express brokers. By default, intelligent rebalancing status is ACTIVE for all new clusters.</p>
+   * @public
+   */
+  Rebalancing?: Rebalancing | undefined;
+
+  /**
    * <p>Includes all client authentication related information.</p>
    * @public
    */
@@ -2773,6 +2823,12 @@ export interface ProvisionedRequest {
    * @public
    */
   BrokerNodeGroupInfo: BrokerNodeGroupInfo | undefined;
+
+  /**
+   * <p>Specifies if intelligent rebalancing is turned on for your MSK Provisioned cluster with Express brokers. For all new Express-based clusters that you create, intelligent rebalancing is turned on by default.</p>
+   * @public
+   */
+  Rebalancing?: Rebalancing | undefined;
 
   /**
    * <p>Includes all client authentication information.</p>
@@ -4741,6 +4797,46 @@ export interface UpdateMonitoringRequest {
 export interface UpdateMonitoringResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the cluster.</p>
+   * @public
+   */
+  ClusterArn?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the cluster operation.</p>
+   * @public
+   */
+  ClusterOperationArn?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateRebalancingRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the cluster.</p>
+   * @public
+   */
+  ClusterArn: string | undefined;
+
+  /**
+   * <p>The current version of the cluster.</p>
+   * @public
+   */
+  CurrentVersion: string | undefined;
+
+  /**
+   * <p>Specifies if intelligent rebalancing should be turned on for your cluster. The default intelligent rebalancing status is ACTIVE for all new MSK Provisioned clusters that you create with Express brokers.</p>
+   * @public
+   */
+  Rebalancing: Rebalancing | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateRebalancingResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the cluster whose intelligent rebalancing status you've updated.</p>
    * @public
    */
   ClusterArn?: string | undefined;

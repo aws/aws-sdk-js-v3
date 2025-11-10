@@ -174,6 +174,7 @@ import {
 } from "./commands/UpdateConfigurationCommand";
 import { UpdateConnectivityCommandInput, UpdateConnectivityCommandOutput } from "./commands/UpdateConnectivityCommand";
 import { UpdateMonitoringCommandInput, UpdateMonitoringCommandOutput } from "./commands/UpdateMonitoringCommand";
+import { UpdateRebalancingCommandInput, UpdateRebalancingCommandOutput } from "./commands/UpdateRebalancingCommand";
 import {
   UpdateReplicationInfoCommandInput,
   UpdateReplicationInfoCommandOutput,
@@ -244,6 +245,7 @@ export type ServiceInputTypes =
   | UpdateConfigurationCommandInput
   | UpdateConnectivityCommandInput
   | UpdateMonitoringCommandInput
+  | UpdateRebalancingCommandInput
   | UpdateReplicationInfoCommandInput
   | UpdateSecurityCommandInput
   | UpdateStorageCommandInput;
@@ -301,6 +303,7 @@ export type ServiceOutputTypes =
   | UpdateConfigurationCommandOutput
   | UpdateConnectivityCommandOutput
   | UpdateMonitoringCommandOutput
+  | UpdateRebalancingCommandOutput
   | UpdateReplicationInfoCommandOutput
   | UpdateSecurityCommandOutput
   | UpdateStorageCommandOutput;

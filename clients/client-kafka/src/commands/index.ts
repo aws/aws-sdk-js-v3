@@ -48,6 +48,7 @@ export * from "./UpdateClusterKafkaVersionCommand";
 export * from "./UpdateConfigurationCommand";
 export * from "./UpdateConnectivityCommand";
 export * from "./UpdateMonitoringCommand";
+export * from "./UpdateRebalancingCommand";
 export * from "./UpdateReplicationInfoCommand";
 export * from "./UpdateSecurityCommand";
 export * from "./UpdateStorageCommand";

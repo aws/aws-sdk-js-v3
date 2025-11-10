@@ -597,6 +597,14 @@ UpdateMonitoring
 </details>
 <details>
 <summary>
+UpdateRebalancing
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/kafka/command/UpdateRebalancingCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kafka/Interface/UpdateRebalancingCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kafka/Interface/UpdateRebalancingCommandOutput/)
+
+</details>
+<details>
+<summary>
 UpdateReplicationInfo
 </summary>
 

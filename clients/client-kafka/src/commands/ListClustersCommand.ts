@@ -90,6 +90,9 @@ export interface ListClustersCommandOutput extends ListClustersResponse, __Metad
  * //           "STRING_VALUE",
  * //         ],
  * //       },
+ * //       Rebalancing: { // Rebalancing
+ * //         Status: "PAUSED" || "ACTIVE",
+ * //       },
  * //       ClientAuthentication: { // ClientAuthentication
  * //         Sasl: { // Sasl
  * //           Scram: { // Scram

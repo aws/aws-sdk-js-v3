@@ -240,6 +240,11 @@ import {
   UpdateMonitoringCommandOutput,
 } from "./commands/UpdateMonitoringCommand";
 import {
+  UpdateRebalancingCommand,
+  UpdateRebalancingCommandInput,
+  UpdateRebalancingCommandOutput,
+} from "./commands/UpdateRebalancingCommand";
+import {
   UpdateReplicationInfoCommand,
   UpdateReplicationInfoCommandInput,
   UpdateReplicationInfoCommandOutput,
@@ -306,6 +311,7 @@ const commands = {
   UpdateConfigurationCommand,
   UpdateConnectivityCommand,
   UpdateMonitoringCommand,
+  UpdateRebalancingCommand,
   UpdateReplicationInfoCommand,
   UpdateSecurityCommand,
   UpdateStorageCommand,
@@ -1096,6 +1102,23 @@ export interface Kafka {
     args: UpdateMonitoringCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateMonitoringCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateRebalancingCommand}
+   */
+  updateRebalancing(
+    args: UpdateRebalancingCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateRebalancingCommandOutput>;
+  updateRebalancing(
+    args: UpdateRebalancingCommandInput,
+    cb: (err: any, data?: UpdateRebalancingCommandOutput) => void
+  ): void;
+  updateRebalancing(
+    args: UpdateRebalancingCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateRebalancingCommandOutput) => void
   ): void;
 
   /**

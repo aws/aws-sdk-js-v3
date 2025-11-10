@@ -101,6 +101,9 @@ export interface DescribeClusterV2CommandOutput extends DescribeClusterV2Respons
  * //           "STRING_VALUE",
  * //         ],
  * //       },
+ * //       Rebalancing: { // Rebalancing
+ * //         Status: "PAUSED" || "ACTIVE",
+ * //       },
  * //       CurrentBrokerSoftwareInfo: { // BrokerSoftwareInfo
  * //         ConfigurationArn: "STRING_VALUE",
  * //         ConfigurationRevision: Number("long"),

@@ -147,6 +147,7 @@ import {
 } from "../commands/UpdateConfigurationCommand";
 import { UpdateConnectivityCommandInput, UpdateConnectivityCommandOutput } from "../commands/UpdateConnectivityCommand";
 import { UpdateMonitoringCommandInput, UpdateMonitoringCommandOutput } from "../commands/UpdateMonitoringCommand";
+import { UpdateRebalancingCommandInput, UpdateRebalancingCommandOutput } from "../commands/UpdateRebalancingCommand";
 import {
   UpdateReplicationInfoCommandInput,
   UpdateReplicationInfoCommandOutput,
@@ -214,6 +215,7 @@ import {
   ProvisionedRequest,
   ProvisionedThroughput,
   PublicAccess,
+  Rebalancing,
   ReplicationInfo,
   ReplicationInfoDescription,
   ReplicationInfoSummary,
@@ -323,6 +325,7 @@ export const se_CreateClusterCommand = async (
       loggingInfo: [, (_) => se_LoggingInfo(_, context), `LoggingInfo`],
       numberOfBrokerNodes: [, , `NumberOfBrokerNodes`],
       openMonitoring: [, (_) => se_OpenMonitoringInfo(_, context), `OpenMonitoring`],
+      rebalancing: [, (_) => se_Rebalancing(_, context), `Rebalancing`],
       storageMode: [, , `StorageMode`],
       tags: [, (_) => _json(_), `Tags`],
     })
@@ -1255,6 +1258,30 @@ export const se_UpdateMonitoringCommand = async (
       enhancedMonitoring: [, , `EnhancedMonitoring`],
       loggingInfo: [, (_) => se_LoggingInfo(_, context), `LoggingInfo`],
       openMonitoring: [, (_) => se_OpenMonitoringInfo(_, context), `OpenMonitoring`],
+    })
+  );
+  b.m("PUT").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1UpdateRebalancingCommand
+ */
+export const se_UpdateRebalancingCommand = async (
+  input: UpdateRebalancingCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/v1/clusters/{ClusterArn}/rebalancing");
+  b.p("ClusterArn", () => input.ClusterArn!, "{ClusterArn}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      currentVersion: [, , `CurrentVersion`],
+      rebalancing: [, (_) => se_Rebalancing(_, context), `Rebalancing`],
     })
   );
   b.m("PUT").h(headers).b(body);
@@ -2438,6 +2465,28 @@ export const de_UpdateMonitoringCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1UpdateRebalancingCommand
+ */
+export const de_UpdateRebalancingCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateRebalancingCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    ClusterArn: [, __expectString, `clusterArn`],
+    ClusterOperationArn: [, __expectString, `clusterOperationArn`],
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1UpdateReplicationInfoCommand
  */
 export const de_UpdateReplicationInfoCommand = async (
@@ -3005,6 +3054,7 @@ const se_ProvisionedRequest = (input: ProvisionedRequest, context: __SerdeContex
     loggingInfo: [, (_) => se_LoggingInfo(_, context), `LoggingInfo`],
     numberOfBrokerNodes: [, , `NumberOfBrokerNodes`],
     openMonitoring: [, (_) => se_OpenMonitoringInfo(_, context), `OpenMonitoring`],
+    rebalancing: [, (_) => se_Rebalancing(_, context), `Rebalancing`],
     storageMode: [, , `StorageMode`],
   });
 };
@@ -3025,6 +3075,15 @@ const se_ProvisionedThroughput = (input: ProvisionedThroughput, context: __Serde
 const se_PublicAccess = (input: PublicAccess, context: __SerdeContext): any => {
   return take(input, {
     type: [, , `Type`],
+  });
+};
+
+/**
+ * serializeAws_restJson1Rebalancing
+ */
+const se_Rebalancing = (input: Rebalancing, context: __SerdeContext): any => {
+  return take(input, {
+    status: [, , `Status`],
   });
 };
 
@@ -3658,6 +3717,7 @@ const de_ClusterInfo = (output: any, context: __SerdeContext): ClusterInfo => {
     LoggingInfo: [, (_: any) => de_LoggingInfo(_, context), `loggingInfo`],
     NumberOfBrokerNodes: [, __expectInt32, `numberOfBrokerNodes`],
     OpenMonitoring: [, (_: any) => de_OpenMonitoring(_, context), `openMonitoring`],
+    Rebalancing: [, (_: any) => de_Rebalancing(_, context), `rebalancing`],
     State: [, __expectString, `state`],
     StateInfo: [, (_: any) => de_StateInfo(_, context), `stateInfo`],
     StorageMode: [, __expectString, `storageMode`],
@@ -3990,6 +4050,7 @@ const de_MutableClusterInfo = (output: any, context: __SerdeContext): MutableClu
     LoggingInfo: [, (_: any) => de_LoggingInfo(_, context), `loggingInfo`],
     NumberOfBrokerNodes: [, __expectInt32, `numberOfBrokerNodes`],
     OpenMonitoring: [, (_: any) => de_OpenMonitoring(_, context), `openMonitoring`],
+    Rebalancing: [, (_: any) => de_Rebalancing(_, context), `rebalancing`],
     StorageMode: [, __expectString, `storageMode`],
   }) as any;
 };
@@ -4079,6 +4140,7 @@ const de_Provisioned = (output: any, context: __SerdeContext): Provisioned => {
     LoggingInfo: [, (_: any) => de_LoggingInfo(_, context), `loggingInfo`],
     NumberOfBrokerNodes: [, __expectInt32, `numberOfBrokerNodes`],
     OpenMonitoring: [, (_: any) => de_OpenMonitoringInfo(_, context), `openMonitoring`],
+    Rebalancing: [, (_: any) => de_Rebalancing(_, context), `rebalancing`],
     StorageMode: [, __expectString, `storageMode`],
     ZookeeperConnectString: [, __expectString, `zookeeperConnectString`],
     ZookeeperConnectStringTls: [, __expectString, `zookeeperConnectStringTls`],
@@ -4101,6 +4163,15 @@ const de_ProvisionedThroughput = (output: any, context: __SerdeContext): Provisi
 const de_PublicAccess = (output: any, context: __SerdeContext): PublicAccess => {
   return take(output, {
     Type: [, __expectString, `type`],
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1Rebalancing
+ */
+const de_Rebalancing = (output: any, context: __SerdeContext): Rebalancing => {
+  return take(output, {
+    Status: [, __expectString, `status`],
   }) as any;
 };
 

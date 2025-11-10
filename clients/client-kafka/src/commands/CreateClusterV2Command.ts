@@ -85,6 +85,9 @@ export interface CreateClusterV2CommandOutput extends CreateClusterV2Response, _
  *         "STRING_VALUE",
  *       ],
  *     },
+ *     Rebalancing: { // Rebalancing
+ *       Status: "PAUSED" || "ACTIVE",
+ *     },
  *     ClientAuthentication: { // ClientAuthentication
  *       Sasl: { // Sasl
  *         Scram: { // Scram

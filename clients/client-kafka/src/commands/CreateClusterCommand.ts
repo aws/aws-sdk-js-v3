@@ -80,6 +80,9 @@ export interface CreateClusterCommandOutput extends CreateClusterResponse, __Met
  *       "STRING_VALUE",
  *     ],
  *   },
+ *   Rebalancing: { // Rebalancing
+ *     Status: "PAUSED" || "ACTIVE",
+ *   },
  *   ClientAuthentication: { // ClientAuthentication
  *     Sasl: { // Sasl
  *       Scram: { // Scram

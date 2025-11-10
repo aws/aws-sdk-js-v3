@@ -105,6 +105,9 @@ export interface ListClustersV2CommandOutput extends ListClustersV2Response, __M
  * //             "STRING_VALUE",
  * //           ],
  * //         },
+ * //         Rebalancing: { // Rebalancing
+ * //           Status: "PAUSED" || "ACTIVE",
+ * //         },
  * //         CurrentBrokerSoftwareInfo: { // BrokerSoftwareInfo
  * //           ConfigurationArn: "STRING_VALUE",
  * //           ConfigurationRevision: Number("long"),
