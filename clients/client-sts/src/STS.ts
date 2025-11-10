@@ -30,6 +30,11 @@ import {
   GetCallerIdentityCommandOutput,
 } from "./commands/GetCallerIdentityCommand";
 import {
+  GetDelegatedAccessTokenCommand,
+  GetDelegatedAccessTokenCommandInput,
+  GetDelegatedAccessTokenCommandOutput,
+} from "./commands/GetDelegatedAccessTokenCommand";
+import {
   GetFederationTokenCommand,
   GetFederationTokenCommandInput,
   GetFederationTokenCommandOutput,
@@ -49,6 +54,7 @@ const commands = {
   DecodeAuthorizationMessageCommand,
   GetAccessKeyInfoCommand,
   GetCallerIdentityCommand,
+  GetDelegatedAccessTokenCommand,
   GetFederationTokenCommand,
   GetSessionTokenCommand,
 };
@@ -160,6 +166,23 @@ export interface STS {
     args: GetCallerIdentityCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetCallerIdentityCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetDelegatedAccessTokenCommand}
+   */
+  getDelegatedAccessToken(
+    args: GetDelegatedAccessTokenCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetDelegatedAccessTokenCommandOutput>;
+  getDelegatedAccessToken(
+    args: GetDelegatedAccessTokenCommandInput,
+    cb: (err: any, data?: GetDelegatedAccessTokenCommandOutput) => void
+  ): void;
+  getDelegatedAccessToken(
+    args: GetDelegatedAccessTokenCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetDelegatedAccessTokenCommandOutput) => void
   ): void;
 
   /**

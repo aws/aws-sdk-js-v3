@@ -43,6 +43,10 @@ export interface AssumeRoleWithSAMLCommandOutput extends AssumeRoleWithSAMLRespo
  *          <p>The temporary security credentials returned by this operation consist of an access key
  *          ID, a secret access key, and a security token. Applications can use these temporary
  *          security credentials to sign calls to Amazon Web Services services.</p>
+ *          <note>
+ *             <p>AssumeRoleWithSAML will not work on IAM Identity Center managed roles. These roles' names start
+ *             with <code>AWSReservedSSO_</code>.</p>
+ *          </note>
  *          <p>
  *             <b>Session Duration</b>
  *          </p>
@@ -244,7 +248,7 @@ export interface AssumeRoleWithSAMLCommandOutput extends AssumeRoleWithSAMLRespo
  * @throws {@link RegionDisabledException} (client fault)
  *  <p>STS is not activated in the requested region for the account that is being asked to
  *             generate credentials. The account administrator must use the IAM console to activate
- *             STS in that region. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html">Activating and
+ *             STS in that region. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html#sts-regions-activate-deactivate">Activating and
  *                 Deactivating STS in an Amazon Web Services Region</a> in the <i>IAM User
  *                 Guide</i>.</p>
  *

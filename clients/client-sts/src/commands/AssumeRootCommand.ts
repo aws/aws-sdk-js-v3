@@ -29,7 +29,9 @@ export interface AssumeRootCommandOutput extends AssumeRootResponse, __MetadataB
 
 /**
  * <p>Returns a set of short term credentials you can use to perform privileged tasks on a
- *          member account in your organization.</p>
+ *          member account in your organization. You must use credentials from an Organizations management
+ *          account or a delegated administrator account for IAM to call <code>AssumeRoot</code>. You
+ *          cannot use root user credentials to make this call.</p>
  *          <p>Before you can launch a privileged session, you must have centralized root access in
  *          your organization. For steps to enable this feature, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_root-enable-root-access.html">Centralize root access for
  *             member accounts</a> in the <i>IAM User Guide</i>.</p>
@@ -40,6 +42,11 @@ export interface AssumeRootCommandOutput extends AssumeRootResponse, __MetadataB
  *          <p>You can track AssumeRoot in CloudTrail logs to determine what actions were performed in a
  *          session. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/cloudtrail-track-privileged-tasks.html">Track privileged tasks
  *             in CloudTrail</a> in the <i>IAM User Guide</i>.</p>
+ *          <p>When granting access to privileged tasks you should only grant the necessary permissions
+ *          required to perform that task. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html">Security best practices in
+ *          IAM</a>. In addition, you can use <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scps.html">service control
+ *             policies</a> (SCPs) to manage and limit permissions in your organization. See <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scps_examples_general.html">General examples</a> in the <i>Organizations User
+ *             Guide</i> for more information on SCPs.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -82,7 +89,7 @@ export interface AssumeRootCommandOutput extends AssumeRootResponse, __MetadataB
  * @throws {@link RegionDisabledException} (client fault)
  *  <p>STS is not activated in the requested region for the account that is being asked to
  *             generate credentials. The account administrator must use the IAM console to activate
- *             STS in that region. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html">Activating and
+ *             STS in that region. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html#sts-regions-activate-deactivate">Activating and
  *                 Deactivating STS in an Amazon Web Services Region</a> in the <i>IAM User
  *                 Guide</i>.</p>
  *

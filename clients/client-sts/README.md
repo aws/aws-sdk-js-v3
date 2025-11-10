@@ -265,6 +265,14 @@ GetCallerIdentity
 </details>
 <details>
 <summary>
+GetDelegatedAccessToken
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/sts/command/GetDelegatedAccessTokenCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sts/Interface/GetDelegatedAccessTokenCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sts/Interface/GetDelegatedAccessTokenCommandOutput/)
+
+</details>
+<details>
+<summary>
 GetFederationToken
 </summary>
 

@@ -31,6 +31,10 @@ import {
 } from "../commands/DecodeAuthorizationMessageCommand";
 import { GetAccessKeyInfoCommandInput, GetAccessKeyInfoCommandOutput } from "../commands/GetAccessKeyInfoCommand";
 import { GetCallerIdentityCommandInput, GetCallerIdentityCommandOutput } from "../commands/GetCallerIdentityCommand";
+import {
+  GetDelegatedAccessTokenCommandInput,
+  GetDelegatedAccessTokenCommandOutput,
+} from "../commands/GetDelegatedAccessTokenCommand";
 import { GetFederationTokenCommandInput, GetFederationTokenCommandOutput } from "../commands/GetFederationTokenCommand";
 import { GetSessionTokenCommandInput, GetSessionTokenCommandOutput } from "../commands/GetSessionTokenCommand";
 import {
@@ -47,11 +51,14 @@ import {
   DecodeAuthorizationMessageRequest,
   DecodeAuthorizationMessageResponse,
   ExpiredTokenException,
+  ExpiredTradeInTokenException,
   FederatedUser,
   GetAccessKeyInfoRequest,
   GetAccessKeyInfoResponse,
   GetCallerIdentityRequest,
   GetCallerIdentityResponse,
+  GetDelegatedAccessTokenRequest,
+  GetDelegatedAccessTokenResponse,
   GetFederationTokenRequest,
   GetFederationTokenResponse,
   GetSessionTokenRequest,
@@ -183,6 +190,23 @@ export const se_GetCallerIdentityCommand = async (
   body = buildFormUrlencodedString({
     ...se_GetCallerIdentityRequest(input, context),
     [_A]: _GCI,
+    [_V]: _,
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_queryGetDelegatedAccessTokenCommand
+ */
+export const se_GetDelegatedAccessTokenCommand = async (
+  input: GetDelegatedAccessTokenCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = SHARED_HEADERS;
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...se_GetDelegatedAccessTokenRequest(input, context),
+    [_A]: _GDAT,
     [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -363,6 +387,26 @@ export const de_GetCallerIdentityCommand = async (
 };
 
 /**
+ * deserializeAws_queryGetDelegatedAccessTokenCommand
+ */
+export const de_GetDelegatedAccessTokenCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetDelegatedAccessTokenCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_GetDelegatedAccessTokenResponse(data.GetDelegatedAccessTokenResult, context);
+  const response: GetDelegatedAccessTokenCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
  * deserializeAws_queryGetFederationTokenCommand
  */
 export const de_GetFederationTokenCommand = async (
@@ -436,6 +480,9 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "InvalidAuthorizationMessageException":
     case "com.amazonaws.sts#InvalidAuthorizationMessageException":
       throw await de_InvalidAuthorizationMessageExceptionRes(parsedOutput, context);
+    case "ExpiredTradeInTokenException":
+    case "com.amazonaws.sts#ExpiredTradeInTokenException":
+      throw await de_ExpiredTradeInTokenExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -456,6 +503,22 @@ const de_ExpiredTokenExceptionRes = async (
   const body = parsedOutput.body;
   const deserialized: any = de_ExpiredTokenException(body.Error, context);
   const exception = new ExpiredTokenException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+/**
+ * deserializeAws_queryExpiredTradeInTokenExceptionRes
+ */
+const de_ExpiredTradeInTokenExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<ExpiredTradeInTokenException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = de_ExpiredTradeInTokenException(body.Error, context);
+  const exception = new ExpiredTradeInTokenException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
   });
@@ -766,6 +829,17 @@ const se_GetAccessKeyInfoRequest = (input: GetAccessKeyInfoRequest, context: __S
  */
 const se_GetCallerIdentityRequest = (input: GetCallerIdentityRequest, context: __SerdeContext): any => {
   const entries: any = {};
+  return entries;
+};
+
+/**
+ * serializeAws_queryGetDelegatedAccessTokenRequest
+ */
+const se_GetDelegatedAccessTokenRequest = (input: GetDelegatedAccessTokenRequest, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input[_TIT] != null) {
+    entries[_TIT] = input[_TIT];
+  }
   return entries;
 };
 
@@ -1096,6 +1170,17 @@ const de_ExpiredTokenException = (output: any, context: __SerdeContext): Expired
 };
 
 /**
+ * deserializeAws_queryExpiredTradeInTokenException
+ */
+const de_ExpiredTradeInTokenException = (output: any, context: __SerdeContext): ExpiredTradeInTokenException => {
+  const contents: any = {};
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
+  }
+  return contents;
+};
+
+/**
  * deserializeAws_queryFederatedUser
  */
 const de_FederatedUser = (output: any, context: __SerdeContext): FederatedUser => {
@@ -1133,6 +1218,23 @@ const de_GetCallerIdentityResponse = (output: any, context: __SerdeContext): Get
   }
   if (output[_Ar] != null) {
     contents[_Ar] = __expectString(output[_Ar]);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_queryGetDelegatedAccessTokenResponse
+ */
+const de_GetDelegatedAccessTokenResponse = (output: any, context: __SerdeContext): GetDelegatedAccessTokenResponse => {
+  const contents: any = {};
+  if (output[_C] != null) {
+    contents[_C] = de_Credentials(output[_C], context);
+  }
+  if (output[_PPS] != null) {
+    contents[_PPS] = __strictParseInt32(output[_PPS]) as number;
+  }
+  if (output[_AP] != null) {
+    contents[_AP] = __expectString(output[_AP]);
   }
   return contents;
 };
@@ -1292,6 +1394,7 @@ const SHARED_HEADERS: __HeaderBag = {
 const _ = "2011-06-15";
 const _A = "Action";
 const _AKI = "AccessKeyId";
+const _AP = "AssumedPrincipal";
 const _AR = "AssumeRole";
 const _ARI = "AssumedRoleId";
 const _ARU = "AssumedRoleUser";
@@ -1313,6 +1416,7 @@ const _FU = "FederatedUser";
 const _FUI = "FederatedUserId";
 const _GAKI = "GetAccessKeyInfo";
 const _GCI = "GetCallerIdentity";
+const _GDAT = "GetDelegatedAccessToken";
 const _GFT = "GetFederationToken";
 const _GST = "GetSessionToken";
 const _I = "Issuer";
@@ -1339,6 +1443,7 @@ const _ST = "SubjectType";
 const _STe = "SessionToken";
 const _T = "Tags";
 const _TC = "TokenCode";
+const _TIT = "TradeInToken";
 const _TP = "TargetPrincipal";
 const _TPA = "TaskPolicyArn";
 const _TTK = "TransitiveTagKeys";

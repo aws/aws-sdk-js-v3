@@ -66,6 +66,10 @@ import {
 } from "./commands/DecodeAuthorizationMessageCommand";
 import { GetAccessKeyInfoCommandInput, GetAccessKeyInfoCommandOutput } from "./commands/GetAccessKeyInfoCommand";
 import { GetCallerIdentityCommandInput, GetCallerIdentityCommandOutput } from "./commands/GetCallerIdentityCommand";
+import {
+  GetDelegatedAccessTokenCommandInput,
+  GetDelegatedAccessTokenCommandOutput,
+} from "./commands/GetDelegatedAccessTokenCommand";
 import { GetFederationTokenCommandInput, GetFederationTokenCommandOutput } from "./commands/GetFederationTokenCommand";
 import { GetSessionTokenCommandInput, GetSessionTokenCommandOutput } from "./commands/GetSessionTokenCommand";
 import {
@@ -90,6 +94,7 @@ export type ServiceInputTypes =
   | DecodeAuthorizationMessageCommandInput
   | GetAccessKeyInfoCommandInput
   | GetCallerIdentityCommandInput
+  | GetDelegatedAccessTokenCommandInput
   | GetFederationTokenCommandInput
   | GetSessionTokenCommandInput;
 
@@ -104,6 +109,7 @@ export type ServiceOutputTypes =
   | DecodeAuthorizationMessageCommandOutput
   | GetAccessKeyInfoCommandOutput
   | GetCallerIdentityCommandOutput
+  | GetDelegatedAccessTokenCommandOutput
   | GetFederationTokenCommandOutput
   | GetSessionTokenCommandOutput;
 

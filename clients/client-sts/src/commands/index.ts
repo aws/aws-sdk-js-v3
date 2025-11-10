@@ -6,5 +6,6 @@ export * from "./AssumeRootCommand";
 export * from "./DecodeAuthorizationMessageCommand";
 export * from "./GetAccessKeyInfoCommand";
 export * from "./GetCallerIdentityCommand";
+export * from "./GetDelegatedAccessTokenCommand";
 export * from "./GetFederationTokenCommand";
 export * from "./GetSessionTokenCommand";
