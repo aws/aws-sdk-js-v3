@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.928.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.927.0...v3.928.0) (2025-11-10)
+
+
+### Features
+
+* **client-backup:** AWS Backup supports backups of Amazon EKS clusters, including Kubernetes cluster state and persistent storage attached to the EKS cluster via a persistent volume claim (EBS volumes, EFS file systems, and S3 buckets). ([d45f0eb](https://github.com/aws/aws-sdk-js-v3/commit/d45f0ebcef9045feeed8bca37426429c86f4380c))
+
+
+
+
+
 # [3.927.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.926.0...v3.927.0) (2025-11-07)
 
 **Note:** Version bump only for package @aws-sdk/client-backup

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.928.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.927.0...v3.928.0) (2025-11-10)
+
+
+### Features
+
+* **client-braket:** Adds ExperimentalCapabilities field to CreateQuantumTask request and GetQuantumTask response objects. Enables use of experimental software capabilities when creating quantum tasks. ([6c179ae](https://github.com/aws/aws-sdk-js-v3/commit/6c179ae76ce652bafabafab08444d2c2218686fe))
+
+
+
+
+
 # [3.927.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.926.0...v3.927.0) (2025-11-07)
 
 **Note:** Version bump only for package @aws-sdk/client-braket

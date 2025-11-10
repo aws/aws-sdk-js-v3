@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.928.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.927.0...v3.928.0) (2025-11-10)
+
+
+### Features
+
+* **client-appstream:** AWS Appstream support for IPv6 ([6fc319f](https://github.com/aws/aws-sdk-js-v3/commit/6fc319f482ed683fa1a2bd92ecd6f34892e83377))
+* **clients:** use schema-serde in AWS JSON RPC clients ([#7483](https://github.com/aws/aws-sdk-js-v3/issues/7483)) ([b0f07b4](https://github.com/aws/aws-sdk-js-v3/commit/b0f07b49d20d0e1733d36208ad8b2fe052648771))
+
+
+
+
+
 # [3.927.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.926.0...v3.927.0) (2025-11-07)
 
 **Note:** Version bump only for package @aws-sdk/client-appstream

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.928.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.927.0...v3.928.0) (2025-11-10)
+
+
+### Features
+
+* **client-dsql:** Cluster endpoint added to CreateCluster and GetCluster API responses ([647406d](https://github.com/aws/aws-sdk-js-v3/commit/647406dbae1a76be5014cfd6e14575e4ec922758))
+
+
+
+
+
 # [3.927.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.926.0...v3.927.0) (2025-11-07)
 
 **Note:** Version bump only for package @aws-sdk/client-dsql

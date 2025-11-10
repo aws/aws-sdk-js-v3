@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.928.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.927.0...v3.928.0) (2025-11-10)
+
+
+### Features
+
+* **client-sts:** Added GetDelegatedAccessToken API, which is not available for general use at this time. ([41552ed](https://github.com/aws/aws-sdk-js-v3/commit/41552ed60dd42831edbc27b793ae839929696c91))
+
+
+
+
+
 # [3.927.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.926.0...v3.927.0) (2025-11-07)
 
 **Note:** Version bump only for package @aws-sdk/client-sts

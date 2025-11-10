@@ -3,6 +3,31 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.928.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.927.0...v3.928.0) (2025-11-10)
+
+
+### Features
+
+* **client-acm-pca:** Private Certificate Authority service now supports ML-DSA key algorithms. ([1bd0b8f](https://github.com/aws/aws-sdk-js-v3/commit/1bd0b8f95ddcac2fb917758c2bf71c8b3f175e9b))
+* **client-appstream:** AWS Appstream support for IPv6 ([6fc319f](https://github.com/aws/aws-sdk-js-v3/commit/6fc319f482ed683fa1a2bd92ecd6f34892e83377))
+* **client-backup:** AWS Backup supports backups of Amazon EKS clusters, including Kubernetes cluster state and persistent storage attached to the EKS cluster via a persistent volume claim (EBS volumes, EFS file systems, and S3 buckets). ([d45f0eb](https://github.com/aws/aws-sdk-js-v3/commit/d45f0ebcef9045feeed8bca37426429c86f4380c))
+* **client-braket:** Adds ExperimentalCapabilities field to CreateQuantumTask request and GetQuantumTask response objects. Enables use of experimental software capabilities when creating quantum tasks. ([6c179ae](https://github.com/aws/aws-sdk-js-v3/commit/6c179ae76ce652bafabafab08444d2c2218686fe))
+* **client-datazone:** Remove trackingServerName from DataZone Connection MLflowProperties ([8c22eaa](https://github.com/aws/aws-sdk-js-v3/commit/8c22eaae96274502ff372736cf91fe513a19fa08))
+* **client-dsql:** Cluster endpoint added to CreateCluster and GetCluster API responses ([647406d](https://github.com/aws/aws-sdk-js-v3/commit/647406dbae1a76be5014cfd6e14575e4ec922758))
+* **client-ec2:** Amazon EC2 Fleet customers can now filter instance types based on encryption-in-transit support using Attribute-Based Instance Type Selection (ABIS), eliminating the manual effort of identifying and selecting compatible instance types for security-sensitive workloads. ([2b4fb80](https://github.com/aws/aws-sdk-js-v3/commit/2b4fb8055ba029e7ccb89f97b764e3af5bf98236))
+* **client-guardduty:** Include tags filed in CreatePublishingDestinationRequest and DescribePublishingDestinationResponse. ([9b11c35](https://github.com/aws/aws-sdk-js-v3/commit/9b11c35437dfcd84f227f4d4c2e677fbab8d969e))
+* **client-iam:** Added CreateDelegationRequest API, which is not available for general use at this time. ([a7579e4](https://github.com/aws/aws-sdk-js-v3/commit/a7579e455ca794975517a3ab5ff4465d53100568))
+* **client-invoicing:** Added new invoicing get-invoice-pdf API Operation ([de2f679](https://github.com/aws/aws-sdk-js-v3/commit/de2f679918dfb31c821de957c84386b955037227))
+* **client-kafka:** Amazon MSK now supports intelligent rebalancing for MSK Express brokers. ([265e5da](https://github.com/aws/aws-sdk-js-v3/commit/265e5dae15a55030102a940ad8a0b18b4f4d8901))
+* **client-sts:** Added GetDelegatedAccessToken API, which is not available for general use at this time. ([41552ed](https://github.com/aws/aws-sdk-js-v3/commit/41552ed60dd42831edbc27b793ae839929696c91))
+* **client-verifiedpermissions:** Amazon Verified Permissions / Features : Adds support for entity Cedar tags. ([d635af5](https://github.com/aws/aws-sdk-js-v3/commit/d635af58e7b839c7871684ce096a42e77a1df2a5))
+* **client-wafv2:** AWS WAF now supports CLOUDWATCH_TELEMETRY_RULE_MANAGED as a LogScope option, enabling automated logging configuration through Amazon CloudWatch Logs for telemetry data collection and analysis. ([79d7385](https://github.com/aws/aws-sdk-js-v3/commit/79d73853f31c4fb97cca823df51298d8e09e3aeb))
+* **clients:** use schema-serde in AWS JSON RPC clients ([#7483](https://github.com/aws/aws-sdk-js-v3/issues/7483)) ([b0f07b4](https://github.com/aws/aws-sdk-js-v3/commit/b0f07b49d20d0e1733d36208ad8b2fe052648771))
+
+
+
+
+
 # [3.927.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.926.0...v3.927.0) (2025-11-07)
 
 

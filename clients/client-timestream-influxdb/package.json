@@ -1,7 +1,7 @@
 {
   "name": "@aws-sdk/client-timestream-influxdb",
   "description": "AWS SDK for JavaScript Timestream Influxdb Client for Node.js, Browser and React Native",
-  "version": "3.927.0",
+  "version": "3.928.0",
   "scripts": {
     "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types'",
     "build:cjs": "node ../../scripts/compilation/inline client-timestream-influxdb",
