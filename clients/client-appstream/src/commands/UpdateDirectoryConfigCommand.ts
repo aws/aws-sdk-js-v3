@@ -1,18 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { AppStreamClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppStreamClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  UpdateDirectoryConfigRequest,
-  UpdateDirectoryConfigRequestFilterSensitiveLog,
-  UpdateDirectoryConfigResult,
-  UpdateDirectoryConfigResultFilterSensitiveLog,
-} from "../models/models_0";
-import { de_UpdateDirectoryConfigCommand, se_UpdateDirectoryConfigCommand } from "../protocols/Aws_json1_1";
+import { UpdateDirectoryConfigRequest, UpdateDirectoryConfigResult } from "../models/models_0";
+import { UpdateDirectoryConfig } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -118,16 +112,11 @@ export class UpdateDirectoryConfigCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AppStreamClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("PhotonAdminProxyService", "UpdateDirectoryConfig", {})
   .n("AppStreamClient", "UpdateDirectoryConfigCommand")
-  .f(UpdateDirectoryConfigRequestFilterSensitiveLog, UpdateDirectoryConfigResultFilterSensitiveLog)
-  .ser(se_UpdateDirectoryConfigCommand)
-  .de(de_UpdateDirectoryConfigCommand)
+  .sc(UpdateDirectoryConfig)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

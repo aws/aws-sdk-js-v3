@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListAccountsRequest, ListAccountsResponse, ListAccountsResponseFilterSensitiveLog } from "../models/models_0";
+import { ListAccountsRequest, ListAccountsResponse } from "../models/models_0";
 import { OrganizationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OrganizationsClient";
-import { de_ListAccountsCommand, se_ListAccountsCommand } from "../protocols/Aws_json1_1";
+import { ListAccounts } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -225,16 +224,11 @@ export class ListAccountsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: OrganizationsClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSOrganizationsV20161128", "ListAccounts", {})
   .n("OrganizationsClient", "ListAccountsCommand")
-  .f(void 0, ListAccountsResponseFilterSensitiveLog)
-  .ser(se_ListAccountsCommand)
-  .de(de_ListAccountsCommand)
+  .sc(ListAccounts)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

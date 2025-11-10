@@ -1,18 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ComprehendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComprehendClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  BatchDetectSentimentRequest,
-  BatchDetectSentimentRequestFilterSensitiveLog,
-  BatchDetectSentimentResponse,
-  BatchDetectSentimentResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { de_BatchDetectSentimentCommand, se_BatchDetectSentimentCommand } from "../protocols/Aws_json1_1";
+import { BatchDetectSentimentRequest, BatchDetectSentimentResponse } from "../models/models_0";
+import { BatchDetectSentiment } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -116,16 +110,11 @@ export class BatchDetectSentimentCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ComprehendClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("Comprehend_20171127", "BatchDetectSentiment", {})
   .n("ComprehendClient", "BatchDetectSentimentCommand")
-  .f(BatchDetectSentimentRequestFilterSensitiveLog, BatchDetectSentimentResponseFilterSensitiveLog)
-  .ser(se_BatchDetectSentimentCommand)
-  .de(de_BatchDetectSentimentCommand)
+  .sc(BatchDetectSentiment)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

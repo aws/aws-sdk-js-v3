@@ -1,16 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { KendraClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KendraClient";
 import { UpdateQuerySuggestionsConfigRequest } from "../models/models_1";
-import {
-  de_UpdateQuerySuggestionsConfigCommand,
-  se_UpdateQuerySuggestionsConfigCommand,
-} from "../protocols/Aws_json1_1";
+import { UpdateQuerySuggestionsConfig } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -120,16 +116,11 @@ export class UpdateQuerySuggestionsConfigCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: KendraClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSKendraFrontendService", "UpdateQuerySuggestionsConfig", {})
   .n("KendraClient", "UpdateQuerySuggestionsConfigCommand")
-  .f(void 0, void 0)
-  .ser(se_UpdateQuerySuggestionsConfigCommand)
-  .de(de_UpdateQuerySuggestionsConfigCommand)
+  .sc(UpdateQuerySuggestionsConfig)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

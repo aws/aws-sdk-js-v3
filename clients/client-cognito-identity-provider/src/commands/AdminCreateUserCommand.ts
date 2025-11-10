@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -10,13 +9,8 @@ import {
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  AdminCreateUserRequest,
-  AdminCreateUserRequestFilterSensitiveLog,
-  AdminCreateUserResponse,
-  AdminCreateUserResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { de_AdminCreateUserCommand, se_AdminCreateUserCommand } from "../protocols/Aws_json1_1";
+import { AdminCreateUserRequest, AdminCreateUserResponse } from "../models/models_0";
+import { AdminCreateUser } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -288,16 +282,11 @@ export class AdminCreateUserCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CognitoIdentityProviderClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSCognitoIdentityProviderService", "AdminCreateUser", {})
   .n("CognitoIdentityProviderClient", "AdminCreateUserCommand")
-  .f(AdminCreateUserRequestFilterSensitiveLog, AdminCreateUserResponseFilterSensitiveLog)
-  .ser(se_AdminCreateUserCommand)
-  .de(de_AdminCreateUserCommand)
+  .sc(AdminCreateUser)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

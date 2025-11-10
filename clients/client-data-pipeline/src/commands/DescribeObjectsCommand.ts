@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DataPipelineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataPipelineClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DescribeObjectsInput, DescribeObjectsOutput } from "../models/models_0";
-import { de_DescribeObjectsCommand, se_DescribeObjectsCommand } from "../protocols/Aws_json1_1";
+import { DescribeObjects } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -159,16 +158,11 @@ export class DescribeObjectsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DataPipelineClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("DataPipeline", "DescribeObjects", {})
   .n("DataPipelineClient", "DescribeObjectsCommand")
-  .f(void 0, void 0)
-  .ser(se_DescribeObjectsCommand)
-  .de(de_DescribeObjectsCommand)
+  .sc(DescribeObjects)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

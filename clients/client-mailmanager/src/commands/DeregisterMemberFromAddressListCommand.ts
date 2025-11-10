@@ -1,20 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { MailManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MailManagerClient";
-import {
-  DeregisterMemberFromAddressListRequest,
-  DeregisterMemberFromAddressListRequestFilterSensitiveLog,
-  DeregisterMemberFromAddressListResponse,
-} from "../models/models_0";
-import {
-  de_DeregisterMemberFromAddressListCommand,
-  se_DeregisterMemberFromAddressListCommand,
-} from "../protocols/Aws_json1_0";
+import { DeregisterMemberFromAddressListRequest, DeregisterMemberFromAddressListResponse } from "../models/models_0";
+import { DeregisterMemberFromAddressList } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -90,16 +82,11 @@ export class DeregisterMemberFromAddressListCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MailManagerClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("MailManagerSvc", "DeregisterMemberFromAddressList", {})
   .n("MailManagerClient", "DeregisterMemberFromAddressListCommand")
-  .f(DeregisterMemberFromAddressListRequestFilterSensitiveLog, void 0)
-  .ser(se_DeregisterMemberFromAddressListCommand)
-  .de(de_DeregisterMemberFromAddressListCommand)
+  .sc(DeregisterMemberFromAddressList)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

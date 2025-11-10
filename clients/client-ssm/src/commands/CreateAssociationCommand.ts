@@ -1,17 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  CreateAssociationRequest,
-  CreateAssociationRequestFilterSensitiveLog,
-  CreateAssociationResult,
-  CreateAssociationResultFilterSensitiveLog,
-} from "../models/models_0";
-import { de_CreateAssociationCommand, se_CreateAssociationCommand } from "../protocols/Aws_json1_1";
+import { CreateAssociationRequest, CreateAssociationResult } from "../models/models_0";
+import { CreateAssociation } from "../schemas/schemas_0";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
@@ -346,16 +340,11 @@ export class CreateAssociationCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SSMClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonSSM", "CreateAssociation", {})
   .n("SSMClient", "CreateAssociationCommand")
-  .f(CreateAssociationRequestFilterSensitiveLog, CreateAssociationResultFilterSensitiveLog)
-  .ser(se_CreateAssociationCommand)
-  .de(de_CreateAssociationCommand)
+  .sc(CreateAssociation)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

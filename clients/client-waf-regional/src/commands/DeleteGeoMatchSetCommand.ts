@@ -1,12 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DeleteGeoMatchSetRequest, DeleteGeoMatchSetResponse } from "../models/models_0";
-import { de_DeleteGeoMatchSetCommand, se_DeleteGeoMatchSetCommand } from "../protocols/Aws_json1_1";
+import { DeleteGeoMatchSet } from "../schemas/schemas_0";
 import { ServiceInputTypes, ServiceOutputTypes, WAFRegionalClientResolvedConfig } from "../WAFRegionalClient";
 
 /**
@@ -135,16 +134,11 @@ export class DeleteGeoMatchSetCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WAFRegionalClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSWAF_Regional_20161128", "DeleteGeoMatchSet", {})
   .n("WAFRegionalClient", "DeleteGeoMatchSetCommand")
-  .f(void 0, void 0)
-  .ser(se_DeleteGeoMatchSetCommand)
-  .de(de_DeleteGeoMatchSetCommand)
+  .sc(DeleteGeoMatchSet)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

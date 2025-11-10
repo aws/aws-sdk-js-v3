@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { LookoutEquipmentClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LookoutEquipmentClient";
 import { StartDataIngestionJobRequest, StartDataIngestionJobResponse } from "../models/models_0";
-import { de_StartDataIngestionJobCommand, se_StartDataIngestionJobCommand } from "../protocols/Aws_json1_0";
+import { StartDataIngestionJob } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -106,16 +105,11 @@ export class StartDataIngestionJobCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LookoutEquipmentClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSLookoutEquipmentFrontendService", "StartDataIngestionJob", {})
   .n("LookoutEquipmentClient", "StartDataIngestionJobCommand")
-  .f(void 0, void 0)
-  .ser(se_StartDataIngestionJobCommand)
-  .de(de_StartDataIngestionJobCommand)
+  .sc(StartDataIngestionJob)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

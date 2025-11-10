@@ -1,12 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { CreateAddressRequest, CreateAddressResult } from "../models/models_0";
-import { de_CreateAddressCommand, se_CreateAddressCommand } from "../protocols/Aws_json1_1";
+import { CreateAddress } from "../schemas/schemas_0";
 import { ServiceInputTypes, ServiceOutputTypes, SnowballClientResolvedConfig } from "../SnowballClient";
 
 /**
@@ -122,16 +121,11 @@ export class CreateAddressCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SnowballClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSIESnowballJobManagementService", "CreateAddress", {})
   .n("SnowballClient", "CreateAddressCommand")
-  .f(void 0, void 0)
-  .ser(se_CreateAddressCommand)
-  .de(de_CreateAddressCommand)
+  .sc(CreateAddress)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

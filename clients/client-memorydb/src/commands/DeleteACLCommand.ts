@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { MemoryDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MemoryDBClient";
 import { DeleteACLRequest, DeleteACLResponse } from "../models/models_0";
-import { de_DeleteACLCommand, se_DeleteACLCommand } from "../protocols/Aws_json1_1";
+import { DeleteACL } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -98,16 +97,11 @@ export class DeleteACLCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MemoryDBClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonMemoryDB", "DeleteACL", {})
   .n("MemoryDBClient", "DeleteACLCommand")
-  .f(void 0, void 0)
-  .ser(se_DeleteACLCommand)
-  .de(de_DeleteACLCommand)
+  .sc(DeleteACL)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

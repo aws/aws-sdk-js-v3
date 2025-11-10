@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DetectFacesRequest, DetectFacesResponse } from "../models/models_0";
-import { de_DetectFacesCommand, se_DetectFacesCommand } from "../protocols/Aws_json1_1";
 import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
+import { DetectFaces } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -272,16 +271,11 @@ export class DetectFacesCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RekognitionClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("RekognitionService", "DetectFaces", {})
   .n("RekognitionClient", "DetectFacesCommand")
-  .f(void 0, void 0)
-  .ser(se_DetectFacesCommand)
-  .de(de_DetectFacesCommand)
+  .sc(DetectFaces)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

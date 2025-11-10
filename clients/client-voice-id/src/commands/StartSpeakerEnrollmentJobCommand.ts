@@ -1,17 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  StartSpeakerEnrollmentJobRequest,
-  StartSpeakerEnrollmentJobRequestFilterSensitiveLog,
-  StartSpeakerEnrollmentJobResponse,
-  StartSpeakerEnrollmentJobResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { de_StartSpeakerEnrollmentJobCommand, se_StartSpeakerEnrollmentJobCommand } from "../protocols/Aws_json1_0";
+import { StartSpeakerEnrollmentJobRequest, StartSpeakerEnrollmentJobResponse } from "../models/models_0";
+import { StartSpeakerEnrollmentJob } from "../schemas/schemas_0";
 import { ServiceInputTypes, ServiceOutputTypes, VoiceIDClientResolvedConfig } from "../VoiceIDClient";
 
 /**
@@ -155,16 +149,11 @@ export class StartSpeakerEnrollmentJobCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: VoiceIDClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("VoiceID", "StartSpeakerEnrollmentJob", {})
   .n("VoiceIDClient", "StartSpeakerEnrollmentJobCommand")
-  .f(StartSpeakerEnrollmentJobRequestFilterSensitiveLog, StartSpeakerEnrollmentJobResponseFilterSensitiveLog)
-  .ser(se_StartSpeakerEnrollmentJobCommand)
-  .de(de_StartSpeakerEnrollmentJobCommand)
+  .sc(StartSpeakerEnrollmentJob)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

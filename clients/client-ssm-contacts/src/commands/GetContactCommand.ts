@@ -1,12 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GetContactRequest, GetContactResult } from "../models/models_0";
-import { de_GetContactCommand, se_GetContactCommand } from "../protocols/Aws_json1_1";
+import { GetContact } from "../schemas/schemas_0";
 import { ServiceInputTypes, ServiceOutputTypes, SSMContactsClientResolvedConfig } from "../SSMContactsClient";
 
 /**
@@ -114,16 +113,11 @@ export class GetContactCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SSMContactsClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("SSMContacts", "GetContact", {})
   .n("SSMContactsClient", "GetContactCommand")
-  .f(void 0, void 0)
-  .ser(se_GetContactCommand)
-  .de(de_GetContactCommand)
+  .sc(GetContact)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CloudTrailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudTrailClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { CancelQueryRequest, CancelQueryResponse } from "../models/models_0";
-import { de_CancelQueryCommand, se_CancelQueryCommand } from "../protocols/Aws_json1_1";
+import { CancelQuery } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -115,16 +114,11 @@ export class CancelQueryCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudTrailClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("CloudTrail_20131101", "CancelQuery", {})
   .n("CloudTrailClient", "CancelQueryCommand")
-  .f(void 0, void 0)
-  .ser(se_CancelQueryCommand)
-  .de(de_CancelQueryCommand)
+  .sc(CancelQuery)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

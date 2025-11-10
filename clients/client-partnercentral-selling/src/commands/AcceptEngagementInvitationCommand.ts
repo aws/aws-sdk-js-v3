@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -11,7 +10,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../PartnerCentralSellingClient";
-import { de_AcceptEngagementInvitationCommand, se_AcceptEngagementInvitationCommand } from "../protocols/Aws_json1_0";
+import { AcceptEngagementInvitation } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -91,16 +90,11 @@ export class AcceptEngagementInvitationCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: PartnerCentralSellingClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSPartnerCentralSelling", "AcceptEngagementInvitation", {})
   .n("PartnerCentralSellingClient", "AcceptEngagementInvitationCommand")
-  .f(void 0, void 0)
-  .ser(se_AcceptEngagementInvitationCommand)
-  .de(de_AcceptEngagementInvitationCommand)
+  .sc(AcceptEngagementInvitation)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

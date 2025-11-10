@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { EventBridgeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EventBridgeClient";
 import { CancelReplayRequest, CancelReplayResponse } from "../models/models_0";
-import { de_CancelReplayCommand, se_CancelReplayCommand } from "../protocols/Aws_json1_1";
+import { CancelReplay } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -85,16 +84,11 @@ export class CancelReplayCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EventBridgeClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSEvents", "CancelReplay", {})
   .n("EventBridgeClient", "CancelReplayCommand")
-  .f(void 0, void 0)
-  .ser(se_CancelReplayCommand)
-  .de(de_CancelReplayCommand)
+  .sc(CancelReplay)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -10,12 +9,8 @@ import {
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  UpdateDeviceStatusRequest,
-  UpdateDeviceStatusRequestFilterSensitiveLog,
-  UpdateDeviceStatusResponse,
-} from "../models/models_1";
-import { de_UpdateDeviceStatusCommand, se_UpdateDeviceStatusCommand } from "../protocols/Aws_json1_1";
+import { UpdateDeviceStatusRequest, UpdateDeviceStatusResponse } from "../models/models_1";
+import { UpdateDeviceStatus } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -124,16 +119,11 @@ export class UpdateDeviceStatusCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CognitoIdentityProviderClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSCognitoIdentityProviderService", "UpdateDeviceStatus", {})
   .n("CognitoIdentityProviderClient", "UpdateDeviceStatusCommand")
-  .f(UpdateDeviceStatusRequestFilterSensitiveLog, void 0)
-  .ser(se_UpdateDeviceStatusCommand)
-  .de(de_UpdateDeviceStatusCommand)
+  .sc(UpdateDeviceStatus)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

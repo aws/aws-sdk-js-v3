@@ -1,17 +1,16 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { ListEndpointAccessRequest, ListEndpointAccessResponse } from "../models/models_0";
-import { de_ListEndpointAccessCommand, se_ListEndpointAccessCommand } from "../protocols/Aws_json1_1";
 import {
   RedshiftServerlessClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../RedshiftServerlessClient";
+import { ListEndpointAccess } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -123,16 +122,11 @@ export class ListEndpointAccessCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RedshiftServerlessClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("RedshiftServerless", "ListEndpointAccess", {})
   .n("RedshiftServerlessClient", "ListEndpointAccessCommand")
-  .f(void 0, void 0)
-  .ser(se_ListEndpointAccessCommand)
-  .de(de_ListEndpointAccessCommand)
+  .sc(ListEndpointAccess)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

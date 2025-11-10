@@ -1,12 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { ModifyAccountRequest, ModifyAccountResult } from "../models/models_0";
-import { de_ModifyAccountCommand, se_ModifyAccountCommand } from "../protocols/Aws_json1_1";
+import { ModifyAccount } from "../schemas/schemas_0";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
 /**
@@ -87,16 +86,11 @@ export class ModifyAccountCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WorkSpacesClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("WorkspacesService", "ModifyAccount", {})
   .n("WorkSpacesClient", "ModifyAccountCommand")
-  .f(void 0, void 0)
-  .ser(se_ModifyAccountCommand)
-  .de(de_ModifyAccountCommand)
+  .sc(ModifyAccount)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

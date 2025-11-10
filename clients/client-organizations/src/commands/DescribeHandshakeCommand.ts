@@ -1,17 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  DescribeHandshakeRequest,
-  DescribeHandshakeResponse,
-  DescribeHandshakeResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DescribeHandshakeRequest, DescribeHandshakeResponse } from "../models/models_0";
 import { OrganizationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OrganizationsClient";
-import { de_DescribeHandshakeCommand, se_DescribeHandshakeCommand } from "../protocols/Aws_json1_1";
+import { DescribeHandshake } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -292,16 +287,11 @@ export class DescribeHandshakeCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: OrganizationsClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSOrganizationsV20161128", "DescribeHandshake", {})
   .n("OrganizationsClient", "DescribeHandshakeCommand")
-  .f(void 0, DescribeHandshakeResponseFilterSensitiveLog)
-  .ser(se_DescribeHandshakeCommand)
-  .de(de_DescribeHandshakeCommand)
+  .sc(DescribeHandshake)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

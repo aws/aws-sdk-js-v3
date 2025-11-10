@@ -1,12 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { UpdateContactChannelRequest, UpdateContactChannelResult } from "../models/models_0";
-import { de_UpdateContactChannelCommand, se_UpdateContactChannelCommand } from "../protocols/Aws_json1_1";
+import { UpdateContactChannel } from "../schemas/schemas_0";
 import { ServiceInputTypes, ServiceOutputTypes, SSMContactsClientResolvedConfig } from "../SSMContactsClient";
 
 /**
@@ -94,16 +93,11 @@ export class UpdateContactChannelCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SSMContactsClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("SSMContacts", "UpdateContactChannel", {})
   .n("SSMContactsClient", "UpdateContactChannelCommand")
-  .f(void 0, void 0)
-  .ser(se_UpdateContactChannelCommand)
-  .de(de_UpdateContactChannelCommand)
+  .sc(UpdateContactChannel)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

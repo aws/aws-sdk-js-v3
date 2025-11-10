@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { InspectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../InspectorClient";
 import { AddAttributesToFindingsRequest, AddAttributesToFindingsResponse } from "../models/models_0";
-import { de_AddAttributesToFindingsCommand, se_AddAttributesToFindingsCommand } from "../protocols/Aws_json1_1";
+import { AddAttributesToFindings } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -124,16 +123,11 @@ export class AddAttributesToFindingsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: InspectorClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("InspectorService", "AddAttributesToFindings", {})
   .n("InspectorClient", "AddAttributesToFindingsCommand")
-  .f(void 0, void 0)
-  .ser(se_AddAttributesToFindingsCommand)
-  .de(de_AddAttributesToFindingsCommand)
+  .sc(AddAttributesToFindings)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

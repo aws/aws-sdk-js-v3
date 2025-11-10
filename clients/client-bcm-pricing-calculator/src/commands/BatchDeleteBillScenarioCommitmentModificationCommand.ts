@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -14,10 +13,7 @@ import {
   BatchDeleteBillScenarioCommitmentModificationRequest,
   BatchDeleteBillScenarioCommitmentModificationResponse,
 } from "../models/models_0";
-import {
-  de_BatchDeleteBillScenarioCommitmentModificationCommand,
-  se_BatchDeleteBillScenarioCommitmentModificationCommand,
-} from "../protocols/Aws_json1_0";
+import { BatchDeleteBillScenarioCommitmentModification } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -113,16 +109,11 @@ export class BatchDeleteBillScenarioCommitmentModificationCommand extends $Comma
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: BCMPricingCalculatorClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSBCMPricingCalculator", "BatchDeleteBillScenarioCommitmentModification", {})
   .n("BCMPricingCalculatorClient", "BatchDeleteBillScenarioCommitmentModificationCommand")
-  .f(void 0, void 0)
-  .ser(se_BatchDeleteBillScenarioCommitmentModificationCommand)
-  .de(de_BatchDeleteBillScenarioCommitmentModificationCommand)
+  .sc(BatchDeleteBillScenarioCommitmentModification)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { EventBridgeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EventBridgeClient";
 import { RemoveTargetsRequest, RemoveTargetsResponse } from "../models/models_0";
-import { de_RemoveTargetsCommand, se_RemoveTargetsCommand } from "../protocols/Aws_json1_1";
+import { RemoveTargets } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -110,16 +109,11 @@ export class RemoveTargetsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EventBridgeClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSEvents", "RemoveTargets", {})
   .n("EventBridgeClient", "RemoveTargetsCommand")
-  .f(void 0, void 0)
-  .ser(se_RemoveTargetsCommand)
-  .de(de_RemoveTargetsCommand)
+  .sc(RemoveTargets)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

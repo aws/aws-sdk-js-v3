@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { IoTFleetWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTFleetWiseClient";
 import { ListSignalCatalogsRequest, ListSignalCatalogsResponse } from "../models/models_0";
-import { de_ListSignalCatalogsCommand, se_ListSignalCatalogsCommand } from "../protocols/Aws_json1_0";
+import { ListSignalCatalogs } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -96,16 +95,11 @@ export class ListSignalCatalogsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTFleetWiseClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("IoTAutobahnControlPlane", "ListSignalCatalogs", {})
   .n("IoTFleetWiseClient", "ListSignalCatalogsCommand")
-  .f(void 0, void 0)
-  .ser(se_ListSignalCatalogsCommand)
-  .de(de_ListSignalCatalogsCommand)
+  .sc(ListSignalCatalogs)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

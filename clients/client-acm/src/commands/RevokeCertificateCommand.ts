@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ACMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ACMClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { RevokeCertificateRequest, RevokeCertificateResponse } from "../models/models_0";
-import { de_RevokeCertificateCommand, se_RevokeCertificateCommand } from "../protocols/Aws_json1_1";
+import { RevokeCertificate } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -89,16 +88,11 @@ export class RevokeCertificateCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ACMClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("CertificateManager", "RevokeCertificate", {})
   .n("ACMClient", "RevokeCertificateCommand")
-  .f(void 0, void 0)
-  .ser(se_RevokeCertificateCommand)
-  .de(de_RevokeCertificateCommand)
+  .sc(RevokeCertificate)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

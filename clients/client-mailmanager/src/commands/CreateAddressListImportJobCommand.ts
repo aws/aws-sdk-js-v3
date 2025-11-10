@@ -1,17 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { MailManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MailManagerClient";
-import {
-  CreateAddressListImportJobRequest,
-  CreateAddressListImportJobResponse,
-  CreateAddressListImportJobResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { de_CreateAddressListImportJobCommand, se_CreateAddressListImportJobCommand } from "../protocols/Aws_json1_0";
+import { CreateAddressListImportJobRequest, CreateAddressListImportJobResponse } from "../models/models_0";
+import { CreateAddressListImportJob } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -92,16 +87,11 @@ export class CreateAddressListImportJobCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MailManagerClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("MailManagerSvc", "CreateAddressListImportJob", {})
   .n("MailManagerClient", "CreateAddressListImportJobCommand")
-  .f(void 0, CreateAddressListImportJobResponseFilterSensitiveLog)
-  .ser(se_CreateAddressListImportJobCommand)
-  .de(de_CreateAddressListImportJobCommand)
+  .sc(CreateAddressListImportJob)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

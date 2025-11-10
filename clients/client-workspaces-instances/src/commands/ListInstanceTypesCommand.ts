@@ -1,17 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  ListInstanceTypesRequest,
-  ListInstanceTypesRequestFilterSensitiveLog,
-  ListInstanceTypesResponse,
-  ListInstanceTypesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { de_ListInstanceTypesCommand, se_ListInstanceTypesCommand } from "../protocols/Aws_json1_0";
+import { ListInstanceTypesRequest, ListInstanceTypesResponse } from "../models/models_0";
+import { ListInstanceTypes } from "../schemas/schemas_0";
 import {
   ServiceInputTypes,
   ServiceOutputTypes,
@@ -97,16 +91,11 @@ export class ListInstanceTypesCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WorkspacesInstancesClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("EUCMIFrontendAPIService", "ListInstanceTypes", {})
   .n("WorkspacesInstancesClient", "ListInstanceTypesCommand")
-  .f(ListInstanceTypesRequestFilterSensitiveLog, ListInstanceTypesResponseFilterSensitiveLog)
-  .ser(se_ListInstanceTypesCommand)
-  .de(de_ListInstanceTypesCommand)
+  .sc(ListInstanceTypes)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

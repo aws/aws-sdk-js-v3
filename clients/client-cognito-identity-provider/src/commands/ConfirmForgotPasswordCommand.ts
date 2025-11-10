@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -10,12 +9,8 @@ import {
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  ConfirmForgotPasswordRequest,
-  ConfirmForgotPasswordRequestFilterSensitiveLog,
-  ConfirmForgotPasswordResponse,
-} from "../models/models_0";
-import { de_ConfirmForgotPasswordCommand, se_ConfirmForgotPasswordCommand } from "../protocols/Aws_json1_1";
+import { ConfirmForgotPasswordRequest, ConfirmForgotPasswordResponse } from "../models/models_0";
+import { ConfirmForgotPassword } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -158,16 +153,11 @@ export class ConfirmForgotPasswordCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CognitoIdentityProviderClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSCognitoIdentityProviderService", "ConfirmForgotPassword", {})
   .n("CognitoIdentityProviderClient", "ConfirmForgotPasswordCommand")
-  .f(ConfirmForgotPasswordRequestFilterSensitiveLog, void 0)
-  .ser(se_ConfirmForgotPasswordCommand)
-  .de(de_ConfirmForgotPasswordCommand)
+  .sc(ConfirmForgotPassword)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

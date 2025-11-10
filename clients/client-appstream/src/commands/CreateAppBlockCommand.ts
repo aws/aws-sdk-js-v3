@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { AppStreamClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppStreamClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { CreateAppBlockRequest, CreateAppBlockResult } from "../models/models_0";
-import { de_CreateAppBlockCommand, se_CreateAppBlockCommand } from "../protocols/Aws_json1_1";
+import { CreateAppBlock } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -152,16 +151,11 @@ export class CreateAppBlockCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AppStreamClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("PhotonAdminProxyService", "CreateAppBlock", {})
   .n("AppStreamClient", "CreateAppBlockCommand")
-  .f(void 0, void 0)
-  .ser(se_CreateAppBlockCommand)
-  .de(de_CreateAppBlockCommand)
+  .sc(CreateAppBlock)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

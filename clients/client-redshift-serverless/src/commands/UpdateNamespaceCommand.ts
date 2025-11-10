@@ -1,22 +1,16 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  UpdateNamespaceRequest,
-  UpdateNamespaceRequestFilterSensitiveLog,
-  UpdateNamespaceResponse,
-  UpdateNamespaceResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { de_UpdateNamespaceCommand, se_UpdateNamespaceCommand } from "../protocols/Aws_json1_1";
+import { UpdateNamespaceRequest, UpdateNamespaceResponse } from "../models/models_0";
 import {
   RedshiftServerlessClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../RedshiftServerlessClient";
+import { UpdateNamespace } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -123,16 +117,11 @@ export class UpdateNamespaceCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RedshiftServerlessClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("RedshiftServerless", "UpdateNamespace", {})
   .n("RedshiftServerlessClient", "UpdateNamespaceCommand")
-  .f(UpdateNamespaceRequestFilterSensitiveLog, UpdateNamespaceResponseFilterSensitiveLog)
-  .ser(se_UpdateNamespaceCommand)
-  .de(de_UpdateNamespaceCommand)
+  .sc(UpdateNamespace)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

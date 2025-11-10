@@ -1,12 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { JoinDomainInput, JoinDomainInputFilterSensitiveLog, JoinDomainOutput } from "../models/models_0";
-import { de_JoinDomainCommand, se_JoinDomainCommand } from "../protocols/Aws_json1_1";
+import { JoinDomainInput, JoinDomainOutput } from "../models/models_0";
+import { JoinDomain } from "../schemas/schemas_0";
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
 /**
@@ -97,16 +96,11 @@ export class JoinDomainCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: StorageGatewayClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("StorageGateway_20130630", "JoinDomain", {})
   .n("StorageGatewayClient", "JoinDomainCommand")
-  .f(JoinDomainInputFilterSensitiveLog, void 0)
-  .ser(se_JoinDomainCommand)
-  .de(de_JoinDomainCommand)
+  .sc(JoinDomain)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

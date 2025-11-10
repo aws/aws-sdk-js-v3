@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
 import { GetContainerImagesRequest, GetContainerImagesResult } from "../models/models_0";
-import { de_GetContainerImagesCommand, se_GetContainerImagesCommand } from "../protocols/Aws_json1_1";
+import { GetContainerImages } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -109,16 +108,11 @@ export class GetContainerImagesCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LightsailClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("Lightsail_20161128", "GetContainerImages", {})
   .n("LightsailClient", "GetContainerImagesCommand")
-  .f(void 0, void 0)
-  .ser(se_GetContainerImagesCommand)
-  .de(de_GetContainerImagesCommand)
+  .sc(GetContainerImages)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

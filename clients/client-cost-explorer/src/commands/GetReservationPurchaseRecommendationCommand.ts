@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -10,10 +9,7 @@ import {
   GetReservationPurchaseRecommendationRequest,
   GetReservationPurchaseRecommendationResponse,
 } from "../models/models_0";
-import {
-  de_GetReservationPurchaseRecommendationCommand,
-  se_GetReservationPurchaseRecommendationCommand,
-} from "../protocols/Aws_json1_1";
+import { GetReservationPurchaseRecommendation } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -288,16 +284,11 @@ export class GetReservationPurchaseRecommendationCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CostExplorerClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSInsightsIndexService", "GetReservationPurchaseRecommendation", {})
   .n("CostExplorerClient", "GetReservationPurchaseRecommendationCommand")
-  .f(void 0, void 0)
-  .ser(se_GetReservationPurchaseRecommendationCommand)
-  .de(de_GetReservationPurchaseRecommendationCommand)
+  .sc(GetReservationPurchaseRecommendation)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

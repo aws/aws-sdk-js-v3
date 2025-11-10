@@ -1,18 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { AppStreamClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppStreamClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  BatchDisassociateUserStackRequest,
-  BatchDisassociateUserStackRequestFilterSensitiveLog,
-  BatchDisassociateUserStackResult,
-  BatchDisassociateUserStackResultFilterSensitiveLog,
-} from "../models/models_0";
-import { de_BatchDisassociateUserStackCommand, se_BatchDisassociateUserStackCommand } from "../protocols/Aws_json1_1";
+import { BatchDisassociateUserStackRequest, BatchDisassociateUserStackResult } from "../models/models_0";
+import { BatchDisassociateUserStack } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -99,16 +93,11 @@ export class BatchDisassociateUserStackCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AppStreamClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("PhotonAdminProxyService", "BatchDisassociateUserStack", {})
   .n("AppStreamClient", "BatchDisassociateUserStackCommand")
-  .f(BatchDisassociateUserStackRequestFilterSensitiveLog, BatchDisassociateUserStackResultFilterSensitiveLog)
-  .ser(se_BatchDisassociateUserStackCommand)
-  .de(de_BatchDisassociateUserStackCommand)
+  .sc(BatchDisassociateUserStack)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,12 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DeleteServiceAttributesRequest, DeleteServiceAttributesResponse } from "../models/models_0";
-import { de_DeleteServiceAttributesCommand, se_DeleteServiceAttributesCommand } from "../protocols/Aws_json1_1";
+import { DeleteServiceAttributes } from "../schemas/schemas_0";
 import { ServiceDiscoveryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceDiscoveryClient";
 
 /**
@@ -111,16 +110,11 @@ export class DeleteServiceAttributesCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ServiceDiscoveryClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("Route53AutoNaming_v20170314", "DeleteServiceAttributes", {})
   .n("ServiceDiscoveryClient", "DeleteServiceAttributesCommand")
-  .f(void 0, void 0)
-  .ser(se_DeleteServiceAttributesCommand)
-  .de(de_DeleteServiceAttributesCommand)
+  .sc(DeleteServiceAttributes)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

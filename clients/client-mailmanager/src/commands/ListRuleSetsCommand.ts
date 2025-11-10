@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { MailManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MailManagerClient";
 import { ListRuleSetsRequest, ListRuleSetsResponse } from "../models/models_0";
-import { de_ListRuleSetsCommand, se_ListRuleSetsCommand } from "../protocols/Aws_json1_0";
+import { ListRuleSets } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -81,16 +80,11 @@ export class ListRuleSetsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MailManagerClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("MailManagerSvc", "ListRuleSets", {})
   .n("MailManagerClient", "ListRuleSetsCommand")
-  .f(void 0, void 0)
-  .ser(se_ListRuleSetsCommand)
-  .de(de_ListRuleSetsCommand)
+  .sc(ListRuleSets)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

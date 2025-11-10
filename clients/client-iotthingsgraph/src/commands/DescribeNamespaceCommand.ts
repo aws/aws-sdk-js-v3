@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { IoTThingsGraphClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTThingsGraphClient";
 import { DescribeNamespaceRequest, DescribeNamespaceResponse } from "../models/models_0";
-import { de_DescribeNamespaceCommand, se_DescribeNamespaceCommand } from "../protocols/Aws_json1_1";
+import { DescribeNamespace } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -88,16 +87,11 @@ export class DescribeNamespaceCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTThingsGraphClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("IotThingsGraphFrontEndService", "DescribeNamespace", {})
   .n("IoTThingsGraphClient", "DescribeNamespaceCommand")
-  .f(void 0, void 0)
-  .ser(se_DescribeNamespaceCommand)
-  .de(de_DescribeNamespaceCommand)
+  .sc(DescribeNamespace)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

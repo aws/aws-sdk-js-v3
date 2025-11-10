@@ -1,18 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  CreateEnvironmentTemplateInput,
-  CreateEnvironmentTemplateInputFilterSensitiveLog,
-  CreateEnvironmentTemplateOutput,
-  CreateEnvironmentTemplateOutputFilterSensitiveLog,
-} from "../models/models_0";
-import { de_CreateEnvironmentTemplateCommand, se_CreateEnvironmentTemplateCommand } from "../protocols/Aws_json1_0";
+import { CreateEnvironmentTemplateInput, CreateEnvironmentTemplateOutput } from "../models/models_0";
 import { ProtonClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ProtonClient";
+import { CreateEnvironmentTemplate } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -130,16 +124,11 @@ export class CreateEnvironmentTemplateCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ProtonClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AwsProton20200720", "CreateEnvironmentTemplate", {})
   .n("ProtonClient", "CreateEnvironmentTemplateCommand")
-  .f(CreateEnvironmentTemplateInputFilterSensitiveLog, CreateEnvironmentTemplateOutputFilterSensitiveLog)
-  .ser(se_CreateEnvironmentTemplateCommand)
-  .de(de_CreateEnvironmentTemplateCommand)
+  .sc(CreateEnvironmentTemplate)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

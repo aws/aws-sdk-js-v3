@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -10,10 +9,7 @@ import {
   CreateAdditionalAssignmentsForHITResponse,
 } from "../models/models_0";
 import { MTurkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MTurkClient";
-import {
-  de_CreateAdditionalAssignmentsForHITCommand,
-  se_CreateAdditionalAssignmentsForHITCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateAdditionalAssignmentsForHIT } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -106,16 +102,11 @@ export class CreateAdditionalAssignmentsForHITCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MTurkClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("MTurkRequesterServiceV20170117", "CreateAdditionalAssignmentsForHIT", {})
   .n("MTurkClient", "CreateAdditionalAssignmentsForHITCommand")
-  .f(void 0, void 0)
-  .ser(se_CreateAdditionalAssignmentsForHITCommand)
-  .de(de_CreateAdditionalAssignmentsForHITCommand)
+  .sc(CreateAdditionalAssignmentsForHIT)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

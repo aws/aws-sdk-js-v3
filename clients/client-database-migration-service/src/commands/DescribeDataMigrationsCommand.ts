@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -10,12 +9,8 @@ import {
   ServiceOutputTypes,
 } from "../DatabaseMigrationServiceClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  DescribeDataMigrationsMessage,
-  DescribeDataMigrationsResponse,
-  DescribeDataMigrationsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { de_DescribeDataMigrationsCommand, se_DescribeDataMigrationsCommand } from "../protocols/Aws_json1_1";
+import { DescribeDataMigrationsMessage, DescribeDataMigrationsResponse } from "../models/models_0";
+import { DescribeDataMigrations } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -148,16 +143,11 @@ export class DescribeDataMigrationsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DatabaseMigrationServiceClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonDMSv20160101", "DescribeDataMigrations", {})
   .n("DatabaseMigrationServiceClient", "DescribeDataMigrationsCommand")
-  .f(void 0, DescribeDataMigrationsResponseFilterSensitiveLog)
-  .ser(se_DescribeDataMigrationsCommand)
-  .de(de_DescribeDataMigrationsCommand)
+  .sc(DescribeDataMigrations)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

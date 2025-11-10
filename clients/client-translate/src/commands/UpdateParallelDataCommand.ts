@@ -1,12 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { UpdateParallelDataRequest, UpdateParallelDataResponse } from "../models/models_0";
-import { de_UpdateParallelDataCommand, se_UpdateParallelDataCommand } from "../protocols/Aws_json1_1";
+import { UpdateParallelData } from "../schemas/schemas_0";
 import { ServiceInputTypes, ServiceOutputTypes, TranslateClientResolvedConfig } from "../TranslateClient";
 
 /**
@@ -111,16 +110,11 @@ export class UpdateParallelDataCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: TranslateClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSShineFrontendService_20170701", "UpdateParallelData", {})
   .n("TranslateClient", "UpdateParallelDataCommand")
-  .f(void 0, void 0)
-  .ser(se_UpdateParallelDataCommand)
-  .de(de_UpdateParallelDataCommand)
+  .sc(UpdateParallelData)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

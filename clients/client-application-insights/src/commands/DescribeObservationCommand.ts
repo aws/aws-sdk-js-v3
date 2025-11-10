@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -11,7 +10,7 @@ import {
 } from "../ApplicationInsightsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DescribeObservationRequest, DescribeObservationResponse } from "../models/models_0";
-import { de_DescribeObservationCommand, se_DescribeObservationCommand } from "../protocols/Aws_json1_1";
+import { DescribeObservation } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -130,16 +129,11 @@ export class DescribeObservationCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ApplicationInsightsClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("EC2WindowsBarleyService", "DescribeObservation", {})
   .n("ApplicationInsightsClient", "DescribeObservationCommand")
-  .f(void 0, void 0)
-  .ser(se_DescribeObservationCommand)
-  .de(de_DescribeObservationCommand)
+  .sc(DescribeObservation)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

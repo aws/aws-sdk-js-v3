@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
 import { DeleteBlueprintRequest, DeleteBlueprintResponse } from "../models/models_1";
-import { de_DeleteBlueprintCommand, se_DeleteBlueprintCommand } from "../protocols/Aws_json1_1";
+import { DeleteBlueprint } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -79,16 +78,11 @@ export class DeleteBlueprintCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GlueClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSGlue", "DeleteBlueprint", {})
   .n("GlueClient", "DeleteBlueprintCommand")
-  .f(void 0, void 0)
-  .ser(se_DeleteBlueprintCommand)
-  .de(de_DeleteBlueprintCommand)
+  .sc(DeleteBlueprint)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

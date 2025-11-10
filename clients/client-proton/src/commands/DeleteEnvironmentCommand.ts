@@ -1,17 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  DeleteEnvironmentInput,
-  DeleteEnvironmentOutput,
-  DeleteEnvironmentOutputFilterSensitiveLog,
-} from "../models/models_0";
-import { de_DeleteEnvironmentCommand, se_DeleteEnvironmentCommand } from "../protocols/Aws_json1_0";
+import { DeleteEnvironmentInput, DeleteEnvironmentOutput } from "../models/models_0";
 import { ProtonClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ProtonClient";
+import { DeleteEnvironment } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -121,16 +116,11 @@ export class DeleteEnvironmentCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ProtonClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AwsProton20200720", "DeleteEnvironment", {})
   .n("ProtonClient", "DeleteEnvironmentCommand")
-  .f(void 0, DeleteEnvironmentOutputFilterSensitiveLog)
-  .ser(se_DeleteEnvironmentCommand)
-  .de(de_DeleteEnvironmentCommand)
+  .sc(DeleteEnvironment)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

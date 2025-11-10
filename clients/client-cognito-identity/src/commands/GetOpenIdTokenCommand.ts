@@ -1,18 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CognitoIdentityClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CognitoIdentityClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  GetOpenIdTokenInput,
-  GetOpenIdTokenInputFilterSensitiveLog,
-  GetOpenIdTokenResponse,
-  GetOpenIdTokenResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { de_GetOpenIdTokenCommand, se_GetOpenIdTokenCommand } from "../protocols/Aws_json1_1";
+import { GetOpenIdTokenInput, GetOpenIdTokenResponse } from "../models/models_0";
+import { GetOpenIdToken } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -107,16 +101,11 @@ export class GetOpenIdTokenCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CognitoIdentityClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSCognitoIdentityService", "GetOpenIdToken", {})
   .n("CognitoIdentityClient", "GetOpenIdTokenCommand")
-  .f(GetOpenIdTokenInputFilterSensitiveLog, GetOpenIdTokenResponseFilterSensitiveLog)
-  .ser(se_GetOpenIdTokenCommand)
-  .de(de_GetOpenIdTokenCommand)
+  .sc(GetOpenIdToken)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

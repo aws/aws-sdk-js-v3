@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
 import { GetCertificatesRequest, GetCertificatesResult } from "../models/models_0";
-import { de_GetCertificatesCommand, se_GetCertificatesCommand } from "../protocols/Aws_json1_1";
+import { GetCertificates } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -183,16 +182,11 @@ export class GetCertificatesCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LightsailClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("Lightsail_20161128", "GetCertificates", {})
   .n("LightsailClient", "GetCertificatesCommand")
-  .f(void 0, void 0)
-  .ser(se_GetCertificatesCommand)
-  .de(de_GetCertificatesCommand)
+  .sc(GetCertificates)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

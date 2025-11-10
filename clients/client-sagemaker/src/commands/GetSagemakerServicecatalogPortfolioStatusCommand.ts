@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -9,11 +8,8 @@ import {
   GetSagemakerServicecatalogPortfolioStatusInput,
   GetSagemakerServicecatalogPortfolioStatusOutput,
 } from "../models/models_3";
-import {
-  de_GetSagemakerServicecatalogPortfolioStatusCommand,
-  se_GetSagemakerServicecatalogPortfolioStatusCommand,
-} from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
+import { GetSagemakerServicecatalogPortfolioStatus } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -77,16 +73,11 @@ export class GetSagemakerServicecatalogPortfolioStatusCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("SageMaker", "GetSagemakerServicecatalogPortfolioStatus", {})
   .n("SageMakerClient", "GetSagemakerServicecatalogPortfolioStatusCommand")
-  .f(void 0, void 0)
-  .ser(se_GetSagemakerServicecatalogPortfolioStatusCommand)
-  .de(de_GetSagemakerServicecatalogPortfolioStatusCommand)
+  .sc(GetSagemakerServicecatalogPortfolioStatus)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

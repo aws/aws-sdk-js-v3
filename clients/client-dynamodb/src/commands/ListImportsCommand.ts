@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DynamoDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { ListImportsInput, ListImportsOutput } from "../models/models_0";
-import { de_ListImportsCommand, se_ListImportsCommand } from "../protocols/Aws_json1_0";
+import { ListImports } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -109,16 +108,11 @@ export class ListImportsCommand extends $Command
     ResourceArn: { type: "contextParams", name: "TableArn" },
   })
   .m(function (this: any, Command: any, cs: any, config: DynamoDBClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("DynamoDB_20120810", "ListImports", {})
   .n("DynamoDBClient", "ListImportsCommand")
-  .f(void 0, void 0)
-  .ser(se_ListImportsCommand)
-  .de(de_ListImportsCommand)
+  .sc(ListImports)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

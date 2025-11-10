@@ -1,12 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DescribePortfolioInput, DescribePortfolioOutput } from "../models/models_0";
-import { de_DescribePortfolioCommand, se_DescribePortfolioCommand } from "../protocols/Aws_json1_1";
+import { DescribePortfolio } from "../schemas/schemas_0";
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
 /**
@@ -102,16 +101,11 @@ export class DescribePortfolioCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ServiceCatalogClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWS242ServiceCatalogService", "DescribePortfolio", {})
   .n("ServiceCatalogClient", "DescribePortfolioCommand")
-  .f(void 0, void 0)
-  .ser(se_DescribePortfolioCommand)
-  .de(de_DescribePortfolioCommand)
+  .sc(DescribePortfolio)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

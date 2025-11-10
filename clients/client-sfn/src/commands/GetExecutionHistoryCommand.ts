@@ -1,16 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  GetExecutionHistoryInput,
-  GetExecutionHistoryOutput,
-  GetExecutionHistoryOutputFilterSensitiveLog,
-} from "../models/models_0";
-import { de_GetExecutionHistoryCommand, se_GetExecutionHistoryCommand } from "../protocols/Aws_json1_0";
+import { GetExecutionHistoryInput, GetExecutionHistoryOutput } from "../models/models_0";
+import { GetExecutionHistory } from "../schemas/schemas_0";
 import { ServiceInputTypes, ServiceOutputTypes, SFNClientResolvedConfig } from "../SFNClient";
 
 /**
@@ -303,16 +298,11 @@ export class GetExecutionHistoryCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SFNClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSStepFunctions", "GetExecutionHistory", {})
   .n("SFNClient", "GetExecutionHistoryCommand")
-  .f(void 0, GetExecutionHistoryOutputFilterSensitiveLog)
-  .ser(se_GetExecutionHistoryCommand)
-  .de(de_GetExecutionHistoryCommand)
+  .sc(GetExecutionHistory)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

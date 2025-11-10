@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { KMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KMSClient";
 import { DisconnectCustomKeyStoreRequest, DisconnectCustomKeyStoreResponse } from "../models/models_0";
-import { de_DisconnectCustomKeyStoreCommand, se_DisconnectCustomKeyStoreCommand } from "../protocols/Aws_json1_1";
+import { DisconnectCustomKeyStore } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -179,16 +178,11 @@ export class DisconnectCustomKeyStoreCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: KMSClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("TrentService", "DisconnectCustomKeyStore", {})
   .n("KMSClient", "DisconnectCustomKeyStoreCommand")
-  .f(void 0, void 0)
-  .ser(se_DisconnectCustomKeyStoreCommand)
-  .de(de_DisconnectCustomKeyStoreCommand)
+  .sc(DisconnectCustomKeyStore)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

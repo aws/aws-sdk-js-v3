@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DirectConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { Lag, UpdateLagRequest } from "../models/models_0";
-import { de_UpdateLagCommand, se_UpdateLagCommand } from "../protocols/Aws_json1_1";
+import { UpdateLag } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -171,16 +170,11 @@ export class UpdateLagCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DirectConnectClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("OvertureService", "UpdateLag", {})
   .n("DirectConnectClient", "UpdateLagCommand")
-  .f(void 0, void 0)
-  .ser(se_UpdateLagCommand)
-  .de(de_UpdateLagCommand)
+  .sc(UpdateLag)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

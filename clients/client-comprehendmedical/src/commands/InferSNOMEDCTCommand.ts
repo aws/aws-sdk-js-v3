@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -11,7 +10,7 @@ import {
 } from "../ComprehendMedicalClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { InferSNOMEDCTRequest, InferSNOMEDCTResponse } from "../models/models_0";
-import { de_InferSNOMEDCTCommand, se_InferSNOMEDCTCommand } from "../protocols/Aws_json1_1";
+import { InferSNOMEDCT } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -158,16 +157,11 @@ export class InferSNOMEDCTCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ComprehendMedicalClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("ComprehendMedical_20181030", "InferSNOMEDCT", {})
   .n("ComprehendMedicalClient", "InferSNOMEDCTCommand")
-  .f(void 0, void 0)
-  .ser(se_InferSNOMEDCTCommand)
-  .de(de_InferSNOMEDCTCommand)
+  .sc(InferSNOMEDCT)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

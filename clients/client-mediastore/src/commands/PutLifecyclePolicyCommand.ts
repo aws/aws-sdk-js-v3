@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { MediaStoreClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaStoreClient";
 import { PutLifecyclePolicyInput, PutLifecyclePolicyOutput } from "../models/models_0";
-import { de_PutLifecyclePolicyCommand, se_PutLifecyclePolicyCommand } from "../protocols/Aws_json1_1";
+import { PutLifecyclePolicy } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -80,16 +79,11 @@ export class PutLifecyclePolicyCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MediaStoreClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("MediaStore_20170901", "PutLifecyclePolicy", {})
   .n("MediaStoreClient", "PutLifecyclePolicyCommand")
-  .f(void 0, void 0)
-  .ser(se_PutLifecyclePolicyCommand)
-  .de(de_PutLifecyclePolicyCommand)
+  .sc(PutLifecyclePolicy)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

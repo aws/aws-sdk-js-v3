@@ -1,17 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { FSxClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FSxClient";
-import {
-  RestoreVolumeFromSnapshotRequest,
-  RestoreVolumeFromSnapshotResponse,
-  RestoreVolumeFromSnapshotResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { de_RestoreVolumeFromSnapshotCommand, se_RestoreVolumeFromSnapshotCommand } from "../protocols/Aws_json1_1";
+import { RestoreVolumeFromSnapshotRequest, RestoreVolumeFromSnapshotResponse } from "../models/models_0";
+import { RestoreVolumeFromSnapshot } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -710,16 +705,11 @@ export class RestoreVolumeFromSnapshotCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: FSxClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSSimbaAPIService_v20180301", "RestoreVolumeFromSnapshot", {})
   .n("FSxClient", "RestoreVolumeFromSnapshotCommand")
-  .f(void 0, RestoreVolumeFromSnapshotResponseFilterSensitiveLog)
-  .ser(se_RestoreVolumeFromSnapshotCommand)
-  .de(de_RestoreVolumeFromSnapshotCommand)
+  .sc(RestoreVolumeFromSnapshot)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,15 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DisassociateTagOptionFromResourceInput, DisassociateTagOptionFromResourceOutput } from "../models/models_0";
-import {
-  de_DisassociateTagOptionFromResourceCommand,
-  se_DisassociateTagOptionFromResourceCommand,
-} from "../protocols/Aws_json1_1";
+import { DisassociateTagOptionFromResource } from "../schemas/schemas_0";
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
 /**
@@ -82,16 +78,11 @@ export class DisassociateTagOptionFromResourceCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ServiceCatalogClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWS242ServiceCatalogService", "DisassociateTagOptionFromResource", {})
   .n("ServiceCatalogClient", "DisassociateTagOptionFromResourceCommand")
-  .f(void 0, void 0)
-  .ser(se_DisassociateTagOptionFromResourceCommand)
-  .de(de_DisassociateTagOptionFromResourceCommand)
+  .sc(DisassociateTagOptionFromResource)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

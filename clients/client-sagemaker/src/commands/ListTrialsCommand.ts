@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { ListTrialsRequest, ListTrialsResponse } from "../models/models_5";
-import { de_ListTrialsCommand, se_ListTrialsCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
+import { ListTrials } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -93,16 +92,11 @@ export class ListTrialsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("SageMaker", "ListTrials", {})
   .n("SageMakerClient", "ListTrialsCommand")
-  .f(void 0, void 0)
-  .ser(se_ListTrialsCommand)
-  .de(de_ListTrialsCommand)
+  .sc(ListTrials)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

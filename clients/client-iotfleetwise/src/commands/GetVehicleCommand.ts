@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { IoTFleetWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTFleetWiseClient";
 import { GetVehicleRequest, GetVehicleResponse } from "../models/models_0";
-import { de_GetVehicleCommand, se_GetVehicleCommand } from "../protocols/Aws_json1_0";
+import { GetVehicle } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -107,16 +106,11 @@ export class GetVehicleCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTFleetWiseClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("IoTAutobahnControlPlane", "GetVehicle", {})
   .n("IoTFleetWiseClient", "GetVehicleCommand")
-  .f(void 0, void 0)
-  .ser(se_GetVehicleCommand)
-  .de(de_GetVehicleCommand)
+  .sc(GetVehicle)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

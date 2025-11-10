@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DirectoryServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectoryServiceClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DescribeSettingsRequest, DescribeSettingsResult } from "../models/models_0";
-import { de_DescribeSettingsCommand, se_DescribeSettingsCommand } from "../protocols/Aws_json1_1";
+import { DescribeSettings } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -108,16 +107,11 @@ export class DescribeSettingsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DirectoryServiceClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("DirectoryService_20150416", "DescribeSettings", {})
   .n("DirectoryServiceClient", "DescribeSettingsCommand")
-  .f(void 0, void 0)
-  .ser(se_DescribeSettingsCommand)
-  .de(de_DescribeSettingsCommand)
+  .sc(DescribeSettings)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

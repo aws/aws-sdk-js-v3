@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@smithy/smithy-client";
+import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
 import { TimestreamWriteServiceException as __BaseException } from "./TimestreamWriteServiceException";
 
@@ -2023,11 +2023,3 @@ export interface WriteRecordsResponse {
    */
   RecordsIngested?: RecordsIngested | undefined;
 }
-
-/**
- * @internal
- */
-export const CreateBatchLoadTaskRequestFilterSensitiveLog = (obj: CreateBatchLoadTaskRequest): any => ({
-  ...obj,
-  ...(obj.ClientToken && { ClientToken: SENSITIVE_STRING }),
-});

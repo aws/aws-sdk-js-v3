@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -11,7 +10,7 @@ import {
 } from "../CodeStarConnectionsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { ListRepositoryLinksInput, ListRepositoryLinksOutput } from "../models/models_0";
-import { de_ListRepositoryLinksCommand, se_ListRepositoryLinksCommand } from "../protocols/Aws_json1_0";
+import { ListRepositoryLinks } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -104,16 +103,11 @@ export class ListRepositoryLinksCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CodeStarConnectionsClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("CodeStar_connections_20191201", "ListRepositoryLinks", {})
   .n("CodeStarConnectionsClient", "ListRepositoryLinksCommand")
-  .f(void 0, void 0)
-  .ser(se_ListRepositoryLinksCommand)
-  .de(de_ListRepositoryLinksCommand)
+  .sc(ListRepositoryLinks)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

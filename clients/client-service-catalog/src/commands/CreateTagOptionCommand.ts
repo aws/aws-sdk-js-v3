@@ -1,12 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { CreateTagOptionInput, CreateTagOptionOutput } from "../models/models_0";
-import { de_CreateTagOptionCommand, se_CreateTagOptionCommand } from "../protocols/Aws_json1_1";
+import { CreateTagOption } from "../schemas/schemas_0";
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
 /**
@@ -89,16 +88,11 @@ export class CreateTagOptionCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ServiceCatalogClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWS242ServiceCatalogService", "CreateTagOption", {})
   .n("ServiceCatalogClient", "CreateTagOptionCommand")
-  .f(void 0, void 0)
-  .ser(se_CreateTagOptionCommand)
-  .de(de_CreateTagOptionCommand)
+  .sc(CreateTagOption)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

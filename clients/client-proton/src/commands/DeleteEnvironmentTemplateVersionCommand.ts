@@ -1,20 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  DeleteEnvironmentTemplateVersionInput,
-  DeleteEnvironmentTemplateVersionOutput,
-  DeleteEnvironmentTemplateVersionOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  de_DeleteEnvironmentTemplateVersionCommand,
-  se_DeleteEnvironmentTemplateVersionCommand,
-} from "../protocols/Aws_json1_0";
+import { DeleteEnvironmentTemplateVersionInput, DeleteEnvironmentTemplateVersionOutput } from "../models/models_0";
 import { ProtonClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ProtonClient";
+import { DeleteEnvironmentTemplateVersion } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -118,16 +110,11 @@ export class DeleteEnvironmentTemplateVersionCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ProtonClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AwsProton20200720", "DeleteEnvironmentTemplateVersion", {})
   .n("ProtonClient", "DeleteEnvironmentTemplateVersionCommand")
-  .f(void 0, DeleteEnvironmentTemplateVersionOutputFilterSensitiveLog)
-  .ser(se_DeleteEnvironmentTemplateVersionCommand)
-  .de(de_DeleteEnvironmentTemplateVersionCommand)
+  .sc(DeleteEnvironmentTemplateVersion)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

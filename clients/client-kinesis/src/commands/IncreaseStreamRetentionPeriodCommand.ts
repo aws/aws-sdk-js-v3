@@ -1,16 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { KinesisClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisClient";
 import { IncreaseStreamRetentionPeriodInput } from "../models/models_0";
-import {
-  de_IncreaseStreamRetentionPeriodCommand,
-  se_IncreaseStreamRetentionPeriodCommand,
-} from "../protocols/Aws_json1_1";
+import { IncreaseStreamRetentionPeriod } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -110,16 +106,11 @@ export class IncreaseStreamRetentionPeriodCommand extends $Command
     StreamARN: { type: "contextParams", name: "StreamARN" },
   })
   .m(function (this: any, Command: any, cs: any, config: KinesisClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("Kinesis_20131202", "IncreaseStreamRetentionPeriod", {})
   .n("KinesisClient", "IncreaseStreamRetentionPeriodCommand")
-  .f(void 0, void 0)
-  .ser(se_IncreaseStreamRetentionPeriodCommand)
-  .de(de_IncreaseStreamRetentionPeriodCommand)
+  .sc(IncreaseStreamRetentionPeriod)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

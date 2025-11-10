@@ -1,21 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  UpdateServiceTemplateVersionInput,
-  UpdateServiceTemplateVersionInputFilterSensitiveLog,
-  UpdateServiceTemplateVersionOutput,
-  UpdateServiceTemplateVersionOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  de_UpdateServiceTemplateVersionCommand,
-  se_UpdateServiceTemplateVersionCommand,
-} from "../protocols/Aws_json1_0";
+import { UpdateServiceTemplateVersionInput, UpdateServiceTemplateVersionOutput } from "../models/models_0";
 import { ProtonClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ProtonClient";
+import { UpdateServiceTemplateVersion } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -134,16 +125,11 @@ export class UpdateServiceTemplateVersionCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ProtonClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AwsProton20200720", "UpdateServiceTemplateVersion", {})
   .n("ProtonClient", "UpdateServiceTemplateVersionCommand")
-  .f(UpdateServiceTemplateVersionInputFilterSensitiveLog, UpdateServiceTemplateVersionOutputFilterSensitiveLog)
-  .ser(se_UpdateServiceTemplateVersionCommand)
-  .de(de_UpdateServiceTemplateVersionCommand)
+  .sc(UpdateServiceTemplateVersion)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

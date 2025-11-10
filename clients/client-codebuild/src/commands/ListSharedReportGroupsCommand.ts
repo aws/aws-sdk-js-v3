@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CodeBuildClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeBuildClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { ListSharedReportGroupsInput, ListSharedReportGroupsOutput } from "../models/models_0";
-import { de_ListSharedReportGroupsCommand, se_ListSharedReportGroupsCommand } from "../protocols/Aws_json1_1";
+import { ListSharedReportGroups } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -80,16 +79,11 @@ export class ListSharedReportGroupsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CodeBuildClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("CodeBuild_20161006", "ListSharedReportGroups", {})
   .n("CodeBuildClient", "ListSharedReportGroupsCommand")
-  .f(void 0, void 0)
-  .ser(se_ListSharedReportGroupsCommand)
-  .de(de_ListSharedReportGroupsCommand)
+  .sc(ListSharedReportGroups)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

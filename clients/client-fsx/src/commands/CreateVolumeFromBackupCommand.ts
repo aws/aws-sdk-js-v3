@@ -1,14 +1,13 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { FSxClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FSxClient";
 import { CreateVolumeFromBackupRequest } from "../models/models_0";
-import { CreateVolumeFromBackupResponse, CreateVolumeFromBackupResponseFilterSensitiveLog } from "../models/models_1";
-import { de_CreateVolumeFromBackupCommand, se_CreateVolumeFromBackupCommand } from "../protocols/Aws_json1_1";
+import { CreateVolumeFromBackupResponse } from "../models/models_1";
+import { CreateVolumeFromBackup } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -755,16 +754,11 @@ export class CreateVolumeFromBackupCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: FSxClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSSimbaAPIService_v20180301", "CreateVolumeFromBackup", {})
   .n("FSxClient", "CreateVolumeFromBackupCommand")
-  .f(void 0, CreateVolumeFromBackupResponseFilterSensitiveLog)
-  .ser(se_CreateVolumeFromBackupCommand)
-  .de(de_CreateVolumeFromBackupCommand)
+  .sc(CreateVolumeFromBackup)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

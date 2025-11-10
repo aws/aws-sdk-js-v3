@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -10,12 +9,8 @@ import {
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  AdminListGroupsForUserRequest,
-  AdminListGroupsForUserRequestFilterSensitiveLog,
-  AdminListGroupsForUserResponse,
-} from "../models/models_0";
-import { de_AdminListGroupsForUserCommand, se_AdminListGroupsForUserCommand } from "../protocols/Aws_json1_1";
+import { AdminListGroupsForUserRequest, AdminListGroupsForUserResponse } from "../models/models_0";
+import { AdminListGroupsForUser } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -135,16 +130,11 @@ export class AdminListGroupsForUserCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CognitoIdentityProviderClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSCognitoIdentityProviderService", "AdminListGroupsForUser", {})
   .n("CognitoIdentityProviderClient", "AdminListGroupsForUserCommand")
-  .f(AdminListGroupsForUserRequestFilterSensitiveLog, void 0)
-  .ser(se_AdminListGroupsForUserCommand)
-  .de(de_AdminListGroupsForUserCommand)
+  .sc(AdminListGroupsForUser)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,17 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DataSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataSyncClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  CreateLocationAzureBlobRequest,
-  CreateLocationAzureBlobRequestFilterSensitiveLog,
-  CreateLocationAzureBlobResponse,
-} from "../models/models_0";
-import { de_CreateLocationAzureBlobCommand, se_CreateLocationAzureBlobCommand } from "../protocols/Aws_json1_1";
+import { CreateLocationAzureBlobRequest, CreateLocationAzureBlobResponse } from "../models/models_0";
+import { CreateLocationAzureBlob } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -109,16 +104,11 @@ export class CreateLocationAzureBlobCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DataSyncClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("FmrsService", "CreateLocationAzureBlob", {})
   .n("DataSyncClient", "CreateLocationAzureBlobCommand")
-  .f(CreateLocationAzureBlobRequestFilterSensitiveLog, void 0)
-  .ser(se_CreateLocationAzureBlobCommand)
-  .de(de_CreateLocationAzureBlobCommand)
+  .sc(CreateLocationAzureBlob)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { LookoutEquipmentClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LookoutEquipmentClient";
 import { DescribeLabelRequest, DescribeLabelResponse } from "../models/models_0";
-import { de_DescribeLabelCommand, se_DescribeLabelCommand } from "../protocols/Aws_json1_0";
+import { DescribeLabel } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -99,16 +98,11 @@ export class DescribeLabelCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LookoutEquipmentClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSLookoutEquipmentFrontendService", "DescribeLabel", {})
   .n("LookoutEquipmentClient", "DescribeLabelCommand")
-  .f(void 0, void 0)
-  .ser(se_DescribeLabelCommand)
-  .de(de_DescribeLabelCommand)
+  .sc(DescribeLabel)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

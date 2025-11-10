@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -11,7 +10,7 @@ import {
 } from "../ApplicationAutoScalingClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DeregisterScalableTargetRequest, DeregisterScalableTargetResponse } from "../models/models_0";
-import { de_DeregisterScalableTargetCommand, se_DeregisterScalableTargetCommand } from "../protocols/Aws_json1_1";
+import { DeregisterScalableTarget } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -112,16 +111,11 @@ export class DeregisterScalableTargetCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ApplicationAutoScalingClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AnyScaleFrontendService", "DeregisterScalableTarget", {})
   .n("ApplicationAutoScalingClient", "DeregisterScalableTargetCommand")
-  .f(void 0, void 0)
-  .ser(se_DeregisterScalableTargetCommand)
-  .de(de_DeregisterScalableTargetCommand)
+  .sc(DeregisterScalableTarget)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

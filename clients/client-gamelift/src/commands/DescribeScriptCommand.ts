@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
 import { DescribeScriptInput, DescribeScriptOutput } from "../models/models_0";
-import { de_DescribeScriptCommand, se_DescribeScriptCommand } from "../protocols/Aws_json1_1";
+import { DescribeScript } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -113,16 +112,11 @@ export class DescribeScriptCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GameLiftClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("GameLift", "DescribeScript", {})
   .n("GameLiftClient", "DescribeScriptCommand")
-  .f(void 0, void 0)
-  .ser(se_DescribeScriptCommand)
-  .de(de_DescribeScriptCommand)
+  .sc(DescribeScript)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { MigrationHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MigrationHubClient";
 import { DeleteProgressUpdateStreamRequest, DeleteProgressUpdateStreamResult } from "../models/models_0";
-import { de_DeleteProgressUpdateStreamCommand, se_DeleteProgressUpdateStreamCommand } from "../protocols/Aws_json1_1";
+import { DeleteProgressUpdateStream } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -133,16 +132,11 @@ export class DeleteProgressUpdateStreamCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MigrationHubClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSMigrationHub", "DeleteProgressUpdateStream", {})
   .n("MigrationHubClient", "DeleteProgressUpdateStreamCommand")
-  .f(void 0, void 0)
-  .ser(se_DeleteProgressUpdateStreamCommand)
-  .de(de_DeleteProgressUpdateStreamCommand)
+  .sc(DeleteProgressUpdateStream)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

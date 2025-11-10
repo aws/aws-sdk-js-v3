@@ -11,7 +11,6 @@ import {
   AnnotationError,
   AuthConfiguration,
   AuthenticationConfigurationInput,
-  AuthenticationConfigurationInputFilterSensitiveLog,
   AuthenticationType,
   Blueprint,
   Column,
@@ -8255,21 +8254,3 @@ export interface GetCatalogImportStatusRequest {
    */
   CatalogId?: string | undefined;
 }
-
-/**
- * @internal
- */
-export const ConnectionInputFilterSensitiveLog = (obj: ConnectionInput): any => ({
-  ...obj,
-  ...(obj.AuthenticationConfiguration && {
-    AuthenticationConfiguration: AuthenticationConfigurationInputFilterSensitiveLog(obj.AuthenticationConfiguration),
-  }),
-});
-
-/**
- * @internal
- */
-export const CreateConnectionRequestFilterSensitiveLog = (obj: CreateConnectionRequest): any => ({
-  ...obj,
-  ...(obj.ConnectionInput && { ConnectionInput: ConnectionInputFilterSensitiveLog(obj.ConnectionInput) }),
-});

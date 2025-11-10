@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GetProductsRequest, GetProductsResponse } from "../models/models_0";
 import { PricingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PricingClient";
-import { de_GetProductsCommand, se_GetProductsCommand } from "../protocols/Aws_json1_1";
+import { GetProducts } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -103,16 +102,11 @@ export class GetProductsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: PricingClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSPriceListService", "GetProducts", {})
   .n("PricingClient", "GetProductsCommand")
-  .f(void 0, void 0)
-  .ser(se_GetProductsCommand)
-  .de(de_GetProductsCommand)
+  .sc(GetProducts)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ComprehendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComprehendClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { ContainsPiiEntitiesRequest, ContainsPiiEntitiesResponse } from "../models/models_0";
-import { de_ContainsPiiEntitiesCommand, se_ContainsPiiEntitiesCommand } from "../protocols/Aws_json1_1";
+import { ContainsPiiEntities } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -92,16 +91,11 @@ export class ContainsPiiEntitiesCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ComprehendClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("Comprehend_20171127", "ContainsPiiEntities", {})
   .n("ComprehendClient", "ContainsPiiEntitiesCommand")
-  .f(void 0, void 0)
-  .ser(se_ContainsPiiEntitiesCommand)
-  .de(de_ContainsPiiEntitiesCommand)
+  .sc(ContainsPiiEntities)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

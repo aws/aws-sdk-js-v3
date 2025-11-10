@@ -1,17 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  ExecuteCommandRequest,
-  ExecuteCommandResponse,
-  ExecuteCommandResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { de_ExecuteCommandCommand, se_ExecuteCommandCommand } from "../protocols/Aws_json1_1";
+import { ExecuteCommandRequest, ExecuteCommandResponse } from "../models/models_0";
+import { ExecuteCommand } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -161,16 +156,11 @@ export class ExecuteCommandCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ECSClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonEC2ContainerServiceV20141113", "ExecuteCommand", {})
   .n("ECSClient", "ExecuteCommandCommand")
-  .f(void 0, ExecuteCommandResponseFilterSensitiveLog)
-  .ser(se_ExecuteCommandCommand)
-  .de(de_ExecuteCommandCommand)
+  .sc(ExecuteCommand)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

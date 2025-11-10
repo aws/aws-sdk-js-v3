@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { MailManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MailManagerClient";
 import { DeleteAddressListRequest, DeleteAddressListResponse } from "../models/models_0";
-import { de_DeleteAddressListCommand, se_DeleteAddressListCommand } from "../protocols/Aws_json1_0";
+import { DeleteAddressList } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -77,16 +76,11 @@ export class DeleteAddressListCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MailManagerClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("MailManagerSvc", "DeleteAddressList", {})
   .n("MailManagerClient", "DeleteAddressListCommand")
-  .f(void 0, void 0)
-  .ser(se_DeleteAddressListCommand)
-  .de(de_DeleteAddressListCommand)
+  .sc(DeleteAddressList)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

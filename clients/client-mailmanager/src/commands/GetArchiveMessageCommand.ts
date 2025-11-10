@@ -1,17 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { MailManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MailManagerClient";
-import {
-  GetArchiveMessageRequest,
-  GetArchiveMessageResponse,
-  GetArchiveMessageResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { de_GetArchiveMessageCommand, se_GetArchiveMessageCommand } from "../protocols/Aws_json1_0";
+import { GetArchiveMessageRequest, GetArchiveMessageResponse } from "../models/models_0";
+import { GetArchiveMessage } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -105,16 +100,11 @@ export class GetArchiveMessageCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MailManagerClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("MailManagerSvc", "GetArchiveMessage", {})
   .n("MailManagerClient", "GetArchiveMessageCommand")
-  .f(void 0, GetArchiveMessageResponseFilterSensitiveLog)
-  .ser(se_GetArchiveMessageCommand)
-  .de(de_GetArchiveMessageCommand)
+  .sc(GetArchiveMessage)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,20 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  ValidateStateMachineDefinitionInput,
-  ValidateStateMachineDefinitionInputFilterSensitiveLog,
-  ValidateStateMachineDefinitionOutput,
-  ValidateStateMachineDefinitionOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  de_ValidateStateMachineDefinitionCommand,
-  se_ValidateStateMachineDefinitionCommand,
-} from "../protocols/Aws_json1_0";
+import { ValidateStateMachineDefinitionInput, ValidateStateMachineDefinitionOutput } from "../models/models_0";
+import { ValidateStateMachineDefinition } from "../schemas/schemas_0";
 import { ServiceInputTypes, ServiceOutputTypes, SFNClientResolvedConfig } from "../SFNClient";
 
 /**
@@ -126,16 +117,11 @@ export class ValidateStateMachineDefinitionCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SFNClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSStepFunctions", "ValidateStateMachineDefinition", {})
   .n("SFNClient", "ValidateStateMachineDefinitionCommand")
-  .f(ValidateStateMachineDefinitionInputFilterSensitiveLog, ValidateStateMachineDefinitionOutputFilterSensitiveLog)
-  .ser(se_ValidateStateMachineDefinitionCommand)
-  .de(de_ValidateStateMachineDefinitionCommand)
+  .sc(ValidateStateMachineDefinition)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -14,10 +13,7 @@ import {
   BatchUpdateBillScenarioUsageModificationRequest,
   BatchUpdateBillScenarioUsageModificationResponse,
 } from "../models/models_0";
-import {
-  de_BatchUpdateBillScenarioUsageModificationCommand,
-  se_BatchUpdateBillScenarioUsageModificationCommand,
-} from "../protocols/Aws_json1_0";
+import { BatchUpdateBillScenarioUsageModification } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -208,16 +204,11 @@ export class BatchUpdateBillScenarioUsageModificationCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: BCMPricingCalculatorClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSBCMPricingCalculator", "BatchUpdateBillScenarioUsageModification", {})
   .n("BCMPricingCalculatorClient", "BatchUpdateBillScenarioUsageModificationCommand")
-  .f(void 0, void 0)
-  .ser(se_BatchUpdateBillScenarioUsageModificationCommand)
-  .de(de_BatchUpdateBillScenarioUsageModificationCommand)
+  .sc(BatchUpdateBillScenarioUsageModification)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

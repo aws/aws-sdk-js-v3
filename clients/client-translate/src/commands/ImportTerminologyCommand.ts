@@ -1,16 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  ImportTerminologyRequest,
-  ImportTerminologyRequestFilterSensitiveLog,
-  ImportTerminologyResponse,
-} from "../models/models_0";
-import { de_ImportTerminologyCommand, se_ImportTerminologyCommand } from "../protocols/Aws_json1_1";
+import { ImportTerminologyRequest, ImportTerminologyResponse } from "../models/models_0";
+import { ImportTerminology } from "../schemas/schemas_0";
 import { ServiceInputTypes, ServiceOutputTypes, TranslateClientResolvedConfig } from "../TranslateClient";
 
 /**
@@ -144,16 +139,11 @@ export class ImportTerminologyCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: TranslateClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSShineFrontendService_20170701", "ImportTerminology", {})
   .n("TranslateClient", "ImportTerminologyCommand")
-  .f(ImportTerminologyRequestFilterSensitiveLog, void 0)
-  .ser(se_ImportTerminologyCommand)
-  .de(de_ImportTerminologyCommand)
+  .sc(ImportTerminology)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

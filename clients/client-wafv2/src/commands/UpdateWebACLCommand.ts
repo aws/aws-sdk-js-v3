@@ -1,12 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { UpdateWebACLRequest, UpdateWebACLResponse } from "../models/models_0";
-import { de_UpdateWebACLCommand, se_UpdateWebACLCommand } from "../protocols/Aws_json1_1";
+import { UpdateWebACL } from "../schemas/schemas_0";
 import { ServiceInputTypes, ServiceOutputTypes, WAFV2ClientResolvedConfig } from "../WAFV2Client";
 
 /**
@@ -1278,16 +1277,11 @@ export class UpdateWebACLCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WAFV2ClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSWAF_20190729", "UpdateWebACL", {})
   .n("WAFV2Client", "UpdateWebACLCommand")
-  .f(void 0, void 0)
-  .ser(se_UpdateWebACLCommand)
-  .de(de_UpdateWebACLCommand)
+  .sc(UpdateWebACL)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

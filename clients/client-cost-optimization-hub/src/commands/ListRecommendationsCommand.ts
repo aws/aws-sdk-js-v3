@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -11,7 +10,7 @@ import {
 } from "../CostOptimizationHubClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { ListRecommendationsRequest, ListRecommendationsResponse } from "../models/models_0";
-import { de_ListRecommendationsCommand, se_ListRecommendationsCommand } from "../protocols/Aws_json1_0";
+import { ListRecommendations } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -156,16 +155,11 @@ export class ListRecommendationsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CostOptimizationHubClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("CostOptimizationHubService", "ListRecommendations", {})
   .n("CostOptimizationHubClient", "ListRecommendationsCommand")
-  .f(void 0, void 0)
-  .ser(se_ListRecommendationsCommand)
-  .de(de_ListRecommendationsCommand)
+  .sc(ListRecommendations)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

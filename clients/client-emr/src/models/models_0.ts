@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@smithy/smithy-client";
+import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
 import { EMRServiceException as __BaseException } from "./EMRServiceException";
 
@@ -8034,26 +8034,3 @@ export interface RunJobFlowInput {
    */
   ExtendedSupport?: boolean | undefined;
 }
-
-/**
- * @internal
- */
-export const UsernamePasswordFilterSensitiveLog = (obj: UsernamePassword): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CredentialsFilterSensitiveLog = (obj: Credentials): any => {
-  if (obj.UsernamePassword !== undefined) return { UsernamePassword: SENSITIVE_STRING };
-  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-};
-
-/**
- * @internal
- */
-export const GetClusterSessionCredentialsOutputFilterSensitiveLog = (obj: GetClusterSessionCredentialsOutput): any => ({
-  ...obj,
-  ...(obj.Credentials && { Credentials: CredentialsFilterSensitiveLog(obj.Credentials) }),
-});

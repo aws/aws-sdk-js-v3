@@ -1,16 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DeleteOrganizationConfigRuleRequest } from "../models/models_0";
-import {
-  de_DeleteOrganizationConfigRuleCommand,
-  se_DeleteOrganizationConfigRuleCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteOrganizationConfigRule } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -138,16 +134,11 @@ export class DeleteOrganizationConfigRuleCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ConfigServiceClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("StarlingDoveService", "DeleteOrganizationConfigRule", {})
   .n("ConfigServiceClient", "DeleteOrganizationConfigRuleCommand")
-  .f(void 0, void 0)
-  .ser(se_DeleteOrganizationConfigRuleCommand)
-  .de(de_DeleteOrganizationConfigRuleCommand)
+  .sc(DeleteOrganizationConfigRule)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

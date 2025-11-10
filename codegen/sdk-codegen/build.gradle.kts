@@ -132,9 +132,6 @@ abstract class GenerateSmithyBuildTask : DefaultTask() {
             val useLegacyAuthServices = setOf<String>(
                 // e.g. "S3" - use this as exclusion list if needed.
             )
-            val useSchemaSerde = setOf<String>(
-                // "S3"
-            )
             val projectionContents = Node.objectNodeBuilder()
                     .withMember("imports", Node.fromStrings("${modelsDirFile.absolutePath}${File.separator}${file.name}"))
                     .withMember("plugins", Node.objectNode()
@@ -147,8 +144,7 @@ abstract class GenerateSmithyBuildTask : DefaultTask() {
                                         + clientName + " Client for Node.js, Browser and React Native")
                                     .withMember("useLegacyAuth",
                                         useLegacyAuthServices.contains(serviceTrait.sdkId))
-                                    .withMember("generateSchemas",
-                                        useSchemaSerde.contains(serviceTrait.sdkId))
+                                    .withMember("generateSchemas", true)
                                     .build()))
                     .build()
             projectionsBuilder.withMember(sdkId + "." + version.lowercase(), projectionContents)

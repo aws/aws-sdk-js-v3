@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { KendraClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KendraClient";
 import { DescribeFeaturedResultsSetRequest, DescribeFeaturedResultsSetResponse } from "../models/models_0";
-import { de_DescribeFeaturedResultsSetCommand, se_DescribeFeaturedResultsSetCommand } from "../protocols/Aws_json1_1";
+import { DescribeFeaturedResultsSet } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -113,16 +112,11 @@ export class DescribeFeaturedResultsSetCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: KendraClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSKendraFrontendService", "DescribeFeaturedResultsSet", {})
   .n("KendraClient", "DescribeFeaturedResultsSetCommand")
-  .f(void 0, void 0)
-  .ser(se_DescribeFeaturedResultsSetCommand)
-  .de(de_DescribeFeaturedResultsSetCommand)
+  .sc(DescribeFeaturedResultsSet)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

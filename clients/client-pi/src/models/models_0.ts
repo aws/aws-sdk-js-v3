@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@smithy/smithy-client";
+import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
 import { PIServiceException as __BaseException } from "./PIServiceException";
 
@@ -2129,43 +2129,3 @@ export interface GetPerformanceAnalysisReportResponse {
    */
   AnalysisReport?: AnalysisReport | undefined;
 }
-
-/**
- * @internal
- */
-export const RecommendationFilterSensitiveLog = (obj: Recommendation): any => ({
-  ...obj,
-  ...(obj.RecommendationDescription && { RecommendationDescription: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const InsightFilterSensitiveLog = (obj: Insight): any => ({
-  ...obj,
-  ...(obj.SupportingInsights && {
-    SupportingInsights: obj.SupportingInsights.map((item) => InsightFilterSensitiveLog(item)),
-  }),
-  ...(obj.Description && { Description: SENSITIVE_STRING }),
-  ...(obj.Recommendations && {
-    Recommendations: obj.Recommendations.map((item) => RecommendationFilterSensitiveLog(item)),
-  }),
-});
-
-/**
- * @internal
- */
-export const AnalysisReportFilterSensitiveLog = (obj: AnalysisReport): any => ({
-  ...obj,
-  ...(obj.Insights && { Insights: obj.Insights.map((item) => InsightFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const GetPerformanceAnalysisReportResponseFilterSensitiveLog = (
-  obj: GetPerformanceAnalysisReportResponse
-): any => ({
-  ...obj,
-  ...(obj.AnalysisReport && { AnalysisReport: AnalysisReportFilterSensitiveLog(obj.AnalysisReport) }),
-});

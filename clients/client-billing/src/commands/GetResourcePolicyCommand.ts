@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { BillingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BillingClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GetResourcePolicyRequest, GetResourcePolicyResponse } from "../models/models_0";
-import { de_GetResourcePolicyCommand, se_GetResourcePolicyCommand } from "../protocols/Aws_json1_0";
+import { GetResourcePolicy } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -102,16 +101,11 @@ export class GetResourcePolicyCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: BillingClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSBilling", "GetResourcePolicy", {})
   .n("BillingClient", "GetResourcePolicyCommand")
-  .f(void 0, void 0)
-  .ser(se_GetResourcePolicyCommand)
-  .de(de_GetResourcePolicyCommand)
+  .sc(GetResourcePolicy)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

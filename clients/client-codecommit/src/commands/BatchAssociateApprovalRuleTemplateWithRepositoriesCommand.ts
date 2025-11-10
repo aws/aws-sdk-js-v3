@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -10,10 +9,7 @@ import {
   BatchAssociateApprovalRuleTemplateWithRepositoriesInput,
   BatchAssociateApprovalRuleTemplateWithRepositoriesOutput,
 } from "../models/models_0";
-import {
-  de_BatchAssociateApprovalRuleTemplateWithRepositoriesCommand,
-  se_BatchAssociateApprovalRuleTemplateWithRepositoriesCommand,
-} from "../protocols/Aws_json1_1";
+import { BatchAssociateApprovalRuleTemplateWithRepositories } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -124,16 +120,11 @@ export class BatchAssociateApprovalRuleTemplateWithRepositoriesCommand extends $
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CodeCommitClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("CodeCommit_20150413", "BatchAssociateApprovalRuleTemplateWithRepositories", {})
   .n("CodeCommitClient", "BatchAssociateApprovalRuleTemplateWithRepositoriesCommand")
-  .f(void 0, void 0)
-  .ser(se_BatchAssociateApprovalRuleTemplateWithRepositoriesCommand)
-  .de(de_BatchAssociateApprovalRuleTemplateWithRepositoriesCommand)
+  .sc(BatchAssociateApprovalRuleTemplateWithRepositories)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,16 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DescribeDeliveryChannelStatusRequest, DescribeDeliveryChannelStatusResponse } from "../models/models_0";
-import {
-  de_DescribeDeliveryChannelStatusCommand,
-  se_DescribeDeliveryChannelStatusCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeDeliveryChannelStatus } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -114,16 +110,11 @@ export class DescribeDeliveryChannelStatusCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ConfigServiceClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("StarlingDoveService", "DescribeDeliveryChannelStatus", {})
   .n("ConfigServiceClient", "DescribeDeliveryChannelStatusCommand")
-  .f(void 0, void 0)
-  .ser(se_DescribeDeliveryChannelStatusCommand)
-  .de(de_DescribeDeliveryChannelStatusCommand)
+  .sc(DescribeDeliveryChannelStatus)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

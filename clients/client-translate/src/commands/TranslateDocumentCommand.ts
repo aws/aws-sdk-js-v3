@@ -1,17 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  TranslateDocumentRequest,
-  TranslateDocumentRequestFilterSensitiveLog,
-  TranslateDocumentResponse,
-  TranslateDocumentResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { de_TranslateDocumentCommand, se_TranslateDocumentCommand } from "../protocols/Aws_json1_1";
+import { TranslateDocumentRequest, TranslateDocumentResponse } from "../models/models_0";
+import { TranslateDocument } from "../schemas/schemas_0";
 import { ServiceInputTypes, ServiceOutputTypes, TranslateClientResolvedConfig } from "../TranslateClient";
 
 /**
@@ -146,16 +140,11 @@ export class TranslateDocumentCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: TranslateClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSShineFrontendService_20170701", "TranslateDocument", {})
   .n("TranslateClient", "TranslateDocumentCommand")
-  .f(TranslateDocumentRequestFilterSensitiveLog, TranslateDocumentResponseFilterSensitiveLog)
-  .ser(se_TranslateDocumentCommand)
-  .de(de_TranslateDocumentCommand)
+  .sc(TranslateDocument)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

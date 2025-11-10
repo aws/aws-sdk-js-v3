@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { MailManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MailManagerClient";
 import { GetAddressListRequest, GetAddressListResponse } from "../models/models_0";
-import { de_GetAddressListCommand, se_GetAddressListCommand } from "../protocols/Aws_json1_0";
+import { GetAddressList } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -86,16 +85,11 @@ export class GetAddressListCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MailManagerClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("MailManagerSvc", "GetAddressList", {})
   .n("MailManagerClient", "GetAddressListCommand")
-  .f(void 0, void 0)
-  .ser(se_GetAddressListCommand)
-  .de(de_GetAddressListCommand)
+  .sc(GetAddressList)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

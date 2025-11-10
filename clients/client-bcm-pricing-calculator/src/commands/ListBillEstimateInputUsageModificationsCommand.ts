@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -14,10 +13,7 @@ import {
   ListBillEstimateInputUsageModificationsRequest,
   ListBillEstimateInputUsageModificationsResponse,
 } from "../models/models_0";
-import {
-  de_ListBillEstimateInputUsageModificationsCommand,
-  se_ListBillEstimateInputUsageModificationsCommand,
-} from "../protocols/Aws_json1_0";
+import { ListBillEstimateInputUsageModifications } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -195,16 +191,11 @@ export class ListBillEstimateInputUsageModificationsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: BCMPricingCalculatorClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSBCMPricingCalculator", "ListBillEstimateInputUsageModifications", {})
   .n("BCMPricingCalculatorClient", "ListBillEstimateInputUsageModificationsCommand")
-  .f(void 0, void 0)
-  .ser(se_ListBillEstimateInputUsageModificationsCommand)
-  .de(de_ListBillEstimateInputUsageModificationsCommand)
+  .sc(ListBillEstimateInputUsageModifications)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

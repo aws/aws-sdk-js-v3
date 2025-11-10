@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { KMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KMSClient";
 import { EnableKeyRequest } from "../models/models_0";
-import { de_EnableKeyCommand, se_EnableKeyCommand } from "../protocols/Aws_json1_1";
+import { EnableKey } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -135,16 +134,11 @@ export class EnableKeyCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: KMSClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("TrentService", "EnableKey", {})
   .n("KMSClient", "EnableKeyCommand")
-  .f(void 0, void 0)
-  .ser(se_EnableKeyCommand)
-  .de(de_EnableKeyCommand)
+  .sc(EnableKey)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

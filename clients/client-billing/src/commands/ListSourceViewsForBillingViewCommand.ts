@@ -1,16 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { BillingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BillingClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { ListSourceViewsForBillingViewRequest, ListSourceViewsForBillingViewResponse } from "../models/models_0";
-import {
-  de_ListSourceViewsForBillingViewCommand,
-  se_ListSourceViewsForBillingViewCommand,
-} from "../protocols/Aws_json1_0";
+import { ListSourceViewsForBillingView } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -112,16 +108,11 @@ export class ListSourceViewsForBillingViewCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: BillingClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSBilling", "ListSourceViewsForBillingView", {})
   .n("BillingClient", "ListSourceViewsForBillingViewCommand")
-  .f(void 0, void 0)
-  .ser(se_ListSourceViewsForBillingViewCommand)
-  .de(de_ListSourceViewsForBillingViewCommand)
+  .sc(ListSourceViewsForBillingView)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

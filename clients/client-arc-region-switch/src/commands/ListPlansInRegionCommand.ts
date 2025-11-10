@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ARCRegionSwitchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ARCRegionSwitchClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { ListPlansInRegionRequest, ListPlansInRegionResponse } from "../models/models_0";
-import { de_ListPlansInRegionCommand, se_ListPlansInRegionCommand } from "../protocols/Aws_json1_0";
+import { ListPlansInRegion } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -92,16 +91,11 @@ export class ListPlansInRegionCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ARCRegionSwitchClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("ArcRegionSwitch", "ListPlansInRegion", {})
   .n("ARCRegionSwitchClient", "ListPlansInRegionCommand")
-  .f(void 0, void 0)
-  .ser(se_ListPlansInRegionCommand)
-  .de(de_ListPlansInRegionCommand)
+  .sc(ListPlansInRegion)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

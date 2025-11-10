@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DeleteTrainingJobRequest } from "../models/models_2";
-import { de_DeleteTrainingJobCommand, se_DeleteTrainingJobCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
+import { DeleteTrainingJob } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -74,16 +73,11 @@ export class DeleteTrainingJobCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("SageMaker", "DeleteTrainingJob", {})
   .n("SageMakerClient", "DeleteTrainingJobCommand")
-  .f(void 0, void 0)
-  .ser(se_DeleteTrainingJobCommand)
-  .de(de_DeleteTrainingJobCommand)
+  .sc(DeleteTrainingJob)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

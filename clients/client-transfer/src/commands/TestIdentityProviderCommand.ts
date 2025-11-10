@@ -1,16 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  TestIdentityProviderRequest,
-  TestIdentityProviderRequestFilterSensitiveLog,
-  TestIdentityProviderResponse,
-} from "../models/models_0";
-import { de_TestIdentityProviderCommand, se_TestIdentityProviderCommand } from "../protocols/Aws_json1_1";
+import { TestIdentityProviderRequest, TestIdentityProviderResponse } from "../models/models_0";
+import { TestIdentityProvider } from "../schemas/schemas_0";
 import { ServiceInputTypes, ServiceOutputTypes, TransferClientResolvedConfig } from "../TransferClient";
 
 /**
@@ -93,16 +88,11 @@ export class TestIdentityProviderCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: TransferClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("TransferService", "TestIdentityProvider", {})
   .n("TransferClient", "TestIdentityProviderCommand")
-  .f(TestIdentityProviderRequestFilterSensitiveLog, void 0)
-  .ser(se_TestIdentityProviderCommand)
-  .de(de_TestIdentityProviderCommand)
+  .sc(TestIdentityProvider)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

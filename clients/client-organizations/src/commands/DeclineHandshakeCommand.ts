@@ -1,17 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  DeclineHandshakeRequest,
-  DeclineHandshakeResponse,
-  DeclineHandshakeResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DeclineHandshakeRequest, DeclineHandshakeResponse } from "../models/models_0";
 import { OrganizationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OrganizationsClient";
-import { de_DeclineHandshakeCommand, se_DeclineHandshakeCommand } from "../protocols/Aws_json1_1";
+import { DeclineHandshake } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -305,16 +300,11 @@ export class DeclineHandshakeCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: OrganizationsClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSOrganizationsV20161128", "DeclineHandshake", {})
   .n("OrganizationsClient", "DeclineHandshakeCommand")
-  .f(void 0, DeclineHandshakeResponseFilterSensitiveLog)
-  .ser(se_DeclineHandshakeCommand)
-  .de(de_DeclineHandshakeCommand)
+  .sc(DeclineHandshake)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

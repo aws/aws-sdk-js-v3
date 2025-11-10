@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { UpdateServicePrimaryTaskSetRequest, UpdateServicePrimaryTaskSetResponse } from "../models/models_1";
-import { de_UpdateServicePrimaryTaskSetCommand, se_UpdateServicePrimaryTaskSetCommand } from "../protocols/Aws_json1_1";
+import { UpdateServicePrimaryTaskSet } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -233,16 +232,11 @@ export class UpdateServicePrimaryTaskSetCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ECSClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonEC2ContainerServiceV20141113", "UpdateServicePrimaryTaskSet", {})
   .n("ECSClient", "UpdateServicePrimaryTaskSetCommand")
-  .f(void 0, void 0)
-  .ser(se_UpdateServicePrimaryTaskSetCommand)
-  .de(de_UpdateServicePrimaryTaskSetCommand)
+  .sc(UpdateServicePrimaryTaskSet)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

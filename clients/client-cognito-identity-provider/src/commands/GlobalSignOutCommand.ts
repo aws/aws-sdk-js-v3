@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -10,12 +9,8 @@ import {
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  GlobalSignOutRequest,
-  GlobalSignOutRequestFilterSensitiveLog,
-  GlobalSignOutResponse,
-} from "../models/models_1";
-import { de_GlobalSignOutCommand, se_GlobalSignOutCommand } from "../protocols/Aws_json1_1";
+import { GlobalSignOutRequest, GlobalSignOutResponse } from "../models/models_1";
+import { GlobalSignOut } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -137,16 +132,11 @@ export class GlobalSignOutCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CognitoIdentityProviderClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSCognitoIdentityProviderService", "GlobalSignOut", {})
   .n("CognitoIdentityProviderClient", "GlobalSignOutCommand")
-  .f(GlobalSignOutRequestFilterSensitiveLog, void 0)
-  .ser(se_GlobalSignOutCommand)
-  .de(de_GlobalSignOutCommand)
+  .sc(GlobalSignOut)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

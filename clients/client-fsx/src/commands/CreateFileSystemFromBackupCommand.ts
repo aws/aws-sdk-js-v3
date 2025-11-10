@@ -1,20 +1,13 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { FSxClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FSxClient";
-import {
-  CreateFileSystemFromBackupRequest,
-  CreateFileSystemFromBackupRequestFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  CreateFileSystemFromBackupResponse,
-  CreateFileSystemFromBackupResponseFilterSensitiveLog,
-} from "../models/models_1";
-import { de_CreateFileSystemFromBackupCommand, se_CreateFileSystemFromBackupCommand } from "../protocols/Aws_json1_1";
+import { CreateFileSystemFromBackupRequest } from "../models/models_0";
+import { CreateFileSystemFromBackupResponse } from "../models/models_1";
+import { CreateFileSystemFromBackup } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -876,16 +869,11 @@ export class CreateFileSystemFromBackupCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: FSxClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSSimbaAPIService_v20180301", "CreateFileSystemFromBackup", {})
   .n("FSxClient", "CreateFileSystemFromBackupCommand")
-  .f(CreateFileSystemFromBackupRequestFilterSensitiveLog, CreateFileSystemFromBackupResponseFilterSensitiveLog)
-  .ser(se_CreateFileSystemFromBackupCommand)
-  .de(de_CreateFileSystemFromBackupCommand)
+  .sc(CreateFileSystemFromBackup)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

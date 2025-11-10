@@ -1,14 +1,13 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { FSxClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FSxClient";
 import { DescribeFileSystemsRequest } from "../models/models_0";
-import { DescribeFileSystemsResponse, DescribeFileSystemsResponseFilterSensitiveLog } from "../models/models_1";
-import { de_DescribeFileSystemsCommand, se_DescribeFileSystemsCommand } from "../protocols/Aws_json1_1";
+import { DescribeFileSystemsResponse } from "../models/models_1";
+import { DescribeFileSystems } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -718,16 +717,11 @@ export class DescribeFileSystemsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: FSxClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSSimbaAPIService_v20180301", "DescribeFileSystems", {})
   .n("FSxClient", "DescribeFileSystemsCommand")
-  .f(void 0, DescribeFileSystemsResponseFilterSensitiveLog)
-  .ser(se_DescribeFileSystemsCommand)
-  .de(de_DescribeFileSystemsCommand)
+  .sc(DescribeFileSystems)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

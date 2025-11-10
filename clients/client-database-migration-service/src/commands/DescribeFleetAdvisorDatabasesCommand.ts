@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -11,10 +10,7 @@ import {
 } from "../DatabaseMigrationServiceClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DescribeFleetAdvisorDatabasesRequest, DescribeFleetAdvisorDatabasesResponse } from "../models/models_0";
-import {
-  de_DescribeFleetAdvisorDatabasesCommand,
-  se_DescribeFleetAdvisorDatabasesCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeFleetAdvisorDatabases } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -124,16 +120,11 @@ export class DescribeFleetAdvisorDatabasesCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DatabaseMigrationServiceClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonDMSv20160101", "DescribeFleetAdvisorDatabases", {})
   .n("DatabaseMigrationServiceClient", "DescribeFleetAdvisorDatabasesCommand")
-  .f(void 0, void 0)
-  .ser(se_DescribeFleetAdvisorDatabasesCommand)
-  .de(de_DescribeFleetAdvisorDatabasesCommand)
+  .sc(DescribeFleetAdvisorDatabases)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

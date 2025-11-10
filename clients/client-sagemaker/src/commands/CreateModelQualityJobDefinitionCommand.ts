@@ -1,16 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { CreateModelQualityJobDefinitionRequest, CreateModelQualityJobDefinitionResponse } from "../models/models_2";
-import {
-  de_CreateModelQualityJobDefinitionCommand,
-  se_CreateModelQualityJobDefinitionCommand,
-} from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
+import { CreateModelQualityJobDefinition } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -184,16 +180,11 @@ export class CreateModelQualityJobDefinitionCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("SageMaker", "CreateModelQualityJobDefinition", {})
   .n("SageMakerClient", "CreateModelQualityJobDefinitionCommand")
-  .f(void 0, void 0)
-  .ser(se_CreateModelQualityJobDefinitionCommand)
-  .de(de_CreateModelQualityJobDefinitionCommand)
+  .sc(CreateModelQualityJobDefinition)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

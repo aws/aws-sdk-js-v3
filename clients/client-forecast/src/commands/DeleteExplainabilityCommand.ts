@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { ForecastClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ForecastClient";
 import { DeleteExplainabilityRequest } from "../models/models_0";
-import { de_DeleteExplainabilityCommand, se_DeleteExplainabilityCommand } from "../protocols/Aws_json1_1";
+import { DeleteExplainability } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -81,16 +80,11 @@ export class DeleteExplainabilityCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ForecastClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonForecast", "DeleteExplainability", {})
   .n("ForecastClient", "DeleteExplainabilityCommand")
-  .f(void 0, void 0)
-  .ser(se_DeleteExplainabilityCommand)
-  .de(de_DeleteExplainabilityCommand)
+  .sc(DeleteExplainability)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

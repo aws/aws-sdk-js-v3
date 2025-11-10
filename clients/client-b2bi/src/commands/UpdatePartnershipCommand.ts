@@ -1,17 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { B2biClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../B2biClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  UpdatePartnershipRequest,
-  UpdatePartnershipResponse,
-  UpdatePartnershipResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { de_UpdatePartnershipCommand, se_UpdatePartnershipCommand } from "../protocols/Aws_json1_0";
+import { UpdatePartnershipRequest, UpdatePartnershipResponse } from "../models/models_0";
+import { UpdatePartnership } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -234,16 +229,11 @@ export class UpdatePartnershipCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: B2biClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("B2BI", "UpdatePartnership", {})
   .n("B2biClient", "UpdatePartnershipCommand")
-  .f(void 0, UpdatePartnershipResponseFilterSensitiveLog)
-  .ser(se_UpdatePartnershipCommand)
-  .de(de_UpdatePartnershipCommand)
+  .sc(UpdatePartnership)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

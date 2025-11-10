@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { EventBridgeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EventBridgeClient";
 import { DescribeEndpointRequest, DescribeEndpointResponse } from "../models/models_0";
-import { de_DescribeEndpointCommand, se_DescribeEndpointCommand } from "../protocols/Aws_json1_1";
+import { DescribeEndpoint } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -109,16 +108,11 @@ export class DescribeEndpointCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EventBridgeClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSEvents", "DescribeEndpoint", {})
   .n("EventBridgeClient", "DescribeEndpointCommand")
-  .f(void 0, void 0)
-  .ser(se_DescribeEndpointCommand)
-  .de(de_DescribeEndpointCommand)
+  .sc(DescribeEndpoint)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

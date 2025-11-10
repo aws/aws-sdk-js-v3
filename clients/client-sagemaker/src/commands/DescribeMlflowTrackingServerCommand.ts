@@ -1,16 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DescribeMlflowTrackingServerRequest, DescribeMlflowTrackingServerResponse } from "../models/models_3";
-import {
-  de_DescribeMlflowTrackingServerCommand,
-  se_DescribeMlflowTrackingServerCommand,
-} from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
+import { DescribeMlflowTrackingServer } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -111,16 +107,11 @@ export class DescribeMlflowTrackingServerCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("SageMaker", "DescribeMlflowTrackingServer", {})
   .n("SageMakerClient", "DescribeMlflowTrackingServerCommand")
-  .f(void 0, void 0)
-  .ser(se_DescribeMlflowTrackingServerCommand)
-  .de(de_DescribeMlflowTrackingServerCommand)
+  .sc(DescribeMlflowTrackingServer)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

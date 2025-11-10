@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CodeDeployClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeDeployClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { BatchGetDeploymentTargetsInput, BatchGetDeploymentTargetsOutput } from "../models/models_0";
-import { de_BatchGetDeploymentTargetsCommand, se_BatchGetDeploymentTargetsCommand } from "../protocols/Aws_json1_1";
+import { BatchGetDeploymentTargets } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -240,16 +239,11 @@ export class BatchGetDeploymentTargetsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CodeDeployClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("CodeDeploy_20141006", "BatchGetDeploymentTargets", {})
   .n("CodeDeployClient", "BatchGetDeploymentTargetsCommand")
-  .f(void 0, void 0)
-  .ser(se_BatchGetDeploymentTargetsCommand)
-  .de(de_BatchGetDeploymentTargetsCommand)
+  .sc(BatchGetDeploymentTargets)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

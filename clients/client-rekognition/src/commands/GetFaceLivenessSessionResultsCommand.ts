@@ -1,20 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  GetFaceLivenessSessionResultsRequest,
-  GetFaceLivenessSessionResultsResponse,
-  GetFaceLivenessSessionResultsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  de_GetFaceLivenessSessionResultsCommand,
-  se_GetFaceLivenessSessionResultsCommand,
-} from "../protocols/Aws_json1_1";
+import { GetFaceLivenessSessionResultsRequest, GetFaceLivenessSessionResultsResponse } from "../models/models_0";
 import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
+import { GetFaceLivenessSessionResults } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -143,16 +135,11 @@ export class GetFaceLivenessSessionResultsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RekognitionClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("RekognitionService", "GetFaceLivenessSessionResults", {})
   .n("RekognitionClient", "GetFaceLivenessSessionResultsCommand")
-  .f(void 0, GetFaceLivenessSessionResultsResponseFilterSensitiveLog)
-  .ser(se_GetFaceLivenessSessionResultsCommand)
-  .de(de_GetFaceLivenessSessionResultsCommand)
+  .sc(GetFaceLivenessSessionResults)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

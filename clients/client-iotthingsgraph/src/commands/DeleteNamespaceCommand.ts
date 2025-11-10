@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { IoTThingsGraphClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTThingsGraphClient";
 import { DeleteNamespaceRequest, DeleteNamespaceResponse } from "../models/models_0";
-import { de_DeleteNamespaceCommand, se_DeleteNamespaceCommand } from "../protocols/Aws_json1_1";
+import { DeleteNamespace } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -78,16 +77,11 @@ export class DeleteNamespaceCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTThingsGraphClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("IotThingsGraphFrontEndService", "DeleteNamespace", {})
   .n("IoTThingsGraphClient", "DeleteNamespaceCommand")
-  .f(void 0, void 0)
-  .ser(se_DeleteNamespaceCommand)
-  .de(de_DeleteNamespaceCommand)
+  .sc(DeleteNamespace)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

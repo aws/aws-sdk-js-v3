@@ -1,12 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GetTerminologyRequest, GetTerminologyResponse } from "../models/models_0";
-import { de_GetTerminologyCommand, se_GetTerminologyCommand } from "../protocols/Aws_json1_1";
+import { GetTerminology } from "../schemas/schemas_0";
 import { ServiceInputTypes, ServiceOutputTypes, TranslateClientResolvedConfig } from "../TranslateClient";
 
 /**
@@ -115,16 +114,11 @@ export class GetTerminologyCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: TranslateClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSShineFrontendService_20170701", "GetTerminology", {})
   .n("TranslateClient", "GetTerminologyCommand")
-  .f(void 0, void 0)
-  .ser(se_GetTerminologyCommand)
-  .de(de_GetTerminologyCommand)
+  .sc(GetTerminology)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

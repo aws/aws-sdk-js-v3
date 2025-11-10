@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { StartStreamProcessorRequest, StartStreamProcessorResponse } from "../models/models_1";
-import { de_StartStreamProcessorCommand, se_StartStreamProcessorCommand } from "../protocols/Aws_json1_1";
 import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
+import { StartStreamProcessor } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -105,16 +104,11 @@ export class StartStreamProcessorCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RekognitionClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("RekognitionService", "StartStreamProcessor", {})
   .n("RekognitionClient", "StartStreamProcessorCommand")
-  .f(void 0, void 0)
-  .ser(se_StartStreamProcessorCommand)
-  .de(de_StartStreamProcessorCommand)
+  .sc(StartStreamProcessor)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

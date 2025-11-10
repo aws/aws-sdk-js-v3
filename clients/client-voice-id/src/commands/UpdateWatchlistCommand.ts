@@ -1,17 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  UpdateWatchlistRequest,
-  UpdateWatchlistRequestFilterSensitiveLog,
-  UpdateWatchlistResponse,
-  UpdateWatchlistResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { de_UpdateWatchlistCommand, se_UpdateWatchlistCommand } from "../protocols/Aws_json1_0";
+import { UpdateWatchlistRequest, UpdateWatchlistResponse } from "../models/models_0";
+import { UpdateWatchlist } from "../schemas/schemas_0";
 import { ServiceInputTypes, ServiceOutputTypes, VoiceIDClientResolvedConfig } from "../VoiceIDClient";
 
 /**
@@ -112,16 +106,11 @@ export class UpdateWatchlistCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: VoiceIDClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("VoiceID", "UpdateWatchlist", {})
   .n("VoiceIDClient", "UpdateWatchlistCommand")
-  .f(UpdateWatchlistRequestFilterSensitiveLog, UpdateWatchlistResponseFilterSensitiveLog)
-  .ser(se_UpdateWatchlistCommand)
-  .de(de_UpdateWatchlistCommand)
+  .sc(UpdateWatchlist)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

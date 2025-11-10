@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { ListServicesByNamespaceRequest, ListServicesByNamespaceResponse } from "../models/models_0";
-import { de_ListServicesByNamespaceCommand, se_ListServicesByNamespaceCommand } from "../protocols/Aws_json1_1";
+import { ListServicesByNamespace } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -97,16 +96,11 @@ export class ListServicesByNamespaceCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ECSClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonEC2ContainerServiceV20141113", "ListServicesByNamespace", {})
   .n("ECSClient", "ListServicesByNamespaceCommand")
-  .f(void 0, void 0)
-  .ser(se_ListServicesByNamespaceCommand)
-  .de(de_ListServicesByNamespaceCommand)
+  .sc(ListServicesByNamespace)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

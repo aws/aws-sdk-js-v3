@@ -1,17 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DirectoryServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectoryServiceClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  AcceptSharedDirectoryRequest,
-  AcceptSharedDirectoryResult,
-  AcceptSharedDirectoryResultFilterSensitiveLog,
-} from "../models/models_0";
-import { de_AcceptSharedDirectoryCommand, se_AcceptSharedDirectoryCommand } from "../protocols/Aws_json1_1";
+import { AcceptSharedDirectoryRequest, AcceptSharedDirectoryResult } from "../models/models_0";
+import { AcceptSharedDirectory } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -99,16 +94,11 @@ export class AcceptSharedDirectoryCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DirectoryServiceClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("DirectoryService_20150416", "AcceptSharedDirectory", {})
   .n("DirectoryServiceClient", "AcceptSharedDirectoryCommand")
-  .f(void 0, AcceptSharedDirectoryResultFilterSensitiveLog)
-  .ser(se_AcceptSharedDirectoryCommand)
-  .de(de_AcceptSharedDirectoryCommand)
+  .sc(AcceptSharedDirectory)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

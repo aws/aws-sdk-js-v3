@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DescribeMonitoringScheduleRequest, DescribeMonitoringScheduleResponse } from "../models/models_3";
-import { de_DescribeMonitoringScheduleCommand, se_DescribeMonitoringScheduleCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
+import { DescribeMonitoringSchedule } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -201,16 +200,11 @@ export class DescribeMonitoringScheduleCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("SageMaker", "DescribeMonitoringSchedule", {})
   .n("SageMakerClient", "DescribeMonitoringScheduleCommand")
-  .f(void 0, void 0)
-  .ser(se_DescribeMonitoringScheduleCommand)
-  .de(de_DescribeMonitoringScheduleCommand)
+  .sc(DescribeMonitoringSchedule)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

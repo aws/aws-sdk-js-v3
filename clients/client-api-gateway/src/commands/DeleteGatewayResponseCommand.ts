@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DeleteGatewayResponseRequest } from "../models/models_0";
-import { de_DeleteGatewayResponseCommand, se_DeleteGatewayResponseCommand } from "../protocols/Aws_restJson1";
+import { DeleteGatewayResponse } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -84,16 +83,11 @@ export class DeleteGatewayResponseCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: APIGatewayClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("BackplaneControlService", "DeleteGatewayResponse", {})
   .n("APIGatewayClient", "DeleteGatewayResponseCommand")
-  .f(void 0, void 0)
-  .ser(se_DeleteGatewayResponseCommand)
-  .de(de_DeleteGatewayResponseCommand)
+  .sc(DeleteGatewayResponse)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

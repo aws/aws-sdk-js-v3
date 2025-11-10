@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { KendraClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KendraClient";
 import { UpdateFeaturedResultsSetRequest, UpdateFeaturedResultsSetResponse } from "../models/models_1";
-import { de_UpdateFeaturedResultsSetCommand, se_UpdateFeaturedResultsSetCommand } from "../protocols/Aws_json1_1";
+import { UpdateFeaturedResultsSet } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -127,16 +126,11 @@ export class UpdateFeaturedResultsSetCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: KendraClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSKendraFrontendService", "UpdateFeaturedResultsSet", {})
   .n("KendraClient", "UpdateFeaturedResultsSetCommand")
-  .f(void 0, void 0)
-  .ser(se_UpdateFeaturedResultsSetCommand)
-  .de(de_UpdateFeaturedResultsSetCommand)
+  .sc(UpdateFeaturedResultsSet)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

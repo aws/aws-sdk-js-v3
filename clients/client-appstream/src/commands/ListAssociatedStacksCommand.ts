@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { AppStreamClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppStreamClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { ListAssociatedStacksRequest, ListAssociatedStacksResult } from "../models/models_0";
-import { de_ListAssociatedStacksCommand, se_ListAssociatedStacksCommand } from "../protocols/Aws_json1_1";
+import { ListAssociatedStacks } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -74,16 +73,11 @@ export class ListAssociatedStacksCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AppStreamClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("PhotonAdminProxyService", "ListAssociatedStacks", {})
   .n("AppStreamClient", "ListAssociatedStacksCommand")
-  .f(void 0, void 0)
-  .ser(se_ListAssociatedStacksCommand)
-  .de(de_ListAssociatedStacksCommand)
+  .sc(ListAssociatedStacks)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

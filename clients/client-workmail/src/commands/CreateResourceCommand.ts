@@ -1,16 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  CreateResourceRequest,
-  CreateResourceRequestFilterSensitiveLog,
-  CreateResourceResponse,
-} from "../models/models_0";
-import { de_CreateResourceCommand, se_CreateResourceCommand } from "../protocols/Aws_json1_1";
+import { CreateResourceRequest, CreateResourceResponse } from "../models/models_0";
+import { CreateResource } from "../schemas/schemas_0";
 import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
 /**
@@ -104,16 +99,11 @@ export class CreateResourceCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WorkMailClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("WorkMailService", "CreateResource", {})
   .n("WorkMailClient", "CreateResourceCommand")
-  .f(CreateResourceRequestFilterSensitiveLog, void 0)
-  .ser(se_CreateResourceCommand)
-  .de(de_CreateResourceCommand)
+  .sc(CreateResource)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

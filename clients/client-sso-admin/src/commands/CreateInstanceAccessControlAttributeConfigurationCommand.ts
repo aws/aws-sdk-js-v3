@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -9,10 +8,7 @@ import {
   CreateInstanceAccessControlAttributeConfigurationRequest,
   CreateInstanceAccessControlAttributeConfigurationResponse,
 } from "../models/models_0";
-import {
-  de_CreateInstanceAccessControlAttributeConfigurationCommand,
-  se_CreateInstanceAccessControlAttributeConfigurationCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateInstanceAccessControlAttributeConfiguration } from "../schemas/schemas_0";
 import { ServiceInputTypes, ServiceOutputTypes, SSOAdminClientResolvedConfig } from "../SSOAdminClient";
 
 /**
@@ -107,16 +103,11 @@ export class CreateInstanceAccessControlAttributeConfigurationCommand extends $C
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SSOAdminClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("SWBExternalService", "CreateInstanceAccessControlAttributeConfiguration", {})
   .n("SSOAdminClient", "CreateInstanceAccessControlAttributeConfigurationCommand")
-  .f(void 0, void 0)
-  .ser(se_CreateInstanceAccessControlAttributeConfigurationCommand)
-  .de(de_CreateInstanceAccessControlAttributeConfigurationCommand)
+  .sc(CreateInstanceAccessControlAttributeConfiguration)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

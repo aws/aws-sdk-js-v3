@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CloudTrailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudTrailClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { SearchSampleQueriesRequest, SearchSampleQueriesResponse } from "../models/models_0";
-import { de_SearchSampleQueriesCommand, se_SearchSampleQueriesCommand } from "../protocols/Aws_json1_1";
+import { SearchSampleQueries } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -92,16 +91,11 @@ export class SearchSampleQueriesCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudTrailClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("CloudTrail_20131101", "SearchSampleQueries", {})
   .n("CloudTrailClient", "SearchSampleQueriesCommand")
-  .f(void 0, void 0)
-  .ser(se_SearchSampleQueriesCommand)
-  .de(de_SearchSampleQueriesCommand)
+  .sc(SearchSampleQueries)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CloudHSMV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudHSMV2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DeleteBackupRequest, DeleteBackupResponse } from "../models/models_0";
-import { de_DeleteBackupCommand, se_DeleteBackupCommand } from "../protocols/Aws_json1_1";
+import { DeleteBackup } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -112,16 +111,11 @@ export class DeleteBackupCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudHSMV2ClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("BaldrApiService", "DeleteBackup", {})
   .n("CloudHSMV2Client", "DeleteBackupCommand")
-  .f(void 0, void 0)
-  .ser(se_DeleteBackupCommand)
-  .de(de_DeleteBackupCommand)
+  .sc(DeleteBackup)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

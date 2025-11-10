@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DeleteTemplateSyncConfigInput, DeleteTemplateSyncConfigOutput } from "../models/models_0";
-import { de_DeleteTemplateSyncConfigCommand, se_DeleteTemplateSyncConfigCommand } from "../protocols/Aws_json1_0";
 import { ProtonClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ProtonClient";
+import { DeleteTemplateSyncConfig } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -98,16 +97,11 @@ export class DeleteTemplateSyncConfigCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ProtonClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AwsProton20200720", "DeleteTemplateSyncConfig", {})
   .n("ProtonClient", "DeleteTemplateSyncConfigCommand")
-  .f(void 0, void 0)
-  .ser(se_DeleteTemplateSyncConfigCommand)
-  .de(de_DeleteTemplateSyncConfigCommand)
+  .sc(DeleteTemplateSyncConfig)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

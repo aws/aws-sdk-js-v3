@@ -1,12 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { UpdatePrimaryEmailAddressRequest, UpdatePrimaryEmailAddressResponse } from "../models/models_0";
-import { de_UpdatePrimaryEmailAddressCommand, se_UpdatePrimaryEmailAddressCommand } from "../protocols/Aws_json1_1";
+import { UpdatePrimaryEmailAddress } from "../schemas/schemas_0";
 import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
 /**
@@ -111,16 +110,11 @@ export class UpdatePrimaryEmailAddressCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WorkMailClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("WorkMailService", "UpdatePrimaryEmailAddress", {})
   .n("WorkMailClient", "UpdatePrimaryEmailAddressCommand")
-  .f(void 0, void 0)
-  .ser(se_UpdatePrimaryEmailAddressCommand)
-  .de(de_UpdatePrimaryEmailAddressCommand)
+  .sc(UpdatePrimaryEmailAddress)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

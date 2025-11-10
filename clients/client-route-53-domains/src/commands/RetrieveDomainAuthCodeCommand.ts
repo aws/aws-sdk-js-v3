@@ -1,17 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  RetrieveDomainAuthCodeRequest,
-  RetrieveDomainAuthCodeResponse,
-  RetrieveDomainAuthCodeResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { de_RetrieveDomainAuthCodeCommand, se_RetrieveDomainAuthCodeCommand } from "../protocols/Aws_json1_1";
+import { RetrieveDomainAuthCodeRequest, RetrieveDomainAuthCodeResponse } from "../models/models_0";
 import { Route53DomainsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53DomainsClient";
+import { RetrieveDomainAuthCode } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -84,16 +79,11 @@ export class RetrieveDomainAuthCodeCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: Route53DomainsClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("Route53Domains_v20140515", "RetrieveDomainAuthCode", {})
   .n("Route53DomainsClient", "RetrieveDomainAuthCodeCommand")
-  .f(void 0, RetrieveDomainAuthCodeResponseFilterSensitiveLog)
-  .ser(se_RetrieveDomainAuthCodeCommand)
-  .de(de_RetrieveDomainAuthCodeCommand)
+  .sc(RetrieveDomainAuthCode)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

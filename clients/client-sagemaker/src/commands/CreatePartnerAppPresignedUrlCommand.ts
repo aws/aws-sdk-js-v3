@@ -1,16 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { CreatePartnerAppPresignedUrlRequest, CreatePartnerAppPresignedUrlResponse } from "../models/models_2";
-import {
-  de_CreatePartnerAppPresignedUrlCommand,
-  se_CreatePartnerAppPresignedUrlCommand,
-} from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
+import { CreatePartnerAppPresignedUrl } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -80,16 +76,11 @@ export class CreatePartnerAppPresignedUrlCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("SageMaker", "CreatePartnerAppPresignedUrl", {})
   .n("SageMakerClient", "CreatePartnerAppPresignedUrlCommand")
-  .f(void 0, void 0)
-  .ser(se_CreatePartnerAppPresignedUrlCommand)
-  .de(de_CreatePartnerAppPresignedUrlCommand)
+  .sc(CreatePartnerAppPresignedUrl)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

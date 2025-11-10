@@ -1,17 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  IsAuthorizedInput,
-  IsAuthorizedInputFilterSensitiveLog,
-  IsAuthorizedOutput,
-  IsAuthorizedOutputFilterSensitiveLog,
-} from "../models/models_0";
-import { de_IsAuthorizedCommand, se_IsAuthorizedCommand } from "../protocols/Aws_json1_0";
+import { IsAuthorizedInput, IsAuthorizedOutput } from "../models/models_0";
+import { IsAuthorized } from "../schemas/schemas_0";
 import {
   ServiceInputTypes,
   ServiceOutputTypes,
@@ -233,16 +227,11 @@ export class IsAuthorizedCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: VerifiedPermissionsClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("VerifiedPermissions", "IsAuthorized", {})
   .n("VerifiedPermissionsClient", "IsAuthorizedCommand")
-  .f(IsAuthorizedInputFilterSensitiveLog, IsAuthorizedOutputFilterSensitiveLog)
-  .ser(se_IsAuthorizedCommand)
-  .de(de_IsAuthorizedCommand)
+  .sc(IsAuthorized)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,12 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { CreateVocabularyFilterRequest, CreateVocabularyFilterResponse } from "../models/models_0";
-import { de_CreateVocabularyFilterCommand, se_CreateVocabularyFilterCommand } from "../protocols/Aws_json1_1";
+import { CreateVocabularyFilter } from "../schemas/schemas_0";
 import { ServiceInputTypes, ServiceOutputTypes, TranscribeClientResolvedConfig } from "../TranscribeClient";
 
 /**
@@ -111,16 +110,11 @@ export class CreateVocabularyFilterCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: TranscribeClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("Transcribe", "CreateVocabularyFilter", {})
   .n("TranscribeClient", "CreateVocabularyFilterCommand")
-  .f(void 0, void 0)
-  .ser(se_CreateVocabularyFilterCommand)
-  .de(de_CreateVocabularyFilterCommand)
+  .sc(CreateVocabularyFilter)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

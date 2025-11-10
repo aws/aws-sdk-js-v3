@@ -1,15 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { AssociateServiceQuotaTemplateRequest, AssociateServiceQuotaTemplateResponse } from "../models/models_0";
-import {
-  de_AssociateServiceQuotaTemplateCommand,
-  se_AssociateServiceQuotaTemplateCommand,
-} from "../protocols/Aws_json1_1";
+import { AssociateServiceQuotaTemplate } from "../schemas/schemas_0";
 import { ServiceInputTypes, ServiceOutputTypes, ServiceQuotasClientResolvedConfig } from "../ServiceQuotasClient";
 
 /**
@@ -101,16 +97,11 @@ export class AssociateServiceQuotaTemplateCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ServiceQuotasClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("ServiceQuotasV20190624", "AssociateServiceQuotaTemplate", {})
   .n("ServiceQuotasClient", "AssociateServiceQuotaTemplateCommand")
-  .f(void 0, void 0)
-  .ser(se_AssociateServiceQuotaTemplateCommand)
-  .de(de_AssociateServiceQuotaTemplateCommand)
+  .sc(AssociateServiceQuotaTemplate)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

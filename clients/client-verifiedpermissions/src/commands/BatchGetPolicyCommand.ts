@@ -1,12 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { BatchGetPolicyInput, BatchGetPolicyOutput, BatchGetPolicyOutputFilterSensitiveLog } from "../models/models_0";
-import { de_BatchGetPolicyCommand, se_BatchGetPolicyCommand } from "../protocols/Aws_json1_0";
+import { BatchGetPolicyInput, BatchGetPolicyOutput } from "../models/models_0";
+import { BatchGetPolicy } from "../schemas/schemas_0";
 import {
   ServiceInputTypes,
   ServiceOutputTypes,
@@ -193,16 +192,11 @@ export class BatchGetPolicyCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: VerifiedPermissionsClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("VerifiedPermissions", "BatchGetPolicy", {})
   .n("VerifiedPermissionsClient", "BatchGetPolicyCommand")
-  .f(void 0, BatchGetPolicyOutputFilterSensitiveLog)
-  .ser(se_BatchGetPolicyCommand)
-  .de(de_BatchGetPolicyCommand)
+  .sc(BatchGetPolicy)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

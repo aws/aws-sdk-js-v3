@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DirectConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { CreateLagRequest, Lag } from "../models/models_0";
-import { de_CreateLagCommand, se_CreateLagCommand } from "../protocols/Aws_json1_1";
+import { CreateLag } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -188,16 +187,11 @@ export class CreateLagCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DirectConnectClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("OvertureService", "CreateLag", {})
   .n("DirectConnectClient", "CreateLagCommand")
-  .f(void 0, void 0)
-  .ser(se_CreateLagCommand)
-  .de(de_CreateLagCommand)
+  .sc(CreateLag)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

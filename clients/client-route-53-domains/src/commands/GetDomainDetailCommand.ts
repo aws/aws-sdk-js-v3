@@ -1,17 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  GetDomainDetailRequest,
-  GetDomainDetailResponse,
-  GetDomainDetailResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { de_GetDomainDetailCommand, se_GetDomainDetailCommand } from "../protocols/Aws_json1_1";
+import { GetDomainDetailRequest, GetDomainDetailResponse } from "../models/models_0";
 import { Route53DomainsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53DomainsClient";
+import { GetDomainDetail } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -207,16 +202,11 @@ export class GetDomainDetailCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: Route53DomainsClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("Route53Domains_v20140515", "GetDomainDetail", {})
   .n("Route53DomainsClient", "GetDomainDetailCommand")
-  .f(void 0, GetDomainDetailResponseFilterSensitiveLog)
-  .ser(se_GetDomainDetailCommand)
-  .de(de_GetDomainDetailCommand)
+  .sc(GetDomainDetail)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

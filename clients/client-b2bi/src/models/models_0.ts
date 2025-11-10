@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@smithy/smithy-client";
+import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
 import { B2biServiceException as __BaseException } from "./B2biServiceException";
 
@@ -3850,88 +3850,3 @@ export interface UntagResourceRequest {
    */
   TagKeys: string[] | undefined;
 }
-
-/**
- * @internal
- */
-export const CreatePartnershipRequestFilterSensitiveLog = (obj: CreatePartnershipRequest): any => ({
-  ...obj,
-  ...(obj.email && { email: SENSITIVE_STRING }),
-  ...(obj.phone && { phone: SENSITIVE_STRING }),
-  ...(obj.capabilityOptions && { capabilityOptions: obj.capabilityOptions }),
-});
-
-/**
- * @internal
- */
-export const CreatePartnershipResponseFilterSensitiveLog = (obj: CreatePartnershipResponse): any => ({
-  ...obj,
-  ...(obj.email && { email: SENSITIVE_STRING }),
-  ...(obj.phone && { phone: SENSITIVE_STRING }),
-  ...(obj.capabilityOptions && { capabilityOptions: obj.capabilityOptions }),
-});
-
-/**
- * @internal
- */
-export const GetPartnershipResponseFilterSensitiveLog = (obj: GetPartnershipResponse): any => ({
-  ...obj,
-  ...(obj.email && { email: SENSITIVE_STRING }),
-  ...(obj.phone && { phone: SENSITIVE_STRING }),
-  ...(obj.capabilityOptions && { capabilityOptions: obj.capabilityOptions }),
-});
-
-/**
- * @internal
- */
-export const UpdatePartnershipResponseFilterSensitiveLog = (obj: UpdatePartnershipResponse): any => ({
-  ...obj,
-  ...(obj.email && { email: SENSITIVE_STRING }),
-  ...(obj.phone && { phone: SENSITIVE_STRING }),
-  ...(obj.capabilityOptions && { capabilityOptions: obj.capabilityOptions }),
-});
-
-/**
- * @internal
- */
-export const CreateProfileRequestFilterSensitiveLog = (obj: CreateProfileRequest): any => ({
-  ...obj,
-  ...(obj.email && { email: SENSITIVE_STRING }),
-  ...(obj.phone && { phone: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const CreateProfileResponseFilterSensitiveLog = (obj: CreateProfileResponse): any => ({
-  ...obj,
-  ...(obj.phone && { phone: SENSITIVE_STRING }),
-  ...(obj.email && { email: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const GetProfileResponseFilterSensitiveLog = (obj: GetProfileResponse): any => ({
-  ...obj,
-  ...(obj.email && { email: SENSITIVE_STRING }),
-  ...(obj.phone && { phone: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const UpdateProfileRequestFilterSensitiveLog = (obj: UpdateProfileRequest): any => ({
-  ...obj,
-  ...(obj.email && { email: SENSITIVE_STRING }),
-  ...(obj.phone && { phone: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const UpdateProfileResponseFilterSensitiveLog = (obj: UpdateProfileResponse): any => ({
-  ...obj,
-  ...(obj.email && { email: SENSITIVE_STRING }),
-  ...(obj.phone && { phone: SENSITIVE_STRING }),
-});

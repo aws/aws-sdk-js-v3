@@ -1,12 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DescribeSeverityLevelsRequest, DescribeSeverityLevelsResponse } from "../models/models_0";
-import { de_DescribeSeverityLevelsCommand, se_DescribeSeverityLevelsCommand } from "../protocols/Aws_json1_1";
+import { DescribeSeverityLevels } from "../schemas/schemas_0";
 import { ServiceInputTypes, ServiceOutputTypes, SupportClientResolvedConfig } from "../SupportClient";
 
 /**
@@ -94,16 +93,11 @@ export class DescribeSeverityLevelsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SupportClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSSupport_20130415", "DescribeSeverityLevels", {})
   .n("SupportClient", "DescribeSeverityLevelsCommand")
-  .f(void 0, void 0)
-  .ser(se_DescribeSeverityLevelsCommand)
-  .de(de_DescribeSeverityLevelsCommand)
+  .sc(DescribeSeverityLevels)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

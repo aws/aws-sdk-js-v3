@@ -1,21 +1,16 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  CreateEngagementRequest,
-  CreateEngagementRequestFilterSensitiveLog,
-  CreateEngagementResponse,
-} from "../models/models_0";
+import { CreateEngagementRequest, CreateEngagementResponse } from "../models/models_0";
 import {
   PartnerCentralSellingClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../PartnerCentralSellingClient";
-import { de_CreateEngagementCommand, se_CreateEngagementCommand } from "../protocols/Aws_json1_0";
+import { CreateEngagement } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -120,16 +115,11 @@ export class CreateEngagementCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: PartnerCentralSellingClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSPartnerCentralSelling", "CreateEngagement", {})
   .n("PartnerCentralSellingClient", "CreateEngagementCommand")
-  .f(CreateEngagementRequestFilterSensitiveLog, void 0)
-  .ser(se_CreateEngagementCommand)
-  .de(de_CreateEngagementCommand)
+  .sc(CreateEngagement)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
