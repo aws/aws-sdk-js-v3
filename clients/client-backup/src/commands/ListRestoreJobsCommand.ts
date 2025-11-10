@@ -49,6 +49,7 @@ export interface ListRestoreJobsCommandOutput extends ListRestoreJobsOutput, __M
  *   ByCompleteBefore: new Date("TIMESTAMP"),
  *   ByCompleteAfter: new Date("TIMESTAMP"),
  *   ByRestoreTestingPlanArn: "STRING_VALUE",
+ *   ByParentJobId: "STRING_VALUE",
  * };
  * const command = new ListRestoreJobsCommand(input);
  * const response = await client.send(command);
@@ -71,6 +72,8 @@ export interface ListRestoreJobsCommandOutput extends ListRestoreJobsOutput, __M
  * //       CreatedResourceArn: "STRING_VALUE",
  * //       ResourceType: "STRING_VALUE",
  * //       RecoveryPointCreationDate: new Date("TIMESTAMP"),
+ * //       IsParent: true || false,
+ * //       ParentJobId: "STRING_VALUE",
  * //       CreatedBy: { // RestoreJobCreator
  * //         RestoreTestingPlanArn: "STRING_VALUE",
  * //       },

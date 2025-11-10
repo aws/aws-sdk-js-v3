@@ -75,6 +75,8 @@ export interface ListRestoreJobsByProtectedResourceCommandOutput
  * //       CreatedResourceArn: "STRING_VALUE",
  * //       ResourceType: "STRING_VALUE",
  * //       RecoveryPointCreationDate: new Date("TIMESTAMP"),
+ * //       IsParent: true || false,
+ * //       ParentJobId: "STRING_VALUE",
  * //       CreatedBy: { // RestoreJobCreator
  * //         RestoreTestingPlanArn: "STRING_VALUE",
  * //       },

@@ -5238,6 +5238,18 @@ export interface DescribeRestoreJobOutput {
    * @public
    */
   DeletionStatusMessage?: string | undefined;
+
+  /**
+   * <p>This is a boolean value indicating whether the restore job is a parent (composite) restore job.</p>
+   * @public
+   */
+  IsParent?: boolean | undefined;
+
+  /**
+   * <p>This is the unique identifier of the parent restore job for the selected restore job.</p>
+   * @public
+   */
+  ParentJobId?: string | undefined;
 }
 
 /**
@@ -8717,6 +8729,12 @@ export interface ListRestoreJobsInput {
    * @public
    */
   ByRestoreTestingPlanArn?: string | undefined;
+
+  /**
+   * <p>This is a filter to list child (nested) restore jobs based on parent restore job ID.</p>
+   * @public
+   */
+  ByParentJobId?: string | undefined;
 }
 
 /**
@@ -8834,6 +8852,18 @@ export interface RestoreJobsListMember {
    * @public
    */
   RecoveryPointCreationDate?: Date | undefined;
+
+  /**
+   * <p>This is a boolean value indicating whether the restore job is a parent (composite) restore job.</p>
+   * @public
+   */
+  IsParent?: boolean | undefined;
+
+  /**
+   * <p>This is the unique identifier of the parent restore job for the selected restore job.</p>
+   * @public
+   */
+  ParentJobId?: string | undefined;
 
   /**
    * <p>Contains identifying information about the creation

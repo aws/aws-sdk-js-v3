@@ -1811,6 +1811,7 @@ export const se_ListRestoreJobsCommand = async (
     [_cBo]: [() => input.ByCompleteBefore !== void 0, () => __serializeDateTime(input[_BCBy]!).toString()],
     [_cAo]: [() => input.ByCompleteAfter !== void 0, () => __serializeDateTime(input[_BCAy]!).toString()],
     [_rTPA]: [, input[_BRTPA]!],
+    [_pJI]: [, input[_BPJI]!],
   });
   let body: any;
   b.m("GET").h(headers).q(query).b(body);
@@ -3224,6 +3225,8 @@ export const de_DescribeRestoreJobCommand = async (
     DeletionStatusMessage: __expectString,
     ExpectedCompletionTimeMinutes: __expectLong,
     IamRoleArn: __expectString,
+    IsParent: __expectBoolean,
+    ParentJobId: __expectString,
     PercentDone: __expectString,
     RecoveryPointArn: __expectString,
     RecoveryPointCreationDate: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
@@ -5755,6 +5758,8 @@ const de_RestoreJobsListMember = (output: any, context: __SerdeContext): Restore
     DeletionStatusMessage: __expectString,
     ExpectedCompletionTimeMinutes: __expectLong,
     IamRoleArn: __expectString,
+    IsParent: __expectBoolean,
+    ParentJobId: __expectString,
     PercentDone: __expectString,
     RecoveryPointArn: __expectString,
     RecoveryPointCreationDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),

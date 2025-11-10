@@ -66,6 +66,8 @@ export interface DescribeRestoreJobCommandOutput extends DescribeRestoreJobOutpu
  * //   ValidationStatusMessage: "STRING_VALUE",
  * //   DeletionStatus: "DELETING" || "FAILED" || "SUCCESSFUL",
  * //   DeletionStatusMessage: "STRING_VALUE",
+ * //   IsParent: true || false,
+ * //   ParentJobId: "STRING_VALUE",
  * // };
  *
  * ```
