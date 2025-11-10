@@ -101,6 +101,39 @@ export interface IsAuthorizedWithTokenCommandOutput extends IsAuthorizedWithToke
  *         parents: [ // ParentList
  *           "<EntityIdentifier>",
  *         ],
+ *         tags: { // EntityCedarTags
+ *           "<keys>": { // CedarTagValue Union: only one key present
+ *             boolean: true || false,
+ *             entityIdentifier: "<EntityIdentifier>",
+ *             long: Number("long"),
+ *             string: "STRING_VALUE",
+ *             set: [ // CedarTagSetAttribute
+ *               {//  Union: only one key present
+ *                 boolean: true || false,
+ *                 entityIdentifier: "<EntityIdentifier>",
+ *                 long: Number("long"),
+ *                 string: "STRING_VALUE",
+ *                 set: [
+ *                   "<CedarTagValue>",
+ *                 ],
+ *                 record: { // CedarTagRecordAttribute
+ *                   "<keys>": "<CedarTagValue>",
+ *                 },
+ *                 ipaddr: "STRING_VALUE",
+ *                 decimal: "STRING_VALUE",
+ *                 datetime: "STRING_VALUE",
+ *                 duration: "STRING_VALUE",
+ *               },
+ *             ],
+ *             record: {
+ *               "<keys>": "<CedarTagValue>",
+ *             },
+ *             ipaddr: "STRING_VALUE",
+ *             decimal: "STRING_VALUE",
+ *             datetime: "STRING_VALUE",
+ *             duration: "STRING_VALUE",
+ *           },
+ *         },
  *       },
  *     ],
  *     cedarJson: "STRING_VALUE",

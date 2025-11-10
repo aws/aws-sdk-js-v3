@@ -52,6 +52,9 @@ const _CPSO = "CreatePolicyStoreOutput";
 const _CPT = "CreatePolicyTemplate";
 const _CPTI = "CreatePolicyTemplateInput";
 const _CPTO = "CreatePolicyTemplateOutput";
+const _CTRA = "CedarTagRecordAttribute";
+const _CTSA = "CedarTagSetAttribute";
+const _CTV = "CedarTagValue";
 const _CUPC = "CognitoUserPoolConfiguration";
 const _CUPCD = "CognitoUserPoolConfigurationDetail";
 const _CUPCI = "CognitoUserPoolConfigurationItem";
@@ -74,6 +77,7 @@ const _DPTI = "DeletePolicyTemplateInput";
 const _DPTO = "DeletePolicyTemplateOutput";
 const _Du = "Duration";
 const _EA = "EntityAttributes";
+const _ECT = "EntityCedarTags";
 const _ED = "EntitiesDefinition";
 const _EEI = "EvaluationErrorItem";
 const _EEL = "EvaluationErrorList";
@@ -619,11 +623,12 @@ export var EntityItem: StaticStructureSchema = [
   n0,
   _EInt,
   0,
-  [_id, _at, _pa],
+  [_id, _at, _pa, _t],
   [
     [() => EntityIdentifier, 0],
     [() => EntityAttributes, 0],
     [() => ParentList, 0],
+    [() => EntityCedarTags, 0],
   ],
 ];
 export var EvaluationErrorItem: StaticStructureSchema = [3, n0, _EEI, 8, [_eD], [0]];
@@ -1274,6 +1279,7 @@ export var BatchIsAuthorizedWithTokenOutputList: StaticListSchema = [
   0,
   [() => BatchIsAuthorizedWithTokenOutputItem, 0],
 ];
+export var CedarTagSetAttribute: StaticListSchema = [1, n0, _CTSA, 0, [() => CedarTagValue, 0]];
 export var ClientIds: StaticListSchema = [1, n0, _CIl, 0, [() => ClientId, 0]];
 export var DeterminingPolicyList: StaticListSchema = [1, n0, _DPL, 0, () => DeterminingPolicyItem];
 export var EntityList: StaticListSchema = [1, n0, _EL, 0, [() => EntityItem, 0]];
@@ -1290,8 +1296,10 @@ export var SetAttribute: StaticListSchema = [1, n0, _SAe, 0, [() => AttributeVal
 export var TagKeyList = 64 | 0;
 
 export var ValidationExceptionFieldList: StaticListSchema = [1, n0, _VEFL, 0, () => ValidationExceptionField];
+export var CedarTagRecordAttribute: StaticMapSchema = [2, n0, _CTRA, 0, [0, 0], [() => CedarTagValue, 0]];
 export var ContextMap: StaticMapSchema = [2, n0, _CM, 8, [0, 0], [() => AttributeValue, 0]];
 export var EntityAttributes: StaticMapSchema = [2, n0, _EA, 0, [0, 0], [() => AttributeValue, 0]];
+export var EntityCedarTags: StaticMapSchema = [2, n0, _ECT, 0, [0, 0], [() => CedarTagValue, 0]];
 export var RecordAttribute: StaticMapSchema = [2, n0, _RA, 0, [0, 0], [() => AttributeValue, 0]];
 export var TagMap = 128 | 0;
 
@@ -1308,6 +1316,25 @@ export var AttributeValue: StaticStructureSchema = [
     [() => StringAttribute, 0],
     [() => SetAttribute, 0],
     [() => RecordAttribute, 0],
+    [() => IpAddr, 0],
+    [() => Decimal, 0],
+    [() => DatetimeAttribute, 0],
+    [() => Duration, 0],
+  ],
+];
+export var CedarTagValue: StaticStructureSchema = [
+  3,
+  n0,
+  _CTV,
+  0,
+  [_b, _eIn, _l, _st, _set, _rec, _ip, _dec, _da, _du],
+  [
+    [() => BooleanAttribute, 0],
+    [() => EntityIdentifier, 0],
+    [() => LongAttribute, 0],
+    [() => StringAttribute, 0],
+    [() => CedarTagSetAttribute, 0],
+    [() => CedarTagRecordAttribute, 0],
     [() => IpAddr, 0],
     [() => Decimal, 0],
     [() => DatetimeAttribute, 0],

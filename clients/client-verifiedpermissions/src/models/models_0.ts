@@ -3561,7 +3561,7 @@ export interface UntagResourceInput {
 export interface UntagResourceOutput {}
 
 /**
- * <p>The value of an attribute.</p> <p>Contains information about the runtime context for a request for which an authorization decision is made. </p> <p>This data type is used as a member of the <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_ContextDefinition.html">ContextDefinition</a> structure which is uses as a request parameter for the <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_IsAuthorized.html">IsAuthorized</a>, <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_BatchIsAuthorized.html">BatchIsAuthorized</a>, and <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_IsAuthorizedWithToken.html">IsAuthorizedWithToken</a> operations.</p>
+ * <p>The value of an attribute.</p> <p>Contains information about the runtime context for a request for which an authorization decision is made. </p> <p>This data type is used as a member of the <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_ContextDefinition.html">ContextDefinition</a> structure which is used as a request parameter for the <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_IsAuthorized.html">IsAuthorized</a>, <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_BatchIsAuthorized.html">BatchIsAuthorized</a>, and <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_IsAuthorizedWithToken.html">IsAuthorizedWithToken</a> operations.</p>
  * @public
  */
 export type AttributeValue =
@@ -3582,7 +3582,7 @@ export type AttributeValue =
  */
 export namespace AttributeValue {
   /**
-   * <p>An attribute value of <a href="https://docs.cedarpolicy.com/policies/syntax-datatypes.html#boolean">Boolean</a> type.</p> <p>Example: <code>\{"boolean": true\}</code> </p>
+   * <p>An attribute value of <a href="https://docs.cedarpolicy.com/policies/syntax-datatypes.html#datatype-bool">Boolean</a> type.</p> <p>Example: <code>\{"boolean": true\}</code> </p>
    * @public
    */
   export interface BooleanMember {
@@ -3600,7 +3600,7 @@ export namespace AttributeValue {
   }
 
   /**
-   * <p>An attribute value of type <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_EntityIdentifier.html">EntityIdentifier</a>.</p> <p>Example: <code>"entityIdentifier": \{ "entityId": "&lt;id&gt;", "entityType": "&lt;entity type&gt;"\}</code> </p>
+   * <p>An attribute value of type <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_EntityIdentifier.html">EntityIdentifier</a>.</p> <p>Example: <code>\{"entityIdentifier": \{ "entityId": "alice", "entityType": "User"\} \}</code> </p>
    * @public
    */
   export interface EntityIdentifierMember {
@@ -3618,7 +3618,7 @@ export namespace AttributeValue {
   }
 
   /**
-   * <p>An attribute value of <a href="https://docs.cedarpolicy.com/policies/syntax-datatypes.html#long">Long</a> type.</p> <p>Example: <code>\{"long": 0\}</code> </p>
+   * <p>An attribute value of <a href="https://docs.cedarpolicy.com/policies/syntax-datatypes.html#datatype-long">Long</a> type.</p> <p>Example: <code>\{"long": 0\}</code> </p>
    * @public
    */
   export interface LongMember {
@@ -3636,7 +3636,7 @@ export namespace AttributeValue {
   }
 
   /**
-   * <p>An attribute value of <a href="https://docs.cedarpolicy.com/policies/syntax-datatypes.html#string">String</a> type.</p> <p>Example: <code>\{"string": "abc"\}</code> </p>
+   * <p>An attribute value of <a href="https://docs.cedarpolicy.com/policies/syntax-datatypes.html#datatype-string">String</a> type.</p> <p>Example: <code>\{"string": "abc"\}</code> </p>
    * @public
    */
   export interface StringMember {
@@ -3654,7 +3654,7 @@ export namespace AttributeValue {
   }
 
   /**
-   * <p>An attribute value of <a href="https://docs.cedarpolicy.com/policies/syntax-datatypes.html#set">Set</a> type.</p> <p>Example: <code>\{"set": [ \{\} ] \}</code> </p>
+   * <p>An attribute value of <a href="https://docs.cedarpolicy.com/policies/syntax-datatypes.html#datatype-set">Set</a> type.</p> <p>Example: <code>\{"set": [ \{\} ] \}</code> </p>
    * @public
    */
   export interface SetMember {
@@ -3672,7 +3672,7 @@ export namespace AttributeValue {
   }
 
   /**
-   * <p>An attribute value of <a href="https://docs.cedarpolicy.com/policies/syntax-datatypes.html#record">Record</a> type.</p> <p>Example: <code>\{"record": \{ "keyName": \{\} \} \}</code> </p>
+   * <p>An attribute value of <a href="https://docs.cedarpolicy.com/policies/syntax-datatypes.html#datatype-record">Record</a> type.</p> <p>Example: <code>\{"record": \{ "keyName": \{\} \} \}</code> </p>
    * @public
    */
   export interface RecordMember {
@@ -3808,6 +3808,253 @@ export namespace AttributeValue {
 }
 
 /**
+ * <p>The value of an entity's Cedar tag.</p> <p>This data type is used as a member of the <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_EntityItem.html">EntityItem</a> structure that forms the body of the <code>Entities</code> request parameter for the <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_IsAuthorized.html">IsAuthorized</a>, <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_BatchIsAuthorized.html">BatchIsAuthorized</a>, <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_IsAuthorizedWithToken.html">IsAuthorizedWithToken</a>, and <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_BatchIsAuthorizedWithToken.html">BatchIsAuthorizedWithToken</a> operations.</p>
+ * @public
+ */
+export type CedarTagValue =
+  | CedarTagValue.BooleanMember
+  | CedarTagValue.DatetimeMember
+  | CedarTagValue.DecimalMember
+  | CedarTagValue.DurationMember
+  | CedarTagValue.EntityIdentifierMember
+  | CedarTagValue.IpaddrMember
+  | CedarTagValue.LongMember
+  | CedarTagValue.RecordMember
+  | CedarTagValue.SetMember
+  | CedarTagValue.StringMember
+  | CedarTagValue.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace CedarTagValue {
+  /**
+   * <p>A Cedar tag value of <a href="https://docs.cedarpolicy.com/policies/syntax-datatypes.html#datatype-bool">Boolean</a> type.</p> <p>Example: <code>\{"boolean": false\}</code> </p>
+   * @public
+   */
+  export interface BooleanMember {
+    boolean: boolean;
+    entityIdentifier?: never;
+    long?: never;
+    string?: never;
+    set?: never;
+    record?: never;
+    ipaddr?: never;
+    decimal?: never;
+    datetime?: never;
+    duration?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>A Cedar tag value of type <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_EntityIdentifier.html">EntityIdentifier</a>.</p> <p>Example: <code>\{"entityIdentifier": \{ "entityId": "alice", "entityType": "User"\} \}</code> </p>
+   * @public
+   */
+  export interface EntityIdentifierMember {
+    boolean?: never;
+    entityIdentifier: EntityIdentifier;
+    long?: never;
+    string?: never;
+    set?: never;
+    record?: never;
+    ipaddr?: never;
+    decimal?: never;
+    datetime?: never;
+    duration?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>A Cedar tag value of <a href="https://docs.cedarpolicy.com/policies/syntax-datatypes.html#datatype-long">Long</a> type.</p> <p>Example: <code>\{"long": 0\}</code> </p>
+   * @public
+   */
+  export interface LongMember {
+    boolean?: never;
+    entityIdentifier?: never;
+    long: number;
+    string?: never;
+    set?: never;
+    record?: never;
+    ipaddr?: never;
+    decimal?: never;
+    datetime?: never;
+    duration?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>A Cedar tag value of <a href="https://docs.cedarpolicy.com/policies/syntax-datatypes.html#datatype-string">String</a> type.</p> <p>Example: <code>\{"string": "abc"\}</code> </p>
+   * @public
+   */
+  export interface StringMember {
+    boolean?: never;
+    entityIdentifier?: never;
+    long?: never;
+    string: string;
+    set?: never;
+    record?: never;
+    ipaddr?: never;
+    decimal?: never;
+    datetime?: never;
+    duration?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>A Cedar tag value of <a href="https://docs.cedarpolicy.com/policies/syntax-datatypes.html#datatype-set">Set</a> type.</p> <p>Example: <code>\{"set": [ \{ "string": "abc" \} ] \}</code> </p>
+   * @public
+   */
+  export interface SetMember {
+    boolean?: never;
+    entityIdentifier?: never;
+    long?: never;
+    string?: never;
+    set: CedarTagValue[];
+    record?: never;
+    ipaddr?: never;
+    decimal?: never;
+    datetime?: never;
+    duration?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>A Cedar tag value of <a href="https://docs.cedarpolicy.com/policies/syntax-datatypes.html#datatype-record">Record</a> type.</p> <p>Example: <code>\{"record": \{ "keyName": \{\} \} \}</code> </p>
+   * @public
+   */
+  export interface RecordMember {
+    boolean?: never;
+    entityIdentifier?: never;
+    long?: never;
+    string?: never;
+    set?: never;
+    record: Record<string, CedarTagValue>;
+    ipaddr?: never;
+    decimal?: never;
+    datetime?: never;
+    duration?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>A Cedar tag value of <a href="https://docs.cedarpolicy.com/policies/syntax-datatypes.html#datatype-ipaddr">ipaddr</a> type.</p> <p>Example: <code>\{"ip": "10.50.0.0/24"\}</code> </p>
+   * @public
+   */
+  export interface IpaddrMember {
+    boolean?: never;
+    entityIdentifier?: never;
+    long?: never;
+    string?: never;
+    set?: never;
+    record?: never;
+    ipaddr: string;
+    decimal?: never;
+    datetime?: never;
+    duration?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>A Cedar tag value of <a href="https://docs.cedarpolicy.com/policies/syntax-datatypes.html#datatype-decimal">decimal</a> type.</p> <p>Example: <code>\{"decimal": "-2.0"\}</code> </p>
+   * @public
+   */
+  export interface DecimalMember {
+    boolean?: never;
+    entityIdentifier?: never;
+    long?: never;
+    string?: never;
+    set?: never;
+    record?: never;
+    ipaddr?: never;
+    decimal: string;
+    datetime?: never;
+    duration?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>A Cedar tag value of <a href="https://docs.cedarpolicy.com/policies/syntax-datatypes.html#datatype-datetime">datetime</a> type.</p> <p>Example: <code>\{"datetime": "2025-11-04T11:35:00.000+0100"\}</code> </p>
+   * @public
+   */
+  export interface DatetimeMember {
+    boolean?: never;
+    entityIdentifier?: never;
+    long?: never;
+    string?: never;
+    set?: never;
+    record?: never;
+    ipaddr?: never;
+    decimal?: never;
+    datetime: string;
+    duration?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>A Cedar tag value of <a href="https://docs.cedarpolicy.com/policies/syntax-datatypes.html#datatype-duration">duration</a> type.</p> <p>Example: <code>\{"duration": "-1d12h"\}</code> </p>
+   * @public
+   */
+  export interface DurationMember {
+    boolean?: never;
+    entityIdentifier?: never;
+    long?: never;
+    string?: never;
+    set?: never;
+    record?: never;
+    ipaddr?: never;
+    decimal?: never;
+    datetime?: never;
+    duration: string;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    boolean?: never;
+    entityIdentifier?: never;
+    long?: never;
+    string?: never;
+    set?: never;
+    record?: never;
+    ipaddr?: never;
+    decimal?: never;
+    datetime?: never;
+    duration?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    boolean: (value: boolean) => T;
+    entityIdentifier: (value: EntityIdentifier) => T;
+    long: (value: number) => T;
+    string: (value: string) => T;
+    set: (value: CedarTagValue[]) => T;
+    record: (value: Record<string, CedarTagValue>) => T;
+    ipaddr: (value: string) => T;
+    decimal: (value: string) => T;
+    datetime: (value: string) => T;
+    duration: (value: string) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: CedarTagValue, visitor: Visitor<T>): T => {
+    if (value.boolean !== undefined) return visitor.boolean(value.boolean);
+    if (value.entityIdentifier !== undefined) return visitor.entityIdentifier(value.entityIdentifier);
+    if (value.long !== undefined) return visitor.long(value.long);
+    if (value.string !== undefined) return visitor.string(value.string);
+    if (value.set !== undefined) return visitor.set(value.set);
+    if (value.record !== undefined) return visitor.record(value.record);
+    if (value.ipaddr !== undefined) return visitor.ipaddr(value.ipaddr);
+    if (value.decimal !== undefined) return visitor.decimal(value.decimal);
+    if (value.datetime !== undefined) return visitor.datetime(value.datetime);
+    if (value.duration !== undefined) return visitor.duration(value.duration);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
  * <p>Contains additional details about the context of the request. Verified Permissions evaluates this information in an authorization request as part of the <code>when</code> and <code>unless</code> clauses in a policy.</p> <p>This data type is used as a request parameter for the <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_IsAuthorized.html">IsAuthorized</a>, <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_BatchIsAuthorized.html">BatchIsAuthorized</a>, and <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_IsAuthorizedWithToken.html">IsAuthorizedWithToken</a> operations.</p> <p>If you're passing context as part of the request, exactly one instance of <code>context</code> must be passed. If you don't want to pass context, omit the <code>context</code> parameter from your request rather than sending <code>context \{\}</code>.</p> <p>Example: <code>"context":\{"contextMap":\{"&lt;KeyName1&gt;":\{"boolean":true\},"&lt;KeyName2&gt;":\{"long":1234\}\}\}</code> </p>
  * @public
  */
@@ -3860,30 +4107,6 @@ export namespace ContextDefinition {
     if (value.cedarJson !== undefined) return visitor.cedarJson(value.cedarJson);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
-}
-
-/**
- * <p>Contains information about an entity that can be referenced in a Cedar policy.</p> <p>This data type is used as one of the fields in the <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_EntitiesDefinition.html">EntitiesDefinition</a> structure.</p> <p> <code>\{ "identifier": \{ "entityType": "Photo", "entityId": "VacationPhoto94.jpg" \}, "attributes": \{\}, "parents": [ \{ "entityType": "Album", "entityId": "alice_folder" \} ] \}</code> </p>
- * @public
- */
-export interface EntityItem {
-  /**
-   * <p>The identifier of the entity.</p>
-   * @public
-   */
-  identifier: EntityIdentifier | undefined;
-
-  /**
-   * <p>A list of attributes for the entity.</p>
-   * @public
-   */
-  attributes?: Record<string, AttributeValue> | undefined;
-
-  /**
-   * <p>The parent entities in the hierarchy that contains the entity. A principal or resource entity can be defined with at most 99 <i>transitive parents</i> per authorization request. </p> <p>A transitive parent is an entity in the hierarchy of entities including all direct parents, and parents of parents. For example, a user can be a member of 91 groups if one of those groups is a member of eight groups, for a total of 100: one entity, 91 entity parents, and eight parents of parents. </p>
-   * @public
-   */
-  parents?: EntityIdentifier[] | undefined;
 }
 
 /**
@@ -4001,6 +4224,64 @@ export interface BatchIsAuthorizedWithTokenOutputItem {
 }
 
 /**
+ * @public
+ */
+export interface BatchIsAuthorizedOutput {
+  /**
+   * <p>A series of <code>Allow</code> or <code>Deny</code> decisions for each request, and the policies that produced them. These results are returned in the order they were requested.</p>
+   * @public
+   */
+  results: BatchIsAuthorizedOutputItem[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface BatchIsAuthorizedWithTokenOutput {
+  /**
+   * <p>The identifier of the principal in the ID or access token.</p>
+   * @public
+   */
+  principal?: EntityIdentifier | undefined;
+
+  /**
+   * <p>A series of <code>Allow</code> or <code>Deny</code> decisions for each request, and the policies that produced them. These results are returned in the order they were requested.</p>
+   * @public
+   */
+  results: BatchIsAuthorizedWithTokenOutputItem[] | undefined;
+}
+
+/**
+ * <p>Contains information about an entity that can be referenced in a Cedar policy.</p> <p>This data type is used as one of the fields in the <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_EntitiesDefinition.html">EntitiesDefinition</a> structure.</p> <p> <code>\{ "identifier": \{ "entityType": "Photo", "entityId": "VacationPhoto94.jpg" \}, "attributes": \{\}, "parents": [ \{ "entityType": "Album", "entityId": "alice_folder" \} ] \}</code> </p>
+ * @public
+ */
+export interface EntityItem {
+  /**
+   * <p>The identifier of the entity.</p>
+   * @public
+   */
+  identifier: EntityIdentifier | undefined;
+
+  /**
+   * <p>A list of attributes for the entity.</p>
+   * @public
+   */
+  attributes?: Record<string, AttributeValue> | undefined;
+
+  /**
+   * <p>The parent entities in the hierarchy that contains the entity. A principal or resource entity can be defined with at most 99 <i>transitive parents</i> per authorization request. </p> <p>A transitive parent is an entity in the hierarchy of entities including all direct parents, and parents of parents. For example, a user can be a member of 91 groups if one of those groups is a member of eight groups, for a total of 100: one entity, 91 entity parents, and eight parents of parents. </p>
+   * @public
+   */
+  parents?: EntityIdentifier[] | undefined;
+
+  /**
+   * <p>A list of cedar tags for the entity.</p>
+   * @public
+   */
+  tags?: Record<string, CedarTagValue> | undefined;
+}
+
+/**
  * <p>Contains the list of entities to be considered during an authorization request. This includes all principals, resources, and actions required to successfully evaluate the request.</p> <p>This data type is used as a field in the response parameter for the <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_IsAuthorized.html">IsAuthorized</a> and <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_IsAuthorizedWithToken.html">IsAuthorizedWithToken</a> operations.</p>
  * @public
  */
@@ -4053,34 +4334,6 @@ export namespace EntitiesDefinition {
     if (value.cedarJson !== undefined) return visitor.cedarJson(value.cedarJson);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
-}
-
-/**
- * @public
- */
-export interface BatchIsAuthorizedOutput {
-  /**
-   * <p>A series of <code>Allow</code> or <code>Deny</code> decisions for each request, and the policies that produced them. These results are returned in the order they were requested.</p>
-   * @public
-   */
-  results: BatchIsAuthorizedOutputItem[] | undefined;
-}
-
-/**
- * @public
- */
-export interface BatchIsAuthorizedWithTokenOutput {
-  /**
-   * <p>The identifier of the principal in the ID or access token.</p>
-   * @public
-   */
-  principal?: EntityIdentifier | undefined;
-
-  /**
-   * <p>A series of <code>Allow</code> or <code>Deny</code> decisions for each request, and the policies that produced them. These results are returned in the order they were requested.</p>
-   * @public
-   */
-  results: BatchIsAuthorizedWithTokenOutputItem[] | undefined;
 }
 
 /**
