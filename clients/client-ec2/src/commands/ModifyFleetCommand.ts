@@ -182,6 +182,7 @@ export interface ModifyFleetCommandOutput extends ModifyFleetResult, __MetadataB
  *                 ],
  *               },
  *             },
+ *             RequireEncryptionInTransit: true || false,
  *           },
  *           ImageId: "STRING_VALUE",
  *         },

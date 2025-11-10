@@ -168,6 +168,7 @@ export interface DescribeFleetsCommandOutput extends DescribeFleetsResult, __Met
  * //                     ],
  * //                   },
  * //                 },
+ * //                 RequireEncryptionInTransit: true || false,
  * //               },
  * //               ImageId: "STRING_VALUE",
  * //               BlockDeviceMappings: [ // BlockDeviceMappingResponseList
@@ -329,6 +330,7 @@ export interface DescribeFleetsCommandOutput extends DescribeFleetsResult, __Met
  * //                     ],
  * //                   },
  * //                 },
+ * //                 RequireEncryptionInTransit: true || false,
  * //               },
  * //               ImageId: "STRING_VALUE",
  * //               BlockDeviceMappings: [
@@ -450,6 +452,7 @@ export interface DescribeFleetsCommandOutput extends DescribeFleetsResult, __Met
  * //                     ],
  * //                   },
  * //                 },
+ * //                 RequireEncryptionInTransit: true || false,
  * //               },
  * //               ImageId: "STRING_VALUE",
  * //               BlockDeviceMappings: [

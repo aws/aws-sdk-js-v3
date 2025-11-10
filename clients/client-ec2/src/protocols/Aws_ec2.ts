@@ -50615,6 +50615,9 @@ const se_InstanceRequirements = (input: InstanceRequirements, context: __SerdeCo
       entries[loc] = value;
     });
   }
+  if (input[_REIT] != null) {
+    entries[_REIT] = input[_REIT];
+  }
   return entries;
 };
 
@@ -50769,6 +50772,9 @@ const se_InstanceRequirementsRequest = (input: InstanceRequirementsRequest, cont
       const loc = `BaselinePerformanceFactors.${key}`;
       entries[loc] = value;
     });
+  }
+  if (input[_REIT] != null) {
+    entries[_REIT] = input[_REIT];
   }
   return entries;
 };
@@ -79398,6 +79404,9 @@ const de_InstanceRequirements = (output: any, context: __SerdeContext): Instance
   if (output[_bPF] != null) {
     contents[_BPF] = de_BaselinePerformanceFactors(output[_bPF], context);
   }
+  if (output[_rEIT] != null) {
+    contents[_REIT] = __parseBoolean(output[_rEIT]);
+  }
   return contents;
 };
 
@@ -97775,6 +97784,7 @@ const _REAC = "RemoveExternalAuthorityConfiguration";
 const _RED = "RemoveEndDate";
 const _REDKKI = "ResetEbsDefaultKmsKeyId";
 const _REDT = "ReservationEndDateType";
+const _REIT = "RequireEncryptionInTransit";
 const _RET = "ReservationEndTimestamp";
 const _RETe = "RestoreExpiryTime";
 const _REe = "RemoveEntries";
@@ -99873,6 +99883,7 @@ const _rDS = "resourceDiscoveryStatus";
 const _rDT = "rootDeviceType";
 const _rE = "responseError";
 const _rEDT = "reservationEndDateType";
+const _rEIT = "requireEncryptionInTransit";
 const _rET = "reservationEndTimestamp";
 const _rETe = "restoreExpiryTime";
 const _rEd = "rdsEndpoint";

@@ -191,6 +191,7 @@ export interface CreateFleetCommandOutput extends CreateFleetResult, __MetadataB
  *                 ],
  *               },
  *             },
+ *             RequireEncryptionInTransit: true || false,
  *           },
  *           ImageId: "STRING_VALUE",
  *         },
@@ -321,6 +322,7 @@ export interface CreateFleetCommandOutput extends CreateFleetResult, __MetadataB
  * //                 ],
  * //               },
  * //             },
+ * //             RequireEncryptionInTransit: true || false,
  * //           },
  * //           ImageId: "STRING_VALUE",
  * //           BlockDeviceMappings: [ // BlockDeviceMappingResponseList
@@ -442,6 +444,7 @@ export interface CreateFleetCommandOutput extends CreateFleetResult, __MetadataB
  * //                 ],
  * //               },
  * //             },
+ * //             RequireEncryptionInTransit: true || false,
  * //           },
  * //           ImageId: "STRING_VALUE",
  * //           BlockDeviceMappings: [

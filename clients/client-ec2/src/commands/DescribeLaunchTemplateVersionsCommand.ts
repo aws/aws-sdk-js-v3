@@ -334,6 +334,7 @@ export interface DescribeLaunchTemplateVersionsCommandOutput
  * //               ],
  * //             },
  * //           },
+ * //           RequireEncryptionInTransit: true || false,
  * //         },
  * //         PrivateDnsNameOptions: { // LaunchTemplatePrivateDnsNameOptions
  * //           HostnameType: "ip-name" || "resource-name",

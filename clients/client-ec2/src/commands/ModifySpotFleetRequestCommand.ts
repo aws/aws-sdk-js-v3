@@ -154,6 +154,7 @@ export interface ModifySpotFleetRequestCommandOutput extends ModifySpotFleetRequ
  *                 ],
  *               },
  *             },
+ *             RequireEncryptionInTransit: true || false,
  *           },
  *         },
  *       ],

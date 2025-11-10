@@ -6138,6 +6138,16 @@ export interface InstanceRequirementsRequest {
    * @public
    */
   BaselinePerformanceFactors?: BaselinePerformanceFactorsRequest | undefined;
+
+  /**
+   * <p>Specifies whether instance types must support encrypting in-transit traffic between
+   *          instances. For more information, including the supported instance types, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/data-protection.html#encryption-transit">Encryption in
+   *             transit</a> in the <i>Amazon EC2 User Guide</i>.</p>
+   *          <p>Default: <code>false</code>
+   *          </p>
+   * @public
+   */
+  RequireEncryptionInTransit?: boolean | undefined;
 }
 
 /**
@@ -7843,6 +7853,16 @@ export interface InstanceRequirements {
    * @public
    */
   BaselinePerformanceFactors?: BaselinePerformanceFactors | undefined;
+
+  /**
+   * <p>Specifies whether instance types must support encrypting in-transit traffic between
+   *          instances. For more information, including the supported instance types, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/data-protection.html#encryption-transit">Encryption in
+   *             transit</a> in the <i>Amazon EC2 User Guide</i>.</p>
+   *          <p>Default: <code>false</code>
+   *          </p>
+   * @public
+   */
+  RequireEncryptionInTransit?: boolean | undefined;
 }
 
 /**

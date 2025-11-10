@@ -140,6 +140,7 @@ export interface GetInstanceTypesFromInstanceRequirementsCommandOutput
  *         ],
  *       },
  *     },
+ *     RequireEncryptionInTransit: true || false,
  *   },
  *   MaxResults: Number("int"),
  *   NextToken: "STRING_VALUE",

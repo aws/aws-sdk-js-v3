@@ -309,6 +309,7 @@ export interface CreateLaunchTemplateVersionCommandOutput extends CreateLaunchTe
  *           ],
  *         },
  *       },
+ *       RequireEncryptionInTransit: true || false,
  *     },
  *     PrivateDnsNameOptions: { // LaunchTemplatePrivateDnsNameOptionsRequest
  *       HostnameType: "ip-name" || "resource-name",
@@ -591,6 +592,7 @@ export interface CreateLaunchTemplateVersionCommandOutput extends CreateLaunchTe
  * //             ],
  * //           },
  * //         },
+ * //         RequireEncryptionInTransit: true || false,
  * //       },
  * //       PrivateDnsNameOptions: { // LaunchTemplatePrivateDnsNameOptions
  * //         HostnameType: "ip-name" || "resource-name",

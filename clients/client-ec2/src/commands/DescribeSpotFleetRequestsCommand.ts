@@ -263,6 +263,7 @@ export interface DescribeSpotFleetRequestsCommandOutput extends DescribeSpotFlee
  * //                   ],
  * //                 },
  * //               },
+ * //               RequireEncryptionInTransit: true || false,
  * //             },
  * //             SecurityGroups: [ // GroupIdentifierList
  * //               { // GroupIdentifier
@@ -364,6 +365,7 @@ export interface DescribeSpotFleetRequestsCommandOutput extends DescribeSpotFlee
  * //                       ],
  * //                     },
  * //                   },
+ * //                   RequireEncryptionInTransit: true || false,
  * //                 },
  * //               },
  * //             ],

@@ -138,6 +138,7 @@ export interface GetSpotPlacementScoresCommandOutput extends GetSpotPlacementSco
  *           ],
  *         },
  *       },
+ *       RequireEncryptionInTransit: true || false,
  *     },
  *   },
  *   DryRun: true || false,

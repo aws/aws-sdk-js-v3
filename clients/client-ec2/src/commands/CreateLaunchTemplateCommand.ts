@@ -305,6 +305,7 @@ export interface CreateLaunchTemplateCommandOutput extends CreateLaunchTemplateR
  *           ],
  *         },
  *       },
+ *       RequireEncryptionInTransit: true || false,
  *     },
  *     PrivateDnsNameOptions: { // LaunchTemplatePrivateDnsNameOptionsRequest
  *       HostnameType: "ip-name" || "resource-name",

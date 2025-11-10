@@ -307,6 +307,7 @@ export interface GetLaunchTemplateDataCommandOutput extends GetLaunchTemplateDat
  * //           ],
  * //         },
  * //       },
+ * //       RequireEncryptionInTransit: true || false,
  * //     },
  * //     PrivateDnsNameOptions: { // LaunchTemplatePrivateDnsNameOptions
  * //       HostnameType: "ip-name" || "resource-name",
