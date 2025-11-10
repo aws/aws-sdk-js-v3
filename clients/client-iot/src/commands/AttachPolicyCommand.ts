@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
 import { AttachPolicyRequest } from "../models/models_0";
-import { de_AttachPolicyCommand, se_AttachPolicyCommand } from "../protocols/Aws_restJson1";
+import { AttachPolicy } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -92,16 +91,11 @@ export class AttachPolicyCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSIotService", "AttachPolicy", {})
   .n("IoTClient", "AttachPolicyCommand")
-  .f(void 0, void 0)
-  .ser(se_AttachPolicyCommand)
-  .de(de_AttachPolicyCommand)
+  .sc(AttachPolicy)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

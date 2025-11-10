@@ -1,18 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { LocationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LocationClient";
-import {
-  CreateKeyRequest,
-  CreateKeyRequestFilterSensitiveLog,
-  CreateKeyResponse,
-  CreateKeyResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { de_CreateKeyCommand, se_CreateKeyCommand } from "../protocols/Aws_restJson1";
+import { CreateKeyRequest, CreateKeyResponse } from "../models/models_0";
+import { CreateKey } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -124,16 +118,11 @@ export class CreateKeyCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LocationClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("LocationService", "CreateKey", {})
   .n("LocationClient", "CreateKeyCommand")
-  .f(CreateKeyRequestFilterSensitiveLog, CreateKeyResponseFilterSensitiveLog)
-  .ser(se_CreateKeyCommand)
-  .de(de_CreateKeyCommand)
+  .sc(CreateKey)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

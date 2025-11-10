@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -8,14 +7,9 @@ import { AuditManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes
 import { commonParams } from "../endpoint/EndpointParameters";
 import {
   BatchImportEvidenceToAssessmentControlRequest,
-  BatchImportEvidenceToAssessmentControlRequestFilterSensitiveLog,
   BatchImportEvidenceToAssessmentControlResponse,
-  BatchImportEvidenceToAssessmentControlResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  de_BatchImportEvidenceToAssessmentControlCommand,
-  se_BatchImportEvidenceToAssessmentControlCommand,
-} from "../protocols/Aws_restJson1";
+import { BatchImportEvidenceToAssessmentControl } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -142,19 +136,11 @@ export class BatchImportEvidenceToAssessmentControlCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AuditManagerClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("BedrockAssessmentManagerLambda", "BatchImportEvidenceToAssessmentControl", {})
   .n("AuditManagerClient", "BatchImportEvidenceToAssessmentControlCommand")
-  .f(
-    BatchImportEvidenceToAssessmentControlRequestFilterSensitiveLog,
-    BatchImportEvidenceToAssessmentControlResponseFilterSensitiveLog
-  )
-  .ser(se_BatchImportEvidenceToAssessmentControlCommand)
-  .de(de_BatchImportEvidenceToAssessmentControlCommand)
+  .sc(BatchImportEvidenceToAssessmentControl)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

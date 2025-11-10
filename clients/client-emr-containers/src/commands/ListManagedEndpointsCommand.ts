@@ -1,17 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EMRContainersClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRContainersClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  ListManagedEndpointsRequest,
-  ListManagedEndpointsResponse,
-  ListManagedEndpointsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { de_ListManagedEndpointsCommand, se_ListManagedEndpointsCommand } from "../protocols/Aws_restJson1";
+import { ListManagedEndpointsRequest, ListManagedEndpointsResponse } from "../models/models_0";
+import { ListManagedEndpoints } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -156,16 +151,11 @@ export class ListManagedEndpointsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EMRContainersClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AwsChicagoWebService", "ListManagedEndpoints", {})
   .n("EMRContainersClient", "ListManagedEndpointsCommand")
-  .f(void 0, ListManagedEndpointsResponseFilterSensitiveLog)
-  .ser(se_ListManagedEndpointsCommand)
-  .de(de_ListManagedEndpointsCommand)
+  .sc(ListManagedEndpoints)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

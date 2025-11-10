@@ -1,12 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { ListResponsePlansInput, ListResponsePlansOutput } from "../models/models_0";
-import { de_ListResponsePlansCommand, se_ListResponsePlansCommand } from "../protocols/Aws_restJson1";
+import { ListResponsePlans } from "../schemas/schemas_0";
 import { ServiceInputTypes, ServiceOutputTypes, SSMIncidentsClientResolvedConfig } from "../SSMIncidentsClient";
 
 /**
@@ -92,16 +91,11 @@ export class ListResponsePlansCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SSMIncidentsClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("SSMIncidents", "ListResponsePlans", {})
   .n("SSMIncidentsClient", "ListResponsePlansCommand")
-  .f(void 0, void 0)
-  .ser(se_ListResponsePlansCommand)
-  .de(de_ListResponsePlansCommand)
+  .sc(ListResponsePlans)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

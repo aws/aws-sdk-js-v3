@@ -1,16 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  GetConfigurationManagerInput,
-  GetConfigurationManagerOutput,
-  GetConfigurationManagerOutputFilterSensitiveLog,
-} from "../models/models_0";
-import { de_GetConfigurationManagerCommand, se_GetConfigurationManagerCommand } from "../protocols/Aws_restJson1";
+import { GetConfigurationManagerInput, GetConfigurationManagerOutput } from "../models/models_0";
+import { GetConfigurationManager } from "../schemas/schemas_0";
 import { ServiceInputTypes, ServiceOutputTypes, SSMQuickSetupClientResolvedConfig } from "../SSMQuickSetupClient";
 
 /**
@@ -123,16 +118,11 @@ export class GetConfigurationManagerCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SSMQuickSetupClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("QuickSetup", "GetConfigurationManager", {})
   .n("SSMQuickSetupClient", "GetConfigurationManagerCommand")
-  .f(void 0, GetConfigurationManagerOutputFilterSensitiveLog)
-  .ser(se_GetConfigurationManagerCommand)
-  .de(de_GetConfigurationManagerCommand)
+  .sc(GetConfigurationManager)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

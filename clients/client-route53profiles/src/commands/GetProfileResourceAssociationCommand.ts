@@ -1,16 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GetProfileResourceAssociationRequest, GetProfileResourceAssociationResponse } from "../models/models_0";
-import {
-  de_GetProfileResourceAssociationCommand,
-  se_GetProfileResourceAssociationCommand,
-} from "../protocols/Aws_restJson1";
 import { Route53ProfilesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53ProfilesClient";
+import { GetProfileResourceAssociation } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -114,16 +110,11 @@ export class GetProfileResourceAssociationCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: Route53ProfilesClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("Route53Profiles", "GetProfileResourceAssociation", {})
   .n("Route53ProfilesClient", "GetProfileResourceAssociationCommand")
-  .f(void 0, void 0)
-  .ser(se_GetProfileResourceAssociationCommand)
-  .de(de_GetProfileResourceAssociationCommand)
+  .sc(GetProfileResourceAssociation)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

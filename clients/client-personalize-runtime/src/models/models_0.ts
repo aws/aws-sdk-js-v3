@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@smithy/smithy-client";
+import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
 import { PersonalizeRuntimeServiceException as __BaseException } from "./PersonalizeRuntimeServiceException";
 
@@ -419,64 +419,3 @@ export interface GetRecommendationsResponse {
    */
   recommendationId?: string | undefined;
 }
-
-/**
- * @internal
- */
-export const GetActionRecommendationsRequestFilterSensitiveLog = (obj: GetActionRecommendationsRequest): any => ({
-  ...obj,
-  ...(obj.filterValues && { filterValues: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const GetPersonalizedRankingRequestFilterSensitiveLog = (obj: GetPersonalizedRankingRequest): any => ({
-  ...obj,
-  ...(obj.context && { context: SENSITIVE_STRING }),
-  ...(obj.filterValues && { filterValues: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const PredictedItemFilterSensitiveLog = (obj: PredictedItem): any => ({
-  ...obj,
-  ...(obj.metadata && { metadata: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const GetPersonalizedRankingResponseFilterSensitiveLog = (obj: GetPersonalizedRankingResponse): any => ({
-  ...obj,
-  ...(obj.personalizedRanking && {
-    personalizedRanking: obj.personalizedRanking.map((item) => PredictedItemFilterSensitiveLog(item)),
-  }),
-});
-
-/**
- * @internal
- */
-export const PromotionFilterSensitiveLog = (obj: Promotion): any => ({
-  ...obj,
-  ...(obj.filterValues && { filterValues: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const GetRecommendationsRequestFilterSensitiveLog = (obj: GetRecommendationsRequest): any => ({
-  ...obj,
-  ...(obj.context && { context: SENSITIVE_STRING }),
-  ...(obj.filterValues && { filterValues: SENSITIVE_STRING }),
-  ...(obj.promotions && { promotions: obj.promotions.map((item) => PromotionFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const GetRecommendationsResponseFilterSensitiveLog = (obj: GetRecommendationsResponse): any => ({
-  ...obj,
-  ...(obj.itemList && { itemList: obj.itemList.map((item) => PredictedItemFilterSensitiveLog(item)) }),
-});

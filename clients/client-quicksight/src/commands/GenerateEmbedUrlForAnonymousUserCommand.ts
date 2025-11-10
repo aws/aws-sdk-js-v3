@@ -1,21 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  GenerateEmbedUrlForAnonymousUserRequest,
-  GenerateEmbedUrlForAnonymousUserRequestFilterSensitiveLog,
-  GenerateEmbedUrlForAnonymousUserResponse,
-  GenerateEmbedUrlForAnonymousUserResponseFilterSensitiveLog,
-} from "../models/models_4";
-import {
-  de_GenerateEmbedUrlForAnonymousUserCommand,
-  se_GenerateEmbedUrlForAnonymousUserCommand,
-} from "../protocols/Aws_restJson1";
+import { GenerateEmbedUrlForAnonymousUserRequest, GenerateEmbedUrlForAnonymousUserResponse } from "../models/models_4";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
+import { GenerateEmbedUrlForAnonymousUser } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -190,19 +181,11 @@ export class GenerateEmbedUrlForAnonymousUserCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: QuickSightClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("QuickSight_20180401", "GenerateEmbedUrlForAnonymousUser", {})
   .n("QuickSightClient", "GenerateEmbedUrlForAnonymousUserCommand")
-  .f(
-    GenerateEmbedUrlForAnonymousUserRequestFilterSensitiveLog,
-    GenerateEmbedUrlForAnonymousUserResponseFilterSensitiveLog
-  )
-  .ser(se_GenerateEmbedUrlForAnonymousUserCommand)
-  .de(de_GenerateEmbedUrlForAnonymousUserCommand)
+  .sc(GenerateEmbedUrlForAnonymousUser)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

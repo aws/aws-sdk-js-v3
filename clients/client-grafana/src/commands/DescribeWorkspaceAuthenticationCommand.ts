@@ -1,20 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GrafanaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GrafanaClient";
-import {
-  DescribeWorkspaceAuthenticationRequest,
-  DescribeWorkspaceAuthenticationResponse,
-  DescribeWorkspaceAuthenticationResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  de_DescribeWorkspaceAuthenticationCommand,
-  se_DescribeWorkspaceAuthenticationCommand,
-} from "../protocols/Aws_restJson1";
+import { DescribeWorkspaceAuthenticationRequest, DescribeWorkspaceAuthenticationResponse } from "../models/models_0";
+import { DescribeWorkspaceAuthentication } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -134,16 +126,11 @@ export class DescribeWorkspaceAuthenticationCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GrafanaClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSGrafanaControlPlane", "DescribeWorkspaceAuthentication", {})
   .n("GrafanaClient", "DescribeWorkspaceAuthenticationCommand")
-  .f(void 0, DescribeWorkspaceAuthenticationResponseFilterSensitiveLog)
-  .ser(se_DescribeWorkspaceAuthenticationCommand)
-  .de(de_DescribeWorkspaceAuthenticationCommand)
+  .sc(DescribeWorkspaceAuthentication)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

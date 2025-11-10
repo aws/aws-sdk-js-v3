@@ -1,18 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { BedrockClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BedrockClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  BatchDeleteEvaluationJobRequest,
-  BatchDeleteEvaluationJobRequestFilterSensitiveLog,
-  BatchDeleteEvaluationJobResponse,
-  BatchDeleteEvaluationJobResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { de_BatchDeleteEvaluationJobCommand, se_BatchDeleteEvaluationJobCommand } from "../protocols/Aws_restJson1";
+import { BatchDeleteEvaluationJobRequest, BatchDeleteEvaluationJobResponse } from "../models/models_0";
+import { BatchDeleteEvaluationJob } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -137,16 +131,11 @@ export class BatchDeleteEvaluationJobCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: BedrockClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonBedrockControlPlaneService", "BatchDeleteEvaluationJob", {})
   .n("BedrockClient", "BatchDeleteEvaluationJobCommand")
-  .f(BatchDeleteEvaluationJobRequestFilterSensitiveLog, BatchDeleteEvaluationJobResponseFilterSensitiveLog)
-  .ser(se_BatchDeleteEvaluationJobCommand)
-  .de(de_BatchDeleteEvaluationJobCommand)
+  .sc(BatchDeleteEvaluationJob)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

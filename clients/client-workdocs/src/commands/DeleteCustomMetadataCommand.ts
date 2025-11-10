@@ -1,16 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  DeleteCustomMetadataRequest,
-  DeleteCustomMetadataRequestFilterSensitiveLog,
-  DeleteCustomMetadataResponse,
-} from "../models/models_0";
-import { de_DeleteCustomMetadataCommand, se_DeleteCustomMetadataCommand } from "../protocols/Aws_restJson1";
+import { DeleteCustomMetadataRequest, DeleteCustomMetadataResponse } from "../models/models_0";
+import { DeleteCustomMetadata } from "../schemas/schemas_0";
 import { ServiceInputTypes, ServiceOutputTypes, WorkDocsClientResolvedConfig } from "../WorkDocsClient";
 
 /**
@@ -98,16 +93,11 @@ export class DeleteCustomMetadataCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WorkDocsClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSGorillaBoyService", "DeleteCustomMetadata", {})
   .n("WorkDocsClient", "DeleteCustomMetadataCommand")
-  .f(DeleteCustomMetadataRequestFilterSensitiveLog, void 0)
-  .ser(se_DeleteCustomMetadataCommand)
-  .de(de_DeleteCustomMetadataCommand)
+  .sc(DeleteCustomMetadata)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

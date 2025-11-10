@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { IvsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IvsClient";
-import { GetChannelRequest, GetChannelResponse, GetChannelResponseFilterSensitiveLog } from "../models/models_0";
-import { de_GetChannelCommand, se_GetChannelCommand } from "../protocols/Aws_restJson1";
+import { GetChannelRequest, GetChannelResponse } from "../models/models_0";
+import { GetChannel } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -104,16 +103,11 @@ export class GetChannelCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IvsClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonInteractiveVideoService", "GetChannel", {})
   .n("IvsClient", "GetChannelCommand")
-  .f(void 0, GetChannelResponseFilterSensitiveLog)
-  .ser(se_GetChannelCommand)
-  .de(de_GetChannelCommand)
+  .sc(GetChannel)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

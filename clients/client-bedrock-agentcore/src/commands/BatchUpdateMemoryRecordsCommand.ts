@@ -1,17 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { BedrockAgentCoreClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BedrockAgentCoreClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  BatchUpdateMemoryRecordsInput,
-  BatchUpdateMemoryRecordsInputFilterSensitiveLog,
-  BatchUpdateMemoryRecordsOutput,
-} from "../models/models_0";
-import { de_BatchUpdateMemoryRecordsCommand, se_BatchUpdateMemoryRecordsCommand } from "../protocols/Aws_restJson1";
+import { BatchUpdateMemoryRecordsInput, BatchUpdateMemoryRecordsOutput } from "../models/models_0";
+import { BatchUpdateMemoryRecords } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -122,16 +117,11 @@ export class BatchUpdateMemoryRecordsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: BedrockAgentCoreClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonBedrockAgentCore", "BatchUpdateMemoryRecords", {})
   .n("BedrockAgentCoreClient", "BatchUpdateMemoryRecordsCommand")
-  .f(BatchUpdateMemoryRecordsInputFilterSensitiveLog, void 0)
-  .ser(se_BatchUpdateMemoryRecordsCommand)
-  .de(de_BatchUpdateMemoryRecordsCommand)
+  .sc(BatchUpdateMemoryRecords)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

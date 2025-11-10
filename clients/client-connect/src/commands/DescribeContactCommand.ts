@@ -1,14 +1,13 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DescribeContactRequest } from "../models/models_1";
-import { DescribeContactResponse, DescribeContactResponseFilterSensitiveLog } from "../models/models_3";
-import { de_DescribeContactCommand, se_DescribeContactCommand } from "../protocols/Aws_restJson1";
+import { DescribeContactResponse } from "../models/models_3";
+import { DescribeContact } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -471,16 +470,11 @@ export class DescribeContactCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonConnectService", "DescribeContact", {})
   .n("ConnectClient", "DescribeContactCommand")
-  .f(void 0, DescribeContactResponseFilterSensitiveLog)
-  .ser(se_DescribeContactCommand)
-  .de(de_DescribeContactCommand)
+  .sc(DescribeContact)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

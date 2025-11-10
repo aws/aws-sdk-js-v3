@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { IoTSiteWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTSiteWiseClient";
 import { DeletePortalRequest, DeletePortalResponse } from "../models/models_0";
-import { de_DeletePortalCommand, se_DeletePortalCommand } from "../protocols/Aws_restJson1";
+import { DeletePortal } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -97,16 +96,11 @@ export class DeletePortalCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTSiteWiseClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSIoTSiteWise", "DeletePortal", {})
   .n("IoTSiteWiseClient", "DeletePortalCommand")
-  .f(void 0, void 0)
-  .ser(se_DeletePortalCommand)
-  .de(de_DeletePortalCommand)
+  .sc(DeletePortal)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

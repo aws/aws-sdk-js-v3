@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -10,10 +9,7 @@ import {
   CreatePersistentContactAssociationRequest,
   CreatePersistentContactAssociationResponse,
 } from "../models/models_0";
-import {
-  de_CreatePersistentContactAssociationCommand,
-  se_CreatePersistentContactAssociationCommand,
-} from "../protocols/Aws_restJson1";
+import { CreatePersistentContactAssociation } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -102,16 +98,11 @@ export class CreatePersistentContactAssociationCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonConnectService", "CreatePersistentContactAssociation", {})
   .n("ConnectClient", "CreatePersistentContactAssociationCommand")
-  .f(void 0, void 0)
-  .ser(se_CreatePersistentContactAssociationCommand)
-  .de(de_CreatePersistentContactAssociationCommand)
+  .sc(CreatePersistentContactAssociation)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

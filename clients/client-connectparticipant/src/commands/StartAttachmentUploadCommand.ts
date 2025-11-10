@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -11,7 +10,7 @@ import {
 } from "../ConnectParticipantClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { StartAttachmentUploadRequest, StartAttachmentUploadResponse } from "../models/models_0";
-import { de_StartAttachmentUploadCommand, se_StartAttachmentUploadCommand } from "../protocols/Aws_restJson1";
+import { StartAttachmentUpload } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -109,16 +108,11 @@ export class StartAttachmentUploadCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ConnectParticipantClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonConnectParticipantServiceLambda", "StartAttachmentUpload", {})
   .n("ConnectParticipantClient", "StartAttachmentUploadCommand")
-  .f(void 0, void 0)
-  .ser(se_StartAttachmentUploadCommand)
-  .de(de_StartAttachmentUploadCommand)
+  .sc(StartAttachmentUpload)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,22 +1,16 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  SearchRasterDataCollectionInput,
-  SearchRasterDataCollectionInputFilterSensitiveLog,
-  SearchRasterDataCollectionOutput,
-  SearchRasterDataCollectionOutputFilterSensitiveLog,
-} from "../models/models_0";
-import { de_SearchRasterDataCollectionCommand, se_SearchRasterDataCollectionCommand } from "../protocols/Aws_restJson1";
+import { SearchRasterDataCollectionInput, SearchRasterDataCollectionOutput } from "../models/models_0";
 import {
   SageMakerGeospatialClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../SageMakerGeospatialClient";
+import { SearchRasterDataCollection } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -191,16 +185,11 @@ export class SearchRasterDataCollectionCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SageMakerGeospatialClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("SageMakerGeospatial", "SearchRasterDataCollection", {})
   .n("SageMakerGeospatialClient", "SearchRasterDataCollectionCommand")
-  .f(SearchRasterDataCollectionInputFilterSensitiveLog, SearchRasterDataCollectionOutputFilterSensitiveLog)
-  .ser(se_SearchRasterDataCollectionCommand)
-  .de(de_SearchRasterDataCollectionCommand)
+  .sc(SearchRasterDataCollection)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

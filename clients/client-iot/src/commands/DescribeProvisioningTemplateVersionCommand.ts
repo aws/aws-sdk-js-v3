@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -10,10 +9,7 @@ import {
   DescribeProvisioningTemplateVersionRequest,
   DescribeProvisioningTemplateVersionResponse,
 } from "../models/models_1";
-import {
-  de_DescribeProvisioningTemplateVersionCommand,
-  se_DescribeProvisioningTemplateVersionCommand,
-} from "../protocols/Aws_restJson1";
+import { DescribeProvisioningTemplateVersion } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -98,16 +94,11 @@ export class DescribeProvisioningTemplateVersionCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSIotService", "DescribeProvisioningTemplateVersion", {})
   .n("IoTClient", "DescribeProvisioningTemplateVersionCommand")
-  .f(void 0, void 0)
-  .ser(se_DescribeProvisioningTemplateVersionCommand)
-  .de(de_DescribeProvisioningTemplateVersionCommand)
+  .sc(DescribeProvisioningTemplateVersion)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

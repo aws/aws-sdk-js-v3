@@ -1,21 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ChimeSDKIdentityClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeSDKIdentityClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  ListAppInstanceUserEndpointsRequest,
-  ListAppInstanceUserEndpointsRequestFilterSensitiveLog,
-  ListAppInstanceUserEndpointsResponse,
-  ListAppInstanceUserEndpointsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  de_ListAppInstanceUserEndpointsCommand,
-  se_ListAppInstanceUserEndpointsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListAppInstanceUserEndpointsRequest, ListAppInstanceUserEndpointsResponse } from "../models/models_0";
+import { ListAppInstanceUserEndpoints } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -113,16 +104,11 @@ export class ListAppInstanceUserEndpointsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ChimeSDKIdentityClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("ChimeIdentityService", "ListAppInstanceUserEndpoints", {})
   .n("ChimeSDKIdentityClient", "ListAppInstanceUserEndpointsCommand")
-  .f(ListAppInstanceUserEndpointsRequestFilterSensitiveLog, ListAppInstanceUserEndpointsResponseFilterSensitiveLog)
-  .ser(se_ListAppInstanceUserEndpointsCommand)
-  .de(de_ListAppInstanceUserEndpointsCommand)
+  .sc(ListAppInstanceUserEndpoints)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

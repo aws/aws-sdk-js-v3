@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -10,10 +9,7 @@ import {
   ListEnvironmentBlueprintConfigurationsInput,
   ListEnvironmentBlueprintConfigurationsOutput,
 } from "../models/models_1";
-import {
-  de_ListEnvironmentBlueprintConfigurationsCommand,
-  se_ListEnvironmentBlueprintConfigurationsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListEnvironmentBlueprintConfigurations } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -128,16 +124,11 @@ export class ListEnvironmentBlueprintConfigurationsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DataZoneClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("DataZone", "ListEnvironmentBlueprintConfigurations", {})
   .n("DataZoneClient", "ListEnvironmentBlueprintConfigurationsCommand")
-  .f(void 0, void 0)
-  .ser(se_ListEnvironmentBlueprintConfigurationsCommand)
-  .de(de_ListEnvironmentBlueprintConfigurationsCommand)
+  .sc(ListEnvironmentBlueprintConfigurations)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

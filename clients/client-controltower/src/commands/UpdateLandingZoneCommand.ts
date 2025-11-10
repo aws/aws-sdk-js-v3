@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ControlTowerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ControlTowerClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { UpdateLandingZoneInput, UpdateLandingZoneOutput } from "../models/models_0";
-import { de_UpdateLandingZoneCommand, se_UpdateLandingZoneCommand } from "../protocols/Aws_restJson1";
+import { UpdateLandingZone } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -93,16 +92,11 @@ export class UpdateLandingZoneCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ControlTowerClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSControlTowerApis", "UpdateLandingZone", {})
   .n("ControlTowerClient", "UpdateLandingZoneCommand")
-  .f(void 0, void 0)
-  .ser(se_UpdateLandingZoneCommand)
-  .de(de_UpdateLandingZoneCommand)
+  .sc(UpdateLandingZone)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

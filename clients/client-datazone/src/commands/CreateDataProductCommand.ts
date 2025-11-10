@@ -1,18 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DataZoneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataZoneClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  CreateDataProductInput,
-  CreateDataProductInputFilterSensitiveLog,
-  CreateDataProductOutput,
-  CreateDataProductOutputFilterSensitiveLog,
-} from "../models/models_0";
-import { de_CreateDataProductCommand, se_CreateDataProductCommand } from "../protocols/Aws_restJson1";
+import { CreateDataProductInput, CreateDataProductOutput } from "../models/models_0";
+import { CreateDataProduct } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -155,16 +149,11 @@ export class CreateDataProductCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DataZoneClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("DataZone", "CreateDataProduct", {})
   .n("DataZoneClient", "CreateDataProductCommand")
-  .f(CreateDataProductInputFilterSensitiveLog, CreateDataProductOutputFilterSensitiveLog)
-  .ser(se_CreateDataProductCommand)
-  .de(de_CreateDataProductCommand)
+  .sc(CreateDataProduct)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

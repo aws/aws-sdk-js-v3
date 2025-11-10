@@ -1,12 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { PutAuthPolicyRequest, PutAuthPolicyResponse } from "../models/models_0";
-import { de_PutAuthPolicyCommand, se_PutAuthPolicyCommand } from "../protocols/Aws_restJson1";
+import { PutAuthPolicy } from "../schemas/schemas_0";
 import { ServiceInputTypes, ServiceOutputTypes, VPCLatticeClientResolvedConfig } from "../VPCLatticeClient";
 
 /**
@@ -87,16 +86,11 @@ export class PutAuthPolicyCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: VPCLatticeClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("MercuryControlPlane", "PutAuthPolicy", {})
   .n("VPCLatticeClient", "PutAuthPolicyCommand")
-  .f(void 0, void 0)
-  .ser(se_PutAuthPolicyCommand)
-  .de(de_PutAuthPolicyCommand)
+  .sc(PutAuthPolicy)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

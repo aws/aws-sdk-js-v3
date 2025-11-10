@@ -1,12 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { CreateSamplingRuleRequest, CreateSamplingRuleResult } from "../models/models_0";
-import { de_CreateSamplingRuleCommand, se_CreateSamplingRuleCommand } from "../protocols/Aws_restJson1";
+import { CreateSamplingRule } from "../schemas/schemas_0";
 import { ServiceInputTypes, ServiceOutputTypes, XRayClientResolvedConfig } from "../XRayClient";
 
 /**
@@ -135,16 +134,11 @@ export class CreateSamplingRuleCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: XRayClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSXRay", "CreateSamplingRule", {})
   .n("XRayClient", "CreateSamplingRuleCommand")
-  .f(void 0, void 0)
-  .ser(se_CreateSamplingRuleCommand)
-  .de(de_CreateSamplingRuleCommand)
+  .sc(CreateSamplingRule)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

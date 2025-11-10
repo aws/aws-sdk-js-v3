@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -8,14 +7,9 @@ import { ChimeSDKVoiceClientResolvedConfig, ServiceInputTypes, ServiceOutputType
 import { commonParams } from "../endpoint/EndpointParameters";
 import {
   DisassociatePhoneNumbersFromVoiceConnectorGroupRequest,
-  DisassociatePhoneNumbersFromVoiceConnectorGroupRequestFilterSensitiveLog,
   DisassociatePhoneNumbersFromVoiceConnectorGroupResponse,
-  DisassociatePhoneNumbersFromVoiceConnectorGroupResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  de_DisassociatePhoneNumbersFromVoiceConnectorGroupCommand,
-  se_DisassociatePhoneNumbersFromVoiceConnectorGroupCommand,
-} from "../protocols/Aws_restJson1";
+import { DisassociatePhoneNumbersFromVoiceConnectorGroup } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -112,19 +106,11 @@ export class DisassociatePhoneNumbersFromVoiceConnectorGroupCommand extends $Com
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ChimeSDKVoiceClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("ChimeSDKTelephonyService", "DisassociatePhoneNumbersFromVoiceConnectorGroup", {})
   .n("ChimeSDKVoiceClient", "DisassociatePhoneNumbersFromVoiceConnectorGroupCommand")
-  .f(
-    DisassociatePhoneNumbersFromVoiceConnectorGroupRequestFilterSensitiveLog,
-    DisassociatePhoneNumbersFromVoiceConnectorGroupResponseFilterSensitiveLog
-  )
-  .ser(se_DisassociatePhoneNumbersFromVoiceConnectorGroupCommand)
-  .de(de_DisassociatePhoneNumbersFromVoiceConnectorGroupCommand)
+  .sc(DisassociatePhoneNumbersFromVoiceConnectorGroup)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

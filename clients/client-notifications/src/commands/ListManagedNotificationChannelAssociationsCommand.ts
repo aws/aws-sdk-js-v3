@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -10,10 +9,7 @@ import {
   ListManagedNotificationChannelAssociationsResponse,
 } from "../models/models_0";
 import { NotificationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NotificationsClient";
-import {
-  de_ListManagedNotificationChannelAssociationsCommand,
-  se_ListManagedNotificationChannelAssociationsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListManagedNotificationChannelAssociations } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -103,16 +99,11 @@ export class ListManagedNotificationChannelAssociationsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: NotificationsClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("Notifications", "ListManagedNotificationChannelAssociations", {})
   .n("NotificationsClient", "ListManagedNotificationChannelAssociationsCommand")
-  .f(void 0, void 0)
-  .ser(se_ListManagedNotificationChannelAssociationsCommand)
-  .de(de_ListManagedNotificationChannelAssociationsCommand)
+  .sc(ListManagedNotificationChannelAssociations)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

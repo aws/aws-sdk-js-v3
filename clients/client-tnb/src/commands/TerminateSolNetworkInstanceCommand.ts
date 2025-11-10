@@ -1,20 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  TerminateSolNetworkInstanceInput,
-  TerminateSolNetworkInstanceInputFilterSensitiveLog,
-  TerminateSolNetworkInstanceOutput,
-  TerminateSolNetworkInstanceOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  de_TerminateSolNetworkInstanceCommand,
-  se_TerminateSolNetworkInstanceCommand,
-} from "../protocols/Aws_restJson1";
+import { TerminateSolNetworkInstanceInput, TerminateSolNetworkInstanceOutput } from "../models/models_0";
+import { TerminateSolNetworkInstance } from "../schemas/schemas_0";
 import { ServiceInputTypes, ServiceOutputTypes, TnbClientResolvedConfig } from "../TnbClient";
 
 /**
@@ -126,16 +117,11 @@ export class TerminateSolNetworkInstanceCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: TnbClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("TNB", "TerminateSolNetworkInstance", {})
   .n("TnbClient", "TerminateSolNetworkInstanceCommand")
-  .f(TerminateSolNetworkInstanceInputFilterSensitiveLog, TerminateSolNetworkInstanceOutputFilterSensitiveLog)
-  .ser(se_TerminateSolNetworkInstanceCommand)
-  .de(de_TerminateSolNetworkInstanceCommand)
+  .sc(TerminateSolNetworkInstance)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

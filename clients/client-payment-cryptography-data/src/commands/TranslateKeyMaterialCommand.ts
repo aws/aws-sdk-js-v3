@@ -1,22 +1,16 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  TranslateKeyMaterialInput,
-  TranslateKeyMaterialInputFilterSensitiveLog,
-  TranslateKeyMaterialOutput,
-  TranslateKeyMaterialOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { TranslateKeyMaterialInput, TranslateKeyMaterialOutput } from "../models/models_0";
 import {
   PaymentCryptographyDataClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../PaymentCryptographyDataClient";
-import { de_TranslateKeyMaterialCommand, se_TranslateKeyMaterialCommand } from "../protocols/Aws_restJson1";
+import { TranslateKeyMaterial } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -117,16 +111,11 @@ export class TranslateKeyMaterialCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: PaymentCryptographyDataClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("PaymentCryptographyDataPlane", "TranslateKeyMaterial", {})
   .n("PaymentCryptographyDataClient", "TranslateKeyMaterialCommand")
-  .f(TranslateKeyMaterialInputFilterSensitiveLog, TranslateKeyMaterialOutputFilterSensitiveLog)
-  .ser(se_TranslateKeyMaterialCommand)
-  .de(de_TranslateKeyMaterialCommand)
+  .sc(TranslateKeyMaterial)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

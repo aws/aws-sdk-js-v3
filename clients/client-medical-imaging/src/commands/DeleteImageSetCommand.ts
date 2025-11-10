@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { MedicalImagingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MedicalImagingClient";
 import { DeleteImageSetRequest, DeleteImageSetResponse } from "../models/models_0";
-import { de_DeleteImageSetCommand, se_DeleteImageSetCommand } from "../protocols/Aws_restJson1";
+import { DeleteImageSet } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -92,16 +91,11 @@ export class DeleteImageSetCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MedicalImagingClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AHIGatewayService", "DeleteImageSet", {})
   .n("MedicalImagingClient", "DeleteImageSetCommand")
-  .f(void 0, void 0)
-  .ser(se_DeleteImageSetCommand)
-  .de(de_DeleteImageSetCommand)
+  .sc(DeleteImageSet)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

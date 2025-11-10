@@ -1,12 +1,11 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@smithy/smithy-client";
+import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
 import {
   AccountCustomization,
   AccountInfo,
   AccountSettings,
   ActionConnector,
-  ActionConnectorFilterSensitiveLog,
   AmazonQInQuickSightConsoleConfigurations,
   AmazonQInQuickSightDashboardConfigurations,
   Analysis,
@@ -37,7 +36,6 @@ import {
   AssetBundleImportJobStatus,
   AssetBundleImportJobWarning,
   AssetBundleImportSourceDescription,
-  AssetBundleImportSourceDescriptionFilterSensitiveLog,
   AssignmentStatus,
   DashboardVisualId,
   DataSetRefreshProperties,
@@ -53,7 +51,6 @@ import {
 
 import {
   _Parameters,
-  _ParametersFilterSensitiveLog,
   BookmarksConfigurations,
   BrandDefinition,
   BrandDetail,
@@ -64,7 +61,6 @@ import {
   ColumnLevelPermissionRule,
   ConstantType,
   CustomInstructions,
-  CustomInstructionsFilterSensitiveLog,
   DashboardPublishOptions,
   DashboardVersionDefinition,
   DataAggregation,
@@ -84,31 +80,24 @@ import {
   IngestionStatus,
   LinkSharingConfiguration,
   LogicalTable,
-  LogicalTableFilterSensitiveLog,
   MemberType,
   NamespaceStatus,
   PerformanceConfiguration,
   PhysicalTable,
-  PhysicalTableFilterSensitiveLog,
   RefreshSchedule,
   ResourcePermission,
   Role,
   RowLevelPermissionDataSet,
   RowLevelPermissionTagConfiguration,
-  RowLevelPermissionTagConfigurationFilterSensitiveLog,
   SemanticModelConfiguration,
-  SemanticModelConfigurationFilterSensitiveLog,
   SharingModel,
   TemplateAlias,
   TemplateVersionDefinition,
   ThemeAlias,
   ThemeConfiguration,
   TopicCalculatedField,
-  TopicCalculatedFieldFilterSensitiveLog,
   TopicCategoryFilter,
-  TopicCategoryFilterFilterSensitiveLog,
   TopicColumn,
-  TopicColumnFilterSensitiveLog,
   TopicConfigOptions,
 } from "./models_3";
 
@@ -8878,327 +8867,3 @@ export interface RegisteredUserConsoleFeatureConfigurations {
    */
   ThresholdAlerts?: ThresholdAlertsConfigurations | undefined;
 }
-
-/**
- * @internal
- */
-export const TopicRangeFilterConstantFilterSensitiveLog = (obj: TopicRangeFilterConstant): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TopicDateRangeFilterFilterSensitiveLog = (obj: TopicDateRangeFilter): any => ({
-  ...obj,
-  ...(obj.Constant && { Constant: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const TopicSingularFilterConstantFilterSensitiveLog = (obj: TopicSingularFilterConstant): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TopicNullFilterFilterSensitiveLog = (obj: TopicNullFilter): any => ({
-  ...obj,
-  ...(obj.Constant && { Constant: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const TopicNumericEqualityFilterFilterSensitiveLog = (obj: TopicNumericEqualityFilter): any => ({
-  ...obj,
-  ...(obj.Constant && { Constant: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const TopicNumericRangeFilterFilterSensitiveLog = (obj: TopicNumericRangeFilter): any => ({
-  ...obj,
-  ...(obj.Constant && { Constant: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const TopicRelativeDateFilterFilterSensitiveLog = (obj: TopicRelativeDateFilter): any => ({
-  ...obj,
-  ...(obj.Constant && { Constant: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const TopicFilterFilterSensitiveLog = (obj: TopicFilter): any => ({
-  ...obj,
-  ...(obj.CategoryFilter && { CategoryFilter: TopicCategoryFilterFilterSensitiveLog(obj.CategoryFilter) }),
-  ...(obj.NumericEqualityFilter && {
-    NumericEqualityFilter: TopicNumericEqualityFilterFilterSensitiveLog(obj.NumericEqualityFilter),
-  }),
-  ...(obj.NumericRangeFilter && {
-    NumericRangeFilter: TopicNumericRangeFilterFilterSensitiveLog(obj.NumericRangeFilter),
-  }),
-  ...(obj.DateRangeFilter && { DateRangeFilter: TopicDateRangeFilterFilterSensitiveLog(obj.DateRangeFilter) }),
-  ...(obj.RelativeDateFilter && {
-    RelativeDateFilter: TopicRelativeDateFilterFilterSensitiveLog(obj.RelativeDateFilter),
-  }),
-  ...(obj.NullFilter && { NullFilter: TopicNullFilterFilterSensitiveLog(obj.NullFilter) }),
-});
-
-/**
- * @internal
- */
-export const DatasetMetadataFilterSensitiveLog = (obj: DatasetMetadata): any => ({
-  ...obj,
-  ...(obj.Filters && { Filters: obj.Filters.map((item) => TopicFilterFilterSensitiveLog(item)) }),
-  ...(obj.Columns && { Columns: obj.Columns.map((item) => TopicColumnFilterSensitiveLog(item)) }),
-  ...(obj.CalculatedFields && {
-    CalculatedFields: obj.CalculatedFields.map((item) => TopicCalculatedFieldFilterSensitiveLog(item)),
-  }),
-});
-
-/**
- * @internal
- */
-export const TopicDetailsFilterSensitiveLog = (obj: TopicDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateTopicRequestFilterSensitiveLog = (obj: CreateTopicRequest): any => ({
-  ...obj,
-  ...(obj.CustomInstructions && { CustomInstructions: CustomInstructionsFilterSensitiveLog(obj.CustomInstructions) }),
-});
-
-/**
- * @internal
- */
-export const DashboardVersionFilterSensitiveLog = (obj: DashboardVersion): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DashboardFilterSensitiveLog = (obj: Dashboard): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const OutputColumnFilterSensitiveLog = (obj: OutputColumn): any => ({
-  ...obj,
-  ...(obj.Description && { Description: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const DataSetFilterSensitiveLog = (obj: DataSet): any => ({
-  ...obj,
-  ...(obj.PhysicalTableMap && {
-    PhysicalTableMap: Object.entries(obj.PhysicalTableMap).reduce(
-      (acc: any, [key, value]: [string, PhysicalTable]) => ((acc[key] = PhysicalTableFilterSensitiveLog(value)), acc),
-      {}
-    ),
-  }),
-  ...(obj.LogicalTableMap && {
-    LogicalTableMap: Object.entries(obj.LogicalTableMap).reduce(
-      (acc: any, [key, value]: [string, LogicalTable]) => ((acc[key] = LogicalTableFilterSensitiveLog(value)), acc),
-      {}
-    ),
-  }),
-  ...(obj.OutputColumns && { OutputColumns: obj.OutputColumns.map((item) => OutputColumnFilterSensitiveLog(item)) }),
-  ...(obj.RowLevelPermissionTagConfiguration && {
-    RowLevelPermissionTagConfiguration: RowLevelPermissionTagConfigurationFilterSensitiveLog(
-      obj.RowLevelPermissionTagConfiguration
-    ),
-  }),
-  ...(obj.SemanticModelConfiguration && {
-    SemanticModelConfiguration: SemanticModelConfigurationFilterSensitiveLog(obj.SemanticModelConfiguration),
-  }),
-});
-
-/**
- * @internal
- */
-export const DescribeActionConnectorResponseFilterSensitiveLog = (obj: DescribeActionConnectorResponse): any => ({
-  ...obj,
-  ...(obj.ActionConnector && { ActionConnector: ActionConnectorFilterSensitiveLog(obj.ActionConnector) }),
-});
-
-/**
- * @internal
- */
-export const DescribeAnalysisResponseFilterSensitiveLog = (obj: DescribeAnalysisResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeAnalysisDefinitionResponseFilterSensitiveLog = (obj: DescribeAnalysisDefinitionResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeAssetBundleExportJobResponseFilterSensitiveLog = (
-  obj: DescribeAssetBundleExportJobResponse
-): any => ({
-  ...obj,
-  ...(obj.DownloadUrl && { DownloadUrl: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const DescribeAssetBundleImportJobResponseFilterSensitiveLog = (
-  obj: DescribeAssetBundleImportJobResponse
-): any => ({
-  ...obj,
-  ...(obj.AssetBundleImportSource && {
-    AssetBundleImportSource: AssetBundleImportSourceDescriptionFilterSensitiveLog(obj.AssetBundleImportSource),
-  }),
-});
-
-/**
- * @internal
- */
-export const DescribeDashboardResponseFilterSensitiveLog = (obj: DescribeDashboardResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeDashboardDefinitionResponseFilterSensitiveLog = (
-  obj: DescribeDashboardDefinitionResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SnapshotConfigurationFilterSensitiveLog = (obj: SnapshotConfiguration): any => ({
-  ...obj,
-  ...(obj.Parameters && { Parameters: _ParametersFilterSensitiveLog(obj.Parameters) }),
-});
-
-/**
- * @internal
- */
-export const DescribeDashboardSnapshotJobResponseFilterSensitiveLog = (
-  obj: DescribeDashboardSnapshotJobResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SnapshotJobResultFilterSensitiveLog = (obj: SnapshotJobResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeDashboardSnapshotJobResultResponseFilterSensitiveLog = (
-  obj: DescribeDashboardSnapshotJobResultResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeDataSetResponseFilterSensitiveLog = (obj: DescribeDataSetResponse): any => ({
-  ...obj,
-  ...(obj.DataSet && { DataSet: DataSetFilterSensitiveLog(obj.DataSet) }),
-});
-
-/**
- * @internal
- */
-export const TemplateVersionFilterSensitiveLog = (obj: TemplateVersion): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TemplateFilterSensitiveLog = (obj: Template): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeTemplateResponseFilterSensitiveLog = (obj: DescribeTemplateResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeTemplateDefinitionResponseFilterSensitiveLog = (obj: DescribeTemplateDefinitionResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeTopicResponseFilterSensitiveLog = (obj: DescribeTopicResponse): any => ({
-  ...obj,
-  ...(obj.CustomInstructions && { CustomInstructions: CustomInstructionsFilterSensitiveLog(obj.CustomInstructions) }),
-});
-
-/**
- * @internal
- */
-export const GeneratedAnswerResultFilterSensitiveLog = (obj: GeneratedAnswerResult): any => ({
-  ...obj,
-  ...(obj.QuestionText && { QuestionText: SENSITIVE_STRING }),
-  ...(obj.Restatement && { Restatement: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const SessionTagFilterSensitiveLog = (obj: SessionTag): any => ({
-  ...obj,
-  ...(obj.Value && { Value: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const GenerateEmbedUrlForAnonymousUserRequestFilterSensitiveLog = (
-  obj: GenerateEmbedUrlForAnonymousUserRequest
-): any => ({
-  ...obj,
-  ...(obj.SessionTags && { SessionTags: obj.SessionTags.map((item) => SessionTagFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const GenerateEmbedUrlForAnonymousUserResponseFilterSensitiveLog = (
-  obj: GenerateEmbedUrlForAnonymousUserResponse
-): any => ({
-  ...obj,
-  ...(obj.EmbedUrl && { EmbedUrl: SENSITIVE_STRING }),
-});

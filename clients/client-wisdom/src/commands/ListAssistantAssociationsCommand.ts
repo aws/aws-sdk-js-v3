@@ -1,12 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { ListAssistantAssociationsRequest, ListAssistantAssociationsResponse } from "../models/models_0";
-import { de_ListAssistantAssociationsCommand, se_ListAssistantAssociationsCommand } from "../protocols/Aws_restJson1";
+import { ListAssistantAssociations } from "../schemas/schemas_0";
 import { ServiceInputTypes, ServiceOutputTypes, WisdomClientResolvedConfig } from "../WisdomClient";
 
 /**
@@ -99,16 +98,11 @@ export class ListAssistantAssociationsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WisdomClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("WisdomService", "ListAssistantAssociations", {})
   .n("WisdomClient", "ListAssistantAssociationsCommand")
-  .f(void 0, void 0)
-  .ser(se_ListAssistantAssociationsCommand)
-  .de(de_ListAssistantAssociationsCommand)
+  .sc(ListAssistantAssociations)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

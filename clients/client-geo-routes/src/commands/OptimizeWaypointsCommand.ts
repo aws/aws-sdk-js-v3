@@ -1,18 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GeoRoutesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GeoRoutesClient";
-import {
-  OptimizeWaypointsRequest,
-  OptimizeWaypointsRequestFilterSensitiveLog,
-  OptimizeWaypointsResponse,
-  OptimizeWaypointsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { de_OptimizeWaypointsCommand, se_OptimizeWaypointsCommand } from "../protocols/Aws_restJson1";
+import { OptimizeWaypointsRequest, OptimizeWaypointsResponse } from "../models/models_0";
+import { OptimizeWaypoints } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -260,16 +254,11 @@ export class OptimizeWaypointsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GeoRoutesClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("RoutesService", "OptimizeWaypoints", {})
   .n("GeoRoutesClient", "OptimizeWaypointsCommand")
-  .f(OptimizeWaypointsRequestFilterSensitiveLog, OptimizeWaypointsResponseFilterSensitiveLog)
-  .ser(se_OptimizeWaypointsCommand)
-  .de(de_OptimizeWaypointsCommand)
+  .sc(OptimizeWaypoints)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

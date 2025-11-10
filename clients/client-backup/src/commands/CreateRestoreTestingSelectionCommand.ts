@@ -1,20 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  CreateRestoreTestingSelectionInput,
-  CreateRestoreTestingSelectionInputFilterSensitiveLog,
-  CreateRestoreTestingSelectionOutput,
-} from "../models/models_0";
-import {
-  de_CreateRestoreTestingSelectionCommand,
-  se_CreateRestoreTestingSelectionCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateRestoreTestingSelectionInput, CreateRestoreTestingSelectionOutput } from "../models/models_0";
+import { CreateRestoreTestingSelection } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -152,16 +144,11 @@ export class CreateRestoreTestingSelectionCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: BackupClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("CryoControllerUserManager", "CreateRestoreTestingSelection", {})
   .n("BackupClient", "CreateRestoreTestingSelectionCommand")
-  .f(CreateRestoreTestingSelectionInputFilterSensitiveLog, void 0)
-  .ser(se_CreateRestoreTestingSelectionCommand)
-  .de(de_CreateRestoreTestingSelectionCommand)
+  .sc(CreateRestoreTestingSelection)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

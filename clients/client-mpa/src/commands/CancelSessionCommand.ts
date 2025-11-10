@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { CancelSessionRequest, CancelSessionResponse } from "../models/models_0";
 import { MPAClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MPAClient";
-import { de_CancelSessionCommand, se_CancelSessionCommand } from "../protocols/Aws_restJson1";
+import { CancelSession } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -86,16 +85,11 @@ export class CancelSessionCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MPAClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSFluffyCoreService", "CancelSession", {})
   .n("MPAClient", "CancelSessionCommand")
-  .f(void 0, void 0)
-  .ser(se_CancelSessionCommand)
-  .de(de_CancelSessionCommand)
+  .sc(CancelSession)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

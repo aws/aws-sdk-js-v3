@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GetTrafficDistributionRequest, GetTrafficDistributionResponse } from "../models/models_1";
-import { de_GetTrafficDistributionCommand, se_GetTrafficDistributionCommand } from "../protocols/Aws_restJson1";
+import { GetTrafficDistribution } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -110,16 +109,11 @@ export class GetTrafficDistributionCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonConnectService", "GetTrafficDistribution", {})
   .n("ConnectClient", "GetTrafficDistributionCommand")
-  .f(void 0, void 0)
-  .ser(se_GetTrafficDistributionCommand)
-  .de(de_GetTrafficDistributionCommand)
+  .sc(GetTrafficDistribution)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

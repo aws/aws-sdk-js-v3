@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@smithy/smithy-client";
+import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
 import { AmplifyUIBuilderServiceException as __BaseException } from "./AmplifyUIBuilderServiceException";
 
@@ -3996,54 +3996,3 @@ export interface ExportComponentsResponse {
    */
   nextToken?: string | undefined;
 }
-
-/**
- * @internal
- */
-export const ExchangeCodeForTokenRequestBodyFilterSensitiveLog = (obj: ExchangeCodeForTokenRequestBody): any => ({
-  ...obj,
-  ...(obj.code && { code: SENSITIVE_STRING }),
-  ...(obj.clientId && { clientId: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const ExchangeCodeForTokenRequestFilterSensitiveLog = (obj: ExchangeCodeForTokenRequest): any => ({
-  ...obj,
-  ...(obj.request && { request: ExchangeCodeForTokenRequestBodyFilterSensitiveLog(obj.request) }),
-});
-
-/**
- * @internal
- */
-export const ExchangeCodeForTokenResponseFilterSensitiveLog = (obj: ExchangeCodeForTokenResponse): any => ({
-  ...obj,
-  ...(obj.accessToken && { accessToken: SENSITIVE_STRING }),
-  ...(obj.refreshToken && { refreshToken: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const RefreshTokenRequestBodyFilterSensitiveLog = (obj: RefreshTokenRequestBody): any => ({
-  ...obj,
-  ...(obj.token && { token: SENSITIVE_STRING }),
-  ...(obj.clientId && { clientId: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const RefreshTokenRequestFilterSensitiveLog = (obj: RefreshTokenRequest): any => ({
-  ...obj,
-  ...(obj.refreshTokenBody && { refreshTokenBody: RefreshTokenRequestBodyFilterSensitiveLog(obj.refreshTokenBody) }),
-});
-
-/**
- * @internal
- */
-export const RefreshTokenResponseFilterSensitiveLog = (obj: RefreshTokenResponse): any => ({
-  ...obj,
-  ...(obj.accessToken && { accessToken: SENSITIVE_STRING }),
-});

@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -9,10 +8,7 @@ import {
   DeleteDataLakeOrganizationConfigurationRequest,
   DeleteDataLakeOrganizationConfigurationResponse,
 } from "../models/models_0";
-import {
-  de_DeleteDataLakeOrganizationConfigurationCommand,
-  se_DeleteDataLakeOrganizationConfigurationCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteDataLakeOrganizationConfiguration } from "../schemas/schemas_0";
 import { SecurityLakeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityLakeClient";
 
 /**
@@ -114,16 +110,11 @@ export class DeleteDataLakeOrganizationConfigurationCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SecurityLakeClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("SecurityLake", "DeleteDataLakeOrganizationConfiguration", {})
   .n("SecurityLakeClient", "DeleteDataLakeOrganizationConfigurationCommand")
-  .f(void 0, void 0)
-  .ser(se_DeleteDataLakeOrganizationConfigurationCommand)
-  .de(de_DeleteDataLakeOrganizationConfigurationCommand)
+  .sc(DeleteDataLakeOrganizationConfiguration)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

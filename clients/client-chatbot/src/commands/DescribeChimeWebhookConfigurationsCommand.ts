@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -9,12 +8,8 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import {
   DescribeChimeWebhookConfigurationsRequest,
   DescribeChimeWebhookConfigurationsResult,
-  DescribeChimeWebhookConfigurationsResultFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  de_DescribeChimeWebhookConfigurationsCommand,
-  se_DescribeChimeWebhookConfigurationsCommand,
-} from "../protocols/Aws_restJson1";
+import { DescribeChimeWebhookConfigurations } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -110,16 +105,11 @@ export class DescribeChimeWebhookConfigurationsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ChatbotClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("WheatleyOrchestration_20171011", "DescribeChimeWebhookConfigurations", {})
   .n("ChatbotClient", "DescribeChimeWebhookConfigurationsCommand")
-  .f(void 0, DescribeChimeWebhookConfigurationsResultFilterSensitiveLog)
-  .ser(se_DescribeChimeWebhookConfigurationsCommand)
-  .de(de_DescribeChimeWebhookConfigurationsCommand)
+  .sc(DescribeChimeWebhookConfigurations)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { MediaConvertClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaConvertClient";
 import { CancelJobRequest, CancelJobResponse } from "../models/models_2";
-import { de_CancelJobCommand, se_CancelJobCommand } from "../protocols/Aws_restJson1";
+import { CancelJob } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -89,16 +88,11 @@ export class CancelJobCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MediaConvertClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("MediaConvert", "CancelJob", {})
   .n("MediaConvertClient", "CancelJobCommand")
-  .f(void 0, void 0)
-  .ser(se_CancelJobCommand)
-  .de(de_CancelJobCommand)
+  .sc(CancelJob)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

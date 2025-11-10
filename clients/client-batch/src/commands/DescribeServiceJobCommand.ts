@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { BatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BatchClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DescribeServiceJobRequest, DescribeServiceJobResponse } from "../models/models_0";
-import { de_DescribeServiceJobCommand, se_DescribeServiceJobCommand } from "../protocols/Aws_restJson1";
+import { DescribeServiceJob } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -123,16 +122,11 @@ export class DescribeServiceJobCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: BatchClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSBatchV20160810", "DescribeServiceJob", {})
   .n("BatchClient", "DescribeServiceJobCommand")
-  .f(void 0, void 0)
-  .ser(se_DescribeServiceJobCommand)
-  .de(de_DescribeServiceJobCommand)
+  .sc(DescribeServiceJob)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { AppFabricClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppFabricClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GetAppAuthorizationRequest, GetAppAuthorizationResponse } from "../models/models_0";
-import { de_GetAppAuthorizationCommand, se_GetAppAuthorizationCommand } from "../protocols/Aws_restJson1";
+import { GetAppAuthorization } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -101,16 +100,11 @@ export class GetAppAuthorizationCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AppFabricClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("FabricFrontEndService", "GetAppAuthorization", {})
   .n("AppFabricClient", "GetAppAuthorizationCommand")
-  .f(void 0, void 0)
-  .ser(se_GetAppAuthorizationCommand)
-  .de(de_GetAppAuthorizationCommand)
+  .sc(GetAppAuthorization)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

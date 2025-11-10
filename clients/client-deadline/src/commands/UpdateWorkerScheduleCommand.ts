@@ -1,18 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DeadlineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeadlineClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  UpdateWorkerScheduleRequest,
-  UpdateWorkerScheduleRequestFilterSensitiveLog,
-  UpdateWorkerScheduleResponse,
-  UpdateWorkerScheduleResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { de_UpdateWorkerScheduleCommand, se_UpdateWorkerScheduleCommand } from "../protocols/Aws_restJson1";
+import { UpdateWorkerScheduleRequest, UpdateWorkerScheduleResponse } from "../models/models_0";
+import { UpdateWorkerSchedule } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -165,16 +159,11 @@ export class UpdateWorkerScheduleCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DeadlineClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("Deadline", "UpdateWorkerSchedule", {})
   .n("DeadlineClient", "UpdateWorkerScheduleCommand")
-  .f(UpdateWorkerScheduleRequestFilterSensitiveLog, UpdateWorkerScheduleResponseFilterSensitiveLog)
-  .ser(se_UpdateWorkerScheduleCommand)
-  .de(de_UpdateWorkerScheduleCommand)
+  .sc(UpdateWorkerSchedule)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

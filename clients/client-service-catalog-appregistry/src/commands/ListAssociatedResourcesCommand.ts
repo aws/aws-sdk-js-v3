@@ -1,12 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { ListAssociatedResourcesRequest, ListAssociatedResourcesResponse } from "../models/models_0";
-import { de_ListAssociatedResourcesCommand, se_ListAssociatedResourcesCommand } from "../protocols/Aws_restJson1";
+import { ListAssociatedResources } from "../schemas/schemas_0";
 import {
   ServiceCatalogAppRegistryClientResolvedConfig,
   ServiceInputTypes,
@@ -118,16 +117,11 @@ export class ListAssociatedResourcesCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ServiceCatalogAppRegistryClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWS242AppRegistry", "ListAssociatedResources", {})
   .n("ServiceCatalogAppRegistryClient", "ListAssociatedResourcesCommand")
-  .f(void 0, void 0)
-  .ser(se_ListAssociatedResourcesCommand)
-  .de(de_ListAssociatedResourcesCommand)
+  .sc(ListAssociatedResources)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

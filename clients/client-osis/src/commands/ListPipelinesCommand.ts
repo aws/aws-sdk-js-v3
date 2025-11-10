@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { ListPipelinesRequest, ListPipelinesResponse } from "../models/models_0";
 import { OSISClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OSISClient";
-import { de_ListPipelinesCommand, se_ListPipelinesCommand } from "../protocols/Aws_restJson1";
+import { ListPipelines } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -115,16 +114,11 @@ export class ListPipelinesCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: OSISClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonOpenSearchIngestionService", "ListPipelines", {})
   .n("OSISClient", "ListPipelinesCommand")
-  .f(void 0, void 0)
-  .ser(se_ListPipelinesCommand)
-  .de(de_ListPipelinesCommand)
+  .sc(ListPipelines)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

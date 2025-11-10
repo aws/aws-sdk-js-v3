@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { BedrockAgentClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BedrockAgentClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { GetPromptRequest, GetPromptResponse, GetPromptResponseFilterSensitiveLog } from "../models/models_1";
-import { de_GetPromptCommand, se_GetPromptCommand } from "../protocols/Aws_restJson1";
+import { GetPromptRequest, GetPromptResponse } from "../models/models_1";
+import { GetPrompt } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -183,16 +182,11 @@ export class GetPromptCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: BedrockAgentClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonBedrockAgentBuildTimeLambda", "GetPrompt", {})
   .n("BedrockAgentClient", "GetPromptCommand")
-  .f(void 0, GetPromptResponseFilterSensitiveLog)
-  .ser(se_GetPromptCommand)
-  .de(de_GetPromptCommand)
+  .sc(GetPrompt)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

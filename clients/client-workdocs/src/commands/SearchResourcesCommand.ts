@@ -1,17 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  SearchResourcesRequest,
-  SearchResourcesRequestFilterSensitiveLog,
-  SearchResourcesResponse,
-  SearchResourcesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { de_SearchResourcesCommand, se_SearchResourcesCommand } from "../protocols/Aws_restJson1";
+import { SearchResourcesRequest, SearchResourcesResponse } from "../models/models_0";
+import { SearchResources } from "../schemas/schemas_0";
 import { ServiceInputTypes, ServiceOutputTypes, WorkDocsClientResolvedConfig } from "../WorkDocsClient";
 
 /**
@@ -243,16 +237,11 @@ export class SearchResourcesCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WorkDocsClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSGorillaBoyService", "SearchResources", {})
   .n("WorkDocsClient", "SearchResourcesCommand")
-  .f(SearchResourcesRequestFilterSensitiveLog, SearchResourcesResponseFilterSensitiveLog)
-  .ser(se_SearchResourcesCommand)
-  .de(de_SearchResourcesCommand)
+  .sc(SearchResources)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

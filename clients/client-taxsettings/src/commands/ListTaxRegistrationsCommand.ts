@@ -1,16 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  ListTaxRegistrationsRequest,
-  ListTaxRegistrationsResponse,
-  ListTaxRegistrationsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { de_ListTaxRegistrationsCommand, se_ListTaxRegistrationsCommand } from "../protocols/Aws_restJson1";
+import { ListTaxRegistrationsRequest, ListTaxRegistrationsResponse } from "../models/models_0";
+import { ListTaxRegistrations } from "../schemas/schemas_0";
 import { ServiceInputTypes, ServiceOutputTypes, TaxSettingsClientResolvedConfig } from "../TaxSettingsClient";
 
 /**
@@ -225,16 +220,11 @@ export class ListTaxRegistrationsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: TaxSettingsClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("TaxSettings", "ListTaxRegistrations", {})
   .n("TaxSettingsClient", "ListTaxRegistrationsCommand")
-  .f(void 0, ListTaxRegistrationsResponseFilterSensitiveLog)
-  .ser(se_ListTaxRegistrationsCommand)
-  .de(de_ListTaxRegistrationsCommand)
+  .sc(ListTaxRegistrations)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

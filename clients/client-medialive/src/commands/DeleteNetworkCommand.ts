@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
 import { DeleteNetworkRequest, DeleteNetworkResponse } from "../models/models_2";
-import { de_DeleteNetworkCommand, se_DeleteNetworkCommand } from "../protocols/Aws_restJson1";
+import { DeleteNetwork } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -111,16 +110,11 @@ export class DeleteNetworkCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MediaLiveClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("MediaLive", "DeleteNetwork", {})
   .n("MediaLiveClient", "DeleteNetworkCommand")
-  .f(void 0, void 0)
-  .ser(se_DeleteNetworkCommand)
-  .de(de_DeleteNetworkCommand)
+  .sc(DeleteNetwork)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

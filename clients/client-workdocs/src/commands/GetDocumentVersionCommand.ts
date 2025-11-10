@@ -1,17 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  GetDocumentVersionRequest,
-  GetDocumentVersionRequestFilterSensitiveLog,
-  GetDocumentVersionResponse,
-  GetDocumentVersionResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { de_GetDocumentVersionCommand, se_GetDocumentVersionCommand } from "../protocols/Aws_restJson1";
+import { GetDocumentVersionRequest, GetDocumentVersionResponse } from "../models/models_0";
+import { GetDocumentVersion } from "../schemas/schemas_0";
 import { ServiceInputTypes, ServiceOutputTypes, WorkDocsClientResolvedConfig } from "../WorkDocsClient";
 
 /**
@@ -123,16 +117,11 @@ export class GetDocumentVersionCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WorkDocsClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSGorillaBoyService", "GetDocumentVersion", {})
   .n("WorkDocsClient", "GetDocumentVersionCommand")
-  .f(GetDocumentVersionRequestFilterSensitiveLog, GetDocumentVersionResponseFilterSensitiveLog)
-  .ser(se_GetDocumentVersionCommand)
-  .de(de_GetDocumentVersionCommand)
+  .sc(GetDocumentVersion)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

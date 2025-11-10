@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@smithy/smithy-client";
+import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
 import { SSOOIDCServiceException as __BaseException } from "./SSOOIDCServiceException";
 
@@ -172,16 +172,6 @@ export interface CreateTokenRequest {
 }
 
 /**
- * @internal
- */
-export const CreateTokenRequestFilterSensitiveLog = (obj: CreateTokenRequest): any => ({
-  ...obj,
-  ...(obj.clientSecret && { clientSecret: SENSITIVE_STRING }),
-  ...(obj.refreshToken && { refreshToken: SENSITIVE_STRING }),
-  ...(obj.codeVerifier && { codeVerifier: SENSITIVE_STRING }),
-});
-
-/**
  * @public
  */
 export interface CreateTokenResponse {
@@ -225,16 +215,6 @@ export interface CreateTokenResponse {
    */
   idToken?: string | undefined;
 }
-
-/**
- * @internal
- */
-export const CreateTokenResponseFilterSensitiveLog = (obj: CreateTokenResponse): any => ({
-  ...obj,
-  ...(obj.accessToken && { accessToken: SENSITIVE_STRING }),
-  ...(obj.refreshToken && { refreshToken: SENSITIVE_STRING }),
-  ...(obj.idToken && { idToken: SENSITIVE_STRING }),
-});
 
 /**
  * <p>Indicates that the token issued by the service is expired and is no longer valid.</p>

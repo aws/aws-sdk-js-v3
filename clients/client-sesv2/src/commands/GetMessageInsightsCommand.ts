@@ -1,16 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  GetMessageInsightsRequest,
-  GetMessageInsightsResponse,
-  GetMessageInsightsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { de_GetMessageInsightsCommand, se_GetMessageInsightsCommand } from "../protocols/Aws_restJson1";
+import { GetMessageInsightsRequest, GetMessageInsightsResponse } from "../models/models_0";
+import { GetMessageInsights } from "../schemas/schemas_0";
 import { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
 /**
@@ -116,16 +111,11 @@ export class GetMessageInsightsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SESv2ClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("SimpleEmailService_v2", "GetMessageInsights", {})
   .n("SESv2Client", "GetMessageInsightsCommand")
-  .f(void 0, GetMessageInsightsResponseFilterSensitiveLog)
-  .ser(se_GetMessageInsightsCommand)
-  .de(de_GetMessageInsightsCommand)
+  .sc(GetMessageInsights)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

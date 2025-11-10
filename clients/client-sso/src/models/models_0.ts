@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@smithy/smithy-client";
+import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
 import { SSOServiceException as __BaseException } from "./SSOServiceException";
 
@@ -299,52 +299,3 @@ export interface LogoutRequest {
    */
   accessToken: string | undefined;
 }
-
-/**
- * @internal
- */
-export const GetRoleCredentialsRequestFilterSensitiveLog = (obj: GetRoleCredentialsRequest): any => ({
-  ...obj,
-  ...(obj.accessToken && { accessToken: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const RoleCredentialsFilterSensitiveLog = (obj: RoleCredentials): any => ({
-  ...obj,
-  ...(obj.secretAccessKey && { secretAccessKey: SENSITIVE_STRING }),
-  ...(obj.sessionToken && { sessionToken: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const GetRoleCredentialsResponseFilterSensitiveLog = (obj: GetRoleCredentialsResponse): any => ({
-  ...obj,
-  ...(obj.roleCredentials && { roleCredentials: RoleCredentialsFilterSensitiveLog(obj.roleCredentials) }),
-});
-
-/**
- * @internal
- */
-export const ListAccountRolesRequestFilterSensitiveLog = (obj: ListAccountRolesRequest): any => ({
-  ...obj,
-  ...(obj.accessToken && { accessToken: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const ListAccountsRequestFilterSensitiveLog = (obj: ListAccountsRequest): any => ({
-  ...obj,
-  ...(obj.accessToken && { accessToken: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const LogoutRequestFilterSensitiveLog = (obj: LogoutRequest): any => ({
-  ...obj,
-  ...(obj.accessToken && { accessToken: SENSITIVE_STRING }),
-});

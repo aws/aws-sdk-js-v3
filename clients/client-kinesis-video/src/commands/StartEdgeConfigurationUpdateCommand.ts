@@ -1,21 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { KinesisVideoClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisVideoClient";
-import {
-  StartEdgeConfigurationUpdateInput,
-  StartEdgeConfigurationUpdateInputFilterSensitiveLog,
-  StartEdgeConfigurationUpdateOutput,
-  StartEdgeConfigurationUpdateOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  de_StartEdgeConfigurationUpdateCommand,
-  se_StartEdgeConfigurationUpdateCommand,
-} from "../protocols/Aws_restJson1";
+import { StartEdgeConfigurationUpdateInput, StartEdgeConfigurationUpdateOutput } from "../models/models_0";
+import { StartEdgeConfigurationUpdate } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -189,16 +180,11 @@ export class StartEdgeConfigurationUpdateCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: KinesisVideoClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("KinesisVideo_20170930", "StartEdgeConfigurationUpdate", {})
   .n("KinesisVideoClient", "StartEdgeConfigurationUpdateCommand")
-  .f(StartEdgeConfigurationUpdateInputFilterSensitiveLog, StartEdgeConfigurationUpdateOutputFilterSensitiveLog)
-  .ser(se_StartEdgeConfigurationUpdateCommand)
-  .de(de_StartEdgeConfigurationUpdateCommand)
+  .sc(StartEdgeConfigurationUpdate)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

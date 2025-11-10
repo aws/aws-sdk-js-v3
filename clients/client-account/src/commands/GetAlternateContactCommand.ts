@@ -1,17 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { AccountClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AccountClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  GetAlternateContactRequest,
-  GetAlternateContactResponse,
-  GetAlternateContactResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { de_GetAlternateContactCommand, se_GetAlternateContactCommand } from "../protocols/Aws_restJson1";
+import { GetAlternateContactRequest, GetAlternateContactResponse } from "../models/models_0";
+import { GetAlternateContact } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -96,16 +91,11 @@ export class GetAlternateContactCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AccountClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("Account", "GetAlternateContact", {})
   .n("AccountClient", "GetAlternateContactCommand")
-  .f(void 0, GetAlternateContactResponseFilterSensitiveLog)
-  .ser(se_GetAlternateContactCommand)
-  .de(de_GetAlternateContactCommand)
+  .sc(GetAlternateContact)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

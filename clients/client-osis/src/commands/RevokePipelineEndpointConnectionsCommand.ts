@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -10,10 +9,7 @@ import {
   RevokePipelineEndpointConnectionsResponse,
 } from "../models/models_0";
 import { OSISClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OSISClient";
-import {
-  de_RevokePipelineEndpointConnectionsCommand,
-  se_RevokePipelineEndpointConnectionsCommand,
-} from "../protocols/Aws_restJson1";
+import { RevokePipelineEndpointConnections } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -97,16 +93,11 @@ export class RevokePipelineEndpointConnectionsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: OSISClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonOpenSearchIngestionService", "RevokePipelineEndpointConnections", {})
   .n("OSISClient", "RevokePipelineEndpointConnectionsCommand")
-  .f(void 0, void 0)
-  .ser(se_RevokePipelineEndpointConnectionsCommand)
-  .de(de_RevokePipelineEndpointConnectionsCommand)
+  .sc(RevokePipelineEndpointConnections)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

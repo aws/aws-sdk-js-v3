@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { BatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BatchClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DeleteConsumableResourceRequest, DeleteConsumableResourceResponse } from "../models/models_0";
-import { de_DeleteConsumableResourceCommand, se_DeleteConsumableResourceCommand } from "../protocols/Aws_restJson1";
+import { DeleteConsumableResource } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -89,16 +88,11 @@ export class DeleteConsumableResourceCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: BatchClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSBatchV20160810", "DeleteConsumableResource", {})
   .n("BatchClient", "DeleteConsumableResourceCommand")
-  .f(void 0, void 0)
-  .ser(se_DeleteConsumableResourceCommand)
-  .de(de_DeleteConsumableResourceCommand)
+  .sc(DeleteConsumableResource)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

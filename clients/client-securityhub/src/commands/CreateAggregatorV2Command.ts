@@ -1,12 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { CreateAggregatorV2Request, CreateAggregatorV2Response } from "../models/models_2";
-import { de_CreateAggregatorV2Command, se_CreateAggregatorV2Command } from "../protocols/Aws_restJson1";
+import { CreateAggregatorV2 } from "../schemas/schemas_0";
 import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
 /**
@@ -104,16 +103,11 @@ export class CreateAggregatorV2Command extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SecurityHubClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("SecurityHubAPIService", "CreateAggregatorV2", {})
   .n("SecurityHubClient", "CreateAggregatorV2Command")
-  .f(void 0, void 0)
-  .ser(se_CreateAggregatorV2Command)
-  .de(de_CreateAggregatorV2Command)
+  .sc(CreateAggregatorV2)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

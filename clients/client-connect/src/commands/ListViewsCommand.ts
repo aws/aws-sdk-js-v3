@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListViewsRequest, ListViewsResponse, ListViewsResponseFilterSensitiveLog } from "../models/models_2";
-import { de_ListViewsCommand, se_ListViewsCommand } from "../protocols/Aws_restJson1";
+import { ListViewsRequest, ListViewsResponse } from "../models/models_2";
+import { ListViews } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -102,16 +101,11 @@ export class ListViewsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonConnectService", "ListViews", {})
   .n("ConnectClient", "ListViewsCommand")
-  .f(void 0, ListViewsResponseFilterSensitiveLog)
-  .ser(se_ListViewsCommand)
-  .de(de_ListViewsCommand)
+  .sc(ListViews)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

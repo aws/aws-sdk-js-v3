@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GetPipelineBlueprintRequest, GetPipelineBlueprintResponse } from "../models/models_0";
 import { OSISClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OSISClient";
-import { de_GetPipelineBlueprintCommand, se_GetPipelineBlueprintCommand } from "../protocols/Aws_restJson1";
+import { GetPipelineBlueprint } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -98,16 +97,11 @@ export class GetPipelineBlueprintCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: OSISClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonOpenSearchIngestionService", "GetPipelineBlueprint", {})
   .n("OSISClient", "GetPipelineBlueprintCommand")
-  .f(void 0, void 0)
-  .ser(se_GetPipelineBlueprintCommand)
-  .de(de_GetPipelineBlueprintCommand)
+  .sc(GetPipelineBlueprint)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

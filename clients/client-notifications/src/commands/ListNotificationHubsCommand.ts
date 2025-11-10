@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { ListNotificationHubsRequest, ListNotificationHubsResponse } from "../models/models_0";
 import { NotificationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NotificationsClient";
-import { de_ListNotificationHubsCommand, se_ListNotificationHubsCommand } from "../protocols/Aws_restJson1";
+import { ListNotificationHubs } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -94,16 +93,11 @@ export class ListNotificationHubsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: NotificationsClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("Notifications", "ListNotificationHubs", {})
   .n("NotificationsClient", "ListNotificationHubsCommand")
-  .f(void 0, void 0)
-  .ser(se_ListNotificationHubsCommand)
-  .de(de_ListNotificationHubsCommand)
+  .sc(ListNotificationHubs)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

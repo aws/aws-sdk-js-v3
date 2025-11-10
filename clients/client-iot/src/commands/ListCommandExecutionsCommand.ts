@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -8,7 +7,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
 import { ListCommandExecutionsRequest } from "../models/models_1";
 import { ListCommandExecutionsResponse } from "../models/models_2";
-import { de_ListCommandExecutionsCommand, se_ListCommandExecutionsCommand } from "../protocols/Aws_restJson1";
+import { ListCommandExecutions } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -129,16 +128,11 @@ export class ListCommandExecutionsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSIotService", "ListCommandExecutions", {})
   .n("IoTClient", "ListCommandExecutionsCommand")
-  .f(void 0, void 0)
-  .ser(se_ListCommandExecutionsCommand)
-  .de(de_ListCommandExecutionsCommand)
+  .sc(ListCommandExecutions)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

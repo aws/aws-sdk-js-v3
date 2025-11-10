@@ -1,12 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { UpdateResourceGatewayRequest, UpdateResourceGatewayResponse } from "../models/models_0";
-import { de_UpdateResourceGatewayCommand, se_UpdateResourceGatewayCommand } from "../protocols/Aws_restJson1";
+import { UpdateResourceGateway } from "../schemas/schemas_0";
 import { ServiceInputTypes, ServiceOutputTypes, VPCLatticeClientResolvedConfig } from "../VPCLatticeClient";
 
 /**
@@ -102,16 +101,11 @@ export class UpdateResourceGatewayCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: VPCLatticeClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("MercuryControlPlane", "UpdateResourceGateway", {})
   .n("VPCLatticeClient", "UpdateResourceGatewayCommand")
-  .f(void 0, void 0)
-  .ser(se_UpdateResourceGatewayCommand)
-  .de(de_UpdateResourceGatewayCommand)
+  .sc(UpdateResourceGateway)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

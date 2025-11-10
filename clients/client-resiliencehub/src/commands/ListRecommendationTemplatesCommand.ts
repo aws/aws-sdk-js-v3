@@ -1,20 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  ListRecommendationTemplatesRequest,
-  ListRecommendationTemplatesResponse,
-  ListRecommendationTemplatesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  de_ListRecommendationTemplatesCommand,
-  se_ListRecommendationTemplatesCommand,
-} from "../protocols/Aws_restJson1";
+import { ListRecommendationTemplatesRequest, ListRecommendationTemplatesResponse } from "../models/models_0";
 import { ResiliencehubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResiliencehubClient";
+import { ListRecommendationTemplates } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -129,16 +121,11 @@ export class ListRecommendationTemplatesCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ResiliencehubClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AwsResilienceHub", "ListRecommendationTemplates", {})
   .n("ResiliencehubClient", "ListRecommendationTemplatesCommand")
-  .f(void 0, ListRecommendationTemplatesResponseFilterSensitiveLog)
-  .ser(se_ListRecommendationTemplatesCommand)
-  .de(de_ListRecommendationTemplatesCommand)
+  .sc(ListRecommendationTemplates)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

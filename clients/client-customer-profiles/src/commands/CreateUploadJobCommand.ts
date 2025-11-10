@@ -1,17 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CustomerProfilesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CustomerProfilesClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  CreateUploadJobRequest,
-  CreateUploadJobRequestFilterSensitiveLog,
-  CreateUploadJobResponse,
-} from "../models/models_0";
-import { de_CreateUploadJobCommand, se_CreateUploadJobCommand } from "../protocols/Aws_restJson1";
+import { CreateUploadJobRequest, CreateUploadJobResponse } from "../models/models_0";
+import { CreateUploadJob } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -100,16 +95,11 @@ export class CreateUploadJobCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CustomerProfilesClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("CustomerProfiles_20200815", "CreateUploadJob", {})
   .n("CustomerProfilesClient", "CreateUploadJobCommand")
-  .f(CreateUploadJobRequestFilterSensitiveLog, void 0)
-  .ser(se_CreateUploadJobCommand)
-  .de(de_CreateUploadJobCommand)
+  .sc(CreateUploadJob)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

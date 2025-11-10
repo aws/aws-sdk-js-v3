@@ -213,10 +213,3 @@ export interface PutRawMessageContentRequest {
  * @public
  */
 export interface PutRawMessageContentResponse {}
-
-/**
- * @internal
- */
-export const GetRawMessageContentResponseFilterSensitiveLog = (obj: GetRawMessageContentResponse): any => ({
-  ...obj,
-});

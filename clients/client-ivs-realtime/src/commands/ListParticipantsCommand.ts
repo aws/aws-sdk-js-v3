@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { IVSRealTimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IVSRealTimeClient";
 import { ListParticipantsRequest, ListParticipantsResponse } from "../models/models_0";
-import { de_ListParticipantsCommand, se_ListParticipantsCommand } from "../protocols/Aws_restJson1";
+import { ListParticipants } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -97,16 +96,11 @@ export class ListParticipantsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IVSRealTimeClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonInteractiveVideoServiceRealTime", "ListParticipants", {})
   .n("IVSRealTimeClient", "ListParticipantsCommand")
-  .f(void 0, void 0)
-  .ser(se_ListParticipantsCommand)
-  .de(de_ListParticipantsCommand)
+  .sc(ListParticipants)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

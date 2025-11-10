@@ -1,16 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { BatchAddChannelRoleToAccessorsInput, BatchAddChannelRoleToAccessorsOutput } from "../models/models_0";
-import {
-  de_BatchAddChannelRoleToAccessorsCommand,
-  se_BatchAddChannelRoleToAccessorsCommand,
-} from "../protocols/Aws_restJson1";
 import { RepostspaceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RepostspaceClient";
+import { BatchAddChannelRoleToAccessors } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -127,16 +123,11 @@ export class BatchAddChannelRoleToAccessorsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RepostspaceClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("RepostSpace", "BatchAddChannelRoleToAccessors", {})
   .n("RepostspaceClient", "BatchAddChannelRoleToAccessorsCommand")
-  .f(void 0, void 0)
-  .ser(se_BatchAddChannelRoleToAccessorsCommand)
-  .de(de_BatchAddChannelRoleToAccessorsCommand)
+  .sc(BatchAddChannelRoleToAccessors)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CustomerProfilesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CustomerProfilesClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { MergeProfilesRequest, MergeProfilesResponse } from "../models/models_1";
-import { de_MergeProfilesCommand, se_MergeProfilesCommand } from "../protocols/Aws_restJson1";
+import { MergeProfiles } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -155,16 +154,11 @@ export class MergeProfilesCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CustomerProfilesClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("CustomerProfiles_20200815", "MergeProfiles", {})
   .n("CustomerProfilesClient", "MergeProfilesCommand")
-  .f(void 0, void 0)
-  .ser(se_MergeProfilesCommand)
-  .de(de_MergeProfilesCommand)
+  .sc(MergeProfiles)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

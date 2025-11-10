@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { StopPipeRequest, StopPipeResponse } from "../models/models_0";
 import { PipesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PipesClient";
-import { de_StopPipeCommand, se_StopPipeCommand } from "../protocols/Aws_restJson1";
+import { StopPipe } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -90,16 +89,11 @@ export class StopPipeCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: PipesClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("Pipes", "StopPipe", {})
   .n("PipesClient", "StopPipeCommand")
-  .f(void 0, void 0)
-  .ser(se_StopPipeCommand)
-  .de(de_StopPipeCommand)
+  .sc(StopPipe)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

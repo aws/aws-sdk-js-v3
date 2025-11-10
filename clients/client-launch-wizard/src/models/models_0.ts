@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@smithy/smithy-client";
+import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
 import { LaunchWizardServiceException as __BaseException } from "./LaunchWizardServiceException";
 
@@ -999,27 +999,3 @@ export interface ListWorkloadDeploymentPatternsOutput {
    */
   nextToken?: string | undefined;
 }
-
-/**
- * @internal
- */
-export const CreateDeploymentInputFilterSensitiveLog = (obj: CreateDeploymentInput): any => ({
-  ...obj,
-  ...(obj.specifications && { specifications: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const DeploymentDataFilterSensitiveLog = (obj: DeploymentData): any => ({
-  ...obj,
-  ...(obj.specifications && { specifications: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const GetDeploymentOutputFilterSensitiveLog = (obj: GetDeploymentOutput): any => ({
-  ...obj,
-  ...(obj.deployment && { deployment: DeploymentDataFilterSensitiveLog(obj.deployment) }),
-});

@@ -1,12 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DeleteSolNetworkPackageInput } from "../models/models_0";
-import { de_DeleteSolNetworkPackageCommand, se_DeleteSolNetworkPackageCommand } from "../protocols/Aws_restJson1";
+import { DeleteSolNetworkPackage } from "../schemas/schemas_0";
 import { ServiceInputTypes, ServiceOutputTypes, TnbClientResolvedConfig } from "../TnbClient";
 
 /**
@@ -100,16 +99,11 @@ export class DeleteSolNetworkPackageCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: TnbClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("TNB", "DeleteSolNetworkPackage", {})
   .n("TnbClient", "DeleteSolNetworkPackageCommand")
-  .f(void 0, void 0)
-  .ser(se_DeleteSolNetworkPackageCommand)
-  .de(de_DeleteSolNetworkPackageCommand)
+  .sc(DeleteSolNetworkPackage)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

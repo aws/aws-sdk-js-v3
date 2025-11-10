@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -11,7 +10,7 @@ import {
   ServiceOutputTypes,
 } from "../MarketplaceCatalogClient";
 import { StartChangeSetRequest, StartChangeSetResponse } from "../models/models_0";
-import { de_StartChangeSetCommand, se_StartChangeSetCommand } from "../protocols/Aws_restJson1";
+import { StartChangeSet } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -142,16 +141,11 @@ export class StartChangeSetCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MarketplaceCatalogClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSMPSeymour", "StartChangeSet", {})
   .n("MarketplaceCatalogClient", "StartChangeSetCommand")
-  .f(void 0, void 0)
-  .ser(se_StartChangeSetCommand)
-  .de(de_StartChangeSetCommand)
+  .sc(StartChangeSet)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

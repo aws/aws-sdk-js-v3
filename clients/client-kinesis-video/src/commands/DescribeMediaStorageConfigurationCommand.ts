@@ -1,16 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { KinesisVideoClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisVideoClient";
 import { DescribeMediaStorageConfigurationInput, DescribeMediaStorageConfigurationOutput } from "../models/models_0";
-import {
-  de_DescribeMediaStorageConfigurationCommand,
-  se_DescribeMediaStorageConfigurationCommand,
-} from "../protocols/Aws_restJson1";
+import { DescribeMediaStorageConfiguration } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -93,16 +89,11 @@ export class DescribeMediaStorageConfigurationCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: KinesisVideoClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("KinesisVideo_20170930", "DescribeMediaStorageConfiguration", {})
   .n("KinesisVideoClient", "DescribeMediaStorageConfigurationCommand")
-  .f(void 0, void 0)
-  .ser(se_DescribeMediaStorageConfigurationCommand)
-  .de(de_DescribeMediaStorageConfigurationCommand)
+  .sc(DescribeMediaStorageConfiguration)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

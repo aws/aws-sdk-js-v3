@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -11,7 +10,7 @@ import {
 } from "../CloudSearchDomainClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { SearchRequest, SearchResponse } from "../models/models_0";
-import { de_SearchCommand, se_SearchCommand } from "../protocols/Aws_restJson1";
+import { Search } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -144,16 +143,11 @@ export class SearchCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudSearchDomainClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonCloudSearch2013", "Search", {})
   .n("CloudSearchDomainClient", "SearchCommand")
-  .f(void 0, void 0)
-  .ser(se_SearchCommand)
-  .de(de_SearchCommand)
+  .sc(Search)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

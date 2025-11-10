@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GetImportTaskInput, GetImportTaskOutput } from "../models/models_0";
 import { NeptuneGraphClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptuneGraphClient";
-import { de_GetImportTaskCommand, se_GetImportTaskCommand } from "../protocols/Aws_restJson1";
+import { GetImportTask } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -111,16 +110,11 @@ export class GetImportTaskCommand extends $Command
     ApiType: { type: "staticContextParams", value: `ControlPlane` },
   })
   .m(function (this: any, Command: any, cs: any, config: NeptuneGraphClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonNeptuneGraph", "GetImportTask", {})
   .n("NeptuneGraphClient", "GetImportTaskCommand")
-  .f(void 0, void 0)
-  .ser(se_GetImportTaskCommand)
-  .de(de_GetImportTaskCommand)
+  .sc(GetImportTask)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

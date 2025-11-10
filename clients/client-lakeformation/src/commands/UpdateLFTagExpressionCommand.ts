@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { LakeFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LakeFormationClient";
 import { UpdateLFTagExpressionRequest, UpdateLFTagExpressionResponse } from "../models/models_0";
-import { de_UpdateLFTagExpressionCommand, se_UpdateLFTagExpressionCommand } from "../protocols/Aws_restJson1";
+import { UpdateLFTagExpression } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -97,16 +96,11 @@ export class UpdateLFTagExpressionCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LakeFormationClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSLakeFormation", "UpdateLFTagExpression", {})
   .n("LakeFormationClient", "UpdateLFTagExpressionCommand")
-  .f(void 0, void 0)
-  .ser(se_UpdateLFTagExpressionCommand)
-  .de(de_UpdateLFTagExpressionCommand)
+  .sc(UpdateLFTagExpression)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

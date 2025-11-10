@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -10,10 +9,7 @@ import {
   ListSupportedPhoneNumberCountriesRequest,
   ListSupportedPhoneNumberCountriesResponse,
 } from "../models/models_0";
-import {
-  de_ListSupportedPhoneNumberCountriesCommand,
-  se_ListSupportedPhoneNumberCountriesCommand,
-} from "../protocols/Aws_restJson1";
+import { ListSupportedPhoneNumberCountries } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -106,16 +102,11 @@ export class ListSupportedPhoneNumberCountriesCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ChimeClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("UCBuzzConsoleService", "ListSupportedPhoneNumberCountries", {})
   .n("ChimeClient", "ListSupportedPhoneNumberCountriesCommand")
-  .f(void 0, void 0)
-  .ser(se_ListSupportedPhoneNumberCountriesCommand)
-  .de(de_ListSupportedPhoneNumberCountriesCommand)
+  .sc(ListSupportedPhoneNumberCountries)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

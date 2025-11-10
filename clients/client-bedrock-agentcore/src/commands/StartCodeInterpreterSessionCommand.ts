@@ -1,16 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { BedrockAgentCoreClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BedrockAgentCoreClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { StartCodeInterpreterSessionRequest, StartCodeInterpreterSessionResponse } from "../models/models_0";
-import {
-  de_StartCodeInterpreterSessionCommand,
-  se_StartCodeInterpreterSessionCommand,
-} from "../protocols/Aws_restJson1";
+import { StartCodeInterpreterSession } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -103,16 +99,11 @@ export class StartCodeInterpreterSessionCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: BedrockAgentCoreClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonBedrockAgentCore", "StartCodeInterpreterSession", {})
   .n("BedrockAgentCoreClient", "StartCodeInterpreterSessionCommand")
-  .f(void 0, void 0)
-  .ser(se_StartCodeInterpreterSessionCommand)
-  .de(de_StartCodeInterpreterSessionCommand)
+  .sc(StartCodeInterpreterSession)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

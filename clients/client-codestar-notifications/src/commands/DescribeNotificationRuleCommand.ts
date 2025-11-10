@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -10,12 +9,8 @@ import {
   ServiceOutputTypes,
 } from "../CodestarNotificationsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  DescribeNotificationRuleRequest,
-  DescribeNotificationRuleResult,
-  DescribeNotificationRuleResultFilterSensitiveLog,
-} from "../models/models_0";
-import { de_DescribeNotificationRuleCommand, se_DescribeNotificationRuleCommand } from "../protocols/Aws_restJson1";
+import { DescribeNotificationRuleRequest, DescribeNotificationRuleResult } from "../models/models_0";
+import { DescribeNotificationRule } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -109,16 +104,11 @@ export class DescribeNotificationRuleCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CodestarNotificationsClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("CodeStarNotifications_20191015", "DescribeNotificationRule", {})
   .n("CodestarNotificationsClient", "DescribeNotificationRuleCommand")
-  .f(void 0, DescribeNotificationRuleResultFilterSensitiveLog)
-  .ser(se_DescribeNotificationRuleCommand)
-  .de(de_DescribeNotificationRuleCommand)
+  .sc(DescribeNotificationRule)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

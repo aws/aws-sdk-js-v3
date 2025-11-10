@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -8,7 +7,7 @@ import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } fr
 import { commonParams } from "../endpoint/EndpointParameters";
 import { SearchPredefinedAttributesResponse } from "../models/models_2";
 import { SearchPredefinedAttributesRequest } from "../models/models_3";
-import { de_SearchPredefinedAttributesCommand, se_SearchPredefinedAttributesCommand } from "../protocols/Aws_restJson1";
+import { SearchPredefinedAttributes } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -151,16 +150,11 @@ export class SearchPredefinedAttributesCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonConnectService", "SearchPredefinedAttributes", {})
   .n("ConnectClient", "SearchPredefinedAttributesCommand")
-  .f(void 0, void 0)
-  .ser(se_SearchPredefinedAttributesCommand)
-  .de(de_SearchPredefinedAttributesCommand)
+  .sc(SearchPredefinedAttributes)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -9,10 +8,7 @@ import {
   GetLinkedWhatsAppBusinessAccountPhoneNumberInput,
   GetLinkedWhatsAppBusinessAccountPhoneNumberOutput,
 } from "../models/models_0";
-import {
-  de_GetLinkedWhatsAppBusinessAccountPhoneNumberCommand,
-  se_GetLinkedWhatsAppBusinessAccountPhoneNumberCommand,
-} from "../protocols/Aws_restJson1";
+import { GetLinkedWhatsAppBusinessAccountPhoneNumber } from "../schemas/schemas_0";
 import { ServiceInputTypes, ServiceOutputTypes, SocialMessagingClientResolvedConfig } from "../SocialMessagingClient";
 
 /**
@@ -112,16 +108,11 @@ export class GetLinkedWhatsAppBusinessAccountPhoneNumberCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SocialMessagingClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("SocialMessaging", "GetLinkedWhatsAppBusinessAccountPhoneNumber", {})
   .n("SocialMessagingClient", "GetLinkedWhatsAppBusinessAccountPhoneNumberCommand")
-  .f(void 0, void 0)
-  .ser(se_GetLinkedWhatsAppBusinessAccountPhoneNumberCommand)
-  .de(de_GetLinkedWhatsAppBusinessAccountPhoneNumberCommand)
+  .sc(GetLinkedWhatsAppBusinessAccountPhoneNumber)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

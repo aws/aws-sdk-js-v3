@@ -64,7 +64,6 @@
     "@smithy/util-retry": "^4.2.4",
     "@smithy/util-stream": "^4.5.5",
     "@smithy/util-utf8": "^4.2.0",
-    "@smithy/uuid": "^1.1.0",
     "tslib": "^2.6.2"
   },
   "devDependencies": {

@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CodeGuruSecurityClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeGuruSecurityClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { ListScansRequest, ListScansResponse } from "../models/models_0";
-import { de_ListScansCommand, se_ListScansCommand } from "../protocols/Aws_restJson1";
+import { ListScans } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -93,16 +92,11 @@ export class ListScansCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CodeGuruSecurityClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AwsCodeGuruSecurity", "ListScans", {})
   .n("CodeGuruSecurityClient", "ListScansCommand")
-  .f(void 0, void 0)
-  .ser(se_ListScansCommand)
-  .de(de_ListScansCommand)
+  .sc(ListScans)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,16 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  GetSolNetworkOperationInput,
-  GetSolNetworkOperationOutput,
-  GetSolNetworkOperationOutputFilterSensitiveLog,
-} from "../models/models_0";
-import { de_GetSolNetworkOperationCommand, se_GetSolNetworkOperationCommand } from "../protocols/Aws_restJson1";
+import { GetSolNetworkOperationInput, GetSolNetworkOperationOutput } from "../models/models_0";
+import { GetSolNetworkOperation } from "../schemas/schemas_0";
 import { ServiceInputTypes, ServiceOutputTypes, TnbClientResolvedConfig } from "../TnbClient";
 
 /**
@@ -308,16 +303,11 @@ export class GetSolNetworkOperationCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: TnbClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("TNB", "GetSolNetworkOperation", {})
   .n("TnbClient", "GetSolNetworkOperationCommand")
-  .f(void 0, GetSolNetworkOperationOutputFilterSensitiveLog)
-  .ser(se_GetSolNetworkOperationCommand)
-  .de(de_GetSolNetworkOperationCommand)
+  .sc(GetSolNetworkOperation)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { MediaConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaConnectClient";
 import { UpdateFlowSourceRequest, UpdateFlowSourceResponse } from "../models/models_0";
-import { de_UpdateFlowSourceCommand, se_UpdateFlowSourceCommand } from "../protocols/Aws_restJson1";
+import { UpdateFlowSource } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -200,16 +199,11 @@ export class UpdateFlowSourceCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MediaConnectClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("MediaConnect", "UpdateFlowSource", {})
   .n("MediaConnectClient", "UpdateFlowSourceCommand")
-  .f(void 0, void 0)
-  .ser(se_UpdateFlowSourceCommand)
-  .de(de_UpdateFlowSourceCommand)
+  .sc(UpdateFlowSource)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

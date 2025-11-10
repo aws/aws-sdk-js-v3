@@ -1,17 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  GetResponderGatewayRequest,
-  GetResponderGatewayResponse,
-  GetResponderGatewayResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { de_GetResponderGatewayCommand, se_GetResponderGatewayCommand } from "../protocols/Aws_restJson1";
+import { GetResponderGatewayRequest, GetResponderGatewayResponse } from "../models/models_0";
 import { RTBFabricClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RTBFabricClient";
+import { GetResponderGateway } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -162,16 +157,11 @@ export class GetResponderGatewayCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RTBFabricClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("RTBFabric", "GetResponderGateway", {})
   .n("RTBFabricClient", "GetResponderGatewayCommand")
-  .f(void 0, GetResponderGatewayResponseFilterSensitiveLog)
-  .ser(se_GetResponderGatewayCommand)
-  .de(de_GetResponderGatewayCommand)
+  .sc(GetResponderGateway)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

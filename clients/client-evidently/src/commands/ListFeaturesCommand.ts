@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { EvidentlyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EvidentlyClient";
 import { ListFeaturesRequest, ListFeaturesResponse } from "../models/models_0";
-import { de_ListFeaturesCommand, se_ListFeaturesCommand } from "../protocols/Aws_restJson1";
+import { ListFeatures } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -105,16 +104,11 @@ export class ListFeaturesCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EvidentlyClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("Evidently", "ListFeatures", {})
   .n("EvidentlyClient", "ListFeaturesCommand")
-  .f(void 0, void 0)
-  .ser(se_ListFeaturesCommand)
-  .de(de_ListFeaturesCommand)
+  .sc(ListFeatures)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

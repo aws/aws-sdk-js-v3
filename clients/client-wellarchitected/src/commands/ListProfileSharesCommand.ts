@@ -1,12 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { ListProfileSharesInput, ListProfileSharesOutput } from "../models/models_0";
-import { de_ListProfileSharesCommand, se_ListProfileSharesCommand } from "../protocols/Aws_restJson1";
+import { ListProfileShares } from "../schemas/schemas_0";
 import { ServiceInputTypes, ServiceOutputTypes, WellArchitectedClientResolvedConfig } from "../WellArchitectedClient";
 
 /**
@@ -97,16 +96,11 @@ export class ListProfileSharesCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WellArchitectedClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("WellArchitectedApiServiceLambda", "ListProfileShares", {})
   .n("WellArchitectedClient", "ListProfileSharesCommand")
-  .f(void 0, void 0)
-  .ser(se_ListProfileSharesCommand)
-  .de(de_ListProfileSharesCommand)
+  .sc(ListProfileShares)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

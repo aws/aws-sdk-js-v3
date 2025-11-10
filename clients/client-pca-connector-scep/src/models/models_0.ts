@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@smithy/smithy-client";
+import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
 import { PcaConnectorScepServiceException as __BaseException } from "./PcaConnectorScepServiceException";
 
@@ -921,27 +921,3 @@ export interface UntagResourceRequest {
    */
   TagKeys: string[] | undefined;
 }
-
-/**
- * @internal
- */
-export const ChallengeFilterSensitiveLog = (obj: Challenge): any => ({
-  ...obj,
-  ...(obj.Password && { Password: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const CreateChallengeResponseFilterSensitiveLog = (obj: CreateChallengeResponse): any => ({
-  ...obj,
-  ...(obj.Challenge && { Challenge: ChallengeFilterSensitiveLog(obj.Challenge) }),
-});
-
-/**
- * @internal
- */
-export const GetChallengePasswordResponseFilterSensitiveLog = (obj: GetChallengePasswordResponse): any => ({
-  ...obj,
-  ...(obj.Password && { Password: SENSITIVE_STRING }),
-});

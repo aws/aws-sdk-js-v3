@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -10,10 +9,7 @@ import {
   ListCollaborationTrainedModelInferenceJobsRequest,
   ListCollaborationTrainedModelInferenceJobsResponse,
 } from "../models/models_0";
-import {
-  de_ListCollaborationTrainedModelInferenceJobsCommand,
-  se_ListCollaborationTrainedModelInferenceJobsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListCollaborationTrainedModelInferenceJobs } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -120,16 +116,11 @@ export class ListCollaborationTrainedModelInferenceJobsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CleanRoomsMLClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSStarkControlService", "ListCollaborationTrainedModelInferenceJobs", {})
   .n("CleanRoomsMLClient", "ListCollaborationTrainedModelInferenceJobsCommand")
-  .f(void 0, void 0)
-  .ser(se_ListCollaborationTrainedModelInferenceJobsCommand)
-  .de(de_ListCollaborationTrainedModelInferenceJobsCommand)
+  .sc(ListCollaborationTrainedModelInferenceJobs)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

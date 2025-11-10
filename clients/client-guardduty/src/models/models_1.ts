@@ -1,6 +1,4 @@
 // smithy-typescript generated code
-import { SENSITIVE_STRING } from "@smithy/smithy-client";
-
 import {
   AccountFreeTrialInfo,
   AdminAccount,
@@ -26,7 +24,6 @@ import {
   FilterAction,
   Finding,
   FindingCriteria,
-  FindingFilterSensitiveLog,
   FindingPublishingFrequency,
   FindingStatistics,
   IpSetFormat,
@@ -3559,43 +3556,3 @@ export interface UpdateTrustedEntitySetRequest {
  * @public
  */
 export interface UpdateTrustedEntitySetResponse {}
-
-/**
- * @internal
- */
-export const GetFindingsResponseFilterSensitiveLog = (obj: GetFindingsResponse): any => ({
-  ...obj,
-  ...(obj.Findings && { Findings: obj.Findings.map((item) => FindingFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const MemberFilterSensitiveLog = (obj: Member): any => ({
-  ...obj,
-  ...(obj.Email && { Email: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const GetMembersResponseFilterSensitiveLog = (obj: GetMembersResponse): any => ({
-  ...obj,
-  ...(obj.Members && { Members: obj.Members.map((item) => MemberFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const ListMembersResponseFilterSensitiveLog = (obj: ListMembersResponse): any => ({
-  ...obj,
-  ...(obj.Members && { Members: obj.Members.map((item) => MemberFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const UpdateFindingsFeedbackRequestFilterSensitiveLog = (obj: UpdateFindingsFeedbackRequest): any => ({
-  ...obj,
-  ...(obj.Comments && { Comments: SENSITIVE_STRING }),
-});

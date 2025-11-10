@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { IoTTwinMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTTwinMakerClient";
 import { ListMetadataTransferJobsRequest, ListMetadataTransferJobsResponse } from "../models/models_0";
-import { de_ListMetadataTransferJobsCommand, se_ListMetadataTransferJobsCommand } from "../protocols/Aws_restJson1";
+import { ListMetadataTransferJobs } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -113,16 +112,11 @@ export class ListMetadataTransferJobsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTTwinMakerClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSIoTTwinMaker", "ListMetadataTransferJobs", {})
   .n("IoTTwinMakerClient", "ListMetadataTransferJobsCommand")
-  .f(void 0, void 0)
-  .ser(se_ListMetadataTransferJobsCommand)
-  .de(de_ListMetadataTransferJobsCommand)
+  .sc(ListMetadataTransferJobs)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { CreateWebExperienceRequest, CreateWebExperienceResponse } from "../models/models_0";
-import { de_CreateWebExperienceCommand, se_CreateWebExperienceCommand } from "../protocols/Aws_restJson1";
 import { QBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QBusinessClient";
+import { CreateWebExperience } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -127,16 +126,11 @@ export class CreateWebExperienceCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: QBusinessClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("ExpertQ", "CreateWebExperience", {})
   .n("QBusinessClient", "CreateWebExperienceCommand")
-  .f(void 0, void 0)
-  .ser(se_CreateWebExperienceCommand)
-  .de(de_CreateWebExperienceCommand)
+  .sc(CreateWebExperience)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { CreateSpaceInput, CreateSpaceInputFilterSensitiveLog, CreateSpaceOutput } from "../models/models_0";
-import { de_CreateSpaceCommand, se_CreateSpaceCommand } from "../protocols/Aws_restJson1";
+import { CreateSpaceInput, CreateSpaceOutput } from "../models/models_0";
 import { RepostspaceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RepostspaceClient";
+import { CreateSpace } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -105,16 +104,11 @@ export class CreateSpaceCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RepostspaceClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("RepostSpace", "CreateSpace", {})
   .n("RepostspaceClient", "CreateSpaceCommand")
-  .f(CreateSpaceInputFilterSensitiveLog, void 0)
-  .ser(se_CreateSpaceCommand)
-  .de(de_CreateSpaceCommand)
+  .sc(CreateSpace)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

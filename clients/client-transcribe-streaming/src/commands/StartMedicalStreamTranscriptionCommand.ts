@@ -3,21 +3,12 @@ import { getEventStreamPlugin } from "@aws-sdk/middleware-eventstream";
 import { getTranscribeStreamingPlugin } from "@aws-sdk/middleware-sdk-transcribe-streaming";
 import { getWebSocketPlugin } from "@aws-sdk/middleware-websocket";
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  StartMedicalStreamTranscriptionRequest,
-  StartMedicalStreamTranscriptionRequestFilterSensitiveLog,
-  StartMedicalStreamTranscriptionResponse,
-  StartMedicalStreamTranscriptionResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  de_StartMedicalStreamTranscriptionCommand,
-  se_StartMedicalStreamTranscriptionCommand,
-} from "../protocols/Aws_restJson1";
+import { StartMedicalStreamTranscriptionRequest, StartMedicalStreamTranscriptionResponse } from "../models/models_0";
+import { StartMedicalStreamTranscription } from "../schemas/schemas_0";
 import {
   ServiceInputTypes,
   ServiceOutputTypes,
@@ -225,7 +216,6 @@ export class StartMedicalStreamTranscriptionCommand extends $Command
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: TranscribeStreamingClientResolvedConfig, o: any) {
     return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
       getEventStreamPlugin(config),
       getWebSocketPlugin(config, {
@@ -244,12 +234,7 @@ export class StartMedicalStreamTranscriptionCommand extends $Command
     },
   })
   .n("TranscribeStreamingClient", "StartMedicalStreamTranscriptionCommand")
-  .f(
-    StartMedicalStreamTranscriptionRequestFilterSensitiveLog,
-    StartMedicalStreamTranscriptionResponseFilterSensitiveLog
-  )
-  .ser(se_StartMedicalStreamTranscriptionCommand)
-  .de(de_StartMedicalStreamTranscriptionCommand)
+  .sc(StartMedicalStreamTranscription)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

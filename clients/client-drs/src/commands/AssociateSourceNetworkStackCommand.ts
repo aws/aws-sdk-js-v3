@@ -1,21 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DrsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DrsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  AssociateSourceNetworkStackRequest,
-  AssociateSourceNetworkStackRequestFilterSensitiveLog,
-  AssociateSourceNetworkStackResponse,
-  AssociateSourceNetworkStackResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  de_AssociateSourceNetworkStackCommand,
-  se_AssociateSourceNetworkStackCommand,
-} from "../protocols/Aws_restJson1";
+import { AssociateSourceNetworkStackRequest, AssociateSourceNetworkStackResponse } from "../models/models_0";
+import { AssociateSourceNetworkStack } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -156,16 +147,11 @@ export class AssociateSourceNetworkStackCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DrsClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("ElasticDisasterRecoveryService", "AssociateSourceNetworkStack", {})
   .n("DrsClient", "AssociateSourceNetworkStackCommand")
-  .f(AssociateSourceNetworkStackRequestFilterSensitiveLog, AssociateSourceNetworkStackResponseFilterSensitiveLog)
-  .ser(se_AssociateSourceNetworkStackCommand)
-  .de(de_AssociateSourceNetworkStackCommand)
+  .sc(AssociateSourceNetworkStack)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

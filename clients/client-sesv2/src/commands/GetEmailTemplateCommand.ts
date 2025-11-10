@@ -1,12 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GetEmailTemplateRequest, GetEmailTemplateResponse } from "../models/models_0";
-import { de_GetEmailTemplateCommand, se_GetEmailTemplateCommand } from "../protocols/Aws_restJson1";
+import { GetEmailTemplate } from "../schemas/schemas_0";
 import { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
 /**
@@ -86,16 +85,11 @@ export class GetEmailTemplateCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SESv2ClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("SimpleEmailService_v2", "GetEmailTemplate", {})
   .n("SESv2Client", "GetEmailTemplateCommand")
-  .f(void 0, void 0)
-  .ser(se_GetEmailTemplateCommand)
-  .de(de_GetEmailTemplateCommand)
+  .sc(GetEmailTemplate)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

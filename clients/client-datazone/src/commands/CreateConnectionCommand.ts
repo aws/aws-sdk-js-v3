@@ -1,18 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DataZoneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataZoneClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  CreateConnectionInput,
-  CreateConnectionInputFilterSensitiveLog,
-  CreateConnectionOutput,
-  CreateConnectionOutputFilterSensitiveLog,
-} from "../models/models_0";
-import { de_CreateConnectionCommand, se_CreateConnectionCommand } from "../protocols/Aws_restJson1";
+import { CreateConnectionInput, CreateConnectionOutput } from "../models/models_0";
+import { CreateConnection } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -426,16 +420,11 @@ export class CreateConnectionCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DataZoneClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("DataZone", "CreateConnection", {})
   .n("DataZoneClient", "CreateConnectionCommand")
-  .f(CreateConnectionInputFilterSensitiveLog, CreateConnectionOutputFilterSensitiveLog)
-  .ser(se_CreateConnectionCommand)
-  .de(de_CreateConnectionCommand)
+  .sc(CreateConnection)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

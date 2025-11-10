@@ -1,16 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
 import { RemoveThingFromBillingGroupRequest, RemoveThingFromBillingGroupResponse } from "../models/models_2";
-import {
-  de_RemoveThingFromBillingGroupCommand,
-  se_RemoveThingFromBillingGroupCommand,
-} from "../protocols/Aws_restJson1";
+import { RemoveThingFromBillingGroup } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -92,16 +88,11 @@ export class RemoveThingFromBillingGroupCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSIotService", "RemoveThingFromBillingGroup", {})
   .n("IoTClient", "RemoveThingFromBillingGroupCommand")
-  .f(void 0, void 0)
-  .ser(se_RemoveThingFromBillingGroupCommand)
-  .de(de_RemoveThingFromBillingGroupCommand)
+  .sc(RemoveThingFromBillingGroup)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { LexModelsV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LexModelsV2Client";
 import { ListAggregatedUtterancesRequest, ListAggregatedUtterancesResponse } from "../models/models_1";
-import { de_ListAggregatedUtterancesCommand, se_ListAggregatedUtterancesCommand } from "../protocols/Aws_restJson1";
+import { ListAggregatedUtterances } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -158,16 +157,11 @@ export class ListAggregatedUtterancesCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LexModelsV2ClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("LexModelBuildingServiceV2", "ListAggregatedUtterances", {})
   .n("LexModelsV2Client", "ListAggregatedUtterancesCommand")
-  .f(void 0, void 0)
-  .ser(se_ListAggregatedUtterancesCommand)
-  .de(de_ListAggregatedUtterancesCommand)
+  .sc(ListAggregatedUtterances)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

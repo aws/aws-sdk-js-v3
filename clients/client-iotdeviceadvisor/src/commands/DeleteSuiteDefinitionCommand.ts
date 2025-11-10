@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { IotDeviceAdvisorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IotDeviceAdvisorClient";
 import { DeleteSuiteDefinitionRequest, DeleteSuiteDefinitionResponse } from "../models/models_0";
-import { de_DeleteSuiteDefinitionCommand, se_DeleteSuiteDefinitionCommand } from "../protocols/Aws_restJson1";
+import { DeleteSuiteDefinition } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -75,16 +74,11 @@ export class DeleteSuiteDefinitionCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IotDeviceAdvisorClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("IotSenateService", "DeleteSuiteDefinition", {})
   .n("IotDeviceAdvisorClient", "DeleteSuiteDefinitionCommand")
-  .f(void 0, void 0)
-  .ser(se_DeleteSuiteDefinitionCommand)
-  .de(de_DeleteSuiteDefinitionCommand)
+  .sc(DeleteSuiteDefinition)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

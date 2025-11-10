@@ -1,12 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GetAccountAliasRequest, GetAccountAliasResult } from "../models/models_0";
-import { de_GetAccountAliasCommand, se_GetAccountAliasCommand } from "../protocols/Aws_restJson1";
+import { GetAccountAlias } from "../schemas/schemas_0";
 import { ServiceInputTypes, ServiceOutputTypes, SupportAppClientResolvedConfig } from "../SupportAppClient";
 
 /**
@@ -72,16 +71,11 @@ export class GetAccountAliasCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SupportAppClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("SupportApp", "GetAccountAlias", {})
   .n("SupportAppClient", "GetAccountAliasCommand")
-  .f(void 0, void 0)
-  .ser(se_GetAccountAliasCommand)
-  .de(de_GetAccountAliasCommand)
+  .sc(GetAccountAlias)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

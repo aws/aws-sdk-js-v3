@@ -1,19 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { BlobPayloadInputTypes, MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  PutSolFunctionPackageContentInput,
-  PutSolFunctionPackageContentInputFilterSensitiveLog,
-  PutSolFunctionPackageContentOutput,
-} from "../models/models_0";
-import {
-  de_PutSolFunctionPackageContentCommand,
-  se_PutSolFunctionPackageContentCommand,
-} from "../protocols/Aws_restJson1";
+import { PutSolFunctionPackageContentInput, PutSolFunctionPackageContentOutput } from "../models/models_0";
+import { PutSolFunctionPackageContent } from "../schemas/schemas_0";
 import { ServiceInputTypes, ServiceOutputTypes, TnbClientResolvedConfig } from "../TnbClient";
 
 /**
@@ -145,16 +137,11 @@ export class PutSolFunctionPackageContentCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: TnbClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("TNB", "PutSolFunctionPackageContent", {})
   .n("TnbClient", "PutSolFunctionPackageContentCommand")
-  .f(PutSolFunctionPackageContentInputFilterSensitiveLog, void 0)
-  .ser(se_PutSolFunctionPackageContentCommand)
-  .de(de_PutSolFunctionPackageContentCommand)
+  .sc(PutSolFunctionPackageContent)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

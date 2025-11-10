@@ -1,12 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DeleteGroupRequest, DeleteGroupResult } from "../models/models_0";
-import { de_DeleteGroupCommand, se_DeleteGroupCommand } from "../protocols/Aws_restJson1";
+import { DeleteGroup } from "../schemas/schemas_0";
 import { ServiceInputTypes, ServiceOutputTypes, XRayClientResolvedConfig } from "../XRayClient";
 
 /**
@@ -75,16 +74,11 @@ export class DeleteGroupCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: XRayClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSXRay", "DeleteGroup", {})
   .n("XRayClient", "DeleteGroupCommand")
-  .f(void 0, void 0)
-  .ser(se_DeleteGroupCommand)
-  .de(de_DeleteGroupCommand)
+  .sc(DeleteGroup)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

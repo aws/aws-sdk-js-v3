@@ -1,21 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { AuditManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AuditManagerClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  UpdateAssessmentControlSetStatusRequest,
-  UpdateAssessmentControlSetStatusRequestFilterSensitiveLog,
-  UpdateAssessmentControlSetStatusResponse,
-  UpdateAssessmentControlSetStatusResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  de_UpdateAssessmentControlSetStatusCommand,
-  se_UpdateAssessmentControlSetStatusCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateAssessmentControlSetStatusRequest, UpdateAssessmentControlSetStatusResponse } from "../models/models_0";
+import { UpdateAssessmentControlSetStatus } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -145,19 +136,11 @@ export class UpdateAssessmentControlSetStatusCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AuditManagerClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("BedrockAssessmentManagerLambda", "UpdateAssessmentControlSetStatus", {})
   .n("AuditManagerClient", "UpdateAssessmentControlSetStatusCommand")
-  .f(
-    UpdateAssessmentControlSetStatusRequestFilterSensitiveLog,
-    UpdateAssessmentControlSetStatusResponseFilterSensitiveLog
-  )
-  .ser(se_UpdateAssessmentControlSetStatusCommand)
-  .de(de_UpdateAssessmentControlSetStatusCommand)
+  .sc(UpdateAssessmentControlSetStatus)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

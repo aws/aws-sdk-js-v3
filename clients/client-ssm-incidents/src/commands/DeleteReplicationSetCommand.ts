@@ -1,12 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DeleteReplicationSetInput, DeleteReplicationSetOutput } from "../models/models_0";
-import { de_DeleteReplicationSetCommand, se_DeleteReplicationSetCommand } from "../protocols/Aws_restJson1";
+import { DeleteReplicationSet } from "../schemas/schemas_0";
 import { ServiceInputTypes, ServiceOutputTypes, SSMIncidentsClientResolvedConfig } from "../SSMIncidentsClient";
 
 /**
@@ -86,16 +85,11 @@ export class DeleteReplicationSetCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SSMIncidentsClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("SSMIncidents", "DeleteReplicationSet", {})
   .n("SSMIncidentsClient", "DeleteReplicationSetCommand")
-  .f(void 0, void 0)
-  .ser(se_DeleteReplicationSetCommand)
-  .de(de_DeleteReplicationSetCommand)
+  .sc(DeleteReplicationSet)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

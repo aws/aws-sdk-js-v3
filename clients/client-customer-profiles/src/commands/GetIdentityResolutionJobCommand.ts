@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CustomerProfilesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CustomerProfilesClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GetIdentityResolutionJobRequest, GetIdentityResolutionJobResponse } from "../models/models_0";
-import { de_GetIdentityResolutionJobCommand, se_GetIdentityResolutionJobCommand } from "../protocols/Aws_restJson1";
+import { GetIdentityResolutionJob } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -121,16 +120,11 @@ export class GetIdentityResolutionJobCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CustomerProfilesClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("CustomerProfiles_20200815", "GetIdentityResolutionJob", {})
   .n("CustomerProfilesClient", "GetIdentityResolutionJobCommand")
-  .f(void 0, void 0)
-  .ser(se_GetIdentityResolutionJobCommand)
-  .de(de_GetIdentityResolutionJobCommand)
+  .sc(GetIdentityResolutionJob)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { ResetGraphInput, ResetGraphOutput } from "../models/models_0";
 import { NeptuneGraphClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptuneGraphClient";
-import { de_ResetGraphCommand, se_ResetGraphCommand } from "../protocols/Aws_restJson1";
+import { ResetGraph } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -105,16 +104,11 @@ export class ResetGraphCommand extends $Command
     ApiType: { type: "staticContextParams", value: `ControlPlane` },
   })
   .m(function (this: any, Command: any, cs: any, config: NeptuneGraphClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonNeptuneGraph", "ResetGraph", {})
   .n("NeptuneGraphClient", "ResetGraphCommand")
-  .f(void 0, void 0)
-  .ser(se_ResetGraphCommand)
-  .de(de_ResetGraphCommand)
+  .sc(ResetGraph)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

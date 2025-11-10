@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { Macie2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Macie2Client";
 import { SearchResourcesRequest, SearchResourcesResponse } from "../models/models_1";
-import { de_SearchResourcesCommand, se_SearchResourcesCommand } from "../protocols/Aws_restJson1";
+import { SearchResources } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -183,16 +182,11 @@ export class SearchResourcesCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: Macie2ClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("Macie2", "SearchResources", {})
   .n("Macie2Client", "SearchResourcesCommand")
-  .f(void 0, void 0)
-  .ser(se_SearchResourcesCommand)
-  .de(de_SearchResourcesCommand)
+  .sc(SearchResources)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

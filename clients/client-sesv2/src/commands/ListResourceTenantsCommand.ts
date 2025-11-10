@@ -1,12 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { ListResourceTenantsRequest, ListResourceTenantsResponse } from "../models/models_0";
-import { de_ListResourceTenantsCommand, se_ListResourceTenantsCommand } from "../protocols/Aws_restJson1";
+import { ListResourceTenants } from "../schemas/schemas_0";
 import { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
 /**
@@ -92,16 +91,11 @@ export class ListResourceTenantsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SESv2ClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("SimpleEmailService_v2", "ListResourceTenants", {})
   .n("SESv2Client", "ListResourceTenantsCommand")
-  .f(void 0, void 0)
-  .ser(se_ListResourceTenantsCommand)
-  .de(de_ListResourceTenantsCommand)
+  .sc(ListResourceTenants)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

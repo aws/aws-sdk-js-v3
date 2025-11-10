@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DocDBElasticClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DocDBElasticClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { UpdateClusterInput, UpdateClusterInputFilterSensitiveLog, UpdateClusterOutput } from "../models/models_0";
-import { de_UpdateClusterCommand, se_UpdateClusterCommand } from "../protocols/Aws_restJson1";
+import { UpdateClusterInput, UpdateClusterOutput } from "../models/models_0";
+import { UpdateCluster } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -132,16 +131,11 @@ export class UpdateClusterCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DocDBElasticClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("ChimeraDbLionfishServiceLambda", "UpdateCluster", {})
   .n("DocDBElasticClient", "UpdateClusterCommand")
-  .f(UpdateClusterInputFilterSensitiveLog, void 0)
-  .ser(se_UpdateClusterCommand)
-  .de(de_UpdateClusterCommand)
+  .sc(UpdateCluster)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

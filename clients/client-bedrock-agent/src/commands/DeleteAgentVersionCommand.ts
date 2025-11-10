@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { BedrockAgentClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BedrockAgentClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DeleteAgentVersionRequest, DeleteAgentVersionResponse } from "../models/models_1";
-import { de_DeleteAgentVersionCommand, se_DeleteAgentVersionCommand } from "../protocols/Aws_restJson1";
+import { DeleteAgentVersion } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -92,16 +91,11 @@ export class DeleteAgentVersionCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: BedrockAgentClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonBedrockAgentBuildTimeLambda", "DeleteAgentVersion", {})
   .n("BedrockAgentClient", "DeleteAgentVersionCommand")
-  .f(void 0, void 0)
-  .ser(se_DeleteAgentVersionCommand)
-  .de(de_DeleteAgentVersionCommand)
+  .sc(DeleteAgentVersion)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

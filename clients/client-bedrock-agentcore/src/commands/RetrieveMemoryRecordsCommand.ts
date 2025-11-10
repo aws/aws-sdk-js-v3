@@ -1,18 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { BedrockAgentCoreClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BedrockAgentCoreClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  RetrieveMemoryRecordsInput,
-  RetrieveMemoryRecordsInputFilterSensitiveLog,
-  RetrieveMemoryRecordsOutput,
-  RetrieveMemoryRecordsOutputFilterSensitiveLog,
-} from "../models/models_0";
-import { de_RetrieveMemoryRecordsCommand, se_RetrieveMemoryRecordsCommand } from "../protocols/Aws_restJson1";
+import { RetrieveMemoryRecordsInput, RetrieveMemoryRecordsOutput } from "../models/models_0";
+import { RetrieveMemoryRecords } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -118,16 +112,11 @@ export class RetrieveMemoryRecordsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: BedrockAgentCoreClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonBedrockAgentCore", "RetrieveMemoryRecords", {})
   .n("BedrockAgentCoreClient", "RetrieveMemoryRecordsCommand")
-  .f(RetrieveMemoryRecordsInputFilterSensitiveLog, RetrieveMemoryRecordsOutputFilterSensitiveLog)
-  .ser(se_RetrieveMemoryRecordsCommand)
-  .de(de_RetrieveMemoryRecordsCommand)
+  .sc(RetrieveMemoryRecords)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

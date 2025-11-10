@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GuardDutyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GuardDutyClient";
 import { UpdateTrustedEntitySetRequest, UpdateTrustedEntitySetResponse } from "../models/models_1";
-import { de_UpdateTrustedEntitySetCommand, se_UpdateTrustedEntitySetCommand } from "../protocols/Aws_restJson1";
+import { UpdateTrustedEntitySet } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -79,16 +78,11 @@ export class UpdateTrustedEntitySetCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GuardDutyClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("GuardDutyAPIService", "UpdateTrustedEntitySet", {})
   .n("GuardDutyClient", "UpdateTrustedEntitySetCommand")
-  .f(void 0, void 0)
-  .ser(se_UpdateTrustedEntitySetCommand)
-  .de(de_UpdateTrustedEntitySetCommand)
+  .sc(UpdateTrustedEntitySet)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

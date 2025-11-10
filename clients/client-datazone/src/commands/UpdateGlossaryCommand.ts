@@ -1,18 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DataZoneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataZoneClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  UpdateGlossaryInput,
-  UpdateGlossaryInputFilterSensitiveLog,
-  UpdateGlossaryOutput,
-  UpdateGlossaryOutputFilterSensitiveLog,
-} from "../models/models_1";
-import { de_UpdateGlossaryCommand, se_UpdateGlossaryCommand } from "../protocols/Aws_restJson1";
+import { UpdateGlossaryInput, UpdateGlossaryOutput } from "../models/models_1";
+import { UpdateGlossary } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -109,16 +103,11 @@ export class UpdateGlossaryCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DataZoneClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("DataZone", "UpdateGlossary", {})
   .n("DataZoneClient", "UpdateGlossaryCommand")
-  .f(UpdateGlossaryInputFilterSensitiveLog, UpdateGlossaryOutputFilterSensitiveLog)
-  .ser(se_UpdateGlossaryCommand)
-  .de(de_UpdateGlossaryCommand)
+  .sc(UpdateGlossary)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
 import { DeleteCustomMetricRequest, DeleteCustomMetricResponse } from "../models/models_1";
-import { de_DeleteCustomMetricCommand, se_DeleteCustomMetricCommand } from "../protocols/Aws_restJson1";
+import { DeleteCustomMetric } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -88,16 +87,11 @@ export class DeleteCustomMetricCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSIotService", "DeleteCustomMetric", {})
   .n("IoTClient", "DeleteCustomMetricCommand")
-  .f(void 0, void 0)
-  .ser(se_DeleteCustomMetricCommand)
-  .de(de_DeleteCustomMetricCommand)
+  .sc(DeleteCustomMetric)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

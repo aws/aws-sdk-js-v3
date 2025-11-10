@@ -1,17 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  CreateCommentRequest,
-  CreateCommentRequestFilterSensitiveLog,
-  CreateCommentResponse,
-  CreateCommentResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { de_CreateCommentCommand, se_CreateCommentCommand } from "../protocols/Aws_restJson1";
+import { CreateCommentRequest, CreateCommentResponse } from "../models/models_0";
+import { CreateComment } from "../schemas/schemas_0";
 import { ServiceInputTypes, ServiceOutputTypes, WorkDocsClientResolvedConfig } from "../WorkDocsClient";
 
 /**
@@ -141,16 +135,11 @@ export class CreateCommentCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WorkDocsClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSGorillaBoyService", "CreateComment", {})
   .n("WorkDocsClient", "CreateCommentCommand")
-  .f(CreateCommentRequestFilterSensitiveLog, CreateCommentResponseFilterSensitiveLog)
-  .ser(se_CreateCommentCommand)
-  .de(de_CreateCommentCommand)
+  .sc(CreateComment)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

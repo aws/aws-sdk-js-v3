@@ -1,14 +1,13 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { Uint8ArrayBlobAdapter } from "@smithy/util-stream";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GeoMapsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GeoMapsClient";
-import { GetStaticMapRequest, GetStaticMapRequestFilterSensitiveLog, GetStaticMapResponse } from "../models/models_0";
-import { de_GetStaticMapCommand, se_GetStaticMapCommand } from "../protocols/Aws_restJson1";
+import { GetStaticMapRequest, GetStaticMapResponse } from "../models/models_0";
+import { GetStaticMap } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -113,16 +112,11 @@ export class GetStaticMapCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GeoMapsClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("MapsService", "GetStaticMap", {})
   .n("GeoMapsClient", "GetStaticMapCommand")
-  .f(GetStaticMapRequestFilterSensitiveLog, void 0)
-  .ser(se_GetStaticMapCommand)
-  .de(de_GetStaticMapCommand)
+  .sc(GetStaticMap)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

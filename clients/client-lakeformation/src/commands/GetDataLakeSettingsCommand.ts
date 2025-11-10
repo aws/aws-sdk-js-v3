@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { LakeFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LakeFormationClient";
 import { GetDataLakeSettingsRequest, GetDataLakeSettingsResponse } from "../models/models_0";
-import { de_GetDataLakeSettingsCommand, se_GetDataLakeSettingsCommand } from "../protocols/Aws_restJson1";
+import { GetDataLakeSettings } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -126,16 +125,11 @@ export class GetDataLakeSettingsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LakeFormationClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSLakeFormation", "GetDataLakeSettings", {})
   .n("LakeFormationClient", "GetDataLakeSettingsCommand")
-  .f(void 0, void 0)
-  .ser(se_GetDataLakeSettingsCommand)
-  .de(de_GetDataLakeSettingsCommand)
+  .sc(GetDataLakeSettings)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

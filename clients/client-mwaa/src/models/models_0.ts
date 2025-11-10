@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@smithy/smithy-client";
+import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
 import { DocumentType as __DocumentType } from "@smithy/types";
 
@@ -1665,67 +1665,3 @@ export interface UpdateEnvironmentOutput {
    */
   Arn?: string | undefined;
 }
-
-/**
- * @internal
- */
-export const CreateCliTokenResponseFilterSensitiveLog = (obj: CreateCliTokenResponse): any => ({
-  ...obj,
-  ...(obj.CliToken && { CliToken: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const CreateEnvironmentInputFilterSensitiveLog = (obj: CreateEnvironmentInput): any => ({
-  ...obj,
-  ...(obj.AirflowConfigurationOptions && { AirflowConfigurationOptions: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const CreateWebLoginTokenResponseFilterSensitiveLog = (obj: CreateWebLoginTokenResponse): any => ({
-  ...obj,
-  ...(obj.WebToken && { WebToken: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const EnvironmentFilterSensitiveLog = (obj: Environment): any => ({
-  ...obj,
-  ...(obj.AirflowConfigurationOptions && { AirflowConfigurationOptions: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const GetEnvironmentOutputFilterSensitiveLog = (obj: GetEnvironmentOutput): any => ({
-  ...obj,
-  ...(obj.Environment && { Environment: EnvironmentFilterSensitiveLog(obj.Environment) }),
-});
-
-/**
- * @internal
- */
-export const InvokeRestApiRequestFilterSensitiveLog = (obj: InvokeRestApiRequest): any => ({
-  ...obj,
-  ...(obj.Body && { Body: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const InvokeRestApiResponseFilterSensitiveLog = (obj: InvokeRestApiResponse): any => ({
-  ...obj,
-  ...(obj.RestApiResponse && { RestApiResponse: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const UpdateEnvironmentInputFilterSensitiveLog = (obj: UpdateEnvironmentInput): any => ({
-  ...obj,
-  ...(obj.AirflowConfigurationOptions && { AirflowConfigurationOptions: SENSITIVE_STRING }),
-});

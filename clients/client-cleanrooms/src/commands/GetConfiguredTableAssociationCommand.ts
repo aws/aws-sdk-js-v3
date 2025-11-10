@@ -1,16 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CleanRoomsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CleanRoomsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GetConfiguredTableAssociationInput, GetConfiguredTableAssociationOutput } from "../models/models_0";
-import {
-  de_GetConfiguredTableAssociationCommand,
-  se_GetConfiguredTableAssociationCommand,
-} from "../protocols/Aws_restJson1";
+import { GetConfiguredTableAssociation } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -106,16 +102,11 @@ export class GetConfiguredTableAssociationCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CleanRoomsClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSBastionControlPlaneServiceLambda", "GetConfiguredTableAssociation", {})
   .n("CleanRoomsClient", "GetConfiguredTableAssociationCommand")
-  .f(void 0, void 0)
-  .ser(se_GetConfiguredTableAssociationCommand)
-  .de(de_GetConfiguredTableAssociationCommand)
+  .sc(GetConfiguredTableAssociation)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

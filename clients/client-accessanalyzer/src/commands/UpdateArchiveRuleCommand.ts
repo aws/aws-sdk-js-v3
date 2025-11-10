@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { AccessAnalyzerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AccessAnalyzerClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { UpdateArchiveRuleRequest } from "../models/models_0";
-import { de_UpdateArchiveRuleCommand, se_UpdateArchiveRuleCommand } from "../protocols/Aws_restJson1";
+import { UpdateArchiveRule } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -99,16 +98,11 @@ export class UpdateArchiveRuleCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AccessAnalyzerClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AccessAnalyzer", "UpdateArchiveRule", {})
   .n("AccessAnalyzerClient", "UpdateArchiveRuleCommand")
-  .f(void 0, void 0)
-  .ser(se_UpdateArchiveRuleCommand)
-  .de(de_UpdateArchiveRuleCommand)
+  .sc(UpdateArchiveRule)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

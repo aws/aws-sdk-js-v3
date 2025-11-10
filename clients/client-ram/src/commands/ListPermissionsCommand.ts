@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { ListPermissionsRequest, ListPermissionsResponse } from "../models/models_0";
-import { de_ListPermissionsCommand, se_ListPermissionsCommand } from "../protocols/Aws_restJson1";
 import { RAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RAMClient";
+import { ListPermissions } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -113,16 +112,11 @@ export class ListPermissionsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RAMClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonResourceSharing", "ListPermissions", {})
   .n("RAMClient", "ListPermissionsCommand")
-  .f(void 0, void 0)
-  .ser(se_ListPermissionsCommand)
-  .de(de_ListPermissionsCommand)
+  .sc(ListPermissions)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

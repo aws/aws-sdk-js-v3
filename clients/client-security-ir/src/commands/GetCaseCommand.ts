@@ -1,12 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { GetCaseRequest, GetCaseResponse, GetCaseResponseFilterSensitiveLog } from "../models/models_0";
-import { de_GetCaseCommand, se_GetCaseCommand } from "../protocols/Aws_restJson1";
+import { GetCaseRequest, GetCaseResponse } from "../models/models_0";
+import { GetCase } from "../schemas/schemas_0";
 import { SecurityIRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityIRClient";
 
 /**
@@ -198,16 +197,11 @@ export class GetCaseCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SecurityIRClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("SecurityIncidentResponse", "GetCase", {})
   .n("SecurityIRClient", "GetCaseCommand")
-  .f(void 0, GetCaseResponseFilterSensitiveLog)
-  .ser(se_GetCaseCommand)
-  .de(de_GetCaseCommand)
+  .sc(GetCase)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

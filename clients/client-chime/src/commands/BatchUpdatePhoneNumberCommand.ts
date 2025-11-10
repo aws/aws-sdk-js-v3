@@ -1,17 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  BatchUpdatePhoneNumberRequest,
-  BatchUpdatePhoneNumberRequestFilterSensitiveLog,
-  BatchUpdatePhoneNumberResponse,
-} from "../models/models_0";
-import { de_BatchUpdatePhoneNumberCommand, se_BatchUpdatePhoneNumberCommand } from "../protocols/Aws_restJson1";
+import { BatchUpdatePhoneNumberRequest, BatchUpdatePhoneNumberResponse } from "../models/models_0";
+import { BatchUpdatePhoneNumber } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -109,16 +104,11 @@ export class BatchUpdatePhoneNumberCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ChimeClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("UCBuzzConsoleService", "BatchUpdatePhoneNumber", {})
   .n("ChimeClient", "BatchUpdatePhoneNumberCommand")
-  .f(BatchUpdatePhoneNumberRequestFilterSensitiveLog, void 0)
-  .ser(se_BatchUpdatePhoneNumberCommand)
-  .de(de_BatchUpdatePhoneNumberCommand)
+  .sc(BatchUpdatePhoneNumber)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

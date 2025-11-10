@@ -1,6 +1,4 @@
 // smithy-typescript generated code
-import { SENSITIVE_STRING } from "@smithy/smithy-client";
-
 import {
   AccessBudgetsPrivacyTemplateParametersInput,
   AccessBudgetsPrivacyTemplateUpdateParameters,
@@ -3082,55 +3080,3 @@ export interface UntagResourceInput {
  * @public
  */
 export interface UntagResourceOutput {}
-
-/**
- * @internal
- */
-export const ProtectedQuerySQLParametersFilterSensitiveLog = (obj: ProtectedQuerySQLParameters): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ProtectedQueryFilterSensitiveLog = (obj: ProtectedQuery): any => ({
-  ...obj,
-  ...(obj.sqlParameters && { sqlParameters: SENSITIVE_STRING }),
-  ...(obj.resultConfiguration && { resultConfiguration: obj.resultConfiguration }),
-  ...(obj.result && { result: obj.result }),
-  ...(obj.computeConfiguration && { computeConfiguration: obj.computeConfiguration }),
-});
-
-/**
- * @internal
- */
-export const GetProtectedQueryOutputFilterSensitiveLog = (obj: GetProtectedQueryOutput): any => ({
-  ...obj,
-  ...(obj.protectedQuery && { protectedQuery: ProtectedQueryFilterSensitiveLog(obj.protectedQuery) }),
-});
-
-/**
- * @internal
- */
-export const StartProtectedQueryInputFilterSensitiveLog = (obj: StartProtectedQueryInput): any => ({
-  ...obj,
-  ...(obj.sqlParameters && { sqlParameters: SENSITIVE_STRING }),
-  ...(obj.resultConfiguration && { resultConfiguration: obj.resultConfiguration }),
-  ...(obj.computeConfiguration && { computeConfiguration: obj.computeConfiguration }),
-});
-
-/**
- * @internal
- */
-export const StartProtectedQueryOutputFilterSensitiveLog = (obj: StartProtectedQueryOutput): any => ({
-  ...obj,
-  ...(obj.protectedQuery && { protectedQuery: ProtectedQueryFilterSensitiveLog(obj.protectedQuery) }),
-});
-
-/**
- * @internal
- */
-export const UpdateProtectedQueryOutputFilterSensitiveLog = (obj: UpdateProtectedQueryOutput): any => ({
-  ...obj,
-  ...(obj.protectedQuery && { protectedQuery: ProtectedQueryFilterSensitiveLog(obj.protectedQuery) }),
-});

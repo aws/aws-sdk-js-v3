@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { AmpClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmpClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { UpdateWorkspaceAliasRequest } from "../models/models_0";
-import { de_UpdateWorkspaceAliasCommand, se_UpdateWorkspaceAliasCommand } from "../protocols/Aws_restJson1";
+import { UpdateWorkspaceAlias } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -91,16 +90,11 @@ export class UpdateWorkspaceAliasCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AmpClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonPrometheusService", "UpdateWorkspaceAlias", {})
   .n("AmpClient", "UpdateWorkspaceAliasCommand")
-  .f(void 0, void 0)
-  .ser(se_UpdateWorkspaceAliasCommand)
-  .de(de_UpdateWorkspaceAliasCommand)
+  .sc(UpdateWorkspaceAlias)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

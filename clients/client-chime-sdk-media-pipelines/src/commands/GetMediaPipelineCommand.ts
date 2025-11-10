@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -10,12 +9,8 @@ import {
   ServiceOutputTypes,
 } from "../ChimeSDKMediaPipelinesClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  GetMediaPipelineRequest,
-  GetMediaPipelineResponse,
-  GetMediaPipelineResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { de_GetMediaPipelineCommand, se_GetMediaPipelineCommand } from "../protocols/Aws_restJson1";
+import { GetMediaPipelineRequest, GetMediaPipelineResponse } from "../models/models_0";
+import { GetMediaPipeline } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -363,16 +358,11 @@ export class GetMediaPipelineCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ChimeSDKMediaPipelinesClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("ChimeSDKMediaPipelinesService", "GetMediaPipeline", {})
   .n("ChimeSDKMediaPipelinesClient", "GetMediaPipelineCommand")
-  .f(void 0, GetMediaPipelineResponseFilterSensitiveLog)
-  .ser(se_GetMediaPipelineCommand)
-  .de(de_GetMediaPipelineCommand)
+  .sc(GetMediaPipeline)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

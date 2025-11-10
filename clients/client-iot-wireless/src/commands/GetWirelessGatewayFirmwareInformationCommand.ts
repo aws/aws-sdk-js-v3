@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -10,10 +9,7 @@ import {
   GetWirelessGatewayFirmwareInformationRequest,
   GetWirelessGatewayFirmwareInformationResponse,
 } from "../models/models_0";
-import {
-  de_GetWirelessGatewayFirmwareInformationCommand,
-  se_GetWirelessGatewayFirmwareInformationCommand,
-} from "../protocols/Aws_restJson1";
+import { GetWirelessGatewayFirmwareInformation } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -100,16 +96,11 @@ export class GetWirelessGatewayFirmwareInformationCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTWirelessClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("iotwireless", "GetWirelessGatewayFirmwareInformation", {})
   .n("IoTWirelessClient", "GetWirelessGatewayFirmwareInformationCommand")
-  .f(void 0, void 0)
-  .ser(se_GetWirelessGatewayFirmwareInformationCommand)
-  .de(de_GetWirelessGatewayFirmwareInformationCommand)
+  .sc(GetWirelessGatewayFirmwareInformation)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { InspectorScanClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../InspectorScanClient";
 import { ScanSbomRequest, ScanSbomResponse } from "../models/models_0";
-import { de_ScanSbomCommand, se_ScanSbomCommand } from "../protocols/Aws_restJson1";
+import { ScanSbom } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -260,16 +259,11 @@ export class ScanSbomCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: InspectorScanClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("InspectorScan", "ScanSbom", {})
   .n("InspectorScanClient", "ScanSbomCommand")
-  .f(void 0, void 0)
-  .ser(se_ScanSbomCommand)
-  .de(de_ScanSbomCommand)
+  .sc(ScanSbom)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

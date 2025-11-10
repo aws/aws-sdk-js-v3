@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@smithy/smithy-client";
+import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
 import { ConnectServiceException as __BaseException } from "./ConnectServiceException";
 
@@ -54,10 +54,8 @@ import {
   TaskTemplateField,
   TaskTemplateStatus,
   UserIdentityInfo,
-  UserIdentityInfoFilterSensitiveLog,
   UserPhoneConfig,
   View,
-  ViewFilterSensitiveLog,
   VocabularyLanguageCode,
 } from "./models_0";
 
@@ -9919,86 +9917,3 @@ export interface LexBotConfig {
    */
   LexV2Bot?: LexV2Bot | undefined;
 }
-
-/**
- * @internal
- */
-export const CreateViewResponseFilterSensitiveLog = (obj: CreateViewResponse): any => ({
-  ...obj,
-  ...(obj.View && { View: ViewFilterSensitiveLog(obj.View) }),
-});
-
-/**
- * @internal
- */
-export const CreateViewVersionResponseFilterSensitiveLog = (obj: CreateViewVersionResponse): any => ({
-  ...obj,
-  ...(obj.View && { View: ViewFilterSensitiveLog(obj.View) }),
-});
-
-/**
- * @internal
- */
-export const DescribeEmailAddressResponseFilterSensitiveLog = (obj: DescribeEmailAddressResponse): any => ({
-  ...obj,
-  ...(obj.EmailAddress && { EmailAddress: SENSITIVE_STRING }),
-  ...(obj.DisplayName && { DisplayName: SENSITIVE_STRING }),
-  ...(obj.Description && { Description: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const InstanceFilterSensitiveLog = (obj: Instance): any => ({
-  ...obj,
-  ...(obj.InstanceAlias && { InstanceAlias: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const DescribeInstanceResponseFilterSensitiveLog = (obj: DescribeInstanceResponse): any => ({
-  ...obj,
-  ...(obj.Instance && { Instance: InstanceFilterSensitiveLog(obj.Instance) }),
-});
-
-/**
- * @internal
- */
-export const UserFilterSensitiveLog = (obj: User): any => ({
-  ...obj,
-  ...(obj.IdentityInfo && { IdentityInfo: UserIdentityInfoFilterSensitiveLog(obj.IdentityInfo) }),
-});
-
-/**
- * @internal
- */
-export const DescribeUserResponseFilterSensitiveLog = (obj: DescribeUserResponse): any => ({
-  ...obj,
-  ...(obj.User && { User: UserFilterSensitiveLog(obj.User) }),
-});
-
-/**
- * @internal
- */
-export const DescribeViewResponseFilterSensitiveLog = (obj: DescribeViewResponse): any => ({
-  ...obj,
-  ...(obj.View && { View: ViewFilterSensitiveLog(obj.View) }),
-});
-
-/**
- * @internal
- */
-export const CredentialsFilterSensitiveLog = (obj: Credentials): any => ({
-  ...obj,
-  ...(obj.AccessToken && { AccessToken: SENSITIVE_STRING }),
-  ...(obj.RefreshToken && { RefreshToken: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const GetFederationTokenResponseFilterSensitiveLog = (obj: GetFederationTokenResponse): any => ({
-  ...obj,
-  ...(obj.Credentials && { Credentials: SENSITIVE_STRING }),
-});

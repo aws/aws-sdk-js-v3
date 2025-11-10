@@ -1,18 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { AmplifyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmplifyClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  CreateBranchRequest,
-  CreateBranchRequestFilterSensitiveLog,
-  CreateBranchResult,
-  CreateBranchResultFilterSensitiveLog,
-} from "../models/models_0";
-import { de_CreateBranchCommand, se_CreateBranchCommand } from "../protocols/Aws_restJson1";
+import { CreateBranchRequest, CreateBranchResult } from "../models/models_0";
+import { CreateBranch } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -160,16 +154,11 @@ export class CreateBranchCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AmplifyClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("Amplify", "CreateBranch", {})
   .n("AmplifyClient", "CreateBranchCommand")
-  .f(CreateBranchRequestFilterSensitiveLog, CreateBranchResultFilterSensitiveLog)
-  .ser(se_CreateBranchCommand)
-  .de(de_CreateBranchCommand)
+  .sc(CreateBranch)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

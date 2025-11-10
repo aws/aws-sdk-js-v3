@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -9,11 +8,8 @@ import {
   AcceptResourceGroupingRecommendationsRequest,
   AcceptResourceGroupingRecommendationsResponse,
 } from "../models/models_0";
-import {
-  de_AcceptResourceGroupingRecommendationsCommand,
-  se_AcceptResourceGroupingRecommendationsCommand,
-} from "../protocols/Aws_restJson1";
 import { ResiliencehubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResiliencehubClient";
+import { AcceptResourceGroupingRecommendations } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -108,16 +104,11 @@ export class AcceptResourceGroupingRecommendationsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ResiliencehubClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AwsResilienceHub", "AcceptResourceGroupingRecommendations", {})
   .n("ResiliencehubClient", "AcceptResourceGroupingRecommendationsCommand")
-  .f(void 0, void 0)
-  .ser(se_AcceptResourceGroupingRecommendationsCommand)
-  .de(de_AcceptResourceGroupingRecommendationsCommand)
+  .sc(AcceptResourceGroupingRecommendations)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

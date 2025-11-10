@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -10,12 +9,8 @@ import {
   ServiceOutputTypes,
 } from "../ChimeSDKMediaPipelinesClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  StartVoiceToneAnalysisTaskRequest,
-  StartVoiceToneAnalysisTaskRequestFilterSensitiveLog,
-  StartVoiceToneAnalysisTaskResponse,
-} from "../models/models_0";
-import { de_StartVoiceToneAnalysisTaskCommand, se_StartVoiceToneAnalysisTaskCommand } from "../protocols/Aws_restJson1";
+import { StartVoiceToneAnalysisTaskRequest, StartVoiceToneAnalysisTaskResponse } from "../models/models_0";
+import { StartVoiceToneAnalysisTask } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -121,16 +116,11 @@ export class StartVoiceToneAnalysisTaskCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ChimeSDKMediaPipelinesClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("ChimeSDKMediaPipelinesService", "StartVoiceToneAnalysisTask", {})
   .n("ChimeSDKMediaPipelinesClient", "StartVoiceToneAnalysisTaskCommand")
-  .f(StartVoiceToneAnalysisTaskRequestFilterSensitiveLog, void 0)
-  .ser(se_StartVoiceToneAnalysisTaskCommand)
-  .de(de_StartVoiceToneAnalysisTaskCommand)
+  .sc(StartVoiceToneAnalysisTask)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

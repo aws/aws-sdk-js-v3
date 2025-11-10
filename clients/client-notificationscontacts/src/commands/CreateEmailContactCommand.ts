@@ -1,21 +1,16 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  CreateEmailContactRequest,
-  CreateEmailContactRequestFilterSensitiveLog,
-  CreateEmailContactResponse,
-} from "../models/models_0";
+import { CreateEmailContactRequest, CreateEmailContactResponse } from "../models/models_0";
 import {
   NotificationsContactsClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../NotificationsContactsClient";
-import { de_CreateEmailContactCommand, se_CreateEmailContactCommand } from "../protocols/Aws_restJson1";
+import { CreateEmailContact } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -100,16 +95,11 @@ export class CreateEmailContactCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: NotificationsContactsClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("NotificationsContacts", "CreateEmailContact", {})
   .n("NotificationsContactsClient", "CreateEmailContactCommand")
-  .f(CreateEmailContactRequestFilterSensitiveLog, void 0)
-  .ser(se_CreateEmailContactCommand)
-  .de(de_CreateEmailContactCommand)
+  .sc(CreateEmailContact)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

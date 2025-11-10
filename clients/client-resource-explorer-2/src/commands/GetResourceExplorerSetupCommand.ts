@@ -1,21 +1,16 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  GetResourceExplorerSetupInput,
-  GetResourceExplorerSetupOutput,
-  GetResourceExplorerSetupOutputFilterSensitiveLog,
-} from "../models/models_0";
-import { de_GetResourceExplorerSetupCommand, se_GetResourceExplorerSetupCommand } from "../protocols/Aws_restJson1";
+import { GetResourceExplorerSetupInput, GetResourceExplorerSetupOutput } from "../models/models_0";
 import {
   ResourceExplorer2ClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ResourceExplorer2Client";
+import { GetResourceExplorerSetup } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -133,16 +128,11 @@ export class GetResourceExplorerSetupCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ResourceExplorer2ClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("ResourceExplorer", "GetResourceExplorerSetup", {})
   .n("ResourceExplorer2Client", "GetResourceExplorerSetupCommand")
-  .f(void 0, GetResourceExplorerSetupOutputFilterSensitiveLog)
-  .ser(se_GetResourceExplorerSetupCommand)
-  .de(de_GetResourceExplorerSetupCommand)
+  .sc(GetResourceExplorerSetup)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

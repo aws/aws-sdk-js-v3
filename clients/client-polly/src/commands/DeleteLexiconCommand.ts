@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DeleteLexiconInput, DeleteLexiconOutput } from "../models/models_0";
 import { PollyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PollyClient";
-import { de_DeleteLexiconCommand, se_DeleteLexiconCommand } from "../protocols/Aws_restJson1";
+import { DeleteLexicon } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -94,16 +93,11 @@ export class DeleteLexiconCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: PollyClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("Parrot_v1", "DeleteLexicon", {})
   .n("PollyClient", "DeleteLexiconCommand")
-  .f(void 0, void 0)
-  .ser(se_DeleteLexiconCommand)
-  .de(de_DeleteLexiconCommand)
+  .sc(DeleteLexicon)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

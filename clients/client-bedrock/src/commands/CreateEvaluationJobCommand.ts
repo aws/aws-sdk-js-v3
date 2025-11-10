@@ -1,14 +1,13 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { BedrockClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BedrockClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { CreateEvaluationJobResponse } from "../models/models_0";
-import { CreateEvaluationJobRequest, CreateEvaluationJobRequestFilterSensitiveLog } from "../models/models_1";
-import { de_CreateEvaluationJobCommand, se_CreateEvaluationJobCommand } from "../protocols/Aws_restJson1";
+import { CreateEvaluationJobRequest } from "../models/models_1";
+import { CreateEvaluationJob } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -424,16 +423,11 @@ export class CreateEvaluationJobCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: BedrockClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonBedrockControlPlaneService", "CreateEvaluationJob", {})
   .n("BedrockClient", "CreateEvaluationJobCommand")
-  .f(CreateEvaluationJobRequestFilterSensitiveLog, void 0)
-  .ser(se_CreateEvaluationJobCommand)
-  .de(de_CreateEvaluationJobCommand)
+  .sc(CreateEvaluationJob)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

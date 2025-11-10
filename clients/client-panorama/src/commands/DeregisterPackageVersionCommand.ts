@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DeregisterPackageVersionRequest, DeregisterPackageVersionResponse } from "../models/models_0";
 import { PanoramaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PanoramaClient";
-import { de_DeregisterPackageVersionCommand, se_DeregisterPackageVersionCommand } from "../protocols/Aws_restJson1";
+import { DeregisterPackageVersion } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -87,16 +86,11 @@ export class DeregisterPackageVersionCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: PanoramaClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("OmniCloudServiceLambda", "DeregisterPackageVersion", {})
   .n("PanoramaClient", "DeregisterPackageVersionCommand")
-  .f(void 0, void 0)
-  .ser(se_DeregisterPackageVersionCommand)
-  .de(de_DeregisterPackageVersionCommand)
+  .sc(DeregisterPackageVersion)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

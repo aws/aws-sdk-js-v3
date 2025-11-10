@@ -1,21 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DrsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DrsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  ReplicationConfiguration,
-  ReplicationConfigurationFilterSensitiveLog,
-  UpdateReplicationConfigurationRequest,
-  UpdateReplicationConfigurationRequestFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  de_UpdateReplicationConfigurationCommand,
-  se_UpdateReplicationConfigurationCommand,
-} from "../protocols/Aws_restJson1";
+import { ReplicationConfiguration, UpdateReplicationConfigurationRequest } from "../models/models_0";
+import { UpdateReplicationConfiguration } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -173,16 +164,11 @@ export class UpdateReplicationConfigurationCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DrsClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("ElasticDisasterRecoveryService", "UpdateReplicationConfiguration", {})
   .n("DrsClient", "UpdateReplicationConfigurationCommand")
-  .f(UpdateReplicationConfigurationRequestFilterSensitiveLog, ReplicationConfigurationFilterSensitiveLog)
-  .ser(se_UpdateReplicationConfigurationCommand)
-  .de(de_UpdateReplicationConfigurationCommand)
+  .sc(UpdateReplicationConfiguration)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,25 +1,16 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  VerifyAuthRequestCryptogramInput,
-  VerifyAuthRequestCryptogramInputFilterSensitiveLog,
-  VerifyAuthRequestCryptogramOutput,
-  VerifyAuthRequestCryptogramOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { VerifyAuthRequestCryptogramInput, VerifyAuthRequestCryptogramOutput } from "../models/models_0";
 import {
   PaymentCryptographyDataClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../PaymentCryptographyDataClient";
-import {
-  de_VerifyAuthRequestCryptogramCommand,
-  se_VerifyAuthRequestCryptogramCommand,
-} from "../protocols/Aws_restJson1";
+import { VerifyAuthRequestCryptogram } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -140,16 +131,11 @@ export class VerifyAuthRequestCryptogramCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: PaymentCryptographyDataClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("PaymentCryptographyDataPlane", "VerifyAuthRequestCryptogram", {})
   .n("PaymentCryptographyDataClient", "VerifyAuthRequestCryptogramCommand")
-  .f(VerifyAuthRequestCryptogramInputFilterSensitiveLog, VerifyAuthRequestCryptogramOutputFilterSensitiveLog)
-  .ser(se_VerifyAuthRequestCryptogramCommand)
-  .de(de_VerifyAuthRequestCryptogramCommand)
+  .sc(VerifyAuthRequestCryptogram)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

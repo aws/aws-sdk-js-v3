@@ -111,9 +111,9 @@ export interface AssumeRoleRequest {
    *          assume the role. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_iam-condition-keys.html#ck_rolesessionname">
    *                <code>sts:RoleSessionName</code>
    *             </a>.</p>
-   *          <p>The regex used to validate this parameter is a string of characters
-   *     consisting of upper- and lower-case alphanumeric characters with no spaces. You can
-   *     also include underscores or any of the following characters: =,.@-</p>
+   *          <p>The regex used to validate this parameter is a string of
+   *     characters consisting of upper- and lower-case alphanumeric characters with no spaces.
+   *     You can also include underscores or any of the following characters: +=,.@-</p>
    * @public
    */
   RoleSessionName: string | undefined;
@@ -258,7 +258,7 @@ export interface AssumeRoleRequest {
    *             <i>IAM User Guide</i>.</p>
    *          <p>The regex used to validate this parameter is a string of
    *     characters consisting of upper- and lower-case alphanumeric characters with no spaces.
-   *     You can also include underscores or any of the following characters: =,.@:/-</p>
+   *     You can also include underscores or any of the following characters: +=,.@:\/-</p>
    * @public
    */
   ExternalId?: string | undefined;
@@ -270,9 +270,9 @@ export interface AssumeRoleRequest {
    *          the serial number for a hardware device (such as <code>GAHT12345678</code>) or an Amazon
    *          Resource Name (ARN) for a virtual device (such as
    *             <code>arn:aws:iam::123456789012:mfa/user</code>).</p>
-   *          <p>The regex used to validate this parameter is a string of characters
-   *     consisting of upper- and lower-case alphanumeric characters with no spaces. You can
-   *     also include underscores or any of the following characters: =,.@-</p>
+   *          <p>The regex used to validate this parameter is a string of
+   *     characters consisting of upper- and lower-case alphanumeric characters with no spaces.
+   *     You can also include underscores or any of the following characters: +=/:,.@-</p>
    * @public
    */
   SerialNumber?: string | undefined;
@@ -497,7 +497,7 @@ export class PackedPolicyTooLargeException extends __BaseException {
 /**
  * <p>STS is not activated in the requested region for the account that is being asked to
  *             generate credentials. The account administrator must use the IAM console to activate
- *             STS in that region. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html">Activating and
+ *             STS in that region. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html#sts-regions-activate-deactivate">Activating and
  *                 Deactivating STS in an Amazon Web Services Region</a> in the <i>IAM User
  *                 Guide</i>.</p>
  * @public

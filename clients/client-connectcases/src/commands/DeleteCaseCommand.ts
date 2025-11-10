@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ConnectCasesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectCasesClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DeleteCaseRequest, DeleteCaseResponse } from "../models/models_0";
-import { de_DeleteCaseCommand, se_DeleteCaseCommand } from "../protocols/Aws_restJson1";
+import { DeleteCase } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -84,16 +83,11 @@ export class DeleteCaseCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ConnectCasesClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonConnectCases", "DeleteCase", {})
   .n("ConnectCasesClient", "DeleteCaseCommand")
-  .f(void 0, void 0)
-  .ser(se_DeleteCaseCommand)
-  .de(de_DeleteCaseCommand)
+  .sc(DeleteCase)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,22 +1,16 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  GenerateMacEmvPinChangeInput,
-  GenerateMacEmvPinChangeInputFilterSensitiveLog,
-  GenerateMacEmvPinChangeOutput,
-  GenerateMacEmvPinChangeOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { GenerateMacEmvPinChangeInput, GenerateMacEmvPinChangeOutput } from "../models/models_0";
 import {
   PaymentCryptographyDataClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../PaymentCryptographyDataClient";
-import { de_GenerateMacEmvPinChangeCommand, se_GenerateMacEmvPinChangeCommand } from "../protocols/Aws_restJson1";
+import { GenerateMacEmvPinChange } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -157,16 +151,11 @@ export class GenerateMacEmvPinChangeCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: PaymentCryptographyDataClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("PaymentCryptographyDataPlane", "GenerateMacEmvPinChange", {})
   .n("PaymentCryptographyDataClient", "GenerateMacEmvPinChangeCommand")
-  .f(GenerateMacEmvPinChangeInputFilterSensitiveLog, GenerateMacEmvPinChangeOutputFilterSensitiveLog)
-  .ser(se_GenerateMacEmvPinChangeCommand)
-  .de(de_GenerateMacEmvPinChangeCommand)
+  .sc(GenerateMacEmvPinChange)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

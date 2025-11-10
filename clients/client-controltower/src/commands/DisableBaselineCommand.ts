@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ControlTowerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ControlTowerClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DisableBaselineInput, DisableBaselineOutput } from "../models/models_0";
-import { de_DisableBaselineCommand, se_DisableBaselineCommand } from "../protocols/Aws_restJson1";
+import { DisableBaseline } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -91,16 +90,11 @@ export class DisableBaselineCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ControlTowerClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSControlTowerApis", "DisableBaseline", {})
   .n("ControlTowerClient", "DisableBaselineCommand")
-  .f(void 0, void 0)
-  .ser(se_DisableBaselineCommand)
-  .de(de_DisableBaselineCommand)
+  .sc(DisableBaseline)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

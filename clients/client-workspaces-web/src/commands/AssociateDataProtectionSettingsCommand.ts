@@ -1,15 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { AssociateDataProtectionSettingsRequest, AssociateDataProtectionSettingsResponse } from "../models/models_0";
-import {
-  de_AssociateDataProtectionSettingsCommand,
-  se_AssociateDataProtectionSettingsCommand,
-} from "../protocols/Aws_restJson1";
+import { AssociateDataProtectionSettings } from "../schemas/schemas_0";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesWebClientResolvedConfig } from "../WorkSpacesWebClient";
 
 /**
@@ -95,16 +91,11 @@ export class AssociateDataProtectionSettingsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WorkSpacesWebClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSErmineControlPlaneService", "AssociateDataProtectionSettings", {})
   .n("WorkSpacesWebClient", "AssociateDataProtectionSettingsCommand")
-  .f(void 0, void 0)
-  .ser(se_AssociateDataProtectionSettingsCommand)
-  .de(de_AssociateDataProtectionSettingsCommand)
+  .sc(AssociateDataProtectionSettings)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

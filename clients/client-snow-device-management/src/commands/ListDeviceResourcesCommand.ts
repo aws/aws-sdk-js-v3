@@ -1,12 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { ListDeviceResourcesInput, ListDeviceResourcesOutput } from "../models/models_0";
-import { de_ListDeviceResourcesCommand, se_ListDeviceResourcesCommand } from "../protocols/Aws_restJson1";
+import { ListDeviceResources } from "../schemas/schemas_0";
 import {
   ServiceInputTypes,
   ServiceOutputTypes,
@@ -99,16 +98,11 @@ export class ListDeviceResourcesCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SnowDeviceManagementClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("SnowDeviceManagement", "ListDeviceResources", {})
   .n("SnowDeviceManagementClient", "ListDeviceResourcesCommand")
-  .f(void 0, void 0)
-  .ser(se_ListDeviceResourcesCommand)
-  .de(de_ListDeviceResourcesCommand)
+  .sc(ListDeviceResources)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

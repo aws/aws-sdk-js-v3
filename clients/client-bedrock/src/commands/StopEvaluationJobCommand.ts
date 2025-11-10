@@ -1,17 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { BedrockClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BedrockClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  StopEvaluationJobRequest,
-  StopEvaluationJobRequestFilterSensitiveLog,
-  StopEvaluationJobResponse,
-} from "../models/models_0";
-import { de_StopEvaluationJobCommand, se_StopEvaluationJobCommand } from "../protocols/Aws_restJson1";
+import { StopEvaluationJobRequest, StopEvaluationJobResponse } from "../models/models_0";
+import { StopEvaluationJob } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -90,16 +85,11 @@ export class StopEvaluationJobCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: BedrockClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonBedrockControlPlaneService", "StopEvaluationJob", {})
   .n("BedrockClient", "StopEvaluationJobCommand")
-  .f(StopEvaluationJobRequestFilterSensitiveLog, void 0)
-  .ser(se_StopEvaluationJobCommand)
-  .de(de_StopEvaluationJobCommand)
+  .sc(StopEvaluationJob)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

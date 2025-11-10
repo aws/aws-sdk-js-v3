@@ -1,12 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DescribeDeviceEc2Input, DescribeDeviceEc2Output } from "../models/models_0";
-import { de_DescribeDeviceEc2InstancesCommand, se_DescribeDeviceEc2InstancesCommand } from "../protocols/Aws_restJson1";
+import { DescribeDeviceEc2Instances } from "../schemas/schemas_0";
 import {
   ServiceInputTypes,
   ServiceOutputTypes,
@@ -134,16 +133,11 @@ export class DescribeDeviceEc2InstancesCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SnowDeviceManagementClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("SnowDeviceManagement", "DescribeDeviceEc2Instances", {})
   .n("SnowDeviceManagementClient", "DescribeDeviceEc2InstancesCommand")
-  .f(void 0, void 0)
-  .ser(se_DescribeDeviceEc2InstancesCommand)
-  .de(de_DescribeDeviceEc2InstancesCommand)
+  .sc(DescribeDeviceEc2Instances)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

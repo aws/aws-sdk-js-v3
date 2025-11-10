@@ -1,15 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { CreateCloudFormationChangeSetRequest, CreateCloudFormationChangeSetResponse } from "../models/models_0";
-import {
-  de_CreateCloudFormationChangeSetCommand,
-  se_CreateCloudFormationChangeSetCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateCloudFormationChangeSet } from "../schemas/schemas_0";
 import {
   ServerlessApplicationRepositoryClientResolvedConfig,
   ServiceInputTypes,
@@ -130,16 +126,11 @@ export class CreateCloudFormationChangeSetCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ServerlessApplicationRepositoryClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("ServerlessApplicationRepository", "CreateCloudFormationChangeSet", {})
   .n("ServerlessApplicationRepositoryClient", "CreateCloudFormationChangeSetCommand")
-  .f(void 0, void 0)
-  .ser(se_CreateCloudFormationChangeSetCommand)
-  .de(de_CreateCloudFormationChangeSetCommand)
+  .sc(CreateCloudFormationChangeSet)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

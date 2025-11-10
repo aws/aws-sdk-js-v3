@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -14,10 +13,7 @@ import {
   RejectInboundCrossClusterSearchConnectionRequest,
   RejectInboundCrossClusterSearchConnectionResponse,
 } from "../models/models_0";
-import {
-  de_RejectInboundCrossClusterSearchConnectionCommand,
-  se_RejectInboundCrossClusterSearchConnectionCommand,
-} from "../protocols/Aws_restJson1";
+import { RejectInboundCrossClusterSearchConnection } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -105,16 +101,11 @@ export class RejectInboundCrossClusterSearchConnectionCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ElasticsearchServiceClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonElasticsearchService2015", "RejectInboundCrossClusterSearchConnection", {})
   .n("ElasticsearchServiceClient", "RejectInboundCrossClusterSearchConnectionCommand")
-  .f(void 0, void 0)
-  .ser(se_RejectInboundCrossClusterSearchConnectionCommand)
-  .de(de_RejectInboundCrossClusterSearchConnectionCommand)
+  .sc(RejectInboundCrossClusterSearchConnection)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

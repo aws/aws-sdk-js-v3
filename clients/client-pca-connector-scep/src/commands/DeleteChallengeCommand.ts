@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DeleteChallengeRequest } from "../models/models_0";
 import { PcaConnectorScepClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PcaConnectorScepClient";
-import { de_DeleteChallengeCommand, se_DeleteChallengeCommand } from "../protocols/Aws_restJson1";
+import { DeleteChallenge } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -92,16 +91,11 @@ export class DeleteChallengeCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: PcaConnectorScepClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("PcaConnectorScep", "DeleteChallenge", {})
   .n("PcaConnectorScepClient", "DeleteChallengeCommand")
-  .f(void 0, void 0)
-  .ser(se_DeleteChallengeCommand)
-  .de(de_DeleteChallengeCommand)
+  .sc(DeleteChallenge)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

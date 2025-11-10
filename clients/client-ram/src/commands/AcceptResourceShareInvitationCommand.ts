@@ -1,16 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { AcceptResourceShareInvitationRequest, AcceptResourceShareInvitationResponse } from "../models/models_0";
-import {
-  de_AcceptResourceShareInvitationCommand,
-  se_AcceptResourceShareInvitationCommand,
-} from "../protocols/Aws_restJson1";
 import { RAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RAMClient";
+import { AcceptResourceShareInvitation } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -137,16 +133,11 @@ export class AcceptResourceShareInvitationCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RAMClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonResourceSharing", "AcceptResourceShareInvitation", {})
   .n("RAMClient", "AcceptResourceShareInvitationCommand")
-  .f(void 0, void 0)
-  .ser(se_AcceptResourceShareInvitationCommand)
-  .de(de_AcceptResourceShareInvitationCommand)
+  .sc(AcceptResourceShareInvitation)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

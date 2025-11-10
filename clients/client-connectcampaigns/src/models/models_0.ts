@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@smithy/smithy-client";
+import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
 import { ConnectCampaignsServiceException as __BaseException } from "./ConnectCampaignsServiceException";
 
@@ -1365,20 +1365,3 @@ export interface UpdateCampaignOutboundCallConfigRequest {
    */
   answerMachineDetectionConfig?: AnswerMachineDetectionConfig | undefined;
 }
-
-/**
- * @internal
- */
-export const DialRequestFilterSensitiveLog = (obj: DialRequest): any => ({
-  ...obj,
-  ...(obj.phoneNumber && { phoneNumber: SENSITIVE_STRING }),
-  ...(obj.attributes && { attributes: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const PutDialRequestBatchRequestFilterSensitiveLog = (obj: PutDialRequestBatchRequest): any => ({
-  ...obj,
-  ...(obj.dialRequests && { dialRequests: obj.dialRequests.map((item) => DialRequestFilterSensitiveLog(item)) }),
-});

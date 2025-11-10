@@ -1,20 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CleanRoomsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CleanRoomsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  GetCollaborationAnalysisTemplateInput,
-  GetCollaborationAnalysisTemplateOutput,
-  GetCollaborationAnalysisTemplateOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  de_GetCollaborationAnalysisTemplateCommand,
-  se_GetCollaborationAnalysisTemplateCommand,
-} from "../protocols/Aws_restJson1";
+import { GetCollaborationAnalysisTemplateInput, GetCollaborationAnalysisTemplateOutput } from "../models/models_0";
+import { GetCollaborationAnalysisTemplate } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -164,16 +156,11 @@ export class GetCollaborationAnalysisTemplateCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CleanRoomsClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSBastionControlPlaneServiceLambda", "GetCollaborationAnalysisTemplate", {})
   .n("CleanRoomsClient", "GetCollaborationAnalysisTemplateCommand")
-  .f(void 0, GetCollaborationAnalysisTemplateOutputFilterSensitiveLog)
-  .ser(se_GetCollaborationAnalysisTemplateCommand)
-  .de(de_GetCollaborationAnalysisTemplateCommand)
+  .sc(GetCollaborationAnalysisTemplate)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

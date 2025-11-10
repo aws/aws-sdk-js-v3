@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DescribeViewRequest, DescribeViewResponse, DescribeViewResponseFilterSensitiveLog } from "../models/models_1";
-import { de_DescribeViewCommand, se_DescribeViewCommand } from "../protocols/Aws_restJson1";
+import { DescribeViewRequest, DescribeViewResponse } from "../models/models_1";
+import { DescribeView } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -118,16 +117,11 @@ export class DescribeViewCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonConnectService", "DescribeView", {})
   .n("ConnectClient", "DescribeViewCommand")
-  .f(void 0, DescribeViewResponseFilterSensitiveLog)
-  .ser(se_DescribeViewCommand)
-  .de(de_DescribeViewCommand)
+  .sc(DescribeView)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { UpdateSubscriptionRequest, UpdateSubscriptionResponse } from "../models/models_1";
-import { de_UpdateSubscriptionCommand, se_UpdateSubscriptionCommand } from "../protocols/Aws_restJson1";
 import { QBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QBusinessClient";
+import { UpdateSubscription } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -96,16 +95,11 @@ export class UpdateSubscriptionCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: QBusinessClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("ExpertQ", "UpdateSubscription", {})
   .n("QBusinessClient", "UpdateSubscriptionCommand")
-  .f(void 0, void 0)
-  .ser(se_UpdateSubscriptionCommand)
-  .de(de_UpdateSubscriptionCommand)
+  .sc(UpdateSubscription)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

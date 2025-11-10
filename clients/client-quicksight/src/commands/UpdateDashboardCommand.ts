@@ -1,17 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  UpdateDashboardRequest,
-  UpdateDashboardRequestFilterSensitiveLog,
-  UpdateDashboardResponse,
-} from "../models/models_5";
-import { de_UpdateDashboardCommand, se_UpdateDashboardCommand } from "../protocols/Aws_restJson1";
+import { UpdateDashboardRequest, UpdateDashboardResponse } from "../models/models_5";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
+import { UpdateDashboard } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -5619,16 +5614,11 @@ export class UpdateDashboardCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: QuickSightClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("QuickSight_20180401", "UpdateDashboard", {})
   .n("QuickSightClient", "UpdateDashboardCommand")
-  .f(UpdateDashboardRequestFilterSensitiveLog, void 0)
-  .ser(se_UpdateDashboardCommand)
-  .de(de_UpdateDashboardCommand)
+  .sc(UpdateDashboard)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

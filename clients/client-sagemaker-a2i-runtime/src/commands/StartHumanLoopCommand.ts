@@ -1,17 +1,16 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { StartHumanLoopRequest, StartHumanLoopResponse } from "../models/models_0";
-import { de_StartHumanLoopCommand, se_StartHumanLoopCommand } from "../protocols/Aws_restJson1";
 import {
   SageMakerA2IRuntimeClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../SageMakerA2IRuntimeClient";
+import { StartHumanLoop } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -108,16 +107,11 @@ export class StartHumanLoopCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SageMakerA2IRuntimeClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonSageMakerA2IRuntime", "StartHumanLoop", {})
   .n("SageMakerA2IRuntimeClient", "StartHumanLoopCommand")
-  .f(void 0, void 0)
-  .ser(se_StartHumanLoopCommand)
-  .de(de_StartHumanLoopCommand)
+  .sc(StartHumanLoop)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

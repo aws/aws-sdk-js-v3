@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -11,10 +10,7 @@ import {
   ServiceOutputTypes,
 } from "../IoTManagedIntegrationsClient";
 import { DeleteEventLogConfigurationRequest } from "../models/models_0";
-import {
-  de_DeleteEventLogConfigurationCommand,
-  se_DeleteEventLogConfigurationCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteEventLogConfiguration } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -90,16 +86,11 @@ export class DeleteEventLogConfigurationCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTManagedIntegrationsClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("IotManagedIntegrations", "DeleteEventLogConfiguration", {})
   .n("IoTManagedIntegrationsClient", "DeleteEventLogConfigurationCommand")
-  .f(void 0, void 0)
-  .ser(se_DeleteEventLogConfigurationCommand)
-  .de(de_DeleteEventLogConfigurationCommand)
+  .sc(DeleteEventLogConfiguration)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

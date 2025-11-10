@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { AppSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppSyncClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { CreateGraphqlApiRequest, CreateGraphqlApiResponse } from "../models/models_0";
-import { de_CreateGraphqlApiCommand, se_CreateGraphqlApiCommand } from "../protocols/Aws_restJson1";
+import { CreateGraphqlApi } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -222,16 +221,11 @@ export class CreateGraphqlApiCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AppSyncClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSDeepdishControlPlaneService", "CreateGraphqlApi", {})
   .n("AppSyncClient", "CreateGraphqlApiCommand")
-  .f(void 0, void 0)
-  .ser(se_CreateGraphqlApiCommand)
-  .de(de_CreateGraphqlApiCommand)
+  .sc(CreateGraphqlApi)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

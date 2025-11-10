@@ -1,18 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GeoPlacesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GeoPlacesClient";
-import {
-  SearchNearbyRequest,
-  SearchNearbyRequestFilterSensitiveLog,
-  SearchNearbyResponse,
-  SearchNearbyResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { de_SearchNearbyCommand, se_SearchNearbyCommand } from "../protocols/Aws_restJson1";
+import { SearchNearbyRequest, SearchNearbyResponse } from "../models/models_0";
+import { SearchNearby } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -344,16 +338,11 @@ export class SearchNearbyCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GeoPlacesClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("PlacesService", "SearchNearby", {})
   .n("GeoPlacesClient", "SearchNearbyCommand")
-  .f(SearchNearbyRequestFilterSensitiveLog, SearchNearbyResponseFilterSensitiveLog)
-  .ser(se_SearchNearbyCommand)
-  .de(de_SearchNearbyCommand)
+  .sc(SearchNearby)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

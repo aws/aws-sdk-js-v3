@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { EntityResolutionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EntityResolutionClient";
 import { ListIdNamespacesInput, ListIdNamespacesOutput } from "../models/models_0";
-import { de_ListIdNamespacesCommand, se_ListIdNamespacesCommand } from "../protocols/Aws_restJson1";
+import { ListIdNamespaces } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -98,16 +97,11 @@ export class ListIdNamespacesCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EntityResolutionClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSVeniceService", "ListIdNamespaces", {})
   .n("EntityResolutionClient", "ListIdNamespacesCommand")
-  .f(void 0, void 0)
-  .ser(se_ListIdNamespacesCommand)
-  .de(de_ListIdNamespacesCommand)
+  .sc(ListIdNamespaces)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { MgnClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MgnClient";
-import { FinalizeCutoverRequest, SourceServer, SourceServerFilterSensitiveLog } from "../models/models_0";
-import { de_FinalizeCutoverCommand, se_FinalizeCutoverCommand } from "../protocols/Aws_restJson1";
+import { FinalizeCutoverRequest, SourceServer } from "../models/models_0";
+import { FinalizeCutover } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -198,16 +197,11 @@ export class FinalizeCutoverCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MgnClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("ApplicationMigrationService", "FinalizeCutover", {})
   .n("MgnClient", "FinalizeCutoverCommand")
-  .f(void 0, SourceServerFilterSensitiveLog)
-  .ser(se_FinalizeCutoverCommand)
-  .de(de_FinalizeCutoverCommand)
+  .sc(FinalizeCutover)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

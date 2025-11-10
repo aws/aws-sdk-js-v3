@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EMRContainersClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRContainersClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DeleteJobTemplateRequest, DeleteJobTemplateResponse } from "../models/models_0";
-import { de_DeleteJobTemplateCommand, se_DeleteJobTemplateCommand } from "../protocols/Aws_restJson1";
+import { DeleteJobTemplate } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -79,16 +78,11 @@ export class DeleteJobTemplateCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EMRContainersClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AwsChicagoWebService", "DeleteJobTemplate", {})
   .n("EMRContainersClient", "DeleteJobTemplateCommand")
-  .f(void 0, void 0)
-  .ser(se_DeleteJobTemplateCommand)
-  .de(de_DeleteJobTemplateCommand)
+  .sc(DeleteJobTemplate)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

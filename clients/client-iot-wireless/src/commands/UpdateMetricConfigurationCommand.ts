@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { IoTWirelessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTWirelessClient";
 import { UpdateMetricConfigurationRequest, UpdateMetricConfigurationResponse } from "../models/models_1";
-import { de_UpdateMetricConfigurationCommand, se_UpdateMetricConfigurationCommand } from "../protocols/Aws_restJson1";
+import { UpdateMetricConfiguration } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -88,16 +87,11 @@ export class UpdateMetricConfigurationCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTWirelessClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("iotwireless", "UpdateMetricConfiguration", {})
   .n("IoTWirelessClient", "UpdateMetricConfigurationCommand")
-  .f(void 0, void 0)
-  .ser(se_UpdateMetricConfigurationCommand)
-  .de(de_UpdateMetricConfigurationCommand)
+  .sc(UpdateMetricConfiguration)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

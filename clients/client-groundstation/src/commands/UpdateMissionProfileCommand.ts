@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GroundStationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GroundStationClient";
 import { MissionProfileIdResponse, UpdateMissionProfileRequest } from "../models/models_0";
-import { de_UpdateMissionProfileCommand, se_UpdateMissionProfileCommand } from "../protocols/Aws_restJson1";
+import { UpdateMissionProfile } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -95,16 +94,11 @@ export class UpdateMissionProfileCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GroundStationClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("GroundStation", "UpdateMissionProfile", {})
   .n("GroundStationClient", "UpdateMissionProfileCommand")
-  .f(void 0, void 0)
-  .ser(se_UpdateMissionProfileCommand)
-  .de(de_UpdateMissionProfileCommand)
+  .sc(UpdateMissionProfile)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

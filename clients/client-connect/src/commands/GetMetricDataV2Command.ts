@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GetMetricDataV2Request, GetMetricDataV2Response } from "../models/models_1";
-import { de_GetMetricDataV2Command, se_GetMetricDataV2Command } from "../protocols/Aws_restJson1";
+import { GetMetricDataV2 } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -209,16 +208,11 @@ export class GetMetricDataV2Command extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonConnectService", "GetMetricDataV2", {})
   .n("ConnectClient", "GetMetricDataV2Command")
-  .f(void 0, void 0)
-  .ser(se_GetMetricDataV2Command)
-  .de(de_GetMetricDataV2Command)
+  .sc(GetMetricDataV2)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

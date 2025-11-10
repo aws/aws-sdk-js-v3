@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { BlobPayloadInputTypes, MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { Uint8ArrayBlobAdapter } from "@smithy/util-stream";
@@ -8,7 +7,7 @@ import { Uint8ArrayBlobAdapter } from "@smithy/util-stream";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { IoTDataPlaneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTDataPlaneClient";
 import { UpdateThingShadowRequest, UpdateThingShadowResponse } from "../models/models_0";
-import { de_UpdateThingShadowCommand, se_UpdateThingShadowCommand } from "../protocols/Aws_restJson1";
+import { UpdateThingShadow } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -117,16 +116,11 @@ export class UpdateThingShadowCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTDataPlaneClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("IotMoonrakerService", "UpdateThingShadow", {})
   .n("IoTDataPlaneClient", "UpdateThingShadowCommand")
-  .f(void 0, void 0)
-  .ser(se_UpdateThingShadowCommand)
-  .de(de_UpdateThingShadowCommand)
+  .sc(UpdateThingShadow)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

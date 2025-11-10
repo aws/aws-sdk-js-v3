@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DataExchangeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataExchangeClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { UpdateDataSetRequest, UpdateDataSetResponse } from "../models/models_0";
-import { de_UpdateDataSetCommand, se_UpdateDataSetCommand } from "../protocols/Aws_restJson1";
+import { UpdateDataSet } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -99,16 +98,11 @@ export class UpdateDataSetCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DataExchangeClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("DataExchange", "UpdateDataSet", {})
   .n("DataExchangeClient", "UpdateDataSetCommand")
-  .f(void 0, void 0)
-  .ser(se_UpdateDataSetCommand)
-  .de(de_UpdateDataSetCommand)
+  .sc(UpdateDataSet)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

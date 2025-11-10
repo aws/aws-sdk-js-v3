@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DeleteVoiceTemplateRequest, DeleteVoiceTemplateResponse } from "../models/models_0";
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
-import { de_DeleteVoiceTemplateCommand, se_DeleteVoiceTemplateCommand } from "../protocols/Aws_restJson1";
+import { DeleteVoiceTemplate } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -95,16 +94,11 @@ export class DeleteVoiceTemplateCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: PinpointClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("Pinpoint", "DeleteVoiceTemplate", {})
   .n("PinpointClient", "DeleteVoiceTemplateCommand")
-  .f(void 0, void 0)
-  .ser(se_DeleteVoiceTemplateCommand)
-  .de(de_DeleteVoiceTemplateCommand)
+  .sc(DeleteVoiceTemplate)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

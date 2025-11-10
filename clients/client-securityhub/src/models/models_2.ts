@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@smithy/smithy-client";
+import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
 import {
   AccountDetails,
@@ -10455,29 +10455,3 @@ export const GroupByField = {
  * @public
  */
 export type GroupByField = (typeof GroupByField)[keyof typeof GroupByField];
-
-/**
- * @internal
- */
-export const ServiceNowProviderConfigurationFilterSensitiveLog = (obj: ServiceNowProviderConfiguration): any => ({
-  ...obj,
-  ...(obj.ClientSecret && { ClientSecret: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const ProviderConfigurationFilterSensitiveLog = (obj: ProviderConfiguration): any => {
-  if (obj.JiraCloud !== undefined) return { JiraCloud: obj.JiraCloud };
-  if (obj.ServiceNow !== undefined)
-    return { ServiceNow: ServiceNowProviderConfigurationFilterSensitiveLog(obj.ServiceNow) };
-  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-};
-
-/**
- * @internal
- */
-export const CreateConnectorV2RequestFilterSensitiveLog = (obj: CreateConnectorV2Request): any => ({
-  ...obj,
-  ...(obj.Provider && { Provider: ProviderConfigurationFilterSensitiveLog(obj.Provider) }),
-});

@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { ListBrokersRequest, ListBrokersResponse } from "../models/models_0";
 import { MqClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MqClient";
-import { de_ListBrokersCommand, se_ListBrokersCommand } from "../protocols/Aws_restJson1";
+import { ListBrokers } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -92,16 +91,11 @@ export class ListBrokersCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MqClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("mq", "ListBrokers", {})
   .n("MqClient", "ListBrokersCommand")
-  .f(void 0, void 0)
-  .ser(se_ListBrokersCommand)
-  .de(de_ListBrokersCommand)
+  .sc(ListBrokers)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

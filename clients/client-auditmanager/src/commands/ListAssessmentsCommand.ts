@@ -1,17 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { AuditManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AuditManagerClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  ListAssessmentsRequest,
-  ListAssessmentsResponse,
-  ListAssessmentsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { de_ListAssessmentsCommand, se_ListAssessmentsCommand } from "../protocols/Aws_restJson1";
+import { ListAssessmentsRequest, ListAssessmentsResponse } from "../models/models_0";
+import { ListAssessments } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -118,16 +113,11 @@ export class ListAssessmentsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AuditManagerClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("BedrockAssessmentManagerLambda", "ListAssessments", {})
   .n("AuditManagerClient", "ListAssessmentsCommand")
-  .f(void 0, ListAssessmentsResponseFilterSensitiveLog)
-  .ser(se_ListAssessmentsCommand)
-  .de(de_ListAssessmentsCommand)
+  .sc(ListAssessments)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

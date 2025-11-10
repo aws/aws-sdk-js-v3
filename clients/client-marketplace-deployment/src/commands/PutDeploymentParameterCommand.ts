@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -10,12 +9,8 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../MarketplaceDeploymentClient";
-import {
-  PutDeploymentParameterRequest,
-  PutDeploymentParameterRequestFilterSensitiveLog,
-  PutDeploymentParameterResponse,
-} from "../models/models_0";
-import { de_PutDeploymentParameterCommand, se_PutDeploymentParameterCommand } from "../protocols/Aws_restJson1";
+import { PutDeploymentParameterRequest, PutDeploymentParameterResponse } from "../models/models_0";
+import { PutDeploymentParameter } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -173,16 +168,11 @@ export class PutDeploymentParameterCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MarketplaceDeploymentClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSMPDeploymentParametersService", "PutDeploymentParameter", {})
   .n("MarketplaceDeploymentClient", "PutDeploymentParameterCommand")
-  .f(PutDeploymentParameterRequestFilterSensitiveLog, void 0)
-  .ser(se_PutDeploymentParameterCommand)
-  .de(de_PutDeploymentParameterCommand)
+  .sc(PutDeploymentParameter)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

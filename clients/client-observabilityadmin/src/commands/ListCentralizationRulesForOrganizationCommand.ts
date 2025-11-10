@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -14,10 +13,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ObservabilityAdminClient";
-import {
-  de_ListCentralizationRulesForOrganizationCommand,
-  se_ListCentralizationRulesForOrganizationCommand,
-} from "../protocols/Aws_restJson1";
+import { ListCentralizationRulesForOrganization } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -112,16 +108,11 @@ export class ListCentralizationRulesForOrganizationCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ObservabilityAdminClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("ObservabilityAdmin", "ListCentralizationRulesForOrganization", {})
   .n("ObservabilityAdminClient", "ListCentralizationRulesForOrganizationCommand")
-  .f(void 0, void 0)
-  .ser(se_ListCentralizationRulesForOrganizationCommand)
-  .de(de_ListCentralizationRulesForOrganizationCommand)
+  .sc(ListCentralizationRulesForOrganization)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

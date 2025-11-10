@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -10,13 +9,8 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../IoTManagedIntegrationsClient";
-import {
-  CreateProvisioningProfileRequest,
-  CreateProvisioningProfileRequestFilterSensitiveLog,
-  CreateProvisioningProfileResponse,
-  CreateProvisioningProfileResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { de_CreateProvisioningProfileCommand, se_CreateProvisioningProfileCommand } from "../protocols/Aws_restJson1";
+import { CreateProvisioningProfileRequest, CreateProvisioningProfileResponse } from "../models/models_0";
+import { CreateProvisioningProfile } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -114,16 +108,11 @@ export class CreateProvisioningProfileCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTManagedIntegrationsClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("IotManagedIntegrations", "CreateProvisioningProfile", {})
   .n("IoTManagedIntegrationsClient", "CreateProvisioningProfileCommand")
-  .f(CreateProvisioningProfileRequestFilterSensitiveLog, CreateProvisioningProfileResponseFilterSensitiveLog)
-  .ser(se_CreateProvisioningProfileCommand)
-  .de(de_CreateProvisioningProfileCommand)
+  .sc(CreateProvisioningProfile)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

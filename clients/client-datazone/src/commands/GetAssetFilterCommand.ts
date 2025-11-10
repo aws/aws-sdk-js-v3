@@ -1,14 +1,13 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DataZoneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataZoneClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GetAssetFilterInput } from "../models/models_1";
-import { GetAssetFilterOutput, GetAssetFilterOutputFilterSensitiveLog } from "../models/models_2";
-import { de_GetAssetFilterCommand, se_GetAssetFilterCommand } from "../protocols/Aws_restJson1";
+import { GetAssetFilterOutput } from "../models/models_2";
+import { GetAssetFilter } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -231,16 +230,11 @@ export class GetAssetFilterCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DataZoneClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("DataZone", "GetAssetFilter", {})
   .n("DataZoneClient", "GetAssetFilterCommand")
-  .f(void 0, GetAssetFilterOutputFilterSensitiveLog)
-  .ser(se_GetAssetFilterCommand)
-  .de(de_GetAssetFilterCommand)
+  .sc(GetAssetFilter)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

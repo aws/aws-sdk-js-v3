@@ -1,17 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DeadlineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeadlineClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  GetSessionActionRequest,
-  GetSessionActionResponse,
-  GetSessionActionResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { de_GetSessionActionCommand, se_GetSessionActionCommand } from "../protocols/Aws_restJson1";
+import { GetSessionActionRequest, GetSessionActionResponse } from "../models/models_0";
+import { GetSessionAction } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -137,16 +132,11 @@ export class GetSessionActionCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DeadlineClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("Deadline", "GetSessionAction", {})
   .n("DeadlineClient", "GetSessionActionCommand")
-  .f(void 0, GetSessionActionResponseFilterSensitiveLog)
-  .ser(se_GetSessionActionCommand)
-  .de(de_GetSessionActionCommand)
+  .sc(GetSessionAction)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

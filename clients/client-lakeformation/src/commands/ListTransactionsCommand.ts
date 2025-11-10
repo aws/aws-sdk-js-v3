@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { LakeFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LakeFormationClient";
 import { ListTransactionsRequest, ListTransactionsResponse } from "../models/models_0";
-import { de_ListTransactionsCommand, se_ListTransactionsCommand } from "../protocols/Aws_restJson1";
+import { ListTransactions } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -91,16 +90,11 @@ export class ListTransactionsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LakeFormationClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSLakeFormation", "ListTransactions", {})
   .n("LakeFormationClient", "ListTransactionsCommand")
-  .f(void 0, void 0)
-  .ser(se_ListTransactionsCommand)
-  .de(de_ListTransactionsCommand)
+  .sc(ListTransactions)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

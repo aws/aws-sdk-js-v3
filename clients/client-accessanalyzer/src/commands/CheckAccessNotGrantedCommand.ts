@@ -1,17 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { AccessAnalyzerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AccessAnalyzerClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  CheckAccessNotGrantedRequest,
-  CheckAccessNotGrantedRequestFilterSensitiveLog,
-  CheckAccessNotGrantedResponse,
-} from "../models/models_0";
-import { de_CheckAccessNotGrantedCommand, se_CheckAccessNotGrantedCommand } from "../protocols/Aws_restJson1";
+import { CheckAccessNotGrantedRequest, CheckAccessNotGrantedResponse } from "../models/models_0";
+import { CheckAccessNotGranted } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -190,16 +185,11 @@ export class CheckAccessNotGrantedCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AccessAnalyzerClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AccessAnalyzer", "CheckAccessNotGranted", {})
   .n("AccessAnalyzerClient", "CheckAccessNotGrantedCommand")
-  .f(CheckAccessNotGrantedRequestFilterSensitiveLog, void 0)
-  .ser(se_CheckAccessNotGrantedCommand)
-  .de(de_CheckAccessNotGrantedCommand)
+  .sc(CheckAccessNotGranted)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

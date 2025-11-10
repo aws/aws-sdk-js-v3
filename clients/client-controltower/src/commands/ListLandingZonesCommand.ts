@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ControlTowerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ControlTowerClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { ListLandingZonesInput, ListLandingZonesOutput } from "../models/models_0";
-import { de_ListLandingZonesCommand, se_ListLandingZonesCommand } from "../protocols/Aws_restJson1";
+import { ListLandingZones } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -88,16 +87,11 @@ export class ListLandingZonesCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ControlTowerClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSControlTowerApis", "ListLandingZones", {})
   .n("ControlTowerClient", "ListLandingZonesCommand")
-  .f(void 0, void 0)
-  .ser(se_ListLandingZonesCommand)
-  .de(de_ListLandingZonesCommand)
+  .sc(ListLandingZones)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

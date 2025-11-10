@@ -1,18 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { MgnClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MgnClient";
-import {
-  StartTestRequest,
-  StartTestRequestFilterSensitiveLog,
-  StartTestResponse,
-  StartTestResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { de_StartTestCommand, se_StartTestCommand } from "../protocols/Aws_restJson1";
+import { StartTestRequest, StartTestResponse } from "../models/models_0";
+import { StartTest } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -138,16 +132,11 @@ export class StartTestCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MgnClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("ApplicationMigrationService", "StartTest", {})
   .n("MgnClient", "StartTestCommand")
-  .f(StartTestRequestFilterSensitiveLog, StartTestResponseFilterSensitiveLog)
-  .ser(se_StartTestCommand)
-  .de(de_StartTestCommand)
+  .sc(StartTest)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

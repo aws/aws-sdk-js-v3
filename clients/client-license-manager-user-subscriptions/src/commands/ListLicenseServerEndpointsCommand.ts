@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -11,7 +10,7 @@ import {
   ServiceOutputTypes,
 } from "../LicenseManagerUserSubscriptionsClient";
 import { ListLicenseServerEndpointsRequest, ListLicenseServerEndpointsResponse } from "../models/models_0";
-import { de_ListLicenseServerEndpointsCommand, se_ListLicenseServerEndpointsCommand } from "../protocols/Aws_restJson1";
+import { ListLicenseServerEndpoints } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -122,16 +121,11 @@ export class ListLicenseServerEndpointsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LicenseManagerUserSubscriptionsClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("LicenseManagerUserSubscriptions", "ListLicenseServerEndpoints", {})
   .n("LicenseManagerUserSubscriptionsClient", "ListLicenseServerEndpointsCommand")
-  .f(void 0, void 0)
-  .ser(se_ListLicenseServerEndpointsCommand)
-  .de(de_ListLicenseServerEndpointsCommand)
+  .sc(ListLicenseServerEndpoints)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

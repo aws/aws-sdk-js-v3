@@ -1462,17 +1462,3 @@ export interface ListFragmentsOutput {
    */
   NextToken?: string | undefined;
 }
-
-/**
- * @internal
- */
-export const GetClipOutputFilterSensitiveLog = (obj: GetClipOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetMediaForFragmentListOutputFilterSensitiveLog = (obj: GetMediaForFragmentListOutput): any => ({
-  ...obj,
-});

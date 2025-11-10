@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -10,8 +9,8 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../IoTManagedIntegrationsClient";
-import { UpdateManagedThingRequest, UpdateManagedThingRequestFilterSensitiveLog } from "../models/models_0";
-import { de_UpdateManagedThingCommand, se_UpdateManagedThingCommand } from "../protocols/Aws_restJson1";
+import { UpdateManagedThingRequest } from "../models/models_0";
+import { UpdateManagedThing } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -145,16 +144,11 @@ export class UpdateManagedThingCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTManagedIntegrationsClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("IotManagedIntegrations", "UpdateManagedThing", {})
   .n("IoTManagedIntegrationsClient", "UpdateManagedThingCommand")
-  .f(UpdateManagedThingRequestFilterSensitiveLog, void 0)
-  .ser(se_UpdateManagedThingCommand)
-  .de(de_UpdateManagedThingCommand)
+  .sc(UpdateManagedThing)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

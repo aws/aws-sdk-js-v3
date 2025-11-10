@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -8,7 +7,7 @@ import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } fr
 import { commonParams } from "../endpoint/EndpointParameters";
 import { StartOutboundChatContactResponse } from "../models/models_2";
 import { StartOutboundChatContactRequest } from "../models/models_3";
-import { de_StartOutboundChatContactCommand, se_StartOutboundChatContactCommand } from "../protocols/Aws_restJson1";
+import { StartOutboundChatContact } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -165,16 +164,11 @@ export class StartOutboundChatContactCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonConnectService", "StartOutboundChatContact", {})
   .n("ConnectClient", "StartOutboundChatContactCommand")
-  .f(void 0, void 0)
-  .ser(se_StartOutboundChatContactCommand)
-  .de(de_StartOutboundChatContactCommand)
+  .sc(StartOutboundChatContact)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

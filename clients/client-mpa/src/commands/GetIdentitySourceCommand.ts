@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GetIdentitySourceRequest, GetIdentitySourceResponse } from "../models/models_0";
 import { MPAClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MPAClient";
-import { de_GetIdentitySourceCommand, se_GetIdentitySourceCommand } from "../protocols/Aws_restJson1";
+import { GetIdentitySource } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -97,16 +96,11 @@ export class GetIdentitySourceCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MPAClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSFluffyCoreService", "GetIdentitySource", {})
   .n("MPAClient", "GetIdentitySourceCommand")
-  .f(void 0, void 0)
-  .ser(se_GetIdentitySourceCommand)
-  .de(de_GetIdentitySourceCommand)
+  .sc(GetIdentitySource)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

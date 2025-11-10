@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { MedicalImagingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MedicalImagingClient";
-import { CopyImageSetRequest, CopyImageSetRequestFilterSensitiveLog, CopyImageSetResponse } from "../models/models_0";
-import { de_CopyImageSetCommand, se_CopyImageSetCommand } from "../protocols/Aws_restJson1";
+import { CopyImageSetRequest, CopyImageSetResponse } from "../models/models_0";
+import { CopyImageSet } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -124,16 +123,11 @@ export class CopyImageSetCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MedicalImagingClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AHIGatewayService", "CopyImageSet", {})
   .n("MedicalImagingClient", "CopyImageSetCommand")
-  .f(CopyImageSetRequestFilterSensitiveLog, void 0)
-  .ser(se_CopyImageSetCommand)
-  .de(de_CopyImageSetCommand)
+  .sc(CopyImageSet)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

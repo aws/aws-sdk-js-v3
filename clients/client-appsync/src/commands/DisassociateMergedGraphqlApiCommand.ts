@@ -1,16 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { AppSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppSyncClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DisassociateMergedGraphqlApiRequest, DisassociateMergedGraphqlApiResponse } from "../models/models_0";
-import {
-  de_DisassociateMergedGraphqlApiCommand,
-  se_DisassociateMergedGraphqlApiCommand,
-} from "../protocols/Aws_restJson1";
+import { DisassociateMergedGraphqlApi } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -95,16 +91,11 @@ export class DisassociateMergedGraphqlApiCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AppSyncClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSDeepdishControlPlaneService", "DisassociateMergedGraphqlApi", {})
   .n("AppSyncClient", "DisassociateMergedGraphqlApiCommand")
-  .f(void 0, void 0)
-  .ser(se_DisassociateMergedGraphqlApiCommand)
-  .de(de_DisassociateMergedGraphqlApiCommand)
+  .sc(DisassociateMergedGraphqlApi)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
 import { DeleteV2LoggingLevelRequest } from "../models/models_1";
-import { de_DeleteV2LoggingLevelCommand, se_DeleteV2LoggingLevelCommand } from "../protocols/Aws_restJson1";
+import { DeleteV2LoggingLevel } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -79,16 +78,11 @@ export class DeleteV2LoggingLevelCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSIotService", "DeleteV2LoggingLevel", {})
   .n("IoTClient", "DeleteV2LoggingLevelCommand")
-  .f(void 0, void 0)
-  .ser(se_DeleteV2LoggingLevelCommand)
-  .de(de_DeleteV2LoggingLevelCommand)
+  .sc(DeleteV2LoggingLevel)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

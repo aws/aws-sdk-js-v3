@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { KafkaConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KafkaConnectClient";
 import { DeleteCustomPluginRequest, DeleteCustomPluginResponse } from "../models/models_0";
-import { de_DeleteCustomPluginCommand, se_DeleteCustomPluginCommand } from "../protocols/Aws_restJson1";
+import { DeleteCustomPlugin } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -98,16 +97,11 @@ export class DeleteCustomPluginCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: KafkaConnectClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("KafkaConnect", "DeleteCustomPlugin", {})
   .n("KafkaConnectClient", "DeleteCustomPluginCommand")
-  .f(void 0, void 0)
-  .ser(se_DeleteCustomPluginCommand)
-  .de(de_DeleteCustomPluginCommand)
+  .sc(DeleteCustomPlugin)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

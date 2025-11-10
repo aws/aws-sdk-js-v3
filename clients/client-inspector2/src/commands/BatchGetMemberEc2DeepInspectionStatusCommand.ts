@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -10,10 +9,7 @@ import {
   BatchGetMemberEc2DeepInspectionStatusRequest,
   BatchGetMemberEc2DeepInspectionStatusResponse,
 } from "../models/models_0";
-import {
-  de_BatchGetMemberEc2DeepInspectionStatusCommand,
-  se_BatchGetMemberEc2DeepInspectionStatusCommand,
-} from "../protocols/Aws_restJson1";
+import { BatchGetMemberEc2DeepInspectionStatus } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -111,16 +107,11 @@ export class BatchGetMemberEc2DeepInspectionStatusCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: Inspector2ClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("Inspector2", "BatchGetMemberEc2DeepInspectionStatus", {})
   .n("Inspector2Client", "BatchGetMemberEc2DeepInspectionStatusCommand")
-  .f(void 0, void 0)
-  .ser(se_BatchGetMemberEc2DeepInspectionStatusCommand)
-  .de(de_BatchGetMemberEc2DeepInspectionStatusCommand)
+  .sc(BatchGetMemberEc2DeepInspectionStatus)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

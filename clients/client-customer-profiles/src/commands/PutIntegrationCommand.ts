@@ -1,17 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CustomerProfilesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CustomerProfilesClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  PutIntegrationRequest,
-  PutIntegrationRequestFilterSensitiveLog,
-  PutIntegrationResponse,
-} from "../models/models_1";
-import { de_PutIntegrationCommand, se_PutIntegrationCommand } from "../protocols/Aws_restJson1";
+import { PutIntegrationRequest, PutIntegrationResponse } from "../models/models_1";
+import { PutIntegration } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -187,16 +182,11 @@ export class PutIntegrationCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CustomerProfilesClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("CustomerProfiles_20200815", "PutIntegration", {})
   .n("CustomerProfilesClient", "PutIntegrationCommand")
-  .f(PutIntegrationRequestFilterSensitiveLog, void 0)
-  .ser(se_PutIntegrationCommand)
-  .de(de_PutIntegrationCommand)
+  .sc(PutIntegration)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

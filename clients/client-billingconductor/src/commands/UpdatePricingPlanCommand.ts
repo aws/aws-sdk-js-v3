@@ -1,18 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { BillingconductorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BillingconductorClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  UpdatePricingPlanInput,
-  UpdatePricingPlanInputFilterSensitiveLog,
-  UpdatePricingPlanOutput,
-  UpdatePricingPlanOutputFilterSensitiveLog,
-} from "../models/models_0";
-import { de_UpdatePricingPlanCommand, se_UpdatePricingPlanCommand } from "../protocols/Aws_restJson1";
+import { UpdatePricingPlanInput, UpdatePricingPlanOutput } from "../models/models_0";
+import { UpdatePricingPlan } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -99,16 +93,11 @@ export class UpdatePricingPlanCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: BillingconductorClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSBillingConductor", "UpdatePricingPlan", {})
   .n("BillingconductorClient", "UpdatePricingPlanCommand")
-  .f(UpdatePricingPlanInputFilterSensitiveLog, UpdatePricingPlanOutputFilterSensitiveLog)
-  .ser(se_UpdatePricingPlanCommand)
-  .de(de_UpdatePricingPlanCommand)
+  .sc(UpdatePricingPlan)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

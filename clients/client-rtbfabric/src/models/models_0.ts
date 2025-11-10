@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@smithy/smithy-client";
+import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
 import { RTBFabricServiceException as __BaseException } from "./RTBFabricServiceException";
 
@@ -2383,68 +2383,3 @@ export interface UntagResourceRequest {
  * @public
  */
 export interface UntagResourceResponse {}
-
-/**
- * @internal
- */
-export const EksEndpointsConfigurationFilterSensitiveLog = (obj: EksEndpointsConfiguration): any => ({
-  ...obj,
-  ...(obj.clusterApiServerCaCertificateChain && { clusterApiServerCaCertificateChain: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const ManagedEndpointConfigurationFilterSensitiveLog = (obj: ManagedEndpointConfiguration): any => {
-  if (obj.autoScalingGroups !== undefined) return { autoScalingGroups: obj.autoScalingGroups };
-  if (obj.eksEndpoints !== undefined)
-    return { eksEndpoints: EksEndpointsConfigurationFilterSensitiveLog(obj.eksEndpoints) };
-  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-};
-
-/**
- * @internal
- */
-export const TrustStoreConfigurationFilterSensitiveLog = (obj: TrustStoreConfiguration): any => ({
-  ...obj,
-  ...(obj.certificateAuthorityCertificates && { certificateAuthorityCertificates: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const CreateResponderGatewayRequestFilterSensitiveLog = (obj: CreateResponderGatewayRequest): any => ({
-  ...obj,
-  ...(obj.trustStoreConfiguration && {
-    trustStoreConfiguration: TrustStoreConfigurationFilterSensitiveLog(obj.trustStoreConfiguration),
-  }),
-  ...(obj.managedEndpointConfiguration && {
-    managedEndpointConfiguration: ManagedEndpointConfigurationFilterSensitiveLog(obj.managedEndpointConfiguration),
-  }),
-});
-
-/**
- * @internal
- */
-export const GetResponderGatewayResponseFilterSensitiveLog = (obj: GetResponderGatewayResponse): any => ({
-  ...obj,
-  ...(obj.trustStoreConfiguration && {
-    trustStoreConfiguration: TrustStoreConfigurationFilterSensitiveLog(obj.trustStoreConfiguration),
-  }),
-  ...(obj.managedEndpointConfiguration && {
-    managedEndpointConfiguration: ManagedEndpointConfigurationFilterSensitiveLog(obj.managedEndpointConfiguration),
-  }),
-});
-
-/**
- * @internal
- */
-export const UpdateResponderGatewayRequestFilterSensitiveLog = (obj: UpdateResponderGatewayRequest): any => ({
-  ...obj,
-  ...(obj.trustStoreConfiguration && {
-    trustStoreConfiguration: TrustStoreConfigurationFilterSensitiveLog(obj.trustStoreConfiguration),
-  }),
-  ...(obj.managedEndpointConfiguration && {
-    managedEndpointConfiguration: ManagedEndpointConfigurationFilterSensitiveLog(obj.managedEndpointConfiguration),
-  }),
-});

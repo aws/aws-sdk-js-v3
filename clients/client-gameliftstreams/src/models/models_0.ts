@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@smithy/smithy-client";
+import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
 import { GameLiftStreamsServiceException as __BaseException } from "./GameLiftStreamsServiceException";
 
@@ -2177,47 +2177,3 @@ export interface UntagResourceRequest {
  * @public
  */
 export interface UntagResourceResponse {}
-
-/**
- * @internal
- */
-export const CreateStreamSessionConnectionInputFilterSensitiveLog = (obj: CreateStreamSessionConnectionInput): any => ({
-  ...obj,
-  ...(obj.SignalRequest && { SignalRequest: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const CreateStreamSessionConnectionOutputFilterSensitiveLog = (
-  obj: CreateStreamSessionConnectionOutput
-): any => ({
-  ...obj,
-  ...(obj.SignalResponse && { SignalResponse: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const GetStreamSessionOutputFilterSensitiveLog = (obj: GetStreamSessionOutput): any => ({
-  ...obj,
-  ...(obj.SignalRequest && { SignalRequest: SENSITIVE_STRING }),
-  ...(obj.SignalResponse && { SignalResponse: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const StartStreamSessionInputFilterSensitiveLog = (obj: StartStreamSessionInput): any => ({
-  ...obj,
-  ...(obj.SignalRequest && { SignalRequest: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const StartStreamSessionOutputFilterSensitiveLog = (obj: StartStreamSessionOutput): any => ({
-  ...obj,
-  ...(obj.SignalRequest && { SignalRequest: SENSITIVE_STRING }),
-  ...(obj.SignalResponse && { SignalResponse: SENSITIVE_STRING }),
-});

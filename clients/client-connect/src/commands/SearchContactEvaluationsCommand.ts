@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -8,7 +7,7 @@ import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } fr
 import { commonParams } from "../endpoint/EndpointParameters";
 import { SearchContactEvaluationsResponse } from "../models/models_2";
 import { SearchContactEvaluationsRequest } from "../models/models_3";
-import { de_SearchContactEvaluationsCommand, se_SearchContactEvaluationsCommand } from "../protocols/Aws_restJson1";
+import { SearchContactEvaluations } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -237,16 +236,11 @@ export class SearchContactEvaluationsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonConnectService", "SearchContactEvaluations", {})
   .n("ConnectClient", "SearchContactEvaluationsCommand")
-  .f(void 0, void 0)
-  .ser(se_SearchContactEvaluationsCommand)
-  .de(de_SearchContactEvaluationsCommand)
+  .sc(SearchContactEvaluations)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

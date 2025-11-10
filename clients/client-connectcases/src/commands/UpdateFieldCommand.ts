@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ConnectCasesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectCasesClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { UpdateFieldRequest, UpdateFieldResponse } from "../models/models_0";
-import { de_UpdateFieldCommand, se_UpdateFieldCommand } from "../protocols/Aws_restJson1";
+import { UpdateField } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -89,16 +88,11 @@ export class UpdateFieldCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ConnectCasesClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonConnectCases", "UpdateField", {})
   .n("ConnectCasesClient", "UpdateFieldCommand")
-  .f(void 0, void 0)
-  .ser(se_UpdateFieldCommand)
-  .de(de_UpdateFieldCommand)
+  .sc(UpdateField)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

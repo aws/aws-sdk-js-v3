@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DeleteAIPromptVersionRequest, DeleteAIPromptVersionResponse } from "../models/models_0";
-import { de_DeleteAIPromptVersionCommand, se_DeleteAIPromptVersionCommand } from "../protocols/Aws_restJson1";
 import { QConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QConnectClient";
+import { DeleteAIPromptVersion } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -88,16 +87,11 @@ export class DeleteAIPromptVersionCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: QConnectClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("WisdomService", "DeleteAIPromptVersion", {})
   .n("QConnectClient", "DeleteAIPromptVersionCommand")
-  .f(void 0, void 0)
-  .ser(se_DeleteAIPromptVersionCommand)
-  .de(de_DeleteAIPromptVersionCommand)
+  .sc(DeleteAIPromptVersion)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

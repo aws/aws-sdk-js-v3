@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -13,12 +12,8 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import {
   UpdateMediaPipelineKinesisVideoStreamPoolRequest,
   UpdateMediaPipelineKinesisVideoStreamPoolResponse,
-  UpdateMediaPipelineKinesisVideoStreamPoolResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  de_UpdateMediaPipelineKinesisVideoStreamPoolCommand,
-  se_UpdateMediaPipelineKinesisVideoStreamPoolCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateMediaPipelineKinesisVideoStreamPool } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -124,16 +119,11 @@ export class UpdateMediaPipelineKinesisVideoStreamPoolCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ChimeSDKMediaPipelinesClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("ChimeSDKMediaPipelinesService", "UpdateMediaPipelineKinesisVideoStreamPool", {})
   .n("ChimeSDKMediaPipelinesClient", "UpdateMediaPipelineKinesisVideoStreamPoolCommand")
-  .f(void 0, UpdateMediaPipelineKinesisVideoStreamPoolResponseFilterSensitiveLog)
-  .ser(se_UpdateMediaPipelineKinesisVideoStreamPoolCommand)
-  .de(de_UpdateMediaPipelineKinesisVideoStreamPoolCommand)
+  .sc(UpdateMediaPipelineKinesisVideoStreamPool)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

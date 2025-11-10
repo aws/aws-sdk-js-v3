@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { AmplifyUIBuilderClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmplifyUIBuilderClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DeleteComponentRequest } from "../models/models_0";
-import { de_DeleteComponentCommand, se_DeleteComponentCommand } from "../protocols/Aws_restJson1";
+import { DeleteComponent } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -79,16 +78,11 @@ export class DeleteComponentCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AmplifyUIBuilderClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmplifyUIBuilder", "DeleteComponent", {})
   .n("AmplifyUIBuilderClient", "DeleteComponentCommand")
-  .f(void 0, void 0)
-  .ser(se_DeleteComponentCommand)
-  .de(de_DeleteComponentCommand)
+  .sc(DeleteComponent)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

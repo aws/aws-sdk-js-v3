@@ -1,17 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { BillingconductorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BillingconductorClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  CreatePricingRuleInput,
-  CreatePricingRuleInputFilterSensitiveLog,
-  CreatePricingRuleOutput,
-} from "../models/models_0";
-import { de_CreatePricingRuleCommand, se_CreatePricingRuleCommand } from "../protocols/Aws_restJson1";
+import { CreatePricingRuleInput, CreatePricingRuleOutput } from "../models/models_0";
+import { CreatePricingRule } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -109,16 +104,11 @@ export class CreatePricingRuleCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: BillingconductorClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSBillingConductor", "CreatePricingRule", {})
   .n("BillingconductorClient", "CreatePricingRuleCommand")
-  .f(CreatePricingRuleInputFilterSensitiveLog, void 0)
-  .ser(se_CreatePricingRuleCommand)
-  .de(de_CreatePricingRuleCommand)
+  .sc(CreatePricingRule)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@smithy/smithy-client";
+import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
 import { IoTWirelessServiceException as __BaseException } from "./IoTWirelessServiceException";
 
@@ -6805,63 +6805,3 @@ export interface ListMulticastGroupsByFuotaTaskResponse {
    */
   MulticastGroupList?: MulticastGroupByFuotaTask[] | undefined;
 }
-
-/**
- * @internal
- */
-export const SidewalkAccountInfoFilterSensitiveLog = (obj: SidewalkAccountInfo): any => ({
-  ...obj,
-  ...(obj.AppServerPrivateKey && { AppServerPrivateKey: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const AssociateAwsAccountWithPartnerAccountRequestFilterSensitiveLog = (
-  obj: AssociateAwsAccountWithPartnerAccountRequest
-): any => ({
-  ...obj,
-  ...(obj.Sidewalk && { Sidewalk: SidewalkAccountInfoFilterSensitiveLog(obj.Sidewalk) }),
-});
-
-/**
- * @internal
- */
-export const AssociateAwsAccountWithPartnerAccountResponseFilterSensitiveLog = (
-  obj: AssociateAwsAccountWithPartnerAccountResponse
-): any => ({
-  ...obj,
-  ...(obj.Sidewalk && { Sidewalk: SidewalkAccountInfoFilterSensitiveLog(obj.Sidewalk) }),
-});
-
-/**
- * @internal
- */
-export const SidewalkGetDeviceProfileFilterSensitiveLog = (obj: SidewalkGetDeviceProfile): any => ({
-  ...obj,
-  ...(obj.ApplicationServerPublicKey && { ApplicationServerPublicKey: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const GetDeviceProfileResponseFilterSensitiveLog = (obj: GetDeviceProfileResponse): any => ({
-  ...obj,
-  ...(obj.Sidewalk && { Sidewalk: SidewalkGetDeviceProfileFilterSensitiveLog(obj.Sidewalk) }),
-});
-
-/**
- * @internal
- */
-export const SidewalkAccountInfoWithFingerprintFilterSensitiveLog = (obj: SidewalkAccountInfoWithFingerprint): any => ({
-  ...obj,
-  ...(obj.Fingerprint && { Fingerprint: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const GetPartnerAccountResponseFilterSensitiveLog = (obj: GetPartnerAccountResponse): any => ({
-  ...obj,
-  ...(obj.Sidewalk && { Sidewalk: SidewalkAccountInfoWithFingerprintFilterSensitiveLog(obj.Sidewalk) }),
-});

@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { IoTWirelessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTWirelessClient";
 import { DeleteMulticastGroupRequest, DeleteMulticastGroupResponse } from "../models/models_0";
-import { de_DeleteMulticastGroupCommand, se_DeleteMulticastGroupCommand } from "../protocols/Aws_restJson1";
+import { DeleteMulticastGroup } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -86,16 +85,11 @@ export class DeleteMulticastGroupCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTWirelessClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("iotwireless", "DeleteMulticastGroup", {})
   .n("IoTWirelessClient", "DeleteMulticastGroupCommand")
-  .f(void 0, void 0)
-  .ser(se_DeleteMulticastGroupCommand)
-  .de(de_DeleteMulticastGroupCommand)
+  .sc(DeleteMulticastGroup)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

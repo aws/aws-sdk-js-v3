@@ -1,17 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ChimeSDKVoiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeSDKVoiceClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  ListSipMediaApplicationsRequest,
-  ListSipMediaApplicationsResponse,
-  ListSipMediaApplicationsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { de_ListSipMediaApplicationsCommand, se_ListSipMediaApplicationsCommand } from "../protocols/Aws_restJson1";
+import { ListSipMediaApplicationsRequest, ListSipMediaApplicationsResponse } from "../models/models_0";
+import { ListSipMediaApplications } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -108,16 +103,11 @@ export class ListSipMediaApplicationsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ChimeSDKVoiceClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("ChimeSDKTelephonyService", "ListSipMediaApplications", {})
   .n("ChimeSDKVoiceClient", "ListSipMediaApplicationsCommand")
-  .f(void 0, ListSipMediaApplicationsResponseFilterSensitiveLog)
-  .ser(se_ListSipMediaApplicationsCommand)
-  .de(de_ListSipMediaApplicationsCommand)
+  .sc(ListSipMediaApplications)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,17 +1,16 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { ListSupportedResourceTypesInput, ListSupportedResourceTypesOutput } from "../models/models_0";
-import { de_ListSupportedResourceTypesCommand, se_ListSupportedResourceTypesCommand } from "../protocols/Aws_restJson1";
 import {
   ResourceExplorer2ClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ResourceExplorer2Client";
+import { ListSupportedResourceTypes } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -93,16 +92,11 @@ export class ListSupportedResourceTypesCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ResourceExplorer2ClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("ResourceExplorer", "ListSupportedResourceTypes", {})
   .n("ResourceExplorer2Client", "ListSupportedResourceTypesCommand")
-  .f(void 0, void 0)
-  .ser(se_ListSupportedResourceTypesCommand)
-  .de(de_ListSupportedResourceTypesCommand)
+  .sc(ListSupportedResourceTypes)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

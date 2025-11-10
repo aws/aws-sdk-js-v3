@@ -1,17 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { AccountClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AccountClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  AcceptPrimaryEmailUpdateRequest,
-  AcceptPrimaryEmailUpdateRequestFilterSensitiveLog,
-  AcceptPrimaryEmailUpdateResponse,
-} from "../models/models_0";
-import { de_AcceptPrimaryEmailUpdateCommand, se_AcceptPrimaryEmailUpdateCommand } from "../protocols/Aws_restJson1";
+import { AcceptPrimaryEmailUpdateRequest, AcceptPrimaryEmailUpdateResponse } from "../models/models_0";
+import { AcceptPrimaryEmailUpdate } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -94,16 +89,11 @@ export class AcceptPrimaryEmailUpdateCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AccountClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("Account", "AcceptPrimaryEmailUpdate", {})
   .n("AccountClient", "AcceptPrimaryEmailUpdateCommand")
-  .f(AcceptPrimaryEmailUpdateRequestFilterSensitiveLog, void 0)
-  .ser(se_AcceptPrimaryEmailUpdateCommand)
-  .de(de_AcceptPrimaryEmailUpdateCommand)
+  .sc(AcceptPrimaryEmailUpdate)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,12 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DeleteResourcePermissionInput, DeleteResourcePermissionOutput } from "../models/models_0";
-import { de_DeleteResourcePermissionCommand, se_DeleteResourcePermissionCommand } from "../protocols/Aws_restJson1";
+import { DeleteResourcePermission } from "../schemas/schemas_0";
 import { ServiceInputTypes, ServiceOutputTypes, SsmSapClientResolvedConfig } from "../SsmSapClient";
 
 /**
@@ -81,16 +80,11 @@ export class DeleteResourcePermissionCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SsmSapClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("SsmSap", "DeleteResourcePermission", {})
   .n("SsmSapClient", "DeleteResourcePermissionCommand")
-  .f(void 0, void 0)
-  .ser(se_DeleteResourcePermissionCommand)
-  .de(de_DeleteResourcePermissionCommand)
+  .sc(DeleteResourcePermission)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,17 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { IoTWirelessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTWirelessClient";
-import {
-  UpdatePartnerAccountRequest,
-  UpdatePartnerAccountRequestFilterSensitiveLog,
-  UpdatePartnerAccountResponse,
-} from "../models/models_1";
-import { de_UpdatePartnerAccountCommand, se_UpdatePartnerAccountCommand } from "../protocols/Aws_restJson1";
+import { UpdatePartnerAccountRequest, UpdatePartnerAccountResponse } from "../models/models_1";
+import { UpdatePartnerAccount } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -88,16 +83,11 @@ export class UpdatePartnerAccountCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTWirelessClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("iotwireless", "UpdatePartnerAccount", {})
   .n("IoTWirelessClient", "UpdatePartnerAccountCommand")
-  .f(UpdatePartnerAccountRequestFilterSensitiveLog, void 0)
-  .ser(se_UpdatePartnerAccountCommand)
-  .de(de_UpdatePartnerAccountCommand)
+  .sc(UpdatePartnerAccount)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

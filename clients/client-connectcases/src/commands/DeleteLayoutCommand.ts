@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ConnectCasesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectCasesClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DeleteLayoutRequest, DeleteLayoutResponse } from "../models/models_0";
-import { de_DeleteLayoutCommand, se_DeleteLayoutCommand } from "../protocols/Aws_restJson1";
+import { DeleteLayout } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -87,16 +86,11 @@ export class DeleteLayoutCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ConnectCasesClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonConnectCases", "DeleteLayout", {})
   .n("ConnectCasesClient", "DeleteLayoutCommand")
-  .f(void 0, void 0)
-  .ser(se_DeleteLayoutCommand)
-  .de(de_DeleteLayoutCommand)
+  .sc(DeleteLayout)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

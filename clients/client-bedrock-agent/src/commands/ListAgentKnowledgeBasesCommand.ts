@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { BedrockAgentClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BedrockAgentClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { ListAgentKnowledgeBasesRequest, ListAgentKnowledgeBasesResponse } from "../models/models_1";
-import { de_ListAgentKnowledgeBasesCommand, se_ListAgentKnowledgeBasesCommand } from "../protocols/Aws_restJson1";
+import { ListAgentKnowledgeBases } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -96,16 +95,11 @@ export class ListAgentKnowledgeBasesCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: BedrockAgentClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonBedrockAgentBuildTimeLambda", "ListAgentKnowledgeBases", {})
   .n("BedrockAgentClient", "ListAgentKnowledgeBasesCommand")
-  .f(void 0, void 0)
-  .ser(se_ListAgentKnowledgeBasesCommand)
-  .de(de_ListAgentKnowledgeBasesCommand)
+  .sc(ListAgentKnowledgeBases)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

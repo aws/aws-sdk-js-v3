@@ -1,17 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  CreateEmailAddressRequest,
-  CreateEmailAddressRequestFilterSensitiveLog,
-  CreateEmailAddressResponse,
-} from "../models/models_0";
-import { de_CreateEmailAddressCommand, se_CreateEmailAddressCommand } from "../protocols/Aws_restJson1";
+import { CreateEmailAddressRequest, CreateEmailAddressResponse } from "../models/models_0";
+import { CreateEmailAddress } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -114,16 +109,11 @@ export class CreateEmailAddressCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonConnectService", "CreateEmailAddress", {})
   .n("ConnectClient", "CreateEmailAddressCommand")
-  .f(CreateEmailAddressRequestFilterSensitiveLog, void 0)
-  .ser(se_CreateEmailAddressCommand)
-  .de(de_CreateEmailAddressCommand)
+  .sc(CreateEmailAddress)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ApiGatewayV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ApiGatewayV2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GetStagesRequest, GetStagesResponse } from "../models/models_0";
-import { de_GetStagesCommand, se_GetStagesCommand } from "../protocols/Aws_restJson1";
+import { GetStages } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -120,16 +119,11 @@ export class GetStagesCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ApiGatewayV2ClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("ApiGatewayV2", "GetStages", {})
   .n("ApiGatewayV2Client", "GetStagesCommand")
-  .f(void 0, void 0)
-  .ser(se_GetStagesCommand)
-  .de(de_GetStagesCommand)
+  .sc(GetStages)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

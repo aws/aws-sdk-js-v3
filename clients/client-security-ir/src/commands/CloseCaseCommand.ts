@@ -1,12 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { CloseCaseRequest, CloseCaseResponse } from "../models/models_0";
-import { de_CloseCaseCommand, se_CloseCaseCommand } from "../protocols/Aws_restJson1";
+import { CloseCase } from "../schemas/schemas_0";
 import { SecurityIRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityIRClient";
 
 /**
@@ -114,16 +113,11 @@ export class CloseCaseCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SecurityIRClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("SecurityIncidentResponse", "CloseCase", {})
   .n("SecurityIRClient", "CloseCaseCommand")
-  .f(void 0, void 0)
-  .ser(se_CloseCaseCommand)
-  .de(de_CloseCaseCommand)
+  .sc(CloseCase)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

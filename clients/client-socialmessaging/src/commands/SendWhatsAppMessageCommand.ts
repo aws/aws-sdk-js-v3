@@ -1,16 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  SendWhatsAppMessageInput,
-  SendWhatsAppMessageInputFilterSensitiveLog,
-  SendWhatsAppMessageOutput,
-} from "../models/models_0";
-import { de_SendWhatsAppMessageCommand, se_SendWhatsAppMessageCommand } from "../protocols/Aws_restJson1";
+import { SendWhatsAppMessageInput, SendWhatsAppMessageOutput } from "../models/models_0";
+import { SendWhatsAppMessage } from "../schemas/schemas_0";
 import { ServiceInputTypes, ServiceOutputTypes, SocialMessagingClientResolvedConfig } from "../SocialMessagingClient";
 
 /**
@@ -102,16 +97,11 @@ export class SendWhatsAppMessageCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SocialMessagingClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("SocialMessaging", "SendWhatsAppMessage", {})
   .n("SocialMessagingClient", "SendWhatsAppMessageCommand")
-  .f(SendWhatsAppMessageInputFilterSensitiveLog, void 0)
-  .ser(se_SendWhatsAppMessageCommand)
-  .de(de_SendWhatsAppMessageCommand)
+  .sc(SendWhatsAppMessage)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

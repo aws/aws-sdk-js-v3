@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { CreateAccountRequest, CreateAccountResponse } from "../models/models_0";
-import { de_CreateAccountCommand, se_CreateAccountCommand } from "../protocols/Aws_restJson1";
+import { CreateAccount } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -110,16 +109,11 @@ export class CreateAccountCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ChimeClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("UCBuzzConsoleService", "CreateAccount", {})
   .n("ChimeClient", "CreateAccountCommand")
-  .f(void 0, void 0)
-  .ser(se_CreateAccountCommand)
-  .de(de_CreateAccountCommand)
+  .sc(CreateAccount)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

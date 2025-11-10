@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -9,11 +8,8 @@ import {
   DescribeActionConnectorPermissionsRequest,
   DescribeActionConnectorPermissionsResponse,
 } from "../models/models_4";
-import {
-  de_DescribeActionConnectorPermissionsCommand,
-  se_DescribeActionConnectorPermissionsCommand,
-} from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
+import { DescribeActionConnectorPermissions } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -108,16 +104,11 @@ export class DescribeActionConnectorPermissionsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: QuickSightClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("QuickSight_20180401", "DescribeActionConnectorPermissions", {})
   .n("QuickSightClient", "DescribeActionConnectorPermissionsCommand")
-  .f(void 0, void 0)
-  .ser(se_DescribeActionConnectorPermissionsCommand)
-  .de(de_DescribeActionConnectorPermissionsCommand)
+  .sc(DescribeActionConnectorPermissions)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

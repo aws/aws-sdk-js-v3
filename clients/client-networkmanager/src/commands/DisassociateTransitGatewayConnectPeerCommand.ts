@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -10,10 +9,7 @@ import {
   DisassociateTransitGatewayConnectPeerResponse,
 } from "../models/models_0";
 import { NetworkManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkManagerClient";
-import {
-  de_DisassociateTransitGatewayConnectPeerCommand,
-  se_DisassociateTransitGatewayConnectPeerCommand,
-} from "../protocols/Aws_restJson1";
+import { DisassociateTransitGatewayConnectPeer } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -105,16 +101,11 @@ export class DisassociateTransitGatewayConnectPeerCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: NetworkManagerClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("NetworkManager", "DisassociateTransitGatewayConnectPeer", {})
   .n("NetworkManagerClient", "DisassociateTransitGatewayConnectPeerCommand")
-  .f(void 0, void 0)
-  .ser(se_DisassociateTransitGatewayConnectPeerCommand)
-  .de(de_DisassociateTransitGatewayConnectPeerCommand)
+  .sc(DisassociateTransitGatewayConnectPeer)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

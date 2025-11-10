@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { ListGraphSnapshotsInput, ListGraphSnapshotsOutput } from "../models/models_0";
 import { NeptuneGraphClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptuneGraphClient";
-import { de_ListGraphSnapshotsCommand, se_ListGraphSnapshotsCommand } from "../protocols/Aws_restJson1";
+import { ListGraphSnapshots } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -98,16 +97,11 @@ export class ListGraphSnapshotsCommand extends $Command
     ApiType: { type: "staticContextParams", value: `ControlPlane` },
   })
   .m(function (this: any, Command: any, cs: any, config: NeptuneGraphClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonNeptuneGraph", "ListGraphSnapshots", {})
   .n("NeptuneGraphClient", "ListGraphSnapshotsCommand")
-  .f(void 0, void 0)
-  .ser(se_ListGraphSnapshotsCommand)
-  .de(de_ListGraphSnapshotsCommand)
+  .sc(ListGraphSnapshots)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

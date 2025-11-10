@@ -1,12 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { RegisterTargetsRequest, RegisterTargetsResponse } from "../models/models_0";
-import { de_RegisterTargetsCommand, se_RegisterTargetsCommand } from "../protocols/Aws_restJson1";
+import { RegisterTargets } from "../schemas/schemas_0";
 import { ServiceInputTypes, ServiceOutputTypes, VPCLatticeClientResolvedConfig } from "../VPCLatticeClient";
 
 /**
@@ -110,16 +109,11 @@ export class RegisterTargetsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: VPCLatticeClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("MercuryControlPlane", "RegisterTargets", {})
   .n("VPCLatticeClient", "RegisterTargetsCommand")
-  .f(void 0, void 0)
-  .ser(se_RegisterTargetsCommand)
-  .de(de_RegisterTargetsCommand)
+  .sc(RegisterTargets)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

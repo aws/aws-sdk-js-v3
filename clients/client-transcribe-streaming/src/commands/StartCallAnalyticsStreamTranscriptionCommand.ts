@@ -3,21 +3,15 @@ import { getEventStreamPlugin } from "@aws-sdk/middleware-eventstream";
 import { getTranscribeStreamingPlugin } from "@aws-sdk/middleware-sdk-transcribe-streaming";
 import { getWebSocketPlugin } from "@aws-sdk/middleware-websocket";
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import {
   StartCallAnalyticsStreamTranscriptionRequest,
-  StartCallAnalyticsStreamTranscriptionRequestFilterSensitiveLog,
   StartCallAnalyticsStreamTranscriptionResponse,
-  StartCallAnalyticsStreamTranscriptionResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  de_StartCallAnalyticsStreamTranscriptionCommand,
-  se_StartCallAnalyticsStreamTranscriptionCommand,
-} from "../protocols/Aws_restJson1";
+import { StartCallAnalyticsStreamTranscription } from "../schemas/schemas_0";
 import {
   ServiceInputTypes,
   ServiceOutputTypes,
@@ -261,7 +255,6 @@ export class StartCallAnalyticsStreamTranscriptionCommand extends $Command
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: TranscribeStreamingClientResolvedConfig, o: any) {
     return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
       getEventStreamPlugin(config),
       getWebSocketPlugin(config, {
@@ -280,12 +273,7 @@ export class StartCallAnalyticsStreamTranscriptionCommand extends $Command
     },
   })
   .n("TranscribeStreamingClient", "StartCallAnalyticsStreamTranscriptionCommand")
-  .f(
-    StartCallAnalyticsStreamTranscriptionRequestFilterSensitiveLog,
-    StartCallAnalyticsStreamTranscriptionResponseFilterSensitiveLog
-  )
-  .ser(se_StartCallAnalyticsStreamTranscriptionCommand)
-  .de(de_StartCallAnalyticsStreamTranscriptionCommand)
+  .sc(StartCallAnalyticsStreamTranscription)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { MgnClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MgnClient";
-import { Application, ApplicationFilterSensitiveLog, UpdateApplicationRequest } from "../models/models_0";
-import { de_UpdateApplicationCommand, se_UpdateApplicationCommand } from "../protocols/Aws_restJson1";
+import { Application, UpdateApplicationRequest } from "../models/models_0";
+import { UpdateApplication } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -98,16 +97,11 @@ export class UpdateApplicationCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MgnClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("ApplicationMigrationService", "UpdateApplication", {})
   .n("MgnClient", "UpdateApplicationCommand")
-  .f(void 0, ApplicationFilterSensitiveLog)
-  .ser(se_UpdateApplicationCommand)
-  .de(de_UpdateApplicationCommand)
+  .sc(UpdateApplication)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

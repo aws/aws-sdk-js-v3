@@ -1,15 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DeleteDataProtectionSettingsRequest, DeleteDataProtectionSettingsResponse } from "../models/models_0";
-import {
-  de_DeleteDataProtectionSettingsCommand,
-  se_DeleteDataProtectionSettingsCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteDataProtectionSettings } from "../schemas/schemas_0";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesWebClientResolvedConfig } from "../WorkSpacesWebClient";
 
 /**
@@ -88,16 +84,11 @@ export class DeleteDataProtectionSettingsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WorkSpacesWebClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSErmineControlPlaneService", "DeleteDataProtectionSettings", {})
   .n("WorkSpacesWebClient", "DeleteDataProtectionSettingsCommand")
-  .f(void 0, void 0)
-  .ser(se_DeleteDataProtectionSettingsCommand)
-  .de(de_DeleteDataProtectionSettingsCommand)
+  .sc(DeleteDataProtectionSettings)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

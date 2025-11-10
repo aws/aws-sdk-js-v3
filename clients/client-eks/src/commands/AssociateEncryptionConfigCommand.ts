@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EKSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EKSClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { AssociateEncryptionConfigRequest, AssociateEncryptionConfigResponse } from "../models/models_0";
-import { de_AssociateEncryptionConfigCommand, se_AssociateEncryptionConfigCommand } from "../protocols/Aws_restJson1";
+import { AssociateEncryptionConfig } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -133,16 +132,11 @@ export class AssociateEncryptionConfigCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EKSClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSWesleyFrontend", "AssociateEncryptionConfig", {})
   .n("EKSClient", "AssociateEncryptionConfigCommand")
-  .f(void 0, void 0)
-  .ser(se_AssociateEncryptionConfigCommand)
-  .de(de_AssociateEncryptionConfigCommand)
+  .sc(AssociateEncryptionConfig)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

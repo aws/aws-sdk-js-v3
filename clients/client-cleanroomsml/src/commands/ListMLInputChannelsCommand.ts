@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CleanRoomsMLClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CleanRoomsMLClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { ListMLInputChannelsRequest, ListMLInputChannelsResponse } from "../models/models_0";
-import { de_ListMLInputChannelsCommand, se_ListMLInputChannelsCommand } from "../protocols/Aws_restJson1";
+import { ListMLInputChannels } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -97,16 +96,11 @@ export class ListMLInputChannelsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CleanRoomsMLClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSStarkControlService", "ListMLInputChannels", {})
   .n("CleanRoomsMLClient", "ListMLInputChannelsCommand")
-  .f(void 0, void 0)
-  .ser(se_ListMLInputChannelsCommand)
-  .de(de_ListMLInputChannelsCommand)
+  .sc(ListMLInputChannels)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

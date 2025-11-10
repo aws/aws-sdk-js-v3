@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@smithy/smithy-client";
+import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
 import { CleanRoomsMLServiceException as __BaseException } from "./CleanRoomsMLServiceException";
 
@@ -6000,80 +6000,3 @@ export interface UntagResourceRequest {
  * @public
  */
 export interface UntagResourceResponse {}
-
-/**
- * @internal
- */
-export const ProtectedQuerySQLParametersFilterSensitiveLog = (obj: ProtectedQuerySQLParameters): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AudienceGenerationJobDataSourceFilterSensitiveLog = (obj: AudienceGenerationJobDataSource): any => ({
-  ...obj,
-  ...(obj.sqlParameters && { sqlParameters: SENSITIVE_STRING }),
-  ...(obj.sqlComputeConfiguration && { sqlComputeConfiguration: obj.sqlComputeConfiguration }),
-});
-
-/**
- * @internal
- */
-export const GetAudienceGenerationJobResponseFilterSensitiveLog = (obj: GetAudienceGenerationJobResponse): any => ({
-  ...obj,
-  ...(obj.seedAudience && { seedAudience: AudienceGenerationJobDataSourceFilterSensitiveLog(obj.seedAudience) }),
-});
-
-/**
- * @internal
- */
-export const StartAudienceGenerationJobRequestFilterSensitiveLog = (obj: StartAudienceGenerationJobRequest): any => ({
-  ...obj,
-  ...(obj.seedAudience && { seedAudience: AudienceGenerationJobDataSourceFilterSensitiveLog(obj.seedAudience) }),
-});
-
-/**
- * @internal
- */
-export const ProtectedQueryInputParametersFilterSensitiveLog = (obj: ProtectedQueryInputParameters): any => ({
-  ...obj,
-  ...(obj.sqlParameters && { sqlParameters: SENSITIVE_STRING }),
-  ...(obj.computeConfiguration && { computeConfiguration: obj.computeConfiguration }),
-});
-
-/**
- * @internal
- */
-export const InputChannelDataSourceFilterSensitiveLog = (obj: InputChannelDataSource): any => {
-  if (obj.protectedQueryInputParameters !== undefined)
-    return {
-      protectedQueryInputParameters: ProtectedQueryInputParametersFilterSensitiveLog(obj.protectedQueryInputParameters),
-    };
-  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-};
-
-/**
- * @internal
- */
-export const InputChannelFilterSensitiveLog = (obj: InputChannel): any => ({
-  ...obj,
-  ...(obj.dataSource && { dataSource: InputChannelDataSourceFilterSensitiveLog(obj.dataSource) }),
-});
-
-/**
- * @internal
- */
-export const CreateMLInputChannelRequestFilterSensitiveLog = (obj: CreateMLInputChannelRequest): any => ({
-  ...obj,
-  ...(obj.inputChannel && { inputChannel: InputChannelFilterSensitiveLog(obj.inputChannel) }),
-});
-
-/**
- * @internal
- */
-export const GetMLInputChannelResponseFilterSensitiveLog = (obj: GetMLInputChannelResponse): any => ({
-  ...obj,
-  ...(obj.privacyBudgets && { privacyBudgets: obj.privacyBudgets }),
-  ...(obj.inputChannel && { inputChannel: InputChannelFilterSensitiveLog(obj.inputChannel) }),
-});

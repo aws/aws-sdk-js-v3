@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CodeartifactClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeartifactClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DeletePackageVersionsRequest, DeletePackageVersionsResult } from "../models/models_0";
-import { de_DeletePackageVersionsCommand, se_DeletePackageVersionsCommand } from "../protocols/Aws_restJson1";
+import { DeletePackageVersions } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -122,16 +121,11 @@ export class DeletePackageVersionsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CodeartifactClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("CodeArtifactControlPlaneService", "DeletePackageVersions", {})
   .n("CodeartifactClient", "DeletePackageVersionsCommand")
-  .f(void 0, void 0)
-  .ser(se_DeletePackageVersionsCommand)
-  .de(de_DeletePackageVersionsCommand)
+  .sc(DeletePackageVersions)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

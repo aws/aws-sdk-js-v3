@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DeleteContactFlowVersionRequest, DeleteContactFlowVersionResponse } from "../models/models_1";
-import { de_DeleteContactFlowVersionCommand, se_DeleteContactFlowVersionCommand } from "../protocols/Aws_restJson1";
+import { DeleteContactFlowVersion } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -88,16 +87,11 @@ export class DeleteContactFlowVersionCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonConnectService", "DeleteContactFlowVersion", {})
   .n("ConnectClient", "DeleteContactFlowVersionCommand")
-  .f(void 0, void 0)
-  .ser(se_DeleteContactFlowVersionCommand)
-  .de(de_DeleteContactFlowVersionCommand)
+  .sc(DeleteContactFlowVersion)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

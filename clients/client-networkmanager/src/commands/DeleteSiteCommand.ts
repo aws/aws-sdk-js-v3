@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DeleteSiteRequest, DeleteSiteResponse, DeleteSiteResponseFilterSensitiveLog } from "../models/models_0";
+import { DeleteSiteRequest, DeleteSiteResponse } from "../models/models_0";
 import { NetworkManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkManagerClient";
-import { de_DeleteSiteCommand, se_DeleteSiteCommand } from "../protocols/Aws_restJson1";
+import { DeleteSite } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -108,16 +107,11 @@ export class DeleteSiteCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: NetworkManagerClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("NetworkManager", "DeleteSite", {})
   .n("NetworkManagerClient", "DeleteSiteCommand")
-  .f(void 0, DeleteSiteResponseFilterSensitiveLog)
-  .ser(se_DeleteSiteCommand)
-  .de(de_DeleteSiteCommand)
+  .sc(DeleteSite)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

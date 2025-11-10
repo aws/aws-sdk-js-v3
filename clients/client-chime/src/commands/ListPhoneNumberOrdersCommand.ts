@@ -1,17 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  ListPhoneNumberOrdersRequest,
-  ListPhoneNumberOrdersResponse,
-  ListPhoneNumberOrdersResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { de_ListPhoneNumberOrdersCommand, se_ListPhoneNumberOrdersCommand } from "../protocols/Aws_restJson1";
+import { ListPhoneNumberOrdersRequest, ListPhoneNumberOrdersResponse } from "../models/models_0";
+import { ListPhoneNumberOrders } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -108,16 +103,11 @@ export class ListPhoneNumberOrdersCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ChimeClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("UCBuzzConsoleService", "ListPhoneNumberOrders", {})
   .n("ChimeClient", "ListPhoneNumberOrdersCommand")
-  .f(void 0, ListPhoneNumberOrdersResponseFilterSensitiveLog)
-  .ser(se_ListPhoneNumberOrdersCommand)
-  .de(de_ListPhoneNumberOrdersCommand)
+  .sc(ListPhoneNumberOrders)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

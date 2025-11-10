@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { MediaPackageV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaPackageV2Client";
 import { CreateOriginEndpointRequest, CreateOriginEndpointResponse } from "../models/models_0";
-import { de_CreateOriginEndpointCommand, se_CreateOriginEndpointCommand } from "../protocols/Aws_restJson1";
+import { CreateOriginEndpoint } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -1168,16 +1167,11 @@ export class CreateOriginEndpointCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MediaPackageV2ClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("mediapackagev2", "CreateOriginEndpoint", {})
   .n("MediaPackageV2Client", "CreateOriginEndpointCommand")
-  .f(void 0, void 0)
-  .ser(se_CreateOriginEndpointCommand)
-  .de(de_CreateOriginEndpointCommand)
+  .sc(CreateOriginEndpoint)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

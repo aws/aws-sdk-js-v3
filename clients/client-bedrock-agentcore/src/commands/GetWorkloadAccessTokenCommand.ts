@@ -1,17 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { BedrockAgentCoreClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BedrockAgentCoreClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  GetWorkloadAccessTokenRequest,
-  GetWorkloadAccessTokenResponse,
-  GetWorkloadAccessTokenResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { de_GetWorkloadAccessTokenCommand, se_GetWorkloadAccessTokenCommand } from "../protocols/Aws_restJson1";
+import { GetWorkloadAccessTokenRequest, GetWorkloadAccessTokenResponse } from "../models/models_0";
+import { GetWorkloadAccessToken } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -92,16 +87,11 @@ export class GetWorkloadAccessTokenCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: BedrockAgentCoreClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonBedrockAgentCore", "GetWorkloadAccessToken", {})
   .n("BedrockAgentCoreClient", "GetWorkloadAccessTokenCommand")
-  .f(void 0, GetWorkloadAccessTokenResponseFilterSensitiveLog)
-  .ser(se_GetWorkloadAccessTokenCommand)
-  .de(de_GetWorkloadAccessTokenCommand)
+  .sc(GetWorkloadAccessToken)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

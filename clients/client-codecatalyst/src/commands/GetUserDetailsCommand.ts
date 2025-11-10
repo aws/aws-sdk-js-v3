@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CodeCatalystClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCatalystClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GetUserDetailsRequest, GetUserDetailsResponse } from "../models/models_0";
-import { de_GetUserDetailsCommand, se_GetUserDetailsCommand } from "../protocols/Aws_restJson1";
+import { GetUserDetails } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -98,16 +97,11 @@ export class GetUserDetailsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CodeCatalystClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("CodeCatalyst", "GetUserDetails", {})
   .n("CodeCatalystClient", "GetUserDetailsCommand")
-  .f(void 0, void 0)
-  .ser(se_GetUserDetailsCommand)
-  .de(de_GetUserDetailsCommand)
+  .sc(GetUserDetails)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

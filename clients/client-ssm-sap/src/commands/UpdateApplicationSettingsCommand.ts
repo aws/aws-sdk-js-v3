@@ -1,16 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  UpdateApplicationSettingsInput,
-  UpdateApplicationSettingsInputFilterSensitiveLog,
-  UpdateApplicationSettingsOutput,
-} from "../models/models_0";
-import { de_UpdateApplicationSettingsCommand, se_UpdateApplicationSettingsCommand } from "../protocols/Aws_restJson1";
+import { UpdateApplicationSettingsInput, UpdateApplicationSettingsOutput } from "../models/models_0";
+import { UpdateApplicationSettings } from "../schemas/schemas_0";
 import { ServiceInputTypes, ServiceOutputTypes, SsmSapClientResolvedConfig } from "../SsmSapClient";
 
 /**
@@ -111,16 +106,11 @@ export class UpdateApplicationSettingsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SsmSapClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("SsmSap", "UpdateApplicationSettings", {})
   .n("SsmSapClient", "UpdateApplicationSettingsCommand")
-  .f(UpdateApplicationSettingsInputFilterSensitiveLog, void 0)
-  .ser(se_UpdateApplicationSettingsCommand)
-  .de(de_UpdateApplicationSettingsCommand)
+  .sc(UpdateApplicationSettings)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

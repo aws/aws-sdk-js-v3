@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { AcceptLinkRequest, AcceptLinkResponse } from "../models/models_0";
-import { de_AcceptLinkCommand, se_AcceptLinkCommand } from "../protocols/Aws_restJson1";
 import { RTBFabricClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RTBFabricClient";
+import { AcceptLink } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -246,16 +245,11 @@ export class AcceptLinkCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RTBFabricClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("RTBFabric", "AcceptLink", {})
   .n("RTBFabricClient", "AcceptLinkCommand")
-  .f(void 0, void 0)
-  .ser(se_AcceptLinkCommand)
-  .de(de_AcceptLinkCommand)
+  .sc(AcceptLink)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

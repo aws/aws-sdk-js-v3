@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GetEngineStatusOutput } from "../models/models_0";
 import { NeptunedataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptunedataClient";
-import { de_GetEngineStatusCommand, se_GetEngineStatusCommand } from "../protocols/Aws_restJson1";
+import { GetEngineStatus } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -116,16 +115,11 @@ export class GetEngineStatusCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: NeptunedataClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonNeptuneDataplane", "GetEngineStatus", {})
   .n("NeptunedataClient", "GetEngineStatusCommand")
-  .f(void 0, void 0)
-  .ser(se_GetEngineStatusCommand)
-  .de(de_GetEngineStatusCommand)
+  .sc(GetEngineStatus)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

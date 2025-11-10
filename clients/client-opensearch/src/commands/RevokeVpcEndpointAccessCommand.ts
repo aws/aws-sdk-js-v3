@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { RevokeVpcEndpointAccessRequest, RevokeVpcEndpointAccessResponse } from "../models/models_1";
 import { OpenSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpenSearchClient";
-import { de_RevokeVpcEndpointAccessCommand, se_RevokeVpcEndpointAccessCommand } from "../protocols/Aws_restJson1";
+import { RevokeVpcEndpointAccess } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -86,16 +85,11 @@ export class RevokeVpcEndpointAccessCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: OpenSearchClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonOpenSearchService", "RevokeVpcEndpointAccess", {})
   .n("OpenSearchClient", "RevokeVpcEndpointAccessCommand")
-  .f(void 0, void 0)
-  .ser(se_RevokeVpcEndpointAccessCommand)
-  .de(de_RevokeVpcEndpointAccessCommand)
+  .sc(RevokeVpcEndpointAccess)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { UpdateQAppSessionInput, UpdateQAppSessionOutput } from "../models/models_0";
-import { de_UpdateQAppSessionCommand, se_UpdateQAppSessionCommand } from "../protocols/Aws_restJson1";
 import { QAppsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QAppsClient";
+import { UpdateQAppSession } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -103,16 +102,11 @@ export class UpdateQAppSessionCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: QAppsClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("QAppsService", "UpdateQAppSession", {})
   .n("QAppsClient", "UpdateQAppSessionCommand")
-  .f(void 0, void 0)
-  .ser(se_UpdateQAppSessionCommand)
-  .de(de_UpdateQAppSessionCommand)
+  .sc(UpdateQAppSession)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

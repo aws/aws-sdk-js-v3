@@ -1,12 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { BatchImportFindingsRequest, BatchImportFindingsResponse } from "../models/models_2";
-import { de_BatchImportFindingsCommand, se_BatchImportFindingsCommand } from "../protocols/Aws_restJson1";
+import { BatchImportFindings } from "../schemas/schemas_0";
 import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
 /**
@@ -4480,16 +4479,11 @@ export class BatchImportFindingsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SecurityHubClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("SecurityHubAPIService", "BatchImportFindings", {})
   .n("SecurityHubClient", "BatchImportFindingsCommand")
-  .f(void 0, void 0)
-  .ser(se_BatchImportFindingsCommand)
-  .de(de_BatchImportFindingsCommand)
+  .sc(BatchImportFindings)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GreengrassV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassV2Client";
 import { CreateDeploymentRequest, CreateDeploymentResponse } from "../models/models_0";
-import { de_CreateDeploymentCommand, se_CreateDeploymentCommand } from "../protocols/Aws_restJson1";
+import { CreateDeployment } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -169,16 +168,11 @@ export class CreateDeploymentCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GreengrassV2ClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("GreengrassV2", "CreateDeployment", {})
   .n("GreengrassV2Client", "CreateDeploymentCommand")
-  .f(void 0, void 0)
-  .ser(se_CreateDeploymentCommand)
-  .de(de_CreateDeploymentCommand)
+  .sc(CreateDeployment)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

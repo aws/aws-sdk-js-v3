@@ -1,17 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { AccessAnalyzerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AccessAnalyzerClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  CheckNoPublicAccessRequest,
-  CheckNoPublicAccessRequestFilterSensitiveLog,
-  CheckNoPublicAccessResponse,
-} from "../models/models_0";
-import { de_CheckNoPublicAccessCommand, se_CheckNoPublicAccessCommand } from "../protocols/Aws_restJson1";
+import { CheckNoPublicAccessRequest, CheckNoPublicAccessResponse } from "../models/models_0";
+import { CheckNoPublicAccess } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -142,16 +137,11 @@ export class CheckNoPublicAccessCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AccessAnalyzerClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AccessAnalyzer", "CheckNoPublicAccess", {})
   .n("AccessAnalyzerClient", "CheckNoPublicAccessCommand")
-  .f(CheckNoPublicAccessRequestFilterSensitiveLog, void 0)
-  .ser(se_CheckNoPublicAccessCommand)
-  .de(de_CheckNoPublicAccessCommand)
+  .sc(CheckNoPublicAccess)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

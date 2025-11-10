@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DeleteVectorBucketInput, DeleteVectorBucketOutput } from "../models/models_0";
-import { de_DeleteVectorBucketCommand, se_DeleteVectorBucketCommand } from "../protocols/Aws_restJson1";
 import { S3VectorsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3VectorsClient";
+import { DeleteVectorBucket } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -90,16 +89,11 @@ export class DeleteVectorBucketCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: S3VectorsClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("S3Vectors", "DeleteVectorBucket", {})
   .n("S3VectorsClient", "DeleteVectorBucketCommand")
-  .f(void 0, void 0)
-  .ser(se_DeleteVectorBucketCommand)
-  .de(de_DeleteVectorBucketCommand)
+  .sc(DeleteVectorBucket)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

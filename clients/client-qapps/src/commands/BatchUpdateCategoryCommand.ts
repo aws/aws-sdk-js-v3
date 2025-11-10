@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { BatchUpdateCategoryInput } from "../models/models_0";
-import { de_BatchUpdateCategoryCommand, se_BatchUpdateCategoryCommand } from "../protocols/Aws_restJson1";
 import { QAppsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QAppsClient";
+import { BatchUpdateCategory } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -119,16 +118,11 @@ export class BatchUpdateCategoryCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: QAppsClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("QAppsService", "BatchUpdateCategory", {})
   .n("QAppsClient", "BatchUpdateCategoryCommand")
-  .f(void 0, void 0)
-  .ser(se_BatchUpdateCategoryCommand)
-  .de(de_BatchUpdateCategoryCommand)
+  .sc(BatchUpdateCategory)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

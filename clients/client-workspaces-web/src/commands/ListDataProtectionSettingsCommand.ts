@@ -1,16 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  ListDataProtectionSettingsRequest,
-  ListDataProtectionSettingsResponse,
-  ListDataProtectionSettingsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { de_ListDataProtectionSettingsCommand, se_ListDataProtectionSettingsCommand } from "../protocols/Aws_restJson1";
+import { ListDataProtectionSettingsRequest, ListDataProtectionSettingsResponse } from "../models/models_0";
+import { ListDataProtectionSettings } from "../schemas/schemas_0";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesWebClientResolvedConfig } from "../WorkSpacesWebClient";
 
 /**
@@ -95,16 +90,11 @@ export class ListDataProtectionSettingsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WorkSpacesWebClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSErmineControlPlaneService", "ListDataProtectionSettings", {})
   .n("WorkSpacesWebClient", "ListDataProtectionSettingsCommand")
-  .f(void 0, ListDataProtectionSettingsResponseFilterSensitiveLog)
-  .ser(se_ListDataProtectionSettingsCommand)
-  .de(de_ListDataProtectionSettingsCommand)
+  .sc(ListDataProtectionSettings)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

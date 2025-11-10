@@ -1,17 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CustomerProfilesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CustomerProfilesClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  BatchGetProfileRequest,
-  BatchGetProfileResponse,
-  BatchGetProfileResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { de_BatchGetProfileCommand, se_BatchGetProfileCommand } from "../protocols/Aws_restJson1";
+import { BatchGetProfileRequest, BatchGetProfileResponse } from "../models/models_0";
+import { BatchGetProfile } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -199,16 +194,11 @@ export class BatchGetProfileCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CustomerProfilesClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("CustomerProfiles_20200815", "BatchGetProfile", {})
   .n("CustomerProfilesClient", "BatchGetProfileCommand")
-  .f(void 0, BatchGetProfileResponseFilterSensitiveLog)
-  .ser(se_BatchGetProfileCommand)
-  .de(de_BatchGetProfileCommand)
+  .sc(BatchGetProfile)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

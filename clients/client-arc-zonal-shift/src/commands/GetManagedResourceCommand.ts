@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ARCZonalShiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ARCZonalShiftClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GetManagedResourceRequest, GetManagedResourceResponse } from "../models/models_0";
-import { de_GetManagedResourceCommand, se_GetManagedResourceCommand } from "../protocols/Aws_restJson1";
+import { GetManagedResource } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -133,16 +132,11 @@ export class GetManagedResourceCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ARCZonalShiftClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("PercDataPlane", "GetManagedResource", {})
   .n("ARCZonalShiftClient", "GetManagedResourceCommand")
-  .f(void 0, void 0)
-  .ser(se_GetManagedResourceCommand)
-  .de(de_GetManagedResourceCommand)
+  .sc(GetManagedResource)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

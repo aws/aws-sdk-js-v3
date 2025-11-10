@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -11,7 +10,7 @@ import {
   ServiceOutputTypes,
 } from "../MigrationHubOrchestratorClient";
 import { RetryWorkflowStepRequest, RetryWorkflowStepResponse } from "../models/models_0";
-import { de_RetryWorkflowStepCommand, se_RetryWorkflowStepCommand } from "../protocols/Aws_restJson1";
+import { RetryWorkflowStep } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -91,16 +90,11 @@ export class RetryWorkflowStepCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MigrationHubOrchestratorClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSMigrationHubOrchestrator", "RetryWorkflowStep", {})
   .n("MigrationHubOrchestratorClient", "RetryWorkflowStepCommand")
-  .f(void 0, void 0)
-  .ser(se_RetryWorkflowStepCommand)
-  .de(de_RetryWorkflowStepCommand)
+  .sc(RetryWorkflowStep)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

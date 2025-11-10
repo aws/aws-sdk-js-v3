@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@smithy/smithy-client";
+import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
 import { ConnectServiceException as __BaseException } from "./ConnectServiceException";
 
@@ -47,14 +47,11 @@ import {
   TaskTemplateField,
   TaskTemplateStatus,
   UserIdentityInfo,
-  UserIdentityInfoFilterSensitiveLog,
   UserInfo,
   UserPhoneConfig,
   UserProficiency,
   View,
-  ViewFilterSensitiveLog,
   ViewInputContent,
-  ViewInputContentFilterSensitiveLog,
   ViewStatus,
 } from "./models_0";
 
@@ -100,7 +97,6 @@ import {
   DateTimeCondition,
   DecimalCondition,
   EmailAddressInfo,
-  EmailAddressInfoFilterSensitiveLog,
   EmailAddressSearchFilter,
   EmailAttachment,
   EvaluationFormSearchFilter,
@@ -108,9 +104,7 @@ import {
   HierarchyGroupCondition,
   HoursOfOperationSearchFilter,
   InboundAdditionalRecipients,
-  InboundAdditionalRecipientsFilterSensitiveLog,
   InboundEmailContent,
-  InboundEmailContentFilterSensitiveLog,
   ListCondition,
   NumberCondition,
   ParticipantDetails,
@@ -6214,182 +6208,3 @@ export interface SearchContactsResponse {
    */
   TotalCount?: number | undefined;
 }
-
-/**
- * @internal
- */
-export const StartOutboundVoiceContactRequestFilterSensitiveLog = (obj: StartOutboundVoiceContactRequest): any => ({
-  ...obj,
-  ...(obj.Name && { Name: SENSITIVE_STRING }),
-  ...(obj.Description && { Description: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const StartWebRTCContactRequestFilterSensitiveLog = (obj: StartWebRTCContactRequest): any => ({
-  ...obj,
-  ...(obj.Description && { Description: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const AttendeeFilterSensitiveLog = (obj: Attendee): any => ({
-  ...obj,
-  ...(obj.JoinToken && { JoinToken: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const ConnectionDataFilterSensitiveLog = (obj: ConnectionData): any => ({
-  ...obj,
-  ...(obj.Attendee && { Attendee: AttendeeFilterSensitiveLog(obj.Attendee) }),
-});
-
-/**
- * @internal
- */
-export const StartWebRTCContactResponseFilterSensitiveLog = (obj: StartWebRTCContactResponse): any => ({
-  ...obj,
-  ...(obj.ConnectionData && { ConnectionData: ConnectionDataFilterSensitiveLog(obj.ConnectionData) }),
-});
-
-/**
- * @internal
- */
-export const UpdateEmailAddressMetadataRequestFilterSensitiveLog = (obj: UpdateEmailAddressMetadataRequest): any => ({
-  ...obj,
-  ...(obj.Description && { Description: SENSITIVE_STRING }),
-  ...(obj.DisplayName && { DisplayName: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const UpdateParticipantAuthenticationRequestFilterSensitiveLog = (
-  obj: UpdateParticipantAuthenticationRequest
-): any => ({
-  ...obj,
-  ...(obj.Code && { Code: SENSITIVE_STRING }),
-  ...(obj.Error && { Error: SENSITIVE_STRING }),
-  ...(obj.ErrorDescription && { ErrorDescription: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const UpdateUserIdentityInfoRequestFilterSensitiveLog = (obj: UpdateUserIdentityInfoRequest): any => ({
-  ...obj,
-  ...(obj.IdentityInfo && { IdentityInfo: UserIdentityInfoFilterSensitiveLog(obj.IdentityInfo) }),
-});
-
-/**
- * @internal
- */
-export const UpdateViewContentRequestFilterSensitiveLog = (obj: UpdateViewContentRequest): any => ({
-  ...obj,
-  ...(obj.Content && { Content: ViewInputContentFilterSensitiveLog(obj.Content) }),
-});
-
-/**
- * @internal
- */
-export const UpdateViewContentResponseFilterSensitiveLog = (obj: UpdateViewContentResponse): any => ({
-  ...obj,
-  ...(obj.View && { View: ViewFilterSensitiveLog(obj.View) }),
-});
-
-/**
- * @internal
- */
-export const UpdateViewMetadataRequestFilterSensitiveLog = (obj: UpdateViewMetadataRequest): any => ({
-  ...obj,
-  ...(obj.Name && { Name: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const CreateContactRequestFilterSensitiveLog = (obj: CreateContactRequest): any => ({
-  ...obj,
-  ...(obj.Name && { Name: SENSITIVE_STRING }),
-  ...(obj.Description && { Description: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const StartChatContactRequestFilterSensitiveLog = (obj: StartChatContactRequest): any => ({
-  ...obj,
-  ...(obj.CustomerId && { CustomerId: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const StartEmailContactRequestFilterSensitiveLog = (obj: StartEmailContactRequest): any => ({
-  ...obj,
-  ...(obj.FromEmailAddress && { FromEmailAddress: EmailAddressInfoFilterSensitiveLog(obj.FromEmailAddress) }),
-  ...(obj.DestinationEmailAddress && { DestinationEmailAddress: SENSITIVE_STRING }),
-  ...(obj.Description && { Description: SENSITIVE_STRING }),
-  ...(obj.Name && { Name: SENSITIVE_STRING }),
-  ...(obj.EmailMessage && { EmailMessage: InboundEmailContentFilterSensitiveLog(obj.EmailMessage) }),
-  ...(obj.AdditionalRecipients && {
-    AdditionalRecipients: InboundAdditionalRecipientsFilterSensitiveLog(obj.AdditionalRecipients),
-  }),
-  ...(obj.Attachments && { Attachments: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const StartTaskContactRequestFilterSensitiveLog = (obj: StartTaskContactRequest): any => ({
-  ...obj,
-  ...(obj.Name && { Name: SENSITIVE_STRING }),
-  ...(obj.Description && { Description: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const UpdateContactRequestFilterSensitiveLog = (obj: UpdateContactRequest): any => ({
-  ...obj,
-  ...(obj.Name && { Name: SENSITIVE_STRING }),
-  ...(obj.Description && { Description: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const ContactFilterSensitiveLog = (obj: Contact): any => ({
-  ...obj,
-  ...(obj.Name && { Name: SENSITIVE_STRING }),
-  ...(obj.Description && { Description: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const ContactSearchSummaryFilterSensitiveLog = (obj: ContactSearchSummary): any => ({
-  ...obj,
-  ...(obj.SegmentAttributes && { SegmentAttributes: SENSITIVE_STRING }),
-  ...(obj.Name && { Name: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const DescribeContactResponseFilterSensitiveLog = (obj: DescribeContactResponse): any => ({
-  ...obj,
-  ...(obj.Contact && { Contact: ContactFilterSensitiveLog(obj.Contact) }),
-});
-
-/**
- * @internal
- */
-export const SearchContactsResponseFilterSensitiveLog = (obj: SearchContactsResponse): any => ({
-  ...obj,
-  ...(obj.Contacts && { Contacts: obj.Contacts.map((item) => ContactSearchSummaryFilterSensitiveLog(item)) }),
-});

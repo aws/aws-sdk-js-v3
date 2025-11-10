@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CloudDirectoryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudDirectoryClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { ListObjectChildrenRequest, ListObjectChildrenResponse } from "../models/models_0";
-import { de_ListObjectChildrenCommand, se_ListObjectChildrenCommand } from "../protocols/Aws_restJson1";
+import { ListObjectChildren } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -132,16 +131,11 @@ export class ListObjectChildrenCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudDirectoryClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonCloudDirectory_20170111", "ListObjectChildren", {})
   .n("CloudDirectoryClient", "ListObjectChildrenCommand")
-  .f(void 0, void 0)
-  .ser(se_ListObjectChildrenCommand)
-  .de(de_ListObjectChildrenCommand)
+  .sc(ListObjectChildren)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -10,13 +9,8 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../LexRuntimeServiceClient";
-import {
-  PostTextRequest,
-  PostTextRequestFilterSensitiveLog,
-  PostTextResponse,
-  PostTextResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { de_PostTextCommand, se_PostTextCommand } from "../protocols/Aws_restJson1";
+import { PostTextRequest, PostTextResponse } from "../models/models_0";
+import { PostText } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -280,16 +274,11 @@ export class PostTextCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LexRuntimeServiceClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSDeepSenseRunTimeService", "PostText", {})
   .n("LexRuntimeServiceClient", "PostTextCommand")
-  .f(PostTextRequestFilterSensitiveLog, PostTextResponseFilterSensitiveLog)
-  .ser(se_PostTextCommand)
-  .de(de_PostTextCommand)
+  .sc(PostText)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
