@@ -344,6 +344,9 @@ export const KeyAlgorithm = {
   EC_prime256v1: "EC_prime256v1",
   EC_secp384r1: "EC_secp384r1",
   EC_secp521r1: "EC_secp521r1",
+  ML_DSA_44: "ML_DSA_44",
+  ML_DSA_65: "ML_DSA_65",
+  ML_DSA_87: "ML_DSA_87",
   RSA_2048: "RSA_2048",
   RSA_3072: "RSA_3072",
   RSA_4096: "RSA_4096",
@@ -360,6 +363,9 @@ export type KeyAlgorithm = (typeof KeyAlgorithm)[keyof typeof KeyAlgorithm];
  * @enum
  */
 export const SigningAlgorithm = {
+  ML_DSA_44: "ML_DSA_44",
+  ML_DSA_65: "ML_DSA_65",
+  ML_DSA_87: "ML_DSA_87",
   SHA256WITHECDSA: "SHA256WITHECDSA",
   SHA256WITHRSA: "SHA256WITHRSA",
   SHA384WITHECDSA: "SHA384WITHECDSA",
