@@ -271,6 +271,7 @@ const _EDIA = "EnableDefaultInternetAccess";
 const _EDL = "ErrorDetailsList";
 const _EHD = "EmbedHostDomains";
 const _EI = "EniId";
+const _EIA = "EniIpv6Addresses";
 const _EL = "EntitlementList";
 const _EM = "ErrorMessage";
 const _EN = "EntitlementName";
@@ -1441,7 +1442,7 @@ export var ListEntitledApplicationsResult: StaticStructureSchema = [
 ];
 export var ListTagsForResourceRequest: StaticStructureSchema = [3, n0, _LTFRR, 0, [_RA], [0]];
 export var ListTagsForResourceResponse: StaticStructureSchema = [3, n0, _LTFRRi, 0, [_T], [128 | 0]];
-export var NetworkAccessConfiguration: StaticStructureSchema = [3, n0, _NAC, 0, [_EPIA, _EI], [0, 0]];
+export var NetworkAccessConfiguration: StaticStructureSchema = [3, n0, _NAC, 0, [_EPIA, _EIA, _EI], [0, 64 | 0, 0]];
 export var OperationNotPermittedException: StaticErrorSchema = [
   -3,
   n0,

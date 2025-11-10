@@ -3405,6 +3405,12 @@ export interface NetworkAccessConfiguration {
   EniPrivateIpAddress?: string | undefined;
 
   /**
+   * <p>The IPv6 addresses of the elastic network interface that is attached to instances in your VPC.</p>
+   * @public
+   */
+  EniIpv6Addresses?: string[] | undefined;
+
+  /**
    * <p>The resource identifier of the elastic network interface that is attached to instances in your VPC. All network interfaces have the eni-xxxxxxxx resource identifier.</p>
    * @public
    */

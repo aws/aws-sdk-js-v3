@@ -63,6 +63,9 @@ export interface DescribeSessionsCommandOutput extends DescribeSessionsResult, _
  * //       AuthenticationType: "API" || "SAML" || "USERPOOL" || "AWS_AD",
  * //       NetworkAccessConfiguration: { // NetworkAccessConfiguration
  * //         EniPrivateIpAddress: "STRING_VALUE",
+ * //         EniIpv6Addresses: [ // StringList
+ * //           "STRING_VALUE",
+ * //         ],
  * //         EniId: "STRING_VALUE",
  * //       },
  * //       InstanceId: "STRING_VALUE",

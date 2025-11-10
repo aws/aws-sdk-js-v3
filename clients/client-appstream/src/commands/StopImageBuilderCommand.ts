@@ -72,6 +72,9 @@ export interface StopImageBuilderCommandOutput extends StopImageBuilderResult, _
  * //     },
  * //     NetworkAccessConfiguration: { // NetworkAccessConfiguration
  * //       EniPrivateIpAddress: "STRING_VALUE",
+ * //       EniIpv6Addresses: [ // StringList
+ * //         "STRING_VALUE",
+ * //       ],
  * //       EniId: "STRING_VALUE",
  * //     },
  * //     ImageBuilderErrors: [ // ResourceErrors

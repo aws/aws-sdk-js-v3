@@ -72,6 +72,9 @@ export interface DeleteImageBuilderCommandOutput extends DeleteImageBuilderResul
  * //     },
  * //     NetworkAccessConfiguration: { // NetworkAccessConfiguration
  * //       EniPrivateIpAddress: "STRING_VALUE",
+ * //       EniIpv6Addresses: [ // StringList
+ * //         "STRING_VALUE",
+ * //       ],
  * //       EniId: "STRING_VALUE",
  * //     },
  * //     ImageBuilderErrors: [ // ResourceErrors

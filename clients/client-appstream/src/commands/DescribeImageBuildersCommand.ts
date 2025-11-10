@@ -77,6 +77,9 @@ export interface DescribeImageBuildersCommandOutput extends DescribeImageBuilder
  * //       },
  * //       NetworkAccessConfiguration: { // NetworkAccessConfiguration
  * //         EniPrivateIpAddress: "STRING_VALUE",
+ * //         EniIpv6Addresses: [ // StringList
+ * //           "STRING_VALUE",
+ * //         ],
  * //         EniId: "STRING_VALUE",
  * //       },
  * //       ImageBuilderErrors: [ // ResourceErrors
