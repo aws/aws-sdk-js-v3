@@ -234,7 +234,6 @@ export interface ListConnectionsCommandOutput extends ListConnectionsOutput, __M
  * //           authMode: "STRING_VALUE",
  * //         },
  * //         mlflowProperties: { // MlflowPropertiesOutput
- * //           trackingServerName: "STRING_VALUE",
  * //           trackingServerArn: "STRING_VALUE",
  * //         },
  * //       },

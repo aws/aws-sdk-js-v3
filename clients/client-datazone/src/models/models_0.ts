@@ -5253,12 +5253,6 @@ export interface IamPropertiesInput {
  */
 export interface MlflowPropertiesInput {
   /**
-   * <p>The name of the tracking server as part of the MLflow properties of a connection.</p>
-   * @public
-   */
-  trackingServerName?: string | undefined;
-
-  /**
    * <p>The tracking server ARN as part of the MLflow properties of a connection.</p>
    * @public
    */
@@ -5950,12 +5944,6 @@ export interface IamPropertiesOutput {
  */
 export interface MlflowPropertiesOutput {
   /**
-   * <p>The name of the tracking server as part of the MLflow properties of a connection.</p>
-   * @public
-   */
-  trackingServerName?: string | undefined;
-
-  /**
    * <p>The tracking server ARN as part of the MLflow properties of a connection.</p>
    * @public
    */
@@ -6552,12 +6540,6 @@ export interface IamPropertiesPatch {
  * @public
  */
 export interface MlflowPropertiesPatch {
-  /**
-   * <p>The name of the tracking server as part of the MLflow properties of a connection.</p>
-   * @public
-   */
-  trackingServerName?: string | undefined;
-
   /**
    * <p>The tracking server ARN as part of the MLflow properties of a connection.</p>
    * @public

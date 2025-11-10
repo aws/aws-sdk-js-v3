@@ -116,7 +116,6 @@ export interface UpdateConnectionCommandOutput extends UpdateConnectionOutput, _
  *       authMode: "STRING_VALUE",
  *     },
  *     mlflowProperties: { // MlflowPropertiesPatch
- *       trackingServerName: "STRING_VALUE",
  *       trackingServerArn: "STRING_VALUE",
  *     },
  *   },
@@ -301,7 +300,6 @@ export interface UpdateConnectionCommandOutput extends UpdateConnectionOutput, _
  * //       authMode: "STRING_VALUE",
  * //     },
  * //     mlflowProperties: { // MlflowPropertiesOutput
- * //       trackingServerName: "STRING_VALUE",
  * //       trackingServerArn: "STRING_VALUE",
  * //     },
  * //   },
