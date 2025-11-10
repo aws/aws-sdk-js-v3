@@ -8,6 +8,7 @@ export * from "./AttachUserPolicyCommand";
 export * from "./ChangePasswordCommand";
 export * from "./CreateAccessKeyCommand";
 export * from "./CreateAccountAliasCommand";
+export * from "./CreateDelegationRequestCommand";
 export * from "./CreateGroupCommand";
 export * from "./CreateInstanceProfileCommand";
 export * from "./CreateLoginProfileCommand";

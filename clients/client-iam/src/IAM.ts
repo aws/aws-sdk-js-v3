@@ -47,6 +47,11 @@ import {
   CreateAccountAliasCommandInput,
   CreateAccountAliasCommandOutput,
 } from "./commands/CreateAccountAliasCommand";
+import {
+  CreateDelegationRequestCommand,
+  CreateDelegationRequestCommandInput,
+  CreateDelegationRequestCommandOutput,
+} from "./commands/CreateDelegationRequestCommand";
 import { CreateGroupCommand, CreateGroupCommandInput, CreateGroupCommandOutput } from "./commands/CreateGroupCommand";
 import {
   CreateInstanceProfileCommand,
@@ -746,6 +751,7 @@ const commands = {
   ChangePasswordCommand,
   CreateAccessKeyCommand,
   CreateAccountAliasCommand,
+  CreateDelegationRequestCommand,
   CreateGroupCommand,
   CreateInstanceProfileCommand,
   CreateLoginProfileCommand,
@@ -1047,6 +1053,23 @@ export interface IAM {
     args: CreateAccountAliasCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateAccountAliasCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateDelegationRequestCommand}
+   */
+  createDelegationRequest(
+    args: CreateDelegationRequestCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateDelegationRequestCommandOutput>;
+  createDelegationRequest(
+    args: CreateDelegationRequestCommandInput,
+    cb: (err: any, data?: CreateDelegationRequestCommandOutput) => void
+  ): void;
+  createDelegationRequest(
+    args: CreateDelegationRequestCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateDelegationRequestCommandOutput) => void
   ): void;
 
   /**

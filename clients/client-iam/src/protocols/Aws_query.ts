@@ -35,6 +35,10 @@ import { AttachUserPolicyCommandInput, AttachUserPolicyCommandOutput } from "../
 import { ChangePasswordCommandInput, ChangePasswordCommandOutput } from "../commands/ChangePasswordCommand";
 import { CreateAccessKeyCommandInput, CreateAccessKeyCommandOutput } from "../commands/CreateAccessKeyCommand";
 import { CreateAccountAliasCommandInput, CreateAccountAliasCommandOutput } from "../commands/CreateAccountAliasCommand";
+import {
+  CreateDelegationRequestCommandInput,
+  CreateDelegationRequestCommandOutput,
+} from "../commands/CreateDelegationRequestCommand";
 import { CreateGroupCommandInput, CreateGroupCommandOutput } from "../commands/CreateGroupCommand";
 import {
   CreateInstanceProfileCommandInput,
@@ -442,10 +446,11 @@ import {
   CallerIsNotManagementAccountException,
   ChangePasswordRequest,
   ConcurrentModificationException,
-  ContextEntry,
   CreateAccessKeyRequest,
   CreateAccessKeyResponse,
   CreateAccountAliasRequest,
+  CreateDelegationRequestRequest,
+  CreateDelegationRequestResponse,
   CreateGroupRequest,
   CreateGroupResponse,
   CreateInstanceProfileRequest,
@@ -474,6 +479,7 @@ import {
   CredentialReportNotPresentException,
   CredentialReportNotReadyException,
   DeactivateMFADeviceRequest,
+  DelegationPermission,
   DeleteAccessKeyRequest,
   DeleteAccountAliasRequest,
   DeleteConflictException,
@@ -662,10 +668,10 @@ import {
   PasswordPolicyViolationException,
   Policy,
   PolicyDetail,
-  PolicyEvaluationException,
   PolicyGrantingServiceAccess,
   PolicyGroup,
   PolicyNotAttachableException,
+  PolicyParameter,
   PolicyRole,
   PolicyUser,
   PolicyVersion,
@@ -696,9 +702,7 @@ import {
   ServiceSpecificCredential,
   ServiceSpecificCredentialMetadata,
   SetDefaultPolicyVersionRequest,
-  SetSecurityTokenServicePreferencesRequest,
   SigningCertificate,
-  SimulateCustomPolicyRequest,
   SSHPublicKey,
   SSHPublicKeyMetadata,
   SummaryKeyType,
@@ -711,6 +715,7 @@ import {
   VirtualMFADevice,
 } from "../models/models_0";
 import {
+  ContextEntry,
   DuplicateCertificateException,
   DuplicateSSHPublicKeyException,
   EvaluationResult,
@@ -721,8 +726,11 @@ import {
   OrganizationsDecisionDetail,
   PermissionsBoundaryDecisionDetail,
   PolicyEvaluationDecisionType,
+  PolicyEvaluationException,
   Position,
   ResourceSpecificResult,
+  SetSecurityTokenServicePreferencesRequest,
+  SimulateCustomPolicyRequest,
   SimulatePolicyResponse,
   SimulatePrincipalPolicyRequest,
   Statement,
@@ -915,6 +923,23 @@ export const se_CreateAccountAliasCommand = async (
   body = buildFormUrlencodedString({
     ...se_CreateAccountAliasRequest(input, context),
     [_A]: _CAA,
+    [_V]: _,
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_queryCreateDelegationRequestCommand
+ */
+export const se_CreateDelegationRequestCommand = async (
+  input: CreateDelegationRequestCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = SHARED_HEADERS;
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...se_CreateDelegationRequestRequest(input, context),
+    [_A]: _CDR,
     [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -3697,6 +3722,26 @@ export const de_CreateAccountAliasCommand = async (
   await collectBody(output.body, context);
   const response: CreateAccountAliasCommandOutput = {
     $metadata: deserializeMetadata(output),
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryCreateDelegationRequestCommand
+ */
+export const de_CreateDelegationRequestCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateDelegationRequestCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_CreateDelegationRequestResponse(data.CreateDelegationRequestResult, context);
+  const response: CreateDelegationRequestCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
   };
   return response;
 };
@@ -7477,12 +7522,51 @@ const se_CreateAccountAliasRequest = (input: CreateAccountAliasRequest, context:
 };
 
 /**
+ * serializeAws_queryCreateDelegationRequestRequest
+ */
+const se_CreateDelegationRequestRequest = (input: CreateDelegationRequestRequest, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input[_OAI] != null) {
+    entries[_OAI] = input[_OAI];
+  }
+  if (input[_D] != null) {
+    entries[_D] = input[_D];
+  }
+  if (input[_P] != null) {
+    const memberEntries = se_DelegationPermission(input[_P], context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `Permissions.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input[_RM] != null) {
+    entries[_RM] = input[_RM];
+  }
+  if (input[_RWI] != null) {
+    entries[_RWI] = input[_RWI];
+  }
+  if (input[_RU] != null) {
+    entries[_RU] = input[_RU];
+  }
+  if (input[_NC] != null) {
+    entries[_NC] = input[_NC];
+  }
+  if (input[_SD] != null) {
+    entries[_SD] = input[_SD];
+  }
+  if (input[_OSBO] != null) {
+    entries[_OSBO] = input[_OSBO];
+  }
+  return entries;
+};
+
+/**
  * serializeAws_queryCreateGroupRequest
  */
 const se_CreateGroupRequest = (input: CreateGroupRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input[_P] != null) {
-    entries[_P] = input[_P];
+  if (input[_Pa] != null) {
+    entries[_Pa] = input[_Pa];
   }
   if (input[_GN] != null) {
     entries[_GN] = input[_GN];
@@ -7498,8 +7582,8 @@ const se_CreateInstanceProfileRequest = (input: CreateInstanceProfileRequest, co
   if (input[_IPN] != null) {
     entries[_IPN] = input[_IPN];
   }
-  if (input[_P] != null) {
-    entries[_P] = input[_P];
+  if (input[_Pa] != null) {
+    entries[_Pa] = input[_Pa];
   }
   if (input[_T] != null) {
     const memberEntries = se_tagListType(input[_T], context);
@@ -7522,8 +7606,8 @@ const se_CreateLoginProfileRequest = (input: CreateLoginProfileRequest, context:
   if (input[_UN] != null) {
     entries[_UN] = input[_UN];
   }
-  if (input[_Pa] != null) {
-    entries[_Pa] = input[_Pa];
+  if (input[_Pas] != null) {
+    entries[_Pas] = input[_Pas];
   }
   if (input[_PRR] != null) {
     entries[_PRR] = input[_PRR];
@@ -7583,8 +7667,8 @@ const se_CreatePolicyRequest = (input: CreatePolicyRequest, context: __SerdeCont
   if (input[_PN] != null) {
     entries[_PN] = input[_PN];
   }
-  if (input[_P] != null) {
-    entries[_P] = input[_P];
+  if (input[_Pa] != null) {
+    entries[_Pa] = input[_Pa];
   }
   if (input[_PD] != null) {
     entries[_PD] = input[_PD];
@@ -7627,8 +7711,8 @@ const se_CreatePolicyVersionRequest = (input: CreatePolicyVersionRequest, contex
  */
 const se_CreateRoleRequest = (input: CreateRoleRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input[_P] != null) {
-    entries[_P] = input[_P];
+  if (input[_Pa] != null) {
+    entries[_Pa] = input[_Pa];
   }
   if (input[_RN] != null) {
     entries[_RN] = input[_RN];
@@ -7730,8 +7814,8 @@ const se_CreateServiceSpecificCredentialRequest = (
  */
 const se_CreateUserRequest = (input: CreateUserRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input[_P] != null) {
-    entries[_P] = input[_P];
+  if (input[_Pa] != null) {
+    entries[_Pa] = input[_Pa];
   }
   if (input[_UN] != null) {
     entries[_UN] = input[_UN];
@@ -7757,8 +7841,8 @@ const se_CreateUserRequest = (input: CreateUserRequest, context: __SerdeContext)
  */
 const se_CreateVirtualMFADeviceRequest = (input: CreateVirtualMFADeviceRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input[_P] != null) {
-    entries[_P] = input[_P];
+  if (input[_Pa] != null) {
+    entries[_Pa] = input[_Pa];
   }
   if (input[_VMFADN] != null) {
     entries[_VMFADN] = input[_VMFADN];
@@ -7786,6 +7870,27 @@ const se_DeactivateMFADeviceRequest = (input: DeactivateMFADeviceRequest, contex
   }
   if (input[_SNe] != null) {
     entries[_SNe] = input[_SNe];
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_queryDelegationPermission
+ */
+const se_DelegationPermission = (input: DelegationPermission, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input[_PTA] != null) {
+    entries[_PTA] = input[_PTA];
+  }
+  if (input[_Par] != null) {
+    const memberEntries = se_policyParameterListType(input[_Par], context);
+    if (input[_Par]?.length === 0) {
+      entries.Parameters = [];
+    }
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `Parameters.${key}`;
+      entries[loc] = value;
+    });
   }
   return entries;
 };
@@ -9200,6 +9305,65 @@ const se_ListVirtualMFADevicesRequest = (input: ListVirtualMFADevicesRequest, co
 };
 
 /**
+ * serializeAws_queryPolicyParameter
+ */
+const se_PolicyParameter = (input: PolicyParameter, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input[_N] != null) {
+    entries[_N] = input[_N];
+  }
+  if (input[_Va] != null) {
+    const memberEntries = se_policyParameterValuesListType(input[_Va], context);
+    if (input[_Va]?.length === 0) {
+      entries.Values = [];
+    }
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `Values.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input[_Ty] != null) {
+    entries[_Ty] = input[_Ty];
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_querypolicyParameterListType
+ */
+const se_policyParameterListType = (input: PolicyParameter[], context: __SerdeContext): any => {
+  const entries: any = {};
+  let counter = 1;
+  for (const entry of input) {
+    if (entry === null) {
+      continue;
+    }
+    const memberEntries = se_PolicyParameter(entry, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      entries[`member.${counter}.${key}`] = value;
+    });
+    counter++;
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_querypolicyParameterValuesListType
+ */
+const se_policyParameterValuesListType = (input: string[], context: __SerdeContext): any => {
+  const entries: any = {};
+  let counter = 1;
+  for (const entry of input) {
+    if (entry === null) {
+      continue;
+    }
+    entries[`member.${counter}`] = entry;
+    counter++;
+  }
+  return entries;
+};
+
+/**
  * serializeAws_queryPutGroupPolicyRequest
  */
 const se_PutGroupPolicyRequest = (input: PutGroupPolicyRequest, context: __SerdeContext): any => {
@@ -9608,8 +9772,8 @@ const se_Tag = (input: Tag, context: __SerdeContext): any => {
   if (input[_K] != null) {
     entries[_K] = input[_K];
   }
-  if (input[_Va] != null) {
-    entries[_Va] = input[_Va];
+  if (input[_Val] != null) {
+    entries[_Val] = input[_Val];
   }
   return entries;
 };
@@ -10098,8 +10262,8 @@ const se_UpdateLoginProfileRequest = (input: UpdateLoginProfileRequest, context:
   if (input[_UN] != null) {
     entries[_UN] = input[_UN];
   }
-  if (input[_Pa] != null) {
-    entries[_Pa] = input[_Pa];
+  if (input[_Pas] != null) {
+    entries[_Pas] = input[_Pas];
   }
   if (input[_PRR] != null) {
     entries[_PRR] = input[_PRR];
@@ -10278,8 +10442,8 @@ const se_UpdateUserRequest = (input: UpdateUserRequest, context: __SerdeContext)
  */
 const se_UploadServerCertificateRequest = (input: UploadServerCertificateRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input[_P] != null) {
-    entries[_P] = input[_P];
+  if (input[_Pa] != null) {
+    entries[_Pa] = input[_Pa];
   }
   if (input[_SCN] != null) {
     entries[_SCN] = input[_SCN];
@@ -10595,6 +10759,20 @@ const de_CreateAccessKeyResponse = (output: any, context: __SerdeContext): Creat
   const contents: any = {};
   if (output[_AK] != null) {
     contents[_AK] = de_AccessKey(output[_AK], context);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_queryCreateDelegationRequestResponse
+ */
+const de_CreateDelegationRequestResponse = (output: any, context: __SerdeContext): CreateDelegationRequestResponse => {
+  const contents: any = {};
+  if (output[_CDL] != null) {
+    contents[_CDL] = __expectString(output[_CDL]);
+  }
+  if (output[_DRI] != null) {
+    contents[_DRI] = __expectString(output[_DRI]);
   }
   return contents;
 };
@@ -10978,8 +11156,8 @@ const de_EntityInfo = (output: any, context: __SerdeContext): EntityInfo => {
   if (output[_I] != null) {
     contents[_I] = __expectString(output[_I]);
   }
-  if (output[_P] != null) {
-    contents[_P] = __expectString(output[_P]);
+  if (output[_Pa] != null) {
+    contents[_Pa] = __expectString(output[_Pa]);
   }
   return contents;
 };
@@ -11627,8 +11805,8 @@ const de_GetUserResponse = (output: any, context: __SerdeContext): GetUserRespon
  */
 const de_Group = (output: any, context: __SerdeContext): Group => {
   const contents: any = {};
-  if (output[_P] != null) {
-    contents[_P] = __expectString(output[_P]);
+  if (output[_Pa] != null) {
+    contents[_Pa] = __expectString(output[_Pa]);
   }
   if (output[_GN] != null) {
     contents[_GN] = __expectString(output[_GN]);
@@ -11650,8 +11828,8 @@ const de_Group = (output: any, context: __SerdeContext): Group => {
  */
 const de_GroupDetail = (output: any, context: __SerdeContext): GroupDetail => {
   const contents: any = {};
-  if (output[_P] != null) {
-    contents[_P] = __expectString(output[_P]);
+  if (output[_Pa] != null) {
+    contents[_Pa] = __expectString(output[_Pa]);
   }
   if (output[_GN] != null) {
     contents[_GN] = __expectString(output[_GN]);
@@ -11716,8 +11894,8 @@ const de_groupNameListType = (output: any, context: __SerdeContext): string[] =>
  */
 const de_InstanceProfile = (output: any, context: __SerdeContext): InstanceProfile => {
   const contents: any = {};
-  if (output[_P] != null) {
-    contents[_P] = __expectString(output[_P]);
+  if (output[_Pa] != null) {
+    contents[_Pa] = __expectString(output[_Pa]);
   }
   if (output[_IPN] != null) {
     contents[_IPN] = __expectString(output[_IPN]);
@@ -12617,8 +12795,8 @@ const de_ManagedPolicyDetail = (output: any, context: __SerdeContext): ManagedPo
   if (output[_Ar] != null) {
     contents[_Ar] = __expectString(output[_Ar]);
   }
-  if (output[_P] != null) {
-    contents[_P] = __expectString(output[_P]);
+  if (output[_Pa] != null) {
+    contents[_Pa] = __expectString(output[_Pa]);
   }
   if (output[_DVI] != null) {
     contents[_DVI] = __expectString(output[_DVI]);
@@ -12851,8 +13029,8 @@ const de_Policy = (output: any, context: __SerdeContext): Policy => {
   if (output[_Ar] != null) {
     contents[_Ar] = __expectString(output[_Ar]);
   }
-  if (output[_P] != null) {
-    contents[_P] = __expectString(output[_P]);
+  if (output[_Pa] != null) {
+    contents[_Pa] = __expectString(output[_Pa]);
   }
   if (output[_DVI] != null) {
     contents[_DVI] = __expectString(output[_DVI]);
@@ -13196,8 +13374,8 @@ const de_ResourceSpecificResultListType = (output: any, context: __SerdeContext)
  */
 const de_Role = (output: any, context: __SerdeContext): Role => {
   const contents: any = {};
-  if (output[_P] != null) {
-    contents[_P] = __expectString(output[_P]);
+  if (output[_Pa] != null) {
+    contents[_Pa] = __expectString(output[_Pa]);
   }
   if (output[_RN] != null) {
     contents[_RN] = __expectString(output[_RN]);
@@ -13239,8 +13417,8 @@ const de_Role = (output: any, context: __SerdeContext): Role => {
  */
 const de_RoleDetail = (output: any, context: __SerdeContext): RoleDetail => {
   const contents: any = {};
-  if (output[_P] != null) {
-    contents[_P] = __expectString(output[_P]);
+  if (output[_Pa] != null) {
+    contents[_Pa] = __expectString(output[_Pa]);
   }
   if (output[_RN] != null) {
     contents[_RN] = __expectString(output[_RN]);
@@ -13418,8 +13596,8 @@ const de_ServerCertificate = (output: any, context: __SerdeContext): ServerCerti
  */
 const de_ServerCertificateMetadata = (output: any, context: __SerdeContext): ServerCertificateMetadata => {
   const contents: any = {};
-  if (output[_P] != null) {
-    contents[_P] = __expectString(output[_P]);
+  if (output[_Pa] != null) {
+    contents[_Pa] = __expectString(output[_Pa]);
   }
   if (output[_SCN] != null) {
     contents[_SCN] = __expectString(output[_SCN]);
@@ -13766,8 +13944,8 @@ const de_Tag = (output: any, context: __SerdeContext): Tag => {
   if (output[_K] != null) {
     contents[_K] = __expectString(output[_K]);
   }
-  if (output[_Va] != null) {
-    contents[_Va] = __expectString(output[_Va]);
+  if (output[_Val] != null) {
+    contents[_Val] = __expectString(output[_Val]);
   }
   return contents;
 };
@@ -13926,8 +14104,8 @@ const de_UploadSSHPublicKeyResponse = (output: any, context: __SerdeContext): Up
  */
 const de_User = (output: any, context: __SerdeContext): User => {
   const contents: any = {};
-  if (output[_P] != null) {
-    contents[_P] = __expectString(output[_P]);
+  if (output[_Pa] != null) {
+    contents[_Pa] = __expectString(output[_Pa]);
   }
   if (output[_UN] != null) {
     contents[_UN] = __expectString(output[_UN]);
@@ -13960,8 +14138,8 @@ const de_User = (output: any, context: __SerdeContext): User => {
  */
 const de_UserDetail = (output: any, context: __SerdeContext): UserDetail => {
   const contents: any = {};
-  if (output[_P] != null) {
-    contents[_P] = __expectString(output[_P]);
+  if (output[_Pa] != null) {
+    contents[_Pa] = __expectString(output[_Pa]);
   }
   if (output[_UN] != null) {
     contents[_UN] = __expectString(output[_UN]);
@@ -14144,6 +14322,8 @@ const _CAK = "CreateAccessKey";
 const _CB = "CertificateBody";
 const _CC = "CertificateChain";
 const _CD = "CreateDate";
+const _CDL = "ConsoleDeepLink";
+const _CDR = "CreateDelegationRequest";
 const _CE = "ContextEntries";
 const _CG = "CreateGroup";
 const _CI = "CertificateId";
@@ -14187,6 +14367,7 @@ const _DORS = "DisableOrganizationsRootSessions";
 const _DP = "DeletePolicy";
 const _DPV = "DeletePolicyVersion";
 const _DR = "DeleteRole";
+const _DRI = "DelegationRequestId";
 const _DRP = "DeleteRolePolicy";
 const _DRPB = "DeleteRolePermissionsBoundary";
 const _DRPe = "DetachRolePolicy";
@@ -14341,6 +14522,7 @@ const _MS = "MatchedStatements";
 const _MSD = "MaxSessionDuration";
 const _Me = "Message";
 const _N = "Name";
+const _NC = "NotificationChannel";
 const _NGN = "NewGroupName";
 const _NOSA = "NumberOfServicesAccessible";
 const _NOSNA = "NumberOfServicesNotAccessed";
@@ -14349,13 +14531,15 @@ const _NPe = "NewPath";
 const _NSCN = "NewServerCertificateName";
 const _NUN = "NewUserName";
 const _OA = "OnlyAttached";
+const _OAI = "OwnerAccountId";
 const _ODD = "OrganizationsDecisionDetail";
 const _OI = "OrganizationId";
 const _OIDCPA = "OpenIDConnectProviderArn";
 const _OIDCPL = "OpenIDConnectProviderList";
 const _OP = "OldPassword";
 const _OPI = "OrganizationsPolicyId";
-const _P = "Path";
+const _OSBO = "OnlySendByOwner";
+const _P = "Permissions";
 const _PA = "PolicyArn";
 const _PB = "PermissionsBoundary";
 const _PBA = "PermissionsBoundaryArn";
@@ -14383,13 +14567,16 @@ const _PRPa = "PasswordReusePrevention";
 const _PRR = "PasswordResetRequired";
 const _PSA = "PolicySourceArn";
 const _PT = "PolicyType";
+const _PTA = "PolicyTemplateArn";
 const _PU = "PolicyUsers";
 const _PUF = "PolicyUsageFilter";
 const _PUP = "PutUserPolicy";
 const _PUPB = "PutUserPermissionsBoundary";
 const _PV = "PolicyVersion";
 const _PVL = "PolicyVersionList";
-const _Pa = "Password";
+const _Pa = "Path";
+const _Par = "Parameters";
+const _Pas = "Password";
 const _Po = "Policy";
 const _Pol = "Policies";
 const _QRCPNG = "QRCodePNG";
@@ -14402,6 +14589,7 @@ const _RHO = "ResourceHandlingOption";
 const _RI = "RoleId";
 const _RLC = "RequireLowercaseCharacters";
 const _RLU = "RoleLastUsed";
+const _RM = "RequestMessage";
 const _RMFAD = "ResyncMFADevice";
 const _RN = "RoleName";
 const _RNe = "RequireNumbers";
@@ -14413,9 +14601,11 @@ const _RRFIP = "RemoveRoleFromInstanceProfile";
 const _RS = "RequireSymbols";
 const _RSR = "ResourceSpecificResults";
 const _RSSC = "ResetServiceSpecificCredential";
+const _RU = "RedirectUrl";
 const _RUC = "RequireUppercaseCharacters";
 const _RUFG = "RemoveUserFromGroup";
 const _RUL = "RoleUsageList";
+const _RWI = "RequestorWorkflowId";
 const _Re = "Reason";
 const _Res = "Resources";
 const _Ro = "Role";
@@ -14435,6 +14625,7 @@ const _SCML = "ServerCertificateMetadataList";
 const _SCN = "ServerCertificateName";
 const _SCP = "SimulateCustomPolicy";
 const _SCS = "ServiceCredentialSecret";
+const _SD = "SessionDuration";
 const _SDPV = "SetDefaultPolicyVersion";
 const _SK = "SortKey";
 const _SLA = "ServicesLastAccessed";
@@ -14514,7 +14705,8 @@ const _VMFAD = "VirtualMFADevice";
 const _VMFADN = "VirtualMFADeviceName";
 const _VMFADi = "VirtualMFADevices";
 const _VU = "ValidUntil";
-const _Va = "Value";
+const _Va = "Values";
+const _Val = "Value";
 const _Ve = "Versions";
 const _e = "entry";
 const _m = "message";

@@ -68,6 +68,10 @@ import { AttachUserPolicyCommandInput, AttachUserPolicyCommandOutput } from "./c
 import { ChangePasswordCommandInput, ChangePasswordCommandOutput } from "./commands/ChangePasswordCommand";
 import { CreateAccessKeyCommandInput, CreateAccessKeyCommandOutput } from "./commands/CreateAccessKeyCommand";
 import { CreateAccountAliasCommandInput, CreateAccountAliasCommandOutput } from "./commands/CreateAccountAliasCommand";
+import {
+  CreateDelegationRequestCommandInput,
+  CreateDelegationRequestCommandOutput,
+} from "./commands/CreateDelegationRequestCommand";
 import { CreateGroupCommandInput, CreateGroupCommandOutput } from "./commands/CreateGroupCommand";
 import {
   CreateInstanceProfileCommandInput,
@@ -481,6 +485,7 @@ export type ServiceInputTypes =
   | ChangePasswordCommandInput
   | CreateAccessKeyCommandInput
   | CreateAccountAliasCommandInput
+  | CreateDelegationRequestCommandInput
   | CreateGroupCommandInput
   | CreateInstanceProfileCommandInput
   | CreateLoginProfileCommandInput
@@ -650,6 +655,7 @@ export type ServiceOutputTypes =
   | ChangePasswordCommandOutput
   | CreateAccessKeyCommandOutput
   | CreateAccountAliasCommandOutput
+  | CreateDelegationRequestCommandOutput
   | CreateGroupCommandOutput
   | CreateInstanceProfileCommandOutput
   | CreateLoginProfileCommandOutput
