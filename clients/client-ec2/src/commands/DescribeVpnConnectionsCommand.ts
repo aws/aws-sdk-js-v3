@@ -1,17 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  DescribeVpnConnectionsRequest,
-  DescribeVpnConnectionsResult,
-  DescribeVpnConnectionsResultFilterSensitiveLog,
-} from "../models/models_6";
-import { de_DescribeVpnConnectionsCommand, se_DescribeVpnConnectionsCommand } from "../protocols/Aws_ec2";
+import { DescribeVpnConnectionsRequest, DescribeVpnConnectionsResult } from "../models/models_6";
+import { DescribeVpnConnections } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -196,16 +191,11 @@ export class DescribeVpnConnectionsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonEC2", "DescribeVpnConnections", {})
   .n("EC2Client", "DescribeVpnConnectionsCommand")
-  .f(void 0, DescribeVpnConnectionsResultFilterSensitiveLog)
-  .ser(se_DescribeVpnConnectionsCommand)
-  .de(de_DescribeVpnConnectionsCommand)
+  .sc(DescribeVpnConnections)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

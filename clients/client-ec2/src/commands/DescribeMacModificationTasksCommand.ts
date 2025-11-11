@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DescribeMacModificationTasksRequest, DescribeMacModificationTasksResult } from "../models/models_5";
-import { de_DescribeMacModificationTasksCommand, se_DescribeMacModificationTasksCommand } from "../protocols/Aws_ec2";
+import { DescribeMacModificationTasks } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -112,16 +111,11 @@ export class DescribeMacModificationTasksCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonEC2", "DescribeMacModificationTasks", {})
   .n("EC2Client", "DescribeMacModificationTasksCommand")
-  .f(void 0, void 0)
-  .ser(se_DescribeMacModificationTasksCommand)
-  .de(de_DescribeMacModificationTasksCommand)
+  .sc(DescribeMacModificationTasks)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

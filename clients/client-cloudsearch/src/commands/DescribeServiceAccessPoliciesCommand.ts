@@ -1,16 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CloudSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudSearchClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DescribeServiceAccessPoliciesRequest, DescribeServiceAccessPoliciesResponse } from "../models/models_0";
-import {
-  de_DescribeServiceAccessPoliciesCommand,
-  se_DescribeServiceAccessPoliciesCommand,
-} from "../protocols/Aws_query";
+import { DescribeServiceAccessPolicies } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -96,16 +92,11 @@ export class DescribeServiceAccessPoliciesCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudSearchClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("A9SearchCloudConfigService2013", "DescribeServiceAccessPolicies", {})
   .n("CloudSearchClient", "DescribeServiceAccessPoliciesCommand")
-  .f(void 0, void 0)
-  .ser(se_DescribeServiceAccessPoliciesCommand)
-  .de(de_DescribeServiceAccessPoliciesCommand)
+  .sc(DescribeServiceAccessPolicies)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ElasticBeanstalkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElasticBeanstalkClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { ApplicationVersionDescriptionMessage, CreateApplicationVersionMessage } from "../models/models_0";
-import { de_CreateApplicationVersionCommand, se_CreateApplicationVersionCommand } from "../protocols/Aws_query";
+import { CreateApplicationVersion } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -191,16 +190,11 @@ export class CreateApplicationVersionCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ElasticBeanstalkClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSElasticBeanstalkService", "CreateApplicationVersion", {})
   .n("ElasticBeanstalkClient", "CreateApplicationVersionCommand")
-  .f(void 0, void 0)
-  .ser(se_CreateApplicationVersionCommand)
-  .de(de_CreateApplicationVersionCommand)
+  .sc(CreateApplicationVersion)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CloudWatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { PutInsightRuleInput, PutInsightRuleOutput } from "../models/models_0";
-import { de_PutInsightRuleCommand, se_PutInsightRuleCommand } from "../protocols/Aws_query";
+import { PutInsightRule } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -91,16 +90,11 @@ export class PutInsightRuleCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudWatchClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("GraniteServiceVersion20100801", "PutInsightRule", {})
   .n("CloudWatchClient", "PutInsightRuleCommand")
-  .f(void 0, void 0)
-  .ser(se_PutInsightRuleCommand)
-  .de(de_PutInsightRuleCommand)
+  .sc(PutInsightRule)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,18 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  ModifyOptionGroupMessage,
-  ModifyOptionGroupMessageFilterSensitiveLog,
-  ModifyOptionGroupResult,
-  ModifyOptionGroupResultFilterSensitiveLog,
-} from "../models/models_1";
-import { de_ModifyOptionGroupCommand, se_ModifyOptionGroupCommand } from "../protocols/Aws_query";
+import { ModifyOptionGroupMessage, ModifyOptionGroupResult } from "../models/models_1";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
+import { ModifyOptionGroup } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -181,16 +175,11 @@ export class ModifyOptionGroupCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RDSClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonRDSv19", "ModifyOptionGroup", {})
   .n("RDSClient", "ModifyOptionGroupCommand")
-  .f(ModifyOptionGroupMessageFilterSensitiveLog, ModifyOptionGroupResultFilterSensitiveLog)
-  .ser(se_ModifyOptionGroupCommand)
-  .de(de_ModifyOptionGroupCommand)
+  .sc(ModifyOptionGroup)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

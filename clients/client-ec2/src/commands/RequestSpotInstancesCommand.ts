@@ -1,18 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  RequestSpotInstancesRequest,
-  RequestSpotInstancesRequestFilterSensitiveLog,
-  RequestSpotInstancesResult,
-  RequestSpotInstancesResultFilterSensitiveLog,
-} from "../models/models_8";
-import { de_RequestSpotInstancesCommand, se_RequestSpotInstancesCommand } from "../protocols/Aws_ec2";
+import { RequestSpotInstancesRequest, RequestSpotInstancesResult } from "../models/models_8";
+import { RequestSpotInstances } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -406,16 +400,11 @@ export class RequestSpotInstancesCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonEC2", "RequestSpotInstances", {})
   .n("EC2Client", "RequestSpotInstancesCommand")
-  .f(RequestSpotInstancesRequestFilterSensitiveLog, RequestSpotInstancesResultFilterSensitiveLog)
-  .ser(se_RequestSpotInstancesCommand)
-  .de(de_RequestSpotInstancesCommand)
+  .sc(RequestSpotInstances)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

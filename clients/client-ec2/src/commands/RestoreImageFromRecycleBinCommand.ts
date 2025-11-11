@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { RestoreImageFromRecycleBinRequest, RestoreImageFromRecycleBinResult } from "../models/models_8";
-import { de_RestoreImageFromRecycleBinCommand, se_RestoreImageFromRecycleBinCommand } from "../protocols/Aws_ec2";
+import { RestoreImageFromRecycleBin } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -73,16 +72,11 @@ export class RestoreImageFromRecycleBinCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonEC2", "RestoreImageFromRecycleBin", {})
   .n("EC2Client", "RestoreImageFromRecycleBinCommand")
-  .f(void 0, void 0)
-  .ser(se_RestoreImageFromRecycleBinCommand)
-  .de(de_RestoreImageFromRecycleBinCommand)
+  .sc(RestoreImageFromRecycleBin)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

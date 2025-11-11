@@ -1,16 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DescribeDBMajorEngineVersionsRequest, DescribeDBMajorEngineVersionsResponse } from "../models/models_1";
-import {
-  de_DescribeDBMajorEngineVersionsCommand,
-  se_DescribeDBMajorEngineVersionsCommand,
-} from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
+import { DescribeDBMajorEngineVersions } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -91,16 +87,11 @@ export class DescribeDBMajorEngineVersionsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RDSClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonRDSv19", "DescribeDBMajorEngineVersions", {})
   .n("RDSClient", "DescribeDBMajorEngineVersionsCommand")
-  .f(void 0, void 0)
-  .ser(se_DescribeDBMajorEngineVersionsCommand)
-  .de(de_DescribeDBMajorEngineVersionsCommand)
+  .sc(DescribeDBMajorEngineVersions)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

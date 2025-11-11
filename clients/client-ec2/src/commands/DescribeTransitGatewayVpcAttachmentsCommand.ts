@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -10,10 +9,7 @@ import {
   DescribeTransitGatewayVpcAttachmentsRequest,
   DescribeTransitGatewayVpcAttachmentsResult,
 } from "../models/models_5";
-import {
-  de_DescribeTransitGatewayVpcAttachmentsCommand,
-  se_DescribeTransitGatewayVpcAttachmentsCommand,
-} from "../protocols/Aws_ec2";
+import { DescribeTransitGatewayVpcAttachments } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -117,16 +113,11 @@ export class DescribeTransitGatewayVpcAttachmentsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonEC2", "DescribeTransitGatewayVpcAttachments", {})
   .n("EC2Client", "DescribeTransitGatewayVpcAttachmentsCommand")
-  .f(void 0, void 0)
-  .ser(se_DescribeTransitGatewayVpcAttachmentsCommand)
-  .de(de_DescribeTransitGatewayVpcAttachmentsCommand)
+  .sc(DescribeTransitGatewayVpcAttachments)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

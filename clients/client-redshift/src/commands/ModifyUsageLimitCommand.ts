@@ -1,14 +1,13 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { UsageLimit } from "../models/models_0";
 import { ModifyUsageLimitMessage } from "../models/models_1";
-import { de_ModifyUsageLimitCommand, se_ModifyUsageLimitCommand } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
+import { ModifyUsageLimit } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -95,16 +94,11 @@ export class ModifyUsageLimitCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RedshiftClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("RedshiftServiceVersion20121201", "ModifyUsageLimit", {})
   .n("RedshiftClient", "ModifyUsageLimitCommand")
-  .f(void 0, void 0)
-  .ser(se_ModifyUsageLimitCommand)
-  .de(de_ModifyUsageLimitCommand)
+  .sc(ModifyUsageLimit)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

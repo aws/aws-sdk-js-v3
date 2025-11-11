@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
 import { ListSSHPublicKeysRequest, ListSSHPublicKeysResponse } from "../models/models_0";
-import { de_ListSSHPublicKeysCommand, se_ListSSHPublicKeysCommand } from "../protocols/Aws_query";
+import { ListSSHPublicKeys } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -92,16 +91,11 @@ export class ListSSHPublicKeysCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IAMClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSIdentityManagementV20100508", "ListSSHPublicKeys", {})
   .n("IAMClient", "ListSSHPublicKeysCommand")
-  .f(void 0, void 0)
-  .ser(se_ListSSHPublicKeysCommand)
-  .de(de_ListSSHPublicKeysCommand)
+  .sc(ListSSHPublicKeys)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

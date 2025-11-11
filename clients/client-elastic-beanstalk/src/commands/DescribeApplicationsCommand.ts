@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ElasticBeanstalkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElasticBeanstalkClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { ApplicationDescriptionsMessage, DescribeApplicationsMessage } from "../models/models_0";
-import { de_DescribeApplicationsCommand, se_DescribeApplicationsCommand } from "../protocols/Aws_query";
+import { DescribeApplications } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -144,16 +143,11 @@ export class DescribeApplicationsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ElasticBeanstalkClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSElasticBeanstalkService", "DescribeApplications", {})
   .n("ElasticBeanstalkClient", "DescribeApplicationsCommand")
-  .f(void 0, void 0)
-  .ser(se_DescribeApplicationsCommand)
-  .de(de_DescribeApplicationsCommand)
+  .sc(DescribeApplications)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

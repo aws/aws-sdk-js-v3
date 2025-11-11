@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GetSubnetCidrReservationsRequest, GetSubnetCidrReservationsResult } from "../models/models_7";
-import { de_GetSubnetCidrReservationsCommand, se_GetSubnetCidrReservationsCommand } from "../protocols/Aws_ec2";
+import { GetSubnetCidrReservations } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -113,16 +112,11 @@ export class GetSubnetCidrReservationsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonEC2", "GetSubnetCidrReservations", {})
   .n("EC2Client", "GetSubnetCidrReservationsCommand")
-  .f(void 0, void 0)
-  .ser(se_GetSubnetCidrReservationsCommand)
-  .de(de_GetSubnetCidrReservationsCommand)
+  .sc(GetSubnetCidrReservations)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,17 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  ModifyClusterMaintenanceMessage,
-  ModifyClusterMaintenanceResult,
-  ModifyClusterMaintenanceResultFilterSensitiveLog,
-} from "../models/models_1";
-import { de_ModifyClusterMaintenanceCommand, se_ModifyClusterMaintenanceCommand } from "../protocols/Aws_query";
+import { ModifyClusterMaintenanceMessage, ModifyClusterMaintenanceResult } from "../models/models_1";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
+import { ModifyClusterMaintenance } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -274,16 +269,11 @@ export class ModifyClusterMaintenanceCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RedshiftClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("RedshiftServiceVersion20121201", "ModifyClusterMaintenance", {})
   .n("RedshiftClient", "ModifyClusterMaintenanceCommand")
-  .f(void 0, ModifyClusterMaintenanceResultFilterSensitiveLog)
-  .ser(se_ModifyClusterMaintenanceCommand)
-  .de(de_ModifyClusterMaintenanceCommand)
+  .sc(ModifyClusterMaintenance)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

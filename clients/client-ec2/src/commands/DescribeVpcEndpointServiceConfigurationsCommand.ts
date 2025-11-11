@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -10,10 +9,7 @@ import {
   DescribeVpcEndpointServiceConfigurationsRequest,
   DescribeVpcEndpointServiceConfigurationsResult,
 } from "../models/models_6";
-import {
-  de_DescribeVpcEndpointServiceConfigurationsCommand,
-  se_DescribeVpcEndpointServiceConfigurationsCommand,
-} from "../protocols/Aws_ec2";
+import { DescribeVpcEndpointServiceConfigurations } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -145,16 +141,11 @@ export class DescribeVpcEndpointServiceConfigurationsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonEC2", "DescribeVpcEndpointServiceConfigurations", {})
   .n("EC2Client", "DescribeVpcEndpointServiceConfigurationsCommand")
-  .f(void 0, void 0)
-  .ser(se_DescribeVpcEndpointServiceConfigurationsCommand)
-  .de(de_DescribeVpcEndpointServiceConfigurationsCommand)
+  .sc(DescribeVpcEndpointServiceConfigurations)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

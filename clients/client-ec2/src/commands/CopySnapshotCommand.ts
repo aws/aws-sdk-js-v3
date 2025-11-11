@@ -1,14 +1,13 @@
 // smithy-typescript generated code
 import { getCopySnapshotPresignedUrlPlugin } from "@aws-sdk/middleware-sdk-ec2";
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { CopySnapshotRequest, CopySnapshotRequestFilterSensitiveLog, CopySnapshotResult } from "../models/models_1";
-import { de_CopySnapshotCommand, se_CopySnapshotCommand } from "../protocols/Aws_ec2";
+import { CopySnapshotRequest, CopySnapshotResult } from "../models/models_1";
+import { CopySnapshot } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -147,16 +146,13 @@ export class CopySnapshotCommand extends $Command
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
       getCopySnapshotPresignedUrlPlugin(config),
     ];
   })
   .s("AmazonEC2", "CopySnapshot", {})
   .n("EC2Client", "CopySnapshotCommand")
-  .f(CopySnapshotRequestFilterSensitiveLog, void 0)
-  .ser(se_CopySnapshotCommand)
-  .de(de_CopySnapshotCommand)
+  .sc(CopySnapshot)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

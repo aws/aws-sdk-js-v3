@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CloudFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFormationClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { ListHookResultsInput, ListHookResultsOutput } from "../models/models_0";
-import { de_ListHookResultsCommand, se_ListHookResultsCommand } from "../protocols/Aws_query";
+import { ListHookResults } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -117,16 +116,11 @@ export class ListHookResultsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudFormationClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("CloudFormation", "ListHookResults", {})
   .n("CloudFormationClient", "ListHookResultsCommand")
-  .f(void 0, void 0)
-  .ser(se_ListHookResultsCommand)
-  .de(de_ListHookResultsCommand)
+  .sc(ListHookResults)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

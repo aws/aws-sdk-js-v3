@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DocDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DocDBClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DeleteGlobalClusterMessage, DeleteGlobalClusterResult } from "../models/models_0";
-import { de_DeleteGlobalClusterCommand, se_DeleteGlobalClusterCommand } from "../protocols/Aws_query";
+import { DeleteGlobalCluster } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -111,16 +110,11 @@ export class DeleteGlobalClusterCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DocDBClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonRDSv19", "DeleteGlobalCluster", {})
   .n("DocDBClient", "DeleteGlobalClusterCommand")
-  .f(void 0, void 0)
-  .ser(se_DeleteGlobalClusterCommand)
-  .de(de_DeleteGlobalClusterCommand)
+  .sc(DeleteGlobalCluster)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

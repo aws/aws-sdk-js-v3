@@ -1,20 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  ModifySnapshotCopyRetentionPeriodMessage,
-  ModifySnapshotCopyRetentionPeriodResult,
-  ModifySnapshotCopyRetentionPeriodResultFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  de_ModifySnapshotCopyRetentionPeriodCommand,
-  se_ModifySnapshotCopyRetentionPeriodCommand,
-} from "../protocols/Aws_query";
+import { ModifySnapshotCopyRetentionPeriodMessage, ModifySnapshotCopyRetentionPeriodResult } from "../models/models_1";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
+import { ModifySnapshotCopyRetentionPeriod } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -293,16 +285,11 @@ export class ModifySnapshotCopyRetentionPeriodCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RedshiftClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("RedshiftServiceVersion20121201", "ModifySnapshotCopyRetentionPeriod", {})
   .n("RedshiftClient", "ModifySnapshotCopyRetentionPeriodCommand")
-  .f(void 0, ModifySnapshotCopyRetentionPeriodResultFilterSensitiveLog)
-  .ser(se_ModifySnapshotCopyRetentionPeriodCommand)
-  .de(de_ModifySnapshotCopyRetentionPeriodCommand)
+  .sc(ModifySnapshotCopyRetentionPeriod)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

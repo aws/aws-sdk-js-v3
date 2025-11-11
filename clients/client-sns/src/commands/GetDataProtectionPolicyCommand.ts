@@ -1,12 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GetDataProtectionPolicyInput, GetDataProtectionPolicyResponse } from "../models/models_0";
-import { de_GetDataProtectionPolicyCommand, se_GetDataProtectionPolicyCommand } from "../protocols/Aws_query";
+import { GetDataProtectionPolicy } from "../schemas/schemas_0";
 import { ServiceInputTypes, ServiceOutputTypes, SNSClientResolvedConfig } from "../SNSClient";
 
 /**
@@ -88,16 +87,11 @@ export class GetDataProtectionPolicyCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SNSClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonSimpleNotificationService", "GetDataProtectionPolicy", {})
   .n("SNSClient", "GetDataProtectionPolicyCommand")
-  .f(void 0, void 0)
-  .ser(se_GetDataProtectionPolicyCommand)
-  .de(de_GetDataProtectionPolicyCommand)
+  .sc(GetDataProtectionPolicy)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

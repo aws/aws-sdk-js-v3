@@ -1,6 +1,4 @@
 // smithy-typescript generated code
-import { SENSITIVE_STRING } from "@smithy/smithy-client";
-
 import {
   AcceleratorCount,
   AcceleratorCountRequest,
@@ -12698,29 +12696,3 @@ export interface Ipv6PrefixSpecificationRequest {
    */
   Ipv6Prefix?: string | undefined;
 }
-
-/**
- * @internal
- */
-export const CopySnapshotRequestFilterSensitiveLog = (obj: CopySnapshotRequest): any => ({
-  ...obj,
-  ...(obj.PresignedUrl && { PresignedUrl: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const CreateDelegateMacVolumeOwnershipTaskRequestFilterSensitiveLog = (
-  obj: CreateDelegateMacVolumeOwnershipTaskRequest
-): any => ({
-  ...obj,
-  ...(obj.MacCredentials && { MacCredentials: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const KeyPairFilterSensitiveLog = (obj: KeyPair): any => ({
-  ...obj,
-  ...(obj.KeyMaterial && { KeyMaterial: SENSITIVE_STRING }),
-});

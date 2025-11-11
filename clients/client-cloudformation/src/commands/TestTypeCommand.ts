@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CloudFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFormationClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { TestTypeInput, TestTypeOutput } from "../models/models_1";
-import { de_TestTypeCommand, se_TestTypeCommand } from "../protocols/Aws_query";
+import { TestType } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -104,16 +103,11 @@ export class TestTypeCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudFormationClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("CloudFormation", "TestType", {})
   .n("CloudFormationClient", "TestTypeCommand")
-  .f(void 0, void 0)
-  .ser(se_TestTypeCommand)
-  .de(de_TestTypeCommand)
+  .sc(TestType)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

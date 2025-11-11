@@ -1,18 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  RestoreDBInstanceFromS3Message,
-  RestoreDBInstanceFromS3MessageFilterSensitiveLog,
-  RestoreDBInstanceFromS3Result,
-  RestoreDBInstanceFromS3ResultFilterSensitiveLog,
-} from "../models/models_1";
-import { de_RestoreDBInstanceFromS3Command, se_RestoreDBInstanceFromS3Command } from "../protocols/Aws_query";
+import { RestoreDBInstanceFromS3Message, RestoreDBInstanceFromS3Result } from "../models/models_1";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
+import { RestoreDBInstanceFromS3 } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -444,16 +438,11 @@ export class RestoreDBInstanceFromS3Command extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RDSClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonRDSv19", "RestoreDBInstanceFromS3", {})
   .n("RDSClient", "RestoreDBInstanceFromS3Command")
-  .f(RestoreDBInstanceFromS3MessageFilterSensitiveLog, RestoreDBInstanceFromS3ResultFilterSensitiveLog)
-  .ser(se_RestoreDBInstanceFromS3Command)
-  .de(de_RestoreDBInstanceFromS3Command)
+  .sc(RestoreDBInstanceFromS3)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

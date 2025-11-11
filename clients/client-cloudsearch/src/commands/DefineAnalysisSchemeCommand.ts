@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CloudSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudSearchClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DefineAnalysisSchemeRequest, DefineAnalysisSchemeResponse } from "../models/models_0";
-import { de_DefineAnalysisSchemeCommand, se_DefineAnalysisSchemeCommand } from "../protocols/Aws_query";
+import { DefineAnalysisScheme } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -119,16 +118,11 @@ export class DefineAnalysisSchemeCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudSearchClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("A9SearchCloudConfigService2013", "DefineAnalysisScheme", {})
   .n("CloudSearchClient", "DefineAnalysisSchemeCommand")
-  .f(void 0, void 0)
-  .ser(se_DefineAnalysisSchemeCommand)
-  .de(de_DefineAnalysisSchemeCommand)
+  .sc(DefineAnalysisScheme)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

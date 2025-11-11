@@ -1,17 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import {
-  CreateAccessKeyRequest,
-  CreateAccessKeyResponse,
-  CreateAccessKeyResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { de_CreateAccessKeyCommand, se_CreateAccessKeyCommand } from "../protocols/Aws_query";
+import { CreateAccessKeyRequest, CreateAccessKeyResponse } from "../models/models_0";
+import { CreateAccessKey } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -126,16 +121,11 @@ export class CreateAccessKeyCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IAMClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSIdentityManagementV20100508", "CreateAccessKey", {})
   .n("IAMClient", "CreateAccessKeyCommand")
-  .f(void 0, CreateAccessKeyResponseFilterSensitiveLog)
-  .ser(se_CreateAccessKeyCommand)
-  .de(de_CreateAccessKeyCommand)
+  .sc(CreateAccessKey)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

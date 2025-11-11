@@ -1,16 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DescribeOrderableDBInstanceOptionsMessage, OrderableDBInstanceOptionsMessage } from "../models/models_0";
 import { NeptuneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptuneClient";
-import {
-  de_DescribeOrderableDBInstanceOptionsCommand,
-  se_DescribeOrderableDBInstanceOptionsCommand,
-} from "../protocols/Aws_query";
+import { DescribeOrderableDBInstanceOptions } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -118,16 +114,11 @@ export class DescribeOrderableDBInstanceOptionsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: NeptuneClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonRDSv19", "DescribeOrderableDBInstanceOptions", {})
   .n("NeptuneClient", "DescribeOrderableDBInstanceOptionsCommand")
-  .f(void 0, void 0)
-  .ser(se_DescribeOrderableDBInstanceOptionsCommand)
-  .de(de_DescribeOrderableDBInstanceOptionsCommand)
+  .sc(DescribeOrderableDBInstanceOptions)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

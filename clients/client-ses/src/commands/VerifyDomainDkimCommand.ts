@@ -1,12 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { VerifyDomainDkimRequest, VerifyDomainDkimResponse } from "../models/models_0";
-import { de_VerifyDomainDkimCommand, se_VerifyDomainDkimCommand } from "../protocols/Aws_query";
+import { VerifyDomainDkim } from "../schemas/schemas_0";
 import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
 /**
@@ -129,16 +128,11 @@ export class VerifyDomainDkimCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SESClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("SimpleEmailService", "VerifyDomainDkim", {})
   .n("SESClient", "VerifyDomainDkimCommand")
-  .f(void 0, void 0)
-  .ser(se_VerifyDomainDkimCommand)
-  .de(de_VerifyDomainDkimCommand)
+  .sc(VerifyDomainDkim)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

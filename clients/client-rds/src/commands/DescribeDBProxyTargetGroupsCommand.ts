@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DescribeDBProxyTargetGroupsRequest, DescribeDBProxyTargetGroupsResponse } from "../models/models_1";
-import { de_DescribeDBProxyTargetGroupsCommand, se_DescribeDBProxyTargetGroupsCommand } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
+import { DescribeDBProxyTargetGroups } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -112,16 +111,11 @@ export class DescribeDBProxyTargetGroupsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RDSClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonRDSv19", "DescribeDBProxyTargetGroups", {})
   .n("RDSClient", "DescribeDBProxyTargetGroupsCommand")
-  .f(void 0, void 0)
-  .ser(se_DescribeDBProxyTargetGroupsCommand)
-  .de(de_DescribeDBProxyTargetGroupsCommand)
+  .sc(DescribeDBProxyTargetGroups)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

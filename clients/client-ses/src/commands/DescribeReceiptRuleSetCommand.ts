@@ -1,12 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DescribeReceiptRuleSetRequest, DescribeReceiptRuleSetResponse } from "../models/models_0";
-import { de_DescribeReceiptRuleSetCommand, se_DescribeReceiptRuleSetCommand } from "../protocols/Aws_query";
+import { DescribeReceiptRuleSet } from "../schemas/schemas_0";
 import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
 /**
@@ -167,16 +166,11 @@ export class DescribeReceiptRuleSetCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SESClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("SimpleEmailService", "DescribeReceiptRuleSet", {})
   .n("SESClient", "DescribeReceiptRuleSetCommand")
-  .f(void 0, void 0)
-  .ser(se_DescribeReceiptRuleSetCommand)
-  .de(de_DescribeReceiptRuleSetCommand)
+  .sc(DescribeReceiptRuleSet)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

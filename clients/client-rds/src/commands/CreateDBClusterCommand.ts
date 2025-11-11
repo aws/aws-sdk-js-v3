@@ -1,19 +1,13 @@
 // smithy-typescript generated code
 import { getCrossRegionPresignedUrlPlugin } from "@aws-sdk/middleware-sdk-rds";
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  CreateDBClusterMessage,
-  CreateDBClusterMessageFilterSensitiveLog,
-  CreateDBClusterResult,
-  CreateDBClusterResultFilterSensitiveLog,
-} from "../models/models_0";
-import { de_CreateDBClusterCommand, se_CreateDBClusterCommand } from "../protocols/Aws_query";
+import { CreateDBClusterMessage, CreateDBClusterResult } from "../models/models_0";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
+import { CreateDBCluster } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -570,16 +564,13 @@ export class CreateDBClusterCommand extends $Command
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RDSClientResolvedConfig, o: any) {
     return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
       getCrossRegionPresignedUrlPlugin(config),
     ];
   })
   .s("AmazonRDSv19", "CreateDBCluster", {})
   .n("RDSClient", "CreateDBClusterCommand")
-  .f(CreateDBClusterMessageFilterSensitiveLog, CreateDBClusterResultFilterSensitiveLog)
-  .ser(se_CreateDBClusterCommand)
-  .de(de_CreateDBClusterCommand)
+  .sc(CreateDBCluster)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

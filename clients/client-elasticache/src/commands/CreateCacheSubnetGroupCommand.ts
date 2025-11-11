@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { CreateCacheSubnetGroupMessage, CreateCacheSubnetGroupResult } from "../models/models_0";
-import { de_CreateCacheSubnetGroupCommand, se_CreateCacheSubnetGroupCommand } from "../protocols/Aws_query";
+import { CreateCacheSubnetGroup } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -175,16 +174,11 @@ export class CreateCacheSubnetGroupCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ElastiCacheClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonElastiCacheV9", "CreateCacheSubnetGroup", {})
   .n("ElastiCacheClient", "CreateCacheSubnetGroupCommand")
-  .f(void 0, void 0)
-  .ser(se_CreateCacheSubnetGroupCommand)
-  .de(de_CreateCacheSubnetGroupCommand)
+  .sc(CreateCacheSubnetGroup)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

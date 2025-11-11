@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DeleteSnapshotRequest } from "../models/models_3";
-import { de_DeleteSnapshotCommand, se_DeleteSnapshotCommand } from "../protocols/Aws_ec2";
+import { DeleteSnapshot } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -91,16 +90,11 @@ export class DeleteSnapshotCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonEC2", "DeleteSnapshot", {})
   .n("EC2Client", "DeleteSnapshotCommand")
-  .f(void 0, void 0)
-  .ser(se_DeleteSnapshotCommand)
-  .de(de_DeleteSnapshotCommand)
+  .sc(DeleteSnapshot)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

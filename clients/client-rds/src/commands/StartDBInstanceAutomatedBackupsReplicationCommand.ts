@@ -1,21 +1,16 @@
 // smithy-typescript generated code
 import { getCrossRegionPresignedUrlPlugin } from "@aws-sdk/middleware-sdk-rds";
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import {
   StartDBInstanceAutomatedBackupsReplicationMessage,
-  StartDBInstanceAutomatedBackupsReplicationMessageFilterSensitiveLog,
   StartDBInstanceAutomatedBackupsReplicationResult,
 } from "../models/models_1";
-import {
-  de_StartDBInstanceAutomatedBackupsReplicationCommand,
-  se_StartDBInstanceAutomatedBackupsReplicationCommand,
-} from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
+import { StartDBInstanceAutomatedBackupsReplication } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -186,16 +181,13 @@ export class StartDBInstanceAutomatedBackupsReplicationCommand extends $Command
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RDSClientResolvedConfig, o: any) {
     return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
       getCrossRegionPresignedUrlPlugin(config),
     ];
   })
   .s("AmazonRDSv19", "StartDBInstanceAutomatedBackupsReplication", {})
   .n("RDSClient", "StartDBInstanceAutomatedBackupsReplicationCommand")
-  .f(StartDBInstanceAutomatedBackupsReplicationMessageFilterSensitiveLog, void 0)
-  .ser(se_StartDBInstanceAutomatedBackupsReplicationCommand)
-  .de(de_StartDBInstanceAutomatedBackupsReplicationCommand)
+  .sc(StartDBInstanceAutomatedBackupsReplication)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

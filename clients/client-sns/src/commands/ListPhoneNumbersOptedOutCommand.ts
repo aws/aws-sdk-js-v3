@@ -1,16 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  ListPhoneNumbersOptedOutInput,
-  ListPhoneNumbersOptedOutResponse,
-  ListPhoneNumbersOptedOutResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { de_ListPhoneNumbersOptedOutCommand, se_ListPhoneNumbersOptedOutCommand } from "../protocols/Aws_query";
+import { ListPhoneNumbersOptedOutInput, ListPhoneNumbersOptedOutResponse } from "../models/models_0";
+import { ListPhoneNumbersOptedOut } from "../schemas/schemas_0";
 import { ServiceInputTypes, ServiceOutputTypes, SNSClientResolvedConfig } from "../SNSClient";
 
 /**
@@ -97,16 +92,11 @@ export class ListPhoneNumbersOptedOutCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SNSClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonSimpleNotificationService", "ListPhoneNumbersOptedOut", {})
   .n("SNSClient", "ListPhoneNumbersOptedOutCommand")
-  .f(void 0, ListPhoneNumbersOptedOutResponseFilterSensitiveLog)
-  .ser(se_ListPhoneNumbersOptedOutCommand)
-  .de(de_ListPhoneNumbersOptedOutCommand)
+  .sc(ListPhoneNumbersOptedOut)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

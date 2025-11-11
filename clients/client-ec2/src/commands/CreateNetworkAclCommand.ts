@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { CreateNetworkAclRequest, CreateNetworkAclResult } from "../models/models_2";
-import { de_CreateNetworkAclCommand, se_CreateNetworkAclCommand } from "../protocols/Aws_ec2";
+import { CreateNetworkAcl } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -159,16 +158,11 @@ export class CreateNetworkAclCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonEC2", "CreateNetworkAcl", {})
   .n("EC2Client", "CreateNetworkAclCommand")
-  .f(void 0, void 0)
-  .ser(se_CreateNetworkAclCommand)
-  .de(de_CreateNetworkAclCommand)
+  .sc(CreateNetworkAcl)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

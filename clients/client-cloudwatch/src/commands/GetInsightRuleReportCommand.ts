@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CloudWatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GetInsightRuleReportInput, GetInsightRuleReportOutput } from "../models/models_0";
-import { de_GetInsightRuleReportCommand, se_GetInsightRuleReportCommand } from "../protocols/Aws_query";
+import { GetInsightRuleReport } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -163,16 +162,11 @@ export class GetInsightRuleReportCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudWatchClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("GraniteServiceVersion20100801", "GetInsightRuleReport", {})
   .n("CloudWatchClient", "GetInsightRuleReportCommand")
-  .f(void 0, void 0)
-  .ser(se_GetInsightRuleReportCommand)
-  .de(de_GetInsightRuleReportCommand)
+  .sc(GetInsightRuleReport)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

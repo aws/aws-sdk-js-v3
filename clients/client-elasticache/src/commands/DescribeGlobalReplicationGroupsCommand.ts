@@ -1,16 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DescribeGlobalReplicationGroupsMessage, DescribeGlobalReplicationGroupsResult } from "../models/models_0";
-import {
-  de_DescribeGlobalReplicationGroupsCommand,
-  se_DescribeGlobalReplicationGroupsCommand,
-} from "../protocols/Aws_query";
+import { DescribeGlobalReplicationGroups } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -118,16 +114,11 @@ export class DescribeGlobalReplicationGroupsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ElastiCacheClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonElastiCacheV9", "DescribeGlobalReplicationGroups", {})
   .n("ElastiCacheClient", "DescribeGlobalReplicationGroupsCommand")
-  .f(void 0, void 0)
-  .ser(se_DescribeGlobalReplicationGroupsCommand)
-  .de(de_DescribeGlobalReplicationGroupsCommand)
+  .sc(DescribeGlobalReplicationGroups)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

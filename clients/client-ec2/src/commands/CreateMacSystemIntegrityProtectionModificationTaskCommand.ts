@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -8,13 +7,9 @@ import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "
 import { commonParams } from "../endpoint/EndpointParameters";
 import {
   CreateMacSystemIntegrityProtectionModificationTaskRequest,
-  CreateMacSystemIntegrityProtectionModificationTaskRequestFilterSensitiveLog,
   CreateMacSystemIntegrityProtectionModificationTaskResult,
 } from "../models/models_2";
-import {
-  de_CreateMacSystemIntegrityProtectionModificationTaskCommand,
-  se_CreateMacSystemIntegrityProtectionModificationTaskCommand,
-} from "../protocols/Aws_ec2";
+import { CreateMacSystemIntegrityProtectionModificationTask } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -169,16 +164,11 @@ export class CreateMacSystemIntegrityProtectionModificationTaskCommand extends $
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonEC2", "CreateMacSystemIntegrityProtectionModificationTask", {})
   .n("EC2Client", "CreateMacSystemIntegrityProtectionModificationTaskCommand")
-  .f(CreateMacSystemIntegrityProtectionModificationTaskRequestFilterSensitiveLog, void 0)
-  .ser(se_CreateMacSystemIntegrityProtectionModificationTaskCommand)
-  .de(de_CreateMacSystemIntegrityProtectionModificationTaskCommand)
+  .sc(CreateMacSystemIntegrityProtectionModificationTask)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

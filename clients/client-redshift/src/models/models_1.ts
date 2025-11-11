@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@smithy/smithy-client";
+import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
 import {
   ActionType,
@@ -9,7 +9,6 @@ import {
   AuthorizedTokenIssuer,
   AvailabilityZone,
   Cluster,
-  ClusterFilterSensitiveLog,
   ClusterSecurityGroup,
   ClusterSubnetGroup,
   DataShare,
@@ -6439,125 +6438,3 @@ export interface UpdatePartnerStatusInputMessage {
    */
   StatusMessage?: string | undefined;
 }
-
-/**
- * @internal
- */
-export const DisableSnapshotCopyResultFilterSensitiveLog = (obj: DisableSnapshotCopyResult): any => ({
-  ...obj,
-  ...(obj.Cluster && { Cluster: ClusterFilterSensitiveLog(obj.Cluster) }),
-});
-
-/**
- * @internal
- */
-export const EnableSnapshotCopyResultFilterSensitiveLog = (obj: EnableSnapshotCopyResult): any => ({
-  ...obj,
-  ...(obj.Cluster && { Cluster: ClusterFilterSensitiveLog(obj.Cluster) }),
-});
-
-/**
- * @internal
- */
-export const FailoverPrimaryComputeResultFilterSensitiveLog = (obj: FailoverPrimaryComputeResult): any => ({
-  ...obj,
-  ...(obj.Cluster && { Cluster: ClusterFilterSensitiveLog(obj.Cluster) }),
-});
-
-/**
- * @internal
- */
-export const ModifyClusterMessageFilterSensitiveLog = (obj: ModifyClusterMessage): any => ({
-  ...obj,
-  ...(obj.MasterUserPassword && { MasterUserPassword: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const ModifyClusterResultFilterSensitiveLog = (obj: ModifyClusterResult): any => ({
-  ...obj,
-  ...(obj.Cluster && { Cluster: ClusterFilterSensitiveLog(obj.Cluster) }),
-});
-
-/**
- * @internal
- */
-export const ModifyClusterDbRevisionResultFilterSensitiveLog = (obj: ModifyClusterDbRevisionResult): any => ({
-  ...obj,
-  ...(obj.Cluster && { Cluster: ClusterFilterSensitiveLog(obj.Cluster) }),
-});
-
-/**
- * @internal
- */
-export const ModifyClusterIamRolesResultFilterSensitiveLog = (obj: ModifyClusterIamRolesResult): any => ({
-  ...obj,
-  ...(obj.Cluster && { Cluster: ClusterFilterSensitiveLog(obj.Cluster) }),
-});
-
-/**
- * @internal
- */
-export const ModifyClusterMaintenanceResultFilterSensitiveLog = (obj: ModifyClusterMaintenanceResult): any => ({
-  ...obj,
-  ...(obj.Cluster && { Cluster: ClusterFilterSensitiveLog(obj.Cluster) }),
-});
-
-/**
- * @internal
- */
-export const ModifySnapshotCopyRetentionPeriodResultFilterSensitiveLog = (
-  obj: ModifySnapshotCopyRetentionPeriodResult
-): any => ({
-  ...obj,
-  ...(obj.Cluster && { Cluster: ClusterFilterSensitiveLog(obj.Cluster) }),
-});
-
-/**
- * @internal
- */
-export const PauseClusterResultFilterSensitiveLog = (obj: PauseClusterResult): any => ({
-  ...obj,
-  ...(obj.Cluster && { Cluster: ClusterFilterSensitiveLog(obj.Cluster) }),
-});
-
-/**
- * @internal
- */
-export const RebootClusterResultFilterSensitiveLog = (obj: RebootClusterResult): any => ({
-  ...obj,
-  ...(obj.Cluster && { Cluster: ClusterFilterSensitiveLog(obj.Cluster) }),
-});
-
-/**
- * @internal
- */
-export const ResizeClusterResultFilterSensitiveLog = (obj: ResizeClusterResult): any => ({
-  ...obj,
-  ...(obj.Cluster && { Cluster: ClusterFilterSensitiveLog(obj.Cluster) }),
-});
-
-/**
- * @internal
- */
-export const RestoreFromClusterSnapshotResultFilterSensitiveLog = (obj: RestoreFromClusterSnapshotResult): any => ({
-  ...obj,
-  ...(obj.Cluster && { Cluster: ClusterFilterSensitiveLog(obj.Cluster) }),
-});
-
-/**
- * @internal
- */
-export const ResumeClusterResultFilterSensitiveLog = (obj: ResumeClusterResult): any => ({
-  ...obj,
-  ...(obj.Cluster && { Cluster: ClusterFilterSensitiveLog(obj.Cluster) }),
-});
-
-/**
- * @internal
- */
-export const RotateEncryptionKeyResultFilterSensitiveLog = (obj: RotateEncryptionKeyResult): any => ({
-  ...obj,
-  ...(obj.Cluster && { Cluster: ClusterFilterSensitiveLog(obj.Cluster) }),
-});

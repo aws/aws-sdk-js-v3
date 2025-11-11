@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DescribeMovingAddressesRequest, DescribeMovingAddressesResult } from "../models/models_5";
-import { de_DescribeMovingAddressesCommand, se_DescribeMovingAddressesCommand } from "../protocols/Aws_ec2";
+import { DescribeMovingAddresses } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -111,16 +110,11 @@ export class DescribeMovingAddressesCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonEC2", "DescribeMovingAddresses", {})
   .n("EC2Client", "DescribeMovingAddressesCommand")
-  .f(void 0, void 0)
-  .ser(se_DescribeMovingAddressesCommand)
-  .de(de_DescribeMovingAddressesCommand)
+  .sc(DescribeMovingAddresses)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

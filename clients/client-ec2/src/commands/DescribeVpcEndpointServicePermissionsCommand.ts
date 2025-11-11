@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -10,10 +9,7 @@ import {
   DescribeVpcEndpointServicePermissionsRequest,
   DescribeVpcEndpointServicePermissionsResult,
 } from "../models/models_6";
-import {
-  de_DescribeVpcEndpointServicePermissionsCommand,
-  se_DescribeVpcEndpointServicePermissionsCommand,
-} from "../protocols/Aws_ec2";
+import { DescribeVpcEndpointServicePermissions } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -105,16 +101,11 @@ export class DescribeVpcEndpointServicePermissionsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonEC2", "DescribeVpcEndpointServicePermissions", {})
   .n("EC2Client", "DescribeVpcEndpointServicePermissionsCommand")
-  .f(void 0, void 0)
-  .ser(se_DescribeVpcEndpointServicePermissionsCommand)
-  .de(de_DescribeVpcEndpointServicePermissionsCommand)
+  .sc(DescribeVpcEndpointServicePermissions)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

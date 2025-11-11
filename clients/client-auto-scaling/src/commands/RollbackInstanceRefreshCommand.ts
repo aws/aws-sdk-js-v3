@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { RollbackInstanceRefreshAnswer, RollbackInstanceRefreshType } from "../models/models_0";
-import { de_RollbackInstanceRefreshCommand, se_RollbackInstanceRefreshCommand } from "../protocols/Aws_query";
+import { RollbackInstanceRefresh } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -113,16 +112,11 @@ export class RollbackInstanceRefreshCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AutoScalingClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AutoScaling_2011_01_01", "RollbackInstanceRefresh", {})
   .n("AutoScalingClient", "RollbackInstanceRefreshCommand")
-  .f(void 0, void 0)
-  .ser(se_RollbackInstanceRefreshCommand)
-  .de(de_RollbackInstanceRefreshCommand)
+  .sc(RollbackInstanceRefresh)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

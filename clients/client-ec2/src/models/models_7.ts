@@ -1,6 +1,4 @@
 // smithy-typescript generated code
-import { SENSITIVE_STRING } from "@smithy/smithy-client";
-
 import {
   AccessScopeAnalysisFinding,
   AddIpamOperatingRegion,
@@ -82,7 +80,6 @@ import {
   ManagedPrefixList,
   NetworkInsightsAccessScopeContent,
   ResponseLaunchTemplateData,
-  ResponseLaunchTemplateDataFilterSensitiveLog,
   RouteServer,
   RouteServerPersistRoutesAction,
   SubnetCidrReservation,
@@ -105,7 +102,6 @@ import {
   AttributeBooleanValue,
   BootModeValues,
   ConversionTask,
-  ConversionTaskFilterSensitiveLog,
   FpgaImageAttribute,
   FpgaImageAttributeName,
   HttpTokensState,
@@ -122,9 +118,7 @@ import {
   PaymentOption,
   PermissionGroup,
   SnapshotDetail,
-  SnapshotDetailFilterSensitiveLog,
   SnapshotTaskDetail,
-  SnapshotTaskDetailFilterSensitiveLog,
   VirtualizationType,
 } from "./models_4";
 
@@ -9788,157 +9782,3 @@ export interface ModifyTransitGatewayVpcAttachmentRequestOptions {
    */
   ApplianceModeSupport?: ApplianceModeSupportValue | undefined;
 }
-
-/**
- * @internal
- */
-export const GetInstanceTpmEkPubResultFilterSensitiveLog = (obj: GetInstanceTpmEkPubResult): any => ({
-  ...obj,
-  ...(obj.KeyValue && { KeyValue: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const GetLaunchTemplateDataResultFilterSensitiveLog = (obj: GetLaunchTemplateDataResult): any => ({
-  ...obj,
-  ...(obj.LaunchTemplateData && {
-    LaunchTemplateData: ResponseLaunchTemplateDataFilterSensitiveLog(obj.LaunchTemplateData),
-  }),
-});
-
-/**
- * @internal
- */
-export const GetPasswordDataResultFilterSensitiveLog = (obj: GetPasswordDataResult): any => ({
-  ...obj,
-  ...(obj.PasswordData && { PasswordData: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const GetVpnConnectionDeviceSampleConfigurationResultFilterSensitiveLog = (
-  obj: GetVpnConnectionDeviceSampleConfigurationResult
-): any => ({
-  ...obj,
-  ...(obj.VpnConnectionDeviceSampleConfiguration && { VpnConnectionDeviceSampleConfiguration: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const ImageDiskContainerFilterSensitiveLog = (obj: ImageDiskContainer): any => ({
-  ...obj,
-  ...(obj.Url && { Url: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const ImportImageRequestFilterSensitiveLog = (obj: ImportImageRequest): any => ({
-  ...obj,
-  ...(obj.DiskContainers && {
-    DiskContainers: obj.DiskContainers.map((item) => ImageDiskContainerFilterSensitiveLog(item)),
-  }),
-});
-
-/**
- * @internal
- */
-export const ImportImageResultFilterSensitiveLog = (obj: ImportImageResult): any => ({
-  ...obj,
-  ...(obj.SnapshotDetails && {
-    SnapshotDetails: obj.SnapshotDetails.map((item) => SnapshotDetailFilterSensitiveLog(item)),
-  }),
-});
-
-/**
- * @internal
- */
-export const DiskImageDetailFilterSensitiveLog = (obj: DiskImageDetail): any => ({
-  ...obj,
-  ...(obj.ImportManifestUrl && { ImportManifestUrl: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const DiskImageFilterSensitiveLog = (obj: DiskImage): any => ({
-  ...obj,
-  ...(obj.Image && { Image: DiskImageDetailFilterSensitiveLog(obj.Image) }),
-});
-
-/**
- * @internal
- */
-export const UserDataFilterSensitiveLog = (obj: UserData): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ImportInstanceLaunchSpecificationFilterSensitiveLog = (obj: ImportInstanceLaunchSpecification): any => ({
-  ...obj,
-  ...(obj.UserData && { UserData: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const ImportInstanceRequestFilterSensitiveLog = (obj: ImportInstanceRequest): any => ({
-  ...obj,
-  ...(obj.LaunchSpecification && {
-    LaunchSpecification: ImportInstanceLaunchSpecificationFilterSensitiveLog(obj.LaunchSpecification),
-  }),
-  ...(obj.DiskImages && { DiskImages: obj.DiskImages.map((item) => DiskImageFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const ImportInstanceResultFilterSensitiveLog = (obj: ImportInstanceResult): any => ({
-  ...obj,
-  ...(obj.ConversionTask && { ConversionTask: ConversionTaskFilterSensitiveLog(obj.ConversionTask) }),
-});
-
-/**
- * @internal
- */
-export const SnapshotDiskContainerFilterSensitiveLog = (obj: SnapshotDiskContainer): any => ({
-  ...obj,
-  ...(obj.Url && { Url: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const ImportSnapshotRequestFilterSensitiveLog = (obj: ImportSnapshotRequest): any => ({
-  ...obj,
-  ...(obj.DiskContainer && { DiskContainer: SnapshotDiskContainerFilterSensitiveLog(obj.DiskContainer) }),
-});
-
-/**
- * @internal
- */
-export const ImportSnapshotResultFilterSensitiveLog = (obj: ImportSnapshotResult): any => ({
-  ...obj,
-  ...(obj.SnapshotTaskDetail && { SnapshotTaskDetail: SnapshotTaskDetailFilterSensitiveLog(obj.SnapshotTaskDetail) }),
-});
-
-/**
- * @internal
- */
-export const ImportVolumeRequestFilterSensitiveLog = (obj: ImportVolumeRequest): any => ({
-  ...obj,
-  ...(obj.Image && { Image: DiskImageDetailFilterSensitiveLog(obj.Image) }),
-});
-
-/**
- * @internal
- */
-export const ImportVolumeResultFilterSensitiveLog = (obj: ImportVolumeResult): any => ({
-  ...obj,
-  ...(obj.ConversionTask && { ConversionTask: ConversionTaskFilterSensitiveLog(obj.ConversionTask) }),
-});

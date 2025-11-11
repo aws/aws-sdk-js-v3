@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -10,10 +9,7 @@ import {
   DescribeCapacityReservationTopologyRequest,
   DescribeCapacityReservationTopologyResult,
 } from "../models/models_4";
-import {
-  de_DescribeCapacityReservationTopologyCommand,
-  se_DescribeCapacityReservationTopologyCommand,
-} from "../protocols/Aws_ec2";
+import { DescribeCapacityReservationTopology } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -126,16 +122,11 @@ export class DescribeCapacityReservationTopologyCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonEC2", "DescribeCapacityReservationTopology", {})
   .n("EC2Client", "DescribeCapacityReservationTopologyCommand")
-  .f(void 0, void 0)
-  .ser(se_DescribeCapacityReservationTopologyCommand)
-  .de(de_DescribeCapacityReservationTopologyCommand)
+  .sc(DescribeCapacityReservationTopology)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
