@@ -52,6 +52,14 @@ export interface GetOutboundExternalLinkCommandOutput extends GetOutboundExterna
  * //   tags: { // TagsMap
  * //     "<keys>": "STRING_VALUE",
  * //   },
+ * //   logSettings: { // LinkLogSettings
+ * //     applicationLogs: { // LinkApplicationLogConfiguration
+ * //       sampling: { // LinkApplicationLogSampling
+ * //         errorLog: Number("double"), // required
+ * //         filterLog: Number("double"), // required
+ * //       },
+ * //     },
+ * //   },
  * // };
  *
  * ```

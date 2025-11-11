@@ -39,7 +39,28 @@ export interface CreateOutboundExternalLinkCommandOutput extends CreateOutboundE
  * const input = { // CreateOutboundExternalLinkRequest
  *   clientToken: "STRING_VALUE", // required
  *   gatewayId: "STRING_VALUE", // required
+ *   attributes: { // LinkAttributes
+ *     responderErrorMasking: [ // ResponderErrorMasking
+ *       { // ResponderErrorMaskingForHttpCode
+ *         httpCode: "STRING_VALUE", // required
+ *         action: "NO_BID" || "PASSTHROUGH", // required
+ *         loggingTypes: [ // ResponderErrorMaskingLoggingTypes // required
+ *           "NONE" || "METRIC" || "RESPONSE",
+ *         ],
+ *         responseLoggingPercentage: Number("float"),
+ *       },
+ *     ],
+ *     customerProvidedId: "STRING_VALUE",
+ *   },
  *   publicEndpoint: "STRING_VALUE", // required
+ *   logSettings: { // LinkLogSettings
+ *     applicationLogs: { // LinkApplicationLogConfiguration
+ *       sampling: { // LinkApplicationLogSampling
+ *         errorLog: Number("double"), // required
+ *         filterLog: Number("double"), // required
+ *       },
+ *     },
+ *   },
  *   tags: { // TagsMap
  *     "<keys>": "STRING_VALUE",
  *   },
@@ -88,6 +109,14 @@ export interface CreateOutboundExternalLinkCommandOutput extends CreateOutboundE
  * const input = {
  *   clientToken: "12345678-1234-1234-1234-123456789012",
  *   gatewayId: "rtb-gw-12345678",
+ *   logSettings: {
+ *     applicationLogs: {
+ *       sampling: {
+ *         errorLog: 100.0,
+ *         filterLog: 0.0
+ *       }
+ *     }
+ *   },
  *   publicEndpoint: "https://external-responder.example.com"
  * };
  * const command = new CreateOutboundExternalLinkCommand(input);

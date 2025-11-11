@@ -270,8 +270,8 @@ export var CreateInboundExternalLinkRequest: StaticStructureSchema = [
   n0,
   _CIELR,
   0,
-  [_cT, _gI, _a, _t],
-  [[0, 4], [0, 1], () => LinkAttributes, 128 | 0],
+  [_cT, _gI, _a, _lS, _t],
+  [[0, 4], [0, 1], () => LinkAttributes, () => LinkLogSettings, 128 | 0],
 ];
 export var CreateInboundExternalLinkResponse: StaticStructureSchema = [
   3,
@@ -302,8 +302,8 @@ export var CreateOutboundExternalLinkRequest: StaticStructureSchema = [
   n0,
   _COELR,
   0,
-  [_cT, _gI, _pE, _t],
-  [[0, 4], [0, 1], 0, 128 | 0],
+  [_cT, _gI, _a, _pE, _lS, _t],
+  [[0, 4], [0, 1], () => LinkAttributes, 0, () => LinkLogSettings, 128 | 0],
 ];
 export var CreateOutboundExternalLinkResponse: StaticStructureSchema = [3, n0, _COELRr, 0, [_gI, _lI, _s], [0, 0, 0]];
 export var CreateRequesterGatewayRequest: StaticStructureSchema = [
@@ -402,8 +402,20 @@ export var GetInboundExternalLinkResponse: StaticStructureSchema = [
   n0,
   _GIELRe,
   0,
-  [_gI, _lI, _s, _dN, _fM, _pFM, _a, _cA, _uA, _t],
-  [0, 0, 0, 0, () => ModuleConfigurationList, () => ModuleConfigurationList, () => LinkAttributes, 4, 4, 128 | 0],
+  [_gI, _lI, _s, _dN, _fM, _pFM, _a, _cA, _uA, _t, _lS],
+  [
+    0,
+    0,
+    0,
+    0,
+    () => ModuleConfigurationList,
+    () => ModuleConfigurationList,
+    () => LinkAttributes,
+    4,
+    4,
+    128 | 0,
+    () => LinkLogSettings,
+  ],
 ];
 export var GetLinkRequest: StaticStructureSchema = [
   3,
@@ -453,8 +465,8 @@ export var GetOutboundExternalLinkResponse: StaticStructureSchema = [
   n0,
   _GOELRe,
   0,
-  [_gI, _lI, _s, _pE, _cA, _uA, _t],
-  [0, 0, 0, 0, 4, 4, 128 | 0],
+  [_gI, _lI, _s, _pE, _cA, _uA, _t, _lS],
+  [0, 0, 0, 0, 4, 4, 128 | 0, () => LinkLogSettings],
 ];
 export var GetRequesterGatewayRequest: StaticStructureSchema = [3, n0, _GRGR, 0, [_gI], [[0, 1]]];
 export var GetRequesterGatewayResponse: StaticStructureSchema = [

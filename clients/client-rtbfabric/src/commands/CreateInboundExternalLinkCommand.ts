@@ -52,6 +52,14 @@ export interface CreateInboundExternalLinkCommandOutput extends CreateInboundExt
  *     ],
  *     customerProvidedId: "STRING_VALUE",
  *   },
+ *   logSettings: { // LinkLogSettings
+ *     applicationLogs: { // LinkApplicationLogConfiguration
+ *       sampling: { // LinkApplicationLogSampling
+ *         errorLog: Number("double"), // required
+ *         filterLog: Number("double"), // required
+ *       },
+ *     },
+ *   },
  *   tags: { // TagsMap
  *     "<keys>": "STRING_VALUE",
  *   },
@@ -103,7 +111,15 @@ export interface CreateInboundExternalLinkCommandOutput extends CreateInboundExt
  * // Create an inbound external link for a responder gateway
  * const input = {
  *   clientToken: "randomClientToken",
- *   gatewayId: "rtb-gw-12345678"
+ *   gatewayId: "rtb-gw-12345678",
+ *   logSettings: {
+ *     applicationLogs: {
+ *       sampling: {
+ *         errorLog: 100.0,
+ *         filterLog: 0.0
+ *       }
+ *     }
+ *   }
  * };
  * const command = new CreateInboundExternalLinkCommand(input);
  * const response = await client.send(command);

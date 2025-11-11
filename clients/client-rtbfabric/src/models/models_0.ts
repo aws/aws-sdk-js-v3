@@ -714,6 +714,12 @@ export interface CreateInboundExternalLinkRequest {
   attributes?: LinkAttributes | undefined;
 
   /**
+   * <p>Describes the settings for a link log.</p>
+   * @public
+   */
+  logSettings: LinkLogSettings | undefined;
+
+  /**
    * <p>A map of the key-value pairs of the tag or tags to assign to the resource.</p>
    * @public
    */
@@ -898,10 +904,22 @@ export interface CreateOutboundExternalLinkRequest {
   gatewayId: string | undefined;
 
   /**
+   * <p>Describes the attributes of a link.</p>
+   * @public
+   */
+  attributes?: LinkAttributes | undefined;
+
+  /**
    * <p>The public endpoint of the link.</p>
    * @public
    */
   publicEndpoint: string | undefined;
+
+  /**
+   * <p>Describes the settings for a link log.</p>
+   * @public
+   */
+  logSettings: LinkLogSettings | undefined;
 
   /**
    * <p>A map of the key-value pairs of the tag or tags to assign to the resource.</p>
@@ -1868,6 +1886,12 @@ export interface GetInboundExternalLinkResponse {
    * @public
    */
   tags?: Record<string, string> | undefined;
+
+  /**
+   * <p>Describes the settings for a link log.</p>
+   * @public
+   */
+  logSettings?: LinkLogSettings | undefined;
 }
 
 /**
@@ -1932,6 +1956,12 @@ export interface GetOutboundExternalLinkResponse {
    * @public
    */
   tags?: Record<string, string> | undefined;
+
+  /**
+   * <p>Describes the settings for a link log.</p>
+   * @public
+   */
+  logSettings?: LinkLogSettings | undefined;
 }
 
 /**
