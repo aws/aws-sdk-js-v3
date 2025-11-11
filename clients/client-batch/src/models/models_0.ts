@@ -410,15 +410,13 @@ export interface Ec2Configuration {
    *             </dd>
    *             <dt>EKS</dt>
    *             <dd>
-   *                <p>If the <code>imageIdOverride</code> parameter isn't specified, then a recent <a href="https://docs.aws.amazon.com/eks/latest/userguide/eks-optimized-ami.html">Amazon EKS-optimized Amazon Linux
-   *        AMI</a> (<code>EKS_AL2</code>) is used. If a new image type is specified in an update,
+   *                <p>If the <code>imageIdOverride</code> parameter isn't specified, then a recent <a href="https://docs.aws.amazon.com/eks/latest/userguide/eks-optimized-ami.html">Amazon EKS-optimized Amazon Linux 2023
+   *        AMI</a> (<code>EKS_AL2023</code>) is used. If a new image type is specified in an update,
    *       but neither an <code>imageId</code> nor a <code>imageIdOverride</code> parameter is specified,
    *       then the latest Amazon EKS optimized AMI for that image type that Batch supports is used.</p>
    *                <important>
-   *                   <p>Starting end of October 2025 Amazon EKS optimized Amazon Linux 2023 AMIs will be the
-   *        default on Batch for EKS versions prior to 1.33. Starting from Kubernetes version 1.33,
-   *        EKS optimized Amazon Linux 2023 AMIs will be the default when it becomes supported on
-   *        Batch.</p>
+   *                   <p>Amazon Linux 2023 AMIs are the
+   *        default on Batch for Amazon EKS.</p>
    *                   <p>Amazon Web Services will end
    *        support for Amazon EKS AL2-optimized and AL2-accelerated AMIs, starting 11/26/25. You can continue
    *        using Batch-provided Amazon EKS optimized Amazon Linux 2 AMIs on your Amazon EKS compute
@@ -431,13 +429,13 @@ export interface Ec2Configuration {
    *                   <dd>
    *                      <p>
    *                         <a href="https://docs.aws.amazon.com/eks/latest/userguide/eks-optimized-ami.html">Amazon
-   *           Linux 2</a>: Default for all non-GPU instance families.</p>
+   *           Linux 2</a>: Used for non-GPU instance families.</p>
    *                   </dd>
    *                   <dt>EKS_AL2_NVIDIA</dt>
    *                   <dd>
    *                      <p>
    *                         <a href="https://docs.aws.amazon.com/eks/latest/userguide/eks-optimized-ami.html">Amazon
-   *           Linux 2 (accelerated)</a>: Default for all GPU instance families (for example,
+   *           Linux 2 (accelerated)</a>: Used for GPU instance families (for example,
    *           <code>P4</code> and <code>G4</code>) and can be used for all non Amazon Web Services Graviton-based
    *          instance types.</p>
    *                   </dd>
@@ -445,7 +443,7 @@ export interface Ec2Configuration {
    *                   <dd>
    *                      <p>
    *                         <a href="https://docs.aws.amazon.com/eks/latest/userguide/eks-optimized-ami.html">Amazon
-   *           Linux 2023</a>: Batch supports Amazon Linux 2023.</p>
+   *          Linux 2023</a>: Default for non-GPU instance families.</p>
    *                      <note>
    *                         <p>Amazon Linux 2023 does not support <code>A1</code> instances.</p>
    *                      </note>
@@ -454,7 +452,7 @@ export interface Ec2Configuration {
    *                   <dd>
    *                      <p>
    *                         <a href="https://docs.aws.amazon.com/eks/latest/userguide/eks-optimized-ami.html">Amazon
-   *           Linux 2023 (accelerated)</a>: GPU instance families and can be used for all non Amazon Web Services
+   *           Linux 2023 (accelerated)</a>: Default for GPU instance families and can be used for all non Amazon Web Services
    *          Graviton-based instance types.</p>
    *                   </dd>
    *                </dl>
@@ -805,34 +803,29 @@ export interface ComputeResource {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>default_arm64</code> to choose x86 based instance types (from the <code>m6g</code>,
+   *                   <code>default_arm64</code> to choose ARM based instance types (from the <code>m6g</code>,
    *      <code>c6g</code>, <code>r6g</code>, and <code>c7g</code> instance families) that matches the resource demands of the job queue.</p>
    *             </li>
    *          </ul>
    *          <note>
-   *             <p>Starting on 11/01/2025 the behavior of <code>optimal</code> is going to be changed to
-   *     match <code>default_x86_64</code>.
-   *
-   *     During the change your instance families could be updated to a newer
-   *     generation.
-   *     You do not need to perform any actions for the upgrade to
-   *     happen. For more information about change, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/optimal-default-instance-troubleshooting.html">Optimal instance type configuration to
-   *      receive automatic instance family updates</a>.</p>
+   *             <p>Starting on 11/01/2025 the behavior of <code>optimal</code> is going to be changed to match
+   *      <code>default_x86_64</code>.  During the change your instance families could be updated to a
+   *     newer generation. You do not need to perform any actions for the upgrade to happen. For more
+   *     information about change, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/optimal-default-instance-troubleshooting.html">Optimal instance type configuration to receive automatic instance family
+   *     updates</a>.</p>
    *          </note>
    *          <note>
-   *             <p>Instance family availability varies by
-   *     Amazon Web Services Region.
-   *     For example, some Amazon Web Services Regions may not have any fourth generation instance families
-   *     but have fifth and sixth generation instance families.</p>
-   *             <p>When using <code>default_x86_64</code> or <code>default_arm64</code>
-   *     instance bundles, Batch selects instance families based on a balance of
-   *     cost-effectiveness and performance. While newer generation instances often provide
-   *     better price-performance, Batch may choose an earlier generation instance family
-   *     if it provides the optimal combination of availability, cost, and performance for
-   *     your workload. For example, in an
-   *     Amazon Web Services Region
-   *     where both c6i and c7i instances are available, Batch might select c6i instances
-   *     if they offer better cost-effectiveness for your specific job requirements. For more information on Batch instance types and Amazon Web Services Region availability, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/instance-type-compute-table.html">Instance type compute table</a> in the <i>Batch User Guide</i>.</p>
+   *             <p>Instance family availability varies by Amazon Web Services Region. For example, some Amazon Web Services Regions may not have any fourth generation instance families but have fifth and
+   *     sixth generation instance families.</p>
+   *             <p>When using <code>default_x86_64</code> or <code>default_arm64</code> instance bundles,
+   *     Batch selects instance families based on a balance of cost-effectiveness and performance.
+   *     While newer generation instances often provide better price-performance, Batch may choose an
+   *     earlier generation instance family if it provides the optimal combination of availability, cost,
+   *     and performance for your workload. For example, in an Amazon Web Services Region where both c6i
+   *     and c7i instances are available, Batch might select c6i instances if they offer better
+   *     cost-effectiveness for your specific job requirements. For more information on Batch instance
+   *     types and Amazon Web Services Region availability, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/instance-type-compute-table.html">Instance
+   *      type compute table</a> in the <i>Batch User Guide</i>.</p>
    *             <p>Batch periodically updates your instances in default bundles to newer,
    *     more cost-effective options. Updates happen automatically without requiring any
    *     action from you. Your workloads continue running during updates with no interruption
@@ -8813,29 +8806,24 @@ export interface ComputeResourceUpdate {
    *             </li>
    *          </ul>
    *          <note>
-   *             <p>Starting on 11/01/2025 the behavior of <code>optimal</code> is going to be changed to
-   *     match <code>default_x86_64</code>.
-   *
-   *     During the change your instance families could be updated to a newer
-   *     generation.
-   *     You do not need to perform any actions for the upgrade to
-   *     happen. For more information about change, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/optimal-default-instance-troubleshooting.html">Optimal instance type configuration to
-   *      receive automatic instance family updates</a>.</p>
+   *             <p>Starting on 11/01/2025 the behavior of <code>optimal</code> is going to be changed to match
+   *      <code>default_x86_64</code>.  During the change your instance families could be updated to a
+   *     newer generation. You do not need to perform any actions for the upgrade to happen. For more
+   *     information about change, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/optimal-default-instance-troubleshooting.html">Optimal instance type configuration to receive automatic instance family
+   *     updates</a>.</p>
    *          </note>
    *          <note>
-   *             <p>Instance family availability varies by
-   *     Amazon Web Services Region.
-   *     For example, some Amazon Web Services Regions may not have any fourth generation instance families
-   *     but have fifth and sixth generation instance families.</p>
-   *             <p>When using <code>default_x86_64</code> or <code>default_arm64</code>
-   *     instance bundles, Batch selects instance families based on a balance of
-   *     cost-effectiveness and performance. While newer generation instances often provide
-   *     better price-performance, Batch may choose an earlier generation instance family
-   *     if it provides the optimal combination of availability, cost, and performance for
-   *     your workload. For example, in an
-   *     Amazon Web Services Region
-   *     where both c6i and c7i instances are available, Batch might select c6i instances
-   *     if they offer better cost-effectiveness for your specific job requirements. For more information on Batch instance types and Amazon Web Services Region availability, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/instance-type-compute-table.html">Instance type compute table</a> in the <i>Batch User Guide</i>.</p>
+   *             <p>Instance family availability varies by Amazon Web Services Region. For example, some Amazon Web Services Regions may not have any fourth generation instance families but have fifth and
+   *     sixth generation instance families.</p>
+   *             <p>When using <code>default_x86_64</code> or <code>default_arm64</code> instance bundles,
+   *     Batch selects instance families based on a balance of cost-effectiveness and performance.
+   *     While newer generation instances often provide better price-performance, Batch may choose an
+   *     earlier generation instance family if it provides the optimal combination of availability, cost,
+   *     and performance for your workload. For example, in an Amazon Web Services Region where both c6i
+   *     and c7i instances are available, Batch might select c6i instances if they offer better
+   *     cost-effectiveness for your specific job requirements. For more information on Batch instance
+   *     types and Amazon Web Services Region availability, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/instance-type-compute-table.html">Instance
+   *      type compute table</a> in the <i>Batch User Guide</i>.</p>
    *             <p>Batch periodically updates your instances in default bundles to newer,
    *     more cost-effective options. Updates happen automatically without requiring any
    *     action from you. Your workloads continue running during updates with no interruption
