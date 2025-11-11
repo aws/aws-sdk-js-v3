@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.929.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.928.0...v3.929.0) (2025-11-11)
+
+
+### Features
+
+* **client-bedrock-data-automation:** Added support for Language Expansion feature for BDA Audio modality. ([e2374db](https://github.com/aws/aws-sdk-js-v3/commit/e2374dbd19e2d414a9691af8550e0f603fdb8ec5))
+* **clients:** use schema-serde in AWS REST JSON clients ([#7485](https://github.com/aws/aws-sdk-js-v3/issues/7485)) ([99a3693](https://github.com/aws/aws-sdk-js-v3/commit/99a36932937fa5def2b0371b989c6df4d9358044))
+
+
+
+
+
 # [3.928.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.927.0...v3.928.0) (2025-11-10)
 
 **Note:** Version bump only for package @aws-sdk/client-bedrock-data-automation
