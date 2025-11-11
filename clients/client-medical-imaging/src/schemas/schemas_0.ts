@@ -158,6 +158,8 @@ const _jS = "jobStatus";
 const _jSo = "jobSummaries";
 const _kKA = "kmsKeyArn";
 const _lAA = "lambdaAuthorizerArn";
+const _lAAa = "lastAccessedAt";
+const _lSF = "losslessStorageFormat";
 const _lV = "latestVersion";
 const _lVI = "latestVersionId";
 const _m = "message";
@@ -178,6 +180,7 @@ const _sIS = "sourceImageSet";
 const _sISI = "sourceImageSetId";
 const _sISP = "sourceImageSetProperties";
 const _sO = "sortOrder";
+const _sT = "storageTier";
 const _se = "server";
 const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.medicalimaging";
 const _so = "sort";
@@ -345,8 +348,8 @@ export var CreateDatastoreRequest: StaticStructureSchema = [
   n0,
   _CDR,
   0,
-  [_dN, _cT, _t, _kKA, _lAA],
-  [0, [0, 4], 128 | 0, 0, 0],
+  [_dN, _cT, _t, _kKA, _lAA, _lSF],
+  [0, [0, 4], 128 | 0, 0, 0, 0],
 ];
 export var CreateDatastoreResponse: StaticStructureSchema = [3, n0, _CDRr, 0, [_dI, _dS], [0, 0]];
 export var DatastoreProperties: StaticStructureSchema = [
@@ -354,8 +357,8 @@ export var DatastoreProperties: StaticStructureSchema = [
   n0,
   _DP,
   0,
-  [_dI, _dN, _dS, _kKA, _lAA, _dA, _cA, _uA],
-  [0, 0, 0, 0, 0, 0, 4, 4],
+  [_dI, _dN, _dS, _kKA, _lAA, _lSF, _dA, _cA, _uA],
+  [0, 0, 0, 0, 0, 0, 0, 4, 4],
 ];
 export var DatastoreSummary: StaticStructureSchema = [
   3,
@@ -569,8 +572,8 @@ export var GetImageSetResponse: StaticStructureSchema = [
   n0,
   _GISRe,
   0,
-  [_dI, _iSI, _vI, _iSS, _iSWS, _cA, _uA, _dAe, _m, _iSA, _o, _iP],
-  [0, 0, 0, 0, 0, 4, 4, 4, 0, 0, () => Overrides, 2],
+  [_dI, _iSI, _vI, _iSS, _iSWS, _cA, _uA, _dAe, _m, _iSA, _o, _iP, _lAAa, _sT],
+  [0, 0, 0, 0, 0, 4, 4, 4, 0, 0, () => Overrides, 2, 4, 0],
 ];
 export var ImageFrameInformation: StaticStructureSchema = [3, n0, _IFI, 0, [_iFIm], [0]];
 export var ImageSetProperties: StaticStructureSchema = [
@@ -586,8 +589,8 @@ export var ImageSetsMetadataSummary: StaticStructureSchema = [
   n0,
   _ISMS,
   0,
-  [_iSI, _v, _cA, _uA, _DICOMT, _iP],
-  [0, 1, 4, 4, [() => DICOMTags, 0], 2],
+  [_iSI, _v, _cA, _uA, _lAAa, _sT, _DICOMT, _iP],
+  [0, 1, 4, 4, 4, 0, [() => DICOMTags, 0], 2],
 ];
 export var InternalServerException: StaticErrorSchema = [
   -3,

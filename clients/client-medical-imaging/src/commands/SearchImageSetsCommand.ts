@@ -77,6 +77,8 @@ export interface SearchImageSetsCommandOutput extends SearchImageSetsResponse, _
  * //       version: Number("int"),
  * //       createdAt: new Date("TIMESTAMP"),
  * //       updatedAt: new Date("TIMESTAMP"),
+ * //       lastAccessedAt: new Date("TIMESTAMP"),
+ * //       storageTier: "FREQUENT_ACCESS" || "ARCHIVE_INSTANT_ACCESS",
  * //       DICOMTags: { // DICOMTags
  * //         DICOMPatientId: "STRING_VALUE",
  * //         DICOMPatientName: "STRING_VALUE",

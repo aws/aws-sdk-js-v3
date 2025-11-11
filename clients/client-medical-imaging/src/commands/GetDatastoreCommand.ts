@@ -48,6 +48,7 @@ export interface GetDatastoreCommandOutput extends GetDatastoreResponse, __Metad
  * //     datastoreStatus: "CREATING" || "CREATE_FAILED" || "ACTIVE" || "DELETING" || "DELETED", // required
  * //     kmsKeyArn: "STRING_VALUE",
  * //     lambdaAuthorizerArn: "STRING_VALUE",
+ * //     losslessStorageFormat: "HTJ2K" || "JPEG_2000_LOSSLESS",
  * //     datastoreArn: "STRING_VALUE",
  * //     createdAt: new Date("TIMESTAMP"),
  * //     updatedAt: new Date("TIMESTAMP"),

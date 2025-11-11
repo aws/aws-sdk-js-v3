@@ -44,6 +44,7 @@ export interface CreateDatastoreCommandOutput extends CreateDatastoreResponse, _
  *   },
  *   kmsKeyArn: "STRING_VALUE",
  *   lambdaAuthorizerArn: "STRING_VALUE",
+ *   losslessStorageFormat: "HTJ2K" || "JPEG_2000_LOSSLESS",
  * };
  * const command = new CreateDatastoreCommand(input);
  * const response = await client.send(command);

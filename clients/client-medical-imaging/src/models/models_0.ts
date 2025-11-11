@@ -407,6 +407,20 @@ export class ValidationException extends __BaseException {
 
 /**
  * @public
+ * @enum
+ */
+export const LosslessStorageFormat = {
+  HTJ2K: "HTJ2K",
+  JPEG_2000_LOSSLESS: "JPEG_2000_LOSSLESS",
+} as const;
+
+/**
+ * @public
+ */
+export type LosslessStorageFormat = (typeof LosslessStorageFormat)[keyof typeof LosslessStorageFormat];
+
+/**
+ * @public
  */
 export interface CreateDatastoreRequest {
   /**
@@ -438,6 +452,12 @@ export interface CreateDatastoreRequest {
    * @public
    */
   lambdaAuthorizerArn?: string | undefined;
+
+  /**
+   * <p>The lossless storage format for the datastore.</p>
+   * @public
+   */
+  losslessStorageFormat?: LosslessStorageFormat | undefined;
 }
 
 /**
@@ -547,6 +567,12 @@ export interface DatastoreProperties {
    * @public
    */
   lambdaAuthorizerArn?: string | undefined;
+
+  /**
+   * <p>The datastore's lossless storage format.</p>
+   * @public
+   */
+  losslessStorageFormat?: LosslessStorageFormat | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) for the data store.</p>
@@ -905,6 +931,26 @@ export interface Overrides {
 
 /**
  * @public
+ * @enum
+ */
+export const StorageTier = {
+  /**
+   * Archive instant access storage tier for image sets that are accessed infrequently
+   */
+  ARCHIVE_INSTANT_ACCESS: "ARCHIVE_INSTANT_ACCESS",
+  /**
+   * Frequent access storage tier for image sets that are accessed regularly
+   */
+  FREQUENT_ACCESS: "FREQUENT_ACCESS",
+} as const;
+
+/**
+ * @public
+ */
+export type StorageTier = (typeof StorageTier)[keyof typeof StorageTier];
+
+/**
+ * @public
  */
 export interface GetImageSetResponse {
   /**
@@ -978,6 +1024,18 @@ export interface GetImageSetResponse {
    * @public
    */
   isPrimary?: boolean | undefined;
+
+  /**
+   * <p>When the image set was last accessed.</p>
+   * @public
+   */
+  lastAccessedAt?: Date | undefined;
+
+  /**
+   * <p>The storage tier of the image set.</p>
+   * @public
+   */
+  storageTier?: StorageTier | undefined;
 }
 
 /**
@@ -1750,6 +1808,18 @@ export interface ImageSetsMetadataSummary {
    * @public
    */
   updatedAt?: Date | undefined;
+
+  /**
+   * <p>When the image set was last accessed.</p>
+   * @public
+   */
+  lastAccessedAt?: Date | undefined;
+
+  /**
+   * <p>The image set's storage tier.</p>
+   * @public
+   */
+  storageTier?: StorageTier | undefined;
 
   /**
    * <p>The DICOM tags associated with the image set.</p>

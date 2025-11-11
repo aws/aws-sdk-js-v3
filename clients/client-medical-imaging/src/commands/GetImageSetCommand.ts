@@ -58,6 +58,8 @@ export interface GetImageSetCommandOutput extends GetImageSetResponse, __Metadat
  * //     forced: true || false,
  * //   },
  * //   isPrimary: true || false,
+ * //   lastAccessedAt: new Date("TIMESTAMP"),
+ * //   storageTier: "FREQUENT_ACCESS" || "ARCHIVE_INSTANT_ACCESS",
  * // };
  *
  * ```
