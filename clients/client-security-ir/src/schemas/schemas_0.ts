@@ -131,6 +131,7 @@ const _cEO = "coverEntireOrganization";
 const _cI = "caseId";
 const _cIo = "commentId";
 const _cL = "contentLength";
+const _cP = "communicationPreferences";
 const _cS = "caseStatus";
 const _cT = "clientToken";
 const _cTu = "customerType";
@@ -428,12 +429,8 @@ export var IncidentResponder: StaticStructureSchema = [
   n0,
   _IR,
   0,
-  [_n, _jT, _em],
-  [
-    [() => IncidentResponderName, 0],
-    [() => JobTitle, 0],
-    [() => EmailAddress, 0],
-  ],
+  [_n, _jT, _em, _cP],
+  [[() => IncidentResponderName, 0], [() => JobTitle, 0], [() => EmailAddress, 0], 64 | 0],
 ];
 export var InternalServerException: StaticErrorSchema = [
   -3,
@@ -720,6 +717,8 @@ export var AWSAccountIds = 64 | 0;
 
 export var CaseAttachmentsList: StaticListSchema = [1, n0, _CAL, 0, [() => CaseAttachmentAttributes, 0]];
 export var CaseEditItems: StaticListSchema = [1, n0, _CEIa, 0, () => CaseEditItem];
+export var CommunicationPreferences = 64 | 0;
+
 export var GetMembershipAccountDetailErrors: StaticListSchema = [
   1,
   n0,

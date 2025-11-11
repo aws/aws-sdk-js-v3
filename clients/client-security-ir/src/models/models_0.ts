@@ -39,6 +39,7 @@ export const AwsRegion = {
   AP_SOUTHEAST_3: "ap-southeast-3",
   AP_SOUTHEAST_4: "ap-southeast-4",
   AP_SOUTHEAST_5: "ap-southeast-5",
+  AP_SOUTHEAST_6: "ap-southeast-6",
   AP_SOUTHEAST_7: "ap-southeast-7",
   AP_SOUTH_1: "ap-south-1",
   AP_SOUTH_2: "ap-south-2",
@@ -1519,6 +1520,34 @@ export interface UpdateResolverTypeResponse {
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const CommunicationType = {
+  CASE_ACKNOWLEDGED: "Case Acknowledged",
+  CASE_ATTACHMENT_URL_UPLOADED: "Case Attachment Url Uploaded",
+  CASE_CLOSED: "Case Closed",
+  CASE_COMMENT_ADDED: "Case Comment Added",
+  CASE_COMMENT_UPDATED: "Case Comment Updated",
+  CASE_CREATED: "Case Created",
+  CASE_PENDING_CUSTOMER_ACTION_REMINDER: "Case Pending Customer Action Reminder",
+  CASE_UPDATED: "Case Updated",
+  CASE_UPDATED_TO_SERVICE_MANAGED: "Case Updated To Service Managed",
+  CASE_UPDATE_CASE_STATUS: "Case Status Updated",
+  DEREGISTER_DELEGATED_ADMINISTRATOR: "Deregister Delegated Administrator",
+  DISABLE_AWS_SERVICE_ACCESS: "Disable AWS Service Access",
+  MEMBERSHIP_CANCELLED: "Membership Cancelled",
+  MEMBERSHIP_CREATED: "Membership Created",
+  MEMBERSHIP_UPDATED: "Membership Updated",
+  REGISTER_DELEGATED_ADMINISTRATOR: "Register Delegated Administrator",
+} as const;
+
+/**
+ * @public
+ */
+export type CommunicationType = (typeof CommunicationType)[keyof typeof CommunicationType];
+
+/**
  * <p/>
  * @public
  */
@@ -1540,6 +1569,12 @@ export interface IncidentResponder {
    * @public
    */
   email: string | undefined;
+
+  /**
+   * <p/>
+   * @public
+   */
+  communicationPreferences?: CommunicationType[] | undefined;
 }
 
 /**
