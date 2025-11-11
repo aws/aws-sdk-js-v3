@@ -41,11 +41,11 @@ public final class AddProtocolConfig implements TypeScriptIntegration {
         List<ShapeId> allowed = List.of(
             AwsJson1_0Trait.ID,
             AwsJson1_1Trait.ID,
-            RestJson1Trait.ID
+            RestJson1Trait.ID,
+            Ec2QueryTrait.ID,
+            AwsQueryTrait.ID
         );
         List<ShapeId> pending = List.of(
-            Ec2QueryTrait.ID,
-            AwsQueryTrait.ID,
             RestXmlTrait.ID
         );
         for (ShapeId shapeId : allowed) {
