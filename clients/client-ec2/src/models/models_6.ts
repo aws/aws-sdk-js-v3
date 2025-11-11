@@ -42,7 +42,6 @@ import {
   DnsEntry,
   DnsNameState,
   Filter,
-  MetricType,
   PayerResponsibility,
   ServiceConfiguration,
   ServiceConnectivityType,
@@ -64,11 +63,60 @@ import {
   FastLaunchSnapshotConfigurationResponse,
   FastLaunchStateCode,
   FastSnapshotRestoreStateCode,
+  MetricType,
   PeriodType,
   ProductCode,
   ReservationState,
   StatisticType,
 } from "./models_4";
+
+/**
+ * @public
+ */
+export interface DescribeTrunkInterfaceAssociationsRequest {
+  /**
+   * <p>The IDs of the associations.</p>
+   * @public
+   */
+  AssociationIds?: string[] | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>One or more filters.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>gre-key</code> - The ID of a trunk interface association.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>interface-protocol</code> - The interface protocol. Valid values are <code>VLAN</code> and <code>GRE</code>.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Filters?: Filter[] | undefined;
+
+  /**
+   * <p>The token for the next page of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return with a single call.
+   *             To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+}
 
 /**
  * @public
@@ -8441,37 +8489,6 @@ export interface IntegrateServices {
    * @public
    */
   AthenaIntegrations?: AthenaIntegration[] | undefined;
-}
-
-/**
- * @public
- */
-export interface GetFlowLogsIntegrationTemplateRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The ID of the flow log.</p>
-   * @public
-   */
-  FlowLogId: string | undefined;
-
-  /**
-   * <p>To store the CloudFormation template in Amazon S3, specify the location in Amazon S3.</p>
-   * @public
-   */
-  ConfigDeliveryS3DestinationArn: string | undefined;
-
-  /**
-   * <p>Information about the service integration.</p>
-   * @public
-   */
-  IntegrateServices: IntegrateServices | undefined;
 }
 
 /**

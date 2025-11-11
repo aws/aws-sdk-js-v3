@@ -141,12 +141,44 @@ import {
 
 import {
   InstanceFamilyCreditSpecification,
+  IntegrateServices,
   ManagedBy,
   RouteServerPropagation,
   SnapshotBlockPublicAccessState,
   TransitGatewayPropagationState,
   UnlimitedSupportedInstanceFamily,
 } from "./models_6";
+
+/**
+ * @public
+ */
+export interface GetFlowLogsIntegrationTemplateRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The ID of the flow log.</p>
+   * @public
+   */
+  FlowLogId: string | undefined;
+
+  /**
+   * <p>To store the CloudFormation template in Amazon S3, specify the location in Amazon S3.</p>
+   * @public
+   */
+  ConfigDeliveryS3DestinationArn: string | undefined;
+
+  /**
+   * <p>Information about the service integration.</p>
+   * @public
+   */
+  IntegrateServices: IntegrateServices | undefined;
+}
 
 /**
  * @public
@@ -9755,43 +9787,6 @@ export interface ModifyTransitGatewayVpcAttachmentRequestOptions {
    * @public
    */
   ApplianceModeSupport?: ApplianceModeSupportValue | undefined;
-}
-
-/**
- * @public
- */
-export interface ModifyTransitGatewayVpcAttachmentRequest {
-  /**
-   * <p>The ID of the attachment.</p>
-   * @public
-   */
-  TransitGatewayAttachmentId: string | undefined;
-
-  /**
-   * <p>The IDs of one or more subnets to add. You can specify at most one subnet per Availability Zone.</p>
-   * @public
-   */
-  AddSubnetIds?: string[] | undefined;
-
-  /**
-   * <p>The IDs of one or more subnets to remove.</p>
-   * @public
-   */
-  RemoveSubnetIds?: string[] | undefined;
-
-  /**
-   * <p>The new VPC attachment options.</p>
-   * @public
-   */
-  Options?: ModifyTransitGatewayVpcAttachmentRequestOptions | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
 }
 
 /**

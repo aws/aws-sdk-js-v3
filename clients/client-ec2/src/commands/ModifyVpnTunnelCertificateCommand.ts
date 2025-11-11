@@ -124,6 +124,7 @@ export interface ModifyVpnTunnelCertificateCommandOutput extends ModifyVpnTunnel
  * //           EnableTunnelLifecycleControl: true || false,
  * //         },
  * //       ],
+ * //       TunnelBandwidth: "standard" || "large",
  * //     },
  * //     Routes: [ // VpnStaticRouteList
  * //       { // VpnStaticRoute

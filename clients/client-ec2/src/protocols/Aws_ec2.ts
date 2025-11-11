@@ -3614,7 +3614,6 @@ import {
   DescribeInstanceTopologyResult,
   DescribeInstanceTypeOfferingsRequest,
   DescribeInstanceTypeOfferingsResult,
-  DescribeInstanceTypesRequest,
   DestinationOptionsResponse,
   DirectoryServiceAuthentication,
   DiskImageDescription,
@@ -3713,6 +3712,7 @@ import {
   ClassicLoadBalancer,
   ClassicLoadBalancersConfig,
   CreateVolumePermission,
+  DescribeInstanceTypesRequest,
   DescribeInstanceTypesResult,
   DescribeInternetGatewaysRequest,
   DescribeInternetGatewaysResult,
@@ -3880,7 +3880,6 @@ import {
   DescribeTransitGatewaysResult,
   DescribeTransitGatewayVpcAttachmentsRequest,
   DescribeTransitGatewayVpcAttachmentsResult,
-  DescribeTrunkInterfaceAssociationsRequest,
   DiskInfo,
   EbsInfo,
   EbsOptimizedInfo,
@@ -3988,6 +3987,7 @@ import {
   DataQuery,
   DataResponse,
   DeprecationTimeCondition,
+  DescribeTrunkInterfaceAssociationsRequest,
   DescribeTrunkInterfaceAssociationsResult,
   DescribeVerifiedAccessEndpointsRequest,
   DescribeVerifiedAccessEndpointsResult,
@@ -4212,7 +4212,6 @@ import {
   GetEbsDefaultKmsKeyIdResult,
   GetEbsEncryptionByDefaultRequest,
   GetEbsEncryptionByDefaultResult,
-  GetFlowLogsIntegrationTemplateRequest,
   GroupBy,
   ImageCriterion,
   InitializationStatusDetails,
@@ -4261,6 +4260,7 @@ import {
   DiskImageDetail,
   DnsServersOptionsModifyStructure,
   EbsInstanceBlockDeviceSpecification,
+  GetFlowLogsIntegrationTemplateRequest,
   GetFlowLogsIntegrationTemplateResult,
   GetGroupsForCapacityReservationRequest,
   GetGroupsForCapacityReservationResult,
@@ -4490,7 +4490,6 @@ import {
   ModifyTransitGatewayPrefixListReferenceResult,
   ModifyTransitGatewayRequest,
   ModifyTransitGatewayResult,
-  ModifyTransitGatewayVpcAttachmentRequest,
   ModifyTransitGatewayVpcAttachmentRequestOptions,
   NetworkInterfaceAttachmentChanges,
   PrefixListAssociation,
@@ -4548,6 +4547,7 @@ import {
   IpamCidrAuthorizationContext,
   LaunchTemplateSpecification,
   LicenseConfigurationRequest,
+  ModifyTransitGatewayVpcAttachmentRequest,
   ModifyTransitGatewayVpcAttachmentResult,
   ModifyVerifiedAccessEndpointCidrOptions,
   ModifyVerifiedAccessEndpointEniOptions,
@@ -62241,6 +62241,9 @@ const se_VpnConnectionOptionsSpecification = (
   if (input[_TTGAI] != null) {
     entries[_TTGAI] = input[_TTGAI];
   }
+  if (input[_TB] != null) {
+    entries[_TB] = input[_TB];
+  }
   if (input[_SRO] != null) {
     entries[_SRO] = input[_SRO];
   }
@@ -95385,6 +95388,9 @@ const de_VpnConnectionOptions = (output: any, context: __SerdeContext): VpnConne
   } else if (output[_tOS] != null && output[_tOS][_i] != null) {
     contents[_TO] = de_TunnelOptionsList(__getArrayIfSingleItem(output[_tOS][_i]), context);
   }
+  if (output[_tB] != null) {
+    contents[_TB] = __expectString(output[_tB]);
+  }
   return contents;
 };
 
@@ -98201,6 +98207,7 @@ const _TAAC = "TotalAvailableAddressCount";
 const _TAC = "TotalAvailableCapacity";
 const _TACo = "TotalAddressCount";
 const _TAI = "TransferAccountId";
+const _TB = "TunnelBandwidth";
 const _TC = "TargetConfigurations";
 const _TCS = "TargetCapacitySpecification";
 const _TCUT = "TargetCapacityUnitType";
@@ -100196,6 +100203,7 @@ const _tAAC = "totalAvailableAddressCount";
 const _tAC = "totalAvailableCapacity";
 const _tACo = "totalAddressCount";
 const _tAI = "transferAccountId";
+const _tB = "tunnelBandwidth";
 const _tC = "totalCapacity";
 const _tCS = "targetCapacitySpecification";
 const _tCUT = "targetCapacityUnitType";

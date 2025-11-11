@@ -2117,6 +2117,20 @@ export interface CreateVpcPeeringConnectionResult {
  * @public
  * @enum
  */
+export const VpnTunnelBandwidth = {
+  large: "large",
+  standard: "standard",
+} as const;
+
+/**
+ * @public
+ */
+export type VpnTunnelBandwidth = (typeof VpnTunnelBandwidth)[keyof typeof VpnTunnelBandwidth];
+
+/**
+ * @public
+ * @enum
+ */
 export const TunnelInsideIpVersion = {
   ipv4: "ipv4",
   ipv6: "ipv6",
@@ -2570,6 +2584,16 @@ export interface VpnConnectionOptionsSpecification {
   TransportTransitGatewayAttachmentId?: string | undefined;
 
   /**
+   * <p>
+   * 			The desired bandwidth specification for the VPN tunnel, used when creating or modifying VPN connection options to set the tunnel's throughput
+   * 			capacity. <code>standard</code> supports up to 1.25 Gbps per tunnel, while <code>large</code> supports up to 5 Gbps per tunnel. The default value is <code>standard</code>. Existing
+   * 			VPN connections without a bandwidth setting will automatically default to <code>standard</code>.
+   * 		</p>
+   * @public
+   */
+  TunnelBandwidth?: VpnTunnelBandwidth | undefined;
+
+  /**
    * <p>Indicate whether the VPN connection uses static routes only. If you are creating a VPN
    *             connection for a device that does not support BGP, you must specify <code>true</code>.
    *             Use <a>CreateVpnConnectionRoute</a> to create a static route.</p>
@@ -2989,6 +3013,15 @@ export interface VpnConnectionOptions {
    * @public
    */
   TunnelOptions?: TunnelOption[] | undefined;
+
+  /**
+   * <p>
+   * 			The configured bandwidth for the VPN tunnel. Represents the current throughput capacity setting for the tunnel connection. <code>standard</code> tunnel bandwidth supports up to 1.25 Gbps per tunnel while <code>large</code>
+   * 			supports up to 5 Gbps per tunnel. If no tunnel bandwidth was specified for the connection, <code>standard</code> is used as the default value.
+   * 		</p>
+   * @public
+   */
+  TunnelBandwidth?: VpnTunnelBandwidth | undefined;
 }
 
 /**
@@ -7433,19 +7466,6 @@ export interface DescribeAwsNetworkPerformanceMetricSubscriptionsRequest {
    */
   DryRun?: boolean | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const MetricType = {
-  aggregate_latency: "aggregate-latency",
-} as const;
-
-/**
- * @public
- */
-export type MetricType = (typeof MetricType)[keyof typeof MetricType];
 
 /**
  * @internal

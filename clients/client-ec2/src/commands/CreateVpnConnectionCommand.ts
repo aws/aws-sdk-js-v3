@@ -143,6 +143,7 @@ export interface CreateVpnConnectionCommandOutput extends CreateVpnConnectionRes
  *     RemoteIpv6NetworkCidr: "STRING_VALUE",
  *     OutsideIpAddressType: "STRING_VALUE",
  *     TransportTransitGatewayAttachmentId: "STRING_VALUE",
+ *     TunnelBandwidth: "standard" || "large",
  *     StaticRoutesOnly: true || false,
  *   },
  * };
@@ -224,6 +225,7 @@ export interface CreateVpnConnectionCommandOutput extends CreateVpnConnectionRes
  * //           EnableTunnelLifecycleControl: true || false,
  * //         },
  * //       ],
+ * //       TunnelBandwidth: "standard" || "large",
  * //     },
  * //     Routes: [ // VpnStaticRouteList
  * //       { // VpnStaticRoute

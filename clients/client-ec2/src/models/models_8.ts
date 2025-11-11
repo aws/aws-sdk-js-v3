@@ -125,7 +125,48 @@ import {
   VpcBlockPublicAccessOptions,
 } from "./models_6";
 
-import { CapacityReservationSpecification, Purchase } from "./models_7";
+import {
+  CapacityReservationSpecification,
+  ModifyTransitGatewayVpcAttachmentRequestOptions,
+  Purchase,
+} from "./models_7";
+
+/**
+ * @public
+ */
+export interface ModifyTransitGatewayVpcAttachmentRequest {
+  /**
+   * <p>The ID of the attachment.</p>
+   * @public
+   */
+  TransitGatewayAttachmentId: string | undefined;
+
+  /**
+   * <p>The IDs of one or more subnets to add. You can specify at most one subnet per Availability Zone.</p>
+   * @public
+   */
+  AddSubnetIds?: string[] | undefined;
+
+  /**
+   * <p>The IDs of one or more subnets to remove.</p>
+   * @public
+   */
+  RemoveSubnetIds?: string[] | undefined;
+
+  /**
+   * <p>The new VPC attachment options.</p>
+   * @public
+   */
+  Options?: ModifyTransitGatewayVpcAttachmentRequestOptions | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
 
 /**
  * @public

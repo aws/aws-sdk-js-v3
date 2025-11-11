@@ -131,6 +131,7 @@ export interface ModifyVpnConnectionOptionsCommandOutput extends ModifyVpnConnec
  * //           EnableTunnelLifecycleControl: true || false,
  * //         },
  * //       ],
+ * //       TunnelBandwidth: "standard" || "large",
  * //     },
  * //     Routes: [ // VpnStaticRouteList
  * //       { // VpnStaticRoute

@@ -136,6 +136,7 @@ export interface DescribeVpnConnectionsCommandOutput extends DescribeVpnConnecti
  * //             EnableTunnelLifecycleControl: true || false,
  * //           },
  * //         ],
+ * //         TunnelBandwidth: "standard" || "large",
  * //       },
  * //       Routes: [ // VpnStaticRouteList
  * //         { // VpnStaticRoute
