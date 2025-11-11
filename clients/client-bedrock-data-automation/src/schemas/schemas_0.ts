@@ -1,6 +1,7 @@
 const _ADE = "AccessDeniedException";
 const _AEC = "AudioExtractionCategory";
 const _AECTC = "AudioExtractionCategoryTypeConfiguration";
+const _ALC = "AudioLanguageConfiguration";
 const _AOC = "AudioOverrideConfiguration";
 const _ASE = "AudioStandardExtraction";
 const _ASGF = "AudioStandardGenerativeField";
@@ -126,14 +127,18 @@ const _ex = "extraction";
 const _fL = "fieldList";
 const _g = "granularity";
 const _gF = "generativeField";
+const _gOL = "generativeOutputLanguage";
 const _h = "http";
 const _hE = "httpError";
 const _hQ = "httpQuery";
 const _i = "image";
+const _iL = "inputLanguages";
+const _iML = "identifyMultipleLanguages";
 const _j = "jpeg";
 const _k = "key";
 const _kEC = "kmsEncryptionContext";
 const _kKI = "kmsKeyId";
+const _lC = "languageConfiguration";
 const _lMT = "lastModifiedTime";
 const _m = "message";
 const _mP = "modalityProcessing";
@@ -232,13 +237,14 @@ export var AudioExtractionCategoryTypeConfiguration: StaticStructureSchema = [
   [_tr],
   [() => TranscriptConfiguration],
 ];
+export var AudioLanguageConfiguration: StaticStructureSchema = [3, n0, _ALC, 0, [_iL, _gOL, _iML], [64 | 0, 0, 2]];
 export var AudioOverrideConfiguration: StaticStructureSchema = [
   3,
   n0,
   _AOC,
   0,
-  [_mP],
-  [() => ModalityProcessingConfiguration],
+  [_mP, _lC],
+  [() => ModalityProcessingConfiguration, () => AudioLanguageConfiguration],
 ];
 export var AudioStandardExtraction: StaticStructureSchema = [3, n0, _ASE, 0, [_ca], [() => AudioExtractionCategory]];
 export var AudioStandardGenerativeField: StaticStructureSchema = [3, n0, _ASGF, 0, [_s, _t], [0, 64 | 0]];
@@ -651,6 +657,8 @@ export var BedrockDataAutomationServiceException: StaticErrorSchema = [
 TypeRegistry.for(_sm).registerError(BedrockDataAutomationServiceException, __BedrockDataAutomationServiceException);
 
 export var AudioExtractionCategoryTypes = 64 | 0;
+
+export var AudioInputLanguages = 64 | 0;
 
 export var AudioStandardGenerativeFieldTypes = 64 | 0;
 

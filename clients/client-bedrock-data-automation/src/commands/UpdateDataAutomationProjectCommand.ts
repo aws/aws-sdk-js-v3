@@ -169,6 +169,13 @@ export interface UpdateDataAutomationProjectCommandOutput
  *       modalityProcessing: {
  *         state: "ENABLED" || "DISABLED",
  *       },
+ *       languageConfiguration: { // AudioLanguageConfiguration
+ *         inputLanguages: [ // AudioInputLanguages
+ *           "EN" || "DE" || "ES" || "FR" || "IT" || "PT" || "JA" || "KO" || "CN" || "TW" || "HK",
+ *         ],
+ *         generativeOutputLanguage: "DEFAULT" || "EN",
+ *         identifyMultipleLanguages: true || false,
+ *       },
  *     },
  *     modalityRouting: { // ModalityRoutingConfiguration
  *       jpeg: "IMAGE" || "DOCUMENT" || "AUDIO" || "VIDEO",

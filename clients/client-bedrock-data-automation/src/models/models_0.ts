@@ -695,6 +695,68 @@ export interface CustomOutputConfiguration {
  * @public
  * @enum
  */
+export const AudioGenerativeOutputLanguage = {
+  DEFAULT: "DEFAULT",
+  EN: "EN",
+} as const;
+
+/**
+ * @public
+ */
+export type AudioGenerativeOutputLanguage =
+  (typeof AudioGenerativeOutputLanguage)[keyof typeof AudioGenerativeOutputLanguage];
+
+/**
+ * @public
+ * @enum
+ */
+export const Language = {
+  CN: "CN",
+  DE: "DE",
+  EN: "EN",
+  ES: "ES",
+  FR: "FR",
+  HK: "HK",
+  IT: "IT",
+  JA: "JA",
+  KO: "KO",
+  PT: "PT",
+  TW: "TW",
+} as const;
+
+/**
+ * @public
+ */
+export type Language = (typeof Language)[keyof typeof Language];
+
+/**
+ * Optional configuration for audio language settings
+ * @public
+ */
+export interface AudioLanguageConfiguration {
+  /**
+   * List of supported audio languages
+   * @public
+   */
+  inputLanguages?: Language[] | undefined;
+
+  /**
+   * Configuration for Audio output language
+   * @public
+   */
+  generativeOutputLanguage?: AudioGenerativeOutputLanguage | undefined;
+
+  /**
+   * Enable multiple language identification in audio
+   * @public
+   */
+  identifyMultipleLanguages?: boolean | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
 export const State = {
   DISABLED: "DISABLED",
   ENABLED: "ENABLED",
@@ -727,6 +789,12 @@ export interface AudioOverrideConfiguration {
    * @public
    */
   modalityProcessing?: ModalityProcessingConfiguration | undefined;
+
+  /**
+   * Optional configuration for audio language settings
+   * @public
+   */
+  languageConfiguration?: AudioLanguageConfiguration | undefined;
 }
 
 /**
