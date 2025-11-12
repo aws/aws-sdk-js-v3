@@ -44,7 +44,7 @@ export interface CreateModelPackageCommandOutput extends CreateModelPackageOutpu
  *     Containers: [ // ModelPackageContainerDefinitionList // required
  *       { // ModelPackageContainerDefinition
  *         ContainerHostname: "STRING_VALUE",
- *         Image: "STRING_VALUE", // required
+ *         Image: "STRING_VALUE",
  *         ImageDigest: "STRING_VALUE",
  *         ModelDataUrl: "STRING_VALUE",
  *         ModelDataSource: { // ModelDataSource
@@ -252,7 +252,7 @@ export interface CreateModelPackageCommandOutput extends CreateModelPackageOutpu
  *       Containers: [ // required
  *         {
  *           ContainerHostname: "STRING_VALUE",
- *           Image: "STRING_VALUE", // required
+ *           Image: "STRING_VALUE",
  *           ImageDigest: "STRING_VALUE",
  *           ModelDataUrl: "STRING_VALUE",
  *           ModelDataSource: {

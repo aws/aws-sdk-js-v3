@@ -442,7 +442,7 @@ export interface ModelPackageContainerDefinition {
    * <p>The Amazon Elastic Container Registry (Amazon ECR) path where inference code is stored.</p> <p>If you are using your own custom algorithm instead of an algorithm provided by SageMaker, the inference code must meet SageMaker requirements. SageMaker supports both <code>registry/repository[:tag]</code> and <code>registry/repository[@digest]</code> image path formats. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms.html">Using Your Own Algorithms with Amazon SageMaker</a>.</p>
    * @public
    */
-  Image: string | undefined;
+  Image?: string | undefined;
 
   /**
    * <p>An MD5 hash of the training algorithm that identifies the Docker image used for training.</p>
@@ -7395,6 +7395,7 @@ export const ClusterInstanceType = {
   ML_T3_XLARGE: "ml.t3.xlarge",
   ML_TRN1N_32XLARGE: "ml.trn1n.32xlarge",
   ML_TRN1_32XLARGE: "ml.trn1.32xlarge",
+  ML_TRN2_3XLARGE: "ml.trn2.3xlarge",
   ML_TRN2_48XLARGE: "ml.trn2.48xlarge",
 } as const;
 

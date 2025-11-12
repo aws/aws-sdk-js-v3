@@ -7619,7 +7619,7 @@ export interface DescribeTrainingJobResponse {
    * <p>Information about the algorithm used for training, and algorithm metadata. </p>
    * @public
    */
-  AlgorithmSpecification: AlgorithmSpecification | undefined;
+  AlgorithmSpecification?: AlgorithmSpecification | undefined;
 
   /**
    * <p>The Amazon Web Services Identity and Access Management (IAM) role configured for the training job. </p>
@@ -7643,7 +7643,7 @@ export interface DescribeTrainingJobResponse {
    * <p>Resources, including ML compute instances and ML storage volumes, that are configured for model training. </p>
    * @public
    */
-  ResourceConfig: ResourceConfig | undefined;
+  ResourceConfig?: ResourceConfig | undefined;
 
   /**
    * <p>The status of the warm pool associated with the training job.</p>
