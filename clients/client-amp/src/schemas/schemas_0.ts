@@ -169,6 +169,7 @@ const _UWAR = "UpdateWorkspaceAliasRequest";
 const _UWC = "UpdateWorkspaceConfiguration";
 const _UWCR = "UpdateWorkspaceConfigurationRequest";
 const _UWCRp = "UpdateWorkspaceConfigurationResponse";
+const _VC = "VpcConfiguration";
 const _VE = "ValidationException";
 const _VEF = "ValidationExceptionField";
 const _VEFL = "ValidationExceptionFieldList";
@@ -269,6 +270,7 @@ const _t = "tags";
 const _tK = "tagKeys";
 const _tRA = "targetRoleArn";
 const _ty = "type";
+const _vC = "vpcConfiguration";
 const _w = "workspace";
 const _wA = "workspaceArn";
 const _wC = "workspaceConfiguration";
@@ -1200,6 +1202,7 @@ export var ValidationException: StaticErrorSchema = [
 TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
 
 export var ValidationExceptionField: StaticStructureSchema = [3, n0, _VEF, 0, [_n, _m], [0, 0]];
+export var VpcConfiguration: StaticStructureSchema = [3, n0, _VC, 0, [_sGI, _sIu], [64 | 0, 64 | 0]];
 export var WorkspaceConfigurationDescription: StaticStructureSchema = [
   3,
   n0,
@@ -1276,7 +1279,7 @@ export var ScraperLoggingDestination: StaticStructureSchema = [
   [_cWL],
   [() => CloudWatchLogDestination],
 ];
-export var Source: StaticStructureSchema = [3, n0, _S, 0, [_eC], [() => EksConfiguration]];
+export var Source: StaticStructureSchema = [3, n0, _S, 0, [_eC, _vC], [() => EksConfiguration, () => VpcConfiguration]];
 export var CreateAlertManagerDefinition: StaticOperationSchema = [
   9,
   n0,

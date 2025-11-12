@@ -73,6 +73,14 @@ export interface ListScrapersCommandOutput extends ListScrapersResponse, __Metad
  * //             "STRING_VALUE",
  * //           ],
  * //         },
+ * //         vpcConfiguration: { // VpcConfiguration
+ * //           securityGroupIds: [ // required
+ * //             "STRING_VALUE",
+ * //           ],
+ * //           subnetIds: [ // required
+ * //             "STRING_VALUE",
+ * //           ],
+ * //         },
  * //       },
  * //       destination: { // Destination Union: only one key present
  * //         ampConfiguration: { // AmpConfiguration

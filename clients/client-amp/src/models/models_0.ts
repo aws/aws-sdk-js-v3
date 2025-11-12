@@ -645,10 +645,28 @@ export interface EksConfiguration {
 }
 
 /**
+ * <p>The Amazon VPC configuration that specifies the network settings for a Prometheus collector to securely connect to Amazon MSK clusters. This configuration includes the security groups and subnets that control network access and placement for the collector.</p>
+ * @public
+ */
+export interface VpcConfiguration {
+  /**
+   * <p>The security group IDs that control network access for the Prometheus collector. These security groups must allow the collector to communicate with your Amazon MSK cluster on the required ports.</p>
+   * @public
+   */
+  securityGroupIds: string[] | undefined;
+
+  /**
+   * <p>The subnet IDs where the Prometheus collector will be deployed. The subnets must be in the same Amazon VPC as your Amazon MSK cluster and have network connectivity to the cluster.</p>
+   * @public
+   */
+  subnetIds: string[] | undefined;
+}
+
+/**
  * <p>The source of collected metrics for a scraper.</p>
  * @public
  */
-export type Source = Source.EksConfigurationMember | Source.$UnknownMember;
+export type Source = Source.EksConfigurationMember | Source.VpcConfigurationMember | Source.$UnknownMember;
 
 /**
  * @public
@@ -660,6 +678,17 @@ export namespace Source {
    */
   export interface EksConfigurationMember {
     eksConfiguration: EksConfiguration;
+    vpcConfiguration?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The Amazon VPC configuration for the Prometheus collector when connecting to Amazon MSK clusters. This configuration enables secure, private network connectivity between the collector and your Amazon MSK cluster within your Amazon VPC.</p>
+   * @public
+   */
+  export interface VpcConfigurationMember {
+    eksConfiguration?: never;
+    vpcConfiguration: VpcConfiguration;
     $unknown?: never;
   }
 
@@ -668,6 +697,7 @@ export namespace Source {
    */
   export interface $UnknownMember {
     eksConfiguration?: never;
+    vpcConfiguration?: never;
     $unknown: [string, any];
   }
 
@@ -677,6 +707,7 @@ export namespace Source {
    */
   export interface Visitor<T> {
     eksConfiguration: (value: EksConfiguration) => T;
+    vpcConfiguration: (value: VpcConfiguration) => T;
     _: (name: string, value: any) => T;
   }
 }
@@ -699,7 +730,7 @@ export interface CreateScraperRequest {
   scrapeConfiguration: ScrapeConfiguration | undefined;
 
   /**
-   * <p>The Amazon EKS cluster from which the scraper will collect metrics.</p>
+   * <p>The Amazon EKS or Amazon Web Services cluster from which the scraper will collect metrics.</p>
    * @public
    */
   source: Source | undefined;

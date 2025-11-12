@@ -69,6 +69,14 @@ export interface DescribeScraperCommandOutput extends DescribeScraperResponse, _
  * //           "STRING_VALUE",
  * //         ],
  * //       },
+ * //       vpcConfiguration: { // VpcConfiguration
+ * //         securityGroupIds: [ // required
+ * //           "STRING_VALUE",
+ * //         ],
+ * //         subnetIds: [ // required
+ * //           "STRING_VALUE",
+ * //         ],
+ * //       },
  * //     },
  * //     destination: { // Destination Union: only one key present
  * //       ampConfiguration: { // AmpConfiguration
