@@ -60,17 +60,15 @@ export namespace LoggingFormat {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     text: (value: string) => T;
     json: (value: JsonFormatRef[]) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: LoggingFormat, visitor: Visitor<T>): T => {
-    if (value.text !== undefined) return visitor.text(value.text);
-    if (value.json !== undefined) return visitor.json(value.json);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -127,15 +125,14 @@ export namespace AccessLog {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     file: (value: FileAccessLog) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: AccessLog, visitor: Visitor<T>): T => {
-    if (value.file !== undefined) return visitor.file(value.file);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -914,17 +911,15 @@ export namespace VirtualGatewayClientTlsCertificate {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     file: (value: VirtualGatewayListenerTlsFileCertificate) => T;
     sds: (value: VirtualGatewayListenerTlsSdsCertificate) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: VirtualGatewayClientTlsCertificate, visitor: Visitor<T>): T => {
-    if (value.file !== undefined) return visitor.file(value.file);
-    if (value.sds !== undefined) return visitor.sds(value.sds);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -1054,19 +1049,16 @@ export namespace VirtualGatewayTlsValidationContextTrust {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     acm: (value: VirtualGatewayTlsValidationContextAcmTrust) => T;
     file: (value: VirtualGatewayTlsValidationContextFileTrust) => T;
     sds: (value: VirtualGatewayTlsValidationContextSdsTrust) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: VirtualGatewayTlsValidationContextTrust, visitor: Visitor<T>): T => {
-    if (value.acm !== undefined) return visitor.acm(value.acm);
-    if (value.file !== undefined) return visitor.file(value.file);
-    if (value.sds !== undefined) return visitor.sds(value.sds);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -1252,19 +1244,16 @@ export namespace VirtualGatewayConnectionPool {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     http: (value: VirtualGatewayHttpConnectionPool) => T;
     http2: (value: VirtualGatewayHttp2ConnectionPool) => T;
     grpc: (value: VirtualGatewayGrpcConnectionPool) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: VirtualGatewayConnectionPool, visitor: Visitor<T>): T => {
-    if (value.http !== undefined) return visitor.http(value.http);
-    if (value.http2 !== undefined) return visitor.http2(value.http2);
-    if (value.grpc !== undefined) return visitor.grpc(value.grpc);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -1426,19 +1415,16 @@ export namespace VirtualGatewayListenerTlsCertificate {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     acm: (value: VirtualGatewayListenerTlsAcmCertificate) => T;
     file: (value: VirtualGatewayListenerTlsFileCertificate) => T;
     sds: (value: VirtualGatewayListenerTlsSdsCertificate) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: VirtualGatewayListenerTlsCertificate, visitor: Visitor<T>): T => {
-    if (value.acm !== undefined) return visitor.acm(value.acm);
-    if (value.file !== undefined) return visitor.file(value.file);
-    if (value.sds !== undefined) return visitor.sds(value.sds);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -1501,17 +1487,15 @@ export namespace VirtualGatewayListenerTlsValidationContextTrust {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     file: (value: VirtualGatewayTlsValidationContextFileTrust) => T;
     sds: (value: VirtualGatewayTlsValidationContextSdsTrust) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: VirtualGatewayListenerTlsValidationContextTrust, visitor: Visitor<T>): T => {
-    if (value.file !== undefined) return visitor.file(value.file);
-    if (value.sds !== undefined) return visitor.sds(value.sds);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -1657,15 +1641,14 @@ export namespace VirtualGatewayAccessLog {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     file: (value: VirtualGatewayFileAccessLog) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: VirtualGatewayAccessLog, visitor: Visitor<T>): T => {
-    if (value.file !== undefined) return visitor.file(value.file);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -2111,6 +2094,10 @@ export namespace GrpcMetadataMatchMethod {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     exact: (value: string) => T;
     regex: (value: string) => T;
@@ -2119,15 +2106,6 @@ export namespace GrpcMetadataMatchMethod {
     suffix: (value: string) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: GrpcMetadataMatchMethod, visitor: Visitor<T>): T => {
-    if (value.exact !== undefined) return visitor.exact(value.exact);
-    if (value.regex !== undefined) return visitor.regex(value.regex);
-    if (value.range !== undefined) return visitor.range(value.range);
-    if (value.prefix !== undefined) return visitor.prefix(value.prefix);
-    if (value.suffix !== undefined) return visitor.suffix(value.suffix);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -2369,6 +2347,10 @@ export namespace HeaderMatchMethod {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     exact: (value: string) => T;
     regex: (value: string) => T;
@@ -2377,15 +2359,6 @@ export namespace HeaderMatchMethod {
     suffix: (value: string) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: HeaderMatchMethod, visitor: Visitor<T>): T => {
-    if (value.exact !== undefined) return visitor.exact(value.exact);
-    if (value.regex !== undefined) return visitor.regex(value.regex);
-    if (value.range !== undefined) return visitor.range(value.range);
-    if (value.prefix !== undefined) return visitor.prefix(value.prefix);
-    if (value.suffix !== undefined) return visitor.suffix(value.suffix);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -3232,17 +3205,15 @@ export namespace ClientTlsCertificate {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     file: (value: ListenerTlsFileCertificate) => T;
     sds: (value: ListenerTlsSdsCertificate) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: ClientTlsCertificate, visitor: Visitor<T>): T => {
-    if (value.file !== undefined) return visitor.file(value.file);
-    if (value.sds !== undefined) return visitor.sds(value.sds);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -3345,19 +3316,16 @@ export namespace TlsValidationContextTrust {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     acm: (value: TlsValidationContextAcmTrust) => T;
     file: (value: TlsValidationContextFileTrust) => T;
     sds: (value: TlsValidationContextSdsTrust) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: TlsValidationContextTrust, visitor: Visitor<T>): T => {
-    if (value.acm !== undefined) return visitor.acm(value.acm);
-    if (value.file !== undefined) return visitor.file(value.file);
-    if (value.sds !== undefined) return visitor.sds(value.sds);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -3486,15 +3454,14 @@ export namespace Backend {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     virtualService: (value: VirtualServiceBackend) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: Backend, visitor: Visitor<T>): T => {
-    if (value.virtualService !== undefined) return visitor.virtualService(value.virtualService);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -3635,6 +3602,10 @@ export namespace VirtualNodeConnectionPool {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     tcp: (value: VirtualNodeTcpConnectionPool) => T;
     http: (value: VirtualNodeHttpConnectionPool) => T;
@@ -3642,14 +3613,6 @@ export namespace VirtualNodeConnectionPool {
     grpc: (value: VirtualNodeGrpcConnectionPool) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: VirtualNodeConnectionPool, visitor: Visitor<T>): T => {
-    if (value.tcp !== undefined) return visitor.tcp(value.tcp);
-    if (value.http !== undefined) return visitor.http(value.http);
-    if (value.http2 !== undefined) return visitor.http2(value.http2);
-    if (value.grpc !== undefined) return visitor.grpc(value.grpc);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -3930,6 +3893,10 @@ export namespace ListenerTimeout {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     tcp: (value: TcpTimeout) => T;
     http: (value: HttpTimeout) => T;
@@ -3937,14 +3904,6 @@ export namespace ListenerTimeout {
     grpc: (value: GrpcTimeout) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: ListenerTimeout, visitor: Visitor<T>): T => {
-    if (value.tcp !== undefined) return visitor.tcp(value.tcp);
-    if (value.http !== undefined) return visitor.http(value.http);
-    if (value.http2 !== undefined) return visitor.http2(value.http2);
-    if (value.grpc !== undefined) return visitor.grpc(value.grpc);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -4017,19 +3976,16 @@ export namespace ListenerTlsCertificate {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     acm: (value: ListenerTlsAcmCertificate) => T;
     file: (value: ListenerTlsFileCertificate) => T;
     sds: (value: ListenerTlsSdsCertificate) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: ListenerTlsCertificate, visitor: Visitor<T>): T => {
-    if (value.acm !== undefined) return visitor.acm(value.acm);
-    if (value.file !== undefined) return visitor.file(value.file);
-    if (value.sds !== undefined) return visitor.sds(value.sds);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -4090,17 +4046,15 @@ export namespace ListenerTlsValidationContextTrust {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     file: (value: TlsValidationContextFileTrust) => T;
     sds: (value: TlsValidationContextSdsTrust) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: ListenerTlsValidationContextTrust, visitor: Visitor<T>): T => {
-    if (value.file !== undefined) return visitor.file(value.file);
-    if (value.sds !== undefined) return visitor.sds(value.sds);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -4363,17 +4317,15 @@ export namespace ServiceDiscovery {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     dns: (value: DnsServiceDiscovery) => T;
     awsCloudMap: (value: AwsCloudMapServiceDiscovery) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: ServiceDiscovery, visitor: Visitor<T>): T => {
-    if (value.dns !== undefined) return visitor.dns(value.dns);
-    if (value.awsCloudMap !== undefined) return visitor.awsCloudMap(value.awsCloudMap);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -5252,6 +5204,10 @@ export namespace GrpcRouteMetadataMatchMethod {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     exact: (value: string) => T;
     regex: (value: string) => T;
@@ -5260,15 +5216,6 @@ export namespace GrpcRouteMetadataMatchMethod {
     suffix: (value: string) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: GrpcRouteMetadataMatchMethod, visitor: Visitor<T>): T => {
-    if (value.exact !== undefined) return visitor.exact(value.exact);
-    if (value.regex !== undefined) return visitor.regex(value.regex);
-    if (value.range !== undefined) return visitor.range(value.range);
-    if (value.prefix !== undefined) return visitor.prefix(value.prefix);
-    if (value.suffix !== undefined) return visitor.suffix(value.suffix);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -6242,17 +6189,15 @@ export namespace VirtualServiceProvider {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     virtualNode: (value: VirtualNodeServiceProvider) => T;
     virtualRouter: (value: VirtualRouterServiceProvider) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: VirtualServiceProvider, visitor: Visitor<T>): T => {
-    if (value.virtualNode !== undefined) return visitor.virtualNode(value.virtualNode);
-    if (value.virtualRouter !== undefined) return visitor.virtualRouter(value.virtualRouter);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**

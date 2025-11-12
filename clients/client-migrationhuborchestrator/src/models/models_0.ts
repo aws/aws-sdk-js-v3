@@ -162,6 +162,10 @@ export namespace StepInput {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     integerValue: (value: number) => T;
     stringValue: (value: string) => T;
@@ -169,14 +173,6 @@ export namespace StepInput {
     mapOfStringValue: (value: Record<string, string>) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: StepInput, visitor: Visitor<T>): T => {
-    if (value.integerValue !== undefined) return visitor.integerValue(value.integerValue);
-    if (value.stringValue !== undefined) return visitor.stringValue(value.stringValue);
-    if (value.listOfStringsValue !== undefined) return visitor.listOfStringsValue(value.listOfStringsValue);
-    if (value.mapOfStringValue !== undefined) return visitor.mapOfStringValue(value.mapOfStringValue);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -929,15 +925,14 @@ export namespace TemplateSource {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     workflowId: (value: string) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: TemplateSource, visitor: Visitor<T>): T => {
-    if (value.workflowId !== undefined) return visitor.workflowId(value.workflowId);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -2036,19 +2031,16 @@ export namespace WorkflowStepOutputUnion {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     integerValue: (value: number) => T;
     stringValue: (value: string) => T;
     listOfStringValue: (value: string[]) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: WorkflowStepOutputUnion, visitor: Visitor<T>): T => {
-    if (value.integerValue !== undefined) return visitor.integerValue(value.integerValue);
-    if (value.stringValue !== undefined) return visitor.stringValue(value.stringValue);
-    if (value.listOfStringValue !== undefined) return visitor.listOfStringValue(value.listOfStringValue);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**

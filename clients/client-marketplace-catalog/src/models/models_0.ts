@@ -2288,6 +2288,10 @@ export namespace EntityTypeFilters {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     DataProductFilters: (value: DataProductFilters) => T;
     SaaSProductFilters: (value: SaaSProductFilters) => T;
@@ -2298,20 +2302,6 @@ export namespace EntityTypeFilters {
     MachineLearningProductFilters: (value: MachineLearningProductFilters) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: EntityTypeFilters, visitor: Visitor<T>): T => {
-    if (value.DataProductFilters !== undefined) return visitor.DataProductFilters(value.DataProductFilters);
-    if (value.SaaSProductFilters !== undefined) return visitor.SaaSProductFilters(value.SaaSProductFilters);
-    if (value.AmiProductFilters !== undefined) return visitor.AmiProductFilters(value.AmiProductFilters);
-    if (value.OfferFilters !== undefined) return visitor.OfferFilters(value.OfferFilters);
-    if (value.ContainerProductFilters !== undefined)
-      return visitor.ContainerProductFilters(value.ContainerProductFilters);
-    if (value.ResaleAuthorizationFilters !== undefined)
-      return visitor.ResaleAuthorizationFilters(value.ResaleAuthorizationFilters);
-    if (value.MachineLearningProductFilters !== undefined)
-      return visitor.MachineLearningProductFilters(value.MachineLearningProductFilters);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -2673,6 +2663,10 @@ export namespace EntityTypeSort {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     DataProductSort: (value: DataProductSort) => T;
     SaaSProductSort: (value: SaaSProductSort) => T;
@@ -2683,19 +2677,6 @@ export namespace EntityTypeSort {
     MachineLearningProductSort: (value: MachineLearningProductSort) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: EntityTypeSort, visitor: Visitor<T>): T => {
-    if (value.DataProductSort !== undefined) return visitor.DataProductSort(value.DataProductSort);
-    if (value.SaaSProductSort !== undefined) return visitor.SaaSProductSort(value.SaaSProductSort);
-    if (value.AmiProductSort !== undefined) return visitor.AmiProductSort(value.AmiProductSort);
-    if (value.OfferSort !== undefined) return visitor.OfferSort(value.OfferSort);
-    if (value.ContainerProductSort !== undefined) return visitor.ContainerProductSort(value.ContainerProductSort);
-    if (value.ResaleAuthorizationSort !== undefined)
-      return visitor.ResaleAuthorizationSort(value.ResaleAuthorizationSort);
-    if (value.MachineLearningProductSort !== undefined)
-      return visitor.MachineLearningProductSort(value.MachineLearningProductSort);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**

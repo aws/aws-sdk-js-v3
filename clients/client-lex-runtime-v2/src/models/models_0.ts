@@ -1967,6 +1967,10 @@ export namespace StartConversationRequestEventStream {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     ConfigurationEvent: (value: ConfigurationEvent) => T;
     AudioInputEvent: (value: AudioInputEvent) => T;
@@ -1976,17 +1980,6 @@ export namespace StartConversationRequestEventStream {
     DisconnectionEvent: (value: DisconnectionEvent) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: StartConversationRequestEventStream, visitor: Visitor<T>): T => {
-    if (value.ConfigurationEvent !== undefined) return visitor.ConfigurationEvent(value.ConfigurationEvent);
-    if (value.AudioInputEvent !== undefined) return visitor.AudioInputEvent(value.AudioInputEvent);
-    if (value.DTMFInputEvent !== undefined) return visitor.DTMFInputEvent(value.DTMFInputEvent);
-    if (value.TextInputEvent !== undefined) return visitor.TextInputEvent(value.TextInputEvent);
-    if (value.PlaybackCompletionEvent !== undefined)
-      return visitor.PlaybackCompletionEvent(value.PlaybackCompletionEvent);
-    if (value.DisconnectionEvent !== undefined) return visitor.DisconnectionEvent(value.DisconnectionEvent);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -2558,6 +2551,10 @@ export namespace StartConversationResponseEventStream {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     PlaybackInterruptionEvent: (value: PlaybackInterruptionEvent) => T;
     TranscriptEvent: (value: TranscriptEvent) => T;
@@ -2575,28 +2572,6 @@ export namespace StartConversationResponseEventStream {
     BadGatewayException: (value: BadGatewayException) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: StartConversationResponseEventStream, visitor: Visitor<T>): T => {
-    if (value.PlaybackInterruptionEvent !== undefined)
-      return visitor.PlaybackInterruptionEvent(value.PlaybackInterruptionEvent);
-    if (value.TranscriptEvent !== undefined) return visitor.TranscriptEvent(value.TranscriptEvent);
-    if (value.IntentResultEvent !== undefined) return visitor.IntentResultEvent(value.IntentResultEvent);
-    if (value.TextResponseEvent !== undefined) return visitor.TextResponseEvent(value.TextResponseEvent);
-    if (value.AudioResponseEvent !== undefined) return visitor.AudioResponseEvent(value.AudioResponseEvent);
-    if (value.HeartbeatEvent !== undefined) return visitor.HeartbeatEvent(value.HeartbeatEvent);
-    if (value.AccessDeniedException !== undefined) return visitor.AccessDeniedException(value.AccessDeniedException);
-    if (value.ResourceNotFoundException !== undefined)
-      return visitor.ResourceNotFoundException(value.ResourceNotFoundException);
-    if (value.ValidationException !== undefined) return visitor.ValidationException(value.ValidationException);
-    if (value.ThrottlingException !== undefined) return visitor.ThrottlingException(value.ThrottlingException);
-    if (value.InternalServerException !== undefined)
-      return visitor.InternalServerException(value.InternalServerException);
-    if (value.ConflictException !== undefined) return visitor.ConflictException(value.ConflictException);
-    if (value.DependencyFailedException !== undefined)
-      return visitor.DependencyFailedException(value.DependencyFailedException);
-    if (value.BadGatewayException !== undefined) return visitor.BadGatewayException(value.BadGatewayException);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**

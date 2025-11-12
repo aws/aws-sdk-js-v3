@@ -376,17 +376,15 @@ export namespace SourceData {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     x509CertificateData: (value: string) => T;
     acmPcaArn: (value: string) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: SourceData, visitor: Visitor<T>): T => {
-    if (value.x509CertificateData !== undefined) return visitor.x509CertificateData(value.x509CertificateData);
-    if (value.acmPcaArn !== undefined) return visitor.acmPcaArn(value.acmPcaArn);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**

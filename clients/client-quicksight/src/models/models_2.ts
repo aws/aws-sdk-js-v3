@@ -7644,6 +7644,10 @@ export namespace DataSourceParameters {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     AmazonElasticsearchParameters: (value: AmazonElasticsearchParameters) => T;
     AthenaParameters: (value: AthenaParameters) => T;
@@ -7679,48 +7683,6 @@ export namespace DataSourceParameters {
     QBusinessParameters: (value: QBusinessParameters) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: DataSourceParameters, visitor: Visitor<T>): T => {
-    if (value.AmazonElasticsearchParameters !== undefined)
-      return visitor.AmazonElasticsearchParameters(value.AmazonElasticsearchParameters);
-    if (value.AthenaParameters !== undefined) return visitor.AthenaParameters(value.AthenaParameters);
-    if (value.AuroraParameters !== undefined) return visitor.AuroraParameters(value.AuroraParameters);
-    if (value.AuroraPostgreSqlParameters !== undefined)
-      return visitor.AuroraPostgreSqlParameters(value.AuroraPostgreSqlParameters);
-    if (value.AwsIotAnalyticsParameters !== undefined)
-      return visitor.AwsIotAnalyticsParameters(value.AwsIotAnalyticsParameters);
-    if (value.JiraParameters !== undefined) return visitor.JiraParameters(value.JiraParameters);
-    if (value.MariaDbParameters !== undefined) return visitor.MariaDbParameters(value.MariaDbParameters);
-    if (value.MySqlParameters !== undefined) return visitor.MySqlParameters(value.MySqlParameters);
-    if (value.OracleParameters !== undefined) return visitor.OracleParameters(value.OracleParameters);
-    if (value.PostgreSqlParameters !== undefined) return visitor.PostgreSqlParameters(value.PostgreSqlParameters);
-    if (value.PrestoParameters !== undefined) return visitor.PrestoParameters(value.PrestoParameters);
-    if (value.RdsParameters !== undefined) return visitor.RdsParameters(value.RdsParameters);
-    if (value.RedshiftParameters !== undefined) return visitor.RedshiftParameters(value.RedshiftParameters);
-    if (value.S3Parameters !== undefined) return visitor.S3Parameters(value.S3Parameters);
-    if (value.S3KnowledgeBaseParameters !== undefined)
-      return visitor.S3KnowledgeBaseParameters(value.S3KnowledgeBaseParameters);
-    if (value.ServiceNowParameters !== undefined) return visitor.ServiceNowParameters(value.ServiceNowParameters);
-    if (value.SnowflakeParameters !== undefined) return visitor.SnowflakeParameters(value.SnowflakeParameters);
-    if (value.SparkParameters !== undefined) return visitor.SparkParameters(value.SparkParameters);
-    if (value.SqlServerParameters !== undefined) return visitor.SqlServerParameters(value.SqlServerParameters);
-    if (value.TeradataParameters !== undefined) return visitor.TeradataParameters(value.TeradataParameters);
-    if (value.TwitterParameters !== undefined) return visitor.TwitterParameters(value.TwitterParameters);
-    if (value.AmazonOpenSearchParameters !== undefined)
-      return visitor.AmazonOpenSearchParameters(value.AmazonOpenSearchParameters);
-    if (value.ExasolParameters !== undefined) return visitor.ExasolParameters(value.ExasolParameters);
-    if (value.DatabricksParameters !== undefined) return visitor.DatabricksParameters(value.DatabricksParameters);
-    if (value.StarburstParameters !== undefined) return visitor.StarburstParameters(value.StarburstParameters);
-    if (value.TrinoParameters !== undefined) return visitor.TrinoParameters(value.TrinoParameters);
-    if (value.BigQueryParameters !== undefined) return visitor.BigQueryParameters(value.BigQueryParameters);
-    if (value.ImpalaParameters !== undefined) return visitor.ImpalaParameters(value.ImpalaParameters);
-    if (value.CustomConnectionParameters !== undefined)
-      return visitor.CustomConnectionParameters(value.CustomConnectionParameters);
-    if (value.WebCrawlerParameters !== undefined) return visitor.WebCrawlerParameters(value.WebCrawlerParameters);
-    if (value.ConfluenceParameters !== undefined) return visitor.ConfluenceParameters(value.ConfluenceParameters);
-    if (value.QBusinessParameters !== undefined) return visitor.QBusinessParameters(value.QBusinessParameters);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -8466,16 +8428,14 @@ export namespace AuthorizationCodeGrantCredentialsDetails {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     AuthorizationCodeGrantDetails: (value: AuthorizationCodeGrantDetails) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: AuthorizationCodeGrantCredentialsDetails, visitor: Visitor<T>): T => {
-    if (value.AuthorizationCodeGrantDetails !== undefined)
-      return visitor.AuthorizationCodeGrantDetails(value.AuthorizationCodeGrantDetails);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -8585,16 +8545,14 @@ export namespace ClientCredentialsDetails {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     ClientCredentialsGrantDetails: (value: ClientCredentialsGrantDetails) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: ClientCredentialsDetails, visitor: Visitor<T>): T => {
-    if (value.ClientCredentialsGrantDetails !== undefined)
-      return visitor.ClientCredentialsGrantDetails(value.ClientCredentialsGrantDetails);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -8759,6 +8717,10 @@ export namespace AuthenticationMetadata {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     AuthorizationCodeGrantMetadata: (value: AuthorizationCodeGrantMetadata) => T;
     ClientCredentialsGrantMetadata: (value: ClientCredentialsGrantMetadata) => T;
@@ -8768,20 +8730,6 @@ export namespace AuthenticationMetadata {
     IamConnectionMetadata: (value: IAMConnectionMetadata) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: AuthenticationMetadata, visitor: Visitor<T>): T => {
-    if (value.AuthorizationCodeGrantMetadata !== undefined)
-      return visitor.AuthorizationCodeGrantMetadata(value.AuthorizationCodeGrantMetadata);
-    if (value.ClientCredentialsGrantMetadata !== undefined)
-      return visitor.ClientCredentialsGrantMetadata(value.ClientCredentialsGrantMetadata);
-    if (value.BasicAuthConnectionMetadata !== undefined)
-      return visitor.BasicAuthConnectionMetadata(value.BasicAuthConnectionMetadata);
-    if (value.ApiKeyConnectionMetadata !== undefined)
-      return visitor.ApiKeyConnectionMetadata(value.ApiKeyConnectionMetadata);
-    if (value.NoneConnectionMetadata !== undefined) return visitor.NoneConnectionMetadata(value.NoneConnectionMetadata);
-    if (value.IamConnectionMetadata !== undefined) return visitor.IamConnectionMetadata(value.IamConnectionMetadata);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**

@@ -260,17 +260,15 @@ export namespace Action {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     noBid: (value: NoBidAction) => T;
     headerTag: (value: HeaderTagAction) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: Action, visitor: Visitor<T>): T => {
-    if (value.noBid !== undefined) return visitor.noBid(value.noBid);
-    if (value.headerTag !== undefined) return visitor.headerTag(value.headerTag);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -416,19 +414,16 @@ export namespace ModuleParameters {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     noBid: (value: NoBidModuleParameters) => T;
     openRtbAttribute: (value: OpenRtbAttributeModuleParameters) => T;
     rateLimiter: (value: RateLimiterModuleParameters) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: ModuleParameters, visitor: Visitor<T>): T => {
-    if (value.noBid !== undefined) return visitor.noBid(value.noBid);
-    if (value.openRtbAttribute !== undefined) return visitor.openRtbAttribute(value.openRtbAttribute);
-    if (value.rateLimiter !== undefined) return visitor.rateLimiter(value.rateLimiter);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -1120,17 +1115,15 @@ export namespace ManagedEndpointConfiguration {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     autoScalingGroups: (value: AutoScalingGroupsConfiguration) => T;
     eksEndpoints: (value: EksEndpointsConfiguration) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: ManagedEndpointConfiguration, visitor: Visitor<T>): T => {
-    if (value.autoScalingGroups !== undefined) return visitor.autoScalingGroups(value.autoScalingGroups);
-    if (value.eksEndpoints !== undefined) return visitor.eksEndpoints(value.eksEndpoints);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**

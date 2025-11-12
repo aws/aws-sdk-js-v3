@@ -1987,6 +1987,10 @@ export namespace SearchInventoryResultItem {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     glossaryItem: (value: GlossaryItem) => T;
     glossaryTermItem: (value: GlossaryTermItem) => T;
@@ -1994,14 +1998,6 @@ export namespace SearchInventoryResultItem {
     dataProductItem: (value: DataProductResultItem) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: SearchInventoryResultItem, visitor: Visitor<T>): T => {
-    if (value.glossaryItem !== undefined) return visitor.glossaryItem(value.glossaryItem);
-    if (value.glossaryTermItem !== undefined) return visitor.glossaryTermItem(value.glossaryTermItem);
-    if (value.assetItem !== undefined) return visitor.assetItem(value.assetItem);
-    if (value.dataProductItem !== undefined) return visitor.dataProductItem(value.dataProductItem);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -2165,17 +2161,15 @@ export namespace SearchResultItem {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     assetListing: (value: AssetListingItem) => T;
     dataProductListing: (value: DataProductListingItem) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: SearchResultItem, visitor: Visitor<T>): T => {
-    if (value.assetListing !== undefined) return visitor.assetListing(value.assetListing);
-    if (value.dataProductListing !== undefined) return visitor.dataProductListing(value.dataProductListing);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -2417,19 +2411,16 @@ export namespace SearchTypesResultItem {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     assetTypeItem: (value: AssetTypeItem) => T;
     formTypeItem: (value: FormTypeData) => T;
     lineageNodeTypeItem: (value: LineageNodeTypeItem) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: SearchTypesResultItem, visitor: Visitor<T>): T => {
-    if (value.assetTypeItem !== undefined) return visitor.assetTypeItem(value.assetTypeItem);
-    if (value.formTypeItem !== undefined) return visitor.formTypeItem(value.formTypeItem);
-    if (value.lineageNodeTypeItem !== undefined) return visitor.lineageNodeTypeItem(value.lineageNodeTypeItem);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -4172,19 +4163,16 @@ export namespace FilterClause {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     filter: (value: Filter) => T;
     and: (value: FilterClause[]) => T;
     or: (value: FilterClause[]) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: FilterClause, visitor: Visitor<T>): T => {
-    if (value.filter !== undefined) return visitor.filter(value.filter);
-    if (value.and !== undefined) return visitor.and(value.and);
-    if (value.or !== undefined) return visitor.or(value.or);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -4244,19 +4232,16 @@ export namespace RowFilter {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     expression: (value: RowFilterExpression) => T;
     and: (value: RowFilter[]) => T;
     or: (value: RowFilter[]) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: RowFilter, visitor: Visitor<T>): T => {
-    if (value.expression !== undefined) return visitor.expression(value.expression);
-    if (value.and !== undefined) return visitor.and(value.and);
-    if (value.or !== undefined) return visitor.or(value.or);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -4502,17 +4487,15 @@ export namespace AssetFilterConfiguration {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     columnConfiguration: (value: ColumnFilterConfiguration) => T;
     rowConfiguration: (value: RowFilterConfiguration) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: AssetFilterConfiguration, visitor: Visitor<T>): T => {
-    if (value.columnConfiguration !== undefined) return visitor.columnConfiguration(value.columnConfiguration);
-    if (value.rowConfiguration !== undefined) return visitor.rowConfiguration(value.rowConfiguration);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**

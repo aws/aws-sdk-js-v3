@@ -1531,15 +1531,14 @@ export namespace ExecutionInputs {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     Automation: (value: AutomationExecutionInputs) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: ExecutionInputs, visitor: Visitor<T>): T => {
-    if (value.Automation !== undefined) return visitor.Automation(value.Automation);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**

@@ -827,6 +827,10 @@ export namespace AssetPropertyVariant {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     stringValue: (value: string) => T;
     integerValue: (value: string) => T;
@@ -834,14 +838,6 @@ export namespace AssetPropertyVariant {
     booleanValue: (value: string) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: AssetPropertyVariant, visitor: Visitor<T>): T => {
-    if (value.stringValue !== undefined) return visitor.stringValue(value.stringValue);
-    if (value.integerValue !== undefined) return visitor.integerValue(value.integerValue);
-    if (value.doubleValue !== undefined) return visitor.doubleValue(value.doubleValue);
-    if (value.booleanValue !== undefined) return visitor.booleanValue(value.booleanValue);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**

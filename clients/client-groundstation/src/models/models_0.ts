@@ -899,17 +899,15 @@ export namespace AzElSegmentsData {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     s3Object: (value: S3Object) => T;
     azElData: (value: AzElSegments) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: AzElSegmentsData, visitor: Visitor<T>): T => {
-    if (value.s3Object !== undefined) return visitor.s3Object(value.s3Object);
-    if (value.azElData !== undefined) return visitor.azElData(value.azElData);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -1278,6 +1276,10 @@ export namespace ConfigTypeData {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     antennaDownlinkConfig: (value: AntennaDownlinkConfig) => T;
     trackingConfig: (value: TrackingConfig) => T;
@@ -1288,18 +1290,6 @@ export namespace ConfigTypeData {
     s3RecordingConfig: (value: S3RecordingConfig) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: ConfigTypeData, visitor: Visitor<T>): T => {
-    if (value.antennaDownlinkConfig !== undefined) return visitor.antennaDownlinkConfig(value.antennaDownlinkConfig);
-    if (value.trackingConfig !== undefined) return visitor.trackingConfig(value.trackingConfig);
-    if (value.dataflowEndpointConfig !== undefined) return visitor.dataflowEndpointConfig(value.dataflowEndpointConfig);
-    if (value.antennaDownlinkDemodDecodeConfig !== undefined)
-      return visitor.antennaDownlinkDemodDecodeConfig(value.antennaDownlinkDemodDecodeConfig);
-    if (value.antennaUplinkConfig !== undefined) return visitor.antennaUplinkConfig(value.antennaUplinkConfig);
-    if (value.uplinkEchoConfig !== undefined) return visitor.uplinkEchoConfig(value.uplinkEchoConfig);
-    if (value.s3RecordingConfig !== undefined) return visitor.s3RecordingConfig(value.s3RecordingConfig);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -1574,15 +1564,14 @@ export namespace DownlinkDataflowDetails {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     agentConnectionDetails: (value: DownlinkConnectionDetails) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: DownlinkDataflowDetails, visitor: Visitor<T>): T => {
-    if (value.agentConnectionDetails !== undefined) return visitor.agentConnectionDetails(value.agentConnectionDetails);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -1733,15 +1722,14 @@ export namespace UplinkDataflowDetails {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     agentConnectionDetails: (value: UplinkConnectionDetails) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: UplinkDataflowDetails, visitor: Visitor<T>): T => {
-    if (value.agentConnectionDetails !== undefined) return visitor.agentConnectionDetails(value.agentConnectionDetails);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -1897,20 +1885,16 @@ export namespace ConfigDetails {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     endpointDetails: (value: EndpointDetails) => T;
     antennaDemodDecodeDetails: (value: AntennaDemodDecodeDetails) => T;
     s3RecordingDetails: (value: S3RecordingDetails) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: ConfigDetails, visitor: Visitor<T>): T => {
-    if (value.endpointDetails !== undefined) return visitor.endpointDetails(value.endpointDetails);
-    if (value.antennaDemodDecodeDetails !== undefined)
-      return visitor.antennaDemodDecodeDetails(value.antennaDemodDecodeDetails);
-    if (value.s3RecordingDetails !== undefined) return visitor.s3RecordingDetails(value.s3RecordingDetails);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -2113,15 +2097,14 @@ export namespace ProgramTrackSettings {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     azEl: (value: AzElProgramTrackSettings) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: ProgramTrackSettings, visitor: Visitor<T>): T => {
-    if (value.azEl !== undefined) return visitor.azEl(value.azEl);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -2277,15 +2260,14 @@ export namespace EphemerisFilter {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     azEl: (value: AzElEphemerisFilter) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: EphemerisFilter, visitor: Visitor<T>): T => {
-    if (value.azEl !== undefined) return visitor.azEl(value.azEl);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -2636,19 +2618,15 @@ export namespace CreateEndpointDetails {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     uplinkAwsGroundStationAgentEndpoint: (value: UplinkAwsGroundStationAgentEndpoint) => T;
     downlinkAwsGroundStationAgentEndpoint: (value: DownlinkAwsGroundStationAgentEndpoint) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: CreateEndpointDetails, visitor: Visitor<T>): T => {
-    if (value.uplinkAwsGroundStationAgentEndpoint !== undefined)
-      return visitor.uplinkAwsGroundStationAgentEndpoint(value.uplinkAwsGroundStationAgentEndpoint);
-    if (value.downlinkAwsGroundStationAgentEndpoint !== undefined)
-      return visitor.downlinkAwsGroundStationAgentEndpoint(value.downlinkAwsGroundStationAgentEndpoint);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -2853,19 +2831,16 @@ export namespace EphemerisData {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     tle: (value: TLEEphemeris) => T;
     oem: (value: OEMEphemeris) => T;
     azEl: (value: AzElEphemeris) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: EphemerisData, visitor: Visitor<T>): T => {
-    if (value.tle !== undefined) return visitor.tle(value.tle);
-    if (value.oem !== undefined) return visitor.oem(value.oem);
-    if (value.azEl !== undefined) return visitor.azEl(value.azEl);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -2989,19 +2964,16 @@ export namespace KmsKey {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     kmsKeyArn: (value: string) => T;
     kmsAliasArn: (value: string) => T;
     kmsAliasName: (value: string) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: KmsKey, visitor: Visitor<T>): T => {
-    if (value.kmsKeyArn !== undefined) return visitor.kmsKeyArn(value.kmsKeyArn);
-    if (value.kmsAliasArn !== undefined) return visitor.kmsAliasArn(value.kmsAliasArn);
-    if (value.kmsAliasName !== undefined) return visitor.kmsAliasName(value.kmsAliasName);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -3443,19 +3415,16 @@ export namespace EphemerisTypeDescription {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     tle: (value: EphemerisDescription) => T;
     oem: (value: EphemerisDescription) => T;
     azEl: (value: EphemerisDescription) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: EphemerisTypeDescription, visitor: Visitor<T>): T => {
-    if (value.tle !== undefined) return visitor.tle(value.tle);
-    if (value.oem !== undefined) return visitor.oem(value.oem);
-    if (value.azEl !== undefined) return visitor.azEl(value.azEl);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**

@@ -697,19 +697,16 @@ export namespace ResponseStream {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     PayloadPart: (value: PayloadPart) => T;
     ModelStreamError: (value: ModelStreamError) => T;
     InternalStreamFailure: (value: InternalStreamFailure) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: ResponseStream, visitor: Visitor<T>): T => {
-    if (value.PayloadPart !== undefined) return visitor.PayloadPart(value.PayloadPart);
-    if (value.ModelStreamError !== undefined) return visitor.ModelStreamError(value.ModelStreamError);
-    if (value.InternalStreamFailure !== undefined) return visitor.InternalStreamFailure(value.InternalStreamFailure);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**

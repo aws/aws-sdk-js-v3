@@ -369,6 +369,10 @@ export namespace ResponseStream {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     trace: (value: Trace) => T;
     output: (value: InvocationOutput) => T;
@@ -381,23 +385,6 @@ export namespace ResponseStream {
     throttlingException: (value: ThrottlingException) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: ResponseStream, visitor: Visitor<T>): T => {
-    if (value.trace !== undefined) return visitor.trace(value.trace);
-    if (value.output !== undefined) return visitor.output(value.output);
-    if (value.accessDeniedException !== undefined) return visitor.accessDeniedException(value.accessDeniedException);
-    if (value.conflictingOperationException !== undefined)
-      return visitor.conflictingOperationException(value.conflictingOperationException);
-    if (value.internalFailureException !== undefined)
-      return visitor.internalFailureException(value.internalFailureException);
-    if (value.invalidRequestException !== undefined)
-      return visitor.invalidRequestException(value.invalidRequestException);
-    if (value.limitExceededException !== undefined) return visitor.limitExceededException(value.limitExceededException);
-    if (value.resourceNotFoundException !== undefined)
-      return visitor.resourceNotFoundException(value.resourceNotFoundException);
-    if (value.throttlingException !== undefined) return visitor.throttlingException(value.throttlingException);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**

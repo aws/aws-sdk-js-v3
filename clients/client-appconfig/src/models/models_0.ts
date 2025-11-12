@@ -287,15 +287,14 @@ export namespace BadRequestDetails {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     InvalidConfiguration: (value: InvalidConfigurationDetail[]) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: BadRequestDetails, visitor: Visitor<T>): T => {
-    if (value.InvalidConfiguration !== undefined) return visitor.InvalidConfiguration(value.InvalidConfiguration);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**

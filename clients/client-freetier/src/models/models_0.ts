@@ -110,15 +110,14 @@ export namespace ActivityReward {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     credit: (value: MonetaryAmount) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: ActivityReward, visitor: Visitor<T>): T => {
-    if (value.credit !== undefined) return visitor.credit(value.credit);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**

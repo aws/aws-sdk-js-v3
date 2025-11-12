@@ -186,17 +186,15 @@ export namespace AlternateIdentifier {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     ExternalId: (value: ExternalId) => T;
     UniqueAttribute: (value: UniqueAttribute) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: AlternateIdentifier, visitor: Visitor<T>): T => {
-    if (value.ExternalId !== undefined) return visitor.ExternalId(value.ExternalId);
-    if (value.UniqueAttribute !== undefined) return visitor.UniqueAttribute(value.UniqueAttribute);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -502,15 +500,14 @@ export namespace MemberId {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     UserId: (value: string) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: MemberId, visitor: Visitor<T>): T => {
-    if (value.UserId !== undefined) return visitor.UserId(value.UserId);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**

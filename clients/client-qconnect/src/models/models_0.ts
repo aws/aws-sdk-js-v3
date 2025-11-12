@@ -232,17 +232,15 @@ export namespace OrCondition {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     andConditions: (value: TagCondition[]) => T;
     tagCondition: (value: TagCondition) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: OrCondition, visitor: Visitor<T>): T => {
-    if (value.andConditions !== undefined) return visitor.andConditions(value.andConditions);
-    if (value.tagCondition !== undefined) return visitor.tagCondition(value.tagCondition);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -302,19 +300,16 @@ export namespace TagFilter {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     tagCondition: (value: TagCondition) => T;
     andConditions: (value: TagCondition[]) => T;
     orConditions: (value: OrCondition[]) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: TagFilter, visitor: Visitor<T>): T => {
-    if (value.tagCondition !== undefined) return visitor.tagCondition(value.tagCondition);
-    if (value.andConditions !== undefined) return visitor.andConditions(value.andConditions);
-    if (value.orConditions !== undefined) return visitor.orConditions(value.orConditions);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -384,16 +379,14 @@ export namespace AssociationConfigurationData {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     knowledgeBaseAssociationConfigurationData: (value: KnowledgeBaseAssociationConfigurationData) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: AssociationConfigurationData, visitor: Visitor<T>): T => {
-    if (value.knowledgeBaseAssociationConfigurationData !== undefined)
-      return visitor.knowledgeBaseAssociationConfigurationData(value.knowledgeBaseAssociationConfigurationData);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -728,6 +721,10 @@ export namespace AIAgentConfiguration {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     manualSearchAIAgentConfiguration: (value: ManualSearchAIAgentConfiguration) => T;
     answerRecommendationAIAgentConfiguration: (value: AnswerRecommendationAIAgentConfiguration) => T;
@@ -737,22 +734,6 @@ export namespace AIAgentConfiguration {
     emailGenerativeAnswerAIAgentConfiguration: (value: EmailGenerativeAnswerAIAgentConfiguration) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: AIAgentConfiguration, visitor: Visitor<T>): T => {
-    if (value.manualSearchAIAgentConfiguration !== undefined)
-      return visitor.manualSearchAIAgentConfiguration(value.manualSearchAIAgentConfiguration);
-    if (value.answerRecommendationAIAgentConfiguration !== undefined)
-      return visitor.answerRecommendationAIAgentConfiguration(value.answerRecommendationAIAgentConfiguration);
-    if (value.selfServiceAIAgentConfiguration !== undefined)
-      return visitor.selfServiceAIAgentConfiguration(value.selfServiceAIAgentConfiguration);
-    if (value.emailResponseAIAgentConfiguration !== undefined)
-      return visitor.emailResponseAIAgentConfiguration(value.emailResponseAIAgentConfiguration);
-    if (value.emailOverviewAIAgentConfiguration !== undefined)
-      return visitor.emailOverviewAIAgentConfiguration(value.emailOverviewAIAgentConfiguration);
-    if (value.emailGenerativeAnswerAIAgentConfiguration !== undefined)
-      return visitor.emailGenerativeAnswerAIAgentConfiguration(value.emailGenerativeAnswerAIAgentConfiguration);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -2397,16 +2378,14 @@ export namespace AIPromptTemplateConfiguration {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     textFullAIPromptEditTemplateConfiguration: (value: TextFullAIPromptEditTemplateConfiguration) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: AIPromptTemplateConfiguration, visitor: Visitor<T>): T => {
-    if (value.textFullAIPromptEditTemplateConfiguration !== undefined)
-      return visitor.textFullAIPromptEditTemplateConfiguration(value.textFullAIPromptEditTemplateConfiguration);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -3086,15 +3065,14 @@ export namespace AssistantAssociationInputData {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     knowledgeBaseId: (value: string) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: AssistantAssociationInputData, visitor: Visitor<T>): T => {
-    if (value.knowledgeBaseId !== undefined) return visitor.knowledgeBaseId(value.knowledgeBaseId);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -3192,16 +3170,14 @@ export namespace AssistantAssociationOutputData {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     knowledgeBaseAssociation: (value: KnowledgeBaseAssociationData) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: AssistantAssociationOutputData, visitor: Visitor<T>): T => {
-    if (value.knowledgeBaseAssociation !== undefined)
-      return visitor.knowledgeBaseAssociation(value.knowledgeBaseAssociation);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -4021,17 +3997,15 @@ export namespace DataReference {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     contentReference: (value: ContentReference) => T;
     generativeReference: (value: GenerativeReference) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: DataReference, visitor: Visitor<T>): T => {
-    if (value.contentReference !== undefined) return visitor.contentReference(value.contentReference);
-    if (value.generativeReference !== undefined) return visitor.generativeReference(value.generativeReference);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -4122,15 +4096,14 @@ export namespace RecommendationTriggerData {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     query: (value: QueryRecommendationTriggerData) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: RecommendationTriggerData, visitor: Visitor<T>): T => {
-    if (value.query !== undefined) return visitor.query(value.query);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -4417,16 +4390,14 @@ export namespace ContentFeedbackData {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     generativeContentFeedbackData: (value: GenerativeContentFeedbackData) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: ContentFeedbackData, visitor: Visitor<T>): T => {
-    if (value.generativeContentFeedbackData !== undefined)
-      return visitor.generativeContentFeedbackData(value.generativeContentFeedbackData);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -4585,15 +4556,14 @@ export namespace QueryCondition {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     single: (value: QueryConditionItem) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: QueryCondition, visitor: Visitor<T>): T => {
-    if (value.single !== undefined) return visitor.single(value.single);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -4662,17 +4632,15 @@ export namespace QueryInputData {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     queryTextInputData: (value: QueryTextInputData) => T;
     intentInputData: (value: IntentInputData) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: QueryInputData, visitor: Visitor<T>): T => {
-    if (value.queryTextInputData !== undefined) return visitor.queryTextInputData(value.queryTextInputData);
-    if (value.intentInputData !== undefined) return visitor.intentInputData(value.intentInputData);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -5139,15 +5107,14 @@ export namespace RuntimeSessionDataValue {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     stringValue: (value: string) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: RuntimeSessionDataValue, visitor: Visitor<T>): T => {
-    if (value.stringValue !== undefined) return visitor.stringValue(value.stringValue);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -5270,15 +5237,14 @@ export namespace MessageData {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     text: (value: TextMessage) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: MessageData, visitor: Visitor<T>): T => {
-    if (value.text !== undefined) return visitor.text(value.text);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -5921,15 +5887,14 @@ export namespace Configuration {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     connectConfiguration: (value: ConnectConfiguration) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: Configuration, visitor: Visitor<T>): T => {
-    if (value.connectConfiguration !== undefined) return visitor.connectConfiguration(value.connectConfiguration);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -5961,16 +5926,14 @@ export namespace ContentAssociationContents {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     amazonConnectGuideAssociation: (value: AmazonConnectGuideAssociationData) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: ContentAssociationContents, visitor: Visitor<T>): T => {
-    if (value.amazonConnectGuideAssociation !== undefined)
-      return visitor.amazonConnectGuideAssociation(value.amazonConnectGuideAssociation);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -6870,16 +6833,14 @@ export namespace ManagedSourceConfiguration {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     webCrawlerConfiguration: (value: WebCrawlerConfiguration) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: ManagedSourceConfiguration, visitor: Visitor<T>): T => {
-    if (value.webCrawlerConfiguration !== undefined)
-      return visitor.webCrawlerConfiguration(value.webCrawlerConfiguration);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -6924,18 +6885,15 @@ export namespace SourceConfiguration {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     appIntegrations: (value: AppIntegrationsConfiguration) => T;
     managedSourceConfiguration: (value: ManagedSourceConfiguration) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: SourceConfiguration, visitor: Visitor<T>): T => {
-    if (value.appIntegrations !== undefined) return visitor.appIntegrations(value.appIntegrations);
-    if (value.managedSourceConfiguration !== undefined)
-      return visitor.managedSourceConfiguration(value.managedSourceConfiguration);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -7210,15 +7168,14 @@ export namespace MessageTemplateBodyContentProvider {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     content: (value: string) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: MessageTemplateBodyContentProvider, visitor: Visitor<T>): T => {
-    if (value.content !== undefined) return visitor.content(value.content);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -7347,17 +7304,15 @@ export namespace MessageTemplateContentProvider {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     email: (value: EmailMessageTemplateContent) => T;
     sms: (value: SMSMessageTemplateContent) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: MessageTemplateContentProvider, visitor: Visitor<T>): T => {
-    if (value.email !== undefined) return visitor.email(value.email);
-    if (value.sms !== undefined) return visitor.sms(value.sms);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**

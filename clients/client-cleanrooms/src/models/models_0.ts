@@ -550,19 +550,16 @@ export namespace ConfiguredTableAssociationAnalysisRulePolicyV1 {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     list: (value: ConfiguredTableAssociationAnalysisRuleList) => T;
     aggregation: (value: ConfiguredTableAssociationAnalysisRuleAggregation) => T;
     custom: (value: ConfiguredTableAssociationAnalysisRuleCustom) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: ConfiguredTableAssociationAnalysisRulePolicyV1, visitor: Visitor<T>): T => {
-    if (value.list !== undefined) return visitor.list(value.list);
-    if (value.aggregation !== undefined) return visitor.aggregation(value.aggregation);
-    if (value.custom !== undefined) return visitor.custom(value.custom);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -594,15 +591,14 @@ export namespace ConfiguredTableAssociationAnalysisRulePolicy {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     v1: (value: ConfiguredTableAssociationAnalysisRulePolicyV1) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: ConfiguredTableAssociationAnalysisRulePolicy, visitor: Visitor<T>): T => {
-    if (value.v1 !== undefined) return visitor.v1(value.v1);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -905,19 +901,16 @@ export namespace ConsolidatedPolicyV1 {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     list: (value: ConsolidatedPolicyList) => T;
     aggregation: (value: ConsolidatedPolicyAggregation) => T;
     custom: (value: ConsolidatedPolicyCustom) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: ConsolidatedPolicyV1, visitor: Visitor<T>): T => {
-    if (value.list !== undefined) return visitor.list(value.list);
-    if (value.aggregation !== undefined) return visitor.aggregation(value.aggregation);
-    if (value.custom !== undefined) return visitor.custom(value.custom);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -947,15 +940,14 @@ export namespace ConsolidatedPolicy {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     v1: (value: ConsolidatedPolicyV1) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: ConsolidatedPolicy, visitor: Visitor<T>): T => {
-    if (value.v1 !== undefined) return visitor.v1(value.v1);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -1087,15 +1079,14 @@ export namespace QueryConstraint {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     requireOverlap: (value: QueryConstraintRequireOverlap) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: QueryConstraint, visitor: Visitor<T>): T => {
-    if (value.requireOverlap !== undefined) return visitor.requireOverlap(value.requireOverlap);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -1226,6 +1217,10 @@ export namespace AnalysisRulePolicyV1 {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     list: (value: AnalysisRuleList) => T;
     aggregation: (value: AnalysisRuleAggregation) => T;
@@ -1233,14 +1228,6 @@ export namespace AnalysisRulePolicyV1 {
     idMappingTable: (value: AnalysisRuleIdMappingTable) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: AnalysisRulePolicyV1, visitor: Visitor<T>): T => {
-    if (value.list !== undefined) return visitor.list(value.list);
-    if (value.aggregation !== undefined) return visitor.aggregation(value.aggregation);
-    if (value.custom !== undefined) return visitor.custom(value.custom);
-    if (value.idMappingTable !== undefined) return visitor.idMappingTable(value.idMappingTable);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -1270,15 +1257,14 @@ export namespace AnalysisRulePolicy {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     v1: (value: AnalysisRulePolicyV1) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: AnalysisRulePolicy, visitor: Visitor<T>): T => {
-    if (value.v1 !== undefined) return visitor.v1(value.v1);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -1456,17 +1442,15 @@ export namespace AnalysisSource {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     text: (value: string) => T;
     artifacts: (value: AnalysisTemplateArtifacts) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: AnalysisSource, visitor: Visitor<T>): T => {
-    if (value.text !== undefined) return visitor.text(value.text);
-    if (value.artifacts !== undefined) return visitor.artifacts(value.artifacts);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -1526,15 +1510,14 @@ export namespace AnalysisSourceMetadata {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     artifacts: (value: AnalysisTemplateArtifactMetadata) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: AnalysisSourceMetadata, visitor: Visitor<T>): T => {
-    if (value.artifacts !== undefined) return visitor.artifacts(value.artifacts);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -2760,15 +2743,14 @@ export namespace SchemaTypeProperties {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     idMappingTable: (value: IdMappingTableSchemaTypeProperties) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: SchemaTypeProperties, visitor: Visitor<T>): T => {
-    if (value.idMappingTable !== undefined) return visitor.idMappingTable(value.idMappingTable);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -3501,15 +3483,14 @@ export namespace ChangeSpecification {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     member: (value: MemberChangeSpecification) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: ChangeSpecification, visitor: Visitor<T>): T => {
-    if (value.member !== undefined) return visitor.member(value.member);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -4129,17 +4110,15 @@ export namespace PrivacyBudgetTemplateParametersOutput {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     differentialPrivacy: (value: DifferentialPrivacyTemplateParametersOutput) => T;
     accessBudget: (value: AccessBudgetsPrivacyTemplateParametersOutput) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: PrivacyBudgetTemplateParametersOutput, visitor: Visitor<T>): T => {
-    if (value.differentialPrivacy !== undefined) return visitor.differentialPrivacy(value.differentialPrivacy);
-    if (value.accessBudget !== undefined) return visitor.accessBudget(value.accessBudget);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -4852,17 +4831,15 @@ export namespace PrivacyBudget {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     differentialPrivacy: (value: DifferentialPrivacyPrivacyBudget) => T;
     accessBudget: (value: AccessBudget) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: PrivacyBudget, visitor: Visitor<T>): T => {
-    if (value.differentialPrivacy !== undefined) return visitor.differentialPrivacy(value.differentialPrivacy);
-    if (value.accessBudget !== undefined) return visitor.accessBudget(value.accessBudget);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -6359,15 +6336,14 @@ export namespace SnowflakeTableSchema {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     v1: (value: SnowflakeTableSchemaV1[]) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: SnowflakeTableSchema, visitor: Visitor<T>): T => {
-    if (value.v1 !== undefined) return visitor.v1(value.v1);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -6469,19 +6445,16 @@ export namespace TableReference {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     glue: (value: GlueTableReference) => T;
     snowflake: (value: SnowflakeTableReference) => T;
     athena: (value: AthenaTableReference) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: TableReference, visitor: Visitor<T>): T => {
-    if (value.glue !== undefined) return visitor.glue(value.glue);
-    if (value.snowflake !== undefined) return visitor.snowflake(value.snowflake);
-    if (value.athena !== undefined) return visitor.athena(value.athena);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -6687,19 +6660,16 @@ export namespace ConfiguredTableAnalysisRulePolicyV1 {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     list: (value: AnalysisRuleList) => T;
     aggregation: (value: AnalysisRuleAggregation) => T;
     custom: (value: AnalysisRuleCustom) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: ConfiguredTableAnalysisRulePolicyV1, visitor: Visitor<T>): T => {
-    if (value.list !== undefined) return visitor.list(value.list);
-    if (value.aggregation !== undefined) return visitor.aggregation(value.aggregation);
-    if (value.custom !== undefined) return visitor.custom(value.custom);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -6731,15 +6701,14 @@ export namespace ConfiguredTableAnalysisRulePolicy {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     v1: (value: ConfiguredTableAnalysisRulePolicyV1) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: ConfiguredTableAnalysisRulePolicy, visitor: Visitor<T>): T => {
-    if (value.v1 !== undefined) return visitor.v1(value.v1);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -7924,15 +7893,14 @@ export namespace MembershipProtectedJobOutputConfiguration {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     s3: (value: ProtectedJobS3OutputConfigurationInput) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: MembershipProtectedJobOutputConfiguration, visitor: Visitor<T>): T => {
-    if (value.s3 !== undefined) return visitor.s3(value.s3);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**

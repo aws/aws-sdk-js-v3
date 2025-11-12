@@ -674,17 +674,15 @@ export namespace RuleAction {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     forward: (value: ForwardAction) => T;
     fixedResponse: (value: FixedResponseAction) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: RuleAction, visitor: Visitor<T>): T => {
-    if (value.forward !== undefined) return visitor.forward(value.forward);
-    if (value.fixedResponse !== undefined) return visitor.fixedResponse(value.fixedResponse);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -744,19 +742,16 @@ export namespace HeaderMatchType {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     exact: (value: string) => T;
     prefix: (value: string) => T;
     contains: (value: string) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: HeaderMatchType, visitor: Visitor<T>): T => {
-    if (value.exact !== undefined) return visitor.exact(value.exact);
-    if (value.prefix !== undefined) return visitor.prefix(value.prefix);
-    if (value.contains !== undefined) return visitor.contains(value.contains);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -822,17 +817,15 @@ export namespace PathMatchType {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     exact: (value: string) => T;
     prefix: (value: string) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: PathMatchType, visitor: Visitor<T>): T => {
-    if (value.exact !== undefined) return visitor.exact(value.exact);
-    if (value.prefix !== undefined) return visitor.prefix(value.prefix);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -904,15 +897,14 @@ export namespace RuleMatch {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     httpMatch: (value: HttpMatch) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: RuleMatch, visitor: Visitor<T>): T => {
-    if (value.httpMatch !== undefined) return visitor.httpMatch(value.httpMatch);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -1357,19 +1349,16 @@ export namespace ResourceConfigurationDefinition {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     dnsResource: (value: DnsResource) => T;
     ipResource: (value: IpResource) => T;
     arnResource: (value: ArnResource) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: ResourceConfigurationDefinition, visitor: Visitor<T>): T => {
-    if (value.dnsResource !== undefined) return visitor.dnsResource(value.dnsResource);
-    if (value.ipResource !== undefined) return visitor.ipResource(value.ipResource);
-    if (value.arnResource !== undefined) return visitor.arnResource(value.arnResource);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -2534,15 +2523,14 @@ export namespace Matcher {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     httpCode: (value: string) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: Matcher, visitor: Visitor<T>): T => {
-    if (value.httpCode !== undefined) return visitor.httpCode(value.httpCode);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**

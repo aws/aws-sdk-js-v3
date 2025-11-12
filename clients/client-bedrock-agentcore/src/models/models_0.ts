@@ -919,15 +919,14 @@ export namespace StreamUpdate {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     automationStreamUpdate: (value: AutomationStreamUpdate) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: StreamUpdate, visitor: Visitor<T>): T => {
-    if (value.automationStreamUpdate !== undefined) return visitor.automationStreamUpdate(value.automationStreamUpdate);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -1313,17 +1312,15 @@ export namespace UserIdentifier {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     userToken: (value: string) => T;
     userId: (value: string) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: UserIdentifier, visitor: Visitor<T>): T => {
-    if (value.userToken !== undefined) return visitor.userToken(value.userToken);
-    if (value.userId !== undefined) return visitor.userId(value.userId);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -2102,6 +2099,10 @@ export namespace CodeInterpreterStreamOutput {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     result: (value: CodeInterpreterResult) => T;
     accessDeniedException: (value: AccessDeniedException) => T;
@@ -2113,21 +2114,6 @@ export namespace CodeInterpreterStreamOutput {
     validationException: (value: ValidationException) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: CodeInterpreterStreamOutput, visitor: Visitor<T>): T => {
-    if (value.result !== undefined) return visitor.result(value.result);
-    if (value.accessDeniedException !== undefined) return visitor.accessDeniedException(value.accessDeniedException);
-    if (value.conflictException !== undefined) return visitor.conflictException(value.conflictException);
-    if (value.internalServerException !== undefined)
-      return visitor.internalServerException(value.internalServerException);
-    if (value.resourceNotFoundException !== undefined)
-      return visitor.resourceNotFoundException(value.resourceNotFoundException);
-    if (value.serviceQuotaExceededException !== undefined)
-      return visitor.serviceQuotaExceededException(value.serviceQuotaExceededException);
-    if (value.throttlingException !== undefined) return visitor.throttlingException(value.throttlingException);
-    if (value.validationException !== undefined) return visitor.validationException(value.validationException);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -2174,15 +2160,14 @@ export namespace MemoryContent {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     text: (value: string) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: MemoryContent, visitor: Visitor<T>): T => {
-    if (value.text !== undefined) return visitor.text(value.text);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -2512,15 +2497,14 @@ export namespace MetadataValue {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     stringValue: (value: string) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: MetadataValue, visitor: Visitor<T>): T => {
-    if (value.stringValue !== undefined) return visitor.stringValue(value.stringValue);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -2550,15 +2534,14 @@ export namespace Content {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     text: (value: string) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: Content, visitor: Visitor<T>): T => {
-    if (value.text !== undefined) return visitor.text(value.text);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -2634,17 +2617,15 @@ export namespace PayloadType {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     conversational: (value: Conversational) => T;
     blob: (value: __DocumentType) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: PayloadType, visitor: Visitor<T>): T => {
-    if (value.conversational !== undefined) return visitor.conversational(value.conversational);
-    if (value.blob !== undefined) return visitor.blob(value.blob);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -3042,15 +3023,14 @@ export namespace LeftExpression {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     metadataKey: (value: string) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: LeftExpression, visitor: Visitor<T>): T => {
-    if (value.metadataKey !== undefined) return visitor.metadataKey(value.metadataKey);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -3095,15 +3075,14 @@ export namespace RightExpression {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     metadataValue: (value: MetadataValue) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: RightExpression, visitor: Visitor<T>): T => {
-    if (value.metadataValue !== undefined) return visitor.metadataValue(value.metadataValue);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**

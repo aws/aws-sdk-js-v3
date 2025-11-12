@@ -2668,15 +2668,14 @@ export namespace ImportOptions {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     neptune: (value: NeptuneImportOptions) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: ImportOptions, visitor: Visitor<T>): T => {
-    if (value.neptune !== undefined) return visitor.neptune(value.neptune);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**

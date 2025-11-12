@@ -1371,6 +1371,10 @@ export namespace AggregationRequest {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     accountAggregation: (value: AccountAggregation) => T;
     amiAggregation: (value: AmiAggregation) => T;
@@ -1386,25 +1390,6 @@ export namespace AggregationRequest {
     codeRepositoryAggregation: (value: CodeRepositoryAggregation) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: AggregationRequest, visitor: Visitor<T>): T => {
-    if (value.accountAggregation !== undefined) return visitor.accountAggregation(value.accountAggregation);
-    if (value.amiAggregation !== undefined) return visitor.amiAggregation(value.amiAggregation);
-    if (value.awsEcrContainerAggregation !== undefined)
-      return visitor.awsEcrContainerAggregation(value.awsEcrContainerAggregation);
-    if (value.ec2InstanceAggregation !== undefined) return visitor.ec2InstanceAggregation(value.ec2InstanceAggregation);
-    if (value.findingTypeAggregation !== undefined) return visitor.findingTypeAggregation(value.findingTypeAggregation);
-    if (value.imageLayerAggregation !== undefined) return visitor.imageLayerAggregation(value.imageLayerAggregation);
-    if (value.packageAggregation !== undefined) return visitor.packageAggregation(value.packageAggregation);
-    if (value.repositoryAggregation !== undefined) return visitor.repositoryAggregation(value.repositoryAggregation);
-    if (value.titleAggregation !== undefined) return visitor.titleAggregation(value.titleAggregation);
-    if (value.lambdaLayerAggregation !== undefined) return visitor.lambdaLayerAggregation(value.lambdaLayerAggregation);
-    if (value.lambdaFunctionAggregation !== undefined)
-      return visitor.lambdaFunctionAggregation(value.lambdaFunctionAggregation);
-    if (value.codeRepositoryAggregation !== undefined)
-      return visitor.codeRepositoryAggregation(value.codeRepositoryAggregation);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -2128,6 +2113,10 @@ export namespace AggregationResponse {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     accountAggregation: (value: AccountAggregationResponse) => T;
     amiAggregation: (value: AmiAggregationResponse) => T;
@@ -2143,25 +2132,6 @@ export namespace AggregationResponse {
     codeRepositoryAggregation: (value: CodeRepositoryAggregationResponse) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: AggregationResponse, visitor: Visitor<T>): T => {
-    if (value.accountAggregation !== undefined) return visitor.accountAggregation(value.accountAggregation);
-    if (value.amiAggregation !== undefined) return visitor.amiAggregation(value.amiAggregation);
-    if (value.awsEcrContainerAggregation !== undefined)
-      return visitor.awsEcrContainerAggregation(value.awsEcrContainerAggregation);
-    if (value.ec2InstanceAggregation !== undefined) return visitor.ec2InstanceAggregation(value.ec2InstanceAggregation);
-    if (value.findingTypeAggregation !== undefined) return visitor.findingTypeAggregation(value.findingTypeAggregation);
-    if (value.imageLayerAggregation !== undefined) return visitor.imageLayerAggregation(value.imageLayerAggregation);
-    if (value.packageAggregation !== undefined) return visitor.packageAggregation(value.packageAggregation);
-    if (value.repositoryAggregation !== undefined) return visitor.repositoryAggregation(value.repositoryAggregation);
-    if (value.titleAggregation !== undefined) return visitor.titleAggregation(value.titleAggregation);
-    if (value.lambdaLayerAggregation !== undefined) return visitor.lambdaLayerAggregation(value.lambdaLayerAggregation);
-    if (value.lambdaFunctionAggregation !== undefined)
-      return visitor.lambdaFunctionAggregation(value.lambdaFunctionAggregation);
-    if (value.codeRepositoryAggregation !== undefined)
-      return visitor.codeRepositoryAggregation(value.codeRepositoryAggregation);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -2229,15 +2199,14 @@ export namespace CodeSecurityResource {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     projectId: (value: string) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: CodeSecurityResource, visitor: Visitor<T>): T => {
-    if (value.projectId !== undefined) return visitor.projectId(value.projectId);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -4361,6 +4330,10 @@ export namespace Schedule {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     oneTime: (value: OneTimeSchedule) => T;
     daily: (value: DailySchedule) => T;
@@ -4368,14 +4341,6 @@ export namespace Schedule {
     monthly: (value: MonthlySchedule) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: Schedule, visitor: Visitor<T>): T => {
-    if (value.oneTime !== undefined) return visitor.oneTime(value.oneTime);
-    if (value.daily !== undefined) return visitor.daily(value.daily);
-    if (value.weekly !== undefined) return visitor.weekly(value.weekly);
-    if (value.monthly !== undefined) return visitor.monthly(value.monthly);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -5022,17 +4987,15 @@ export namespace ClusterMetadata {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     awsEcsMetadataDetails: (value: AwsEcsMetadataDetails) => T;
     awsEksMetadataDetails: (value: AwsEksMetadataDetails) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: ClusterMetadata, visitor: Visitor<T>): T => {
-    if (value.awsEcsMetadataDetails !== undefined) return visitor.awsEcsMetadataDetails(value.awsEcsMetadataDetails);
-    if (value.awsEksMetadataDetails !== undefined) return visitor.awsEksMetadataDetails(value.awsEksMetadataDetails);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -6554,15 +6517,14 @@ export namespace CreateIntegrationDetail {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     gitlabSelfManaged: (value: CreateGitLabSelfManagedIntegrationDetail) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: CreateIntegrationDetail, visitor: Visitor<T>): T => {
-    if (value.gitlabSelfManaged !== undefined) return visitor.gitlabSelfManaged(value.gitlabSelfManaged);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**

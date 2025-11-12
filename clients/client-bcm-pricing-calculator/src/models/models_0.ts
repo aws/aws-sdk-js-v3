@@ -553,6 +553,10 @@ export namespace BillScenarioCommitmentModificationAction {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     addReservedInstanceAction: (value: AddReservedInstanceAction) => T;
     addSavingsPlanAction: (value: AddSavingsPlanAction) => T;
@@ -560,17 +564,6 @@ export namespace BillScenarioCommitmentModificationAction {
     negateSavingsPlanAction: (value: NegateSavingsPlanAction) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: BillScenarioCommitmentModificationAction, visitor: Visitor<T>): T => {
-    if (value.addReservedInstanceAction !== undefined)
-      return visitor.addReservedInstanceAction(value.addReservedInstanceAction);
-    if (value.addSavingsPlanAction !== undefined) return visitor.addSavingsPlanAction(value.addSavingsPlanAction);
-    if (value.negateReservedInstanceAction !== undefined)
-      return visitor.negateReservedInstanceAction(value.negateReservedInstanceAction);
-    if (value.negateSavingsPlanAction !== undefined)
-      return visitor.negateSavingsPlanAction(value.negateSavingsPlanAction);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**

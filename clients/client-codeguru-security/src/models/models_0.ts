@@ -737,15 +737,14 @@ export namespace ResourceId {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     codeArtifactId: (value: string) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: ResourceId, visitor: Visitor<T>): T => {
-    if (value.codeArtifactId !== undefined) return visitor.codeArtifactId(value.codeArtifactId);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**

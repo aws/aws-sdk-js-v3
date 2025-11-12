@@ -145,6 +145,10 @@ export namespace TypedAttributeValue {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     StringValue: (value: string) => T;
     BinaryValue: (value: Uint8Array) => T;
@@ -153,15 +157,6 @@ export namespace TypedAttributeValue {
     DatetimeValue: (value: Date) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: TypedAttributeValue, visitor: Visitor<T>): T => {
-    if (value.StringValue !== undefined) return visitor.StringValue(value.StringValue);
-    if (value.BinaryValue !== undefined) return visitor.BinaryValue(value.BinaryValue);
-    if (value.BooleanValue !== undefined) return visitor.BooleanValue(value.BooleanValue);
-    if (value.NumberValue !== undefined) return visitor.NumberValue(value.NumberValue);
-    if (value.DatetimeValue !== undefined) return visitor.DatetimeValue(value.DatetimeValue);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**

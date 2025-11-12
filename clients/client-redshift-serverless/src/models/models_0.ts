@@ -1119,17 +1119,15 @@ export namespace Schedule {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     at: (value: Date) => T;
     cron: (value: string) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: Schedule, visitor: Visitor<T>): T => {
-    if (value.at !== undefined) return visitor.at(value.at);
-    if (value.cron !== undefined) return visitor.cron(value.cron);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -1195,15 +1193,14 @@ export namespace TargetAction {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     createSnapshot: (value: CreateSnapshotScheduleActionParameters) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: TargetAction, visitor: Visitor<T>): T => {
-    if (value.createSnapshot !== undefined) return visitor.createSnapshot(value.createSnapshot);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**

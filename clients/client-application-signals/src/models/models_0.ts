@@ -200,17 +200,15 @@ export namespace Interval {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     RollingInterval: (value: RollingInterval) => T;
     CalendarInterval: (value: CalendarInterval) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: Interval, visitor: Visitor<T>): T => {
-    if (value.RollingInterval !== undefined) return visitor.RollingInterval(value.RollingInterval);
-    if (value.CalendarInterval !== undefined) return visitor.CalendarInterval(value.CalendarInterval);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -488,17 +486,15 @@ export namespace MonitoredRequestCountMetricDataQueries {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     GoodCountMetric: (value: MetricDataQuery[]) => T;
     BadCountMetric: (value: MetricDataQuery[]) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: MonitoredRequestCountMetricDataQueries, visitor: Visitor<T>): T => {
-    if (value.GoodCountMetric !== undefined) return visitor.GoodCountMetric(value.GoodCountMetric);
-    if (value.BadCountMetric !== undefined) return visitor.BadCountMetric(value.BadCountMetric);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -1247,6 +1243,10 @@ export namespace AuditTargetEntity {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     Service: (value: ServiceEntity) => T;
     Slo: (value: ServiceLevelObjectiveEntity) => T;
@@ -1254,14 +1254,6 @@ export namespace AuditTargetEntity {
     Canary: (value: CanaryEntity) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: AuditTargetEntity, visitor: Visitor<T>): T => {
-    if (value.Service !== undefined) return visitor.Service(value.Service);
-    if (value.Slo !== undefined) return visitor.Slo(value.Slo);
-    if (value.ServiceOperation !== undefined) return visitor.ServiceOperation(value.ServiceOperation);
-    if (value.Canary !== undefined) return visitor.Canary(value.Canary);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**

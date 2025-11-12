@@ -9507,17 +9507,15 @@ export namespace MetricSpecification {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     Predefined: (value: PredefinedMetricSpecification) => T;
     Customized: (value: CustomizedMetricSpecification) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: MetricSpecification, visitor: Visitor<T>): T => {
-    if (value.Predefined !== undefined) return visitor.Predefined(value.Predefined);
-    if (value.Customized !== undefined) return visitor.Customized(value.Customized);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -9565,15 +9563,14 @@ export namespace ScalingPolicy {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     TargetTracking: (value: TargetTrackingScalingPolicyConfiguration) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: ScalingPolicy, visitor: Visitor<T>): T => {
-    if (value.TargetTracking !== undefined) return visitor.TargetTracking(value.TargetTracking);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**

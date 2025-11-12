@@ -808,15 +808,14 @@ export namespace ArchiveBooleanToEvaluate {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     Attribute: (value: ArchiveBooleanEmailAttribute) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: ArchiveBooleanToEvaluate, visitor: Visitor<T>): T => {
-    if (value.Attribute !== undefined) return visitor.Attribute(value.Attribute);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -897,15 +896,14 @@ export namespace ArchiveStringToEvaluate {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     Attribute: (value: ArchiveStringEmailAttribute) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: ArchiveStringToEvaluate, visitor: Visitor<T>): T => {
-    if (value.Attribute !== undefined) return visitor.Attribute(value.Attribute);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -987,17 +985,15 @@ export namespace ArchiveFilterCondition {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     StringExpression: (value: ArchiveStringExpression) => T;
     BooleanExpression: (value: ArchiveBooleanExpression) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: ArchiveFilterCondition, visitor: Visitor<T>): T => {
-    if (value.StringExpression !== undefined) return visitor.StringExpression(value.StringExpression);
-    if (value.BooleanExpression !== undefined) return visitor.BooleanExpression(value.BooleanExpression);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -1073,15 +1069,14 @@ export namespace ArchiveRetention {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     RetentionPeriod: (value: RetentionPeriod) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: ArchiveRetention, visitor: Visitor<T>): T => {
-    if (value.RetentionPeriod !== undefined) return visitor.RetentionPeriod(value.RetentionPeriod);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -1396,17 +1391,15 @@ export namespace IngressPointConfiguration {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     SmtpPassword: (value: string) => T;
     SecretArn: (value: string) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: IngressPointConfiguration, visitor: Visitor<T>): T => {
-    if (value.SmtpPassword !== undefined) return visitor.SmtpPassword(value.SmtpPassword);
-    if (value.SecretArn !== undefined) return visitor.SecretArn(value.SecretArn);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -1489,19 +1482,15 @@ export namespace NetworkConfiguration {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     PublicNetworkConfiguration: (value: PublicNetworkConfiguration) => T;
     PrivateNetworkConfiguration: (value: PrivateNetworkConfiguration) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: NetworkConfiguration, visitor: Visitor<T>): T => {
-    if (value.PublicNetworkConfiguration !== undefined)
-      return visitor.PublicNetworkConfiguration(value.PublicNetworkConfiguration);
-    if (value.PrivateNetworkConfiguration !== undefined)
-      return visitor.PrivateNetworkConfiguration(value.PrivateNetworkConfiguration);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -1630,17 +1619,15 @@ export namespace RelayAuthentication {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     SecretArn: (value: string) => T;
     NoAuthentication: (value: NoAuthentication) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: RelayAuthentication, visitor: Visitor<T>): T => {
-    if (value.SecretArn !== undefined) return visitor.SecretArn(value.SecretArn);
-    if (value.NoAuthentication !== undefined) return visitor.NoAuthentication(value.NoAuthentication);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -2141,6 +2128,10 @@ export namespace RuleAction {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     Drop: (value: DropAction) => T;
     Relay: (value: RelayAction) => T;
@@ -2154,20 +2145,6 @@ export namespace RuleAction {
     PublishToSns: (value: SnsAction) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: RuleAction, visitor: Visitor<T>): T => {
-    if (value.Drop !== undefined) return visitor.Drop(value.Drop);
-    if (value.Relay !== undefined) return visitor.Relay(value.Relay);
-    if (value.Archive !== undefined) return visitor.Archive(value.Archive);
-    if (value.WriteToS3 !== undefined) return visitor.WriteToS3(value.WriteToS3);
-    if (value.Send !== undefined) return visitor.Send(value.Send);
-    if (value.AddHeader !== undefined) return visitor.AddHeader(value.AddHeader);
-    if (value.ReplaceRecipient !== undefined) return visitor.ReplaceRecipient(value.ReplaceRecipient);
-    if (value.DeliverToMailbox !== undefined) return visitor.DeliverToMailbox(value.DeliverToMailbox);
-    if (value.DeliverToQBusiness !== undefined) return visitor.DeliverToQBusiness(value.DeliverToQBusiness);
-    if (value.PublishToSns !== undefined) return visitor.PublishToSns(value.PublishToSns);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -2279,19 +2256,16 @@ export namespace RuleBooleanToEvaluate {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     Attribute: (value: RuleBooleanEmailAttribute) => T;
     Analysis: (value: Analysis) => T;
     IsInAddressList: (value: RuleIsInAddressList) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: RuleBooleanToEvaluate, visitor: Visitor<T>): T => {
-    if (value.Attribute !== undefined) return visitor.Attribute(value.Attribute);
-    if (value.Analysis !== undefined) return visitor.Analysis(value.Analysis);
-    if (value.IsInAddressList !== undefined) return visitor.IsInAddressList(value.IsInAddressList);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -2413,15 +2387,14 @@ export namespace RuleIpToEvaluate {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     Attribute: (value: RuleIpEmailAttribute) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: RuleIpToEvaluate, visitor: Visitor<T>): T => {
-    if (value.Attribute !== undefined) return visitor.Attribute(value.Attribute);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -2502,15 +2475,14 @@ export namespace RuleNumberToEvaluate {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     Attribute: (value: RuleNumberEmailAttribute) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: RuleNumberToEvaluate, visitor: Visitor<T>): T => {
-    if (value.Attribute !== undefined) return visitor.Attribute(value.Attribute);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -2632,19 +2604,16 @@ export namespace RuleStringToEvaluate {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     Attribute: (value: RuleStringEmailAttribute) => T;
     MimeHeaderAttribute: (value: string) => T;
     Analysis: (value: Analysis) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: RuleStringToEvaluate, visitor: Visitor<T>): T => {
-    if (value.Attribute !== undefined) return visitor.Attribute(value.Attribute);
-    if (value.MimeHeaderAttribute !== undefined) return visitor.MimeHeaderAttribute(value.MimeHeaderAttribute);
-    if (value.Analysis !== undefined) return visitor.Analysis(value.Analysis);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -2744,17 +2713,15 @@ export namespace RuleVerdictToEvaluate {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     Attribute: (value: RuleVerdictAttribute) => T;
     Analysis: (value: Analysis) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: RuleVerdictToEvaluate, visitor: Visitor<T>): T => {
-    if (value.Attribute !== undefined) return visitor.Attribute(value.Attribute);
-    if (value.Analysis !== undefined) return visitor.Analysis(value.Analysis);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -2925,6 +2892,10 @@ export namespace RuleCondition {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     BooleanExpression: (value: RuleBooleanExpression) => T;
     StringExpression: (value: RuleStringExpression) => T;
@@ -2934,16 +2905,6 @@ export namespace RuleCondition {
     DmarcExpression: (value: RuleDmarcExpression) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: RuleCondition, visitor: Visitor<T>): T => {
-    if (value.BooleanExpression !== undefined) return visitor.BooleanExpression(value.BooleanExpression);
-    if (value.StringExpression !== undefined) return visitor.StringExpression(value.StringExpression);
-    if (value.NumberExpression !== undefined) return visitor.NumberExpression(value.NumberExpression);
-    if (value.IpExpression !== undefined) return visitor.IpExpression(value.IpExpression);
-    if (value.VerdictExpression !== undefined) return visitor.VerdictExpression(value.VerdictExpression);
-    if (value.DmarcExpression !== undefined) return visitor.DmarcExpression(value.DmarcExpression);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -3108,17 +3069,15 @@ export namespace IngressBooleanToEvaluate {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     Analysis: (value: IngressAnalysis) => T;
     IsInAddressList: (value: IngressIsInAddressList) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: IngressBooleanToEvaluate, visitor: Visitor<T>): T => {
-    if (value.Analysis !== undefined) return visitor.Analysis(value.Analysis);
-    if (value.IsInAddressList !== undefined) return visitor.IsInAddressList(value.IsInAddressList);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -3193,15 +3152,14 @@ export namespace IngressIpToEvaluate {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     Attribute: (value: IngressIpv4Attribute) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: IngressIpToEvaluate, visitor: Visitor<T>): T => {
-    if (value.Attribute !== undefined) return visitor.Attribute(value.Attribute);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -3282,15 +3240,14 @@ export namespace IngressIpv6ToEvaluate {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     Attribute: (value: IngressIpv6Attribute) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: IngressIpv6ToEvaluate, visitor: Visitor<T>): T => {
-    if (value.Attribute !== undefined) return visitor.Attribute(value.Attribute);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -3373,17 +3330,15 @@ export namespace IngressStringToEvaluate {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     Attribute: (value: IngressStringEmailAttribute) => T;
     Analysis: (value: IngressAnalysis) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: IngressStringToEvaluate, visitor: Visitor<T>): T => {
-    if (value.Attribute !== undefined) return visitor.Attribute(value.Attribute);
-    if (value.Analysis !== undefined) return visitor.Analysis(value.Analysis);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -3469,15 +3424,14 @@ export namespace IngressTlsProtocolToEvaluate {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     Attribute: (value: IngressTlsAttribute) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: IngressTlsProtocolToEvaluate, visitor: Visitor<T>): T => {
-    if (value.Attribute !== undefined) return visitor.Attribute(value.Attribute);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -3626,6 +3580,10 @@ export namespace PolicyCondition {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     StringExpression: (value: IngressStringExpression) => T;
     IpExpression: (value: IngressIpv4Expression) => T;
@@ -3634,15 +3592,6 @@ export namespace PolicyCondition {
     BooleanExpression: (value: IngressBooleanExpression) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: PolicyCondition, visitor: Visitor<T>): T => {
-    if (value.StringExpression !== undefined) return visitor.StringExpression(value.StringExpression);
-    if (value.IpExpression !== undefined) return visitor.IpExpression(value.IpExpression);
-    if (value.Ipv6Expression !== undefined) return visitor.Ipv6Expression(value.Ipv6Expression);
-    if (value.TlsExpression !== undefined) return visitor.TlsExpression(value.TlsExpression);
-    if (value.BooleanExpression !== undefined) return visitor.BooleanExpression(value.BooleanExpression);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -3866,15 +3815,14 @@ export namespace ExportDestinationConfiguration {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     S3: (value: S3ExportDestinationConfiguration) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: ExportDestinationConfiguration, visitor: Visitor<T>): T => {
-    if (value.S3 !== undefined) return visitor.S3(value.S3);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**

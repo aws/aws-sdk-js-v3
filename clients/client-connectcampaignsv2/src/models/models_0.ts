@@ -127,15 +127,14 @@ export namespace EmailOutboundMode {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     agentless: (value: AgentlessConfig) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: EmailOutboundMode, visitor: Visitor<T>): T => {
-    if (value.agentless !== undefined) return visitor.agentless(value.agentless);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -207,15 +206,14 @@ export namespace SmsOutboundMode {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     agentless: (value: AgentlessConfig) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: SmsOutboundMode, visitor: Visitor<T>): T => {
-    if (value.agentless !== undefined) return visitor.agentless(value.agentless);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -418,6 +416,10 @@ export namespace TelephonyOutboundMode {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     progressive: (value: ProgressiveConfig) => T;
     predictive: (value: PredictiveConfig) => T;
@@ -425,14 +427,6 @@ export namespace TelephonyOutboundMode {
     preview: (value: PreviewConfig) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: TelephonyOutboundMode, visitor: Visitor<T>): T => {
-    if (value.progressive !== undefined) return visitor.progressive(value.progressive);
-    if (value.predictive !== undefined) return visitor.predictive(value.predictive);
-    if (value.agentless !== undefined) return visitor.agentless(value.agentless);
-    if (value.preview !== undefined) return visitor.preview(value.preview);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -555,16 +549,14 @@ export namespace CommunicationLimits {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     communicationLimitsList: (value: CommunicationLimit[]) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: CommunicationLimits, visitor: Visitor<T>): T => {
-    if (value.communicationLimitsList !== undefined)
-      return visitor.communicationLimitsList(value.communicationLimitsList);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -663,15 +655,14 @@ export namespace OpenHours {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     dailyHours: (value: Partial<Record<DayOfWeek, TimeRange[]>>) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: OpenHours, visitor: Visitor<T>): T => {
-    if (value.dailyHours !== undefined) return visitor.dailyHours(value.dailyHours);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -725,15 +716,14 @@ export namespace RestrictedPeriods {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     restrictedPeriodList: (value: RestrictedPeriod[]) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: RestrictedPeriods, visitor: Visitor<T>): T => {
-    if (value.restrictedPeriodList !== undefined) return visitor.restrictedPeriodList(value.restrictedPeriodList);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -891,18 +881,15 @@ export namespace Source {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     customerProfilesSegmentArn: (value: string) => T;
     eventTrigger: (value: EventTrigger) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: Source, visitor: Visitor<T>): T => {
-    if (value.customerProfilesSegmentArn !== undefined)
-      return visitor.customerProfilesSegmentArn(value.customerProfilesSegmentArn);
-    if (value.eventTrigger !== undefined) return visitor.eventTrigger(value.eventTrigger);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -1432,17 +1419,15 @@ export namespace IntegrationIdentifier {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     customerProfiles: (value: CustomerProfilesIntegrationIdentifier) => T;
     qConnect: (value: QConnectIntegrationIdentifier) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: IntegrationIdentifier, visitor: Visitor<T>): T => {
-    if (value.customerProfiles !== undefined) return visitor.customerProfiles(value.customerProfiles);
-    if (value.qConnect !== undefined) return visitor.qConnect(value.qConnect);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -2140,17 +2125,15 @@ export namespace IntegrationSummary {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     customerProfiles: (value: CustomerProfilesIntegrationSummary) => T;
     qConnect: (value: QConnectIntegrationSummary) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: IntegrationSummary, visitor: Visitor<T>): T => {
-    if (value.customerProfiles !== undefined) return visitor.customerProfiles(value.customerProfiles);
-    if (value.qConnect !== undefined) return visitor.qConnect(value.qConnect);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -2279,17 +2262,15 @@ export namespace IntegrationConfig {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     customerProfiles: (value: CustomerProfilesIntegrationConfig) => T;
     qConnect: (value: QConnectIntegrationConfig) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: IntegrationConfig, visitor: Visitor<T>): T => {
-    if (value.customerProfiles !== undefined) return visitor.customerProfiles(value.customerProfiles);
-    if (value.qConnect !== undefined) return visitor.qConnect(value.qConnect);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -2475,19 +2456,16 @@ export namespace ChannelSubtypeParameters {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     telephony: (value: TelephonyChannelSubtypeParameters) => T;
     sms: (value: SmsChannelSubtypeParameters) => T;
     email: (value: EmailChannelSubtypeParameters) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: ChannelSubtypeParameters, visitor: Visitor<T>): T => {
-    if (value.telephony !== undefined) return visitor.telephony(value.telephony);
-    if (value.sms !== undefined) return visitor.sms(value.sms);
-    if (value.email !== undefined) return visitor.email(value.email);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**

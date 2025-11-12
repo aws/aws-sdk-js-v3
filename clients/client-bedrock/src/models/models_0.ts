@@ -1132,19 +1132,16 @@ export namespace AutomatedReasoningPolicyTypeValueAnnotation {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     addTypeValue: (value: AutomatedReasoningPolicyAddTypeValue) => T;
     updateTypeValue: (value: AutomatedReasoningPolicyUpdateTypeValue) => T;
     deleteTypeValue: (value: AutomatedReasoningPolicyDeleteTypeValue) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: AutomatedReasoningPolicyTypeValueAnnotation, visitor: Visitor<T>): T => {
-    if (value.addTypeValue !== undefined) return visitor.addTypeValue(value.addTypeValue);
-    if (value.updateTypeValue !== undefined) return visitor.updateTypeValue(value.updateTypeValue);
-    if (value.deleteTypeValue !== undefined) return visitor.deleteTypeValue(value.deleteTypeValue);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -1518,6 +1515,10 @@ export namespace AutomatedReasoningPolicyAnnotation {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     addType: (value: AutomatedReasoningPolicyAddTypeAnnotation) => T;
     updateType: (value: AutomatedReasoningPolicyUpdateTypeAnnotation) => T;
@@ -1534,26 +1535,6 @@ export namespace AutomatedReasoningPolicyAnnotation {
     ingestContent: (value: AutomatedReasoningPolicyIngestContentAnnotation) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: AutomatedReasoningPolicyAnnotation, visitor: Visitor<T>): T => {
-    if (value.addType !== undefined) return visitor.addType(value.addType);
-    if (value.updateType !== undefined) return visitor.updateType(value.updateType);
-    if (value.deleteType !== undefined) return visitor.deleteType(value.deleteType);
-    if (value.addVariable !== undefined) return visitor.addVariable(value.addVariable);
-    if (value.updateVariable !== undefined) return visitor.updateVariable(value.updateVariable);
-    if (value.deleteVariable !== undefined) return visitor.deleteVariable(value.deleteVariable);
-    if (value.addRule !== undefined) return visitor.addRule(value.addRule);
-    if (value.updateRule !== undefined) return visitor.updateRule(value.updateRule);
-    if (value.deleteRule !== undefined) return visitor.deleteRule(value.deleteRule);
-    if (value.addRuleFromNaturalLanguage !== undefined)
-      return visitor.addRuleFromNaturalLanguage(value.addRuleFromNaturalLanguage);
-    if (value.updateFromRulesFeedback !== undefined)
-      return visitor.updateFromRulesFeedback(value.updateFromRulesFeedback);
-    if (value.updateFromScenarioFeedback !== undefined)
-      return visitor.updateFromScenarioFeedback(value.updateFromScenarioFeedback);
-    if (value.ingestContent !== undefined) return visitor.ingestContent(value.ingestContent);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -2061,6 +2042,10 @@ export namespace AutomatedReasoningPolicyMutation {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     addType: (value: AutomatedReasoningPolicyAddTypeMutation) => T;
     updateType: (value: AutomatedReasoningPolicyUpdateTypeMutation) => T;
@@ -2073,19 +2058,6 @@ export namespace AutomatedReasoningPolicyMutation {
     deleteRule: (value: AutomatedReasoningPolicyDeleteRuleMutation) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: AutomatedReasoningPolicyMutation, visitor: Visitor<T>): T => {
-    if (value.addType !== undefined) return visitor.addType(value.addType);
-    if (value.updateType !== undefined) return visitor.updateType(value.updateType);
-    if (value.deleteType !== undefined) return visitor.deleteType(value.deleteType);
-    if (value.addVariable !== undefined) return visitor.addVariable(value.addVariable);
-    if (value.updateVariable !== undefined) return visitor.updateVariable(value.updateVariable);
-    if (value.deleteVariable !== undefined) return visitor.deleteVariable(value.deleteVariable);
-    if (value.addRule !== undefined) return visitor.addRule(value.addRule);
-    if (value.updateRule !== undefined) return visitor.updateRule(value.updateRule);
-    if (value.deleteRule !== undefined) return visitor.deleteRule(value.deleteRule);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -2136,17 +2108,15 @@ export namespace AutomatedReasoningPolicyBuildStepContext {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     planning: (value: AutomatedReasoningPolicyPlanning) => T;
     mutation: (value: AutomatedReasoningPolicyMutation) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: AutomatedReasoningPolicyBuildStepContext, visitor: Visitor<T>): T => {
-    if (value.planning !== undefined) return visitor.planning(value.planning);
-    if (value.mutation !== undefined) return visitor.mutation(value.mutation);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -2240,20 +2210,16 @@ export namespace AutomatedReasoningPolicyDefinitionElement {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     policyDefinitionVariable: (value: AutomatedReasoningPolicyDefinitionVariable) => T;
     policyDefinitionType: (value: AutomatedReasoningPolicyDefinitionType) => T;
     policyDefinitionRule: (value: AutomatedReasoningPolicyDefinitionRule) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: AutomatedReasoningPolicyDefinitionElement, visitor: Visitor<T>): T => {
-    if (value.policyDefinitionVariable !== undefined)
-      return visitor.policyDefinitionVariable(value.policyDefinitionVariable);
-    if (value.policyDefinitionType !== undefined) return visitor.policyDefinitionType(value.policyDefinitionType);
-    if (value.policyDefinitionRule !== undefined) return visitor.policyDefinitionRule(value.policyDefinitionRule);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -2478,19 +2444,16 @@ export namespace AutomatedReasoningPolicyBuildResultAssets {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     policyDefinition: (value: AutomatedReasoningPolicyDefinition) => T;
     qualityReport: (value: AutomatedReasoningPolicyDefinitionQualityReport) => T;
     buildLog: (value: AutomatedReasoningPolicyBuildLog) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: AutomatedReasoningPolicyBuildResultAssets, visitor: Visitor<T>): T => {
-    if (value.policyDefinition !== undefined) return visitor.policyDefinition(value.policyDefinition);
-    if (value.qualityReport !== undefined) return visitor.qualityReport(value.qualityReport);
-    if (value.buildLog !== undefined) return visitor.buildLog(value.buildLog);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -3107,6 +3070,10 @@ export namespace AutomatedReasoningCheckFinding {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     valid: (value: AutomatedReasoningCheckValidFinding) => T;
     invalid: (value: AutomatedReasoningCheckInvalidFinding) => T;
@@ -3117,17 +3084,6 @@ export namespace AutomatedReasoningCheckFinding {
     noTranslations: (value: AutomatedReasoningCheckNoTranslationsFinding) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: AutomatedReasoningCheckFinding, visitor: Visitor<T>): T => {
-    if (value.valid !== undefined) return visitor.valid(value.valid);
-    if (value.invalid !== undefined) return visitor.invalid(value.invalid);
-    if (value.satisfiable !== undefined) return visitor.satisfiable(value.satisfiable);
-    if (value.impossible !== undefined) return visitor.impossible(value.impossible);
-    if (value.translationAmbiguous !== undefined) return visitor.translationAmbiguous(value.translationAmbiguous);
-    if (value.tooComplex !== undefined) return visitor.tooComplex(value.tooComplex);
-    if (value.noTranslations !== undefined) return visitor.noTranslations(value.noTranslations);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -3562,17 +3518,15 @@ export namespace AutomatedReasoningPolicyWorkflowTypeContent {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     documents: (value: AutomatedReasoningPolicyBuildWorkflowDocument[]) => T;
     policyRepairAssets: (value: AutomatedReasoningPolicyBuildWorkflowRepairContent) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: AutomatedReasoningPolicyWorkflowTypeContent, visitor: Visitor<T>): T => {
-    if (value.documents !== undefined) return visitor.documents(value.documents);
-    if (value.policyRepairAssets !== undefined) return visitor.policyRepairAssets(value.policyRepairAssets);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -3946,15 +3900,14 @@ export namespace EndpointConfig {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     sageMaker: (value: SageMakerEndpoint) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: EndpointConfig, visitor: Visitor<T>): T => {
-    if (value.sageMaker !== undefined) return visitor.sageMaker(value.sageMaker);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -4633,15 +4586,14 @@ export namespace ModelDataSource {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     s3DataSource: (value: S3DataSource) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: ModelDataSource, visitor: Visitor<T>): T => {
-    if (value.s3DataSource !== undefined) return visitor.s3DataSource(value.s3DataSource);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -4780,15 +4732,14 @@ export namespace CustomizationConfig {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     distillationConfig: (value: DistillationConfig) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: CustomizationConfig, visitor: Visitor<T>): T => {
-    if (value.distillationConfig !== undefined) return visitor.distillationConfig(value.distillationConfig);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -4861,15 +4812,14 @@ export namespace InvocationLogSource {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     s3Uri: (value: string) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: InvocationLogSource, visitor: Visitor<T>): T => {
-    if (value.s3Uri !== undefined) return visitor.s3Uri(value.s3Uri);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -4964,6 +4914,10 @@ export namespace RequestMetadataFilters {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     equals: (value: Record<string, string>) => T;
     notEquals: (value: Record<string, string>) => T;
@@ -4971,14 +4925,6 @@ export namespace RequestMetadataFilters {
     orAll: (value: RequestMetadataBaseFilters[]) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: RequestMetadataFilters, visitor: Visitor<T>): T => {
-    if (value.equals !== undefined) return visitor.equals(value.equals);
-    if (value.notEquals !== undefined) return visitor.notEquals(value.notEquals);
-    if (value.andAll !== undefined) return visitor.andAll(value.andAll);
-    if (value.orAll !== undefined) return visitor.orAll(value.orAll);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -5464,17 +5410,15 @@ export namespace RatingScaleItemValue {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     stringValue: (value: string) => T;
     floatValue: (value: number) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: RatingScaleItemValue, visitor: Visitor<T>): T => {
-    if (value.stringValue !== undefined) return visitor.stringValue(value.stringValue);
-    if (value.floatValue !== undefined) return visitor.floatValue(value.floatValue);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -5548,15 +5492,14 @@ export namespace AutomatedEvaluationCustomMetricSource {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     customMetricDefinition: (value: CustomMetricDefinition) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: AutomatedEvaluationCustomMetricSource, visitor: Visitor<T>): T => {
-    if (value.customMetricDefinition !== undefined) return visitor.customMetricDefinition(value.customMetricDefinition);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -5630,15 +5573,14 @@ export namespace EvaluationDatasetLocation {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     s3Uri: (value: string) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: EvaluationDatasetLocation, visitor: Visitor<T>): T => {
-    if (value.s3Uri !== undefined) return visitor.s3Uri(value.s3Uri);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -5741,15 +5683,14 @@ export namespace EvaluatorModelConfig {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     bedrockEvaluatorModels: (value: BedrockEvaluatorModel[]) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: EvaluatorModelConfig, visitor: Visitor<T>): T => {
-    if (value.bedrockEvaluatorModels !== undefined) return visitor.bedrockEvaluatorModels(value.bedrockEvaluatorModels);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -5884,17 +5825,15 @@ export namespace EvaluationConfig {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     automated: (value: AutomatedEvaluationConfig) => T;
     human: (value: HumanEvaluationConfig) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: EvaluationConfig, visitor: Visitor<T>): T => {
-    if (value.automated !== undefined) return visitor.automated(value.automated);
-    if (value.human !== undefined) return visitor.human(value.human);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -6001,18 +5940,15 @@ export namespace EvaluationModelConfig {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     bedrockModel: (value: EvaluationBedrockModel) => T;
     precomputedInferenceSource: (value: EvaluationPrecomputedInferenceSource) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: EvaluationModelConfig, visitor: Visitor<T>): T => {
-    if (value.bedrockModel !== undefined) return visitor.bedrockModel(value.bedrockModel);
-    if (value.precomputedInferenceSource !== undefined)
-      return visitor.precomputedInferenceSource(value.precomputedInferenceSource);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -6441,17 +6377,15 @@ export namespace RerankingMetadataSelectiveModeConfiguration {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     fieldsToInclude: (value: FieldForReranking[]) => T;
     fieldsToExclude: (value: FieldForReranking[]) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: RerankingMetadataSelectiveModeConfiguration, visitor: Visitor<T>): T => {
-    if (value.fieldsToInclude !== undefined) return visitor.fieldsToInclude(value.fieldsToInclude);
-    if (value.fieldsToExclude !== undefined) return visitor.fieldsToExclude(value.fieldsToExclude);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -6626,18 +6560,15 @@ export namespace EvaluationPrecomputedRagSourceConfig {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     retrieveSourceConfig: (value: EvaluationPrecomputedRetrieveSourceConfig) => T;
     retrieveAndGenerateSourceConfig: (value: EvaluationPrecomputedRetrieveAndGenerateSourceConfig) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: EvaluationPrecomputedRagSourceConfig, visitor: Visitor<T>): T => {
-    if (value.retrieveSourceConfig !== undefined) return visitor.retrieveSourceConfig(value.retrieveSourceConfig);
-    if (value.retrieveAndGenerateSourceConfig !== undefined)
-      return visitor.retrieveAndGenerateSourceConfig(value.retrieveAndGenerateSourceConfig);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**

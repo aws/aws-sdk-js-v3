@@ -233,17 +233,15 @@ export namespace Command {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     unlock: (value: Unlock) => T;
     reboot: (value: Reboot) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: Command, visitor: Visitor<T>): T => {
-    if (value.unlock !== undefined) return visitor.unlock(value.unlock);
-    if (value.reboot !== undefined) return visitor.reboot(value.reboot);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**

@@ -436,15 +436,14 @@ export namespace QuickResponseDataProvider {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     content: (value: string) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: QuickResponseDataProvider, visitor: Visitor<T>): T => {
-    if (value.content !== undefined) return visitor.content(value.content);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -553,15 +552,14 @@ export namespace QuickResponseContentProvider {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     content: (value: string) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: QuickResponseContentProvider, visitor: Visitor<T>): T => {
-    if (value.content !== undefined) return visitor.content(value.content);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -3006,6 +3004,10 @@ export namespace DataDetails {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     contentData: (value: ContentDataDetails) => T;
     generativeData: (value: GenerativeDataDetails) => T;
@@ -3017,19 +3019,6 @@ export namespace DataDetails {
     emailGenerativeAnswerChunkData: (value: EmailGenerativeAnswerChunkDataDetails) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: DataDetails, visitor: Visitor<T>): T => {
-    if (value.contentData !== undefined) return visitor.contentData(value.contentData);
-    if (value.generativeData !== undefined) return visitor.generativeData(value.generativeData);
-    if (value.intentDetectedData !== undefined) return visitor.intentDetectedData(value.intentDetectedData);
-    if (value.sourceContentData !== undefined) return visitor.sourceContentData(value.sourceContentData);
-    if (value.generativeChunkData !== undefined) return visitor.generativeChunkData(value.generativeChunkData);
-    if (value.emailResponseChunkData !== undefined) return visitor.emailResponseChunkData(value.emailResponseChunkData);
-    if (value.emailOverviewChunkData !== undefined) return visitor.emailOverviewChunkData(value.emailOverviewChunkData);
-    if (value.emailGenerativeAnswerChunkData !== undefined)
-      return visitor.emailGenerativeAnswerChunkData(value.emailGenerativeAnswerChunkData);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**

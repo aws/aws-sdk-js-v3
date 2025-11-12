@@ -785,6 +785,10 @@ export namespace AcceptedTerm {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     legalTerm: (value: LegalTerm) => T;
     supportTerm: (value: SupportTerm) => T;
@@ -799,23 +803,6 @@ export namespace AcceptedTerm {
     fixedUpfrontPricingTerm: (value: FixedUpfrontPricingTerm) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: AcceptedTerm, visitor: Visitor<T>): T => {
-    if (value.legalTerm !== undefined) return visitor.legalTerm(value.legalTerm);
-    if (value.supportTerm !== undefined) return visitor.supportTerm(value.supportTerm);
-    if (value.renewalTerm !== undefined) return visitor.renewalTerm(value.renewalTerm);
-    if (value.usageBasedPricingTerm !== undefined) return visitor.usageBasedPricingTerm(value.usageBasedPricingTerm);
-    if (value.configurableUpfrontPricingTerm !== undefined)
-      return visitor.configurableUpfrontPricingTerm(value.configurableUpfrontPricingTerm);
-    if (value.byolPricingTerm !== undefined) return visitor.byolPricingTerm(value.byolPricingTerm);
-    if (value.recurringPaymentTerm !== undefined) return visitor.recurringPaymentTerm(value.recurringPaymentTerm);
-    if (value.validityTerm !== undefined) return visitor.validityTerm(value.validityTerm);
-    if (value.paymentScheduleTerm !== undefined) return visitor.paymentScheduleTerm(value.paymentScheduleTerm);
-    if (value.freeTrialPricingTerm !== undefined) return visitor.freeTrialPricingTerm(value.freeTrialPricingTerm);
-    if (value.fixedUpfrontPricingTerm !== undefined)
-      return visitor.fixedUpfrontPricingTerm(value.fixedUpfrontPricingTerm);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**

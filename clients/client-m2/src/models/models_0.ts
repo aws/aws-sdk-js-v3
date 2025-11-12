@@ -335,17 +335,15 @@ export namespace Definition {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     s3Location: (value: string) => T;
     content: (value: string) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: Definition, visitor: Visitor<T>): T => {
-    if (value.s3Location !== undefined) return visitor.s3Location(value.s3Location);
-    if (value.content !== undefined) return visitor.content(value.content);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -516,15 +514,14 @@ export namespace ExternalLocation {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     s3Location: (value: string) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: ExternalLocation, visitor: Visitor<T>): T => {
-    if (value.s3Location !== undefined) return visitor.s3Location(value.s3Location);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -587,17 +584,15 @@ export namespace DataSetExportConfig {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     s3Location: (value: string) => T;
     dataSets: (value: DataSetExportItem[]) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: DataSetExportConfig, visitor: Visitor<T>): T => {
-    if (value.s3Location !== undefined) return visitor.s3Location(value.s3Location);
-    if (value.dataSets !== undefined) return visitor.dataSets(value.dataSets);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -845,6 +840,10 @@ export namespace DatasetOrgAttributes {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     vsam: (value: VsamAttributes) => T;
     gdg: (value: GdgAttributes) => T;
@@ -852,14 +851,6 @@ export namespace DatasetOrgAttributes {
     ps: (value: PsAttributes) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: DatasetOrgAttributes, visitor: Visitor<T>): T => {
-    if (value.vsam !== undefined) return visitor.vsam(value.vsam);
-    if (value.gdg !== undefined) return visitor.gdg(value.gdg);
-    if (value.po !== undefined) return visitor.po(value.po);
-    if (value.ps !== undefined) return visitor.ps(value.ps);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -979,17 +970,15 @@ export namespace DataSetImportConfig {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     s3Location: (value: string) => T;
     dataSets: (value: DataSetImportItem[]) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: DataSetImportConfig, visitor: Visitor<T>): T => {
-    if (value.s3Location !== undefined) return visitor.s3Location(value.s3Location);
-    if (value.dataSets !== undefined) return visitor.dataSets(value.dataSets);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -1589,17 +1578,15 @@ export namespace JobIdentifier {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     fileName: (value: string) => T;
     scriptName: (value: string) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: JobIdentifier, visitor: Visitor<T>): T => {
-    if (value.fileName !== undefined) return visitor.fileName(value.fileName);
-    if (value.scriptName !== undefined) return visitor.scriptName(value.scriptName);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -1714,6 +1701,10 @@ export namespace BatchJobIdentifier {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     fileBatchJobIdentifier: (value: FileBatchJobIdentifier) => T;
     scriptBatchJobIdentifier: (value: ScriptBatchJobIdentifier) => T;
@@ -1721,16 +1712,6 @@ export namespace BatchJobIdentifier {
     restartBatchJobIdentifier: (value: RestartBatchJobIdentifier) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: BatchJobIdentifier, visitor: Visitor<T>): T => {
-    if (value.fileBatchJobIdentifier !== undefined) return visitor.fileBatchJobIdentifier(value.fileBatchJobIdentifier);
-    if (value.scriptBatchJobIdentifier !== undefined)
-      return visitor.scriptBatchJobIdentifier(value.scriptBatchJobIdentifier);
-    if (value.s3BatchJobIdentifier !== undefined) return visitor.s3BatchJobIdentifier(value.s3BatchJobIdentifier);
-    if (value.restartBatchJobIdentifier !== undefined)
-      return visitor.restartBatchJobIdentifier(value.restartBatchJobIdentifier);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -2074,6 +2055,10 @@ export namespace DatasetDetailOrgAttributes {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     vsam: (value: VsamDetailAttributes) => T;
     gdg: (value: GdgDetailAttributes) => T;
@@ -2081,14 +2066,6 @@ export namespace DatasetDetailOrgAttributes {
     ps: (value: PsDetailAttributes) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: DatasetDetailOrgAttributes, visitor: Visitor<T>): T => {
-    if (value.vsam !== undefined) return visitor.vsam(value.vsam);
-    if (value.gdg !== undefined) return visitor.gdg(value.gdg);
-    if (value.po !== undefined) return visitor.po(value.po);
-    if (value.ps !== undefined) return visitor.ps(value.ps);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -2713,18 +2690,15 @@ export namespace BatchJobDefinition {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     fileBatchJobDefinition: (value: FileBatchJobDefinition) => T;
     scriptBatchJobDefinition: (value: ScriptBatchJobDefinition) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: BatchJobDefinition, visitor: Visitor<T>): T => {
-    if (value.fileBatchJobDefinition !== undefined) return visitor.fileBatchJobDefinition(value.fileBatchJobDefinition);
-    if (value.scriptBatchJobDefinition !== undefined)
-      return visitor.scriptBatchJobDefinition(value.scriptBatchJobDefinition);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -3544,17 +3518,15 @@ export namespace StorageConfiguration {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     efs: (value: EfsStorageConfiguration) => T;
     fsx: (value: FsxStorageConfiguration) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: StorageConfiguration, visitor: Visitor<T>): T => {
-    if (value.efs !== undefined) return visitor.efs(value.efs);
-    if (value.fsx !== undefined) return visitor.fsx(value.fsx);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**

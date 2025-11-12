@@ -186,21 +186,16 @@ export namespace X12ValidationRule {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     codeListValidationRule: (value: X12CodeListValidationRule) => T;
     elementLengthValidationRule: (value: X12ElementLengthValidationRule) => T;
     elementRequirementValidationRule: (value: X12ElementRequirementValidationRule) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: X12ValidationRule, visitor: Visitor<T>): T => {
-    if (value.codeListValidationRule !== undefined) return visitor.codeListValidationRule(value.codeListValidationRule);
-    if (value.elementLengthValidationRule !== undefined)
-      return visitor.elementLengthValidationRule(value.elementLengthValidationRule);
-    if (value.elementRequirementValidationRule !== undefined)
-      return visitor.elementRequirementValidationRule(value.elementRequirementValidationRule);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -714,15 +709,14 @@ export namespace EdiType {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     x12Details: (value: X12Details) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: EdiType, visitor: Visitor<T>): T => {
-    if (value.x12Details !== undefined) return visitor.x12Details(value.x12Details);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -788,15 +782,14 @@ export namespace CapabilityConfiguration {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     edi: (value: EdiConfiguration) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: CapabilityConfiguration, visitor: Visitor<T>): T => {
-    if (value.edi !== undefined) return visitor.edi(value.edi);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -1332,15 +1325,14 @@ export namespace TemplateDetails {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     x12: (value: X12Details) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: TemplateDetails, visitor: Visitor<T>): T => {
-    if (value.x12 !== undefined) return visitor.x12(value.x12);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -1842,15 +1834,14 @@ export namespace OutboundEdiOptions {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     x12: (value: X12Envelope) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: OutboundEdiOptions, visitor: Visitor<T>): T => {
-    if (value.x12 !== undefined) return visitor.x12(value.x12);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -2763,15 +2754,14 @@ export namespace InputFileSource {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     fileContent: (value: string) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: InputFileSource, visitor: Visitor<T>): T => {
-    if (value.fileContent !== undefined) return visitor.fileContent(value.fileContent);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -2834,15 +2824,14 @@ export namespace ConversionTargetFormatDetails {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     x12: (value: X12Details) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: ConversionTargetFormatDetails, visitor: Visitor<T>): T => {
-    if (value.x12 !== undefined) return visitor.x12(value.x12);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -2872,15 +2861,14 @@ export namespace OutputSampleFileSource {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     fileLocation: (value: S3Location) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: OutputSampleFileSource, visitor: Visitor<T>): T => {
-    if (value.fileLocation !== undefined) return visitor.fileLocation(value.fileLocation);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -3076,15 +3064,14 @@ export namespace FormatOptions {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     x12: (value: X12Details) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: FormatOptions, visitor: Visitor<T>): T => {
-    if (value.x12 !== undefined) return visitor.x12(value.x12);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**

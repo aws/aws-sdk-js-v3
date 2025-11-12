@@ -404,17 +404,15 @@ export namespace AudioStream {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     AudioEvent: (value: AudioEvent) => T;
     ConfigurationEvent: (value: ConfigurationEvent) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: AudioStream, visitor: Visitor<T>): T => {
-    if (value.AudioEvent !== undefined) return visitor.AudioEvent(value.AudioEvent);
-    if (value.ConfigurationEvent !== undefined) return visitor.ConfigurationEvent(value.ConfigurationEvent);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -1007,6 +1005,10 @@ export namespace CallAnalyticsTranscriptResultStream {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     UtteranceEvent: (value: UtteranceEvent) => T;
     CategoryEvent: (value: CategoryEvent) => T;
@@ -1017,19 +1019,6 @@ export namespace CallAnalyticsTranscriptResultStream {
     ServiceUnavailableException: (value: ServiceUnavailableException) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: CallAnalyticsTranscriptResultStream, visitor: Visitor<T>): T => {
-    if (value.UtteranceEvent !== undefined) return visitor.UtteranceEvent(value.UtteranceEvent);
-    if (value.CategoryEvent !== undefined) return visitor.CategoryEvent(value.CategoryEvent);
-    if (value.BadRequestException !== undefined) return visitor.BadRequestException(value.BadRequestException);
-    if (value.LimitExceededException !== undefined) return visitor.LimitExceededException(value.LimitExceededException);
-    if (value.InternalFailureException !== undefined)
-      return visitor.InternalFailureException(value.InternalFailureException);
-    if (value.ConflictException !== undefined) return visitor.ConflictException(value.ConflictException);
-    if (value.ServiceUnavailableException !== undefined)
-      return visitor.ServiceUnavailableException(value.ServiceUnavailableException);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -2121,19 +2110,16 @@ export namespace MedicalScribeInputStream {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     AudioEvent: (value: MedicalScribeAudioEvent) => T;
     SessionControlEvent: (value: MedicalScribeSessionControlEvent) => T;
     ConfigurationEvent: (value: MedicalScribeConfigurationEvent) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: MedicalScribeInputStream, visitor: Visitor<T>): T => {
-    if (value.AudioEvent !== undefined) return visitor.AudioEvent(value.AudioEvent);
-    if (value.SessionControlEvent !== undefined) return visitor.SessionControlEvent(value.SessionControlEvent);
-    if (value.ConfigurationEvent !== undefined) return visitor.ConfigurationEvent(value.ConfigurationEvent);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -2395,6 +2381,10 @@ export namespace MedicalScribeResultStream {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     TranscriptEvent: (value: MedicalScribeTranscriptEvent) => T;
     BadRequestException: (value: BadRequestException) => T;
@@ -2404,18 +2394,6 @@ export namespace MedicalScribeResultStream {
     ServiceUnavailableException: (value: ServiceUnavailableException) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: MedicalScribeResultStream, visitor: Visitor<T>): T => {
-    if (value.TranscriptEvent !== undefined) return visitor.TranscriptEvent(value.TranscriptEvent);
-    if (value.BadRequestException !== undefined) return visitor.BadRequestException(value.BadRequestException);
-    if (value.LimitExceededException !== undefined) return visitor.LimitExceededException(value.LimitExceededException);
-    if (value.InternalFailureException !== undefined)
-      return visitor.InternalFailureException(value.InternalFailureException);
-    if (value.ConflictException !== undefined) return visitor.ConflictException(value.ConflictException);
-    if (value.ServiceUnavailableException !== undefined)
-      return visitor.ServiceUnavailableException(value.ServiceUnavailableException);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -2580,6 +2558,10 @@ export namespace MedicalTranscriptResultStream {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     TranscriptEvent: (value: MedicalTranscriptEvent) => T;
     BadRequestException: (value: BadRequestException) => T;
@@ -2589,18 +2571,6 @@ export namespace MedicalTranscriptResultStream {
     ServiceUnavailableException: (value: ServiceUnavailableException) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: MedicalTranscriptResultStream, visitor: Visitor<T>): T => {
-    if (value.TranscriptEvent !== undefined) return visitor.TranscriptEvent(value.TranscriptEvent);
-    if (value.BadRequestException !== undefined) return visitor.BadRequestException(value.BadRequestException);
-    if (value.LimitExceededException !== undefined) return visitor.LimitExceededException(value.LimitExceededException);
-    if (value.InternalFailureException !== undefined)
-      return visitor.InternalFailureException(value.InternalFailureException);
-    if (value.ConflictException !== undefined) return visitor.ConflictException(value.ConflictException);
-    if (value.ServiceUnavailableException !== undefined)
-      return visitor.ServiceUnavailableException(value.ServiceUnavailableException);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -3860,6 +3830,10 @@ export namespace TranscriptResultStream {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     TranscriptEvent: (value: TranscriptEvent) => T;
     BadRequestException: (value: BadRequestException) => T;
@@ -3869,18 +3843,6 @@ export namespace TranscriptResultStream {
     ServiceUnavailableException: (value: ServiceUnavailableException) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: TranscriptResultStream, visitor: Visitor<T>): T => {
-    if (value.TranscriptEvent !== undefined) return visitor.TranscriptEvent(value.TranscriptEvent);
-    if (value.BadRequestException !== undefined) return visitor.BadRequestException(value.BadRequestException);
-    if (value.LimitExceededException !== undefined) return visitor.LimitExceededException(value.LimitExceededException);
-    if (value.InternalFailureException !== undefined)
-      return visitor.InternalFailureException(value.InternalFailureException);
-    if (value.ConflictException !== undefined) return visitor.ConflictException(value.ConflictException);
-    if (value.ServiceUnavailableException !== undefined)
-      return visitor.ServiceUnavailableException(value.ServiceUnavailableException);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**

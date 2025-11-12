@@ -101,18 +101,15 @@ export namespace AnalysisStatusUnion {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     runtimeAnalysisStatus: (value: RuntimeAnalysisStatus) => T;
     srcCodeOrDbAnalysisStatus: (value: SrcCodeOrDbAnalysisStatus) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: AnalysisStatusUnion, visitor: Visitor<T>): T => {
-    if (value.runtimeAnalysisStatus !== undefined) return visitor.runtimeAnalysisStatus(value.runtimeAnalysisStatus);
-    if (value.srcCodeOrDbAnalysisStatus !== undefined)
-      return visitor.srcCodeOrDbAnalysisStatus(value.srcCodeOrDbAnalysisStatus);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -265,19 +262,16 @@ export namespace AnalyzerNameUnion {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     binaryAnalyzerName: (value: BinaryAnalyzerName) => T;
     runTimeAnalyzerName: (value: RunTimeAnalyzerName) => T;
     sourceCodeAnalyzerName: (value: SourceCodeAnalyzerName) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: AnalyzerNameUnion, visitor: Visitor<T>): T => {
-    if (value.binaryAnalyzerName !== undefined) return visitor.binaryAnalyzerName(value.binaryAnalyzerName);
-    if (value.runTimeAnalyzerName !== undefined) return visitor.runTimeAnalyzerName(value.runTimeAnalyzerName);
-    if (value.sourceCodeAnalyzerName !== undefined) return visitor.sourceCodeAnalyzerName(value.sourceCodeAnalyzerName);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -1064,19 +1058,16 @@ export namespace ManagementPreference {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     awsManagedResources: (value: AwsManagedResources) => T;
     selfManageResources: (value: SelfManageResources) => T;
     noPreference: (value: NoManagementPreference) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: ManagementPreference, visitor: Visitor<T>): T => {
-    if (value.awsManagedResources !== undefined) return visitor.awsManagedResources(value.awsManagedResources);
-    if (value.selfManageResources !== undefined) return visitor.selfManageResources(value.selfManageResources);
-    if (value.noPreference !== undefined) return visitor.noPreference(value.noPreference);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -1904,19 +1895,16 @@ export namespace DatabaseMigrationPreference {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     heterogeneous: (value: Heterogeneous) => T;
     homogeneous: (value: Homogeneous) => T;
     noPreference: (value: NoDatabaseMigrationPreference) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: DatabaseMigrationPreference, visitor: Visitor<T>): T => {
-    if (value.heterogeneous !== undefined) return visitor.heterogeneous(value.heterogeneous);
-    if (value.homogeneous !== undefined) return visitor.homogeneous(value.homogeneous);
-    if (value.noPreference !== undefined) return visitor.noPreference(value.noPreference);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**

@@ -6870,7 +6870,7 @@ export var UnauthorizedException: StaticErrorSchema = [
 ];
 TypeRegistry.for(n0).registerError(UnauthorizedException, __UnauthorizedException);
 
-export var Unit: StaticStructureSchema = [3, n0, _U, 0, [], []];
+export var Unit_n0: StaticStructureSchema = [3, n0, _U, 0, [], []];
 export var UntagResourceRequest: StaticStructureSchema = [
   3,
   n0,
@@ -7831,9 +7831,9 @@ export var PolicyGrantDetail: StaticStructureSchema = [
     () => CreateAssetTypePolicyGrantDetail,
     () => CreateProjectPolicyGrantDetail,
     () => CreateEnvironmentProfilePolicyGrantDetail,
-    () => Unit,
-    () => Unit,
-    () => Unit,
+    () => Unit_n0,
+    () => Unit_n0,
+    () => Unit_n0,
     () => CreateProjectFromProjectProfilePolicyGrantDetail,
     () => UseAssetTypePolicyGrantDetail,
   ],

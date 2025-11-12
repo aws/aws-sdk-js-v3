@@ -363,6 +363,10 @@ export namespace TaskParameterValue {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     int: (value: string) => T;
     float: (value: string) => T;
@@ -371,15 +375,6 @@ export namespace TaskParameterValue {
     chunkInt: (value: string) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: TaskParameterValue, visitor: Visitor<T>): T => {
-    if (value.int !== undefined) return visitor.int(value.int);
-    if (value.float !== undefined) return visitor.float(value.float);
-    if (value.string !== undefined) return visitor.string(value.string);
-    if (value.path !== undefined) return visitor.path(value.path);
-    if (value.chunkInt !== undefined) return visitor.chunkInt(value.chunkInt);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -480,6 +475,10 @@ export namespace AssignedSessionActionDefinition {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     envEnter: (value: AssignedEnvironmentEnterSessionActionDefinition) => T;
     envExit: (value: AssignedEnvironmentExitSessionActionDefinition) => T;
@@ -487,15 +486,6 @@ export namespace AssignedSessionActionDefinition {
     syncInputJobAttachments: (value: AssignedSyncInputJobAttachmentsSessionActionDefinition) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: AssignedSessionActionDefinition, visitor: Visitor<T>): T => {
-    if (value.envEnter !== undefined) return visitor.envEnter(value.envEnter);
-    if (value.envExit !== undefined) return visitor.envExit(value.envExit);
-    if (value.taskRun !== undefined) return visitor.taskRun(value.taskRun);
-    if (value.syncInputJobAttachments !== undefined)
-      return visitor.syncInputJobAttachments(value.syncInputJobAttachments);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -1540,6 +1530,10 @@ export namespace JobEntityIdentifiersUnion {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     jobDetails: (value: JobDetailsIdentifiers) => T;
     jobAttachmentDetails: (value: JobAttachmentDetailsIdentifiers) => T;
@@ -1547,14 +1541,6 @@ export namespace JobEntityIdentifiersUnion {
     environmentDetails: (value: EnvironmentDetailsIdentifiers) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: JobEntityIdentifiersUnion, visitor: Visitor<T>): T => {
-    if (value.jobDetails !== undefined) return visitor.jobDetails(value.jobDetails);
-    if (value.jobAttachmentDetails !== undefined) return visitor.jobAttachmentDetails(value.jobAttachmentDetails);
-    if (value.stepDetails !== undefined) return visitor.stepDetails(value.stepDetails);
-    if (value.environmentDetails !== undefined) return visitor.environmentDetails(value.environmentDetails);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -1803,6 +1789,10 @@ export namespace JobParameter {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     int: (value: string) => T;
     float: (value: string) => T;
@@ -1810,14 +1800,6 @@ export namespace JobParameter {
     path: (value: string) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: JobParameter, visitor: Visitor<T>): T => {
-    if (value.int !== undefined) return visitor.int(value.int);
-    if (value.float !== undefined) return visitor.float(value.float);
-    if (value.string !== undefined) return visitor.string(value.string);
-    if (value.path !== undefined) return visitor.path(value.path);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -2008,6 +1990,10 @@ export namespace JobEntity {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     jobDetails: (value: JobDetailsEntity) => T;
     jobAttachmentDetails: (value: JobAttachmentDetailsEntity) => T;
@@ -2015,14 +2001,6 @@ export namespace JobEntity {
     environmentDetails: (value: EnvironmentDetailsEntity) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: JobEntity, visitor: Visitor<T>): T => {
-    if (value.jobDetails !== undefined) return visitor.jobDetails(value.jobDetails);
-    if (value.jobAttachmentDetails !== undefined) return visitor.jobAttachmentDetails(value.jobAttachmentDetails);
-    if (value.stepDetails !== undefined) return visitor.stepDetails(value.stepDetails);
-    if (value.environmentDetails !== undefined) return visitor.environmentDetails(value.environmentDetails);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -2225,6 +2203,10 @@ export namespace GetJobEntityError {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     jobDetails: (value: JobDetailsError) => T;
     jobAttachmentDetails: (value: JobAttachmentDetailsError) => T;
@@ -2232,14 +2214,6 @@ export namespace GetJobEntityError {
     environmentDetails: (value: EnvironmentDetailsError) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: GetJobEntityError, visitor: Visitor<T>): T => {
-    if (value.jobDetails !== undefined) return visitor.jobDetails(value.jobDetails);
-    if (value.jobAttachmentDetails !== undefined) return visitor.jobAttachmentDetails(value.jobAttachmentDetails);
-    if (value.stepDetails !== undefined) return visitor.stepDetails(value.stepDetails);
-    if (value.environmentDetails !== undefined) return visitor.environmentDetails(value.environmentDetails);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -2363,15 +2337,14 @@ export namespace BudgetSchedule {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     fixed: (value: FixedBudgetSchedule) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: BudgetSchedule, visitor: Visitor<T>): T => {
-    if (value.fixed !== undefined) return visitor.fixed(value.fixed);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -2401,15 +2374,14 @@ export namespace UsageTrackingResource {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     queueId: (value: string) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: UsageTrackingResource, visitor: Visitor<T>): T => {
-    if (value.queueId !== undefined) return visitor.queueId(value.queueId);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -3501,17 +3473,15 @@ export namespace FleetConfiguration {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     customerManaged: (value: CustomerManagedFleetConfiguration) => T;
     serviceManagedEc2: (value: ServiceManagedEc2FleetConfiguration) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: FleetConfiguration, visitor: Visitor<T>): T => {
-    if (value.customerManaged !== undefined) return visitor.customerManaged(value.customerManaged);
-    if (value.serviceManagedEc2 !== undefined) return visitor.serviceManagedEc2(value.serviceManagedEc2);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -7287,6 +7257,10 @@ export namespace SessionActionDefinition {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     envEnter: (value: EnvironmentEnterSessionActionDefinition) => T;
     envExit: (value: EnvironmentExitSessionActionDefinition) => T;
@@ -7294,15 +7268,6 @@ export namespace SessionActionDefinition {
     syncInputJobAttachments: (value: SyncInputJobAttachmentsSessionActionDefinition) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: SessionActionDefinition, visitor: Visitor<T>): T => {
-    if (value.envEnter !== undefined) return visitor.envEnter(value.envEnter);
-    if (value.envExit !== undefined) return visitor.envExit(value.envExit);
-    if (value.taskRun !== undefined) return visitor.taskRun(value.taskRun);
-    if (value.syncInputJobAttachments !== undefined)
-      return visitor.syncInputJobAttachments(value.syncInputJobAttachments);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -8441,6 +8406,10 @@ export namespace SessionActionDefinitionSummary {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     envEnter: (value: EnvironmentEnterSessionActionDefinitionSummary) => T;
     envExit: (value: EnvironmentExitSessionActionDefinitionSummary) => T;
@@ -8448,15 +8417,6 @@ export namespace SessionActionDefinitionSummary {
     syncInputJobAttachments: (value: SyncInputJobAttachmentsSessionActionDefinitionSummary) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: SessionActionDefinitionSummary, visitor: Visitor<T>): T => {
-    if (value.envEnter !== undefined) return visitor.envEnter(value.envEnter);
-    if (value.envExit !== undefined) return visitor.envExit(value.envExit);
-    if (value.taskRun !== undefined) return visitor.taskRun(value.taskRun);
-    if (value.syncInputJobAttachments !== undefined)
-      return visitor.syncInputJobAttachments(value.syncInputJobAttachments);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**

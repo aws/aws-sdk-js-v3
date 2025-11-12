@@ -275,17 +275,15 @@ export namespace ApplicationPolicy {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     PolicyType: (value: ApplicationPolicyType) => T;
     PolicyObjectIdentifier: (value: string) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: ApplicationPolicy, visitor: Visitor<T>): T => {
-    if (value.PolicyType !== undefined) return visitor.PolicyType(value.PolicyType);
-    if (value.PolicyObjectIdentifier !== undefined) return visitor.PolicyObjectIdentifier(value.PolicyObjectIdentifier);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -1572,17 +1570,15 @@ export namespace KeyUsageProperty {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     PropertyType: (value: KeyUsagePropertyType) => T;
     PropertyFlags: (value: KeyUsagePropertyFlags) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: KeyUsageProperty, visitor: Visitor<T>): T => {
-    if (value.PropertyType !== undefined) return visitor.PropertyType(value.PropertyType);
-    if (value.PropertyFlags !== undefined) return visitor.PropertyFlags(value.PropertyFlags);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -2173,19 +2169,16 @@ export namespace TemplateDefinition {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     TemplateV2: (value: TemplateV2) => T;
     TemplateV3: (value: TemplateV3) => T;
     TemplateV4: (value: TemplateV4) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: TemplateDefinition, visitor: Visitor<T>): T => {
-    if (value.TemplateV2 !== undefined) return visitor.TemplateV2(value.TemplateV2);
-    if (value.TemplateV3 !== undefined) return visitor.TemplateV3(value.TemplateV3);
-    if (value.TemplateV4 !== undefined) return visitor.TemplateV4(value.TemplateV4);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**

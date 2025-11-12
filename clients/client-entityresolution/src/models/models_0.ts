@@ -2425,16 +2425,14 @@ export namespace ProviderEndpointConfiguration {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     marketplaceConfiguration: (value: ProviderMarketplaceConfiguration) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: ProviderEndpointConfiguration, visitor: Visitor<T>): T => {
-    if (value.marketplaceConfiguration !== undefined)
-      return visitor.marketplaceConfiguration(value.marketplaceConfiguration);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**

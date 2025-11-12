@@ -3151,6 +3151,10 @@ export namespace SubscribeToShardEventStream {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     SubscribeToShardEvent: (value: SubscribeToShardEvent) => T;
     ResourceNotFoundException: (value: ResourceNotFoundException) => T;
@@ -3164,24 +3168,6 @@ export namespace SubscribeToShardEventStream {
     InternalFailureException: (value: InternalFailureException) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: SubscribeToShardEventStream, visitor: Visitor<T>): T => {
-    if (value.SubscribeToShardEvent !== undefined) return visitor.SubscribeToShardEvent(value.SubscribeToShardEvent);
-    if (value.ResourceNotFoundException !== undefined)
-      return visitor.ResourceNotFoundException(value.ResourceNotFoundException);
-    if (value.ResourceInUseException !== undefined) return visitor.ResourceInUseException(value.ResourceInUseException);
-    if (value.KMSDisabledException !== undefined) return visitor.KMSDisabledException(value.KMSDisabledException);
-    if (value.KMSInvalidStateException !== undefined)
-      return visitor.KMSInvalidStateException(value.KMSInvalidStateException);
-    if (value.KMSAccessDeniedException !== undefined)
-      return visitor.KMSAccessDeniedException(value.KMSAccessDeniedException);
-    if (value.KMSNotFoundException !== undefined) return visitor.KMSNotFoundException(value.KMSNotFoundException);
-    if (value.KMSOptInRequired !== undefined) return visitor.KMSOptInRequired(value.KMSOptInRequired);
-    if (value.KMSThrottlingException !== undefined) return visitor.KMSThrottlingException(value.KMSThrottlingException);
-    if (value.InternalFailureException !== undefined)
-      return visitor.InternalFailureException(value.InternalFailureException);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**

@@ -2324,6 +2324,10 @@ export namespace ExecutionBlockConfiguration {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     customActionLambdaConfig: (value: CustomActionLambdaConfiguration) => T;
     ec2AsgCapacityIncreaseConfig: (value: Ec2AsgCapacityIncreaseConfiguration) => T;
@@ -2337,27 +2341,6 @@ export namespace ExecutionBlockConfiguration {
     route53HealthCheckConfig: (value: Route53HealthCheckConfiguration) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: ExecutionBlockConfiguration, visitor: Visitor<T>): T => {
-    if (value.customActionLambdaConfig !== undefined)
-      return visitor.customActionLambdaConfig(value.customActionLambdaConfig);
-    if (value.ec2AsgCapacityIncreaseConfig !== undefined)
-      return visitor.ec2AsgCapacityIncreaseConfig(value.ec2AsgCapacityIncreaseConfig);
-    if (value.executionApprovalConfig !== undefined)
-      return visitor.executionApprovalConfig(value.executionApprovalConfig);
-    if (value.arcRoutingControlConfig !== undefined)
-      return visitor.arcRoutingControlConfig(value.arcRoutingControlConfig);
-    if (value.globalAuroraConfig !== undefined) return visitor.globalAuroraConfig(value.globalAuroraConfig);
-    if (value.parallelConfig !== undefined) return visitor.parallelConfig(value.parallelConfig);
-    if (value.regionSwitchPlanConfig !== undefined) return visitor.regionSwitchPlanConfig(value.regionSwitchPlanConfig);
-    if (value.ecsCapacityIncreaseConfig !== undefined)
-      return visitor.ecsCapacityIncreaseConfig(value.ecsCapacityIncreaseConfig);
-    if (value.eksResourceScalingConfig !== undefined)
-      return visitor.eksResourceScalingConfig(value.eksResourceScalingConfig);
-    if (value.route53HealthCheckConfig !== undefined)
-      return visitor.route53HealthCheckConfig(value.route53HealthCheckConfig);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**

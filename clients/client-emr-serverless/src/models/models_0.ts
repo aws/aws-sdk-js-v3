@@ -922,17 +922,15 @@ export namespace JobDriver {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     sparkSubmit: (value: SparkSubmit) => T;
     hive: (value: Hive) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: JobDriver, visitor: Visitor<T>): T => {
-    if (value.sparkSubmit !== undefined) return visitor.sparkSubmit(value.sparkSubmit);
-    if (value.hive !== undefined) return visitor.hive(value.hive);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**

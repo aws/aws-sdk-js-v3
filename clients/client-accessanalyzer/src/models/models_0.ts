@@ -664,17 +664,15 @@ export namespace AnalyzerConfiguration {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     unusedAccess: (value: UnusedAccessConfiguration) => T;
     internalAccess: (value: InternalAccessConfiguration) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: AnalyzerConfiguration, visitor: Visitor<T>): T => {
-    if (value.unusedAccess !== undefined) return visitor.unusedAccess(value.unusedAccess);
-    if (value.internalAccess !== undefined) return visitor.internalAccess(value.internalAccess);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -1489,15 +1487,14 @@ export namespace RdsDbClusterSnapshotAttributeValue {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     accountIds: (value: string[]) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: RdsDbClusterSnapshotAttributeValue, visitor: Visitor<T>): T => {
-    if (value.accountIds !== undefined) return visitor.accountIds(value.accountIds);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -1547,15 +1544,14 @@ export namespace RdsDbSnapshotAttributeValue {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     accountIds: (value: string[]) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: RdsDbSnapshotAttributeValue, visitor: Visitor<T>): T => {
-    if (value.accountIds !== undefined) return visitor.accountIds(value.accountIds);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -1636,17 +1632,15 @@ export namespace NetworkOriginConfiguration {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     vpcConfiguration: (value: VpcConfiguration) => T;
     internetConfiguration: (value: InternetConfiguration) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: NetworkOriginConfiguration, visitor: Visitor<T>): T => {
-    if (value.vpcConfiguration !== undefined) return visitor.vpcConfiguration(value.vpcConfiguration);
-    if (value.internetConfiguration !== undefined) return visitor.internetConfiguration(value.internetConfiguration);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -1730,17 +1724,15 @@ export namespace AclGrantee {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     id: (value: string) => T;
     uri: (value: string) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: AclGrantee, visitor: Visitor<T>): T => {
-    if (value.id !== undefined) return visitor.id(value.id);
-    if (value.uri !== undefined) return visitor.uri(value.uri);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -2240,6 +2232,10 @@ export namespace Configuration {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     ebsSnapshot: (value: EbsSnapshotConfiguration) => T;
     ecrRepository: (value: EcrRepositoryConfiguration) => T;
@@ -2257,25 +2253,6 @@ export namespace Configuration {
     dynamodbTable: (value: DynamodbTableConfiguration) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: Configuration, visitor: Visitor<T>): T => {
-    if (value.ebsSnapshot !== undefined) return visitor.ebsSnapshot(value.ebsSnapshot);
-    if (value.ecrRepository !== undefined) return visitor.ecrRepository(value.ecrRepository);
-    if (value.iamRole !== undefined) return visitor.iamRole(value.iamRole);
-    if (value.efsFileSystem !== undefined) return visitor.efsFileSystem(value.efsFileSystem);
-    if (value.kmsKey !== undefined) return visitor.kmsKey(value.kmsKey);
-    if (value.rdsDbClusterSnapshot !== undefined) return visitor.rdsDbClusterSnapshot(value.rdsDbClusterSnapshot);
-    if (value.rdsDbSnapshot !== undefined) return visitor.rdsDbSnapshot(value.rdsDbSnapshot);
-    if (value.secretsManagerSecret !== undefined) return visitor.secretsManagerSecret(value.secretsManagerSecret);
-    if (value.s3Bucket !== undefined) return visitor.s3Bucket(value.s3Bucket);
-    if (value.snsTopic !== undefined) return visitor.snsTopic(value.snsTopic);
-    if (value.sqsQueue !== undefined) return visitor.sqsQueue(value.sqsQueue);
-    if (value.s3ExpressDirectoryBucket !== undefined)
-      return visitor.s3ExpressDirectoryBucket(value.s3ExpressDirectoryBucket);
-    if (value.dynamodbStream !== undefined) return visitor.dynamodbStream(value.dynamodbStream);
-    if (value.dynamodbTable !== undefined) return visitor.dynamodbTable(value.dynamodbTable);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -2864,16 +2841,14 @@ export namespace RecommendedStep {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     unusedPermissionsRecommendedStep: (value: UnusedPermissionsRecommendedStep) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: RecommendedStep, visitor: Visitor<T>): T => {
-    if (value.unusedPermissionsRecommendedStep !== undefined)
-      return visitor.unusedPermissionsRecommendedStep(value.unusedPermissionsRecommendedStep);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -3198,22 +3173,16 @@ export namespace FindingsStatistics {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     externalAccessFindingsStatistics: (value: ExternalAccessFindingsStatistics) => T;
     internalAccessFindingsStatistics: (value: InternalAccessFindingsStatistics) => T;
     unusedAccessFindingsStatistics: (value: UnusedAccessFindingsStatistics) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: FindingsStatistics, visitor: Visitor<T>): T => {
-    if (value.externalAccessFindingsStatistics !== undefined)
-      return visitor.externalAccessFindingsStatistics(value.externalAccessFindingsStatistics);
-    if (value.internalAccessFindingsStatistics !== undefined)
-      return visitor.internalAccessFindingsStatistics(value.internalAccessFindingsStatistics);
-    if (value.unusedAccessFindingsStatistics !== undefined)
-      return visitor.unusedAccessFindingsStatistics(value.unusedAccessFindingsStatistics);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -3607,6 +3576,10 @@ export namespace FindingDetails {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     internalAccessDetails: (value: InternalAccessDetails) => T;
     externalAccessDetails: (value: ExternalAccessDetails) => T;
@@ -3616,19 +3589,6 @@ export namespace FindingDetails {
     unusedIamUserPasswordDetails: (value: UnusedIamUserPasswordDetails) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: FindingDetails, visitor: Visitor<T>): T => {
-    if (value.internalAccessDetails !== undefined) return visitor.internalAccessDetails(value.internalAccessDetails);
-    if (value.externalAccessDetails !== undefined) return visitor.externalAccessDetails(value.externalAccessDetails);
-    if (value.unusedPermissionDetails !== undefined)
-      return visitor.unusedPermissionDetails(value.unusedPermissionDetails);
-    if (value.unusedIamUserAccessKeyDetails !== undefined)
-      return visitor.unusedIamUserAccessKeyDetails(value.unusedIamUserAccessKeyDetails);
-    if (value.unusedIamRoleDetails !== undefined) return visitor.unusedIamRoleDetails(value.unusedIamRoleDetails);
-    if (value.unusedIamUserPasswordDetails !== undefined)
-      return visitor.unusedIamUserPasswordDetails(value.unusedIamUserPasswordDetails);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -5080,6 +5040,10 @@ export namespace PathElement {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     index: (value: number) => T;
     key: (value: string) => T;
@@ -5087,14 +5051,6 @@ export namespace PathElement {
     value: (value: string) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: PathElement, visitor: Visitor<T>): T => {
-    if (value.index !== undefined) return visitor.index(value.index);
-    if (value.key !== undefined) return visitor.key(value.key);
-    if (value.substring !== undefined) return visitor.substring(value.substring);
-    if (value.value !== undefined) return visitor.value(value.value);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**

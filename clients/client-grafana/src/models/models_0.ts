@@ -1062,17 +1062,15 @@ export namespace IdpMetadata {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     url: (value: string) => T;
     xml: (value: string) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: IdpMetadata, visitor: Visitor<T>): T => {
-    if (value.url !== undefined) return visitor.url(value.url);
-    if (value.xml !== undefined) return visitor.xml(value.xml);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**

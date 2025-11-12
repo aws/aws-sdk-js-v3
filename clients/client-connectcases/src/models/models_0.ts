@@ -142,6 +142,10 @@ export namespace FieldValueUnion {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     stringValue: (value: string) => T;
     doubleValue: (value: number) => T;
@@ -150,15 +154,6 @@ export namespace FieldValueUnion {
     userArnValue: (value: string) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: FieldValueUnion, visitor: Visitor<T>): T => {
-    if (value.stringValue !== undefined) return visitor.stringValue(value.stringValue);
-    if (value.doubleValue !== undefined) return visitor.doubleValue(value.doubleValue);
-    if (value.booleanValue !== undefined) return visitor.booleanValue(value.booleanValue);
-    if (value.emptyValue !== undefined) return visitor.emptyValue(value.emptyValue);
-    if (value.userArnValue !== undefined) return visitor.userArnValue(value.userArnValue);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -218,17 +213,15 @@ export namespace UserUnion {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     userArn: (value: string) => T;
     customEntity: (value: string) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: UserUnion, visitor: Visitor<T>): T => {
-    if (value.userArn !== undefined) return visitor.userArn(value.userArn);
-    if (value.customEntity !== undefined) return visitor.customEntity(value.customEntity);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -600,6 +593,10 @@ export namespace AuditEventFieldValueUnion {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     stringValue: (value: string) => T;
     doubleValue: (value: number) => T;
@@ -608,15 +605,6 @@ export namespace AuditEventFieldValueUnion {
     userArnValue: (value: string) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: AuditEventFieldValueUnion, visitor: Visitor<T>): T => {
-    if (value.stringValue !== undefined) return visitor.stringValue(value.stringValue);
-    if (value.doubleValue !== undefined) return visitor.doubleValue(value.doubleValue);
-    if (value.booleanValue !== undefined) return visitor.booleanValue(value.booleanValue);
-    if (value.emptyValue !== undefined) return visitor.emptyValue(value.emptyValue);
-    if (value.userArnValue !== undefined) return visitor.userArnValue(value.userArnValue);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -972,15 +960,14 @@ export namespace SlaInputContent {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     slaInputConfiguration: (value: SlaInputConfiguration) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: SlaInputContent, visitor: Visitor<T>): T => {
-    if (value.slaInputConfiguration !== undefined) return visitor.slaInputConfiguration(value.slaInputConfiguration);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -1097,6 +1084,10 @@ export namespace RelatedItemInputContent {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     contact: (value: Contact) => T;
     comment: (value: CommentContent) => T;
@@ -1106,16 +1097,6 @@ export namespace RelatedItemInputContent {
     custom: (value: CustomInputContent) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: RelatedItemInputContent, visitor: Visitor<T>): T => {
-    if (value.contact !== undefined) return visitor.contact(value.contact);
-    if (value.comment !== undefined) return visitor.comment(value.comment);
-    if (value.file !== undefined) return visitor.file(value.file);
-    if (value.sla !== undefined) return visitor.sla(value.sla);
-    if (value.connectCase !== undefined) return visitor.connectCase(value.connectCase);
-    if (value.custom !== undefined) return visitor.custom(value.custom);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -1368,6 +1349,10 @@ export namespace FieldFilter {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     equalTo: (value: FieldValue) => T;
     contains: (value: FieldValue) => T;
@@ -1377,16 +1362,6 @@ export namespace FieldFilter {
     lessThanOrEqualTo: (value: FieldValue) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: FieldFilter, visitor: Visitor<T>): T => {
-    if (value.equalTo !== undefined) return visitor.equalTo(value.equalTo);
-    if (value.contains !== undefined) return visitor.contains(value.contains);
-    if (value.greaterThan !== undefined) return visitor.greaterThan(value.greaterThan);
-    if (value.greaterThanOrEqualTo !== undefined) return visitor.greaterThanOrEqualTo(value.greaterThanOrEqualTo);
-    if (value.lessThan !== undefined) return visitor.lessThan(value.lessThan);
-    if (value.lessThanOrEqualTo !== undefined) return visitor.lessThanOrEqualTo(value.lessThanOrEqualTo);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -1657,6 +1632,10 @@ export namespace RelatedItemContent {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     contact: (value: ContactContent) => T;
     comment: (value: CommentContent) => T;
@@ -1666,16 +1645,6 @@ export namespace RelatedItemContent {
     custom: (value: CustomContent) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: RelatedItemContent, visitor: Visitor<T>): T => {
-    if (value.contact !== undefined) return visitor.contact(value.contact);
-    if (value.comment !== undefined) return visitor.comment(value.comment);
-    if (value.file !== undefined) return visitor.file(value.file);
-    if (value.sla !== undefined) return visitor.sla(value.sla);
-    if (value.connectCase !== undefined) return visitor.connectCase(value.connectCase);
-    if (value.custom !== undefined) return visitor.custom(value.custom);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -1948,15 +1917,14 @@ export namespace OperandOne {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     fieldId: (value: string) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: OperandOne, visitor: Visitor<T>): T => {
-    if (value.fieldId !== undefined) return visitor.fieldId(value.fieldId);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -2039,6 +2007,10 @@ export namespace OperandTwo {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     stringValue: (value: string) => T;
     booleanValue: (value: boolean) => T;
@@ -2046,14 +2018,6 @@ export namespace OperandTwo {
     emptyValue: (value: EmptyOperandValue) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: OperandTwo, visitor: Visitor<T>): T => {
-    if (value.stringValue !== undefined) return visitor.stringValue(value.stringValue);
-    if (value.booleanValue !== undefined) return visitor.booleanValue(value.booleanValue);
-    if (value.doubleValue !== undefined) return visitor.doubleValue(value.doubleValue);
-    if (value.emptyValue !== undefined) return visitor.emptyValue(value.emptyValue);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -2122,17 +2086,15 @@ export namespace BooleanCondition {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     equalTo: (value: BooleanOperands) => T;
     notEqualTo: (value: BooleanOperands) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: BooleanCondition, visitor: Visitor<T>): T => {
-    if (value.equalTo !== undefined) return visitor.equalTo(value.equalTo);
-    if (value.notEqualTo !== undefined) return visitor.notEqualTo(value.notEqualTo);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -2228,19 +2190,16 @@ export namespace CaseRuleDetails {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     required: (value: RequiredCaseRule) => T;
     fieldOptions: (value: FieldOptionsCaseRule) => T;
     hidden: (value: HiddenCaseRule) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: CaseRuleDetails, visitor: Visitor<T>): T => {
-    if (value.required !== undefined) return visitor.required(value.required);
-    if (value.fieldOptions !== undefined) return visitor.fieldOptions(value.fieldOptions);
-    if (value.hidden !== undefined) return visitor.hidden(value.hidden);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -3452,15 +3411,14 @@ export namespace Section {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     fieldGroup: (value: FieldGroup) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: Section, visitor: Visitor<T>): T => {
-    if (value.fieldGroup !== undefined) return visitor.fieldGroup(value.fieldGroup);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -3520,15 +3478,14 @@ export namespace LayoutContent {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     basic: (value: BasicLayout) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: LayoutContent, visitor: Visitor<T>): T => {
-    if (value.basic !== undefined) return visitor.basic(value.basic);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -4261,6 +4218,10 @@ export namespace CaseFilter {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     field: (value: FieldFilter) => T;
     not: (value: CaseFilter) => T;
@@ -4268,14 +4229,6 @@ export namespace CaseFilter {
     orAll: (value: CaseFilter[]) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: CaseFilter, visitor: Visitor<T>): T => {
-    if (value.field !== undefined) return visitor.field(value.field);
-    if (value.not !== undefined) return visitor.not(value.not);
-    if (value.andAll !== undefined) return visitor.andAll(value.andAll);
-    if (value.orAll !== undefined) return visitor.orAll(value.orAll);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -4352,6 +4305,10 @@ export namespace CustomFieldsFilter {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     field: (value: FieldFilter) => T;
     not: (value: CustomFieldsFilter) => T;
@@ -4359,14 +4316,6 @@ export namespace CustomFieldsFilter {
     orAll: (value: CustomFieldsFilter[]) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: CustomFieldsFilter, visitor: Visitor<T>): T => {
-    if (value.field !== undefined) return visitor.field(value.field);
-    if (value.not !== undefined) return visitor.not(value.not);
-    if (value.andAll !== undefined) return visitor.andAll(value.andAll);
-    if (value.orAll !== undefined) return visitor.orAll(value.orAll);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -4542,6 +4491,10 @@ export namespace RelatedItemTypeFilter {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     contact: (value: ContactFilter) => T;
     comment: (value: CommentFilter) => T;
@@ -4551,16 +4504,6 @@ export namespace RelatedItemTypeFilter {
     custom: (value: CustomFilter) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: RelatedItemTypeFilter, visitor: Visitor<T>): T => {
-    if (value.contact !== undefined) return visitor.contact(value.contact);
-    if (value.comment !== undefined) return visitor.comment(value.comment);
-    if (value.file !== undefined) return visitor.file(value.file);
-    if (value.sla !== undefined) return visitor.sla(value.sla);
-    if (value.connectCase !== undefined) return visitor.connectCase(value.connectCase);
-    if (value.custom !== undefined) return visitor.custom(value.custom);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**

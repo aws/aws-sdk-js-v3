@@ -334,15 +334,14 @@ export namespace TargetId {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     accountId: (value: string) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: TargetId, visitor: Visitor<T>): T => {
-    if (value.accountId !== undefined) return visitor.accountId(value.accountId);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**

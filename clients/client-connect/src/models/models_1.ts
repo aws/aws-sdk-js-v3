@@ -1887,17 +1887,15 @@ export namespace EvaluationQuestionAnswerAnalysisDetails {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     GenAI: (value: EvaluationGenAIAnswerAnalysisDetails) => T;
     ContactLens: (value: EvaluationContactLensAnswerAnalysisDetails) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: EvaluationQuestionAnswerAnalysisDetails, visitor: Visitor<T>): T => {
-    if (value.GenAI !== undefined) return visitor.GenAI(value.GenAI);
-    if (value.ContactLens !== undefined) return visitor.ContactLens(value.ContactLens);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -2015,19 +2013,16 @@ export namespace EvaluationAnswerData {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     StringValue: (value: string) => T;
     NumericValue: (value: number) => T;
     NotApplicable: (value: boolean) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: EvaluationAnswerData, visitor: Visitor<T>): T => {
-    if (value.StringValue !== undefined) return visitor.StringValue(value.StringValue);
-    if (value.NumericValue !== undefined) return visitor.NumericValue(value.NumericValue);
-    if (value.NotApplicable !== undefined) return visitor.NotApplicable(value.NotApplicable);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -5695,15 +5690,14 @@ export namespace ContactMetricValue {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     Number: (value: number) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: ContactMetricValue, visitor: Visitor<T>): T => {
-    if (value.Number !== undefined) return visitor.Number(value.Number);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**

@@ -328,6 +328,10 @@ export namespace DocumentAttributeValue {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     stringValue: (value: string) => T;
     stringListValue: (value: string[]) => T;
@@ -335,14 +339,6 @@ export namespace DocumentAttributeValue {
     dateValue: (value: Date) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: DocumentAttributeValue, visitor: Visitor<T>): T => {
-    if (value.stringValue !== undefined) return visitor.stringValue(value.stringValue);
-    if (value.stringListValue !== undefined) return visitor.stringListValue(value.stringListValue);
-    if (value.longValue !== undefined) return visitor.longValue(value.longValue);
-    if (value.dateValue !== undefined) return visitor.dateValue(value.dateValue);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -2406,17 +2402,15 @@ export namespace PredictQAppInputOptions {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     conversation: (value: ConversationMessage[]) => T;
     problemStatement: (value: string) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: PredictQAppInputOptions, visitor: Visitor<T>): T => {
-    if (value.conversation !== undefined) return visitor.conversation(value.conversation);
-    if (value.problemStatement !== undefined) return visitor.problemStatement(value.problemStatement);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -3172,6 +3166,10 @@ export namespace Card {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     textInput: (value: TextInputCard) => T;
     qQuery: (value: QQueryCard) => T;
@@ -3180,15 +3178,6 @@ export namespace Card {
     formInput: (value: FormInputCard) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: Card, visitor: Visitor<T>): T => {
-    if (value.textInput !== undefined) return visitor.textInput(value.textInput);
-    if (value.qQuery !== undefined) return visitor.qQuery(value.qQuery);
-    if (value.qPlugin !== undefined) return visitor.qPlugin(value.qPlugin);
-    if (value.fileUpload !== undefined) return visitor.fileUpload(value.fileUpload);
-    if (value.formInput !== undefined) return visitor.formInput(value.formInput);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -3284,6 +3273,10 @@ export namespace CardInput {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     textInput: (value: TextInputCardInput) => T;
     qQuery: (value: QQueryCardInput) => T;
@@ -3292,15 +3285,6 @@ export namespace CardInput {
     formInput: (value: FormInputCardInput) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: CardInput, visitor: Visitor<T>): T => {
-    if (value.textInput !== undefined) return visitor.textInput(value.textInput);
-    if (value.qQuery !== undefined) return visitor.qQuery(value.qQuery);
-    if (value.qPlugin !== undefined) return visitor.qPlugin(value.qPlugin);
-    if (value.fileUpload !== undefined) return visitor.fileUpload(value.fileUpload);
-    if (value.formInput !== undefined) return visitor.formInput(value.formInput);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**

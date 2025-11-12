@@ -24,13 +24,13 @@
   "license": "Apache-2.0",
   "dependencies": {
     "@aws-sdk/types": "*",
-    "@smithy/middleware-stack": "^4.2.4",
-    "@smithy/smithy-client": "^4.9.2",
-    "@smithy/types": "^4.8.1",
+    "@smithy/middleware-stack": "^4.2.5",
+    "@smithy/smithy-client": "^4.9.5",
+    "@smithy/types": "^4.9.0",
     "tslib": "^2.6.2"
   },
   "devDependencies": {
-    "@smithy/protocol-http": "^5.3.4",
+    "@smithy/protocol-http": "^5.3.5",
     "@tsconfig/recommended": "1.0.1",
     "@types/node": "^18.19.69",
     "concurrently": "7.0.0",

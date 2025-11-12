@@ -2177,20 +2177,16 @@ export namespace OptimizationConfig {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     ModelQuantizationConfig: (value: ModelQuantizationConfig) => T;
     ModelCompilationConfig: (value: ModelCompilationConfig) => T;
     ModelShardingConfig: (value: ModelShardingConfig) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: OptimizationConfig, visitor: Visitor<T>): T => {
-    if (value.ModelQuantizationConfig !== undefined)
-      return visitor.ModelQuantizationConfig(value.ModelQuantizationConfig);
-    if (value.ModelCompilationConfig !== undefined) return visitor.ModelCompilationConfig(value.ModelCompilationConfig);
-    if (value.ModelShardingConfig !== undefined) return visitor.ModelShardingConfig(value.ModelShardingConfig);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -3466,19 +3462,16 @@ export namespace CustomFileSystem {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     EFSFileSystem: (value: EFSFileSystem) => T;
     FSxLustreFileSystem: (value: FSxLustreFileSystem) => T;
     S3FileSystem: (value: S3FileSystem) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: CustomFileSystem, visitor: Visitor<T>): T => {
-    if (value.EFSFileSystem !== undefined) return visitor.EFSFileSystem(value.EFSFileSystem);
-    if (value.FSxLustreFileSystem !== undefined) return visitor.FSxLustreFileSystem(value.FSxLustreFileSystem);
-    if (value.S3FileSystem !== undefined) return visitor.S3FileSystem(value.S3FileSystem);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -4408,17 +4401,15 @@ export namespace TrialComponentParameterValue {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     StringValue: (value: string) => T;
     NumberValue: (value: number) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: TrialComponentParameterValue, visitor: Visitor<T>): T => {
-    if (value.StringValue !== undefined) return visitor.StringValue(value.StringValue);
-    if (value.NumberValue !== undefined) return visitor.NumberValue(value.NumberValue);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**

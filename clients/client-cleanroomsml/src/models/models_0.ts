@@ -549,15 +549,14 @@ export namespace ComputeConfiguration {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     worker: (value: WorkerComputeConfiguration) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: ComputeConfiguration, visitor: Visitor<T>): T => {
-    if (value.worker !== undefined) return visitor.worker(value.worker);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -3590,16 +3589,14 @@ export namespace InputChannelDataSource {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     protectedQueryInputParameters: (value: ProtectedQueryInputParameters) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: InputChannelDataSource, visitor: Visitor<T>): T => {
-    if (value.protectedQueryInputParameters !== undefined)
-      return visitor.protectedQueryInputParameters(value.protectedQueryInputParameters);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -3745,15 +3742,14 @@ export namespace PrivacyBudgets {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     accessBudgets: (value: AccessBudget[]) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: PrivacyBudgets, visitor: Visitor<T>): T => {
-    if (value.accessBudgets !== undefined) return visitor.accessBudgets(value.accessBudgets);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**

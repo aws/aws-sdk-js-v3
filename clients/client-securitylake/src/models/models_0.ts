@@ -897,17 +897,15 @@ export namespace LogSourceResource {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     awsLogSource: (value: AwsLogSourceResource) => T;
     customLogSource: (value: CustomLogSourceResource) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: LogSourceResource, visitor: Visitor<T>): T => {
-    if (value.awsLogSource !== undefined) return visitor.awsLogSource(value.awsLogSource);
-    if (value.customLogSource !== undefined) return visitor.customLogSource(value.customLogSource);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -1192,19 +1190,15 @@ export namespace NotificationConfiguration {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     sqsNotificationConfiguration: (value: SqsNotificationConfiguration) => T;
     httpsNotificationConfiguration: (value: HttpsNotificationConfiguration) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: NotificationConfiguration, visitor: Visitor<T>): T => {
-    if (value.sqsNotificationConfiguration !== undefined)
-      return visitor.sqsNotificationConfiguration(value.sqsNotificationConfiguration);
-    if (value.httpsNotificationConfiguration !== undefined)
-      return visitor.httpsNotificationConfiguration(value.httpsNotificationConfiguration);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**

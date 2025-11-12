@@ -84,19 +84,16 @@ export namespace AnnotationValue {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     NumberValue: (value: number) => T;
     BooleanValue: (value: boolean) => T;
     StringValue: (value: string) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: AnnotationValue, visitor: Visitor<T>): T => {
-    if (value.NumberValue !== undefined) return visitor.NumberValue(value.NumberValue);
-    if (value.BooleanValue !== undefined) return visitor.BooleanValue(value.BooleanValue);
-    if (value.StringValue !== undefined) return visitor.StringValue(value.StringValue);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -1078,15 +1075,14 @@ export namespace IndexingRuleValue {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     Probabilistic: (value: ProbabilisticRuleValue) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: IndexingRuleValue, visitor: Visitor<T>): T => {
-    if (value.Probabilistic !== undefined) return visitor.Probabilistic(value.Probabilistic);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -4167,15 +4163,14 @@ export namespace IndexingRuleValueUpdate {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     Probabilistic: (value: ProbabilisticRuleValueUpdate) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: IndexingRuleValueUpdate, visitor: Visitor<T>): T => {
-    if (value.Probabilistic !== undefined) return visitor.Probabilistic(value.Probabilistic);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**

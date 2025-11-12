@@ -4429,17 +4429,15 @@ export namespace InvokeWithResponseStreamResponseEvent {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     PayloadChunk: (value: InvokeResponseStreamUpdate) => T;
     InvokeComplete: (value: InvokeWithResponseStreamCompleteEvent) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: InvokeWithResponseStreamResponseEvent, visitor: Visitor<T>): T => {
-    if (value.PayloadChunk !== undefined) return visitor.PayloadChunk(value.PayloadChunk);
-    if (value.InvokeComplete !== undefined) return visitor.InvokeComplete(value.InvokeComplete);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**

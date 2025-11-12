@@ -81,15 +81,14 @@ export namespace ApprovalStrategy {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     MofN: (value: MofNApprovalStrategy) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: ApprovalStrategy, visitor: Visitor<T>): T => {
-    if (value.MofN !== undefined) return visitor.MofN(value.MofN);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -119,15 +118,14 @@ export namespace ApprovalStrategyResponse {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     MofN: (value: MofNApprovalStrategy) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: ApprovalStrategyResponse, visitor: Visitor<T>): T => {
-    if (value.MofN !== undefined) return visitor.MofN(value.MofN);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -1205,15 +1203,14 @@ export namespace IdentitySourceParametersForGet {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     IamIdentityCenter: (value: IamIdentityCenterForGet) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: IdentitySourceParametersForGet, visitor: Visitor<T>): T => {
-    if (value.IamIdentityCenter !== undefined) return visitor.IamIdentityCenter(value.IamIdentityCenter);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -1365,15 +1362,14 @@ export namespace IdentitySourceParametersForList {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     IamIdentityCenter: (value: IamIdentityCenterForList) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: IdentitySourceParametersForList, visitor: Visitor<T>): T => {
-    if (value.IamIdentityCenter !== undefined) return visitor.IamIdentityCenter(value.IamIdentityCenter);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**

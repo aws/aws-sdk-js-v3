@@ -1444,15 +1444,14 @@ export namespace EngagementContextPayload {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     CustomerProject: (value: CustomerProjectsContext) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: EngagementContextPayload, visitor: Visitor<T>): T => {
-    if (value.CustomerProject !== undefined) return visitor.CustomerProject(value.CustomerProject);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -2590,15 +2589,14 @@ export namespace Payload {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     OpportunityInvitation: (value: OpportunityInvitationPayload) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: Payload, visitor: Visitor<T>): T => {
-    if (value.OpportunityInvitation !== undefined) return visitor.OpportunityInvitation(value.OpportunityInvitation);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -2628,15 +2626,14 @@ export namespace Receiver {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     Account: (value: AccountReceiver) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: Receiver, visitor: Visitor<T>): T => {
-    if (value.Account !== undefined) return visitor.Account(value.Account);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -4736,15 +4733,14 @@ export namespace ResourceSnapshotPayload {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     OpportunitySummary: (value: OpportunitySummaryView) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: ResourceSnapshotPayload, visitor: Visitor<T>): T => {
-    if (value.OpportunitySummary !== undefined) return visitor.OpportunitySummary(value.OpportunitySummary);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**

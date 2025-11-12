@@ -434,15 +434,14 @@ export namespace DataSourceType {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     S3GlueDataCatalog: (value: S3GlueDataCatalog) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: DataSourceType, visitor: Visitor<T>): T => {
-    if (value.S3GlueDataCatalog !== undefined) return visitor.S3GlueDataCatalog(value.S3GlueDataCatalog);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -637,17 +636,15 @@ export namespace DirectQueryDataSourceType {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     CloudWatchLog: (value: CloudWatchDirectQueryDataSource) => T;
     SecurityLake: (value: SecurityLakeDirectQueryDataSource) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: DirectQueryDataSourceType, visitor: Visitor<T>): T => {
-    if (value.CloudWatchLog !== undefined) return visitor.CloudWatchLog(value.CloudWatchLog);
-    if (value.SecurityLake !== undefined) return visitor.SecurityLake(value.SecurityLake);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**

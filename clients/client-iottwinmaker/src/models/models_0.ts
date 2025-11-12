@@ -796,17 +796,15 @@ export namespace IotSiteWiseSourceConfigurationFilter {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     filterByAssetModel: (value: FilterByAssetModel) => T;
     filterByAsset: (value: FilterByAsset) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: IotSiteWiseSourceConfigurationFilter, visitor: Visitor<T>): T => {
-    if (value.filterByAssetModel !== undefined) return visitor.filterByAssetModel(value.filterByAssetModel);
-    if (value.filterByAsset !== undefined) return visitor.filterByAsset(value.filterByAsset);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -887,17 +885,15 @@ export namespace IotTwinMakerSourceConfigurationFilter {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     filterByComponentType: (value: FilterByComponentType) => T;
     filterByEntity: (value: FilterByEntity) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: IotTwinMakerSourceConfigurationFilter, visitor: Visitor<T>): T => {
-    if (value.filterByComponentType !== undefined) return visitor.filterByComponentType(value.filterByComponentType);
-    if (value.filterByEntity !== undefined) return visitor.filterByEntity(value.filterByEntity);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -2398,19 +2394,16 @@ export namespace ListComponentTypesFilter {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     extendsFrom: (value: string) => T;
     namespace: (value: string) => T;
     isAbstract: (value: boolean) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: ListComponentTypesFilter, visitor: Visitor<T>): T => {
-    if (value.extendsFrom !== undefined) return visitor.extendsFrom(value.extendsFrom);
-    if (value.namespace !== undefined) return visitor.namespace(value.namespace);
-    if (value.isAbstract !== undefined) return visitor.isAbstract(value.isAbstract);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -2578,19 +2571,16 @@ export namespace ListEntitiesFilter {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     parentEntityId: (value: string) => T;
     componentTypeId: (value: string) => T;
     externalId: (value: string) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: ListEntitiesFilter, visitor: Visitor<T>): T => {
-    if (value.parentEntityId !== undefined) return visitor.parentEntityId(value.parentEntityId);
-    if (value.componentTypeId !== undefined) return visitor.componentTypeId(value.componentTypeId);
-    if (value.externalId !== undefined) return visitor.externalId(value.externalId);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -2745,17 +2735,15 @@ export namespace ListMetadataTransferJobsFilter {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     workspaceId: (value: string) => T;
     state: (value: MetadataTransferJobState) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: ListMetadataTransferJobsFilter, visitor: Visitor<T>): T => {
-    if (value.workspaceId !== undefined) return visitor.workspaceId(value.workspaceId);
-    if (value.state !== undefined) return visitor.state(value.state);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -3163,6 +3151,10 @@ export namespace SyncResourceFilter {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     state: (value: SyncResourceState) => T;
     resourceType: (value: SyncResourceType) => T;
@@ -3170,14 +3162,6 @@ export namespace SyncResourceFilter {
     externalId: (value: string) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: SyncResourceFilter, visitor: Visitor<T>): T => {
-    if (value.state !== undefined) return visitor.state(value.state);
-    if (value.resourceType !== undefined) return visitor.resourceType(value.resourceType);
-    if (value.resourceId !== undefined) return visitor.resourceId(value.resourceId);
-    if (value.externalId !== undefined) return visitor.externalId(value.externalId);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**

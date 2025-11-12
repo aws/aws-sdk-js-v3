@@ -788,17 +788,15 @@ export namespace Mapping {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     Framework: (value: FrameworkMappingDetails) => T;
     CommonControl: (value: CommonControlMappingDetails) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: Mapping, visitor: Visitor<T>): T => {
-    if (value.Framework !== undefined) return visitor.Framework(value.Framework);
-    if (value.CommonControl !== undefined) return visitor.CommonControl(value.CommonControl);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**

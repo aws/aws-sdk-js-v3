@@ -617,6 +617,10 @@ export namespace RetrieveAndGenerateStreamResponseOutput {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     output: (value: RetrieveAndGenerateOutputEvent) => T;
     citation: (value: CitationEvent) => T;
@@ -632,26 +636,6 @@ export namespace RetrieveAndGenerateStreamResponseOutput {
     badGatewayException: (value: BadGatewayException) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: RetrieveAndGenerateStreamResponseOutput, visitor: Visitor<T>): T => {
-    if (value.output !== undefined) return visitor.output(value.output);
-    if (value.citation !== undefined) return visitor.citation(value.citation);
-    if (value.guardrail !== undefined) return visitor.guardrail(value.guardrail);
-    if (value.internalServerException !== undefined)
-      return visitor.internalServerException(value.internalServerException);
-    if (value.validationException !== undefined) return visitor.validationException(value.validationException);
-    if (value.resourceNotFoundException !== undefined)
-      return visitor.resourceNotFoundException(value.resourceNotFoundException);
-    if (value.serviceQuotaExceededException !== undefined)
-      return visitor.serviceQuotaExceededException(value.serviceQuotaExceededException);
-    if (value.throttlingException !== undefined) return visitor.throttlingException(value.throttlingException);
-    if (value.accessDeniedException !== undefined) return visitor.accessDeniedException(value.accessDeniedException);
-    if (value.conflictException !== undefined) return visitor.conflictException(value.conflictException);
-    if (value.dependencyFailedException !== undefined)
-      return visitor.dependencyFailedException(value.dependencyFailedException);
-    if (value.badGatewayException !== undefined) return visitor.badGatewayException(value.badGatewayException);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -1111,17 +1095,15 @@ export namespace ImageSource {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     bytes: (value: Uint8Array) => T;
     s3Location: (value: S3Location) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: ImageSource, visitor: Visitor<T>): T => {
-    if (value.bytes !== undefined) return visitor.bytes(value.bytes);
-    if (value.s3Location !== undefined) return visitor.s3Location(value.s3Location);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -1184,17 +1166,15 @@ export namespace BedrockSessionContentBlock {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     text: (value: string) => T;
     image: (value: ImageBlock) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: BedrockSessionContentBlock, visitor: Visitor<T>): T => {
-    if (value.text !== undefined) return visitor.text(value.text);
-    if (value.image !== undefined) return visitor.image(value.image);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -1224,15 +1204,14 @@ export namespace InvocationStepPayload {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     contentBlocks: (value: BedrockSessionContentBlock[]) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: InvocationStepPayload, visitor: Visitor<T>): T => {
-    if (value.contentBlocks !== undefined) return visitor.contentBlocks(value.contentBlocks);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -1909,6 +1888,10 @@ export namespace RetrievalFilter {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     equals: (value: FilterAttribute) => T;
     notEquals: (value: FilterAttribute) => T;
@@ -1925,23 +1908,6 @@ export namespace RetrievalFilter {
     orAll: (value: RetrievalFilter[]) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: RetrievalFilter, visitor: Visitor<T>): T => {
-    if (value.equals !== undefined) return visitor.equals(value.equals);
-    if (value.notEquals !== undefined) return visitor.notEquals(value.notEquals);
-    if (value.greaterThan !== undefined) return visitor.greaterThan(value.greaterThan);
-    if (value.greaterThanOrEquals !== undefined) return visitor.greaterThanOrEquals(value.greaterThanOrEquals);
-    if (value.lessThan !== undefined) return visitor.lessThan(value.lessThan);
-    if (value.lessThanOrEquals !== undefined) return visitor.lessThanOrEquals(value.lessThanOrEquals);
-    if (value.in !== undefined) return visitor.in(value.in);
-    if (value.notIn !== undefined) return visitor.notIn(value.notIn);
-    if (value.startsWith !== undefined) return visitor.startsWith(value.startsWith);
-    if (value.listContains !== undefined) return visitor.listContains(value.listContains);
-    if (value.stringContains !== undefined) return visitor.stringContains(value.stringContains);
-    if (value.andAll !== undefined) return visitor.andAll(value.andAll);
-    if (value.orAll !== undefined) return visitor.orAll(value.orAll);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**

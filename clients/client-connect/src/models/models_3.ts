@@ -791,15 +791,14 @@ export namespace EvaluatorUserUnion {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     ConnectUserArn: (value: string) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: EvaluatorUserUnion, visitor: Visitor<T>): T => {
-    if (value.ConnectUserArn !== undefined) return visitor.ConnectUserArn(value.ConnectUserArn);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -1887,18 +1886,15 @@ export namespace ParticipantTimerValue {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     ParticipantTimerAction: (value: ParticipantTimerAction) => T;
     ParticipantTimerDurationInMinutes: (value: number) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: ParticipantTimerValue, visitor: Visitor<T>): T => {
-    if (value.ParticipantTimerAction !== undefined) return visitor.ParticipantTimerAction(value.ParticipantTimerAction);
-    if (value.ParticipantTimerDurationInMinutes !== undefined)
-      return visitor.ParticipantTimerDurationInMinutes(value.ParticipantTimerDurationInMinutes);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -1974,15 +1970,14 @@ export namespace UpdateParticipantRoleConfigChannelInfo {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     Chat: (value: ChatParticipantRoleConfig) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: UpdateParticipantRoleConfigChannelInfo, visitor: Visitor<T>): T => {
-    if (value.Chat !== undefined) return visitor.Chat(value.Chat);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -3170,17 +3165,15 @@ export namespace EvaluationFormItemEnablementConditionOperand {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     Expression: (value: EvaluationFormItemEnablementExpression) => T;
     Condition: (value: EvaluationFormItemEnablementCondition) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: EvaluationFormItemEnablementConditionOperand, visitor: Visitor<T>): T => {
-    if (value.Expression !== undefined) return visitor.Expression(value.Expression);
-    if (value.Condition !== undefined) return visitor.Condition(value.Condition);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -5334,17 +5327,15 @@ export namespace EvaluationFormItem {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     Section: (value: EvaluationFormSection) => T;
     Question: (value: EvaluationFormQuestion) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: EvaluationFormItem, visitor: Visitor<T>): T => {
-    if (value.Section !== undefined) return visitor.Section(value.Section);
-    if (value.Question !== undefined) return visitor.Question(value.Question);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**

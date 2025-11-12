@@ -563,17 +563,15 @@ export namespace StateTemplateUpdateStrategy {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     periodic: (value: PeriodicStateTemplateUpdateStrategy) => T;
     onChange: (value: OnChangeStateTemplateUpdateStrategy) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: StateTemplateUpdateStrategy, visitor: Visitor<T>): T => {
-    if (value.periodic !== undefined) return visitor.periodic(value.periodic);
-    if (value.onChange !== undefined) return visitor.onChange(value.onChange);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -1080,19 +1078,15 @@ export namespace CollectionScheme {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     timeBasedCollectionScheme: (value: TimeBasedCollectionScheme) => T;
     conditionBasedCollectionScheme: (value: ConditionBasedCollectionScheme) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: CollectionScheme, visitor: Visitor<T>): T => {
-    if (value.timeBasedCollectionScheme !== undefined)
-      return visitor.timeBasedCollectionScheme(value.timeBasedCollectionScheme);
-    if (value.conditionBasedCollectionScheme !== undefined)
-      return visitor.conditionBasedCollectionScheme(value.conditionBasedCollectionScheme);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -1295,19 +1289,16 @@ export namespace DataDestinationConfig {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     s3Config: (value: S3Config) => T;
     timestreamConfig: (value: TimestreamConfig) => T;
     mqttTopicConfig: (value: MqttTopicConfig) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: DataDestinationConfig, visitor: Visitor<T>): T => {
-    if (value.s3Config !== undefined) return visitor.s3Config(value.s3Config);
-    if (value.timestreamConfig !== undefined) return visitor.timestreamConfig(value.timestreamConfig);
-    if (value.mqttTopicConfig !== undefined) return visitor.mqttTopicConfig(value.mqttTopicConfig);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -1612,17 +1603,15 @@ export namespace SignalFetchConfig {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     timeBased: (value: TimeBasedSignalFetchConfig) => T;
     conditionBased: (value: ConditionBasedSignalFetchConfig) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: SignalFetchConfig, visitor: Visitor<T>): T => {
-    if (value.timeBased !== undefined) return visitor.timeBased(value.timeBased);
-    if (value.conditionBased !== undefined) return visitor.conditionBased(value.conditionBased);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -2759,16 +2748,14 @@ export namespace PrimitiveMessageDefinition {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     ros2PrimitiveMessageDefinition: (value: ROS2PrimitiveMessageDefinition) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: PrimitiveMessageDefinition, visitor: Visitor<T>): T => {
-    if (value.ros2PrimitiveMessageDefinition !== undefined)
-      return visitor.ros2PrimitiveMessageDefinition(value.ros2PrimitiveMessageDefinition);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -3466,6 +3453,10 @@ export namespace Node {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     branch: (value: Branch) => T;
     sensor: (value: Sensor) => T;
@@ -3475,16 +3466,6 @@ export namespace Node {
     property: (value: CustomProperty) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: Node, visitor: Visitor<T>): T => {
-    if (value.branch !== undefined) return visitor.branch(value.branch);
-    if (value.sensor !== undefined) return visitor.sensor(value.sensor);
-    if (value.actuator !== undefined) return visitor.actuator(value.actuator);
-    if (value.attribute !== undefined) return visitor.attribute(value.attribute);
-    if (value.struct !== undefined) return visitor.struct(value.struct);
-    if (value.property !== undefined) return visitor.property(value.property);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -3868,15 +3849,14 @@ export namespace NetworkFileDefinition {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     canDbc: (value: CanDbcDefinition) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: NetworkFileDefinition, visitor: Visitor<T>): T => {
-    if (value.canDbc !== undefined) return visitor.canDbc(value.canDbc);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -4590,15 +4570,14 @@ export namespace FormattedVss {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     vssJson: (value: string) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: FormattedVss, visitor: Visitor<T>): T => {
-    if (value.vssJson !== undefined) return visitor.vssJson(value.vssJson);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -6323,22 +6302,16 @@ export namespace StructuredMessage {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     primitiveMessageDefinition: (value: PrimitiveMessageDefinition) => T;
     structuredMessageListDefinition: (value: StructuredMessageListDefinition) => T;
     structuredMessageDefinition: (value: StructuredMessageFieldNameAndDataTypePair[]) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: StructuredMessage, visitor: Visitor<T>): T => {
-    if (value.primitiveMessageDefinition !== undefined)
-      return visitor.primitiveMessageDefinition(value.primitiveMessageDefinition);
-    if (value.structuredMessageListDefinition !== undefined)
-      return visitor.structuredMessageListDefinition(value.structuredMessageListDefinition);
-    if (value.structuredMessageDefinition !== undefined)
-      return visitor.structuredMessageDefinition(value.structuredMessageDefinition);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**

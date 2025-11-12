@@ -555,15 +555,14 @@ export namespace Destination {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     ampConfiguration: (value: AmpConfiguration) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: Destination, visitor: Visitor<T>): T => {
-    if (value.ampConfiguration !== undefined) return visitor.ampConfiguration(value.ampConfiguration);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -611,15 +610,14 @@ export namespace ScrapeConfiguration {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     configurationBlob: (value: Uint8Array) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: ScrapeConfiguration, visitor: Visitor<T>): T => {
-    if (value.configurationBlob !== undefined) return visitor.configurationBlob(value.configurationBlob);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -673,15 +671,14 @@ export namespace Source {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     eksConfiguration: (value: EksConfiguration) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: Source, visitor: Visitor<T>): T => {
-    if (value.eksConfiguration !== undefined) return visitor.eksConfiguration(value.eksConfiguration);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -1147,15 +1144,14 @@ export namespace ScraperLoggingDestination {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     cloudWatchLogs: (value: CloudWatchLogDestination) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: ScraperLoggingDestination, visitor: Visitor<T>): T => {
-    if (value.cloudWatchLogs !== undefined) return visitor.cloudWatchLogs(value.cloudWatchLogs);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -1492,17 +1488,15 @@ export namespace IgnoreNearExpected {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     amount: (value: number) => T;
     ratio: (value: number) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: IgnoreNearExpected, visitor: Visitor<T>): T => {
-    if (value.amount !== undefined) return visitor.amount(value.amount);
-    if (value.ratio !== undefined) return visitor.ratio(value.ratio);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -1570,15 +1564,14 @@ export namespace AnomalyDetectorConfiguration {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     randomCutForest: (value: RandomCutForestConfiguration) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: AnomalyDetectorConfiguration, visitor: Visitor<T>): T => {
-    if (value.randomCutForest !== undefined) return visitor.randomCutForest(value.randomCutForest);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -1623,17 +1616,15 @@ export namespace AnomalyDetectorMissingDataAction {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     markAsAnomaly: (value: boolean) => T;
     skip: (value: boolean) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: AnomalyDetectorMissingDataAction, visitor: Visitor<T>): T => {
-    if (value.markAsAnomaly !== undefined) return visitor.markAsAnomaly(value.markAsAnomaly);
-    if (value.skip !== undefined) return visitor.skip(value.skip);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**

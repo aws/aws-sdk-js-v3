@@ -145,17 +145,15 @@ export namespace Region {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     regionName: (value: string) => T;
     regionNamePath: (value: string) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: Region, visitor: Visitor<T>): T => {
-    if (value.regionName !== undefined) return visitor.regionName(value.regionName);
-    if (value.regionNamePath !== undefined) return visitor.regionNamePath(value.regionNamePath);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -537,16 +535,14 @@ export namespace RuleDetail {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     metadataFormEnforcementDetail: (value: MetadataFormEnforcementDetail) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: RuleDetail, visitor: Visitor<T>): T => {
-    if (value.metadataFormEnforcementDetail !== undefined)
-      return visitor.metadataFormEnforcementDetail(value.metadataFormEnforcementDetail);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -636,15 +632,14 @@ export namespace RuleTarget {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     domainUnitTarget: (value: DomainUnitTarget) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: RuleTarget, visitor: Visitor<T>): T => {
-    if (value.domainUnitTarget !== undefined) return visitor.domainUnitTarget(value.domainUnitTarget);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -842,15 +837,14 @@ export namespace GrantedEntityInput {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     listing: (value: ListingRevisionInput) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: GrantedEntityInput, visitor: Visitor<T>): T => {
-    if (value.listing !== undefined) return visitor.listing(value.listing);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -1025,15 +1019,14 @@ export namespace GrantedEntity {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     listing: (value: ListingRevision) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: GrantedEntity, visitor: Visitor<T>): T => {
-    if (value.listing !== undefined) return visitor.listing(value.listing);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -1180,15 +1173,14 @@ export namespace SubscribedPrincipalInput {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     project: (value: SubscribedProjectInput) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: SubscribedPrincipalInput, visitor: Visitor<T>): T => {
-    if (value.project !== undefined) return visitor.project(value.project);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -1627,17 +1619,15 @@ export namespace UserProfileDetails {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     iam: (value: IamUserProfileDetails) => T;
     sso: (value: SsoUserProfileDetails) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: UserProfileDetails, visitor: Visitor<T>): T => {
-    if (value.iam !== undefined) return visitor.iam(value.iam);
-    if (value.sso !== undefined) return visitor.sso(value.sso);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -2323,18 +2313,15 @@ export namespace SelfGrantStatusOutput {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     glueSelfGrantStatus: (value: GlueSelfGrantStatusOutput) => T;
     redshiftSelfGrantStatus: (value: RedshiftSelfGrantStatusOutput) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: SelfGrantStatusOutput, visitor: Visitor<T>): T => {
-    if (value.glueSelfGrantStatus !== undefined) return visitor.glueSelfGrantStatus(value.glueSelfGrantStatus);
-    if (value.redshiftSelfGrantStatus !== undefined)
-      return visitor.redshiftSelfGrantStatus(value.redshiftSelfGrantStatus);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -4724,16 +4711,14 @@ export namespace ProvisioningConfiguration {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     lakeFormationConfiguration: (value: LakeFormationConfiguration) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: ProvisioningConfiguration, visitor: Visitor<T>): T => {
-    if (value.lakeFormationConfiguration !== undefined)
-      return visitor.lakeFormationConfiguration(value.lakeFormationConfiguration);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -5994,15 +5979,14 @@ export namespace JobRunDetails {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     lineageRunDetails: (value: LineageRunDetails) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: JobRunDetails, visitor: Visitor<T>): T => {
-    if (value.lineageRunDetails !== undefined) return visitor.lineageRunDetails(value.lineageRunDetails);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -8080,17 +8064,15 @@ export namespace OwnerPropertiesOutput {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     user: (value: OwnerUserPropertiesOutput) => T;
     group: (value: OwnerGroupPropertiesOutput) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: OwnerPropertiesOutput, visitor: Visitor<T>): T => {
-    if (value.user !== undefined) return visitor.user(value.user);
-    if (value.group !== undefined) return visitor.group(value.group);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -8705,17 +8687,15 @@ export namespace ListingItem {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     assetListing: (value: AssetListing) => T;
     dataProductListing: (value: DataProductListing) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: ListingItem, visitor: Visitor<T>): T => {
-    if (value.assetListing !== undefined) return visitor.assetListing(value.assetListing);
-    if (value.dataProductListing !== undefined) return visitor.dataProductListing(value.dataProductListing);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -9065,16 +9045,14 @@ export namespace EventSummary {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     openLineageRunEventSummary: (value: OpenLineageRunEventSummary) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: EventSummary, visitor: Visitor<T>): T => {
-    if (value.openLineageRunEventSummary !== undefined)
-      return visitor.openLineageRunEventSummary(value.openLineageRunEventSummary);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -9763,17 +9741,15 @@ export namespace MemberDetails {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     user: (value: UserDetails) => T;
     group: (value: GroupDetails) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: MemberDetails, visitor: Visitor<T>): T => {
-    if (value.user !== undefined) return visitor.user(value.user);
-    if (value.group !== undefined) return visitor.group(value.group);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**

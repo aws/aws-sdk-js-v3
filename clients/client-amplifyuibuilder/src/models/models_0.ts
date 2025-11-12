@@ -468,19 +468,16 @@ export namespace ApiConfiguration {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     graphQLConfig: (value: GraphQLRenderConfig) => T;
     dataStoreConfig: (value: DataStoreRenderConfig) => T;
     noApiConfig: (value: NoApiRenderConfig) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: ApiConfiguration, visitor: Visitor<T>): T => {
-    if (value.graphQLConfig !== undefined) return visitor.graphQLConfig(value.graphQLConfig);
-    if (value.dataStoreConfig !== undefined) return visitor.dataStoreConfig(value.dataStoreConfig);
-    if (value.noApiConfig !== undefined) return visitor.noApiConfig(value.noApiConfig);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -601,15 +598,14 @@ export namespace CodegenJobRenderConfig {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     react: (value: ReactStartCodegenJobData) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: CodegenJobRenderConfig, visitor: Visitor<T>): T => {
-    if (value.react !== undefined) return visitor.react(value.react);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -1368,19 +1364,16 @@ export namespace FieldPosition {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     fixed: (value: FixedPosition) => T;
     rightOf: (value: string) => T;
     below: (value: string) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: FieldPosition, visitor: Visitor<T>): T => {
-    if (value.fixed !== undefined) return visitor.fixed(value.fixed);
-    if (value.rightOf !== undefined) return visitor.rightOf(value.rightOf);
-    if (value.below !== undefined) return visitor.below(value.below);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -1764,17 +1757,15 @@ export namespace FormStyleConfig {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     tokenReference: (value: string) => T;
     value: (value: string) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: FormStyleConfig, visitor: Visitor<T>): T => {
-    if (value.tokenReference !== undefined) return visitor.tokenReference(value.tokenReference);
-    if (value.value !== undefined) return visitor.value(value.value);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**

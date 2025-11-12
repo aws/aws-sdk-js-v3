@@ -2322,6 +2322,10 @@ export namespace ResourceDetails {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     lambdaFunction: (value: LambdaFunction) => T;
     ecsService: (value: EcsService) => T;
@@ -2343,34 +2347,6 @@ export namespace ResourceDetails {
     memoryDbReservedInstances: (value: MemoryDbReservedInstances) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: ResourceDetails, visitor: Visitor<T>): T => {
-    if (value.lambdaFunction !== undefined) return visitor.lambdaFunction(value.lambdaFunction);
-    if (value.ecsService !== undefined) return visitor.ecsService(value.ecsService);
-    if (value.ec2Instance !== undefined) return visitor.ec2Instance(value.ec2Instance);
-    if (value.ebsVolume !== undefined) return visitor.ebsVolume(value.ebsVolume);
-    if (value.ec2AutoScalingGroup !== undefined) return visitor.ec2AutoScalingGroup(value.ec2AutoScalingGroup);
-    if (value.ec2ReservedInstances !== undefined) return visitor.ec2ReservedInstances(value.ec2ReservedInstances);
-    if (value.rdsReservedInstances !== undefined) return visitor.rdsReservedInstances(value.rdsReservedInstances);
-    if (value.elastiCacheReservedInstances !== undefined)
-      return visitor.elastiCacheReservedInstances(value.elastiCacheReservedInstances);
-    if (value.openSearchReservedInstances !== undefined)
-      return visitor.openSearchReservedInstances(value.openSearchReservedInstances);
-    if (value.redshiftReservedInstances !== undefined)
-      return visitor.redshiftReservedInstances(value.redshiftReservedInstances);
-    if (value.ec2InstanceSavingsPlans !== undefined)
-      return visitor.ec2InstanceSavingsPlans(value.ec2InstanceSavingsPlans);
-    if (value.computeSavingsPlans !== undefined) return visitor.computeSavingsPlans(value.computeSavingsPlans);
-    if (value.sageMakerSavingsPlans !== undefined) return visitor.sageMakerSavingsPlans(value.sageMakerSavingsPlans);
-    if (value.rdsDbInstance !== undefined) return visitor.rdsDbInstance(value.rdsDbInstance);
-    if (value.rdsDbInstanceStorage !== undefined) return visitor.rdsDbInstanceStorage(value.rdsDbInstanceStorage);
-    if (value.auroraDbClusterStorage !== undefined) return visitor.auroraDbClusterStorage(value.auroraDbClusterStorage);
-    if (value.dynamoDbReservedCapacity !== undefined)
-      return visitor.dynamoDbReservedCapacity(value.dynamoDbReservedCapacity);
-    if (value.memoryDbReservedInstances !== undefined)
-      return visitor.memoryDbReservedInstances(value.memoryDbReservedInstances);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**

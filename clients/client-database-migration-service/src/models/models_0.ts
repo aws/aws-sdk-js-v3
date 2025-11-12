@@ -1849,6 +1849,10 @@ export namespace DataProviderSettings {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     RedshiftSettings: (value: RedshiftDataProviderSettings) => T;
     PostgreSqlSettings: (value: PostgreSqlDataProviderSettings) => T;
@@ -1862,21 +1866,6 @@ export namespace DataProviderSettings {
     MongoDbSettings: (value: MongoDbDataProviderSettings) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: DataProviderSettings, visitor: Visitor<T>): T => {
-    if (value.RedshiftSettings !== undefined) return visitor.RedshiftSettings(value.RedshiftSettings);
-    if (value.PostgreSqlSettings !== undefined) return visitor.PostgreSqlSettings(value.PostgreSqlSettings);
-    if (value.MySqlSettings !== undefined) return visitor.MySqlSettings(value.MySqlSettings);
-    if (value.OracleSettings !== undefined) return visitor.OracleSettings(value.OracleSettings);
-    if (value.MicrosoftSqlServerSettings !== undefined)
-      return visitor.MicrosoftSqlServerSettings(value.MicrosoftSqlServerSettings);
-    if (value.DocDbSettings !== undefined) return visitor.DocDbSettings(value.DocDbSettings);
-    if (value.MariaDbSettings !== undefined) return visitor.MariaDbSettings(value.MariaDbSettings);
-    if (value.IbmDb2LuwSettings !== undefined) return visitor.IbmDb2LuwSettings(value.IbmDb2LuwSettings);
-    if (value.IbmDb2zOsSettings !== undefined) return visitor.IbmDb2zOsSettings(value.IbmDb2zOsSettings);
-    if (value.MongoDbSettings !== undefined) return visitor.MongoDbSettings(value.MongoDbSettings);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -9987,15 +9976,14 @@ export namespace ErrorDetails {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     defaultErrorDetails: (value: DefaultErrorDetails) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: ErrorDetails, visitor: Visitor<T>): T => {
-    if (value.defaultErrorDetails !== undefined) return visitor.defaultErrorDetails(value.defaultErrorDetails);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**

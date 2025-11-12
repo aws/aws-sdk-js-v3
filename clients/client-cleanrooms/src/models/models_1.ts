@@ -73,15 +73,14 @@ export namespace MembershipProtectedQueryOutputConfiguration {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     s3: (value: ProtectedQueryS3OutputConfiguration) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: MembershipProtectedQueryOutputConfiguration, visitor: Visitor<T>): T => {
-    if (value.s3 !== undefined) return visitor.s3(value.s3);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -518,15 +517,14 @@ export namespace ProtectedJobComputeConfiguration {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     worker: (value: ProtectedJobWorkerComputeConfiguration) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: ProtectedJobComputeConfiguration, visitor: Visitor<T>): T => {
-    if (value.worker !== undefined) return visitor.worker(value.worker);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -625,17 +623,15 @@ export namespace ProtectedJobOutput {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     s3: (value: ProtectedJobS3Output) => T;
     memberList: (value: ProtectedJobSingleMemberOutput[]) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: ProtectedJobOutput, visitor: Visitor<T>): T => {
-    if (value.s3 !== undefined) return visitor.s3(value.s3);
-    if (value.memberList !== undefined) return visitor.memberList(value.memberList);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -722,17 +718,15 @@ export namespace ProtectedJobOutputConfigurationOutput {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     s3: (value: ProtectedJobS3OutputConfigurationOutput) => T;
     member: (value: ProtectedJobMemberOutputConfigurationOutput) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: ProtectedJobOutputConfigurationOutput, visitor: Visitor<T>): T => {
-    if (value.s3 !== undefined) return visitor.s3(value.s3);
-    if (value.member !== undefined) return visitor.member(value.member);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -924,15 +918,14 @@ export namespace WorkerComputeConfigurationProperties {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     spark: (value: Record<string, string>) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: WorkerComputeConfigurationProperties, visitor: Visitor<T>): T => {
-    if (value.spark !== undefined) return visitor.spark(value.spark);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -1000,15 +993,14 @@ export namespace ComputeConfiguration {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     worker: (value: WorkerComputeConfiguration) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: ComputeConfiguration, visitor: Visitor<T>): T => {
-    if (value.worker !== undefined) return visitor.worker(value.worker);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -1176,19 +1168,16 @@ export namespace ProtectedQueryOutput {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     s3: (value: ProtectedQueryS3Output) => T;
     memberList: (value: ProtectedQuerySingleMemberOutput[]) => T;
     distribute: (value: ProtectedQueryDistributeOutput) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: ProtectedQueryOutput, visitor: Visitor<T>): T => {
-    if (value.s3 !== undefined) return visitor.s3(value.s3);
-    if (value.memberList !== undefined) return visitor.memberList(value.memberList);
-    if (value.distribute !== undefined) return visitor.distribute(value.distribute);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -1257,17 +1246,15 @@ export namespace ProtectedQueryDistributeOutputConfigurationLocation {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     s3: (value: ProtectedQueryS3OutputConfiguration) => T;
     member: (value: ProtectedQueryMemberOutputConfiguration) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: ProtectedQueryDistributeOutputConfigurationLocation, visitor: Visitor<T>): T => {
-    if (value.s3 !== undefined) return visitor.s3(value.s3);
-    if (value.member !== undefined) return visitor.member(value.member);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -1339,19 +1326,16 @@ export namespace ProtectedQueryOutputConfiguration {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     s3: (value: ProtectedQueryS3OutputConfiguration) => T;
     member: (value: ProtectedQueryMemberOutputConfiguration) => T;
     distribute: (value: ProtectedQueryDistributeOutputConfiguration) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: ProtectedQueryOutputConfiguration, visitor: Visitor<T>): T => {
-    if (value.s3 !== undefined) return visitor.s3(value.s3);
-    if (value.member !== undefined) return visitor.member(value.member);
-    if (value.distribute !== undefined) return visitor.distribute(value.distribute);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -1859,16 +1843,14 @@ export namespace ProtectedJobConfigurationDetails {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     directAnalysisConfigurationDetails: (value: ProtectedJobDirectAnalysisConfigurationDetails) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: ProtectedJobConfigurationDetails, visitor: Visitor<T>): T => {
-    if (value.directAnalysisConfigurationDetails !== undefined)
-      return visitor.directAnalysisConfigurationDetails(value.directAnalysisConfigurationDetails);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -2018,16 +2000,14 @@ export namespace ConfigurationDetails {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     directAnalysisConfigurationDetails: (value: DirectAnalysisConfigurationDetails) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: ConfigurationDetails, visitor: Visitor<T>): T => {
-    if (value.directAnalysisConfigurationDetails !== undefined)
-      return visitor.directAnalysisConfigurationDetails(value.directAnalysisConfigurationDetails);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -2154,15 +2134,14 @@ export namespace PreviewPrivacyImpactParametersInput {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     differentialPrivacy: (value: DifferentialPrivacyPreviewParametersInput) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: PreviewPrivacyImpactParametersInput, visitor: Visitor<T>): T => {
-    if (value.differentialPrivacy !== undefined) return visitor.differentialPrivacy(value.differentialPrivacy);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -2239,15 +2218,14 @@ export namespace PrivacyImpact {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     differentialPrivacy: (value: DifferentialPrivacyPrivacyImpact) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: PrivacyImpact, visitor: Visitor<T>): T => {
-    if (value.differentialPrivacy !== undefined) return visitor.differentialPrivacy(value.differentialPrivacy);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -2302,15 +2280,14 @@ export namespace ProtectedJobOutputConfigurationInput {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     member: (value: ProtectedJobMemberOutputConfigurationInput) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: ProtectedJobOutputConfigurationInput, visitor: Visitor<T>): T => {
-    if (value.member !== undefined) return visitor.member(value.member);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -2643,17 +2620,15 @@ export namespace PrivacyBudgetTemplateParametersInput {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     differentialPrivacy: (value: DifferentialPrivacyTemplateParametersInput) => T;
     accessBudget: (value: AccessBudgetsPrivacyTemplateParametersInput) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: PrivacyBudgetTemplateParametersInput, visitor: Visitor<T>): T => {
-    if (value.differentialPrivacy !== undefined) return visitor.differentialPrivacy(value.differentialPrivacy);
-    if (value.accessBudget !== undefined) return visitor.accessBudget(value.accessBudget);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -2984,17 +2959,15 @@ export namespace PrivacyBudgetTemplateUpdateParameters {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     differentialPrivacy: (value: DifferentialPrivacyTemplateUpdateParameters) => T;
     accessBudget: (value: AccessBudgetsPrivacyTemplateUpdateParameters) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: PrivacyBudgetTemplateUpdateParameters, visitor: Visitor<T>): T => {
-    if (value.differentialPrivacy !== undefined) return visitor.differentialPrivacy(value.differentialPrivacy);
-    if (value.accessBudget !== undefined) return visitor.accessBudget(value.accessBudget);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
