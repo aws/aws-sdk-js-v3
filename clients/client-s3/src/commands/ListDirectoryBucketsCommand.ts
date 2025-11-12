@@ -1,14 +1,13 @@
 // smithy-typescript generated code
 import { getThrow200ExceptionsPlugin } from "@aws-sdk/middleware-sdk-s3";
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { ListDirectoryBucketsOutput, ListDirectoryBucketsRequest } from "../models/models_0";
-import { de_ListDirectoryBucketsCommand, se_ListDirectoryBucketsCommand } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
+import { ListDirectoryBuckets } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -114,17 +113,11 @@ export class ListDirectoryBucketsCommand extends $Command
     UseS3ExpressControlEndpoint: { type: "staticContextParams", value: true },
   })
   .m(function (this: any, Command: any, cs: any, config: S3ClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-      getThrow200ExceptionsPlugin(config),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions()), getThrow200ExceptionsPlugin(config)];
   })
   .s("AmazonS3", "ListDirectoryBuckets", {})
   .n("S3Client", "ListDirectoryBucketsCommand")
-  .f(void 0, void 0)
-  .ser(se_ListDirectoryBucketsCommand)
-  .de(de_ListDirectoryBucketsCommand)
+  .sc(ListDirectoryBuckets)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

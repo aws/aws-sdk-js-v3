@@ -1,17 +1,13 @@
 // smithy-typescript generated code
 import { getThrow200ExceptionsPlugin } from "@aws-sdk/middleware-sdk-s3";
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GetBucketAnalyticsConfigurationOutput, GetBucketAnalyticsConfigurationRequest } from "../models/models_0";
-import {
-  de_GetBucketAnalyticsConfigurationCommand,
-  se_GetBucketAnalyticsConfigurationCommand,
-} from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
+import { GetBucketAnalyticsConfiguration } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -144,17 +140,11 @@ export class GetBucketAnalyticsConfigurationCommand extends $Command
     Bucket: { type: "contextParams", name: "Bucket" },
   })
   .m(function (this: any, Command: any, cs: any, config: S3ClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-      getThrow200ExceptionsPlugin(config),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions()), getThrow200ExceptionsPlugin(config)];
   })
   .s("AmazonS3", "GetBucketAnalyticsConfiguration", {})
   .n("S3Client", "GetBucketAnalyticsConfigurationCommand")
-  .f(void 0, void 0)
-  .ser(se_GetBucketAnalyticsConfigurationCommand)
-  .de(de_GetBucketAnalyticsConfigurationCommand)
+  .sc(GetBucketAnalyticsConfiguration)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,14 +1,13 @@
 // smithy-typescript generated code
 import { getIdNormalizerPlugin } from "@aws-sdk/middleware-sdk-route53";
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { ListHostedZonesRequest, ListHostedZonesResponse } from "../models/models_0";
-import { de_ListHostedZonesCommand, se_ListHostedZonesCommand } from "../protocols/Aws_restXml";
 import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
+import { ListHostedZones } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -107,17 +106,11 @@ export class ListHostedZonesCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: Route53ClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-      getIdNormalizerPlugin(config),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions()), getIdNormalizerPlugin(config)];
   })
   .s("AWSDnsV20130401", "ListHostedZones", {})
   .n("Route53Client", "ListHostedZonesCommand")
-  .f(void 0, void 0)
-  .ser(se_ListHostedZonesCommand)
-  .de(de_ListHostedZonesCommand)
+  .sc(ListHostedZones)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,14 +1,13 @@
 // smithy-typescript generated code
 import { getProcessArnablesPlugin } from "@aws-sdk/middleware-sdk-s3-control";
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GetJobTaggingRequest, GetJobTaggingResult } from "../models/models_0";
-import { de_GetJobTaggingCommand, se_GetJobTaggingCommand } from "../protocols/Aws_restXml";
 import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
+import { GetJobTagging } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -119,17 +118,11 @@ export class GetJobTaggingCommand extends $Command
     AccountId: { type: "contextParams", name: "AccountId" },
   })
   .m(function (this: any, Command: any, cs: any, config: S3ControlClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-      getProcessArnablesPlugin(config),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions()), getProcessArnablesPlugin(config)];
   })
   .s("AWSS3ControlServiceV20180820", "GetJobTagging", {})
   .n("S3ControlClient", "GetJobTaggingCommand")
-  .f(void 0, void 0)
-  .ser(se_GetJobTaggingCommand)
-  .de(de_GetJobTaggingCommand)
+  .sc(GetJobTagging)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

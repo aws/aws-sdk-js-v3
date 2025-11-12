@@ -1,5 +1,6 @@
 // smithy-typescript generated code
 import { AwsSdkSigV4Signer } from "@aws-sdk/core";
+import { AwsRestXmlProtocol } from "@aws-sdk/core/protocols";
 import { NoOpLogger } from "@smithy/smithy-client";
 import { IdentityProviderConfig } from "@smithy/types";
 import { parseUrl } from "@smithy/url-parser";
@@ -30,6 +31,12 @@ export const getRuntimeConfig = (config: CloudFrontClientConfig) => {
       },
     ],
     logger: config?.logger ?? new NoOpLogger(),
+    protocol:
+      config?.protocol ??
+      new AwsRestXmlProtocol({
+        defaultNamespace: "com.amazonaws.cloudfront",
+        xmlNamespace: "http://cloudfront.amazonaws.com/doc/2020-05-31/",
+      }),
     serviceId: config?.serviceId ?? "CloudFront",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

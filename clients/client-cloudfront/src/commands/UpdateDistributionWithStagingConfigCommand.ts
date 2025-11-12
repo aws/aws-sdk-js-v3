@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -9,12 +8,8 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import {
   UpdateDistributionWithStagingConfigRequest,
   UpdateDistributionWithStagingConfigResult,
-  UpdateDistributionWithStagingConfigResultFilterSensitiveLog,
 } from "../models/models_2";
-import {
-  de_UpdateDistributionWithStagingConfigCommand,
-  se_UpdateDistributionWithStagingConfigCommand,
-} from "../protocols/Aws_restXml";
+import { UpdateDistributionWithStagingConfig } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -630,16 +625,11 @@ export class UpdateDistributionWithStagingConfigCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudFrontClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("Cloudfront2020_05_31", "UpdateDistributionWithStagingConfig", {})
   .n("CloudFrontClient", "UpdateDistributionWithStagingConfigCommand")
-  .f(void 0, UpdateDistributionWithStagingConfigResultFilterSensitiveLog)
-  .ser(se_UpdateDistributionWithStagingConfigCommand)
-  .de(de_UpdateDistributionWithStagingConfigCommand)
+  .sc(UpdateDistributionWithStagingConfig)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

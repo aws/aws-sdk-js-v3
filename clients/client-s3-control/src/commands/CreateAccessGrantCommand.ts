@@ -2,14 +2,13 @@
 import { getProcessArnablesPlugin } from "@aws-sdk/middleware-sdk-s3-control";
 import { getApplyMd5BodyChecksumPlugin } from "@smithy/middleware-apply-body-checksum";
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { CreateAccessGrantRequest, CreateAccessGrantResult } from "../models/models_0";
-import { de_CreateAccessGrantCommand, se_CreateAccessGrantCommand } from "../protocols/Aws_restXml";
 import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
+import { CreateAccessGrant } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -131,7 +130,6 @@ export class CreateAccessGrantCommand extends $Command
   })
   .m(function (this: any, Command: any, cs: any, config: S3ControlClientResolvedConfig, o: any) {
     return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
       getProcessArnablesPlugin(config),
       getApplyMd5BodyChecksumPlugin(config),
@@ -139,9 +137,7 @@ export class CreateAccessGrantCommand extends $Command
   })
   .s("AWSS3ControlServiceV20180820", "CreateAccessGrant", {})
   .n("S3ControlClient", "CreateAccessGrantCommand")
-  .f(void 0, void 0)
-  .ser(se_CreateAccessGrantCommand)
-  .de(de_CreateAccessGrantCommand)
+  .sc(CreateAccessGrant)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

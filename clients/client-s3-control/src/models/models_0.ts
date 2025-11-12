@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@smithy/smithy-client";
+import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
 import { S3ControlServiceException as __BaseException } from "./S3ControlServiceException";
 
@@ -1593,15 +1593,14 @@ export namespace ObjectLambdaContentTransformation {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     AwsLambda: (value: AwsLambdaTransformation) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: ObjectLambdaContentTransformation, visitor: Visitor<T>): T => {
-    if (value.AwsLambda !== undefined) return visitor.AwsLambda(value.AwsLambda);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -2267,6 +2266,10 @@ export namespace ObjectEncryptionFilter {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     SSES3: (value: SSES3Filter) => T;
     SSEKMS: (value: SSEKMSFilter) => T;
@@ -2275,15 +2278,6 @@ export namespace ObjectEncryptionFilter {
     NOTSSE: (value: NotSSEFilter) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: ObjectEncryptionFilter, visitor: Visitor<T>): T => {
-    if (value.SSES3 !== undefined) return visitor.SSES3(value.SSES3);
-    if (value.SSEKMS !== undefined) return visitor.SSEKMS(value.SSEKMS);
-    if (value.DSSEKMS !== undefined) return visitor.DSSEKMS(value.DSSEKMS);
-    if (value.SSEC !== undefined) return visitor.SSEC(value.SSEC);
-    if (value.NOTSSE !== undefined) return visitor.NOTSSE(value.NOTSSE);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -2562,15 +2556,14 @@ export namespace JobManifestGenerator {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     S3JobManifestGenerator: (value: S3JobManifestGenerator) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: JobManifestGenerator, visitor: Visitor<T>): T => {
-    if (value.S3JobManifestGenerator !== undefined) return visitor.S3JobManifestGenerator(value.S3JobManifestGenerator);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -7841,21 +7834,3 @@ export interface ObjectLambdaAccessPoint {
    */
   Alias?: ObjectLambdaAccessPointAlias | undefined;
 }
-
-/**
- * @internal
- */
-export const CredentialsFilterSensitiveLog = (obj: Credentials): any => ({
-  ...obj,
-  ...(obj.AccessKeyId && { AccessKeyId: SENSITIVE_STRING }),
-  ...(obj.SecretAccessKey && { SecretAccessKey: SENSITIVE_STRING }),
-  ...(obj.SessionToken && { SessionToken: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const GetDataAccessResultFilterSensitiveLog = (obj: GetDataAccessResult): any => ({
-  ...obj,
-  ...(obj.Credentials && { Credentials: SENSITIVE_STRING }),
-});

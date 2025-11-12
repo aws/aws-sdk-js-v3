@@ -2,14 +2,13 @@
 import { getProcessArnablesPlugin } from "@aws-sdk/middleware-sdk-s3-control";
 import { getApplyMd5BodyChecksumPlugin } from "@smithy/middleware-apply-body-checksum";
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { PutBucketTaggingRequest } from "../models/models_1";
-import { de_PutBucketTaggingCommand, se_PutBucketTaggingCommand } from "../protocols/Aws_restXml";
 import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
+import { PutBucketTagging } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -167,7 +166,6 @@ export class PutBucketTaggingCommand extends $Command
   })
   .m(function (this: any, Command: any, cs: any, config: S3ControlClientResolvedConfig, o: any) {
     return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
       getProcessArnablesPlugin(config),
       getApplyMd5BodyChecksumPlugin(config),
@@ -175,9 +173,7 @@ export class PutBucketTaggingCommand extends $Command
   })
   .s("AWSS3ControlServiceV20180820", "PutBucketTagging", {})
   .n("S3ControlClient", "PutBucketTaggingCommand")
-  .f(void 0, void 0)
-  .ser(se_PutBucketTaggingCommand)
-  .de(de_PutBucketTaggingCommand)
+  .sc(PutBucketTagging)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

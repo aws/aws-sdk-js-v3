@@ -1,16 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { ListDistributionsByOwnedResourceRequest, ListDistributionsByOwnedResourceResult } from "../models/models_1";
-import {
-  de_ListDistributionsByOwnedResourceCommand,
-  se_ListDistributionsByOwnedResourceCommand,
-} from "../protocols/Aws_restXml";
+import { ListDistributionsByOwnedResource } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -101,16 +97,11 @@ export class ListDistributionsByOwnedResourceCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudFrontClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("Cloudfront2020_05_31", "ListDistributionsByOwnedResource", {})
   .n("CloudFrontClient", "ListDistributionsByOwnedResourceCommand")
-  .f(void 0, void 0)
-  .ser(se_ListDistributionsByOwnedResourceCommand)
-  .de(de_ListDistributionsByOwnedResourceCommand)
+  .sc(ListDistributionsByOwnedResource)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
