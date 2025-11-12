@@ -242,6 +242,22 @@ BatchStartRecommendations
 </details>
 <details>
 <summary>
+CancelMetadataModelConversion
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/database-migration-service/command/CancelMetadataModelConversionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-database-migration-service/Interface/CancelMetadataModelConversionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-database-migration-service/Interface/CancelMetadataModelConversionCommandOutput/)
+
+</details>
+<details>
+<summary>
+CancelMetadataModelCreation
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/database-migration-service/command/CancelMetadataModelCreationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-database-migration-service/Interface/CancelMetadataModelCreationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-database-migration-service/Interface/CancelMetadataModelCreationCommandOutput/)
+
+</details>
+<details>
+<summary>
 CancelReplicationTaskAssessmentRun
 </summary>
 
@@ -626,6 +642,14 @@ DescribeInstanceProfiles
 </details>
 <details>
 <summary>
+DescribeMetadataModel
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/database-migration-service/command/DescribeMetadataModelCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-database-migration-service/Interface/DescribeMetadataModelCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-database-migration-service/Interface/DescribeMetadataModelCommandOutput/)
+
+</details>
+<details>
+<summary>
 DescribeMetadataModelAssessments
 </summary>
 
@@ -634,10 +658,26 @@ DescribeMetadataModelAssessments
 </details>
 <details>
 <summary>
+DescribeMetadataModelChildren
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/database-migration-service/command/DescribeMetadataModelChildrenCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-database-migration-service/Interface/DescribeMetadataModelChildrenCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-database-migration-service/Interface/DescribeMetadataModelChildrenCommandOutput/)
+
+</details>
+<details>
+<summary>
 DescribeMetadataModelConversions
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/database-migration-service/command/DescribeMetadataModelConversionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-database-migration-service/Interface/DescribeMetadataModelConversionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-database-migration-service/Interface/DescribeMetadataModelConversionsCommandOutput/)
+
+</details>
+<details>
+<summary>
+DescribeMetadataModelCreations
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/database-migration-service/command/DescribeMetadataModelCreationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-database-migration-service/Interface/DescribeMetadataModelCreationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-database-migration-service/Interface/DescribeMetadataModelCreationsCommandOutput/)
 
 </details>
 <details>
@@ -814,6 +854,14 @@ ExportMetadataModelAssessment
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/database-migration-service/command/ExportMetadataModelAssessmentCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-database-migration-service/Interface/ExportMetadataModelAssessmentCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-database-migration-service/Interface/ExportMetadataModelAssessmentCommandOutput/)
+
+</details>
+<details>
+<summary>
+GetTargetSelectionRules
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/database-migration-service/command/GetTargetSelectionRulesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-database-migration-service/Interface/GetTargetSelectionRulesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-database-migration-service/Interface/GetTargetSelectionRulesCommandOutput/)
 
 </details>
 <details>
@@ -1006,6 +1054,14 @@ StartMetadataModelConversion
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/database-migration-service/command/StartMetadataModelConversionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-database-migration-service/Interface/StartMetadataModelConversionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-database-migration-service/Interface/StartMetadataModelConversionCommandOutput/)
+
+</details>
+<details>
+<summary>
+StartMetadataModelCreation
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/database-migration-service/command/StartMetadataModelCreationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-database-migration-service/Interface/StartMetadataModelCreationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-database-migration-service/Interface/StartMetadataModelCreationCommandOutput/)
 
 </details>
 <details>

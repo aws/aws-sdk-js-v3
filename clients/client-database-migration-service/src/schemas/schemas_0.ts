@@ -107,6 +107,12 @@ const _CLo = "CollectorsList";
 const _CLon = "ConnectionList";
 const _CMBI = "CdcMaxBatchInterval";
 const _CMFS = "CdcMinFileSize";
+const _CMMC = "CancelMetadataModelConversion";
+const _CMMCM = "CancelMetadataModelConversionMessage";
+const _CMMCMa = "CancelMetadataModelCreationMessage";
+const _CMMCR = "CancelMetadataModelConversionResponse";
+const _CMMCRa = "CancelMetadataModelCreationResponse";
+const _CMMCa = "CancelMetadataModelCreation";
 const _CMP = "CreateMigrationProject";
 const _CMPM = "CreateMigrationProjectMessage";
 const _CMPR = "CreateMigrationProjectResponse";
@@ -272,12 +278,19 @@ const _DMCB = "DataMigrationCidrBlocks";
 const _DMCT = "DataMigrationCreateTime";
 const _DMET = "DataMigrationEndTime";
 const _DMI = "DataMigrationIdentifier";
+const _DMM = "DescribeMetadataModel";
 const _DMMA = "DescribeMetadataModelAssessments";
 const _DMMAM = "DescribeMetadataModelAssessmentsMessage";
 const _DMMAR = "DescribeMetadataModelAssessmentsResponse";
-const _DMMC = "DescribeMetadataModelConversions";
-const _DMMCM = "DescribeMetadataModelConversionsMessage";
-const _DMMCR = "DescribeMetadataModelConversionsResponse";
+const _DMMC = "DescribeMetadataModelChildren";
+const _DMMCM = "DescribeMetadataModelChildrenMessage";
+const _DMMCMe = "DescribeMetadataModelConversionsMessage";
+const _DMMCMes = "DescribeMetadataModelCreationsMessage";
+const _DMMCR = "DescribeMetadataModelChildrenResponse";
+const _DMMCRe = "DescribeMetadataModelConversionsResponse";
+const _DMMCRes = "DescribeMetadataModelCreationsResponse";
+const _DMMCe = "DescribeMetadataModelConversions";
+const _DMMCes = "DescribeMetadataModelCreations";
 const _DMMEAS = "DescribeMetadataModelExportsAsScript";
 const _DMMEASM = "DescribeMetadataModelExportsAsScriptMessage";
 const _DMMEASR = "DescribeMetadataModelExportsAsScriptResponse";
@@ -287,6 +300,8 @@ const _DMMETTR = "DescribeMetadataModelExportsToTargetResponse";
 const _DMMI = "DescribeMetadataModelImports";
 const _DMMIM = "DescribeMetadataModelImportsMessage";
 const _DMMIR = "DescribeMetadataModelImportsResponse";
+const _DMMM = "DescribeMetadataModelMessage";
+const _DMMR = "DescribeMetadataModelResponse";
 const _DMN = "DataMigrationName";
 const _DMP = "DeleteMigrationProject";
 const _DMPM = "DeleteMigrationProjectMessage";
@@ -402,6 +417,7 @@ const _Da = "Databases";
 const _Dat = "Date";
 const _Dd = "Ddls";
 const _De = "Description";
+const _Def = "Definition";
 const _Del = "Deletes";
 const _Du = "Duration";
 const _E = "Engine";
@@ -502,6 +518,9 @@ const _Fa = "Failed";
 const _Fi = "Filter";
 const _GCG = "GlueCatalogGeneration";
 const _GMSQLS = "GcpMySQLSettings";
+const _GTSR = "GetTargetSelectionRules";
+const _GTSRM = "GetTargetSelectionRulesMessage";
+const _GTSRR = "GetTargetSelectionRulesResponse";
 const _HE = "HeartbeatEnable";
 const _HF = "HeartbeatFrequency";
 const _HS = "HeartbeatSchema";
@@ -623,9 +642,15 @@ const _MJAC = "MapJsonbAsClob";
 const _MKBPR = "MaxKBytesPerRead";
 const _MLVA = "MapLongVarcharAs";
 const _MMB = "MessageMaxBytes";
-const _MMP = "ModifyMigrationProject";
+const _MMC = "MetadataModelChildren";
+const _MMN = "MetadataModelName";
+const _MMP = "MetadataModelProperties";
 const _MMPM = "ModifyMigrationProjectMessage";
 const _MMPR = "ModifyMigrationProjectResponse";
+const _MMPo = "ModifyMigrationProject";
+const _MMR = "MetadataModelReference";
+const _MMRL = "MetadataModelReferenceList";
+const _MMT = "MetadataModelType";
 const _MP = "MigrationProject";
 const _MPA = "MigrationProjectArn";
 const _MPCT = "MigrationProjectCreationTime";
@@ -717,8 +742,9 @@ const _PV = "ParquetVersion";
 const _Pa = "Passed";
 const _Po = "Port";
 const _Pr = "Preferred";
+const _Pro = "Properties";
 const _QSAON = "QuerySingleAlwaysOnNode";
-const _R = "Requests";
+const _R = "Request";
 const _RA = "ResourceArn";
 const _RAB = "ReadAheadBlocks";
 const _RAEF = "ResourceAlreadyExistsFault";
@@ -745,7 +771,7 @@ const _RFALA = "RunFleetAdvisorLsaAnalysis";
 const _RFALAR = "RunFleetAdvisorLsaAnalysisResponse";
 const _RFNPD = "ReasonForNewProvisioningData";
 const _RGL = "RowGroupLength";
-const _RI = "ResourceIdentifier";
+const _RI = "RequestIdentifier";
 const _RIA = "ReplicationInstanceArn";
 const _RIC = "ReplicationInstanceClass";
 const _RICe = "ReplaceInvalidChars";
@@ -762,9 +788,9 @@ const _RITL = "ReplicationInstanceTaskLogs";
 const _RITLL = "ReplicationInstanceTaskLogsList";
 const _RITLS = "ReplicationInstanceTaskLogSize";
 const _RITLe = "ReplicationInstanceTaskLog";
-const _RIe = "ReplicationInstance";
-const _RIep = "ReplicationInstances";
-const _RIeq = "RequestIdentifier";
+const _RIe = "ResourceIdentifier";
+const _RIep = "ReplicationInstance";
+const _RIepl = "ReplicationInstances";
 const _RIet = "RetryInterval";
 const _RKKA = "ResultKmsKeyArn";
 const _RL = "RecommendationList";
@@ -848,8 +874,9 @@ const _RTe = "ReplicationTask";
 const _RTel = "ReloadTables";
 const _RTep = "ReplicationTasks";
 const _RUT = "ReplicationUpdateTime";
-const _Re = "Recommendations";
-const _Rec = "Recommendation";
+const _Re = "Requests";
+const _Rec = "Recommendations";
+const _Reco = "Recommendation";
 const _Ref = "Refresh";
 const _Rep = "Replications";
 const _Repl = "Replication";
@@ -925,7 +952,10 @@ const _SMMAM = "StartMetadataModelAssessmentMessage";
 const _SMMAR = "StartMetadataModelAssessmentResponse";
 const _SMMC = "StartMetadataModelConversion";
 const _SMMCM = "StartMetadataModelConversionMessage";
+const _SMMCMt = "StartMetadataModelCreationMessage";
 const _SMMCR = "StartMetadataModelConversionResponse";
+const _SMMCRt = "StartMetadataModelCreationResponse";
+const _SMMCt = "StartMetadataModelCreation";
 const _SMMEAS = "StartMetadataModelExportAsScript";
 const _SMMEASM = "StartMetadataModelExportAsScriptMessage";
 const _SMMEASR = "StartMetadataModelExportAsScriptResponse";
@@ -955,6 +985,7 @@ const _SPa = "S3Path";
 const _SPaf = "SafeguardPolicy";
 const _SPas = "SaslPassword";
 const _SPe = "SecurityProtocol";
+const _SPt = "StatementProperties";
 const _SQEF = "StorageQuotaExceededFault";
 const _SR = "SelectionRules";
 const _SRM = "StartReplicationMessage";
@@ -1034,6 +1065,7 @@ const _TLTR = "TableListToReload";
 const _TLa = "TablesLoading";
 const _TLag = "TagList";
 const _TM = "TableMappings";
+const _TMM = "TargetMetadataModels";
 const _TN = "TableName";
 const _TPM = "TablePreparationMode";
 const _TQ = "TablesQueued";
@@ -1042,6 +1074,7 @@ const _TRIA = "TargetReplicationInstanceArn";
 const _TS = "TimestreamSettings";
 const _TSIC = "TrimSpaceInChar";
 const _TSL = "TableStatisticsList";
+const _TSR = "TargetSelectionRules";
 const _TSa = "TableStatistics";
 const _TSab = "TableState";
 const _TTR = "TablesToReload";
@@ -1199,6 +1232,24 @@ export var BatchStartRecommendationsResponse: StaticStructureSchema = [
   [_EE],
   [() => BatchStartRecommendationsErrorEntryList],
 ];
+export var CancelMetadataModelConversionMessage: StaticStructureSchema = [3, n0, _CMMCM, 0, [_MPI, _RI], [0, 0]];
+export var CancelMetadataModelConversionResponse: StaticStructureSchema = [
+  3,
+  n0,
+  _CMMCR,
+  0,
+  [_R],
+  [() => SchemaConversionRequest],
+];
+export var CancelMetadataModelCreationMessage: StaticStructureSchema = [3, n0, _CMMCMa, 0, [_MPI, _RI], [0, 0]];
+export var CancelMetadataModelCreationResponse: StaticStructureSchema = [
+  3,
+  n0,
+  _CMMCRa,
+  0,
+  [_R],
+  [() => SchemaConversionRequest],
+];
 export var CancelReplicationTaskAssessmentRunMessage: StaticStructureSchema = [3, n0, _CRTARM, 0, [_RTARA], [0]];
 export var CancelReplicationTaskAssessmentRunResponse: StaticStructureSchema = [
   3,
@@ -1302,7 +1353,7 @@ export var CreateEndpointMessage: StaticStructureSchema = [
     _SSy,
     _MSQLSS,
     _IBMDS,
-    _RI,
+    _RIe,
     _DDSo,
     _RSe,
     _GMSQLS,
@@ -1411,7 +1462,7 @@ export var CreateReplicationConfigMessage: StaticStructureSchema = [
   n0,
   _CRCM,
   0,
-  [_RCI, _SEA, _TEA, _CC, _RT, _TM, _RSep, _SSu, _RI, _T],
+  [_RCI, _SEA, _TEA, _CC, _RT, _TM, _RSep, _SSu, _RIe, _T],
   [0, 0, 0, () => ComputeConfig, 0, 0, 0, 0, 0, [() => TagList, 0]],
 ];
 export var CreateReplicationConfigResponse: StaticStructureSchema = [3, n0, _CRCR, 0, [_RC], [() => ReplicationConfig]];
@@ -1420,7 +1471,7 @@ export var CreateReplicationInstanceMessage: StaticStructureSchema = [
   n0,
   _CRIM,
   0,
-  [_RII, _AS, _RIC, _VSGI, _AZ, _RSGIe, _PMW, _MAZ, _EV, _AMVU, _T, _KKI, _PA, _DNS, _RI, _NT, _KAS],
+  [_RII, _AS, _RIC, _VSGI, _AZ, _RSGIe, _PMW, _MAZ, _EV, _AMVU, _T, _KKI, _PA, _DNS, _RIe, _NT, _KAS],
   [
     0,
     1,
@@ -1446,7 +1497,7 @@ export var CreateReplicationInstanceResponse: StaticStructureSchema = [
   n0,
   _CRIR,
   0,
-  [_RIe],
+  [_RIep],
   [[() => ReplicationInstance, 0]],
 ];
 export var CreateReplicationSubnetGroupMessage: StaticStructureSchema = [
@@ -1470,7 +1521,7 @@ export var CreateReplicationTaskMessage: StaticStructureSchema = [
   n0,
   _CRTM,
   0,
-  [_RTI, _SEA, _TEA, _RIA, _MT, _TM, _RTS, _CST, _CSP, _CSPd, _T, _TD, _RI],
+  [_RTI, _SEA, _TEA, _RIA, _MT, _TM, _RTS, _CST, _CSP, _CSPd, _T, _TD, _RIe],
   [0, 0, 0, 0, 0, 0, 0, 4, 0, 0, [() => TagList, 0], 0, 0],
 ];
 export var CreateReplicationTaskResponse: StaticStructureSchema = [3, n0, _CRTR, 0, [_RTe], [() => ReplicationTask]];
@@ -1585,7 +1636,7 @@ export var DeleteReplicationInstanceResponse: StaticStructureSchema = [
   n0,
   _DRIR,
   0,
-  [_RIe],
+  [_RIep],
   [[() => ReplicationInstance, 0]],
 ];
 export var DeleteReplicationSubnetGroupMessage: StaticStructureSchema = [3, n0, _DRSGM, 0, [_RSGIe], [0]];
@@ -1796,7 +1847,7 @@ export var DescribeExtensionPackAssociationsResponse: StaticStructureSchema = [
   n0,
   _DEPAR,
   0,
-  [_Ma, _R],
+  [_Ma, _Re],
   [0, () => SchemaConversionRequestList],
 ];
 export var DescribeFleetAdvisorCollectorsRequest: StaticStructureSchema = [
@@ -1901,13 +1952,29 @@ export var DescribeMetadataModelAssessmentsResponse: StaticStructureSchema = [
   n0,
   _DMMAR,
   0,
-  [_Ma, _R],
+  [_Ma, _Re],
   [0, () => SchemaConversionRequestList],
+];
+export var DescribeMetadataModelChildrenMessage: StaticStructureSchema = [
+  3,
+  n0,
+  _DMMCM,
+  0,
+  [_SR, _MPI, _O, _Ma, _MR],
+  [0, 0, 0, 0, 1],
+];
+export var DescribeMetadataModelChildrenResponse: StaticStructureSchema = [
+  3,
+  n0,
+  _DMMCR,
+  0,
+  [_Ma, _MMC],
+  [0, () => MetadataModelReferenceList],
 ];
 export var DescribeMetadataModelConversionsMessage: StaticStructureSchema = [
   3,
   n0,
-  _DMMCM,
+  _DMMCMe,
   0,
   [_MPI, _F, _Ma, _MR],
   [0, [() => FilterList, 0], 0, 1],
@@ -1915,9 +1982,25 @@ export var DescribeMetadataModelConversionsMessage: StaticStructureSchema = [
 export var DescribeMetadataModelConversionsResponse: StaticStructureSchema = [
   3,
   n0,
-  _DMMCR,
+  _DMMCRe,
   0,
-  [_Ma, _R],
+  [_Ma, _Re],
+  [0, () => SchemaConversionRequestList],
+];
+export var DescribeMetadataModelCreationsMessage: StaticStructureSchema = [
+  3,
+  n0,
+  _DMMCMes,
+  0,
+  [_F, _Ma, _MR, _MPI],
+  [[() => FilterList, 0], 0, 1, 0],
+];
+export var DescribeMetadataModelCreationsResponse: StaticStructureSchema = [
+  3,
+  n0,
+  _DMMCRes,
+  0,
+  [_Ma, _Re],
   [0, () => SchemaConversionRequestList],
 ];
 export var DescribeMetadataModelExportsAsScriptMessage: StaticStructureSchema = [
@@ -1933,7 +2016,7 @@ export var DescribeMetadataModelExportsAsScriptResponse: StaticStructureSchema =
   n0,
   _DMMEASR,
   0,
-  [_Ma, _R],
+  [_Ma, _Re],
   [0, () => SchemaConversionRequestList],
 ];
 export var DescribeMetadataModelExportsToTargetMessage: StaticStructureSchema = [
@@ -1949,7 +2032,7 @@ export var DescribeMetadataModelExportsToTargetResponse: StaticStructureSchema =
   n0,
   _DMMETTR,
   0,
-  [_Ma, _R],
+  [_Ma, _Re],
   [0, () => SchemaConversionRequestList],
 ];
 export var DescribeMetadataModelImportsMessage: StaticStructureSchema = [
@@ -1965,8 +2048,17 @@ export var DescribeMetadataModelImportsResponse: StaticStructureSchema = [
   n0,
   _DMMIR,
   0,
-  [_Ma, _R],
+  [_Ma, _Re],
   [0, () => SchemaConversionRequestList],
+];
+export var DescribeMetadataModelMessage: StaticStructureSchema = [3, n0, _DMMM, 0, [_SR, _MPI, _O], [0, 0, 0]];
+export var DescribeMetadataModelResponse: StaticStructureSchema = [
+  3,
+  n0,
+  _DMMR,
+  0,
+  [_MMN, _MMT, _TMM, _Def],
+  [0, 0, () => MetadataModelReferenceList, 0],
 ];
 export var DescribeMigrationProjectsMessage: StaticStructureSchema = [
   3,
@@ -2038,7 +2130,7 @@ export var DescribeRecommendationsResponse: StaticStructureSchema = [
   n0,
   _DRRe,
   0,
-  [_NTe, _Re],
+  [_NTe, _Rec],
   [0, () => RecommendationList],
 ];
 export var DescribeRefreshSchemasStatusMessage: StaticStructureSchema = [3, n0, _DRSSM, 0, [_EA], [0]];
@@ -2079,7 +2171,7 @@ export var DescribeReplicationInstancesResponse: StaticStructureSchema = [
   n0,
   _DRIRe,
   0,
-  [_Ma, _RIep],
+  [_Ma, _RIepl],
   [0, [() => ReplicationInstanceList, 0]],
 ];
 export var DescribeReplicationInstanceTaskLogsMessage: StaticStructureSchema = [
@@ -2424,6 +2516,8 @@ export var GcpMySQLSettings: StaticStructureSchema = [
   [_ACS, _CSMOM, _DN, _EPI, _TDT, _MFS, _PLT, _P, _Po, _SN, _STe, _Us, _SMARA, _SMSI],
   [0, 2, 0, 1, 0, 1, 1, [() => SecretString, 0], 1, 0, 0, 0, 0, 0],
 ];
+export var GetTargetSelectionRulesMessage: StaticStructureSchema = [3, n0, _GTSRM, 0, [_MPI, _SR], [0, 0]];
+export var GetTargetSelectionRulesResponse: StaticStructureSchema = [3, n0, _GTSRR, 0, [_TSR], [0]];
 export var IbmDb2LuwDataProviderSettings: StaticStructureSchema = [
   3,
   n0,
@@ -2660,6 +2754,7 @@ export var MariaDbDataProviderSettings: StaticStructureSchema = [
   [_SN, _Po, _SM, _CA, _SPa, _SARAc],
   [0, 1, 0, 0, 0, 0],
 ];
+export var MetadataModelReference: StaticStructureSchema = [3, n0, _MMR, 0, [_MMN, _SR], [0, 0]];
 export var MicrosoftSqlServerDataProviderSettings: StaticStructureSchema = [
   3,
   n0,
@@ -2859,7 +2954,7 @@ export var ModifyReplicationInstanceResponse: StaticStructureSchema = [
   n0,
   _MRIR,
   0,
-  [_RIe],
+  [_RIep],
   [[() => ReplicationInstance, 0]],
 ];
 export var ModifyReplicationSubnetGroupMessage: StaticStructureSchema = [
@@ -3153,13 +3248,13 @@ export var RebootReplicationInstanceResponse: StaticStructureSchema = [
   n0,
   _RRIR,
   0,
-  [_RIe],
+  [_RIep],
   [[() => ReplicationInstance, 0]],
 ];
 export var Recommendation: StaticStructureSchema = [
   3,
   n0,
-  _Rec,
+  _Reco,
   0,
   [_DI, _EN, _CD, _S, _Pr, _Se, _D],
   [0, 0, 0, 0, 2, () => RecommendationSettings, () => RecommendationData],
@@ -3306,7 +3401,7 @@ export var ReplicationConfig: StaticStructureSchema = [
 export var ReplicationInstance: StaticStructureSchema = [
   3,
   n0,
-  _RIe,
+  _RIep,
   0,
   [
     _RII,
@@ -3498,7 +3593,7 @@ export var ResourcePendingMaintenanceActions: StaticStructureSchema = [
   n0,
   _RPMA,
   0,
-  [_RI, _PMAD],
+  [_RIe, _PMAD],
   [0, [() => PendingMaintenanceActionDetails, 0]],
 ];
 export var ResourceQuotaExceededFault: StaticErrorSchema = [
@@ -3597,7 +3692,7 @@ export var SchemaConversionRequest: StaticStructureSchema = [
   n0,
   _SCR,
   0,
-  [_S, _RIeq, _MPA, _Er, _ESD],
+  [_S, _RI, _MPA, _Er, _ESD],
   [0, 0, 0, () => ErrorDetails, () => ExportSqlDetails],
 ];
 export var SchemaResponse: StaticStructureSchema = [
@@ -3645,11 +3740,20 @@ export var SourceDataSetting: StaticStructureSchema = [3, n0, _SDSo, 0, [_CDCSP,
 export var StartDataMigrationMessage: StaticStructureSchema = [3, n0, _SDMM, 0, [_DMI, _STta], [0, 0]];
 export var StartDataMigrationResponse: StaticStructureSchema = [3, n0, _SDMR, 0, [_DM], [[() => DataMigration, 0]]];
 export var StartExtensionPackAssociationMessage: StaticStructureSchema = [3, n0, _SEPAM, 0, [_MPI], [0]];
-export var StartExtensionPackAssociationResponse: StaticStructureSchema = [3, n0, _SEPAR, 0, [_RIeq], [0]];
+export var StartExtensionPackAssociationResponse: StaticStructureSchema = [3, n0, _SEPAR, 0, [_RI], [0]];
 export var StartMetadataModelAssessmentMessage: StaticStructureSchema = [3, n0, _SMMAM, 0, [_MPI, _SR], [0, 0]];
-export var StartMetadataModelAssessmentResponse: StaticStructureSchema = [3, n0, _SMMAR, 0, [_RIeq], [0]];
+export var StartMetadataModelAssessmentResponse: StaticStructureSchema = [3, n0, _SMMAR, 0, [_RI], [0]];
 export var StartMetadataModelConversionMessage: StaticStructureSchema = [3, n0, _SMMCM, 0, [_MPI, _SR], [0, 0]];
-export var StartMetadataModelConversionResponse: StaticStructureSchema = [3, n0, _SMMCR, 0, [_RIeq], [0]];
+export var StartMetadataModelConversionResponse: StaticStructureSchema = [3, n0, _SMMCR, 0, [_RI], [0]];
+export var StartMetadataModelCreationMessage: StaticStructureSchema = [
+  3,
+  n0,
+  _SMMCMt,
+  0,
+  [_MPI, _SR, _MMN, _Pro],
+  [0, 0, 0, () => MetadataModelProperties],
+];
+export var StartMetadataModelCreationResponse: StaticStructureSchema = [3, n0, _SMMCRt, 0, [_RI], [0]];
 export var StartMetadataModelExportAsScriptMessage: StaticStructureSchema = [
   3,
   n0,
@@ -3658,7 +3762,7 @@ export var StartMetadataModelExportAsScriptMessage: StaticStructureSchema = [
   [_MPI, _SR, _O, _FN],
   [0, 0, 0, 0],
 ];
-export var StartMetadataModelExportAsScriptResponse: StaticStructureSchema = [3, n0, _SMMEASR, 0, [_RIeq], [0]];
+export var StartMetadataModelExportAsScriptResponse: StaticStructureSchema = [3, n0, _SMMEASR, 0, [_RI], [0]];
 export var StartMetadataModelExportToTargetMessage: StaticStructureSchema = [
   3,
   n0,
@@ -3667,7 +3771,7 @@ export var StartMetadataModelExportToTargetMessage: StaticStructureSchema = [
   [_MPI, _SR, _OEP],
   [0, 0, 2],
 ];
-export var StartMetadataModelExportToTargetResponse: StaticStructureSchema = [3, n0, _SMMETTR, 0, [_RIeq], [0]];
+export var StartMetadataModelExportToTargetResponse: StaticStructureSchema = [3, n0, _SMMETTR, 0, [_RI], [0]];
 export var StartMetadataModelImportMessage: StaticStructureSchema = [
   3,
   n0,
@@ -3676,7 +3780,7 @@ export var StartMetadataModelImportMessage: StaticStructureSchema = [
   [_MPI, _SR, _O, _Ref],
   [0, 0, 0, 2],
 ];
-export var StartMetadataModelImportResponse: StaticStructureSchema = [3, n0, _SMMIR, 0, [_RIeq], [0]];
+export var StartMetadataModelImportResponse: StaticStructureSchema = [3, n0, _SMMIR, 0, [_RI], [0]];
 export var StartRecommendationsRequest: StaticStructureSchema = [
   3,
   n0,
@@ -3736,6 +3840,7 @@ export var StartReplicationTaskMessage: StaticStructureSchema = [
   [0, 0, 4, 0, 0],
 ];
 export var StartReplicationTaskResponse: StaticStructureSchema = [3, n0, _SRTR, 0, [_RTe], [() => ReplicationTask]];
+export var StatementProperties: StaticStructureSchema = [3, n0, _SPt, 0, [_Def], [0]];
 export var StopDataMigrationMessage: StaticStructureSchema = [3, n0, _SDMMt, 0, [_DMI], [0]];
 export var StopDataMigrationResponse: StaticStructureSchema = [3, n0, _SDMRt, 0, [_DM], [[() => DataMigration, 0]]];
 export var StopReplicationMessage: StaticStructureSchema = [3, n0, _SRMt, 0, [_RCA], [0]];
@@ -4071,6 +4176,7 @@ export var IntegerList = 64 | 1;
 export var KeyList = 64 | 0;
 
 export var LimitationList: StaticListSchema = [1, n0, _LL, 0, () => Limitation];
+export var MetadataModelReferenceList: StaticListSchema = [1, n0, _MMRL, 0, () => MetadataModelReference];
 export var MigrationProjectList: StaticListSchema = [
   1,
   n0,
@@ -4144,7 +4250,7 @@ export var ReplicationInstanceList: StaticListSchema = [
   [
     () => ReplicationInstance,
     {
-      [_xN]: _RIe,
+      [_xN]: _RIep,
     },
   ],
 ];
@@ -4330,6 +4436,7 @@ export var DataProviderSettings: StaticStructureSchema = [
   ],
 ];
 export var ErrorDetails: StaticStructureSchema = [3, n0, _ED, 0, [_dED], [() => DefaultErrorDetails]];
+export var MetadataModelProperties: StaticStructureSchema = [3, n0, _MMP, 0, [_SPt], [() => StatementProperties]];
 export var AddTagsToResource: StaticOperationSchema = [
   9,
   n0,
@@ -4353,6 +4460,22 @@ export var BatchStartRecommendations: StaticOperationSchema = [
   0,
   () => BatchStartRecommendationsRequest,
   () => BatchStartRecommendationsResponse,
+];
+export var CancelMetadataModelConversion: StaticOperationSchema = [
+  9,
+  n0,
+  _CMMC,
+  0,
+  () => CancelMetadataModelConversionMessage,
+  () => CancelMetadataModelConversionResponse,
+];
+export var CancelMetadataModelCreation: StaticOperationSchema = [
+  9,
+  n0,
+  _CMMCa,
+  0,
+  () => CancelMetadataModelCreationMessage,
+  () => CancelMetadataModelCreationResponse,
 ];
 export var CancelReplicationTaskAssessmentRun: StaticOperationSchema = [
   9,
@@ -4738,6 +4861,14 @@ export var DescribeInstanceProfiles: StaticOperationSchema = [
   () => DescribeInstanceProfilesMessage,
   () => DescribeInstanceProfilesResponse,
 ];
+export var DescribeMetadataModel: StaticOperationSchema = [
+  9,
+  n0,
+  _DMM,
+  0,
+  () => DescribeMetadataModelMessage,
+  () => DescribeMetadataModelResponse,
+];
 export var DescribeMetadataModelAssessments: StaticOperationSchema = [
   9,
   n0,
@@ -4746,13 +4877,29 @@ export var DescribeMetadataModelAssessments: StaticOperationSchema = [
   () => DescribeMetadataModelAssessmentsMessage,
   () => DescribeMetadataModelAssessmentsResponse,
 ];
-export var DescribeMetadataModelConversions: StaticOperationSchema = [
+export var DescribeMetadataModelChildren: StaticOperationSchema = [
   9,
   n0,
   _DMMC,
   0,
+  () => DescribeMetadataModelChildrenMessage,
+  () => DescribeMetadataModelChildrenResponse,
+];
+export var DescribeMetadataModelConversions: StaticOperationSchema = [
+  9,
+  n0,
+  _DMMCe,
+  0,
   () => DescribeMetadataModelConversionsMessage,
   () => DescribeMetadataModelConversionsResponse,
+];
+export var DescribeMetadataModelCreations: StaticOperationSchema = [
+  9,
+  n0,
+  _DMMCes,
+  0,
+  () => DescribeMetadataModelCreationsMessage,
+  () => DescribeMetadataModelCreationsResponse,
 ];
 export var DescribeMetadataModelExportsAsScript: StaticOperationSchema = [
   9,
@@ -4930,6 +5077,14 @@ export var ExportMetadataModelAssessment: StaticOperationSchema = [
   () => ExportMetadataModelAssessmentMessage,
   () => ExportMetadataModelAssessmentResponse,
 ];
+export var GetTargetSelectionRules: StaticOperationSchema = [
+  9,
+  n0,
+  _GTSR,
+  0,
+  () => GetTargetSelectionRulesMessage,
+  () => GetTargetSelectionRulesResponse,
+];
 export var ImportCertificate: StaticOperationSchema = [
   9,
   n0,
@@ -4997,7 +5152,7 @@ export var ModifyInstanceProfile: StaticOperationSchema = [
 export var ModifyMigrationProject: StaticOperationSchema = [
   9,
   n0,
-  _MMP,
+  _MMPo,
   0,
   () => ModifyMigrationProjectMessage,
   () => ModifyMigrationProjectResponse,
@@ -5121,6 +5276,14 @@ export var StartMetadataModelConversion: StaticOperationSchema = [
   0,
   () => StartMetadataModelConversionMessage,
   () => StartMetadataModelConversionResponse,
+];
+export var StartMetadataModelCreation: StaticOperationSchema = [
+  9,
+  n0,
+  _SMMCt,
+  0,
+  () => StartMetadataModelCreationMessage,
+  () => StartMetadataModelCreationResponse,
 ];
 export var StartMetadataModelExportAsScript: StaticOperationSchema = [
   9,

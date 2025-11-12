@@ -67,6 +67,14 @@ import {
   BatchStartRecommendationsCommandOutput,
 } from "./commands/BatchStartRecommendationsCommand";
 import {
+  CancelMetadataModelConversionCommandInput,
+  CancelMetadataModelConversionCommandOutput,
+} from "./commands/CancelMetadataModelConversionCommand";
+import {
+  CancelMetadataModelCreationCommandInput,
+  CancelMetadataModelCreationCommandOutput,
+} from "./commands/CancelMetadataModelCreationCommand";
+import {
   CancelReplicationTaskAssessmentRunCommandInput,
   CancelReplicationTaskAssessmentRunCommandOutput,
 } from "./commands/CancelReplicationTaskAssessmentRunCommand";
@@ -239,9 +247,21 @@ import {
   DescribeMetadataModelAssessmentsCommandOutput,
 } from "./commands/DescribeMetadataModelAssessmentsCommand";
 import {
+  DescribeMetadataModelChildrenCommandInput,
+  DescribeMetadataModelChildrenCommandOutput,
+} from "./commands/DescribeMetadataModelChildrenCommand";
+import {
+  DescribeMetadataModelCommandInput,
+  DescribeMetadataModelCommandOutput,
+} from "./commands/DescribeMetadataModelCommand";
+import {
   DescribeMetadataModelConversionsCommandInput,
   DescribeMetadataModelConversionsCommandOutput,
 } from "./commands/DescribeMetadataModelConversionsCommand";
+import {
+  DescribeMetadataModelCreationsCommandInput,
+  DescribeMetadataModelCreationsCommandOutput,
+} from "./commands/DescribeMetadataModelCreationsCommand";
 import {
   DescribeMetadataModelExportsAsScriptCommandInput,
   DescribeMetadataModelExportsAsScriptCommandOutput,
@@ -327,6 +347,10 @@ import {
   ExportMetadataModelAssessmentCommandInput,
   ExportMetadataModelAssessmentCommandOutput,
 } from "./commands/ExportMetadataModelAssessmentCommand";
+import {
+  GetTargetSelectionRulesCommandInput,
+  GetTargetSelectionRulesCommandOutput,
+} from "./commands/GetTargetSelectionRulesCommand";
 import { ImportCertificateCommandInput, ImportCertificateCommandOutput } from "./commands/ImportCertificateCommand";
 import {
   ListTagsForResourceCommandInput,
@@ -406,6 +430,10 @@ import {
   StartMetadataModelConversionCommandOutput,
 } from "./commands/StartMetadataModelConversionCommand";
 import {
+  StartMetadataModelCreationCommandInput,
+  StartMetadataModelCreationCommandOutput,
+} from "./commands/StartMetadataModelCreationCommand";
+import {
   StartMetadataModelExportAsScriptCommandInput,
   StartMetadataModelExportAsScriptCommandOutput,
 } from "./commands/StartMetadataModelExportAsScriptCommand";
@@ -463,6 +491,8 @@ export type ServiceInputTypes =
   | AddTagsToResourceCommandInput
   | ApplyPendingMaintenanceActionCommandInput
   | BatchStartRecommendationsCommandInput
+  | CancelMetadataModelConversionCommandInput
+  | CancelMetadataModelCreationCommandInput
   | CancelReplicationTaskAssessmentRunCommandInput
   | CreateDataMigrationCommandInput
   | CreateDataProviderCommandInput
@@ -512,7 +542,10 @@ export type ServiceInputTypes =
   | DescribeFleetAdvisorSchemasCommandInput
   | DescribeInstanceProfilesCommandInput
   | DescribeMetadataModelAssessmentsCommandInput
+  | DescribeMetadataModelChildrenCommandInput
+  | DescribeMetadataModelCommandInput
   | DescribeMetadataModelConversionsCommandInput
+  | DescribeMetadataModelCreationsCommandInput
   | DescribeMetadataModelExportsAsScriptCommandInput
   | DescribeMetadataModelExportsToTargetCommandInput
   | DescribeMetadataModelImportsCommandInput
@@ -535,6 +568,7 @@ export type ServiceInputTypes =
   | DescribeSchemasCommandInput
   | DescribeTableStatisticsCommandInput
   | ExportMetadataModelAssessmentCommandInput
+  | GetTargetSelectionRulesCommandInput
   | ImportCertificateCommandInput
   | ListTagsForResourceCommandInput
   | ModifyConversionConfigurationCommandInput
@@ -559,6 +593,7 @@ export type ServiceInputTypes =
   | StartExtensionPackAssociationCommandInput
   | StartMetadataModelAssessmentCommandInput
   | StartMetadataModelConversionCommandInput
+  | StartMetadataModelCreationCommandInput
   | StartMetadataModelExportAsScriptCommandInput
   | StartMetadataModelExportToTargetCommandInput
   | StartMetadataModelImportCommandInput
@@ -580,6 +615,8 @@ export type ServiceOutputTypes =
   | AddTagsToResourceCommandOutput
   | ApplyPendingMaintenanceActionCommandOutput
   | BatchStartRecommendationsCommandOutput
+  | CancelMetadataModelConversionCommandOutput
+  | CancelMetadataModelCreationCommandOutput
   | CancelReplicationTaskAssessmentRunCommandOutput
   | CreateDataMigrationCommandOutput
   | CreateDataProviderCommandOutput
@@ -629,7 +666,10 @@ export type ServiceOutputTypes =
   | DescribeFleetAdvisorSchemasCommandOutput
   | DescribeInstanceProfilesCommandOutput
   | DescribeMetadataModelAssessmentsCommandOutput
+  | DescribeMetadataModelChildrenCommandOutput
+  | DescribeMetadataModelCommandOutput
   | DescribeMetadataModelConversionsCommandOutput
+  | DescribeMetadataModelCreationsCommandOutput
   | DescribeMetadataModelExportsAsScriptCommandOutput
   | DescribeMetadataModelExportsToTargetCommandOutput
   | DescribeMetadataModelImportsCommandOutput
@@ -652,6 +692,7 @@ export type ServiceOutputTypes =
   | DescribeSchemasCommandOutput
   | DescribeTableStatisticsCommandOutput
   | ExportMetadataModelAssessmentCommandOutput
+  | GetTargetSelectionRulesCommandOutput
   | ImportCertificateCommandOutput
   | ListTagsForResourceCommandOutput
   | ModifyConversionConfigurationCommandOutput
@@ -676,6 +717,7 @@ export type ServiceOutputTypes =
   | StartExtensionPackAssociationCommandOutput
   | StartMetadataModelAssessmentCommandOutput
   | StartMetadataModelConversionCommandOutput
+  | StartMetadataModelCreationCommandOutput
   | StartMetadataModelExportAsScriptCommandOutput
   | StartMetadataModelExportToTargetCommandOutput
   | StartMetadataModelImportCommandOutput

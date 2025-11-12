@@ -18,6 +18,16 @@ import {
   BatchStartRecommendationsCommandOutput,
 } from "./commands/BatchStartRecommendationsCommand";
 import {
+  CancelMetadataModelConversionCommand,
+  CancelMetadataModelConversionCommandInput,
+  CancelMetadataModelConversionCommandOutput,
+} from "./commands/CancelMetadataModelConversionCommand";
+import {
+  CancelMetadataModelCreationCommand,
+  CancelMetadataModelCreationCommandInput,
+  CancelMetadataModelCreationCommandOutput,
+} from "./commands/CancelMetadataModelCreationCommand";
+import {
   CancelReplicationTaskAssessmentRunCommand,
   CancelReplicationTaskAssessmentRunCommandInput,
   CancelReplicationTaskAssessmentRunCommandOutput,
@@ -263,10 +273,25 @@ import {
   DescribeMetadataModelAssessmentsCommandOutput,
 } from "./commands/DescribeMetadataModelAssessmentsCommand";
 import {
+  DescribeMetadataModelChildrenCommand,
+  DescribeMetadataModelChildrenCommandInput,
+  DescribeMetadataModelChildrenCommandOutput,
+} from "./commands/DescribeMetadataModelChildrenCommand";
+import {
+  DescribeMetadataModelCommand,
+  DescribeMetadataModelCommandInput,
+  DescribeMetadataModelCommandOutput,
+} from "./commands/DescribeMetadataModelCommand";
+import {
   DescribeMetadataModelConversionsCommand,
   DescribeMetadataModelConversionsCommandInput,
   DescribeMetadataModelConversionsCommandOutput,
 } from "./commands/DescribeMetadataModelConversionsCommand";
+import {
+  DescribeMetadataModelCreationsCommand,
+  DescribeMetadataModelCreationsCommandInput,
+  DescribeMetadataModelCreationsCommandOutput,
+} from "./commands/DescribeMetadataModelCreationsCommand";
 import {
   DescribeMetadataModelExportsAsScriptCommand,
   DescribeMetadataModelExportsAsScriptCommandInput,
@@ -377,6 +402,11 @@ import {
   ExportMetadataModelAssessmentCommandInput,
   ExportMetadataModelAssessmentCommandOutput,
 } from "./commands/ExportMetadataModelAssessmentCommand";
+import {
+  GetTargetSelectionRulesCommand,
+  GetTargetSelectionRulesCommandInput,
+  GetTargetSelectionRulesCommandOutput,
+} from "./commands/GetTargetSelectionRulesCommand";
 import {
   ImportCertificateCommand,
   ImportCertificateCommandInput,
@@ -498,6 +528,11 @@ import {
   StartMetadataModelConversionCommandOutput,
 } from "./commands/StartMetadataModelConversionCommand";
 import {
+  StartMetadataModelCreationCommand,
+  StartMetadataModelCreationCommandInput,
+  StartMetadataModelCreationCommandOutput,
+} from "./commands/StartMetadataModelCreationCommand";
+import {
   StartMetadataModelExportAsScriptCommand,
   StartMetadataModelExportAsScriptCommandInput,
   StartMetadataModelExportAsScriptCommandOutput,
@@ -568,6 +603,8 @@ const commands = {
   AddTagsToResourceCommand,
   ApplyPendingMaintenanceActionCommand,
   BatchStartRecommendationsCommand,
+  CancelMetadataModelConversionCommand,
+  CancelMetadataModelCreationCommand,
   CancelReplicationTaskAssessmentRunCommand,
   CreateDataMigrationCommand,
   CreateDataProviderCommand,
@@ -616,8 +653,11 @@ const commands = {
   DescribeFleetAdvisorSchemaObjectSummaryCommand,
   DescribeFleetAdvisorSchemasCommand,
   DescribeInstanceProfilesCommand,
+  DescribeMetadataModelCommand,
   DescribeMetadataModelAssessmentsCommand,
+  DescribeMetadataModelChildrenCommand,
   DescribeMetadataModelConversionsCommand,
+  DescribeMetadataModelCreationsCommand,
   DescribeMetadataModelExportsAsScriptCommand,
   DescribeMetadataModelExportsToTargetCommand,
   DescribeMetadataModelImportsCommand,
@@ -640,6 +680,7 @@ const commands = {
   DescribeSchemasCommand,
   DescribeTableStatisticsCommand,
   ExportMetadataModelAssessmentCommand,
+  GetTargetSelectionRulesCommand,
   ImportCertificateCommand,
   ListTagsForResourceCommand,
   ModifyConversionConfigurationCommand,
@@ -664,6 +705,7 @@ const commands = {
   StartExtensionPackAssociationCommand,
   StartMetadataModelAssessmentCommand,
   StartMetadataModelConversionCommand,
+  StartMetadataModelCreationCommand,
   StartMetadataModelExportAsScriptCommand,
   StartMetadataModelExportToTargetCommand,
   StartMetadataModelImportCommand,
@@ -730,6 +772,40 @@ export interface DatabaseMigrationService {
     args: BatchStartRecommendationsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: BatchStartRecommendationsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CancelMetadataModelConversionCommand}
+   */
+  cancelMetadataModelConversion(
+    args: CancelMetadataModelConversionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CancelMetadataModelConversionCommandOutput>;
+  cancelMetadataModelConversion(
+    args: CancelMetadataModelConversionCommandInput,
+    cb: (err: any, data?: CancelMetadataModelConversionCommandOutput) => void
+  ): void;
+  cancelMetadataModelConversion(
+    args: CancelMetadataModelConversionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CancelMetadataModelConversionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CancelMetadataModelCreationCommand}
+   */
+  cancelMetadataModelCreation(
+    args: CancelMetadataModelCreationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CancelMetadataModelCreationCommandOutput>;
+  cancelMetadataModelCreation(
+    args: CancelMetadataModelCreationCommandInput,
+    cb: (err: any, data?: CancelMetadataModelCreationCommandOutput) => void
+  ): void;
+  cancelMetadataModelCreation(
+    args: CancelMetadataModelCreationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CancelMetadataModelCreationCommandOutput) => void
   ): void;
 
   /**
@@ -1559,6 +1635,23 @@ export interface DatabaseMigrationService {
   ): void;
 
   /**
+   * @see {@link DescribeMetadataModelCommand}
+   */
+  describeMetadataModel(
+    args: DescribeMetadataModelCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeMetadataModelCommandOutput>;
+  describeMetadataModel(
+    args: DescribeMetadataModelCommandInput,
+    cb: (err: any, data?: DescribeMetadataModelCommandOutput) => void
+  ): void;
+  describeMetadataModel(
+    args: DescribeMetadataModelCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeMetadataModelCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DescribeMetadataModelAssessmentsCommand}
    */
   describeMetadataModelAssessments(
@@ -1576,6 +1669,23 @@ export interface DatabaseMigrationService {
   ): void;
 
   /**
+   * @see {@link DescribeMetadataModelChildrenCommand}
+   */
+  describeMetadataModelChildren(
+    args: DescribeMetadataModelChildrenCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeMetadataModelChildrenCommandOutput>;
+  describeMetadataModelChildren(
+    args: DescribeMetadataModelChildrenCommandInput,
+    cb: (err: any, data?: DescribeMetadataModelChildrenCommandOutput) => void
+  ): void;
+  describeMetadataModelChildren(
+    args: DescribeMetadataModelChildrenCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeMetadataModelChildrenCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DescribeMetadataModelConversionsCommand}
    */
   describeMetadataModelConversions(
@@ -1590,6 +1700,23 @@ export interface DatabaseMigrationService {
     args: DescribeMetadataModelConversionsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeMetadataModelConversionsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeMetadataModelCreationsCommand}
+   */
+  describeMetadataModelCreations(
+    args: DescribeMetadataModelCreationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeMetadataModelCreationsCommandOutput>;
+  describeMetadataModelCreations(
+    args: DescribeMetadataModelCreationsCommandInput,
+    cb: (err: any, data?: DescribeMetadataModelCreationsCommandOutput) => void
+  ): void;
+  describeMetadataModelCreations(
+    args: DescribeMetadataModelCreationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeMetadataModelCreationsCommandOutput) => void
   ): void;
 
   /**
@@ -1974,6 +2101,23 @@ export interface DatabaseMigrationService {
     args: ExportMetadataModelAssessmentCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ExportMetadataModelAssessmentCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetTargetSelectionRulesCommand}
+   */
+  getTargetSelectionRules(
+    args: GetTargetSelectionRulesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetTargetSelectionRulesCommandOutput>;
+  getTargetSelectionRules(
+    args: GetTargetSelectionRulesCommandInput,
+    cb: (err: any, data?: GetTargetSelectionRulesCommandOutput) => void
+  ): void;
+  getTargetSelectionRules(
+    args: GetTargetSelectionRulesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetTargetSelectionRulesCommandOutput) => void
   ): void;
 
   /**
@@ -2372,6 +2516,23 @@ export interface DatabaseMigrationService {
     args: StartMetadataModelConversionCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: StartMetadataModelConversionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StartMetadataModelCreationCommand}
+   */
+  startMetadataModelCreation(
+    args: StartMetadataModelCreationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartMetadataModelCreationCommandOutput>;
+  startMetadataModelCreation(
+    args: StartMetadataModelCreationCommandInput,
+    cb: (err: any, data?: StartMetadataModelCreationCommandOutput) => void
+  ): void;
+  startMetadataModelCreation(
+    args: StartMetadataModelCreationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartMetadataModelCreationCommandOutput) => void
   ): void;
 
   /**

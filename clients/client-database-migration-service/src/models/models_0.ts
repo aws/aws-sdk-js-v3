@@ -389,6 +389,165 @@ export interface BatchStartRecommendationsResponse {
 }
 
 /**
+ * @public
+ */
+export interface CancelMetadataModelConversionMessage {
+  /**
+   * <p>The migration project name or Amazon Resource Name (ARN).</p>
+   * @public
+   */
+  MigrationProjectIdentifier: string | undefined;
+
+  /**
+   * <p>The identifier for the metadata model conversion operation to cancel. This operation was initiated by StartMetadataModelConversion.</p>
+   * @public
+   */
+  RequestIdentifier: string | undefined;
+}
+
+/**
+ * <p>Provides error information about a schema conversion operation.</p>
+ * @public
+ */
+export interface DefaultErrorDetails {
+  /**
+   * <p>The error message.</p>
+   * @public
+   */
+  Message?: string | undefined;
+}
+
+/**
+ * <p>Provides error information about a project.</p>
+ * @public
+ */
+export type ErrorDetails = ErrorDetails.DefaultErrorDetailsMember | ErrorDetails.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace ErrorDetails {
+  /**
+   * <p>Error information about a project.</p>
+   * @public
+   */
+  export interface DefaultErrorDetailsMember {
+    defaultErrorDetails: DefaultErrorDetails;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    defaultErrorDetails?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    defaultErrorDetails: (value: DefaultErrorDetails) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>Provides information about a metadata model assessment exported to SQL.</p>
+ * @public
+ */
+export interface ExportSqlDetails {
+  /**
+   * <p>The Amazon S3 object key for the object containing the exported metadata model assessment.</p>
+   * @public
+   */
+  S3ObjectKey?: string | undefined;
+
+  /**
+   * <p>The URL for the object containing the exported metadata model assessment.</p>
+   * @public
+   */
+  ObjectURL?: string | undefined;
+}
+
+/**
+ * <p>Provides information about a schema conversion action.</p>
+ * @public
+ */
+export interface SchemaConversionRequest {
+  /**
+   * <p>The schema conversion action status.</p>
+   * @public
+   */
+  Status?: string | undefined;
+
+  /**
+   * <p>The identifier for the schema conversion action.</p>
+   * @public
+   */
+  RequestIdentifier?: string | undefined;
+
+  /**
+   * <p>The migration project ARN.</p>
+   * @public
+   */
+  MigrationProjectArn?: string | undefined;
+
+  /**
+   * <p>Provides error information about a project.</p>
+   * @public
+   */
+  Error?: ErrorDetails | undefined;
+
+  /**
+   * <p>Provides information about a metadata model assessment exported to SQL.</p>
+   * @public
+   */
+  ExportSqlDetails?: ExportSqlDetails | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CancelMetadataModelConversionResponse {
+  /**
+   * <p>Provides information about a schema conversion action.</p>
+   * @public
+   */
+  Request?: SchemaConversionRequest | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CancelMetadataModelCreationMessage {
+  /**
+   * <p>The migration project name or Amazon Resource Name (ARN).</p>
+   * @public
+   */
+  MigrationProjectIdentifier: string | undefined;
+
+  /**
+   * <p>The identifier for the metadata model creation operation to cancel. This operation was initiated by <code>StartMetadataModelCreation</code>.</p>
+   * @public
+   */
+  RequestIdentifier: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CancelMetadataModelCreationResponse {
+  /**
+   * <p>Provides information about a schema conversion action.</p>
+   * @public
+   */
+  Request?: SchemaConversionRequest | undefined;
+}
+
+/**
  * <p></p>
  * @public
  */
@@ -9938,109 +10097,6 @@ export interface DescribeExtensionPackAssociationsMessage {
 }
 
 /**
- * <p>Provides error information about a schema conversion operation.</p>
- * @public
- */
-export interface DefaultErrorDetails {
-  /**
-   * <p>The error message.</p>
-   * @public
-   */
-  Message?: string | undefined;
-}
-
-/**
- * <p>Provides error information about a project.</p>
- * @public
- */
-export type ErrorDetails = ErrorDetails.DefaultErrorDetailsMember | ErrorDetails.$UnknownMember;
-
-/**
- * @public
- */
-export namespace ErrorDetails {
-  /**
-   * <p>Error information about a project.</p>
-   * @public
-   */
-  export interface DefaultErrorDetailsMember {
-    defaultErrorDetails: DefaultErrorDetails;
-    $unknown?: never;
-  }
-
-  /**
-   * @public
-   */
-  export interface $UnknownMember {
-    defaultErrorDetails?: never;
-    $unknown: [string, any];
-  }
-
-  /**
-   * @deprecated unused in schema-serde mode.
-   *
-   */
-  export interface Visitor<T> {
-    defaultErrorDetails: (value: DefaultErrorDetails) => T;
-    _: (name: string, value: any) => T;
-  }
-}
-
-/**
- * <p>Provides information about a metadata model assessment exported to SQL.</p>
- * @public
- */
-export interface ExportSqlDetails {
-  /**
-   * <p>The Amazon S3 object key for the object containing the exported metadata model assessment.</p>
-   * @public
-   */
-  S3ObjectKey?: string | undefined;
-
-  /**
-   * <p>The URL for the object containing the exported metadata model assessment.</p>
-   * @public
-   */
-  ObjectURL?: string | undefined;
-}
-
-/**
- * <p>Provides information about a schema conversion action.</p>
- * @public
- */
-export interface SchemaConversionRequest {
-  /**
-   * <p>The schema conversion action status.</p>
-   * @public
-   */
-  Status?: string | undefined;
-
-  /**
-   * <p>The identifier for the schema conversion action.</p>
-   * @public
-   */
-  RequestIdentifier?: string | undefined;
-
-  /**
-   * <p>The migration project ARN.</p>
-   * @public
-   */
-  MigrationProjectArn?: string | undefined;
-
-  /**
-   * <p>Provides error information about a project.</p>
-   * @public
-   */
-  Error?: ErrorDetails | undefined;
-
-  /**
-   * <p>Provides information about a metadata model assessment exported to SQL.</p>
-   * @public
-   */
-  ExportSqlDetails?: ExportSqlDetails | undefined;
-}
-
-/**
  * @public
  */
 export interface DescribeExtensionPackAssociationsResponse {
@@ -10974,6 +11030,90 @@ export interface DescribeInstanceProfilesResponse {
 
 /**
  * @public
+ * @enum
+ */
+export const OriginTypeValue = {
+  SOURCE: "SOURCE",
+  TARGET: "TARGET",
+} as const;
+
+/**
+ * @public
+ */
+export type OriginTypeValue = (typeof OriginTypeValue)[keyof typeof OriginTypeValue];
+
+/**
+ * @public
+ */
+export interface DescribeMetadataModelMessage {
+  /**
+   * <p>The JSON string that specifies which metadata model to retrieve. Only one selection rule with "rule-action": "explicit" can be provided. For more information, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.Selections.html">Selection Rules</a> in the DMS User Guide.</p>
+   * @public
+   */
+  SelectionRules: string | undefined;
+
+  /**
+   * <p>The migration project name or Amazon Resource Name (ARN).</p>
+   * @public
+   */
+  MigrationProjectIdentifier: string | undefined;
+
+  /**
+   * <p>Specifies whether to retrieve metadata from the source or target tree. Valid values: SOURCE | TARGET</p>
+   * @public
+   */
+  Origin: OriginTypeValue | undefined;
+}
+
+/**
+ * <p>A reference to a metadata model, including its name and selection rules for location identification.</p>
+ * @public
+ */
+export interface MetadataModelReference {
+  /**
+   * <p>The name of the metadata model.</p>
+   * @public
+   */
+  MetadataModelName?: string | undefined;
+
+  /**
+   * <p>The JSON string representing metadata model location.</p>
+   * @public
+   */
+  SelectionRules?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeMetadataModelResponse {
+  /**
+   * <p>The name of the metadata model.</p>
+   * @public
+   */
+  MetadataModelName?: string | undefined;
+
+  /**
+   * <p>The type of the metadata model.</p>
+   * @public
+   */
+  MetadataModelType?: string | undefined;
+
+  /**
+   * <p>A list of counterpart metadata models in the target. This field is populated only when Origin is SOURCE and after the object has been converted by DMS Schema Conversion.</p>
+   * @public
+   */
+  TargetMetadataModels?: MetadataModelReference[] | undefined;
+
+  /**
+   * <p>The SQL text of the metadata model. This field might not be populated for some metadata models.</p>
+   * @public
+   */
+  Definition?: string | undefined;
+}
+
+/**
+ * @public
  */
 export interface DescribeMetadataModelAssessmentsMessage {
   /**
@@ -11033,6 +11173,58 @@ export interface DescribeMetadataModelAssessmentsResponse {
 /**
  * @public
  */
+export interface DescribeMetadataModelChildrenMessage {
+  /**
+   * <p>The JSON string that specifies which metadata model's children to retrieve. Only one selection rule with "rule-action": "explicit" can be provided. For more information, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.Selections.html">Selection Rules</a> in the DMS User Guide.</p>
+   * @public
+   */
+  SelectionRules: string | undefined;
+
+  /**
+   * <p>The migration project name or Amazon Resource Name (ARN).</p>
+   * @public
+   */
+  MigrationProjectIdentifier: string | undefined;
+
+  /**
+   * <p>Specifies whether to retrieve metadata from the source or target tree. Valid values: SOURCE | TARGET</p>
+   * @public
+   */
+  Origin: OriginTypeValue | undefined;
+
+  /**
+   * <p>Specifies the unique pagination token that indicates where the next page should start. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by MaxRecords.</p>
+   * @public
+   */
+  Marker?: string | undefined;
+
+  /**
+   * <p>The maximum number of metadata model children to include in the response. If more items exist than the specified MaxRecords value, a marker is included in the response so that the remaining results can be retrieved.</p>
+   * @public
+   */
+  MaxRecords?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeMetadataModelChildrenResponse {
+  /**
+   * <p>Specifies the unique pagination token that makes it possible to display the next page of metadata model children. If a marker is returned, there are more metadata model children available.</p>
+   * @public
+   */
+  Marker?: string | undefined;
+
+  /**
+   * <p>A list of child metadata models.</p>
+   * @public
+   */
+  MetadataModelChildren?: MetadataModelReference[] | undefined;
+}
+
+/**
+ * @public
+ */
 export interface DescribeMetadataModelConversionsMessage {
   /**
    * <p>The migration project name or Amazon Resource Name (ARN).</p>
@@ -11083,6 +11275,52 @@ export interface DescribeMetadataModelConversionsResponse {
 
   /**
    * <p>A paginated list of metadata model conversions.</p>
+   * @public
+   */
+  Requests?: SchemaConversionRequest[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeMetadataModelCreationsMessage {
+  /**
+   * <p>Filters applied to the metadata model creation requests described in the form of key-value pairs. The supported filters are request-id and status.</p>
+   * @public
+   */
+  Filters?: Filter[] | undefined;
+
+  /**
+   * <p>Specifies the unique pagination token that makes it possible to display the next page of metadata model creation requests. If Marker is returned by a previous response, there are more metadata model creation requests available.</p>
+   * @public
+   */
+  Marker?: string | undefined;
+
+  /**
+   * <p>The maximum number of metadata model creation requests to include in the response. If more requests exist than the specified MaxRecords value, a pagination token is provided in the response so that you can retrieve the remaining results.</p>
+   * @public
+   */
+  MaxRecords?: number | undefined;
+
+  /**
+   * <p>The migration project name or Amazon Resource Name (ARN).</p>
+   * @public
+   */
+  MigrationProjectIdentifier: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeMetadataModelCreationsResponse {
+  /**
+   * <p>Specifies the unique pagination token that makes it possible to display the next page of metadata model creation requests. If Marker is returned, there are more metadata model creation requests available.</p>
+   * @public
+   */
+  Marker?: string | undefined;
+
+  /**
+   * <p>A list of metadata model creation requests. The ExportSqlDetails field will never be populated for the DescribeMetadataModelCreations operation.</p>
    * @public
    */
   Requests?: SchemaConversionRequest[] | undefined;
@@ -12306,822 +12544,4 @@ export interface PremigrationAssessmentStatus {
    * @public
    */
   ResultStatistic?: ReplicationTaskAssessmentRunResultStatistic | undefined;
-}
-
-/**
- * <p>Information about provisioning resources for an DMS serverless replication.</p>
- * @public
- */
-export interface ProvisionData {
-  /**
-   * <p>The current provisioning state </p>
-   * @public
-   */
-  ProvisionState?: string | undefined;
-
-  /**
-   * <p>The number of capacity units the replication is using.</p>
-   * @public
-   */
-  ProvisionedCapacityUnits?: number | undefined;
-
-  /**
-   * <p>The timestamp when DMS provisioned replication resources.</p>
-   * @public
-   */
-  DateProvisioned?: Date | undefined;
-
-  /**
-   * <p>Whether the new provisioning is available to the replication.</p>
-   * @public
-   */
-  IsNewProvisioningAvailable?: boolean | undefined;
-
-  /**
-   * <p>The timestamp when provisioning became available.</p>
-   * @public
-   */
-  DateNewProvisioningDataAvailable?: Date | undefined;
-
-  /**
-   * <p>A message describing the reason that DMS provisioned new resources for the serverless
-   *          replication.</p>
-   * @public
-   */
-  ReasonForNewProvisioningData?: string | undefined;
-}
-
-/**
- * <p>This object provides a collection of statistics about a serverless replication.</p>
- * @public
- */
-export interface ReplicationStats {
-  /**
-   * <p>The percent complete for the full load serverless replication.</p>
-   * @public
-   */
-  FullLoadProgressPercent?: number | undefined;
-
-  /**
-   * <p>The elapsed time of the replication, in milliseconds.</p>
-   * @public
-   */
-  ElapsedTimeMillis?: number | undefined;
-
-  /**
-   * <p>The number of tables loaded for this replication.</p>
-   * @public
-   */
-  TablesLoaded?: number | undefined;
-
-  /**
-   * <p>The number of tables currently loading for this replication.</p>
-   * @public
-   */
-  TablesLoading?: number | undefined;
-
-  /**
-   * <p>The number of tables queued for this replication.</p>
-   * @public
-   */
-  TablesQueued?: number | undefined;
-
-  /**
-   * <p>The number of errors that have occured for this replication.</p>
-   * @public
-   */
-  TablesErrored?: number | undefined;
-
-  /**
-   * <p>The date the replication was started either with a fresh start or a target
-   *          reload.</p>
-   * @public
-   */
-  FreshStartDate?: Date | undefined;
-
-  /**
-   * <p>The date the replication is scheduled to start.</p>
-   * @public
-   */
-  StartDate?: Date | undefined;
-
-  /**
-   * <p>The date the replication was stopped.</p>
-   * @public
-   */
-  StopDate?: Date | undefined;
-
-  /**
-   * <p>The date the replication full load was started.</p>
-   * @public
-   */
-  FullLoadStartDate?: Date | undefined;
-
-  /**
-   * <p>The date the replication full load was finished.</p>
-   * @public
-   */
-  FullLoadFinishDate?: Date | undefined;
-}
-
-/**
- * <p>Provides information that describes a serverless replication created by the
- *             <code>CreateReplication</code> operation.</p>
- * @public
- */
-export interface Replication {
-  /**
-   * <p>The identifier for the <code>ReplicationConfig</code> associated with the
-   *          replication.</p>
-   * @public
-   */
-  ReplicationConfigIdentifier?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name for the <code>ReplicationConfig</code> associated with the
-   *          replication.</p>
-   * @public
-   */
-  ReplicationConfigArn?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name for an existing <code>Endpoint</code> the serverless
-   *          replication uses for its data source.</p>
-   * @public
-   */
-  SourceEndpointArn?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name for an existing <code>Endpoint</code> the serverless
-   *          replication uses for its data target.</p>
-   * @public
-   */
-  TargetEndpointArn?: string | undefined;
-
-  /**
-   * <p>The type of the serverless replication.</p>
-   * @public
-   */
-  ReplicationType?: MigrationTypeValue | undefined;
-
-  /**
-   * <p>The current status of the serverless replication.</p>
-   * @public
-   */
-  Status?: string | undefined;
-
-  /**
-   * <p>Information about provisioning resources for an DMS serverless replication.</p>
-   * @public
-   */
-  ProvisionData?: ProvisionData | undefined;
-
-  /**
-   * <p>The status output of premigration assessment in describe-replications.</p>
-   * @public
-   */
-  PremigrationAssessmentStatuses?: PremigrationAssessmentStatus[] | undefined;
-
-  /**
-   * <p>The reason the replication task was stopped. This response parameter can return one of
-   *          the following values:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>"Stop Reason NORMAL"</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>"Stop Reason RECOVERABLE_ERROR"</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>"Stop Reason FATAL_ERROR"</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>"Stop Reason FULL_LOAD_ONLY_FINISHED"</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>"Stop Reason STOPPED_AFTER_FULL_LOAD"</code> – Full load
-   *                completed, with cached changes not applied</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>"Stop Reason STOPPED_AFTER_CACHED_EVENTS"</code> – Full
-   *                load completed, with cached changes applied</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>"Stop Reason EXPRESS_LICENSE_LIMITS_REACHED"</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>"Stop Reason STOPPED_AFTER_DDL_APPLY"</code> – User-defined
-   *                stop task after DDL applied</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>"Stop Reason STOPPED_DUE_TO_LOW_MEMORY"</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>"Stop Reason STOPPED_DUE_TO_LOW_DISK"</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>"Stop Reason STOPPED_AT_SERVER_TIME"</code> – User-defined
-   *                server time for stopping task</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>"Stop Reason STOPPED_AT_COMMIT_TIME"</code> – User-defined
-   *                commit time for stopping task</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>"Stop Reason RECONFIGURATION_RESTART"</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>"Stop Reason RECYCLE_TASK"</code>
-   *                </p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  StopReason?: string | undefined;
-
-  /**
-   * <p>Error and other information about why a serverless replication failed.</p>
-   * @public
-   */
-  FailureMessages?: string[] | undefined;
-
-  /**
-   * <p>This object provides a collection of statistics about a serverless replication.</p>
-   * @public
-   */
-  ReplicationStats?: ReplicationStats | undefined;
-
-  /**
-   * <p>The type of replication to start.</p>
-   * @public
-   */
-  StartReplicationType?: string | undefined;
-
-  /**
-   * <p>Indicates the start time for a change data capture (CDC) operation. Use either
-   *             <code>CdcStartTime</code> or <code>CdcStartPosition</code> to specify when you want a
-   *          CDC operation to start. Specifying both values results in an error.</p>
-   * @public
-   */
-  CdcStartTime?: Date | undefined;
-
-  /**
-   * <p>Indicates the start time for a change data capture (CDC) operation. Use either
-   *             <code>CdcStartTime</code> or <code>CdcStartPosition</code> to specify when you want a
-   *          CDC operation to start. Specifying both values results in an error.</p>
-   * @public
-   */
-  CdcStartPosition?: string | undefined;
-
-  /**
-   * <p>Indicates when you want a change data capture (CDC) operation to stop. The value can be
-   *          either server time or commit time.</p>
-   * @public
-   */
-  CdcStopPosition?: string | undefined;
-
-  /**
-   * <p>Indicates the last checkpoint that occurred during a change data capture (CDC)
-   *          operation. You can provide this value to the <code>CdcStartPosition</code> parameter to
-   *          start a CDC operation that begins at that checkpoint.</p>
-   * @public
-   */
-  RecoveryCheckpoint?: string | undefined;
-
-  /**
-   * <p>The time the serverless replication was created.</p>
-   * @public
-   */
-  ReplicationCreateTime?: Date | undefined;
-
-  /**
-   * <p>The time the serverless replication was updated.</p>
-   * @public
-   */
-  ReplicationUpdateTime?: Date | undefined;
-
-  /**
-   * <p>The timestamp when replication was last stopped.</p>
-   * @public
-   */
-  ReplicationLastStopTime?: Date | undefined;
-
-  /**
-   * <p>The timestamp when DMS will deprovision the replication.</p>
-   * @public
-   */
-  ReplicationDeprovisionTime?: Date | undefined;
-}
-
-/**
- * <p></p>
- * @public
- */
-export interface DescribeReplicationsResponse {
-  /**
-   * <p>An optional pagination token provided by a previous request. If this parameter is
-   *          specified, the response includes only records beyond the marker, up to the value specified
-   *          by <code>MaxRecords</code>. </p>
-   * @public
-   */
-  Marker?: string | undefined;
-
-  /**
-   * <p>The replication descriptions.</p>
-   * @public
-   */
-  Replications?: Replication[] | undefined;
-}
-
-/**
- * <p></p>
- * @public
- */
-export interface DescribeReplicationSubnetGroupsMessage {
-  /**
-   * <p>Filters applied to replication subnet groups.</p>
-   *          <p>Valid filter names: replication-subnet-group-id</p>
-   * @public
-   */
-  Filters?: Filter[] | undefined;
-
-  /**
-   * <p> The maximum number of records to include in the response. If more records exist than
-   *          the specified <code>MaxRecords</code> value, a pagination token called a marker is included
-   *          in the response so that the remaining results can be retrieved. </p>
-   *          <p>Default: 100</p>
-   *          <p>Constraints: Minimum 20, maximum 100.</p>
-   * @public
-   */
-  MaxRecords?: number | undefined;
-
-  /**
-   * <p> An optional pagination token provided by a previous request. If this parameter is
-   *          specified, the response includes only records beyond the marker, up to the value specified
-   *          by <code>MaxRecords</code>. </p>
-   * @public
-   */
-  Marker?: string | undefined;
-}
-
-/**
- * <p></p>
- * @public
- */
-export interface DescribeReplicationSubnetGroupsResponse {
-  /**
-   * <p> An optional pagination token provided by a previous request. If this parameter is
-   *          specified, the response includes only records beyond the marker, up to the value specified
-   *          by <code>MaxRecords</code>. </p>
-   * @public
-   */
-  Marker?: string | undefined;
-
-  /**
-   * <p>A description of the replication subnet groups.</p>
-   * @public
-   */
-  ReplicationSubnetGroups?: ReplicationSubnetGroup[] | undefined;
-}
-
-/**
- * <p></p>
- * @public
- */
-export interface DescribeReplicationTableStatisticsMessage {
-  /**
-   * <p>The replication config to describe.</p>
-   * @public
-   */
-  ReplicationConfigArn: string | undefined;
-
-  /**
-   * <p>The maximum number of records to include in the response. If more records exist than the
-   *          specified <code>MaxRecords</code> value, a pagination token called a marker is included in
-   *          the response so that the remaining results can be retrieved. </p>
-   * @public
-   */
-  MaxRecords?: number | undefined;
-
-  /**
-   * <p>An optional pagination token provided by a previous request. If this parameter is
-   *          specified, the response includes only records beyond the marker, up to the value specified
-   *          by <code>MaxRecords</code>. </p>
-   * @public
-   */
-  Marker?: string | undefined;
-
-  /**
-   * <p>Filters applied to the replication table statistics.</p>
-   * @public
-   */
-  Filters?: Filter[] | undefined;
-}
-
-/**
- * <p>Provides a collection of table statistics in response to a request by the
- *             <code>DescribeTableStatistics</code> operation.</p>
- * @public
- */
-export interface TableStatistics {
-  /**
-   * <p>The schema name.</p>
-   * @public
-   */
-  SchemaName?: string | undefined;
-
-  /**
-   * <p>The name of the table.</p>
-   * @public
-   */
-  TableName?: string | undefined;
-
-  /**
-   * <p>The number of insert actions performed on a table.</p>
-   * @public
-   */
-  Inserts?: number | undefined;
-
-  /**
-   * <p>The number of delete actions performed on a table.</p>
-   * @public
-   */
-  Deletes?: number | undefined;
-
-  /**
-   * <p>The number of update actions performed on a table.</p>
-   * @public
-   */
-  Updates?: number | undefined;
-
-  /**
-   * <p>The data definition language (DDL) used to build and modify the structure of your
-   *          tables.</p>
-   * @public
-   */
-  Ddls?: number | undefined;
-
-  /**
-   * <p>The number of insert actions applied on a target table.</p>
-   * @public
-   */
-  AppliedInserts?: number | undefined;
-
-  /**
-   * <p>The number of delete actions applied on a target table.</p>
-   * @public
-   */
-  AppliedDeletes?: number | undefined;
-
-  /**
-   * <p>The number of update actions applied on a target table.</p>
-   * @public
-   */
-  AppliedUpdates?: number | undefined;
-
-  /**
-   * <p>The number of data definition language (DDL) statements used to build and modify the
-   *          structure of your tables applied on the target.</p>
-   * @public
-   */
-  AppliedDdls?: number | undefined;
-
-  /**
-   * <p>The number of rows added during the full load operation.</p>
-   * @public
-   */
-  FullLoadRows?: number | undefined;
-
-  /**
-   * <p>The number of rows that failed conditional checks during the full load operation (valid
-   *          only for migrations where DynamoDB is the target).</p>
-   * @public
-   */
-  FullLoadCondtnlChkFailedRows?: number | undefined;
-
-  /**
-   * <p>The number of rows that failed to load during the full load operation (valid only for
-   *          migrations where DynamoDB is the target).</p>
-   * @public
-   */
-  FullLoadErrorRows?: number | undefined;
-
-  /**
-   * <p>The time when the full load operation started.</p>
-   * @public
-   */
-  FullLoadStartTime?: Date | undefined;
-
-  /**
-   * <p>The time when the full load operation completed.</p>
-   * @public
-   */
-  FullLoadEndTime?: Date | undefined;
-
-  /**
-   * <p>A value that indicates if the table was reloaded (<code>true</code>) or loaded as part
-   *          of a new full load operation (<code>false</code>).</p>
-   * @public
-   */
-  FullLoadReloaded?: boolean | undefined;
-
-  /**
-   * <p>The last time a table was updated.</p>
-   * @public
-   */
-  LastUpdateTime?: Date | undefined;
-
-  /**
-   * <p>The state of the tables described.</p>
-   *          <p>Valid states: Table does not exist | Before load | Full load | Table completed | Table
-   *          cancelled | Table error | Table is being reloaded</p>
-   * @public
-   */
-  TableState?: string | undefined;
-
-  /**
-   * <p>The number of records that have yet to be validated.</p>
-   * @public
-   */
-  ValidationPendingRecords?: number | undefined;
-
-  /**
-   * <p>The number of records that failed validation.</p>
-   * @public
-   */
-  ValidationFailedRecords?: number | undefined;
-
-  /**
-   * <p>The number of records that couldn't be validated.</p>
-   * @public
-   */
-  ValidationSuspendedRecords?: number | undefined;
-
-  /**
-   * <p>The validation state of the table.</p>
-   *          <p>This parameter can have the following values:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Not enabled – Validation isn't enabled for the table in the migration
-   *                task.</p>
-   *             </li>
-   *             <li>
-   *                <p>Pending records – Some records in the table are waiting for
-   *                validation.</p>
-   *             </li>
-   *             <li>
-   *                <p>Mismatched records – Some records in the table don't match between the
-   *                source and target.</p>
-   *             </li>
-   *             <li>
-   *                <p>Suspended records – Some records in the table couldn't be
-   *                validated.</p>
-   *             </li>
-   *             <li>
-   *                <p>No primary key –The table couldn't be validated because it has no
-   *                primary key.</p>
-   *             </li>
-   *             <li>
-   *                <p>Table error – The table wasn't validated because it's in an error
-   *                state and some data wasn't migrated.</p>
-   *             </li>
-   *             <li>
-   *                <p>Validated – All rows in the table are validated. If the table is updated,
-   *                the status can change from Validated.</p>
-   *             </li>
-   *             <li>
-   *                <p>Error – The table couldn't be validated because of an unexpected
-   *                error.</p>
-   *             </li>
-   *             <li>
-   *                <p>Pending validation – The table is waiting validation.</p>
-   *             </li>
-   *             <li>
-   *                <p>Preparing table – Preparing the table enabled in the migration task for
-   *                validation.</p>
-   *             </li>
-   *             <li>
-   *                <p>Pending revalidation – All rows in the table are pending validation after
-   *                the table was updated.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  ValidationState?: string | undefined;
-
-  /**
-   * <p>Additional details about the state of validation.</p>
-   * @public
-   */
-  ValidationStateDetails?: string | undefined;
-
-  /**
-   * <p>Records the current state of table resynchronization in the migration task.</p>
-   *          <p>This parameter can have the following values:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Not enabled – Resync is not enabled for the table in the migration task.</p>
-   *             </li>
-   *             <li>
-   *                <p>Pending – The tables are waiting for resync.</p>
-   *             </li>
-   *             <li>
-   *                <p>In progress – Resync in progress for some records in the table.</p>
-   *             </li>
-   *             <li>
-   *                <p>No primary key – The table could not be resynced because it has no primary key.</p>
-   *             </li>
-   *             <li>
-   *                <p>Last resync at: <code>date/time</code> – Resync session is finished at time. Time provided in UTC format.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  ResyncState?: string | undefined;
-
-  /**
-   * <p>Records the total number of mismatched data rows where the system attempted to apply
-   *          fixes in the target database.</p>
-   * @public
-   */
-  ResyncRowsAttempted?: number | undefined;
-
-  /**
-   * <p>Records the total number of mismatched data rows where fixes were successfully applied in the target database.</p>
-   * @public
-   */
-  ResyncRowsSucceeded?: number | undefined;
-
-  /**
-   * <p>Records the total number of mismatched data rows where fix attempts failed in the target
-   *          database.</p>
-   * @public
-   */
-  ResyncRowsFailed?: number | undefined;
-
-  /**
-   * <p>Calculates the percentage of failed validations that were successfully resynced to the system.</p>
-   * @public
-   */
-  ResyncProgress?: number | undefined;
-}
-
-/**
- * <p></p>
- * @public
- */
-export interface DescribeReplicationTableStatisticsResponse {
-  /**
-   * <p>The Amazon Resource Name of the replication config.</p>
-   * @public
-   */
-  ReplicationConfigArn?: string | undefined;
-
-  /**
-   * <p>An optional pagination token provided by a previous request. If this parameter is
-   *          specified, the response includes only records beyond the marker, up to the value specified
-   *          by <code>MaxRecords</code>. </p>
-   * @public
-   */
-  Marker?: string | undefined;
-
-  /**
-   * <p>Returns table statistics on the replication, including table name, rows inserted, rows
-   *          updated, and rows deleted.</p>
-   * @public
-   */
-  ReplicationTableStatistics?: TableStatistics[] | undefined;
-}
-
-/**
- * <p></p>
- * @public
- */
-export interface DescribeReplicationTaskAssessmentResultsMessage {
-  /**
-   * <p>The Amazon Resource Name (ARN) string that uniquely identifies the task. When this input
-   *          parameter is specified, the API returns only one result and ignore the values of the
-   *             <code>MaxRecords</code> and <code>Marker</code> parameters. </p>
-   * @public
-   */
-  ReplicationTaskArn?: string | undefined;
-
-  /**
-   * <p> The maximum number of records to include in the response. If more records exist than
-   *          the specified <code>MaxRecords</code> value, a pagination token called a marker is included
-   *          in the response so that the remaining results can be retrieved. </p>
-   *          <p>Default: 100</p>
-   *          <p>Constraints: Minimum 20, maximum 100.</p>
-   * @public
-   */
-  MaxRecords?: number | undefined;
-
-  /**
-   * <p> An optional pagination token provided by a previous request. If this parameter is
-   *          specified, the response includes only records beyond the marker, up to the value specified
-   *          by <code>MaxRecords</code>. </p>
-   * @public
-   */
-  Marker?: string | undefined;
-}
-
-/**
- * <p> The task assessment report in JSON format. </p>
- * @public
- */
-export interface ReplicationTaskAssessmentResult {
-  /**
-   * <p> The replication task identifier of the task on which the task assessment was run.
-   *       </p>
-   * @public
-   */
-  ReplicationTaskIdentifier?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the replication task. </p>
-   * @public
-   */
-  ReplicationTaskArn?: string | undefined;
-
-  /**
-   * <p>The date the task assessment was completed. </p>
-   * @public
-   */
-  ReplicationTaskLastAssessmentDate?: Date | undefined;
-
-  /**
-   * <p> The status of the task assessment. </p>
-   * @public
-   */
-  AssessmentStatus?: string | undefined;
-
-  /**
-   * <p> The file containing the results of the task assessment. </p>
-   * @public
-   */
-  AssessmentResultsFile?: string | undefined;
-
-  /**
-   * <p> The task assessment results in JSON format. </p>
-   *          <p>The response object only contains this field if you provide <a>DescribeReplicationTaskAssessmentResultsMessage$ReplicationTaskArn</a> in the
-   *          request.</p>
-   * @public
-   */
-  AssessmentResults?: string | undefined;
-
-  /**
-   * <p> The URL of the S3 object containing the task assessment results. </p>
-   *          <p>The response object only contains this field if you provide <a>DescribeReplicationTaskAssessmentResultsMessage$ReplicationTaskArn</a> in the
-   *          request.</p>
-   * @public
-   */
-  S3ObjectUrl?: string | undefined;
-}
-
-/**
- * <p></p>
- * @public
- */
-export interface DescribeReplicationTaskAssessmentResultsResponse {
-  /**
-   * <p> An optional pagination token provided by a previous request. If this parameter is
-   *          specified, the response includes only records beyond the marker, up to the value specified
-   *          by <code>MaxRecords</code>. </p>
-   * @public
-   */
-  Marker?: string | undefined;
-
-  /**
-   * <p>- The Amazon S3 bucket where the task assessment report is located. </p>
-   * @public
-   */
-  BucketName?: string | undefined;
-
-  /**
-   * <p> The task assessment report. </p>
-   * @public
-   */
-  ReplicationTaskAssessmentResults?: ReplicationTaskAssessmentResult[] | undefined;
 }
