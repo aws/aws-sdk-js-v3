@@ -491,6 +491,11 @@ import {
   GetClusterCredentialsWithIAMCommandOutput,
 } from "./commands/GetClusterCredentialsWithIAMCommand";
 import {
+  GetIdentityCenterAuthTokenCommand,
+  GetIdentityCenterAuthTokenCommandInput,
+  GetIdentityCenterAuthTokenCommandOutput,
+} from "./commands/GetIdentityCenterAuthTokenCommand";
+import {
   GetReservedNodeExchangeConfigurationOptionsCommand,
   GetReservedNodeExchangeConfigurationOptionsCommandInput,
   GetReservedNodeExchangeConfigurationOptionsCommandOutput,
@@ -788,6 +793,7 @@ const commands = {
   FailoverPrimaryComputeCommand,
   GetClusterCredentialsCommand,
   GetClusterCredentialsWithIAMCommand,
+  GetIdentityCenterAuthTokenCommand,
   GetReservedNodeExchangeConfigurationOptionsCommand,
   GetReservedNodeExchangeOfferingsCommand,
   GetResourcePolicyCommand,
@@ -2499,6 +2505,23 @@ export interface Redshift {
     args: GetClusterCredentialsWithIAMCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetClusterCredentialsWithIAMCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetIdentityCenterAuthTokenCommand}
+   */
+  getIdentityCenterAuthToken(
+    args: GetIdentityCenterAuthTokenCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetIdentityCenterAuthTokenCommandOutput>;
+  getIdentityCenterAuthToken(
+    args: GetIdentityCenterAuthTokenCommandInput,
+    cb: (err: any, data?: GetIdentityCenterAuthTokenCommandOutput) => void
+  ): void;
+  getIdentityCenterAuthToken(
+    args: GetIdentityCenterAuthTokenCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetIdentityCenterAuthTokenCommandOutput) => void
   ): void;
 
   /**

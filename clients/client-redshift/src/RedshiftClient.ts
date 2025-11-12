@@ -392,6 +392,10 @@ import {
   GetClusterCredentialsWithIAMCommandOutput,
 } from "./commands/GetClusterCredentialsWithIAMCommand";
 import {
+  GetIdentityCenterAuthTokenCommandInput,
+  GetIdentityCenterAuthTokenCommandOutput,
+} from "./commands/GetIdentityCenterAuthTokenCommand";
+import {
   GetReservedNodeExchangeConfigurationOptionsCommandInput,
   GetReservedNodeExchangeConfigurationOptionsCommandOutput,
 } from "./commands/GetReservedNodeExchangeConfigurationOptionsCommand";
@@ -629,6 +633,7 @@ export type ServiceInputTypes =
   | FailoverPrimaryComputeCommandInput
   | GetClusterCredentialsCommandInput
   | GetClusterCredentialsWithIAMCommandInput
+  | GetIdentityCenterAuthTokenCommandInput
   | GetReservedNodeExchangeConfigurationOptionsCommandInput
   | GetReservedNodeExchangeOfferingsCommandInput
   | GetResourcePolicyCommandInput
@@ -773,6 +778,7 @@ export type ServiceOutputTypes =
   | FailoverPrimaryComputeCommandOutput
   | GetClusterCredentialsCommandOutput
   | GetClusterCredentialsWithIAMCommandOutput
+  | GetIdentityCenterAuthTokenCommandOutput
   | GetReservedNodeExchangeConfigurationOptionsCommandOutput
   | GetReservedNodeExchangeOfferingsCommandOutput
   | GetResourcePolicyCommandOutput

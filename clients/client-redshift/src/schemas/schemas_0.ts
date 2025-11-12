@@ -166,10 +166,12 @@ const _CHCM = "CreateHsmConfigurationMessage";
 const _CHCR = "CreateHsmConfigurationResult";
 const _CI = "ConsumerIdentifier";
 const _CIDRIP = "CIDRIP";
+const _CIL = "ClusterIdentifierList";
 const _CIM = "CreateIntegrationMessage";
 const _CIR = "ClusterIamRole";
 const _CIRL = "ClusterIamRoleList";
 const _CIl = "ClusterIdentifier";
+const _CIlu = "ClusterIds";
 const _CIo = "ConsumerIdentifiers";
 const _CIr = "CreateIntegration";
 const _CL = "ClusterList";
@@ -506,6 +508,7 @@ const _ETIS = "ElapsedTimeInSeconds";
 const _ETTCIS = "EstimatedTimeToCompletionInSeconds";
 const _ETTUL = "EligibleTracksToUpdateList";
 const _ETn = "EncryptionType";
+const _ETx = "ExpirationTime";
 const _EVR = "EnhancedVpcRouting";
 const _EWHSM = "EncryptedWithHSM";
 const _En = "Endpoint";
@@ -532,6 +535,9 @@ const _GCC = "GetClusterCredentials";
 const _GCCM = "GetClusterCredentialsMessage";
 const _GCCWIAM = "GetClusterCredentialsWithIAM";
 const _GCCWIAMM = "GetClusterCredentialsWithIAMMessage";
+const _GICAT = "GetIdentityCenterAuthToken";
+const _GICATR = "GetIdentityCenterAuthTokenRequest";
+const _GICATRe = "GetIdentityCenterAuthTokenResponse";
 const _GRNECO = "GetReservedNodeExchangeConfigurationOptions";
 const _GRNECOIM = "GetReservedNodeExchangeConfigurationOptionsInputMessage";
 const _GRNECOOM = "GetReservedNodeExchangeConfigurationOptionsOutputMessage";
@@ -849,6 +855,7 @@ const _RIAN = "RedshiftIdcApplicationName";
 const _RIANEF = "RedshiftIdcApplicationNotExistsFault";
 const _RIAQEF = "RedshiftIdcApplicationQuotaExceededFault";
 const _RIAe = "RedshiftIdcApplications";
+const _RIPF = "RedshiftInvalidParameterFault";
 const _RIR = "RemoveIamRoles";
 const _RL = "ReferenceLinks";
 const _RLL = "ReferenceLinkList";
@@ -1081,6 +1088,7 @@ const _TVa = "TagValue";
 const _Ta = "Tag";
 const _Te = "Text";
 const _Ti = "Title";
+const _To = "Token";
 const _Ty = "Type";
 const _UA = "UpdatedAt";
 const _UL = "UsageLimit";
@@ -1239,6 +1247,7 @@ import {
   RedshiftIdcApplicationAlreadyExistsFault as __RedshiftIdcApplicationAlreadyExistsFault,
   RedshiftIdcApplicationNotExistsFault as __RedshiftIdcApplicationNotExistsFault,
   RedshiftIdcApplicationQuotaExceededFault as __RedshiftIdcApplicationQuotaExceededFault,
+  RedshiftInvalidParameterFault as __RedshiftInvalidParameterFault,
   ReservedNodeAlreadyExistsFault as __ReservedNodeAlreadyExistsFault,
   ReservedNodeAlreadyMigratedFault as __ReservedNodeAlreadyMigratedFault,
   ReservedNodeExchangeNotFoundFault as __ReservedNodeExchangeNotFoundFault,
@@ -3101,6 +3110,22 @@ export var GetClusterCredentialsWithIAMMessage: StaticStructureSchema = [
   [_DNb, _CIl, _DSu, _CDN],
   [0, 0, 1, 0],
 ];
+export var GetIdentityCenterAuthTokenRequest: StaticStructureSchema = [
+  3,
+  n0,
+  _GICATR,
+  0,
+  [_CIlu],
+  [[() => ClusterIdentifierList, 0]],
+];
+export var GetIdentityCenterAuthTokenResponse: StaticStructureSchema = [
+  3,
+  n0,
+  _GICATRe,
+  0,
+  [_To, _ETx],
+  [[() => SensitiveString, 0], 4],
+];
 export var GetReservedNodeExchangeConfigurationOptionsInputMessage: StaticStructureSchema = [
   3,
   n0,
@@ -4364,6 +4389,20 @@ TypeRegistry.for(n0).registerError(
   __RedshiftIdcApplicationQuotaExceededFault
 );
 
+export var RedshiftInvalidParameterFault: StaticErrorSchema = [
+  -3,
+  n0,
+  _RIPF,
+  {
+    [_e]: _c,
+    [_hE]: 400,
+    [_aQE]: [`RedshiftInvalidParameter`, 400],
+  },
+  [_m],
+  [0],
+];
+TypeRegistry.for(n0).registerError(RedshiftInvalidParameterFault, __RedshiftInvalidParameterFault);
+
 export var ReferenceLink: StaticStructureSchema = [3, n0, _RLe, 0, [_Te, _L], [0, 0]];
 export var RegisterNamespaceInputMessage: StaticStructureSchema = [
   3,
@@ -5552,6 +5591,18 @@ export var ClusterIamRoleList: StaticListSchema = [
     () => ClusterIamRole,
     {
       [_xN]: _CIR,
+    },
+  ],
+];
+export var ClusterIdentifierList: StaticListSchema = [
+  1,
+  n0,
+  _CIL,
+  0,
+  [
+    0,
+    {
+      [_xN]: _CIl,
     },
   ],
 ];
@@ -7169,6 +7220,14 @@ export var GetClusterCredentialsWithIAM: StaticOperationSchema = [
   0,
   () => GetClusterCredentialsWithIAMMessage,
   () => ClusterExtendedCredentials,
+];
+export var GetIdentityCenterAuthToken: StaticOperationSchema = [
+  9,
+  n0,
+  _GICAT,
+  0,
+  () => GetIdentityCenterAuthTokenRequest,
+  () => GetIdentityCenterAuthTokenResponse,
 ];
 export var GetReservedNodeExchangeConfigurationOptions: StaticOperationSchema = [
   9,

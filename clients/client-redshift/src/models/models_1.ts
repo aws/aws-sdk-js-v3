@@ -3976,6 +3976,94 @@ export interface GetClusterCredentialsWithIAMMessage {
 }
 
 /**
+ * <p>The request parameters for <code>GetIdentityCenterAuthToken</code>.</p>
+ * @public
+ */
+export interface GetIdentityCenterAuthTokenRequest {
+  /**
+   * <p>A list of cluster identifiers that the generated token can be used with.
+   *             The token will be scoped to only allow authentication to the specified clusters.</p>
+   *          <p>Constraints:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ClusterIds</code> must contain at least 1 cluster identifier.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ClusterIds</code> can hold a maximum of 20 cluster identifiers.</p>
+   *             </li>
+   *             <li>
+   *                <p>Cluster identifiers must be 1 to 63 characters in length.</p>
+   *             </li>
+   *             <li>
+   *                <p>The characters accepted for cluster identifiers are the following:</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>Alphanumeric characters</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>Hyphens</p>
+   *                   </li>
+   *                </ul>
+   *             </li>
+   *             <li>
+   *                <p>Cluster identifiers must start with a letter.</p>
+   *             </li>
+   *             <li>
+   *                <p>Cluster identifiers can't end with a hyphen or contain two consecutive hyphens.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  ClusterIds: string[] | undefined;
+}
+
+/**
+ * <p>The response from GetIdentityCenterAuthToken containing the encrypted authentication token and expiration time.</p>
+ * @public
+ */
+export interface GetIdentityCenterAuthTokenResponse {
+  /**
+   * <p>The encrypted authentication token containing the caller's Amazon Web Services IAM Identity Center identity information.
+   *             This token is encrypted using Key Management Service and can only be decrypted by the specified Amazon Redshift clusters.
+   *             Use this token with Amazon Redshift drivers to authenticate using your Amazon Web Services IAM Identity Center identity.</p>
+   * @public
+   */
+  Token?: string | undefined;
+
+  /**
+   * <p>The time (UTC) when the token expires. After this timestamp,
+   *             the token will no longer be valid for authentication.</p>
+   * @public
+   */
+  ExpirationTime?: Date | undefined;
+}
+
+/**
+ * <p>The request contains one or more invalid parameters.
+ *             This error occurs when required parameters are missing,
+ *             parameter values are outside acceptable ranges,
+ *             or parameter formats are incorrect.</p>
+ * @public
+ */
+export class RedshiftInvalidParameterFault extends __BaseException {
+  readonly name: "RedshiftInvalidParameterFault" = "RedshiftInvalidParameterFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<RedshiftInvalidParameterFault, __BaseException>) {
+    super({
+      name: "RedshiftInvalidParameterFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, RedshiftInvalidParameterFault.prototype);
+  }
+}
+
+/**
  * @public
  * @enum
  */

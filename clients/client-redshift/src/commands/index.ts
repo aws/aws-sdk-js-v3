@@ -99,6 +99,7 @@ export * from "./EnableSnapshotCopyCommand";
 export * from "./FailoverPrimaryComputeCommand";
 export * from "./GetClusterCredentialsCommand";
 export * from "./GetClusterCredentialsWithIAMCommand";
+export * from "./GetIdentityCenterAuthTokenCommand";
 export * from "./GetReservedNodeExchangeConfigurationOptionsCommand";
 export * from "./GetReservedNodeExchangeOfferingsCommand";
 export * from "./GetResourcePolicyCommand";

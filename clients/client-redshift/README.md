@@ -1026,6 +1026,14 @@ GetClusterCredentialsWithIAM
 </details>
 <details>
 <summary>
+GetIdentityCenterAuthToken
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/redshift/command/GetIdentityCenterAuthTokenCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-redshift/Interface/GetIdentityCenterAuthTokenCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-redshift/Interface/GetIdentityCenterAuthTokenCommandOutput/)
+
+</details>
+<details>
+<summary>
 GetReservedNodeExchangeConfigurationOptions
 </summary>
 
