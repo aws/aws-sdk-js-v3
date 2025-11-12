@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.930.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.929.0...v3.930.0) (2025-11-12)
+
+
+### Features
+
+* **client-redshift:** Added GetIdentityCenterAuthToken API to retrieve encrypted authentication tokens for Identity Center integrated applications. This API enables programmatic access to secure Identity Center tokens with proper error handling and parameter validation across supported SDK languages. ([145a836](https://github.com/aws/aws-sdk-js-v3/commit/145a8368b0b17a727b27f1c0c0eec4757bf4ac5f))
+* **clients:** use schema-serde in AWS Query & EC2 Query clients ([#7489](https://github.com/aws/aws-sdk-js-v3/issues/7489)) ([e9b6da8](https://github.com/aws/aws-sdk-js-v3/commit/e9b6da8fd2a66809bb67e642fc254ede6bc16082))
+
+
+
+
+
 # [3.929.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.928.0...v3.929.0) (2025-11-11)
 
 **Note:** Version bump only for package @aws-sdk/client-redshift

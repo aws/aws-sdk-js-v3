@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.930.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.929.0...v3.930.0) (2025-11-12)
+
+
+### Features
+
+* **client-amp:** Add VPC source configuration support enabling Amazon Managed Service for Prometheus Collector to collect metrics from MSK clusters. ([4aca00f](https://github.com/aws/aws-sdk-js-v3/commit/4aca00ff44c8e02279f268beb7ff0c33e4c9dfc9))
+* **client-connect:** Updated Authentication Profile APIs to add support for automatic logout on user inactivity ([99b0f8d](https://github.com/aws/aws-sdk-js-v3/commit/99b0f8d9d7d620e2f65d68dcdeb96f6708b407ff))
+* **client-database-migration-service:** Added support of SQL statements creation, metadata model discovery and selection rules transformation. ([95bd643](https://github.com/aws/aws-sdk-js-v3/commit/95bd643bf8be824c592679188177b682d329ab29))
+* **client-ec2:** Adds complete AMI ancestry tracing from immediate parent through each preceding generation back to the root AMI ([fa8c029](https://github.com/aws/aws-sdk-js-v3/commit/fa8c029baf52f395a7250b0061646a601a1aad1d))
+* **client-elastic-load-balancing-v2:** This release expands ALB Authentication to support JWT verification and adds support for a new JWT validation action in listener rule. ([46928a7](https://github.com/aws/aws-sdk-js-v3/commit/46928a72b5278d83b6f42b1ed40820f374d47b17))
+* **client-redshift:** Added GetIdentityCenterAuthToken API to retrieve encrypted authentication tokens for Identity Center integrated applications. This API enables programmatic access to secure Identity Center tokens with proper error handling and parameter validation across supported SDK languages. ([145a836](https://github.com/aws/aws-sdk-js-v3/commit/145a8368b0b17a727b27f1c0c0eec4757bf4ac5f))
+* **client-s3tables:** Adds support for request metrics metrics APIs for S3 Tables ([0cb0163](https://github.com/aws/aws-sdk-js-v3/commit/0cb01631301a83760446952a0b192046125ef25d))
+* **client-sagemaker:** Add support for trn2.3xlarge instance type for SageMaker Hyperpod ([bf8d2ce](https://github.com/aws/aws-sdk-js-v3/commit/bf8d2ce31a86d2f50b41b5024e3bb257b7e3ec89))
+* **clients:** use schema-serde in AWS Query & EC2 Query clients ([#7489](https://github.com/aws/aws-sdk-js-v3/issues/7489)) ([e9b6da8](https://github.com/aws/aws-sdk-js-v3/commit/e9b6da8fd2a66809bb67e642fc254ede6bc16082))
+
+
+
+
+
 # [3.929.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.928.0...v3.929.0) (2025-11-11)
 
 

@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.930.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.929.0...v3.930.0) (2025-11-12)
+
+
+### Features
+
+* **client-ec2:** Adds complete AMI ancestry tracing from immediate parent through each preceding generation back to the root AMI ([fa8c029](https://github.com/aws/aws-sdk-js-v3/commit/fa8c029baf52f395a7250b0061646a601a1aad1d))
+* **clients:** use schema-serde in AWS Query & EC2 Query clients ([#7489](https://github.com/aws/aws-sdk-js-v3/issues/7489)) ([e9b6da8](https://github.com/aws/aws-sdk-js-v3/commit/e9b6da8fd2a66809bb67e642fc254ede6bc16082))
+
+
+
+
+
 # [3.929.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.928.0...v3.929.0) (2025-11-11)
 
 

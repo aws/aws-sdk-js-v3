@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.930.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.929.0...v3.930.0) (2025-11-12)
+
+
+### Features
+
+* **client-amp:** Add VPC source configuration support enabling Amazon Managed Service for Prometheus Collector to collect metrics from MSK clusters. ([4aca00f](https://github.com/aws/aws-sdk-js-v3/commit/4aca00ff44c8e02279f268beb7ff0c33e4c9dfc9))
+
+
+
+
+
 # [3.929.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.928.0...v3.929.0) (2025-11-11)
 
 

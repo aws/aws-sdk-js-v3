@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.930.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.929.0...v3.930.0) (2025-11-12)
+
+
+### Features
+
+* **client-sagemaker:** Add support for trn2.3xlarge instance type for SageMaker Hyperpod ([bf8d2ce](https://github.com/aws/aws-sdk-js-v3/commit/bf8d2ce31a86d2f50b41b5024e3bb257b7e3ec89))
+
+
+
+
+
 # [3.929.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.928.0...v3.929.0) (2025-11-11)
 
 **Note:** Version bump only for package @aws-sdk/client-sagemaker

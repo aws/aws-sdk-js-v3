@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.930.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.929.0...v3.930.0) (2025-11-12)
+
+
+### Features
+
+* **clients:** use schema-serde in AWS Query & EC2 Query clients ([#7489](https://github.com/aws/aws-sdk-js-v3/issues/7489)) ([e9b6da8](https://github.com/aws/aws-sdk-js-v3/commit/e9b6da8fd2a66809bb67e642fc254ede6bc16082))
+
+
+
+
+
 # [3.929.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.928.0...v3.929.0) (2025-11-11)
 
 **Note:** Version bump only for package @aws-sdk/client-cloudformation

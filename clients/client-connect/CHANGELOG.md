@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.930.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.929.0...v3.930.0) (2025-11-12)
+
+
+### Features
+
+* **client-connect:** Updated Authentication Profile APIs to add support for automatic logout on user inactivity ([99b0f8d](https://github.com/aws/aws-sdk-js-v3/commit/99b0f8d9d7d620e2f65d68dcdeb96f6708b407ff))
+
+
+
+
+
 # [3.929.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.928.0...v3.929.0) (2025-11-11)
 
 
