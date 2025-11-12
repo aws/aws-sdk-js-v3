@@ -34,6 +34,7 @@
     "lint:release": "lerna exec --ignore '@aws-sdk/client-*' --ignore '@aws-sdk/aws-*' 'eslint --quiet src/**/*.ts'",
     "lint:versions": "node scripts/runtime-dependency-version-check/runtime-dep-version-check.js",
     "lint:dependencies": "node scripts/runtime-dependency-version-check/check-dependencies.js",
+    "lint:api": "node scripts/validation/api-snapshot-validation.js",
     "local-publish": "node ./scripts/verdaccio-publish/index.js",
     "test:all": "yarn build:all && jest --passWithNoTests && lerna run test --scope '@aws-sdk/{fetch-http-handler,hash-blob-browser}' && yarn test:versions && yarn test:integration",
     "test:ci": "lerna run test --since origin/main",
@@ -134,7 +135,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged && yarn lint:versions && yarn lint:dependencies",
+      "pre-commit": "lint-staged && yarn lint:versions && yarn lint:dependencies && yarn lint:api",
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
     }
   },

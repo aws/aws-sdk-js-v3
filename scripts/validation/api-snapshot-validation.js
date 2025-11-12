@@ -72,7 +72,7 @@ for (const packageRoot of packageDirs) {
   }
 }
 
-fs.writeFileSync(dataPath, JSON.stringify(api, null, 2));
+fs.writeFileSync(dataPath, JSON.stringify(api, null, 2) + "\n");
 
 if (errors.length) {
   throw new Error(errors.join("\n"));
