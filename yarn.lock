@@ -111,6 +111,7 @@ __metadata:
     "@aws-sdk/client-sqs": "npm:*"
     "@aws-sdk/client-sts": "npm:*"
     "@aws-sdk/client-transcribe-streaming": "npm:*"
+    "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-bucket-endpoint": "npm:*"
     "@aws-sdk/middleware-flexible-checksums": "npm:*"
