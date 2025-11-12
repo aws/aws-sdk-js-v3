@@ -32,7 +32,7 @@ export interface DescribeRulesCommandOutput extends DescribeRulesOutput, __Metad
 
 /**
  * <p>Describes the specified rules or the rules for the specified listener. You must specify
- *       either a listener or one or more rules.</p>
+ *       either a listener or rules.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -102,7 +102,7 @@ export interface DescribeRulesCommandOutput extends DescribeRulesOutput, __Metad
  * //       ],
  * //       Actions: [ // Actions
  * //         { // Action
- * //           Type: "forward" || "authenticate-oidc" || "authenticate-cognito" || "redirect" || "fixed-response", // required
+ * //           Type: "forward" || "authenticate-oidc" || "authenticate-cognito" || "redirect" || "fixed-response" || "jwt-validation", // required
  * //           TargetGroupArn: "STRING_VALUE",
  * //           AuthenticateOidcConfig: { // AuthenticateOidcActionConfig
  * //             Issuer: "STRING_VALUE", // required
@@ -157,6 +157,19 @@ export interface DescribeRulesCommandOutput extends DescribeRulesOutput, __Metad
  * //               Enabled: true || false,
  * //               DurationSeconds: Number("int"),
  * //             },
+ * //           },
+ * //           JwtValidationConfig: { // JwtValidationActionConfig
+ * //             JwksEndpoint: "STRING_VALUE", // required
+ * //             Issuer: "STRING_VALUE", // required
+ * //             AdditionalClaims: [ // JwtValidationActionAdditionalClaims
+ * //               { // JwtValidationActionAdditionalClaim
+ * //                 Format: "single-string" || "string-array" || "space-separated-values", // required
+ * //                 Name: "STRING_VALUE", // required
+ * //                 Values: [ // JwtValidationActionAdditionalClaimValues // required
+ * //                   "STRING_VALUE",
+ * //                 ],
+ * //               },
+ * //             ],
  * //           },
  * //         },
  * //       ],

@@ -68,7 +68,7 @@ export interface DescribeListenersCommandOutput extends DescribeListenersOutput,
  * //       SslPolicy: "STRING_VALUE",
  * //       DefaultActions: [ // Actions
  * //         { // Action
- * //           Type: "forward" || "authenticate-oidc" || "authenticate-cognito" || "redirect" || "fixed-response", // required
+ * //           Type: "forward" || "authenticate-oidc" || "authenticate-cognito" || "redirect" || "fixed-response" || "jwt-validation", // required
  * //           TargetGroupArn: "STRING_VALUE",
  * //           AuthenticateOidcConfig: { // AuthenticateOidcActionConfig
  * //             Issuer: "STRING_VALUE", // required
@@ -123,6 +123,19 @@ export interface DescribeListenersCommandOutput extends DescribeListenersOutput,
  * //               Enabled: true || false,
  * //               DurationSeconds: Number("int"),
  * //             },
+ * //           },
+ * //           JwtValidationConfig: { // JwtValidationActionConfig
+ * //             JwksEndpoint: "STRING_VALUE", // required
+ * //             Issuer: "STRING_VALUE", // required
+ * //             AdditionalClaims: [ // JwtValidationActionAdditionalClaims
+ * //               { // JwtValidationActionAdditionalClaim
+ * //                 Format: "single-string" || "string-array" || "space-separated-values", // required
+ * //                 Name: "STRING_VALUE", // required
+ * //                 Values: [ // JwtValidationActionAdditionalClaimValues // required
+ * //                   "STRING_VALUE",
+ * //                 ],
+ * //               },
+ * //             ],
  * //           },
  * //         },
  * //       ],

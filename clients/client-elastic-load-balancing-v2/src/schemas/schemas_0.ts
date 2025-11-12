@@ -1,4 +1,5 @@
 const _A = "Action";
+const _AC = "AdditionalClaims";
 const _ACAC = "AuthenticateCognitoActionConfig";
 const _ACC = "AuthenticateCognitoConfig";
 const _AD = "AnomalyDetection";
@@ -152,11 +153,12 @@ const _E = "Enabled";
 const _ECU = "EffectiveCapacityUnits";
 const _EPFISN = "EnablePrefixForIpv6SourceNat";
 const _ESGIROPLT = "EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic";
-const _F = "Field";
+const _F = "Format";
 const _FAC = "ForwardActionConfig";
 const _FC = "ForwardConfig";
 const _FRAC = "FixedResponseActionConfig";
 const _FRC = "FixedResponseConfig";
+const _Fi = "Field";
 const _GC = "GrpcCode";
 const _GRP = "GetResourcePolicy";
 const _GRPI = "GetResourcePolicyInput";
@@ -205,6 +207,11 @@ const _ISGE = "InvalidSecurityGroupException";
 const _ITE = "InvalidTargetException";
 const _Id = "Id";
 const _In = "Include";
+const _JE = "JwksEndpoint";
+const _JVAAC = "JwtValidationActionAdditionalClaim";
+const _JVAACw = "JwtValidationActionAdditionalClaims";
+const _JVAC = "JwtValidationActionConfig";
+const _JVC = "JwtValidationConfig";
 const _K = "Key";
 const _L = "Listeners";
 const _LA = "ListenerArn";
@@ -533,7 +540,7 @@ export var Action: StaticStructureSchema = [
   n0,
   _A,
   0,
-  [_T, _TGA, _AOC, _ACC, _O, _RC, _FRC, _FC],
+  [_T, _TGA, _AOC, _ACC, _O, _RC, _FRC, _FC, _JVC],
   [
     0,
     0,
@@ -543,6 +550,7 @@ export var Action: StaticStructureSchema = [
     () => RedirectActionConfig,
     () => FixedResponseActionConfig,
     () => ForwardActionConfig,
+    () => JwtValidationActionConfig,
   ],
 ];
 export var AddListenerCertificatesInput: StaticStructureSchema = [
@@ -1199,6 +1207,15 @@ export var InvalidTargetException: StaticErrorSchema = [
 TypeRegistry.for(n0).registerError(InvalidTargetException, __InvalidTargetException);
 
 export var IpamPools: StaticStructureSchema = [3, n0, _IP, 0, [_IIPI], [0]];
+export var JwtValidationActionAdditionalClaim: StaticStructureSchema = [3, n0, _JVAAC, 0, [_F, _N, _V], [0, 0, 64 | 0]];
+export var JwtValidationActionConfig: StaticStructureSchema = [
+  3,
+  n0,
+  _JVAC,
+  0,
+  [_JE, _I, _AC],
+  [0, 0, () => JwtValidationActionAdditionalClaims],
+];
 export var Limit: StaticStructureSchema = [3, n0, _Lim, 0, [_N, _Max], [0, 0]];
 export var Listener: StaticStructureSchema = [
   3,
@@ -1506,7 +1523,7 @@ export var RuleCondition: StaticStructureSchema = [
   n0,
   _RCu,
   0,
-  [_F, _V, _HHC, _PPC, _HHCt, _QSC, _HRMC, _SIC, _RV],
+  [_Fi, _V, _HHC, _PPC, _HHCt, _QSC, _HRMC, _SIC, _RV],
   [
     0,
     64 | 0,
@@ -1937,6 +1954,15 @@ export var DescribeTrustStoreRevocationResponse: StaticListSchema = [
   0,
   () => DescribeTrustStoreRevocation,
 ];
+export var JwtValidationActionAdditionalClaims: StaticListSchema = [
+  1,
+  n0,
+  _JVAACw,
+  0,
+  () => JwtValidationActionAdditionalClaim,
+];
+export var JwtValidationActionAdditionalClaimValues = 64 | 0;
+
 export var Limits: StaticListSchema = [1, n0, _Li, 0, () => Limit];
 export var ListenerArns = 64 | 0;
 

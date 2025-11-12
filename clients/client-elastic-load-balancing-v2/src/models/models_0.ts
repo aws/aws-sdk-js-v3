@@ -269,9 +269,9 @@ export interface TargetGroupStickinessConfig {
   Enabled?: boolean | undefined;
 
   /**
-   * <p>The time period, in seconds, during which requests from a client should be routed to the
-   *       same target group. The range is 1-604800 seconds (7 days). You must specify this value when
-   *       enabling target group stickiness.</p>
+   * <p>[Application Load Balancers] The time period, in seconds, during which requests from a
+   *       client should be routed to the same target group. The range is 1-604800 seconds (7 days). You
+   *       must specify this value when enabling target group stickiness.</p>
    * @public
    */
   DurationSeconds?: number | undefined;
@@ -283,8 +283,7 @@ export interface TargetGroupStickinessConfig {
  */
 export interface ForwardActionConfig {
   /**
-   * <p>The target groups. For Network Load Balancers, you can specify a single target
-   *       group.</p>
+   * <p>The target groups.</p>
    * @public
    */
   TargetGroups?: TargetGroupTuple[] | undefined;
@@ -294,6 +293,79 @@ export interface ForwardActionConfig {
    * @public
    */
   TargetGroupStickinessConfig?: TargetGroupStickinessConfig | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const JwtValidationActionAdditionalClaimFormatEnum = {
+  SINGLE_STRING: "single-string",
+  SPACE_SEPARATED_VALUES: "space-separated-values",
+  STRING_ARRAY: "string-array",
+} as const;
+
+/**
+ * @public
+ */
+export type JwtValidationActionAdditionalClaimFormatEnum =
+  (typeof JwtValidationActionAdditionalClaimFormatEnum)[keyof typeof JwtValidationActionAdditionalClaimFormatEnum];
+
+/**
+ * <p>Information about an additional claim to validate.</p>
+ * @public
+ */
+export interface JwtValidationActionAdditionalClaim {
+  /**
+   * <p>The format of the claim value.</p>
+   * @public
+   */
+  Format: JwtValidationActionAdditionalClaimFormatEnum | undefined;
+
+  /**
+   * <p>The name of the claim. You can't specify <code>exp</code>, <code>iss</code>,
+   *       <code>nbf</code>, or <code>iat</code> because we validate them by default.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The claim value. The maximum size of the list is 10.
+   *       Each value can be up to 256 characters in length.
+   *       If the format is <code>space-separated-values</code>, the values
+   *       can't include spaces.</p>
+   * @public
+   */
+  Values: string[] | undefined;
+}
+
+/**
+ * <p>Information about a JSON Web Token (JWT) validation action.</p>
+ * @public
+ */
+export interface JwtValidationActionConfig {
+  /**
+   * <p>The JSON Web Key Set (JWKS) endpoint. This endpoint contains JSON Web Keys (JWK)
+   *         that are used to validate signatures from the provider.</p>
+   *          <p>This must be a full URL, including the HTTPS protocol, the domain, and the path.
+   *         The maximum length is 256 characters.</p>
+   * @public
+   */
+  JwksEndpoint: string | undefined;
+
+  /**
+   * <p>The issuer of the JWT. The maximum length is 256 characters.</p>
+   * @public
+   */
+  Issuer: string | undefined;
+
+  /**
+   * <p>Additional claims to validate. The maximum size of the list is 10.
+   *       We validate the <code>exp</code>, <code>iss</code>, <code>nbf</code>,
+   *       and <code>iat</code> claims by default.</p>
+   * @public
+   */
+  AdditionalClaims?: JwtValidationActionAdditionalClaim[] | undefined;
 }
 
 /**
@@ -391,6 +463,7 @@ export const ActionTypeEnum = {
   AUTHENTICATE_OIDC: "authenticate-oidc",
   FIXED_RESPONSE: "fixed-response",
   FORWARD: "forward",
+  JWT_VALIDATION: "jwt-validation",
   REDIRECT: "redirect",
 } as const;
 
@@ -401,9 +474,12 @@ export type ActionTypeEnum = (typeof ActionTypeEnum)[keyof typeof ActionTypeEnum
 
 /**
  * <p>Information about an action.</p>
- *          <p>Each rule must include exactly one of the following types of actions:
- *       <code>forward</code>, <code>fixed-response</code>, or <code>redirect</code>, and it must be
- *       the last action to be performed.</p>
+ *          <p>Each rule must include exactly one of the following routing actions: <code>forward</code>,
+ *       <code>fixed-response</code>, or <code>redirect</code>, and it must be the last
+ *       action to be performed.</p>
+ *          <p>Optionally, a rule for an HTTPS listener can also include one of the following
+ *       user authentication actions: <code>authenticate-oidc</code>,
+ *       <code>authenticate-cognito</code>, or <code>jwt-validation</code>.</p>
  * @public
  */
 export interface Action {
@@ -415,8 +491,8 @@ export interface Action {
 
   /**
    * <p>The Amazon Resource Name (ARN) of the target group. Specify only when <code>Type</code> is
-   *         <code>forward</code> and you want to route to a single target group. To route to one or more
-   *       target groups, use <code>ForwardConfig</code> instead.</p>
+   *         <code>forward</code> and you want to route to a single target group. To route to multiple
+   *       target groups, you must use <code>ForwardConfig</code> instead.</p>
    * @public
    */
   TargetGroupArn?: string | undefined;
@@ -457,15 +533,21 @@ export interface Action {
   FixedResponseConfig?: FixedResponseActionConfig | undefined;
 
   /**
-   * <p>Information for creating an action that distributes requests among one or more target
-   *       groups. For Network Load Balancers, you can specify a single target group. Specify only when
-   *         <code>Type</code> is <code>forward</code>. If you specify both <code>ForwardConfig</code>
-   *       and <code>TargetGroupArn</code>, you can specify only one target group using
-   *         <code>ForwardConfig</code> and it must be the same target group specified in
-   *         <code>TargetGroupArn</code>.</p>
+   * <p>Information for creating an action that distributes requests among multiple target
+   *       groups. Specify only when <code>Type</code> is <code>forward</code>.</p>
+   *          <p>If you specify both <code>ForwardConfig</code> and <code>TargetGroupArn</code>, you can
+   *       specify only one target group using <code>ForwardConfig</code> and it must be the same
+   *       target group specified in <code>TargetGroupArn</code>.</p>
    * @public
    */
   ForwardConfig?: ForwardActionConfig | undefined;
+
+  /**
+   * <p>[HTTPS listeners] Information for validating JWT access tokens in client requests.
+   *       Specify only when <code>Type</code> is <code>jwt-validation</code>.</p>
+   * @public
+   */
+  JwtValidationConfig?: JwtValidationActionConfig | undefined;
 }
 
 /**
@@ -5054,13 +5136,11 @@ export interface TargetHealth {
    *             <li>
    *                <p>
    *                   <code>Target.ResponseCodeMismatch</code> - The health checks did not return an
-   *           expected HTTP code. Applies only to Application Load Balancers and Gateway Load
-   *           Balancers.</p>
+   *           expected HTTP code.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>Target.Timeout</code> - The health check requests timed out. Applies only to
-   *           Application Load Balancers and Gateway Load Balancers.</p>
+   *                   <code>Target.Timeout</code> - The health check requests timed out.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -5069,8 +5149,7 @@ export interface TargetHealth {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>Elb.InternalError</code> - The health checks failed due to an internal error.
-   *           Applies only to Application Load Balancers.</p>
+   *                   <code>Elb.InternalError</code> - The health checks failed due to an internal error.</p>
    *             </li>
    *          </ul>
    *          <p>If the target state is <code>unused</code>, the reason code can be one of the following
@@ -5112,12 +5191,12 @@ export interface TargetHealth {
    *             <li>
    *                <p>
    *                   <code>Target.HealthCheckDisabled</code> - Health checks are disabled for the target
-   *           group. Applies only to Application Load Balancers.</p>
+   *           group.</p>
    *             </li>
    *             <li>
    *                <p>
    *                   <code>Elb.InternalError</code> - Target health is unavailable due to an internal
-   *           error. Applies only to Network Load Balancers.</p>
+   *           error.</p>
    *             </li>
    *          </ul>
    * @public
@@ -6208,7 +6287,8 @@ export interface SetSecurityGroupsInput {
 
   /**
    * <p>Indicates whether to evaluate inbound security group rules for traffic sent to a
-   *       Network Load Balancer through Amazon Web Services PrivateLink. The default is <code>on</code>.</p>
+   *       Network Load Balancer through Amazon Web Services PrivateLink. Applies only if the load balancer
+   *       has an associated security group. The default is <code>on</code>.</p>
    * @public
    */
   EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic?:
