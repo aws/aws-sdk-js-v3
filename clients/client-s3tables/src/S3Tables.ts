@@ -29,6 +29,11 @@ import {
   DeleteTableBucketEncryptionCommandOutput,
 } from "./commands/DeleteTableBucketEncryptionCommand";
 import {
+  DeleteTableBucketMetricsConfigurationCommand,
+  DeleteTableBucketMetricsConfigurationCommandInput,
+  DeleteTableBucketMetricsConfigurationCommandOutput,
+} from "./commands/DeleteTableBucketMetricsConfigurationCommand";
+import {
   DeleteTableBucketPolicyCommand,
   DeleteTableBucketPolicyCommandInput,
   DeleteTableBucketPolicyCommandOutput,
@@ -59,6 +64,11 @@ import {
   GetTableBucketMaintenanceConfigurationCommandInput,
   GetTableBucketMaintenanceConfigurationCommandOutput,
 } from "./commands/GetTableBucketMaintenanceConfigurationCommand";
+import {
+  GetTableBucketMetricsConfigurationCommand,
+  GetTableBucketMetricsConfigurationCommandInput,
+  GetTableBucketMetricsConfigurationCommandOutput,
+} from "./commands/GetTableBucketMetricsConfigurationCommand";
 import {
   GetTableBucketPolicyCommand,
   GetTableBucketPolicyCommandInput,
@@ -117,6 +127,11 @@ import {
   PutTableBucketMaintenanceConfigurationCommandOutput,
 } from "./commands/PutTableBucketMaintenanceConfigurationCommand";
 import {
+  PutTableBucketMetricsConfigurationCommand,
+  PutTableBucketMetricsConfigurationCommandInput,
+  PutTableBucketMetricsConfigurationCommandOutput,
+} from "./commands/PutTableBucketMetricsConfigurationCommand";
+import {
   PutTableBucketPolicyCommand,
   PutTableBucketPolicyCommandInput,
   PutTableBucketPolicyCommandOutput,
@@ -153,6 +168,7 @@ const commands = {
   DeleteTableCommand,
   DeleteTableBucketCommand,
   DeleteTableBucketEncryptionCommand,
+  DeleteTableBucketMetricsConfigurationCommand,
   DeleteTableBucketPolicyCommand,
   DeleteTablePolicyCommand,
   GetNamespaceCommand,
@@ -160,6 +176,7 @@ const commands = {
   GetTableBucketCommand,
   GetTableBucketEncryptionCommand,
   GetTableBucketMaintenanceConfigurationCommand,
+  GetTableBucketMetricsConfigurationCommand,
   GetTableBucketPolicyCommand,
   GetTableEncryptionCommand,
   GetTableMaintenanceConfigurationCommand,
@@ -172,6 +189,7 @@ const commands = {
   ListTagsForResourceCommand,
   PutTableBucketEncryptionCommand,
   PutTableBucketMaintenanceConfigurationCommand,
+  PutTableBucketMetricsConfigurationCommand,
   PutTableBucketPolicyCommand,
   PutTableMaintenanceConfigurationCommand,
   PutTablePolicyCommand,
@@ -284,6 +302,23 @@ export interface S3Tables {
   ): void;
 
   /**
+   * @see {@link DeleteTableBucketMetricsConfigurationCommand}
+   */
+  deleteTableBucketMetricsConfiguration(
+    args: DeleteTableBucketMetricsConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteTableBucketMetricsConfigurationCommandOutput>;
+  deleteTableBucketMetricsConfiguration(
+    args: DeleteTableBucketMetricsConfigurationCommandInput,
+    cb: (err: any, data?: DeleteTableBucketMetricsConfigurationCommandOutput) => void
+  ): void;
+  deleteTableBucketMetricsConfiguration(
+    args: DeleteTableBucketMetricsConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteTableBucketMetricsConfigurationCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DeleteTableBucketPolicyCommand}
    */
   deleteTableBucketPolicy(
@@ -386,6 +421,23 @@ export interface S3Tables {
     args: GetTableBucketMaintenanceConfigurationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetTableBucketMaintenanceConfigurationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetTableBucketMetricsConfigurationCommand}
+   */
+  getTableBucketMetricsConfiguration(
+    args: GetTableBucketMetricsConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetTableBucketMetricsConfigurationCommandOutput>;
+  getTableBucketMetricsConfiguration(
+    args: GetTableBucketMetricsConfigurationCommandInput,
+    cb: (err: any, data?: GetTableBucketMetricsConfigurationCommandOutput) => void
+  ): void;
+  getTableBucketMetricsConfiguration(
+    args: GetTableBucketMetricsConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetTableBucketMetricsConfigurationCommandOutput) => void
   ): void;
 
   /**
@@ -579,6 +631,23 @@ export interface S3Tables {
     args: PutTableBucketMaintenanceConfigurationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: PutTableBucketMaintenanceConfigurationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link PutTableBucketMetricsConfigurationCommand}
+   */
+  putTableBucketMetricsConfiguration(
+    args: PutTableBucketMetricsConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutTableBucketMetricsConfigurationCommandOutput>;
+  putTableBucketMetricsConfiguration(
+    args: PutTableBucketMetricsConfigurationCommandInput,
+    cb: (err: any, data?: PutTableBucketMetricsConfigurationCommandOutput) => void
+  ): void;
+  putTableBucketMetricsConfiguration(
+    args: PutTableBucketMetricsConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutTableBucketMetricsConfigurationCommandOutput) => void
   ): void;
 
   /**

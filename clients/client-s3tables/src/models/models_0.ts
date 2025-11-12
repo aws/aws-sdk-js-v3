@@ -476,6 +476,17 @@ export interface DeleteTableBucketEncryptionRequest {
 /**
  * @public
  */
+export interface DeleteTableBucketMetricsConfigurationRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the table bucket.</p>
+   * @public
+   */
+  tableBucketARN: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface DeleteTableBucketPolicyRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the table bucket.</p>
@@ -925,6 +936,34 @@ export interface GetTableBucketMaintenanceConfigurationResponse {
    * @public
    */
   configuration: Partial<Record<TableBucketMaintenanceType, TableBucketMaintenanceConfigurationValue>> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetTableBucketMetricsConfigurationRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the table bucket.</p>
+   * @public
+   */
+  tableBucketARN: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetTableBucketMetricsConfigurationResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the table bucket.</p>
+   * @public
+   */
+  tableBucketARN: string | undefined;
+
+  /**
+   * <p>The unique identifier of the metrics configuration.</p>
+   * @public
+   */
+  id?: string | undefined;
 }
 
 /**
@@ -1677,6 +1716,17 @@ export interface PutTableBucketMaintenanceConfigurationRequest {
    * @public
    */
   value: TableBucketMaintenanceConfigurationValue | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PutTableBucketMetricsConfigurationRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the table bucket.</p>
+   * @public
+   */
+  tableBucketARN: string | undefined;
 }
 
 /**

@@ -67,6 +67,10 @@ import {
   DeleteTableBucketEncryptionCommandOutput,
 } from "./commands/DeleteTableBucketEncryptionCommand";
 import {
+  DeleteTableBucketMetricsConfigurationCommandInput,
+  DeleteTableBucketMetricsConfigurationCommandOutput,
+} from "./commands/DeleteTableBucketMetricsConfigurationCommand";
+import {
   DeleteTableBucketPolicyCommandInput,
   DeleteTableBucketPolicyCommandOutput,
 } from "./commands/DeleteTableBucketPolicyCommand";
@@ -82,6 +86,10 @@ import {
   GetTableBucketMaintenanceConfigurationCommandInput,
   GetTableBucketMaintenanceConfigurationCommandOutput,
 } from "./commands/GetTableBucketMaintenanceConfigurationCommand";
+import {
+  GetTableBucketMetricsConfigurationCommandInput,
+  GetTableBucketMetricsConfigurationCommandOutput,
+} from "./commands/GetTableBucketMetricsConfigurationCommand";
 import {
   GetTableBucketPolicyCommandInput,
   GetTableBucketPolicyCommandOutput,
@@ -116,6 +124,10 @@ import {
   PutTableBucketMaintenanceConfigurationCommandInput,
   PutTableBucketMaintenanceConfigurationCommandOutput,
 } from "./commands/PutTableBucketMaintenanceConfigurationCommand";
+import {
+  PutTableBucketMetricsConfigurationCommandInput,
+  PutTableBucketMetricsConfigurationCommandOutput,
+} from "./commands/PutTableBucketMetricsConfigurationCommand";
 import {
   PutTableBucketPolicyCommandInput,
   PutTableBucketPolicyCommandOutput,
@@ -153,6 +165,7 @@ export type ServiceInputTypes =
   | DeleteNamespaceCommandInput
   | DeleteTableBucketCommandInput
   | DeleteTableBucketEncryptionCommandInput
+  | DeleteTableBucketMetricsConfigurationCommandInput
   | DeleteTableBucketPolicyCommandInput
   | DeleteTableCommandInput
   | DeleteTablePolicyCommandInput
@@ -160,6 +173,7 @@ export type ServiceInputTypes =
   | GetTableBucketCommandInput
   | GetTableBucketEncryptionCommandInput
   | GetTableBucketMaintenanceConfigurationCommandInput
+  | GetTableBucketMetricsConfigurationCommandInput
   | GetTableBucketPolicyCommandInput
   | GetTableCommandInput
   | GetTableEncryptionCommandInput
@@ -173,6 +187,7 @@ export type ServiceInputTypes =
   | ListTagsForResourceCommandInput
   | PutTableBucketEncryptionCommandInput
   | PutTableBucketMaintenanceConfigurationCommandInput
+  | PutTableBucketMetricsConfigurationCommandInput
   | PutTableBucketPolicyCommandInput
   | PutTableMaintenanceConfigurationCommandInput
   | PutTablePolicyCommandInput
@@ -191,6 +206,7 @@ export type ServiceOutputTypes =
   | DeleteNamespaceCommandOutput
   | DeleteTableBucketCommandOutput
   | DeleteTableBucketEncryptionCommandOutput
+  | DeleteTableBucketMetricsConfigurationCommandOutput
   | DeleteTableBucketPolicyCommandOutput
   | DeleteTableCommandOutput
   | DeleteTablePolicyCommandOutput
@@ -198,6 +214,7 @@ export type ServiceOutputTypes =
   | GetTableBucketCommandOutput
   | GetTableBucketEncryptionCommandOutput
   | GetTableBucketMaintenanceConfigurationCommandOutput
+  | GetTableBucketMetricsConfigurationCommandOutput
   | GetTableBucketPolicyCommandOutput
   | GetTableCommandOutput
   | GetTableEncryptionCommandOutput
@@ -211,6 +228,7 @@ export type ServiceOutputTypes =
   | ListTagsForResourceCommandOutput
   | PutTableBucketEncryptionCommandOutput
   | PutTableBucketMaintenanceConfigurationCommandOutput
+  | PutTableBucketMetricsConfigurationCommandOutput
   | PutTableBucketPolicyCommandOutput
   | PutTableMaintenanceConfigurationCommandOutput
   | PutTablePolicyCommandOutput

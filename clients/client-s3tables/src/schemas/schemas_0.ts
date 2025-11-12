@@ -16,6 +16,8 @@ const _DT = "DeleteTable";
 const _DTB = "DeleteTableBucket";
 const _DTBE = "DeleteTableBucketEncryption";
 const _DTBER = "DeleteTableBucketEncryptionRequest";
+const _DTBMC = "DeleteTableBucketMetricsConfiguration";
+const _DTBMCR = "DeleteTableBucketMetricsConfigurationRequest";
 const _DTBP = "DeleteTableBucketPolicy";
 const _DTBPR = "DeleteTableBucketPolicyRequest";
 const _DTBR = "DeleteTableBucketRequest";
@@ -35,6 +37,9 @@ const _GTBERe = "GetTableBucketEncryptionResponse";
 const _GTBMC = "GetTableBucketMaintenanceConfiguration";
 const _GTBMCR = "GetTableBucketMaintenanceConfigurationRequest";
 const _GTBMCRe = "GetTableBucketMaintenanceConfigurationResponse";
+const _GTBMCRet = "GetTableBucketMetricsConfigurationRequest";
+const _GTBMCReta = "GetTableBucketMetricsConfigurationResponse";
+const _GTBMCe = "GetTableBucketMetricsConfiguration";
 const _GTBP = "GetTableBucketPolicy";
 const _GTBPR = "GetTableBucketPolicyRequest";
 const _GTBPRe = "GetTableBucketPolicyResponse";
@@ -82,6 +87,8 @@ const _PTBE = "PutTableBucketEncryption";
 const _PTBER = "PutTableBucketEncryptionRequest";
 const _PTBMC = "PutTableBucketMaintenanceConfiguration";
 const _PTBMCR = "PutTableBucketMaintenanceConfigurationRequest";
+const _PTBMCRu = "PutTableBucketMetricsConfigurationRequest";
+const _PTBMCu = "PutTableBucketMetricsConfiguration";
 const _PTBP = "PutTableBucketPolicy";
 const _PTBPR = "PutTableBucketPolicyRequest";
 const _PTMC = "PutTableMaintenanceConfiguration";
@@ -129,10 +136,11 @@ const _fi = "fields";
 const _h = "http";
 const _hE = "httpError";
 const _hQ = "httpQuery";
-const _i = "iceberg";
+const _i = "id";
 const _iC = "icebergCompaction";
 const _iSM = "icebergSnapshotManagement";
 const _iUFR = "icebergUnreferencedFileRemoval";
+const _ic = "iceberg";
 const _kKA = "kmsKeyArn";
 const _lRT = "lastRunTimestamp";
 const _m = "message";
@@ -275,6 +283,14 @@ export var DeleteNamespaceRequest: StaticStructureSchema = [
   ],
 ];
 export var DeleteTableBucketEncryptionRequest: StaticStructureSchema = [3, n0, _DTBER, 0, [_tBARN], [[0, 1]]];
+export var DeleteTableBucketMetricsConfigurationRequest: StaticStructureSchema = [
+  3,
+  n0,
+  _DTBMCR,
+  0,
+  [_tBARN],
+  [[0, 1]],
+];
 export var DeleteTableBucketPolicyRequest: StaticStructureSchema = [3, n0, _DTBPR, 0, [_tBARN], [[0, 1]]];
 export var DeleteTableBucketRequest: StaticStructureSchema = [3, n0, _DTBR, 0, [_tBARN], [[0, 1]]];
 export var DeleteTablePolicyRequest: StaticStructureSchema = [
@@ -364,6 +380,15 @@ export var GetTableBucketMaintenanceConfigurationResponse: StaticStructureSchema
   0,
   [_tBARN, _co],
   [0, () => TableBucketMaintenanceConfiguration],
+];
+export var GetTableBucketMetricsConfigurationRequest: StaticStructureSchema = [3, n0, _GTBMCRet, 0, [_tBARN], [[0, 1]]];
+export var GetTableBucketMetricsConfigurationResponse: StaticStructureSchema = [
+  3,
+  n0,
+  _GTBMCReta,
+  0,
+  [_tBARN, _i],
+  [0, 0],
 ];
 export var GetTableBucketPolicyRequest: StaticStructureSchema = [3, n0, _GTBPR, 0, [_tBARN], [[0, 1]]];
 export var GetTableBucketPolicyResponse: StaticStructureSchema = [3, n0, _GTBPRe, 0, [_rP], [0]];
@@ -672,6 +697,7 @@ export var PutTableBucketMaintenanceConfigurationRequest: StaticStructureSchema 
   [_tBARN, _ty, _v],
   [[0, 1], [0, 1], () => TableBucketMaintenanceConfigurationValue],
 ];
+export var PutTableBucketMetricsConfigurationRequest: StaticStructureSchema = [3, n0, _PTBMCRu, 0, [_tBARN], [[0, 1]]];
 export var PutTableBucketPolicyRequest: StaticStructureSchema = [3, n0, _PTBPR, 0, [_tBARN, _rP], [[0, 1], 0]];
 export var PutTableMaintenanceConfigurationRequest: StaticStructureSchema = [
   3,
@@ -827,7 +853,7 @@ export var TableMaintenanceSettings: StaticStructureSchema = [
   [_iC, _iSM],
   [() => IcebergCompactionSettings, () => IcebergSnapshotManagementSettings],
 ];
-export var TableMetadata: StaticStructureSchema = [3, n0, _TM, 0, [_i], [() => IcebergMetadata]];
+export var TableMetadata: StaticStructureSchema = [3, n0, _TM, 0, [_ic], [() => IcebergMetadata]];
 export var CreateNamespace: StaticOperationSchema = [
   9,
   n0,
@@ -896,6 +922,16 @@ export var DeleteTableBucketEncryption: StaticOperationSchema = [
     [_h]: ["DELETE", "/buckets/{tableBucketARN}/encryption", 204],
   },
   () => DeleteTableBucketEncryptionRequest,
+  () => __Unit,
+];
+export var DeleteTableBucketMetricsConfiguration: StaticOperationSchema = [
+  9,
+  n0,
+  _DTBMC,
+  {
+    [_h]: ["DELETE", "/buckets/{tableBucketARN}/metrics", 204],
+  },
+  () => DeleteTableBucketMetricsConfigurationRequest,
   () => __Unit,
 ];
 export var DeleteTableBucketPolicy: StaticOperationSchema = [
@@ -967,6 +1003,16 @@ export var GetTableBucketMaintenanceConfiguration: StaticOperationSchema = [
   },
   () => GetTableBucketMaintenanceConfigurationRequest,
   () => GetTableBucketMaintenanceConfigurationResponse,
+];
+export var GetTableBucketMetricsConfiguration: StaticOperationSchema = [
+  9,
+  n0,
+  _GTBMCe,
+  {
+    [_h]: ["GET", "/buckets/{tableBucketARN}/metrics", 200],
+  },
+  () => GetTableBucketMetricsConfigurationRequest,
+  () => GetTableBucketMetricsConfigurationResponse,
 ];
 export var GetTableBucketPolicy: StaticOperationSchema = [
   9,
@@ -1086,6 +1132,16 @@ export var PutTableBucketMaintenanceConfiguration: StaticOperationSchema = [
     [_h]: ["PUT", "/buckets/{tableBucketARN}/maintenance/{type}", 204],
   },
   () => PutTableBucketMaintenanceConfigurationRequest,
+  () => __Unit,
+];
+export var PutTableBucketMetricsConfiguration: StaticOperationSchema = [
+  9,
+  n0,
+  _PTBMCu,
+  {
+    [_h]: ["PUT", "/buckets/{tableBucketARN}/metrics", 204],
+  },
+  () => PutTableBucketMetricsConfigurationRequest,
   () => __Unit,
 ];
 export var PutTableBucketPolicy: StaticOperationSchema = [
