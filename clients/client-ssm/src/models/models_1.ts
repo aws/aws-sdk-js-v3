@@ -3430,15 +3430,14 @@ export namespace ExecutionPreview {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     Automation: (value: AutomationExecutionPreview) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: ExecutionPreview, visitor: Visitor<T>): T => {
-    if (value.Automation !== undefined) return visitor.Automation(value.Automation);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -8705,15 +8704,14 @@ export namespace NodeType {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     Instance: (value: InstanceInfo) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: NodeType, visitor: Visitor<T>): T => {
-    if (value.Instance !== undefined) return visitor.Instance(value.Instance);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**

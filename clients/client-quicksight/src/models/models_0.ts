@@ -260,16 +260,14 @@ export namespace ReadAuthorizationCodeGrantCredentialsDetails {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     ReadAuthorizationCodeGrantDetails: (value: ReadAuthorizationCodeGrantDetails) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: ReadAuthorizationCodeGrantCredentialsDetails, visitor: Visitor<T>): T => {
-    if (value.ReadAuthorizationCodeGrantDetails !== undefined)
-      return visitor.ReadAuthorizationCodeGrantDetails(value.ReadAuthorizationCodeGrantDetails);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -380,16 +378,14 @@ export namespace ReadClientCredentialsDetails {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     ReadClientCredentialsGrantDetails: (value: ReadClientCredentialsGrantDetails) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: ReadClientCredentialsDetails, visitor: Visitor<T>): T => {
-    if (value.ReadClientCredentialsGrantDetails !== undefined)
-      return visitor.ReadClientCredentialsGrantDetails(value.ReadClientCredentialsGrantDetails);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -560,6 +556,10 @@ export namespace ReadAuthenticationMetadata {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     AuthorizationCodeGrantMetadata: (value: ReadAuthorizationCodeGrantMetadata) => T;
     ClientCredentialsGrantMetadata: (value: ReadClientCredentialsGrantMetadata) => T;
@@ -569,20 +569,6 @@ export namespace ReadAuthenticationMetadata {
     IamConnectionMetadata: (value: ReadIamConnectionMetadata) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: ReadAuthenticationMetadata, visitor: Visitor<T>): T => {
-    if (value.AuthorizationCodeGrantMetadata !== undefined)
-      return visitor.AuthorizationCodeGrantMetadata(value.AuthorizationCodeGrantMetadata);
-    if (value.ClientCredentialsGrantMetadata !== undefined)
-      return visitor.ClientCredentialsGrantMetadata(value.ClientCredentialsGrantMetadata);
-    if (value.BasicAuthConnectionMetadata !== undefined)
-      return visitor.BasicAuthConnectionMetadata(value.BasicAuthConnectionMetadata);
-    if (value.ApiKeyConnectionMetadata !== undefined)
-      return visitor.ApiKeyConnectionMetadata(value.ApiKeyConnectionMetadata);
-    if (value.NoneConnectionMetadata !== undefined) return visitor.NoneConnectionMetadata(value.NoneConnectionMetadata);
-    if (value.IamConnectionMetadata !== undefined) return visitor.IamConnectionMetadata(value.IamConnectionMetadata);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**

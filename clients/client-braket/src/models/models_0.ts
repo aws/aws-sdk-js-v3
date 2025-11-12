@@ -1398,15 +1398,14 @@ export namespace ExperimentalCapabilities {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     enabled: (value: ExperimentalCapabilitiesEnablementType) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: ExperimentalCapabilities, visitor: Visitor<T>): T => {
-    if (value.enabled !== undefined) return visitor.enabled(value.enabled);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**

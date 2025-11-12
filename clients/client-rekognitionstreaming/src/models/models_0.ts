@@ -357,18 +357,15 @@ export namespace ClientChallenge {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     FaceMovementAndLightChallenge: (value: FaceMovementAndLightClientChallenge) => T;
     FaceMovementChallenge: (value: FaceMovementClientChallenge) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: ClientChallenge, visitor: Visitor<T>): T => {
-    if (value.FaceMovementAndLightChallenge !== undefined)
-      return visitor.FaceMovementAndLightChallenge(value.FaceMovementAndLightChallenge);
-    if (value.FaceMovementChallenge !== undefined) return visitor.FaceMovementChallenge(value.FaceMovementChallenge);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -596,18 +593,15 @@ export namespace LivenessRequestStream {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     VideoEvent: (value: VideoEvent) => T;
     ClientSessionInformationEvent: (value: ClientSessionInformationEvent) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: LivenessRequestStream, visitor: Visitor<T>): T => {
-    if (value.VideoEvent !== undefined) return visitor.VideoEvent(value.VideoEvent);
-    if (value.ClientSessionInformationEvent !== undefined)
-      return visitor.ClientSessionInformationEvent(value.ClientSessionInformationEvent);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -648,18 +642,15 @@ export namespace ServerChallenge {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     FaceMovementAndLightChallenge: (value: FaceMovementAndLightServerChallenge) => T;
     FaceMovementChallenge: (value: FaceMovementServerChallenge) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: ServerChallenge, visitor: Visitor<T>): T => {
-    if (value.FaceMovementAndLightChallenge !== undefined)
-      return visitor.FaceMovementAndLightChallenge(value.FaceMovementAndLightChallenge);
-    if (value.FaceMovementChallenge !== undefined) return visitor.FaceMovementChallenge(value.FaceMovementChallenge);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -945,6 +936,10 @@ export namespace LivenessResponseStream {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     ServerSessionInformationEvent: (value: ServerSessionInformationEvent) => T;
     DisconnectionEvent: (value: DisconnectionEvent) => T;
@@ -956,22 +951,6 @@ export namespace LivenessResponseStream {
     ServiceUnavailableException: (value: ServiceUnavailableException) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: LivenessResponseStream, visitor: Visitor<T>): T => {
-    if (value.ServerSessionInformationEvent !== undefined)
-      return visitor.ServerSessionInformationEvent(value.ServerSessionInformationEvent);
-    if (value.DisconnectionEvent !== undefined) return visitor.DisconnectionEvent(value.DisconnectionEvent);
-    if (value.ChallengeEvent !== undefined) return visitor.ChallengeEvent(value.ChallengeEvent);
-    if (value.ValidationException !== undefined) return visitor.ValidationException(value.ValidationException);
-    if (value.InternalServerException !== undefined)
-      return visitor.InternalServerException(value.InternalServerException);
-    if (value.ThrottlingException !== undefined) return visitor.ThrottlingException(value.ThrottlingException);
-    if (value.ServiceQuotaExceededException !== undefined)
-      return visitor.ServiceQuotaExceededException(value.ServiceQuotaExceededException);
-    if (value.ServiceUnavailableException !== undefined)
-      return visitor.ServiceUnavailableException(value.ServiceUnavailableException);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**

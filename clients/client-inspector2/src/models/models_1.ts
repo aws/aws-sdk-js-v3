@@ -3260,17 +3260,15 @@ export namespace UpdateIntegrationDetails {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     gitlabSelfManaged: (value: UpdateGitLabSelfManagedIntegrationDetail) => T;
     github: (value: UpdateGitHubIntegrationDetail) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: UpdateIntegrationDetails, visitor: Visitor<T>): T => {
-    if (value.gitlabSelfManaged !== undefined) return visitor.gitlabSelfManaged(value.gitlabSelfManaged);
-    if (value.github !== undefined) return visitor.github(value.github);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**

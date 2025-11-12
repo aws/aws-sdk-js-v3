@@ -64,16 +64,14 @@ export namespace CredentialsProvider {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     SecretsManagerCredentialsProvider: (value: SecretsManagerCredentialsProvider) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: CredentialsProvider, visitor: Visitor<T>): T => {
-    if (value.SecretsManagerCredentialsProvider !== undefined)
-      return visitor.SecretsManagerCredentialsProvider(value.SecretsManagerCredentialsProvider);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -201,16 +199,14 @@ export namespace IdentityProvider {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     ActiveDirectoryIdentityProvider: (value: ActiveDirectoryIdentityProvider) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: IdentityProvider, visitor: Visitor<T>): T => {
-    if (value.ActiveDirectoryIdentityProvider !== undefined)
-      return visitor.ActiveDirectoryIdentityProvider(value.ActiveDirectoryIdentityProvider);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -478,15 +474,14 @@ export namespace ServerSettings {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     RdsSalSettings: (value: RdsSalSettings) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: ServerSettings, visitor: Visitor<T>): T => {
-    if (value.RdsSalSettings !== undefined) return visitor.RdsSalSettings(value.RdsSalSettings);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**

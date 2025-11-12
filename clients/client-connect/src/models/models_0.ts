@@ -1288,16 +1288,14 @@ export namespace InvalidRequestExceptionReason {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     AttachedFileInvalidRequestExceptionReason: (value: AttachedFileInvalidRequestExceptionReason) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: InvalidRequestExceptionReason, visitor: Visitor<T>): T => {
-    if (value.AttachedFileInvalidRequestExceptionReason !== undefined)
-      return visitor.AttachedFileInvalidRequestExceptionReason(value.AttachedFileInvalidRequestExceptionReason);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -1403,18 +1401,14 @@ export namespace ServiceQuotaExceededExceptionReason {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     AttachedFileServiceQuotaExceededExceptionReason: (value: AttachedFileServiceQuotaExceededExceptionReason) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: ServiceQuotaExceededExceptionReason, visitor: Visitor<T>): T => {
-    if (value.AttachedFileServiceQuotaExceededExceptionReason !== undefined)
-      return visitor.AttachedFileServiceQuotaExceededExceptionReason(
-        value.AttachedFileServiceQuotaExceededExceptionReason
-      );
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -2563,17 +2557,15 @@ export namespace CreatedByInfo {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     ConnectUserArn: (value: string) => T;
     AWSIdentityArn: (value: string) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: CreatedByInfo, visitor: Visitor<T>): T => {
-    if (value.ConnectUserArn !== undefined) return visitor.ConnectUserArn(value.ConnectUserArn);
-    if (value.AWSIdentityArn !== undefined) return visitor.AWSIdentityArn(value.AWSIdentityArn);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -4000,17 +3992,15 @@ export namespace EvaluationFormNumericQuestionAutomation {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     PropertyValue: (value: NumericQuestionPropertyValueAutomation) => T;
     AnswerSource: (value: EvaluationFormQuestionAutomationAnswerSource) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: EvaluationFormNumericQuestionAutomation, visitor: Visitor<T>): T => {
-    if (value.PropertyValue !== undefined) return visitor.PropertyValue(value.PropertyValue);
-    if (value.AnswerSource !== undefined) return visitor.AnswerSource(value.AnswerSource);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -4164,15 +4154,14 @@ export namespace EvaluationFormSingleSelectQuestionAutomationOption {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     RuleCategory: (value: SingleSelectQuestionRuleCategoryAutomation) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: EvaluationFormSingleSelectQuestionAutomationOption, visitor: Visitor<T>): T => {
-    if (value.RuleCategory !== undefined) return visitor.RuleCategory(value.RuleCategory);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -4361,19 +4350,16 @@ export namespace EvaluationFormQuestionTypeProperties {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     Numeric: (value: EvaluationFormNumericQuestionProperties) => T;
     SingleSelect: (value: EvaluationFormSingleSelectQuestionProperties) => T;
     Text: (value: EvaluationFormTextQuestionProperties) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: EvaluationFormQuestionTypeProperties, visitor: Visitor<T>): T => {
-    if (value.Numeric !== undefined) return visitor.Numeric(value.Numeric);
-    if (value.SingleSelect !== undefined) return visitor.SingleSelect(value.SingleSelect);
-    if (value.Text !== undefined) return visitor.Text(value.Text);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -5190,15 +5176,14 @@ export namespace PredefinedAttributeValues {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     StringList: (value: string[]) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: PredefinedAttributeValues, visitor: Visitor<T>): T => {
-    if (value.StringList !== undefined) return visitor.StringList(value.StringList);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**

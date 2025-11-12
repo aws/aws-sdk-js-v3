@@ -612,15 +612,14 @@ export namespace ContainerInfo {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     eksInfo: (value: EksInfo) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: ContainerInfo, visitor: Visitor<T>): T => {
-    if (value.eksInfo !== undefined) return visitor.eksInfo(value.eksInfo);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -1272,15 +1271,14 @@ export namespace Credentials {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     token: (value: string) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: Credentials, visitor: Visitor<T>): T => {
-    if (value.token !== undefined) return visitor.token(value.token);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**

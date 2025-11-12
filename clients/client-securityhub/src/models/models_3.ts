@@ -1718,15 +1718,14 @@ export namespace ProviderUpdateConfiguration {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     JiraCloud: (value: JiraCloudUpdateConfiguration) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: ProviderUpdateConfiguration, visitor: Visitor<T>): T => {
-    if (value.JiraCloud !== undefined) return visitor.JiraCloud(value.JiraCloud);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -2602,15 +2601,14 @@ export namespace Criteria {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     OcsfFindingCriteria: (value: OcsfFindingFilters) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: Criteria, visitor: Visitor<T>): T => {
-    if (value.OcsfFindingCriteria !== undefined) return visitor.OcsfFindingCriteria(value.OcsfFindingCriteria);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**

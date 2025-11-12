@@ -5056,19 +5056,16 @@ export namespace Target {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     AccountId: (value: string) => T;
     OrganizationalUnitId: (value: string) => T;
     RootId: (value: string) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: Target, visitor: Visitor<T>): T => {
-    if (value.AccountId !== undefined) return visitor.AccountId(value.AccountId);
-    if (value.OrganizationalUnitId !== undefined) return visitor.OrganizationalUnitId(value.OrganizationalUnitId);
-    if (value.RootId !== undefined) return visitor.RootId(value.RootId);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -5433,6 +5430,10 @@ export namespace ParameterValue {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     Integer: (value: number) => T;
     IntegerList: (value: number[]) => T;
@@ -5444,18 +5445,6 @@ export namespace ParameterValue {
     EnumList: (value: string[]) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: ParameterValue, visitor: Visitor<T>): T => {
-    if (value.Integer !== undefined) return visitor.Integer(value.Integer);
-    if (value.IntegerList !== undefined) return visitor.IntegerList(value.IntegerList);
-    if (value.Double !== undefined) return visitor.Double(value.Double);
-    if (value.String !== undefined) return visitor.String(value.String);
-    if (value.StringList !== undefined) return visitor.StringList(value.StringList);
-    if (value.Boolean !== undefined) return visitor.Boolean(value.Boolean);
-    if (value.Enum !== undefined) return visitor.Enum(value.Enum);
-    if (value.EnumList !== undefined) return visitor.EnumList(value.EnumList);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -7346,6 +7335,10 @@ export namespace ConfigurationOptions {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     Integer: (value: IntegerConfigurationOptions) => T;
     IntegerList: (value: IntegerListConfigurationOptions) => T;
@@ -7357,18 +7350,6 @@ export namespace ConfigurationOptions {
     EnumList: (value: EnumListConfigurationOptions) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: ConfigurationOptions, visitor: Visitor<T>): T => {
-    if (value.Integer !== undefined) return visitor.Integer(value.Integer);
-    if (value.IntegerList !== undefined) return visitor.IntegerList(value.IntegerList);
-    if (value.Double !== undefined) return visitor.Double(value.Double);
-    if (value.String !== undefined) return visitor.String(value.String);
-    if (value.StringList !== undefined) return visitor.StringList(value.StringList);
-    if (value.Boolean !== undefined) return visitor.Boolean(value.Boolean);
-    if (value.Enum !== undefined) return visitor.Enum(value.Enum);
-    if (value.EnumList !== undefined) return visitor.EnumList(value.EnumList);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -7938,15 +7919,14 @@ export namespace Policy {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     SecurityHub: (value: SecurityHubPolicy) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: Policy, visitor: Visitor<T>): T => {
-    if (value.SecurityHub !== undefined) return visitor.SecurityHub(value.SecurityHub);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -8136,17 +8116,15 @@ export namespace ProviderConfiguration {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     JiraCloud: (value: JiraCloudProviderConfiguration) => T;
     ServiceNow: (value: ServiceNowProviderConfiguration) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: ProviderConfiguration, visitor: Visitor<T>): T => {
-    if (value.JiraCloud !== undefined) return visitor.JiraCloud(value.JiraCloud);
-    if (value.ServiceNow !== undefined) return visitor.ServiceNow(value.ServiceNow);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -10097,17 +10075,15 @@ export namespace ProviderDetail {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     JiraCloud: (value: JiraCloudDetail) => T;
     ServiceNow: (value: ServiceNowDetail) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: ProviderDetail, visitor: Visitor<T>): T => {
-    if (value.JiraCloud !== undefined) return visitor.JiraCloud(value.JiraCloud);
-    if (value.ServiceNow !== undefined) return visitor.ServiceNow(value.ServiceNow);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**

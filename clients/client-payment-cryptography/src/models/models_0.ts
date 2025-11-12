@@ -953,15 +953,14 @@ export namespace DiffieHellmanDerivationData {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     SharedInformation: (value: string) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: DiffieHellmanDerivationData, visitor: Visitor<T>): T => {
-    if (value.SharedInformation !== undefined) return visitor.SharedInformation(value.SharedInformation);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -1388,6 +1387,10 @@ export namespace ExportKeyMaterial {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     Tr31KeyBlock: (value: ExportTr31KeyBlock) => T;
     Tr34KeyBlock: (value: ExportTr34KeyBlock) => T;
@@ -1395,15 +1398,6 @@ export namespace ExportKeyMaterial {
     DiffieHellmanTr31KeyBlock: (value: ExportDiffieHellmanTr31KeyBlock) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: ExportKeyMaterial, visitor: Visitor<T>): T => {
-    if (value.Tr31KeyBlock !== undefined) return visitor.Tr31KeyBlock(value.Tr31KeyBlock);
-    if (value.Tr34KeyBlock !== undefined) return visitor.Tr34KeyBlock(value.Tr34KeyBlock);
-    if (value.KeyCryptogram !== undefined) return visitor.KeyCryptogram(value.KeyCryptogram);
-    if (value.DiffieHellmanTr31KeyBlock !== undefined)
-      return visitor.DiffieHellmanTr31KeyBlock(value.DiffieHellmanTr31KeyBlock);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -2048,6 +2042,10 @@ export namespace ImportKeyMaterial {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     RootCertificatePublicKey: (value: RootCertificatePublicKey) => T;
     TrustedCertificatePublicKey: (value: TrustedCertificatePublicKey) => T;
@@ -2057,19 +2055,6 @@ export namespace ImportKeyMaterial {
     DiffieHellmanTr31KeyBlock: (value: ImportDiffieHellmanTr31KeyBlock) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: ImportKeyMaterial, visitor: Visitor<T>): T => {
-    if (value.RootCertificatePublicKey !== undefined)
-      return visitor.RootCertificatePublicKey(value.RootCertificatePublicKey);
-    if (value.TrustedCertificatePublicKey !== undefined)
-      return visitor.TrustedCertificatePublicKey(value.TrustedCertificatePublicKey);
-    if (value.Tr31KeyBlock !== undefined) return visitor.Tr31KeyBlock(value.Tr31KeyBlock);
-    if (value.Tr34KeyBlock !== undefined) return visitor.Tr34KeyBlock(value.Tr34KeyBlock);
-    if (value.KeyCryptogram !== undefined) return visitor.KeyCryptogram(value.KeyCryptogram);
-    if (value.DiffieHellmanTr31KeyBlock !== undefined)
-      return visitor.DiffieHellmanTr31KeyBlock(value.DiffieHellmanTr31KeyBlock);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**

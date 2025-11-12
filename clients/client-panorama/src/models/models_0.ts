@@ -333,15 +333,14 @@ export namespace ManifestOverridesPayload {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     PayloadData: (value: string) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: ManifestOverridesPayload, visitor: Visitor<T>): T => {
-    if (value.PayloadData !== undefined) return visitor.PayloadData(value.PayloadData);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -373,15 +372,14 @@ export namespace ManifestPayload {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     PayloadData: (value: string) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: ManifestPayload, visitor: Visitor<T>): T => {
-    if (value.PayloadData !== undefined) return visitor.PayloadData(value.PayloadData);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**

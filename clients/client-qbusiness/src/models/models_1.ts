@@ -2070,6 +2070,10 @@ export namespace ChatInputStream {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     configurationEvent: (value: ConfigurationEvent) => T;
     textEvent: (value: TextInputEvent) => T;
@@ -2079,17 +2083,6 @@ export namespace ChatInputStream {
     authChallengeResponseEvent: (value: AuthChallengeResponseEvent) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: ChatInputStream, visitor: Visitor<T>): T => {
-    if (value.configurationEvent !== undefined) return visitor.configurationEvent(value.configurationEvent);
-    if (value.textEvent !== undefined) return visitor.textEvent(value.textEvent);
-    if (value.attachmentEvent !== undefined) return visitor.attachmentEvent(value.attachmentEvent);
-    if (value.actionExecutionEvent !== undefined) return visitor.actionExecutionEvent(value.actionExecutionEvent);
-    if (value.endOfInputEvent !== undefined) return visitor.endOfInputEvent(value.endOfInputEvent);
-    if (value.authChallengeResponseEvent !== undefined)
-      return visitor.authChallengeResponseEvent(value.authChallengeResponseEvent);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**

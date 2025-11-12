@@ -2382,15 +2382,14 @@ export namespace Credentials {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     UsernamePassword: (value: UsernamePassword) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: Credentials, visitor: Visitor<T>): T => {
-    if (value.UsernamePassword !== undefined) return visitor.UsernamePassword(value.UsernamePassword);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**

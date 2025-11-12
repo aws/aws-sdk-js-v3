@@ -4429,19 +4429,16 @@ export namespace ImageSourceIdentifier {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     Ec2ImportTaskId: (value: string) => T;
     ImageBuildVersionArn: (value: string) => T;
     Ec2ImageId: (value: string) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: ImageSourceIdentifier, visitor: Visitor<T>): T => {
-    if (value.Ec2ImportTaskId !== undefined) return visitor.Ec2ImportTaskId(value.Ec2ImportTaskId);
-    if (value.ImageBuildVersionArn !== undefined) return visitor.ImageBuildVersionArn(value.ImageBuildVersionArn);
-    if (value.Ec2ImageId !== undefined) return visitor.Ec2ImageId(value.Ec2ImageId);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**

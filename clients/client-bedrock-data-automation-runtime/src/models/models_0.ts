@@ -309,15 +309,14 @@ export namespace VideoSegmentConfiguration {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     timestampSegment: (value: TimestampSegment) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: VideoSegmentConfiguration, visitor: Visitor<T>): T => {
-    if (value.timestampSegment !== undefined) return visitor.timestampSegment(value.timestampSegment);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**

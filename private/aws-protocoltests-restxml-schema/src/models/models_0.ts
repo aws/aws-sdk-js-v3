@@ -330,15 +330,14 @@ export namespace UnionPayload {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     greeting: (value: string) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: UnionPayload, visitor: Visitor<T>): T => {
-    if (value.greeting !== undefined) return visitor.greeting(value.greeting);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -1157,6 +1156,10 @@ export namespace XmlUnionShape {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     stringValue: (value: string) => T;
     booleanValue: (value: boolean) => T;
@@ -1170,20 +1173,6 @@ export namespace XmlUnionShape {
     structValue: (value: XmlNestedUnionStruct) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: XmlUnionShape, visitor: Visitor<T>): T => {
-    if (value.stringValue !== undefined) return visitor.stringValue(value.stringValue);
-    if (value.booleanValue !== undefined) return visitor.booleanValue(value.booleanValue);
-    if (value.byteValue !== undefined) return visitor.byteValue(value.byteValue);
-    if (value.shortValue !== undefined) return visitor.shortValue(value.shortValue);
-    if (value.integerValue !== undefined) return visitor.integerValue(value.integerValue);
-    if (value.longValue !== undefined) return visitor.longValue(value.longValue);
-    if (value.floatValue !== undefined) return visitor.floatValue(value.floatValue);
-    if (value.doubleValue !== undefined) return visitor.doubleValue(value.doubleValue);
-    if (value.unionValue !== undefined) return visitor.unionValue(value.unionValue);
-    if (value.structValue !== undefined) return visitor.structValue(value.structValue);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**

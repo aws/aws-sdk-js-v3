@@ -153,15 +153,14 @@ export namespace AssistantAssociationInputData {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     knowledgeBaseId: (value: string) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: AssistantAssociationInputData, visitor: Visitor<T>): T => {
-    if (value.knowledgeBaseId !== undefined) return visitor.knowledgeBaseId(value.knowledgeBaseId);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -263,16 +262,14 @@ export namespace AssistantAssociationOutputData {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     knowledgeBaseAssociation: (value: KnowledgeBaseAssociationData) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: AssistantAssociationOutputData, visitor: Visitor<T>): T => {
-    if (value.knowledgeBaseAssociation !== undefined)
-      return visitor.knowledgeBaseAssociation(value.knowledgeBaseAssociation);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -996,15 +993,14 @@ export namespace RecommendationTriggerData {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     query: (value: QueryRecommendationTriggerData) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: RecommendationTriggerData, visitor: Visitor<T>): T => {
-    if (value.query !== undefined) return visitor.query(value.query);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -1664,15 +1660,14 @@ export namespace Configuration {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     connectConfiguration: (value: ConnectConfiguration) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: Configuration, visitor: Visitor<T>): T => {
-    if (value.connectConfiguration !== undefined) return visitor.connectConfiguration(value.connectConfiguration);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -2224,15 +2219,14 @@ export namespace SourceConfiguration {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     appIntegrations: (value: AppIntegrationsConfiguration) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: SourceConfiguration, visitor: Visitor<T>): T => {
-    if (value.appIntegrations !== undefined) return visitor.appIntegrations(value.appIntegrations);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -2436,15 +2430,14 @@ export namespace QuickResponseDataProvider {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     content: (value: string) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: QuickResponseDataProvider, visitor: Visitor<T>): T => {
-    if (value.content !== undefined) return visitor.content(value.content);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -2602,15 +2595,14 @@ export namespace QuickResponseContentProvider {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     content: (value: string) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: QuickResponseContentProvider, visitor: Visitor<T>): T => {
-    if (value.content !== undefined) return visitor.content(value.content);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**

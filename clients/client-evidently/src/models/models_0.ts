@@ -150,6 +150,10 @@ export namespace VariableValue {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     boolValue: (value: boolean) => T;
     stringValue: (value: string) => T;
@@ -157,14 +161,6 @@ export namespace VariableValue {
     doubleValue: (value: number) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: VariableValue, visitor: Visitor<T>): T => {
-    if (value.boolValue !== undefined) return visitor.boolValue(value.boolValue);
-    if (value.stringValue !== undefined) return visitor.stringValue(value.stringValue);
-    if (value.longValue !== undefined) return visitor.longValue(value.longValue);
-    if (value.doubleValue !== undefined) return visitor.doubleValue(value.doubleValue);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**

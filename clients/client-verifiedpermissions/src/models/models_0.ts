@@ -216,17 +216,15 @@ export namespace PolicyDefinitionDetail {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     static: (value: StaticPolicyDefinitionDetail) => T;
     templateLinked: (value: TemplateLinkedPolicyDefinitionDetail) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: PolicyDefinitionDetail, visitor: Visitor<T>): T => {
-    if (value.static !== undefined) return visitor.static(value.static);
-    if (value.templateLinked !== undefined) return visitor.templateLinked(value.templateLinked);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -724,17 +722,15 @@ export namespace OpenIdConnectTokenSelection {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     accessTokenOnly: (value: OpenIdConnectAccessTokenConfiguration) => T;
     identityTokenOnly: (value: OpenIdConnectIdentityTokenConfiguration) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: OpenIdConnectTokenSelection, visitor: Visitor<T>): T => {
-    if (value.accessTokenOnly !== undefined) return visitor.accessTokenOnly(value.accessTokenOnly);
-    if (value.identityTokenOnly !== undefined) return visitor.identityTokenOnly(value.identityTokenOnly);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -809,19 +805,15 @@ export namespace Configuration {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     cognitoUserPoolConfiguration: (value: CognitoUserPoolConfiguration) => T;
     openIdConnectConfiguration: (value: OpenIdConnectConfiguration) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: Configuration, visitor: Visitor<T>): T => {
-    if (value.cognitoUserPoolConfiguration !== undefined)
-      return visitor.cognitoUserPoolConfiguration(value.cognitoUserPoolConfiguration);
-    if (value.openIdConnectConfiguration !== undefined)
-      return visitor.openIdConnectConfiguration(value.openIdConnectConfiguration);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -920,17 +912,15 @@ export namespace OpenIdConnectTokenSelectionDetail {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     accessTokenOnly: (value: OpenIdConnectAccessTokenConfigurationDetail) => T;
     identityTokenOnly: (value: OpenIdConnectIdentityTokenConfigurationDetail) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: OpenIdConnectTokenSelectionDetail, visitor: Visitor<T>): T => {
-    if (value.accessTokenOnly !== undefined) return visitor.accessTokenOnly(value.accessTokenOnly);
-    if (value.identityTokenOnly !== undefined) return visitor.identityTokenOnly(value.identityTokenOnly);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -1005,19 +995,15 @@ export namespace ConfigurationDetail {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     cognitoUserPoolConfiguration: (value: CognitoUserPoolConfigurationDetail) => T;
     openIdConnectConfiguration: (value: OpenIdConnectConfigurationDetail) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: ConfigurationDetail, visitor: Visitor<T>): T => {
-    if (value.cognitoUserPoolConfiguration !== undefined)
-      return visitor.cognitoUserPoolConfiguration(value.cognitoUserPoolConfiguration);
-    if (value.openIdConnectConfiguration !== undefined)
-      return visitor.openIdConnectConfiguration(value.openIdConnectConfiguration);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -1116,17 +1102,15 @@ export namespace OpenIdConnectTokenSelectionItem {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     accessTokenOnly: (value: OpenIdConnectAccessTokenConfigurationItem) => T;
     identityTokenOnly: (value: OpenIdConnectIdentityTokenConfigurationItem) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: OpenIdConnectTokenSelectionItem, visitor: Visitor<T>): T => {
-    if (value.accessTokenOnly !== undefined) return visitor.accessTokenOnly(value.accessTokenOnly);
-    if (value.identityTokenOnly !== undefined) return visitor.identityTokenOnly(value.identityTokenOnly);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -1201,19 +1185,15 @@ export namespace ConfigurationItem {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     cognitoUserPoolConfiguration: (value: CognitoUserPoolConfigurationItem) => T;
     openIdConnectConfiguration: (value: OpenIdConnectConfigurationItem) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: ConfigurationItem, visitor: Visitor<T>): T => {
-    if (value.cognitoUserPoolConfiguration !== undefined)
-      return visitor.cognitoUserPoolConfiguration(value.cognitoUserPoolConfiguration);
-    if (value.openIdConnectConfiguration !== undefined)
-      return visitor.openIdConnectConfiguration(value.openIdConnectConfiguration);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -1451,17 +1431,15 @@ export namespace PolicyDefinition {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     static: (value: StaticPolicyDefinition) => T;
     templateLinked: (value: TemplateLinkedPolicyDefinition) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: PolicyDefinition, visitor: Visitor<T>): T => {
-    if (value.static !== undefined) return visitor.static(value.static);
-    if (value.templateLinked !== undefined) return visitor.templateLinked(value.templateLinked);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -1866,17 +1844,15 @@ export namespace EntityReference {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     unspecified: (value: boolean) => T;
     identifier: (value: EntityIdentifier) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: EntityReference, visitor: Visitor<T>): T => {
-    if (value.unspecified !== undefined) return visitor.unspecified(value.unspecified);
-    if (value.identifier !== undefined) return visitor.identifier(value.identifier);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -2540,17 +2516,15 @@ export namespace UpdateOpenIdConnectTokenSelection {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     accessTokenOnly: (value: UpdateOpenIdConnectAccessTokenConfiguration) => T;
     identityTokenOnly: (value: UpdateOpenIdConnectIdentityTokenConfiguration) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: UpdateOpenIdConnectTokenSelection, visitor: Visitor<T>): T => {
-    if (value.accessTokenOnly !== undefined) return visitor.accessTokenOnly(value.accessTokenOnly);
-    if (value.identityTokenOnly !== undefined) return visitor.identityTokenOnly(value.identityTokenOnly);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -2625,19 +2599,15 @@ export namespace UpdateConfiguration {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     cognitoUserPoolConfiguration: (value: UpdateCognitoUserPoolConfiguration) => T;
     openIdConnectConfiguration: (value: UpdateOpenIdConnectConfiguration) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: UpdateConfiguration, visitor: Visitor<T>): T => {
-    if (value.cognitoUserPoolConfiguration !== undefined)
-      return visitor.cognitoUserPoolConfiguration(value.cognitoUserPoolConfiguration);
-    if (value.openIdConnectConfiguration !== undefined)
-      return visitor.openIdConnectConfiguration(value.openIdConnectConfiguration);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -2887,17 +2857,15 @@ export namespace PolicyDefinitionItem {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     static: (value: StaticPolicyDefinitionItem) => T;
     templateLinked: (value: TemplateLinkedPolicyDefinitionItem) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: PolicyDefinitionItem, visitor: Visitor<T>): T => {
-    if (value.static !== undefined) return visitor.static(value.static);
-    if (value.templateLinked !== undefined) return visitor.templateLinked(value.templateLinked);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -3196,15 +3164,14 @@ export namespace UpdatePolicyDefinition {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     static: (value: UpdateStaticPolicyDefinition) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: UpdatePolicyDefinition, visitor: Visitor<T>): T => {
-    if (value.static !== undefined) return visitor.static(value.static);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -3374,15 +3341,14 @@ export namespace SchemaDefinition {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     cedarJson: (value: string) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: SchemaDefinition, visitor: Visitor<T>): T => {
-    if (value.cedarJson !== undefined) return visitor.cedarJson(value.cedarJson);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -3778,6 +3744,10 @@ export namespace AttributeValue {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     boolean: (value: boolean) => T;
     entityIdentifier: (value: EntityIdentifier) => T;
@@ -3791,20 +3761,6 @@ export namespace AttributeValue {
     duration: (value: string) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: AttributeValue, visitor: Visitor<T>): T => {
-    if (value.boolean !== undefined) return visitor.boolean(value.boolean);
-    if (value.entityIdentifier !== undefined) return visitor.entityIdentifier(value.entityIdentifier);
-    if (value.long !== undefined) return visitor.long(value.long);
-    if (value.string !== undefined) return visitor.string(value.string);
-    if (value.set !== undefined) return visitor.set(value.set);
-    if (value.record !== undefined) return visitor.record(value.record);
-    if (value.ipaddr !== undefined) return visitor.ipaddr(value.ipaddr);
-    if (value.decimal !== undefined) return visitor.decimal(value.decimal);
-    if (value.datetime !== undefined) return visitor.datetime(value.datetime);
-    if (value.duration !== undefined) return visitor.duration(value.duration);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -4025,6 +3981,10 @@ export namespace CedarTagValue {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     boolean: (value: boolean) => T;
     entityIdentifier: (value: EntityIdentifier) => T;
@@ -4038,20 +3998,6 @@ export namespace CedarTagValue {
     duration: (value: string) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: CedarTagValue, visitor: Visitor<T>): T => {
-    if (value.boolean !== undefined) return visitor.boolean(value.boolean);
-    if (value.entityIdentifier !== undefined) return visitor.entityIdentifier(value.entityIdentifier);
-    if (value.long !== undefined) return visitor.long(value.long);
-    if (value.string !== undefined) return visitor.string(value.string);
-    if (value.set !== undefined) return visitor.set(value.set);
-    if (value.record !== undefined) return visitor.record(value.record);
-    if (value.ipaddr !== undefined) return visitor.ipaddr(value.ipaddr);
-    if (value.decimal !== undefined) return visitor.decimal(value.decimal);
-    if (value.datetime !== undefined) return visitor.datetime(value.datetime);
-    if (value.duration !== undefined) return visitor.duration(value.duration);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -4096,17 +4042,15 @@ export namespace ContextDefinition {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     contextMap: (value: Record<string, AttributeValue>) => T;
     cedarJson: (value: string) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: ContextDefinition, visitor: Visitor<T>): T => {
-    if (value.contextMap !== undefined) return visitor.contextMap(value.contextMap);
-    if (value.cedarJson !== undefined) return visitor.cedarJson(value.cedarJson);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -4323,17 +4267,15 @@ export namespace EntitiesDefinition {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     entityList: (value: EntityItem[]) => T;
     cedarJson: (value: string) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: EntitiesDefinition, visitor: Visitor<T>): T => {
-    if (value.entityList !== undefined) return visitor.entityList(value.entityList);
-    if (value.cedarJson !== undefined) return visitor.cedarJson(value.cedarJson);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**

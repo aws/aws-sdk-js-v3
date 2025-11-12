@@ -677,15 +677,14 @@ export namespace Code {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     s3: (value: S3Location) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: Code, visitor: Visitor<T>): T => {
-    if (value.s3 !== undefined) return visitor.s3(value.s3);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -766,17 +765,15 @@ export namespace AgentRuntimeArtifact {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     containerConfiguration: (value: ContainerConfiguration) => T;
     codeConfiguration: (value: CodeConfiguration) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: AgentRuntimeArtifact, visitor: Visitor<T>): T => {
-    if (value.containerConfiguration !== undefined) return visitor.containerConfiguration(value.containerConfiguration);
-    if (value.codeConfiguration !== undefined) return visitor.codeConfiguration(value.codeConfiguration);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -832,15 +829,14 @@ export namespace AuthorizerConfiguration {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     customJWTAuthorizer: (value: CustomJWTAuthorizerConfiguration) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: AuthorizerConfiguration, visitor: Visitor<T>): T => {
-    if (value.customJWTAuthorizer !== undefined) return visitor.customJWTAuthorizer(value.customJWTAuthorizer);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -967,15 +963,14 @@ export namespace RequestHeaderConfiguration {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     requestHeaderAllowlist: (value: string[]) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: RequestHeaderConfiguration, visitor: Visitor<T>): T => {
-    if (value.requestHeaderAllowlist !== undefined) return visitor.requestHeaderAllowlist(value.requestHeaderAllowlist);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -2662,15 +2657,14 @@ export namespace GatewayProtocolConfiguration {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     mcp: (value: MCPGatewayConfiguration) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: GatewayProtocolConfiguration, visitor: Visitor<T>): T => {
-    if (value.mcp !== undefined) return visitor.mcp(value.mcp);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -3404,19 +3398,15 @@ export namespace CredentialProvider {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     oauthCredentialProvider: (value: OAuthCredentialProvider) => T;
     apiKeyCredentialProvider: (value: GatewayApiKeyCredentialProvider) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: CredentialProvider, visitor: Visitor<T>): T => {
-    if (value.oauthCredentialProvider !== undefined)
-      return visitor.oauthCredentialProvider(value.oauthCredentialProvider);
-    if (value.apiKeyCredentialProvider !== undefined)
-      return visitor.apiKeyCredentialProvider(value.apiKeyCredentialProvider);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -3542,17 +3532,15 @@ export namespace ApiSchemaConfiguration {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     s3: (value: S3Configuration) => T;
     inlinePayload: (value: string) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: ApiSchemaConfiguration, visitor: Visitor<T>): T => {
-    if (value.s3 !== undefined) return visitor.s3(value.s3);
-    if (value.inlinePayload !== undefined) return visitor.inlinePayload(value.inlinePayload);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -3936,19 +3924,16 @@ export namespace TriggerConditionInput {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     messageBasedTrigger: (value: MessageBasedTriggerInput) => T;
     tokenBasedTrigger: (value: TokenBasedTriggerInput) => T;
     timeBasedTrigger: (value: TimeBasedTriggerInput) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: TriggerConditionInput, visitor: Visitor<T>): T => {
-    if (value.messageBasedTrigger !== undefined) return visitor.messageBasedTrigger(value.messageBasedTrigger);
-    if (value.tokenBasedTrigger !== undefined) return visitor.tokenBasedTrigger(value.tokenBasedTrigger);
-    if (value.timeBasedTrigger !== undefined) return visitor.timeBasedTrigger(value.timeBasedTrigger);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -4187,6 +4172,10 @@ export namespace CustomConfigurationInput {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     semanticOverride: (value: SemanticOverrideConfigurationInput) => T;
     summaryOverride: (value: SummaryOverrideConfigurationInput) => T;
@@ -4194,15 +4183,6 @@ export namespace CustomConfigurationInput {
     selfManagedConfiguration: (value: SelfManagedConfigurationInput) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: CustomConfigurationInput, visitor: Visitor<T>): T => {
-    if (value.semanticOverride !== undefined) return visitor.semanticOverride(value.semanticOverride);
-    if (value.summaryOverride !== undefined) return visitor.summaryOverride(value.summaryOverride);
-    if (value.userPreferenceOverride !== undefined) return visitor.userPreferenceOverride(value.userPreferenceOverride);
-    if (value.selfManagedConfiguration !== undefined)
-      return visitor.selfManagedConfiguration(value.selfManagedConfiguration);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -4381,6 +4361,10 @@ export namespace MemoryStrategyInput {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     semanticMemoryStrategy: (value: SemanticMemoryStrategyInput) => T;
     summaryMemoryStrategy: (value: SummaryMemoryStrategyInput) => T;
@@ -4388,15 +4372,6 @@ export namespace MemoryStrategyInput {
     customMemoryStrategy: (value: CustomMemoryStrategyInput) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: MemoryStrategyInput, visitor: Visitor<T>): T => {
-    if (value.semanticMemoryStrategy !== undefined) return visitor.semanticMemoryStrategy(value.semanticMemoryStrategy);
-    if (value.summaryMemoryStrategy !== undefined) return visitor.summaryMemoryStrategy(value.summaryMemoryStrategy);
-    if (value.userPreferenceMemoryStrategy !== undefined)
-      return visitor.userPreferenceMemoryStrategy(value.userPreferenceMemoryStrategy);
-    if (value.customMemoryStrategy !== undefined) return visitor.customMemoryStrategy(value.customMemoryStrategy);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -4579,22 +4554,16 @@ export namespace CustomConsolidationConfiguration {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     semanticConsolidationOverride: (value: SemanticConsolidationOverride) => T;
     summaryConsolidationOverride: (value: SummaryConsolidationOverride) => T;
     userPreferenceConsolidationOverride: (value: UserPreferenceConsolidationOverride) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: CustomConsolidationConfiguration, visitor: Visitor<T>): T => {
-    if (value.semanticConsolidationOverride !== undefined)
-      return visitor.semanticConsolidationOverride(value.semanticConsolidationOverride);
-    if (value.summaryConsolidationOverride !== undefined)
-      return visitor.summaryConsolidationOverride(value.summaryConsolidationOverride);
-    if (value.userPreferenceConsolidationOverride !== undefined)
-      return visitor.userPreferenceConsolidationOverride(value.userPreferenceConsolidationOverride);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -4626,16 +4595,14 @@ export namespace ConsolidationConfiguration {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     customConsolidationConfiguration: (value: CustomConsolidationConfiguration) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: ConsolidationConfiguration, visitor: Visitor<T>): T => {
-    if (value.customConsolidationConfiguration !== undefined)
-      return visitor.customConsolidationConfiguration(value.customConsolidationConfiguration);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -4716,19 +4683,15 @@ export namespace CustomExtractionConfiguration {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     semanticExtractionOverride: (value: SemanticExtractionOverride) => T;
     userPreferenceExtractionOverride: (value: UserPreferenceExtractionOverride) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: CustomExtractionConfiguration, visitor: Visitor<T>): T => {
-    if (value.semanticExtractionOverride !== undefined)
-      return visitor.semanticExtractionOverride(value.semanticExtractionOverride);
-    if (value.userPreferenceExtractionOverride !== undefined)
-      return visitor.userPreferenceExtractionOverride(value.userPreferenceExtractionOverride);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -4760,16 +4723,14 @@ export namespace ExtractionConfiguration {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     customExtractionConfiguration: (value: CustomExtractionConfiguration) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: ExtractionConfiguration, visitor: Visitor<T>): T => {
-    if (value.customExtractionConfiguration !== undefined)
-      return visitor.customExtractionConfiguration(value.customExtractionConfiguration);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -4883,19 +4844,16 @@ export namespace TriggerCondition {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     messageBasedTrigger: (value: MessageBasedTrigger) => T;
     tokenBasedTrigger: (value: TokenBasedTrigger) => T;
     timeBasedTrigger: (value: TimeBasedTrigger) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: TriggerCondition, visitor: Visitor<T>): T => {
-    if (value.messageBasedTrigger !== undefined) return visitor.messageBasedTrigger(value.messageBasedTrigger);
-    if (value.tokenBasedTrigger !== undefined) return visitor.tokenBasedTrigger(value.tokenBasedTrigger);
-    if (value.timeBasedTrigger !== undefined) return visitor.timeBasedTrigger(value.timeBasedTrigger);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -5386,22 +5344,16 @@ export namespace CustomConsolidationConfigurationInput {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     semanticConsolidationOverride: (value: SemanticOverrideConsolidationConfigurationInput) => T;
     summaryConsolidationOverride: (value: SummaryOverrideConsolidationConfigurationInput) => T;
     userPreferenceConsolidationOverride: (value: UserPreferenceOverrideConsolidationConfigurationInput) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: CustomConsolidationConfigurationInput, visitor: Visitor<T>): T => {
-    if (value.semanticConsolidationOverride !== undefined)
-      return visitor.semanticConsolidationOverride(value.semanticConsolidationOverride);
-    if (value.summaryConsolidationOverride !== undefined)
-      return visitor.summaryConsolidationOverride(value.summaryConsolidationOverride);
-    if (value.userPreferenceConsolidationOverride !== undefined)
-      return visitor.userPreferenceConsolidationOverride(value.userPreferenceConsolidationOverride);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -5433,16 +5385,14 @@ export namespace ModifyConsolidationConfiguration {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     customConsolidationConfiguration: (value: CustomConsolidationConfigurationInput) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: ModifyConsolidationConfiguration, visitor: Visitor<T>): T => {
-    if (value.customConsolidationConfiguration !== undefined)
-      return visitor.customConsolidationConfiguration(value.customConsolidationConfiguration);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -5487,19 +5437,15 @@ export namespace CustomExtractionConfigurationInput {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     semanticExtractionOverride: (value: SemanticOverrideExtractionConfigurationInput) => T;
     userPreferenceExtractionOverride: (value: UserPreferenceOverrideExtractionConfigurationInput) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: CustomExtractionConfigurationInput, visitor: Visitor<T>): T => {
-    if (value.semanticExtractionOverride !== undefined)
-      return visitor.semanticExtractionOverride(value.semanticExtractionOverride);
-    if (value.userPreferenceExtractionOverride !== undefined)
-      return visitor.userPreferenceExtractionOverride(value.userPreferenceExtractionOverride);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -5531,16 +5477,14 @@ export namespace ModifyExtractionConfiguration {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     customExtractionConfiguration: (value: CustomExtractionConfigurationInput) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: ModifyExtractionConfiguration, visitor: Visitor<T>): T => {
-    if (value.customExtractionConfiguration !== undefined)
-      return visitor.customExtractionConfiguration(value.customExtractionConfiguration);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -5849,18 +5793,15 @@ export namespace Oauth2Discovery {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     discoveryUrl: (value: string) => T;
     authorizationServerMetadata: (value: Oauth2AuthorizationServerMetadata) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: Oauth2Discovery, visitor: Visitor<T>): T => {
-    if (value.discoveryUrl !== undefined) return visitor.discoveryUrl(value.discoveryUrl);
-    if (value.authorizationServerMetadata !== undefined)
-      return visitor.authorizationServerMetadata(value.authorizationServerMetadata);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -6226,6 +6167,10 @@ export namespace Oauth2ProviderConfigInput {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     customOauth2ProviderConfig: (value: CustomOauth2ProviderConfigInput) => T;
     googleOauth2ProviderConfig: (value: GoogleOauth2ProviderConfigInput) => T;
@@ -6238,28 +6183,6 @@ export namespace Oauth2ProviderConfigInput {
     includedOauth2ProviderConfig: (value: IncludedOauth2ProviderConfigInput) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: Oauth2ProviderConfigInput, visitor: Visitor<T>): T => {
-    if (value.customOauth2ProviderConfig !== undefined)
-      return visitor.customOauth2ProviderConfig(value.customOauth2ProviderConfig);
-    if (value.googleOauth2ProviderConfig !== undefined)
-      return visitor.googleOauth2ProviderConfig(value.googleOauth2ProviderConfig);
-    if (value.githubOauth2ProviderConfig !== undefined)
-      return visitor.githubOauth2ProviderConfig(value.githubOauth2ProviderConfig);
-    if (value.slackOauth2ProviderConfig !== undefined)
-      return visitor.slackOauth2ProviderConfig(value.slackOauth2ProviderConfig);
-    if (value.salesforceOauth2ProviderConfig !== undefined)
-      return visitor.salesforceOauth2ProviderConfig(value.salesforceOauth2ProviderConfig);
-    if (value.microsoftOauth2ProviderConfig !== undefined)
-      return visitor.microsoftOauth2ProviderConfig(value.microsoftOauth2ProviderConfig);
-    if (value.atlassianOauth2ProviderConfig !== undefined)
-      return visitor.atlassianOauth2ProviderConfig(value.atlassianOauth2ProviderConfig);
-    if (value.linkedinOauth2ProviderConfig !== undefined)
-      return visitor.linkedinOauth2ProviderConfig(value.linkedinOauth2ProviderConfig);
-    if (value.includedOauth2ProviderConfig !== undefined)
-      return visitor.includedOauth2ProviderConfig(value.includedOauth2ProviderConfig);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -6642,6 +6565,10 @@ export namespace Oauth2ProviderConfigOutput {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     customOauth2ProviderConfig: (value: CustomOauth2ProviderConfigOutput) => T;
     googleOauth2ProviderConfig: (value: GoogleOauth2ProviderConfigOutput) => T;
@@ -6654,28 +6581,6 @@ export namespace Oauth2ProviderConfigOutput {
     includedOauth2ProviderConfig: (value: IncludedOauth2ProviderConfigOutput) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: Oauth2ProviderConfigOutput, visitor: Visitor<T>): T => {
-    if (value.customOauth2ProviderConfig !== undefined)
-      return visitor.customOauth2ProviderConfig(value.customOauth2ProviderConfig);
-    if (value.googleOauth2ProviderConfig !== undefined)
-      return visitor.googleOauth2ProviderConfig(value.googleOauth2ProviderConfig);
-    if (value.githubOauth2ProviderConfig !== undefined)
-      return visitor.githubOauth2ProviderConfig(value.githubOauth2ProviderConfig);
-    if (value.slackOauth2ProviderConfig !== undefined)
-      return visitor.slackOauth2ProviderConfig(value.slackOauth2ProviderConfig);
-    if (value.salesforceOauth2ProviderConfig !== undefined)
-      return visitor.salesforceOauth2ProviderConfig(value.salesforceOauth2ProviderConfig);
-    if (value.microsoftOauth2ProviderConfig !== undefined)
-      return visitor.microsoftOauth2ProviderConfig(value.microsoftOauth2ProviderConfig);
-    if (value.atlassianOauth2ProviderConfig !== undefined)
-      return visitor.atlassianOauth2ProviderConfig(value.atlassianOauth2ProviderConfig);
-    if (value.linkedinOauth2ProviderConfig !== undefined)
-      return visitor.linkedinOauth2ProviderConfig(value.linkedinOauth2ProviderConfig);
-    if (value.includedOauth2ProviderConfig !== undefined)
-      return visitor.includedOauth2ProviderConfig(value.includedOauth2ProviderConfig);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -7360,17 +7265,15 @@ export namespace ToolSchema {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     s3: (value: S3Configuration) => T;
     inlinePayload: (value: ToolDefinition[]) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: ToolSchema, visitor: Visitor<T>): T => {
-    if (value.s3 !== undefined) return visitor.s3(value.s3);
-    if (value.inlinePayload !== undefined) return visitor.inlinePayload(value.inlinePayload);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -7465,6 +7368,10 @@ export namespace McpTargetConfiguration {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     openApiSchema: (value: ApiSchemaConfiguration) => T;
     smithyModel: (value: ApiSchemaConfiguration) => T;
@@ -7472,14 +7379,6 @@ export namespace McpTargetConfiguration {
     mcpServer: (value: McpServerTargetConfiguration) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: McpTargetConfiguration, visitor: Visitor<T>): T => {
-    if (value.openApiSchema !== undefined) return visitor.openApiSchema(value.openApiSchema);
-    if (value.smithyModel !== undefined) return visitor.smithyModel(value.smithyModel);
-    if (value.lambda !== undefined) return visitor.lambda(value.lambda);
-    if (value.mcpServer !== undefined) return visitor.mcpServer(value.mcpServer);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -7509,15 +7408,14 @@ export namespace TargetConfiguration {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     mcp: (value: McpTargetConfiguration) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: TargetConfiguration, visitor: Visitor<T>): T => {
-    if (value.mcp !== undefined) return visitor.mcp(value.mcp);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**

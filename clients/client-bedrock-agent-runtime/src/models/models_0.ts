@@ -80,17 +80,15 @@ export namespace ActionGroupExecutor {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     lambda: (value: string) => T;
     customControl: (value: CustomControlMethod) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: ActionGroupExecutor, visitor: Visitor<T>): T => {
-    if (value.lambda !== undefined) return visitor.lambda(value.lambda);
-    if (value.customControl !== undefined) return visitor.customControl(value.customControl);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -364,17 +362,15 @@ export namespace APISchema {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     s3: (value: S3Identifier) => T;
     payload: (value: string) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: APISchema, visitor: Visitor<T>): T => {
-    if (value.s3 !== undefined) return visitor.s3(value.s3);
-    if (value.payload !== undefined) return visitor.payload(value.payload);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -489,15 +485,14 @@ export namespace FunctionSchema {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     functions: (value: FunctionDefinition[]) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: FunctionSchema, visitor: Visitor<T>): T => {
-    if (value.functions !== undefined) return visitor.functions(value.functions);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -620,15 +615,14 @@ export namespace ImageInputSource {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     bytes: (value: Uint8Array) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: ImageInputSource, visitor: Visitor<T>): T => {
-    if (value.bytes !== undefined) return visitor.bytes(value.bytes);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -819,17 +813,15 @@ export namespace InvocationResultMember {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     apiResult: (value: ApiResult) => T;
     functionResult: (value: FunctionResult) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: InvocationResultMember, visitor: Visitor<T>): T => {
-    if (value.apiResult !== undefined) return visitor.apiResult(value.apiResult);
-    if (value.functionResult !== undefined) return visitor.functionResult(value.functionResult);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -1122,18 +1114,15 @@ export namespace InvocationInputMember {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     apiInvocationInput: (value: ApiInvocationInput) => T;
     functionInvocationInput: (value: FunctionInvocationInput) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: InvocationInputMember, visitor: Visitor<T>): T => {
-    if (value.apiInvocationInput !== undefined) return visitor.apiInvocationInput(value.apiInvocationInput);
-    if (value.functionInvocationInput !== undefined)
-      return visitor.functionInvocationInput(value.functionInvocationInput);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -1235,15 +1224,14 @@ export namespace Caller {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     agentAliasArn: (value: string) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: Caller, visitor: Visitor<T>): T => {
-    if (value.agentAliasArn !== undefined) return visitor.agentAliasArn(value.agentAliasArn);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -2037,17 +2025,15 @@ export namespace ReasoningContentBlock {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     reasoningText: (value: ReasoningTextBlock) => T;
     redactedContent: (value: Uint8Array) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: ReasoningContentBlock, visitor: Visitor<T>): T => {
-    if (value.reasoningText !== undefined) return visitor.reasoningText(value.reasoningText);
-    if (value.redactedContent !== undefined) return visitor.redactedContent(value.redactedContent);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -2657,6 +2643,10 @@ export namespace OrchestrationTrace {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     rationale: (value: Rationale) => T;
     invocationInput: (value: InvocationInput) => T;
@@ -2665,15 +2655,6 @@ export namespace OrchestrationTrace {
     modelInvocationOutput: (value: OrchestrationModelInvocationOutput) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: OrchestrationTrace, visitor: Visitor<T>): T => {
-    if (value.rationale !== undefined) return visitor.rationale(value.rationale);
-    if (value.invocationInput !== undefined) return visitor.invocationInput(value.invocationInput);
-    if (value.observation !== undefined) return visitor.observation(value.observation);
-    if (value.modelInvocationInput !== undefined) return visitor.modelInvocationInput(value.modelInvocationInput);
-    if (value.modelInvocationOutput !== undefined) return visitor.modelInvocationOutput(value.modelInvocationOutput);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -2766,17 +2747,15 @@ export namespace PostProcessingTrace {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     modelInvocationInput: (value: ModelInvocationInput) => T;
     modelInvocationOutput: (value: PostProcessingModelInvocationOutput) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: PostProcessingTrace, visitor: Visitor<T>): T => {
-    if (value.modelInvocationInput !== undefined) return visitor.modelInvocationInput(value.modelInvocationInput);
-    if (value.modelInvocationOutput !== undefined) return visitor.modelInvocationOutput(value.modelInvocationOutput);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -2875,17 +2854,15 @@ export namespace PreProcessingTrace {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     modelInvocationInput: (value: ModelInvocationInput) => T;
     modelInvocationOutput: (value: PreProcessingModelInvocationOutput) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: PreProcessingTrace, visitor: Visitor<T>): T => {
-    if (value.modelInvocationInput !== undefined) return visitor.modelInvocationInput(value.modelInvocationInput);
-    if (value.modelInvocationOutput !== undefined) return visitor.modelInvocationOutput(value.modelInvocationOutput);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -2986,6 +2963,10 @@ export namespace RoutingClassifierTrace {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     invocationInput: (value: InvocationInput) => T;
     observation: (value: Observation) => T;
@@ -2993,14 +2974,6 @@ export namespace RoutingClassifierTrace {
     modelInvocationOutput: (value: RoutingClassifierModelInvocationOutput) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: RoutingClassifierTrace, visitor: Visitor<T>): T => {
-    if (value.invocationInput !== undefined) return visitor.invocationInput(value.invocationInput);
-    if (value.observation !== undefined) return visitor.observation(value.observation);
-    if (value.modelInvocationInput !== undefined) return visitor.modelInvocationInput(value.modelInvocationInput);
-    if (value.modelInvocationOutput !== undefined) return visitor.modelInvocationOutput(value.modelInvocationOutput);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -3140,6 +3113,10 @@ export namespace Trace {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     guardrailTrace: (value: GuardrailTrace) => T;
     preProcessingTrace: (value: PreProcessingTrace) => T;
@@ -3150,18 +3127,6 @@ export namespace Trace {
     customOrchestrationTrace: (value: CustomOrchestrationTrace) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: Trace, visitor: Visitor<T>): T => {
-    if (value.guardrailTrace !== undefined) return visitor.guardrailTrace(value.guardrailTrace);
-    if (value.preProcessingTrace !== undefined) return visitor.preProcessingTrace(value.preProcessingTrace);
-    if (value.orchestrationTrace !== undefined) return visitor.orchestrationTrace(value.orchestrationTrace);
-    if (value.postProcessingTrace !== undefined) return visitor.postProcessingTrace(value.postProcessingTrace);
-    if (value.routingClassifierTrace !== undefined) return visitor.routingClassifierTrace(value.routingClassifierTrace);
-    if (value.failureTrace !== undefined) return visitor.failureTrace(value.failureTrace);
-    if (value.customOrchestrationTrace !== undefined)
-      return visitor.customOrchestrationTrace(value.customOrchestrationTrace);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -3656,15 +3621,14 @@ export namespace FlowExecutionContent {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     document: (value: __DocumentType) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: FlowExecutionContent, visitor: Visitor<T>): T => {
-    if (value.document !== undefined) return visitor.document(value.document);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -3826,15 +3790,14 @@ export namespace NodeTraceElements {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     agentTraces: (value: TracePart[]) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: NodeTraceElements, visitor: Visitor<T>): T => {
-    if (value.agentTraces !== undefined) return visitor.agentTraces(value.agentTraces);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -3949,15 +3912,14 @@ export namespace NodeExecutionContent {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     document: (value: __DocumentType) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: NodeExecutionContent, visitor: Visitor<T>): T => {
-    if (value.document !== undefined) return visitor.document(value.document);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -4366,6 +4328,10 @@ export namespace FlowExecutionEvent {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     flowInputEvent: (value: FlowExecutionInputEvent) => T;
     flowOutputEvent: (value: FlowExecutionOutputEvent) => T;
@@ -4378,19 +4344,6 @@ export namespace FlowExecutionEvent {
     nodeDependencyEvent: (value: NodeDependencyEvent) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: FlowExecutionEvent, visitor: Visitor<T>): T => {
-    if (value.flowInputEvent !== undefined) return visitor.flowInputEvent(value.flowInputEvent);
-    if (value.flowOutputEvent !== undefined) return visitor.flowOutputEvent(value.flowOutputEvent);
-    if (value.nodeInputEvent !== undefined) return visitor.nodeInputEvent(value.nodeInputEvent);
-    if (value.nodeOutputEvent !== undefined) return visitor.nodeOutputEvent(value.nodeOutputEvent);
-    if (value.conditionResultEvent !== undefined) return visitor.conditionResultEvent(value.conditionResultEvent);
-    if (value.nodeFailureEvent !== undefined) return visitor.nodeFailureEvent(value.nodeFailureEvent);
-    if (value.flowFailureEvent !== undefined) return visitor.flowFailureEvent(value.flowFailureEvent);
-    if (value.nodeActionEvent !== undefined) return visitor.nodeActionEvent(value.nodeActionEvent);
-    if (value.nodeDependencyEvent !== undefined) return visitor.nodeDependencyEvent(value.nodeDependencyEvent);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -4625,15 +4578,14 @@ export namespace FlowInputContent {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     document: (value: __DocumentType) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: FlowInputContent, visitor: Visitor<T>): T => {
-    if (value.document !== undefined) return visitor.document(value.document);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -4886,15 +4838,14 @@ export namespace FlowMultiTurnInputContent {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     document: (value: __DocumentType) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: FlowMultiTurnInputContent, visitor: Visitor<T>): T => {
-    if (value.document !== undefined) return visitor.document(value.document);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -4967,15 +4918,14 @@ export namespace FlowOutputContent {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     document: (value: __DocumentType) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: FlowOutputContent, visitor: Visitor<T>): T => {
-    if (value.document !== undefined) return visitor.document(value.document);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -5113,15 +5063,14 @@ export namespace TraceElements {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     agentTraces: (value: TracePart[]) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: TraceElements, visitor: Visitor<T>): T => {
-    if (value.agentTraces !== undefined) return visitor.agentTraces(value.agentTraces);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -5177,15 +5126,14 @@ export namespace FlowTraceNodeInputContent {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     document: (value: __DocumentType) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: FlowTraceNodeInputContent, visitor: Visitor<T>): T => {
-    if (value.document !== undefined) return visitor.document(value.document);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -5331,15 +5279,14 @@ export namespace FlowTraceNodeOutputContent {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     document: (value: __DocumentType) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: FlowTraceNodeOutputContent, visitor: Visitor<T>): T => {
-    if (value.document !== undefined) return visitor.document(value.document);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -5507,6 +5454,10 @@ export namespace FlowTrace {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     nodeInputTrace: (value: FlowTraceNodeInputEvent) => T;
     nodeOutputTrace: (value: FlowTraceNodeOutputEvent) => T;
@@ -5515,16 +5466,6 @@ export namespace FlowTrace {
     nodeDependencyTrace: (value: FlowTraceDependencyEvent) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: FlowTrace, visitor: Visitor<T>): T => {
-    if (value.nodeInputTrace !== undefined) return visitor.nodeInputTrace(value.nodeInputTrace);
-    if (value.nodeOutputTrace !== undefined) return visitor.nodeOutputTrace(value.nodeOutputTrace);
-    if (value.conditionNodeResultTrace !== undefined)
-      return visitor.conditionNodeResultTrace(value.conditionNodeResultTrace);
-    if (value.nodeActionTrace !== undefined) return visitor.nodeActionTrace(value.nodeActionTrace);
-    if (value.nodeDependencyTrace !== undefined) return visitor.nodeDependencyTrace(value.nodeDependencyTrace);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -5856,6 +5797,10 @@ export namespace FlowResponseStream {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     flowOutputEvent: (value: FlowOutputEvent) => T;
     flowCompletionEvent: (value: FlowCompletionEvent) => T;
@@ -5872,28 +5817,6 @@ export namespace FlowResponseStream {
     flowMultiTurnInputRequestEvent: (value: FlowMultiTurnInputRequestEvent) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: FlowResponseStream, visitor: Visitor<T>): T => {
-    if (value.flowOutputEvent !== undefined) return visitor.flowOutputEvent(value.flowOutputEvent);
-    if (value.flowCompletionEvent !== undefined) return visitor.flowCompletionEvent(value.flowCompletionEvent);
-    if (value.flowTraceEvent !== undefined) return visitor.flowTraceEvent(value.flowTraceEvent);
-    if (value.internalServerException !== undefined)
-      return visitor.internalServerException(value.internalServerException);
-    if (value.validationException !== undefined) return visitor.validationException(value.validationException);
-    if (value.resourceNotFoundException !== undefined)
-      return visitor.resourceNotFoundException(value.resourceNotFoundException);
-    if (value.serviceQuotaExceededException !== undefined)
-      return visitor.serviceQuotaExceededException(value.serviceQuotaExceededException);
-    if (value.throttlingException !== undefined) return visitor.throttlingException(value.throttlingException);
-    if (value.accessDeniedException !== undefined) return visitor.accessDeniedException(value.accessDeniedException);
-    if (value.conflictException !== undefined) return visitor.conflictException(value.conflictException);
-    if (value.dependencyFailedException !== undefined)
-      return visitor.dependencyFailedException(value.dependencyFailedException);
-    if (value.badGatewayException !== undefined) return visitor.badGatewayException(value.badGatewayException);
-    if (value.flowMultiTurnInputRequestEvent !== undefined)
-      return visitor.flowMultiTurnInputRequestEvent(value.flowMultiTurnInputRequestEvent);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -6134,15 +6057,14 @@ export namespace ContentBlock {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     text: (value: string) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: ContentBlock, visitor: Visitor<T>): T => {
-    if (value.text !== undefined) return visitor.text(value.text);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -6454,17 +6376,15 @@ export namespace RerankingMetadataSelectiveModeConfiguration {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     fieldsToInclude: (value: FieldForReranking[]) => T;
     fieldsToExclude: (value: FieldForReranking[]) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: RerankingMetadataSelectiveModeConfiguration, visitor: Visitor<T>): T => {
-    if (value.fieldsToInclude !== undefined) return visitor.fieldsToInclude(value.fieldsToInclude);
-    if (value.fieldsToExclude !== undefined) return visitor.fieldsToExclude(value.fieldsToExclude);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -7083,6 +7003,10 @@ export namespace ResponseStream {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     chunk: (value: PayloadPart) => T;
     trace: (value: TracePart) => T;
@@ -7100,28 +7024,6 @@ export namespace ResponseStream {
     files: (value: FilePart) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: ResponseStream, visitor: Visitor<T>): T => {
-    if (value.chunk !== undefined) return visitor.chunk(value.chunk);
-    if (value.trace !== undefined) return visitor.trace(value.trace);
-    if (value.returnControl !== undefined) return visitor.returnControl(value.returnControl);
-    if (value.internalServerException !== undefined)
-      return visitor.internalServerException(value.internalServerException);
-    if (value.validationException !== undefined) return visitor.validationException(value.validationException);
-    if (value.resourceNotFoundException !== undefined)
-      return visitor.resourceNotFoundException(value.resourceNotFoundException);
-    if (value.serviceQuotaExceededException !== undefined)
-      return visitor.serviceQuotaExceededException(value.serviceQuotaExceededException);
-    if (value.throttlingException !== undefined) return visitor.throttlingException(value.throttlingException);
-    if (value.accessDeniedException !== undefined) return visitor.accessDeniedException(value.accessDeniedException);
-    if (value.conflictException !== undefined) return visitor.conflictException(value.conflictException);
-    if (value.dependencyFailedException !== undefined)
-      return visitor.dependencyFailedException(value.dependencyFailedException);
-    if (value.badGatewayException !== undefined) return visitor.badGatewayException(value.badGatewayException);
-    if (value.modelNotReadyException !== undefined) return visitor.modelNotReadyException(value.modelNotReadyException);
-    if (value.files !== undefined) return visitor.files(value.files);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -7340,15 +7242,14 @@ export namespace OrchestrationExecutor {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     lambda: (value: string) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: OrchestrationExecutor, visitor: Visitor<T>): T => {
-    if (value.lambda !== undefined) return visitor.lambda(value.lambda);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -7820,6 +7721,10 @@ export namespace InlineAgentResponseStream {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     chunk: (value: InlineAgentPayloadPart) => T;
     trace: (value: InlineAgentTracePart) => T;
@@ -7836,27 +7741,6 @@ export namespace InlineAgentResponseStream {
     files: (value: InlineAgentFilePart) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: InlineAgentResponseStream, visitor: Visitor<T>): T => {
-    if (value.chunk !== undefined) return visitor.chunk(value.chunk);
-    if (value.trace !== undefined) return visitor.trace(value.trace);
-    if (value.returnControl !== undefined) return visitor.returnControl(value.returnControl);
-    if (value.internalServerException !== undefined)
-      return visitor.internalServerException(value.internalServerException);
-    if (value.validationException !== undefined) return visitor.validationException(value.validationException);
-    if (value.resourceNotFoundException !== undefined)
-      return visitor.resourceNotFoundException(value.resourceNotFoundException);
-    if (value.serviceQuotaExceededException !== undefined)
-      return visitor.serviceQuotaExceededException(value.serviceQuotaExceededException);
-    if (value.throttlingException !== undefined) return visitor.throttlingException(value.throttlingException);
-    if (value.accessDeniedException !== undefined) return visitor.accessDeniedException(value.accessDeniedException);
-    if (value.conflictException !== undefined) return visitor.conflictException(value.conflictException);
-    if (value.dependencyFailedException !== undefined)
-      return visitor.dependencyFailedException(value.dependencyFailedException);
-    if (value.badGatewayException !== undefined) return visitor.badGatewayException(value.badGatewayException);
-    if (value.files !== undefined) return visitor.files(value.files);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -8033,15 +7917,14 @@ export namespace Memory {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     sessionSummary: (value: MemorySessionSummary) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: Memory, visitor: Visitor<T>): T => {
-    if (value.sessionSummary !== undefined) return visitor.sessionSummary(value.sessionSummary);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -8100,15 +7983,14 @@ export namespace InputPrompt {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     textPrompt: (value: TextPrompt) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: InputPrompt, visitor: Visitor<T>): T => {
-    if (value.textPrompt !== undefined) return visitor.textPrompt(value.textPrompt);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -8167,15 +8049,14 @@ export namespace OptimizedPrompt {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     textPrompt: (value: TextPrompt) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: OptimizedPrompt, visitor: Visitor<T>): T => {
-    if (value.textPrompt !== undefined) return visitor.textPrompt(value.textPrompt);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -8352,6 +8233,10 @@ export namespace OptimizedPromptStream {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     optimizedPromptEvent: (value: OptimizedPromptEvent) => T;
     analyzePromptEvent: (value: AnalyzePromptEvent) => T;
@@ -8363,20 +8248,6 @@ export namespace OptimizedPromptStream {
     badGatewayException: (value: BadGatewayException) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: OptimizedPromptStream, visitor: Visitor<T>): T => {
-    if (value.optimizedPromptEvent !== undefined) return visitor.optimizedPromptEvent(value.optimizedPromptEvent);
-    if (value.analyzePromptEvent !== undefined) return visitor.analyzePromptEvent(value.analyzePromptEvent);
-    if (value.internalServerException !== undefined)
-      return visitor.internalServerException(value.internalServerException);
-    if (value.throttlingException !== undefined) return visitor.throttlingException(value.throttlingException);
-    if (value.validationException !== undefined) return visitor.validationException(value.validationException);
-    if (value.dependencyFailedException !== undefined)
-      return visitor.dependencyFailedException(value.dependencyFailedException);
-    if (value.accessDeniedException !== undefined) return visitor.accessDeniedException(value.accessDeniedException);
-    if (value.badGatewayException !== undefined) return visitor.badGatewayException(value.badGatewayException);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**

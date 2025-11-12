@@ -1460,6 +1460,10 @@ export namespace Rule {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     NonTalkTimeFilter: (value: NonTalkTimeFilter) => T;
     InterruptionFilter: (value: InterruptionFilter) => T;
@@ -1467,14 +1471,6 @@ export namespace Rule {
     SentimentFilter: (value: SentimentFilter) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: Rule, visitor: Visitor<T>): T => {
-    if (value.NonTalkTimeFilter !== undefined) return visitor.NonTalkTimeFilter(value.NonTalkTimeFilter);
-    if (value.InterruptionFilter !== undefined) return visitor.InterruptionFilter(value.InterruptionFilter);
-    if (value.TranscriptFilter !== undefined) return visitor.TranscriptFilter(value.TranscriptFilter);
-    if (value.SentimentFilter !== undefined) return visitor.SentimentFilter(value.SentimentFilter);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**

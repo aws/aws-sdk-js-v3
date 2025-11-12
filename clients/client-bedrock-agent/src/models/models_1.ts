@@ -2585,15 +2585,14 @@ export namespace PromptGenAiResource {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     agent: (value: PromptAgentResource) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: PromptGenAiResource, visitor: Visitor<T>): T => {
-    if (value.agent !== undefined) return visitor.agent(value.agent);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -3863,6 +3862,10 @@ export namespace FlowNodeConfiguration {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     input: (value: InputFlowNodeConfiguration) => T;
     output: (value: OutputFlowNodeConfiguration) => T;
@@ -3882,26 +3885,6 @@ export namespace FlowNodeConfiguration {
     loopController: (value: LoopControllerFlowNodeConfiguration) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: FlowNodeConfiguration, visitor: Visitor<T>): T => {
-    if (value.input !== undefined) return visitor.input(value.input);
-    if (value.output !== undefined) return visitor.output(value.output);
-    if (value.knowledgeBase !== undefined) return visitor.knowledgeBase(value.knowledgeBase);
-    if (value.condition !== undefined) return visitor.condition(value.condition);
-    if (value.lex !== undefined) return visitor.lex(value.lex);
-    if (value.prompt !== undefined) return visitor.prompt(value.prompt);
-    if (value.lambdaFunction !== undefined) return visitor.lambdaFunction(value.lambdaFunction);
-    if (value.storage !== undefined) return visitor.storage(value.storage);
-    if (value.agent !== undefined) return visitor.agent(value.agent);
-    if (value.retrieval !== undefined) return visitor.retrieval(value.retrieval);
-    if (value.iterator !== undefined) return visitor.iterator(value.iterator);
-    if (value.collector !== undefined) return visitor.collector(value.collector);
-    if (value.inlineCode !== undefined) return visitor.inlineCode(value.inlineCode);
-    if (value.loop !== undefined) return visitor.loop(value.loop);
-    if (value.loopInput !== undefined) return visitor.loopInput(value.loopInput);
-    if (value.loopController !== undefined) return visitor.loopController(value.loopController);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**

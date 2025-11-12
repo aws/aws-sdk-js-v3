@@ -674,15 +674,14 @@ export namespace VectorData {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     float32: (value: number[]) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: VectorData, visitor: Visitor<T>): T => {
-    if (value.float32 !== undefined) return visitor.float32(value.float32);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**

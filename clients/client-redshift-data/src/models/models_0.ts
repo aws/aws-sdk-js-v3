@@ -1155,6 +1155,10 @@ export namespace Field {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     isNull: (value: boolean) => T;
     booleanValue: (value: boolean) => T;
@@ -1164,16 +1168,6 @@ export namespace Field {
     blobValue: (value: Uint8Array) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: Field, visitor: Visitor<T>): T => {
-    if (value.isNull !== undefined) return visitor.isNull(value.isNull);
-    if (value.booleanValue !== undefined) return visitor.booleanValue(value.booleanValue);
-    if (value.longValue !== undefined) return visitor.longValue(value.longValue);
-    if (value.doubleValue !== undefined) return visitor.doubleValue(value.doubleValue);
-    if (value.stringValue !== undefined) return visitor.stringValue(value.stringValue);
-    if (value.blobValue !== undefined) return visitor.blobValue(value.blobValue);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -1203,15 +1197,14 @@ export namespace QueryRecords {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     CSVRecords: (value: string) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: QueryRecords, visitor: Visitor<T>): T => {
-    if (value.CSVRecords !== undefined) return visitor.CSVRecords(value.CSVRecords);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**

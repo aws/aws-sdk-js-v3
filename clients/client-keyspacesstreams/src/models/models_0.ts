@@ -1394,6 +1394,10 @@ export namespace KeyspacesCellValue {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     asciiT: (value: string) => T;
     bigintT: (value: string) => T;
@@ -1422,35 +1426,6 @@ export namespace KeyspacesCellValue {
     udtT: (value: Record<string, KeyspacesCell>) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: KeyspacesCellValue, visitor: Visitor<T>): T => {
-    if (value.asciiT !== undefined) return visitor.asciiT(value.asciiT);
-    if (value.bigintT !== undefined) return visitor.bigintT(value.bigintT);
-    if (value.blobT !== undefined) return visitor.blobT(value.blobT);
-    if (value.boolT !== undefined) return visitor.boolT(value.boolT);
-    if (value.counterT !== undefined) return visitor.counterT(value.counterT);
-    if (value.dateT !== undefined) return visitor.dateT(value.dateT);
-    if (value.decimalT !== undefined) return visitor.decimalT(value.decimalT);
-    if (value.doubleT !== undefined) return visitor.doubleT(value.doubleT);
-    if (value.floatT !== undefined) return visitor.floatT(value.floatT);
-    if (value.inetT !== undefined) return visitor.inetT(value.inetT);
-    if (value.intT !== undefined) return visitor.intT(value.intT);
-    if (value.listT !== undefined) return visitor.listT(value.listT);
-    if (value.mapT !== undefined) return visitor.mapT(value.mapT);
-    if (value.setT !== undefined) return visitor.setT(value.setT);
-    if (value.smallintT !== undefined) return visitor.smallintT(value.smallintT);
-    if (value.textT !== undefined) return visitor.textT(value.textT);
-    if (value.timeT !== undefined) return visitor.timeT(value.timeT);
-    if (value.timestampT !== undefined) return visitor.timestampT(value.timestampT);
-    if (value.timeuuidT !== undefined) return visitor.timeuuidT(value.timeuuidT);
-    if (value.tinyintT !== undefined) return visitor.tinyintT(value.tinyintT);
-    if (value.tupleT !== undefined) return visitor.tupleT(value.tupleT);
-    if (value.uuidT !== undefined) return visitor.uuidT(value.uuidT);
-    if (value.varcharT !== undefined) return visitor.varcharT(value.varcharT);
-    if (value.varintT !== undefined) return visitor.varintT(value.varintT);
-    if (value.udtT !== undefined) return visitor.udtT(value.udtT);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**

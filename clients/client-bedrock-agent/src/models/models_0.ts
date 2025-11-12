@@ -80,17 +80,15 @@ export namespace ActionGroupExecutor {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     lambda: (value: string) => T;
     customControl: (value: CustomControlMethod) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: ActionGroupExecutor, visitor: Visitor<T>): T => {
-    if (value.lambda !== undefined) return visitor.lambda(value.lambda);
-    if (value.customControl !== undefined) return visitor.customControl(value.customControl);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -184,17 +182,15 @@ export namespace APISchema {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     s3: (value: S3Identifier) => T;
     payload: (value: string) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: APISchema, visitor: Visitor<T>): T => {
-    if (value.s3 !== undefined) return visitor.s3(value.s3);
-    if (value.payload !== undefined) return visitor.payload(value.payload);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -309,15 +305,14 @@ export namespace FunctionSchema {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     functions: (value: Function[]) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: FunctionSchema, visitor: Visitor<T>): T => {
-    if (value.functions !== undefined) return visitor.functions(value.functions);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -928,15 +923,14 @@ export namespace OrchestrationExecutor {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     lambda: (value: string) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: OrchestrationExecutor, visitor: Visitor<T>): T => {
-    if (value.lambda !== undefined) return visitor.lambda(value.lambda);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -4212,17 +4206,15 @@ export namespace FlowConnectionConfiguration {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     data: (value: FlowDataConnectionConfiguration) => T;
     conditional: (value: FlowConditionalConnectionConfiguration) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: FlowConnectionConfiguration, visitor: Visitor<T>): T => {
-    if (value.data !== undefined) return visitor.data(value.data);
-    if (value.conditional !== undefined) return visitor.conditional(value.conditional);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -4413,15 +4405,14 @@ export namespace PromptInferenceConfiguration {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     text: (value: PromptModelInferenceConfiguration) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: PromptInferenceConfiguration, visitor: Visitor<T>): T => {
-    if (value.text !== undefined) return visitor.text(value.text);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -4561,17 +4552,15 @@ export namespace RerankingMetadataSelectiveModeConfiguration {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     fieldsToInclude: (value: FieldForReranking[]) => T;
     fieldsToExclude: (value: FieldForReranking[]) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: RerankingMetadataSelectiveModeConfiguration, visitor: Visitor<T>): T => {
-    if (value.fieldsToInclude !== undefined) return visitor.fieldsToInclude(value.fieldsToInclude);
-    if (value.fieldsToExclude !== undefined) return visitor.fieldsToExclude(value.fieldsToExclude);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -4856,17 +4845,15 @@ export namespace ContentBlock {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     text: (value: string) => T;
     cachePoint: (value: CachePointBlock) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: ContentBlock, visitor: Visitor<T>): T => {
-    if (value.text !== undefined) return visitor.text(value.text);
-    if (value.cachePoint !== undefined) return visitor.cachePoint(value.cachePoint);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -4943,17 +4930,15 @@ export namespace SystemContentBlock {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     text: (value: string) => T;
     cachePoint: (value: CachePointBlock) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: SystemContentBlock, visitor: Visitor<T>): T => {
-    if (value.text !== undefined) return visitor.text(value.text);
-    if (value.cachePoint !== undefined) return visitor.cachePoint(value.cachePoint);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -5037,19 +5022,16 @@ export namespace ToolChoice {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     auto: (value: AutoToolChoice) => T;
     any: (value: AnyToolChoice) => T;
     tool: (value: SpecificToolChoice) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: ToolChoice, visitor: Visitor<T>): T => {
-    if (value.auto !== undefined) return visitor.auto(value.auto);
-    if (value.any !== undefined) return visitor.any(value.any);
-    if (value.tool !== undefined) return visitor.tool(value.tool);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -5079,15 +5061,14 @@ export namespace ToolInputSchema {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     json: (value: __DocumentType) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: ToolInputSchema, visitor: Visitor<T>): T => {
-    if (value.json !== undefined) return visitor.json(value.json);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -5153,17 +5134,15 @@ export namespace Tool {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     toolSpec: (value: ToolSpecification) => T;
     cachePoint: (value: CachePointBlock) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: Tool, visitor: Visitor<T>): T => {
-    if (value.toolSpec !== undefined) return visitor.toolSpec(value.toolSpec);
-    if (value.cachePoint !== undefined) return visitor.cachePoint(value.cachePoint);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -5280,17 +5259,15 @@ export namespace PromptTemplateConfiguration {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     text: (value: TextPromptTemplateConfiguration) => T;
     chat: (value: ChatPromptTemplateConfiguration) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: PromptTemplateConfiguration, visitor: Visitor<T>): T => {
-    if (value.text !== undefined) return visitor.text(value.text);
-    if (value.chat !== undefined) return visitor.chat(value.chat);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -5397,17 +5374,15 @@ export namespace PromptFlowNodeSourceConfiguration {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     resource: (value: PromptFlowNodeResourceConfiguration) => T;
     inline: (value: PromptFlowNodeInlineConfiguration) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: PromptFlowNodeSourceConfiguration, visitor: Visitor<T>): T => {
-    if (value.resource !== undefined) return visitor.resource(value.resource);
-    if (value.inline !== undefined) return visitor.inline(value.inline);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -5469,15 +5444,14 @@ export namespace RetrievalFlowNodeServiceConfiguration {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     s3: (value: RetrievalFlowNodeS3Configuration) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: RetrievalFlowNodeServiceConfiguration, visitor: Visitor<T>): T => {
-    if (value.s3 !== undefined) return visitor.s3(value.s3);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -5533,15 +5507,14 @@ export namespace StorageFlowNodeServiceConfiguration {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     s3: (value: StorageFlowNodeS3Configuration) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: StorageFlowNodeServiceConfiguration, visitor: Visitor<T>): T => {
-    if (value.s3 !== undefined) return visitor.s3(value.s3);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -8286,6 +8259,10 @@ export namespace FlowValidationDetails {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     cyclicConnection: (value: CyclicConnectionFlowValidationDetails) => T;
     duplicateConnections: (value: DuplicateConnectionsFlowValidationDetails) => T;
@@ -8322,62 +8299,6 @@ export namespace FlowValidationDetails {
     invalidLoopBoundary: (value: InvalidLoopBoundaryFlowValidationDetails) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: FlowValidationDetails, visitor: Visitor<T>): T => {
-    if (value.cyclicConnection !== undefined) return visitor.cyclicConnection(value.cyclicConnection);
-    if (value.duplicateConnections !== undefined) return visitor.duplicateConnections(value.duplicateConnections);
-    if (value.duplicateConditionExpression !== undefined)
-      return visitor.duplicateConditionExpression(value.duplicateConditionExpression);
-    if (value.unreachableNode !== undefined) return visitor.unreachableNode(value.unreachableNode);
-    if (value.unknownConnectionSource !== undefined)
-      return visitor.unknownConnectionSource(value.unknownConnectionSource);
-    if (value.unknownConnectionSourceOutput !== undefined)
-      return visitor.unknownConnectionSourceOutput(value.unknownConnectionSourceOutput);
-    if (value.unknownConnectionTarget !== undefined)
-      return visitor.unknownConnectionTarget(value.unknownConnectionTarget);
-    if (value.unknownConnectionTargetInput !== undefined)
-      return visitor.unknownConnectionTargetInput(value.unknownConnectionTargetInput);
-    if (value.unknownConnectionCondition !== undefined)
-      return visitor.unknownConnectionCondition(value.unknownConnectionCondition);
-    if (value.malformedConditionExpression !== undefined)
-      return visitor.malformedConditionExpression(value.malformedConditionExpression);
-    if (value.malformedNodeInputExpression !== undefined)
-      return visitor.malformedNodeInputExpression(value.malformedNodeInputExpression);
-    if (value.mismatchedNodeInputType !== undefined)
-      return visitor.mismatchedNodeInputType(value.mismatchedNodeInputType);
-    if (value.mismatchedNodeOutputType !== undefined)
-      return visitor.mismatchedNodeOutputType(value.mismatchedNodeOutputType);
-    if (value.incompatibleConnectionDataType !== undefined)
-      return visitor.incompatibleConnectionDataType(value.incompatibleConnectionDataType);
-    if (value.missingConnectionConfiguration !== undefined)
-      return visitor.missingConnectionConfiguration(value.missingConnectionConfiguration);
-    if (value.missingDefaultCondition !== undefined)
-      return visitor.missingDefaultCondition(value.missingDefaultCondition);
-    if (value.missingEndingNodes !== undefined) return visitor.missingEndingNodes(value.missingEndingNodes);
-    if (value.missingNodeConfiguration !== undefined)
-      return visitor.missingNodeConfiguration(value.missingNodeConfiguration);
-    if (value.missingNodeInput !== undefined) return visitor.missingNodeInput(value.missingNodeInput);
-    if (value.missingNodeOutput !== undefined) return visitor.missingNodeOutput(value.missingNodeOutput);
-    if (value.missingStartingNodes !== undefined) return visitor.missingStartingNodes(value.missingStartingNodes);
-    if (value.multipleNodeInputConnections !== undefined)
-      return visitor.multipleNodeInputConnections(value.multipleNodeInputConnections);
-    if (value.unfulfilledNodeInput !== undefined) return visitor.unfulfilledNodeInput(value.unfulfilledNodeInput);
-    if (value.unsatisfiedConnectionConditions !== undefined)
-      return visitor.unsatisfiedConnectionConditions(value.unsatisfiedConnectionConditions);
-    if (value.unspecified !== undefined) return visitor.unspecified(value.unspecified);
-    if (value.unknownNodeInput !== undefined) return visitor.unknownNodeInput(value.unknownNodeInput);
-    if (value.unknownNodeOutput !== undefined) return visitor.unknownNodeOutput(value.unknownNodeOutput);
-    if (value.missingLoopInputNode !== undefined) return visitor.missingLoopInputNode(value.missingLoopInputNode);
-    if (value.missingLoopControllerNode !== undefined)
-      return visitor.missingLoopControllerNode(value.missingLoopControllerNode);
-    if (value.multipleLoopInputNodes !== undefined) return visitor.multipleLoopInputNodes(value.multipleLoopInputNodes);
-    if (value.multipleLoopControllerNodes !== undefined)
-      return visitor.multipleLoopControllerNodes(value.multipleLoopControllerNodes);
-    if (value.loopIncompatibleNodeType !== undefined)
-      return visitor.loopIncompatibleNodeType(value.loopIncompatibleNodeType);
-    if (value.invalidLoopBoundary !== undefined) return visitor.invalidLoopBoundary(value.invalidLoopBoundary);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**

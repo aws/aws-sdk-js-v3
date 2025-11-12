@@ -711,15 +711,14 @@ export namespace OutputDataConfig {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     S3Configuration: (value: S3Configuration) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: OutputDataConfig, visitor: Visitor<T>): T => {
-    if (value.S3Configuration !== undefined) return visitor.S3Configuration(value.S3Configuration);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -838,15 +837,14 @@ export namespace InputDataConfig {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     S3Uri: (value: string) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: InputDataConfig, visitor: Visitor<T>): T => {
-    if (value.S3Uri !== undefined) return visitor.S3Uri(value.S3Uri);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**

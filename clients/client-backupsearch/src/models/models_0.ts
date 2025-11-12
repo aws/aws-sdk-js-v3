@@ -490,17 +490,15 @@ export namespace ResultItem {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     S3ResultItem: (value: S3ResultItem) => T;
     EBSResultItem: (value: EBSResultItem) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: ResultItem, visitor: Visitor<T>): T => {
-    if (value.S3ResultItem !== undefined) return visitor.S3ResultItem(value.S3ResultItem);
-    if (value.EBSResultItem !== undefined) return visitor.EBSResultItem(value.EBSResultItem);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -1180,15 +1178,14 @@ export namespace ExportSpecification {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     s3ExportSpecification: (value: S3ExportSpecification) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: ExportSpecification, visitor: Visitor<T>): T => {
-    if (value.s3ExportSpecification !== undefined) return visitor.s3ExportSpecification(value.s3ExportSpecification);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**

@@ -726,15 +726,14 @@ export namespace MQBrokerAccessCredentials {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     BasicAuth: (value: string) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: MQBrokerAccessCredentials, visitor: Visitor<T>): T => {
-    if (value.BasicAuth !== undefined) return visitor.BasicAuth(value.BasicAuth);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -1017,18 +1016,15 @@ export namespace MSKAccessCredentials {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     SaslScram512Auth: (value: string) => T;
     ClientCertificateTlsAuth: (value: string) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: MSKAccessCredentials, visitor: Visitor<T>): T => {
-    if (value.SaslScram512Auth !== undefined) return visitor.SaslScram512Auth(value.SaslScram512Auth);
-    if (value.ClientCertificateTlsAuth !== undefined)
-      return visitor.ClientCertificateTlsAuth(value.ClientCertificateTlsAuth);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -1197,6 +1193,10 @@ export namespace SelfManagedKafkaAccessConfigurationCredentials {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     BasicAuth: (value: string) => T;
     SaslScram512Auth: (value: string) => T;
@@ -1204,15 +1204,6 @@ export namespace SelfManagedKafkaAccessConfigurationCredentials {
     ClientCertificateTlsAuth: (value: string) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: SelfManagedKafkaAccessConfigurationCredentials, visitor: Visitor<T>): T => {
-    if (value.BasicAuth !== undefined) return visitor.BasicAuth(value.BasicAuth);
-    if (value.SaslScram512Auth !== undefined) return visitor.SaslScram512Auth(value.SaslScram512Auth);
-    if (value.SaslScram256Auth !== undefined) return visitor.SaslScram256Auth(value.SaslScram256Auth);
-    if (value.ClientCertificateTlsAuth !== undefined)
-      return visitor.ClientCertificateTlsAuth(value.ClientCertificateTlsAuth);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**

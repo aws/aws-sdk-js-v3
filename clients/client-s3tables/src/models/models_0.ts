@@ -297,15 +297,14 @@ export namespace TableMetadata {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     iceberg: (value: IcebergMetadata) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: TableMetadata, visitor: Visitor<T>): T => {
-    if (value.iceberg !== undefined) return visitor.iceberg(value.iceberg);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -869,16 +868,14 @@ export namespace TableBucketMaintenanceSettings {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     icebergUnreferencedFileRemoval: (value: IcebergUnreferencedFileRemovalSettings) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: TableBucketMaintenanceSettings, visitor: Visitor<T>): T => {
-    if (value.icebergUnreferencedFileRemoval !== undefined)
-      return visitor.icebergUnreferencedFileRemoval(value.icebergUnreferencedFileRemoval);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -1117,18 +1114,15 @@ export namespace TableMaintenanceSettings {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     icebergCompaction: (value: IcebergCompactionSettings) => T;
     icebergSnapshotManagement: (value: IcebergSnapshotManagementSettings) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: TableMaintenanceSettings, visitor: Visitor<T>): T => {
-    if (value.icebergCompaction !== undefined) return visitor.icebergCompaction(value.icebergCompaction);
-    if (value.icebergSnapshotManagement !== undefined)
-      return visitor.icebergSnapshotManagement(value.icebergSnapshotManagement);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**

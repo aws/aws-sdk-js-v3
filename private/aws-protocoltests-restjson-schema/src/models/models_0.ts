@@ -397,15 +397,14 @@ export namespace UnionPayload {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     greeting: (value: string) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: UnionPayload, visitor: Visitor<T>): T => {
-    if (value.greeting !== undefined) return visitor.greeting(value.greeting);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -815,6 +814,10 @@ export namespace MyUnion {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     stringValue: (value: string) => T;
     booleanValue: (value: boolean) => T;
@@ -828,20 +831,6 @@ export namespace MyUnion {
     renamedStructureValue: (value: RenamedGreeting) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: MyUnion, visitor: Visitor<T>): T => {
-    if (value.stringValue !== undefined) return visitor.stringValue(value.stringValue);
-    if (value.booleanValue !== undefined) return visitor.booleanValue(value.booleanValue);
-    if (value.numberValue !== undefined) return visitor.numberValue(value.numberValue);
-    if (value.blobValue !== undefined) return visitor.blobValue(value.blobValue);
-    if (value.timestampValue !== undefined) return visitor.timestampValue(value.timestampValue);
-    if (value.enumValue !== undefined) return visitor.enumValue(value.enumValue);
-    if (value.listValue !== undefined) return visitor.listValue(value.listValue);
-    if (value.mapValue !== undefined) return visitor.mapValue(value.mapValue);
-    if (value.structureValue !== undefined) return visitor.structureValue(value.structureValue);
-    if (value.renamedStructureValue !== undefined) return visitor.renamedStructureValue(value.renamedStructureValue);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -1111,17 +1100,15 @@ export namespace SimpleUnion {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     int: (value: number) => T;
     string: (value: string) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: SimpleUnion, visitor: Visitor<T>): T => {
-    if (value.int !== undefined) return visitor.int(value.int);
-    if (value.string !== undefined) return visitor.string(value.string);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -1287,15 +1274,14 @@ export namespace PlayerAction {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     quit: (value: Unit) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: PlayerAction, visitor: Visitor<T>): T => {
-    if (value.quit !== undefined) return visitor.quit(value.quit);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -1356,19 +1342,16 @@ export namespace UnionWithJsonName {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     foo: (value: string) => T;
     bar: (value: string) => T;
     baz: (value: string) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: UnionWithJsonName, visitor: Visitor<T>): T => {
-    if (value.foo !== undefined) return visitor.foo(value.foo);
-    if (value.bar !== undefined) return visitor.bar(value.bar);
-    if (value.baz !== undefined) return visitor.baz(value.baz);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**

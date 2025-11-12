@@ -2223,17 +2223,15 @@ export namespace PercentOrAbsoluteLong {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     percent: (value: string) => T;
     absolute: (value: number) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: PercentOrAbsoluteLong, visitor: Visitor<T>): T => {
-    if (value.percent !== undefined) return visitor.percent(value.percent);
-    if (value.absolute !== undefined) return visitor.absolute(value.absolute);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -2928,19 +2926,16 @@ export namespace _Parameters {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     InfluxDBv2: (value: InfluxDBv2Parameters) => T;
     InfluxDBv3Core: (value: InfluxDBv3CoreParameters) => T;
     InfluxDBv3Enterprise: (value: InfluxDBv3EnterpriseParameters) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: _Parameters, visitor: Visitor<T>): T => {
-    if (value.InfluxDBv2 !== undefined) return visitor.InfluxDBv2(value.InfluxDBv2);
-    if (value.InfluxDBv3Core !== undefined) return visitor.InfluxDBv3Core(value.InfluxDBv3Core);
-    if (value.InfluxDBv3Enterprise !== undefined) return visitor.InfluxDBv3Enterprise(value.InfluxDBv3Enterprise);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**

@@ -630,17 +630,15 @@ export namespace FormatOptions {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     tsvOptions: (value: TsvOptions) => T;
     vcfOptions: (value: VcfOptions) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: FormatOptions, visitor: Visitor<T>): T => {
-    if (value.tsvOptions !== undefined) return visitor.tsvOptions(value.tsvOptions);
-    if (value.vcfOptions !== undefined) return visitor.vcfOptions(value.vcfOptions);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -941,15 +939,14 @@ export namespace ReferenceItem {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     referenceArn: (value: string) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: ReferenceItem, visitor: Visitor<T>): T => {
-    if (value.referenceArn !== undefined) return visitor.referenceArn(value.referenceArn);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -1155,15 +1152,14 @@ export namespace StoreOptions {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     tsvStoreOptions: (value: TsvStoreOptions) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: StoreOptions, visitor: Visitor<T>): T => {
-    if (value.tsvStoreOptions !== undefined) return visitor.tsvStoreOptions(value.tsvStoreOptions);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -1701,15 +1697,14 @@ export namespace VersionOptions {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     tsvVersionOptions: (value: TsvVersionOptions) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: VersionOptions, visitor: Visitor<T>): T => {
-    if (value.tsvVersionOptions !== undefined) return visitor.tsvVersionOptions(value.tsvVersionOptions);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**

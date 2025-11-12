@@ -1188,17 +1188,15 @@ export namespace ImageSource {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     PublicUrl: (value: string) => T;
     S3Uri: (value: string) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: ImageSource, visitor: Visitor<T>): T => {
-    if (value.PublicUrl !== undefined) return visitor.PublicUrl(value.PublicUrl);
-    if (value.S3Uri !== undefined) return visitor.S3Uri(value.S3Uri);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -5359,6 +5357,10 @@ export namespace TransformOperation {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     ProjectOperation: (value: ProjectOperation) => T;
     FilterOperation: (value: FilterOperation) => T;
@@ -5370,20 +5372,6 @@ export namespace TransformOperation {
     OverrideDatasetParameterOperation: (value: OverrideDatasetParameterOperation) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: TransformOperation, visitor: Visitor<T>): T => {
-    if (value.ProjectOperation !== undefined) return visitor.ProjectOperation(value.ProjectOperation);
-    if (value.FilterOperation !== undefined) return visitor.FilterOperation(value.FilterOperation);
-    if (value.CreateColumnsOperation !== undefined) return visitor.CreateColumnsOperation(value.CreateColumnsOperation);
-    if (value.RenameColumnOperation !== undefined) return visitor.RenameColumnOperation(value.RenameColumnOperation);
-    if (value.CastColumnTypeOperation !== undefined)
-      return visitor.CastColumnTypeOperation(value.CastColumnTypeOperation);
-    if (value.TagColumnOperation !== undefined) return visitor.TagColumnOperation(value.TagColumnOperation);
-    if (value.UntagColumnOperation !== undefined) return visitor.UntagColumnOperation(value.UntagColumnOperation);
-    if (value.OverrideDatasetParameterOperation !== undefined)
-      return visitor.OverrideDatasetParameterOperation(value.OverrideDatasetParameterOperation);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -5820,6 +5808,10 @@ export namespace PhysicalTable {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     RelationalTable: (value: RelationalTable) => T;
     CustomSql: (value: CustomSql) => T;
@@ -5827,14 +5819,6 @@ export namespace PhysicalTable {
     SaaSTable: (value: SaaSTable) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: PhysicalTable, visitor: Visitor<T>): T => {
-    if (value.RelationalTable !== undefined) return visitor.RelationalTable(value.RelationalTable);
-    if (value.CustomSql !== undefined) return visitor.CustomSql(value.CustomSql);
-    if (value.S3Source !== undefined) return visitor.S3Source(value.S3Source);
-    if (value.SaaSTable !== undefined) return visitor.SaaSTable(value.SaaSTable);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**

@@ -1239,20 +1239,16 @@ export namespace DatastoreStorage {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     serviceManagedS3: (value: ServiceManagedDatastoreS3Storage) => T;
     customerManagedS3: (value: CustomerManagedDatastoreS3Storage) => T;
     iotSiteWiseMultiLayerStorage: (value: DatastoreIotSiteWiseMultiLayerStorage) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: DatastoreStorage, visitor: Visitor<T>): T => {
-    if (value.serviceManagedS3 !== undefined) return visitor.serviceManagedS3(value.serviceManagedS3);
-    if (value.customerManagedS3 !== undefined) return visitor.customerManagedS3(value.customerManagedS3);
-    if (value.iotSiteWiseMultiLayerStorage !== undefined)
-      return visitor.iotSiteWiseMultiLayerStorage(value.iotSiteWiseMultiLayerStorage);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**

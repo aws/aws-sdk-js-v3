@@ -67,15 +67,14 @@ export namespace DynamicSsmParameterValue {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     variable: (value: VariableType) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: DynamicSsmParameterValue, visitor: Visitor<T>): T => {
-    if (value.variable !== undefined) return visitor.variable(value.variable);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -167,15 +166,14 @@ export namespace Action {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     ssmAutomation: (value: SsmAutomation) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: Action, visitor: Visitor<T>): T => {
-    if (value.ssmAutomation !== undefined) return visitor.ssmAutomation(value.ssmAutomation);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -239,17 +237,15 @@ export namespace AttributeValueList {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     stringValues: (value: string[]) => T;
     integerValues: (value: number[]) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: AttributeValueList, visitor: Visitor<T>): T => {
-    if (value.stringValues !== undefined) return visitor.stringValues(value.stringValues);
-    if (value.integerValues !== undefined) return visitor.integerValues(value.integerValues);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -280,15 +276,14 @@ export namespace AutomationExecution {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     ssmExecutionArn: (value: string) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: AutomationExecution, visitor: Visitor<T>): T => {
-    if (value.ssmExecutionArn !== undefined) return visitor.ssmExecutionArn(value.ssmExecutionArn);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -440,18 +435,15 @@ export namespace FindingDetails {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     codeDeployDeployment: (value: CodeDeployDeployment) => T;
     cloudFormationStackUpdate: (value: CloudFormationStackUpdate) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: FindingDetails, visitor: Visitor<T>): T => {
-    if (value.codeDeployDeployment !== undefined) return visitor.codeDeployDeployment(value.codeDeployDeployment);
-    if (value.cloudFormationStackUpdate !== undefined)
-      return visitor.cloudFormationStackUpdate(value.cloudFormationStackUpdate);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -691,17 +683,15 @@ export namespace ChatChannel {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     empty: (value: EmptyChatChannel) => T;
     chatbotSns: (value: string[]) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: ChatChannel, visitor: Visitor<T>): T => {
-    if (value.empty !== undefined) return visitor.empty(value.empty);
-    if (value.chatbotSns !== undefined) return visitor.chatbotSns(value.chatbotSns);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -764,19 +754,16 @@ export namespace Condition {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     before: (value: Date) => T;
     after: (value: Date) => T;
     equals: (value: AttributeValueList) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: Condition, visitor: Visitor<T>): T => {
-    if (value.before !== undefined) return visitor.before(value.before);
-    if (value.after !== undefined) return visitor.after(value.after);
-    if (value.equals !== undefined) return visitor.equals(value.equals);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -944,15 +931,14 @@ export namespace NotificationTargetItem {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     snsTopicArn: (value: string) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: NotificationTargetItem, visitor: Visitor<T>): T => {
-    if (value.snsTopicArn !== undefined) return visitor.snsTopicArn(value.snsTopicArn);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -1103,15 +1089,14 @@ export namespace Integration {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     pagerDutyConfiguration: (value: PagerDutyConfiguration) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: Integration, visitor: Visitor<T>): T => {
-    if (value.pagerDutyConfiguration !== undefined) return visitor.pagerDutyConfiguration(value.pagerDutyConfiguration);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -1229,17 +1214,15 @@ export namespace EventReference {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     resource: (value: string) => T;
     relatedItemId: (value: string) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: EventReference, visitor: Visitor<T>): T => {
-    if (value.resource !== undefined) return visitor.resource(value.resource);
-    if (value.relatedItemId !== undefined) return visitor.relatedItemId(value.relatedItemId);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -2237,6 +2220,10 @@ export namespace ItemValue {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     arn: (value: string) => T;
     url: (value: string) => T;
@@ -2244,15 +2231,6 @@ export namespace ItemValue {
     pagerDutyIncidentDetail: (value: PagerDutyIncidentDetail) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: ItemValue, visitor: Visitor<T>): T => {
-    if (value.arn !== undefined) return visitor.arn(value.arn);
-    if (value.url !== undefined) return visitor.url(value.url);
-    if (value.metricDefinition !== undefined) return visitor.metricDefinition(value.metricDefinition);
-    if (value.pagerDutyIncidentDetail !== undefined)
-      return visitor.pagerDutyIncidentDetail(value.pagerDutyIncidentDetail);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -2774,17 +2752,15 @@ export namespace RelatedItemsUpdate {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     itemToAdd: (value: RelatedItem) => T;
     itemToRemove: (value: ItemIdentifier) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: RelatedItemsUpdate, visitor: Visitor<T>): T => {
-    if (value.itemToAdd !== undefined) return visitor.itemToAdd(value.itemToAdd);
-    if (value.itemToRemove !== undefined) return visitor.itemToRemove(value.itemToRemove);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -3136,17 +3112,15 @@ export namespace UpdateReplicationSetAction {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     addRegionAction: (value: AddRegionAction) => T;
     deleteRegionAction: (value: DeleteRegionAction) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: UpdateReplicationSetAction, visitor: Visitor<T>): T => {
-    if (value.addRegionAction !== undefined) return visitor.addRegionAction(value.addRegionAction);
-    if (value.deleteRegionAction !== undefined) return visitor.deleteRegionAction(value.deleteRegionAction);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**

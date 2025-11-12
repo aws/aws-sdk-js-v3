@@ -113,17 +113,15 @@ export namespace DisplayConfig {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     graph: (value: Record<string, GraphDisplayConfig>) => T;
     table: (value: TableDisplayConfigStruct) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: DisplayConfig, visitor: Visitor<T>): T => {
-    if (value.graph !== undefined) return visitor.graph(value.graph);
-    if (value.table !== undefined) return visitor.table(value.table);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -1012,6 +1010,10 @@ export namespace QueryParameters {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     costAndUsage: (value: CostAndUsageQuery) => T;
     savingsPlansCoverage: (value: SavingsPlansCoverageQuery) => T;
@@ -1020,16 +1022,6 @@ export namespace QueryParameters {
     reservationUtilization: (value: ReservationUtilizationQuery) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: QueryParameters, visitor: Visitor<T>): T => {
-    if (value.costAndUsage !== undefined) return visitor.costAndUsage(value.costAndUsage);
-    if (value.savingsPlansCoverage !== undefined) return visitor.savingsPlansCoverage(value.savingsPlansCoverage);
-    if (value.savingsPlansUtilization !== undefined)
-      return visitor.savingsPlansUtilization(value.savingsPlansUtilization);
-    if (value.reservationCoverage !== undefined) return visitor.reservationCoverage(value.reservationCoverage);
-    if (value.reservationUtilization !== undefined) return visitor.reservationUtilization(value.reservationUtilization);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**

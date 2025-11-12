@@ -555,17 +555,15 @@ export namespace SubscribedListingItem {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     assetListing: (value: SubscribedAssetListing) => T;
     productListing: (value: SubscribedProductListing) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: SubscribedListingItem, visitor: Visitor<T>): T => {
-    if (value.assetListing !== undefined) return visitor.assetListing(value.assetListing);
-    if (value.productListing !== undefined) return visitor.productListing(value.productListing);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -661,15 +659,14 @@ export namespace SubscribedPrincipal {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     project: (value: SubscribedProject) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: SubscribedPrincipal, visitor: Visitor<T>): T => {
-    if (value.project !== undefined) return visitor.project(value.project);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -906,18 +903,15 @@ export namespace AccountSource {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     accounts: (value: AccountInfo[]) => T;
     customAccountPoolHandler: (value: CustomAccountPoolHandler) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: AccountSource, visitor: Visitor<T>): T => {
-    if (value.accounts !== undefined) return visitor.accounts(value.accounts);
-    if (value.customAccountPoolHandler !== undefined)
-      return visitor.customAccountPoolHandler(value.customAccountPoolHandler);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -959,15 +953,14 @@ export namespace ActionParameters {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     awsConsoleLink: (value: AwsConsoleLinkParameters) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: ActionParameters, visitor: Visitor<T>): T => {
-    if (value.awsConsoleLink !== undefined) return visitor.awsConsoleLink(value.awsConsoleLink);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -1046,17 +1039,15 @@ export namespace OwnerProperties {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     user: (value: OwnerUserProperties) => T;
     group: (value: OwnerGroupProperties) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: OwnerProperties, visitor: Visitor<T>): T => {
-    if (value.user !== undefined) return visitor.user(value.user);
-    if (value.group !== undefined) return visitor.group(value.group);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -1617,6 +1608,10 @@ export namespace PolicyGrantDetail {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     createDomainUnit: (value: CreateDomainUnitPolicyGrantDetail) => T;
     overrideDomainUnitOwners: (value: OverrideDomainUnitOwnersPolicyGrantDetail) => T;
@@ -1634,29 +1629,6 @@ export namespace PolicyGrantDetail {
     useAssetType: (value: UseAssetTypePolicyGrantDetail) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: PolicyGrantDetail, visitor: Visitor<T>): T => {
-    if (value.createDomainUnit !== undefined) return visitor.createDomainUnit(value.createDomainUnit);
-    if (value.overrideDomainUnitOwners !== undefined)
-      return visitor.overrideDomainUnitOwners(value.overrideDomainUnitOwners);
-    if (value.addToProjectMemberPool !== undefined) return visitor.addToProjectMemberPool(value.addToProjectMemberPool);
-    if (value.overrideProjectOwners !== undefined) return visitor.overrideProjectOwners(value.overrideProjectOwners);
-    if (value.createGlossary !== undefined) return visitor.createGlossary(value.createGlossary);
-    if (value.createFormType !== undefined) return visitor.createFormType(value.createFormType);
-    if (value.createAssetType !== undefined) return visitor.createAssetType(value.createAssetType);
-    if (value.createProject !== undefined) return visitor.createProject(value.createProject);
-    if (value.createEnvironmentProfile !== undefined)
-      return visitor.createEnvironmentProfile(value.createEnvironmentProfile);
-    if (value.delegateCreateEnvironmentProfile !== undefined)
-      return visitor.delegateCreateEnvironmentProfile(value.delegateCreateEnvironmentProfile);
-    if (value.createEnvironment !== undefined) return visitor.createEnvironment(value.createEnvironment);
-    if (value.createEnvironmentFromBlueprint !== undefined)
-      return visitor.createEnvironmentFromBlueprint(value.createEnvironmentFromBlueprint);
-    if (value.createProjectFromProjectProfile !== undefined)
-      return visitor.createProjectFromProjectProfile(value.createProjectFromProjectProfile);
-    if (value.useAssetType !== undefined) return visitor.useAssetType(value.useAssetType);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -1749,16 +1721,14 @@ export namespace DomainUnitGrantFilter {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     allDomainUnitsGrantFilter: (value: AllDomainUnitsGrantFilter) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: DomainUnitGrantFilter, visitor: Visitor<T>): T => {
-    if (value.allDomainUnitsGrantFilter !== undefined)
-      return visitor.allDomainUnitsGrantFilter(value.allDomainUnitsGrantFilter);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -1814,15 +1784,14 @@ export namespace GroupPolicyGrantPrincipal {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     groupIdentifier: (value: string) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: GroupPolicyGrantPrincipal, visitor: Visitor<T>): T => {
-    if (value.groupIdentifier !== undefined) return visitor.groupIdentifier(value.groupIdentifier);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -1885,15 +1854,14 @@ export namespace ProjectGrantFilter {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     domainUnitFilter: (value: DomainUnitFilterForProject) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: ProjectGrantFilter, visitor: Visitor<T>): T => {
-    if (value.domainUnitFilter !== undefined) return visitor.domainUnitFilter(value.domainUnitFilter);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -1968,17 +1936,15 @@ export namespace UserPolicyGrantPrincipal {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     userIdentifier: (value: string) => T;
     allUsersGrantFilter: (value: AllUsersGrantFilter) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: UserPolicyGrantPrincipal, visitor: Visitor<T>): T => {
-    if (value.userIdentifier !== undefined) return visitor.userIdentifier(value.userIdentifier);
-    if (value.allUsersGrantFilter !== undefined) return visitor.allUsersGrantFilter(value.allUsersGrantFilter);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -2055,6 +2021,10 @@ export namespace PolicyGrantPrincipal {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     user: (value: UserPolicyGrantPrincipal) => T;
     group: (value: GroupPolicyGrantPrincipal) => T;
@@ -2062,14 +2032,6 @@ export namespace PolicyGrantPrincipal {
     domainUnit: (value: DomainUnitPolicyGrantPrincipal) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: PolicyGrantPrincipal, visitor: Visitor<T>): T => {
-    if (value.user !== undefined) return visitor.user(value.user);
-    if (value.group !== undefined) return visitor.group(value.group);
-    if (value.project !== undefined) return visitor.project(value.project);
-    if (value.domainUnit !== undefined) return visitor.domainUnit(value.domainUnit);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -3439,6 +3401,10 @@ export namespace RowFilterExpression {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     equalTo: (value: EqualToExpression) => T;
     notEqualTo: (value: NotEqualToExpression) => T;
@@ -3454,22 +3420,6 @@ export namespace RowFilterExpression {
     notLike: (value: NotLikeExpression) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: RowFilterExpression, visitor: Visitor<T>): T => {
-    if (value.equalTo !== undefined) return visitor.equalTo(value.equalTo);
-    if (value.notEqualTo !== undefined) return visitor.notEqualTo(value.notEqualTo);
-    if (value.greaterThan !== undefined) return visitor.greaterThan(value.greaterThan);
-    if (value.lessThan !== undefined) return visitor.lessThan(value.lessThan);
-    if (value.greaterThanOrEqualTo !== undefined) return visitor.greaterThanOrEqualTo(value.greaterThanOrEqualTo);
-    if (value.lessThanOrEqualTo !== undefined) return visitor.lessThanOrEqualTo(value.lessThanOrEqualTo);
-    if (value.isNull !== undefined) return visitor.isNull(value.isNull);
-    if (value.isNotNull !== undefined) return visitor.isNotNull(value.isNotNull);
-    if (value.in !== undefined) return visitor.in(value.in);
-    if (value.notIn !== undefined) return visitor.notIn(value.notIn);
-    if (value.like !== undefined) return visitor.like(value.like);
-    if (value.notLike !== undefined) return visitor.notLike(value.notLike);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -3621,15 +3571,14 @@ export namespace MatchRationaleItem {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     textMatches: (value: TextMatchItem[]) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: MatchRationaleItem, visitor: Visitor<T>): T => {
-    if (value.textMatches !== undefined) return visitor.textMatches(value.textMatches);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -4782,17 +4731,15 @@ export namespace AwsAccount {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     awsAccountId: (value: string) => T;
     awsAccountIdPath: (value: string) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: AwsAccount, visitor: Visitor<T>): T => {
-    if (value.awsAccountId !== undefined) return visitor.awsAccountId(value.awsAccountId);
-    if (value.awsAccountIdPath !== undefined) return visitor.awsAccountIdPath(value.awsAccountIdPath);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -5319,17 +5266,15 @@ export namespace RedshiftCredentials {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     secretArn: (value: string) => T;
     usernamePassword: (value: UsernamePassword) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: RedshiftCredentials, visitor: Visitor<T>): T => {
-    if (value.secretArn !== undefined) return visitor.secretArn(value.secretArn);
-    if (value.usernamePassword !== undefined) return visitor.usernamePassword(value.usernamePassword);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -5404,17 +5349,15 @@ export namespace RedshiftStorageProperties {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     clusterName: (value: string) => T;
     workgroupName: (value: string) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: RedshiftStorageProperties, visitor: Visitor<T>): T => {
-    if (value.clusterName !== undefined) return visitor.clusterName(value.clusterName);
-    if (value.workgroupName !== undefined) return visitor.workgroupName(value.workgroupName);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -5815,6 +5758,10 @@ export namespace ConnectionPropertiesInput {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     athenaProperties: (value: AthenaPropertiesInput) => T;
     glueProperties: (value: GluePropertiesInput) => T;
@@ -5828,20 +5775,6 @@ export namespace ConnectionPropertiesInput {
     mlflowProperties: (value: MlflowPropertiesInput) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: ConnectionPropertiesInput, visitor: Visitor<T>): T => {
-    if (value.athenaProperties !== undefined) return visitor.athenaProperties(value.athenaProperties);
-    if (value.glueProperties !== undefined) return visitor.glueProperties(value.glueProperties);
-    if (value.hyperPodProperties !== undefined) return visitor.hyperPodProperties(value.hyperPodProperties);
-    if (value.iamProperties !== undefined) return visitor.iamProperties(value.iamProperties);
-    if (value.redshiftProperties !== undefined) return visitor.redshiftProperties(value.redshiftProperties);
-    if (value.sparkEmrProperties !== undefined) return visitor.sparkEmrProperties(value.sparkEmrProperties);
-    if (value.sparkGlueProperties !== undefined) return visitor.sparkGlueProperties(value.sparkGlueProperties);
-    if (value.s3Properties !== undefined) return visitor.s3Properties(value.s3Properties);
-    if (value.amazonQProperties !== undefined) return visitor.amazonQProperties(value.amazonQProperties);
-    if (value.mlflowProperties !== undefined) return visitor.mlflowProperties(value.mlflowProperties);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -6458,6 +6391,10 @@ export namespace ConnectionPropertiesOutput {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     athenaProperties: (value: AthenaPropertiesOutput) => T;
     glueProperties: (value: GluePropertiesOutput) => T;
@@ -6471,20 +6408,6 @@ export namespace ConnectionPropertiesOutput {
     mlflowProperties: (value: MlflowPropertiesOutput) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: ConnectionPropertiesOutput, visitor: Visitor<T>): T => {
-    if (value.athenaProperties !== undefined) return visitor.athenaProperties(value.athenaProperties);
-    if (value.glueProperties !== undefined) return visitor.glueProperties(value.glueProperties);
-    if (value.hyperPodProperties !== undefined) return visitor.hyperPodProperties(value.hyperPodProperties);
-    if (value.iamProperties !== undefined) return visitor.iamProperties(value.iamProperties);
-    if (value.redshiftProperties !== undefined) return visitor.redshiftProperties(value.redshiftProperties);
-    if (value.sparkEmrProperties !== undefined) return visitor.sparkEmrProperties(value.sparkEmrProperties);
-    if (value.sparkGlueProperties !== undefined) return visitor.sparkGlueProperties(value.sparkGlueProperties);
-    if (value.s3Properties !== undefined) return visitor.s3Properties(value.s3Properties);
-    if (value.amazonQProperties !== undefined) return visitor.amazonQProperties(value.amazonQProperties);
-    if (value.mlflowProperties !== undefined) return visitor.mlflowProperties(value.mlflowProperties);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -6823,6 +6746,10 @@ export namespace ConnectionPropertiesPatch {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     athenaProperties: (value: AthenaPropertiesPatch) => T;
     glueProperties: (value: GluePropertiesPatch) => T;
@@ -6834,18 +6761,6 @@ export namespace ConnectionPropertiesPatch {
     mlflowProperties: (value: MlflowPropertiesPatch) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: ConnectionPropertiesPatch, visitor: Visitor<T>): T => {
-    if (value.athenaProperties !== undefined) return visitor.athenaProperties(value.athenaProperties);
-    if (value.glueProperties !== undefined) return visitor.glueProperties(value.glueProperties);
-    if (value.iamProperties !== undefined) return visitor.iamProperties(value.iamProperties);
-    if (value.redshiftProperties !== undefined) return visitor.redshiftProperties(value.redshiftProperties);
-    if (value.sparkEmrProperties !== undefined) return visitor.sparkEmrProperties(value.sparkEmrProperties);
-    if (value.s3Properties !== undefined) return visitor.s3Properties(value.s3Properties);
-    if (value.amazonQProperties !== undefined) return visitor.amazonQProperties(value.amazonQProperties);
-    if (value.mlflowProperties !== undefined) return visitor.mlflowProperties(value.mlflowProperties);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -7891,18 +7806,15 @@ export namespace RedshiftStorage {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     redshiftClusterSource: (value: RedshiftClusterStorage) => T;
     redshiftServerlessSource: (value: RedshiftServerlessStorage) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: RedshiftStorage, visitor: Visitor<T>): T => {
-    if (value.redshiftClusterSource !== undefined) return visitor.redshiftClusterSource(value.redshiftClusterSource);
-    if (value.redshiftServerlessSource !== undefined)
-      return visitor.redshiftServerlessSource(value.redshiftServerlessSource);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -8004,21 +7916,16 @@ export namespace DataSourceConfigurationInput {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     glueRunConfiguration: (value: GlueRunConfigurationInput) => T;
     redshiftRunConfiguration: (value: RedshiftRunConfigurationInput) => T;
     sageMakerRunConfiguration: (value: SageMakerRunConfigurationInput) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: DataSourceConfigurationInput, visitor: Visitor<T>): T => {
-    if (value.glueRunConfiguration !== undefined) return visitor.glueRunConfiguration(value.glueRunConfiguration);
-    if (value.redshiftRunConfiguration !== undefined)
-      return visitor.redshiftRunConfiguration(value.redshiftRunConfiguration);
-    if (value.sageMakerRunConfiguration !== undefined)
-      return visitor.sageMakerRunConfiguration(value.sageMakerRunConfiguration);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -8395,21 +8302,16 @@ export namespace DataSourceConfigurationOutput {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     glueRunConfiguration: (value: GlueRunConfigurationOutput) => T;
     redshiftRunConfiguration: (value: RedshiftRunConfigurationOutput) => T;
     sageMakerRunConfiguration: (value: SageMakerRunConfigurationOutput) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: DataSourceConfigurationOutput, visitor: Visitor<T>): T => {
-    if (value.glueRunConfiguration !== undefined) return visitor.glueRunConfiguration(value.glueRunConfiguration);
-    if (value.redshiftRunConfiguration !== undefined)
-      return visitor.redshiftRunConfiguration(value.redshiftRunConfiguration);
-    if (value.sageMakerRunConfiguration !== undefined)
-      return visitor.sageMakerRunConfiguration(value.sageMakerRunConfiguration);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -8930,17 +8832,15 @@ export namespace DomainUnitOwnerProperties {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     user: (value: DomainUnitUserProperties) => T;
     group: (value: DomainUnitGroupProperties) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: DomainUnitOwnerProperties, visitor: Visitor<T>): T => {
-    if (value.user !== undefined) return visitor.user(value.user);
-    if (value.group !== undefined) return visitor.group(value.group);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -9265,15 +9165,14 @@ export namespace ProvisioningProperties {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     cloudFormation: (value: CloudFormationProperties) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: ProvisioningProperties, visitor: Visitor<T>): T => {
-    if (value.cloudFormation !== undefined) return visitor.cloudFormation(value.cloudFormation);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -9819,15 +9718,14 @@ export namespace Model {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     smithy: (value: string) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: Model, visitor: Visitor<T>): T => {
-    if (value.smithy !== undefined) return visitor.smithy(value.smithy);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -10708,15 +10606,13 @@ export namespace Member {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     userIdentifier: (value: string) => T;
     groupIdentifier: (value: string) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: Member, visitor: Visitor<T>): T => {
-    if (value.userIdentifier !== undefined) return visitor.userIdentifier(value.userIdentifier);
-    if (value.groupIdentifier !== undefined) return visitor.groupIdentifier(value.groupIdentifier);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }

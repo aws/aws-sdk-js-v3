@@ -6647,15 +6647,14 @@ export namespace LakeFormationScopeUnion {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     LakeFormationQuery: (value: LakeFormationQuery) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: LakeFormationScopeUnion, visitor: Visitor<T>): T => {
-    if (value.LakeFormationQuery !== undefined) return visitor.LakeFormationQuery(value.LakeFormationQuery);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -6699,15 +6698,14 @@ export namespace S3AccessGrantsScopeUnion {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     ReadWriteAccess: (value: ReadWriteAccess) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: S3AccessGrantsScopeUnion, visitor: Visitor<T>): T => {
-    if (value.ReadWriteAccess !== undefined) return visitor.ReadWriteAccess(value.ReadWriteAccess);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -6752,17 +6750,15 @@ export namespace ServiceIntegrationsUnion {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     LakeFormation: (value: LakeFormationScopeUnion[]) => T;
     S3AccessGrants: (value: S3AccessGrantsScopeUnion[]) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: ServiceIntegrationsUnion, visitor: Visitor<T>): T => {
-    if (value.LakeFormation !== undefined) return visitor.LakeFormation(value.LakeFormation);
-    if (value.S3AccessGrants !== undefined) return visitor.S3AccessGrants(value.S3AccessGrants);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -8718,17 +8714,15 @@ export namespace NamespaceIdentifierUnion {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     ServerlessIdentifier: (value: ServerlessIdentifier) => T;
     ProvisionedIdentifier: (value: ProvisionedIdentifier) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: NamespaceIdentifierUnion, visitor: Visitor<T>): T => {
-    if (value.ServerlessIdentifier !== undefined) return visitor.ServerlessIdentifier(value.ServerlessIdentifier);
-    if (value.ProvisionedIdentifier !== undefined) return visitor.ProvisionedIdentifier(value.ProvisionedIdentifier);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**

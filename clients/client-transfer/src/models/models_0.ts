@@ -1263,15 +1263,14 @@ export namespace ConnectorEgressConfig {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     VpcLattice: (value: ConnectorVpcLatticeEgressConfig) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: ConnectorEgressConfig, visitor: Visitor<T>): T => {
-    if (value.VpcLattice !== undefined) return visitor.VpcLattice(value.VpcLattice);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -1491,15 +1490,14 @@ export namespace DescribedConnectorEgressConfig {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     VpcLattice: (value: DescribedConnectorVpcLatticeEgressConfig) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: DescribedConnectorEgressConfig, visitor: Visitor<T>): T => {
-    if (value.VpcLattice !== undefined) return visitor.VpcLattice(value.VpcLattice);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -1723,15 +1721,14 @@ export namespace UpdateConnectorEgressConfig {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     VpcLattice: (value: UpdateConnectorVpcLatticeEgressConfig) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: UpdateConnectorEgressConfig, visitor: Visitor<T>): T => {
-    if (value.VpcLattice !== undefined) return visitor.VpcLattice(value.VpcLattice);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -2634,15 +2631,14 @@ export namespace WebAppIdentityProviderDetails {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     IdentityCenterConfig: (value: IdentityCenterConfig) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: WebAppIdentityProviderDetails, visitor: Visitor<T>): T => {
-    if (value.IdentityCenterConfig !== undefined) return visitor.IdentityCenterConfig(value.IdentityCenterConfig);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -2686,15 +2682,14 @@ export namespace WebAppUnits {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     Provisioned: (value: number) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: WebAppUnits, visitor: Visitor<T>): T => {
-    if (value.Provisioned !== undefined) return visitor.Provisioned(value.Provisioned);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -3941,15 +3936,14 @@ export namespace DescribedWebAppIdentityProviderDetails {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     IdentityCenterConfig: (value: DescribedIdentityCenterConfig) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: DescribedWebAppIdentityProviderDetails, visitor: Visitor<T>): T => {
-    if (value.IdentityCenterConfig !== undefined) return visitor.IdentityCenterConfig(value.IdentityCenterConfig);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -5907,15 +5901,14 @@ export namespace UpdateWebAppIdentityProviderDetails {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     IdentityCenterConfig: (value: UpdateWebAppIdentityCenterConfig) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: UpdateWebAppIdentityProviderDetails, visitor: Visitor<T>): T => {
-    if (value.IdentityCenterConfig !== undefined) return visitor.IdentityCenterConfig(value.IdentityCenterConfig);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**

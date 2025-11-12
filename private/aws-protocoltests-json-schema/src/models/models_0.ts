@@ -365,6 +365,10 @@ export namespace MyUnion {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     stringValue: (value: string) => T;
     booleanValue: (value: boolean) => T;
@@ -377,19 +381,6 @@ export namespace MyUnion {
     structureValue: (value: GreetingStruct) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: MyUnion, visitor: Visitor<T>): T => {
-    if (value.stringValue !== undefined) return visitor.stringValue(value.stringValue);
-    if (value.booleanValue !== undefined) return visitor.booleanValue(value.booleanValue);
-    if (value.numberValue !== undefined) return visitor.numberValue(value.numberValue);
-    if (value.blobValue !== undefined) return visitor.blobValue(value.blobValue);
-    if (value.timestampValue !== undefined) return visitor.timestampValue(value.timestampValue);
-    if (value.enumValue !== undefined) return visitor.enumValue(value.enumValue);
-    if (value.listValue !== undefined) return visitor.listValue(value.listValue);
-    if (value.mapValue !== undefined) return visitor.mapValue(value.mapValue);
-    if (value.structureValue !== undefined) return visitor.structureValue(value.structureValue);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**

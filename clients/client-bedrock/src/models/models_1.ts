@@ -1190,15 +1190,14 @@ export namespace InferenceProfileModelSource {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     copyFrom: (value: string) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: InferenceProfileModelSource, visitor: Visitor<T>): T => {
-    if (value.copyFrom !== undefined) return visitor.copyFrom(value.copyFrom);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -2480,15 +2479,14 @@ export namespace ModelInvocationJobInputDataConfig {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     s3InputDataConfig: (value: ModelInvocationJobS3InputDataConfig) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: ModelInvocationJobInputDataConfig, visitor: Visitor<T>): T => {
-    if (value.s3InputDataConfig !== undefined) return visitor.s3InputDataConfig(value.s3InputDataConfig);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -2544,15 +2542,14 @@ export namespace ModelInvocationJobOutputDataConfig {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     s3OutputDataConfig: (value: ModelInvocationJobS3OutputDataConfig) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: ModelInvocationJobOutputDataConfig, visitor: Visitor<T>): T => {
-    if (value.s3OutputDataConfig !== undefined) return visitor.s3OutputDataConfig(value.s3OutputDataConfig);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -5156,6 +5153,10 @@ export namespace RetrievalFilter {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     equals: (value: FilterAttribute) => T;
     notEquals: (value: FilterAttribute) => T;
@@ -5172,23 +5173,6 @@ export namespace RetrievalFilter {
     orAll: (value: RetrievalFilter[]) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: RetrievalFilter, visitor: Visitor<T>): T => {
-    if (value.equals !== undefined) return visitor.equals(value.equals);
-    if (value.notEquals !== undefined) return visitor.notEquals(value.notEquals);
-    if (value.greaterThan !== undefined) return visitor.greaterThan(value.greaterThan);
-    if (value.greaterThanOrEquals !== undefined) return visitor.greaterThanOrEquals(value.greaterThanOrEquals);
-    if (value.lessThan !== undefined) return visitor.lessThan(value.lessThan);
-    if (value.lessThanOrEquals !== undefined) return visitor.lessThanOrEquals(value.lessThanOrEquals);
-    if (value.in !== undefined) return visitor.in(value.in);
-    if (value.notIn !== undefined) return visitor.notIn(value.notIn);
-    if (value.startsWith !== undefined) return visitor.startsWith(value.startsWith);
-    if (value.listContains !== undefined) return visitor.listContains(value.listContains);
-    if (value.stringContains !== undefined) return visitor.stringContains(value.stringContains);
-    if (value.andAll !== undefined) return visitor.andAll(value.andAll);
-    if (value.orAll !== undefined) return visitor.orAll(value.orAll);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -5359,18 +5343,15 @@ export namespace KnowledgeBaseConfig {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     retrieveConfig: (value: RetrieveConfig) => T;
     retrieveAndGenerateConfig: (value: RetrieveAndGenerateConfiguration) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: KnowledgeBaseConfig, visitor: Visitor<T>): T => {
-    if (value.retrieveConfig !== undefined) return visitor.retrieveConfig(value.retrieveConfig);
-    if (value.retrieveAndGenerateConfig !== undefined)
-      return visitor.retrieveAndGenerateConfig(value.retrieveAndGenerateConfig);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -5415,18 +5396,15 @@ export namespace RAGConfig {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     knowledgeBaseConfig: (value: KnowledgeBaseConfig) => T;
     precomputedRagSourceConfig: (value: EvaluationPrecomputedRagSourceConfig) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: RAGConfig, visitor: Visitor<T>): T => {
-    if (value.knowledgeBaseConfig !== undefined) return visitor.knowledgeBaseConfig(value.knowledgeBaseConfig);
-    if (value.precomputedRagSourceConfig !== undefined)
-      return visitor.precomputedRagSourceConfig(value.precomputedRagSourceConfig);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -5471,17 +5449,15 @@ export namespace EvaluationInferenceConfig {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     models: (value: EvaluationModelConfig[]) => T;
     ragConfigs: (value: RAGConfig[]) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: EvaluationInferenceConfig, visitor: Visitor<T>): T => {
-    if (value.models !== undefined) return visitor.models(value.models);
-    if (value.ragConfigs !== undefined) return visitor.ragConfigs(value.ragConfigs);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**

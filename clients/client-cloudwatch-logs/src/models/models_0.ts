@@ -4554,16 +4554,14 @@ export namespace IntegrationDetails {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     openSearchIntegrationDetails: (value: OpenSearchIntegrationDetails) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: IntegrationDetails, visitor: Visitor<T>): T => {
-    if (value.openSearchIntegrationDetails !== undefined)
-      return visitor.openSearchIntegrationDetails(value.openSearchIntegrationDetails);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -4999,18 +4997,15 @@ export namespace GetLogObjectResponseStream {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     fields: (value: FieldsData) => T;
     InternalStreamingException: (value: InternalStreamingException) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: GetLogObjectResponseStream, visitor: Visitor<T>): T => {
-    if (value.fields !== undefined) return visitor.fields(value.fields);
-    if (value.InternalStreamingException !== undefined)
-      return visitor.InternalStreamingException(value.InternalStreamingException);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -7140,16 +7135,14 @@ export namespace ResourceConfig {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     openSearchResourceConfig: (value: OpenSearchResourceConfig) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: ResourceConfig, visitor: Visitor<T>): T => {
-    if (value.openSearchResourceConfig !== undefined)
-      return visitor.openSearchResourceConfig(value.openSearchResourceConfig);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -7824,6 +7817,10 @@ export namespace StartLiveTailResponseStream {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     sessionStart: (value: LiveTailSessionStart) => T;
     sessionUpdate: (value: LiveTailSessionUpdate) => T;
@@ -7831,16 +7828,6 @@ export namespace StartLiveTailResponseStream {
     SessionStreamingException: (value: SessionStreamingException) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: StartLiveTailResponseStream, visitor: Visitor<T>): T => {
-    if (value.sessionStart !== undefined) return visitor.sessionStart(value.sessionStart);
-    if (value.sessionUpdate !== undefined) return visitor.sessionUpdate(value.sessionUpdate);
-    if (value.SessionTimeoutException !== undefined)
-      return visitor.SessionTimeoutException(value.SessionTimeoutException);
-    if (value.SessionStreamingException !== undefined)
-      return visitor.SessionStreamingException(value.SessionStreamingException);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**

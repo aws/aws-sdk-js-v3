@@ -162,20 +162,16 @@ export namespace DialerConfig {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     progressiveDialerConfig: (value: ProgressiveDialerConfig) => T;
     predictiveDialerConfig: (value: PredictiveDialerConfig) => T;
     agentlessDialerConfig: (value: AgentlessDialerConfig) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: DialerConfig, visitor: Visitor<T>): T => {
-    if (value.progressiveDialerConfig !== undefined)
-      return visitor.progressiveDialerConfig(value.progressiveDialerConfig);
-    if (value.predictiveDialerConfig !== undefined) return visitor.predictiveDialerConfig(value.predictiveDialerConfig);
-    if (value.agentlessDialerConfig !== undefined) return visitor.agentlessDialerConfig(value.agentlessDialerConfig);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**

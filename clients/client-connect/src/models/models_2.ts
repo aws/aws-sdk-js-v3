@@ -816,6 +816,10 @@ export namespace ReferenceSummary {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     Url: (value: UrlReference) => T;
     Attachment: (value: AttachmentReference) => T;
@@ -826,17 +830,6 @@ export namespace ReferenceSummary {
     Email: (value: EmailReference) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: ReferenceSummary, visitor: Visitor<T>): T => {
-    if (value.Url !== undefined) return visitor.Url(value.Url);
-    if (value.Attachment !== undefined) return visitor.Attachment(value.Attachment);
-    if (value.EmailMessage !== undefined) return visitor.EmailMessage(value.EmailMessage);
-    if (value.String !== undefined) return visitor.String(value.String);
-    if (value.Number !== undefined) return visitor.Number(value.Number);
-    if (value.Date !== undefined) return visitor.Date(value.Date);
-    if (value.Email !== undefined) return visitor.Email(value.Email);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -2525,15 +2518,14 @@ export namespace RealTimeContactAnalysisTimeData {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     AbsoluteTime: (value: Date) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: RealTimeContactAnalysisTimeData, visitor: Visitor<T>): T => {
-    if (value.AbsoluteTime !== undefined) return visitor.AbsoluteTime(value.AbsoluteTime);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -3038,6 +3030,10 @@ export namespace RealtimeContactAnalysisSegment {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     Transcript: (value: RealTimeContactAnalysisSegmentTranscript) => T;
     Categories: (value: RealTimeContactAnalysisSegmentCategories) => T;
@@ -3047,16 +3043,6 @@ export namespace RealtimeContactAnalysisSegment {
     PostContactSummary: (value: RealTimeContactAnalysisSegmentPostContactSummary) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: RealtimeContactAnalysisSegment, visitor: Visitor<T>): T => {
-    if (value.Transcript !== undefined) return visitor.Transcript(value.Transcript);
-    if (value.Categories !== undefined) return visitor.Categories(value.Categories);
-    if (value.Issues !== undefined) return visitor.Issues(value.Issues);
-    if (value.Event !== undefined) return visitor.Event(value.Event);
-    if (value.Attachments !== undefined) return visitor.Attachments(value.Attachments);
-    if (value.PostContactSummary !== undefined) return visitor.PostContactSummary(value.PostContactSummary);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**

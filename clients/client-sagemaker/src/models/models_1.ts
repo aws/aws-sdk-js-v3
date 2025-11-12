@@ -714,15 +714,14 @@ export namespace CollectionConfig {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     VectorConfig: (value: VectorConfig) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: CollectionConfig, visitor: Visitor<T>): T => {
-    if (value.VectorConfig !== undefined) return visitor.VectorConfig(value.VectorConfig);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -3483,20 +3482,16 @@ export namespace CustomFileSystemConfig {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     EFSFileSystemConfig: (value: EFSFileSystemConfig) => T;
     FSxLustreFileSystemConfig: (value: FSxLustreFileSystemConfig) => T;
     S3FileSystemConfig: (value: S3FileSystemConfig) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: CustomFileSystemConfig, visitor: Visitor<T>): T => {
-    if (value.EFSFileSystemConfig !== undefined) return visitor.EFSFileSystemConfig(value.EFSFileSystemConfig);
-    if (value.FSxLustreFileSystemConfig !== undefined)
-      return visitor.FSxLustreFileSystemConfig(value.FSxLustreFileSystemConfig);
-    if (value.S3FileSystemConfig !== undefined) return visitor.S3FileSystemConfig(value.S3FileSystemConfig);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**

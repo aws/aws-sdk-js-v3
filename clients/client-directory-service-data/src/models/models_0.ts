@@ -403,6 +403,10 @@ export namespace AttributeValue {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     S: (value: string) => T;
     N: (value: number) => T;
@@ -410,14 +414,6 @@ export namespace AttributeValue {
     SS: (value: string[]) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: AttributeValue, visitor: Visitor<T>): T => {
-    if (value.S !== undefined) return visitor.S(value.S);
-    if (value.N !== undefined) return visitor.N(value.N);
-    if (value.BOOL !== undefined) return visitor.BOOL(value.BOOL);
-    if (value.SS !== undefined) return visitor.SS(value.SS);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**

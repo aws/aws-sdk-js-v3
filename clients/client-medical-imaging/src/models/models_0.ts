@@ -1539,6 +1539,10 @@ export namespace SearchByAttributeValue {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     DICOMPatientId: (value: string) => T;
     DICOMAccessionNumber: (value: string) => T;
@@ -1551,19 +1555,6 @@ export namespace SearchByAttributeValue {
     isPrimary: (value: boolean) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: SearchByAttributeValue, visitor: Visitor<T>): T => {
-    if (value.DICOMPatientId !== undefined) return visitor.DICOMPatientId(value.DICOMPatientId);
-    if (value.DICOMAccessionNumber !== undefined) return visitor.DICOMAccessionNumber(value.DICOMAccessionNumber);
-    if (value.DICOMStudyId !== undefined) return visitor.DICOMStudyId(value.DICOMStudyId);
-    if (value.DICOMStudyInstanceUID !== undefined) return visitor.DICOMStudyInstanceUID(value.DICOMStudyInstanceUID);
-    if (value.DICOMSeriesInstanceUID !== undefined) return visitor.DICOMSeriesInstanceUID(value.DICOMSeriesInstanceUID);
-    if (value.createdAt !== undefined) return visitor.createdAt(value.createdAt);
-    if (value.updatedAt !== undefined) return visitor.updatedAt(value.updatedAt);
-    if (value.DICOMStudyDateAndTime !== undefined) return visitor.DICOMStudyDateAndTime(value.DICOMStudyDateAndTime);
-    if (value.isPrimary !== undefined) return visitor.isPrimary(value.isPrimary);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -2037,17 +2028,15 @@ export namespace MetadataUpdates {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     DICOMUpdates: (value: DICOMUpdates) => T;
     revertToVersionId: (value: string) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: MetadataUpdates, visitor: Visitor<T>): T => {
-    if (value.DICOMUpdates !== undefined) return visitor.DICOMUpdates(value.DICOMUpdates);
-    if (value.revertToVersionId !== undefined) return visitor.revertToVersionId(value.revertToVersionId);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**

@@ -826,6 +826,10 @@ export namespace ArrayValue {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     booleanValues: (value: boolean[]) => T;
     longValues: (value: number[]) => T;
@@ -834,15 +838,6 @@ export namespace ArrayValue {
     arrayValues: (value: ArrayValue[]) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: ArrayValue, visitor: Visitor<T>): T => {
-    if (value.booleanValues !== undefined) return visitor.booleanValues(value.booleanValues);
-    if (value.longValues !== undefined) return visitor.longValues(value.longValues);
-    if (value.doubleValues !== undefined) return visitor.doubleValues(value.doubleValues);
-    if (value.stringValues !== undefined) return visitor.stringValues(value.stringValues);
-    if (value.arrayValues !== undefined) return visitor.arrayValues(value.arrayValues);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -982,6 +977,10 @@ export namespace Field {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     isNull: (value: boolean) => T;
     booleanValue: (value: boolean) => T;
@@ -992,17 +991,6 @@ export namespace Field {
     arrayValue: (value: ArrayValue) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: Field, visitor: Visitor<T>): T => {
-    if (value.isNull !== undefined) return visitor.isNull(value.isNull);
-    if (value.booleanValue !== undefined) return visitor.booleanValue(value.booleanValue);
-    if (value.longValue !== undefined) return visitor.longValue(value.longValue);
-    if (value.doubleValue !== undefined) return visitor.doubleValue(value.doubleValue);
-    if (value.stringValue !== undefined) return visitor.stringValue(value.stringValue);
-    if (value.blobValue !== undefined) return visitor.blobValue(value.blobValue);
-    if (value.arrayValue !== undefined) return visitor.arrayValue(value.arrayValue);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -1297,6 +1285,10 @@ export namespace Value {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     isNull: (value: boolean) => T;
     bitValue: (value: boolean) => T;
@@ -1310,20 +1302,6 @@ export namespace Value {
     structValue: (value: StructValue) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: Value, visitor: Visitor<T>): T => {
-    if (value.isNull !== undefined) return visitor.isNull(value.isNull);
-    if (value.bitValue !== undefined) return visitor.bitValue(value.bitValue);
-    if (value.bigIntValue !== undefined) return visitor.bigIntValue(value.bigIntValue);
-    if (value.intValue !== undefined) return visitor.intValue(value.intValue);
-    if (value.doubleValue !== undefined) return visitor.doubleValue(value.doubleValue);
-    if (value.realValue !== undefined) return visitor.realValue(value.realValue);
-    if (value.stringValue !== undefined) return visitor.stringValue(value.stringValue);
-    if (value.blobValue !== undefined) return visitor.blobValue(value.blobValue);
-    if (value.arrayValues !== undefined) return visitor.arrayValues(value.arrayValues);
-    if (value.structValue !== undefined) return visitor.structValue(value.structValue);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**

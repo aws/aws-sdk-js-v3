@@ -2626,19 +2626,16 @@ export namespace SearchSortExpression {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     userJobsFirst: (value: UserJobsFirst) => T;
     fieldSort: (value: FieldSortExpression) => T;
     parameterSort: (value: ParameterSortExpression) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: SearchSortExpression, visitor: Visitor<T>): T => {
-    if (value.userJobsFirst !== undefined) return visitor.userJobsFirst(value.userJobsFirst);
-    if (value.fieldSort !== undefined) return visitor.fieldSort(value.fieldSort);
-    if (value.parameterSort !== undefined) return visitor.parameterSort(value.parameterSort);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -3274,17 +3271,15 @@ export namespace SessionsStatisticsResources {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     queueIds: (value: string[]) => T;
     fleetIds: (value: string[]) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: SessionsStatisticsResources, visitor: Visitor<T>): T => {
-    if (value.queueIds !== undefined) return visitor.queueIds(value.queueIds);
-    if (value.fleetIds !== undefined) return visitor.fleetIds(value.fleetIds);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -3609,6 +3604,10 @@ export namespace SearchFilterExpression {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     dateTimeFilter: (value: DateTimeFilterExpression) => T;
     parameterFilter: (value: ParameterFilterExpression) => T;
@@ -3617,15 +3616,6 @@ export namespace SearchFilterExpression {
     groupFilter: (value: SearchGroupedFilterExpressions) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: SearchFilterExpression, visitor: Visitor<T>): T => {
-    if (value.dateTimeFilter !== undefined) return visitor.dateTimeFilter(value.dateTimeFilter);
-    if (value.parameterFilter !== undefined) return visitor.parameterFilter(value.parameterFilter);
-    if (value.searchTermFilter !== undefined) return visitor.searchTermFilter(value.searchTermFilter);
-    if (value.stringFilter !== undefined) return visitor.stringFilter(value.stringFilter);
-    if (value.groupFilter !== undefined) return visitor.groupFilter(value.groupFilter);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**

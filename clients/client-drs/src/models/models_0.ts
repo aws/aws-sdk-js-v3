@@ -121,15 +121,14 @@ export namespace ParticipatingResourceID {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     sourceNetworkID: (value: string) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: ParticipatingResourceID, visitor: Visitor<T>): T => {
-    if (value.sourceNetworkID !== undefined) return visitor.sourceNetworkID(value.sourceNetworkID);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -2340,15 +2339,14 @@ export namespace EventResourceData {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     sourceNetworkData: (value: SourceNetworkData) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: EventResourceData, visitor: Visitor<T>): T => {
-    if (value.sourceNetworkData !== undefined) return visitor.sourceNetworkData(value.sourceNetworkData);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**

@@ -837,15 +837,14 @@ export namespace AuthenticationMethod {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     Iam: (value: IamAuthenticationMethod) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: AuthenticationMethod, visitor: Visitor<T>): T => {
-    if (value.Iam !== undefined) return visitor.Iam(value.Iam);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -1112,6 +1111,10 @@ export namespace Grant {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     AuthorizationCode: (value: AuthorizationCodeGrant) => T;
     JwtBearer: (value: JwtBearerGrant) => T;
@@ -1119,14 +1122,6 @@ export namespace Grant {
     TokenExchange: (value: TokenExchangeGrant) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: Grant, visitor: Visitor<T>): T => {
-    if (value.AuthorizationCode !== undefined) return visitor.AuthorizationCode(value.AuthorizationCode);
-    if (value.JwtBearer !== undefined) return visitor.JwtBearer(value.JwtBearer);
-    if (value.RefreshToken !== undefined) return visitor.RefreshToken(value.RefreshToken);
-    if (value.TokenExchange !== undefined) return visitor.TokenExchange(value.TokenExchange);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -1823,15 +1818,14 @@ export namespace TrustedTokenIssuerConfiguration {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     OidcJwtConfiguration: (value: OidcJwtConfiguration) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: TrustedTokenIssuerConfiguration, visitor: Visitor<T>): T => {
-    if (value.OidcJwtConfiguration !== undefined) return visitor.OidcJwtConfiguration(value.OidcJwtConfiguration);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -4200,15 +4194,14 @@ export namespace TrustedTokenIssuerUpdateConfiguration {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     OidcJwtConfiguration: (value: OidcJwtUpdateConfiguration) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: TrustedTokenIssuerUpdateConfiguration, visitor: Visitor<T>): T => {
-    if (value.OidcJwtConfiguration !== undefined) return visitor.OidcJwtConfiguration(value.OidcJwtConfiguration);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**

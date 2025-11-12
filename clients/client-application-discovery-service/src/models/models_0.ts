@@ -2628,16 +2628,14 @@ export namespace ExportPreferences {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     ec2RecommendationsPreferences: (value: Ec2RecommendationsExportPreferences) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: ExportPreferences, visitor: Visitor<T>): T => {
-    if (value.ec2RecommendationsPreferences !== undefined)
-      return visitor.ec2RecommendationsPreferences(value.ec2RecommendationsPreferences);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**

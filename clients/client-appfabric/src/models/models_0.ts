@@ -360,17 +360,15 @@ export namespace Destination {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     s3Bucket: (value: S3Bucket) => T;
     firehoseStream: (value: FirehoseStream) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: Destination, visitor: Visitor<T>): T => {
-    if (value.s3Bucket !== undefined) return visitor.s3Bucket(value.s3Bucket);
-    if (value.firehoseStream !== undefined) return visitor.firehoseStream(value.firehoseStream);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -919,17 +917,15 @@ export namespace Credential {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     oauth2Credential: (value: Oauth2Credential) => T;
     apiKeyCredential: (value: ApiKeyCredential) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: Credential, visitor: Visitor<T>): T => {
-    if (value.oauth2Credential !== undefined) return visitor.oauth2Credential(value.oauth2Credential);
-    if (value.apiKeyCredential !== undefined) return visitor.apiKeyCredential(value.apiKeyCredential);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -1414,15 +1410,14 @@ export namespace DestinationConfiguration {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     auditLog: (value: AuditLogDestinationConfiguration) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: DestinationConfiguration, visitor: Visitor<T>): T => {
-    if (value.auditLog !== undefined) return visitor.auditLog(value.auditLog);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -1452,15 +1447,14 @@ export namespace ProcessingConfiguration {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     auditLog: (value: AuditLogProcessingConfiguration) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: ProcessingConfiguration, visitor: Visitor<T>): T => {
-    if (value.auditLog !== undefined) return visitor.auditLog(value.auditLog);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**

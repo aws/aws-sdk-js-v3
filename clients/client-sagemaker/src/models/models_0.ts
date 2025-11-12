@@ -4677,6 +4677,10 @@ export namespace AutoMLProblemTypeConfig {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     ImageClassificationJobConfig: (value: ImageClassificationJobConfig) => T;
     TextClassificationJobConfig: (value: TextClassificationJobConfig) => T;
@@ -4685,19 +4689,6 @@ export namespace AutoMLProblemTypeConfig {
     TextGenerationJobConfig: (value: TextGenerationJobConfig) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: AutoMLProblemTypeConfig, visitor: Visitor<T>): T => {
-    if (value.ImageClassificationJobConfig !== undefined)
-      return visitor.ImageClassificationJobConfig(value.ImageClassificationJobConfig);
-    if (value.TextClassificationJobConfig !== undefined)
-      return visitor.TextClassificationJobConfig(value.TextClassificationJobConfig);
-    if (value.TimeSeriesForecastingJobConfig !== undefined)
-      return visitor.TimeSeriesForecastingJobConfig(value.TimeSeriesForecastingJobConfig);
-    if (value.TabularJobConfig !== undefined) return visitor.TabularJobConfig(value.TabularJobConfig);
-    if (value.TextGenerationJobConfig !== undefined)
-      return visitor.TextGenerationJobConfig(value.TextGenerationJobConfig);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -4784,19 +4775,15 @@ export namespace AutoMLProblemTypeResolvedAttributes {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     TabularResolvedAttributes: (value: TabularResolvedAttributes) => T;
     TextGenerationResolvedAttributes: (value: TextGenerationResolvedAttributes) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: AutoMLProblemTypeResolvedAttributes, visitor: Visitor<T>): T => {
-    if (value.TabularResolvedAttributes !== undefined)
-      return visitor.TabularResolvedAttributes(value.TabularResolvedAttributes);
-    if (value.TextGenerationResolvedAttributes !== undefined)
-      return visitor.TextGenerationResolvedAttributes(value.TextGenerationResolvedAttributes);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -7056,6 +7043,10 @@ export namespace EventMetadata {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     Cluster: (value: ClusterMetadata) => T;
     InstanceGroup: (value: InstanceGroupMetadata) => T;
@@ -7063,14 +7054,6 @@ export namespace EventMetadata {
     Instance: (value: InstanceMetadata) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: EventMetadata, visitor: Visitor<T>): T => {
-    if (value.Cluster !== undefined) return visitor.Cluster(value.Cluster);
-    if (value.InstanceGroup !== undefined) return visitor.InstanceGroup(value.InstanceGroup);
-    if (value.InstanceGroupScaling !== undefined) return visitor.InstanceGroupScaling(value.InstanceGroupScaling);
-    if (value.Instance !== undefined) return visitor.Instance(value.Instance);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -7285,15 +7268,14 @@ export namespace ClusterInstanceStorageConfig {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     EbsVolumeConfig: (value: ClusterEbsVolumeConfig) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: ClusterInstanceStorageConfig, visitor: Visitor<T>): T => {
-    if (value.EbsVolumeConfig !== undefined) return visitor.EbsVolumeConfig(value.EbsVolumeConfig);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**

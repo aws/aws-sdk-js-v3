@@ -371,19 +371,16 @@ export namespace DestinationConfiguration {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     s3: (value: S3DestinationConfiguration) => T;
     cloudWatchLogs: (value: CloudWatchLogsDestinationConfiguration) => T;
     firehose: (value: FirehoseDestinationConfiguration) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: DestinationConfiguration, visitor: Visitor<T>): T => {
-    if (value.s3 !== undefined) return visitor.s3(value.s3);
-    if (value.cloudWatchLogs !== undefined) return visitor.cloudWatchLogs(value.cloudWatchLogs);
-    if (value.firehose !== undefined) return visitor.firehose(value.firehose);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**

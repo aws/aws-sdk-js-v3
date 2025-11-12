@@ -1735,6 +1735,10 @@ export namespace DeploymentState {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     serviceInstance: (value: ServiceInstanceState) => T;
     environment: (value: EnvironmentState) => T;
@@ -1742,14 +1746,6 @@ export namespace DeploymentState {
     component: (value: ComponentState) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: DeploymentState, visitor: Visitor<T>): T => {
-    if (value.serviceInstance !== undefined) return visitor.serviceInstance(value.serviceInstance);
-    if (value.environment !== undefined) return visitor.environment(value.environment);
-    if (value.servicePipeline !== undefined) return visitor.servicePipeline(value.servicePipeline);
-    if (value.component !== undefined) return visitor.component(value.component);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -3298,15 +3294,14 @@ export namespace TemplateVersionSourceInput {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     s3: (value: S3ObjectSource) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: TemplateVersionSourceInput, visitor: Visitor<T>): T => {
-    if (value.s3 !== undefined) return visitor.s3(value.s3);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**

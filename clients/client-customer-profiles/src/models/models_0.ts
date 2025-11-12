@@ -4089,17 +4089,15 @@ export namespace Dimension {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     ProfileAttributes: (value: ProfileAttributes) => T;
     CalculatedAttributes: (value: Record<string, CalculatedAttributeDimension>) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: Dimension, visitor: Visitor<T>): T => {
-    if (value.ProfileAttributes !== undefined) return visitor.ProfileAttributes(value.ProfileAttributes);
-    if (value.CalculatedAttributes !== undefined) return visitor.CalculatedAttributes(value.CalculatedAttributes);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**

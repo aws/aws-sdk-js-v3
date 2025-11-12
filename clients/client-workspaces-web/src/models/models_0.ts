@@ -3536,17 +3536,15 @@ export namespace EventFilter {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     all: (value: Unit) => T;
     include: (value: Event[]) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: EventFilter, visitor: Visitor<T>): T => {
-    if (value.all !== undefined) return visitor.all(value.all);
-    if (value.include !== undefined) return visitor.include(value.include);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**

@@ -538,15 +538,14 @@ export namespace MobileDeviceManagement {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     Intune: (value: IntuneConfiguration) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: MobileDeviceManagement, visitor: Visitor<T>): T => {
-    if (value.Intune !== undefined) return visitor.Intune(value.Intune);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**

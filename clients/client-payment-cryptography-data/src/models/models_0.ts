@@ -408,6 +408,10 @@ export namespace CardGenerationAttributes {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     AmexCardSecurityCodeVersion1: (value: AmexCardSecurityCodeVersion1) => T;
     AmexCardSecurityCodeVersion2: (value: AmexCardSecurityCodeVersion2) => T;
@@ -418,22 +422,6 @@ export namespace CardGenerationAttributes {
     DynamicCardVerificationValue: (value: DynamicCardVerificationValue) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: CardGenerationAttributes, visitor: Visitor<T>): T => {
-    if (value.AmexCardSecurityCodeVersion1 !== undefined)
-      return visitor.AmexCardSecurityCodeVersion1(value.AmexCardSecurityCodeVersion1);
-    if (value.AmexCardSecurityCodeVersion2 !== undefined)
-      return visitor.AmexCardSecurityCodeVersion2(value.AmexCardSecurityCodeVersion2);
-    if (value.CardVerificationValue1 !== undefined) return visitor.CardVerificationValue1(value.CardVerificationValue1);
-    if (value.CardVerificationValue2 !== undefined) return visitor.CardVerificationValue2(value.CardVerificationValue2);
-    if (value.CardHolderVerificationValue !== undefined)
-      return visitor.CardHolderVerificationValue(value.CardHolderVerificationValue);
-    if (value.DynamicCardVerificationCode !== undefined)
-      return visitor.DynamicCardVerificationCode(value.DynamicCardVerificationCode);
-    if (value.DynamicCardVerificationValue !== undefined)
-      return visitor.DynamicCardVerificationValue(value.DynamicCardVerificationValue);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -622,6 +610,10 @@ export namespace CardVerificationAttributes {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     AmexCardSecurityCodeVersion1: (value: AmexCardSecurityCodeVersion1) => T;
     AmexCardSecurityCodeVersion2: (value: AmexCardSecurityCodeVersion2) => T;
@@ -633,24 +625,6 @@ export namespace CardVerificationAttributes {
     DiscoverDynamicCardVerificationCode: (value: DiscoverDynamicCardVerificationCode) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: CardVerificationAttributes, visitor: Visitor<T>): T => {
-    if (value.AmexCardSecurityCodeVersion1 !== undefined)
-      return visitor.AmexCardSecurityCodeVersion1(value.AmexCardSecurityCodeVersion1);
-    if (value.AmexCardSecurityCodeVersion2 !== undefined)
-      return visitor.AmexCardSecurityCodeVersion2(value.AmexCardSecurityCodeVersion2);
-    if (value.CardVerificationValue1 !== undefined) return visitor.CardVerificationValue1(value.CardVerificationValue1);
-    if (value.CardVerificationValue2 !== undefined) return visitor.CardVerificationValue2(value.CardVerificationValue2);
-    if (value.CardHolderVerificationValue !== undefined)
-      return visitor.CardHolderVerificationValue(value.CardHolderVerificationValue);
-    if (value.DynamicCardVerificationCode !== undefined)
-      return visitor.DynamicCardVerificationCode(value.DynamicCardVerificationCode);
-    if (value.DynamicCardVerificationValue !== undefined)
-      return visitor.DynamicCardVerificationValue(value.DynamicCardVerificationValue);
-    if (value.DiscoverDynamicCardVerificationCode !== undefined)
-      return visitor.DiscoverDynamicCardVerificationCode(value.DiscoverDynamicCardVerificationCode);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -725,17 +699,15 @@ export namespace CryptogramAuthResponse {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     ArpcMethod1: (value: CryptogramVerificationArpcMethod1) => T;
     ArpcMethod2: (value: CryptogramVerificationArpcMethod2) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: CryptogramAuthResponse, visitor: Visitor<T>): T => {
-    if (value.ArpcMethod1 !== undefined) return visitor.ArpcMethod1(value.ArpcMethod1);
-    if (value.ArpcMethod2 !== undefined) return visitor.ArpcMethod2(value.ArpcMethod2);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -1008,6 +980,10 @@ export namespace EncryptionDecryptionAttributes {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     Symmetric: (value: SymmetricEncryptionAttributes) => T;
     Asymmetric: (value: AsymmetricEncryptionAttributes) => T;
@@ -1015,14 +991,6 @@ export namespace EncryptionDecryptionAttributes {
     Emv: (value: EmvEncryptionAttributes) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: EncryptionDecryptionAttributes, visitor: Visitor<T>): T => {
-    if (value.Symmetric !== undefined) return visitor.Symmetric(value.Symmetric);
-    if (value.Asymmetric !== undefined) return visitor.Asymmetric(value.Asymmetric);
-    if (value.Dukpt !== undefined) return visitor.Dukpt(value.Dukpt);
-    if (value.Emv !== undefined) return visitor.Emv(value.Emv);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -1175,18 +1143,15 @@ export namespace WrappedKeyMaterial {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     Tr31KeyBlock: (value: string) => T;
     DiffieHellmanSymmetricKey: (value: EcdhDerivationAttributes) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: WrappedKeyMaterial, visitor: Visitor<T>): T => {
-    if (value.Tr31KeyBlock !== undefined) return visitor.Tr31KeyBlock(value.Tr31KeyBlock);
-    if (value.DiffieHellmanSymmetricKey !== undefined)
-      return visitor.DiffieHellmanSymmetricKey(value.DiffieHellmanSymmetricKey);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -1645,6 +1610,10 @@ export namespace DerivationMethodAttributes {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     EmvCommon: (value: EmvCommonAttributes) => T;
     Amex: (value: AmexAttributes) => T;
@@ -1653,15 +1622,6 @@ export namespace DerivationMethodAttributes {
     Mastercard: (value: MasterCardAttributes) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: DerivationMethodAttributes, visitor: Visitor<T>): T => {
-    if (value.EmvCommon !== undefined) return visitor.EmvCommon(value.EmvCommon);
-    if (value.Amex !== undefined) return visitor.Amex(value.Amex);
-    if (value.Visa !== undefined) return visitor.Visa(value.Visa);
-    if (value.Emv2000 !== undefined) return visitor.Emv2000(value.Emv2000);
-    if (value.Mastercard !== undefined) return visitor.Mastercard(value.Mastercard);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -1693,15 +1653,14 @@ export namespace DiffieHellmanDerivationData {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     SharedInformation: (value: string) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: DiffieHellmanDerivationData, visitor: Visitor<T>): T => {
-    if (value.SharedInformation !== undefined) return visitor.SharedInformation(value.SharedInformation);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -1953,18 +1912,15 @@ export namespace SessionKeyDerivationValue {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     ApplicationCryptogram: (value: string) => T;
     ApplicationTransactionCounter: (value: string) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: SessionKeyDerivationValue, visitor: Visitor<T>): T => {
-    if (value.ApplicationCryptogram !== undefined) return visitor.ApplicationCryptogram(value.ApplicationCryptogram);
-    if (value.ApplicationTransactionCounter !== undefined)
-      return visitor.ApplicationTransactionCounter(value.ApplicationTransactionCounter);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -2096,6 +2052,10 @@ export namespace MacAttributes {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     Algorithm: (value: MacAlgorithm) => T;
     EmvMac: (value: MacAlgorithmEmv) => T;
@@ -2104,15 +2064,6 @@ export namespace MacAttributes {
     DukptCmac: (value: MacAlgorithmDukpt) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: MacAttributes, visitor: Visitor<T>): T => {
-    if (value.Algorithm !== undefined) return visitor.Algorithm(value.Algorithm);
-    if (value.EmvMac !== undefined) return visitor.EmvMac(value.EmvMac);
-    if (value.DukptIso9797Algorithm1 !== undefined) return visitor.DukptIso9797Algorithm1(value.DukptIso9797Algorithm1);
-    if (value.DukptIso9797Algorithm3 !== undefined) return visitor.DukptIso9797Algorithm3(value.DukptIso9797Algorithm3);
-    if (value.DukptCmac !== undefined) return visitor.DukptCmac(value.DukptCmac);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -2571,6 +2522,10 @@ export namespace PinGenerationAttributes {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     VisaPin: (value: VisaPin) => T;
     VisaPinVerificationValue: (value: VisaPinVerificationValue) => T;
@@ -2580,17 +2535,6 @@ export namespace PinGenerationAttributes {
     Ibm3624PinFromOffset: (value: Ibm3624PinFromOffset) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: PinGenerationAttributes, visitor: Visitor<T>): T => {
-    if (value.VisaPin !== undefined) return visitor.VisaPin(value.VisaPin);
-    if (value.VisaPinVerificationValue !== undefined)
-      return visitor.VisaPinVerificationValue(value.VisaPinVerificationValue);
-    if (value.Ibm3624PinOffset !== undefined) return visitor.Ibm3624PinOffset(value.Ibm3624PinOffset);
-    if (value.Ibm3624NaturalPin !== undefined) return visitor.Ibm3624NaturalPin(value.Ibm3624NaturalPin);
-    if (value.Ibm3624RandomPin !== undefined) return visitor.Ibm3624RandomPin(value.Ibm3624RandomPin);
-    if (value.Ibm3624PinFromOffset !== undefined) return visitor.Ibm3624PinFromOffset(value.Ibm3624PinFromOffset);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -2695,17 +2639,15 @@ export namespace PinData {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     PinOffset: (value: string) => T;
     VerificationValue: (value: string) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: PinData, visitor: Visitor<T>): T => {
-    if (value.PinOffset !== undefined) return visitor.PinOffset(value.PinOffset);
-    if (value.VerificationValue !== undefined) return visitor.VerificationValue(value.VerificationValue);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -2862,16 +2804,14 @@ export namespace IncomingKeyMaterial {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     DiffieHellmanTr31KeyBlock: (value: IncomingDiffieHellmanTr31KeyBlock) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: IncomingKeyMaterial, visitor: Visitor<T>): T => {
-    if (value.DiffieHellmanTr31KeyBlock !== undefined)
-      return visitor.DiffieHellmanTr31KeyBlock(value.DiffieHellmanTr31KeyBlock);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -2913,15 +2853,14 @@ export namespace OutgoingKeyMaterial {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     Tr31KeyBlock: (value: OutgoingTr31KeyBlock) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: OutgoingKeyMaterial, visitor: Visitor<T>): T => {
-    if (value.Tr31KeyBlock !== undefined) return visitor.Tr31KeyBlock(value.Tr31KeyBlock);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -2966,17 +2905,15 @@ export namespace ReEncryptionAttributes {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     Symmetric: (value: SymmetricEncryptionAttributes) => T;
     Dukpt: (value: DukptEncryptionAttributes) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: ReEncryptionAttributes, visitor: Visitor<T>): T => {
-    if (value.Symmetric !== undefined) return visitor.Symmetric(value.Symmetric);
-    if (value.Dukpt !== undefined) return visitor.Dukpt(value.Dukpt);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -3214,6 +3151,10 @@ export namespace TranslationIsoFormats {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     IsoFormat0: (value: TranslationPinDataIsoFormat034) => T;
     IsoFormat1: (value: TranslationPinDataIsoFormat1) => T;
@@ -3221,14 +3162,6 @@ export namespace TranslationIsoFormats {
     IsoFormat4: (value: TranslationPinDataIsoFormat034) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: TranslationIsoFormats, visitor: Visitor<T>): T => {
-    if (value.IsoFormat0 !== undefined) return visitor.IsoFormat0(value.IsoFormat0);
-    if (value.IsoFormat1 !== undefined) return visitor.IsoFormat1(value.IsoFormat1);
-    if (value.IsoFormat3 !== undefined) return visitor.IsoFormat3(value.IsoFormat3);
-    if (value.IsoFormat4 !== undefined) return visitor.IsoFormat4(value.IsoFormat4);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -3565,6 +3498,10 @@ export namespace SessionKeyDerivation {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     EmvCommon: (value: SessionKeyEmvCommon) => T;
     Mastercard: (value: SessionKeyMastercard) => T;
@@ -3573,15 +3510,6 @@ export namespace SessionKeyDerivation {
     Visa: (value: SessionKeyVisa) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: SessionKeyDerivation, visitor: Visitor<T>): T => {
-    if (value.EmvCommon !== undefined) return visitor.EmvCommon(value.EmvCommon);
-    if (value.Mastercard !== undefined) return visitor.Mastercard(value.Mastercard);
-    if (value.Emv2000 !== undefined) return visitor.Emv2000(value.Emv2000);
-    if (value.Amex !== undefined) return visitor.Amex(value.Amex);
-    if (value.Visa !== undefined) return visitor.Visa(value.Visa);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -3806,17 +3734,15 @@ export namespace PinVerificationAttributes {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     VisaPin: (value: VisaPinVerification) => T;
     Ibm3624Pin: (value: Ibm3624PinVerification) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: PinVerificationAttributes, visitor: Visitor<T>): T => {
-    if (value.VisaPin !== undefined) return visitor.VisaPin(value.VisaPin);
-    if (value.Ibm3624Pin !== undefined) return visitor.Ibm3624Pin(value.Ibm3624Pin);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**

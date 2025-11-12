@@ -245,17 +245,15 @@ export namespace AreaOfInterestGeometry {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     PolygonGeometry: (value: PolygonGeometryInput) => T;
     MultiPolygonGeometry: (value: MultiPolygonGeometryInput) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: AreaOfInterestGeometry, visitor: Visitor<T>): T => {
-    if (value.PolygonGeometry !== undefined) return visitor.PolygonGeometry(value.PolygonGeometry);
-    if (value.MultiPolygonGeometry !== undefined) return visitor.MultiPolygonGeometry(value.MultiPolygonGeometry);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -285,15 +283,14 @@ export namespace AreaOfInterest {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     AreaOfInterestGeometry: (value: AreaOfInterestGeometry) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: AreaOfInterest, visitor: Visitor<T>): T => {
-    if (value.AreaOfInterestGeometry !== undefined) return visitor.AreaOfInterestGeometry(value.AreaOfInterestGeometry);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -1244,6 +1241,10 @@ export namespace Property {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     EoCloudCover: (value: EoCloudCoverInput) => T;
     ViewOffNadir: (value: ViewOffNadirInput) => T;
@@ -1253,16 +1254,6 @@ export namespace Property {
     LandsatCloudCoverLand: (value: LandsatCloudCoverLandInput) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: Property, visitor: Visitor<T>): T => {
-    if (value.EoCloudCover !== undefined) return visitor.EoCloudCover(value.EoCloudCover);
-    if (value.ViewOffNadir !== undefined) return visitor.ViewOffNadir(value.ViewOffNadir);
-    if (value.ViewSunAzimuth !== undefined) return visitor.ViewSunAzimuth(value.ViewSunAzimuth);
-    if (value.ViewSunElevation !== undefined) return visitor.ViewSunElevation(value.ViewSunElevation);
-    if (value.Platform !== undefined) return visitor.Platform(value.Platform);
-    if (value.LandsatCloudCoverLand !== undefined) return visitor.LandsatCloudCoverLand(value.LandsatCloudCoverLand);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -1872,6 +1863,10 @@ export namespace JobConfigInput {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     BandMathConfig: (value: BandMathConfigInput) => T;
     ResamplingConfig: (value: ResamplingConfigInput) => T;
@@ -1884,21 +1879,6 @@ export namespace JobConfigInput {
     LandCoverSegmentationConfig: (value: LandCoverSegmentationConfigInput) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: JobConfigInput, visitor: Visitor<T>): T => {
-    if (value.BandMathConfig !== undefined) return visitor.BandMathConfig(value.BandMathConfig);
-    if (value.ResamplingConfig !== undefined) return visitor.ResamplingConfig(value.ResamplingConfig);
-    if (value.TemporalStatisticsConfig !== undefined)
-      return visitor.TemporalStatisticsConfig(value.TemporalStatisticsConfig);
-    if (value.CloudRemovalConfig !== undefined) return visitor.CloudRemovalConfig(value.CloudRemovalConfig);
-    if (value.ZonalStatisticsConfig !== undefined) return visitor.ZonalStatisticsConfig(value.ZonalStatisticsConfig);
-    if (value.GeoMosaicConfig !== undefined) return visitor.GeoMosaicConfig(value.GeoMosaicConfig);
-    if (value.StackConfig !== undefined) return visitor.StackConfig(value.StackConfig);
-    if (value.CloudMaskingConfig !== undefined) return visitor.CloudMaskingConfig(value.CloudMaskingConfig);
-    if (value.LandCoverSegmentationConfig !== undefined)
-      return visitor.LandCoverSegmentationConfig(value.LandCoverSegmentationConfig);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -2785,15 +2765,14 @@ export namespace VectorEnrichmentJobDataSourceConfigInput {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     S3Data: (value: VectorEnrichmentJobS3Data) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: VectorEnrichmentJobDataSourceConfigInput, visitor: Visitor<T>): T => {
-    if (value.S3Data !== undefined) return visitor.S3Data(value.S3Data);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
@@ -2918,17 +2897,15 @@ export namespace VectorEnrichmentJobConfig {
     $unknown: [string, any];
   }
 
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
   export interface Visitor<T> {
     ReverseGeocodingConfig: (value: ReverseGeocodingConfig) => T;
     MapMatchingConfig: (value: MapMatchingConfig) => T;
     _: (name: string, value: any) => T;
   }
-
-  export const visit = <T>(value: VectorEnrichmentJobConfig, visitor: Visitor<T>): T => {
-    if (value.ReverseGeocodingConfig !== undefined) return visitor.ReverseGeocodingConfig(value.ReverseGeocodingConfig);
-    if (value.MapMatchingConfig !== undefined) return visitor.MapMatchingConfig(value.MapMatchingConfig);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
 }
 
 /**
