@@ -1142,9 +1142,23 @@ export interface UpdateAuthenticationProfileRequest {
    *    minutes. This value determines the maximum possible time before an agent is authenticated. For
    *    more information, For more information on how to configure IP addresses, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/authentication-profiles.html#configure-session-timeouts">Configure session timeouts</a> in the <i>Amazon Connect Administrator
    *     Guide</i>. </p>
+   *
+   * @deprecated PeriodicSessionDuration is deprecated. Use SessionInactivityDuration instead.
    * @public
    */
   PeriodicSessionDuration?: number | undefined;
+
+  /**
+   * <p>The period, in minutes, before an agent is automatically signed out of the contact center when they go inactive.</p>
+   * @public
+   */
+  SessionInactivityDuration?: number | undefined;
+
+  /**
+   * <p>Determines if automatic logout on user inactivity is enabled.</p>
+   * @public
+   */
+  SessionInactivityHandlingEnabled?: boolean | undefined;
 }
 
 /**

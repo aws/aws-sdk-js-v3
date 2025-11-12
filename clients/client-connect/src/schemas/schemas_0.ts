@@ -1690,8 +1690,10 @@ const _SHOOR = "SearchHoursOfOperationsRequest";
 const _SHOORe = "SearchHoursOfOperationsResponse";
 const _SI = "SourceId";
 const _SIC = "SignInConfig";
-const _SID = "SignInDistribution";
+const _SID = "SessionInactivityDuration";
 const _SIDL = "SignInDistributionList";
+const _SIDi = "SignInDistribution";
+const _SIHE = "SessionInactivityHandlingEnabled";
 const _SIU = "SignInUrl";
 const _SIt = "StreamingId";
 const _SK = "SecurityKeys";
@@ -2561,8 +2563,8 @@ export var AuthenticationProfile: StaticStructureSchema = [
   n0,
   _APu,
   0,
-  [_I, _A, _N, _D, _AIl, _BI, _ID, _CTre, _LMT, _LMR, _PSD, _MSD],
-  [0, 0, 0, 0, 64 | 0, 64 | 0, 2, 4, 4, 0, 1, 1],
+  [_I, _A, _N, _D, _AIl, _BI, _ID, _CTre, _LMT, _LMR, _PSD, _MSD, _SID, _SIHE],
+  [0, 0, 0, 0, 64 | 0, 64 | 0, 2, 4, 4, 0, 1, 1, 1, 2],
 ];
 export var AuthenticationProfileSummary: StaticStructureSchema = [
   3,
@@ -7947,7 +7949,7 @@ export var ServiceQuotaExceededException: StaticErrorSchema = [
 TypeRegistry.for(n0).registerError(ServiceQuotaExceededException, __ServiceQuotaExceededException);
 
 export var SignInConfig: StaticStructureSchema = [3, n0, _SIC, 0, [_Di], [() => SignInDistributionList]];
-export var SignInDistribution: StaticStructureSchema = [3, n0, _SID, 0, [_Reg, _En], [0, 2]];
+export var SignInDistribution: StaticStructureSchema = [3, n0, _SIDi, 0, [_Reg, _En], [0, 2]];
 export var SingleSelectQuestionRuleCategoryAutomation: StaticStructureSchema = [
   3,
   n0,
@@ -8398,8 +8400,8 @@ export var UpdateAuthenticationProfileRequest: StaticStructureSchema = [
   n0,
   _UAPR,
   0,
-  [_API, _II, _N, _D, _AIl, _BI, _PSD],
-  [[0, 1], [0, 1], 0, 0, 64 | 0, 64 | 0, 1],
+  [_API, _II, _N, _D, _AIl, _BI, _PSD, _SID, _SIHE],
+  [[0, 1], [0, 1], 0, 0, 64 | 0, 64 | 0, 1, 1, 2],
 ];
 export var UpdateCaseActionDefinition: StaticStructureSchema = [3, n0, _UCAD, 0, [_Fi], [() => FieldValues]];
 export var UpdateContactAttributesRequest: StaticStructureSchema = [

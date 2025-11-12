@@ -64,6 +64,8 @@ export interface DescribeAuthenticationProfileCommandOutput
  * //     LastModifiedRegion: "STRING_VALUE",
  * //     PeriodicSessionDuration: Number("int"),
  * //     MaxSessionDuration: Number("int"),
+ * //     SessionInactivityDuration: Number("int"),
+ * //     SessionInactivityHandlingEnabled: true || false,
  * //   },
  * // };
  *

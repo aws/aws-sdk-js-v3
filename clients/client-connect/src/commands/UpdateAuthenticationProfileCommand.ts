@@ -50,6 +50,8 @@ export interface UpdateAuthenticationProfileCommandOutput extends __MetadataBear
  *     "STRING_VALUE",
  *   ],
  *   PeriodicSessionDuration: Number("int"),
+ *   SessionInactivityDuration: Number("int"),
+ *   SessionInactivityHandlingEnabled: true || false,
  * };
  * const command = new UpdateAuthenticationProfileCommand(input);
  * const response = await client.send(command);
