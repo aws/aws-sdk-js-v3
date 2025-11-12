@@ -4320,6 +4320,14 @@ GetHostReservationPurchasePreview
 </details>
 <details>
 <summary>
+GetImageAncestry
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/GetImageAncestryCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/GetImageAncestryCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/GetImageAncestryCommandOutput/)
+
+</details>
+<details>
+<summary>
 GetImageBlockPublicAccessState
 </summary>
 

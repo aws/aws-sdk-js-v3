@@ -3,15 +3,19 @@ import {
   AddedPrincipal,
   AddressAttribute,
   AddressAttributeName,
+  ApplianceModeSupportValue,
   ByoipCidr,
   ClientVpnAuthorizationRuleStatus,
   CurrencyCodeValues,
+  DnsSupportValue,
   IamInstanceProfileAssociation,
   IamInstanceProfileSpecification,
   IpPermission,
+  Ipv6SupportValue,
   NatGatewayAddress,
   PortRange,
   RouteTableAssociationState,
+  SecurityGroupReferencingSupportValue,
   TagSpecification,
   TransitGatewayAttachmentResourceType,
   TransitGatewayMulticastDomainAssociations,
@@ -51,6 +55,7 @@ import {
   OperatorRequest,
   RuleAction,
   SnapshotState,
+  TransitGatewayPrefixListReference,
   TransitGatewayRoute,
   VerifiedAccessEndpoint,
   VerifiedAccessEndpointProtocol,
@@ -119,11 +124,89 @@ import {
   VpcBlockPublicAccessOptions,
 } from "./models_6";
 
-import {
-  CapacityReservationSpecification,
-  ModifyTransitGatewayVpcAttachmentRequestOptions,
-  Purchase,
-} from "./models_7";
+import { CapacityReservationSpecification, Purchase } from "./models_7";
+
+/**
+ * @public
+ */
+export interface ModifyTransitGatewayPrefixListReferenceRequest {
+  /**
+   * <p>The ID of the transit gateway route table.</p>
+   * @public
+   */
+  TransitGatewayRouteTableId: string | undefined;
+
+  /**
+   * <p>The ID of the prefix list.</p>
+   * @public
+   */
+  PrefixListId: string | undefined;
+
+  /**
+   * <p>The ID of the attachment to which traffic is routed.</p>
+   * @public
+   */
+  TransitGatewayAttachmentId?: string | undefined;
+
+  /**
+   * <p>Indicates whether to drop traffic that matches this route.</p>
+   * @public
+   */
+  Blackhole?: boolean | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ModifyTransitGatewayPrefixListReferenceResult {
+  /**
+   * <p>Information about the prefix list reference.</p>
+   * @public
+   */
+  TransitGatewayPrefixListReference?: TransitGatewayPrefixListReference | undefined;
+}
+
+/**
+ * <p>Describes the options for a VPC attachment.</p>
+ * @public
+ */
+export interface ModifyTransitGatewayVpcAttachmentRequestOptions {
+  /**
+   * <p>Enable or disable DNS support. The default is <code>enable</code>.</p>
+   * @public
+   */
+  DnsSupport?: DnsSupportValue | undefined;
+
+  /**
+   * <p>Enables you to reference a security group across VPCs attached to a transit gateway to simplify security group management.
+   *
+   * </p>
+   *          <p>This option is disabled by default.</p>
+   *          <p>For more information about security group referencing, see  <a href="https://docs.aws.amazon.com/vpc/latest/tgw/tgw-vpc-attachments.html#vpc-attachment-security">Security group referencing</a> in the <i>Amazon Web Services Transit Gateways Guide</i>.</p>
+   * @public
+   */
+  SecurityGroupReferencingSupport?: SecurityGroupReferencingSupportValue | undefined;
+
+  /**
+   * <p>Enable or disable IPv6 support. The default is <code>enable</code>.</p>
+   * @public
+   */
+  Ipv6Support?: Ipv6SupportValue | undefined;
+
+  /**
+   * <p>Enable or disable support for appliance mode. If enabled, a traffic flow between a source and destination uses the same Availability Zone for the VPC attachment for the lifetime of that flow. The default is <code>disable</code>.</p>
+   * @public
+   */
+  ApplianceModeSupport?: ApplianceModeSupportValue | undefined;
+}
 
 /**
  * @public

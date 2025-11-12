@@ -2517,6 +2517,11 @@ import {
   GetHostReservationPurchasePreviewCommandOutput,
 } from "./commands/GetHostReservationPurchasePreviewCommand";
 import {
+  GetImageAncestryCommand,
+  GetImageAncestryCommandInput,
+  GetImageAncestryCommandOutput,
+} from "./commands/GetImageAncestryCommand";
+import {
   GetImageBlockPublicAccessStateCommand,
   GetImageBlockPublicAccessStateCommandInput,
   GetImageBlockPublicAccessStateCommandOutput,
@@ -4027,6 +4032,7 @@ const commands = {
   GetFlowLogsIntegrationTemplateCommand,
   GetGroupsForCapacityReservationCommand,
   GetHostReservationPurchasePreviewCommand,
+  GetImageAncestryCommand,
   GetImageBlockPublicAccessStateCommand,
   GetInstanceMetadataDefaultsCommand,
   GetInstanceTpmEkPubCommand,
@@ -12908,6 +12914,23 @@ export interface EC2 {
     args: GetHostReservationPurchasePreviewCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetHostReservationPurchasePreviewCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetImageAncestryCommand}
+   */
+  getImageAncestry(
+    args: GetImageAncestryCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetImageAncestryCommandOutput>;
+  getImageAncestry(
+    args: GetImageAncestryCommandInput,
+    cb: (err: any, data?: GetImageAncestryCommandOutput) => void
+  ): void;
+  getImageAncestry(
+    args: GetImageAncestryCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetImageAncestryCommandOutput) => void
   ): void;
 
   /**

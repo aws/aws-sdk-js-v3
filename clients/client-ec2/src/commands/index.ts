@@ -513,6 +513,7 @@ export * from "./GetEbsEncryptionByDefaultCommand";
 export * from "./GetFlowLogsIntegrationTemplateCommand";
 export * from "./GetGroupsForCapacityReservationCommand";
 export * from "./GetHostReservationPurchasePreviewCommand";
+export * from "./GetImageAncestryCommand";
 export * from "./GetImageBlockPublicAccessStateCommand";
 export * from "./GetInstanceMetadataDefaultsCommand";
 export * from "./GetInstanceTpmEkPubCommand";

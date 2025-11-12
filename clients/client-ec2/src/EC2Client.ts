@@ -1828,6 +1828,7 @@ import {
   GetHostReservationPurchasePreviewCommandInput,
   GetHostReservationPurchasePreviewCommandOutput,
 } from "./commands/GetHostReservationPurchasePreviewCommand";
+import { GetImageAncestryCommandInput, GetImageAncestryCommandOutput } from "./commands/GetImageAncestryCommand";
 import {
   GetImageBlockPublicAccessStateCommandInput,
   GetImageBlockPublicAccessStateCommandOutput,
@@ -3054,6 +3055,7 @@ export type ServiceInputTypes =
   | GetFlowLogsIntegrationTemplateCommandInput
   | GetGroupsForCapacityReservationCommandInput
   | GetHostReservationPurchasePreviewCommandInput
+  | GetImageAncestryCommandInput
   | GetImageBlockPublicAccessStateCommandInput
   | GetInstanceMetadataDefaultsCommandInput
   | GetInstanceTpmEkPubCommandInput
@@ -3775,6 +3777,7 @@ export type ServiceOutputTypes =
   | GetFlowLogsIntegrationTemplateCommandOutput
   | GetGroupsForCapacityReservationCommandOutput
   | GetHostReservationPurchasePreviewCommandOutput
+  | GetImageAncestryCommandOutput
   | GetImageBlockPublicAccessStateCommandOutput
   | GetInstanceMetadataDefaultsCommandOutput
   | GetInstanceTpmEkPubCommandOutput

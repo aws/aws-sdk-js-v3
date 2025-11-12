@@ -2625,6 +2625,9 @@ const _GIA = "GroupIpAddress";
 const _GIAH = "GetIpamAddressHistory";
 const _GIAHR = "GetIpamAddressHistoryRequest";
 const _GIAHRe = "GetIpamAddressHistoryResult";
+const _GIAR = "GetImageAncestryRequest";
+const _GIARe = "GetImageAncestryResult";
+const _GIAe = "GetImageAncestry";
 const _GIBPAS = "GetImageBlockPublicAccessState";
 const _GIBPASR = "GetImageBlockPublicAccessStateRequest";
 const _GIBPASRe = "GetImageBlockPublicAccessStateResult";
@@ -2810,8 +2813,11 @@ const _I = "Id";
 const _IA = "Ipv6Addresses";
 const _IAA = "Ipv6AddressAttribute";
 const _IAC = "Ipv6AddressCount";
+const _IAE = "ImageAncestryEntries";
+const _IAEL = "ImageAncestryEntryList";
 const _IAESS = "InstanceAttachmentEnaSrdSpecification";
 const _IAESUS = "InstanceAttachmentEnaSrdUdpSpecification";
+const _IAEm = "ImageAncestryEntry";
 const _IAHR = "IpamAddressHistoryRecord";
 const _IAHRS = "IpamAddressHistoryRecordSet";
 const _IAI = "IncludeAllInstances";
@@ -6397,6 +6403,7 @@ const _i = "id";
 const _iA = "ipv6Addresses";
 const _iAA = "ipv6AddressAttribute";
 const _iAC = "ipv6AddressCount";
+const _iAES = "imageAncestryEntrySet";
 const _iAI = "includeAllInstances";
 const _iAIn = "inferenceAcceleratorInfo";
 const _iAPI = "ipv4AddressesPerInterface";
@@ -35874,6 +35881,23 @@ export var GetHostReservationPurchasePreviewResult: StaticStructureSchema = [
     ],
   ],
 ];
+export var GetImageAncestryRequest: StaticStructureSchema = [3, n0, _GIAR, 0, [_IIm, _DR], [0, 2]];
+export var GetImageAncestryResult: StaticStructureSchema = [
+  3,
+  n0,
+  _GIARe,
+  0,
+  [_IAE],
+  [
+    [
+      () => ImageAncestryEntryList,
+      {
+        [_eQN]: `ImageAncestryEntrySet`,
+        [_xN]: _iAES,
+      },
+    ],
+  ],
+];
 export var GetImageBlockPublicAccessStateRequest: StaticStructureSchema = [3, n0, _GIBPASR, 0, [_DR], [2]];
 export var GetImageBlockPublicAccessStateResult: StaticStructureSchema = [
   3,
@@ -38570,6 +38594,50 @@ export var Image: StaticStructureSchema = [
       {
         [_eQN]: `Platform`,
         [_xN]: _pl,
+      },
+    ],
+  ],
+];
+export var ImageAncestryEntry: StaticStructureSchema = [
+  3,
+  n0,
+  _IAEm,
+  0,
+  [_CDr, _IIm, _IOA, _SII, _SIRo],
+  [
+    [
+      4,
+      {
+        [_eQN]: `CreationDate`,
+        [_xN]: _cDr,
+      },
+    ],
+    [
+      0,
+      {
+        [_eQN]: `ImageId`,
+        [_xN]: _iIma,
+      },
+    ],
+    [
+      0,
+      {
+        [_eQN]: `ImageOwnerAlias`,
+        [_xN]: _iOA,
+      },
+    ],
+    [
+      0,
+      {
+        [_eQN]: `SourceImageId`,
+        [_xN]: _sIIo,
+      },
+    ],
+    [
+      0,
+      {
+        [_eQN]: `SourceImageRegion`,
+        [_xN]: _sIR,
       },
     ],
   ],
@@ -71314,6 +71382,18 @@ export var IKEVersionsRequestList: StaticListSchema = [
     },
   ],
 ];
+export var ImageAncestryEntryList: StaticListSchema = [
+  1,
+  n0,
+  _IAEL,
+  0,
+  [
+    () => ImageAncestryEntry,
+    {
+      [_xN]: _it,
+    },
+  ],
+];
 export var ImageCriterionList: StaticListSchema = [
   1,
   n0,
@@ -80881,6 +80961,14 @@ export var GetHostReservationPurchasePreview: StaticOperationSchema = [
   0,
   () => GetHostReservationPurchasePreviewRequest,
   () => GetHostReservationPurchasePreviewResult,
+];
+export var GetImageAncestry: StaticOperationSchema = [
+  9,
+  n0,
+  _GIAe,
+  0,
+  () => GetImageAncestryRequest,
+  () => GetImageAncestryResult,
 ];
 export var GetImageBlockPublicAccessState: StaticOperationSchema = [
   9,
