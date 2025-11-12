@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { PurchaseScheduledInstancesRequest, PurchaseScheduledInstancesResult } from "../models/models_8";
-import { de_PurchaseScheduledInstancesCommand, se_PurchaseScheduledInstancesCommand } from "../protocols/Aws_ec2";
+import { PurchaseScheduledInstances } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -111,16 +110,11 @@ export class PurchaseScheduledInstancesCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonEC2", "PurchaseScheduledInstances", {})
   .n("EC2Client", "PurchaseScheduledInstancesCommand")
-  .f(void 0, void 0)
-  .ser(se_PurchaseScheduledInstancesCommand)
-  .de(de_PurchaseScheduledInstancesCommand)
+  .sc(PurchaseScheduledInstances)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

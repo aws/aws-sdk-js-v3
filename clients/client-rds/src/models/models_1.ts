@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@smithy/smithy-client";
+import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
 import {
   ActivityStreamMode,
@@ -13,13 +13,11 @@ import {
   DBClusterAutomatedBackup,
   DBClusterBacktrack,
   DBClusterEndpoint,
-  DBClusterFilterSensitiveLog,
   DBClusterParameterGroup,
   DBClusterSnapshot,
   DBEngineVersion,
   DBInstance,
   DBInstanceAutomatedBackup,
-  DBInstanceFilterSensitiveLog,
   DBParameterGroup,
   DBProxy,
   DBProxyEndpoint,
@@ -36,7 +34,6 @@ import {
   MasterUserAuthenticationType,
   OptionGroup,
   OptionSetting,
-  OptionSettingFilterSensitiveLog,
   ProcessorFeature,
   RdsCustomClusterConfiguration,
   ReplicaMode,
@@ -45,7 +42,6 @@ import {
   ServerlessV2ScalingConfiguration,
   Tag,
   TenantDatabase,
-  TenantDatabaseFilterSensitiveLog,
   UserAuthConfig,
 } from "./models_0";
 
@@ -16024,305 +16020,3 @@ export interface SwitchoverReadReplicaResult {
    */
   DBInstance?: DBInstance | undefined;
 }
-
-/**
- * @internal
- */
-export const DeleteTenantDatabaseResultFilterSensitiveLog = (obj: DeleteTenantDatabaseResult): any => ({
-  ...obj,
-  ...(obj.TenantDatabase && { TenantDatabase: TenantDatabaseFilterSensitiveLog(obj.TenantDatabase) }),
-});
-
-/**
- * @internal
- */
-export const DBClusterMessageFilterSensitiveLog = (obj: DBClusterMessage): any => ({
-  ...obj,
-  ...(obj.DBClusters && { DBClusters: obj.DBClusters.map((item) => DBClusterFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const DBInstanceMessageFilterSensitiveLog = (obj: DBInstanceMessage): any => ({
-  ...obj,
-  ...(obj.DBInstances && { DBInstances: obj.DBInstances.map((item) => DBInstanceFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const OptionGroupsFilterSensitiveLog = (obj: OptionGroups): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TenantDatabasesMessageFilterSensitiveLog = (obj: TenantDatabasesMessage): any => ({
-  ...obj,
-  ...(obj.TenantDatabases && {
-    TenantDatabases: obj.TenantDatabases.map((item) => TenantDatabaseFilterSensitiveLog(item)),
-  }),
-});
-
-/**
- * @internal
- */
-export const DownloadDBLogFilePortionDetailsFilterSensitiveLog = (obj: DownloadDBLogFilePortionDetails): any => ({
-  ...obj,
-  ...(obj.LogFileData && { LogFileData: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const FailoverDBClusterResultFilterSensitiveLog = (obj: FailoverDBClusterResult): any => ({
-  ...obj,
-  ...(obj.DBCluster && { DBCluster: DBClusterFilterSensitiveLog(obj.DBCluster) }),
-});
-
-/**
- * @internal
- */
-export const ModifyDBClusterMessageFilterSensitiveLog = (obj: ModifyDBClusterMessage): any => ({
-  ...obj,
-  ...(obj.MasterUserPassword && { MasterUserPassword: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const ModifyDBClusterResultFilterSensitiveLog = (obj: ModifyDBClusterResult): any => ({
-  ...obj,
-  ...(obj.DBCluster && { DBCluster: DBClusterFilterSensitiveLog(obj.DBCluster) }),
-});
-
-/**
- * @internal
- */
-export const ModifyDBInstanceMessageFilterSensitiveLog = (obj: ModifyDBInstanceMessage): any => ({
-  ...obj,
-  ...(obj.MasterUserPassword && { MasterUserPassword: SENSITIVE_STRING }),
-  ...(obj.TdeCredentialPassword && { TdeCredentialPassword: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const ModifyDBInstanceResultFilterSensitiveLog = (obj: ModifyDBInstanceResult): any => ({
-  ...obj,
-  ...(obj.DBInstance && { DBInstance: DBInstanceFilterSensitiveLog(obj.DBInstance) }),
-});
-
-/**
- * @internal
- */
-export const OptionConfigurationFilterSensitiveLog = (obj: OptionConfiguration): any => ({
-  ...obj,
-  ...(obj.OptionSettings && {
-    OptionSettings: obj.OptionSettings.map((item) => OptionSettingFilterSensitiveLog(item)),
-  }),
-});
-
-/**
- * @internal
- */
-export const ModifyOptionGroupMessageFilterSensitiveLog = (obj: ModifyOptionGroupMessage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ModifyOptionGroupResultFilterSensitiveLog = (obj: ModifyOptionGroupResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ModifyTenantDatabaseMessageFilterSensitiveLog = (obj: ModifyTenantDatabaseMessage): any => ({
-  ...obj,
-  ...(obj.MasterUserPassword && { MasterUserPassword: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const ModifyTenantDatabaseResultFilterSensitiveLog = (obj: ModifyTenantDatabaseResult): any => ({
-  ...obj,
-  ...(obj.TenantDatabase && { TenantDatabase: TenantDatabaseFilterSensitiveLog(obj.TenantDatabase) }),
-});
-
-/**
- * @internal
- */
-export const PromoteReadReplicaResultFilterSensitiveLog = (obj: PromoteReadReplicaResult): any => ({
-  ...obj,
-  ...(obj.DBInstance && { DBInstance: DBInstanceFilterSensitiveLog(obj.DBInstance) }),
-});
-
-/**
- * @internal
- */
-export const PromoteReadReplicaDBClusterResultFilterSensitiveLog = (obj: PromoteReadReplicaDBClusterResult): any => ({
-  ...obj,
-  ...(obj.DBCluster && { DBCluster: DBClusterFilterSensitiveLog(obj.DBCluster) }),
-});
-
-/**
- * @internal
- */
-export const RebootDBClusterResultFilterSensitiveLog = (obj: RebootDBClusterResult): any => ({
-  ...obj,
-  ...(obj.DBCluster && { DBCluster: DBClusterFilterSensitiveLog(obj.DBCluster) }),
-});
-
-/**
- * @internal
- */
-export const RebootDBInstanceResultFilterSensitiveLog = (obj: RebootDBInstanceResult): any => ({
-  ...obj,
-  ...(obj.DBInstance && { DBInstance: DBInstanceFilterSensitiveLog(obj.DBInstance) }),
-});
-
-/**
- * @internal
- */
-export const RestoreDBClusterFromS3MessageFilterSensitiveLog = (obj: RestoreDBClusterFromS3Message): any => ({
-  ...obj,
-  ...(obj.MasterUserPassword && { MasterUserPassword: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const RestoreDBClusterFromS3ResultFilterSensitiveLog = (obj: RestoreDBClusterFromS3Result): any => ({
-  ...obj,
-  ...(obj.DBCluster && { DBCluster: DBClusterFilterSensitiveLog(obj.DBCluster) }),
-});
-
-/**
- * @internal
- */
-export const RestoreDBClusterFromSnapshotResultFilterSensitiveLog = (obj: RestoreDBClusterFromSnapshotResult): any => ({
-  ...obj,
-  ...(obj.DBCluster && { DBCluster: DBClusterFilterSensitiveLog(obj.DBCluster) }),
-});
-
-/**
- * @internal
- */
-export const RestoreDBClusterToPointInTimeResultFilterSensitiveLog = (
-  obj: RestoreDBClusterToPointInTimeResult
-): any => ({
-  ...obj,
-  ...(obj.DBCluster && { DBCluster: DBClusterFilterSensitiveLog(obj.DBCluster) }),
-});
-
-/**
- * @internal
- */
-export const RestoreDBInstanceFromDBSnapshotMessageFilterSensitiveLog = (
-  obj: RestoreDBInstanceFromDBSnapshotMessage
-): any => ({
-  ...obj,
-  ...(obj.TdeCredentialPassword && { TdeCredentialPassword: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const RestoreDBInstanceFromDBSnapshotResultFilterSensitiveLog = (
-  obj: RestoreDBInstanceFromDBSnapshotResult
-): any => ({
-  ...obj,
-  ...(obj.DBInstance && { DBInstance: DBInstanceFilterSensitiveLog(obj.DBInstance) }),
-});
-
-/**
- * @internal
- */
-export const RestoreDBInstanceFromS3MessageFilterSensitiveLog = (obj: RestoreDBInstanceFromS3Message): any => ({
-  ...obj,
-  ...(obj.MasterUserPassword && { MasterUserPassword: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const RestoreDBInstanceFromS3ResultFilterSensitiveLog = (obj: RestoreDBInstanceFromS3Result): any => ({
-  ...obj,
-  ...(obj.DBInstance && { DBInstance: DBInstanceFilterSensitiveLog(obj.DBInstance) }),
-});
-
-/**
- * @internal
- */
-export const RestoreDBInstanceToPointInTimeMessageFilterSensitiveLog = (
-  obj: RestoreDBInstanceToPointInTimeMessage
-): any => ({
-  ...obj,
-  ...(obj.TdeCredentialPassword && { TdeCredentialPassword: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const RestoreDBInstanceToPointInTimeResultFilterSensitiveLog = (
-  obj: RestoreDBInstanceToPointInTimeResult
-): any => ({
-  ...obj,
-  ...(obj.DBInstance && { DBInstance: DBInstanceFilterSensitiveLog(obj.DBInstance) }),
-});
-
-/**
- * @internal
- */
-export const StartDBClusterResultFilterSensitiveLog = (obj: StartDBClusterResult): any => ({
-  ...obj,
-  ...(obj.DBCluster && { DBCluster: DBClusterFilterSensitiveLog(obj.DBCluster) }),
-});
-
-/**
- * @internal
- */
-export const StartDBInstanceResultFilterSensitiveLog = (obj: StartDBInstanceResult): any => ({
-  ...obj,
-  ...(obj.DBInstance && { DBInstance: DBInstanceFilterSensitiveLog(obj.DBInstance) }),
-});
-
-/**
- * @internal
- */
-export const StartDBInstanceAutomatedBackupsReplicationMessageFilterSensitiveLog = (
-  obj: StartDBInstanceAutomatedBackupsReplicationMessage
-): any => ({
-  ...obj,
-  ...(obj.PreSignedUrl && { PreSignedUrl: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const StopDBClusterResultFilterSensitiveLog = (obj: StopDBClusterResult): any => ({
-  ...obj,
-  ...(obj.DBCluster && { DBCluster: DBClusterFilterSensitiveLog(obj.DBCluster) }),
-});
-
-/**
- * @internal
- */
-export const StopDBInstanceResultFilterSensitiveLog = (obj: StopDBInstanceResult): any => ({
-  ...obj,
-  ...(obj.DBInstance && { DBInstance: DBInstanceFilterSensitiveLog(obj.DBInstance) }),
-});
-
-/**
- * @internal
- */
-export const SwitchoverReadReplicaResultFilterSensitiveLog = (obj: SwitchoverReadReplicaResult): any => ({
-  ...obj,
-  ...(obj.DBInstance && { DBInstance: DBInstanceFilterSensitiveLog(obj.DBInstance) }),
-});

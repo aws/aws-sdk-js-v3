@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
 import { SimulatePolicyResponse, SimulatePrincipalPolicyRequest } from "../models/models_1";
-import { de_SimulatePrincipalPolicyCommand, se_SimulatePrincipalPolicyCommand } from "../protocols/Aws_query";
+import { SimulatePrincipalPolicy } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -203,16 +202,11 @@ export class SimulatePrincipalPolicyCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IAMClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSIdentityManagementV20100508", "SimulatePrincipalPolicy", {})
   .n("IAMClient", "SimulatePrincipalPolicyCommand")
-  .f(void 0, void 0)
-  .ser(se_SimulatePrincipalPolicyCommand)
-  .de(de_SimulatePrincipalPolicyCommand)
+  .sc(SimulatePrincipalPolicy)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,16 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GetVerifiedAccessEndpointPolicyRequest, GetVerifiedAccessEndpointPolicyResult } from "../models/models_7";
-import {
-  de_GetVerifiedAccessEndpointPolicyCommand,
-  se_GetVerifiedAccessEndpointPolicyCommand,
-} from "../protocols/Aws_ec2";
+import { GetVerifiedAccessEndpointPolicy } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -77,16 +73,11 @@ export class GetVerifiedAccessEndpointPolicyCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonEC2", "GetVerifiedAccessEndpointPolicy", {})
   .n("EC2Client", "GetVerifiedAccessEndpointPolicyCommand")
-  .f(void 0, void 0)
-  .ser(se_GetVerifiedAccessEndpointPolicyCommand)
-  .de(de_GetVerifiedAccessEndpointPolicyCommand)
+  .sc(GetVerifiedAccessEndpointPolicy)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

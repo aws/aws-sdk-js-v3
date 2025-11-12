@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -9,10 +8,7 @@ import {
   DeleteConfigurationSetTrackingOptionsRequest,
   DeleteConfigurationSetTrackingOptionsResponse,
 } from "../models/models_0";
-import {
-  de_DeleteConfigurationSetTrackingOptionsCommand,
-  se_DeleteConfigurationSetTrackingOptionsCommand,
-} from "../protocols/Aws_query";
+import { DeleteConfigurationSetTrackingOptions } from "../schemas/schemas_0";
 import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
 /**
@@ -92,16 +88,11 @@ export class DeleteConfigurationSetTrackingOptionsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SESClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("SimpleEmailService", "DeleteConfigurationSetTrackingOptions", {})
   .n("SESClient", "DeleteConfigurationSetTrackingOptionsCommand")
-  .f(void 0, void 0)
-  .ser(se_DeleteConfigurationSetTrackingOptionsCommand)
-  .de(de_DeleteConfigurationSetTrackingOptionsCommand)
+  .sc(DeleteConfigurationSetTrackingOptions)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@smithy/smithy-client";
+import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
 import { IAMServiceException as __BaseException } from "./IAMServiceException";
 
@@ -2102,27 +2102,3 @@ export interface UploadSSHPublicKeyResponse {
    */
   SSHPublicKey?: SSHPublicKey | undefined;
 }
-
-/**
- * @internal
- */
-export const UpdateLoginProfileRequestFilterSensitiveLog = (obj: UpdateLoginProfileRequest): any => ({
-  ...obj,
-  ...(obj.Password && { Password: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const UpdateSAMLProviderRequestFilterSensitiveLog = (obj: UpdateSAMLProviderRequest): any => ({
-  ...obj,
-  ...(obj.AddPrivateKey && { AddPrivateKey: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const UploadServerCertificateRequestFilterSensitiveLog = (obj: UploadServerCertificateRequest): any => ({
-  ...obj,
-  ...(obj.PrivateKey && { PrivateKey: SENSITIVE_STRING }),
-});

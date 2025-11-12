@@ -1,17 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  FailoverDBClusterMessage,
-  FailoverDBClusterResult,
-  FailoverDBClusterResultFilterSensitiveLog,
-} from "../models/models_1";
-import { de_FailoverDBClusterCommand, se_FailoverDBClusterCommand } from "../protocols/Aws_query";
+import { FailoverDBClusterMessage, FailoverDBClusterResult } from "../models/models_1";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
+import { FailoverDBCluster } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -310,16 +305,11 @@ export class FailoverDBClusterCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RDSClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonRDSv19", "FailoverDBCluster", {})
   .n("RDSClient", "FailoverDBClusterCommand")
-  .f(void 0, FailoverDBClusterResultFilterSensitiveLog)
-  .ser(se_FailoverDBClusterCommand)
-  .de(de_FailoverDBClusterCommand)
+  .sc(FailoverDBCluster)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

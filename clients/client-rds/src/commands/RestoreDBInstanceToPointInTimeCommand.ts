@@ -1,21 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  RestoreDBInstanceToPointInTimeMessage,
-  RestoreDBInstanceToPointInTimeMessageFilterSensitiveLog,
-  RestoreDBInstanceToPointInTimeResult,
-  RestoreDBInstanceToPointInTimeResultFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  de_RestoreDBInstanceToPointInTimeCommand,
-  se_RestoreDBInstanceToPointInTimeCommand,
-} from "../protocols/Aws_query";
+import { RestoreDBInstanceToPointInTimeMessage, RestoreDBInstanceToPointInTimeResult } from "../models/models_1";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
+import { RestoreDBInstanceToPointInTime } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -562,16 +553,11 @@ export class RestoreDBInstanceToPointInTimeCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RDSClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonRDSv19", "RestoreDBInstanceToPointInTime", {})
   .n("RDSClient", "RestoreDBInstanceToPointInTimeCommand")
-  .f(RestoreDBInstanceToPointInTimeMessageFilterSensitiveLog, RestoreDBInstanceToPointInTimeResultFilterSensitiveLog)
-  .ser(se_RestoreDBInstanceToPointInTimeCommand)
-  .de(de_RestoreDBInstanceToPointInTimeCommand)
+  .sc(RestoreDBInstanceToPointInTime)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

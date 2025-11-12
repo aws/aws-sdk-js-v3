@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DocDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DocDBClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { CreateEventSubscriptionMessage, CreateEventSubscriptionResult } from "../models/models_0";
-import { de_CreateEventSubscriptionCommand, se_CreateEventSubscriptionCommand } from "../protocols/Aws_query";
+import { CreateEventSubscription } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -123,16 +122,11 @@ export class CreateEventSubscriptionCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DocDBClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonRDSv19", "CreateEventSubscription", {})
   .n("DocDBClient", "CreateEventSubscriptionCommand")
-  .f(void 0, void 0)
-  .ser(se_CreateEventSubscriptionCommand)
-  .de(de_CreateEventSubscriptionCommand)
+  .sc(CreateEventSubscription)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

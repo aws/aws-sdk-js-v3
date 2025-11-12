@@ -1,17 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  RunScheduledInstancesRequest,
-  RunScheduledInstancesRequestFilterSensitiveLog,
-  RunScheduledInstancesResult,
-} from "../models/models_8";
-import { de_RunScheduledInstancesCommand, se_RunScheduledInstancesCommand } from "../protocols/Aws_ec2";
+import { RunScheduledInstancesRequest, RunScheduledInstancesResult } from "../models/models_8";
+import { RunScheduledInstances } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -150,16 +145,11 @@ export class RunScheduledInstancesCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonEC2", "RunScheduledInstances", {})
   .n("EC2Client", "RunScheduledInstancesCommand")
-  .f(RunScheduledInstancesRequestFilterSensitiveLog, void 0)
-  .ser(se_RunScheduledInstancesCommand)
-  .de(de_RunScheduledInstancesCommand)
+  .sc(RunScheduledInstances)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

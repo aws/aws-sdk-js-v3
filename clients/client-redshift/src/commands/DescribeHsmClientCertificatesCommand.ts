@@ -1,16 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DescribeHsmClientCertificatesMessage, HsmClientCertificateMessage } from "../models/models_1";
-import {
-  de_DescribeHsmClientCertificatesCommand,
-  se_DescribeHsmClientCertificatesCommand,
-} from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
+import { DescribeHsmClientCertificates } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -109,16 +105,11 @@ export class DescribeHsmClientCertificatesCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RedshiftClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("RedshiftServiceVersion20121201", "DescribeHsmClientCertificates", {})
   .n("RedshiftClient", "DescribeHsmClientCertificatesCommand")
-  .f(void 0, void 0)
-  .ser(se_DescribeHsmClientCertificatesCommand)
-  .de(de_DescribeHsmClientCertificatesCommand)
+  .sc(DescribeHsmClientCertificates)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

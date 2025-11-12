@@ -1,17 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  DescribeTenantDatabasesMessage,
-  TenantDatabasesMessage,
-  TenantDatabasesMessageFilterSensitiveLog,
-} from "../models/models_1";
-import { de_DescribeTenantDatabasesCommand, se_DescribeTenantDatabasesCommand } from "../protocols/Aws_query";
+import { DescribeTenantDatabasesMessage, TenantDatabasesMessage } from "../models/models_1";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
+import { DescribeTenantDatabases } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -120,16 +115,11 @@ export class DescribeTenantDatabasesCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RDSClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonRDSv19", "DescribeTenantDatabases", {})
   .n("RDSClient", "DescribeTenantDatabasesCommand")
-  .f(void 0, TenantDatabasesMessageFilterSensitiveLog)
-  .ser(se_DescribeTenantDatabasesCommand)
-  .de(de_DescribeTenantDatabasesCommand)
+  .sc(DescribeTenantDatabases)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

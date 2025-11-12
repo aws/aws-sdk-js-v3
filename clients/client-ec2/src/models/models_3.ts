@@ -1,6 +1,4 @@
 // smithy-typescript generated code
-import { SENSITIVE_STRING } from "@smithy/smithy-client";
-
 import {
   AccountAttribute,
   AccountAttributeName,
@@ -21,7 +19,6 @@ import {
   VerifiedAccessInstance,
   VerifiedAccessSseSpecificationResponse,
   VerifiedAccessTrustProvider,
-  VerifiedAccessTrustProviderFilterSensitiveLog,
   VpcAttachment,
   VpcPeeringConnection,
 } from "./models_0";
@@ -7466,123 +7463,3 @@ export interface DescribeAwsNetworkPerformanceMetricSubscriptionsRequest {
    */
   DryRun?: boolean | undefined;
 }
-
-/**
- * @internal
- */
-export const CreateVerifiedAccessNativeApplicationOidcOptionsFilterSensitiveLog = (
-  obj: CreateVerifiedAccessNativeApplicationOidcOptions
-): any => ({
-  ...obj,
-  ...(obj.ClientSecret && { ClientSecret: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const CreateVerifiedAccessTrustProviderOidcOptionsFilterSensitiveLog = (
-  obj: CreateVerifiedAccessTrustProviderOidcOptions
-): any => ({
-  ...obj,
-  ...(obj.ClientSecret && { ClientSecret: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const CreateVerifiedAccessTrustProviderRequestFilterSensitiveLog = (
-  obj: CreateVerifiedAccessTrustProviderRequest
-): any => ({
-  ...obj,
-  ...(obj.OidcOptions && {
-    OidcOptions: CreateVerifiedAccessTrustProviderOidcOptionsFilterSensitiveLog(obj.OidcOptions),
-  }),
-  ...(obj.NativeApplicationOidcOptions && {
-    NativeApplicationOidcOptions: CreateVerifiedAccessNativeApplicationOidcOptionsFilterSensitiveLog(
-      obj.NativeApplicationOidcOptions
-    ),
-  }),
-});
-
-/**
- * @internal
- */
-export const CreateVerifiedAccessTrustProviderResultFilterSensitiveLog = (
-  obj: CreateVerifiedAccessTrustProviderResult
-): any => ({
-  ...obj,
-  ...(obj.VerifiedAccessTrustProvider && {
-    VerifiedAccessTrustProvider: VerifiedAccessTrustProviderFilterSensitiveLog(obj.VerifiedAccessTrustProvider),
-  }),
-});
-
-/**
- * @internal
- */
-export const VpnTunnelOptionsSpecificationFilterSensitiveLog = (obj: VpnTunnelOptionsSpecification): any => ({
-  ...obj,
-  ...(obj.PreSharedKey && { PreSharedKey: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const VpnConnectionOptionsSpecificationFilterSensitiveLog = (obj: VpnConnectionOptionsSpecification): any => ({
-  ...obj,
-  ...(obj.TunnelOptions && {
-    TunnelOptions: obj.TunnelOptions.map((item) => VpnTunnelOptionsSpecificationFilterSensitiveLog(item)),
-  }),
-});
-
-/**
- * @internal
- */
-export const CreateVpnConnectionRequestFilterSensitiveLog = (obj: CreateVpnConnectionRequest): any => ({
-  ...obj,
-  ...(obj.Options && { Options: VpnConnectionOptionsSpecificationFilterSensitiveLog(obj.Options) }),
-});
-
-/**
- * @internal
- */
-export const TunnelOptionFilterSensitiveLog = (obj: TunnelOption): any => ({
-  ...obj,
-  ...(obj.PreSharedKey && { PreSharedKey: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const VpnConnectionOptionsFilterSensitiveLog = (obj: VpnConnectionOptions): any => ({
-  ...obj,
-  ...(obj.TunnelOptions && { TunnelOptions: obj.TunnelOptions.map((item) => TunnelOptionFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const VpnConnectionFilterSensitiveLog = (obj: VpnConnection): any => ({
-  ...obj,
-  ...(obj.Options && { Options: VpnConnectionOptionsFilterSensitiveLog(obj.Options) }),
-  ...(obj.CustomerGatewayConfiguration && { CustomerGatewayConfiguration: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const CreateVpnConnectionResultFilterSensitiveLog = (obj: CreateVpnConnectionResult): any => ({
-  ...obj,
-  ...(obj.VpnConnection && { VpnConnection: VpnConnectionFilterSensitiveLog(obj.VpnConnection) }),
-});
-
-/**
- * @internal
- */
-export const DeleteVerifiedAccessTrustProviderResultFilterSensitiveLog = (
-  obj: DeleteVerifiedAccessTrustProviderResult
-): any => ({
-  ...obj,
-  ...(obj.VerifiedAccessTrustProvider && {
-    VerifiedAccessTrustProvider: VerifiedAccessTrustProviderFilterSensitiveLog(obj.VerifiedAccessTrustProvider),
-  }),
-});

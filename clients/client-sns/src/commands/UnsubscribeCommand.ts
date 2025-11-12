@@ -1,12 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { UnsubscribeInput } from "../models/models_0";
-import { de_UnsubscribeCommand, se_UnsubscribeCommand } from "../protocols/Aws_query";
+import { Unsubscribe } from "../schemas/schemas_0";
 import { ServiceInputTypes, ServiceOutputTypes, SNSClientResolvedConfig } from "../SNSClient";
 
 /**
@@ -91,16 +90,11 @@ export class UnsubscribeCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SNSClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonSimpleNotificationService", "Unsubscribe", {})
   .n("SNSClient", "UnsubscribeCommand")
-  .f(void 0, void 0)
-  .ser(se_UnsubscribeCommand)
-  .de(de_UnsubscribeCommand)
+  .sc(Unsubscribe)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

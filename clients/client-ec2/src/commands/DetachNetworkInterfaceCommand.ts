@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DetachNetworkInterfaceRequest } from "../models/models_6";
-import { de_DetachNetworkInterfaceCommand, se_DetachNetworkInterfaceCommand } from "../protocols/Aws_ec2";
+import { DetachNetworkInterface } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -83,16 +82,11 @@ export class DetachNetworkInterfaceCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonEC2", "DetachNetworkInterface", {})
   .n("EC2Client", "DetachNetworkInterfaceCommand")
-  .f(void 0, void 0)
-  .ser(se_DetachNetworkInterfaceCommand)
-  .de(de_DetachNetworkInterfaceCommand)
+  .sc(DetachNetworkInterface)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

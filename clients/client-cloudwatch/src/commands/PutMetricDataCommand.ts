@@ -1,14 +1,13 @@
 // smithy-typescript generated code
 import { getCompressionPlugin } from "@smithy/middleware-compression";
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CloudWatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { PutMetricDataInput } from "../models/models_0";
-import { de_PutMetricDataCommand, se_PutMetricDataCommand } from "../protocols/Aws_query";
+import { PutMetricData } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -198,7 +197,6 @@ export class PutMetricDataCommand extends $Command
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudWatchClientResolvedConfig, o: any) {
     return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
       getCompressionPlugin(config, {
         encodings: ["gzip"],
@@ -207,9 +205,7 @@ export class PutMetricDataCommand extends $Command
   })
   .s("GraniteServiceVersion20100801", "PutMetricData", {})
   .n("CloudWatchClient", "PutMetricDataCommand")
-  .f(void 0, void 0)
-  .ser(se_PutMetricDataCommand)
-  .de(de_PutMetricDataCommand)
+  .sc(PutMetricData)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

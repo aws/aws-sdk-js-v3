@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CloudSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudSearchClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DeleteIndexFieldRequest, DeleteIndexFieldResponse } from "../models/models_0";
-import { de_DeleteIndexFieldCommand, se_DeleteIndexFieldCommand } from "../protocols/Aws_query";
+import { DeleteIndexField } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -182,16 +181,11 @@ export class DeleteIndexFieldCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudSearchClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("A9SearchCloudConfigService2013", "DeleteIndexField", {})
   .n("CloudSearchClient", "DeleteIndexFieldCommand")
-  .f(void 0, void 0)
-  .ser(se_DeleteIndexFieldCommand)
-  .de(de_DeleteIndexFieldCommand)
+  .sc(DeleteIndexField)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

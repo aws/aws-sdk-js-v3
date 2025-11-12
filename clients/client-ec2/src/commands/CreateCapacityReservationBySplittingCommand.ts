@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -10,10 +9,7 @@ import {
   CreateCapacityReservationBySplittingRequest,
   CreateCapacityReservationBySplittingResult,
 } from "../models/models_1";
-import {
-  de_CreateCapacityReservationBySplittingCommand,
-  se_CreateCapacityReservationBySplittingCommand,
-} from "../protocols/Aws_ec2";
+import { CreateCapacityReservationBySplitting } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -181,16 +177,11 @@ export class CreateCapacityReservationBySplittingCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonEC2", "CreateCapacityReservationBySplitting", {})
   .n("EC2Client", "CreateCapacityReservationBySplittingCommand")
-  .f(void 0, void 0)
-  .ser(se_CreateCapacityReservationBySplittingCommand)
-  .de(de_CreateCapacityReservationBySplittingCommand)
+  .sc(CreateCapacityReservationBySplitting)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

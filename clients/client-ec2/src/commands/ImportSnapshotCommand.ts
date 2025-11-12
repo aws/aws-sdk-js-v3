@@ -1,18 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  ImportSnapshotRequest,
-  ImportSnapshotRequestFilterSensitiveLog,
-  ImportSnapshotResult,
-  ImportSnapshotResultFilterSensitiveLog,
-} from "../models/models_7";
-import { de_ImportSnapshotCommand, se_ImportSnapshotCommand } from "../protocols/Aws_ec2";
+import { ImportSnapshotRequest, ImportSnapshotResult } from "../models/models_7";
+import { ImportSnapshot } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -131,16 +125,11 @@ export class ImportSnapshotCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonEC2", "ImportSnapshot", {})
   .n("EC2Client", "ImportSnapshotCommand")
-  .f(ImportSnapshotRequestFilterSensitiveLog, ImportSnapshotResultFilterSensitiveLog)
-  .ser(se_ImportSnapshotCommand)
-  .de(de_ImportSnapshotCommand)
+  .sc(ImportSnapshot)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

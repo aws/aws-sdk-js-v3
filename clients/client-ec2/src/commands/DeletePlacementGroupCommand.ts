@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DeletePlacementGroupRequest } from "../models/models_3";
-import { de_DeletePlacementGroupCommand, se_DeletePlacementGroupCommand } from "../protocols/Aws_ec2";
+import { DeletePlacementGroup } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -85,16 +84,11 @@ export class DeletePlacementGroupCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonEC2", "DeletePlacementGroup", {})
   .n("EC2Client", "DeletePlacementGroupCommand")
-  .f(void 0, void 0)
-  .ser(se_DeletePlacementGroupCommand)
-  .de(de_DeletePlacementGroupCommand)
+  .sc(DeletePlacementGroup)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { CreateDBProxyEndpointRequest, CreateDBProxyEndpointResponse } from "../models/models_0";
-import { de_CreateDBProxyEndpointCommand, se_CreateDBProxyEndpointCommand } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
+import { CreateDBProxyEndpoint } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -119,16 +118,11 @@ export class CreateDBProxyEndpointCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RDSClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonRDSv19", "CreateDBProxyEndpoint", {})
   .n("RDSClient", "CreateDBProxyEndpointCommand")
-  .f(void 0, void 0)
-  .ser(se_CreateDBProxyEndpointCommand)
-  .de(de_CreateDBProxyEndpointCommand)
+  .sc(CreateDBProxyEndpoint)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

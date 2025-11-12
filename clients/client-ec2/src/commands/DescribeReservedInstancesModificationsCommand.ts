@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -10,10 +9,7 @@ import {
   DescribeReservedInstancesModificationsRequest,
   DescribeReservedInstancesModificationsResult,
 } from "../models/models_5";
-import {
-  de_DescribeReservedInstancesModificationsCommand,
-  se_DescribeReservedInstancesModificationsCommand,
-} from "../protocols/Aws_ec2";
+import { DescribeReservedInstancesModifications } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -128,16 +124,11 @@ export class DescribeReservedInstancesModificationsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonEC2", "DescribeReservedInstancesModifications", {})
   .n("EC2Client", "DescribeReservedInstancesModificationsCommand")
-  .f(void 0, void 0)
-  .ser(se_DescribeReservedInstancesModificationsCommand)
-  .de(de_DescribeReservedInstancesModificationsCommand)
+  .sc(DescribeReservedInstancesModifications)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

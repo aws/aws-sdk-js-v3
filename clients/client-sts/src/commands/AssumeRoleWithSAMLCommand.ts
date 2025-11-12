@@ -1,17 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  AssumeRoleWithSAMLRequest,
-  AssumeRoleWithSAMLRequestFilterSensitiveLog,
-  AssumeRoleWithSAMLResponse,
-  AssumeRoleWithSAMLResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { de_AssumeRoleWithSAMLCommand, se_AssumeRoleWithSAMLCommand } from "../protocols/Aws_query";
+import { AssumeRoleWithSAMLRequest, AssumeRoleWithSAMLResponse } from "../models/models_0";
+import { AssumeRoleWithSAML } from "../schemas/schemas_0";
 import { ServiceInputTypes, ServiceOutputTypes, STSClientResolvedConfig } from "../STSClient";
 
 /**
@@ -301,16 +295,11 @@ export class AssumeRoleWithSAMLCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: STSClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSSecurityTokenServiceV20110615", "AssumeRoleWithSAML", {})
   .n("STSClient", "AssumeRoleWithSAMLCommand")
-  .f(AssumeRoleWithSAMLRequestFilterSensitiveLog, AssumeRoleWithSAMLResponseFilterSensitiveLog)
-  .ser(se_AssumeRoleWithSAMLCommand)
-  .de(de_AssumeRoleWithSAMLCommand)
+  .sc(AssumeRoleWithSAML)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

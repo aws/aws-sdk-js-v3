@@ -1,18 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  CreateDBInstanceMessage,
-  CreateDBInstanceMessageFilterSensitiveLog,
-  CreateDBInstanceResult,
-  CreateDBInstanceResultFilterSensitiveLog,
-} from "../models/models_0";
-import { de_CreateDBInstanceCommand, se_CreateDBInstanceCommand } from "../protocols/Aws_query";
+import { CreateDBInstanceMessage, CreateDBInstanceResult } from "../models/models_0";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
+import { CreateDBInstance } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -577,16 +571,11 @@ export class CreateDBInstanceCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RDSClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonRDSv19", "CreateDBInstance", {})
   .n("RDSClient", "CreateDBInstanceCommand")
-  .f(CreateDBInstanceMessageFilterSensitiveLog, CreateDBInstanceResultFilterSensitiveLog)
-  .ser(se_CreateDBInstanceCommand)
-  .de(de_CreateDBInstanceCommand)
+  .sc(CreateDBInstance)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

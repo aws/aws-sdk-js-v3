@@ -1,6 +1,4 @@
 // smithy-typescript generated code
-import { SENSITIVE_STRING } from "@smithy/smithy-client";
-
 import {
   ActiveInstance,
   ActivityStatus,
@@ -60,7 +58,6 @@ import {
   InstanceIpv6Address,
   LaunchTemplate,
   LaunchTemplateVersion,
-  LaunchTemplateVersionFilterSensitiveLog,
   LocalGatewayRouteTable,
   LocalGatewayRouteTableVirtualInterfaceGroupAssociation,
   LocalGatewayRouteTableVpcAssociation,
@@ -12420,78 +12417,3 @@ export interface DescribeTransitGatewayVpcAttachmentsResult {
    */
   NextToken?: string | undefined;
 }
-
-/**
- * @internal
- */
-export const DescribeLaunchTemplateVersionsResultFilterSensitiveLog = (
-  obj: DescribeLaunchTemplateVersionsResult
-): any => ({
-  ...obj,
-  ...(obj.LaunchTemplateVersions && {
-    LaunchTemplateVersions: obj.LaunchTemplateVersions.map((item) => LaunchTemplateVersionFilterSensitiveLog(item)),
-  }),
-});
-
-/**
- * @internal
- */
-export const SpotFleetLaunchSpecificationFilterSensitiveLog = (obj: SpotFleetLaunchSpecification): any => ({
-  ...obj,
-  ...(obj.UserData && { UserData: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const SpotFleetRequestConfigDataFilterSensitiveLog = (obj: SpotFleetRequestConfigData): any => ({
-  ...obj,
-  ...(obj.LaunchSpecifications && {
-    LaunchSpecifications: obj.LaunchSpecifications.map((item) => SpotFleetLaunchSpecificationFilterSensitiveLog(item)),
-  }),
-});
-
-/**
- * @internal
- */
-export const SpotFleetRequestConfigFilterSensitiveLog = (obj: SpotFleetRequestConfig): any => ({
-  ...obj,
-  ...(obj.SpotFleetRequestConfig && {
-    SpotFleetRequestConfig: SpotFleetRequestConfigDataFilterSensitiveLog(obj.SpotFleetRequestConfig),
-  }),
-});
-
-/**
- * @internal
- */
-export const DescribeSpotFleetRequestsResponseFilterSensitiveLog = (obj: DescribeSpotFleetRequestsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LaunchSpecificationFilterSensitiveLog = (obj: LaunchSpecification): any => ({
-  ...obj,
-  ...(obj.UserData && { UserData: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const SpotInstanceRequestFilterSensitiveLog = (obj: SpotInstanceRequest): any => ({
-  ...obj,
-  ...(obj.LaunchSpecification && {
-    LaunchSpecification: LaunchSpecificationFilterSensitiveLog(obj.LaunchSpecification),
-  }),
-});
-
-/**
- * @internal
- */
-export const DescribeSpotInstanceRequestsResultFilterSensitiveLog = (obj: DescribeSpotInstanceRequestsResult): any => ({
-  ...obj,
-  ...(obj.SpotInstanceRequests && {
-    SpotInstanceRequests: obj.SpotInstanceRequests.map((item) => SpotInstanceRequestFilterSensitiveLog(item)),
-  }),
-});

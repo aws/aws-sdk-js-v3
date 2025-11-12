@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CloudFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFormationClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { CreateStackRefactorInput, CreateStackRefactorOutput } from "../models/models_0";
-import { de_CreateStackRefactorCommand, se_CreateStackRefactorCommand } from "../protocols/Aws_query";
+import { CreateStackRefactor } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -91,16 +90,11 @@ export class CreateStackRefactorCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudFormationClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("CloudFormation", "CreateStackRefactor", {})
   .n("CloudFormationClient", "CreateStackRefactorCommand")
-  .f(void 0, void 0)
-  .ser(se_CreateStackRefactorCommand)
-  .de(de_CreateStackRefactorCommand)
+  .sc(CreateStackRefactor)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

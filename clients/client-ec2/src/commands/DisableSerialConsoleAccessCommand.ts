@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DisableSerialConsoleAccessRequest, DisableSerialConsoleAccessResult } from "../models/models_6";
-import { de_DisableSerialConsoleAccessCommand, se_DisableSerialConsoleAccessCommand } from "../protocols/Aws_ec2";
+import { DisableSerialConsoleAccess } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -73,16 +72,11 @@ export class DisableSerialConsoleAccessCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonEC2", "DisableSerialConsoleAccess", {})
   .n("EC2Client", "DisableSerialConsoleAccessCommand")
-  .f(void 0, void 0)
-  .ser(se_DisableSerialConsoleAccessCommand)
-  .de(de_DisableSerialConsoleAccessCommand)
+  .sc(DisableSerialConsoleAccess)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

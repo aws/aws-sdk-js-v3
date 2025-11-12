@@ -1,6 +1,4 @@
 // smithy-typescript generated code
-import { SENSITIVE_STRING } from "@smithy/smithy-client";
-
 /**
  * <p>The minimum and maximum number of accelerators (GPUs, FPGAs, or Amazon Web Services Inferentia chips)
  *          on an instance.</p>
@@ -8447,79 +8445,3 @@ export interface ConfirmProductInstanceResult {
    */
   OwnerId?: string | undefined;
 }
-
-/**
- * @internal
- */
-export const OidcOptionsFilterSensitiveLog = (obj: OidcOptions): any => ({
-  ...obj,
-  ...(obj.ClientSecret && { ClientSecret: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const VerifiedAccessTrustProviderFilterSensitiveLog = (obj: VerifiedAccessTrustProvider): any => ({
-  ...obj,
-  ...(obj.OidcOptions && { OidcOptions: OidcOptionsFilterSensitiveLog(obj.OidcOptions) }),
-});
-
-/**
- * @internal
- */
-export const AttachVerifiedAccessTrustProviderResultFilterSensitiveLog = (
-  obj: AttachVerifiedAccessTrustProviderResult
-): any => ({
-  ...obj,
-  ...(obj.VerifiedAccessTrustProvider && {
-    VerifiedAccessTrustProvider: VerifiedAccessTrustProviderFilterSensitiveLog(obj.VerifiedAccessTrustProvider),
-  }),
-});
-
-/**
- * @internal
- */
-export const S3StorageFilterSensitiveLog = (obj: S3Storage): any => ({
-  ...obj,
-  ...(obj.UploadPolicySignature && { UploadPolicySignature: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const StorageFilterSensitiveLog = (obj: Storage): any => ({
-  ...obj,
-  ...(obj.S3 && { S3: S3StorageFilterSensitiveLog(obj.S3) }),
-});
-
-/**
- * @internal
- */
-export const BundleInstanceRequestFilterSensitiveLog = (obj: BundleInstanceRequest): any => ({
-  ...obj,
-  ...(obj.Storage && { Storage: StorageFilterSensitiveLog(obj.Storage) }),
-});
-
-/**
- * @internal
- */
-export const BundleTaskFilterSensitiveLog = (obj: BundleTask): any => ({
-  ...obj,
-  ...(obj.Storage && { Storage: StorageFilterSensitiveLog(obj.Storage) }),
-});
-
-/**
- * @internal
- */
-export const BundleInstanceResultFilterSensitiveLog = (obj: BundleInstanceResult): any => ({
-  ...obj,
-  ...(obj.BundleTask && { BundleTask: BundleTaskFilterSensitiveLog(obj.BundleTask) }),
-});
-
-/**
- * @internal
- */
-export const CancelBundleTaskResultFilterSensitiveLog = (obj: CancelBundleTaskResult): any => ({
-  ...obj,
-  ...(obj.BundleTask && { BundleTask: BundleTaskFilterSensitiveLog(obj.BundleTask) }),
-});

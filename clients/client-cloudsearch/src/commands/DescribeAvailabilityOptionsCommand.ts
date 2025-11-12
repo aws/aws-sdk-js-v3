@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CloudSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudSearchClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DescribeAvailabilityOptionsRequest, DescribeAvailabilityOptionsResponse } from "../models/models_0";
-import { de_DescribeAvailabilityOptionsCommand, se_DescribeAvailabilityOptionsCommand } from "../protocols/Aws_query";
+import { DescribeAvailabilityOptions } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -101,16 +100,11 @@ export class DescribeAvailabilityOptionsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudSearchClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("A9SearchCloudConfigService2013", "DescribeAvailabilityOptions", {})
   .n("CloudSearchClient", "DescribeAvailabilityOptionsCommand")
-  .f(void 0, void 0)
-  .ser(se_DescribeAvailabilityOptionsCommand)
-  .de(de_DescribeAvailabilityOptionsCommand)
+  .sc(DescribeAvailabilityOptions)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

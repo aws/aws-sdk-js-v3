@@ -1,12 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { UpdateReceiptRuleRequest, UpdateReceiptRuleResponse } from "../models/models_0";
-import { de_UpdateReceiptRuleCommand, se_UpdateReceiptRuleCommand } from "../protocols/Aws_query";
+import { UpdateReceiptRule } from "../schemas/schemas_0";
 import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
 /**
@@ -179,16 +178,11 @@ export class UpdateReceiptRuleCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SESClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("SimpleEmailService", "UpdateReceiptRule", {})
   .n("SESClient", "UpdateReceiptRuleCommand")
-  .f(void 0, void 0)
-  .ser(se_UpdateReceiptRuleCommand)
-  .de(de_UpdateReceiptRuleCommand)
+  .sc(UpdateReceiptRule)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

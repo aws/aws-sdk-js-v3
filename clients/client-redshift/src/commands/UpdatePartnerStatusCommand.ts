@@ -1,14 +1,13 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { PartnerIntegrationOutputMessage } from "../models/models_0";
 import { UpdatePartnerStatusInputMessage } from "../models/models_1";
-import { de_UpdatePartnerStatusCommand, se_UpdatePartnerStatusCommand } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
+import { UpdatePartnerStatus } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -90,16 +89,11 @@ export class UpdatePartnerStatusCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RedshiftClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("RedshiftServiceVersion20121201", "UpdatePartnerStatus", {})
   .n("RedshiftClient", "UpdatePartnerStatusCommand")
-  .f(void 0, void 0)
-  .ser(se_UpdatePartnerStatusCommand)
-  .de(de_UpdatePartnerStatusCommand)
+  .sc(UpdatePartnerStatus)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

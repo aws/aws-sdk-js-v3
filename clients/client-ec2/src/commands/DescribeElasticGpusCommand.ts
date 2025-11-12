@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DescribeElasticGpusRequest, DescribeElasticGpusResult } from "../models/models_4";
-import { de_DescribeElasticGpusCommand, se_DescribeElasticGpusCommand } from "../protocols/Aws_ec2";
+import { DescribeElasticGpus } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -105,16 +104,11 @@ export class DescribeElasticGpusCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonEC2", "DescribeElasticGpus", {})
   .n("EC2Client", "DescribeElasticGpusCommand")
-  .f(void 0, void 0)
-  .ser(se_DescribeElasticGpusCommand)
-  .de(de_DescribeElasticGpusCommand)
+  .sc(DescribeElasticGpus)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

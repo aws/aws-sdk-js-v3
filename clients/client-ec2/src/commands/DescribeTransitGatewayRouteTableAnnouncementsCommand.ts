@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -10,10 +9,7 @@ import {
   DescribeTransitGatewayRouteTableAnnouncementsRequest,
   DescribeTransitGatewayRouteTableAnnouncementsResult,
 } from "../models/models_5";
-import {
-  de_DescribeTransitGatewayRouteTableAnnouncementsCommand,
-  se_DescribeTransitGatewayRouteTableAnnouncementsCommand,
-} from "../protocols/Aws_ec2";
+import { DescribeTransitGatewayRouteTableAnnouncements } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -112,16 +108,11 @@ export class DescribeTransitGatewayRouteTableAnnouncementsCommand extends $Comma
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonEC2", "DescribeTransitGatewayRouteTableAnnouncements", {})
   .n("EC2Client", "DescribeTransitGatewayRouteTableAnnouncementsCommand")
-  .f(void 0, void 0)
-  .ser(se_DescribeTransitGatewayRouteTableAnnouncementsCommand)
-  .de(de_DescribeTransitGatewayRouteTableAnnouncementsCommand)
+  .sc(DescribeTransitGatewayRouteTableAnnouncements)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

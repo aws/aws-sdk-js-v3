@@ -1,6 +1,4 @@
 // smithy-typescript generated code
-import { SENSITIVE_STRING } from "@smithy/smithy-client";
-
 import {
   ActiveVpnTunnelStatus,
   AddressTransfer,
@@ -27,7 +25,6 @@ import {
   UserTrustProviderType,
   VerifiedAccessInstance,
   VerifiedAccessTrustProvider,
-  VerifiedAccessTrustProviderFilterSensitiveLog,
   VpcCidrBlockAssociation,
   VpcIpv6CidrBlockAssociation,
   VpcPeeringConnection,
@@ -51,7 +48,6 @@ import {
   VpcBlockPublicAccessExclusion,
   VpcEndpoint,
   VpnConnection,
-  VpnConnectionFilterSensitiveLog,
   VpnGateway,
 } from "./models_3";
 
@@ -8490,63 +8486,3 @@ export interface IntegrateServices {
    */
   AthenaIntegrations?: AthenaIntegration[] | undefined;
 }
-
-/**
- * @internal
- */
-export const DescribeVerifiedAccessTrustProvidersResultFilterSensitiveLog = (
-  obj: DescribeVerifiedAccessTrustProvidersResult
-): any => ({
-  ...obj,
-  ...(obj.VerifiedAccessTrustProviders && {
-    VerifiedAccessTrustProviders: obj.VerifiedAccessTrustProviders.map((item) =>
-      VerifiedAccessTrustProviderFilterSensitiveLog(item)
-    ),
-  }),
-});
-
-/**
- * @internal
- */
-export const DescribeVpnConnectionsResultFilterSensitiveLog = (obj: DescribeVpnConnectionsResult): any => ({
-  ...obj,
-  ...(obj.VpnConnections && {
-    VpnConnections: obj.VpnConnections.map((item) => VpnConnectionFilterSensitiveLog(item)),
-  }),
-});
-
-/**
- * @internal
- */
-export const DetachVerifiedAccessTrustProviderResultFilterSensitiveLog = (
-  obj: DetachVerifiedAccessTrustProviderResult
-): any => ({
-  ...obj,
-  ...(obj.VerifiedAccessTrustProvider && {
-    VerifiedAccessTrustProvider: VerifiedAccessTrustProviderFilterSensitiveLog(obj.VerifiedAccessTrustProvider),
-  }),
-});
-
-/**
- * @internal
- */
-export const VerifiedAccessInstanceUserTrustProviderClientConfigurationFilterSensitiveLog = (
-  obj: VerifiedAccessInstanceUserTrustProviderClientConfiguration
-): any => ({
-  ...obj,
-  ...(obj.ClientSecret && { ClientSecret: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const ExportVerifiedAccessInstanceClientConfigurationResultFilterSensitiveLog = (
-  obj: ExportVerifiedAccessInstanceClientConfigurationResult
-): any => ({
-  ...obj,
-  ...(obj.UserTrustProvider && {
-    UserTrustProvider: VerifiedAccessInstanceUserTrustProviderClientConfigurationFilterSensitiveLog(
-      obj.UserTrustProvider
-    ),
-  }),
-});

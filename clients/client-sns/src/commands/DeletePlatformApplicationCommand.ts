@@ -1,12 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DeletePlatformApplicationInput } from "../models/models_0";
-import { de_DeletePlatformApplicationCommand, se_DeletePlatformApplicationCommand } from "../protocols/Aws_query";
+import { DeletePlatformApplication } from "../schemas/schemas_0";
 import { ServiceInputTypes, ServiceOutputTypes, SNSClientResolvedConfig } from "../SNSClient";
 
 /**
@@ -81,16 +80,11 @@ export class DeletePlatformApplicationCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SNSClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonSimpleNotificationService", "DeletePlatformApplication", {})
   .n("SNSClient", "DeletePlatformApplicationCommand")
-  .f(void 0, void 0)
-  .ser(se_DeletePlatformApplicationCommand)
-  .de(de_DeletePlatformApplicationCommand)
+  .sc(DeletePlatformApplication)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

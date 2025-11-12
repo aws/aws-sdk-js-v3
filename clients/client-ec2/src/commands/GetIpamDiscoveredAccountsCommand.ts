@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GetIpamDiscoveredAccountsRequest, GetIpamDiscoveredAccountsResult } from "../models/models_7";
-import { de_GetIpamDiscoveredAccountsCommand, se_GetIpamDiscoveredAccountsCommand } from "../protocols/Aws_ec2";
+import { GetIpamDiscoveredAccounts } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -95,16 +94,11 @@ export class GetIpamDiscoveredAccountsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonEC2", "GetIpamDiscoveredAccounts", {})
   .n("EC2Client", "GetIpamDiscoveredAccountsCommand")
-  .f(void 0, void 0)
-  .ser(se_GetIpamDiscoveredAccountsCommand)
-  .de(de_GetIpamDiscoveredAccountsCommand)
+  .sc(GetIpamDiscoveredAccounts)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

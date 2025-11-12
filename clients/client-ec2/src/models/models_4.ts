@@ -1,6 +1,4 @@
 // smithy-typescript generated code
-import { SENSITIVE_STRING } from "@smithy/smithy-client";
-
 import {
   ActiveInstance,
   AllocationState,
@@ -9,7 +7,6 @@ import {
   AttachmentStatus,
   AutoPlacement,
   BundleTask,
-  BundleTaskFilterSensitiveLog,
   ByoipCidr,
   CapacityReservationFleetState,
   ClientVpnAuthorizationRuleStatus,
@@ -12848,113 +12845,3 @@ export interface DescribeInstanceTypeOfferingsResult {
    */
   NextToken?: string | undefined;
 }
-
-/**
- * @internal
- */
-export const DescribeBundleTasksResultFilterSensitiveLog = (obj: DescribeBundleTasksResult): any => ({
-  ...obj,
-  ...(obj.BundleTasks && { BundleTasks: obj.BundleTasks.map((item) => BundleTaskFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const DiskImageDescriptionFilterSensitiveLog = (obj: DiskImageDescription): any => ({
-  ...obj,
-  ...(obj.ImportManifestUrl && { ImportManifestUrl: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const ImportInstanceVolumeDetailItemFilterSensitiveLog = (obj: ImportInstanceVolumeDetailItem): any => ({
-  ...obj,
-  ...(obj.Image && { Image: DiskImageDescriptionFilterSensitiveLog(obj.Image) }),
-});
-
-/**
- * @internal
- */
-export const ImportInstanceTaskDetailsFilterSensitiveLog = (obj: ImportInstanceTaskDetails): any => ({
-  ...obj,
-  ...(obj.Volumes && { Volumes: obj.Volumes.map((item) => ImportInstanceVolumeDetailItemFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const ImportVolumeTaskDetailsFilterSensitiveLog = (obj: ImportVolumeTaskDetails): any => ({
-  ...obj,
-  ...(obj.Image && { Image: DiskImageDescriptionFilterSensitiveLog(obj.Image) }),
-});
-
-/**
- * @internal
- */
-export const ConversionTaskFilterSensitiveLog = (obj: ConversionTask): any => ({
-  ...obj,
-  ...(obj.ImportInstance && { ImportInstance: ImportInstanceTaskDetailsFilterSensitiveLog(obj.ImportInstance) }),
-  ...(obj.ImportVolume && { ImportVolume: ImportVolumeTaskDetailsFilterSensitiveLog(obj.ImportVolume) }),
-});
-
-/**
- * @internal
- */
-export const DescribeConversionTasksResultFilterSensitiveLog = (obj: DescribeConversionTasksResult): any => ({
-  ...obj,
-  ...(obj.ConversionTasks && {
-    ConversionTasks: obj.ConversionTasks.map((item) => ConversionTaskFilterSensitiveLog(item)),
-  }),
-});
-
-/**
- * @internal
- */
-export const SnapshotDetailFilterSensitiveLog = (obj: SnapshotDetail): any => ({
-  ...obj,
-  ...(obj.Url && { Url: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const ImportImageTaskFilterSensitiveLog = (obj: ImportImageTask): any => ({
-  ...obj,
-  ...(obj.SnapshotDetails && {
-    SnapshotDetails: obj.SnapshotDetails.map((item) => SnapshotDetailFilterSensitiveLog(item)),
-  }),
-});
-
-/**
- * @internal
- */
-export const DescribeImportImageTasksResultFilterSensitiveLog = (obj: DescribeImportImageTasksResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SnapshotTaskDetailFilterSensitiveLog = (obj: SnapshotTaskDetail): any => ({
-  ...obj,
-  ...(obj.Url && { Url: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const ImportSnapshotTaskFilterSensitiveLog = (obj: ImportSnapshotTask): any => ({
-  ...obj,
-  ...(obj.SnapshotTaskDetail && { SnapshotTaskDetail: SnapshotTaskDetailFilterSensitiveLog(obj.SnapshotTaskDetail) }),
-});
-
-/**
- * @internal
- */
-export const DescribeImportSnapshotTasksResultFilterSensitiveLog = (obj: DescribeImportSnapshotTasksResult): any => ({
-  ...obj,
-  ...(obj.ImportSnapshotTasks && {
-    ImportSnapshotTasks: obj.ImportSnapshotTasks.map((item) => ImportSnapshotTaskFilterSensitiveLog(item)),
-  }),
-});

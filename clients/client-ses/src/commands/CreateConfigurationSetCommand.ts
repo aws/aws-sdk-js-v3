@@ -1,12 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { CreateConfigurationSetRequest, CreateConfigurationSetResponse } from "../models/models_0";
-import { de_CreateConfigurationSetCommand, se_CreateConfigurationSetCommand } from "../protocols/Aws_query";
+import { CreateConfigurationSet } from "../schemas/schemas_0";
 import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
 /**
@@ -87,16 +86,11 @@ export class CreateConfigurationSetCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SESClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("SimpleEmailService", "CreateConfigurationSet", {})
   .n("SESClient", "CreateConfigurationSetCommand")
-  .f(void 0, void 0)
-  .ser(se_CreateConfigurationSetCommand)
-  .de(de_CreateConfigurationSetCommand)
+  .sc(CreateConfigurationSet)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

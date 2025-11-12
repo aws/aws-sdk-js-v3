@@ -1,18 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  RestoreDBClusterFromS3Message,
-  RestoreDBClusterFromS3MessageFilterSensitiveLog,
-  RestoreDBClusterFromS3Result,
-  RestoreDBClusterFromS3ResultFilterSensitiveLog,
-} from "../models/models_1";
-import { de_RestoreDBClusterFromS3Command, se_RestoreDBClusterFromS3Command } from "../protocols/Aws_query";
+import { RestoreDBClusterFromS3Message, RestoreDBClusterFromS3Result } from "../models/models_1";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
+import { RestoreDBClusterFromS3 } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -458,16 +452,11 @@ export class RestoreDBClusterFromS3Command extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RDSClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonRDSv19", "RestoreDBClusterFromS3", {})
   .n("RDSClient", "RestoreDBClusterFromS3Command")
-  .f(RestoreDBClusterFromS3MessageFilterSensitiveLog, RestoreDBClusterFromS3ResultFilterSensitiveLog)
-  .ser(se_RestoreDBClusterFromS3Command)
-  .de(de_RestoreDBClusterFromS3Command)
+  .sc(RestoreDBClusterFromS3)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

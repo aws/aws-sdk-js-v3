@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { RebootClusterMessage, RebootClusterResult, RebootClusterResultFilterSensitiveLog } from "../models/models_1";
-import { de_RebootClusterCommand, se_RebootClusterCommand } from "../protocols/Aws_query";
+import { RebootClusterMessage, RebootClusterResult } from "../models/models_1";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
+import { RebootCluster } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -272,16 +271,11 @@ export class RebootClusterCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RedshiftClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("RedshiftServiceVersion20121201", "RebootCluster", {})
   .n("RedshiftClient", "RebootClusterCommand")
-  .f(void 0, RebootClusterResultFilterSensitiveLog)
-  .ser(se_RebootClusterCommand)
-  .de(de_RebootClusterCommand)
+  .sc(RebootCluster)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

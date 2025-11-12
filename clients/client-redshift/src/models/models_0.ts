@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@smithy/smithy-client";
+import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
 import { RedshiftServiceException as __BaseException } from "./RedshiftServiceException";
 
@@ -8749,69 +8749,3 @@ export interface DeregisterNamespaceInputMessage {
    */
   ConsumerIdentifiers: string[] | undefined;
 }
-
-/**
- * @internal
- */
-export const PendingModifiedValuesFilterSensitiveLog = (obj: PendingModifiedValues): any => ({
-  ...obj,
-  ...(obj.MasterUserPassword && { MasterUserPassword: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const ClusterFilterSensitiveLog = (obj: Cluster): any => ({
-  ...obj,
-  ...(obj.PendingModifiedValues && {
-    PendingModifiedValues: PendingModifiedValuesFilterSensitiveLog(obj.PendingModifiedValues),
-  }),
-});
-
-/**
- * @internal
- */
-export const ClusterCredentialsFilterSensitiveLog = (obj: ClusterCredentials): any => ({
-  ...obj,
-  ...(obj.DbPassword && { DbPassword: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const ClusterExtendedCredentialsFilterSensitiveLog = (obj: ClusterExtendedCredentials): any => ({
-  ...obj,
-  ...(obj.DbPassword && { DbPassword: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const ClustersMessageFilterSensitiveLog = (obj: ClustersMessage): any => ({
-  ...obj,
-  ...(obj.Clusters && { Clusters: obj.Clusters.map((item) => ClusterFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const CreateClusterMessageFilterSensitiveLog = (obj: CreateClusterMessage): any => ({
-  ...obj,
-  ...(obj.MasterUserPassword && { MasterUserPassword: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const CreateClusterResultFilterSensitiveLog = (obj: CreateClusterResult): any => ({
-  ...obj,
-  ...(obj.Cluster && { Cluster: ClusterFilterSensitiveLog(obj.Cluster) }),
-});
-
-/**
- * @internal
- */
-export const DeleteClusterResultFilterSensitiveLog = (obj: DeleteClusterResult): any => ({
-  ...obj,
-  ...(obj.Cluster && { Cluster: ClusterFilterSensitiveLog(obj.Cluster) }),
-});

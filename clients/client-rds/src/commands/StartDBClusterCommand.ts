@@ -1,17 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  StartDBClusterMessage,
-  StartDBClusterResult,
-  StartDBClusterResultFilterSensitiveLog,
-} from "../models/models_1";
-import { de_StartDBClusterCommand, se_StartDBClusterCommand } from "../protocols/Aws_query";
+import { StartDBClusterMessage, StartDBClusterResult } from "../models/models_1";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
+import { StartDBCluster } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -313,16 +308,11 @@ export class StartDBClusterCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RDSClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonRDSv19", "StartDBCluster", {})
   .n("RDSClient", "StartDBClusterCommand")
-  .f(void 0, StartDBClusterResultFilterSensitiveLog)
-  .ser(se_StartDBClusterCommand)
-  .de(de_StartDBClusterCommand)
+  .sc(StartDBCluster)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

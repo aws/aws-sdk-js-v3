@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { CreateInstanceExportTaskRequest, CreateInstanceExportTaskResult } from "../models/models_1";
-import { de_CreateInstanceExportTaskCommand, se_CreateInstanceExportTaskCommand } from "../protocols/Aws_ec2";
+import { CreateInstanceExportTask } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -113,16 +112,11 @@ export class CreateInstanceExportTaskCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonEC2", "CreateInstanceExportTask", {})
   .n("EC2Client", "CreateInstanceExportTaskCommand")
-  .f(void 0, void 0)
-  .ser(se_CreateInstanceExportTaskCommand)
-  .de(de_CreateInstanceExportTaskCommand)
+  .sc(CreateInstanceExportTask)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -10,10 +9,7 @@ import {
   DescribeIamInstanceProfileAssociationsRequest,
   DescribeIamInstanceProfileAssociationsResult,
 } from "../models/models_4";
-import {
-  de_DescribeIamInstanceProfileAssociationsCommand,
-  se_DescribeIamInstanceProfileAssociationsCommand,
-} from "../protocols/Aws_ec2";
+import { DescribeIamInstanceProfileAssociations } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -130,16 +126,11 @@ export class DescribeIamInstanceProfileAssociationsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonEC2", "DescribeIamInstanceProfileAssociations", {})
   .n("EC2Client", "DescribeIamInstanceProfileAssociationsCommand")
-  .f(void 0, void 0)
-  .ser(se_DescribeIamInstanceProfileAssociationsCommand)
-  .de(de_DescribeIamInstanceProfileAssociationsCommand)
+  .sc(DescribeIamInstanceProfileAssociations)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,14 +1,13 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { ClusterParameterGroupNameMessage } from "../models/models_0";
 import { ModifyClusterParameterGroupMessage } from "../models/models_1";
-import { de_ModifyClusterParameterGroupCommand, se_ModifyClusterParameterGroupCommand } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
+import { ModifyClusterParameterGroup } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -97,16 +96,11 @@ export class ModifyClusterParameterGroupCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RedshiftClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("RedshiftServiceVersion20121201", "ModifyClusterParameterGroup", {})
   .n("RedshiftClient", "ModifyClusterParameterGroupCommand")
-  .f(void 0, void 0)
-  .ser(se_ModifyClusterParameterGroupCommand)
-  .de(de_ModifyClusterParameterGroupCommand)
+  .sc(ModifyClusterParameterGroup)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

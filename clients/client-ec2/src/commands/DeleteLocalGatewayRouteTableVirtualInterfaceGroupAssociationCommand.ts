@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -10,10 +9,7 @@ import {
   DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationRequest,
   DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationResult,
 } from "../models/models_3";
-import {
-  de_DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommand,
-  se_DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommand,
-} from "../protocols/Aws_ec2";
+import { DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociation } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -96,16 +92,11 @@ export class DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommand
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonEC2", "DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociation", {})
   .n("EC2Client", "DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommand")
-  .f(void 0, void 0)
-  .ser(se_DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommand)
-  .de(de_DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommand)
+  .sc(DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociation)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

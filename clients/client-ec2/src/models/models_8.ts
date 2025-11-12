@@ -1,6 +1,4 @@
 // smithy-typescript generated code
-import { SENSITIVE_STRING } from "@smithy/smithy-client";
-
 import {
   AddedPrincipal,
   AddressAttribute,
@@ -23,7 +21,6 @@ import {
   VerifiedAccessInstance,
   VerifiedAccessSseSpecificationResponse,
   VerifiedAccessTrustProvider,
-  VerifiedAccessTrustProviderFilterSensitiveLog,
 } from "./models_0";
 
 import {
@@ -79,7 +76,6 @@ import {
   VerifiedAccessGroup,
   VpcBlockPublicAccessExclusion,
   VpnConnection,
-  VpnConnectionFilterSensitiveLog,
   VpnTunnelLogOptionsSpecification,
 } from "./models_3";
 
@@ -111,9 +107,7 @@ import {
   ScheduledInstance,
   SnapshotAttributeName,
   SpotFleetRequestConfigData,
-  SpotFleetRequestConfigDataFilterSensitiveLog,
   SpotInstanceRequest,
-  SpotInstanceRequestFilterSensitiveLog,
   SpotPlacement,
 } from "./models_5";
 
@@ -7817,173 +7811,3 @@ export interface WithdrawByoipCidrResult {
    */
   ByoipCidr?: ByoipCidr | undefined;
 }
-
-/**
- * @internal
- */
-export const ModifyVerifiedAccessNativeApplicationOidcOptionsFilterSensitiveLog = (
-  obj: ModifyVerifiedAccessNativeApplicationOidcOptions
-): any => ({
-  ...obj,
-  ...(obj.ClientSecret && { ClientSecret: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const ModifyVerifiedAccessTrustProviderOidcOptionsFilterSensitiveLog = (
-  obj: ModifyVerifiedAccessTrustProviderOidcOptions
-): any => ({
-  ...obj,
-  ...(obj.ClientSecret && { ClientSecret: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const ModifyVerifiedAccessTrustProviderRequestFilterSensitiveLog = (
-  obj: ModifyVerifiedAccessTrustProviderRequest
-): any => ({
-  ...obj,
-  ...(obj.OidcOptions && {
-    OidcOptions: ModifyVerifiedAccessTrustProviderOidcOptionsFilterSensitiveLog(obj.OidcOptions),
-  }),
-  ...(obj.NativeApplicationOidcOptions && {
-    NativeApplicationOidcOptions: ModifyVerifiedAccessNativeApplicationOidcOptionsFilterSensitiveLog(
-      obj.NativeApplicationOidcOptions
-    ),
-  }),
-});
-
-/**
- * @internal
- */
-export const ModifyVerifiedAccessTrustProviderResultFilterSensitiveLog = (
-  obj: ModifyVerifiedAccessTrustProviderResult
-): any => ({
-  ...obj,
-  ...(obj.VerifiedAccessTrustProvider && {
-    VerifiedAccessTrustProvider: VerifiedAccessTrustProviderFilterSensitiveLog(obj.VerifiedAccessTrustProvider),
-  }),
-});
-
-/**
- * @internal
- */
-export const ModifyVpnConnectionResultFilterSensitiveLog = (obj: ModifyVpnConnectionResult): any => ({
-  ...obj,
-  ...(obj.VpnConnection && { VpnConnection: VpnConnectionFilterSensitiveLog(obj.VpnConnection) }),
-});
-
-/**
- * @internal
- */
-export const ModifyVpnConnectionOptionsResultFilterSensitiveLog = (obj: ModifyVpnConnectionOptionsResult): any => ({
-  ...obj,
-  ...(obj.VpnConnection && { VpnConnection: VpnConnectionFilterSensitiveLog(obj.VpnConnection) }),
-});
-
-/**
- * @internal
- */
-export const ModifyVpnTunnelCertificateResultFilterSensitiveLog = (obj: ModifyVpnTunnelCertificateResult): any => ({
-  ...obj,
-  ...(obj.VpnConnection && { VpnConnection: VpnConnectionFilterSensitiveLog(obj.VpnConnection) }),
-});
-
-/**
- * @internal
- */
-export const ModifyVpnTunnelOptionsSpecificationFilterSensitiveLog = (
-  obj: ModifyVpnTunnelOptionsSpecification
-): any => ({
-  ...obj,
-  ...(obj.PreSharedKey && { PreSharedKey: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const ModifyVpnTunnelOptionsRequestFilterSensitiveLog = (obj: ModifyVpnTunnelOptionsRequest): any => ({
-  ...obj,
-  ...(obj.TunnelOptions && { TunnelOptions: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const ModifyVpnTunnelOptionsResultFilterSensitiveLog = (obj: ModifyVpnTunnelOptionsResult): any => ({
-  ...obj,
-  ...(obj.VpnConnection && { VpnConnection: VpnConnectionFilterSensitiveLog(obj.VpnConnection) }),
-});
-
-/**
- * @internal
- */
-export const ReportInstanceStatusRequestFilterSensitiveLog = (obj: ReportInstanceStatusRequest): any => ({
-  ...obj,
-  ...(obj.Description && { Description: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const RequestSpotFleetRequestFilterSensitiveLog = (obj: RequestSpotFleetRequest): any => ({
-  ...obj,
-  ...(obj.SpotFleetRequestConfig && {
-    SpotFleetRequestConfig: SpotFleetRequestConfigDataFilterSensitiveLog(obj.SpotFleetRequestConfig),
-  }),
-});
-
-/**
- * @internal
- */
-export const RequestSpotLaunchSpecificationFilterSensitiveLog = (obj: RequestSpotLaunchSpecification): any => ({
-  ...obj,
-  ...(obj.UserData && { UserData: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const RequestSpotInstancesRequestFilterSensitiveLog = (obj: RequestSpotInstancesRequest): any => ({
-  ...obj,
-  ...(obj.LaunchSpecification && {
-    LaunchSpecification: RequestSpotLaunchSpecificationFilterSensitiveLog(obj.LaunchSpecification),
-  }),
-});
-
-/**
- * @internal
- */
-export const RequestSpotInstancesResultFilterSensitiveLog = (obj: RequestSpotInstancesResult): any => ({
-  ...obj,
-  ...(obj.SpotInstanceRequests && {
-    SpotInstanceRequests: obj.SpotInstanceRequests.map((item) => SpotInstanceRequestFilterSensitiveLog(item)),
-  }),
-});
-
-/**
- * @internal
- */
-export const RunInstancesRequestFilterSensitiveLog = (obj: RunInstancesRequest): any => ({
-  ...obj,
-  ...(obj.UserData && { UserData: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const ScheduledInstancesLaunchSpecificationFilterSensitiveLog = (
-  obj: ScheduledInstancesLaunchSpecification
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RunScheduledInstancesRequestFilterSensitiveLog = (obj: RunScheduledInstancesRequest): any => ({
-  ...obj,
-  ...(obj.LaunchSpecification && { LaunchSpecification: SENSITIVE_STRING }),
-});

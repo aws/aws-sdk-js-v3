@@ -1,17 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  PromoteReadReplicaMessage,
-  PromoteReadReplicaResult,
-  PromoteReadReplicaResultFilterSensitiveLog,
-} from "../models/models_1";
-import { de_PromoteReadReplicaCommand, se_PromoteReadReplicaCommand } from "../protocols/Aws_query";
+import { PromoteReadReplicaMessage, PromoteReadReplicaResult } from "../models/models_1";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
+import { PromoteReadReplica } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -344,16 +339,11 @@ export class PromoteReadReplicaCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RDSClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonRDSv19", "PromoteReadReplica", {})
   .n("RDSClient", "PromoteReadReplicaCommand")
-  .f(void 0, PromoteReadReplicaResultFilterSensitiveLog)
-  .ser(se_PromoteReadReplicaCommand)
-  .de(de_PromoteReadReplicaCommand)
+  .sc(PromoteReadReplica)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

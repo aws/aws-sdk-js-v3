@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DBParameterGroupNameMessage, ModifyDBParameterGroupMessage } from "../models/models_0";
 import { NeptuneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptuneClient";
-import { de_ModifyDBParameterGroupCommand, se_ModifyDBParameterGroupCommand } from "../protocols/Aws_query";
+import { ModifyDBParameterGroup } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -112,16 +111,11 @@ export class ModifyDBParameterGroupCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: NeptuneClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonRDSv19", "ModifyDBParameterGroup", {})
   .n("NeptuneClient", "ModifyDBParameterGroupCommand")
-  .f(void 0, void 0)
-  .ser(se_ModifyDBParameterGroupCommand)
-  .de(de_ModifyDBParameterGroupCommand)
+  .sc(ModifyDBParameterGroup)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

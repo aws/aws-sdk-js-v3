@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
@@ -9,12 +8,8 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import {
   GetVpnConnectionDeviceSampleConfigurationRequest,
   GetVpnConnectionDeviceSampleConfigurationResult,
-  GetVpnConnectionDeviceSampleConfigurationResultFilterSensitiveLog,
 } from "../models/models_7";
-import {
-  de_GetVpnConnectionDeviceSampleConfigurationCommand,
-  se_GetVpnConnectionDeviceSampleConfigurationCommand,
-} from "../protocols/Aws_ec2";
+import { GetVpnConnectionDeviceSampleConfiguration } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -85,16 +80,11 @@ export class GetVpnConnectionDeviceSampleConfigurationCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonEC2", "GetVpnConnectionDeviceSampleConfiguration", {})
   .n("EC2Client", "GetVpnConnectionDeviceSampleConfigurationCommand")
-  .f(void 0, GetVpnConnectionDeviceSampleConfigurationResultFilterSensitiveLog)
-  .ser(se_GetVpnConnectionDeviceSampleConfigurationCommand)
-  .de(de_GetVpnConnectionDeviceSampleConfigurationCommand)
+  .sc(GetVpnConnectionDeviceSampleConfiguration)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

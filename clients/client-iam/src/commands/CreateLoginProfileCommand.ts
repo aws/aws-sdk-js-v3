@@ -1,17 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import {
-  CreateLoginProfileRequest,
-  CreateLoginProfileRequestFilterSensitiveLog,
-  CreateLoginProfileResponse,
-} from "../models/models_0";
-import { de_CreateLoginProfileCommand, se_CreateLoginProfileCommand } from "../protocols/Aws_query";
+import { CreateLoginProfileRequest, CreateLoginProfileResponse } from "../models/models_0";
+import { CreateLoginProfile } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -126,16 +121,11 @@ export class CreateLoginProfileCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IAMClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSIdentityManagementV20100508", "CreateLoginProfile", {})
   .n("IAMClient", "CreateLoginProfileCommand")
-  .f(CreateLoginProfileRequestFilterSensitiveLog, void 0)
-  .ser(se_CreateLoginProfileCommand)
-  .de(de_CreateLoginProfileCommand)
+  .sc(CreateLoginProfile)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

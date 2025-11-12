@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DescribeIpv6PoolsRequest, DescribeIpv6PoolsResult } from "../models/models_5";
-import { de_DescribeIpv6PoolsCommand, se_DescribeIpv6PoolsCommand } from "../protocols/Aws_ec2";
+import { DescribeIpv6Pools } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -100,16 +99,11 @@ export class DescribeIpv6PoolsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AmazonEC2", "DescribeIpv6Pools", {})
   .n("EC2Client", "DescribeIpv6PoolsCommand")
-  .f(void 0, void 0)
-  .ser(se_DescribeIpv6PoolsCommand)
-  .de(de_DescribeIpv6PoolsCommand)
+  .sc(DescribeIpv6Pools)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
