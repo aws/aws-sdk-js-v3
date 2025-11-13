@@ -53,6 +53,12 @@ export interface ListDevicesForWirelessDeviceImportTaskCommandOutput
  * // { // ListDevicesForWirelessDeviceImportTaskResponse
  * //   NextToken: "STRING_VALUE",
  * //   DestinationName: "STRING_VALUE",
+ * //   Positioning: "Enabled" || "Disabled",
+ * //   Sidewalk: { // SidewalkListDevicesForImportInfo
+ * //     Positioning: { // SidewalkPositioning
+ * //       DestinationName: "STRING_VALUE",
+ * //     },
+ * //   },
  * //   ImportedWirelessDeviceList: [ // ImportedWirelessDeviceList
  * //     { // ImportedWirelessDevice
  * //       Sidewalk: { // ImportedSidewalkDevice

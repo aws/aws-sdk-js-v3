@@ -30,7 +30,7 @@ export interface PutPositionConfigurationCommandOutput extends PutPositionConfig
  * <p>Put position configuration for a given resource.</p>
  *          <important>
  *             <p>This action is no longer supported. Calls to update the position configuration
- *                 should use the <a href="https://docs.aws.amazon.com/iot-wireless/2020-11-22/apireference/API_UpdateResourcePosition.html">UpdateResourcePosition</a> API operation instead.</p>
+ *                 should use the <a href="https://docs.aws.amazon.com/iot-wireless/latest/apireference/API_UpdateResourcePosition.html">UpdateResourcePosition</a> API operation instead.</p>
  *          </important>
  *
  * @deprecated This operation is no longer supported.

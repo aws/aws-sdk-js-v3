@@ -73,10 +73,14 @@ export interface ListWirelessDevicesCommandOutput extends ListWirelessDevicesRes
  * //         ],
  * //         DeviceProfileId: "STRING_VALUE",
  * //         Status: "PROVISIONED" || "REGISTERED" || "ACTIVATED" || "UNKNOWN",
+ * //         Positioning: { // SidewalkPositioning
+ * //           DestinationName: "STRING_VALUE",
+ * //         },
  * //       },
  * //       FuotaDeviceStatus: "Initial" || "Package_Not_Supported" || "FragAlgo_unsupported" || "Not_enough_memory" || "FragIndex_unsupported" || "Wrong_descriptor" || "SessionCnt_replay" || "MissingFrag" || "MemoryError" || "MICError" || "Successful" || "Device_exist_in_conflict_fuota_task",
  * //       MulticastDeviceStatus: "STRING_VALUE",
  * //       McGroupId: Number("int"),
+ * //       Positioning: "Enabled" || "Disabled",
  * //     },
  * //   ],
  * // };

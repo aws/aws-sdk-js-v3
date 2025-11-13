@@ -48,11 +48,15 @@ export interface GetWirelessDeviceImportTaskCommandOutput
  * //   Id: "STRING_VALUE",
  * //   Arn: "STRING_VALUE",
  * //   DestinationName: "STRING_VALUE",
+ * //   Positioning: "Enabled" || "Disabled",
  * //   Sidewalk: { // SidewalkGetStartImportInfo
  * //     DeviceCreationFileList: [ // DeviceCreationFileList
  * //       "STRING_VALUE",
  * //     ],
  * //     Role: "STRING_VALUE",
+ * //     Positioning: { // SidewalkPositioning
+ * //       DestinationName: "STRING_VALUE",
+ * //     },
  * //   },
  * //   CreationTime: new Date("TIMESTAMP"),
  * //   Status: "INITIALIZING" || "INITIALIZED" || "PENDING" || "COMPLETE" || "FAILED" || "DELETING",

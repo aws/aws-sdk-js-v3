@@ -121,6 +121,9 @@ export interface GetWirelessDeviceCommandOutput extends GetWirelessDeviceRespons
  * //     DeviceProfileId: "STRING_VALUE",
  * //     CertificateId: "STRING_VALUE",
  * //     Status: "PROVISIONED" || "REGISTERED" || "ACTIVATED" || "UNKNOWN",
+ * //     Positioning: { // SidewalkPositioning
+ * //       DestinationName: "STRING_VALUE",
+ * //     },
  * //   },
  * //   Positioning: "Enabled" || "Disabled",
  * // };

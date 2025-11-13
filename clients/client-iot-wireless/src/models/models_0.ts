@@ -2368,6 +2368,18 @@ export const PositioningConfigStatus = {
 export type PositioningConfigStatus = (typeof PositioningConfigStatus)[keyof typeof PositioningConfigStatus];
 
 /**
+ * <p>The Positioning object of the Sidewalk device.</p>
+ * @public
+ */
+export interface SidewalkPositioning {
+  /**
+   * <p>The location destination name of the Sidewalk device.</p>
+   * @public
+   */
+  DestinationName?: string | undefined;
+}
+
+/**
  * <p>Sidewalk object for creating a wireless device.</p>
  * @public
  */
@@ -2377,6 +2389,18 @@ export interface SidewalkCreateWirelessDevice {
    * @public
    */
   DeviceProfileId?: string | undefined;
+
+  /**
+   * <p>The Positioning object of the Sidewalk device.</p>
+   * @public
+   */
+  Positioning?: SidewalkPositioning | undefined;
+
+  /**
+   * <p>The Sidewalk manufacturing serial number.</p>
+   * @public
+   */
+  SidewalkManufacturingSn?: string | undefined;
 }
 
 /**
@@ -2452,8 +2476,7 @@ export interface CreateWirelessDeviceRequest {
   Tags?: Tag[] | undefined;
 
   /**
-   * <p>FPort values for the GNSS, stream, and ClockSync functions of the positioning
-   *             information.</p>
+   * <p>The integration status of the Device Location feature for LoRaWAN and Sidewalk devices.</p>
    * @public
    */
   Positioning?: PositioningConfigStatus | undefined;
@@ -5754,6 +5777,12 @@ export interface SidewalkDevice {
    * @public
    */
   Status?: WirelessDeviceSidewalkStatus | undefined;
+
+  /**
+   * <p>The Positioning object of the Sidewalk device.</p>
+   * @public
+   */
+  Positioning?: SidewalkPositioning | undefined;
 }
 
 /**
@@ -5822,8 +5851,7 @@ export interface GetWirelessDeviceResponse {
   Sidewalk?: SidewalkDevice | undefined;
 
   /**
-   * <p>FPort values for the GNSS, stream, and ClockSync functions of the positioning
-   *             information.</p>
+   * <p>The integration status of the Device Location feature for LoRaWAN and Sidewalk devices.</p>
    * @public
    */
   Positioning?: PositioningConfigStatus | undefined;
@@ -5858,6 +5886,12 @@ export interface SidewalkGetStartImportInfo {
    * @public
    */
   Role?: string | undefined;
+
+  /**
+   * <p>The Positioning object of the Sidewalk device.</p>
+   * @public
+   */
+  Positioning?: SidewalkPositioning | undefined;
 }
 
 /**
@@ -5900,6 +5934,12 @@ export interface GetWirelessDeviceImportTaskResponse {
    * @public
    */
   DestinationName?: string | undefined;
+
+  /**
+   * <p>The integration status of the Device Location feature for LoRaWAN and Sidewalk devices.</p>
+   * @public
+   */
+  Positioning?: PositioningConfigStatus | undefined;
 
   /**
    * <p>The Sidewalk-related information about an import task.</p>
@@ -6582,6 +6622,18 @@ export interface ListDevicesForWirelessDeviceImportTaskRequest {
 }
 
 /**
+ * <p>The Sidewalk-related object containing positioning information used to configure Sidewalk devices during import.</p>
+ * @public
+ */
+export interface SidewalkListDevicesForImportInfo {
+  /**
+   * <p>The Positioning object of the Sidewalk device.</p>
+   * @public
+   */
+  Positioning?: SidewalkPositioning | undefined;
+}
+
+/**
  * @public
  */
 export interface ListDevicesForWirelessDeviceImportTaskResponse {
@@ -6598,6 +6650,18 @@ export interface ListDevicesForWirelessDeviceImportTaskResponse {
    * @public
    */
   DestinationName?: string | undefined;
+
+  /**
+   * <p>The integration status of the Device Location feature for Sidewalk devices.</p>
+   * @public
+   */
+  Positioning?: PositioningConfigStatus | undefined;
+
+  /**
+   * <p>The Sidewalk object containing Sidewalk-related device information.</p>
+   * @public
+   */
+  Sidewalk?: SidewalkListDevicesForImportInfo | undefined;
 
   /**
    * <p>List of wireless devices in an import task and their onboarding status.</p>
@@ -6773,35 +6837,4 @@ export interface ListMulticastGroupsByFuotaTaskRequest {
    * @public
    */
   MaxResults?: number | undefined;
-}
-
-/**
- * <p>A multicast group that is associated with a FUOTA task.</p>
- * @public
- */
-export interface MulticastGroupByFuotaTask {
-  /**
-   * <p>The ID of the multicast group.</p>
-   * @public
-   */
-  Id?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListMulticastGroupsByFuotaTaskResponse {
-  /**
-   * <p>To retrieve the next set of results, the <code>nextToken</code> value from a previous
-   *             response; otherwise <b>null</b> to receive the first set of
-   *             results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>List of multicast groups associated with a FUOTA task.</p>
-   * @public
-   */
-  MulticastGroupList?: MulticastGroupByFuotaTask[] | undefined;
 }

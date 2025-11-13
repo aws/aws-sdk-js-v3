@@ -29,7 +29,8 @@ export interface ListWirelessDeviceImportTasksCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>List wireless devices that have been added to an import task.</p>
+ * <p>List of import tasks and summary information of onboarding status of devices in each
+ *             import task.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -51,11 +52,15 @@ export interface ListWirelessDeviceImportTasksCommandOutput
  * //       Id: "STRING_VALUE",
  * //       Arn: "STRING_VALUE",
  * //       DestinationName: "STRING_VALUE",
+ * //       Positioning: "Enabled" || "Disabled",
  * //       Sidewalk: { // SidewalkGetStartImportInfo
  * //         DeviceCreationFileList: [ // DeviceCreationFileList
  * //           "STRING_VALUE",
  * //         ],
  * //         Role: "STRING_VALUE",
+ * //         Positioning: { // SidewalkPositioning
+ * //           DestinationName: "STRING_VALUE",
+ * //         },
  * //       },
  * //       CreationTime: new Date("TIMESTAMP"),
  * //       Status: "INITIALIZING" || "INITIALIZED" || "PENDING" || "COMPLETE" || "FAILED" || "DELETING",

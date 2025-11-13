@@ -30,7 +30,7 @@ export interface GetPositionCommandOutput extends GetPositionResponse, __Metadat
  * <p>Get the position information for a given resource.</p>
  *          <important>
  *             <p>This action is no longer supported. Calls to retrieve the position information
- *                 should use the <a href="https://docs.aws.amazon.com/iot-wireless/2020-11-22/apireference/API_GetResourcePosition.html">GetResourcePosition</a> API operation instead.</p>
+ *                 should use the <a href="https://docs.aws.amazon.com/iot-wireless/latest/apireference/API_GetResourcePosition.html">GetResourcePosition</a> API operation instead.</p>
  *          </important>
  *
  * @deprecated This operation is no longer supported.

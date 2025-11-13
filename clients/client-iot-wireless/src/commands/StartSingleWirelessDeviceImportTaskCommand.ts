@@ -51,8 +51,12 @@ export interface StartSingleWirelessDeviceImportTaskCommandOutput
  *       Value: "STRING_VALUE", // required
  *     },
  *   ],
+ *   Positioning: "Enabled" || "Disabled",
  *   Sidewalk: { // SidewalkSingleStartImportInfo
  *     SidewalkManufacturingSn: "STRING_VALUE",
+ *     Positioning: { // SidewalkPositioning
+ *       DestinationName: "STRING_VALUE",
+ *     },
  *   },
  * };
  * const command = new StartSingleWirelessDeviceImportTaskCommand(input);

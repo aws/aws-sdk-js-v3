@@ -66,6 +66,11 @@ export interface UpdateWirelessDeviceCommandOutput extends UpdateWirelessDeviceR
  *     },
  *   },
  *   Positioning: "Enabled" || "Disabled",
+ *   Sidewalk: { // SidewalkUpdateWirelessDevice
+ *     Positioning: { // SidewalkPositioning
+ *       DestinationName: "STRING_VALUE",
+ *     },
+ *   },
  * };
  * const command = new UpdateWirelessDeviceCommand(input);
  * const response = await client.send(command);

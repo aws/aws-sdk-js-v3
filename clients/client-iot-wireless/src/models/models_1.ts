@@ -39,6 +39,7 @@ import {
   ProximityResourceTypeEventConfiguration,
   SidewalkAccountInfoWithFingerprint,
   SidewalkGetStartImportInfo,
+  SidewalkPositioning,
   SummaryMetricConfiguration,
   Tag,
   TraceContent,
@@ -47,6 +48,37 @@ import {
   WirelessDeviceType,
   WirelessGatewayLogOption,
 } from "./models_0";
+
+/**
+ * <p>A multicast group that is associated with a FUOTA task.</p>
+ * @public
+ */
+export interface MulticastGroupByFuotaTask {
+  /**
+   * <p>The ID of the multicast group.</p>
+   * @public
+   */
+  Id?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListMulticastGroupsByFuotaTaskResponse {
+  /**
+   * <p>To retrieve the next set of results, the <code>nextToken</code> value from a previous
+   *             response; otherwise <b>null</b> to receive the first set of
+   *             results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>List of multicast groups associated with a FUOTA task.</p>
+   * @public
+   */
+  MulticastGroupList?: MulticastGroupByFuotaTask[] | undefined;
+}
 
 /**
  * @public
@@ -389,6 +421,12 @@ export interface WirelessDeviceImportTask {
   DestinationName?: string | undefined;
 
   /**
+   * <p>The integration status of the Device Location feature for Sidewalk devices.</p>
+   * @public
+   */
+  Positioning?: PositioningConfigStatus | undefined;
+
+  /**
    * <p>The Sidewalk-related information of the wireless device import task.</p>
    * @public
    */
@@ -479,7 +517,7 @@ export interface ListWirelessDevicesRequest {
   NextToken?: string | undefined;
 
   /**
-   * <p>A filter to list only the wireless devices that use this destination.</p>
+   * <p>A filter to list only the wireless devices that use as uplink destination.</p>
    * @public
    */
   DestinationName?: string | undefined;
@@ -567,6 +605,12 @@ export interface SidewalkListDevice {
    * @public
    */
   Status?: WirelessDeviceSidewalkStatus | undefined;
+
+  /**
+   * <p>The Positioning object of the Sidewalk device.</p>
+   * @public
+   */
+  Positioning?: SidewalkPositioning | undefined;
 }
 
 /**
@@ -642,6 +686,12 @@ export interface WirelessDeviceStatistics {
    * @public
    */
   McGroupId?: number | undefined;
+
+  /**
+   * <p>The integration status of the Device Location feature for LoRaWAN and Amazon Sidewalk enabled devices.</p>
+   * @public
+   */
+  Positioning?: PositioningConfigStatus | undefined;
 }
 
 /**
@@ -1259,6 +1309,12 @@ export interface SidewalkSingleStartImportInfo {
    * @public
    */
   SidewalkManufacturingSn?: string | undefined;
+
+  /**
+   * <p>The Positioning object of the Sidewalk device.</p>
+   * @public
+   */
+  Positioning?: SidewalkPositioning | undefined;
 }
 
 /**
@@ -1297,6 +1353,12 @@ export interface StartSingleWirelessDeviceImportTaskRequest {
    * @public
    */
   Tags?: Tag[] | undefined;
+
+  /**
+   * <p>The integration status of the Device Location feature for Sidewalk devices.</p>
+   * @public
+   */
+  Positioning?: PositioningConfigStatus | undefined;
 
   /**
    * <p>The Sidewalk-related parameters for importing a single wireless device.</p>
@@ -1340,6 +1402,12 @@ export interface SidewalkStartImportInfo {
    * @public
    */
   Role?: string | undefined;
+
+  /**
+   * <p>The Positioning object of the Sidewalk device.</p>
+   * @public
+   */
+  Positioning?: SidewalkPositioning | undefined;
 }
 
 /**
@@ -1372,6 +1440,12 @@ export interface StartWirelessDeviceImportTaskRequest {
    * @public
    */
   Tags?: Tag[] | undefined;
+
+  /**
+   * <p>The integration status of the Device Location feature for Sidewalk devices.</p>
+   * @public
+   */
+  Positioning?: PositioningConfigStatus | undefined;
 
   /**
    * <p>The Sidewalk-related parameters for importing wireless devices that need to be
@@ -2058,6 +2132,18 @@ export interface LoRaWANUpdateDevice {
 }
 
 /**
+ * <p>Sidewalk object for updating a wireless device.</p>
+ * @public
+ */
+export interface SidewalkUpdateWirelessDevice {
+  /**
+   * <p>The Positioning object of the Sidewalk device.</p>
+   * @public
+   */
+  Positioning?: SidewalkPositioning | undefined;
+}
+
+/**
  * @public
  */
 export interface UpdateWirelessDeviceRequest {
@@ -2096,11 +2182,16 @@ export interface UpdateWirelessDeviceRequest {
   LoRaWAN?: LoRaWANUpdateDevice | undefined;
 
   /**
-   * <p>FPort values for the GNSS, stream, and ClockSync functions of the positioning
-   *             information.</p>
+   * <p>The integration status of the Device Location feature for LoRaWAN and Sidewalk devices.</p>
    * @public
    */
   Positioning?: PositioningConfigStatus | undefined;
+
+  /**
+   * <p>The updated sidewalk properties.</p>
+   * @public
+   */
+  Sidewalk?: SidewalkUpdateWirelessDevice | undefined;
 }
 
 /**

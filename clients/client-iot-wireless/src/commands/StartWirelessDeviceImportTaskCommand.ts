@@ -48,9 +48,13 @@ export interface StartWirelessDeviceImportTaskCommandOutput
  *       Value: "STRING_VALUE", // required
  *     },
  *   ],
+ *   Positioning: "Enabled" || "Disabled",
  *   Sidewalk: { // SidewalkStartImportInfo
  *     DeviceCreationFile: "STRING_VALUE",
  *     Role: "STRING_VALUE",
+ *     Positioning: { // SidewalkPositioning
+ *       DestinationName: "STRING_VALUE",
+ *     },
  *   },
  * };
  * const command = new StartWirelessDeviceImportTaskCommand(input);

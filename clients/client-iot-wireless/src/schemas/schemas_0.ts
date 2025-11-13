@@ -633,6 +633,7 @@ const _SJ = "SupportsJoin";
 const _SK = "SessionKeys";
 const _SKC = "SigKeyCrc";
 const _SLD = "SidewalkListDevice";
+const _SLDFII = "SidewalkListDevicesForImportInfo";
 const _SM = "SummaryMetric";
 const _SMC = "SummaryMetricConfiguration";
 const _SMGS = "StartMulticastGroupSession";
@@ -648,6 +649,7 @@ const _SP = "SolverProvider";
 const _SPI = "ServiceProfileId";
 const _SPL = "ServiceProfileList";
 const _SPe = "ServiceProfile";
+const _SPi = "SidewalkPositioning";
 const _SR = "StatusReason";
 const _SRTEC = "SidewalkResourceTypeEventConfiguration";
 const _SSDTD = "SidewalkSendDataToDevice";
@@ -665,6 +667,7 @@ const _STt = "StartTime";
 const _STta = "StartTimestamp";
 const _SUA = "SidewalkUpdateAccount";
 const _SUII = "SidewalkUpdateImportInfo";
+const _SUWD = "SidewalkUpdateWirelessDevice";
 const _SV = "SolverVersion";
 const _SWDIT = "StartWirelessDeviceImportTask";
 const _SWDITR = "StartWirelessDeviceImportTaskRequest";
@@ -1570,8 +1573,8 @@ export var GetWirelessDeviceImportTaskResponse: StaticStructureSchema = [
   n0,
   _GWDITRe,
   0,
-  [_I, _Ar, _DN, _S, _CTr, _St, _SR, _IIDC, _PIDC, _OIDC, _FIDC],
-  [0, 0, 0, () => SidewalkGetStartImportInfo, 5, 0, 0, 1, 1, 1, 1],
+  [_I, _Ar, _DN, _P, _S, _CTr, _St, _SR, _IIDC, _PIDC, _OIDC, _FIDC],
+  [0, 0, 0, 0, () => SidewalkGetStartImportInfo, 5, 0, 0, 1, 1, 1, 1],
 ];
 export var GetWirelessDeviceRequest: StaticStructureSchema = [
   3,
@@ -1814,8 +1817,8 @@ export var ListDevicesForWirelessDeviceImportTaskResponse: StaticStructureSchema
   n0,
   _LDFWDITRi,
   0,
-  [_NT, _DN, _IWDL],
-  [0, 0, () => ImportedWirelessDeviceList],
+  [_NT, _DN, _P, _S, _IWDL],
+  [0, 0, 0, () => SidewalkListDevicesForImportInfo, () => ImportedWirelessDeviceList],
 ];
 export var ListEventConfigurationsRequest: StaticStructureSchema = [
   3,
@@ -2626,14 +2629,21 @@ export var SidewalkAccountInfoWithFingerprint: StaticStructureSchema = [
   [0, [() => Fingerprint, 0], 0],
 ];
 export var SidewalkCreateDeviceProfile: StaticStructureSchema = [3, n0, _SCDP, 0, [], []];
-export var SidewalkCreateWirelessDevice: StaticStructureSchema = [3, n0, _SCWD, 0, [_DPI], [0]];
+export var SidewalkCreateWirelessDevice: StaticStructureSchema = [
+  3,
+  n0,
+  _SCWD,
+  0,
+  [_DPI, _P, _SMS],
+  [0, () => SidewalkPositioning, 0],
+];
 export var SidewalkDevice: StaticStructureSchema = [
   3,
   n0,
   _SD,
   0,
-  [_AIm, _SIi, _SMS, _DCe, _PK, _DPI, _CI, _St],
-  [0, 0, 0, () => DeviceCertificateList, () => PrivateKeysList, 0, 0, 0],
+  [_AIm, _SIi, _SMS, _DCe, _PK, _DPI, _CI, _St, _P],
+  [0, 0, 0, () => DeviceCertificateList, () => PrivateKeysList, 0, 0, 0, () => SidewalkPositioning],
 ];
 export var SidewalkDeviceMetadata: StaticStructureSchema = [3, n0, _SDM, 0, [_R, _BLat, _Eve, _DS], [1, 0, 0, 0]];
 export var SidewalkEventNotificationConfigurations: StaticStructureSchema = [3, n0, _SENC, 0, [_AIET], [0]];
@@ -2645,21 +2655,52 @@ export var SidewalkGetDeviceProfile: StaticStructureSchema = [
   [_ASPK, _QS, _DCM],
   [[() => ApplicationServerPublicKey, 0], 2, () => DakCertificateMetadataList],
 ];
-export var SidewalkGetStartImportInfo: StaticStructureSchema = [3, n0, _SGSII, 0, [_DCFL, _Ro], [64 | 0, 0]];
+export var SidewalkGetStartImportInfo: StaticStructureSchema = [
+  3,
+  n0,
+  _SGSII,
+  0,
+  [_DCFL, _Ro, _P],
+  [64 | 0, 0, () => SidewalkPositioning],
+];
 export var SidewalkListDevice: StaticStructureSchema = [
   3,
   n0,
   _SLD,
   0,
-  [_AIm, _SIi, _SMS, _DCe, _DPI, _St],
-  [0, 0, 0, () => DeviceCertificateList, 0, 0],
+  [_AIm, _SIi, _SMS, _DCe, _DPI, _St, _P],
+  [0, 0, 0, () => DeviceCertificateList, 0, 0, () => SidewalkPositioning],
 ];
+export var SidewalkListDevicesForImportInfo: StaticStructureSchema = [
+  3,
+  n0,
+  _SLDFII,
+  0,
+  [_P],
+  [() => SidewalkPositioning],
+];
+export var SidewalkPositioning: StaticStructureSchema = [3, n0, _SPi, 0, [_DN], [0]];
 export var SidewalkResourceTypeEventConfiguration: StaticStructureSchema = [3, n0, _SRTEC, 0, [_WDET], [0]];
 export var SidewalkSendDataToDevice: StaticStructureSchema = [3, n0, _SSDTD, 0, [_Se, _MT, _AMRDS], [1, 0, 1]];
-export var SidewalkSingleStartImportInfo: StaticStructureSchema = [3, n0, _SSSII, 0, [_SMS], [0]];
-export var SidewalkStartImportInfo: StaticStructureSchema = [3, n0, _SSII, 0, [_DCF, _Ro], [0, 0]];
+export var SidewalkSingleStartImportInfo: StaticStructureSchema = [
+  3,
+  n0,
+  _SSSII,
+  0,
+  [_SMS, _P],
+  [0, () => SidewalkPositioning],
+];
+export var SidewalkStartImportInfo: StaticStructureSchema = [
+  3,
+  n0,
+  _SSII,
+  0,
+  [_DCF, _Ro, _P],
+  [0, 0, () => SidewalkPositioning],
+];
 export var SidewalkUpdateAccount: StaticStructureSchema = [3, n0, _SUA, 0, [_ASPKp], [[() => AppServerPrivateKey, 0]]];
 export var SidewalkUpdateImportInfo: StaticStructureSchema = [3, n0, _SUII, 0, [_DCF], [0]];
+export var SidewalkUpdateWirelessDevice: StaticStructureSchema = [3, n0, _SUWD, 0, [_P], [() => SidewalkPositioning]];
 export var StartBulkAssociateWirelessDeviceWithMulticastGroupRequest: StaticStructureSchema = [
   3,
   n0,
@@ -2715,8 +2756,8 @@ export var StartSingleWirelessDeviceImportTaskRequest: StaticStructureSchema = [
   n0,
   _SSWDITR,
   0,
-  [_DN, _CRT, _DNe, _Ta, _S],
-  [0, [0, 4], 0, () => TagList, () => SidewalkSingleStartImportInfo],
+  [_DN, _CRT, _DNe, _Ta, _P, _S],
+  [0, [0, 4], 0, () => TagList, 0, () => SidewalkSingleStartImportInfo],
 ];
 export var StartSingleWirelessDeviceImportTaskResponse: StaticStructureSchema = [
   3,
@@ -2731,8 +2772,8 @@ export var StartWirelessDeviceImportTaskRequest: StaticStructureSchema = [
   n0,
   _SWDITR,
   0,
-  [_DN, _CRT, _Ta, _S],
-  [0, [0, 4], () => TagList, () => SidewalkStartImportInfo],
+  [_DN, _CRT, _Ta, _P, _S],
+  [0, [0, 4], () => TagList, 0, () => SidewalkStartImportInfo],
 ];
 export var StartWirelessDeviceImportTaskResponse: StaticStructureSchema = [3, n0, _SWDITRt, 0, [_I, _Ar], [0, 0]];
 export var SummaryMetricConfiguration: StaticStructureSchema = [3, n0, _SMC, 0, [_St], [0]];
@@ -2999,8 +3040,8 @@ export var UpdateWirelessDeviceRequest: StaticStructureSchema = [
   n0,
   _UWDR,
   0,
-  [_I, _DN, _N, _D, _LRWAN, _P],
-  [[0, 1], 0, 0, 0, () => LoRaWANUpdateDevice, 0],
+  [_I, _DN, _N, _D, _LRWAN, _P, _S],
+  [[0, 1], 0, 0, 0, () => LoRaWANUpdateDevice, 0, () => SidewalkUpdateWirelessDevice],
 ];
 export var UpdateWirelessDeviceResponse: StaticStructureSchema = [3, n0, _UWDRp, 0, [], []];
 export var UpdateWirelessGatewayRequest: StaticStructureSchema = [
@@ -3058,8 +3099,8 @@ export var WirelessDeviceImportTask: StaticStructureSchema = [
   n0,
   _WDIT,
   0,
-  [_I, _Ar, _DN, _S, _CTr, _St, _SR, _IIDC, _PIDC, _OIDC, _FIDC],
-  [0, 0, 0, () => SidewalkGetStartImportInfo, 5, 0, 0, 1, 1, 1, 1],
+  [_I, _Ar, _DN, _P, _S, _CTr, _St, _SR, _IIDC, _PIDC, _OIDC, _FIDC],
+  [0, 0, 0, 0, () => SidewalkGetStartImportInfo, 5, 0, 0, 1, 1, 1, 1],
 ];
 export var WirelessDeviceLogOption: StaticStructureSchema = [
   3,
@@ -3074,8 +3115,8 @@ export var WirelessDeviceStatistics: StaticStructureSchema = [
   n0,
   _WDS,
   0,
-  [_Ar, _I, _T, _N, _DN, _LURA, _LRWAN, _S, _FDS, _MDSu, _MGIc],
-  [0, 0, 0, 0, 0, 0, () => LoRaWANListDevice, () => SidewalkListDevice, 0, 0, 1],
+  [_Ar, _I, _T, _N, _DN, _LURA, _LRWAN, _S, _FDS, _MDSu, _MGIc, _P],
+  [0, 0, 0, 0, 0, 0, () => LoRaWANListDevice, () => SidewalkListDevice, 0, 0, 1, 0],
 ];
 export var WirelessGatewayEventLogOption: StaticStructureSchema = [3, n0, _WGELO, 0, [_Eve, _LL], [0, 0]];
 export var WirelessGatewayLogOption: StaticStructureSchema = [

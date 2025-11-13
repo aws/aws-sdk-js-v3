@@ -102,6 +102,10 @@ export interface CreateWirelessDeviceCommandOutput extends CreateWirelessDeviceR
  *   Positioning: "Enabled" || "Disabled",
  *   Sidewalk: { // SidewalkCreateWirelessDevice
  *     DeviceProfileId: "STRING_VALUE",
+ *     Positioning: { // SidewalkPositioning
+ *       DestinationName: "STRING_VALUE",
+ *     },
+ *     SidewalkManufacturingSn: "STRING_VALUE",
  *   },
  * };
  * const command = new CreateWirelessDeviceCommand(input);
