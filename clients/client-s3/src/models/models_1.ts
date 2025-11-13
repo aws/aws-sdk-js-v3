@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
-
 import { StreamingBlobTypes } from "@smithy/types";
 
 import {
@@ -50,7 +49,6 @@ import {
   Tag,
   TransitionDefaultMinimumObjectSize,
 } from "./models_0";
-
 import { S3ServiceException as __BaseException } from "./S3ServiceException";
 
 /**

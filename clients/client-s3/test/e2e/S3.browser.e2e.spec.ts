@@ -1,3 +1,4 @@
+import { getE2eTestResources } from "@aws-sdk/aws-util-test/src";
 import type { S3, waitUntilObjectExists } from "@aws-sdk/client-s3";
 import { fromNodeProviderChain } from "@aws-sdk/credential-providers";
 import { FetchHttpHandler } from "@smithy/fetch-http-handler";
@@ -7,7 +8,6 @@ import { afterAll, afterEach, beforeAll, beforeEach, describe, expect, onTestFai
 import { getRuntimeConfig } from "../../src/runtimeConfig.browser";
 import { S3 as S3Impl, waitUntilObjectExists as waitUntilObjectExistsImpl } from "../browser-build/browser-s3-bundle";
 import { createBuffer } from "./helpers";
-import { getE2eTestResources } from "@aws-sdk/aws-util-test/src";
 
 describe("@aws-sdk/client-s3", () => {
   let client: S3;

@@ -9297,7 +9297,7 @@ export var AbortMultipartUpload: StaticOperationSchema = [
   n0,
   _AMU,
   {
-    [_h]: ["DELETE", "/{Bucket}/{Key+}?x-id=AbortMultipartUpload", 204],
+    [_h]: ["DELETE", "/{Key+}?x-id=AbortMultipartUpload", 204],
   },
   () => AbortMultipartUploadRequest,
   () => AbortMultipartUploadOutput,
@@ -9307,7 +9307,7 @@ export var CompleteMultipartUpload: StaticOperationSchema = [
   n0,
   _CMUo,
   {
-    [_h]: ["POST", "/{Bucket}/{Key+}", 200],
+    [_h]: ["POST", "/{Key+}", 200],
   },
   () => CompleteMultipartUploadRequest,
   () => CompleteMultipartUploadOutput,
@@ -9317,7 +9317,7 @@ export var CopyObject: StaticOperationSchema = [
   n0,
   _CO,
   {
-    [_h]: ["PUT", "/{Bucket}/{Key+}?x-id=CopyObject", 200],
+    [_h]: ["PUT", "/{Key+}?x-id=CopyObject", 200],
   },
   () => CopyObjectRequest,
   () => CopyObjectOutput,
@@ -9327,7 +9327,7 @@ export var CreateBucket: StaticOperationSchema = [
   n0,
   _CB,
   {
-    [_h]: ["PUT", "/{Bucket}", 200],
+    [_h]: ["PUT", "/", 200],
   },
   () => CreateBucketRequest,
   () => CreateBucketOutput,
@@ -9337,7 +9337,7 @@ export var CreateBucketMetadataConfiguration: StaticOperationSchema = [
   n0,
   _CBMC,
   {
-    [_h]: ["POST", "/{Bucket}?metadataConfiguration", 200],
+    [_h]: ["POST", "/?metadataConfiguration", 200],
   },
   () => CreateBucketMetadataConfigurationRequest,
   () => __Unit,
@@ -9347,7 +9347,7 @@ export var CreateBucketMetadataTableConfiguration: StaticOperationSchema = [
   n0,
   _CBMTC,
   {
-    [_h]: ["POST", "/{Bucket}?metadataTable", 200],
+    [_h]: ["POST", "/?metadataTable", 200],
   },
   () => CreateBucketMetadataTableConfigurationRequest,
   () => __Unit,
@@ -9357,7 +9357,7 @@ export var CreateMultipartUpload: StaticOperationSchema = [
   n0,
   _CMUr,
   {
-    [_h]: ["POST", "/{Bucket}/{Key+}?uploads", 200],
+    [_h]: ["POST", "/{Key+}?uploads", 200],
   },
   () => CreateMultipartUploadRequest,
   () => CreateMultipartUploadOutput,
@@ -9367,7 +9367,7 @@ export var CreateSession: StaticOperationSchema = [
   n0,
   _CSr,
   {
-    [_h]: ["GET", "/{Bucket}?session", 200],
+    [_h]: ["GET", "/?session", 200],
   },
   () => CreateSessionRequest,
   () => CreateSessionOutput,
@@ -9377,7 +9377,7 @@ export var DeleteBucket: StaticOperationSchema = [
   n0,
   _DB,
   {
-    [_h]: ["DELETE", "/{Bucket}", 204],
+    [_h]: ["DELETE", "/", 204],
   },
   () => DeleteBucketRequest,
   () => __Unit,
@@ -9387,7 +9387,7 @@ export var DeleteBucketAnalyticsConfiguration: StaticOperationSchema = [
   n0,
   _DBAC,
   {
-    [_h]: ["DELETE", "/{Bucket}?analytics", 204],
+    [_h]: ["DELETE", "/?analytics", 204],
   },
   () => DeleteBucketAnalyticsConfigurationRequest,
   () => __Unit,
@@ -9397,7 +9397,7 @@ export var DeleteBucketCors: StaticOperationSchema = [
   n0,
   _DBC,
   {
-    [_h]: ["DELETE", "/{Bucket}?cors", 204],
+    [_h]: ["DELETE", "/?cors", 204],
   },
   () => DeleteBucketCorsRequest,
   () => __Unit,
@@ -9407,7 +9407,7 @@ export var DeleteBucketEncryption: StaticOperationSchema = [
   n0,
   _DBE,
   {
-    [_h]: ["DELETE", "/{Bucket}?encryption", 204],
+    [_h]: ["DELETE", "/?encryption", 204],
   },
   () => DeleteBucketEncryptionRequest,
   () => __Unit,
@@ -9417,7 +9417,7 @@ export var DeleteBucketIntelligentTieringConfiguration: StaticOperationSchema = 
   n0,
   _DBITC,
   {
-    [_h]: ["DELETE", "/{Bucket}?intelligent-tiering", 204],
+    [_h]: ["DELETE", "/?intelligent-tiering", 204],
   },
   () => DeleteBucketIntelligentTieringConfigurationRequest,
   () => __Unit,
@@ -9427,7 +9427,7 @@ export var DeleteBucketInventoryConfiguration: StaticOperationSchema = [
   n0,
   _DBIC,
   {
-    [_h]: ["DELETE", "/{Bucket}?inventory", 204],
+    [_h]: ["DELETE", "/?inventory", 204],
   },
   () => DeleteBucketInventoryConfigurationRequest,
   () => __Unit,
@@ -9437,7 +9437,7 @@ export var DeleteBucketLifecycle: StaticOperationSchema = [
   n0,
   _DBL,
   {
-    [_h]: ["DELETE", "/{Bucket}?lifecycle", 204],
+    [_h]: ["DELETE", "/?lifecycle", 204],
   },
   () => DeleteBucketLifecycleRequest,
   () => __Unit,
@@ -9447,7 +9447,7 @@ export var DeleteBucketMetadataConfiguration: StaticOperationSchema = [
   n0,
   _DBMC,
   {
-    [_h]: ["DELETE", "/{Bucket}?metadataConfiguration", 204],
+    [_h]: ["DELETE", "/?metadataConfiguration", 204],
   },
   () => DeleteBucketMetadataConfigurationRequest,
   () => __Unit,
@@ -9457,7 +9457,7 @@ export var DeleteBucketMetadataTableConfiguration: StaticOperationSchema = [
   n0,
   _DBMTC,
   {
-    [_h]: ["DELETE", "/{Bucket}?metadataTable", 204],
+    [_h]: ["DELETE", "/?metadataTable", 204],
   },
   () => DeleteBucketMetadataTableConfigurationRequest,
   () => __Unit,
@@ -9467,7 +9467,7 @@ export var DeleteBucketMetricsConfiguration: StaticOperationSchema = [
   n0,
   _DBMCe,
   {
-    [_h]: ["DELETE", "/{Bucket}?metrics", 204],
+    [_h]: ["DELETE", "/?metrics", 204],
   },
   () => DeleteBucketMetricsConfigurationRequest,
   () => __Unit,
@@ -9477,7 +9477,7 @@ export var DeleteBucketOwnershipControls: StaticOperationSchema = [
   n0,
   _DBOC,
   {
-    [_h]: ["DELETE", "/{Bucket}?ownershipControls", 204],
+    [_h]: ["DELETE", "/?ownershipControls", 204],
   },
   () => DeleteBucketOwnershipControlsRequest,
   () => __Unit,
@@ -9487,7 +9487,7 @@ export var DeleteBucketPolicy: StaticOperationSchema = [
   n0,
   _DBP,
   {
-    [_h]: ["DELETE", "/{Bucket}?policy", 204],
+    [_h]: ["DELETE", "/?policy", 204],
   },
   () => DeleteBucketPolicyRequest,
   () => __Unit,
@@ -9497,7 +9497,7 @@ export var DeleteBucketReplication: StaticOperationSchema = [
   n0,
   _DBRe,
   {
-    [_h]: ["DELETE", "/{Bucket}?replication", 204],
+    [_h]: ["DELETE", "/?replication", 204],
   },
   () => DeleteBucketReplicationRequest,
   () => __Unit,
@@ -9507,7 +9507,7 @@ export var DeleteBucketTagging: StaticOperationSchema = [
   n0,
   _DBT,
   {
-    [_h]: ["DELETE", "/{Bucket}?tagging", 204],
+    [_h]: ["DELETE", "/?tagging", 204],
   },
   () => DeleteBucketTaggingRequest,
   () => __Unit,
@@ -9517,7 +9517,7 @@ export var DeleteBucketWebsite: StaticOperationSchema = [
   n0,
   _DBW,
   {
-    [_h]: ["DELETE", "/{Bucket}?website", 204],
+    [_h]: ["DELETE", "/?website", 204],
   },
   () => DeleteBucketWebsiteRequest,
   () => __Unit,
@@ -9527,7 +9527,7 @@ export var DeleteObject: StaticOperationSchema = [
   n0,
   _DOel,
   {
-    [_h]: ["DELETE", "/{Bucket}/{Key+}?x-id=DeleteObject", 204],
+    [_h]: ["DELETE", "/{Key+}?x-id=DeleteObject", 204],
   },
   () => DeleteObjectRequest,
   () => DeleteObjectOutput,
@@ -9537,7 +9537,7 @@ export var DeleteObjects: StaticOperationSchema = [
   n0,
   _DOele,
   {
-    [_h]: ["POST", "/{Bucket}?delete", 200],
+    [_h]: ["POST", "/?delete", 200],
   },
   () => DeleteObjectsRequest,
   () => DeleteObjectsOutput,
@@ -9547,7 +9547,7 @@ export var DeleteObjectTagging: StaticOperationSchema = [
   n0,
   _DOT,
   {
-    [_h]: ["DELETE", "/{Bucket}/{Key+}?tagging", 204],
+    [_h]: ["DELETE", "/{Key+}?tagging", 204],
   },
   () => DeleteObjectTaggingRequest,
   () => DeleteObjectTaggingOutput,
@@ -9557,7 +9557,7 @@ export var DeletePublicAccessBlock: StaticOperationSchema = [
   n0,
   _DPAB,
   {
-    [_h]: ["DELETE", "/{Bucket}?publicAccessBlock", 204],
+    [_h]: ["DELETE", "/?publicAccessBlock", 204],
   },
   () => DeletePublicAccessBlockRequest,
   () => __Unit,
@@ -9567,7 +9567,7 @@ export var GetBucketAccelerateConfiguration: StaticOperationSchema = [
   n0,
   _GBAC,
   {
-    [_h]: ["GET", "/{Bucket}?accelerate", 200],
+    [_h]: ["GET", "/?accelerate", 200],
   },
   () => GetBucketAccelerateConfigurationRequest,
   () => GetBucketAccelerateConfigurationOutput,
@@ -9577,7 +9577,7 @@ export var GetBucketAcl: StaticOperationSchema = [
   n0,
   _GBA,
   {
-    [_h]: ["GET", "/{Bucket}?acl", 200],
+    [_h]: ["GET", "/?acl", 200],
   },
   () => GetBucketAclRequest,
   () => GetBucketAclOutput,
@@ -9587,7 +9587,7 @@ export var GetBucketAnalyticsConfiguration: StaticOperationSchema = [
   n0,
   _GBACe,
   {
-    [_h]: ["GET", "/{Bucket}?analytics&x-id=GetBucketAnalyticsConfiguration", 200],
+    [_h]: ["GET", "/?analytics&x-id=GetBucketAnalyticsConfiguration", 200],
   },
   () => GetBucketAnalyticsConfigurationRequest,
   () => GetBucketAnalyticsConfigurationOutput,
@@ -9597,7 +9597,7 @@ export var GetBucketCors: StaticOperationSchema = [
   n0,
   _GBC,
   {
-    [_h]: ["GET", "/{Bucket}?cors", 200],
+    [_h]: ["GET", "/?cors", 200],
   },
   () => GetBucketCorsRequest,
   () => GetBucketCorsOutput,
@@ -9607,7 +9607,7 @@ export var GetBucketEncryption: StaticOperationSchema = [
   n0,
   _GBE,
   {
-    [_h]: ["GET", "/{Bucket}?encryption", 200],
+    [_h]: ["GET", "/?encryption", 200],
   },
   () => GetBucketEncryptionRequest,
   () => GetBucketEncryptionOutput,
@@ -9617,7 +9617,7 @@ export var GetBucketIntelligentTieringConfiguration: StaticOperationSchema = [
   n0,
   _GBITC,
   {
-    [_h]: ["GET", "/{Bucket}?intelligent-tiering&x-id=GetBucketIntelligentTieringConfiguration", 200],
+    [_h]: ["GET", "/?intelligent-tiering&x-id=GetBucketIntelligentTieringConfiguration", 200],
   },
   () => GetBucketIntelligentTieringConfigurationRequest,
   () => GetBucketIntelligentTieringConfigurationOutput,
@@ -9627,7 +9627,7 @@ export var GetBucketInventoryConfiguration: StaticOperationSchema = [
   n0,
   _GBIC,
   {
-    [_h]: ["GET", "/{Bucket}?inventory&x-id=GetBucketInventoryConfiguration", 200],
+    [_h]: ["GET", "/?inventory&x-id=GetBucketInventoryConfiguration", 200],
   },
   () => GetBucketInventoryConfigurationRequest,
   () => GetBucketInventoryConfigurationOutput,
@@ -9637,7 +9637,7 @@ export var GetBucketLifecycleConfiguration: StaticOperationSchema = [
   n0,
   _GBLC,
   {
-    [_h]: ["GET", "/{Bucket}?lifecycle", 200],
+    [_h]: ["GET", "/?lifecycle", 200],
   },
   () => GetBucketLifecycleConfigurationRequest,
   () => GetBucketLifecycleConfigurationOutput,
@@ -9647,7 +9647,7 @@ export var GetBucketLocation: StaticOperationSchema = [
   n0,
   _GBL,
   {
-    [_h]: ["GET", "/{Bucket}?location", 200],
+    [_h]: ["GET", "/?location", 200],
   },
   () => GetBucketLocationRequest,
   () => GetBucketLocationOutput,
@@ -9657,7 +9657,7 @@ export var GetBucketLogging: StaticOperationSchema = [
   n0,
   _GBLe,
   {
-    [_h]: ["GET", "/{Bucket}?logging", 200],
+    [_h]: ["GET", "/?logging", 200],
   },
   () => GetBucketLoggingRequest,
   () => GetBucketLoggingOutput,
@@ -9667,7 +9667,7 @@ export var GetBucketMetadataConfiguration: StaticOperationSchema = [
   n0,
   _GBMC,
   {
-    [_h]: ["GET", "/{Bucket}?metadataConfiguration", 200],
+    [_h]: ["GET", "/?metadataConfiguration", 200],
   },
   () => GetBucketMetadataConfigurationRequest,
   () => GetBucketMetadataConfigurationOutput,
@@ -9677,7 +9677,7 @@ export var GetBucketMetadataTableConfiguration: StaticOperationSchema = [
   n0,
   _GBMTC,
   {
-    [_h]: ["GET", "/{Bucket}?metadataTable", 200],
+    [_h]: ["GET", "/?metadataTable", 200],
   },
   () => GetBucketMetadataTableConfigurationRequest,
   () => GetBucketMetadataTableConfigurationOutput,
@@ -9687,7 +9687,7 @@ export var GetBucketMetricsConfiguration: StaticOperationSchema = [
   n0,
   _GBMCe,
   {
-    [_h]: ["GET", "/{Bucket}?metrics&x-id=GetBucketMetricsConfiguration", 200],
+    [_h]: ["GET", "/?metrics&x-id=GetBucketMetricsConfiguration", 200],
   },
   () => GetBucketMetricsConfigurationRequest,
   () => GetBucketMetricsConfigurationOutput,
@@ -9697,7 +9697,7 @@ export var GetBucketNotificationConfiguration: StaticOperationSchema = [
   n0,
   _GBNC,
   {
-    [_h]: ["GET", "/{Bucket}?notification", 200],
+    [_h]: ["GET", "/?notification", 200],
   },
   () => GetBucketNotificationConfigurationRequest,
   () => NotificationConfiguration,
@@ -9707,7 +9707,7 @@ export var GetBucketOwnershipControls: StaticOperationSchema = [
   n0,
   _GBOC,
   {
-    [_h]: ["GET", "/{Bucket}?ownershipControls", 200],
+    [_h]: ["GET", "/?ownershipControls", 200],
   },
   () => GetBucketOwnershipControlsRequest,
   () => GetBucketOwnershipControlsOutput,
@@ -9717,7 +9717,7 @@ export var GetBucketPolicy: StaticOperationSchema = [
   n0,
   _GBP,
   {
-    [_h]: ["GET", "/{Bucket}?policy", 200],
+    [_h]: ["GET", "/?policy", 200],
   },
   () => GetBucketPolicyRequest,
   () => GetBucketPolicyOutput,
@@ -9727,7 +9727,7 @@ export var GetBucketPolicyStatus: StaticOperationSchema = [
   n0,
   _GBPS,
   {
-    [_h]: ["GET", "/{Bucket}?policyStatus", 200],
+    [_h]: ["GET", "/?policyStatus", 200],
   },
   () => GetBucketPolicyStatusRequest,
   () => GetBucketPolicyStatusOutput,
@@ -9737,7 +9737,7 @@ export var GetBucketReplication: StaticOperationSchema = [
   n0,
   _GBR,
   {
-    [_h]: ["GET", "/{Bucket}?replication", 200],
+    [_h]: ["GET", "/?replication", 200],
   },
   () => GetBucketReplicationRequest,
   () => GetBucketReplicationOutput,
@@ -9747,7 +9747,7 @@ export var GetBucketRequestPayment: StaticOperationSchema = [
   n0,
   _GBRP,
   {
-    [_h]: ["GET", "/{Bucket}?requestPayment", 200],
+    [_h]: ["GET", "/?requestPayment", 200],
   },
   () => GetBucketRequestPaymentRequest,
   () => GetBucketRequestPaymentOutput,
@@ -9757,7 +9757,7 @@ export var GetBucketTagging: StaticOperationSchema = [
   n0,
   _GBT,
   {
-    [_h]: ["GET", "/{Bucket}?tagging", 200],
+    [_h]: ["GET", "/?tagging", 200],
   },
   () => GetBucketTaggingRequest,
   () => GetBucketTaggingOutput,
@@ -9767,7 +9767,7 @@ export var GetBucketVersioning: StaticOperationSchema = [
   n0,
   _GBV,
   {
-    [_h]: ["GET", "/{Bucket}?versioning", 200],
+    [_h]: ["GET", "/?versioning", 200],
   },
   () => GetBucketVersioningRequest,
   () => GetBucketVersioningOutput,
@@ -9777,7 +9777,7 @@ export var GetBucketWebsite: StaticOperationSchema = [
   n0,
   _GBW,
   {
-    [_h]: ["GET", "/{Bucket}?website", 200],
+    [_h]: ["GET", "/?website", 200],
   },
   () => GetBucketWebsiteRequest,
   () => GetBucketWebsiteOutput,
@@ -9787,7 +9787,7 @@ export var GetObject: StaticOperationSchema = [
   n0,
   _GO,
   {
-    [_h]: ["GET", "/{Bucket}/{Key+}?x-id=GetObject", 200],
+    [_h]: ["GET", "/{Key+}?x-id=GetObject", 200],
   },
   () => GetObjectRequest,
   () => GetObjectOutput,
@@ -9797,7 +9797,7 @@ export var GetObjectAcl: StaticOperationSchema = [
   n0,
   _GOA,
   {
-    [_h]: ["GET", "/{Bucket}/{Key+}?acl", 200],
+    [_h]: ["GET", "/{Key+}?acl", 200],
   },
   () => GetObjectAclRequest,
   () => GetObjectAclOutput,
@@ -9807,7 +9807,7 @@ export var GetObjectAttributes: StaticOperationSchema = [
   n0,
   _GOAe,
   {
-    [_h]: ["GET", "/{Bucket}/{Key+}?attributes", 200],
+    [_h]: ["GET", "/{Key+}?attributes", 200],
   },
   () => GetObjectAttributesRequest,
   () => GetObjectAttributesOutput,
@@ -9817,7 +9817,7 @@ export var GetObjectLegalHold: StaticOperationSchema = [
   n0,
   _GOLH,
   {
-    [_h]: ["GET", "/{Bucket}/{Key+}?legal-hold", 200],
+    [_h]: ["GET", "/{Key+}?legal-hold", 200],
   },
   () => GetObjectLegalHoldRequest,
   () => GetObjectLegalHoldOutput,
@@ -9827,7 +9827,7 @@ export var GetObjectLockConfiguration: StaticOperationSchema = [
   n0,
   _GOLC,
   {
-    [_h]: ["GET", "/{Bucket}?object-lock", 200],
+    [_h]: ["GET", "/?object-lock", 200],
   },
   () => GetObjectLockConfigurationRequest,
   () => GetObjectLockConfigurationOutput,
@@ -9837,7 +9837,7 @@ export var GetObjectRetention: StaticOperationSchema = [
   n0,
   _GORe,
   {
-    [_h]: ["GET", "/{Bucket}/{Key+}?retention", 200],
+    [_h]: ["GET", "/{Key+}?retention", 200],
   },
   () => GetObjectRetentionRequest,
   () => GetObjectRetentionOutput,
@@ -9847,7 +9847,7 @@ export var GetObjectTagging: StaticOperationSchema = [
   n0,
   _GOT,
   {
-    [_h]: ["GET", "/{Bucket}/{Key+}?tagging", 200],
+    [_h]: ["GET", "/{Key+}?tagging", 200],
   },
   () => GetObjectTaggingRequest,
   () => GetObjectTaggingOutput,
@@ -9857,7 +9857,7 @@ export var GetObjectTorrent: StaticOperationSchema = [
   n0,
   _GOTe,
   {
-    [_h]: ["GET", "/{Bucket}/{Key+}?torrent", 200],
+    [_h]: ["GET", "/{Key+}?torrent", 200],
   },
   () => GetObjectTorrentRequest,
   () => GetObjectTorrentOutput,
@@ -9867,7 +9867,7 @@ export var GetPublicAccessBlock: StaticOperationSchema = [
   n0,
   _GPAB,
   {
-    [_h]: ["GET", "/{Bucket}?publicAccessBlock", 200],
+    [_h]: ["GET", "/?publicAccessBlock", 200],
   },
   () => GetPublicAccessBlockRequest,
   () => GetPublicAccessBlockOutput,
@@ -9877,7 +9877,7 @@ export var HeadBucket: StaticOperationSchema = [
   n0,
   _HB,
   {
-    [_h]: ["HEAD", "/{Bucket}", 200],
+    [_h]: ["HEAD", "/", 200],
   },
   () => HeadBucketRequest,
   () => HeadBucketOutput,
@@ -9887,7 +9887,7 @@ export var HeadObject: StaticOperationSchema = [
   n0,
   _HO,
   {
-    [_h]: ["HEAD", "/{Bucket}/{Key+}", 200],
+    [_h]: ["HEAD", "/{Key+}", 200],
   },
   () => HeadObjectRequest,
   () => HeadObjectOutput,
@@ -9897,7 +9897,7 @@ export var ListBucketAnalyticsConfigurations: StaticOperationSchema = [
   n0,
   _LBAC,
   {
-    [_h]: ["GET", "/{Bucket}?analytics&x-id=ListBucketAnalyticsConfigurations", 200],
+    [_h]: ["GET", "/?analytics&x-id=ListBucketAnalyticsConfigurations", 200],
   },
   () => ListBucketAnalyticsConfigurationsRequest,
   () => ListBucketAnalyticsConfigurationsOutput,
@@ -9907,7 +9907,7 @@ export var ListBucketIntelligentTieringConfigurations: StaticOperationSchema = [
   n0,
   _LBITC,
   {
-    [_h]: ["GET", "/{Bucket}?intelligent-tiering&x-id=ListBucketIntelligentTieringConfigurations", 200],
+    [_h]: ["GET", "/?intelligent-tiering&x-id=ListBucketIntelligentTieringConfigurations", 200],
   },
   () => ListBucketIntelligentTieringConfigurationsRequest,
   () => ListBucketIntelligentTieringConfigurationsOutput,
@@ -9917,7 +9917,7 @@ export var ListBucketInventoryConfigurations: StaticOperationSchema = [
   n0,
   _LBIC,
   {
-    [_h]: ["GET", "/{Bucket}?inventory&x-id=ListBucketInventoryConfigurations", 200],
+    [_h]: ["GET", "/?inventory&x-id=ListBucketInventoryConfigurations", 200],
   },
   () => ListBucketInventoryConfigurationsRequest,
   () => ListBucketInventoryConfigurationsOutput,
@@ -9927,7 +9927,7 @@ export var ListBucketMetricsConfigurations: StaticOperationSchema = [
   n0,
   _LBMC,
   {
-    [_h]: ["GET", "/{Bucket}?metrics&x-id=ListBucketMetricsConfigurations", 200],
+    [_h]: ["GET", "/?metrics&x-id=ListBucketMetricsConfigurations", 200],
   },
   () => ListBucketMetricsConfigurationsRequest,
   () => ListBucketMetricsConfigurationsOutput,
@@ -9957,7 +9957,7 @@ export var ListMultipartUploads: StaticOperationSchema = [
   n0,
   _LMU,
   {
-    [_h]: ["GET", "/{Bucket}?uploads", 200],
+    [_h]: ["GET", "/?uploads", 200],
   },
   () => ListMultipartUploadsRequest,
   () => ListMultipartUploadsOutput,
@@ -9967,7 +9967,7 @@ export var ListObjects: StaticOperationSchema = [
   n0,
   _LO,
   {
-    [_h]: ["GET", "/{Bucket}", 200],
+    [_h]: ["GET", "/", 200],
   },
   () => ListObjectsRequest,
   () => ListObjectsOutput,
@@ -9977,7 +9977,7 @@ export var ListObjectsV2: StaticOperationSchema = [
   n0,
   _LOV,
   {
-    [_h]: ["GET", "/{Bucket}?list-type=2", 200],
+    [_h]: ["GET", "/?list-type=2", 200],
   },
   () => ListObjectsV2Request,
   () => ListObjectsV2Output,
@@ -9987,7 +9987,7 @@ export var ListObjectVersions: StaticOperationSchema = [
   n0,
   _LOVi,
   {
-    [_h]: ["GET", "/{Bucket}?versions", 200],
+    [_h]: ["GET", "/?versions", 200],
   },
   () => ListObjectVersionsRequest,
   () => ListObjectVersionsOutput,
@@ -9997,7 +9997,7 @@ export var ListParts: StaticOperationSchema = [
   n0,
   _LP,
   {
-    [_h]: ["GET", "/{Bucket}/{Key+}?x-id=ListParts", 200],
+    [_h]: ["GET", "/{Key+}?x-id=ListParts", 200],
   },
   () => ListPartsRequest,
   () => ListPartsOutput,
@@ -10007,7 +10007,7 @@ export var PutBucketAccelerateConfiguration: StaticOperationSchema = [
   n0,
   _PBAC,
   {
-    [_h]: ["PUT", "/{Bucket}?accelerate", 200],
+    [_h]: ["PUT", "/?accelerate", 200],
   },
   () => PutBucketAccelerateConfigurationRequest,
   () => __Unit,
@@ -10017,7 +10017,7 @@ export var PutBucketAcl: StaticOperationSchema = [
   n0,
   _PBA,
   {
-    [_h]: ["PUT", "/{Bucket}?acl", 200],
+    [_h]: ["PUT", "/?acl", 200],
   },
   () => PutBucketAclRequest,
   () => __Unit,
@@ -10027,7 +10027,7 @@ export var PutBucketAnalyticsConfiguration: StaticOperationSchema = [
   n0,
   _PBACu,
   {
-    [_h]: ["PUT", "/{Bucket}?analytics", 200],
+    [_h]: ["PUT", "/?analytics", 200],
   },
   () => PutBucketAnalyticsConfigurationRequest,
   () => __Unit,
@@ -10037,7 +10037,7 @@ export var PutBucketCors: StaticOperationSchema = [
   n0,
   _PBC,
   {
-    [_h]: ["PUT", "/{Bucket}?cors", 200],
+    [_h]: ["PUT", "/?cors", 200],
   },
   () => PutBucketCorsRequest,
   () => __Unit,
@@ -10047,7 +10047,7 @@ export var PutBucketEncryption: StaticOperationSchema = [
   n0,
   _PBE,
   {
-    [_h]: ["PUT", "/{Bucket}?encryption", 200],
+    [_h]: ["PUT", "/?encryption", 200],
   },
   () => PutBucketEncryptionRequest,
   () => __Unit,
@@ -10057,7 +10057,7 @@ export var PutBucketIntelligentTieringConfiguration: StaticOperationSchema = [
   n0,
   _PBITC,
   {
-    [_h]: ["PUT", "/{Bucket}?intelligent-tiering", 200],
+    [_h]: ["PUT", "/?intelligent-tiering", 200],
   },
   () => PutBucketIntelligentTieringConfigurationRequest,
   () => __Unit,
@@ -10067,7 +10067,7 @@ export var PutBucketInventoryConfiguration: StaticOperationSchema = [
   n0,
   _PBIC,
   {
-    [_h]: ["PUT", "/{Bucket}?inventory", 200],
+    [_h]: ["PUT", "/?inventory", 200],
   },
   () => PutBucketInventoryConfigurationRequest,
   () => __Unit,
@@ -10077,7 +10077,7 @@ export var PutBucketLifecycleConfiguration: StaticOperationSchema = [
   n0,
   _PBLC,
   {
-    [_h]: ["PUT", "/{Bucket}?lifecycle", 200],
+    [_h]: ["PUT", "/?lifecycle", 200],
   },
   () => PutBucketLifecycleConfigurationRequest,
   () => PutBucketLifecycleConfigurationOutput,
@@ -10087,7 +10087,7 @@ export var PutBucketLogging: StaticOperationSchema = [
   n0,
   _PBL,
   {
-    [_h]: ["PUT", "/{Bucket}?logging", 200],
+    [_h]: ["PUT", "/?logging", 200],
   },
   () => PutBucketLoggingRequest,
   () => __Unit,
@@ -10097,7 +10097,7 @@ export var PutBucketMetricsConfiguration: StaticOperationSchema = [
   n0,
   _PBMC,
   {
-    [_h]: ["PUT", "/{Bucket}?metrics", 200],
+    [_h]: ["PUT", "/?metrics", 200],
   },
   () => PutBucketMetricsConfigurationRequest,
   () => __Unit,
@@ -10107,7 +10107,7 @@ export var PutBucketNotificationConfiguration: StaticOperationSchema = [
   n0,
   _PBNC,
   {
-    [_h]: ["PUT", "/{Bucket}?notification", 200],
+    [_h]: ["PUT", "/?notification", 200],
   },
   () => PutBucketNotificationConfigurationRequest,
   () => __Unit,
@@ -10117,7 +10117,7 @@ export var PutBucketOwnershipControls: StaticOperationSchema = [
   n0,
   _PBOC,
   {
-    [_h]: ["PUT", "/{Bucket}?ownershipControls", 200],
+    [_h]: ["PUT", "/?ownershipControls", 200],
   },
   () => PutBucketOwnershipControlsRequest,
   () => __Unit,
@@ -10127,7 +10127,7 @@ export var PutBucketPolicy: StaticOperationSchema = [
   n0,
   _PBP,
   {
-    [_h]: ["PUT", "/{Bucket}?policy", 200],
+    [_h]: ["PUT", "/?policy", 200],
   },
   () => PutBucketPolicyRequest,
   () => __Unit,
@@ -10137,7 +10137,7 @@ export var PutBucketReplication: StaticOperationSchema = [
   n0,
   _PBR,
   {
-    [_h]: ["PUT", "/{Bucket}?replication", 200],
+    [_h]: ["PUT", "/?replication", 200],
   },
   () => PutBucketReplicationRequest,
   () => __Unit,
@@ -10147,7 +10147,7 @@ export var PutBucketRequestPayment: StaticOperationSchema = [
   n0,
   _PBRP,
   {
-    [_h]: ["PUT", "/{Bucket}?requestPayment", 200],
+    [_h]: ["PUT", "/?requestPayment", 200],
   },
   () => PutBucketRequestPaymentRequest,
   () => __Unit,
@@ -10157,7 +10157,7 @@ export var PutBucketTagging: StaticOperationSchema = [
   n0,
   _PBT,
   {
-    [_h]: ["PUT", "/{Bucket}?tagging", 200],
+    [_h]: ["PUT", "/?tagging", 200],
   },
   () => PutBucketTaggingRequest,
   () => __Unit,
@@ -10167,7 +10167,7 @@ export var PutBucketVersioning: StaticOperationSchema = [
   n0,
   _PBV,
   {
-    [_h]: ["PUT", "/{Bucket}?versioning", 200],
+    [_h]: ["PUT", "/?versioning", 200],
   },
   () => PutBucketVersioningRequest,
   () => __Unit,
@@ -10177,7 +10177,7 @@ export var PutBucketWebsite: StaticOperationSchema = [
   n0,
   _PBW,
   {
-    [_h]: ["PUT", "/{Bucket}?website", 200],
+    [_h]: ["PUT", "/?website", 200],
   },
   () => PutBucketWebsiteRequest,
   () => __Unit,
@@ -10187,7 +10187,7 @@ export var PutObject: StaticOperationSchema = [
   n0,
   _PO,
   {
-    [_h]: ["PUT", "/{Bucket}/{Key+}?x-id=PutObject", 200],
+    [_h]: ["PUT", "/{Key+}?x-id=PutObject", 200],
   },
   () => PutObjectRequest,
   () => PutObjectOutput,
@@ -10197,7 +10197,7 @@ export var PutObjectAcl: StaticOperationSchema = [
   n0,
   _POA,
   {
-    [_h]: ["PUT", "/{Bucket}/{Key+}?acl", 200],
+    [_h]: ["PUT", "/{Key+}?acl", 200],
   },
   () => PutObjectAclRequest,
   () => PutObjectAclOutput,
@@ -10207,7 +10207,7 @@ export var PutObjectLegalHold: StaticOperationSchema = [
   n0,
   _POLH,
   {
-    [_h]: ["PUT", "/{Bucket}/{Key+}?legal-hold", 200],
+    [_h]: ["PUT", "/{Key+}?legal-hold", 200],
   },
   () => PutObjectLegalHoldRequest,
   () => PutObjectLegalHoldOutput,
@@ -10217,7 +10217,7 @@ export var PutObjectLockConfiguration: StaticOperationSchema = [
   n0,
   _POLC,
   {
-    [_h]: ["PUT", "/{Bucket}?object-lock", 200],
+    [_h]: ["PUT", "/?object-lock", 200],
   },
   () => PutObjectLockConfigurationRequest,
   () => PutObjectLockConfigurationOutput,
@@ -10227,7 +10227,7 @@ export var PutObjectRetention: StaticOperationSchema = [
   n0,
   _PORu,
   {
-    [_h]: ["PUT", "/{Bucket}/{Key+}?retention", 200],
+    [_h]: ["PUT", "/{Key+}?retention", 200],
   },
   () => PutObjectRetentionRequest,
   () => PutObjectRetentionOutput,
@@ -10237,7 +10237,7 @@ export var PutObjectTagging: StaticOperationSchema = [
   n0,
   _POT,
   {
-    [_h]: ["PUT", "/{Bucket}/{Key+}?tagging", 200],
+    [_h]: ["PUT", "/{Key+}?tagging", 200],
   },
   () => PutObjectTaggingRequest,
   () => PutObjectTaggingOutput,
@@ -10247,7 +10247,7 @@ export var PutPublicAccessBlock: StaticOperationSchema = [
   n0,
   _PPAB,
   {
-    [_h]: ["PUT", "/{Bucket}?publicAccessBlock", 200],
+    [_h]: ["PUT", "/?publicAccessBlock", 200],
   },
   () => PutPublicAccessBlockRequest,
   () => __Unit,
@@ -10257,7 +10257,7 @@ export var RenameObject: StaticOperationSchema = [
   n0,
   _RO,
   {
-    [_h]: ["PUT", "/{Bucket}/{Key+}?renameObject", 200],
+    [_h]: ["PUT", "/{Key+}?renameObject", 200],
   },
   () => RenameObjectRequest,
   () => RenameObjectOutput,
@@ -10267,7 +10267,7 @@ export var RestoreObject: StaticOperationSchema = [
   n0,
   _ROe,
   {
-    [_h]: ["POST", "/{Bucket}/{Key+}?restore", 200],
+    [_h]: ["POST", "/{Key+}?restore", 200],
   },
   () => RestoreObjectRequest,
   () => RestoreObjectOutput,
@@ -10277,7 +10277,7 @@ export var SelectObjectContent: StaticOperationSchema = [
   n0,
   _SOC,
   {
-    [_h]: ["POST", "/{Bucket}/{Key+}?select&select-type=2", 200],
+    [_h]: ["POST", "/{Key+}?select&select-type=2", 200],
   },
   () => SelectObjectContentRequest,
   () => SelectObjectContentOutput,
@@ -10287,7 +10287,7 @@ export var UpdateBucketMetadataInventoryTableConfiguration: StaticOperationSchem
   n0,
   _UBMITC,
   {
-    [_h]: ["PUT", "/{Bucket}?metadataInventoryTable", 200],
+    [_h]: ["PUT", "/?metadataInventoryTable", 200],
   },
   () => UpdateBucketMetadataInventoryTableConfigurationRequest,
   () => __Unit,
@@ -10297,7 +10297,7 @@ export var UpdateBucketMetadataJournalTableConfiguration: StaticOperationSchema 
   n0,
   _UBMJTC,
   {
-    [_h]: ["PUT", "/{Bucket}?metadataJournalTable", 200],
+    [_h]: ["PUT", "/?metadataJournalTable", 200],
   },
   () => UpdateBucketMetadataJournalTableConfigurationRequest,
   () => __Unit,
@@ -10307,7 +10307,7 @@ export var UploadPart: StaticOperationSchema = [
   n0,
   _UP,
   {
-    [_h]: ["PUT", "/{Bucket}/{Key+}?x-id=UploadPart", 200],
+    [_h]: ["PUT", "/{Key+}?x-id=UploadPart", 200],
   },
   () => UploadPartRequest,
   () => UploadPartOutput,
@@ -10317,7 +10317,7 @@ export var UploadPartCopy: StaticOperationSchema = [
   n0,
   _UPC,
   {
-    [_h]: ["PUT", "/{Bucket}/{Key+}?x-id=UploadPartCopy", 200],
+    [_h]: ["PUT", "/{Key+}?x-id=UploadPartCopy", 200],
   },
   () => UploadPartCopyRequest,
   () => UploadPartCopyOutput,
