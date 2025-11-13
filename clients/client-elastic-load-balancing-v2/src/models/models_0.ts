@@ -1465,7 +1465,9 @@ export const ProtocolEnum = {
   GENEVE: "GENEVE",
   HTTP: "HTTP",
   HTTPS: "HTTPS",
+  QUIC: "QUIC",
   TCP: "TCP",
+  TCP_QUIC: "TCP_QUIC",
   TCP_UDP: "TCP_UDP",
   TLS: "TLS",
   UDP: "UDP",
@@ -3841,6 +3843,17 @@ export interface TargetDescription {
    * @public
    */
   AvailabilityZone?: string | undefined;
+
+  /**
+   * <p>The server ID for the targets. This value is required if the protocol is
+   *       <code>QUIC</code> or <code>TCP_QUIC</code> and can't be used with other protocols.</p>
+   *          <p>The ID consists of the <code>0x</code> prefix followed by 16 hexadecimal characters.
+   *       Any letters must be lowercase. The value must be unique at the listener level. You can't
+   *       modify the server ID for a registered target. You must deregister the target and then
+   *       provide a new server ID when you register the target again.</p>
+   * @public
+   */
+  QuicServerId?: string | undefined;
 }
 
 /**

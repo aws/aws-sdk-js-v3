@@ -43,7 +43,7 @@ export interface ModifyTargetGroupCommandOutput extends ModifyTargetGroupOutput,
  * const client = new ElasticLoadBalancingV2Client(config);
  * const input = { // ModifyTargetGroupInput
  *   TargetGroupArn: "STRING_VALUE", // required
- *   HealthCheckProtocol: "HTTP" || "HTTPS" || "TCP" || "TLS" || "UDP" || "TCP_UDP" || "GENEVE",
+ *   HealthCheckProtocol: "HTTP" || "HTTPS" || "TCP" || "TLS" || "UDP" || "TCP_UDP" || "GENEVE" || "QUIC" || "TCP_QUIC",
  *   HealthCheckPort: "STRING_VALUE",
  *   HealthCheckPath: "STRING_VALUE",
  *   HealthCheckEnabled: true || false,
@@ -63,10 +63,10 @@ export interface ModifyTargetGroupCommandOutput extends ModifyTargetGroupOutput,
  * //     { // TargetGroup
  * //       TargetGroupArn: "STRING_VALUE",
  * //       TargetGroupName: "STRING_VALUE",
- * //       Protocol: "HTTP" || "HTTPS" || "TCP" || "TLS" || "UDP" || "TCP_UDP" || "GENEVE",
+ * //       Protocol: "HTTP" || "HTTPS" || "TCP" || "TLS" || "UDP" || "TCP_UDP" || "GENEVE" || "QUIC" || "TCP_QUIC",
  * //       Port: Number("int"),
  * //       VpcId: "STRING_VALUE",
- * //       HealthCheckProtocol: "HTTP" || "HTTPS" || "TCP" || "TLS" || "UDP" || "TCP_UDP" || "GENEVE",
+ * //       HealthCheckProtocol: "HTTP" || "HTTPS" || "TCP" || "TLS" || "UDP" || "TCP_UDP" || "GENEVE" || "QUIC" || "TCP_QUIC",
  * //       HealthCheckPort: "STRING_VALUE",
  * //       HealthCheckEnabled: true || false,
  * //       HealthCheckIntervalSeconds: Number("int"),

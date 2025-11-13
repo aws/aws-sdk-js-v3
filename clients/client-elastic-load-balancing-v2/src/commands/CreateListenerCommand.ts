@@ -66,7 +66,7 @@ export interface CreateListenerCommandOutput extends CreateListenerOutput, __Met
  * const client = new ElasticLoadBalancingV2Client(config);
  * const input = { // CreateListenerInput
  *   LoadBalancerArn: "STRING_VALUE", // required
- *   Protocol: "HTTP" || "HTTPS" || "TCP" || "TLS" || "UDP" || "TCP_UDP" || "GENEVE",
+ *   Protocol: "HTTP" || "HTTPS" || "TCP" || "TLS" || "UDP" || "TCP_UDP" || "GENEVE" || "QUIC" || "TCP_QUIC",
  *   Port: Number("int"),
  *   SslPolicy: "STRING_VALUE",
  *   Certificates: [ // CertificateList
@@ -173,7 +173,7 @@ export interface CreateListenerCommandOutput extends CreateListenerOutput, __Met
  * //       ListenerArn: "STRING_VALUE",
  * //       LoadBalancerArn: "STRING_VALUE",
  * //       Port: Number("int"),
- * //       Protocol: "HTTP" || "HTTPS" || "TCP" || "TLS" || "UDP" || "TCP_UDP" || "GENEVE",
+ * //       Protocol: "HTTP" || "HTTPS" || "TCP" || "TLS" || "UDP" || "TCP_UDP" || "GENEVE" || "QUIC" || "TCP_QUIC",
  * //       Certificates: [ // CertificateList
  * //         { // Certificate
  * //           CertificateArn: "STRING_VALUE",

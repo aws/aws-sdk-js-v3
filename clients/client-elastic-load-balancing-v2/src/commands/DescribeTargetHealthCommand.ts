@@ -47,6 +47,7 @@ export interface DescribeTargetHealthCommandOutput extends DescribeTargetHealthO
  *       Id: "STRING_VALUE", // required
  *       Port: Number("int"),
  *       AvailabilityZone: "STRING_VALUE",
+ *       QuicServerId: "STRING_VALUE",
  *     },
  *   ],
  *   Include: [ // ListOfDescribeTargetHealthIncludeOptions
@@ -62,6 +63,7 @@ export interface DescribeTargetHealthCommandOutput extends DescribeTargetHealthO
  * //         Id: "STRING_VALUE", // required
  * //         Port: Number("int"),
  * //         AvailabilityZone: "STRING_VALUE",
+ * //         QuicServerId: "STRING_VALUE",
  * //       },
  * //       HealthCheckPort: "STRING_VALUE",
  * //       TargetHealth: { // TargetHealth

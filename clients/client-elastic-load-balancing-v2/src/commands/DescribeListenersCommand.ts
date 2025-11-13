@@ -58,7 +58,7 @@ export interface DescribeListenersCommandOutput extends DescribeListenersOutput,
  * //       ListenerArn: "STRING_VALUE",
  * //       LoadBalancerArn: "STRING_VALUE",
  * //       Port: Number("int"),
- * //       Protocol: "HTTP" || "HTTPS" || "TCP" || "TLS" || "UDP" || "TCP_UDP" || "GENEVE",
+ * //       Protocol: "HTTP" || "HTTPS" || "TCP" || "TLS" || "UDP" || "TCP_UDP" || "GENEVE" || "QUIC" || "TCP_QUIC",
  * //       Certificates: [ // CertificateList
  * //         { // Certificate
  * //           CertificateArn: "STRING_VALUE",

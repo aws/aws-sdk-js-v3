@@ -74,6 +74,7 @@ export interface RegisterTargetsCommandOutput extends RegisterTargetsOutput, __M
  *       Id: "STRING_VALUE", // required
  *       Port: Number("int"),
  *       AvailabilityZone: "STRING_VALUE",
+ *       QuicServerId: "STRING_VALUE",
  *     },
  *   ],
  * };

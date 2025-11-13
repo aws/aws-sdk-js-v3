@@ -50,7 +50,7 @@ export interface ModifyListenerCommandOutput extends ModifyListenerOutput, __Met
  * const input = { // ModifyListenerInput
  *   ListenerArn: "STRING_VALUE", // required
  *   Port: Number("int"),
- *   Protocol: "HTTP" || "HTTPS" || "TCP" || "TLS" || "UDP" || "TCP_UDP" || "GENEVE",
+ *   Protocol: "HTTP" || "HTTPS" || "TCP" || "TLS" || "UDP" || "TCP_UDP" || "GENEVE" || "QUIC" || "TCP_QUIC",
  *   SslPolicy: "STRING_VALUE",
  *   Certificates: [ // CertificateList
  *     { // Certificate
@@ -150,7 +150,7 @@ export interface ModifyListenerCommandOutput extends ModifyListenerOutput, __Met
  * //       ListenerArn: "STRING_VALUE",
  * //       LoadBalancerArn: "STRING_VALUE",
  * //       Port: Number("int"),
- * //       Protocol: "HTTP" || "HTTPS" || "TCP" || "TLS" || "UDP" || "TCP_UDP" || "GENEVE",
+ * //       Protocol: "HTTP" || "HTTPS" || "TCP" || "TLS" || "UDP" || "TCP_UDP" || "GENEVE" || "QUIC" || "TCP_QUIC",
  * //       Certificates: [ // CertificateList
  * //         { // Certificate
  * //           CertificateArn: "STRING_VALUE",

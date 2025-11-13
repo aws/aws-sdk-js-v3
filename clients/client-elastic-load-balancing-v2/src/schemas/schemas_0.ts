@@ -297,6 +297,7 @@ const _Pr = "Protocol";
 const _Q = "Query";
 const _QSC = "QueryStringConfig";
 const _QSCC = "QueryStringConditionConfig";
+const _QSI = "QuicServerId";
 const _QSKVP = "QueryStringKeyValuePair";
 const _QSKVPL = "QueryStringKeyValuePairList";
 const _R = "Reason";
@@ -1621,7 +1622,7 @@ TypeRegistry.for(n0).registerError(SubnetNotFoundException, __SubnetNotFoundExce
 
 export var Tag: StaticStructureSchema = [3, n0, _Tag, 0, [_K, _Va], [0, 0]];
 export var TagDescription: StaticStructureSchema = [3, n0, _TDa, 0, [_RAe, _Ta], [0, () => TagList]];
-export var TargetDescription: StaticStructureSchema = [3, n0, _TDar, 0, [_Id, _Po, _AZ], [0, 1, 0]];
+export var TargetDescription: StaticStructureSchema = [3, n0, _TDar, 0, [_Id, _Po, _AZ, _QSI], [0, 1, 0, 0]];
 export var TargetGroup: StaticStructureSchema = [
   3,
   n0,

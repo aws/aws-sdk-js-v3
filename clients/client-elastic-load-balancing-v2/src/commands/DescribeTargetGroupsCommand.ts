@@ -61,10 +61,10 @@ export interface DescribeTargetGroupsCommandOutput extends DescribeTargetGroupsO
  * //     { // TargetGroup
  * //       TargetGroupArn: "STRING_VALUE",
  * //       TargetGroupName: "STRING_VALUE",
- * //       Protocol: "HTTP" || "HTTPS" || "TCP" || "TLS" || "UDP" || "TCP_UDP" || "GENEVE",
+ * //       Protocol: "HTTP" || "HTTPS" || "TCP" || "TLS" || "UDP" || "TCP_UDP" || "GENEVE" || "QUIC" || "TCP_QUIC",
  * //       Port: Number("int"),
  * //       VpcId: "STRING_VALUE",
- * //       HealthCheckProtocol: "HTTP" || "HTTPS" || "TCP" || "TLS" || "UDP" || "TCP_UDP" || "GENEVE",
+ * //       HealthCheckProtocol: "HTTP" || "HTTPS" || "TCP" || "TLS" || "UDP" || "TCP_UDP" || "GENEVE" || "QUIC" || "TCP_QUIC",
  * //       HealthCheckPort: "STRING_VALUE",
  * //       HealthCheckEnabled: true || false,
  * //       HealthCheckIntervalSeconds: Number("int"),
