@@ -43,11 +43,10 @@ public final class AddProtocolConfig implements TypeScriptIntegration {
             AwsJson1_1Trait.ID,
             RestJson1Trait.ID,
             Ec2QueryTrait.ID,
-            AwsQueryTrait.ID
-        );
-        List<ShapeId> pending = List.of(
+            AwsQueryTrait.ID,
             RestXmlTrait.ID
         );
+        List<ShapeId> pending = List.of();
         for (ShapeId shapeId : allowed) {
             SchemaGenerationAllowlist.allowProtocol(shapeId);
             assert !pending.contains(shapeId);

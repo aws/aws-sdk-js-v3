@@ -144,7 +144,6 @@ public final class AddS3Config implements TypeScriptIntegration {
                     boolean bucketIsContextParam = bucket
                         .map(ms -> ms.getTrait(ContextParamTrait.class))
                         .isPresent();
-
                     if (hasBucketPrefix && inputHasBucketMember && bucketIsContextParam) {
                         String replaced = uri
                             .replace("/{Bucket}/", "/")
@@ -294,12 +293,7 @@ public final class AddS3Config implements TypeScriptIntegration {
         Model builtModel = modelBuilder.addShapes(inputShapes).build();
         if (hasRuleset) {
             return ModelTransformer.create().mapShapes(
-                builtModel, (shape) -> {
-                    if (SchemaGenerationAllowlist.allows(serviceShape.getId(), settings)) {
-                        return removeUriBucketPrefix(shape, model);
-                    }
-                    return shape;
-                }
+                builtModel, (shape) -> removeUriBucketPrefix(shape, model)
             );
         }
         return builtModel;

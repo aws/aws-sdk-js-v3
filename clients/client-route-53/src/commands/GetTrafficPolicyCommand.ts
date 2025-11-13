@@ -1,14 +1,13 @@
 // smithy-typescript generated code
 import { getIdNormalizerPlugin } from "@aws-sdk/middleware-sdk-route53";
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GetTrafficPolicyRequest, GetTrafficPolicyResponse } from "../models/models_0";
-import { de_GetTrafficPolicyCommand, se_GetTrafficPolicyCommand } from "../protocols/Aws_restXml";
 import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
+import { GetTrafficPolicy } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -87,17 +86,11 @@ export class GetTrafficPolicyCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: Route53ClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-      getIdNormalizerPlugin(config),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions()), getIdNormalizerPlugin(config)];
   })
   .s("AWSDnsV20130401", "GetTrafficPolicy", {})
   .n("Route53Client", "GetTrafficPolicyCommand")
-  .f(void 0, void 0)
-  .ser(se_GetTrafficPolicyCommand)
-  .de(de_GetTrafficPolicyCommand)
+  .sc(GetTrafficPolicy)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

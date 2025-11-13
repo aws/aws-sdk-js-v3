@@ -1,4 +1,5 @@
 import { S3Client, S3ClientConfigType } from "@aws-sdk/client-s3";
+import { AwsRestXmlProtocol } from "@aws-sdk/core/protocols";
 import { defaultProvider as credentialDefaultProvider, defaultProvider } from "@aws-sdk/credential-provider-node";
 import { NODE_USE_ARN_REGION_CONFIG_OPTIONS } from "@aws-sdk/middleware-bucket-endpoint";
 import {
@@ -87,6 +88,10 @@ export const initializeWithMaximalConfiguration = () => {
     sigv4aSigningRegionSet: [],
     authSchemePreference: [],
     userAgentAppId: "testApp",
+    protocol: new AwsRestXmlProtocol({
+      defaultNamespace: "com.amazonaws.s3",
+      xmlNamespace: "http://s3.amazonaws.com/doc/2006-03-01/",
+    }),
     // END user options
 
     // BEGIN internal options

@@ -22,11 +22,6 @@ describe("@aws-sdk/client-s3 - Working with Buckets", () => {
   function getBucketName(id: string, region = "us-west-2") {
     const alphabet = "abcdefghijklmnopqrstuvwxyz0123456789";
     const randId = Array.from({ length: 19 }, () => alphabet[(Math.random() * alphabet.length) | 0]).join("");
-
-    console.log({
-      Bucket: `${callerID.Account}-${randId}-${id}-${region}`,
-    });
-
     return `${callerID.Account}-${randId}-${id}-${region}`;
   }
 

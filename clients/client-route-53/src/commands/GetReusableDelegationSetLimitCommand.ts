@@ -1,17 +1,13 @@
 // smithy-typescript generated code
 import { getIdNormalizerPlugin } from "@aws-sdk/middleware-sdk-route53";
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GetReusableDelegationSetLimitRequest, GetReusableDelegationSetLimitResponse } from "../models/models_0";
-import {
-  de_GetReusableDelegationSetLimitCommand,
-  se_GetReusableDelegationSetLimitCommand,
-} from "../protocols/Aws_restXml";
 import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
+import { GetReusableDelegationSetLimit } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -91,17 +87,11 @@ export class GetReusableDelegationSetLimitCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: Route53ClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-      getIdNormalizerPlugin(config),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions()), getIdNormalizerPlugin(config)];
   })
   .s("AWSDnsV20130401", "GetReusableDelegationSetLimit", {})
   .n("Route53Client", "GetReusableDelegationSetLimitCommand")
-  .f(void 0, void 0)
-  .ser(se_GetReusableDelegationSetLimitCommand)
-  .de(de_GetReusableDelegationSetLimitCommand)
+  .sc(GetReusableDelegationSetLimit)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

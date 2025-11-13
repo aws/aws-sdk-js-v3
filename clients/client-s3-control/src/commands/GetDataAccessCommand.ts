@@ -2,14 +2,13 @@
 import { getProcessArnablesPlugin } from "@aws-sdk/middleware-sdk-s3-control";
 import { getApplyMd5BodyChecksumPlugin } from "@smithy/middleware-apply-body-checksum";
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { GetDataAccessRequest, GetDataAccessResult, GetDataAccessResultFilterSensitiveLog } from "../models/models_0";
-import { de_GetDataAccessCommand, se_GetDataAccessCommand } from "../protocols/Aws_restXml";
+import { GetDataAccessRequest, GetDataAccessResult } from "../models/models_0";
 import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
+import { GetDataAccess } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -111,7 +110,6 @@ export class GetDataAccessCommand extends $Command
   })
   .m(function (this: any, Command: any, cs: any, config: S3ControlClientResolvedConfig, o: any) {
     return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
       getProcessArnablesPlugin(config),
       getApplyMd5BodyChecksumPlugin(config),
@@ -119,9 +117,7 @@ export class GetDataAccessCommand extends $Command
   })
   .s("AWSS3ControlServiceV20180820", "GetDataAccess", {})
   .n("S3ControlClient", "GetDataAccessCommand")
-  .f(void 0, GetDataAccessResultFilterSensitiveLog)
-  .ser(se_GetDataAccessCommand)
-  .de(de_GetDataAccessCommand)
+  .sc(GetDataAccess)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

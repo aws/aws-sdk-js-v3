@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { ListConnectionGroupsRequest, ListConnectionGroupsResult } from "../models/models_1";
-import { de_ListConnectionGroupsCommand, se_ListConnectionGroupsCommand } from "../protocols/Aws_restXml";
+import { ListConnectionGroups } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -98,16 +97,11 @@ export class ListConnectionGroupsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudFrontClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("Cloudfront2020_05_31", "ListConnectionGroups", {})
   .n("CloudFrontClient", "ListConnectionGroupsCommand")
-  .f(void 0, void 0)
-  .ser(se_ListConnectionGroupsCommand)
-  .de(de_ListConnectionGroupsCommand)
+  .sc(ListConnectionGroups)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

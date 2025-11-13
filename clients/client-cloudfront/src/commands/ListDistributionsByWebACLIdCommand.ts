@@ -1,17 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  ListDistributionsByWebACLIdRequest,
-  ListDistributionsByWebACLIdResult,
-  ListDistributionsByWebACLIdResultFilterSensitiveLog,
-} from "../models/models_1";
-import { de_ListDistributionsByWebACLIdCommand, se_ListDistributionsByWebACLIdCommand } from "../protocols/Aws_restXml";
+import { ListDistributionsByWebACLIdRequest, ListDistributionsByWebACLIdResult } from "../models/models_1";
+import { ListDistributionsByWebACLId } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -398,16 +393,11 @@ export class ListDistributionsByWebACLIdCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudFrontClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("Cloudfront2020_05_31", "ListDistributionsByWebACLId", {})
   .n("CloudFrontClient", "ListDistributionsByWebACLIdCommand")
-  .f(void 0, ListDistributionsByWebACLIdResultFilterSensitiveLog)
-  .ser(se_ListDistributionsByWebACLIdCommand)
-  .de(de_ListDistributionsByWebACLIdCommand)
+  .sc(ListDistributionsByWebACLId)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
