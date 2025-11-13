@@ -5,7 +5,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CloudFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFormationClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListStackSetOperationsInput, ListStackSetOperationsOutput } from "../models/models_0";
+import { ListStackSetOperationsInput, ListStackSetOperationsOutput } from "../models/models_1";
 import { ListStackSetOperations } from "../schemas/schemas_0";
 
 /**

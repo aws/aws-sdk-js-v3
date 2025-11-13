@@ -37,8 +37,7 @@ export interface ActivateTypeCommandOutput extends ActivateTypeOutput, __Metadat
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/registry-public-activate-extension.html">Activate a
  *         third-party public extension in your account</a> in the
  *         <i>CloudFormation User Guide</i>. For information about creating Hooks, see the
- *         <a href="https://docs.aws.amazon.com/cloudformation-cli/latest/hooks-userguide/what-is-cloudformation-hooks.html">CloudFormation
- *         Hooks User Guide</a>.</p>
+ *         <a href="https://docs.aws.amazon.com/cloudformation-cli/latest/hooks-userguide/what-is-cloudformation-hooks.html">CloudFormation Hooks User Guide</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

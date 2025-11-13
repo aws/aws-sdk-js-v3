@@ -8,6 +8,8 @@ const _AGR = "AccountGateResult";
 const _AL = "AccountLimit";
 const _ALL = "AccountLimitList";
 const _ALc = "AccountLimits";
+const _ALn = "AnnotationList";
+const _AN = "AnnotationName";
 const _AOA = "ActivateOrganizationsAccess";
 const _AOAI = "ActivateOrganizationsAccessInput";
 const _AOAO = "ActivateOrganizationsAccessOutput";
@@ -25,9 +27,11 @@ const _AVc = "ActualValue";
 const _AVf = "AfterValue";
 const _Ac = "Accounts";
 const _Acc = "Account";
-const _Act = "Active";
-const _Acti = "Action";
+const _Act = "Action";
+const _Acti = "Active";
 const _Al = "Alias";
+const _An = "Annotation";
+const _Ann = "Annotations";
 const _At = "Attribute";
 const _BC = "BeforeContext";
 const _BDTC = "BatchDescribeTypeConfigurations";
@@ -244,6 +248,9 @@ const _Fi = "Filters";
 const _GGT = "GetGeneratedTemplate";
 const _GGTI = "GetGeneratedTemplateInput";
 const _GGTO = "GetGeneratedTemplateOutput";
+const _GHR = "GetHookResult";
+const _GHRI = "GetHookResultInput";
+const _GHRO = "GetHookResultOutput";
 const _GSP = "GetStackPolicy";
 const _GSPI = "GetStackPolicyInput";
 const _GSPO = "GetStackPolicyOutput";
@@ -269,7 +276,8 @@ const _HRS = "HookResultSummary";
 const _HRSo = "HookResultSummaries";
 const _HS = "HookStatus";
 const _HSR = "HookStatusReason";
-const _HT = "HookType";
+const _HT = "HookTarget";
+const _HTo = "HookType";
 const _I = "Id";
 const _IA = "IsActivated";
 const _IAn = "InvokedAt";
@@ -466,10 +474,12 @@ const _RIS = "ResourceIdentifierSummaries";
 const _RISe = "ResourceIdentifierSummary";
 const _RIe = "ResourceIdentifiers";
 const _RIo = "RootId";
-const _RL = "ResourceLocation";
-const _RM = "ResourceMappings";
-const _RMe = "ResourceModel";
-const _RMes = "ResourceMapping";
+const _RL = "RemediationLink";
+const _RLe = "ResourceLocation";
+const _RM = "RemediationMessage";
+const _RMe = "ResourceMappings";
+const _RMes = "ResourceModel";
+const _RMeso = "ResourceMapping";
 const _RO = "RegionOrder";
 const _RP = "ResourceProperties";
 const _RPI = "RegisterPublisherInput";
@@ -548,6 +558,7 @@ const _SISta = "StackInstanceSummaries";
 const _SIU = "StackIdsUrl";
 const _SIt = "StackInstance";
 const _SIta = "StackIds";
+const _SL = "SeverityLevel";
 const _SM = "StatusMessage";
 const _SMV = "SupportedMajorVersions";
 const _SN = "StackName";
@@ -668,6 +679,7 @@ const _TSy = "TypeSummaries";
 const _TSyp = "TypeSummary";
 const _TT = "TargetType";
 const _TTI = "TestTypeInput";
+const _TTN = "TargetTypeName";
 const _TTO = "TestTypeOutput";
 const _TTS = "TypeTestsStatus";
 const _TTSD = "TypeTestsStatusDescription";
@@ -801,6 +813,7 @@ export var AlreadyExistsException: StaticErrorSchema = [
 ];
 TypeRegistry.for(n0).registerError(AlreadyExistsException, __AlreadyExistsException);
 
+export var Annotation: StaticStructureSchema = [3, n0, _An, 0, [_AN, _S, _SM, _RM, _RL, _SL], [0, 0, 0, 0, 0, 0]];
 export var AutoDeployment: StaticStructureSchema = [3, n0, _AD, 0, [_E, _RSOAR], [2, 2]];
 export var BatchDescribeTypeConfigurationsError: StaticStructureSchema = [
   3,
@@ -1005,7 +1018,7 @@ export var CreateStackRefactorInput: StaticStructureSchema = [
   n0,
   _CSRI,
   0,
-  [_D, _ESC, _RM, _SD],
+  [_D, _ESC, _RMe, _SD],
   [0, 2, () => ResourceMappings, () => StackDefinitions],
 ];
 export var CreateStackRefactorOutput: StaticStructureSchema = [3, n0, _CSRO, 0, [_SRI], [0]];
@@ -1347,6 +1360,15 @@ TypeRegistry.for(n0).registerError(GeneratedTemplateNotFoundException, __Generat
 
 export var GetGeneratedTemplateInput: StaticStructureSchema = [3, n0, _GGTI, 0, [_F, _GTN], [0, 0]];
 export var GetGeneratedTemplateOutput: StaticStructureSchema = [3, n0, _GGTO, 0, [_S, _TB], [0, 0]];
+export var GetHookResultInput: StaticStructureSchema = [3, n0, _GHRI, 0, [_HRI], [0]];
+export var GetHookResultOutput: StaticStructureSchema = [
+  3,
+  n0,
+  _GHRO,
+  0,
+  [_HRI, _IP, _FM, _TN, _OTN, _TVI, _TCVI, _TA, _S, _HSR, _IAn, _Tar, _Ann],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, () => HookTarget, () => AnnotationList],
+];
 export var GetStackPolicyInput: StaticStructureSchema = [3, n0, _GSPI, 0, [_SN], [0]];
 export var GetStackPolicyOutput: StaticStructureSchema = [3, n0, _GSPO, 0, [_SPB], [0]];
 export var GetTemplateInput: StaticStructureSchema = [3, n0, _GTIe, 0, [_SN, _CSN, _TS], [0, 0, 0]];
@@ -1389,6 +1411,7 @@ export var HookResultSummary: StaticStructureSchema = [
   [_HRI, _IP, _FM, _TN, _TVI, _TCVI, _S, _HSR, _IAn, _TT, _TI, _TA, _HET],
   [0, 0, 0, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0],
 ];
+export var HookTarget: StaticStructureSchema = [3, n0, _HT, 0, [_TT, _TTN, _TI, _Act], [0, 0, 0, 0]];
 export var ImportStacksToStackSetInput: StaticStructureSchema = [
   3,
   n0,
@@ -1672,7 +1695,7 @@ export var ListTypeVersionsOutput: StaticStructureSchema = [
   [() => TypeVersionSummaries, 0],
 ];
 export var LoggingConfig: StaticStructureSchema = [3, n0, _LC, 0, [_LRA, _LGN], [0, 0]];
-export var ManagedExecution: StaticStructureSchema = [3, n0, _ME, 0, [_Act], [2]];
+export var ManagedExecution: StaticStructureSchema = [3, n0, _ME, 0, [_Acti], [2]];
 export var ModuleInfo: StaticStructureSchema = [3, n0, _MI, 0, [_TH, _LIH], [0, 0]];
 export var NameAlreadyExistsException: StaticErrorSchema = [
   -3,
@@ -1765,7 +1788,7 @@ export var RecordHandlerProgressInput: StaticStructureSchema = [
   n0,
   _RHPI,
   0,
-  [_BT, _OS, _COS, _SM, _EC, _RMe, _CRT],
+  [_BT, _OS, _COS, _SM, _EC, _RMes, _CRT],
   [0, 0, 0, 0, 0, 0, 0],
 ];
 export var RecordHandlerProgressOutput: StaticStructureSchema = [3, n0, _RHPO, 0, [], []];
@@ -1786,7 +1809,7 @@ export var ResourceChange: StaticStructureSchema = [
   n0,
   _RC,
   0,
-  [_PA, _Acti, _LRI, _PRI, _RT, _Rep, _Sco, _De, _CSI, _MI, _BC, _AC],
+  [_PA, _Act, _LRI, _PRI, _RT, _Rep, _Sco, _De, _CSI, _MI, _BC, _AC],
   [0, 0, 0, 0, 0, 0, 64 | 0, () => ResourceChangeDetails, 0, () => ModuleInfo, 0, 0],
 ];
 export var ResourceChangeDetail: StaticStructureSchema = [
@@ -1814,11 +1837,11 @@ export var ResourceIdentifierSummary: StaticStructureSchema = [
   [_RT, _LRIo, _RIe],
   [0, 64 | 0, 64 | 0],
 ];
-export var ResourceLocation: StaticStructureSchema = [3, n0, _RL, 0, [_SN, _LRI], [0, 0]];
+export var ResourceLocation: StaticStructureSchema = [3, n0, _RLe, 0, [_SN, _LRI], [0, 0]];
 export var ResourceMapping: StaticStructureSchema = [
   3,
   n0,
-  _RMes,
+  _RMeso,
   0,
   [_So, _Des],
   [() => ResourceLocation, () => ResourceLocation],
@@ -1970,7 +1993,7 @@ export var StackEvent: StaticStructureSchema = [
   n0,
   _SEt,
   0,
-  [_SI, _EI, _SN, _LRI, _PRI, _RT, _Ti, _RSes, _RSR, _RP, _CRT, _HT, _HS, _HSR, _HIP, _HII, _HFM, _DSet],
+  [_SI, _EI, _SN, _LRI, _PRI, _RT, _Ti, _RSes, _RSR, _RP, _CRT, _HTo, _HS, _HSR, _HIP, _HII, _HFM, _DSet],
   [0, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
 ];
 export var StackInstance: StaticStructureSchema = [
@@ -2032,7 +2055,7 @@ export var StackRefactorAction: StaticStructureSchema = [
   n0,
   _SRAt,
   0,
-  [_Acti, _En, _PRI, _RI, _D, _Det, _DRe, _TR, _UR, _RMes],
+  [_Act, _En, _PRI, _RI, _D, _Det, _DRe, _TR, _UR, _RMeso],
   [0, 0, 0, 0, 0, 0, 0, () => StackRefactorTagResources, 64 | 0, () => ResourceMapping],
 ];
 export var StackRefactorNotFoundException: StaticErrorSchema = [
@@ -2159,7 +2182,7 @@ export var StackSetOperation: StaticStructureSchema = [
   n0,
   _SSO,
   0,
-  [_OI, _SSI, _Acti, _S, _OP, _RS, _ARARN, _ERN, _CTr, _ETn, _DT, _SSDDD, _SR, _SDta],
+  [_OI, _SSI, _Act, _S, _OP, _RS, _ARARN, _ERN, _CTr, _ETn, _DT, _SSDDD, _SR, _SDta],
   [
     0,
     0,
@@ -2199,7 +2222,7 @@ export var StackSetOperationSummary: StaticStructureSchema = [
   n0,
   _SSOS,
   0,
-  [_OI, _Acti, _S, _CTr, _ETn, _SR, _SDta, _OP],
+  [_OI, _Act, _S, _CTr, _ETn, _SR, _SDta, _OP],
   [0, 0, 0, 4, 4, 0, () => StackSetOperationStatusDetails, () => StackSetOperationPreferences],
 ];
 export var StackSetSummary: StaticStructureSchema = [
@@ -2425,6 +2448,7 @@ export var AccountList = 64 | 0;
 
 export var AllowedValues = 64 | 0;
 
+export var AnnotationList: StaticListSchema = [1, n0, _ALn, 0, () => Annotation];
 export var BatchDescribeTypeConfigurationsErrors: StaticListSchema = [
   1,
   n0,
@@ -2467,7 +2491,7 @@ export var ResourceDetails: StaticListSchema = [1, n0, _RDeso, 0, () => Resource
 export var ResourceIdentifiers = 64 | 0;
 
 export var ResourceIdentifierSummaries: StaticListSchema = [1, n0, _RIS, 0, () => ResourceIdentifierSummary];
-export var ResourceMappings: StaticListSchema = [1, n0, _RM, 0, () => ResourceMapping];
+export var ResourceMappings: StaticListSchema = [1, n0, _RMe, 0, () => ResourceMapping];
 export var ResourceScanSummaries: StaticListSchema = [1, n0, _RSS, 0, () => ResourceScanSummary];
 export var ResourcesToImport: StaticListSchema = [1, n0, _RTI, 0, () => ResourceToImport];
 export var ResourcesToSkip = 64 | 0;
@@ -2876,6 +2900,7 @@ export var GetGeneratedTemplate: StaticOperationSchema = [
   () => GetGeneratedTemplateInput,
   () => GetGeneratedTemplateOutput,
 ];
+export var GetHookResult: StaticOperationSchema = [9, n0, _GHR, 0, () => GetHookResultInput, () => GetHookResultOutput];
 export var GetStackPolicy: StaticOperationSchema = [
   9,
   n0,

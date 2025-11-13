@@ -41,8 +41,7 @@ export interface SetTypeConfigurationCommandOutput extends SetTypeConfigurationO
  *          </important>
  *          <p>For more information about setting the configuration data for resource types, see <a href="https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/resource-type-model.html#resource-type-howto-configuration">Defining the account-level configuration of an extension</a> in the
  *         <i>CloudFormation Command Line Interface (CLI) User Guide</i>. For more information about setting the configuration
- *       data for Hooks, see the <a href="https://docs.aws.amazon.com/cloudformation-cli/latest/hooks-userguide/what-is-cloudformation-hooks.html">CloudFormation
- *         Hooks User Guide</a>.</p>
+ *       data for Hooks, see the <a href="https://docs.aws.amazon.com/cloudformation-cli/latest/hooks-userguide/what-is-cloudformation-hooks.html">CloudFormation Hooks User Guide</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

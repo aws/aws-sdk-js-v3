@@ -40,8 +40,8 @@ export interface ListHookResultsCommandOutput extends ListHookResultsOutput, __M
  *             </li>
  *             <li>
  *                <p>
- *                   <code>TypeArn</code> and <code>Status</code>: Returns summaries for a specific
- *           Hook filtered by status.</p>
+ *                   <code>TypeArn</code> and <code>Status</code>: Returns summaries for a specific Hook
+ *           filtered by status.</p>
  *             </li>
  *             <li>
  *                <p>

@@ -43,7 +43,7 @@ export interface DescribeStackEventsCommandOutput extends DescribeStackEventsOut
  * const config = {}; // type is CloudFormationClientConfig
  * const client = new CloudFormationClient(config);
  * const input = { // DescribeStackEventsInput
- *   StackName: "STRING_VALUE",
+ *   StackName: "STRING_VALUE", // required
  *   NextToken: "STRING_VALUE",
  * };
  * const command = new DescribeStackEventsCommand(input);

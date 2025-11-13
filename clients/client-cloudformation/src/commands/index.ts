@@ -44,6 +44,7 @@ export * from "./EstimateTemplateCostCommand";
 export * from "./ExecuteChangeSetCommand";
 export * from "./ExecuteStackRefactorCommand";
 export * from "./GetGeneratedTemplateCommand";
+export * from "./GetHookResultCommand";
 export * from "./GetStackPolicyCommand";
 export * from "./GetTemplateCommand";
 export * from "./GetTemplateSummaryCommand";

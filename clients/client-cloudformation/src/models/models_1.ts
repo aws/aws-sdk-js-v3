@@ -4,6 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-cli
 import { CloudFormationServiceException as __BaseException } from "./CloudFormationServiceException";
 
 import {
+  AccountGateResult,
   AutoDeployment,
   CallAs,
   Capability,
@@ -13,6 +14,7 @@ import {
   IdentityProvider,
   LoggingConfig,
   ManagedExecution,
+  OperationResultFilter,
   Parameter,
   PermissionModels,
   ProvisioningType,
@@ -22,7 +24,10 @@ import {
   RollbackConfiguration,
   ScanFilter,
   StackDriftStatus,
+  StackSetOperationAction,
   StackSetOperationPreferences,
+  StackSetOperationStatus,
+  StackSetOperationStatusDetails,
   StackSetStatus,
   Tag,
   TemplateConfiguration,
@@ -33,13 +38,352 @@ import {
 /**
  * @public
  */
+export interface ListStackSetOperationResultsInput {
+  /**
+   * <p>The name or unique ID of the StackSet that you want to get operation results for.</p>
+   * @public
+   */
+  StackSetName: string | undefined;
+
+  /**
+   * <p>The ID of the StackSet operation.</p>
+   * @public
+   */
+  OperationId: string | undefined;
+
+  /**
+   * <p>The token for the next set of items to return. (You received this token from a previous call.)</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to be returned with a single call. If the number of
+   *       available results exceeds this maximum, the response includes a <code>NextToken</code> value
+   *       that you can assign to the <code>NextToken</code> request parameter to get the next set of
+   *       results.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>[Service-managed permissions] Specifies whether you are acting as an account administrator
+   *       in the organization's management account or as a delegated administrator in a
+   *       member account.</p>
+   *          <p>By default, <code>SELF</code> is specified. Use <code>SELF</code> for StackSets with
+   *       self-managed permissions.</p>
+   *          <ul>
+   *             <li>
+   *                <p>If you are signed in to the management account, specify
+   *           <code>SELF</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>If you are signed in to a delegated administrator account, specify
+   *             <code>DELEGATED_ADMIN</code>.</p>
+   *                <p>Your Amazon Web Services account must be registered as a delegated administrator in the management account. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-orgs-delegated-admin.html">Register a
+   *             delegated administrator</a> in the <i>CloudFormation User Guide</i>.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  CallAs?: CallAs | undefined;
+
+  /**
+   * <p>The filter to apply to operation results.</p>
+   * @public
+   */
+  Filters?: OperationResultFilter[] | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const StackSetOperationResultStatus = {
+  CANCELLED: "CANCELLED",
+  FAILED: "FAILED",
+  PENDING: "PENDING",
+  RUNNING: "RUNNING",
+  SUCCEEDED: "SUCCEEDED",
+} as const;
+
+/**
+ * @public
+ */
+export type StackSetOperationResultStatus =
+  (typeof StackSetOperationResultStatus)[keyof typeof StackSetOperationResultStatus];
+
+/**
+ * <p>The structure that contains information about a specified operation's results for a given
+ *    account in a given Region.</p>
+ * @public
+ */
+export interface StackSetOperationResultSummary {
+  /**
+   * <p>[Self-managed permissions] The name of the Amazon Web Services account for this operation result.</p>
+   * @public
+   */
+  Account?: string | undefined;
+
+  /**
+   * <p>The name of the Amazon Web Services Region for this operation result.</p>
+   * @public
+   */
+  Region?: string | undefined;
+
+  /**
+   * <p>The result status of the StackSet operation for the given account in the given
+   *    Region.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>CANCELLED</code>: The operation in the specified account and Region has been
+   *      canceled. This is either because a user has stopped the StackSet operation, or because the
+   *      failure tolerance of the StackSet operation has been exceeded.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>FAILED</code>: The operation in the specified account and Region failed.</p>
+   *                <p>If the StackSet operation fails in enough accounts within a Region, the failure tolerance
+   *      for the StackSet operation as a whole might be exceeded.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>RUNNING</code>: The operation in the specified account and Region is currently in
+   *      progress.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>PENDING</code>: The operation in the specified account and Region has yet to
+   *      start.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SUCCEEDED</code>: The operation in the specified account and Region completed
+   *      successfully.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Status?: StackSetOperationResultStatus | undefined;
+
+  /**
+   * <p>The reason for the assigned result status.</p>
+   * @public
+   */
+  StatusReason?: string | undefined;
+
+  /**
+   * <p>The results of the account gate function CloudFormation invokes, if present, before proceeding
+   *    with StackSet operations in an account.</p>
+   * @public
+   */
+  AccountGateResult?: AccountGateResult | undefined;
+
+  /**
+   * <p>[Service-managed permissions] The organization root ID or organizational unit (OU) IDs that
+   *    you specified for <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DeploymentTargets.html">DeploymentTargets</a>.</p>
+   * @public
+   */
+  OrganizationalUnitId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListStackSetOperationResultsOutput {
+  /**
+   * <p>A list of <code>StackSetOperationResultSummary</code> structures that contain information
+   *       about the specified operation results, for accounts and Amazon Web Services Regions that are included in the
+   *       operation.</p>
+   * @public
+   */
+  Summaries?: StackSetOperationResultSummary[] | undefined;
+
+  /**
+   * <p>If the request doesn't return all results, <code>NextToken</code> is set to a token. To
+   *       retrieve the next set of results, call <code>ListOperationResults</code> again and assign that
+   *       token to the request object's <code>NextToken</code> parameter. If there are no remaining
+   *       results, <code>NextToken</code> is set to <code>null</code>.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListStackSetOperationsInput {
+  /**
+   * <p>The name or unique ID of the StackSet that you want to get operation summaries for.</p>
+   * @public
+   */
+  StackSetName: string | undefined;
+
+  /**
+   * <p>The token for the next set of items to return. (You received this token from a previous call.)</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to be returned with a single call. If the number of
+   *       available results exceeds this maximum, the response includes a <code>NextToken</code> value
+   *       that you can assign to the <code>NextToken</code> request parameter to get the next set of
+   *       results.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>[Service-managed permissions] Specifies whether you are acting as an account administrator
+   *       in the organization's management account or as a delegated administrator in a
+   *       member account.</p>
+   *          <p>By default, <code>SELF</code> is specified. Use <code>SELF</code> for StackSets with
+   *       self-managed permissions.</p>
+   *          <ul>
+   *             <li>
+   *                <p>If you are signed in to the management account, specify
+   *           <code>SELF</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>If you are signed in to a delegated administrator account, specify
+   *             <code>DELEGATED_ADMIN</code>.</p>
+   *                <p>Your Amazon Web Services account must be registered as a delegated administrator in the management account. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-orgs-delegated-admin.html">Register a
+   *             delegated administrator</a> in the <i>CloudFormation User Guide</i>.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  CallAs?: CallAs | undefined;
+}
+
+/**
+ * <p>The structures that contain summary information about the specified operation.</p>
+ * @public
+ */
+export interface StackSetOperationSummary {
+  /**
+   * <p>The unique ID of the StackSet operation.</p>
+   * @public
+   */
+  OperationId?: string | undefined;
+
+  /**
+   * <p>The type of operation: <code>CREATE</code>, <code>UPDATE</code>, or <code>DELETE</code>.
+   *    Create and delete operations affect only the specified stack instances that are associated with
+   *    the specified StackSet. Update operations affect both the StackSet itself and
+   *     <i>all</i> associated StackSet instances.</p>
+   * @public
+   */
+  Action?: StackSetOperationAction | undefined;
+
+  /**
+   * <p>The overall status of the operation.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>FAILED</code>: The operation exceeded the specified failure tolerance. The failure
+   *      tolerance value that you've set for an operation is applied for each Region during stack create
+   *      and update operations. If the number of failed stacks within a Region exceeds the failure
+   *      tolerance, the status of the operation in the Region is set to <code>FAILED</code>. This in
+   *      turn sets the status of the operation as a whole to <code>FAILED</code>, and CloudFormation cancels
+   *      the operation in any remaining Regions.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>QUEUED</code>: [Service-managed permissions] For automatic deployments that require
+   *      a sequence of operations, the operation is queued to be performed. For more information, see
+   *      the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-concepts.html#stackset-status-codes">StackSet status codes</a> in the <i>CloudFormation User Guide</i>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>RUNNING</code>: The operation is currently being performed.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>STOPPED</code>: The user has canceled the operation.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>STOPPING</code>: The operation is in the process of stopping, at user
+   *      request.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SUCCEEDED</code>: The operation completed creating or updating all the specified
+   *      stacks without exceeding the failure tolerance for the operation.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Status?: StackSetOperationStatus | undefined;
+
+  /**
+   * <p>The time at which the operation was initiated. Note that the creation times for the StackSet
+   *    operation might differ from the creation time of the individual stacks themselves. This is
+   *    because CloudFormation needs to perform preparatory work for the operation, such as dispatching the
+   *    work to the requested Regions, before actually creating the first stacks.</p>
+   * @public
+   */
+  CreationTimestamp?: Date | undefined;
+
+  /**
+   * <p>The time at which the StackSet operation ended, across all accounts and Regions specified.
+   *    Note that this doesn't necessarily mean that the StackSet operation was successful, or even
+   *    attempted, in each account or Region.</p>
+   * @public
+   */
+  EndTimestamp?: Date | undefined;
+
+  /**
+   * <p>The status of the operation in details.</p>
+   * @public
+   */
+  StatusReason?: string | undefined;
+
+  /**
+   * <p>Detailed information about the StackSet operation.</p>
+   * @public
+   */
+  StatusDetails?: StackSetOperationStatusDetails | undefined;
+
+  /**
+   * <p>The user-specified preferences for how CloudFormation performs a StackSet operation.</p>
+   *          <p>For more information about maximum concurrent accounts and failure tolerance, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-concepts.html#stackset-ops-options">StackSet
+   *     operation options</a>.</p>
+   * @public
+   */
+  OperationPreferences?: StackSetOperationPreferences | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListStackSetOperationsOutput {
+  /**
+   * <p>A list of <code>StackSetOperationSummary</code> structures that contain summary
+   *       information about operations for the specified StackSet.</p>
+   * @public
+   */
+  Summaries?: StackSetOperationSummary[] | undefined;
+
+  /**
+   * <p>If the request doesn't return all results, <code>NextToken</code> is set to a token. To
+   *       retrieve the next set of results, call <code>ListOperationResults</code> again and assign that
+   *       token to the request object's <code>NextToken</code> parameter. If there are no remaining
+   *       results, <code>NextToken</code> is set to <code>null</code>.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface ListStackSetsInput {
   /**
-   * <p>If the previous paginated request didn't return all the remaining results, the response
-   *       object's <code>NextToken</code> parameter value is set to a token. To retrieve the next set of
-   *       results, call <code>ListStackSets</code> again and assign that token to the request object's
-   *         <code>NextToken</code> parameter. If there are no remaining results, the previous response
-   *       object's <code>NextToken</code> parameter is set to <code>null</code>.</p>
+   * <p>The token for the next set of items to return. (You received this token from a previous call.)</p>
    * @public
    */
   NextToken?: string | undefined;
@@ -247,11 +591,8 @@ export interface ListTypeRegistrationsInput {
   MaxResults?: number | undefined;
 
   /**
-   * <p>If the previous paginated request didn't return all the remaining results, the response
-   *       object's <code>NextToken</code> parameter value is set to a token. To retrieve the next set of
-   *       results, call this action again and assign that token to the request object's
-   *         <code>NextToken</code> parameter. If there are no remaining results, the previous response
-   *       object's <code>NextToken</code> parameter is set to <code>null</code>.</p>
+   * <p>The token for the next set of items to return. (You received this token from a previous
+   *       call.)</p>
    * @public
    */
   NextToken?: string | undefined;
@@ -440,11 +781,8 @@ export interface ListTypesInput {
   MaxResults?: number | undefined;
 
   /**
-   * <p>If the previous paginated request didn't return all the remaining results, the response
-   *       object's <code>NextToken</code> parameter value is set to a token. To retrieve the next set of
-   *       results, call this action again and assign that token to the request object's
-   *         <code>NextToken</code> parameter. If there are no remaining results, the previous response
-   *       object's <code>NextToken</code> parameter is set to <code>null</code>.</p>
+   * <p>The token for the next set of items to return. (You received this token from a previous
+   *       call.)</p>
    * @public
    */
   NextToken?: string | undefined;
@@ -633,11 +971,8 @@ export interface ListTypeVersionsInput {
   MaxResults?: number | undefined;
 
   /**
-   * <p>If the previous paginated request didn't return all of the remaining results, the response
-   *       object's <code>NextToken</code> parameter value is set to a token. To retrieve the next set of
-   *       results, call this action again and assign that token to the request object's
-   *         <code>NextToken</code> parameter. If there are no remaining results, the previous response
-   *       object's <code>NextToken</code> parameter is set to <code>null</code>.</p>
+   * <p>The token for the next set of items to return. (You received this token from a previous
+   *       call.)</p>
    * @public
    */
   NextToken?: string | undefined;
@@ -1640,6 +1975,9 @@ export interface UpdateStackInput {
   /**
    * <p>Reuse the existing template that is associated with the stack that you are
    *       updating.</p>
+   *          <p>When using templates with the <code>AWS::LanguageExtensions</code> transform, provide the
+   *       template instead of using <code>UsePreviousTemplate</code> to ensure new parameter values and
+   *       Systems Manager parameter updates are applied correctly. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/transform-aws-languageextensions.html">AWS::LanguageExtensions transform</a>.</p>
    *          <p>Conditional: You must specify only one of the following parameters:
    *         <code>TemplateBody</code>, <code>TemplateURL</code>, or set the
    *         <code>UsePreviousTemplate</code> to <code>true</code>.</p>
@@ -1792,14 +2130,13 @@ export interface UpdateStackInput {
   Capabilities?: Capability[] | undefined;
 
   /**
-   * <p>The template resource types that you have permissions to work with for this update stack
-   *       action, such as <code>AWS::EC2::Instance</code>, <code>AWS::EC2::*</code>, or
-   *         <code>Custom::MyCustomInstance</code>.</p>
+   * <p>Specifies which resource types you can work with, such as <code>AWS::EC2::Instance</code>
+   *       or <code>Custom::MyCustomInstance</code>.</p>
    *          <p>If the list of resource types doesn't include a resource that you're updating, the stack
    *       update fails. By default, CloudFormation grants permissions to all resource types. IAM uses this
    *       parameter for CloudFormation-specific condition keys in IAM policies. For more information, see
-   *         <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/control-access-with-iam.html">Control access with
-   *         Identity and Access Management</a>.</p>
+   *         <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/control-access-with-iam.html">Control CloudFormation
+   *         access with Identity and Access Management</a>.</p>
    *          <note>
    *             <p>Only one of the <code>Capabilities</code> and <code>ResourceType</code> parameters can
    *         be specified.</p>
@@ -2449,7 +2786,7 @@ export interface ValidateTemplateInput {
 }
 
 /**
- * <p>The TemplateParameter data type.</p>
+ * <p>The <code>TemplateParameter</code> data type.</p>
  * @public
  */
 export interface TemplateParameter {

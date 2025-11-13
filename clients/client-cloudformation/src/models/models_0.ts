@@ -426,6 +426,86 @@ export class AlreadyExistsException extends __BaseException {
  * @public
  * @enum
  */
+export const AnnotationSeverityLevel = {
+  CRITICAL: "CRITICAL",
+  HIGH: "HIGH",
+  INFORMATIONAL: "INFORMATIONAL",
+  LOW: "LOW",
+  MEDIUM: "MEDIUM",
+} as const;
+
+/**
+ * @public
+ */
+export type AnnotationSeverityLevel = (typeof AnnotationSeverityLevel)[keyof typeof AnnotationSeverityLevel];
+
+/**
+ * @public
+ * @enum
+ */
+export const AnnotationStatus = {
+  FAILED: "FAILED",
+  PASSED: "PASSED",
+  SKIPPED: "SKIPPED",
+} as const;
+
+/**
+ * @public
+ */
+export type AnnotationStatus = (typeof AnnotationStatus)[keyof typeof AnnotationStatus];
+
+/**
+ * <p>The <code>Annotation</code> data type.</p>
+ *          <p>A <code>GetHookResult</code> call returns detailed information and remediation guidance from Control Tower,
+ *    Guard, Lambda, or custom Hooks for a Hook invocation result.</p>
+ * @public
+ */
+export interface Annotation {
+  /**
+   * <p>An identifier for the evaluation logic that was used when invoking the Hook. For
+   *    Control Tower, this is the control ID. For Guard, this is the rule ID. For Lambda and custom
+   *    Hooks, this is a user-defined identifier.</p>
+   * @public
+   */
+  AnnotationName?: string | undefined;
+
+  /**
+   * <p>The status of the Hook invocation from the downstream service.</p>
+   * @public
+   */
+  Status?: AnnotationStatus | undefined;
+
+  /**
+   * <p>The explanation for the specific status assigned to this Hook invocation. For
+   *    example, "Bucket does not block public access".</p>
+   * @public
+   */
+  StatusMessage?: string | undefined;
+
+  /**
+   * <p>Suggests what to change if your Hook returns a <code>FAILED</code> status. For
+   *    example, "Block public access to the bucket".</p>
+   * @public
+   */
+  RemediationMessage?: string | undefined;
+
+  /**
+   * <p>A URL that you can access for additional remediation guidance.</p>
+   * @public
+   */
+  RemediationLink?: string | undefined;
+
+  /**
+   * <p>The relative risk associated with any violations of this type.</p>
+   * @public
+   */
+  SeverityLevel?: AnnotationSeverityLevel | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
 export const AttributeChangeType = {
   Add: "Add",
   Modify: "Modify",
@@ -678,9 +758,9 @@ export interface CancelUpdateStackInput {
    *         resource-level permissions and avoid returning a response when no parameter is sent in the
    *         request:</p>
    *             <p>
-   *                <code>\{ "Version": "2012-10-17", "Statement": [\{ "Effect": "Deny", "Action":
-   *           "cloudformation:DescribeStacks", "NotResource": "arn:aws:cloudformation:*:*:stack/*\/*" \}]
-   *           \}</code>
+   *                <code>\{ "Version": "2012-10-17",		 	 	  "Statement": [\{ "Effect": "Deny",
+   *           "Action": "cloudformation:DescribeStacks", "NotResource":
+   *           "arn:aws:cloudformation:*:*:stack/*\/*" \}] \}</code>
    *             </p>
    *          </note>
    *          <p>The name or the unique stack ID that's associated with the stack.</p>
@@ -1300,7 +1380,7 @@ export type HookTargetType = (typeof HookTargetType)[keyof typeof HookTargetType
  */
 export interface ChangeSetHookTargetDetails {
   /**
-   * <p>The name of the type.</p>
+   * <p>The Hook target type.</p>
    * @public
    */
   TargetType?: HookTargetType | undefined;
@@ -1685,7 +1765,7 @@ export const OnStackFailure = {
 export type OnStackFailure = (typeof OnStackFailure)[keyof typeof OnStackFailure];
 
 /**
- * <p>The Parameter data type.</p>
+ * <p>The <code>Parameter</code> data type.</p>
  * @public
  */
 export interface Parameter {
@@ -1830,16 +1910,15 @@ export interface RollbackConfiguration {
  */
 export interface Tag {
   /**
-   * <p>A string used to identify this tag. You can specify a maximum of
-   *    128 characters for a tag key. Tags owned by Amazon Web Services have the reserved prefix:
-   *    <code>aws:</code>.</p>
+   * <p>A string used to identify this tag. You can specify a maximum of 128 characters for a tag
+   *    key. Tags owned by Amazon Web Services have the reserved prefix: <code>aws:</code>.</p>
    * @public
    */
   Key: string | undefined;
 
   /**
-   * <p>A string that contains the value for this tag. You can specify a
-   *    maximum of 256 characters for a tag value.</p>
+   * <p>A string that contains the value for this tag. You can specify a maximum of 256 characters
+   *    for a tag value.</p>
    * @public
    */
   Value: string | undefined;
@@ -1862,8 +1941,9 @@ export interface CreateChangeSetInput {
    * <p>A structure that contains the body of the revised template, with a minimum length of 1
    *       byte and a maximum length of 51,200 bytes. CloudFormation generates the change set by comparing
    *       this template with the template of the stack that you specified.</p>
-   *          <p>Conditional: You must specify only <code>TemplateBody</code> or
-   *       <code>TemplateURL</code>.</p>
+   *          <p>Conditional: You must specify only one of the following parameters:
+   *         <code>TemplateBody</code>, <code>TemplateURL</code>, or set the
+   *         <code>UsePreviousTemplate</code> to <code>true</code>.</p>
    * @public
    */
   TemplateBody?: string | undefined;
@@ -1874,8 +1954,9 @@ export interface CreateChangeSetInput {
    *       generates the change set by comparing this template with the stack that you specified. The
    *       location for an Amazon S3 bucket must start with <code>https://</code>. URLs from S3 static
    *       websites are not supported.</p>
-   *          <p>Conditional: You must specify only <code>TemplateBody</code> or
-   *       <code>TemplateURL</code>.</p>
+   *          <p>Conditional: You must specify only one of the following parameters:
+   *         <code>TemplateBody</code>, <code>TemplateURL</code>, or set the
+   *         <code>UsePreviousTemplate</code> to <code>true</code>.</p>
    * @public
    */
   TemplateURL?: string | undefined;
@@ -1883,6 +1964,12 @@ export interface CreateChangeSetInput {
   /**
    * <p>Whether to reuse the template that's associated with the stack to create the change
    *       set.</p>
+   *          <p>When using templates with the <code>AWS::LanguageExtensions</code> transform, provide the
+   *       template instead of using <code>UsePreviousTemplate</code> to ensure new parameter values and
+   *       Systems Manager parameter updates are applied correctly. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/transform-aws-languageextensions.html">AWS::LanguageExtensions transform</a>.</p>
+   *          <p>Conditional: You must specify only one of the following parameters:
+   *         <code>TemplateBody</code>, <code>TemplateURL</code>, or set the
+   *         <code>UsePreviousTemplate</code> to <code>true</code>.</p>
    * @public
    */
   UsePreviousTemplate?: boolean | undefined;
@@ -1903,7 +1990,7 @@ export interface CreateChangeSetInput {
    *                   <code>CAPABILITY_IAM</code> and <code>CAPABILITY_NAMED_IAM</code>
    *                </p>
    *                <p>Some stack templates might include resources that can affect permissions in your
-   *           Amazon Web Services account; for example, by creating new IAM users. For those stacks, you must
+   *           Amazon Web Services account, for example, by creating new IAM users. For those stacks, you must
    *           explicitly acknowledge this by specifying one of these capabilities.</p>
    *                <p>The following IAM resources require you to specify either the
    *             <code>CAPABILITY_IAM</code> or <code>CAPABILITY_NAMED_IAM</code> capability.</p>
@@ -2004,14 +2091,13 @@ export interface CreateChangeSetInput {
   Capabilities?: Capability[] | undefined;
 
   /**
-   * <p>The template resource types that you have permissions to work with if you execute this
-   *       change set, such as <code>AWS::EC2::Instance</code>, <code>AWS::EC2::*</code>, or
-   *         <code>Custom::MyCustomInstance</code>.</p>
+   * <p>Specifies which resource types you can work with, such as <code>AWS::EC2::Instance</code>
+   *       or <code>Custom::MyCustomInstance</code>.</p>
    *          <p>If the list of resource types doesn't include a resource type that you're updating, the
    *       stack update fails. By default, CloudFormation grants permissions to all resource types. IAM
    *       uses this parameter for condition keys in IAM policies for CloudFormation. For more information,
-   *       see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/control-access-with-iam.html">Control access with
-   *         Identity and Access Management</a> in the <i>CloudFormation User Guide</i>.</p>
+   *       see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/control-access-with-iam.html">Control CloudFormation
+   *         access with Identity and Access Management</a> in the <i>CloudFormation User Guide</i>.</p>
    *          <note>
    *             <p>Only one of the <code>Capabilities</code> and <code>ResourceType</code> parameters can
    *         be specified.</p>
@@ -2597,21 +2683,13 @@ export interface CreateStackInput {
   Capabilities?: Capability[] | undefined;
 
   /**
-   * <p>The template resource types that you have permissions to work with for this create stack
-   *       action, such as <code>AWS::EC2::Instance</code>, <code>AWS::EC2::*</code>, or
-   *         <code>Custom::MyCustomInstance</code>. Use the following syntax to describe template
-   *       resource types: <code>AWS::*</code> (for all Amazon Web Services resources), <code>Custom::*</code> (for all
-   *       custom resources), <code>Custom::<i>logical_ID</i>
-   *             </code> (for a specific custom resource),
-   *         <code>AWS::<i>service_name</i>::*</code> (for all resources of a particular
-   *       Amazon Web Services service), and
-   *           <code>AWS::<i>service_name</i>::<i>resource_logical_ID</i>
-   *             </code> (for a specific Amazon Web Services resource).</p>
+   * <p>Specifies which resource types you can work with, such as <code>AWS::EC2::Instance</code>
+   *       or <code>Custom::MyCustomInstance</code>.</p>
    *          <p>If the list of resource types doesn't include a resource that you're creating, the stack
    *       creation fails. By default, CloudFormation grants permissions to all resource types. IAM uses
    *       this parameter for CloudFormation-specific condition keys in IAM policies. For more information,
-   *       see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/control-access-with-iam.html">Control access with
-   *         Identity and Access Management</a>.</p>
+   *       see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/control-access-with-iam.html">Control CloudFormation
+   *         access with Identity and Access Management</a>.</p>
    *          <note>
    *             <p>Only one of the <code>Capabilities</code> and <code>ResourceType</code> parameters can
    *         be specified.</p>
@@ -4027,7 +4105,8 @@ export interface DeregisterTypeOutput {}
  */
 export interface DescribeAccountLimitsInput {
   /**
-   * <p>A string that identifies the next page of limits that you want to retrieve.</p>
+   * <p>The token for the next set of items to return. (You received this token from a previous
+   *       call.)</p>
    * @public
    */
   NextToken?: string | undefined;
@@ -4072,8 +4151,8 @@ export interface DescribeChangeSetInput {
   StackName?: string | undefined;
 
   /**
-   * <p>A string (provided by the <a>DescribeChangeSet</a> response output) that
-   *       identifies the next page of information that you want to retrieve.</p>
+   * <p>The token for the next set of items to return. (You received this token from a previous
+   *       call.)</p>
    * @public
    */
   NextToken?: string | undefined;
@@ -4277,8 +4356,8 @@ export interface DescribeChangeSetHooksInput {
   StackName?: string | undefined;
 
   /**
-   * <p>A string, provided by the <code>DescribeChangeSetHooks</code> response output, that
-   *       identifies the next page of information that you want to retrieve.</p>
+   * <p>The token for the next set of items to return. (You received this token from a previous
+   *       call.)</p>
    * @public
    */
   NextToken?: string | undefined;
@@ -4314,7 +4393,7 @@ export interface DescribeChangeSetHooksOutput {
   Hooks?: ChangeSetHook[] | undefined;
 
   /**
-   * <p>Provides the status of the change set hook.</p>
+   * <p>Provides the status of the change set Hook.</p>
    * @public
    */
   Status?: ChangeSetHooksStatus | undefined;
@@ -5169,10 +5248,11 @@ export interface DescribeStackEventsInput {
    *          </ul>
    * @public
    */
-  StackName?: string | undefined;
+  StackName: string | undefined;
 
   /**
-   * <p>A string that identifies the next page of events that you want to retrieve.</p>
+   * <p>The token for the next set of items to return. (You received this token from a previous
+   *       call.)</p>
    * @public
    */
   NextToken?: string | undefined;
@@ -5249,7 +5329,7 @@ export const ResourceStatus = {
 export type ResourceStatus = (typeof ResourceStatus)[keyof typeof ResourceStatus];
 
 /**
- * <p>The StackEvent data type.</p>
+ * <p>The <code>StackEvent</code> data type.</p>
  * @public
  */
 export interface StackEvent {
@@ -6093,7 +6173,8 @@ export interface DescribeStackResourceDriftsInput {
   StackResourceDriftStatusFilters?: StackResourceDriftStatus[] | undefined;
 
   /**
-   * <p>A string that identifies the next page of stack resource drift results.</p>
+   * <p>The token for the next set of items to return. (You received this token from a previous
+   *       call.)</p>
    * @public
    */
   NextToken?: string | undefined;
@@ -6392,7 +6473,7 @@ export interface DescribeStackResourcesInput {
 }
 
 /**
- * <p>The StackResource data type.</p>
+ * <p>The <code>StackResource</code> data type.</p>
  * @public
  */
 export interface StackResource {
@@ -6496,7 +6577,7 @@ export interface DescribeStacksInput {
    *             <p>The IAM policy below can be added to IAM policies when you want to limit
    *         resource-level permissions and avoid returning a response when no parameter is sent in the
    *         request:</p>
-   *             <p>\{ "Version": "2012-10-17", "Statement": [\{ "Effect": "Deny", "Action":
+   *             <p>\{ "Version": "2012-10-17",		 	 	  "Statement": [\{ "Effect": "Deny", "Action":
    *         "cloudformation:DescribeStacks", "NotResource": "arn:aws:cloudformation:*:*:stack/*\/*" \}]
    *         \}</p>
    *          </note>
@@ -6515,7 +6596,8 @@ export interface DescribeStacksInput {
   StackName?: string | undefined;
 
   /**
-   * <p>A string that identifies the next page of stacks that you want to retrieve.</p>
+   * <p>The token for the next set of items to return. (You received this token from a previous
+   *       call.)</p>
    * @public
    */
   NextToken?: string | undefined;
@@ -6567,7 +6649,7 @@ export interface StackDriftInformation {
 }
 
 /**
- * <p>The Output data type.</p>
+ * <p>The <code>Output</code> data type.</p>
  * @public
  */
 export interface Output {
@@ -6632,7 +6714,7 @@ export const StackStatus = {
 export type StackStatus = (typeof StackStatus)[keyof typeof StackStatus];
 
 /**
- * <p>The Stack data type.</p>
+ * <p>The <code>Stack</code> data type.</p>
  * @public
  */
 export interface Stack {
@@ -7699,8 +7781,7 @@ export interface DescribeTypeOutput {
   /**
    * <p>The schema that defines the extension.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/resource-type-schema.html">Resource type
-   *         schema</a> in the <i>CloudFormation Command Line Interface (CLI) User Guide</i> and the <a href="https://docs.aws.amazon.com/cloudformation-cli/latest/hooks-userguide/what-is-cloudformation-hooks.html">CloudFormation
-   *         Hooks User Guide</a>.</p>
+   *         schema</a> in the <i>CloudFormation Command Line Interface (CLI) User Guide</i> and the <a href="https://docs.aws.amazon.com/cloudformation-cli/latest/hooks-userguide/what-is-cloudformation-hooks.html">CloudFormation Hooks User Guide</a>.</p>
    * @public
    */
   Schema?: string | undefined;
@@ -8324,6 +8405,194 @@ export interface GetGeneratedTemplateOutput {
 }
 
 /**
+ * @public
+ */
+export interface GetHookResultInput {
+  /**
+   * <p>The unique identifier (ID) of the Hook invocation result that you want details about.
+   *       You can get the ID from the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_ListHookResults.html">ListHookResults</a>
+   *       operation.</p>
+   * @public
+   */
+  HookResultId?: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const HookTargetAction = {
+  CREATE: "CREATE",
+  DELETE: "DELETE",
+  IMPORT: "IMPORT",
+  UPDATE: "UPDATE",
+} as const;
+
+/**
+ * @public
+ */
+export type HookTargetAction = (typeof HookTargetAction)[keyof typeof HookTargetAction];
+
+/**
+ * <p>The <code>HookTarget</code> data type.</p>
+ * @public
+ */
+export interface HookTarget {
+  /**
+   * <p>The target type.</p>
+   * @public
+   */
+  TargetType: HookTargetType | undefined;
+
+  /**
+   * <p>The target name, for example, <code>AWS::S3::Bucket</code>.</p>
+   * @public
+   */
+  TargetTypeName: string | undefined;
+
+  /**
+   * <p>The unique identifier of the Hook invocation target.</p>
+   * @public
+   */
+  TargetId: string | undefined;
+
+  /**
+   * <p>The action that invoked the Hook.</p>
+   * @public
+   */
+  Action: HookTargetAction | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetHookResultOutput {
+  /**
+   * <p>The unique identifier of the Hook result.</p>
+   * @public
+   */
+  HookResultId?: string | undefined;
+
+  /**
+   * <p>The specific point in the provisioning process where the Hook is invoked.</p>
+   * @public
+   */
+  InvocationPoint?: HookInvocationPoint | undefined;
+
+  /**
+   * <p>The failure mode of the invocation.</p>
+   * @public
+   */
+  FailureMode?: HookFailureMode | undefined;
+
+  /**
+   * <p>The name of the Hook that was invoked.</p>
+   * @public
+   */
+  TypeName?: string | undefined;
+
+  /**
+   * <p>The original public type name of the Hook when an alias is used.</p>
+   *          <p>For example, if you activate <code>AWS::Hooks::GuardHook</code> with alias
+   *       <code>MyCompany::Custom::GuardHook</code>, then <code>TypeName</code> will be
+   *       <code>MyCompany::Custom::GuardHook</code> and <code>OriginalTypeName</code> will be
+   *       <code>AWS::Hooks::GuardHook</code>. </p>
+   * @public
+   */
+  OriginalTypeName?: string | undefined;
+
+  /**
+   * <p>The version identifier of the Hook that was invoked.</p>
+   * @public
+   */
+  TypeVersionId?: string | undefined;
+
+  /**
+   * <p>The version identifier of the Hook configuration data that was used during
+   *       invocation.</p>
+   * @public
+   */
+  TypeConfigurationVersionId?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Hook.</p>
+   * @public
+   */
+  TypeArn?: string | undefined;
+
+  /**
+   * <p>The status of the Hook invocation. The following statuses are possible:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>HOOK_IN_PROGRESS</code>: The Hook is currently running.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>HOOK_COMPLETE_SUCCEEDED</code>: The Hook completed successfully.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>HOOK_COMPLETE_FAILED</code>: The Hook completed but failed validation.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>HOOK_FAILED</code>: The Hook encountered an error during execution.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Status?: HookStatus | undefined;
+
+  /**
+   * <p>A message that provides additional details about the Hook invocation status.</p>
+   * @public
+   */
+  HookStatusReason?: string | undefined;
+
+  /**
+   * <p>The timestamp when the Hook was invoked.</p>
+   * @public
+   */
+  InvokedAt?: Date | undefined;
+
+  /**
+   * <p>Information about the target of the Hook invocation.</p>
+   * @public
+   */
+  Target?: HookTarget | undefined;
+
+  /**
+   * <p>A list of objects with additional information and guidance that can help you resolve a
+   *       failed Hook invocation.</p>
+   * @public
+   */
+  Annotations?: Annotation[] | undefined;
+}
+
+/**
+ * <p>The specified target doesn't have any requested Hook invocations.</p>
+ * @public
+ */
+export class HookResultNotFoundException extends __BaseException {
+  readonly name: "HookResultNotFoundException" = "HookResultNotFoundException";
+  readonly $fault: "client" = "client";
+  Message?: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<HookResultNotFoundException, __BaseException>) {
+    super({
+      name: "HookResultNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, HookResultNotFoundException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
  * <p>The input for the <a>GetStackPolicy</a> action.</p>
  * @public
  */
@@ -8342,8 +8611,8 @@ export interface GetStackPolicyInput {
  */
 export interface GetStackPolicyOutput {
   /**
-   * <p>Structure that contains the stack policy body. (For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/protect-stack-resources.html">Prevent updates to stack resources</a> in the
-   *       <i>CloudFormation User Guide</i>.)</p>
+   * <p>Structure that contains the stack policy body. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/protect-stack-resources.html">Prevent updates to stack resources</a> in the
+   *       <i>CloudFormation User Guide</i>.</p>
    * @public
    */
   StackPolicyBody?: string | undefined;
@@ -8529,7 +8798,7 @@ export interface ParameterConstraints {
 }
 
 /**
- * <p>The ParameterDeclaration data type.</p>
+ * <p>The <code>ParameterDeclaration</code> data type.</p>
  * @public
  */
 export interface ParameterDeclaration {
@@ -8804,8 +9073,8 @@ export interface ListChangeSetsInput {
   StackName: string | undefined;
 
   /**
-   * <p>A string (provided by the <a>ListChangeSets</a> response output) that
-   *       identifies the next page of change sets that you want to retrieve.</p>
+   * <p>The token for the next set of items to return. (You received this token from a previous
+   *       call.)</p>
    * @public
    */
   NextToken?: string | undefined;
@@ -8836,8 +9105,8 @@ export interface ListChangeSetsOutput {
  */
 export interface ListExportsInput {
   /**
-   * <p>A string (provided by the <a>ListExports</a> response output) that identifies
-   *       the next page of exported output values that you asked to retrieve.</p>
+   * <p>The token for the next set of items to return. (You received this token from a previous
+   *       call.)</p>
    * @public
    */
   NextToken?: string | undefined;
@@ -8895,7 +9164,8 @@ export interface ListExportsOutput {
  */
 export interface ListGeneratedTemplatesInput {
   /**
-   * <p>A string that identifies the next page of resource scan results.</p>
+   * <p>The token for the next set of items to return. (You received this token from a previous
+   *       call.)</p>
    * @public
    */
   NextToken?: string | undefined;
@@ -9019,28 +9289,6 @@ export interface ListGeneratedTemplatesOutput {
 }
 
 /**
- * <p>The specified target doesn't have any requested Hook invocations.</p>
- * @public
- */
-export class HookResultNotFoundException extends __BaseException {
-  readonly name: "HookResultNotFoundException" = "HookResultNotFoundException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<HookResultNotFoundException, __BaseException>) {
-    super({
-      name: "HookResultNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, HookResultNotFoundException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
  * @public
  * @enum
  */
@@ -9087,8 +9335,8 @@ export interface ListHookResultsInput {
   TypeArn?: string | undefined;
 
   /**
-   * <p>Filters results by the status of Hook invocations. Can only be used in
-   *       combination with <code>TypeArn</code>. Valid values are:</p>
+   * <p>Filters results by the status of Hook invocations. Can only be used in combination with
+   *         <code>TypeArn</code>. Valid values are:</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -9096,18 +9344,15 @@ export interface ListHookResultsInput {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>HOOK_COMPLETE_SUCCEEDED</code>: The Hook completed
-   *           successfully.</p>
+   *                   <code>HOOK_COMPLETE_SUCCEEDED</code>: The Hook completed successfully.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>HOOK_COMPLETE_FAILED</code>: The Hook completed but failed
-   *           validation.</p>
+   *                   <code>HOOK_COMPLETE_FAILED</code>: The Hook completed but failed validation.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>HOOK_FAILED</code>: The Hook encountered an error during
-   *           execution.</p>
+   *                   <code>HOOK_FAILED</code>: The Hook encountered an error during execution.</p>
    *             </li>
    *          </ul>
    * @public
@@ -9115,14 +9360,15 @@ export interface ListHookResultsInput {
   Status?: HookStatus | undefined;
 
   /**
-   * <p>A string that identifies the next page of events that you want to retrieve.</p>
+   * <p>The token for the next set of items to return. (You received this token from a previous
+   *       call.)</p>
    * @public
    */
   NextToken?: string | undefined;
 }
 
 /**
- * <p>Describes a Hook invocation, its status, and the reason for its status.</p>
+ * <p>A <code>ListHookResults</code> call returns a summary of a Hook invocation.</p>
  * @public
  */
 export interface HookResultSummary {
@@ -9221,7 +9467,7 @@ export interface HookResultSummary {
   TypeArn?: string | undefined;
 
   /**
-   * <p>The ARN of the target stack or request token of the Cloud Control API operation.</p>
+   * <p>The Amazon Resource Name (ARN) of the target stack or request token of the Cloud Control API operation.</p>
    *          <p>Only shown in responses when the request does not specify <code>TargetType</code> and
    *     <code>TargetId</code> filters.</p>
    * @public
@@ -9246,9 +9492,8 @@ export interface ListHookResultsOutput {
   TargetId?: string | undefined;
 
   /**
-   * <p>A list of <code>HookResultSummary</code> structures that provides the status and
-   *       Hook status reason for each Hook invocation for the specified
-   *       target.</p>
+   * <p>A list of <code>HookResultSummary</code> structures that provides the status and Hook
+   *       status reason for each Hook invocation for the specified target.</p>
    * @public
    */
   HookResults?: HookResultSummary[] | undefined;
@@ -9272,8 +9517,8 @@ export interface ListImportsInput {
   ExportName: string | undefined;
 
   /**
-   * <p>A string (provided by the <a>ListImports</a> response output) that identifies
-   *       the next page of stacks that are importing the specified exported output value.</p>
+   * <p>The token for the next set of items to return. (You received this token from a previous
+   *       call.)</p>
    * @public
    */
   NextToken?: string | undefined;
@@ -9342,7 +9587,8 @@ export interface ListResourceScanRelatedResourcesInput {
   Resources: ScannedResourceIdentifier[] | undefined;
 
   /**
-   * <p>A string that identifies the next page of resource scan results.</p>
+   * <p>The token for the next set of items to return. (You received this token from a previous
+   *       call.)</p>
    * @public
    */
   NextToken?: string | undefined;
@@ -9472,7 +9718,8 @@ export interface ListResourceScanResourcesInput {
   TagValue?: string | undefined;
 
   /**
-   * <p>A string that identifies the next page of resource scan results.</p>
+   * <p>The token for the next set of items to return. (You received this token from a previous
+   *       call.)</p>
    * @public
    */
   NextToken?: string | undefined;
@@ -9527,7 +9774,8 @@ export type ScanType = (typeof ScanType)[keyof typeof ScanType];
  */
 export interface ListResourceScansInput {
   /**
-   * <p>A string that identifies the next page of resource scan results.</p>
+   * <p>The token for the next set of items to return. (You received this token from a previous
+   *       call.)</p>
    * @public
    */
   NextToken?: string | undefined;
@@ -9663,11 +9911,7 @@ export interface ListStackInstanceResourceDriftsInput {
   StackSetName: string | undefined;
 
   /**
-   * <p>If the previous paginated request didn't return all of the remaining results, the response
-   *       object's <code>NextToken</code> parameter value is set to a token. To retrieve the next set of
-   *       results, call this action again and assign that token to the request object's
-   *         <code>NextToken</code> parameter. If there are no remaining results, the previous response
-   *       object's <code>NextToken</code> parameter is set to <code>null</code>.</p>
+   * <p>The token for the next set of items to return. (You received this token from a previous call.)</p>
    * @public
    */
   NextToken?: string | undefined;
@@ -9898,11 +10142,7 @@ export interface ListStackInstancesInput {
   StackSetName: string | undefined;
 
   /**
-   * <p>If the previous request didn't return all the remaining results, the response's
-   *         <code>NextToken</code> parameter value is set to a token. To retrieve the next set of
-   *       results, call <code>ListStackInstances</code> again and assign that token to the request
-   *       object's <code>NextToken</code> parameter. If there are no remaining results, the previous
-   *       response object's <code>NextToken</code> parameter is set to <code>null</code>.</p>
+   * <p>The token for the next set of items to return. (You received this token from a previous call.)</p>
    * @public
    */
   NextToken?: string | undefined;
@@ -10123,10 +10363,8 @@ export interface ListStackRefactorActionsInput {
   StackRefactorId: string | undefined;
 
   /**
-   * <p>If the request doesn't return all the remaining results, <code>NextToken</code> is set to
-   *       a token. To retrieve the next set of results, call this action again and assign that token to
-   *       the request object's <code>NextToken</code> parameter. If the request returns all results,
-   *         <code>NextToken</code> is set to <code>null</code>.</p>
+   * <p>The token for the next set of items to return. (You received this token from a previous
+   *       call.)</p>
    * @public
    */
   NextToken?: string | undefined;
@@ -10307,10 +10545,8 @@ export interface ListStackRefactorsInput {
   ExecutionStatusFilter?: StackRefactorExecutionStatus[] | undefined;
 
   /**
-   * <p>If the request doesn't return all the remaining results, <code>NextToken</code> is set to
-   *       a token. To retrieve the next set of results, call this action again and assign that token to
-   *       the request object's <code>NextToken</code> parameter. If the request returns all results,
-   *         <code>NextToken</code> is set to <code>null</code>.</p>
+   * <p>The token for the next set of items to return. (You received this token from a previous
+   *       call.)</p>
    * @public
    */
   NextToken?: string | undefined;
@@ -10440,8 +10676,8 @@ export interface ListStackResourcesInput {
   StackName: string | undefined;
 
   /**
-   * <p>A string that identifies the next page of stack resources that you want to
-   *       retrieve.</p>
+   * <p>The token for the next set of items to return. (You received this token from a previous
+   *       call.)</p>
    * @public
    */
   NextToken?: string | undefined;
@@ -10578,7 +10814,8 @@ export interface ListStackResourcesOutput {
  */
 export interface ListStacksInput {
   /**
-   * <p>A string that identifies the next page of stacks that you want to retrieve.</p>
+   * <p>The token for the next set of items to return. (You received this token from a previous
+   *       call.)</p>
    * @public
    */
   NextToken?: string | undefined;
@@ -10638,7 +10875,7 @@ export interface StackDriftInformationSummary {
 }
 
 /**
- * <p>The StackSummary Data Type</p>
+ * <p>The <code>StackSummary</code> Data Type</p>
  * @public
  */
 export interface StackSummary {
@@ -10751,8 +10988,7 @@ export interface ListStackSetAutoDeploymentTargetsInput {
   StackSetName: string | undefined;
 
   /**
-   * <p>A string that identifies the next page of deployment targets that you want to
-   *       retrieve.</p>
+   * <p>The token for the next set of items to return. (You received this token from a previous call.)</p>
    * @public
    */
   NextToken?: string | undefined;
@@ -10855,356 +11091,4 @@ export interface OperationResultFilter {
    * @public
    */
   Values?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListStackSetOperationResultsInput {
-  /**
-   * <p>The name or unique ID of the StackSet that you want to get operation results for.</p>
-   * @public
-   */
-  StackSetName: string | undefined;
-
-  /**
-   * <p>The ID of the StackSet operation.</p>
-   * @public
-   */
-  OperationId: string | undefined;
-
-  /**
-   * <p>If the previous request didn't return all the remaining results, the response object's
-   *         <code>NextToken</code> parameter value is set to a token. To retrieve the next set of
-   *       results, call <code>ListStackSetOperationResults</code> again and assign that token to the
-   *       request object's <code>NextToken</code> parameter. If there are no remaining results, the
-   *       previous response object's <code>NextToken</code> parameter is set to
-   *       <code>null</code>.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of results to be returned with a single call. If the number of
-   *       available results exceeds this maximum, the response includes a <code>NextToken</code> value
-   *       that you can assign to the <code>NextToken</code> request parameter to get the next set of
-   *       results.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>[Service-managed permissions] Specifies whether you are acting as an account administrator
-   *       in the organization's management account or as a delegated administrator in a
-   *       member account.</p>
-   *          <p>By default, <code>SELF</code> is specified. Use <code>SELF</code> for StackSets with
-   *       self-managed permissions.</p>
-   *          <ul>
-   *             <li>
-   *                <p>If you are signed in to the management account, specify
-   *           <code>SELF</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>If you are signed in to a delegated administrator account, specify
-   *             <code>DELEGATED_ADMIN</code>.</p>
-   *                <p>Your Amazon Web Services account must be registered as a delegated administrator in the management account. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-orgs-delegated-admin.html">Register a
-   *             delegated administrator</a> in the <i>CloudFormation User Guide</i>.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  CallAs?: CallAs | undefined;
-
-  /**
-   * <p>The filter to apply to operation results.</p>
-   * @public
-   */
-  Filters?: OperationResultFilter[] | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const StackSetOperationResultStatus = {
-  CANCELLED: "CANCELLED",
-  FAILED: "FAILED",
-  PENDING: "PENDING",
-  RUNNING: "RUNNING",
-  SUCCEEDED: "SUCCEEDED",
-} as const;
-
-/**
- * @public
- */
-export type StackSetOperationResultStatus =
-  (typeof StackSetOperationResultStatus)[keyof typeof StackSetOperationResultStatus];
-
-/**
- * <p>The structure that contains information about a specified operation's results for a given
- *    account in a given Region.</p>
- * @public
- */
-export interface StackSetOperationResultSummary {
-  /**
-   * <p>[Self-managed permissions] The name of the Amazon Web Services account for this operation result.</p>
-   * @public
-   */
-  Account?: string | undefined;
-
-  /**
-   * <p>The name of the Amazon Web Services Region for this operation result.</p>
-   * @public
-   */
-  Region?: string | undefined;
-
-  /**
-   * <p>The result status of the StackSet operation for the given account in the given
-   *    Region.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>CANCELLED</code>: The operation in the specified account and Region has been
-   *      canceled. This is either because a user has stopped the StackSet operation, or because the
-   *      failure tolerance of the StackSet operation has been exceeded.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>FAILED</code>: The operation in the specified account and Region failed.</p>
-   *                <p>If the StackSet operation fails in enough accounts within a Region, the failure tolerance
-   *      for the StackSet operation as a whole might be exceeded.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>RUNNING</code>: The operation in the specified account and Region is currently in
-   *      progress.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>PENDING</code>: The operation in the specified account and Region has yet to
-   *      start.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>SUCCEEDED</code>: The operation in the specified account and Region completed
-   *      successfully.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  Status?: StackSetOperationResultStatus | undefined;
-
-  /**
-   * <p>The reason for the assigned result status.</p>
-   * @public
-   */
-  StatusReason?: string | undefined;
-
-  /**
-   * <p>The results of the account gate function CloudFormation invokes, if present, before proceeding
-   *    with StackSet operations in an account.</p>
-   * @public
-   */
-  AccountGateResult?: AccountGateResult | undefined;
-
-  /**
-   * <p>[Service-managed permissions] The organization root ID or organizational unit (OU) IDs that
-   *    you specified for <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DeploymentTargets.html">DeploymentTargets</a>.</p>
-   * @public
-   */
-  OrganizationalUnitId?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListStackSetOperationResultsOutput {
-  /**
-   * <p>A list of <code>StackSetOperationResultSummary</code> structures that contain information
-   *       about the specified operation results, for accounts and Amazon Web Services Regions that are included in the
-   *       operation.</p>
-   * @public
-   */
-  Summaries?: StackSetOperationResultSummary[] | undefined;
-
-  /**
-   * <p>If the request doesn't return all results, <code>NextToken</code> is set to a token. To
-   *       retrieve the next set of results, call <code>ListOperationResults</code> again and assign that
-   *       token to the request object's <code>NextToken</code> parameter. If there are no remaining
-   *       results, <code>NextToken</code> is set to <code>null</code>.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListStackSetOperationsInput {
-  /**
-   * <p>The name or unique ID of the StackSet that you want to get operation summaries for.</p>
-   * @public
-   */
-  StackSetName: string | undefined;
-
-  /**
-   * <p>If the previous paginated request didn't return all of the remaining results, the response
-   *       object's <code>NextToken</code> parameter value is set to a token. To retrieve the next set of
-   *       results, call <code>ListStackSetOperations</code> again and assign that token to the request
-   *       object's <code>NextToken</code> parameter. If there are no remaining results, the previous
-   *       response object's <code>NextToken</code> parameter is set to <code>null</code>.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of results to be returned with a single call. If the number of
-   *       available results exceeds this maximum, the response includes a <code>NextToken</code> value
-   *       that you can assign to the <code>NextToken</code> request parameter to get the next set of
-   *       results.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>[Service-managed permissions] Specifies whether you are acting as an account administrator
-   *       in the organization's management account or as a delegated administrator in a
-   *       member account.</p>
-   *          <p>By default, <code>SELF</code> is specified. Use <code>SELF</code> for StackSets with
-   *       self-managed permissions.</p>
-   *          <ul>
-   *             <li>
-   *                <p>If you are signed in to the management account, specify
-   *           <code>SELF</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>If you are signed in to a delegated administrator account, specify
-   *             <code>DELEGATED_ADMIN</code>.</p>
-   *                <p>Your Amazon Web Services account must be registered as a delegated administrator in the management account. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-orgs-delegated-admin.html">Register a
-   *             delegated administrator</a> in the <i>CloudFormation User Guide</i>.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  CallAs?: CallAs | undefined;
-}
-
-/**
- * <p>The structures that contain summary information about the specified operation.</p>
- * @public
- */
-export interface StackSetOperationSummary {
-  /**
-   * <p>The unique ID of the StackSet operation.</p>
-   * @public
-   */
-  OperationId?: string | undefined;
-
-  /**
-   * <p>The type of operation: <code>CREATE</code>, <code>UPDATE</code>, or <code>DELETE</code>.
-   *    Create and delete operations affect only the specified stack instances that are associated with
-   *    the specified StackSet. Update operations affect both the StackSet itself and
-   *     <i>all</i> associated StackSet instances.</p>
-   * @public
-   */
-  Action?: StackSetOperationAction | undefined;
-
-  /**
-   * <p>The overall status of the operation.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>FAILED</code>: The operation exceeded the specified failure tolerance. The failure
-   *      tolerance value that you've set for an operation is applied for each Region during stack create
-   *      and update operations. If the number of failed stacks within a Region exceeds the failure
-   *      tolerance, the status of the operation in the Region is set to <code>FAILED</code>. This in
-   *      turn sets the status of the operation as a whole to <code>FAILED</code>, and CloudFormation cancels
-   *      the operation in any remaining Regions.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>QUEUED</code>: [Service-managed permissions] For automatic deployments that require
-   *      a sequence of operations, the operation is queued to be performed. For more information, see
-   *      the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-concepts.html#stackset-status-codes">StackSet status codes</a> in the <i>CloudFormation User Guide</i>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>RUNNING</code>: The operation is currently being performed.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>STOPPED</code>: The user has canceled the operation.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>STOPPING</code>: The operation is in the process of stopping, at user
-   *      request.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>SUCCEEDED</code>: The operation completed creating or updating all the specified
-   *      stacks without exceeding the failure tolerance for the operation.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  Status?: StackSetOperationStatus | undefined;
-
-  /**
-   * <p>The time at which the operation was initiated. Note that the creation times for the StackSet
-   *    operation might differ from the creation time of the individual stacks themselves. This is
-   *    because CloudFormation needs to perform preparatory work for the operation, such as dispatching the
-   *    work to the requested Regions, before actually creating the first stacks.</p>
-   * @public
-   */
-  CreationTimestamp?: Date | undefined;
-
-  /**
-   * <p>The time at which the StackSet operation ended, across all accounts and Regions specified.
-   *    Note that this doesn't necessarily mean that the StackSet operation was successful, or even
-   *    attempted, in each account or Region.</p>
-   * @public
-   */
-  EndTimestamp?: Date | undefined;
-
-  /**
-   * <p>The status of the operation in details.</p>
-   * @public
-   */
-  StatusReason?: string | undefined;
-
-  /**
-   * <p>Detailed information about the StackSet operation.</p>
-   * @public
-   */
-  StatusDetails?: StackSetOperationStatusDetails | undefined;
-
-  /**
-   * <p>The user-specified preferences for how CloudFormation performs a StackSet operation.</p>
-   *          <p>For more information about maximum concurrent accounts and failure tolerance, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-concepts.html#stackset-ops-options">StackSet
-   *     operation options</a>.</p>
-   * @public
-   */
-  OperationPreferences?: StackSetOperationPreferences | undefined;
-}
-
-/**
- * @public
- */
-export interface ListStackSetOperationsOutput {
-  /**
-   * <p>A list of <code>StackSetOperationSummary</code> structures that contain summary
-   *       information about operations for the specified StackSet.</p>
-   * @public
-   */
-  Summaries?: StackSetOperationSummary[] | undefined;
-
-  /**
-   * <p>If the request doesn't return all results, <code>NextToken</code> is set to a token. To
-   *       retrieve the next set of results, call <code>ListOperationResults</code> again and assign that
-   *       token to the request object's <code>NextToken</code> parameter. If there are no remaining
-   *       results, <code>NextToken</code> is set to <code>null</code>.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
 }
