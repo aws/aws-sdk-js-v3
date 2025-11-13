@@ -9,6 +9,7 @@ import type {
   HandlerExecutionContext,
   HttpRequest,
   HttpResponse,
+  MetadataBearer,
   OperationSchema,
   ResponseMetadata,
   SerdeFunctions,
@@ -60,6 +61,9 @@ export class AwsRestJsonProtocol extends HttpBindingProtocol {
     super.setSerdeContext(serdeContext);
   }
 
+  /**
+   * @override
+   */
   public async serializeRequest<Input extends object>(
     operationSchema: OperationSchema,
     input: Input,
@@ -75,7 +79,8 @@ export class AwsRestJsonProtocol extends HttpBindingProtocol {
       }
     }
 
-    if (request.headers["content-type"] && !request.body) {
+    if (request.body == null && request.headers["content-type"] === this.getDefaultContentType()) {
+      // if content type is blob or string shape, we don't set a default body.
       request.body = "{}";
     }
 
@@ -84,6 +89,27 @@ export class AwsRestJsonProtocol extends HttpBindingProtocol {
     return request;
   }
 
+  /**
+   * @override
+   */
+  public async deserializeResponse<Output extends MetadataBearer>(
+    operationSchema: OperationSchema,
+    context: HandlerExecutionContext & SerdeFunctions,
+    response: HttpResponse
+  ): Promise<Output> {
+    const output: any & MetadataBearer = await super.deserializeResponse(operationSchema, context, response);
+    const outputSchema = NormalizedSchema.of(operationSchema.output);
+    for (const [name, member] of outputSchema.structIterator()) {
+      if (member.getMemberTraits().httpPayload && !(name in output)) {
+        output[name] = null;
+      }
+    }
+    return output;
+  }
+
+  /**
+   * @override
+   */
   protected async handleError(
     operationSchema: OperationSchema,
     context: HandlerExecutionContext & SerdeFunctions,

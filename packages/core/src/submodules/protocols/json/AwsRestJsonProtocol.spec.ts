@@ -312,5 +312,103 @@ describe(AwsRestJsonProtocol.name, () => {
         "query-default-date": "1970-01-01T00:00:00Z",
       });
     });
+
+    it("inserts a default body only when the payload is a structure shape", async () => {
+      const operation = {
+        namespace: "ns",
+        name: "Operation",
+        traits: 0,
+        input: [
+          3,
+          "ns",
+          "Input",
+          0,
+          ["payload", "name"],
+          [
+            [21 satisfies BlobSchema, { httpPayload: 1 }],
+            [0 satisfies StringSchema, { httpHeader: "name" }],
+          ],
+        ] satisfies StaticStructureSchema,
+        output: "unit" as const,
+      };
+
+      for (const body of ["", false, undefined, 0, new Uint8Array()]) {
+        const request = await protocol.serializeRequest(
+          operation,
+          {
+            name: "hi",
+            payload: body,
+          },
+          context
+        );
+        if (!body) {
+          expect(request.body).toBeFalsy();
+        }
+        expect(request.body).toEqual(body);
+      }
+
+      for (const body of [undefined, null]) {
+        const request = await protocol.serializeRequest(
+          {
+            ...operation,
+            input: [
+              3,
+              "ns",
+              "Input",
+              0,
+              ["payload", "name"],
+              [
+                [3, "ns", "PayloadStruct", { httpPayload: 1 }, ["a", "b"], [0, 0]] satisfies StaticStructureSchema,
+                [0 satisfies StringSchema, { httpHeader: "name" }],
+              ],
+            ] satisfies StaticStructureSchema,
+          },
+          {
+            payload: body,
+          },
+          context
+        );
+        expect(request.body).toEqual(`{}`);
+      }
+    });
+
+    it("should fill in the payload member of a response if the wire response was empty", async () => {
+      const operation = {
+        namespace: "ns",
+        name: "Operation",
+        traits: 0,
+        input: "unit" as const,
+        output: [
+          3,
+          "ns",
+          "Output",
+          0,
+          ["name", "payload"],
+          [
+            [0, { httpHeader: "name" }],
+            [21, { httpPayload: 1 }],
+          ],
+        ] satisfies StaticStructureSchema,
+      };
+
+      const output = await protocol.deserializeResponse(
+        operation,
+        context,
+        new HttpResponse({
+          statusCode: 200,
+          headers: {},
+        })
+      );
+
+      expect(output).toEqual({
+        $metadata: {
+          cfId: undefined,
+          extendedRequestId: undefined,
+          httpStatusCode: 200,
+          requestId: undefined,
+        },
+        payload: null,
+      });
+    });
   });
 });

@@ -37,7 +37,11 @@ import software.amazon.smithy.utils.SmithyInternalApi;
 @SmithyInternalApi
 public final class AddProtocolConfig implements TypeScriptIntegration {
 
-    public AddProtocolConfig() {
+    static {
+        init();
+    }
+
+    static void init() {
         List<ShapeId> allowed = List.of(
             AwsJson1_0Trait.ID,
             AwsJson1_1Trait.ID,

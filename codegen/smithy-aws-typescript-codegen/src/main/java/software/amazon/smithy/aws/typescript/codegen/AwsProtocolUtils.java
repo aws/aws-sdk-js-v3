@@ -96,9 +96,9 @@ final class AwsProtocolUtils {
      * @param visitor A ShapeVisitor that generates a serde function for shapes.
      */
     static void generateDocumentBodyShapeSerde(
-            GenerationContext context,
-            Set<Shape> shapes,
-            ShapeVisitor<Void> visitor
+        GenerationContext context,
+        Set<Shape> shapes,
+        ShapeVisitor<Void> visitor
     ) {
         // Walk all the shapes within those in the document and generate for them as well.
         Walker shapeWalker = new Walker(NeighborProviderIndex.of(context.getModel()).getProvider());
@@ -123,7 +123,7 @@ final class AwsProtocolUtils {
         TypeScriptWriter writer = context.getWriter();
         writer.addImport("HeaderBag", "__HeaderBag", TypeScriptDependency.SMITHY_TYPES);
         writer.write(IoUtils.readUtf8Resource(
-                AwsProtocolUtils.class, "populate-body-with-query-compatibility-code-stub.ts"));
+            AwsProtocolUtils.class, "populate-body-with-query-compatibility-code-stub.ts"));
     }
 
     /**
@@ -176,9 +176,9 @@ final class AwsProtocolUtils {
         writer.addImport("extendedEncodeURIComponent", "__extendedEncodeURIComponent",
             TypeScriptDependency.AWS_SMITHY_CLIENT);
         writer.openBlock("const buildFormUrlencodedString = (formEntries: Record<string, string>): "
-                + "string => Object.entries(formEntries).map(", ").join(\"&\");",
-                () -> writer.write("([key, value]) => __extendedEncodeURIComponent(key) + '=' + "
-                    + "__extendedEncodeURIComponent(value)"));
+                         + "string => Object.entries(formEntries).map(", ").join(\"&\");",
+            () -> writer.write("([key, value]) => __extendedEncodeURIComponent(key) + '=' + "
+                               + "__extendedEncodeURIComponent(value)"));
         writer.write("");
     }
 
@@ -251,7 +251,7 @@ final class AwsProtocolUtils {
             TypeScriptWriter writer = context.getWriter();
             writer.addImport("v4", "generateIdempotencyToken", TypeScriptDependency.SMITHY_UUID);
             writer.openBlock("if ($L === undefined) {", "}", inputLocation, () ->
-                    writer.write("$L = generateIdempotencyToken();", inputLocation));
+                writer.write("$L = generateIdempotencyToken();", inputLocation));
         }
     }
 
@@ -266,10 +266,10 @@ final class AwsProtocolUtils {
      * @return A string representing the proper value provider for this timestamp.
      */
     static String getInputTimestampValueProvider(
-            GenerationContext context,
-            MemberShape memberShape,
-            Format defaultFormat,
-            String inputLocation
+        GenerationContext context,
+        MemberShape memberShape,
+        Format defaultFormat,
+        String inputLocation
     ) {
         HttpBindingIndex httpIndex = HttpBindingIndex.of(context.getModel());
         TimestampFormatTrait.Format format = httpIndex.determineTimestampFormat(memberShape, DOCUMENT, defaultFormat);
@@ -278,9 +278,9 @@ final class AwsProtocolUtils {
 
     static void generateProtocolTests(ProtocolGenerator generator, GenerationContext context) {
         new HttpProtocolTestGenerator(context,
-                generator,
-                AwsProtocolUtils::filterProtocolTests,
-                AwsProtocolUtils::filterMalformedRequestTests).run();
+            generator,
+            AwsProtocolUtils::filterProtocolTests,
+            AwsProtocolUtils::filterMalformedRequestTests).run();
     }
 
     /**
@@ -307,28 +307,16 @@ final class AwsProtocolUtils {
     }
 
     private static boolean filterProtocolTests(
-            ServiceShape service,
-            OperationShape operation,
-            HttpMessageTestCase testCase,
-            TypeScriptSettings settings
+        ServiceShape service,
+        OperationShape operation,
+        HttpMessageTestCase testCase,
+        TypeScriptSettings settings
     ) {
-        // TODO: Remove when upstream tests update to serialize empty headers.
         if (testCase.getId().contains("NullAndEmptyHeaders")) {
-            return true;
+            return settings.generateServerSdk();
         }
 
-        // TODO This test has an arbitrary root XML name NestedXmlMapWithXmlNameRequest
-        // TODO which doesn't match the input structure. We will need to update
-        // TODO the test comparator stub to ignore this if that is indeed intended.
-        if (testCase.getId().contains("NestedXmlMapWithXmlNameSerializes")) {
-            return true;
-        }
-
-        // TODO: remove when Glacier AccountID hyphen customization is implemented: SMITHY-2614
-        if (testCase.getId().equals("GlacierAccountId")) {
-            return true;
-        }
-
+        // JSv3 does not populate default values on the client side
         if (testCase.getTags().contains("defaults")) {
             return true;
         }
@@ -343,7 +331,7 @@ final class AwsProtocolUtils {
             return true;
         }
 
-        // TODO: https://github.com/aws/aws-sdk-js-v3/issues/7169
+        // todo(schema): can be enabled when dropping the legacy codegen private client.
         if (testCase.getId().equals("RestJsonHttpPayloadWithStructureAndEmptyResponseBody")) {
             return true;
         }
@@ -352,10 +340,10 @@ final class AwsProtocolUtils {
     }
 
     private static boolean filterMalformedRequestTests(
-            ServiceShape service,
-            OperationShape operation,
-            HttpMalformedRequestTestCase testCase,
-            TypeScriptSettings settings
+        ServiceShape service,
+        OperationShape operation,
+        HttpMalformedRequestTestCase testCase,
+        TypeScriptSettings settings
     ) {
         // Handling overflow/underflow of longs in JS is extraordinarily tricky.
         // Numbers are actually all 62-bit floats, and so any integral number is
@@ -374,9 +362,8 @@ final class AwsProtocolUtils {
             return true;
         }
 
-        // TODO: fix in https://github.com/aws/aws-sdk-js-v3/issues/5545
         if (testCase.getId().equals("RestJsonMalformedUnionUnknownMember")) {
-            return true;
+            return settings.generateServerSdk();
         }
 
         //TODO: reenable when the SSDK uses RE2 and not built-in regex for pattern constraints
@@ -405,15 +392,13 @@ final class AwsProtocolUtils {
             return true;
         }
 
-        // ToDo: https://github.com/aws/aws-sdk-js-v3/issues/6246
         if (testCase.getId().equals("RestJsonStringPayloadNoContentType")
             || testCase.getId().equals("RestJsonWithBodyExpectsApplicationJsonContentTypeNoHeaders")) {
-            return true;
+            return settings.generateServerSdk();
         }
 
-        // ToDo: https://github.com/aws/aws-sdk-js-v3/issues/6907
         if (testCase.getId().equals("RestJsonWithoutBodyEmptyInputExpectsEmptyContentType")) {
-            return true;
+            return settings.generateServerSdk();
         }
 
         return false;

@@ -3838,7 +3838,7 @@ it("FlatNestedXmlMapResponse:Response", async () => {
 /**
  * Serializes nested XML Maps in requests that have xmlName on members
  */
-it.skip("NestedXmlMapWithXmlNameSerializes:Request", async () => {
+it("NestedXmlMapWithXmlNameSerializes:Request", async () => {
   const client = new RestXmlProtocolClient({
     ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
@@ -4090,7 +4090,7 @@ it("NoInputAndOutput:Response", async () => {
 /**
  * Do not send null values, but do send empty strings and empty lists over the wire in headers
  */
-it.skip("NullAndEmptyHeaders:Request", async () => {
+it("NullAndEmptyHeaders:Request", async () => {
   const client = new RestXmlProtocolClient({
     ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
