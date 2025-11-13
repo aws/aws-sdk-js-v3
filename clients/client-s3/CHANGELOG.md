@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.931.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.930.0...v3.931.0) (2025-11-13)
+
+
+### Features
+
+* **clients:** use schema-serde in AWS REST XML clients ([#7499](https://github.com/aws/aws-sdk-js-v3/issues/7499)) ([f806a2b](https://github.com/aws/aws-sdk-js-v3/commit/f806a2b9eded9f82d488f3d81db36b9cba9da220))
+
+
+
+
+
 # [3.930.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.929.0...v3.930.0) (2025-11-12)
 
 **Note:** Version bump only for package @aws-sdk/client-s3

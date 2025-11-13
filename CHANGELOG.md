@@ -3,6 +3,32 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.931.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.930.0...v3.931.0) (2025-11-13)
+
+
+### Bug Fixes
+
+* **core/protocols:** rest-json default request body conditions ([#7501](https://github.com/aws/aws-sdk-js-v3/issues/7501)) ([37e8b0d](https://github.com/aws/aws-sdk-js-v3/commit/37e8b0dd2147d5579e4dc5e5a47ea03f70bd16bf))
+
+
+### Features
+
+* **client-cloudformation:** CloudFormation now supports GetHookResult API with annotations to retrieve structured compliance check results and remediation guidance for each evaluated resource, replacing the previous single-message limitation with detailed validation outcomes. ([326e5dd](https://github.com/aws/aws-sdk-js-v3/commit/326e5dda2309a823cea514793fbf8fb445766fc6))
+* **client-controlcatalog:** Added support for related control mappings with new RELATED_CONTROL mapping type in ListControlMappings API. ([1333cd3](https://github.com/aws/aws-sdk-js-v3/commit/1333cd343eeb520f99e5551ec6bd12c197c4e92e))
+* **client-ec2:** Added support for new accelerator types ("media") and accelerator names ("L4", "L40s", "GAUDI_HL_205", "INFERENTIA2", "TRAINIUM", "TRAINIUM2", "U30") in Attributes Based Instance Type Selection for launched instance types. ([6987186](https://github.com/aws/aws-sdk-js-v3/commit/69871860f86f6c54bb98ee0cbd96ffc5a5a92294))
+* **client-ecr:** Add Amazon ECR FIPS PrivateLink endpoint support ([b2a1603](https://github.com/aws/aws-sdk-js-v3/commit/b2a1603e4cf7ccf3eea1f8ce0da51cfc59916bda))
+* **client-elastic-load-balancing-v2:** QUIC and TCP_QUIC protocol support for Network Load Balancer (NLB). This capability enables customers to forward QUIC traffic to their targets with ultra-low latency while maintaining session stickiness using QUIC Connection IDs. ([555b55d](https://github.com/aws/aws-sdk-js-v3/commit/555b55decd1f08599a3fd3a852fb88293172f2f7))
+* **client-iot-wireless:** Integration of Device Location with Amazon Sidewalk network for Amazon Sidewalk enabled devices ([bcf811e](https://github.com/aws/aws-sdk-js-v3/commit/bcf811ef22efff42165a34426c371eeb8c94ec00))
+* **client-mediaconvert:** Lowers minimum duration for black video generator. Adds support for embedding and signing C2PA content credentials in DASH and CMAF HLS outputs. ([dc04e02](https://github.com/aws/aws-sdk-js-v3/commit/dc04e020695da23cad8d0d5b6cba88df6ee453ad))
+* **client-rds:** Updated endpoint and service metadata ([b075f0f](https://github.com/aws/aws-sdk-js-v3/commit/b075f0ff594282eb98034006e4ed0cfaffab589c))
+* **client-sagemaker:** Added support for minor version upgrades and AWS Identity Center integration for SageMaker Hadron Partner Apps, enabling automated version management and IdC group-based access control. ([99fbf1f](https://github.com/aws/aws-sdk-js-v3/commit/99fbf1f1dac31176a35e9f34fc313c7e401a63c7))
+* **client-workspaces-web:** Support for managing web content filtering for defining, tracking and regulating type of content accessed with WorkSpaces Secure Browser as part of browser settings. ([36de0de](https://github.com/aws/aws-sdk-js-v3/commit/36de0dee3e6c89f30824794f13a28299a5fb7e84))
+* **clients:** use schema-serde in AWS REST XML clients ([#7499](https://github.com/aws/aws-sdk-js-v3/issues/7499)) ([f806a2b](https://github.com/aws/aws-sdk-js-v3/commit/f806a2b9eded9f82d488f3d81db36b9cba9da220))
+
+
+
+
+
 # [3.930.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.929.0...v3.930.0) (2025-11-12)
 
 

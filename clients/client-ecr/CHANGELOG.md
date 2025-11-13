@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.931.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.930.0...v3.931.0) (2025-11-13)
+
+
+### Features
+
+* **client-ecr:** Add Amazon ECR FIPS PrivateLink endpoint support ([b2a1603](https://github.com/aws/aws-sdk-js-v3/commit/b2a1603e4cf7ccf3eea1f8ce0da51cfc59916bda))
+
+
+
+
+
 # [3.930.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.929.0...v3.930.0) (2025-11-12)
 
 **Note:** Version bump only for package @aws-sdk/client-ecr

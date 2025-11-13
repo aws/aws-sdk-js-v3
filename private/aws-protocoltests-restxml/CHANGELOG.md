@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.931.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.930.0...v3.931.0) (2025-11-13)
+
+
+### Bug Fixes
+
+* **core/protocols:** rest-json default request body conditions ([#7501](https://github.com/aws/aws-sdk-js-v3/issues/7501)) ([37e8b0d](https://github.com/aws/aws-sdk-js-v3/commit/37e8b0dd2147d5579e4dc5e5a47ea03f70bd16bf))
+
+
+
+
+
 # [3.930.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.929.0...v3.930.0) (2025-11-12)
 
 **Note:** Version bump only for package @aws-sdk/aws-protocoltests-restxml

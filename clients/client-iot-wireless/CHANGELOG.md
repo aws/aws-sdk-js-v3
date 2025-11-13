@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.931.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.930.0...v3.931.0) (2025-11-13)
+
+
+### Features
+
+* **client-iot-wireless:** Integration of Device Location with Amazon Sidewalk network for Amazon Sidewalk enabled devices ([bcf811e](https://github.com/aws/aws-sdk-js-v3/commit/bcf811ef22efff42165a34426c371eeb8c94ec00))
+
+
+
+
+
 # [3.930.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.929.0...v3.930.0) (2025-11-12)
 
 **Note:** Version bump only for package @aws-sdk/client-iot-wireless
