@@ -289,9 +289,11 @@ const _UIPRp = "UpdateIdentityProviderResponse";
 const _UNS = "UpdateNetworkSettings";
 const _UNSR = "UpdateNetworkSettingsRequest";
 const _UNSRp = "UpdateNetworkSettingsResponse";
-const _UP = "UpdatePortal";
+const _UP = "UrlPattern";
+const _UPL = "UrlPatternList";
 const _UPR = "UpdatePortalRequest";
 const _UPRp = "UpdatePortalResponse";
+const _UPp = "UpdatePortal";
 const _UR = "UntagResource";
 const _URR = "UntagResourceRequest";
 const _URRn = "UntagResourceResponse";
@@ -314,18 +316,22 @@ const _V = "Value";
 const _VE = "ValidationException";
 const _VEF = "ValidationExceptionField";
 const _VEFL = "ValidationExceptionFieldList";
+const _WCFP = "WebContentFilteringPolicy";
 const _a = "allowlist";
 const _aEC = "additionalEncryptionContext";
 const _aPA = "associatedPortalArns";
 const _aT = "authenticationType";
+const _aU = "allowedUrls";
 const _al = "all";
 const _b = "body";
+const _bC = "blockedCategories";
 const _bIPI = "builtInPatternId";
 const _bO = "bucketOwner";
 const _bP = "browserPolicy";
 const _bS = "browserSettings";
 const _bSA = "browserSettingsArn";
 const _bT = "browserType";
+const _bU = "blockedUrls";
 const _bl = "blocklist";
 const _bu = "bucket";
 const _c = "client";
@@ -452,6 +458,7 @@ const _uS = "userSettings";
 const _uSA = "userSettingsArn";
 const _vI = "vpcId";
 const _vM = "visualMode";
+const _wCFP = "webContentFilteringPolicy";
 const n0 = "com.amazonaws.workspacesweb";
 
 // smithy-typescript generated code
@@ -499,6 +506,7 @@ export var S3Bucket: StaticSimpleSchema = [0, n0, _SB, 8, 0];
 export var S3KeyPrefix: StaticSimpleSchema = [0, n0, _SKP, 8, 0];
 export var TagKey: StaticSimpleSchema = [0, n0, _TK, 8, 0];
 export var TagValue: StaticSimpleSchema = [0, n0, _TV, 8, 0];
+export var UrlPattern: StaticSimpleSchema = [0, n0, _UP, 8, 0];
 export var Username: StaticSimpleSchema = [0, n0, _U, 8, 0];
 export var AccessDeniedException: StaticErrorSchema = [
   -3,
@@ -661,8 +669,8 @@ export var BrowserSettings: StaticStructureSchema = [
   n0,
   _BS,
   0,
-  [_bSA, _aPA, _bP, _cMK, _aEC],
-  [0, 64 | 0, [() => BrowserPolicy, 0], 0, 128 | 0],
+  [_bSA, _aPA, _bP, _cMK, _aEC, _wCFP],
+  [0, 64 | 0, [() => BrowserPolicy, 0], 0, 128 | 0, [() => WebContentFilteringPolicy, 0]],
 ];
 export var BrowserSettingsSummary: StaticStructureSchema = [3, n0, _BSS, 0, [_bSA], [0]];
 export var Certificate: StaticStructureSchema = [3, n0, _C, 0, [_t, _s, _i, _nVB, _nVA, _b], [0, 0, 0, 4, 4, 21]];
@@ -708,8 +716,8 @@ export var CreateBrowserSettingsRequest: StaticStructureSchema = [
   n0,
   _CBSR,
   0,
-  [_ta, _cMK, _aEC, _bP, _cT],
-  [[() => TagList, 0], 0, 128 | 0, [() => BrowserPolicy, 0], [0, 4]],
+  [_ta, _cMK, _aEC, _bP, _cT, _wCFP],
+  [[() => TagList, 0], 0, 128 | 0, [() => BrowserPolicy, 0], [0, 4], [() => WebContentFilteringPolicy, 0]],
 ];
 export var CreateBrowserSettingsResponse: StaticStructureSchema = [3, n0, _CBSRr, 0, [_bSA], [0]];
 export var CreateDataProtectionSettingsRequest: StaticStructureSchema = [
@@ -1652,11 +1660,12 @@ export var UpdateBrowserSettingsRequest: StaticStructureSchema = [
   n0,
   _UBSR,
   0,
-  [_bSA, _bP, _cT],
+  [_bSA, _bP, _cT, _wCFP],
   [
     [0, 1],
     [() => BrowserPolicy, 0],
     [0, 4],
+    [() => WebContentFilteringPolicy, 0],
   ],
 ];
 export var UpdateBrowserSettingsResponse: StaticStructureSchema = [
@@ -1835,12 +1844,22 @@ export var ValidationException: StaticErrorSchema = [
 TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
 
 export var ValidationExceptionField: StaticStructureSchema = [3, n0, _VEF, 0, [_n, _m], [0, 0]];
+export var WebContentFilteringPolicy: StaticStructureSchema = [
+  3,
+  n0,
+  _WCFP,
+  0,
+  [_bC, _aU, _bU],
+  [64 | 0, [() => UrlPatternList, 0], [() => UrlPatternList, 0]],
+];
 export var __Unit = "unit" as const;
 
 export var WorkSpacesWebServiceException: StaticErrorSchema = [-3, _sm, "WorkSpacesWebServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(WorkSpacesWebServiceException, __WorkSpacesWebServiceException);
 
 export var ArnList = 64 | 0;
+
+export var BlockedCategories = 64 | 0;
 
 export var BrowserSettingsList: StaticListSchema = [1, n0, _BSL, 0, () => BrowserSettingsSummary];
 export var CertificateList = 64 | 21;
@@ -1872,6 +1891,7 @@ export var SubnetIdList = 64 | 0;
 export var TagKeyList: StaticListSchema = [1, n0, _TKL, 0, [() => TagKey, 0]];
 export var TagList: StaticListSchema = [1, n0, _TL, 0, [() => Tag, 0]];
 export var TrustStoreSummaryList: StaticListSchema = [1, n0, _TSSL, 0, () => TrustStoreSummary];
+export var UrlPatternList: StaticListSchema = [1, n0, _UPL, 0, [() => UrlPattern, 0]];
 export var UserAccessLoggingSettingsList: StaticListSchema = [1, n0, _UALSL, 0, () => UserAccessLoggingSettingsSummary];
 export var UserSettingsList: StaticListSchema = [1, n0, _USL, 0, [() => UserSettingsSummary, 0]];
 export var ValidationExceptionFieldList: StaticListSchema = [1, n0, _VEFL, 0, () => ValidationExceptionField];
@@ -2582,7 +2602,7 @@ export var UpdateNetworkSettings: StaticOperationSchema = [
 export var UpdatePortal: StaticOperationSchema = [
   9,
   n0,
-  _UP,
+  _UPp,
   {
     [_h]: ["PUT", "/portals/{portalArn+}", 200],
   },

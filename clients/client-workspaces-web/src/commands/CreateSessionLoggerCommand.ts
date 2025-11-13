@@ -40,7 +40,7 @@ export interface CreateSessionLoggerCommandOutput extends CreateSessionLoggerRes
  *   eventFilter: { // EventFilter Union: only one key present
  *     all: {},
  *     include: [ // Events
- *       "WebsiteInteract" || "FileDownloadFromSecureBrowserToRemoteDisk" || "FileTransferFromRemoteToLocalDisk" || "FileTransferFromLocalToRemoteDisk" || "FileUploadFromRemoteDiskToSecureBrowser" || "ContentPasteToWebsite" || "ContentTransferFromLocalToRemoteClipboard" || "ContentCopyFromWebsite" || "UrlLoad" || "TabOpen" || "TabClose" || "PrintJobSubmit" || "SessionConnect" || "SessionStart" || "SessionDisconnect" || "SessionEnd",
+ *       "WebsiteInteract" || "FileDownloadFromSecureBrowserToRemoteDisk" || "FileTransferFromRemoteToLocalDisk" || "FileTransferFromLocalToRemoteDisk" || "FileUploadFromRemoteDiskToSecureBrowser" || "ContentPasteToWebsite" || "ContentTransferFromLocalToRemoteClipboard" || "ContentCopyFromWebsite" || "UrlLoad" || "TabOpen" || "TabClose" || "PrintJobSubmit" || "SessionConnect" || "SessionStart" || "SessionDisconnect" || "SessionEnd" || "UrlBlockByContentFilter",
  *     ],
  *   },
  *   logConfiguration: { // LogConfiguration

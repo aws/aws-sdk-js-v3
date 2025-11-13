@@ -581,6 +581,7 @@ export interface WorkSpacesWeb {
   /**
    * @see {@link CreateBrowserSettingsCommand}
    */
+  createBrowserSettings(): Promise<CreateBrowserSettingsCommandOutput>;
   createBrowserSettings(
     args: CreateBrowserSettingsCommandInput,
     options?: __HttpHandlerOptions

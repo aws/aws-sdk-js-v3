@@ -40,6 +40,17 @@ export interface UpdateBrowserSettingsCommandOutput extends UpdateBrowserSetting
  *   browserSettingsArn: "STRING_VALUE", // required
  *   browserPolicy: "STRING_VALUE",
  *   clientToken: "STRING_VALUE",
+ *   webContentFilteringPolicy: { // WebContentFilteringPolicy
+ *     blockedCategories: [ // BlockedCategories
+ *       "Cults" || "Gambling" || "Nudity" || "Pornography" || "SexEducation" || "Tasteless" || "Violence" || "DownloadSites" || "ImageSharing" || "PeerToPeer" || "StreamingMediaAndDownloads" || "GenerativeAI" || "CriminalActivity" || "Hacking" || "HateAndIntolerance" || "IllegalDrug" || "IllegalSoftware" || "SchoolCheating" || "SelfHarm" || "Weapons" || "Chat" || "Games" || "InstantMessaging" || "ProfessionalNetwork" || "SocialNetworking" || "WebBasedEmail" || "ParkedDomains",
+ *     ],
+ *     allowedUrls: [ // UrlPatternList
+ *       "STRING_VALUE",
+ *     ],
+ *     blockedUrls: [
+ *       "STRING_VALUE",
+ *     ],
+ *   },
  * };
  * const command = new UpdateBrowserSettingsCommand(input);
  * const response = await client.send(command);
@@ -53,6 +64,17 @@ export interface UpdateBrowserSettingsCommandOutput extends UpdateBrowserSetting
  * //     customerManagedKey: "STRING_VALUE",
  * //     additionalEncryptionContext: { // EncryptionContextMap
  * //       "<keys>": "STRING_VALUE",
+ * //     },
+ * //     webContentFilteringPolicy: { // WebContentFilteringPolicy
+ * //       blockedCategories: [ // BlockedCategories
+ * //         "Cults" || "Gambling" || "Nudity" || "Pornography" || "SexEducation" || "Tasteless" || "Violence" || "DownloadSites" || "ImageSharing" || "PeerToPeer" || "StreamingMediaAndDownloads" || "GenerativeAI" || "CriminalActivity" || "Hacking" || "HateAndIntolerance" || "IllegalDrug" || "IllegalSoftware" || "SchoolCheating" || "SelfHarm" || "Weapons" || "Chat" || "Games" || "InstantMessaging" || "ProfessionalNetwork" || "SocialNetworking" || "WebBasedEmail" || "ParkedDomains",
+ * //       ],
+ * //       allowedUrls: [ // UrlPatternList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       blockedUrls: [
+ * //         "STRING_VALUE",
+ * //       ],
  * //     },
  * //   },
  * // };

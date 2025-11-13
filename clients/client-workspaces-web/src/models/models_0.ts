@@ -533,6 +533,69 @@ export interface Tag {
 
 /**
  * @public
+ * @enum
+ */
+export const Category = {
+  CHAT: "Chat",
+  CRIMINAL_ACTIVITY: "CriminalActivity",
+  CULTS: "Cults",
+  DOWNLOAD_SITES: "DownloadSites",
+  GAMBLING: "Gambling",
+  GAMES: "Games",
+  GENERATIVE_AI: "GenerativeAI",
+  HACKING: "Hacking",
+  HATE_AND_INTOLERANCE: "HateAndIntolerance",
+  ILLEGAL_DRUG: "IllegalDrug",
+  ILLEGAL_SOFTWARE: "IllegalSoftware",
+  IMAGE_SHARING: "ImageSharing",
+  INSTANT_MESSAGING: "InstantMessaging",
+  NUDITY: "Nudity",
+  PARKED_DOMAINS: "ParkedDomains",
+  PEER_TO_PEER: "PeerToPeer",
+  PORNOGRAPHY: "Pornography",
+  PROFESSIONAL_NETWORK: "ProfessionalNetwork",
+  SCHOOL_CHEATING: "SchoolCheating",
+  SELF_HARM: "SelfHarm",
+  SEX_EDUCATION: "SexEducation",
+  SOCIAL_NETWORKING: "SocialNetworking",
+  STREAMING_MEDIA_AND_DOWNLOADS: "StreamingMediaAndDownloads",
+  TASTELESS: "Tasteless",
+  VIOLENCE: "Violence",
+  WEAPONS: "Weapons",
+  WEB_BASED_EMAIL: "WebBasedEmail",
+} as const;
+
+/**
+ * @public
+ */
+export type Category = (typeof Category)[keyof typeof Category];
+
+/**
+ * <p>The policy that specifies which URLs end users are allowed to access or which URLs or domain categories they are restricted from accessing for enhanced security.</p>
+ * @public
+ */
+export interface WebContentFilteringPolicy {
+  /**
+   * <p>Categories of websites that are blocked on the end user’s browsers.</p>
+   * @public
+   */
+  blockedCategories?: Category[] | undefined;
+
+  /**
+   * <p>URLs and domains that are always accessible to end users.</p>
+   * @public
+   */
+  allowedUrls?: string[] | undefined;
+
+  /**
+   * <p>URLs and domains that end users cannot access.</p>
+   * @public
+   */
+  blockedUrls?: string[] | undefined;
+}
+
+/**
+ * @public
  */
 export interface CreateBrowserSettingsRequest {
   /**
@@ -558,7 +621,7 @@ export interface CreateBrowserSettingsRequest {
    *          streaming sessions.</p>
    * @public
    */
-  browserPolicy: string | undefined;
+  browserPolicy?: string | undefined;
 
   /**
    * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
@@ -570,6 +633,12 @@ export interface CreateBrowserSettingsRequest {
    * @public
    */
   clientToken?: string | undefined;
+
+  /**
+   * <p>The policy that specifies which URLs end users are allowed to access or which URLs or domain categories they are restricted from accessing for enhanced security.</p>
+   * @public
+   */
+  webContentFilteringPolicy?: WebContentFilteringPolicy | undefined;
 }
 
 /**
@@ -696,6 +765,12 @@ export interface BrowserSettings {
    * @public
    */
   additionalEncryptionContext?: Record<string, string> | undefined;
+
+  /**
+   * <p>The policy that specifies which URLs end users are allowed to access or which URLs or domain categories they are restricted from accessing for enhanced security.</p>
+   * @public
+   */
+  webContentFilteringPolicy?: WebContentFilteringPolicy | undefined;
 }
 
 /**
@@ -784,6 +859,12 @@ export interface UpdateBrowserSettingsRequest {
    * @public
    */
   clientToken?: string | undefined;
+
+  /**
+   * <p>The policy that specifies which URLs end users are allowed to access or which URLs or domain categories they are restricted from accessing for enhanced security.</p>
+   * @public
+   */
+  webContentFilteringPolicy?: WebContentFilteringPolicy | undefined;
 }
 
 /**
@@ -3488,6 +3569,7 @@ export const Event = {
   SESSION_START: "SessionStart",
   TAB_CLOSE: "TabClose",
   TAB_OPEN: "TabOpen",
+  URL_BLOCK_BY_CONTENT_FILTER: "UrlBlockByContentFilter",
   URL_LOAD: "UrlLoad",
   WEBSITE_INTERACT: "WebsiteInteract",
 } as const;
