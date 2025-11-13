@@ -58,7 +58,6 @@ import {
   ClusterInstanceType,
   ClusterNodeProvisioningMode,
   ClusterNodeRecovery,
-  ClusterOrchestratorEksConfig,
   CodeEditorAppImageConfig,
   DeepHealthCheckType,
   FeatureStatus,
@@ -84,6 +83,18 @@ import {
 } from "./models_0";
 
 import { SageMakerServiceException as __BaseException } from "./SageMakerServiceException";
+
+/**
+ * <p>The configuration settings for the Amazon EKS cluster used as the orchestrator for the SageMaker HyperPod cluster.</p>
+ * @public
+ */
+export interface ClusterOrchestratorEksConfig {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Amazon EKS cluster associated with the SageMaker HyperPod cluster.</p>
+   * @public
+   */
+  ClusterArn: string | undefined;
+}
 
 /**
  * <p>The type of orchestrator used for the SageMaker HyperPod cluster.</p>
@@ -8037,22 +8048,4 @@ export interface LabelingJobOutputConfig {
    * @public
    */
   SnsTopicArn?: string | undefined;
-}
-
-/**
- * <p>A set of conditions for stopping a labeling job. If any of the conditions are met, the job is automatically stopped. You can use these conditions to control the cost of data labeling.</p> <note> <p>Labeling jobs fail after 30 days with an appropriate client error message.</p> </note>
- * @public
- */
-export interface LabelingJobStoppingConditions {
-  /**
-   * <p>The maximum number of objects that can be labeled by human workers.</p>
-   * @public
-   */
-  MaxHumanLabeledObjectCount?: number | undefined;
-
-  /**
-   * <p>The maximum number of input data objects that should be labeled.</p>
-   * @public
-   */
-  MaxPercentageOfInputDatasetLabeled?: number | undefined;
 }

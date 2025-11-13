@@ -33,6 +33,7 @@ const _AEc = "AcceptEula";
 const _AEu = "AuthorizationEndpoint";
 const _AFRA = "AmazonForecastRoleArn";
 const _AGEN = "AutoGenerateEndpointName";
+const _AGP = "AssignedGroupPatterns";
 const _AIC = "AsyncInferenceConfig";
 const _AICA = "AppImageConfigArn";
 const _AICC = "AsyncInferenceClientConfig";
@@ -161,11 +162,13 @@ const _AU = "AuthorizedUrl";
 const _AUC = "AuthorizedUrlConfigs";
 const _AUd = "AdminUsers";
 const _AUr = "ArtifactUrl";
+const _AUv = "AvailableUpgrade";
 const _AV = "AgentVersion";
 const _AVP = "AlgorithmValidationProfile";
 const _AVPl = "AlgorithmValidationProfiles";
 const _AVS = "AlgorithmValidationSpecification";
 const _AVg = "AgentVersions";
+const _AVp = "AppVersion";
 const _AW = "AssembleWith";
 const _AZ = "AvailabilityZone";
 const _AZI = "AvailabilityZoneId";
@@ -639,6 +642,7 @@ const _CUPR = "CreateUserProfileRequest";
 const _CUPRr = "CreateUserProfileResponse";
 const _CUTP = "CfnUpdateTemplateProvider";
 const _CUp = "CpuUtilization";
+const _CVED = "CurrentVersionEolDate";
 const _CW = "CurrentWeight";
 const _CWR = "CreateWorkforceRequest";
 const _CWRr = "CreateWorkforceResponse";
@@ -1150,6 +1154,7 @@ const _Dol = "Dollars";
 const _Dom = "Domains";
 const _E = "Environment";
 const _EA = "EndpointArn";
+const _EAMVU = "EnableAutoMinorVersionUpgrade";
 const _EAx = "ExperimentArn";
 const _EAxp = "ExportArtifacts";
 const _EC = "ErrorCode";
@@ -1373,6 +1378,7 @@ const _GLGPRe = "GetLineageGroupPolicyResponse";
 const _GMPGP = "GetModelPackageGroupPolicy";
 const _GMPGPI = "GetModelPackageGroupPolicyInput";
 const _GMPGPO = "GetModelPackageGroupPolicyOutput";
+const _GP = "GroupPatterns";
 const _GSCR = "GetScalingConfigurationRecommendation";
 const _GSCRR = "GetScalingConfigurationRecommendationRequest";
 const _GSCRRe = "GetScalingConfigurationRecommendationResponse";
@@ -1473,6 +1479,7 @@ const _IA = "InferenceAttribute";
 const _IALMA = "InitialActiveLearningModelArn";
 const _IAT = "IpAddressType";
 const _IATR = "InputArtifactsToRemove";
+const _IAU = "IncludeAvailableUpgrade";
 const _IAV = "InferenceAmiVersion";
 const _IAm = "ImageArn";
 const _IAn = "InputArtifacts";
@@ -2543,6 +2550,9 @@ const _RES = "RuleEvaluationStatus";
 const _RETB = "RequestedEndTimeBefore";
 const _REe = "RetryableError";
 const _RG = "ReportGenerated";
+const _RGA = "RoleGroupAssignments";
+const _RGAL = "RoleGroupAssignmentsList";
+const _RGAo = "RoleGroupAssignment";
 const _RI = "ResolvedImage";
 const _RIFN = "RecordIdentifierFeatureName";
 const _RIG = "RestrictedInstanceGroups";
@@ -2573,6 +2583,7 @@ const _RMec = "RecommendationMetrics";
 const _RN = "ReleaseNotes";
 const _RNB = "RegisterNewBaseline";
 const _RNF = "ResourceNotFound";
+const _RNo = "RoleName";
 const _RNu = "RunName";
 const _ROSU = "ResolvedOutputS3Uri";
 const _RP = "RuleParameters";
@@ -3603,6 +3614,7 @@ export var AutoMLSecurityConfig: StaticStructureSchema = [
 export var AutoParameter: StaticStructureSchema = [3, n0, _AP, 0, [_N, _VH], [0, 0]];
 export var AutoRollbackConfig: StaticStructureSchema = [3, n0, _ARC, 0, [_Al], [() => AlarmList]];
 export var Autotune: StaticStructureSchema = [3, n0, _Au, 0, [_M], [0]];
+export var AvailableUpgrade: StaticStructureSchema = [3, n0, _AUv, 0, [_V, _RN], [0, 64 | 0]];
 export var BatchAddClusterNodesError: StaticStructureSchema = [3, n0, _BACNE, 0, [_IGN, _EC, _FC, _Me], [0, 0, 1, 0]];
 export var BatchAddClusterNodesRequest: StaticStructureSchema = [
   3,
@@ -4789,8 +4801,8 @@ export var CreatePartnerAppRequest: StaticStructureSchema = [
   n0,
   _CPAR,
   0,
-  [_N, _Ty, _ERA, _KKI, _MCa, _Ti, _ACp, _ATu, _EISBI, _CTl, _T],
-  [0, 0, 0, 0, () => PartnerAppMaintenanceConfig, 0, () => PartnerAppConfig, 0, 2, [0, 4], () => TagList],
+  [_N, _Ty, _ERA, _KKI, _MCa, _Ti, _ACp, _ATu, _EISBI, _EAMVU, _CTl, _T],
+  [0, 0, 0, 0, () => PartnerAppMaintenanceConfig, 0, () => PartnerAppConfig, 0, 2, 2, [0, 4], () => TagList],
 ];
 export var CreatePartnerAppResponse: StaticStructureSchema = [3, n0, _CPARr, 0, [_Ar], [0]];
 export var CreatePipelineRequest: StaticStructureSchema = [
@@ -6293,14 +6305,34 @@ export var DescribeOptimizationJobResponse: StaticStructureSchema = [
     () => OptimizationVpcConfig,
   ],
 ];
-export var DescribePartnerAppRequest: StaticStructureSchema = [3, n0, _DPARes, 0, [_Ar], [0]];
+export var DescribePartnerAppRequest: StaticStructureSchema = [3, n0, _DPARes, 0, [_Ar, _IAU], [0, 2]];
 export var DescribePartnerAppResponse: StaticStructureSchema = [
   3,
   n0,
   _DPAResc,
   0,
-  [_Ar, _N, _Ty, _St, _CT, _LMT, _ERA, _KKI, _BU, _MCa, _Ti, _V, _ACp, _ATu, _EISBI, _Er],
-  [0, 0, 0, 0, 4, 4, 0, 0, 0, () => PartnerAppMaintenanceConfig, 0, 0, () => PartnerAppConfig, 0, 2, () => ErrorInfo],
+  [_Ar, _N, _Ty, _St, _CT, _LMT, _ERA, _KKI, _BU, _MCa, _Ti, _V, _ACp, _ATu, _EISBI, _Er, _EAMVU, _CVED, _AUv],
+  [
+    0,
+    0,
+    0,
+    0,
+    4,
+    4,
+    0,
+    0,
+    0,
+    () => PartnerAppMaintenanceConfig,
+    0,
+    0,
+    () => PartnerAppConfig,
+    0,
+    2,
+    () => ErrorInfo,
+    2,
+    4,
+    () => AvailableUpgrade,
+  ],
 ];
 export var DescribePipelineDefinitionForExecutionRequest: StaticStructureSchema = [3, n0, _DPDFER, 0, [_PEA], [0]];
 export var DescribePipelineDefinitionForExecutionResponse: StaticStructureSchema = [
@@ -9469,7 +9501,14 @@ export var ParameterRanges: StaticStructureSchema = [
 ];
 export var Parent: StaticStructureSchema = [3, n0, _Pare, 0, [_TN, _ENx], [0, 0]];
 export var ParentHyperParameterTuningJob: StaticStructureSchema = [3, n0, _PHPTJa, 0, [_HPTJN], [0]];
-export var PartnerAppConfig: StaticStructureSchema = [3, n0, _PAC, 0, [_AUd, _Arg], [64 | 0, 128 | 0]];
+export var PartnerAppConfig: StaticStructureSchema = [
+  3,
+  n0,
+  _PAC,
+  0,
+  [_AUd, _Arg, _AGP, _RGA],
+  [64 | 0, 128 | 0, 64 | 0, () => RoleGroupAssignmentsList],
+];
 export var PartnerAppMaintenanceConfig: StaticStructureSchema = [3, n0, _PAMC, 0, [_MWS], [0]];
 export var PartnerAppSummary: StaticStructureSchema = [3, n0, _PAS, 0, [_Ar, _N, _Ty, _St, _CT], [0, 0, 0, 0, 4]];
 export var PendingDeploymentSummary: StaticStructureSchema = [
@@ -10077,6 +10116,7 @@ export var RetryPipelineExecutionRequest: StaticStructureSchema = [
 ];
 export var RetryPipelineExecutionResponse: StaticStructureSchema = [3, n0, _RPERe, 0, [_PEA], [0]];
 export var RetryStrategy: StaticStructureSchema = [3, n0, _RSe, 0, [_MRAa], [1]];
+export var RoleGroupAssignment: StaticStructureSchema = [3, n0, _RGAo, 0, [_RNo, _GP], [0, 64 | 0]];
 export var RollingDeploymentPolicy: StaticStructureSchema = [
   3,
   n0,
@@ -11187,8 +11227,8 @@ export var UpdatePartnerAppRequest: StaticStructureSchema = [
   n0,
   _UPAR,
   0,
-  [_Ar, _MCa, _Ti, _ACp, _EISBI, _CTl, _T],
-  [0, () => PartnerAppMaintenanceConfig, 0, () => PartnerAppConfig, 2, [0, 4], () => TagList],
+  [_Ar, _MCa, _Ti, _ACp, _EISBI, _EAMVU, _AVp, _CTl, _T],
+  [0, () => PartnerAppMaintenanceConfig, 0, () => PartnerAppConfig, 2, 2, 0, [0, 4], () => TagList],
 ];
 export var UpdatePartnerAppResponse: StaticStructureSchema = [3, n0, _UPARp, 0, [_Ar], [0]];
 export var UpdatePipelineExecutionRequest: StaticStructureSchema = [
@@ -11442,6 +11482,8 @@ export var AppImageConfigList: StaticListSchema = [1, n0, _AICL, 0, () => AppIma
 export var AppList: StaticListSchema = [1, n0, _ALp, 0, () => AppDetails];
 export var ArtifactSourceTypes: StaticListSchema = [1, n0, _ASTr, 0, () => ArtifactSourceType];
 export var ArtifactSummaries: StaticListSchema = [1, n0, _ASrti, 0, () => ArtifactSummary];
+export var AssignedGroupPatternsList = 64 | 0;
+
 export var AssociationSummaries: StaticListSchema = [1, n0, _ASss, 0, () => AssociationSummary];
 export var AssumableRoleArns = 64 | 0;
 
@@ -11609,6 +11651,8 @@ export var FlowDefinitionTaskKeywords = 64 | 0;
 export var ForecastQuantiles = 64 | 0;
 
 export var GroupingAttributeNames = 64 | 0;
+
+export var GroupPatternsList = 64 | 0;
 
 export var Groups = 64 | 0;
 
@@ -11848,12 +11892,15 @@ export var RecommendationJobVpcSecurityGroupIds = 64 | 0;
 
 export var RecommendationJobVpcSubnets = 64 | 0;
 
+export var ReleaseNotesList = 64 | 0;
+
 export var RenderingErrorList: StaticListSchema = [1, n0, _REL, 0, () => RenderingError];
 export var ReservedCapacityOfferings: StaticListSchema = [1, n0, _RCOe, 0, () => ReservedCapacityOffering];
 export var ReservedCapacitySummaries: StaticListSchema = [1, n0, _RCS, 0, () => ReservedCapacitySummary];
 export var ResourceCatalogList: StaticListSchema = [1, n0, _RCL, 0, () => ResourceCatalog];
 export var ResponseMIMETypes = 64 | 0;
 
+export var RoleGroupAssignmentsList: StaticListSchema = [1, n0, _RGAL, 0, () => RoleGroupAssignment];
 export var SageMakerImageVersionAliases = 64 | 0;
 
 export var SageMakerResourceNames = 64 | 0;

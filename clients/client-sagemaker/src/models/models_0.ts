@@ -4910,6 +4910,24 @@ export interface Autotune {
 }
 
 /**
+ * <p>Contains information about an available upgrade for a SageMaker Partner AI App, including the version number and release notes.</p>
+ * @public
+ */
+export interface AvailableUpgrade {
+  /**
+   * <p>The semantic version number of the available upgrade for the SageMaker Partner AI App.</p>
+   * @public
+   */
+  Version?: string | undefined;
+
+  /**
+   * <p>A list of release notes describing the changes and improvements included in the available upgrade version.</p>
+   * @public
+   */
+  ReleaseNotes?: string[] | undefined;
+}
+
+/**
  * @public
  * @enum
  */
@@ -7931,16 +7949,4 @@ export interface ClusterNodeSummary {
    * @public
    */
   UltraServerInfo?: UltraServerInfo | undefined;
-}
-
-/**
- * <p>The configuration settings for the Amazon EKS cluster used as the orchestrator for the SageMaker HyperPod cluster.</p>
- * @public
- */
-export interface ClusterOrchestratorEksConfig {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the Amazon EKS cluster associated with the SageMaker HyperPod cluster.</p>
-   * @public
-   */
-  ClusterArn: string | undefined;
 }

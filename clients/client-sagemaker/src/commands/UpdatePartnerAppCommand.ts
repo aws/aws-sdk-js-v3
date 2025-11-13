@@ -49,8 +49,21 @@ export interface UpdatePartnerAppCommandOutput extends UpdatePartnerAppResponse,
  *     Arguments: { // PartnerAppArguments
  *       "<keys>": "STRING_VALUE",
  *     },
+ *     AssignedGroupPatterns: [ // AssignedGroupPatternsList
+ *       "STRING_VALUE",
+ *     ],
+ *     RoleGroupAssignments: [ // RoleGroupAssignmentsList
+ *       { // RoleGroupAssignment
+ *         RoleName: "STRING_VALUE", // required
+ *         GroupPatterns: [ // GroupPatternsList // required
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *     ],
  *   },
  *   EnableIamSessionBasedIdentity: true || false,
+ *   EnableAutoMinorVersionUpgrade: true || false,
+ *   AppVersion: "STRING_VALUE",
  *   ClientToken: "STRING_VALUE",
  *   Tags: [ // TagList
  *     { // Tag

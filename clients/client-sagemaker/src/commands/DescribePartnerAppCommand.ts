@@ -38,6 +38,7 @@ export interface DescribePartnerAppCommandOutput extends DescribePartnerAppRespo
  * const client = new SageMakerClient(config);
  * const input = { // DescribePartnerAppRequest
  *   Arn: "STRING_VALUE", // required
+ *   IncludeAvailableUpgrade: true || false,
  * };
  * const command = new DescribePartnerAppCommand(input);
  * const response = await client.send(command);
@@ -63,12 +64,31 @@ export interface DescribePartnerAppCommandOutput extends DescribePartnerAppRespo
  * //     Arguments: { // PartnerAppArguments
  * //       "<keys>": "STRING_VALUE",
  * //     },
+ * //     AssignedGroupPatterns: [ // AssignedGroupPatternsList
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     RoleGroupAssignments: [ // RoleGroupAssignmentsList
+ * //       { // RoleGroupAssignment
+ * //         RoleName: "STRING_VALUE", // required
+ * //         GroupPatterns: [ // GroupPatternsList // required
+ * //           "STRING_VALUE",
+ * //         ],
+ * //       },
+ * //     ],
  * //   },
  * //   AuthType: "IAM",
  * //   EnableIamSessionBasedIdentity: true || false,
  * //   Error: { // ErrorInfo
  * //     Code: "STRING_VALUE",
  * //     Reason: "STRING_VALUE",
+ * //   },
+ * //   EnableAutoMinorVersionUpgrade: true || false,
+ * //   CurrentVersionEolDate: new Date("TIMESTAMP"),
+ * //   AvailableUpgrade: { // AvailableUpgrade
+ * //     Version: "STRING_VALUE",
+ * //     ReleaseNotes: [ // ReleaseNotesList
+ * //       "STRING_VALUE",
+ * //     ],
  * //   },
  * // };
  *

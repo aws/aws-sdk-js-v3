@@ -14,10 +14,7 @@ import {
   AthenaDatasetDefinition,
   AutoMLCandidate,
   AutoMLChannel,
-  AutoMLComputeConfig,
-  AutoMLDataSplitConfig,
   AutoMLJobArtifacts,
-  AutoMLJobChannel,
   AutoMLJobCompletionCriteria,
   AutoMLJobConfig,
   AutoMLJobObjective,
@@ -25,10 +22,6 @@ import {
   AutoMLJobStatus,
   AutoMLOutputDataConfig,
   AutoMLPartialFailureReason,
-  AutoMLProblemTypeConfig,
-  AutoMLProblemTypeConfigName,
-  AutoMLResolvedAttributes,
-  AutoMLSecurityConfig,
   BatchDataCaptureConfig,
   BatchStrategy,
   BatchTransformInput,
@@ -80,7 +73,6 @@ import {
   LabelingJobAlgorithmsConfig,
   LabelingJobInputConfig,
   LabelingJobOutputConfig,
-  LabelingJobStoppingConditions,
   MetadataProperties,
   ModelDeployConfig,
   MonitoringConstraintsResource,
@@ -95,6 +87,24 @@ import {
   TrainingSpecification,
   UserSettings,
 } from "./models_1";
+
+/**
+ * <p>A set of conditions for stopping a labeling job. If any of the conditions are met, the job is automatically stopped. You can use these conditions to control the cost of data labeling.</p> <note> <p>Labeling jobs fail after 30 days with an appropriate client error message.</p> </note>
+ * @public
+ */
+export interface LabelingJobStoppingConditions {
+  /**
+   * <p>The maximum number of objects that can be labeled by human workers.</p>
+   * @public
+   */
+  MaxHumanLabeledObjectCount?: number | undefined;
+
+  /**
+   * <p>The maximum number of input data objects that should be labeled.</p>
+   * @public
+   */
+  MaxPercentageOfInputDatasetLabeled?: number | undefined;
+}
 
 /**
  * @public
@@ -2302,6 +2312,24 @@ export interface CreateOptimizationJobResponse {
 }
 
 /**
+ * <p>Defines the mapping between an in-app role and the AWS IAM Identity Center group patterns that should be assigned to that role within the SageMaker Partner AI App.</p>
+ * @public
+ */
+export interface RoleGroupAssignment {
+  /**
+   * <p>The name of the in-app role within the SageMaker Partner AI App. The specific roles available depend on the app type and version.</p>
+   * @public
+   */
+  RoleName: string | undefined;
+
+  /**
+   * <p>A list of AWS IAM Identity Center group patterns that should be assigned to the specified role. Group patterns support wildcard matching using <code>*</code>.</p>
+   * @public
+   */
+  GroupPatterns: string[] | undefined;
+}
+
+/**
  * <p>Configuration settings for the SageMaker Partner AI App.</p>
  * @public
  */
@@ -2317,6 +2345,18 @@ export interface PartnerAppConfig {
    * @public
    */
   Arguments?: Record<string, string> | undefined;
+
+  /**
+   * <p>A list of Amazon Web Services IAM Identity Center group patterns that can access the SageMaker Partner AI App. Group names support wildcard matching using <code>*</code>. An empty list indicates the app will not use Identity Center group features. All groups specified in <code>RoleGroupAssignments</code> must match patterns in this list.</p>
+   * @public
+   */
+  AssignedGroupPatterns?: string[] | undefined;
+
+  /**
+   * <p>A map of in-app roles to Amazon Web Services IAM Identity Center group patterns. Groups assigned to specific roles receive those permissions, while groups in <code>AssignedGroupPatterns</code> but not in this map receive default in-app role depending on app type. Group patterns support wildcard matching using <code>*</code>. Currently supported by Fiddler version 1.3 and later with roles: <code>ORG_MEMBER</code> (default) and <code>ORG_ADMIN</code>.</p>
+   * @public
+   */
+  RoleGroupAssignments?: RoleGroupAssignment[] | undefined;
 }
 
 /**
@@ -2417,6 +2457,12 @@ export interface CreatePartnerAppRequest {
    * @public
    */
   EnableIamSessionBasedIdentity?: boolean | undefined;
+
+  /**
+   * <p>When set to <code>TRUE</code>, the SageMaker Partner AI App is automatically upgraded to the latest minor version during the next scheduled maintenance window, if one is available. Default is <code>FALSE</code>.</p>
+   * @public
+   */
+  EnableAutoMinorVersionUpgrade?: boolean | undefined;
 
   /**
    * <p>A unique token that guarantees that the call to this API is idempotent.</p>
@@ -6839,158 +6885,4 @@ export interface DescribeAutoMLJobV2Request {
    * @public
    */
   AutoMLJobName: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeAutoMLJobV2Response {
-  /**
-   * <p>Returns the name of the AutoML job V2.</p>
-   * @public
-   */
-  AutoMLJobName: string | undefined;
-
-  /**
-   * <p>Returns the Amazon Resource Name (ARN) of the AutoML job V2.</p>
-   * @public
-   */
-  AutoMLJobArn: string | undefined;
-
-  /**
-   * <p>Returns an array of channel objects describing the input data and their location.</p>
-   * @public
-   */
-  AutoMLJobInputDataConfig: AutoMLJobChannel[] | undefined;
-
-  /**
-   * <p>Returns the job's output data config.</p>
-   * @public
-   */
-  OutputDataConfig: AutoMLOutputDataConfig | undefined;
-
-  /**
-   * <p>The ARN of the IAM role that has read permission to the input data location and write permission to the output data location in Amazon S3.</p>
-   * @public
-   */
-  RoleArn: string | undefined;
-
-  /**
-   * <p>Returns the job's objective.</p>
-   * @public
-   */
-  AutoMLJobObjective?: AutoMLJobObjective | undefined;
-
-  /**
-   * <p>Returns the configuration settings of the problem type set for the AutoML job V2.</p>
-   * @public
-   */
-  AutoMLProblemTypeConfig?: AutoMLProblemTypeConfig | undefined;
-
-  /**
-   * <p>Returns the name of the problem type configuration set for the AutoML job V2.</p>
-   * @public
-   */
-  AutoMLProblemTypeConfigName?: AutoMLProblemTypeConfigName | undefined;
-
-  /**
-   * <p>Returns the creation time of the AutoML job V2.</p>
-   * @public
-   */
-  CreationTime: Date | undefined;
-
-  /**
-   * <p>Returns the end time of the AutoML job V2.</p>
-   * @public
-   */
-  EndTime?: Date | undefined;
-
-  /**
-   * <p>Returns the job's last modified time.</p>
-   * @public
-   */
-  LastModifiedTime: Date | undefined;
-
-  /**
-   * <p>Returns the reason for the failure of the AutoML job V2, when applicable.</p>
-   * @public
-   */
-  FailureReason?: string | undefined;
-
-  /**
-   * <p>Returns a list of reasons for partial failures within an AutoML job V2.</p>
-   * @public
-   */
-  PartialFailureReasons?: AutoMLPartialFailureReason[] | undefined;
-
-  /**
-   * <p>Information about the candidate produced by an AutoML training job V2, including its status, steps, and other properties.</p>
-   * @public
-   */
-  BestCandidate?: AutoMLCandidate | undefined;
-
-  /**
-   * <p>Returns the status of the AutoML job V2.</p>
-   * @public
-   */
-  AutoMLJobStatus: AutoMLJobStatus | undefined;
-
-  /**
-   * <p>Returns the secondary status of the AutoML job V2.</p>
-   * @public
-   */
-  AutoMLJobSecondaryStatus: AutoMLJobSecondaryStatus | undefined;
-
-  /**
-   * <p>The artifacts that are generated during an AutoML job.</p>
-   * @public
-   */
-  AutoMLJobArtifacts?: AutoMLJobArtifacts | undefined;
-
-  /**
-   * <p>Returns the resolved attributes used by the AutoML job V2.</p>
-   * @public
-   */
-  ResolvedAttributes?: AutoMLResolvedAttributes | undefined;
-
-  /**
-   * <p>Indicates whether the model was deployed automatically to an endpoint and the name of that endpoint if deployed automatically.</p>
-   * @public
-   */
-  ModelDeployConfig?: ModelDeployConfig | undefined;
-
-  /**
-   * <p>Provides information about endpoint for the model deployment.</p>
-   * @public
-   */
-  ModelDeployResult?: ModelDeployResult | undefined;
-
-  /**
-   * <p>Returns the configuration settings of how the data are split into train and validation datasets.</p>
-   * @public
-   */
-  DataSplitConfig?: AutoMLDataSplitConfig | undefined;
-
-  /**
-   * <p>Returns the security configuration for traffic encryption or Amazon VPC settings.</p>
-   * @public
-   */
-  SecurityConfig?: AutoMLSecurityConfig | undefined;
-
-  /**
-   * <p>The compute configuration used for the AutoML job V2.</p>
-   * @public
-   */
-  AutoMLComputeConfig?: AutoMLComputeConfig | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeClusterRequest {
-  /**
-   * <p>The string name or the Amazon Resource Name (ARN) of the SageMaker HyperPod cluster.</p>
-   * @public
-   */
-  ClusterName: string | undefined;
 }

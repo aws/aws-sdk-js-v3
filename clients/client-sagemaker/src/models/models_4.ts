@@ -146,6 +146,32 @@ import {
 } from "./models_3";
 
 /**
+ * @public
+ * @enum
+ */
+export const SagemakerServicecatalogStatus = {
+  DISABLED: "Disabled",
+  ENABLED: "Enabled",
+} as const;
+
+/**
+ * @public
+ */
+export type SagemakerServicecatalogStatus =
+  (typeof SagemakerServicecatalogStatus)[keyof typeof SagemakerServicecatalogStatus];
+
+/**
+ * @public
+ */
+export interface GetSagemakerServicecatalogPortfolioStatusOutput {
+  /**
+   * <p>Whether Service Catalog is enabled or disabled in SageMaker.</p>
+   * @public
+   */
+  Status?: SagemakerServicecatalogStatus | undefined;
+}
+
+/**
  * <p>An object where you specify the anticipated traffic pattern for an endpoint.</p>
  * @public
  */
@@ -9657,34 +9683,3 @@ export interface TrialComponentSummary {
    */
   LastModifiedBy?: UserContext | undefined;
 }
-
-/**
- * @public
- */
-export interface ListTrialComponentsResponse {
-  /**
-   * <p>A list of the summaries of your trial components.</p>
-   * @public
-   */
-  TrialComponentSummaries?: TrialComponentSummary[] | undefined;
-
-  /**
-   * <p>A token for getting the next set of components, if there are any.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const SortTrialsBy = {
-  CREATION_TIME: "CreationTime",
-  NAME: "Name",
-} as const;
-
-/**
- * @public
- */
-export type SortTrialsBy = (typeof SortTrialsBy)[keyof typeof SortTrialsBy];

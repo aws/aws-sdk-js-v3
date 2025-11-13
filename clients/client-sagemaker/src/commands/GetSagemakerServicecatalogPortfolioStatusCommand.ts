@@ -4,10 +4,8 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  GetSagemakerServicecatalogPortfolioStatusInput,
-  GetSagemakerServicecatalogPortfolioStatusOutput,
-} from "../models/models_3";
+import { GetSagemakerServicecatalogPortfolioStatusInput } from "../models/models_3";
+import { GetSagemakerServicecatalogPortfolioStatusOutput } from "../models/models_4";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 import { GetSagemakerServicecatalogPortfolioStatus } from "../schemas/schemas_0";
 

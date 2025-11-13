@@ -11,8 +11,23 @@ import {
   AssociationEdgeType,
   AsyncInferenceConfig,
   AuthMode,
+  AutoMLCandidate,
+  AutoMLComputeConfig,
+  AutoMLDataSplitConfig,
+  AutoMLJobArtifacts,
+  AutoMLJobChannel,
+  AutoMLJobObjective,
+  AutoMLJobSecondaryStatus,
+  AutoMLJobStatus,
+  AutoMLOutputDataConfig,
+  AutoMLPartialFailureReason,
+  AutoMLProblemTypeConfig,
+  AutoMLProblemTypeConfigName,
+  AutoMLResolvedAttributes,
+  AutoMLSecurityConfig,
   AutoRollbackConfig,
   Autotune,
+  AvailableUpgrade,
   BatchDataCaptureConfig,
   BatchStrategy,
   CapacityReservationPreference,
@@ -94,8 +109,8 @@ import {
   LabelingJobAlgorithmsConfig,
   LabelingJobInputConfig,
   LabelingJobOutputConfig,
-  LabelingJobStoppingConditions,
   MetadataProperties,
+  ModelDeployConfig,
   ModelInfrastructureConfig,
   MonitoringNetworkConfig,
   MonitoringOutputConfig,
@@ -143,6 +158,7 @@ import {
   InferenceExecutionConfig,
   InfraCheckConfig,
   InstanceMetadataServiceConfiguration,
+  LabelingJobStoppingConditions,
   MemberDefinition,
   ModelBiasAppSpecification,
   ModelBiasBaselineConfig,
@@ -151,6 +167,7 @@ import {
   ModelCardSecurityConfig,
   ModelCardStatus,
   ModelClientConfig,
+  ModelDeployResult,
   ModelExplainabilityAppSpecification,
   ModelExplainabilityBaselineConfig,
   ModelExplainabilityJobInput,
@@ -203,6 +220,160 @@ import {
   WorkerAccessConfiguration,
   WorkforceIpAddressType,
 } from "./models_2";
+
+/**
+ * @public
+ */
+export interface DescribeAutoMLJobV2Response {
+  /**
+   * <p>Returns the name of the AutoML job V2.</p>
+   * @public
+   */
+  AutoMLJobName: string | undefined;
+
+  /**
+   * <p>Returns the Amazon Resource Name (ARN) of the AutoML job V2.</p>
+   * @public
+   */
+  AutoMLJobArn: string | undefined;
+
+  /**
+   * <p>Returns an array of channel objects describing the input data and their location.</p>
+   * @public
+   */
+  AutoMLJobInputDataConfig: AutoMLJobChannel[] | undefined;
+
+  /**
+   * <p>Returns the job's output data config.</p>
+   * @public
+   */
+  OutputDataConfig: AutoMLOutputDataConfig | undefined;
+
+  /**
+   * <p>The ARN of the IAM role that has read permission to the input data location and write permission to the output data location in Amazon S3.</p>
+   * @public
+   */
+  RoleArn: string | undefined;
+
+  /**
+   * <p>Returns the job's objective.</p>
+   * @public
+   */
+  AutoMLJobObjective?: AutoMLJobObjective | undefined;
+
+  /**
+   * <p>Returns the configuration settings of the problem type set for the AutoML job V2.</p>
+   * @public
+   */
+  AutoMLProblemTypeConfig?: AutoMLProblemTypeConfig | undefined;
+
+  /**
+   * <p>Returns the name of the problem type configuration set for the AutoML job V2.</p>
+   * @public
+   */
+  AutoMLProblemTypeConfigName?: AutoMLProblemTypeConfigName | undefined;
+
+  /**
+   * <p>Returns the creation time of the AutoML job V2.</p>
+   * @public
+   */
+  CreationTime: Date | undefined;
+
+  /**
+   * <p>Returns the end time of the AutoML job V2.</p>
+   * @public
+   */
+  EndTime?: Date | undefined;
+
+  /**
+   * <p>Returns the job's last modified time.</p>
+   * @public
+   */
+  LastModifiedTime: Date | undefined;
+
+  /**
+   * <p>Returns the reason for the failure of the AutoML job V2, when applicable.</p>
+   * @public
+   */
+  FailureReason?: string | undefined;
+
+  /**
+   * <p>Returns a list of reasons for partial failures within an AutoML job V2.</p>
+   * @public
+   */
+  PartialFailureReasons?: AutoMLPartialFailureReason[] | undefined;
+
+  /**
+   * <p>Information about the candidate produced by an AutoML training job V2, including its status, steps, and other properties.</p>
+   * @public
+   */
+  BestCandidate?: AutoMLCandidate | undefined;
+
+  /**
+   * <p>Returns the status of the AutoML job V2.</p>
+   * @public
+   */
+  AutoMLJobStatus: AutoMLJobStatus | undefined;
+
+  /**
+   * <p>Returns the secondary status of the AutoML job V2.</p>
+   * @public
+   */
+  AutoMLJobSecondaryStatus: AutoMLJobSecondaryStatus | undefined;
+
+  /**
+   * <p>The artifacts that are generated during an AutoML job.</p>
+   * @public
+   */
+  AutoMLJobArtifacts?: AutoMLJobArtifacts | undefined;
+
+  /**
+   * <p>Returns the resolved attributes used by the AutoML job V2.</p>
+   * @public
+   */
+  ResolvedAttributes?: AutoMLResolvedAttributes | undefined;
+
+  /**
+   * <p>Indicates whether the model was deployed automatically to an endpoint and the name of that endpoint if deployed automatically.</p>
+   * @public
+   */
+  ModelDeployConfig?: ModelDeployConfig | undefined;
+
+  /**
+   * <p>Provides information about endpoint for the model deployment.</p>
+   * @public
+   */
+  ModelDeployResult?: ModelDeployResult | undefined;
+
+  /**
+   * <p>Returns the configuration settings of how the data are split into train and validation datasets.</p>
+   * @public
+   */
+  DataSplitConfig?: AutoMLDataSplitConfig | undefined;
+
+  /**
+   * <p>Returns the security configuration for traffic encryption or Amazon VPC settings.</p>
+   * @public
+   */
+  SecurityConfig?: AutoMLSecurityConfig | undefined;
+
+  /**
+   * <p>The compute configuration used for the AutoML job V2.</p>
+   * @public
+   */
+  AutoMLComputeConfig?: AutoMLComputeConfig | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeClusterRequest {
+  /**
+   * <p>The string name or the Amazon Resource Name (ARN) of the SageMaker HyperPod cluster.</p>
+   * @public
+   */
+  ClusterName: string | undefined;
+}
 
 /**
  * @public
@@ -6196,6 +6367,12 @@ export interface DescribePartnerAppRequest {
    * @public
    */
   Arn: string | undefined;
+
+  /**
+   * <p>When set to <code>TRUE</code>, the response includes available upgrade information for the SageMaker Partner AI App. Default is <code>FALSE</code>.</p>
+   * @public
+   */
+  IncludeAvailableUpgrade?: boolean | undefined;
 }
 
 /**
@@ -6334,6 +6511,24 @@ export interface DescribePartnerAppResponse {
    * @public
    */
   Error?: ErrorInfo | undefined;
+
+  /**
+   * <p>Indicates whether the SageMaker Partner AI App is configured for automatic minor version upgrades during scheduled maintenance windows.</p>
+   * @public
+   */
+  EnableAutoMinorVersionUpgrade?: boolean | undefined;
+
+  /**
+   * <p>The end-of-life date for the current version of the SageMaker Partner AI App.</p>
+   * @public
+   */
+  CurrentVersionEolDate?: Date | undefined;
+
+  /**
+   * <p>A map of available minor version upgrades for the SageMaker Partner AI App. The key is the semantic version number, and the value is a list of release notes for that version. A null value indicates no upgrades are available.</p>
+   * @public
+   */
+  AvailableUpgrade?: AvailableUpgrade | undefined;
 }
 
 /**
@@ -10641,29 +10836,3 @@ export interface GetModelPackageGroupPolicyOutput {
  * @public
  */
 export interface GetSagemakerServicecatalogPortfolioStatusInput {}
-
-/**
- * @public
- * @enum
- */
-export const SagemakerServicecatalogStatus = {
-  DISABLED: "Disabled",
-  ENABLED: "Enabled",
-} as const;
-
-/**
- * @public
- */
-export type SagemakerServicecatalogStatus =
-  (typeof SagemakerServicecatalogStatus)[keyof typeof SagemakerServicecatalogStatus];
-
-/**
- * @public
- */
-export interface GetSagemakerServicecatalogPortfolioStatusOutput {
-  /**
-   * <p>Whether Service Catalog is enabled or disabled in SageMaker.</p>
-   * @public
-   */
-  Status?: SagemakerServicecatalogStatus | undefined;
-}

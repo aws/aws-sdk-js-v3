@@ -176,8 +176,39 @@ import {
   Parameter,
   ResourceType,
   SortOrder,
-  SortTrialsBy,
+  TrialComponentSummary,
 } from "./models_4";
+
+/**
+ * @public
+ */
+export interface ListTrialComponentsResponse {
+  /**
+   * <p>A list of the summaries of your trial components.</p>
+   * @public
+   */
+  TrialComponentSummaries?: TrialComponentSummary[] | undefined;
+
+  /**
+   * <p>A token for getting the next set of components, if there are any.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const SortTrialsBy = {
+  CREATION_TIME: "CreationTime",
+  NAME: "Name",
+} as const;
+
+/**
+ * @public
+ */
+export type SortTrialsBy = (typeof SortTrialsBy)[keyof typeof SortTrialsBy];
 
 /**
  * @public
@@ -5311,6 +5342,18 @@ export interface UpdatePartnerAppRequest {
    * @public
    */
   EnableIamSessionBasedIdentity?: boolean | undefined;
+
+  /**
+   * <p>When set to <code>TRUE</code>, the SageMaker Partner AI App is automatically upgraded to the latest minor version during the next scheduled maintenance window, if one is available.</p>
+   * @public
+   */
+  EnableAutoMinorVersionUpgrade?: boolean | undefined;
+
+  /**
+   * <p>The semantic version to upgrade the SageMaker Partner AI App to. Must be the same semantic version returned in the <code>AvailableUpgrade</code> field from <code>DescribePartnerApp</code>. Version skipping and downgrades are not supported.</p>
+   * @public
+   */
+  AppVersion?: string | undefined;
 
   /**
    * <p>A unique token that guarantees that the call to this API is idempotent.</p>
