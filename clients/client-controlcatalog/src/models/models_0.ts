@@ -677,6 +677,7 @@ export interface ListDomainsResponse {
 export const MappingType = {
   COMMON_CONTROL: "COMMON_CONTROL",
   FRAMEWORK: "FRAMEWORK",
+  RELATED_CONTROL: "RELATED_CONTROL",
 } as const;
 
 /**
@@ -750,10 +751,47 @@ export interface FrameworkMappingDetails {
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const ControlRelationType = {
+  ALTERNATIVE: "ALTERNATIVE",
+  COMPLEMENTARY: "COMPLEMENTARY",
+  MUTUALLY_EXCLUSIVE: "MUTUALLY_EXCLUSIVE",
+} as const;
+
+/**
+ * @public
+ */
+export type ControlRelationType = (typeof ControlRelationType)[keyof typeof ControlRelationType];
+
+/**
+ * <p>A structure that describes a control's relationship status with other controls.</p>
+ * @public
+ */
+export interface RelatedControlMappingDetails {
+  /**
+   * <p>The unique identifier of a control.</p>
+   * @public
+   */
+  ControlArn?: string | undefined;
+
+  /**
+   * <p>Returns an enumerated value that represents the relationship between two or more controls.</p>
+   * @public
+   */
+  RelationType: ControlRelationType | undefined;
+}
+
+/**
  * <p>A structure that contains the details of a mapping relationship, which can be either to a framework or to a common control.</p>
  * @public
  */
-export type Mapping = Mapping.CommonControlMember | Mapping.FrameworkMember | Mapping.$UnknownMember;
+export type Mapping =
+  | Mapping.CommonControlMember
+  | Mapping.FrameworkMember
+  | Mapping.RelatedControlMember
+  | Mapping.$UnknownMember;
 
 /**
  * @public
@@ -766,6 +804,7 @@ export namespace Mapping {
   export interface FrameworkMember {
     Framework: FrameworkMappingDetails;
     CommonControl?: never;
+    RelatedControl?: never;
     $unknown?: never;
   }
 
@@ -776,6 +815,18 @@ export namespace Mapping {
   export interface CommonControlMember {
     Framework?: never;
     CommonControl: CommonControlMappingDetails;
+    RelatedControl?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Returns information about controls that are related to the specified control.</p>
+   * @public
+   */
+  export interface RelatedControlMember {
+    Framework?: never;
+    CommonControl?: never;
+    RelatedControl: RelatedControlMappingDetails;
     $unknown?: never;
   }
 
@@ -785,6 +836,7 @@ export namespace Mapping {
   export interface $UnknownMember {
     Framework?: never;
     CommonControl?: never;
+    RelatedControl?: never;
     $unknown: [string, any];
   }
 
@@ -795,6 +847,7 @@ export namespace Mapping {
   export interface Visitor<T> {
     Framework: (value: FrameworkMappingDetails) => T;
     CommonControl: (value: CommonControlMappingDetails) => T;
+    RelatedControl: (value: RelatedControlMappingDetails) => T;
     _: (name: string, value: any) => T;
   }
 }
@@ -811,13 +864,13 @@ export interface ControlMapping {
   ControlArn: string | undefined;
 
   /**
-   * <p>The type of mapping relationship between the control and other entities. Indicates whether the mapping is to a framework or common control.</p>
+   * <p>The type of mapping relationship between the control and other entities.</p>
    * @public
    */
   MappingType: MappingType | undefined;
 
   /**
-   * <p>The details of the mapping relationship, containing either framework or common control information.</p>
+   * <p>The details of the mapping relationship, for example, containing framework, common control, or related control information.</p>
    * @public
    */
   Mapping: Mapping | undefined;

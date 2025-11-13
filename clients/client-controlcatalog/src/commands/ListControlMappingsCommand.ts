@@ -47,7 +47,7 @@ export interface ListControlMappingsCommandOutput extends ListControlMappingsRes
  *       "STRING_VALUE",
  *     ],
  *     MappingTypes: [ // MappingTypeFilterList
- *       "FRAMEWORK" || "COMMON_CONTROL",
+ *       "FRAMEWORK" || "COMMON_CONTROL" || "RELATED_CONTROL",
  *     ],
  *   },
  * };
@@ -57,7 +57,7 @@ export interface ListControlMappingsCommandOutput extends ListControlMappingsRes
  * //   ControlMappings: [ // ControlMappings // required
  * //     { // ControlMapping
  * //       ControlArn: "STRING_VALUE", // required
- * //       MappingType: "FRAMEWORK" || "COMMON_CONTROL", // required
+ * //       MappingType: "FRAMEWORK" || "COMMON_CONTROL" || "RELATED_CONTROL", // required
  * //       Mapping: { // Mapping Union: only one key present
  * //         Framework: { // FrameworkMappingDetails
  * //           Name: "STRING_VALUE", // required
@@ -65,6 +65,10 @@ export interface ListControlMappingsCommandOutput extends ListControlMappingsRes
  * //         },
  * //         CommonControl: { // CommonControlMappingDetails
  * //           CommonControlArn: "STRING_VALUE", // required
+ * //         },
+ * //         RelatedControl: { // RelatedControlMappingDetails
+ * //           ControlArn: "STRING_VALUE",
+ * //           RelationType: "COMPLEMENTARY" || "ALTERNATIVE" || "MUTUALLY_EXCLUSIVE", // required
  * //         },
  * //       },
  * //     },

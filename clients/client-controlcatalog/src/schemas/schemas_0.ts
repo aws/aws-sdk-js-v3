@@ -79,7 +79,10 @@ const _OSL = "ObjectiveSummaryList";
 const _Ob = "Objective";
 const _P = "Parameters";
 const _RC = "RegionConfiguration";
+const _RCMD = "RelatedControlMappingDetails";
+const _RCe = "RelatedControl";
 const _RNFE = "ResourceNotFoundException";
+const _RT = "RelationType";
 const _S = "Severity";
 const _Sc = "Scope";
 const _T = "Type";
@@ -330,6 +333,7 @@ export var ObjectiveSummary: StaticStructureSchema = [
   [0, 0, 0, () => AssociatedDomainSummary, 4, 4],
 ];
 export var RegionConfiguration: StaticStructureSchema = [3, n0, _RC, 0, [_Sc, _DR], [0, 64 | 0]];
+export var RelatedControlMappingDetails: StaticStructureSchema = [3, n0, _RCMD, 0, [_CA, _RT], [0, 0]];
 export var ResourceNotFoundException: StaticErrorSchema = [
   -3,
   n0,
@@ -403,8 +407,8 @@ export var Mapping: StaticStructureSchema = [
   n0,
   _Ma,
   0,
-  [_Fr, _CCo],
-  [() => FrameworkMappingDetails, () => CommonControlMappingDetails],
+  [_Fr, _CCo, _RCe],
+  [() => FrameworkMappingDetails, () => CommonControlMappingDetails, () => RelatedControlMappingDetails],
 ];
 export var GetControl: StaticOperationSchema = [
   9,
