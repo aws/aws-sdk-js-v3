@@ -18,6 +18,7 @@ import {
   ExtendedDataServices,
   HopDestination,
   Id3Insertion,
+  ImageInserter,
   Input,
   InputTemplate,
   JobMessages,
@@ -35,18 +36,122 @@ import {
   AfdSignaling,
   AntiAlias,
   ChromaPositionMode,
+  ColorCorrector,
   ColorMetadata,
   ContainerSettings,
+  Deinterlacer,
+  DolbyVision,
   DropFrameTimecode,
+  Hdr10Plus,
+  NoiseReducer,
   OutputGroupSettings,
   OutputSettings,
+  PartnerWatermarking,
   RespondToAfd,
   ScalingBehavior,
   TimecodeTrack,
   VideoCodecSettings,
-  VideoPreprocessor,
   VideoTimecodeInsertion,
 } from "./models_1";
+
+/**
+ * @public
+ * @enum
+ */
+export const TimecodeBurninPosition = {
+  BOTTOM_CENTER: "BOTTOM_CENTER",
+  BOTTOM_LEFT: "BOTTOM_LEFT",
+  BOTTOM_RIGHT: "BOTTOM_RIGHT",
+  MIDDLE_CENTER: "MIDDLE_CENTER",
+  MIDDLE_LEFT: "MIDDLE_LEFT",
+  MIDDLE_RIGHT: "MIDDLE_RIGHT",
+  TOP_CENTER: "TOP_CENTER",
+  TOP_LEFT: "TOP_LEFT",
+  TOP_RIGHT: "TOP_RIGHT",
+} as const;
+
+/**
+ * @public
+ */
+export type TimecodeBurninPosition = (typeof TimecodeBurninPosition)[keyof typeof TimecodeBurninPosition];
+
+/**
+ * Settings for burning the output timecode and specified prefix into the output.
+ * @public
+ */
+export interface TimecodeBurnin {
+  /**
+   * Use Font size to set the font size of any burned-in timecode. Valid values are 10, 16, 32, 48.
+   * @public
+   */
+  FontSize?: number | undefined;
+
+  /**
+   * Use Position under Timecode burn-in to specify the location the burned-in timecode on output video.
+   * @public
+   */
+  Position?: TimecodeBurninPosition | undefined;
+
+  /**
+   * Use Prefix to place ASCII characters before any burned-in timecode. For example, a prefix of "EZ-" will result in the timecode "EZ-00:00:00:00". Provide either the characters themselves or the ASCII code equivalents. The supported range of characters is 0x20 through 0x7e. This includes letters, numbers, and all special characters represented on a standard English keyboard.
+   * @public
+   */
+  Prefix?: string | undefined;
+}
+
+/**
+ * Find additional transcoding features under Preprocessors. Enable the features at each output individually. These features are disabled by default.
+ * @public
+ */
+export interface VideoPreprocessor {
+  /**
+   * Use these settings to convert the color space or to modify properties such as hue and contrast for this output. For more information, see https://docs.aws.amazon.com/mediaconvert/latest/ug/converting-the-color-space.html.
+   * @public
+   */
+  ColorCorrector?: ColorCorrector | undefined;
+
+  /**
+   * Use the deinterlacer to produce smoother motion and a clearer picture. For more information, see https://docs.aws.amazon.com/mediaconvert/latest/ug/working-with-scan-type.html.
+   * @public
+   */
+  Deinterlacer?: Deinterlacer | undefined;
+
+  /**
+   * Enable Dolby Vision feature to produce Dolby Vision compatible video output.
+   * @public
+   */
+  DolbyVision?: DolbyVision | undefined;
+
+  /**
+   * Enable HDR10+ analysis and metadata injection. Compatible with HEVC only.
+   * @public
+   */
+  Hdr10Plus?: Hdr10Plus | undefined;
+
+  /**
+   * Enable the Image inserter feature to include a graphic overlay on your video. Enable or disable this feature for each output individually. This setting is disabled by default.
+   * @public
+   */
+  ImageInserter?: ImageInserter | undefined;
+
+  /**
+   * Enable the Noise reducer feature to remove noise from your video output if necessary. Enable or disable this feature for each output individually. This setting is disabled by default. When you enable Noise reducer, you must also select a value for Noise reducer filter. For AVC outputs, when you include Noise reducer, you cannot include the Bandwidth reduction filter.
+   * @public
+   */
+  NoiseReducer?: NoiseReducer | undefined;
+
+  /**
+   * If you work with a third party video watermarking partner, use the group of settings that correspond with your watermarking partner to include watermarks in your output.
+   * @public
+   */
+  PartnerWatermarking?: PartnerWatermarking | undefined;
+
+  /**
+   * Settings for burning the output timecode and specified prefix into the output.
+   * @public
+   */
+  TimecodeBurnin?: TimecodeBurnin | undefined;
+}
 
 /**
  * Settings related to video encoding of your output. The specific video settings depend on the video codec that you choose.

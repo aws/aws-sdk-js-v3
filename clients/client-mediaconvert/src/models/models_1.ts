@@ -23,7 +23,6 @@ import {
   HlsOutputSelection,
   HlsProgramDateTime,
   HlsProgressiveWriteHlsManifest,
-  ImageInserter,
   SpekeKeyProvider,
 } from "./models_0";
 
@@ -524,6 +523,20 @@ export type CmfcAudioTrackType = (typeof CmfcAudioTrackType)[keyof typeof CmfcAu
  * @public
  * @enum
  */
+export const CmfcC2paManifest = {
+  EXCLUDE: "EXCLUDE",
+  INCLUDE: "INCLUDE",
+} as const;
+
+/**
+ * @public
+ */
+export type CmfcC2paManifest = (typeof CmfcC2paManifest)[keyof typeof CmfcC2paManifest];
+
+/**
+ * @public
+ * @enum
+ */
 export const CmfcDescriptiveVideoServiceFlag = {
   DONT_FLAG: "DONT_FLAG",
   FLAG: "FLAG",
@@ -665,6 +678,18 @@ export interface CmfcSettings {
   AudioTrackType?: CmfcAudioTrackType | undefined;
 
   /**
+   * When enabled, a C2PA compliant manifest will be generated, signed and embeded in the output. For more information on C2PA, see https://c2pa.org/specifications/specifications/2.1/index.html
+   * @public
+   */
+  C2paManifest?: CmfcC2paManifest | undefined;
+
+  /**
+   * Specify the name or ARN of the AWS Secrets Manager secret that contains your C2PA public certificate chain in PEM format. Provide a valid secret name or ARN. Note that your MediaConvert service role must allow access to this secret. The public certificate chain is added to the COSE header (x5chain) for signature validation. Include the signer's certificate and all intermediate certificates. Do not include the root certificate. For details on COSE, see: https://opensource.contentauthenticity.org/docs/manifest/signing-manifests
+   * @public
+   */
+  CertificateSecret?: string | undefined;
+
+  /**
    * Specify whether to flag this audio track as descriptive video service (DVS) in your HLS parent manifest. When you choose Flag, MediaConvert includes the parameter CHARACTERISTICS="public.accessibility.describes-video" in the EXT-X-MEDIA entry for this track. When you keep the default choice, Don't flag, MediaConvert leaves this parameter out. The DVS flag can help with accessibility on Apple devices. For more information, see the Apple documentation.
    * @public
    */
@@ -699,6 +724,12 @@ export interface CmfcSettings {
    * @public
    */
   Scte35Source?: CmfcScte35Source | undefined;
+
+  /**
+   * Specify the ID or ARN of the AWS KMS key used to sign the C2PA manifest in your MP4 output. Provide a valid KMS key ARN. Note that your MediaConvert service role must allow access to this key.
+   * @public
+   */
+  SigningKmsKey?: string | undefined;
 
   /**
    * To include ID3 metadata in this output: Set ID3 metadata to Passthrough. Specify this ID3 metadata in Custom ID3 metadata inserter. MediaConvert writes each instance of ID3 metadata in a separate Event Message (eMSG) box. To exclude this ID3 metadata: Set ID3 metadata to None or leave blank.
@@ -1858,6 +1889,20 @@ export type MpdAudioDuration = (typeof MpdAudioDuration)[keyof typeof MpdAudioDu
  * @public
  * @enum
  */
+export const MpdC2paManifest = {
+  EXCLUDE: "EXCLUDE",
+  INCLUDE: "INCLUDE",
+} as const;
+
+/**
+ * @public
+ */
+export type MpdC2paManifest = (typeof MpdC2paManifest)[keyof typeof MpdC2paManifest];
+
+/**
+ * @public
+ * @enum
+ */
 export const MpdCaptionContainerType = {
   FRAGMENTED_MP4: "FRAGMENTED_MP4",
   RAW: "RAW",
@@ -1971,10 +2016,22 @@ export interface MpdSettings {
   AudioDuration?: MpdAudioDuration | undefined;
 
   /**
+   * When enabled, a C2PA compliant manifest will be generated, signed and embeded in the output. For more information on C2PA, see https://c2pa.org/specifications/specifications/2.1/index.html
+   * @public
+   */
+  C2paManifest?: MpdC2paManifest | undefined;
+
+  /**
    * Use this setting only in DASH output groups that include sidecar TTML, IMSC or WEBVTT captions. You specify sidecar captions in a separate output from your audio and video. Choose Raw for captions in a single XML file in a raw container. Choose Fragmented MPEG-4 for captions in XML format contained within fragmented MP4 files. This set of fragmented MP4 files is separate from your video and audio fragmented MP4 files.
    * @public
    */
   CaptionContainerType?: MpdCaptionContainerType | undefined;
+
+  /**
+   * Specify the name or ARN of the AWS Secrets Manager secret that contains your C2PA public certificate chain in PEM format. Provide a valid secret name or ARN. Note that your MediaConvert service role must allow access to this secret. The public certificate chain is added to the COSE header (x5chain) for signature validation. Include the signer's certificate and all intermediate certificates. Do not include the root certificate. For details on COSE, see: https://opensource.contentauthenticity.org/docs/manifest/signing-manifests
+   * @public
+   */
+  CertificateSecret?: string | undefined;
 
   /**
    * To include key-length-value metadata in this output: Set KLV metadata insertion to Passthrough. MediaConvert reads KLV metadata present in your input and writes each instance to a separate event message box in the output, according to MISB ST1910.1. To exclude this KLV metadata: Set KLV metadata insertion to None or leave blank.
@@ -1999,6 +2056,12 @@ export interface MpdSettings {
    * @public
    */
   Scte35Source?: MpdScte35Source | undefined;
+
+  /**
+   * Specify the ID or ARN of the AWS KMS key used to sign the C2PA manifest in your MP4 output. Provide a valid KMS key ARN. Note that your MediaConvert service role must allow access to this key.
+   * @public
+   */
+  SigningKmsKey?: string | undefined;
 
   /**
    * To include ID3 metadata in this output: Set ID3 metadata to Passthrough. Specify this ID3 metadata in Custom ID3 metadata inserter. MediaConvert writes each instance of ID3 metadata in a separate Event Message (eMSG) box. To exclude this ID3 metadata: Set ID3 metadata to None or leave blank.
@@ -4873,6 +4936,20 @@ export interface Mpeg2Settings {
  * @public
  * @enum
  */
+export const FrameControl = {
+  NEAREST_IDRFRAME: "NEAREST_IDRFRAME",
+  NEAREST_IFRAME: "NEAREST_IFRAME",
+} as const;
+
+/**
+ * @public
+ */
+export type FrameControl = (typeof FrameControl)[keyof typeof FrameControl];
+
+/**
+ * @public
+ * @enum
+ */
 export const VideoSelectorMode = {
   AUTO: "AUTO",
   REMUX_ALL: "REMUX_ALL",
@@ -4888,6 +4965,12 @@ export type VideoSelectorMode = (typeof VideoSelectorMode)[keyof typeof VideoSel
  * @public
  */
 export interface PassthroughSettings {
+  /**
+   * Choose how MediaConvert handles start and end times for input clipping with video passthrough. Your input video codec must be H.264 or H.265 to use IFRAME. To clip at the nearest IDR-frame: Choose Nearest IDR. If an IDR-frame is not found at the frame that you specify, MediaConvert uses the next compatible IDR-frame. Note that your output may be shorter than your input clip duration. To clip at the nearest I-frame: Choose Nearest I-frame. If an I-frame is not found at the frame that you specify, MediaConvert uses the next compatible I-frame. Note that your output may be shorter than your input clip duration. We only recommend this setting for special workflows, and when you choose this setting your output may not be compatible with most players.
+   * @public
+   */
+  FrameControl?: FrameControl | undefined;
+
   /**
    * AUTO will select the highest bitrate input in the video selector source. REMUX_ALL will passthrough all the selected streams in the video selector source. When selecting streams from multiple renditions (i.e. using Stream video selector type): REMUX_ALL will only remux all streams selected, and AUTO will use the highest bitrate video stream among the selected streams as source.
    * @public
@@ -7058,103 +7141,4 @@ export interface PartnerWatermarking {
    * @public
    */
   NexguardFileMarkerSettings?: NexGuardFileMarkerSettings | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const TimecodeBurninPosition = {
-  BOTTOM_CENTER: "BOTTOM_CENTER",
-  BOTTOM_LEFT: "BOTTOM_LEFT",
-  BOTTOM_RIGHT: "BOTTOM_RIGHT",
-  MIDDLE_CENTER: "MIDDLE_CENTER",
-  MIDDLE_LEFT: "MIDDLE_LEFT",
-  MIDDLE_RIGHT: "MIDDLE_RIGHT",
-  TOP_CENTER: "TOP_CENTER",
-  TOP_LEFT: "TOP_LEFT",
-  TOP_RIGHT: "TOP_RIGHT",
-} as const;
-
-/**
- * @public
- */
-export type TimecodeBurninPosition = (typeof TimecodeBurninPosition)[keyof typeof TimecodeBurninPosition];
-
-/**
- * Settings for burning the output timecode and specified prefix into the output.
- * @public
- */
-export interface TimecodeBurnin {
-  /**
-   * Use Font size to set the font size of any burned-in timecode. Valid values are 10, 16, 32, 48.
-   * @public
-   */
-  FontSize?: number | undefined;
-
-  /**
-   * Use Position under Timecode burn-in to specify the location the burned-in timecode on output video.
-   * @public
-   */
-  Position?: TimecodeBurninPosition | undefined;
-
-  /**
-   * Use Prefix to place ASCII characters before any burned-in timecode. For example, a prefix of "EZ-" will result in the timecode "EZ-00:00:00:00". Provide either the characters themselves or the ASCII code equivalents. The supported range of characters is 0x20 through 0x7e. This includes letters, numbers, and all special characters represented on a standard English keyboard.
-   * @public
-   */
-  Prefix?: string | undefined;
-}
-
-/**
- * Find additional transcoding features under Preprocessors. Enable the features at each output individually. These features are disabled by default.
- * @public
- */
-export interface VideoPreprocessor {
-  /**
-   * Use these settings to convert the color space or to modify properties such as hue and contrast for this output. For more information, see https://docs.aws.amazon.com/mediaconvert/latest/ug/converting-the-color-space.html.
-   * @public
-   */
-  ColorCorrector?: ColorCorrector | undefined;
-
-  /**
-   * Use the deinterlacer to produce smoother motion and a clearer picture. For more information, see https://docs.aws.amazon.com/mediaconvert/latest/ug/working-with-scan-type.html.
-   * @public
-   */
-  Deinterlacer?: Deinterlacer | undefined;
-
-  /**
-   * Enable Dolby Vision feature to produce Dolby Vision compatible video output.
-   * @public
-   */
-  DolbyVision?: DolbyVision | undefined;
-
-  /**
-   * Enable HDR10+ analysis and metadata injection. Compatible with HEVC only.
-   * @public
-   */
-  Hdr10Plus?: Hdr10Plus | undefined;
-
-  /**
-   * Enable the Image inserter feature to include a graphic overlay on your video. Enable or disable this feature for each output individually. This setting is disabled by default.
-   * @public
-   */
-  ImageInserter?: ImageInserter | undefined;
-
-  /**
-   * Enable the Noise reducer feature to remove noise from your video output if necessary. Enable or disable this feature for each output individually. This setting is disabled by default. When you enable Noise reducer, you must also select a value for Noise reducer filter. For AVC outputs, when you include Noise reducer, you cannot include the Bandwidth reduction filter.
-   * @public
-   */
-  NoiseReducer?: NoiseReducer | undefined;
-
-  /**
-   * If you work with a third party video watermarking partner, use the group of settings that correspond with your watermarking partner to include watermarks in your output.
-   * @public
-   */
-  PartnerWatermarking?: PartnerWatermarking | undefined;
-
-  /**
-   * Settings for burning the output timecode and specified prefix into the output.
-   * @public
-   */
-  TimecodeBurnin?: TimecodeBurnin | undefined;
 }

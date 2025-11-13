@@ -307,6 +307,7 @@ const _FC = "FramerateControl";
 const _FCA = "FramerateConversionAlgorithm";
 const _FCS = "FrameCaptureSettings";
 const _FCo = "FontColor";
+const _FCr = "FrameControl";
 const _FD = "FramerateDenominator";
 const _FE = "ForbiddenException";
 const _FEi = "FieldEncoding";
@@ -1202,6 +1203,7 @@ const _fC = "framerateControl";
 const _fCA = "framerateConversionAlgorithm";
 const _fCS = "frameCaptureSettings";
 const _fCo = "fontColor";
+const _fCr = "frameControl";
 const _fD = "framerateDenominator";
 const _fE = "fieldEncoding";
 const _fEi = "filterEnable";
@@ -3652,7 +3654,7 @@ export var CmfcSettings: StaticStructureSchema = [
   n0,
   _CSm,
   0,
-  [_ADu, _AGI, _ARSu, _ATT, _DVSF, _IFOM, _KM, _MMS, _SE, _SSc, _TM, _TMBV, _TMSIU, _TMV],
+  [_ADu, _AGI, _ARSu, _ATT, _CMp, _CSe, _DVSF, _IFOM, _KM, _MMS, _SE, _SSc, _SKK, _TM, _TMBV, _TMSIU, _TMV],
   [
     [
       0,
@@ -3676,6 +3678,18 @@ export var CmfcSettings: StaticStructureSchema = [
       0,
       {
         [_jN]: _aTT,
+      },
+    ],
+    [
+      0,
+      {
+        [_jN]: _cMp,
+      },
+    ],
+    [
+      0,
+      {
+        [_jN]: _cSe,
       },
     ],
     [
@@ -3712,6 +3726,12 @@ export var CmfcSettings: StaticStructureSchema = [
       0,
       {
         [_jN]: _sSc,
+      },
+    ],
+    [
+      0,
+      {
+        [_jN]: _sKK,
       },
     ],
     [
@@ -9688,7 +9708,7 @@ export var MpdSettings: StaticStructureSchema = [
   n0,
   _MSpd,
   0,
-  [_ACH, _ADu, _CCT, _KM, _MMS, _SE, _SSc, _TM, _TMBV, _TMSIU, _TMV],
+  [_ACH, _ADu, _CMp, _CCT, _CSe, _KM, _MMS, _SE, _SSc, _SKK, _TM, _TMBV, _TMSIU, _TMV],
   [
     [
       0,
@@ -9705,7 +9725,19 @@ export var MpdSettings: StaticStructureSchema = [
     [
       0,
       {
+        [_jN]: _cMp,
+      },
+    ],
+    [
+      0,
+      {
         [_jN]: _cCT,
+      },
+    ],
+    [
+      0,
+      {
+        [_jN]: _cSe,
       },
     ],
     [
@@ -9730,6 +9762,12 @@ export var MpdSettings: StaticStructureSchema = [
       0,
       {
         [_jN]: _sSc,
+      },
+    ],
+    [
+      0,
+      {
+        [_jN]: _sKK,
       },
     ],
     [
@@ -10676,8 +10714,14 @@ export var PassthroughSettings: StaticStructureSchema = [
   n0,
   _PSa,
   0,
-  [_VSM],
+  [_FCr, _VSM],
   [
+    [
+      0,
+      {
+        [_jN]: _fCr,
+      },
+    ],
     [
       0,
       {
