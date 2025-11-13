@@ -67,14 +67,21 @@ export type AcceleratorManufacturer = (typeof AcceleratorManufacturer)[keyof typ
 export const AcceleratorName = {
   A100: "a100",
   A10G: "a10g",
+  GAUDI_HL_205: "gaudi-hl-205",
   H100: "h100",
   INFERENTIA: "inferentia",
+  INFERENTIA2: "inferentia2",
   K520: "k520",
   K80: "k80",
+  L4: "l4",
+  L40S: "l40s",
   M60: "m60",
   RADEON_PRO_V520: "radeon-pro-v520",
   T4: "t4",
   T4G: "t4g",
+  TRAINIUM: "trainium",
+  TRAINIUM2: "trainium2",
+  U30: "u30",
   V100: "v100",
   VU9P: "vu9p",
 } as const;
@@ -132,6 +139,7 @@ export const AcceleratorType = {
   FPGA: "fpga",
   GPU: "gpu",
   INFERENCE: "inference",
+  MEDIA: "media",
 } as const;
 
 /**
