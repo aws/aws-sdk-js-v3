@@ -235,7 +235,7 @@ export interface StopDBClusterCommandOutput extends StopDBClusterResult, __Metad
  * //       Status: "active" || "not-in-use" || "enabled" || "disabled" || "enabling" || "disabling" || "modifying-max-capacity" || "error",
  * //       MinRequiredACU: Number("double"),
  * //     },
- * //     ClusterScalabilityType: "standard" || "limitless" || "scaleout",
+ * //     ClusterScalabilityType: "standard" || "limitless",
  * //     CertificateDetails: {
  * //       CAIdentifier: "STRING_VALUE",
  * //       ValidTill: new Date("TIMESTAMP"),

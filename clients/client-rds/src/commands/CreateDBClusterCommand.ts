@@ -126,7 +126,7 @@ export interface CreateDBClusterCommandOutput extends CreateDBClusterResult, __M
  *   PerformanceInsightsKMSKeyId: "STRING_VALUE",
  *   PerformanceInsightsRetentionPeriod: Number("int"),
  *   EnableLimitlessDatabase: true || false,
- *   ClusterScalabilityType: "standard" || "limitless" || "scaleout",
+ *   ClusterScalabilityType: "standard" || "limitless",
  *   DBSystemId: "STRING_VALUE",
  *   ManageMasterUserPassword: true || false,
  *   EnableLocalWriteForwarding: true || false,
@@ -323,7 +323,7 @@ export interface CreateDBClusterCommandOutput extends CreateDBClusterResult, __M
  * //       Status: "active" || "not-in-use" || "enabled" || "disabled" || "enabling" || "disabling" || "modifying-max-capacity" || "error",
  * //       MinRequiredACU: Number("double"),
  * //     },
- * //     ClusterScalabilityType: "standard" || "limitless" || "scaleout",
+ * //     ClusterScalabilityType: "standard" || "limitless",
  * //     CertificateDetails: {
  * //       CAIdentifier: "STRING_VALUE",
  * //       ValidTill: new Date("TIMESTAMP"),

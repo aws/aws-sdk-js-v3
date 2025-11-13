@@ -4528,7 +4528,6 @@ export class InvalidCustomDBEngineVersionStateFault extends __BaseException {
  */
 export const ClusterScalabilityType = {
   LIMITLESS: "limitless",
-  SCALEOUT: "scaleout",
   STANDARD: "standard",
 } as const;
 

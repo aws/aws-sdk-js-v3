@@ -234,7 +234,7 @@ export interface StartDBClusterCommandOutput extends StartDBClusterResult, __Met
  * //       Status: "active" || "not-in-use" || "enabled" || "disabled" || "enabling" || "disabling" || "modifying-max-capacity" || "error",
  * //       MinRequiredACU: Number("double"),
  * //     },
- * //     ClusterScalabilityType: "standard" || "limitless" || "scaleout",
+ * //     ClusterScalabilityType: "standard" || "limitless",
  * //     CertificateDetails: {
  * //       CAIdentifier: "STRING_VALUE",
  * //       ValidTill: new Date("TIMESTAMP"),

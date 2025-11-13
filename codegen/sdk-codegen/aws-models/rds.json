@@ -2979,12 +2979,6 @@
           "traits": {
             "smithy.api#enumValue": "limitless"
           }
-        },
-        "SCALEOUT": {
-          "target": "smithy.api#Unit",
-          "traits": {
-            "smithy.api#enumValue": "scaleout"
-          }
         }
       }
     },
