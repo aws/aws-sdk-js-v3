@@ -135,6 +135,9 @@ export class AwsQueryProtocol extends RpcProtocol {
     return true;
   }
 
+  /**
+   * override
+   */
   protected async handleError(
     operationSchema: OperationSchema,
     context: HandlerExecutionContext & SerdeFunctions,
@@ -183,14 +186,17 @@ export class AwsQueryProtocol extends RpcProtocol {
       output[name] = this.deserializer.readSchema(member, value);
     }
 
-    throw Object.assign(
-      exception,
-      errorMetadata,
-      {
-        $fault: ns.getMergedTraits().error,
-        message,
-      },
-      output
+    throw this.mixin.decorateServiceException(
+      Object.assign(
+        exception,
+        errorMetadata,
+        {
+          $fault: ns.getMergedTraits().error,
+          message,
+        },
+        output
+      ),
+      dataObject
     );
   }
 

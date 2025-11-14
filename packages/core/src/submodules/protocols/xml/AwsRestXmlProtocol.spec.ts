@@ -1,6 +1,7 @@
 import { HttpRequest, HttpResponse } from "@smithy/protocol-http";
 import { StaticOperationSchema } from "@smithy/types";
 import { toUtf8 } from "@smithy/util-utf8";
+import { Readable } from "node:stream";
 import { describe, expect, test as it } from "vitest";
 
 import { context, deleteObjects } from "../test-schema.spec";
@@ -125,6 +126,42 @@ describe(AwsRestXmlProtocol.name, () => {
         requestId: undefined,
         extendedRequestId: undefined,
         cfId: undefined,
+      },
+    });
+  });
+
+  it("decorates service exceptions with unmodeled fields", async () => {
+    const httpResponse = new HttpResponse({
+      statusCode: 400,
+      headers: {},
+      body: Buffer.from(`<Exception><UnmodeledField>Oh no</UnmodeledField></Exception>`),
+    });
+
+    const protocol = new AwsRestXmlProtocol({
+      defaultNamespace: "",
+      xmlNamespace: "ns",
+    });
+
+    const output = await protocol
+      .deserializeResponse(
+        {
+          namespace: "ns",
+          name: "Empty",
+          traits: 0,
+          input: "unit" as const,
+          output: [3, "ns", "EmptyOutput", 0, [], []],
+        },
+        context,
+        httpResponse
+      )
+      .catch((e) => {
+        return e;
+      });
+
+    expect(output).toMatchObject({
+      UnmodeledField: "Oh no",
+      $metadata: {
+        httpStatusCode: 400,
       },
     });
   });

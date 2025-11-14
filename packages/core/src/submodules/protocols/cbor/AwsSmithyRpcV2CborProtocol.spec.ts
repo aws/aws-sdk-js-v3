@@ -4,6 +4,7 @@ import { HttpResponse } from "@smithy/protocol-http";
 import type { NumericSchema, StringSchema } from "@smithy/types";
 import { describe, expect, test as it } from "vitest";
 
+import { context } from "../test-schema.spec";
 import { AwsSmithyRpcV2CborProtocol } from "./AwsSmithyRpcV2CborProtocol";
 
 describe(AwsSmithyRpcV2CborProtocol.name, () => {
@@ -56,16 +57,8 @@ describe(AwsSmithyRpcV2CborProtocol.name, () => {
       requestId: undefined,
     });
 
-    expect(error.$response).toEqual(
-      new HttpResponse({
-        body,
-        headers: {
-          "x-amzn-query-error": "MyQueryError;Client",
-        },
-        reason: undefined,
-        statusCode: 400,
-      })
-    );
+    // set by deserializer middleware, not Protocol.
+    expect(error.$response).toEqual(undefined);
 
     expect(error.Code).toEqual(MyQueryError.name);
     expect(error.Error.Code).toEqual(MyQueryError.name);
@@ -89,6 +82,43 @@ describe(AwsSmithyRpcV2CborProtocol.name, () => {
       },
       Type: "Client",
       Code: "MyQueryError",
+    });
+  });
+
+  it("decorates service exceptions with unmodeled fields", async () => {
+    const httpResponse = new HttpResponse({
+      statusCode: 400,
+      headers: {},
+      body: cbor.serialize({
+        UnmodeledField: "Oh no",
+      }),
+    });
+
+    const protocol = new AwsSmithyRpcV2CborProtocol({
+      defaultNamespace: "",
+    });
+
+    const output = await protocol
+      .deserializeResponse(
+        {
+          namespace: "ns",
+          name: "Empty",
+          traits: 0,
+          input: "unit" as const,
+          output: [3, "ns", "EmptyOutput", 0, [], []],
+        },
+        context,
+        httpResponse
+      )
+      .catch((e) => {
+        return e;
+      });
+
+    expect(output).toMatchObject({
+      UnmodeledField: "Oh no",
+      $metadata: {
+        httpStatusCode: 400,
+      },
     });
   });
 });

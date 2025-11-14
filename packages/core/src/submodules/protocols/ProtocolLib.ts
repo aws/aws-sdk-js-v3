@@ -1,11 +1,12 @@
 import { NormalizedSchema, TypeRegistry } from "@smithy/core/schema";
+import { decorateServiceException, ServiceException as SDKBaseServiceException } from "@smithy/smithy-client";
 import type { HttpResponse as IHttpResponse, MetadataBearer, ResponseMetadata, StaticErrorSchema } from "@smithy/types";
 
 /**
  * @internal
  */
 type ErrorMetadataBearer = MetadataBearer & {
-  $response: IHttpResponse;
+  // $response is set by the deserializer middleware, not Protocol.
   $fault: "client" | "server";
 };
 
@@ -15,6 +16,8 @@ type ErrorMetadataBearer = MetadataBearer & {
  * @internal
  */
 export class ProtocolLib {
+  public constructor(private queryCompat = false) {}
+
   /**
    * This is only for REST protocols.
    *
@@ -74,7 +77,6 @@ export class ProtocolLib {
 
     const errorMetadata: ErrorMetadataBearer = {
       $metadata: metadata,
-      $response: response,
       $fault: response.statusCode < 500 ? ("client" as const) : ("server" as const),
     };
 
@@ -90,10 +92,32 @@ export class ProtocolLib {
       const baseExceptionSchema = synthetic.getBaseException();
       if (baseExceptionSchema) {
         const ErrorCtor = synthetic.getErrorCtor(baseExceptionSchema) ?? Error;
-        throw Object.assign(new ErrorCtor({ name: errorName }), errorMetadata, dataObject);
+        throw this.decorateServiceException(
+          Object.assign(new ErrorCtor({ name: errorName }), errorMetadata),
+          dataObject
+        );
       }
-      throw Object.assign(new Error(errorName), errorMetadata, dataObject);
+      throw this.decorateServiceException(Object.assign(new Error(errorName), errorMetadata), dataObject);
     }
+  }
+
+  /**
+   * Assigns additions onto exception if not already present.
+   */
+  public decorateServiceException<E extends SDKBaseServiceException>(
+    exception: E,
+    additions: Record<string, any> = {}
+  ): E {
+    if (this.queryCompat) {
+      const msg = (exception as any).Message ?? additions.Message;
+      const error = decorateServiceException(exception, additions);
+      if (msg) {
+        (error as any).Message = msg;
+        (error as any).message = msg;
+      }
+      return error;
+    }
+    return decorateServiceException(exception, additions);
   }
 
   /**

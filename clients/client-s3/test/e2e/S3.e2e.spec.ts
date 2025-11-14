@@ -1,10 +1,10 @@
 import "@aws-sdk/signature-v4-crt";
 
+import { getE2eTestResources } from "@aws-sdk/aws-util-test/src";
 import { ChecksumAlgorithm, S3 } from "@aws-sdk/client-s3";
 import { afterAll, afterEach, beforeAll, describe, expect, test as it } from "vitest";
 
 import { createBuffer } from "./helpers";
-import { getE2eTestResources } from "@aws-sdk/aws-util-test/src";
 
 let Key = `${Date.now()}`;
 
@@ -245,6 +245,20 @@ describe("@aws-sdk/client-s3", () => {
       });
       expect(result.$metadata.httpStatusCode).toEqual(200);
       expect(result.Contents).toBeInstanceOf(Array);
+    });
+
+    describe("error handling", () => {
+      it("should decorate exceptions with unmodeled error fields", async () => {
+        const error = await client
+          .abortMultipartUpload({
+            Bucket,
+            Key: "nonexistent-key",
+            UploadId: "uploadId",
+          })
+          .catch((e) => e);
+
+        expect((error as any).UploadId).toEqual("uploadId");
+      });
     });
   });
 }, 60_000);
