@@ -139,14 +139,17 @@ export class AwsRestJsonProtocol extends HttpBindingProtocol {
       output[name] = this.codec.createDeserializer().readObject(member, dataObject[target]);
     }
 
-    throw Object.assign(
-      exception,
-      errorMetadata,
-      {
-        $fault: ns.getMergedTraits().error,
-        message,
-      },
-      output
+    throw this.mixin.decorateServiceException(
+      Object.assign(
+        exception,
+        errorMetadata,
+        {
+          $fault: ns.getMergedTraits().error,
+          message,
+        },
+        output
+      ),
+      dataObject
     );
   }
 

@@ -410,5 +410,40 @@ describe(AwsRestJsonProtocol.name, () => {
         payload: null,
       });
     });
+
+    it("decorates service exceptions with unmodeled fields", async () => {
+      const httpResponse = new HttpResponse({
+        statusCode: 400,
+        headers: {},
+        body: Buffer.from(`{"UnmodeledField":"Oh no"}`),
+      });
+
+      const protocol = new AwsRestJsonProtocol({
+        defaultNamespace: "",
+      });
+
+      const output = await protocol
+        .deserializeResponse(
+          {
+            namespace: "ns",
+            name: "Empty",
+            traits: 0,
+            input: "unit" as const,
+            output: [3, "ns", "EmptyOutput", 0, [], []],
+          },
+          context,
+          httpResponse
+        )
+        .catch((e) => {
+          return e;
+        });
+
+      expect(output).toMatchObject({
+        UnmodeledField: "Oh no",
+        $metadata: {
+          httpStatusCode: 400,
+        },
+      });
+    });
   });
 });

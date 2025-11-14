@@ -89,6 +89,9 @@ export class AwsRestXmlProtocol extends HttpBindingProtocol {
     return super.deserializeResponse<Output>(operationSchema, context, response);
   }
 
+  /**
+   * @override
+   */
   protected async handleError(
     operationSchema: OperationSchema,
     context: HandlerExecutionContext & SerdeFunctions,
@@ -120,14 +123,17 @@ export class AwsRestXmlProtocol extends HttpBindingProtocol {
       output[name] = this.codec.createDeserializer().readSchema(member, value);
     }
 
-    throw Object.assign(
-      exception,
-      errorMetadata,
-      {
-        $fault: ns.getMergedTraits().error,
-        message,
-      },
-      output
+    throw this.mixin.decorateServiceException(
+      Object.assign(
+        exception,
+        errorMetadata,
+        {
+          $fault: ns.getMergedTraits().error,
+          message,
+        },
+        output
+      ),
+      dataObject
     );
   }
 

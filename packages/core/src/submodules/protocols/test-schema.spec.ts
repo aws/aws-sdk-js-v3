@@ -1,3 +1,4 @@
+import { collectBody } from "@smithy/core/protocols";
 import type {
   BigDecimalSchema,
   BigIntegerSchema,
@@ -112,6 +113,7 @@ export const deleteObjects: StaticOperationSchema = [
 ] satisfies StaticOperationSchema;
 
 export const context = {
+  streamCollector: collectBody,
   async endpoint() {
     return {
       hostname: "localhost",

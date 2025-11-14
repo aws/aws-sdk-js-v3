@@ -80,16 +80,8 @@ describe(AwsJsonRpcProtocol.name, () => {
       requestId: undefined,
     });
 
-    expect(error.$response).toEqual(
-      new HttpResponse({
-        body,
-        headers: {
-          "x-amzn-query-error": "MyQueryError;Client",
-        },
-        reason: undefined,
-        statusCode: 400,
-      })
-    );
+    // set by deserializer middleware, not protocol
+    expect(error.$response).toEqual(undefined);
 
     expect(error.Code).toEqual(MyQueryError.name);
     expect(error.Error.Code).toEqual(MyQueryError.name);

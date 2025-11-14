@@ -19,7 +19,7 @@ import { ProtocolLib } from "../ProtocolLib";
  */
 export class AwsSmithyRpcV2CborProtocol extends SmithyRpcV2CborProtocol {
   private readonly awsQueryCompatible: boolean;
-  private readonly mixin = new ProtocolLib();
+  private readonly mixin: ProtocolLib;
 
   public constructor({
     defaultNamespace,
@@ -30,6 +30,7 @@ export class AwsSmithyRpcV2CborProtocol extends SmithyRpcV2CborProtocol {
   }) {
     super({ defaultNamespace });
     this.awsQueryCompatible = !!awsQueryCompatible;
+    this.mixin = new ProtocolLib(this.awsQueryCompatible);
   }
 
   /**
@@ -84,14 +85,17 @@ export class AwsSmithyRpcV2CborProtocol extends SmithyRpcV2CborProtocol {
       this.mixin.queryCompatOutput(dataObject, output);
     }
 
-    throw Object.assign(
-      exception,
-      errorMetadata,
-      {
-        $fault: ns.getMergedTraits().error,
-        message,
-      },
-      output
+    throw this.mixin.decorateServiceException(
+      Object.assign(
+        exception,
+        errorMetadata,
+        {
+          $fault: ns.getMergedTraits().error,
+          message,
+        },
+        output
+      ),
+      dataObject
     );
   }
 }

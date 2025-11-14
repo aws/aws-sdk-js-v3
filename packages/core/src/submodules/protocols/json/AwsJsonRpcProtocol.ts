@@ -25,7 +25,7 @@ export abstract class AwsJsonRpcProtocol extends RpcProtocol {
   protected deserializer: ShapeDeserializer<string | Uint8Array>;
   protected serviceTarget: string;
   private readonly codec: JsonCodec;
-  private readonly mixin = new ProtocolLib();
+  private readonly mixin: ProtocolLib;
   private readonly awsQueryCompatible: boolean;
 
   protected constructor({
@@ -51,6 +51,7 @@ export abstract class AwsJsonRpcProtocol extends RpcProtocol {
     this.serializer = this.codec.createSerializer();
     this.deserializer = this.codec.createDeserializer();
     this.awsQueryCompatible = !!awsQueryCompatible;
+    this.mixin = new ProtocolLib(this.awsQueryCompatible);
   }
 
   public async serializeRequest<Input extends object>(
@@ -84,6 +85,9 @@ export abstract class AwsJsonRpcProtocol extends RpcProtocol {
 
   protected abstract getJsonRpcVersion(): "1.1" | "1.0";
 
+  /**
+   * @override
+   */
   protected async handleError(
     operationSchema: OperationSchema,
     context: HandlerExecutionContext & SerdeFunctions,
@@ -120,14 +124,17 @@ export abstract class AwsJsonRpcProtocol extends RpcProtocol {
       this.mixin.queryCompatOutput(dataObject, output);
     }
 
-    throw Object.assign(
-      exception,
-      errorMetadata,
-      {
-        $fault: ns.getMergedTraits().error,
-        message,
-      },
-      output
+    throw this.mixin.decorateServiceException(
+      Object.assign(
+        exception,
+        errorMetadata,
+        {
+          $fault: ns.getMergedTraits().error,
+          message,
+        },
+        output
+      ),
+      dataObject
     );
   }
 }
