@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.932.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.931.0...v3.932.0) (2025-11-14)
+
+
+### Bug Fixes
+
+* **core/protocols:** decorate service exceptions with unmodeled fields ([#7504](https://github.com/aws/aws-sdk-js-v3/issues/7504)) ([6de803d](https://github.com/aws/aws-sdk-js-v3/commit/6de803d7a3ed4832b557d334b7eadedd7ca651fa))
+
+
+
+
+
 # [3.931.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.930.0...v3.931.0) (2025-11-13)
 
 

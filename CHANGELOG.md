@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.932.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.931.0...v3.932.0) (2025-11-14)
+
+
+### Bug Fixes
+
+* **core/protocols:** decorate service exceptions with unmodeled fields ([#7504](https://github.com/aws/aws-sdk-js-v3/issues/7504)) ([6de803d](https://github.com/aws/aws-sdk-js-v3/commit/6de803d7a3ed4832b557d334b7eadedd7ca651fa))
+
+
+### Features
+
+* **client-datazone:** Adds support for granting read and write access to Amazon S3 general purpose buckets using CreateSubscriptionRequest and AcceptSubscriptionRequest APIs. Also adds search filters for SSOUser and SSOGroup to ListSubscriptions APIs and deprecates "sortBy" parameter for ListSubscriptions APIs. ([77488e7](https://github.com/aws/aws-sdk-js-v3/commit/77488e77edc83ed118e09608ea4bc7b02c2b673a))
+* **client-ec2:** This release adds AvailabilityZoneId support for CreateInstanceConnectEndpoint, DescribeInstanceConnectEndpoints, and DeleteInstanceConnectEndpoint APIs. ([5ba1cf6](https://github.com/aws/aws-sdk-js-v3/commit/5ba1cf6493eb4d070d0df5d94c371859461b7167))
+* **client-imagebuilder:** EC2 Image Builder now supports invoking Lambda functions and executing Step Functions state machine through image workflows. ([f8fe9d7](https://github.com/aws/aws-sdk-js-v3/commit/f8fe9d73898d33891ace8b46d2569f068a022d2e))
+* **client-medialive:** Removed all the value constraint (min/max) for the shape definitions (e.g. integerMin0Max3600) on the C2j models to get rid of the need to request an exemption from the SDK team whenever a shape definition (e.g. integerMin0Max3600) is changed. ([9bcaeef](https://github.com/aws/aws-sdk-js-v3/commit/9bcaeef4fc8f3c66f055e9bd68729c99f240b751))
+* **clients:** update client endpoints as of 2025-11-14 ([87473bd](https://github.com/aws/aws-sdk-js-v3/commit/87473bd2e75f8934d5698019e5e7e3c55397bd1f))
+
+
+
+
+
 # [3.931.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.930.0...v3.931.0) (2025-11-13)
 
 

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.932.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.931.0...v3.932.0) (2025-11-14)
+
+
+### Features
+
+* **client-imagebuilder:** EC2 Image Builder now supports invoking Lambda functions and executing Step Functions state machine through image workflows. ([f8fe9d7](https://github.com/aws/aws-sdk-js-v3/commit/f8fe9d73898d33891ace8b46d2569f068a022d2e))
+
+
+
+
+
 # [3.931.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.930.0...v3.931.0) (2025-11-13)
 
 **Note:** Version bump only for package @aws-sdk/client-imagebuilder
