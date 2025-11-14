@@ -19,7 +19,6 @@ import {
   Deployment,
   DeploymentProperties,
   EnvironmentConfigurationUserParameter,
-  EnvironmentDeploymentDetails,
   EnvironmentParameter,
   EnvironmentStatus,
   FilterStatus,
@@ -36,12 +35,9 @@ import {
   OwnerProperties,
   PhysicalEndpoint,
   PolicyGrantPrincipal,
-  ProjectDeletionError,
-  ProjectStatus,
   ProvisioningProperties,
   ResolutionStrategy,
   Resource,
-  ResourceTag,
   RowFilterExpression,
   SubscribedListing,
   SubscribedPrincipal,
@@ -50,15 +46,20 @@ import {
   TargetEntityType,
   TermRelations,
   TimeSeriesDataPointSummaryFormOutput,
+  UserProfileDetails,
 } from "./models_0";
 
 import {
   DataProductListingItem,
   DataProductResultItem,
   EnvironmentConfiguration,
+  EnvironmentDeploymentDetails,
   FailureCause,
   GrantedEntity,
   Import,
+  ProjectDeletionError,
+  ProjectStatus,
+  ResourceTag,
   ResourceTagParameter,
   RuleAction,
   RuleDetail,
@@ -72,14 +73,385 @@ import {
   SubscribedAsset,
   SubscriptionGrantOverallStatus,
   SubscriptionGrantStatus,
-  SubscriptionSummary,
+  SubscriptionGrantSummary,
   SubscriptionTargetForm,
   TimeSeriesDataPointFormOutput,
   TimeSeriesEntityType,
-  UserProfileDetails,
   UserProfileStatus,
   UserProfileType,
 } from "./models_1";
+
+/**
+ * @public
+ */
+export interface ListSubscriptionGrantsOutput {
+  /**
+   * <p>The results of the <code>ListSubscriptionGrants</code> action. </p>
+   * @public
+   */
+  items: SubscriptionGrantSummary[] | undefined;
+
+  /**
+   * <p>When the number of subscription grants is greater than the default value for the <code>MaxResults</code> parameter, or if you explicitly specify a value for <code>MaxResults</code> that is less than the number of subscription grants, the response includes a pagination token named <code>NextToken</code>. You can specify this <code>NextToken</code> value in a subsequent call to <code>ListSubscriptionGrants</code> to list the next set of subscription grants.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListSubscriptionRequestsInput {
+  /**
+   * <p>The identifier of the Amazon DataZone domain.</p>
+   * @public
+   */
+  domainIdentifier: string | undefined;
+
+  /**
+   * <p>Specifies the status of the subscription requests.</p> <note> <p>This is not a required parameter, but if not specified, by default, Amazon DataZone returns only <code>PENDING</code> subscription requests. </p> </note>
+   * @public
+   */
+  status?: SubscriptionRequestStatus | undefined;
+
+  /**
+   * <p>The identifier of the subscribed listing.</p>
+   * @public
+   */
+  subscribedListingId?: string | undefined;
+
+  /**
+   * <p>The identifier of the project for the subscription requests.</p>
+   * @public
+   */
+  owningProjectId?: string | undefined;
+
+  /**
+   * <p>The identifier of the subscription request approver's project.</p>
+   * @public
+   */
+  approverProjectId?: string | undefined;
+
+  /**
+   * <p>The ID of the owning user.</p>
+   * @public
+   */
+  owningUserId?: string | undefined;
+
+  /**
+   * <p>The ID of the owning group.</p>
+   * @public
+   */
+  owningGroupId?: string | undefined;
+
+  /**
+   * <p>Specifies the way to sort the results of this action.</p>
+   *
+   * @deprecated Results are always sorted by updatedAt
+   * @public
+   */
+  sortBy?: SortKey | undefined;
+
+  /**
+   * <p>Specifies the sort order for the results of this action.</p>
+   * @public
+   */
+  sortOrder?: SortOrder | undefined;
+
+  /**
+   * <p>The maximum number of subscription requests to return in a single call to <code>ListSubscriptionRequests</code>. When the number of subscription requests to be listed is greater than the value of <code>MaxResults</code>, the response contains a <code>NextToken</code> value that you can use in a subsequent call to <code>ListSubscriptionRequests</code> to list the next set of subscription requests.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>When the number of subscription requests is greater than the default value for the <code>MaxResults</code> parameter, or if you explicitly specify a value for <code>MaxResults</code> that is less than the number of subscription requests, the response includes a pagination token named <code>NextToken</code>. You can specify this <code>NextToken</code> value in a subsequent call to <code>ListSubscriptionRequests</code> to list the next set of subscription requests.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * <p>The summary of the metadata form.</p>
+ * @public
+ */
+export interface MetadataFormSummary {
+  /**
+   * <p>The form name of the metadata form.</p>
+   * @public
+   */
+  formName?: string | undefined;
+
+  /**
+   * <p>The type name of the metadata form.</p>
+   * @public
+   */
+  typeName: string | undefined;
+
+  /**
+   * <p>The type revision of the metadata form.</p>
+   * @public
+   */
+  typeRevision: string | undefined;
+}
+
+/**
+ * <p>The details of the subscription request.</p>
+ * @public
+ */
+export interface SubscriptionRequestSummary {
+  /**
+   * <p>The identifier of the subscription request.</p>
+   * @public
+   */
+  id: string | undefined;
+
+  /**
+   * <p>The Amazon DataZone user who created the subscription request.</p>
+   * @public
+   */
+  createdBy: string | undefined;
+
+  /**
+   * <p>The identifier of the Amazon DataZone user who updated the subscription request.</p>
+   * @public
+   */
+  updatedBy?: string | undefined;
+
+  /**
+   * <p>The identifier of the Amazon DataZone domain in which a subscription request exists.</p>
+   * @public
+   */
+  domainId: string | undefined;
+
+  /**
+   * <p>The status of the subscription request.</p>
+   * @public
+   */
+  status: SubscriptionRequestStatus | undefined;
+
+  /**
+   * <p>The timestamp of when a subscription request was created.</p>
+   * @public
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p>The timestamp of when the subscription request was updated.</p>
+   * @public
+   */
+  updatedAt: Date | undefined;
+
+  /**
+   * <p>The reason for the subscription request.</p>
+   * @public
+   */
+  requestReason: string | undefined;
+
+  /**
+   * <p>The principals included in the subscription request. </p>
+   * @public
+   */
+  subscribedPrincipals: SubscribedPrincipal[] | undefined;
+
+  /**
+   * <p>The listings included in the subscription request.</p>
+   * @public
+   */
+  subscribedListings: SubscribedListing[] | undefined;
+
+  /**
+   * <p>The identifier of the subscription request reviewer.</p>
+   * @public
+   */
+  reviewerId?: string | undefined;
+
+  /**
+   * <p>The decision comment of the subscription request.</p>
+   * @public
+   */
+  decisionComment?: string | undefined;
+
+  /**
+   * <p>The ID of the existing subscription.</p>
+   * @public
+   */
+  existingSubscriptionId?: string | undefined;
+
+  /**
+   * <p>The summary of the metadata forms.</p>
+   * @public
+   */
+  metadataFormsSummary?: MetadataFormSummary[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListSubscriptionRequestsOutput {
+  /**
+   * <p>The results of the <code>ListSubscriptionRequests</code> action. </p>
+   * @public
+   */
+  items: SubscriptionRequestSummary[] | undefined;
+
+  /**
+   * <p>When the number of subscription requests is greater than the default value for the <code>MaxResults</code> parameter, or if you explicitly specify a value for <code>MaxResults</code> that is less than the number of subscription requests, the response includes a pagination token named <code>NextToken</code>. You can specify this <code>NextToken</code> value in a subsequent call to <code>ListSubscriptionRequests</code> to list the next set of subscription requests.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListSubscriptionsInput {
+  /**
+   * <p>The identifier of the Amazon DataZone domain.</p>
+   * @public
+   */
+  domainIdentifier: string | undefined;
+
+  /**
+   * <p>The identifier of the subscription request for the subscriptions that you want to list.</p>
+   * @public
+   */
+  subscriptionRequestIdentifier?: string | undefined;
+
+  /**
+   * <p>The status of the subscriptions that you want to list.</p> <note> <p>This is not a required parameter, but if not provided, by default, Amazon DataZone returns only <code>APPROVED</code> subscriptions. </p> </note>
+   * @public
+   */
+  status?: SubscriptionStatus | undefined;
+
+  /**
+   * <p>The identifier of the subscribed listing for the subscriptions that you want to list.</p>
+   * @public
+   */
+  subscribedListingId?: string | undefined;
+
+  /**
+   * <p>The identifier of the owning project.</p>
+   * @public
+   */
+  owningProjectId?: string | undefined;
+
+  /**
+   * <p>The ID of the owning user.</p>
+   * @public
+   */
+  owningUserId?: string | undefined;
+
+  /**
+   * <p>The ID of the owning group.</p>
+   * @public
+   */
+  owningGroupId?: string | undefined;
+
+  /**
+   * <p>The identifier of the project for the subscription's approver.</p>
+   * @public
+   */
+  approverProjectId?: string | undefined;
+
+  /**
+   * <p>Specifies the way in which the results of this action are to be sorted.</p>
+   *
+   * @deprecated Results are always sorted by updatedAt
+   * @public
+   */
+  sortBy?: SortKey | undefined;
+
+  /**
+   * <p>Specifies the sort order for the results of this action.</p>
+   * @public
+   */
+  sortOrder?: SortOrder | undefined;
+
+  /**
+   * <p>The maximum number of subscriptions to return in a single call to <code>ListSubscriptions</code>. When the number of subscriptions to be listed is greater than the value of <code>MaxResults</code>, the response contains a <code>NextToken</code> value that you can use in a subsequent call to <code>ListSubscriptions</code> to list the next set of Subscriptions. </p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>When the number of subscriptions is greater than the default value for the <code>MaxResults</code> parameter, or if you explicitly specify a value for <code>MaxResults</code> that is less than the number of subscriptions, the response includes a pagination token named <code>NextToken</code>. You can specify this <code>NextToken</code> value in a subsequent call to <code>ListSubscriptions</code> to list the next set of subscriptions.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * <p>The details of the subscription.</p>
+ * @public
+ */
+export interface SubscriptionSummary {
+  /**
+   * <p>The identifier of the subscription.</p>
+   * @public
+   */
+  id: string | undefined;
+
+  /**
+   * <p>The Amazon DataZone user who created the subscription.</p>
+   * @public
+   */
+  createdBy: string | undefined;
+
+  /**
+   * <p>The Amazon DataZone user who updated the subscription.</p>
+   * @public
+   */
+  updatedBy?: string | undefined;
+
+  /**
+   * <p>The identifier of the Amazon DataZone domain in which a subscription exists.</p>
+   * @public
+   */
+  domainId: string | undefined;
+
+  /**
+   * <p>The status of the subscription.</p>
+   * @public
+   */
+  status: SubscriptionStatus | undefined;
+
+  /**
+   * <p>The timestamp of when the subscription was created.</p>
+   * @public
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p>The timestamp of when the subscription was updated.</p>
+   * @public
+   */
+  updatedAt: Date | undefined;
+
+  /**
+   * <p>The principal included in the subscription.</p>
+   * @public
+   */
+  subscribedPrincipal: SubscribedPrincipal | undefined;
+
+  /**
+   * <p>The listing included in the subscription.</p>
+   * @public
+   */
+  subscribedListing: SubscribedListing | undefined;
+
+  /**
+   * <p>The identifier of the subscription request for the subscription.</p>
+   * @public
+   */
+  subscriptionRequestId?: string | undefined;
+
+  /**
+   * <p>The retain permissions included in the subscription.</p>
+   * @public
+   */
+  retainPermissions?: boolean | undefined;
+}
 
 /**
  * @public
@@ -3744,6 +4116,12 @@ export interface UpdateSubscriptionGrantStatusOutput {
   updatedAt: Date | undefined;
 
   /**
+   * <p>The ID of the environment in which the subscription grant is updated.</p>
+   * @public
+   */
+  environmentId?: string | undefined;
+
+  /**
    * <p>The identifier of the subscription target whose subscription grant status is to be updated.</p>
    * @public
    */
@@ -4100,7 +4478,7 @@ export interface UpdateUserProfileOutput {
   status?: UserProfileStatus | undefined;
 
   /**
-   * <p>The details of the user profile in Amazon DataZone.</p>
+   * <p>The results of the UpdateUserProfile action.</p>
    * @public
    */
   details?: UserProfileDetails | undefined;

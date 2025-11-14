@@ -63,6 +63,7 @@ export interface CreateSubscriptionGrantCommandOutput extends CreateSubscription
  * //   domainId: "STRING_VALUE", // required
  * //   createdAt: new Date("TIMESTAMP"), // required
  * //   updatedAt: new Date("TIMESTAMP"), // required
+ * //   environmentId: "STRING_VALUE",
  * //   subscriptionTargetId: "STRING_VALUE", // required
  * //   grantedEntity: { // GrantedEntity Union: only one key present
  * //     listing: { // ListingRevision
@@ -89,6 +90,11 @@ export interface CreateSubscriptionGrantCommandOutput extends CreateSubscription
  * //         ],
  * //         status: "STRING_VALUE", // required
  * //         errorMessage: "STRING_VALUE",
+ * //       },
+ * //       permissions: { // Permissions Union: only one key present
+ * //         s3: [ // S3Permissions
+ * //           "READ" || "WRITE",
+ * //         ],
  * //       },
  * //     },
  * //   ],

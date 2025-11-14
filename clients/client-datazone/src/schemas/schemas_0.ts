@@ -42,7 +42,7 @@ const _AO = "AggregationOutput";
 const _AOI = "AggregationOutputItem";
 const _AOIg = "AggregationOutputItems";
 const _AOL = "AggregationOutputList";
-const _AP = "ActionParameters";
+const _AP = "AssetPermission";
 const _APG = "AddPolicyGrant";
 const _APGI = "AddPolicyGrantInput";
 const _APGO = "AddPolicyGrantOutput";
@@ -54,7 +54,9 @@ const _APOt = "AthenaPropertiesOutput";
 const _APP = "AthenaPropertiesPatch";
 const _APS = "AccountPoolSummary";
 const _APSc = "AccountPoolSummaries";
-const _APc = "AcceptPredictions";
+const _APc = "ActionParameters";
+const _APcc = "AcceptPredictions";
+const _APs = "AssetPermissions";
 const _AQPI = "AmazonQPropertiesInput";
 const _AQPO = "AmazonQPropertiesOutput";
 const _AQPP = "AmazonQPropertiesPatch";
@@ -713,6 +715,7 @@ const _PSro = "ProjectSummaries";
 const _PTSDP = "PostTimeSeriesDataPoints";
 const _PTSDPI = "PostTimeSeriesDataPointsInput";
 const _PTSDPO = "PostTimeSeriesDataPointsOutput";
+const _Pe = "Permissions";
 const _R = "Resource";
 const _RC = "RecommendationConfiguration";
 const _RCC = "RedshiftCredentialConfiguration";
@@ -781,8 +784,9 @@ const _SDSRO = "StartDataSourceRunOutput";
 const _SEPI = "SparkEmrPropertiesInput";
 const _SEPO = "SparkEmrPropertiesOutput";
 const _SEPP = "SparkEmrPropertiesPatch";
-const _SG = "SubscriptionGrants";
+const _SG = "SubscribedGroup";
 const _SGA = "SparkGlueArgs";
+const _SGI = "SubscribedGroupInput";
 const _SGP = "SearchGroupProfiles";
 const _SGPI = "SearchGroupProfilesInput";
 const _SGPIp = "SparkGluePropertiesInput";
@@ -792,6 +796,7 @@ const _SGS = "SubscriptionGrantSummary";
 const _SGSD = "SelfGrantStatusDetail";
 const _SGSDe = "SelfGrantStatusDetails";
 const _SGSO = "SelfGrantStatusOutput";
+const _SGu = "SubscriptionGrants";
 const _SI = "SearchInput";
 const _SII = "SearchInItem";
 const _SIL = "SearchInList";
@@ -839,6 +844,8 @@ const _STRI = "SearchTypesResultItems";
 const _STRIe = "SearchTypesResultItem";
 const _STS = "SubscriptionTargetSummary";
 const _STe = "SearchTypes";
+const _SU = "SubscribedUser";
+const _SUI = "SubscribedUserInput";
 const _SUP = "SearchUserProfiles";
 const _SUPD = "SsoUserProfileDetails";
 const _SUPI = "SearchUserProfilesInput";
@@ -966,10 +973,11 @@ const _aLc = "actionLink";
 const _aLs = "assetListings";
 const _aLss = "assetListing";
 const _aM = "authMode";
-const _aP = "authorizedPrincipals";
+const _aP = "assetPermissions";
 const _aPI = "approverProjectId";
 const _aPc = "accountPools";
 const _aPt = "athenaProperties";
+const _aPu = "authorizedPrincipals";
 const _aQP = "amazonQProperties";
 const _aR = "acceptRule";
 const _aRc = "accessRole";
@@ -1308,6 +1316,7 @@ const _oAP = "oAuth2Properties";
 const _oDI = "originDomainId";
 const _oDS = "overallDeploymentStatus";
 const _oDUO = "overrideDomainUnitOwners";
+const _oGI = "owningGroupId";
 const _oLRES = "openLineageRunEventSummary";
 const _oPI = "owningProjectId";
 const _oPIr = "originProjectId";
@@ -1315,6 +1324,7 @@ const _oPIw = "owningProjectIdentifier";
 const _oPIwn = "ownerProjectId";
 const _oPN = "ownerProjectName";
 const _oPO = "overrideProjectOwners";
+const _oUI = "owningUserId";
 const _or = "orchestrator";
 const _or_ = "or";
 const _ord = "order";
@@ -1356,6 +1366,7 @@ const _pU = "portalUrl";
 const _pVE = "pythonVirtualEnv";
 const _pa = "password";
 const _par = "parameters";
+const _pe = "permissions";
 const _po = "port";
 const _pr = "props";
 const _pro = "provider";
@@ -1457,6 +1468,7 @@ const _sTM = "startTimeoutMinutes";
 const _sTe = "searchText";
 const _sTt = "startTime";
 const _sU = "s3Uri";
+const _s_ = "s3";
 const _sc = "scope";
 const _sch = "schedule";
 const _se = "server";
@@ -1628,8 +1640,8 @@ export var AcceptSubscriptionRequestInput: StaticStructureSchema = [
   n0,
   _ASRI,
   0,
-  [_dI, _i, _dC, _aS],
-  [[0, 1], [0, 1], [() => DecisionComment, 0], () => AcceptedAssetScopes],
+  [_dI, _i, _dC, _aS, _aP],
+  [[0, 1], [0, 1], [() => DecisionComment, 0], () => AcceptedAssetScopes, () => AssetPermissions],
 ];
 export var AcceptSubscriptionRequestOutput: StaticStructureSchema = [
   3,
@@ -1813,6 +1825,7 @@ export var AssetListingItemAdditionalAttributes: StaticStructureSchema = [
   [_f, _mR, _lTSDPF],
   [0, () => MatchRationale, () => TimeSeriesDataPointSummaryFormOutputList],
 ];
+export var AssetPermission: StaticStructureSchema = [3, n0, _AP, 0, [_aI, _pe], [0, () => Permissions]];
 export var AssetRevision: StaticStructureSchema = [3, n0, _ARs, 0, [_dIo, _id, _r, _cB, _cA], [0, 0, 0, 0, 4]];
 export var AssetScope: StaticStructureSchema = [3, n0, _AS, 0, [_aI, _fI, _s, _eM], [0, 64 | 0, 0, 0]];
 export var AssetTargetNameMap: StaticStructureSchema = [3, n0, _ATNM, 0, [_aI, _tN], [0, 0]];
@@ -2597,15 +2610,15 @@ export var CreateSubscriptionGrantOutput: StaticStructureSchema = [
   n0,
   _CSGO,
   0,
-  [_id, _cB, _uB, _dIo, _cA, _uA, _sTIu, _gE, _s, _as, _sI],
-  [0, 0, 0, 0, 4, 4, 0, () => GrantedEntity, 0, () => SubscribedAssets, 0],
+  [_id, _cB, _uB, _dIo, _cA, _uA, _eInvi, _sTIu, _gE, _s, _as, _sI],
+  [0, 0, 0, 0, 4, 4, 0, 0, () => GrantedEntity, 0, () => SubscribedAssets, 0],
 ];
 export var CreateSubscriptionRequestInput: StaticStructureSchema = [
   3,
   n0,
   _CSRI,
   0,
-  [_dI, _sP, _sL, _rR, _cT, _mF],
+  [_dI, _sP, _sL, _rR, _cT, _mF, _aP, _aS],
   [
     [0, 1],
     () => SubscribedPrincipalInputs,
@@ -2613,6 +2626,8 @@ export var CreateSubscriptionRequestInput: StaticStructureSchema = [
     [() => RequestReason, 0],
     [0, 4],
     [() => MetadataFormInputs, 0],
+    () => AssetPermissions,
+    () => AcceptedAssetScopes,
   ],
 ];
 export var CreateSubscriptionRequestOutput: StaticStructureSchema = [
@@ -2643,7 +2658,7 @@ export var CreateSubscriptionTargetInput: StaticStructureSchema = [
   n0,
   _CSTI,
   0,
-  [_dI, _eInv, _n, _ty, _sTC, _aP, _mAR, _aAT, _pro, _cT],
+  [_dI, _eInv, _n, _ty, _sTC, _aPu, _mAR, _aAT, _pro, _cT],
   [[0, 1], [0, 1], [() => SubscriptionTargetName, 0], 0, () => SubscriptionTargetForms, 64 | 0, 0, 64 | 0, 0, [0, 4]],
 ];
 export var CreateSubscriptionTargetOutput: StaticStructureSchema = [
@@ -2651,7 +2666,7 @@ export var CreateSubscriptionTargetOutput: StaticStructureSchema = [
   n0,
   _CSTO,
   0,
-  [_id, _aP, _dIo, _pI, _eInvi, _n, _ty, _cB, _uB, _cA, _uA, _mAR, _aAT, _sTC, _pro],
+  [_id, _aPu, _dIo, _pI, _eInvi, _n, _ty, _cB, _uB, _cA, _uA, _mAR, _aAT, _sTC, _pro],
   [0, 64 | 0, 0, 0, 0, [() => SubscriptionTargetName, 0], 0, 0, 0, 4, 4, 0, 64 | 0, () => SubscriptionTargetForms, 0],
 ];
 export var CreateUserProfileInput: StaticStructureSchema = [
@@ -3173,8 +3188,8 @@ export var DeleteSubscriptionGrantOutput: StaticStructureSchema = [
   n0,
   _DSGO,
   0,
-  [_id, _cB, _uB, _dIo, _cA, _uA, _sTIu, _gE, _s, _as, _sI],
-  [0, 0, 0, 0, 4, 4, 0, () => GrantedEntity, 0, () => SubscribedAssets, 0],
+  [_id, _cB, _uB, _dIo, _cA, _uA, _eInvi, _sTIu, _gE, _s, _as, _sI],
+  [0, 0, 0, 0, 4, 4, 0, 0, () => GrantedEntity, 0, () => SubscribedAssets, 0],
 ];
 export var DeleteSubscriptionRequestInput: StaticStructureSchema = [
   3,
@@ -4282,8 +4297,8 @@ export var GetSubscriptionGrantOutput: StaticStructureSchema = [
   n0,
   _GSGO,
   0,
-  [_id, _cB, _uB, _dIo, _cA, _uA, _sTIu, _gE, _s, _as, _sI],
-  [0, 0, 0, 0, 4, 4, 0, () => GrantedEntity, 0, () => SubscribedAssets, 0],
+  [_id, _cB, _uB, _dIo, _cA, _uA, _eInvi, _sTIu, _gE, _s, _as, _sI],
+  [0, 0, 0, 0, 4, 4, 0, 0, () => GrantedEntity, 0, () => SubscribedAssets, 0],
 ];
 export var GetSubscriptionInput: StaticStructureSchema = [
   3,
@@ -4355,7 +4370,7 @@ export var GetSubscriptionTargetOutput: StaticStructureSchema = [
   n0,
   _GSTO,
   0,
-  [_id, _aP, _dIo, _pI, _eInvi, _n, _ty, _cB, _uB, _cA, _uA, _mAR, _aAT, _sTC, _pro],
+  [_id, _aPu, _dIo, _pI, _eInvi, _n, _ty, _cB, _uB, _cA, _uA, _mAR, _aAT, _sTC, _pro],
   [0, 64 | 0, 0, 0, 0, [() => SubscriptionTargetName, 0], 0, 0, 0, 4, 4, 0, 64 | 0, () => SubscriptionTargetForms, 0],
 ];
 export var GetTimeSeriesDataPointInput: StaticStructureSchema = [
@@ -5830,7 +5845,7 @@ export var ListSubscriptionGrantsInput: StaticStructureSchema = [
   n0,
   _LSGI,
   0,
-  [_dI, _eInvi, _sTIu, _sLI, _sI, _oPI, _sB, _sO, _mRa, _nT],
+  [_dI, _eInvi, _sTIu, _sLI, _sI, _oPI, _oUI, _oGI, _sB, _sO, _mRa, _nT],
   [
     [0, 1],
     [
@@ -5861,6 +5876,18 @@ export var ListSubscriptionGrantsInput: StaticStructureSchema = [
       0,
       {
         [_hQ]: _oPI,
+      },
+    ],
+    [
+      0,
+      {
+        [_hQ]: _oUI,
+      },
+    ],
+    [
+      0,
+      {
+        [_hQ]: _oGI,
       },
     ],
     [
@@ -5902,7 +5929,7 @@ export var ListSubscriptionRequestsInput: StaticStructureSchema = [
   n0,
   _LSRI,
   0,
-  [_dI, _s, _sLI, _oPI, _aPI, _sB, _sO, _mRa, _nT],
+  [_dI, _s, _sLI, _oPI, _aPI, _oUI, _oGI, _sB, _sO, _mRa, _nT],
   [
     [0, 1],
     [
@@ -5927,6 +5954,18 @@ export var ListSubscriptionRequestsInput: StaticStructureSchema = [
       0,
       {
         [_hQ]: _aPI,
+      },
+    ],
+    [
+      0,
+      {
+        [_hQ]: _oUI,
+      },
+    ],
+    [
+      0,
+      {
+        [_hQ]: _oGI,
       },
     ],
     [
@@ -5968,7 +6007,7 @@ export var ListSubscriptionsInput: StaticStructureSchema = [
   n0,
   _LSIi,
   0,
-  [_dI, _sRIu, _s, _sLI, _oPI, _aPI, _sB, _sO, _mRa, _nT],
+  [_dI, _sRIu, _s, _sLI, _oPI, _oUI, _oGI, _aPI, _sB, _sO, _mRa, _nT],
   [
     [0, 1],
     [
@@ -5993,6 +6032,18 @@ export var ListSubscriptionsInput: StaticStructureSchema = [
       0,
       {
         [_hQ]: _oPI,
+      },
+    ],
+    [
+      0,
+      {
+        [_hQ]: _oUI,
+      },
+    ],
+    [
+      0,
+      {
+        [_hQ]: _oGI,
       },
     ],
     [
@@ -6737,17 +6788,19 @@ export var SubscribedAsset: StaticStructureSchema = [
   n0,
   _SA,
   0,
-  [_aI, _aRs, _s, _tN, _fC, _gTra, _fTa, _aSs],
-  [0, 0, 0, 0, () => FailureCause, 4, 4, () => AssetScope],
+  [_aI, _aRs, _s, _tN, _fC, _gTra, _fTa, _aSs, _pe],
+  [0, 0, 0, 0, () => FailureCause, 4, 4, () => AssetScope, () => Permissions],
 ];
 export var SubscribedAssetListing: StaticStructureSchema = [
   3,
   n0,
   _SAL,
   0,
-  [_eIn, _eR, _eT, _f, _gT, _aSs],
-  [0, 0, 0, 0, [() => DetailedGlossaryTerms, 0], () => AssetScope],
+  [_eIn, _eR, _eT, _f, _gT, _aSs, _pe],
+  [0, 0, 0, 0, [() => DetailedGlossaryTerms, 0], () => AssetScope, () => Permissions],
 ];
+export var SubscribedGroup: StaticStructureSchema = [3, n0, _SG, 0, [_id, _n], [0, [() => GroupProfileName, 0]]];
+export var SubscribedGroupInput: StaticStructureSchema = [3, n0, _SGI, 0, [_i], [0]];
 export var SubscribedListing: StaticStructureSchema = [
   3,
   n0,
@@ -6767,13 +6820,15 @@ export var SubscribedProductListing: StaticStructureSchema = [
 ];
 export var SubscribedProject: StaticStructureSchema = [3, n0, _SP, 0, [_id, _n], [0, [() => ProjectName, 0]]];
 export var SubscribedProjectInput: StaticStructureSchema = [3, n0, _SPIu, 0, [_i], [0]];
+export var SubscribedUser: StaticStructureSchema = [3, n0, _SU, 0, [_id, _det], [0, [() => UserProfileDetails, 0]]];
+export var SubscribedUserInput: StaticStructureSchema = [3, n0, _SUI, 0, [_i], [0]];
 export var SubscriptionGrantSummary: StaticStructureSchema = [
   3,
   n0,
   _SGS,
   0,
-  [_id, _cB, _uB, _dIo, _cA, _uA, _sTIu, _gE, _s, _as, _sI],
-  [0, 0, 0, 0, 4, 4, 0, () => GrantedEntity, 0, () => SubscribedAssets, 0],
+  [_id, _cB, _uB, _dIo, _cA, _uA, _eInvi, _sTIu, _gE, _s, _as, _sI],
+  [0, 0, 0, 0, 4, 4, 0, 0, () => GrantedEntity, 0, () => SubscribedAssets, 0],
 ];
 export var SubscriptionRequestSummary: StaticStructureSchema = [
   3,
@@ -6812,7 +6867,7 @@ export var SubscriptionTargetSummary: StaticStructureSchema = [
   n0,
   _STS,
   0,
-  [_id, _aP, _dIo, _pI, _eInvi, _n, _ty, _cB, _uB, _cA, _uA, _mAR, _aAT, _sTC, _pro],
+  [_id, _aPu, _dIo, _pI, _eInvi, _n, _ty, _cB, _uB, _cA, _uA, _mAR, _aAT, _sTC, _pro],
   [0, 64 | 0, 0, 0, 0, [() => SubscriptionTargetName, 0], 0, 0, 0, 4, 4, 0, 64 | 0, () => SubscriptionTargetForms, 0],
 ];
 export var TagResourceRequest: StaticStructureSchema = [3, n0, _TRR, 0, [_rAe, _ta], [[0, 1], 128 | 0]];
@@ -6870,7 +6925,7 @@ export var UnauthorizedException: StaticErrorSchema = [
 ];
 TypeRegistry.for(n0).registerError(UnauthorizedException, __UnauthorizedException);
 
-export var Unit_n0: StaticStructureSchema = [3, n0, _U, 0, [], []];
+export var Unit: StaticStructureSchema = [3, n0, _U, 0, [], []];
 export var UntagResourceRequest: StaticStructureSchema = [
   3,
   n0,
@@ -7361,8 +7416,8 @@ export var UpdateSubscriptionGrantStatusOutput: StaticStructureSchema = [
   n0,
   _USGSO,
   0,
-  [_id, _cB, _uB, _dIo, _cA, _uA, _sTIu, _gE, _s, _as, _sI],
-  [0, 0, 0, 0, 4, 4, 0, () => GrantedEntity, 0, () => SubscribedAssets, 0],
+  [_id, _cB, _uB, _dIo, _cA, _uA, _eInvi, _sTIu, _gE, _s, _as, _sI],
+  [0, 0, 0, 0, 4, 4, 0, 0, () => GrantedEntity, 0, () => SubscribedAssets, 0],
 ];
 export var UpdateSubscriptionRequestInput: StaticStructureSchema = [
   3,
@@ -7404,7 +7459,7 @@ export var UpdateSubscriptionTargetInput: StaticStructureSchema = [
   n0,
   _USTI,
   0,
-  [_dI, _eInv, _i, _n, _aP, _aAT, _sTC, _mAR, _pro],
+  [_dI, _eInv, _i, _n, _aPu, _aAT, _sTC, _mAR, _pro],
   [[0, 1], [0, 1], [0, 1], [() => SubscriptionTargetName, 0], 64 | 0, 64 | 0, () => SubscriptionTargetForms, 0, 0],
 ];
 export var UpdateSubscriptionTargetOutput: StaticStructureSchema = [
@@ -7412,7 +7467,7 @@ export var UpdateSubscriptionTargetOutput: StaticStructureSchema = [
   n0,
   _USTO,
   0,
-  [_id, _aP, _dIo, _pI, _eInvi, _n, _ty, _cB, _uB, _cA, _uA, _mAR, _aAT, _sTC, _pro],
+  [_id, _aPu, _dIo, _pI, _eInvi, _n, _ty, _cB, _uB, _cA, _uA, _mAR, _aAT, _sTC, _pro],
   [0, 64 | 0, 0, 0, 0, [() => SubscriptionTargetName, 0], 0, 0, 0, 4, 4, 0, 64 | 0, () => SubscriptionTargetForms, 0],
 ];
 export var UpdateUserProfileInput: StaticStructureSchema = [
@@ -7473,6 +7528,7 @@ export var ApplicableAssetTypes = 64 | 0;
 
 export var AssetFilters: StaticListSchema = [1, n0, _AF, 0, [() => AssetFilterSummary, 0]];
 export var AssetInDataProductListingItems: StaticListSchema = [1, n0, _AIDPLIs, 0, () => AssetInDataProductListingItem];
+export var AssetPermissions: StaticListSchema = [1, n0, _APs, 0, () => AssetPermission];
 export var AssetRevisions: StaticListSchema = [1, n0, _ARss, 0, () => AssetRevision];
 export var AssetTargetNames: StaticListSchema = [1, n0, _ATN, 0, () => AssetTargetNameMap];
 export var AssetTypeIdentifiers = 64 | 0;
@@ -7596,6 +7652,8 @@ export var RuleProjectIdentifierList = 64 | 0;
 export var RuleSummaries: StaticListSchema = [1, n0, _RSul, 0, [() => RuleSummary, 0]];
 export var S3LocationList = 64 | 0;
 
+export var S3Permissions = 64 | 0;
+
 export var SearchInList: StaticListSchema = [1, n0, _SIL, 0, () => SearchInItem];
 export var SearchInventoryResultItems: StaticListSchema = [1, n0, _SIRI, 0, [() => SearchInventoryResultItem, 0]];
 export var SearchOutputAdditionalAttributes = 64 | 0;
@@ -7614,7 +7672,7 @@ export var SubscribedListingInputs: StaticListSchema = [1, n0, _SLIub, 0, () => 
 export var SubscribedListings: StaticListSchema = [1, n0, _SLu, 0, [() => SubscribedListing, 0]];
 export var SubscribedPrincipalInputs: StaticListSchema = [1, n0, _SPIub, 0, () => SubscribedPrincipalInput];
 export var SubscribedPrincipals: StaticListSchema = [1, n0, _SPu, 0, [() => SubscribedPrincipal, 0]];
-export var SubscriptionGrants: StaticListSchema = [1, n0, _SG, 0, () => SubscriptionGrantSummary];
+export var SubscriptionGrants: StaticListSchema = [1, n0, _SGu, 0, () => SubscriptionGrantSummary];
 export var SubscriptionRequests: StaticListSchema = [1, n0, _SR, 0, [() => SubscriptionRequestSummary, 0]];
 export var Subscriptions: StaticListSchema = [1, n0, _S, 0, [() => SubscriptionSummary, 0]];
 export var SubscriptionTargetForms: StaticListSchema = [1, n0, _STFu, 0, () => SubscriptionTargetForm];
@@ -7674,7 +7732,7 @@ export var AccountSource: StaticStructureSchema = [
   [_acc, _cAPH],
   [[() => AccountInfoList, 0], () => CustomAccountPoolHandler],
 ];
-export var ActionParameters: StaticStructureSchema = [3, n0, _AP, 0, [_aCL], [() => AwsConsoleLinkParameters]];
+export var ActionParameters: StaticStructureSchema = [3, n0, _APc, 0, [_aCL], [() => AwsConsoleLinkParameters]];
 export var AssetFilterConfiguration: StaticStructureSchema = [
   3,
   n0,
@@ -7815,6 +7873,7 @@ export var OwnerPropertiesOutput: StaticStructureSchema = [
   [_use, _g],
   [() => OwnerUserPropertiesOutput, () => OwnerGroupPropertiesOutput],
 ];
+export var Permissions: StaticStructureSchema = [3, n0, _Pe, 0, [_s_], [64 | 0]];
 export var PolicyGrantDetail: StaticStructureSchema = [
   3,
   n0,
@@ -7831,9 +7890,9 @@ export var PolicyGrantDetail: StaticStructureSchema = [
     () => CreateAssetTypePolicyGrantDetail,
     () => CreateProjectPolicyGrantDetail,
     () => CreateEnvironmentProfilePolicyGrantDetail,
-    () => Unit_n0,
-    () => Unit_n0,
-    () => Unit_n0,
+    () => Unit,
+    () => Unit,
+    () => Unit,
     () => CreateProjectFromProjectProfilePolicyGrantDetail,
     () => UseAssetTypePolicyGrantDetail,
   ],
@@ -7965,14 +8024,25 @@ export var SubscribedListingItem: StaticStructureSchema = [
     [() => SubscribedProductListing, 0],
   ],
 ];
-export var SubscribedPrincipal: StaticStructureSchema = [3, n0, _SPub, 0, [_proj], [[() => SubscribedProject, 0]]];
+export var SubscribedPrincipal: StaticStructureSchema = [
+  3,
+  n0,
+  _SPub,
+  0,
+  [_proj, _use, _g],
+  [
+    [() => SubscribedProject, 0],
+    [() => SubscribedUser, 0],
+    [() => SubscribedGroup, 0],
+  ],
+];
 export var SubscribedPrincipalInput: StaticStructureSchema = [
   3,
   n0,
   _SPIubs,
   0,
-  [_proj],
-  [() => SubscribedProjectInput],
+  [_proj, _use, _g],
+  [() => SubscribedProjectInput, () => SubscribedUserInput, () => SubscribedGroupInput],
 ];
 export var UserPolicyGrantPrincipal: StaticStructureSchema = [
   3,
@@ -7993,7 +8063,7 @@ export var UserProfileDetails: StaticStructureSchema = [
 export var AcceptPredictions: StaticOperationSchema = [
   9,
   n0,
-  _APc,
+  _APcc,
   {
     [_ht]: ["PUT", "/v2/domains/{domainIdentifier}/assets/{identifier}/accept-predictions", 200],
   },

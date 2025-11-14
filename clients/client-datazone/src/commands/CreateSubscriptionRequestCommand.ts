@@ -43,6 +43,12 @@ export interface CreateSubscriptionRequestCommandOutput extends CreateSubscripti
  *       project: { // SubscribedProjectInput
  *         identifier: "STRING_VALUE",
  *       },
+ *       user: { // SubscribedUserInput
+ *         identifier: "STRING_VALUE",
+ *       },
+ *       group: { // SubscribedGroupInput
+ *         identifier: "STRING_VALUE",
+ *       },
  *     },
  *   ],
  *   subscribedListings: [ // SubscribedListingInputs // required
@@ -60,6 +66,24 @@ export interface CreateSubscriptionRequestCommandOutput extends CreateSubscripti
  *       content: "STRING_VALUE",
  *     },
  *   ],
+ *   assetPermissions: [ // AssetPermissions
+ *     { // AssetPermission
+ *       assetId: "STRING_VALUE", // required
+ *       permissions: { // Permissions Union: only one key present
+ *         s3: [ // S3Permissions
+ *           "READ" || "WRITE",
+ *         ],
+ *       },
+ *     },
+ *   ],
+ *   assetScopes: [ // AcceptedAssetScopes
+ *     { // AcceptedAssetScope
+ *       assetId: "STRING_VALUE", // required
+ *       filterIds: [ // FilterIds // required
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
  * };
  * const command = new CreateSubscriptionRequestCommand(input);
  * const response = await client.send(command);
@@ -75,6 +99,24 @@ export interface CreateSubscriptionRequestCommandOutput extends CreateSubscripti
  * //   subscribedPrincipals: [ // SubscribedPrincipals // required
  * //     { // SubscribedPrincipal Union: only one key present
  * //       project: { // SubscribedProject
+ * //         id: "STRING_VALUE",
+ * //         name: "STRING_VALUE",
+ * //       },
+ * //       user: { // SubscribedUser
+ * //         id: "STRING_VALUE",
+ * //         details: { // UserProfileDetails Union: only one key present
+ * //           iam: { // IamUserProfileDetails
+ * //             arn: "STRING_VALUE",
+ * //             principalId: "STRING_VALUE",
+ * //           },
+ * //           sso: { // SsoUserProfileDetails
+ * //             username: "STRING_VALUE",
+ * //             firstName: "STRING_VALUE",
+ * //             lastName: "STRING_VALUE",
+ * //           },
+ * //         },
+ * //       },
+ * //       group: { // SubscribedGroup
  * //         id: "STRING_VALUE",
  * //         name: "STRING_VALUE",
  * //       },
@@ -105,6 +147,11 @@ export interface CreateSubscriptionRequestCommandOutput extends CreateSubscripti
  * //             ],
  * //             status: "STRING_VALUE", // required
  * //             errorMessage: "STRING_VALUE",
+ * //           },
+ * //           permissions: { // Permissions Union: only one key present
+ * //             s3: [ // S3Permissions
+ * //               "READ" || "WRITE",
+ * //             ],
  * //           },
  * //         },
  * //         productListing: { // SubscribedProductListing
@@ -163,6 +210,9 @@ export interface CreateSubscriptionRequestCommandOutput extends CreateSubscripti
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource cannot be found.</p>
+ *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p>The request has exceeded the specified service quota.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied due to request throttling.</p>

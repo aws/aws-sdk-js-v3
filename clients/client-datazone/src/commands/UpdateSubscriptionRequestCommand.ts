@@ -58,6 +58,24 @@ export interface UpdateSubscriptionRequestCommandOutput extends UpdateSubscripti
  * //         id: "STRING_VALUE",
  * //         name: "STRING_VALUE",
  * //       },
+ * //       user: { // SubscribedUser
+ * //         id: "STRING_VALUE",
+ * //         details: { // UserProfileDetails Union: only one key present
+ * //           iam: { // IamUserProfileDetails
+ * //             arn: "STRING_VALUE",
+ * //             principalId: "STRING_VALUE",
+ * //           },
+ * //           sso: { // SsoUserProfileDetails
+ * //             username: "STRING_VALUE",
+ * //             firstName: "STRING_VALUE",
+ * //             lastName: "STRING_VALUE",
+ * //           },
+ * //         },
+ * //       },
+ * //       group: { // SubscribedGroup
+ * //         id: "STRING_VALUE",
+ * //         name: "STRING_VALUE",
+ * //       },
  * //     },
  * //   ],
  * //   subscribedListings: [ // SubscribedListings // required
@@ -85,6 +103,11 @@ export interface UpdateSubscriptionRequestCommandOutput extends UpdateSubscripti
  * //             ],
  * //             status: "STRING_VALUE", // required
  * //             errorMessage: "STRING_VALUE",
+ * //           },
+ * //           permissions: { // Permissions Union: only one key present
+ * //             s3: [ // S3Permissions
+ * //               "READ" || "WRITE",
+ * //             ],
  * //           },
  * //         },
  * //         productListing: { // SubscribedProductListing

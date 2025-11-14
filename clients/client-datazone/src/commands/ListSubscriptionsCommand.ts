@@ -5,8 +5,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DataZoneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataZoneClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListSubscriptionsInput } from "../models/models_1";
-import { ListSubscriptionsOutput } from "../models/models_2";
+import { ListSubscriptionsInput, ListSubscriptionsOutput } from "../models/models_2";
 import { ListSubscriptions } from "../schemas/schemas_0";
 
 /**
@@ -43,6 +42,8 @@ export interface ListSubscriptionsCommandOutput extends ListSubscriptionsOutput,
  *   status: "APPROVED" || "REVOKED" || "CANCELLED",
  *   subscribedListingId: "STRING_VALUE",
  *   owningProjectId: "STRING_VALUE",
+ *   owningUserId: "STRING_VALUE",
+ *   owningGroupId: "STRING_VALUE",
  *   approverProjectId: "STRING_VALUE",
  *   sortBy: "CREATED_AT" || "UPDATED_AT",
  *   sortOrder: "ASCENDING" || "DESCENDING",
@@ -63,6 +64,24 @@ export interface ListSubscriptionsCommandOutput extends ListSubscriptionsOutput,
  * //       updatedAt: new Date("TIMESTAMP"), // required
  * //       subscribedPrincipal: { // SubscribedPrincipal Union: only one key present
  * //         project: { // SubscribedProject
+ * //           id: "STRING_VALUE",
+ * //           name: "STRING_VALUE",
+ * //         },
+ * //         user: { // SubscribedUser
+ * //           id: "STRING_VALUE",
+ * //           details: { // UserProfileDetails Union: only one key present
+ * //             iam: { // IamUserProfileDetails
+ * //               arn: "STRING_VALUE",
+ * //               principalId: "STRING_VALUE",
+ * //             },
+ * //             sso: { // SsoUserProfileDetails
+ * //               username: "STRING_VALUE",
+ * //               firstName: "STRING_VALUE",
+ * //               lastName: "STRING_VALUE",
+ * //             },
+ * //           },
+ * //         },
+ * //         group: { // SubscribedGroup
  * //           id: "STRING_VALUE",
  * //           name: "STRING_VALUE",
  * //         },
@@ -91,6 +110,11 @@ export interface ListSubscriptionsCommandOutput extends ListSubscriptionsOutput,
  * //               ],
  * //               status: "STRING_VALUE", // required
  * //               errorMessage: "STRING_VALUE",
+ * //             },
+ * //             permissions: { // Permissions Union: only one key present
+ * //               s3: [ // S3Permissions
+ * //                 "READ" || "WRITE",
+ * //               ],
  * //             },
  * //           },
  * //           productListing: { // SubscribedProductListing

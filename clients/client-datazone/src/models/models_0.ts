@@ -285,6 +285,75 @@ export class ValidationException extends __BaseException {
 
 /**
  * @public
+ * @enum
+ */
+export const S3Permission = {
+  READ: "READ",
+  WRITE: "WRITE",
+} as const;
+
+/**
+ * @public
+ */
+export type S3Permission = (typeof S3Permission)[keyof typeof S3Permission];
+
+/**
+ * <p>The asset permissions.</p>
+ * @public
+ */
+export type Permissions = Permissions.S3Member | Permissions.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace Permissions {
+  /**
+   * <p>The S3 details of the asset permissions.</p>
+   * @public
+   */
+  export interface S3Member {
+    s3: S3Permission[];
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    s3?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    s3: (value: S3Permission[]) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>The asset permissions.</p>
+ * @public
+ */
+export interface AssetPermission {
+  /**
+   * <p>The asset ID as part of the asset permissions.</p>
+   * @public
+   */
+  assetId: string | undefined;
+
+  /**
+   * <p>The details as part of the asset permissions.</p>
+   * @public
+   */
+  permissions: Permissions | undefined;
+}
+
+/**
+ * @public
  */
 export interface AcceptSubscriptionRequestInput {
   /**
@@ -310,6 +379,12 @@ export interface AcceptSubscriptionRequestInput {
    * @public
    */
   assetScopes?: AcceptedAssetScope[] | undefined;
+
+  /**
+   * <p>The asset permissions of the accept subscription request.</p>
+   * @public
+   */
+  assetPermissions?: AssetPermission[] | undefined;
 }
 
 /**
@@ -445,6 +520,12 @@ export interface SubscribedAssetListing {
    * @public
    */
   assetScope?: AssetScope | undefined;
+
+  /**
+   * <p>The asset permissions.</p>
+   * @public
+   */
+  permissions?: Permissions | undefined;
 }
 
 /**
@@ -615,6 +696,24 @@ export interface SubscribedListing {
 }
 
 /**
+ * <p>The group that subscribes to the asset.</p>
+ * @public
+ */
+export interface SubscribedGroup {
+  /**
+   * <p>The ID of the subscribed group.</p>
+   * @public
+   */
+  id?: string | undefined;
+
+  /**
+   * <p>The name of the subscribed group.</p>
+   * @public
+   */
+  name?: string | undefined;
+}
+
+/**
  * <p>The project that has the subscription grant.</p>
  * @public
  */
@@ -633,10 +732,127 @@ export interface SubscribedProject {
 }
 
 /**
+ * <p/>
+ * @public
+ */
+export interface IamUserProfileDetails {
+  /**
+   * <p>The ARN of the IAM user.</p>
+   * @public
+   */
+  arn?: string | undefined;
+
+  /**
+   * <p>The principal ID as part of the IAM user profile details.</p>
+   * @public
+   */
+  principalId?: string | undefined;
+}
+
+/**
+ * <p>The SSO user profile detail.</p>
+ * @public
+ */
+export interface SsoUserProfileDetails {
+  /**
+   * <p>The username as part of the SSO user profile detail. </p>
+   * @public
+   */
+  username?: string | undefined;
+
+  /**
+   * <p>The first name as part of the SSO user profile detail.</p>
+   * @public
+   */
+  firstName?: string | undefined;
+
+  /**
+   * <p>The last name as part of the SSO user profile detail.</p>
+   * @public
+   */
+  lastName?: string | undefined;
+}
+
+/**
+ * <p>The user profile details.</p>
+ * @public
+ */
+export type UserProfileDetails =
+  | UserProfileDetails.IamMember
+  | UserProfileDetails.SsoMember
+  | UserProfileDetails.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace UserProfileDetails {
+  /**
+   * <p>The IAM details of the user profile.</p>
+   * @public
+   */
+  export interface IamMember {
+    iam: IamUserProfileDetails;
+    sso?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The SSO details of the user profile.</p>
+   * @public
+   */
+  export interface SsoMember {
+    iam?: never;
+    sso: SsoUserProfileDetails;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    iam?: never;
+    sso?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    iam: (value: IamUserProfileDetails) => T;
+    sso: (value: SsoUserProfileDetails) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>The subscribed user.</p>
+ * @public
+ */
+export interface SubscribedUser {
+  /**
+   * <p>The ID of the subscribed user.</p>
+   * @public
+   */
+  id?: string | undefined;
+
+  /**
+   * <p>The subscribed user details.</p>
+   * @public
+   */
+  details?: UserProfileDetails | undefined;
+}
+
+/**
  * <p>The principal that has the subscription grant for the asset.</p>
  * @public
  */
-export type SubscribedPrincipal = SubscribedPrincipal.ProjectMember | SubscribedPrincipal.$UnknownMember;
+export type SubscribedPrincipal =
+  | SubscribedPrincipal.GroupMember
+  | SubscribedPrincipal.ProjectMember
+  | SubscribedPrincipal.UserMember
+  | SubscribedPrincipal.$UnknownMember;
 
 /**
  * @public
@@ -648,6 +864,30 @@ export namespace SubscribedPrincipal {
    */
   export interface ProjectMember {
     project: SubscribedProject;
+    user?: never;
+    group?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The subscribed user.</p>
+   * @public
+   */
+  export interface UserMember {
+    project?: never;
+    user: SubscribedUser;
+    group?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The subscribed group.</p>
+   * @public
+   */
+  export interface GroupMember {
+    project?: never;
+    user?: never;
+    group: SubscribedGroup;
     $unknown?: never;
   }
 
@@ -656,6 +896,8 @@ export namespace SubscribedPrincipal {
    */
   export interface $UnknownMember {
     project?: never;
+    user?: never;
+    group?: never;
     $unknown: [string, any];
   }
 
@@ -665,6 +907,8 @@ export namespace SubscribedPrincipal {
    */
   export interface Visitor<T> {
     project: (value: SubscribedProject) => T;
+    user: (value: SubscribedUser) => T;
+    group: (value: SubscribedGroup) => T;
     _: (name: string, value: any) => T;
   }
 }
@@ -756,6 +1000,26 @@ export interface AcceptSubscriptionRequestOutput {
    * @public
    */
   metadataForms?: FormOutput[] | undefined;
+}
+
+/**
+ * <p>The request has exceeded the specified service quota.</p>
+ * @public
+ */
+export class ServiceQuotaExceededException extends __BaseException {
+  readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ServiceQuotaExceededException, __BaseException>) {
+    super({
+      name: "ServiceQuotaExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ServiceQuotaExceededException.prototype);
+  }
 }
 
 /**
@@ -1089,26 +1353,6 @@ export interface AddEntityOwnerInput {
  * @public
  */
 export interface AddEntityOwnerOutput {}
-
-/**
- * <p>The request has exceeded the specified service quota.</p>
- * @public
- */
-export class ServiceQuotaExceededException extends __BaseException {
-  readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ServiceQuotaExceededException, __BaseException>) {
-    super({
-      name: "ServiceQuotaExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ServiceQuotaExceededException.prototype);
-  }
-}
 
 /**
  * <p>The details of the policy grant.</p>
@@ -10362,257 +10606,3 @@ export const OverallDeploymentStatus = {
  * @public
  */
 export type OverallDeploymentStatus = (typeof OverallDeploymentStatus)[keyof typeof OverallDeploymentStatus];
-
-/**
- * <p>The environment deployment details.</p>
- * @public
- */
-export interface EnvironmentDeploymentDetails {
-  /**
-   * <p>The overall deployment status of the environment.</p>
-   * @public
-   */
-  overallDeploymentStatus?: OverallDeploymentStatus | undefined;
-
-  /**
-   * <p>Environment failure reasons.</p>
-   * @public
-   */
-  environmentFailureReasons?: Record<string, EnvironmentError[]> | undefined;
-}
-
-/**
- * <p>Specifies the error message that is returned if the operation cannot be successfully completed.</p>
- * @public
- */
-export interface ProjectDeletionError {
-  /**
-   * <p>The code of the project deletion error.</p>
-   * @public
-   */
-  code?: string | undefined;
-
-  /**
-   * <p>The message of the project deletion error.</p>
-   * @public
-   */
-  message?: string | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const ProjectStatus = {
-  ACTIVE: "ACTIVE",
-  DELETE_FAILED: "DELETE_FAILED",
-  DELETING: "DELETING",
-  MOVING: "MOVING",
-  UPDATE_FAILED: "UPDATE_FAILED",
-  UPDATING: "UPDATING",
-} as const;
-
-/**
- * @public
- */
-export type ProjectStatus = (typeof ProjectStatus)[keyof typeof ProjectStatus];
-
-/**
- * @public
- * @enum
- */
-export const ResourceTagSource = {
-  PROJECT: "PROJECT",
-  PROJECT_PROFILE: "PROJECT_PROFILE",
-} as const;
-
-/**
- * @public
- */
-export type ResourceTagSource = (typeof ResourceTagSource)[keyof typeof ResourceTagSource];
-
-/**
- * <p>The resource tag of the project.</p>
- * @public
- */
-export interface ResourceTag {
-  /**
-   * <p>The key of the resource tag of the project.</p>
-   * @public
-   */
-  key: string | undefined;
-
-  /**
-   * <p>The value of the resource tag of the project.</p>
-   * @public
-   */
-  value: string | undefined;
-
-  /**
-   * <p>The source of the resource tag of the project.</p>
-   * @public
-   */
-  source: ResourceTagSource | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateProjectOutput {
-  /**
-   * <p>The identifier of the Amazon DataZone domain in which the project was created.</p>
-   * @public
-   */
-  domainId: string | undefined;
-
-  /**
-   * <p>The ID of the Amazon DataZone project.</p>
-   * @public
-   */
-  id: string | undefined;
-
-  /**
-   * <p>The name of the project.</p>
-   * @public
-   */
-  name: string | undefined;
-
-  /**
-   * <p>The description of the project.</p>
-   * @public
-   */
-  description?: string | undefined;
-
-  /**
-   * <p>The status of the Amazon DataZone project that was created.</p>
-   * @public
-   */
-  projectStatus?: ProjectStatus | undefined;
-
-  /**
-   * <p>Specifies the error message that is returned if the operation cannot be successfully completed.</p>
-   * @public
-   */
-  failureReasons?: ProjectDeletionError[] | undefined;
-
-  /**
-   * <p>The Amazon DataZone user who created the project.</p>
-   * @public
-   */
-  createdBy: string | undefined;
-
-  /**
-   * <p>The timestamp of when the project was created.</p>
-   * @public
-   */
-  createdAt?: Date | undefined;
-
-  /**
-   * <p>The timestamp of when the project was last updated.</p>
-   * @public
-   */
-  lastUpdatedAt?: Date | undefined;
-
-  /**
-   * <p>The resource tags of the project.</p>
-   * @public
-   */
-  resourceTags?: ResourceTag[] | undefined;
-
-  /**
-   * <p>The glossary terms that can be used in the project.</p>
-   * @public
-   */
-  glossaryTerms?: string[] | undefined;
-
-  /**
-   * <p>The ID of the domain unit.</p>
-   * @public
-   */
-  domainUnitId?: string | undefined;
-
-  /**
-   * <p>The project profile ID.</p>
-   * @public
-   */
-  projectProfileId?: string | undefined;
-
-  /**
-   * <p>The user parameters of the project.</p>
-   * @public
-   */
-  userParameters?: EnvironmentConfigurationUserParameter[] | undefined;
-
-  /**
-   * <p>The environment deployment details.</p>
-   * @public
-   */
-  environmentDeploymentDetails?: EnvironmentDeploymentDetails | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const UserDesignation = {
-  PROJECT_CATALOG_CONSUMER: "PROJECT_CATALOG_CONSUMER",
-  PROJECT_CATALOG_STEWARD: "PROJECT_CATALOG_STEWARD",
-  PROJECT_CATALOG_VIEWER: "PROJECT_CATALOG_VIEWER",
-  PROJECT_CONTRIBUTOR: "PROJECT_CONTRIBUTOR",
-  PROJECT_OWNER: "PROJECT_OWNER",
-} as const;
-
-/**
- * @public
- */
-export type UserDesignation = (typeof UserDesignation)[keyof typeof UserDesignation];
-
-/**
- * <p>The details about a project member.</p>
- * @public
- */
-export type Member = Member.GroupIdentifierMember | Member.UserIdentifierMember | Member.$UnknownMember;
-
-/**
- * @public
- */
-export namespace Member {
-  /**
-   * <p>The user ID of a project member.</p>
-   * @public
-   */
-  export interface UserIdentifierMember {
-    userIdentifier: string;
-    groupIdentifier?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>The ID of the group of a project member.</p>
-   * @public
-   */
-  export interface GroupIdentifierMember {
-    userIdentifier?: never;
-    groupIdentifier: string;
-    $unknown?: never;
-  }
-
-  /**
-   * @public
-   */
-  export interface $UnknownMember {
-    userIdentifier?: never;
-    groupIdentifier?: never;
-    $unknown: [string, any];
-  }
-
-  /**
-   * @deprecated unused in schema-serde mode.
-   *
-   */
-  export interface Visitor<T> {
-    userIdentifier: (value: string) => T;
-    groupIdentifier: (value: string) => T;
-    _: (name: string, value: any) => T;
-  }
-}

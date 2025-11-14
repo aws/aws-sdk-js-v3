@@ -5,7 +5,8 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DataZoneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataZoneClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListSubscriptionGrantsInput, ListSubscriptionGrantsOutput } from "../models/models_1";
+import { ListSubscriptionGrantsInput } from "../models/models_1";
+import { ListSubscriptionGrantsOutput } from "../models/models_2";
 import { ListSubscriptionGrants } from "../schemas/schemas_0";
 
 /**
@@ -43,6 +44,8 @@ export interface ListSubscriptionGrantsCommandOutput extends ListSubscriptionGra
  *   subscribedListingId: "STRING_VALUE",
  *   subscriptionId: "STRING_VALUE",
  *   owningProjectId: "STRING_VALUE",
+ *   owningUserId: "STRING_VALUE",
+ *   owningGroupId: "STRING_VALUE",
  *   sortBy: "CREATED_AT" || "UPDATED_AT",
  *   sortOrder: "ASCENDING" || "DESCENDING",
  *   maxResults: Number("int"),
@@ -59,6 +62,7 @@ export interface ListSubscriptionGrantsCommandOutput extends ListSubscriptionGra
  * //       domainId: "STRING_VALUE", // required
  * //       createdAt: new Date("TIMESTAMP"), // required
  * //       updatedAt: new Date("TIMESTAMP"), // required
+ * //       environmentId: "STRING_VALUE",
  * //       subscriptionTargetId: "STRING_VALUE", // required
  * //       grantedEntity: { // GrantedEntity Union: only one key present
  * //         listing: { // ListingRevision
@@ -85,6 +89,11 @@ export interface ListSubscriptionGrantsCommandOutput extends ListSubscriptionGra
  * //             ],
  * //             status: "STRING_VALUE", // required
  * //             errorMessage: "STRING_VALUE",
+ * //           },
+ * //           permissions: { // Permissions Union: only one key present
+ * //             s3: [ // S3Permissions
+ * //               "READ" || "WRITE",
+ * //             ],
  * //           },
  * //         },
  * //       ],

@@ -48,6 +48,16 @@ export interface AcceptSubscriptionRequestCommandOutput extends AcceptSubscripti
  *       ],
  *     },
  *   ],
+ *   assetPermissions: [ // AssetPermissions
+ *     { // AssetPermission
+ *       assetId: "STRING_VALUE", // required
+ *       permissions: { // Permissions Union: only one key present
+ *         s3: [ // S3Permissions
+ *           "READ" || "WRITE",
+ *         ],
+ *       },
+ *     },
+ *   ],
  * };
  * const command = new AcceptSubscriptionRequestCommand(input);
  * const response = await client.send(command);
@@ -63,6 +73,24 @@ export interface AcceptSubscriptionRequestCommandOutput extends AcceptSubscripti
  * //   subscribedPrincipals: [ // SubscribedPrincipals // required
  * //     { // SubscribedPrincipal Union: only one key present
  * //       project: { // SubscribedProject
+ * //         id: "STRING_VALUE",
+ * //         name: "STRING_VALUE",
+ * //       },
+ * //       user: { // SubscribedUser
+ * //         id: "STRING_VALUE",
+ * //         details: { // UserProfileDetails Union: only one key present
+ * //           iam: { // IamUserProfileDetails
+ * //             arn: "STRING_VALUE",
+ * //             principalId: "STRING_VALUE",
+ * //           },
+ * //           sso: { // SsoUserProfileDetails
+ * //             username: "STRING_VALUE",
+ * //             firstName: "STRING_VALUE",
+ * //             lastName: "STRING_VALUE",
+ * //           },
+ * //         },
+ * //       },
+ * //       group: { // SubscribedGroup
  * //         id: "STRING_VALUE",
  * //         name: "STRING_VALUE",
  * //       },
@@ -93,6 +121,11 @@ export interface AcceptSubscriptionRequestCommandOutput extends AcceptSubscripti
  * //             ],
  * //             status: "STRING_VALUE", // required
  * //             errorMessage: "STRING_VALUE",
+ * //           },
+ * //           permissions: { // Permissions Union: only one key present
+ * //             s3: [ // S3Permissions
+ * //               "READ" || "WRITE",
+ * //             ],
  * //           },
  * //         },
  * //         productListing: { // SubscribedProductListing
@@ -151,6 +184,9 @@ export interface AcceptSubscriptionRequestCommandOutput extends AcceptSubscripti
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource cannot be found.</p>
+ *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p>The request has exceeded the specified service quota.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied due to request throttling.</p>
