@@ -81,6 +81,7 @@ export interface DeleteInstanceConnectEndpointCommandOutput
  * //         FipsDnsName: "STRING_VALUE",
  * //       },
  * //     },
+ * //     AvailabilityZoneId: "STRING_VALUE",
  * //   },
  * // };
  *

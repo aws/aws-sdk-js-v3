@@ -9377,6 +9377,12 @@ export interface Ec2InstanceConnectEndpoint {
    * @public
    */
   PublicDnsNames?: InstanceConnectEndpointPublicDnsNames | undefined;
+
+  /**
+   * <p>The ID of the Availability Zone of the EC2 Instance Connect Endpoint.</p>
+   * @public
+   */
+  AvailabilityZoneId?: string | undefined;
 }
 
 /**

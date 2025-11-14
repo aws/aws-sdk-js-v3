@@ -31964,7 +31964,7 @@ export var Ec2InstanceConnectEndpoint: StaticStructureSchema = [
   n0,
   _EICE,
   0,
-  [_OI, _ICEI, _ICEA, _St, _SMta, _DNn, _FDN, _NIIe, _VI, _AZ, _CAr, _SIu, _PCI, _SGIe, _T, _IAT, _PDNu],
+  [_OI, _ICEI, _ICEA, _St, _SMta, _DNn, _FDN, _NIIe, _VI, _AZ, _CAr, _SIu, _PCI, _SGIe, _T, _IAT, _PDNu, _AZI],
   [
     [
       0,
@@ -32083,6 +32083,13 @@ export var Ec2InstanceConnectEndpoint: StaticStructureSchema = [
       {
         [_eQN]: `PublicDnsNames`,
         [_xN]: _pDN,
+      },
+    ],
+    [
+      0,
+      {
+        [_eQN]: `AvailabilityZoneId`,
+        [_xN]: _aZI,
       },
     ],
   ],

@@ -94,6 +94,7 @@ export interface DescribeInstanceConnectEndpointsCommandOutput
  * //           FipsDnsName: "STRING_VALUE",
  * //         },
  * //       },
+ * //       AvailabilityZoneId: "STRING_VALUE",
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

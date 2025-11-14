@@ -102,6 +102,7 @@ export interface CreateInstanceConnectEndpointCommandOutput
  * //         FipsDnsName: "STRING_VALUE",
  * //       },
  * //     },
+ * //     AvailabilityZoneId: "STRING_VALUE",
  * //   },
  * //   ClientToken: "STRING_VALUE",
  * // };
