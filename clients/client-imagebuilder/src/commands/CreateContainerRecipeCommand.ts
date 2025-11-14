@@ -42,7 +42,7 @@ export interface CreateContainerRecipeCommandOutput extends CreateContainerRecip
  *   name: "STRING_VALUE", // required
  *   description: "STRING_VALUE",
  *   semanticVersion: "STRING_VALUE", // required
- *   components: [ // ComponentConfigurationList // required
+ *   components: [ // ComponentConfigurationList
  *     { // ComponentConfiguration
  *       componentArn: "STRING_VALUE", // required
  *       parameters: [ // ComponentParameterList

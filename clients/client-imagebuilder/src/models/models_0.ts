@@ -1718,12 +1718,10 @@ export interface CreateContainerRecipeRequest {
   semanticVersion: string | undefined;
 
   /**
-   * <p>Components for build and test that are included in the container recipe.
-   * 			Recipes require a minimum of one build component, and can
-   * 			have a maximum of 20 build and test components in any combination.</p>
+   * <p>The components included in the container recipe.</p>
    * @public
    */
-  components: ComponentConfiguration[] | undefined;
+  components?: ComponentConfiguration[] | undefined;
 
   /**
    * <p>A group of options that can be used to configure an instance for building and testing
@@ -2718,7 +2716,7 @@ export interface CreateImageRecipeRequest {
    * <p>The components included in the image recipe.</p>
    * @public
    */
-  components: ComponentConfiguration[] | undefined;
+  components?: ComponentConfiguration[] | undefined;
 
   /**
    * <p>The base image for customizations specified in the image recipe. You can specify the
