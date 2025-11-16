@@ -1,13 +1,9 @@
 // @ts-ignore
-import { InvokeStore as InvokeStoreImpl } from "@aws/lambda-invoke-store";
-// eslint-disable-next-line no-restricted-imports
-import type { InvokeStore as InvokeStoreType } from "@aws/lambda-invoke-store/dist-types/invoke-store.d";
+import { InvokeStore } from "@aws/lambda-invoke-store";
 import { HttpRequest } from "@smithy/protocol-http";
 import { afterAll, beforeEach, describe, expect, test as it, vi } from "vitest";
 
 import { recursionDetectionMiddleware } from "./recursionDetectionMiddleware";
-
-const InvokeStore = InvokeStoreImpl as typeof InvokeStoreType;
 
 describe(recursionDetectionMiddleware.name, () => {
   const mockNextHandler = vi.fn();
@@ -17,7 +13,7 @@ describe(recursionDetectionMiddleware.name, () => {
 
   beforeEach(() => {
     vi.clearAllMocks();
-    vi.spyOn(InvokeStore, "getXRayTraceId").mockImplementation(() => undefined);
+    vi.spyOn(InvokeStore, "getInstanceAsync").mockResolvedValue(undefined as any);
     process.env = {};
   });
 
@@ -46,7 +42,9 @@ describe(recursionDetectionMiddleware.name, () => {
     });
 
     it("trace id value is set in InvokeStore", async () => {
-      vi.spyOn(InvokeStore, "getXRayTraceId").mockImplementation(() => mockTraceIdInvokeStore);
+      vi.spyOn(InvokeStore, "getInstanceAsync").mockResolvedValue({
+        getXRayTraceId: () => mockTraceIdInvokeStore,
+      } as any);
       process.env = {
         AWS_LAMBDA_FUNCTION_NAME: "some-function",
       };
@@ -62,7 +60,9 @@ describe(recursionDetectionMiddleware.name, () => {
     });
 
     it("favors trace id value from InvokeStore over that from env variable", async () => {
-      vi.spyOn(InvokeStore, "getXRayTraceId").mockImplementation(() => mockTraceIdInvokeStore);
+      vi.spyOn(InvokeStore, "getInstanceAsync").mockResolvedValue({
+        getXRayTraceId: () => mockTraceIdInvokeStore,
+      } as any);
       process.env = {
         AWS_LAMBDA_FUNCTION_NAME: "some-function",
         _X_AMZN_TRACE_ID: mockTraceIdEnv,
