@@ -12135,6 +12135,303 @@ export interface DescribeInstancesResult {
 /**
  * @public
  */
+export interface DescribeInstanceSqlHaHistoryStatesRequest {
+  /**
+   * <p>The IDs of the SQL Server High Availability instances to describe. If omitted, the API returns
+   *       historical states for all SQL Server High Availability instances.</p>
+   * @public
+   */
+  InstanceIds?: string[] | undefined;
+
+  /**
+   * <p>The start data and time of the period for which to get the historical
+   *       SQL Server High Availability states. If omitted, the API returns all available historical states.</p>
+   *          <p>Timezone: UTC</p>
+   *          <p>Format: <code>YYYY-MM-DDThh:mm:ss.sssZ</code>
+   *          </p>
+   * @public
+   */
+  StartTime?: Date | undefined;
+
+  /**
+   * <p>The end data and time of the period for which to get historical SQL Server High Availability
+   *       states. If omitted, the API returns historical states up to the current
+   *       date and time.</p>
+   *          <p>Timezone: UTC</p>
+   *          <p>Format: <code>YYYY-MM-DDThh:mm:ss.sssZ</code>
+   *          </p>
+   * @public
+   */
+  EndTime?: Date | undefined;
+
+  /**
+   * <p>The token to use to retrieve the next page of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return for the request in a
+   *     single page. The remaining results can be seen by sending another request with the
+   *     returned <code>nextToken</code> value.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>One or more filters to apply to the results. Supported filters
+   *     include:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>tag:<key></code> - The tag key and value pair assigned to the
+   *   instance. For example, to find all instances tagged with <code>Owner:TeamA</code>, specify
+   *   <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>tag-key</code> - The tag key assigned to the instance.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>haStatus</code> - The SQL Server High Availability status of the SQL Server High Availability instance (<code>processing</code> |
+   *       <code>active</code> | <code>standby</code> | <code>invalid</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>sqlServerLicenseUsage</code> - The license type for the SQL Server license
+   *       (<code>full</code> | <code>waived</code>).</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Filters?: Filter[] | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action,
+   *     without actually making the request, and provides an error response. If you have the
+   *     required permissions, the error response is <code>DryRunOperation</code>. Otherwise,
+   *     it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const HaStatus = {
+  active: "active",
+  invalid: "invalid",
+  processing: "processing",
+  standby: "standby",
+} as const;
+
+/**
+ * @public
+ */
+export type HaStatus = (typeof HaStatus)[keyof typeof HaStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const SqlServerLicenseUsage = {
+  full: "full",
+  waived: "waived",
+} as const;
+
+/**
+ * @public
+ */
+export type SqlServerLicenseUsage = (typeof SqlServerLicenseUsage)[keyof typeof SqlServerLicenseUsage];
+
+/**
+ * <p>Describes an Amazon EC2 instance that is enabled for SQL Server High Availability standby
+ *       detection monitoring.</p>
+ * @public
+ */
+export interface RegisteredInstance {
+  /**
+   * <p>The ID of the SQL Server High Availability instance.</p>
+   * @public
+   */
+  InstanceId?: string | undefined;
+
+  /**
+   * <p>The license type for the SQL Server license. Valid values include:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>full</code> - The SQL Server High Availability instance is using a full SQL Server license.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>waived</code> - The SQL Server High Availability instance is waived from the SQL Server license.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  SqlServerLicenseUsage?: SqlServerLicenseUsage | undefined;
+
+  /**
+   * <p>The SQL Server High Availability status of the instance. Valid values are:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>processing</code> - The SQL Server High Availability status for the SQL Server High Availability instance is being updated.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>active</code> - The SQL Server High Availability instance is an active node in an SQL Server High Availability cluster.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>standby</code> - The SQL Server High Availability instance is a standby failover node in an SQL Server High Availability
+   *           cluster.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>invalid</code> - An error occurred due to misconfigured permissions, or unable
+   *           to dertemine SQL Server High Availability status for the SQL Server High Availability instance.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  HaStatus?: HaStatus | undefined;
+
+  /**
+   * <p>A brief description of the SQL Server High Availability status. If the instance is in the <code>invalid</code>
+   *       High Availability status, this parameter includes the error message.</p>
+   * @public
+   */
+  ProcessingStatus?: string | undefined;
+
+  /**
+   * <p>The date and time when the instance's SQL Server High Availability status was last updated, in the ISO 8601 format
+   *       in the UTC time zone (<code>YYYY-MM-DDThh:mm:ss.sssZ</code>).</p>
+   * @public
+   */
+  LastUpdatedTime?: Date | undefined;
+
+  /**
+   * <p>The ARN of the Secrets Manager secret containing the SQL Server access credentials for the SQL Server High Availability instance.
+   *       If not specified, deafult local user credentials will be used by the Amazon Web Services Systems Manager agent.</p>
+   * @public
+   */
+  SqlServerCredentials?: string | undefined;
+
+  /**
+   * <p>The tags assigned to the SQL Server High Availability instance.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeInstanceSqlHaHistoryStatesResult {
+  /**
+   * <p>Information about the historical SQL Server High Availability states of the SQL Server High Availability instances.</p>
+   * @public
+   */
+  Instances?: RegisteredInstance[] | undefined;
+
+  /**
+   * <p>The token to use to retrieve the next page of results.
+   *     This value is <code>null</code> when there are no more results to return.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeInstanceSqlHaStatesRequest {
+  /**
+   * <p>The IDs of the SQL Server High Availability instances to describe. If omitted, the API returns
+   *       SQL Server High Availability states for all SQL Server High Availability instances.</p>
+   * @public
+   */
+  InstanceIds?: string[] | undefined;
+
+  /**
+   * <p>The token to use to retrieve the next page of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return for the request in a
+   *     single page. The remaining results can be seen by sending another request with the
+   *     returned <code>nextToken</code> value.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>One or more filters to apply to the results. Supported filters
+   *     include:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>tag:<key></code> - The tag key and value pair assigned to the
+   *   instance. For example, to find all instances tagged with <code>Owner:TeamA</code>, specify
+   *   <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>tag-key</code> - The tag key assigned to the instance.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>haStatus</code> - The SQL Server High Availability status of the SQL Server High Availability instance (<code>processing</code> |
+   *       <code>active</code> | <code>standby</code> | <code>invalid</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>sqlServerLicenseUsage</code> - The license type for the SQL Server license
+   *       (<code>full</code> | <code>waived</code>).</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Filters?: Filter[] | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action,
+   *     without actually making the request, and provides an error response. If you have the
+   *     required permissions, the error response is <code>DryRunOperation</code>. Otherwise,
+   *     it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeInstanceSqlHaStatesResult {
+  /**
+   * <p>Information about the SQL Server High Availability instances.</p>
+   * @public
+   */
+  Instances?: RegisteredInstance[] | undefined;
+
+  /**
+   * <p>The token to use to retrieve the next page of results.
+   *     This value is <code>null</code> when there are no more results to return.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface DescribeInstanceStatusRequest {
   /**
    * <p>The instance IDs.</p>
@@ -12553,290 +12850,6 @@ export interface DescribeInstanceStatusResult {
    * @public
    */
   InstanceStatuses?: InstanceStatus[] | undefined;
-
-  /**
-   * <p>The token to include in another request to get the next page of items. This value is <code>null</code> when there
-   *          are no more items to return.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeInstanceTopologyRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the operation, without actually making the
-   *   request, and provides an error response. If you have the required permissions, the error response is
-   *   <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of items to return for this request.
-   *          To get the next page of items, make another request with the token returned in the output.
-   * 	        For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
-   *          <p>You can't specify this parameter and the instance IDs parameter in the same
-   *             request.</p>
-   *          <p>Default: <code>20</code>
-   *          </p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>The instance IDs.</p>
-   *          <p>Default: Describes all your instances.</p>
-   *          <p>Constraints: Maximum 100 explicitly specified instance IDs.</p>
-   * @public
-   */
-  InstanceIds?: string[] | undefined;
-
-  /**
-   * <p>The name of the placement group that each instance is in.</p>
-   *          <p>Constraints: Maximum 100 explicitly specified placement group names.</p>
-   * @public
-   */
-  GroupNames?: string[] | undefined;
-
-  /**
-   * <p>The filters.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>availability-zone</code> - The name of the Availability Zone (for
-   *                     example, <code>us-west-2a</code>) or Local Zone (for example,
-   *                         <code>us-west-2-lax-1b</code>) that the instance is in.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>instance-type</code> - The instance type (for example,
-   *                         <code>p4d.24xlarge</code>) or instance family (for example,
-   *                         <code>p4d*</code>). You can use the <code>*</code> wildcard to match zero or
-   *                     more characters, or the <code>?</code> wildcard to match zero or one
-   *                     character.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>zone-id</code> - The ID of the Availability Zone (for example,
-   *                         <code>usw2-az2</code>) or Local Zone (for example,
-   *                         <code>usw2-lax1-az1</code>) that the instance is in.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  Filters?: Filter[] | undefined;
-}
-
-/**
- * <p>Information about the instance topology.</p>
- * @public
- */
-export interface InstanceTopology {
-  /**
-   * <p>The instance ID.</p>
-   * @public
-   */
-  InstanceId?: string | undefined;
-
-  /**
-   * <p>The instance type.</p>
-   * @public
-   */
-  InstanceType?: string | undefined;
-
-  /**
-   * <p>The name of the placement group that the instance is in.</p>
-   * @public
-   */
-  GroupName?: string | undefined;
-
-  /**
-   * <p>The network nodes. The nodes are hashed based on your account. Instances from
-   *             different accounts running under the same server will return a different hashed list of
-   *             strings.</p>
-   *          <p>The value is <code>null</code> or empty if:</p>
-   *          <ul>
-   *             <li>
-   *                <p>The instance type is not supported.</p>
-   *             </li>
-   *             <li>
-   *                <p>The instance is in a state other than <code>running</code>.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  NetworkNodes?: string[] | undefined;
-
-  /**
-   * <p>The name of the Availability Zone or Local Zone that the instance is in.</p>
-   * @public
-   */
-  AvailabilityZone?: string | undefined;
-
-  /**
-   * <p>The ID of the Availability Zone or Local Zone that the instance is in.</p>
-   * @public
-   */
-  ZoneId?: string | undefined;
-
-  /**
-   * <p>The ID of the Capacity Block. This parameter is only supported for UltraServer
-   *             instances and identifies instances within the UltraServer domain.</p>
-   * @public
-   */
-  CapacityBlockId?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeInstanceTopologyResult {
-  /**
-   * <p>Information about the topology of each instance.</p>
-   * @public
-   */
-  Instances?: InstanceTopology[] | undefined;
-
-  /**
-   * <p>The token to include in another request to get the next page of items. This value is <code>null</code> when there
-   *          are no more items to return.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const LocationType = {
-  availability_zone: "availability-zone",
-  availability_zone_id: "availability-zone-id",
-  outpost: "outpost",
-  region: "region",
-} as const;
-
-/**
- * @public
- */
-export type LocationType = (typeof LocationType)[keyof typeof LocationType];
-
-/**
- * @public
- */
-export interface DescribeInstanceTypeOfferingsRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *          and provides an error response. If you have the required permissions, the error response is
-   *          <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The location type.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>availability-zone</code> - The Availability Zone. When you specify a location
-   *      filter, it must be an Availability Zone for the current Region.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>availability-zone-id</code> - The AZ ID. When you specify a location filter, it must
-   *      be an AZ ID for the current Region.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>outpost</code> - The Outpost ARN. When you specify a location filter, it must be an
-   *      Outpost ARN for the current Region.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>region</code> - The current Region. If you specify a location filter, it must match
-   *      the current Region.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  LocationType?: LocationType | undefined;
-
-  /**
-   * <p>One or more filters. Filter names and values are case-sensitive.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>instance-type</code> - The instance type. For a list of possible values, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_Instance.html">Instance</a>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>location</code> - The location. For a list of possible identifiers, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html">Regions and Zones</a>.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  Filters?: Filter[] | undefined;
-
-  /**
-   * <p>The maximum number of items to return for this request.
-   *          To get the next page of items, make another request with the token returned in the output.
-   * 	        For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * <p>The instance types offered.</p>
- * @public
- */
-export interface InstanceTypeOffering {
-  /**
-   * <p>The instance type. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html">Instance types</a> in the <i>Amazon EC2
-   *     User Guide</i>.</p>
-   * @public
-   */
-  InstanceType?: _InstanceType | undefined;
-
-  /**
-   * <p>The location type.</p>
-   * @public
-   */
-  LocationType?: LocationType | undefined;
-
-  /**
-   * <p>The identifier for the location. This depends on the location type. For example, if the
-   *    location type is <code>region</code>, the location is the Region code (for example,
-   *     <code>us-east-2</code>.)</p>
-   * @public
-   */
-  Location?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeInstanceTypeOfferingsResult {
-  /**
-   * <p>The instance types offered in the location.</p>
-   * @public
-   */
-  InstanceTypeOfferings?: InstanceTypeOffering[] | undefined;
 
   /**
    * <p>The token to include in another request to get the next page of items. This value is <code>null</code> when there

@@ -2712,6 +2712,22 @@ DescribeInstances
 </details>
 <details>
 <summary>
+DescribeInstanceSqlHaHistoryStates
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/DescribeInstanceSqlHaHistoryStatesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/DescribeInstanceSqlHaHistoryStatesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/DescribeInstanceSqlHaHistoryStatesCommandOutput/)
+
+</details>
+<details>
+<summary>
+DescribeInstanceSqlHaStates
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/DescribeInstanceSqlHaStatesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/DescribeInstanceSqlHaStatesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/DescribeInstanceSqlHaStatesCommandOutput/)
+
+</details>
+<details>
+<summary>
 DescribeInstanceStatus
 </summary>
 
@@ -3752,6 +3768,14 @@ DisableImageDeregistrationProtection
 </details>
 <details>
 <summary>
+DisableInstanceSqlHaStandbyDetections
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/DisableInstanceSqlHaStandbyDetectionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/DisableInstanceSqlHaStandbyDetectionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/DisableInstanceSqlHaStandbyDetectionsCommandOutput/)
+
+</details>
+<details>
+<summary>
 DisableIpamOrganizationAdminAccount
 </summary>
 
@@ -4044,6 +4068,14 @@ EnableImageDeregistrationProtection
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/EnableImageDeregistrationProtectionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/EnableImageDeregistrationProtectionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/EnableImageDeregistrationProtectionCommandOutput/)
+
+</details>
+<details>
+<summary>
+EnableInstanceSqlHaStandbyDetections
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/EnableInstanceSqlHaStandbyDetectionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/EnableInstanceSqlHaStandbyDetectionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/EnableInstanceSqlHaStandbyDetectionsCommandOutput/)
 
 </details>
 <details>

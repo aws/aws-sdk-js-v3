@@ -8,7 +8,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import {
   ModifyTrafficMirrorFilterNetworkServicesRequest,
   ModifyTrafficMirrorFilterNetworkServicesResult,
-} from "../models/models_7";
+} from "../models/models_8";
 import { ModifyTrafficMirrorFilterNetworkServices } from "../schemas/schemas_0";
 
 /**

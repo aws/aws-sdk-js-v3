@@ -1514,6 +1514,15 @@ const _DIRescribem = "DescribeImageReferences";
 const _DIRi = "DisableImageRequest";
 const _DIRis = "DisableImageResult";
 const _DIS = "DiskImageSize";
+const _DISHHS = "DescribeInstanceSqlHaHistoryStates";
+const _DISHHSR = "DescribeInstanceSqlHaHistoryStatesRequest";
+const _DISHHSRe = "DescribeInstanceSqlHaHistoryStatesResult";
+const _DISHS = "DescribeInstanceSqlHaStates";
+const _DISHSD = "DisableInstanceSqlHaStandbyDetections";
+const _DISHSDR = "DisableInstanceSqlHaStandbyDetectionsRequest";
+const _DISHSDRi = "DisableInstanceSqlHaStandbyDetectionsResult";
+const _DISHSR = "DescribeInstanceSqlHaStatesRequest";
+const _DISHSRe = "DescribeInstanceSqlHaStatesResult";
 const _DISI = "DestinationIpamScopeId";
 const _DISR = "DeleteIpamScopeRequest";
 const _DISRe = "DeleteIpamScopeResult";
@@ -2316,6 +2325,9 @@ const _EIR = "EnableImageRequest";
 const _EIRn = "EnableImageResult";
 const _EIRx = "ExportImageRequest";
 const _EIRxp = "ExportImageResult";
+const _EISHSD = "EnableInstanceSqlHaStandbyDetections";
+const _EISHSDR = "EnableInstanceSqlHaStandbyDetectionsRequest";
+const _EISHSDRn = "EnableInstanceSqlHaStandbyDetectionsResult";
 const _EIT = "ExportImageTasks";
 const _EITI = "ExportImageTaskIds";
 const _EITIL = "ExportImageTaskIdList";
@@ -2803,6 +2815,7 @@ const _HRi = "HistoryRecords";
 const _HRis = "HistoryRecord";
 const _HRo = "HostReservation";
 const _HS = "HibernationSupported";
+const _HSa = "HaStatus";
 const _HT = "HttpTokens";
 const _HTo = "HostnameType";
 const _HZI = "HostedZoneId";
@@ -2984,6 +2997,7 @@ const _IIT = "ImportImageTasks";
 const _IITD = "ImportInstanceTaskDetails";
 const _IITL = "ImportImageTaskList";
 const _IITm = "ImportImageTask";
+const _IIUSL = "InstanceIdUpdateStringList";
 const _IIVDI = "ImportInstanceVolumeDetailItem";
 const _IIVDS = "ImportInstanceVolumeDetailSet";
 const _IIm = "ImageId";
@@ -4360,6 +4374,7 @@ const _PSr = "PreviousState";
 const _PSre = "PreviousStatus";
 const _PSri = "PriceSchedules";
 const _PSric = "PriceSchedule";
+const _PSro = "ProcessingStatus";
 const _PSu = "PurchaseSet";
 const _PT = "PrincipalType";
 const _PTGI = "PeerTransitGatewayId";
@@ -4525,6 +4540,7 @@ const _RILI = "ReservedInstancesListingId";
 const _RILL = "ReservedInstancesListingList";
 const _RILP = "ReservedInstanceLimitPrice";
 const _RILe = "ReservedInstancesListing";
+const _RILeg = "RegisteredInstanceList";
 const _RILes = "ReservedInstancesList";
 const _RIM = "ReservedInstancesModifications";
 const _RIMC = "ReservationInstanceMatchCriteria";
@@ -4570,7 +4586,8 @@ const _RIVS = "ReservedInstanceValueSet";
 const _RIa = "RamdiskId";
 const _RIe = "ReservationId";
 const _RIeb = "RebootInstances";
-const _RIeg = "RegisterImage";
+const _RIeg = "RegisteredInstance";
+const _RIegi = "RegisterImage";
 const _RIep = "ReportIds";
 const _RIeq = "RequesterId";
 const _RIes = "ResourceIds";
@@ -5078,12 +5095,14 @@ const _SRt = "StateReason";
 const _SRu = "SupportedRegions";
 const _SRup = "SupportedRegion";
 const _SS = "SseSpecification";
+const _SSC = "SqlServerCredentials";
 const _SSG = "StaleSecurityGroup";
 const _SSGN = "SourceSecurityGroupName";
 const _SSGOI = "SourceSecurityGroupOwnerId";
 const _SSGS = "StaleSecurityGroupSet";
 const _SSI = "SourceSnapshotId";
 const _SSIo = "SourceSnapshotIds";
+const _SSLU = "SqlServerLicenseUsage";
 const _SSP = "SelfServicePortal";
 const _SSPU = "SelfServicePortalUrl";
 const _SSS = "StaticSourcesSupport";
@@ -6395,6 +6414,7 @@ const _hRI = "hostReservationId";
 const _hRS = "historyRecordSet";
 const _hRSo = "hostReservationSet";
 const _hS = "hostSet";
+const _hSa = "haStatus";
 const _hSi = "hibernationSupported";
 const _hT = "httpTokens";
 const _hTo = "hostnameType";
@@ -7074,6 +7094,7 @@ const _pSre = "previousStatus";
 const _pSri = "priceSchedules";
 const _pSrin = "principalSet";
 const _pSro = "protocolSet";
+const _pSroc = "processingStatus";
 const _pT = "principalType";
 const _pTGI = "peerTransitGatewayId";
 const _pTr = "provisionTime";
@@ -7381,9 +7402,11 @@ const _sRe = "serviceResource";
 const _sRo = "sourceResource";
 const _sRt = "stateReason";
 const _sS = "snapshotSet";
+const _sSC = "sqlServerCredentials";
 const _sSGN = "sourceSecurityGroupName";
 const _sSGOI = "sourceSecurityGroupOwnerId";
 const _sSGS = "staleSecurityGroupSet";
+const _sSLU = "sqlServerLicenseUsage";
 const _sSPU = "selfServicePortalUrl";
 const _sSS = "staticSourcesSupport";
 const _sSSPA = "selfServiceSamlProviderArn";
@@ -24356,6 +24379,102 @@ export var DescribeInstanceImageMetadataResult: StaticStructureSchema = [
     ],
   ],
 ];
+export var DescribeInstanceSqlHaHistoryStatesRequest: StaticStructureSchema = [
+  3,
+  n0,
+  _DISHHSR,
+  0,
+  [_IIn, _ST, _ETnd, _NTe, _MR, _Fi, _DR],
+  [
+    [
+      () => InstanceIdStringList,
+      {
+        [_xN]: _II,
+      },
+    ],
+    4,
+    4,
+    0,
+    1,
+    [
+      () => FilterList,
+      {
+        [_xN]: _Fil,
+      },
+    ],
+    2,
+  ],
+];
+export var DescribeInstanceSqlHaHistoryStatesResult: StaticStructureSchema = [
+  3,
+  n0,
+  _DISHHSRe,
+  0,
+  [_Ins, _NTe],
+  [
+    [
+      () => RegisteredInstanceList,
+      {
+        [_eQN]: `InstanceSet`,
+        [_xN]: _iSns,
+      },
+    ],
+    [
+      0,
+      {
+        [_eQN]: `NextToken`,
+        [_xN]: _nTe,
+      },
+    ],
+  ],
+];
+export var DescribeInstanceSqlHaStatesRequest: StaticStructureSchema = [
+  3,
+  n0,
+  _DISHSR,
+  0,
+  [_IIn, _NTe, _MR, _Fi, _DR],
+  [
+    [
+      () => InstanceIdStringList,
+      {
+        [_xN]: _II,
+      },
+    ],
+    0,
+    1,
+    [
+      () => FilterList,
+      {
+        [_xN]: _Fil,
+      },
+    ],
+    2,
+  ],
+];
+export var DescribeInstanceSqlHaStatesResult: StaticStructureSchema = [
+  3,
+  n0,
+  _DISHSRe,
+  0,
+  [_Ins, _NTe],
+  [
+    [
+      () => RegisteredInstanceList,
+      {
+        [_eQN]: `InstanceSet`,
+        [_xN]: _iSns,
+      },
+    ],
+    [
+      0,
+      {
+        [_eQN]: `NextToken`,
+        [_xN]: _nTe,
+      },
+    ],
+  ],
+];
 export var DescribeInstancesRequest: StaticStructureSchema = [
   3,
   n0,
@@ -30721,6 +30840,38 @@ export var DisableImageResult: StaticStructureSchema = [
     ],
   ],
 ];
+export var DisableInstanceSqlHaStandbyDetectionsRequest: StaticStructureSchema = [
+  3,
+  n0,
+  _DISHSDR,
+  0,
+  [_IIn, _DR],
+  [
+    [
+      () => InstanceIdUpdateStringList,
+      {
+        [_xN]: _II,
+      },
+    ],
+    2,
+  ],
+];
+export var DisableInstanceSqlHaStandbyDetectionsResult: StaticStructureSchema = [
+  3,
+  n0,
+  _DISHSDRi,
+  0,
+  [_Ins],
+  [
+    [
+      () => RegisteredInstanceList,
+      {
+        [_eQN]: `InstanceSet`,
+        [_xN]: _iSns,
+      },
+    ],
+  ],
+];
 export var DisableIpamOrganizationAdminAccountRequest: StaticStructureSchema = [
   3,
   n0,
@@ -32776,6 +32927,39 @@ export var EnableImageResult: StaticStructureSchema = [
       {
         [_eQN]: `Return`,
         [_xN]: _r,
+      },
+    ],
+  ],
+];
+export var EnableInstanceSqlHaStandbyDetectionsRequest: StaticStructureSchema = [
+  3,
+  n0,
+  _EISHSDR,
+  0,
+  [_IIn, _SSC, _DR],
+  [
+    [
+      () => InstanceIdUpdateStringList,
+      {
+        [_xN]: _II,
+      },
+    ],
+    0,
+    2,
+  ],
+];
+export var EnableInstanceSqlHaStandbyDetectionsResult: StaticStructureSchema = [
+  3,
+  n0,
+  _EISHSDRn,
+  0,
+  [_Ins],
+  [
+    [
+      () => RegisteredInstanceList,
+      {
+        [_eQN]: `InstanceSet`,
+        [_xN]: _iSns,
       },
     ],
   ],
@@ -54748,6 +54932,64 @@ export var RegionalSummary: StaticStructureSchema = [
     ],
   ],
 ];
+export var RegisteredInstance: StaticStructureSchema = [
+  3,
+  n0,
+  _RIeg,
+  0,
+  [_II, _SSLU, _HSa, _PSro, _LUTa, _SSC, _T],
+  [
+    [
+      0,
+      {
+        [_eQN]: `InstanceId`,
+        [_xN]: _iI,
+      },
+    ],
+    [
+      0,
+      {
+        [_eQN]: `SqlServerLicenseUsage`,
+        [_xN]: _sSLU,
+      },
+    ],
+    [
+      0,
+      {
+        [_eQN]: `HaStatus`,
+        [_xN]: _hSa,
+      },
+    ],
+    [
+      0,
+      {
+        [_eQN]: `ProcessingStatus`,
+        [_xN]: _pSroc,
+      },
+    ],
+    [
+      4,
+      {
+        [_eQN]: `LastUpdatedTime`,
+        [_xN]: _lUTa,
+      },
+    ],
+    [
+      0,
+      {
+        [_eQN]: `SqlServerCredentials`,
+        [_xN]: _sSC,
+      },
+    ],
+    [
+      () => TagList,
+      {
+        [_eQN]: `TagSet`,
+        [_xN]: _tS,
+      },
+    ],
+  ],
+];
 export var RegisterImageRequest: StaticStructureSchema = [
   3,
   n0,
@@ -71905,6 +72147,18 @@ export var InstanceIdStringList: StaticListSchema = [
     },
   ],
 ];
+export var InstanceIdUpdateStringList: StaticListSchema = [
+  1,
+  n0,
+  _IIUSL,
+  0,
+  [
+    0,
+    {
+      [_xN]: _it,
+    },
+  ],
+];
 export var InstanceImageMetadataList: StaticListSchema = [
   1,
   n0,
@@ -74470,6 +74724,18 @@ export var RegionNameStringList: StaticListSchema = [
     0,
     {
       [_xN]: _RN,
+    },
+  ],
+];
+export var RegisteredInstanceList: StaticListSchema = [
+  1,
+  n0,
+  _RILeg,
+  0,
+  [
+    () => RegisteredInstance,
+    {
+      [_xN]: _it,
     },
   ],
 ];
@@ -79403,6 +79669,22 @@ export var DescribeInstances: StaticOperationSchema = [
   () => DescribeInstancesRequest,
   () => DescribeInstancesResult,
 ];
+export var DescribeInstanceSqlHaHistoryStates: StaticOperationSchema = [
+  9,
+  n0,
+  _DISHHS,
+  0,
+  () => DescribeInstanceSqlHaHistoryStatesRequest,
+  () => DescribeInstanceSqlHaHistoryStatesResult,
+];
+export var DescribeInstanceSqlHaStates: StaticOperationSchema = [
+  9,
+  n0,
+  _DISHS,
+  0,
+  () => DescribeInstanceSqlHaStatesRequest,
+  () => DescribeInstanceSqlHaStatesResult,
+];
 export var DescribeInstanceStatus: StaticOperationSchema = [
   9,
   n0,
@@ -80422,6 +80704,14 @@ export var DisableImageDeregistrationProtection: StaticOperationSchema = [
   () => DisableImageDeregistrationProtectionRequest,
   () => DisableImageDeregistrationProtectionResult,
 ];
+export var DisableInstanceSqlHaStandbyDetections: StaticOperationSchema = [
+  9,
+  n0,
+  _DISHSD,
+  0,
+  () => DisableInstanceSqlHaStandbyDetectionsRequest,
+  () => DisableInstanceSqlHaStandbyDetectionsResult,
+];
 export var DisableIpamOrganizationAdminAccount: StaticOperationSchema = [
   9,
   n0,
@@ -80710,6 +81000,14 @@ export var EnableImageDeregistrationProtection: StaticOperationSchema = [
   0,
   () => EnableImageDeregistrationProtectionRequest,
   () => EnableImageDeregistrationProtectionResult,
+];
+export var EnableInstanceSqlHaStandbyDetections: StaticOperationSchema = [
+  9,
+  n0,
+  _EISHSD,
+  0,
+  () => EnableInstanceSqlHaStandbyDetectionsRequest,
+  () => EnableInstanceSqlHaStandbyDetectionsResult,
 ];
 export var EnableIpamOrganizationAdminAccount: StaticOperationSchema = [
   9,
@@ -82037,7 +82335,7 @@ export var RebootInstances: StaticOperationSchema = [9, n0, _RIeb, 0, () => Rebo
 export var RegisterImage: StaticOperationSchema = [
   9,
   n0,
-  _RIeg,
+  _RIegi,
   0,
   () => RegisterImageRequest,
   () => RegisterImageResult,

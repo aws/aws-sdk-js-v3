@@ -21,7 +21,6 @@ import {
   TransitGatewayAttachmentResourceType,
   TransitGatewayAttachmentState,
   TransitGatewayPeeringAttachment,
-  TransitGatewayVpcAttachment,
   UserIdGroupPair,
 } from "./models_0";
 
@@ -87,18 +86,299 @@ import {
   TrafficMirrorFilterRule,
   TrafficMirrorSession,
   TrafficMirrorTarget,
-  TransitGateway,
   TransitGatewayConnect,
   TransitGatewayConnectPeer,
   TransitGatewayMulticastDomain,
   TransitGatewayPolicyTable,
-  TransitGatewayRouteTable,
-  TransitGatewayRouteTableAnnouncement,
 } from "./models_2";
 
 import { Byoasn, Filter, IdFormat } from "./models_3";
 
 import { AttributeBooleanValue, EventInformation, PermissionGroup, ProductCode, VirtualizationType } from "./models_4";
+
+/**
+ * @public
+ */
+export interface DescribeInstanceTopologyRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the operation, without actually making the
+   *   request, and provides an error response. If you have the required permissions, the error response is
+   *   <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of items to return for this request.
+   *          To get the next page of items, make another request with the token returned in the output.
+   * 	        For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
+   *          <p>You can't specify this parameter and the instance IDs parameter in the same
+   *             request.</p>
+   *          <p>Default: <code>20</code>
+   *          </p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The instance IDs.</p>
+   *          <p>Default: Describes all your instances.</p>
+   *          <p>Constraints: Maximum 100 explicitly specified instance IDs.</p>
+   * @public
+   */
+  InstanceIds?: string[] | undefined;
+
+  /**
+   * <p>The name of the placement group that each instance is in.</p>
+   *          <p>Constraints: Maximum 100 explicitly specified placement group names.</p>
+   * @public
+   */
+  GroupNames?: string[] | undefined;
+
+  /**
+   * <p>The filters.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>availability-zone</code> - The name of the Availability Zone (for
+   *                     example, <code>us-west-2a</code>) or Local Zone (for example,
+   *                         <code>us-west-2-lax-1b</code>) that the instance is in.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>instance-type</code> - The instance type (for example,
+   *                         <code>p4d.24xlarge</code>) or instance family (for example,
+   *                         <code>p4d*</code>). You can use the <code>*</code> wildcard to match zero or
+   *                     more characters, or the <code>?</code> wildcard to match zero or one
+   *                     character.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>zone-id</code> - The ID of the Availability Zone (for example,
+   *                         <code>usw2-az2</code>) or Local Zone (for example,
+   *                         <code>usw2-lax1-az1</code>) that the instance is in.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Filters?: Filter[] | undefined;
+}
+
+/**
+ * <p>Information about the instance topology.</p>
+ * @public
+ */
+export interface InstanceTopology {
+  /**
+   * <p>The instance ID.</p>
+   * @public
+   */
+  InstanceId?: string | undefined;
+
+  /**
+   * <p>The instance type.</p>
+   * @public
+   */
+  InstanceType?: string | undefined;
+
+  /**
+   * <p>The name of the placement group that the instance is in.</p>
+   * @public
+   */
+  GroupName?: string | undefined;
+
+  /**
+   * <p>The network nodes. The nodes are hashed based on your account. Instances from
+   *             different accounts running under the same server will return a different hashed list of
+   *             strings.</p>
+   *          <p>The value is <code>null</code> or empty if:</p>
+   *          <ul>
+   *             <li>
+   *                <p>The instance type is not supported.</p>
+   *             </li>
+   *             <li>
+   *                <p>The instance is in a state other than <code>running</code>.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  NetworkNodes?: string[] | undefined;
+
+  /**
+   * <p>The name of the Availability Zone or Local Zone that the instance is in.</p>
+   * @public
+   */
+  AvailabilityZone?: string | undefined;
+
+  /**
+   * <p>The ID of the Availability Zone or Local Zone that the instance is in.</p>
+   * @public
+   */
+  ZoneId?: string | undefined;
+
+  /**
+   * <p>The ID of the Capacity Block. This parameter is only supported for UltraServer
+   *             instances and identifies instances within the UltraServer domain.</p>
+   * @public
+   */
+  CapacityBlockId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeInstanceTopologyResult {
+  /**
+   * <p>Information about the topology of each instance.</p>
+   * @public
+   */
+  Instances?: InstanceTopology[] | undefined;
+
+  /**
+   * <p>The token to include in another request to get the next page of items. This value is <code>null</code> when there
+   *          are no more items to return.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const LocationType = {
+  availability_zone: "availability-zone",
+  availability_zone_id: "availability-zone-id",
+  outpost: "outpost",
+  region: "region",
+} as const;
+
+/**
+ * @public
+ */
+export type LocationType = (typeof LocationType)[keyof typeof LocationType];
+
+/**
+ * @public
+ */
+export interface DescribeInstanceTypeOfferingsRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *          and provides an error response. If you have the required permissions, the error response is
+   *          <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The location type.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>availability-zone</code> - The Availability Zone. When you specify a location
+   *      filter, it must be an Availability Zone for the current Region.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>availability-zone-id</code> - The AZ ID. When you specify a location filter, it must
+   *      be an AZ ID for the current Region.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>outpost</code> - The Outpost ARN. When you specify a location filter, it must be an
+   *      Outpost ARN for the current Region.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>region</code> - The current Region. If you specify a location filter, it must match
+   *      the current Region.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  LocationType?: LocationType | undefined;
+
+  /**
+   * <p>One or more filters. Filter names and values are case-sensitive.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>instance-type</code> - The instance type. For a list of possible values, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_Instance.html">Instance</a>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>location</code> - The location. For a list of possible identifiers, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html">Regions and Zones</a>.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Filters?: Filter[] | undefined;
+
+  /**
+   * <p>The maximum number of items to return for this request.
+   *          To get the next page of items, make another request with the token returned in the output.
+   * 	        For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * <p>The instance types offered.</p>
+ * @public
+ */
+export interface InstanceTypeOffering {
+  /**
+   * <p>The instance type. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html">Instance types</a> in the <i>Amazon EC2
+   *     User Guide</i>.</p>
+   * @public
+   */
+  InstanceType?: _InstanceType | undefined;
+
+  /**
+   * <p>The location type.</p>
+   * @public
+   */
+  LocationType?: LocationType | undefined;
+
+  /**
+   * <p>The identifier for the location. This depends on the location type. For example, if the
+   *    location type is <code>region</code>, the location is the Region code (for example,
+   *     <code>us-east-2</code>.)</p>
+   * @public
+   */
+  Location?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeInstanceTypeOfferingsResult {
+  /**
+   * <p>The instance types offered in the location.</p>
+   * @public
+   */
+  InstanceTypeOfferings?: InstanceTypeOffering[] | undefined;
+
+  /**
+   * <p>The token to include in another request to get the next page of items. This value is <code>null</code> when there
+   *          are no more items to return.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
 
 /**
  * @public
@@ -12137,283 +12417,4 @@ export interface DescribeTransitGatewayRouteTableAnnouncementsRequest {
    * @public
    */
   DryRun?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeTransitGatewayRouteTableAnnouncementsResult {
-  /**
-   * <p>Describes the transit gateway route table announcement.</p>
-   * @public
-   */
-  TransitGatewayRouteTableAnnouncements?: TransitGatewayRouteTableAnnouncement[] | undefined;
-
-  /**
-   * <p>The token for the next page of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeTransitGatewayRouteTablesRequest {
-  /**
-   * <p>The IDs of the transit gateway route tables.</p>
-   * @public
-   */
-  TransitGatewayRouteTableIds?: string[] | undefined;
-
-  /**
-   * <p>One or more filters. The possible values are:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>default-association-route-table</code> - Indicates whether this is the default
-   *                 association route table for the transit gateway (<code>true</code> | <code>false</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>default-propagation-route-table</code> - Indicates whether this is the default
-   *                propagation route table for the transit gateway (<code>true</code> | <code>false</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>state</code> - The state of the route table (<code>available</code> | <code>deleting</code> | <code>deleted</code> | <code>pending</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>transit-gateway-id</code> - The ID of the transit gateway.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>transit-gateway-route-table-id</code> - The ID of the transit gateway route table.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  Filters?: Filter[] | undefined;
-
-  /**
-   * <p>The maximum number of results to return with a single call.
-   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>The token for the next page of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeTransitGatewayRouteTablesResult {
-  /**
-   * <p>Information about the transit gateway route tables.</p>
-   * @public
-   */
-  TransitGatewayRouteTables?: TransitGatewayRouteTable[] | undefined;
-
-  /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeTransitGatewaysRequest {
-  /**
-   * <p>The IDs of the transit gateways.</p>
-   * @public
-   */
-  TransitGatewayIds?: string[] | undefined;
-
-  /**
-   * <p>One or more filters. The possible values are:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>options.propagation-default-route-table-id</code> - The ID of the default propagation route table.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>options.amazon-side-asn</code> - The private ASN for the Amazon side of a BGP session.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>options.association-default-route-table-id</code> - The ID of the default association route table.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>options.auto-accept-shared-attachments</code> - Indicates whether there is automatic acceptance of attachment requests (<code>enable</code> | <code>disable</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>options.default-route-table-association</code> - Indicates whether resource attachments are automatically
-   *                associated with the default association route table (<code>enable</code> | <code>disable</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>options.default-route-table-propagation</code> - Indicates whether resource attachments automatically propagate
-   *                routes to the default propagation route table (<code>enable</code> | <code>disable</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>options.dns-support</code> - Indicates whether DNS support is enabled (<code>enable</code> | <code>disable</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>options.vpn-ecmp-support</code> - Indicates whether Equal Cost Multipath Protocol support is enabled  (<code>enable</code> | <code>disable</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>owner-id</code> - The ID of the Amazon Web Services account that owns the transit gateway.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>state</code> - The state of the transit gateway (<code>available</code> | <code>deleted</code> | <code>deleting</code> | <code>modifying</code> | <code>pending</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>transit-gateway-id</code> - The ID of the transit gateway.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>tag-key </code>- The key/value combination of a tag assigned to the resource. Use the
-   *                tag key in the filter name and the tag value as the filter value. For example, to
-   *                find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify
-   *                <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  Filters?: Filter[] | undefined;
-
-  /**
-   * <p>The maximum number of results to return with a single call.
-   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>The token for the next page of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeTransitGatewaysResult {
-  /**
-   * <p>Information about the transit gateways.</p>
-   * @public
-   */
-  TransitGateways?: TransitGateway[] | undefined;
-
-  /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeTransitGatewayVpcAttachmentsRequest {
-  /**
-   * <p>The IDs of the attachments.</p>
-   * @public
-   */
-  TransitGatewayAttachmentIds?: string[] | undefined;
-
-  /**
-   * <p>One or more filters. The possible values are:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>state</code> - The state of the attachment. Valid values are <code>available</code> | <code>deleted</code> | <code>deleting</code> | <code>failed</code> |  <code>failing</code> | <code>initiatingRequest</code> | <code>modifying</code> | <code>pendingAcceptance</code> | <code>pending</code> | <code>rollingBack</code> | <code>rejected</code> | <code>rejecting</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>transit-gateway-attachment-id</code> - The ID of the attachment.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>transit-gateway-id</code> - The ID of the transit gateway.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>vpc-id</code> - The ID of the VPC.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  Filters?: Filter[] | undefined;
-
-  /**
-   * <p>The maximum number of results to return with a single call.
-   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>The token for the next page of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeTransitGatewayVpcAttachmentsResult {
-  /**
-   * <p>Information about the VPC attachments.</p>
-   * @public
-   */
-  TransitGatewayVpcAttachments?: TransitGatewayVpcAttachment[] | undefined;
-
-  /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
 }

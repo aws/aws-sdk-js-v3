@@ -1094,6 +1094,14 @@ import {
 } from "./commands/DescribeInstanceImageMetadataCommand";
 import { DescribeInstancesCommandInput, DescribeInstancesCommandOutput } from "./commands/DescribeInstancesCommand";
 import {
+  DescribeInstanceSqlHaHistoryStatesCommandInput,
+  DescribeInstanceSqlHaHistoryStatesCommandOutput,
+} from "./commands/DescribeInstanceSqlHaHistoryStatesCommand";
+import {
+  DescribeInstanceSqlHaStatesCommandInput,
+  DescribeInstanceSqlHaStatesCommandOutput,
+} from "./commands/DescribeInstanceSqlHaStatesCommand";
+import {
   DescribeInstanceStatusCommandInput,
   DescribeInstanceStatusCommandOutput,
 } from "./commands/DescribeInstanceStatusCommand";
@@ -1563,6 +1571,10 @@ import {
   DisableImageDeregistrationProtectionCommandOutput,
 } from "./commands/DisableImageDeregistrationProtectionCommand";
 import {
+  DisableInstanceSqlHaStandbyDetectionsCommandInput,
+  DisableInstanceSqlHaStandbyDetectionsCommandOutput,
+} from "./commands/DisableInstanceSqlHaStandbyDetectionsCommand";
+import {
   DisableIpamOrganizationAdminAccountCommandInput,
   DisableIpamOrganizationAdminAccountCommandOutput,
 } from "./commands/DisableIpamOrganizationAdminAccountCommand";
@@ -1704,6 +1716,10 @@ import {
   EnableImageDeregistrationProtectionCommandInput,
   EnableImageDeregistrationProtectionCommandOutput,
 } from "./commands/EnableImageDeregistrationProtectionCommand";
+import {
+  EnableInstanceSqlHaStandbyDetectionsCommandInput,
+  EnableInstanceSqlHaStandbyDetectionsCommandOutput,
+} from "./commands/EnableInstanceSqlHaStandbyDetectionsCommand";
 import {
   EnableIpamOrganizationAdminAccountCommandInput,
   EnableIpamOrganizationAdminAccountCommandOutput,
@@ -2853,6 +2869,8 @@ export type ServiceInputTypes =
   | DescribeInstanceEventNotificationAttributesCommandInput
   | DescribeInstanceEventWindowsCommandInput
   | DescribeInstanceImageMetadataCommandInput
+  | DescribeInstanceSqlHaHistoryStatesCommandInput
+  | DescribeInstanceSqlHaStatesCommandInput
   | DescribeInstanceStatusCommandInput
   | DescribeInstanceTopologyCommandInput
   | DescribeInstanceTypeOfferingsCommandInput
@@ -2984,6 +3002,7 @@ export type ServiceInputTypes =
   | DisableImageCommandInput
   | DisableImageDeprecationCommandInput
   | DisableImageDeregistrationProtectionCommandInput
+  | DisableInstanceSqlHaStandbyDetectionsCommandInput
   | DisableIpamOrganizationAdminAccountCommandInput
   | DisableRouteServerPropagationCommandInput
   | DisableSerialConsoleAccessCommandInput
@@ -3021,6 +3040,7 @@ export type ServiceInputTypes =
   | EnableImageCommandInput
   | EnableImageDeprecationCommandInput
   | EnableImageDeregistrationProtectionCommandInput
+  | EnableInstanceSqlHaStandbyDetectionsCommandInput
   | EnableIpamOrganizationAdminAccountCommandInput
   | EnableReachabilityAnalyzerOrganizationSharingCommandInput
   | EnableRouteServerPropagationCommandInput
@@ -3575,6 +3595,8 @@ export type ServiceOutputTypes =
   | DescribeInstanceEventNotificationAttributesCommandOutput
   | DescribeInstanceEventWindowsCommandOutput
   | DescribeInstanceImageMetadataCommandOutput
+  | DescribeInstanceSqlHaHistoryStatesCommandOutput
+  | DescribeInstanceSqlHaStatesCommandOutput
   | DescribeInstanceStatusCommandOutput
   | DescribeInstanceTopologyCommandOutput
   | DescribeInstanceTypeOfferingsCommandOutput
@@ -3706,6 +3728,7 @@ export type ServiceOutputTypes =
   | DisableImageCommandOutput
   | DisableImageDeprecationCommandOutput
   | DisableImageDeregistrationProtectionCommandOutput
+  | DisableInstanceSqlHaStandbyDetectionsCommandOutput
   | DisableIpamOrganizationAdminAccountCommandOutput
   | DisableRouteServerPropagationCommandOutput
   | DisableSerialConsoleAccessCommandOutput
@@ -3743,6 +3766,7 @@ export type ServiceOutputTypes =
   | EnableImageCommandOutput
   | EnableImageDeprecationCommandOutput
   | EnableImageDeregistrationProtectionCommandOutput
+  | EnableInstanceSqlHaStandbyDetectionsCommandOutput
   | EnableIpamOrganizationAdminAccountCommandOutput
   | EnableReachabilityAnalyzerOrganizationSharingCommandOutput
   | EnableRouteServerPropagationCommandOutput

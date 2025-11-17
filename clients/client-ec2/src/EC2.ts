@@ -1520,6 +1520,16 @@ import {
   DescribeInstancesCommandOutput,
 } from "./commands/DescribeInstancesCommand";
 import {
+  DescribeInstanceSqlHaHistoryStatesCommand,
+  DescribeInstanceSqlHaHistoryStatesCommandInput,
+  DescribeInstanceSqlHaHistoryStatesCommandOutput,
+} from "./commands/DescribeInstanceSqlHaHistoryStatesCommand";
+import {
+  DescribeInstanceSqlHaStatesCommand,
+  DescribeInstanceSqlHaStatesCommandInput,
+  DescribeInstanceSqlHaStatesCommandOutput,
+} from "./commands/DescribeInstanceSqlHaStatesCommand";
+import {
   DescribeInstanceStatusCommand,
   DescribeInstanceStatusCommandInput,
   DescribeInstanceStatusCommandOutput,
@@ -2170,6 +2180,11 @@ import {
   DisableImageDeregistrationProtectionCommandOutput,
 } from "./commands/DisableImageDeregistrationProtectionCommand";
 import {
+  DisableInstanceSqlHaStandbyDetectionsCommand,
+  DisableInstanceSqlHaStandbyDetectionsCommandInput,
+  DisableInstanceSqlHaStandbyDetectionsCommandOutput,
+} from "./commands/DisableInstanceSqlHaStandbyDetectionsCommand";
+import {
   DisableIpamOrganizationAdminAccountCommand,
   DisableIpamOrganizationAdminAccountCommandInput,
   DisableIpamOrganizationAdminAccountCommandOutput,
@@ -2350,6 +2365,11 @@ import {
   EnableImageDeregistrationProtectionCommandInput,
   EnableImageDeregistrationProtectionCommandOutput,
 } from "./commands/EnableImageDeregistrationProtectionCommand";
+import {
+  EnableInstanceSqlHaStandbyDetectionsCommand,
+  EnableInstanceSqlHaStandbyDetectionsCommandInput,
+  EnableInstanceSqlHaStandbyDetectionsCommandOutput,
+} from "./commands/EnableInstanceSqlHaStandbyDetectionsCommand";
 import {
   EnableIpamOrganizationAdminAccountCommand,
   EnableIpamOrganizationAdminAccountCommandInput,
@@ -3831,6 +3851,8 @@ const commands = {
   DescribeInstanceEventWindowsCommand,
   DescribeInstanceImageMetadataCommand,
   DescribeInstancesCommand,
+  DescribeInstanceSqlHaHistoryStatesCommand,
+  DescribeInstanceSqlHaStatesCommand,
   DescribeInstanceStatusCommand,
   DescribeInstanceTopologyCommand,
   DescribeInstanceTypeOfferingsCommand,
@@ -3961,6 +3983,7 @@ const commands = {
   DisableImageBlockPublicAccessCommand,
   DisableImageDeprecationCommand,
   DisableImageDeregistrationProtectionCommand,
+  DisableInstanceSqlHaStandbyDetectionsCommand,
   DisableIpamOrganizationAdminAccountCommand,
   DisableRouteServerPropagationCommand,
   DisableSerialConsoleAccessCommand,
@@ -3998,6 +4021,7 @@ const commands = {
   EnableImageBlockPublicAccessCommand,
   EnableImageDeprecationCommand,
   EnableImageDeregistrationProtectionCommand,
+  EnableInstanceSqlHaStandbyDetectionsCommand,
   EnableIpamOrganizationAdminAccountCommand,
   EnableReachabilityAnalyzerOrganizationSharingCommand,
   EnableRouteServerPropagationCommand,
@@ -9431,6 +9455,42 @@ export interface EC2 {
   ): void;
 
   /**
+   * @see {@link DescribeInstanceSqlHaHistoryStatesCommand}
+   */
+  describeInstanceSqlHaHistoryStates(): Promise<DescribeInstanceSqlHaHistoryStatesCommandOutput>;
+  describeInstanceSqlHaHistoryStates(
+    args: DescribeInstanceSqlHaHistoryStatesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeInstanceSqlHaHistoryStatesCommandOutput>;
+  describeInstanceSqlHaHistoryStates(
+    args: DescribeInstanceSqlHaHistoryStatesCommandInput,
+    cb: (err: any, data?: DescribeInstanceSqlHaHistoryStatesCommandOutput) => void
+  ): void;
+  describeInstanceSqlHaHistoryStates(
+    args: DescribeInstanceSqlHaHistoryStatesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeInstanceSqlHaHistoryStatesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeInstanceSqlHaStatesCommand}
+   */
+  describeInstanceSqlHaStates(): Promise<DescribeInstanceSqlHaStatesCommandOutput>;
+  describeInstanceSqlHaStates(
+    args: DescribeInstanceSqlHaStatesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeInstanceSqlHaStatesCommandOutput>;
+  describeInstanceSqlHaStates(
+    args: DescribeInstanceSqlHaStatesCommandInput,
+    cb: (err: any, data?: DescribeInstanceSqlHaStatesCommandOutput) => void
+  ): void;
+  describeInstanceSqlHaStates(
+    args: DescribeInstanceSqlHaStatesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeInstanceSqlHaStatesCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DescribeInstanceStatusCommand}
    */
   describeInstanceStatus(): Promise<DescribeInstanceStatusCommandOutput>;
@@ -11710,6 +11770,23 @@ export interface EC2 {
   ): void;
 
   /**
+   * @see {@link DisableInstanceSqlHaStandbyDetectionsCommand}
+   */
+  disableInstanceSqlHaStandbyDetections(
+    args: DisableInstanceSqlHaStandbyDetectionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DisableInstanceSqlHaStandbyDetectionsCommandOutput>;
+  disableInstanceSqlHaStandbyDetections(
+    args: DisableInstanceSqlHaStandbyDetectionsCommandInput,
+    cb: (err: any, data?: DisableInstanceSqlHaStandbyDetectionsCommandOutput) => void
+  ): void;
+  disableInstanceSqlHaStandbyDetections(
+    args: DisableInstanceSqlHaStandbyDetectionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DisableInstanceSqlHaStandbyDetectionsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DisableIpamOrganizationAdminAccountCommand}
    */
   disableIpamOrganizationAdminAccount(
@@ -12337,6 +12414,23 @@ export interface EC2 {
     args: EnableImageDeregistrationProtectionCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: EnableImageDeregistrationProtectionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link EnableInstanceSqlHaStandbyDetectionsCommand}
+   */
+  enableInstanceSqlHaStandbyDetections(
+    args: EnableInstanceSqlHaStandbyDetectionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<EnableInstanceSqlHaStandbyDetectionsCommandOutput>;
+  enableInstanceSqlHaStandbyDetections(
+    args: EnableInstanceSqlHaStandbyDetectionsCommandInput,
+    cb: (err: any, data?: EnableInstanceSqlHaStandbyDetectionsCommandOutput) => void
+  ): void;
+  enableInstanceSqlHaStandbyDetections(
+    args: EnableInstanceSqlHaStandbyDetectionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: EnableInstanceSqlHaStandbyDetectionsCommandOutput) => void
   ): void;
 
   /**

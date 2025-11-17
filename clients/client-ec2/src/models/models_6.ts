@@ -21,6 +21,7 @@ import {
   TransitGatewayAttachmentResourceType,
   TransitGatewayMulticastDomainAssociations,
   TransitGatewayPolicyTableAssociation,
+  TransitGatewayVpcAttachment,
   TrunkInterfaceAssociation,
   UserTrustProviderType,
   VerifiedAccessInstance,
@@ -30,9 +31,14 @@ import {
   VpcPeeringConnection,
 } from "./models_0";
 
-import { CapacityReservationState, DiskImageFormat, IpAddressType, SSEType, Volume, VolumeType, Vpc } from "./models_1";
+import { CapacityReservationState, DiskImageFormat, IpAddressType, Volume, VolumeType, Vpc } from "./models_1";
 
-import { VerifiedAccessEndpoint } from "./models_2";
+import {
+  TransitGateway,
+  TransitGatewayRouteTable,
+  TransitGatewayRouteTableAnnouncement,
+  VerifiedAccessEndpoint,
+} from "./models_2";
 
 import {
   ConnectionNotification,
@@ -62,9 +68,289 @@ import {
   MetricType,
   PeriodType,
   ProductCode,
+  RegisteredInstance,
   ReservationState,
   StatisticType,
 } from "./models_4";
+
+/**
+ * @public
+ */
+export interface DescribeTransitGatewayRouteTableAnnouncementsResult {
+  /**
+   * <p>Describes the transit gateway route table announcement.</p>
+   * @public
+   */
+  TransitGatewayRouteTableAnnouncements?: TransitGatewayRouteTableAnnouncement[] | undefined;
+
+  /**
+   * <p>The token for the next page of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeTransitGatewayRouteTablesRequest {
+  /**
+   * <p>The IDs of the transit gateway route tables.</p>
+   * @public
+   */
+  TransitGatewayRouteTableIds?: string[] | undefined;
+
+  /**
+   * <p>One or more filters. The possible values are:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>default-association-route-table</code> - Indicates whether this is the default
+   *                 association route table for the transit gateway (<code>true</code> | <code>false</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>default-propagation-route-table</code> - Indicates whether this is the default
+   *                propagation route table for the transit gateway (<code>true</code> | <code>false</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>state</code> - The state of the route table (<code>available</code> | <code>deleting</code> | <code>deleted</code> | <code>pending</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>transit-gateway-id</code> - The ID of the transit gateway.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>transit-gateway-route-table-id</code> - The ID of the transit gateway route table.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Filters?: Filter[] | undefined;
+
+  /**
+   * <p>The maximum number of results to return with a single call.
+   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The token for the next page of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeTransitGatewayRouteTablesResult {
+  /**
+   * <p>Information about the transit gateway route tables.</p>
+   * @public
+   */
+  TransitGatewayRouteTables?: TransitGatewayRouteTable[] | undefined;
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeTransitGatewaysRequest {
+  /**
+   * <p>The IDs of the transit gateways.</p>
+   * @public
+   */
+  TransitGatewayIds?: string[] | undefined;
+
+  /**
+   * <p>One or more filters. The possible values are:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>options.propagation-default-route-table-id</code> - The ID of the default propagation route table.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>options.amazon-side-asn</code> - The private ASN for the Amazon side of a BGP session.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>options.association-default-route-table-id</code> - The ID of the default association route table.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>options.auto-accept-shared-attachments</code> - Indicates whether there is automatic acceptance of attachment requests (<code>enable</code> | <code>disable</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>options.default-route-table-association</code> - Indicates whether resource attachments are automatically
+   *                associated with the default association route table (<code>enable</code> | <code>disable</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>options.default-route-table-propagation</code> - Indicates whether resource attachments automatically propagate
+   *                routes to the default propagation route table (<code>enable</code> | <code>disable</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>options.dns-support</code> - Indicates whether DNS support is enabled (<code>enable</code> | <code>disable</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>options.vpn-ecmp-support</code> - Indicates whether Equal Cost Multipath Protocol support is enabled  (<code>enable</code> | <code>disable</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>owner-id</code> - The ID of the Amazon Web Services account that owns the transit gateway.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>state</code> - The state of the transit gateway (<code>available</code> | <code>deleted</code> | <code>deleting</code> | <code>modifying</code> | <code>pending</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>transit-gateway-id</code> - The ID of the transit gateway.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>tag-key </code>- The key/value combination of a tag assigned to the resource. Use the
+   *                tag key in the filter name and the tag value as the filter value. For example, to
+   *                find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify
+   *                <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Filters?: Filter[] | undefined;
+
+  /**
+   * <p>The maximum number of results to return with a single call.
+   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The token for the next page of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeTransitGatewaysResult {
+  /**
+   * <p>Information about the transit gateways.</p>
+   * @public
+   */
+  TransitGateways?: TransitGateway[] | undefined;
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeTransitGatewayVpcAttachmentsRequest {
+  /**
+   * <p>The IDs of the attachments.</p>
+   * @public
+   */
+  TransitGatewayAttachmentIds?: string[] | undefined;
+
+  /**
+   * <p>One or more filters. The possible values are:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>state</code> - The state of the attachment. Valid values are <code>available</code> | <code>deleted</code> | <code>deleting</code> | <code>failed</code> |  <code>failing</code> | <code>initiatingRequest</code> | <code>modifying</code> | <code>pendingAcceptance</code> | <code>pending</code> | <code>rollingBack</code> | <code>rejected</code> | <code>rejecting</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>transit-gateway-attachment-id</code> - The ID of the attachment.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>transit-gateway-id</code> - The ID of the transit gateway.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>vpc-id</code> - The ID of the VPC.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Filters?: Filter[] | undefined;
+
+  /**
+   * <p>The maximum number of results to return with a single call.
+   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The token for the next page of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeTransitGatewayVpcAttachmentsResult {
+  /**
+   * <p>Information about the VPC attachments.</p>
+   * @public
+   */
+  TransitGatewayVpcAttachments?: TransitGatewayVpcAttachment[] | undefined;
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
 
 /**
  * @public
@@ -4080,6 +4366,38 @@ export interface DisableImageDeregistrationProtectionResult {
 /**
  * @public
  */
+export interface DisableInstanceSqlHaStandbyDetectionsRequest {
+  /**
+   * <p>The IDs of the instances to disable from SQL Server High Availability standby detection monitoring.</p>
+   * @public
+   */
+  InstanceIds: string[] | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action,
+   *     without actually making the request, and provides an error response. If you have the
+   *     required permissions, the error response is <code>DryRunOperation</code>. Otherwise,
+   *     it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DisableInstanceSqlHaStandbyDetectionsResult {
+  /**
+   * <p>Information about the instances that were disabled from SQL Server High Availability standby
+   *       detection monitoring.</p>
+   * @public
+   */
+  Instances?: RegisteredInstance[] | undefined;
+}
+
+/**
+ * @public
+ */
 export interface DisableIpamOrganizationAdminAccountRequest {
   /**
    * <p>A check for whether you have the required permissions for the action without actually making the request
@@ -5776,6 +6094,47 @@ export interface EnableImageDeregistrationProtectionResult {
    * @public
    */
   Return?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface EnableInstanceSqlHaStandbyDetectionsRequest {
+  /**
+   * <p>The IDs of the instances to enable for SQL Server High Availability standby detection monitoring.</p>
+   * @public
+   */
+  InstanceIds: string[] | undefined;
+
+  /**
+   * <p>The ARN of the Secrets Manager secret containing the SQL Server access credentials. The specified
+   *       secret must contain valid SQL Server credentials for the specified instances. If not specified,
+   *       deafult local user credentials will be used by the Amazon Web Services Systems Manager agent. To enable
+   *       instances with different credentials, you must make separate requests.</p>
+   * @public
+   */
+  SqlServerCredentials?: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action,
+   *     without actually making the request, and provides an error response. If you have the
+   *     required permissions, the error response is <code>DryRunOperation</code>. Otherwise,
+   *     it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface EnableInstanceSqlHaStandbyDetectionsResult {
+  /**
+   * <p>Information about the instances that were enabled for SQL Server High Availability standby
+   *       detection monitoring.</p>
+   * @public
+   */
+  Instances?: RegisteredInstance[] | undefined;
 }
 
 /**
@@ -8306,183 +8665,4 @@ export interface GetDeclarativePoliciesReportSummaryResult {
    * @public
    */
   AttributeSummaries?: AttributeSummary[] | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const UnlimitedSupportedInstanceFamily = {
-  t2: "t2",
-  t3: "t3",
-  t3a: "t3a",
-  t4g: "t4g",
-} as const;
-
-/**
- * @public
- */
-export type UnlimitedSupportedInstanceFamily =
-  (typeof UnlimitedSupportedInstanceFamily)[keyof typeof UnlimitedSupportedInstanceFamily];
-
-/**
- * @public
- */
-export interface GetDefaultCreditSpecificationRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the operation, without actually making the
-   *   request, and provides an error response. If you have the required permissions, the error response is
-   *   <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The instance family.</p>
-   * @public
-   */
-  InstanceFamily: UnlimitedSupportedInstanceFamily | undefined;
-}
-
-/**
- * <p>Describes the default credit option for CPU usage of a burstable performance instance
- *             family.</p>
- * @public
- */
-export interface InstanceFamilyCreditSpecification {
-  /**
-   * <p>The instance family.</p>
-   * @public
-   */
-  InstanceFamily?: UnlimitedSupportedInstanceFamily | undefined;
-
-  /**
-   * <p>The default credit option for CPU usage of the instance family. Valid values are
-   *                 <code>standard</code> and <code>unlimited</code>.</p>
-   * @public
-   */
-  CpuCredits?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetDefaultCreditSpecificationResult {
-  /**
-   * <p>The default credit option for CPU usage of the instance family.</p>
-   * @public
-   */
-  InstanceFamilyCreditSpecification?: InstanceFamilyCreditSpecification | undefined;
-}
-
-/**
- * @public
- */
-export interface GetEbsDefaultKmsKeyIdRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface GetEbsDefaultKmsKeyIdResult {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the default KMS key for encryption by default.</p>
-   * @public
-   */
-  KmsKeyId?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetEbsEncryptionByDefaultRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface GetEbsEncryptionByDefaultResult {
-  /**
-   * <p>Indicates whether encryption by default is enabled.</p>
-   * @public
-   */
-  EbsEncryptionByDefault?: boolean | undefined;
-
-  /**
-   * <p>Reserved for future use.</p>
-   * @public
-   */
-  SseType?: SSEType | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const PartitionLoadFrequency = {
-  DAILY: "daily",
-  MONTHLY: "monthly",
-  NONE: "none",
-  WEEKLY: "weekly",
-} as const;
-
-/**
- * @public
- */
-export type PartitionLoadFrequency = (typeof PartitionLoadFrequency)[keyof typeof PartitionLoadFrequency];
-
-/**
- * <p>Describes integration options for Amazon Athena.</p>
- * @public
- */
-export interface AthenaIntegration {
-  /**
-   * <p>The location in Amazon S3 to store the generated CloudFormation template.</p>
-   * @public
-   */
-  IntegrationResultS3DestinationArn: string | undefined;
-
-  /**
-   * <p>The schedule for adding new partitions to the table.</p>
-   * @public
-   */
-  PartitionLoadFrequency: PartitionLoadFrequency | undefined;
-
-  /**
-   * <p>The start date for the partition.</p>
-   * @public
-   */
-  PartitionStartDate?: Date | undefined;
-
-  /**
-   * <p>The end date for the partition.</p>
-   * @public
-   */
-  PartitionEndDate?: Date | undefined;
-}
-
-/**
- * <p>Describes service integrations with VPC Flow logs.</p>
- * @public
- */
-export interface IntegrateServices {
-  /**
-   * <p>Information about the integration with Amazon Athena.</p>
-   * @public
-   */
-  AthenaIntegrations?: AthenaIntegration[] | undefined;
 }
