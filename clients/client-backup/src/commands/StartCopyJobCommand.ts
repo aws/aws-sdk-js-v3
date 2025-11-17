@@ -50,6 +50,7 @@ export interface StartCopyJobCommandOutput extends StartCopyJobOutput, __Metadat
  *     MoveToColdStorageAfterDays: Number("long"),
  *     DeleteAfterDays: Number("long"),
  *     OptInToArchiveForSupportedResources: true || false,
+ *     DeleteAfterEvent: "DELETE_AFTER_COPY",
  *   },
  * };
  * const command = new StartCopyJobCommand(input);

@@ -60,6 +60,7 @@ export interface UpdateRecoveryPointLifecycleCommandOutput
  *     MoveToColdStorageAfterDays: Number("long"),
  *     DeleteAfterDays: Number("long"),
  *     OptInToArchiveForSupportedResources: true || false,
+ *     DeleteAfterEvent: "DELETE_AFTER_COPY",
  *   },
  * };
  * const command = new UpdateRecoveryPointLifecycleCommand(input);
@@ -71,6 +72,7 @@ export interface UpdateRecoveryPointLifecycleCommandOutput
  * //     MoveToColdStorageAfterDays: Number("long"),
  * //     DeleteAfterDays: Number("long"),
  * //     OptInToArchiveForSupportedResources: true || false,
+ * //     DeleteAfterEvent: "DELETE_AFTER_COPY",
  * //   },
  * //   CalculatedLifecycle: { // CalculatedLifecycle
  * //     MoveToColdStorageAt: new Date("TIMESTAMP"),

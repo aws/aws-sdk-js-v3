@@ -76,6 +76,7 @@ export interface DescribeRecoveryPointCommandOutput extends DescribeRecoveryPoin
  * //     MoveToColdStorageAfterDays: Number("long"),
  * //     DeleteAfterDays: Number("long"),
  * //     OptInToArchiveForSupportedResources: true || false,
+ * //     DeleteAfterEvent: "DELETE_AFTER_COPY",
  * //   },
  * //   EncryptionKeyArn: "STRING_VALUE",
  * //   IsEncrypted: true || false,

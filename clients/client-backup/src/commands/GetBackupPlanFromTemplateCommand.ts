@@ -48,6 +48,7 @@ export interface GetBackupPlanFromTemplateCommandOutput extends GetBackupPlanFro
  * //       { // BackupRule
  * //         RuleName: "STRING_VALUE", // required
  * //         TargetBackupVaultName: "STRING_VALUE", // required
+ * //         TargetLogicallyAirGappedBackupVaultArn: "STRING_VALUE",
  * //         ScheduleExpression: "STRING_VALUE",
  * //         StartWindowMinutes: Number("long"),
  * //         CompletionWindowMinutes: Number("long"),
@@ -55,6 +56,7 @@ export interface GetBackupPlanFromTemplateCommandOutput extends GetBackupPlanFro
  * //           MoveToColdStorageAfterDays: Number("long"),
  * //           DeleteAfterDays: Number("long"),
  * //           OptInToArchiveForSupportedResources: true || false,
+ * //           DeleteAfterEvent: "DELETE_AFTER_COPY",
  * //         },
  * //         RecoveryPointTags: { // Tags
  * //           "<keys>": "STRING_VALUE",
@@ -66,6 +68,7 @@ export interface GetBackupPlanFromTemplateCommandOutput extends GetBackupPlanFro
  * //               MoveToColdStorageAfterDays: Number("long"),
  * //               DeleteAfterDays: Number("long"),
  * //               OptInToArchiveForSupportedResources: true || false,
+ * //               DeleteAfterEvent: "DELETE_AFTER_COPY",
  * //             },
  * //             DestinationBackupVaultArn: "STRING_VALUE", // required
  * //           },

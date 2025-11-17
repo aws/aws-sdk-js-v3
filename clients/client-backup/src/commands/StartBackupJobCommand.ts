@@ -38,6 +38,7 @@ export interface StartBackupJobCommandOutput extends StartBackupJobOutput, __Met
  * const client = new BackupClient(config);
  * const input = { // StartBackupJobInput
  *   BackupVaultName: "STRING_VALUE", // required
+ *   LogicallyAirGappedBackupVaultArn: "STRING_VALUE",
  *   ResourceArn: "STRING_VALUE", // required
  *   IamRoleArn: "STRING_VALUE", // required
  *   IdempotencyToken: "STRING_VALUE",
@@ -47,6 +48,7 @@ export interface StartBackupJobCommandOutput extends StartBackupJobOutput, __Met
  *     MoveToColdStorageAfterDays: Number("long"),
  *     DeleteAfterDays: Number("long"),
  *     OptInToArchiveForSupportedResources: true || false,
+ *     DeleteAfterEvent: "DELETE_AFTER_COPY",
  *   },
  *   RecoveryPointTags: { // Tags
  *     "<keys>": "STRING_VALUE",

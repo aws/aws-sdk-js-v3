@@ -50,6 +50,7 @@ export interface ListCopyJobsCommandOutput extends ListCopyJobsOutput, __Metadat
  *   ByCompleteAfter: new Date("TIMESTAMP"),
  *   ByParentJobId: "STRING_VALUE",
  *   ByMessageCategory: "STRING_VALUE",
+ *   BySourceRecoveryPointArn: "STRING_VALUE",
  * };
  * const command = new ListCopyJobsCommand(input);
  * const response = await client.send(command);
@@ -69,6 +70,7 @@ export interface ListCopyJobsCommandOutput extends ListCopyJobsOutput, __Metadat
  * //         MoveToColdStorageAfterDays: Number("long"),
  * //         DeleteAfterDays: Number("long"),
  * //         OptInToArchiveForSupportedResources: true || false,
+ * //         DeleteAfterEvent: "DELETE_AFTER_COPY",
  * //       },
  * //       ResourceArn: "STRING_VALUE",
  * //       CreationDate: new Date("TIMESTAMP"),
@@ -87,6 +89,7 @@ export interface ListCopyJobsCommandOutput extends ListCopyJobsOutput, __Metadat
  * //         BackupRuleCron: "STRING_VALUE",
  * //         BackupRuleTimezone: "STRING_VALUE",
  * //       },
+ * //       CreatedByBackupJobId: "STRING_VALUE",
  * //       ResourceType: "STRING_VALUE",
  * //       ParentJobId: "STRING_VALUE",
  * //       IsParent: true || false,

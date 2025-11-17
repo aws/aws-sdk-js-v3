@@ -373,6 +373,19 @@ export interface RecoveryPointCreator {
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const LifecycleDeleteAfterEvent = {
+  DELETE_AFTER_COPY: "DELETE_AFTER_COPY",
+} as const;
+
+/**
+ * @public
+ */
+export type LifecycleDeleteAfterEvent = (typeof LifecycleDeleteAfterEvent)[keyof typeof LifecycleDeleteAfterEvent];
+
+/**
  * <p>Specifies the time period, in days, before a recovery point transitions to cold storage
  *          or is deleted.</p>
  *          <p>Backups transitioned to cold storage must be stored in cold storage for a minimum of 90
@@ -407,6 +420,14 @@ export interface Lifecycle {
    * @public
    */
   OptInToArchiveForSupportedResources?: boolean | undefined;
+
+  /**
+   * <p>The event after which a recovery point is deleted. A recovery point with both
+   *             <code>DeleteAfterDays</code> and <code>DeleteAfterEvent</code> will delete after
+   *             whichever condition is satisfied first. Not valid as an input.</p>
+   * @public
+   */
+  DeleteAfterEvent?: LifecycleDeleteAfterEvent | undefined;
 }
 
 /**
@@ -884,6 +905,16 @@ export interface BackupRule {
   TargetBackupVaultName: string | undefined;
 
   /**
+   * <p>The ARN of a logically air-gapped vault. ARN must be in the same account and Region.
+   *          If provided, supported fully managed resources back up directly to logically air-gapped vault,
+   *          while other supported resources create a temporary (billable) snapshot in backup vault,
+   *          then copy it to logically air-gapped vault. Unsupported resources only back up to the specified
+   *          backup vault.</p>
+   * @public
+   */
+  TargetLogicallyAirGappedBackupVaultArn?: string | undefined;
+
+  /**
    * <p>A cron expression in UTC specifying when Backup initiates a backup job.
    *          When no CRON expression is provided, Backup will use the default
    *          expression <code>cron(0 5 ? * * *)</code>.</p>
@@ -1029,6 +1060,16 @@ export interface BackupRuleInput {
    * @public
    */
   TargetBackupVaultName: string | undefined;
+
+  /**
+   * <p>The ARN of a logically air-gapped vault. ARN must be in the same account and Region.
+   *          If provided, supported fully managed resources back up directly to logically air-gapped vault,
+   *          while other supported resources create a temporary (billable) snapshot in backup vault,
+   *          then copy it to logically air-gapped vault. Unsupported resources only back up to the specified
+   *          backup vault.</p>
+   * @public
+   */
+  TargetLogicallyAirGappedBackupVaultArn?: string | undefined;
 
   /**
    * <p>A CRON expression in UTC specifying when Backup initiates a backup
@@ -2011,6 +2052,13 @@ export interface CopyJob {
    * @public
    */
   CreatedBy?: RecoveryPointCreator | undefined;
+
+  /**
+   * <p>The backup job ID that initiated this copy job. Only applicable to scheduled copy
+   *             jobs and automatic copy jobs to logically air-gapped vault.</p>
+   * @public
+   */
+  CreatedByBackupJobId?: string | undefined;
 
   /**
    * <p>The type of Amazon Web Services resource to be copied; for example, an Amazon Elastic Block Store (Amazon EBS) volume or an Amazon Relational Database Service (Amazon RDS) database.</p>
@@ -4326,8 +4374,8 @@ export interface DescribeGlobalSettingsInput {}
  */
 export interface DescribeGlobalSettingsOutput {
   /**
-   * <p>The status of the flags <code>isCrossAccountBackupEnabled</code> and
-   *           <code>isMpaEnabled</code> ('Mpa' refers to multi-party approval).</p>
+   * <p>The status of the flags <code>isCrossAccountBackupEnabled</code>,
+   *          <code>isMpaEnabled</code> ('Mpa' refers to multi-party approval), and <code>isDelegatedAdministratorEnabled</code>.</p>
    * @public
    */
   GlobalSettings?: Record<string, string> | undefined;
@@ -7046,6 +7094,12 @@ export interface ListCopyJobsInput {
    * @public
    */
   ByMessageCategory?: string | undefined;
+
+  /**
+   * <p>Filters copy jobs by the specified source recovery point ARN.</p>
+   * @public
+   */
+  BySourceRecoveryPointArn?: string | undefined;
 }
 
 /**
@@ -9655,6 +9709,16 @@ export interface StartBackupJobInput {
   BackupVaultName: string | undefined;
 
   /**
+   * <p>The ARN of a logically air-gapped vault. ARN must be in the same account and Region.
+   *          If provided, supported fully managed resources back up directly to logically air-gapped vault,
+   *          while other supported resources create a temporary (billable) snapshot in backup vault,
+   *          then copy it to logically air-gapped vault. Unsupported resources only back up to the specified
+   *          backup vault.</p>
+   * @public
+   */
+  LogicallyAirGappedBackupVaultArn?: string | undefined;
+
+  /**
    * <p>An Amazon Resource Name (ARN) that uniquely identifies a resource. The format of the ARN
    *          depends on the resource type.</p>
    * @public
@@ -10303,6 +10367,10 @@ export interface UpdateGlobalSettingsInput {
    *          <p>A value for Multi-party approval, styled as "Mpa": <code>isMpaEnabled</code>. Values can
    *          be true or false. Example:
    *          <code>update-global-settings --global-settings isMpaEnabled=false
+   *             --region us-west-2</code>.</p>
+   *          <p>A value for Backup Service-Linked Role creation, styled as<code>isDelegatedAdministratorEnabled</code>.
+   *          Values can be true or false. Example:
+   *          <code>update-global-settings --global-settings isDelegatedAdministratorEnabled=false
    *             --region us-west-2</code>.</p>
    * @public
    */

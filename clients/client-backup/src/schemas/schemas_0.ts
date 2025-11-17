@@ -66,6 +66,7 @@ const _BSB = "BackupSizeBytes";
 const _BSIB = "BackupSizeInBytes";
 const _BSL = "BackupSelectionsList";
 const _BSLM = "BackupSelectionsListMember";
+const _BSRPA = "BySourceRecoveryPointArn";
 const _BSy = "ByState";
 const _BSyh = "ByShared";
 const _BSyt = "ByStatus";
@@ -85,6 +86,7 @@ const _CAo = "CopyAction";
 const _CAr = "CreatedAfter";
 const _CAre = "CreationAfter";
 const _CB = "CreatedBy";
+const _CBBJI = "CreatedByBackupJobId";
 const _CBP = "CreateBackupPlan";
 const _CBPI = "CreateBackupPlanInput";
 const _CBPO = "CreateBackupPlanOutput";
@@ -161,6 +163,7 @@ const _Cou = "Count";
 const _D = "Description";
 const _DA = "DeleteAt";
 const _DAD = "DeleteAfterDays";
+const _DAE = "DeleteAfterEvent";
 const _DBJ = "DescribeBackupJob";
 const _DBJI = "DescribeBackupJobInput";
 const _DBJO = "DescribeBackupJobOutput";
@@ -329,6 +332,7 @@ const _KV = "KeyValue";
 const _KVL = "KeyValueList";
 const _L = "Lifecycle";
 const _LAET = "LastAttemptedExecutionTime";
+const _LAGBVA = "LogicallyAirGappedBackupVaultArn";
 const _LBJ = "ListBackupJobs";
 const _LBJI = "ListBackupJobsInput";
 const _LBJO = "ListBackupJobsOutput";
@@ -598,6 +602,7 @@ const _TBVN = "TargetBackupVaultName";
 const _TD = "ToDate";
 const _TII = "TotalItemsIndexed";
 const _TKL = "TagKeyList";
+const _TLAGBVA = "TargetLogicallyAirGappedBackupVaultArn";
 const _TR = "TagResource";
 const _TRI = "TagResourceInput";
 const _Ta = "Tags";
@@ -672,6 +677,7 @@ const _rT = "resourceType";
 const _rTPA = "restoreTestingPlanArn";
 const _s = "server";
 const _sRA = "sourceResourceArn";
+const _sRPA = "sourceRecoveryPointArn";
 const _sh = "shared";
 const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.backup";
 const _st = "state";
@@ -837,16 +843,16 @@ export var BackupRule: StaticStructureSchema = [
   n0,
   _BR,
   0,
-  [_RNu, _TBVN, _SE, _SWM, _CWM, _L, _RPT, _RI, _CA, _ECB, _SET, _IA],
-  [0, 0, 0, 1, 1, () => Lifecycle, [() => Tags, 0], 0, () => CopyActions, 2, 0, () => IndexActions],
+  [_RNu, _TBVN, _TLAGBVA, _SE, _SWM, _CWM, _L, _RPT, _RI, _CA, _ECB, _SET, _IA],
+  [0, 0, 0, 0, 1, 1, () => Lifecycle, [() => Tags, 0], 0, () => CopyActions, 2, 0, () => IndexActions],
 ];
 export var BackupRuleInput: StaticStructureSchema = [
   3,
   n0,
   _BRI,
   0,
-  [_RNu, _TBVN, _SE, _SWM, _CWM, _L, _RPT, _CA, _ECB, _SET, _IA],
-  [0, 0, 0, 1, 1, () => Lifecycle, [() => Tags, 0], () => CopyActions, 2, 0, () => IndexActions],
+  [_RNu, _TBVN, _TLAGBVA, _SE, _SWM, _CWM, _L, _RPT, _CA, _ECB, _SET, _IA],
+  [0, 0, 0, 0, 1, 1, () => Lifecycle, [() => Tags, 0], () => CopyActions, 2, 0, () => IndexActions],
 ];
 export var BackupSelection: StaticStructureSchema = [
   3,
@@ -947,6 +953,7 @@ export var CopyJob: StaticStructureSchema = [
     _BSIB,
     _IRA,
     _CB,
+    _CBBJI,
     _RT,
     _PJI,
     _IP,
@@ -975,6 +982,7 @@ export var CopyJob: StaticStructureSchema = [
     1,
     0,
     () => RecoveryPointCreator,
+    0,
     0,
     0,
     2,
@@ -1717,7 +1725,7 @@ export var LegalHold: StaticStructureSchema = [
   [_Ti, _St, _D, _LHI, _LHA, _CD, _CDan],
   [0, 0, 0, 0, 0, 4, 4],
 ];
-export var Lifecycle: StaticStructureSchema = [3, n0, _L, 0, [_MTCSAD, _DAD, _OITAFSR], [1, 1, 2]];
+export var Lifecycle: StaticStructureSchema = [3, n0, _L, 0, [_MTCSAD, _DAD, _OITAFSR, _DAE], [1, 1, 2, 0]];
 export var LimitExceededException: StaticErrorSchema = [
   -3,
   n0,
@@ -2033,7 +2041,7 @@ export var ListCopyJobsInput: StaticStructureSchema = [
   n0,
   _LCJI,
   0,
-  [_NT, _MR, _BRA, _BSy, _BCB, _BCA, _BRT, _BDVA, _BAI, _BCBy, _BCAy, _BPJI, _BMC],
+  [_NT, _MR, _BRA, _BSy, _BCB, _BCA, _BRT, _BDVA, _BAI, _BCBy, _BCAy, _BPJI, _BMC, _BSRPA],
   [
     [
       0,
@@ -2111,6 +2119,12 @@ export var ListCopyJobsInput: StaticStructureSchema = [
       0,
       {
         [_hQ]: _mC,
+      },
+    ],
+    [
+      0,
+      {
+        [_hQ]: _sRPA,
       },
     ],
   ],
@@ -3174,8 +3188,8 @@ export var StartBackupJobInput: StaticStructureSchema = [
   n0,
   _SBJI,
   0,
-  [_BVN, _RA, _IRA, _IT, _SWM, _CWMo, _L, _RPT, _BO, _I],
-  [0, 0, 0, [0, 4], 1, 1, () => Lifecycle, [() => Tags, 0], 128 | 0, 0],
+  [_BVN, _LAGBVA, _RA, _IRA, _IT, _SWM, _CWMo, _L, _RPT, _BO, _I],
+  [0, 0, 0, 0, [0, 4], 1, 1, () => Lifecycle, [() => Tags, 0], 128 | 0, 0],
 ];
 export var StartBackupJobOutput: StaticStructureSchema = [3, n0, _SBJO, 0, [_BJI, _RPA, _CD, _IP], [0, 0, 4, 2]];
 export var StartCopyJobInput: StaticStructureSchema = [
