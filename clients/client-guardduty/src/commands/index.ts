@@ -65,6 +65,7 @@ export * from "./ListTagsForResourceCommand";
 export * from "./ListThreatEntitySetsCommand";
 export * from "./ListThreatIntelSetsCommand";
 export * from "./ListTrustedEntitySetsCommand";
+export * from "./SendObjectMalwareScanCommand";
 export * from "./StartMalwareScanCommand";
 export * from "./StartMonitoringMembersCommand";
 export * from "./StopMonitoringMembersCommand";

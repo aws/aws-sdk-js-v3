@@ -293,6 +293,11 @@ import {
   ListTrustedEntitySetsCommandOutput,
 } from "./commands/ListTrustedEntitySetsCommand";
 import {
+  SendObjectMalwareScanCommand,
+  SendObjectMalwareScanCommandInput,
+  SendObjectMalwareScanCommandOutput,
+} from "./commands/SendObjectMalwareScanCommand";
+import {
   StartMalwareScanCommand,
   StartMalwareScanCommandInput,
   StartMalwareScanCommandOutput,
@@ -443,6 +448,7 @@ const commands = {
   ListThreatEntitySetsCommand,
   ListThreatIntelSetsCommand,
   ListTrustedEntitySetsCommand,
+  SendObjectMalwareScanCommand,
   StartMalwareScanCommand,
   StartMonitoringMembersCommand,
   StopMonitoringMembersCommand,
@@ -1470,6 +1476,24 @@ export interface GuardDuty {
     args: ListTrustedEntitySetsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListTrustedEntitySetsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link SendObjectMalwareScanCommand}
+   */
+  sendObjectMalwareScan(): Promise<SendObjectMalwareScanCommandOutput>;
+  sendObjectMalwareScan(
+    args: SendObjectMalwareScanCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<SendObjectMalwareScanCommandOutput>;
+  sendObjectMalwareScan(
+    args: SendObjectMalwareScanCommandInput,
+    cb: (err: any, data?: SendObjectMalwareScanCommandOutput) => void
+  ): void;
+  sendObjectMalwareScan(
+    args: SendObjectMalwareScanCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: SendObjectMalwareScanCommandOutput) => void
   ): void;
 
   /**

@@ -231,6 +231,10 @@ import {
   ListTrustedEntitySetsCommandInput,
   ListTrustedEntitySetsCommandOutput,
 } from "./commands/ListTrustedEntitySetsCommand";
+import {
+  SendObjectMalwareScanCommandInput,
+  SendObjectMalwareScanCommandOutput,
+} from "./commands/SendObjectMalwareScanCommand";
 import { StartMalwareScanCommandInput, StartMalwareScanCommandOutput } from "./commands/StartMalwareScanCommand";
 import {
   StartMonitoringMembersCommandInput,
@@ -363,6 +367,7 @@ export type ServiceInputTypes =
   | ListThreatEntitySetsCommandInput
   | ListThreatIntelSetsCommandInput
   | ListTrustedEntitySetsCommandInput
+  | SendObjectMalwareScanCommandInput
   | StartMalwareScanCommandInput
   | StartMonitoringMembersCommandInput
   | StopMonitoringMembersCommandInput
@@ -452,6 +457,7 @@ export type ServiceOutputTypes =
   | ListThreatEntitySetsCommandOutput
   | ListThreatIntelSetsCommandOutput
   | ListTrustedEntitySetsCommandOutput
+  | SendObjectMalwareScanCommandOutput
   | StartMalwareScanCommandOutput
   | StartMonitoringMembersCommandOutput
   | StopMonitoringMembersCommandOutput

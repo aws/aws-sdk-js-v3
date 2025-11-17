@@ -2567,6 +2567,46 @@ export interface ListTrustedEntitySetsResponse {
 }
 
 /**
+ * <p>The S3 object path to initiate a scan, including bucket name, object key, and optional version ID.</p>
+ * @public
+ */
+export interface S3ObjectForSendObjectMalwareScan {
+  /**
+   * <p>The name of the S3 bucket containing the object to scan. The bucket must have GuardDuty Malware Protection enabled.</p>
+   * @public
+   */
+  Bucket?: string | undefined;
+
+  /**
+   * <p>The key (name) of the S3 object to scan for malware. This must be the full key path of the object within the bucket.</p>
+   * @public
+   */
+  Key?: string | undefined;
+
+  /**
+   * <p>The version ID of the S3 object to scan. If not specified, the latest version of the object is scanned.</p>
+   * @public
+   */
+  VersionId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface SendObjectMalwareScanRequest {
+  /**
+   * <p>The S3 object information for the object you want to scan. The bucket must have a Malware Protection plan configured to use this API.</p>
+   * @public
+   */
+  S3Object?: S3ObjectForSendObjectMalwareScan | undefined;
+}
+
+/**
+ * @public
+ */
+export interface SendObjectMalwareScanResponse {}
+
+/**
  * @public
  */
 export interface StartMalwareScanRequest {

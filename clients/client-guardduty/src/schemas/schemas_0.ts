@@ -88,6 +88,7 @@ const _BPAu = "BucketPublicAccess";
 const _BPP = "BlockPublicPolicy";
 const _BRE = "BadRequestException";
 const _Bl = "Blocked";
+const _Bu = "Bucket";
 const _C = "City";
 const _CA = "ClusterArn";
 const _CAr = "CreatedAt";
@@ -786,6 +787,10 @@ const _SNe = "SessionName";
 const _SO = "S3Object";
 const _SOD = "S3ObjectDetails";
 const _SODb = "S3ObjectDetail";
+const _SOFSOMS = "S3ObjectForSendObjectMalwareScan";
+const _SOMS = "SendObjectMalwareScan";
+const _SOMSR = "SendObjectMalwareScanRequest";
+const _SOMSRe = "SendObjectMalwareScanResponse";
 const _SOU = "S3ObjectUids";
 const _SP = "ScriptPath";
 const _SPo = "SocketPath";
@@ -1020,6 +1025,7 @@ const _bPAl = "blockPublicAcls";
 const _bPAu = "bucketPublicAccess";
 const _bPP = "blockPublicPolicy";
 const _bl = "blocked";
+const _bu = "bucket";
 const _c = "client";
 const _cA = "clusterArn";
 const _cAr = "createdAt";
@@ -10167,6 +10173,33 @@ export var S3ObjectDetail: StaticStructureSchema = [
     ],
   ],
 ];
+export var S3ObjectForSendObjectMalwareScan: StaticStructureSchema = [
+  3,
+  n0,
+  _SOFSOMS,
+  0,
+  [_Bu, _Ke, _VIe],
+  [
+    [
+      0,
+      {
+        [_jN]: _bu,
+      },
+    ],
+    [
+      0,
+      {
+        [_jN]: _ke,
+      },
+    ],
+    [
+      0,
+      {
+        [_jN]: _vIe,
+      },
+    ],
+  ],
+];
 export var Scan: StaticStructureSchema = [
   3,
   n0,
@@ -10536,6 +10569,22 @@ export var SecurityGroup: StaticStructureSchema = [
     ],
   ],
 ];
+export var SendObjectMalwareScanRequest: StaticStructureSchema = [
+  3,
+  n0,
+  _SOMSR,
+  0,
+  [_SO],
+  [
+    [
+      () => S3ObjectForSendObjectMalwareScan,
+      {
+        [_jN]: _sO,
+      },
+    ],
+  ],
+];
+export var SendObjectMalwareScanResponse: StaticStructureSchema = [3, n0, _SOMSRe, 0, [], []];
 export var Sequence: StaticStructureSchema = [
   3,
   n0,
@@ -13097,6 +13146,16 @@ export var ListTrustedEntitySets: StaticOperationSchema = [
   },
   () => ListTrustedEntitySetsRequest,
   () => ListTrustedEntitySetsResponse,
+];
+export var SendObjectMalwareScan: StaticOperationSchema = [
+  9,
+  n0,
+  _SOMS,
+  {
+    [_ht]: ["POST", "/object-malware-scan/send", 200],
+  },
+  () => SendObjectMalwareScanRequest,
+  () => SendObjectMalwareScanResponse,
 ];
 export var StartMalwareScan: StaticOperationSchema = [
   9,

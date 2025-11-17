@@ -752,6 +752,14 @@ ListTrustedEntitySets
 </details>
 <details>
 <summary>
+SendObjectMalwareScan
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/guardduty/command/SendObjectMalwareScanCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-guardduty/Interface/SendObjectMalwareScanCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-guardduty/Interface/SendObjectMalwareScanCommandOutput/)
+
+</details>
+<details>
+<summary>
 StartMalwareScan
 </summary>
 
