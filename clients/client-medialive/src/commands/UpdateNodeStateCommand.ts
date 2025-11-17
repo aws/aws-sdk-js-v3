@@ -5,7 +5,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
-import { UpdateNodeStateRequest, UpdateNodeStateResponse } from "../models/models_2";
+import { UpdateNodeStateRequest, UpdateNodeStateResponse } from "../models/models_3";
 import { UpdateNodeState } from "../schemas/schemas_0";
 
 /**

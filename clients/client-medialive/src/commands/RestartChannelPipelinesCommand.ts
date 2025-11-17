@@ -993,6 +993,7 @@ export interface RestartChannelPipelinesCommandOutput extends RestartChannelPipe
  * //               },
  * //               Rec601Settings: {},
  * //               Rec709Settings: {},
+ * //               Hlg2020Settings: {},
  * //             },
  * //             FilterSettings: { // H265FilterSettings
  * //               TemporalFilterSettings: {
@@ -1104,6 +1105,8 @@ export interface RestartChannelPipelinesCommandOutput extends RestartChannelPipe
  * //             Bitrate: Number("int"),
  * //             RateControlMode: "CBR" || "QVBR",
  * //             MinBitrate: Number("int"),
+ * //             SpatialAq: "DISABLED" || "ENABLED",
+ * //             TemporalAq: "DISABLED" || "ENABLED",
  * //           },
  * //         },
  * //         Height: Number("int"),

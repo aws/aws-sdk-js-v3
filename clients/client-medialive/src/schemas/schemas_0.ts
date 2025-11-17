@@ -580,7 +580,8 @@ const _HS = "Hdr10Settings";
 const _HSS = "HlsS3Settings";
 const _HSe = "H264Settings";
 const _HSet = "H265Settings";
-const _HSl = "HlsSettings";
+const _HSl = "Hlg2020Settings";
+const _HSls = "HlsSettings";
 const _HT = "HeightTrim";
 const _HTM = "HttpTransferMode";
 const _HTMS = "HlsTimedMetadataSettings";
@@ -1064,13 +1065,13 @@ const _Ro = "Routes";
 const _Rol = "Role";
 const _Rou = "Route";
 const _S = "Spec";
-const _SA = "ScheduleActions";
+const _SA = "SpatialAq";
 const _SACN = "SourceAncillaryChannelNumber";
 const _SAS = "ScheduleActionSettings";
 const _SASS = "ScheduleActionStartSettings";
-const _SAc = "ScheduleAction";
+const _SAc = "ScheduleActions";
+const _SAch = "ScheduleAction";
 const _SAe = "SecretArn";
-const _SAp = "SpatialAq";
 const _SB = "Scte35Behavior";
 const _SBc = "ScalingBehavior";
 const _SC = "ShadowColor";
@@ -1760,7 +1761,8 @@ const _hS = "hdr10Settings";
 const _hSS = "hlsS3Settings";
 const _hSe = "h264Settings";
 const _hSet = "h265Settings";
-const _hSl = "hlsSettings";
+const _hSl = "hlg2020Settings";
+const _hSls = "hlsSettings";
 const _hT = "heightTrim";
 const _hTM = "httpTransferMode";
 const _hTMS = "hlsTimedMetadataSettings";
@@ -2159,12 +2161,12 @@ const _ret = "retries";
 const _ro = "routes";
 const _rol = "role";
 const _s = "streaming";
-const _sA = "scheduleActions";
+const _sA = "spatialAq";
 const _sACN = "sourceAncillaryChannelNumber";
 const _sAS = "scheduleActionSettings";
 const _sASS = "scheduleActionStartSettings";
+const _sAc = "scheduleActions";
 const _sAe = "secretArn";
-const _sAp = "spatialAq";
 const _sB = "scte35Behavior";
 const _sBc = "scalingBehavior";
 const _sC = "shadowColor";
@@ -3205,7 +3207,30 @@ export var Av1Settings: StaticStructureSchema = [
   n0,
   _ASv,
   0,
-  [_ASf, _BS, _CSS, _FA, _FD, _FN, _GS, _GSU, _L, _LARC, _MB, _MII, _PD, _PN, _QQL, _SCD, _TBS, _B, _RCM, _MBi],
+  [
+    _ASf,
+    _BS,
+    _CSS,
+    _FA,
+    _FD,
+    _FN,
+    _GS,
+    _GSU,
+    _L,
+    _LARC,
+    _MB,
+    _MII,
+    _PD,
+    _PN,
+    _QQL,
+    _SCD,
+    _TBS,
+    _B,
+    _RCM,
+    _MBi,
+    _SA,
+    _TA,
+  ],
   [
     [
       0,
@@ -3325,6 +3350,18 @@ export var Av1Settings: StaticStructureSchema = [
       1,
       {
         [_jN]: _mBi,
+      },
+    ],
+    [
+      0,
+      {
+        [_jN]: _sA,
+      },
+    ],
+    [
+      0,
+      {
+        [_jN]: _tA,
       },
     ],
   ],
@@ -3551,12 +3588,12 @@ export var BatchScheduleActionCreateRequest: StaticStructureSchema = [
   n0,
   _BSACR,
   0,
-  [_SA],
+  [_SAc],
   [
     [
       () => __listOfScheduleAction,
       {
-        [_jN]: _sA,
+        [_jN]: _sAc,
       },
     ],
   ],
@@ -3566,12 +3603,12 @@ export var BatchScheduleActionCreateResult: StaticStructureSchema = [
   n0,
   _BSACRa,
   0,
-  [_SA],
+  [_SAc],
   [
     [
       () => __listOfScheduleAction,
       {
-        [_jN]: _sA,
+        [_jN]: _sAc,
       },
     ],
   ],
@@ -3596,12 +3633,12 @@ export var BatchScheduleActionDeleteResult: StaticStructureSchema = [
   n0,
   _BSADRa,
   0,
-  [_SA],
+  [_SAc],
   [
     [
       () => __listOfScheduleAction,
       {
-        [_jN]: _sA,
+        [_jN]: _sAc,
       },
     ],
   ],
@@ -8723,7 +8760,7 @@ export var DescribeScheduleResponse: StaticStructureSchema = [
   n0,
   _DSResc,
   0,
-  [_NT, _SA],
+  [_NT, _SAc],
   [
     [
       0,
@@ -8734,7 +8771,7 @@ export var DescribeScheduleResponse: StaticStructureSchema = [
     [
       () => __listOfScheduleAction,
       {
-        [_jN]: _sA,
+        [_jN]: _sAc,
       },
     ],
   ],
@@ -10419,7 +10456,7 @@ export var H264Settings: StaticStructureSchema = [
     _SCD,
     _Sl,
     _Sof,
-    _SAp,
+    _SA,
     _SLu,
     _Sy,
     _TA,
@@ -10648,7 +10685,7 @@ export var H264Settings: StaticStructureSchema = [
     [
       0,
       {
-        [_jN]: _sAp,
+        [_jN]: _sA,
       },
     ],
     [
@@ -10700,7 +10737,7 @@ export var H265ColorSpaceSettings: StaticStructureSchema = [
   n0,
   _HCSSo,
   0,
-  [_CSPS, _DVS, _HS, _RSec, _RSece],
+  [_CSPS, _DVS, _HS, _RSec, _RSece, _HSl],
   [
     [
       () => ColorSpacePassthroughSettings,
@@ -10730,6 +10767,12 @@ export var H265ColorSpaceSettings: StaticStructureSchema = [
       () => Rec709Settings,
       {
         [_jN]: _rSece,
+      },
+    ],
+    [
+      () => Hlg2020Settings,
+      {
+        [_jN]: _hSl,
       },
     ],
   ],
@@ -11080,6 +11123,7 @@ export var Hdr10Settings: StaticStructureSchema = [
     ],
   ],
 ];
+export var Hlg2020Settings: StaticStructureSchema = [3, n0, _HSl, 0, [], []];
 export var HlsAkamaiSettings: StaticStructureSchema = [
   3,
   n0,
@@ -11618,7 +11662,7 @@ export var HlsOutputSettings: StaticStructureSchema = [
   n0,
   _HOS,
   0,
-  [_HPT, _HSl, _NM, _SMeg],
+  [_HPT, _HSls, _NM, _SMeg],
   [
     [
       0,
@@ -11629,7 +11673,7 @@ export var HlsOutputSettings: StaticStructureSchema = [
     [
       () => HlsSettings,
       {
-        [_jN]: _hSl,
+        [_jN]: _hSls,
       },
     ],
     [
@@ -11664,7 +11708,7 @@ export var HlsS3Settings: StaticStructureSchema = [
 export var HlsSettings: StaticStructureSchema = [
   3,
   n0,
-  _HSl,
+  _HSls,
   0,
   [_AOHS, _FHS, _FCHS, _SHS],
   [
@@ -17631,7 +17675,7 @@ export var RtmpOutputSettings: StaticStructureSchema = [
 export var ScheduleAction: StaticStructureSchema = [
   3,
   n0,
-  _SAc,
+  _SAch,
   0,
   [_ANc, _SAS, _SASS],
   [

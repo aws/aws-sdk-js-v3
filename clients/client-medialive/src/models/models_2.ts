@@ -118,9 +118,8 @@ import {
   RouteCreateRequest,
   RouteUpdateRequest,
   ScheduleAction,
-  Scte35AposNoRegionalBlackoutBehavior,
-  Scte35AposWebDeliveryAllowedBehavior,
-  Scte35SpliceInsert,
+  Scte35SpliceInsertNoRegionalBlackoutBehavior,
+  Scte35SpliceInsertWebDeliveryAllowedBehavior,
   SdiSourceMode,
   SdiSourceState,
   SdiSourceSummary,
@@ -133,6 +132,60 @@ import {
   TransferringInputDeviceSummary,
   VideoDescription,
 } from "./models_1";
+
+/**
+ * Typical configuration that applies breaks on splice inserts in addition to time signal placement opportunities, breaks, and advertisements.
+ * @public
+ */
+export interface Scte35SpliceInsert {
+  /**
+   * When specified, this offset (in milliseconds) is added to the input Ad Avail PTS time. This only applies to embedded SCTE 104/35 messages and does not apply to OOB messages.
+   * @public
+   */
+  AdAvailOffset?: number | undefined;
+
+  /**
+   * When set to ignore, Segment Descriptors with noRegionalBlackoutFlag set to 0 will no longer trigger blackouts or Ad Avail slates
+   * @public
+   */
+  NoRegionalBlackoutFlag?: Scte35SpliceInsertNoRegionalBlackoutBehavior | undefined;
+
+  /**
+   * When set to ignore, Segment Descriptors with webDeliveryAllowedFlag set to 0 will no longer trigger blackouts or Ad Avail slates
+   * @public
+   */
+  WebDeliveryAllowedFlag?: Scte35SpliceInsertWebDeliveryAllowedBehavior | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const Scte35AposNoRegionalBlackoutBehavior = {
+  FOLLOW: "FOLLOW",
+  IGNORE: "IGNORE",
+} as const;
+
+/**
+ * @public
+ */
+export type Scte35AposNoRegionalBlackoutBehavior =
+  (typeof Scte35AposNoRegionalBlackoutBehavior)[keyof typeof Scte35AposNoRegionalBlackoutBehavior];
+
+/**
+ * @public
+ * @enum
+ */
+export const Scte35AposWebDeliveryAllowedBehavior = {
+  FOLLOW: "FOLLOW",
+  IGNORE: "IGNORE",
+} as const;
+
+/**
+ * @public
+ */
+export type Scte35AposWebDeliveryAllowedBehavior =
+  (typeof Scte35AposWebDeliveryAllowedBehavior)[keyof typeof Scte35AposWebDeliveryAllowedBehavior];
 
 /**
  * Atypical configuration that applies segment breaks only on SCTE-35 time signal placement opportunities and breaks.
@@ -9550,123 +9603,3 @@ export const UpdateNodeStateShape = {
  * @public
  */
 export type UpdateNodeStateShape = (typeof UpdateNodeStateShape)[keyof typeof UpdateNodeStateShape];
-
-/**
- * A request to update the state of a node.
- * @public
- */
-export interface UpdateNodeStateRequest {
-  /**
-   * The ID of the cluster
-   * @public
-   */
-  ClusterId: string | undefined;
-
-  /**
-   * The ID of the node.
-   * @public
-   */
-  NodeId: string | undefined;
-
-  /**
-   * The state to apply to the Node. Set to ACTIVE (COMMISSIONED) to indicate that the Node is deployable. MediaLive Anywhere will consider this node it needs a Node to run a Channel on, or when it needs a Node to promote from a backup node to an active node. Set to DRAINING to isolate the Node so that MediaLive Anywhere won't use it.
-   * @public
-   */
-  State?: UpdateNodeStateShape | undefined;
-}
-
-/**
- * Placeholder documentation for UpdateNodeStateResponse
- * @public
- */
-export interface UpdateNodeStateResponse {
-  /**
-   * The ARN of the Node. It is automatically assigned when the Node is created.
-   * @public
-   */
-  Arn?: string | undefined;
-
-  /**
-   * An array of IDs. Each ID is one ChannelPlacementGroup that is associated with this Node. Empty if the Node is not yet associated with any groups.
-   * @public
-   */
-  ChannelPlacementGroups?: string[] | undefined;
-
-  /**
-   * The ID of the Cluster that the Node belongs to.
-   * @public
-   */
-  ClusterId?: string | undefined;
-
-  /**
-   * The current connection state of the Node.
-   * @public
-   */
-  ConnectionState?: NodeConnectionState | undefined;
-
-  /**
-   * The unique ID of the Node. Unique in the Cluster. The ID is the resource-id portion of the ARN.
-   * @public
-   */
-  Id?: string | undefined;
-
-  /**
-   * The ARN of the EC2 instance hosting the Node.
-   * @public
-   */
-  InstanceArn?: string | undefined;
-
-  /**
-   * The name that you specified for the Node.
-   * @public
-   */
-  Name?: string | undefined;
-
-  /**
-   * Documentation update needed
-   * @public
-   */
-  NodeInterfaceMappings?: NodeInterfaceMapping[] | undefined;
-
-  /**
-   * The initial role current role of the Node in the Cluster. ACTIVE means the Node is available for encoding. BACKUP means the Node is a redundant Node and might get used if an ACTIVE Node fails.
-   * @public
-   */
-  Role?: NodeRole | undefined;
-
-  /**
-   * The current state of the Node.
-   * @public
-   */
-  State?: NodeState | undefined;
-
-  /**
-   * An array of SDI source mappings. Each mapping connects one logical SdiSource to the physical SDI card and port that the physical SDI source uses.
-   * @public
-   */
-  SdiSourceMappings?: SdiSourceMapping[] | undefined;
-}
-
-/**
- * Request to update a reservation
- * @public
- */
-export interface UpdateReservationRequest {
-  /**
-   * Name of the reservation
-   * @public
-   */
-  Name?: string | undefined;
-
-  /**
-   * Renewal settings for the reservation
-   * @public
-   */
-  RenewalSettings?: RenewalSettings | undefined;
-
-  /**
-   * Unique reservation ID, e.g. '1234567'
-   * @public
-   */
-  ReservationId: string | undefined;
-}

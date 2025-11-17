@@ -5072,6 +5072,34 @@ export type Av1SceneChangeDetect = (typeof Av1SceneChangeDetect)[keyof typeof Av
  * @public
  * @enum
  */
+export const Av1SpatialAq = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type Av1SpatialAq = (typeof Av1SpatialAq)[keyof typeof Av1SpatialAq];
+
+/**
+ * @public
+ * @enum
+ */
+export const Av1TemporalAq = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type Av1TemporalAq = (typeof Av1TemporalAq)[keyof typeof Av1TemporalAq];
+
+/**
+ * @public
+ * @enum
+ */
 export const TimecodeBurninFontSize = {
   EXTRA_SMALL_10: "EXTRA_SMALL_10",
   LARGE_48: "LARGE_48",
@@ -5277,6 +5305,18 @@ export interface Av1Settings {
    * @public
    */
   MinBitrate?: number | undefined;
+
+  /**
+   * Spatial AQ makes adjustments within each frame based on spatial variation of content complexity. Enabled: MediaLive will determine the appropriate level of spatial AQ to apply. Disabled: No spatial AQ. For more information, see the topic about video adaptive quantization in the MediaLive user guide.
+   * @public
+   */
+  SpatialAq?: Av1SpatialAq | undefined;
+
+  /**
+   * Temporal AQ makes adjustments within each frame based on variations in content complexity over time. Enabled: MediaLive will determine the appropriate level of temporal AQ to apply. Disabled: No temporal AQ. For more information, see the topic about video adaptive quantization in the MediaLive user guide.
+   * @public
+   */
+  TemporalAq?: Av1TemporalAq | undefined;
 }
 
 /**
@@ -6170,6 +6210,12 @@ export type H265ColorMetadata = (typeof H265ColorMetadata)[keyof typeof H265Colo
 export interface DolbyVision81Settings {}
 
 /**
+ * Hlg2020 Settings
+ * @public
+ */
+export interface Hlg2020Settings {}
+
+/**
  * H265 Color Space Settings
  * @public
  */
@@ -6203,6 +6249,12 @@ export interface H265ColorSpaceSettings {
    * @public
    */
   Rec709Settings?: Rec709Settings | undefined;
+
+  /**
+   * Hlg2020 Settings
+   * @public
+   */
+  Hlg2020Settings?: Hlg2020Settings | undefined;
 }
 
 /**
@@ -7551,57 +7603,3 @@ export const Scte35SpliceInsertWebDeliveryAllowedBehavior = {
  */
 export type Scte35SpliceInsertWebDeliveryAllowedBehavior =
   (typeof Scte35SpliceInsertWebDeliveryAllowedBehavior)[keyof typeof Scte35SpliceInsertWebDeliveryAllowedBehavior];
-
-/**
- * Typical configuration that applies breaks on splice inserts in addition to time signal placement opportunities, breaks, and advertisements.
- * @public
- */
-export interface Scte35SpliceInsert {
-  /**
-   * When specified, this offset (in milliseconds) is added to the input Ad Avail PTS time. This only applies to embedded SCTE 104/35 messages and does not apply to OOB messages.
-   * @public
-   */
-  AdAvailOffset?: number | undefined;
-
-  /**
-   * When set to ignore, Segment Descriptors with noRegionalBlackoutFlag set to 0 will no longer trigger blackouts or Ad Avail slates
-   * @public
-   */
-  NoRegionalBlackoutFlag?: Scte35SpliceInsertNoRegionalBlackoutBehavior | undefined;
-
-  /**
-   * When set to ignore, Segment Descriptors with webDeliveryAllowedFlag set to 0 will no longer trigger blackouts or Ad Avail slates
-   * @public
-   */
-  WebDeliveryAllowedFlag?: Scte35SpliceInsertWebDeliveryAllowedBehavior | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const Scte35AposNoRegionalBlackoutBehavior = {
-  FOLLOW: "FOLLOW",
-  IGNORE: "IGNORE",
-} as const;
-
-/**
- * @public
- */
-export type Scte35AposNoRegionalBlackoutBehavior =
-  (typeof Scte35AposNoRegionalBlackoutBehavior)[keyof typeof Scte35AposNoRegionalBlackoutBehavior];
-
-/**
- * @public
- * @enum
- */
-export const Scte35AposWebDeliveryAllowedBehavior = {
-  FOLLOW: "FOLLOW",
-  IGNORE: "IGNORE",
-} as const;
-
-/**
- * @public
- */
-export type Scte35AposWebDeliveryAllowedBehavior =
-  (typeof Scte35AposWebDeliveryAllowedBehavior)[keyof typeof Scte35AposWebDeliveryAllowedBehavior];

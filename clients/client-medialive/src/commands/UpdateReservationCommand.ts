@@ -5,8 +5,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
-import { UpdateReservationRequest } from "../models/models_2";
-import { UpdateReservationResponse } from "../models/models_3";
+import { UpdateReservationRequest, UpdateReservationResponse } from "../models/models_3";
 import { UpdateReservation } from "../schemas/schemas_0";
 
 /**

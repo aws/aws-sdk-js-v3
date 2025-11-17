@@ -990,6 +990,7 @@ export interface StartChannelCommandOutput extends StartChannelResponse, __Metad
  * //               },
  * //               Rec601Settings: {},
  * //               Rec709Settings: {},
+ * //               Hlg2020Settings: {},
  * //             },
  * //             FilterSettings: { // H265FilterSettings
  * //               TemporalFilterSettings: {
@@ -1101,6 +1102,8 @@ export interface StartChannelCommandOutput extends StartChannelResponse, __Metad
  * //             Bitrate: Number("int"),
  * //             RateControlMode: "CBR" || "QVBR",
  * //             MinBitrate: Number("int"),
+ * //             SpatialAq: "DISABLED" || "ENABLED",
+ * //             TemporalAq: "DISABLED" || "ENABLED",
  * //           },
  * //         },
  * //         Height: Number("int"),
