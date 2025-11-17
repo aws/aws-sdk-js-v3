@@ -1,7 +1,5 @@
 // @ts-ignore
 import { InvokeStore } from "@aws/lambda-invoke-store";
-// eslint-disable-next-line no-restricted-imports
-import type { InvokeStore as InvokeStoreType } from "@aws/lambda-invoke-store/dist-types/invoke-store.d";
 import { HttpRequest } from "@smithy/protocol-http";
 import {
   BuildHandler,
@@ -37,7 +35,8 @@ export const recursionDetectionMiddleware =
     const functionName = process.env[ENV_LAMBDA_FUNCTION_NAME];
 
     const traceIdFromEnv = process.env[ENV_TRACE_ID];
-    const traceIdFromInvokeStore = (InvokeStore as typeof InvokeStoreType).getXRayTraceId();
+    const invokeStore = await InvokeStore.getInstanceAsync();
+    const traceIdFromInvokeStore = invokeStore?.getXRayTraceId();
     const traceId = traceIdFromInvokeStore ?? traceIdFromEnv;
 
     const nonEmptyString = (str: unknown): str is string => typeof str === "string" && str.length > 0;
