@@ -49,7 +49,7 @@ export interface CreateFirewallRuleCommandOutput extends CreateFirewallRuleRespo
  *   Name: "STRING_VALUE", // required
  *   FirewallDomainRedirectionAction: "INSPECT_REDIRECTION_DOMAIN" || "TRUST_REDIRECTION_DOMAIN",
  *   Qtype: "STRING_VALUE",
- *   DnsThreatProtection: "DGA" || "DNS_TUNNELING",
+ *   DnsThreatProtection: "DGA" || "DNS_TUNNELING" || "DICTIONARY_DGA",
  *   ConfidenceThreshold: "LOW" || "MEDIUM" || "HIGH",
  * };
  * const command = new CreateFirewallRuleCommand(input);
@@ -71,7 +71,7 @@ export interface CreateFirewallRuleCommandOutput extends CreateFirewallRuleRespo
  * //     ModificationTime: "STRING_VALUE",
  * //     FirewallDomainRedirectionAction: "INSPECT_REDIRECTION_DOMAIN" || "TRUST_REDIRECTION_DOMAIN",
  * //     Qtype: "STRING_VALUE",
- * //     DnsThreatProtection: "DGA" || "DNS_TUNNELING",
+ * //     DnsThreatProtection: "DGA" || "DNS_TUNNELING" || "DICTIONARY_DGA",
  * //     ConfidenceThreshold: "LOW" || "MEDIUM" || "HIGH",
  * //   },
  * // };

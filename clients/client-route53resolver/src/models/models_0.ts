@@ -1286,6 +1286,7 @@ export interface CreateFirewallDomainListResponse {
  */
 export const DnsThreatProtection = {
   DGA: "DGA",
+  DICTIONARY_DGA: "DICTIONARY_DGA",
   DNS_TUNNELING: "DNS_TUNNELING",
 } as const;
 
