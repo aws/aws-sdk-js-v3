@@ -4,7 +4,7 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { TagResourceRequest } from "../models/models_0";
+import { TagResourceRequest, TagResourceResponse } from "../models/models_0";
 import { PCSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PCSClient";
 import { TagResource } from "../schemas/schemas_0";
 
@@ -24,7 +24,7 @@ export interface TagResourceCommandInput extends TagResourceRequest {}
  *
  * The output of {@link TagResourceCommand}.
  */
-export interface TagResourceCommandOutput extends __MetadataBearer {}
+export interface TagResourceCommandOutput extends TagResourceResponse, __MetadataBearer {}
 
 /**
  * <p>Adds or edits tags on an PCS resource. Each tag consists of a tag key and a tag value. The tag key and tag value are case-sensitive strings. The tag value can be an empty (null) string. To add a tag, specify a new tag key and a tag value. To edit a tag, specify an existing tag key and a new tag value.</p>

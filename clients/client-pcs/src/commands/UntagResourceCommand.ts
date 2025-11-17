@@ -4,7 +4,7 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { UntagResourceRequest } from "../models/models_0";
+import { UntagResourceRequest, UntagResourceResponse } from "../models/models_0";
 import { PCSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PCSClient";
 import { UntagResource } from "../schemas/schemas_0";
 
@@ -24,7 +24,7 @@ export interface UntagResourceCommandInput extends UntagResourceRequest {}
  *
  * The output of {@link UntagResourceCommand}.
  */
-export interface UntagResourceCommandOutput extends __MetadataBearer {}
+export interface UntagResourceCommandOutput extends UntagResourceResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes tags from an PCS resource. To delete a tag, specify the tag key and the Amazon Resource Name (ARN) of the PCS resource.</p>

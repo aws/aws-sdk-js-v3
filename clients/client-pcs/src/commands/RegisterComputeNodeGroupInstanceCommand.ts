@@ -49,7 +49,7 @@ export interface RegisterComputeNodeGroupInstanceCommandOutput
  * //   sharedSecret: "STRING_VALUE", // required
  * //   endpoints: [ // Endpoints // required
  * //     { // Endpoint
- * //       type: "SLURMCTLD" || "SLURMDBD", // required
+ * //       type: "SLURMCTLD" || "SLURMDBD" || "SLURMRESTD", // required
  * //       privateIpAddress: "STRING_VALUE", // required
  * //       publicIpAddress: "STRING_VALUE",
  * //       ipv6Address: "STRING_VALUE",

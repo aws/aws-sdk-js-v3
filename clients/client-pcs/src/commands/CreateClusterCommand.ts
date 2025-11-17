@@ -64,6 +64,9 @@ export interface CreateClusterCommandOutput extends CreateClusterResponse, __Met
  *       defaultPurgeTimeInDays: Number("int"),
  *       mode: "STANDARD" || "NONE", // required
  *     },
+ *     slurmRest: { // SlurmRestRequest
+ *       mode: "STANDARD" || "NONE", // required
+ *     },
  *   },
  *   clientToken: "STRING_VALUE",
  *   tags: { // RequestTagMap
@@ -97,8 +100,17 @@ export interface CreateClusterCommandOutput extends CreateClusterResponse, __Met
  * //         secretArn: "STRING_VALUE", // required
  * //         secretVersion: "STRING_VALUE", // required
  * //       },
+ * //       jwtAuth: { // JwtAuth
+ * //         jwtKey: { // JwtKey
+ * //           secretArn: "STRING_VALUE", // required
+ * //           secretVersion: "STRING_VALUE", // required
+ * //         },
+ * //       },
  * //       accounting: { // Accounting
  * //         defaultPurgeTimeInDays: Number("int"),
+ * //         mode: "STANDARD" || "NONE", // required
+ * //       },
+ * //       slurmRest: { // SlurmRest
  * //         mode: "STANDARD" || "NONE", // required
  * //       },
  * //     },
@@ -113,7 +125,7 @@ export interface CreateClusterCommandOutput extends CreateClusterResponse, __Met
  * //     },
  * //     endpoints: [ // Endpoints
  * //       { // Endpoint
- * //         type: "SLURMCTLD" || "SLURMDBD", // required
+ * //         type: "SLURMCTLD" || "SLURMDBD" || "SLURMRESTD", // required
  * //         privateIpAddress: "STRING_VALUE", // required
  * //         publicIpAddress: "STRING_VALUE",
  * //         ipv6Address: "STRING_VALUE",

@@ -66,8 +66,17 @@ export interface GetClusterCommandOutput extends GetClusterResponse, __MetadataB
  * //         secretArn: "STRING_VALUE", // required
  * //         secretVersion: "STRING_VALUE", // required
  * //       },
+ * //       jwtAuth: { // JwtAuth
+ * //         jwtKey: { // JwtKey
+ * //           secretArn: "STRING_VALUE", // required
+ * //           secretVersion: "STRING_VALUE", // required
+ * //         },
+ * //       },
  * //       accounting: { // Accounting
  * //         defaultPurgeTimeInDays: Number("int"),
+ * //         mode: "STANDARD" || "NONE", // required
+ * //       },
+ * //       slurmRest: { // SlurmRest
  * //         mode: "STANDARD" || "NONE", // required
  * //       },
  * //     },
@@ -82,7 +91,7 @@ export interface GetClusterCommandOutput extends GetClusterResponse, __MetadataB
  * //     },
  * //     endpoints: [ // Endpoints
  * //       { // Endpoint
- * //         type: "SLURMCTLD" || "SLURMDBD", // required
+ * //         type: "SLURMCTLD" || "SLURMDBD" || "SLURMRESTD", // required
  * //         privateIpAddress: "STRING_VALUE", // required
  * //         publicIpAddress: "STRING_VALUE",
  * //         ipv6Address: "STRING_VALUE",

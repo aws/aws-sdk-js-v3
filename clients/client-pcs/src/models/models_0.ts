@@ -1021,6 +1021,32 @@ export const Size = {
 export type Size = (typeof Size)[keyof typeof Size];
 
 /**
+ * @public
+ * @enum
+ */
+export const SlurmRestMode = {
+  NONE: "NONE",
+  STANDARD: "STANDARD",
+} as const;
+
+/**
+ * @public
+ */
+export type SlurmRestMode = (typeof SlurmRestMode)[keyof typeof SlurmRestMode];
+
+/**
+ * <p>The Slurm REST API configuration includes settings for enabling and configuring the Slurm REST API. It's a property of the <b>ClusterSlurmConfiguration</b> object.</p>
+ * @public
+ */
+export interface SlurmRestRequest {
+  /**
+   * <p>The default value for <code>mode</code> is <code>STANDARD</code>. A value of <code>STANDARD</code> means the Slurm REST API is enabled.</p>
+   * @public
+   */
+  mode: SlurmRestMode | undefined;
+}
+
+/**
  * <p>Additional options related to the Slurm scheduler.</p>
  * @public
  */
@@ -1042,6 +1068,12 @@ export interface ClusterSlurmConfigurationRequest {
    * @public
    */
   accounting?: AccountingRequest | undefined;
+
+  /**
+   * <p>The Slurm REST API configuration for the cluster.</p>
+   * @public
+   */
+  slurmRest?: SlurmRestRequest | undefined;
 }
 
 /**
@@ -1098,6 +1130,7 @@ export interface CreateClusterRequest {
 export const EndpointType = {
   SLURMCTLD: "SLURMCTLD",
   SLURMDBD: "SLURMDBD",
+  SLURMRESTD: "SLURMRESTD",
 } as const;
 
 /**
@@ -1202,6 +1235,48 @@ export interface SlurmAuthKey {
 }
 
 /**
+ * <p>The JWT key stored in AWS Secrets Manager for Slurm REST API authentication.</p>
+ * @public
+ */
+export interface JwtKey {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the AWS Secrets Manager secret containing the JWT key.</p>
+   * @public
+   */
+  secretArn: string | undefined;
+
+  /**
+   * <p>The version of the AWS Secrets Manager secret containing the JWT key.</p>
+   * @public
+   */
+  secretVersion: string | undefined;
+}
+
+/**
+ * <p>The JWT authentication configuration for Slurm REST API access.</p>
+ * @public
+ */
+export interface JwtAuth {
+  /**
+   * <p>The JWT key for Slurm REST API authentication.</p>
+   * @public
+   */
+  jwtKey?: JwtKey | undefined;
+}
+
+/**
+ * <p>The Slurm REST API configuration includes settings for enabling and configuring the Slurm REST API. It's a property of the <b>ClusterSlurmConfiguration</b> object.</p>
+ * @public
+ */
+export interface SlurmRest {
+  /**
+   * <p>The default value for <code>mode</code> is <code>STANDARD</code>. A value of <code>STANDARD</code> means the Slurm REST API is enabled.</p>
+   * @public
+   */
+  mode: SlurmRestMode | undefined;
+}
+
+/**
  * <p>Additional options related to the Slurm scheduler.</p>
  * @public
  */
@@ -1225,10 +1300,22 @@ export interface ClusterSlurmConfiguration {
   authKey?: SlurmAuthKey | undefined;
 
   /**
+   * <p>The JWT authentication configuration for Slurm REST API access.</p>
+   * @public
+   */
+  jwtAuth?: JwtAuth | undefined;
+
+  /**
    * <p>The accounting configuration includes configurable settings for Slurm accounting.</p>
    * @public
    */
   accounting?: Accounting | undefined;
+
+  /**
+   * <p>The Slurm REST API configuration for the cluster.</p>
+   * @public
+   */
+  slurmRest?: SlurmRest | undefined;
 }
 
 /**
@@ -1897,6 +1984,18 @@ export interface UpdateAccountingRequest {
 }
 
 /**
+ * <p>The Slurm REST API configuration includes settings for enabling and configuring the Slurm REST API.</p>
+ * @public
+ */
+export interface UpdateSlurmRestRequest {
+  /**
+   * <p>The default value for <code>mode</code> is <code>STANDARD</code>. A value of <code>STANDARD</code> means the Slurm REST API is enabled.</p>
+   * @public
+   */
+  mode?: SlurmRestMode | undefined;
+}
+
+/**
  * <p>Additional options related to the Slurm scheduler.</p>
  * @public
  */
@@ -1918,6 +2017,12 @@ export interface UpdateClusterSlurmConfigurationRequest {
    * @public
    */
   accounting?: UpdateAccountingRequest | undefined;
+
+  /**
+   * <p>The Slurm REST API configuration for the cluster.</p>
+   * @public
+   */
+  slurmRest?: UpdateSlurmRestRequest | undefined;
 }
 
 /**
@@ -1996,6 +2101,11 @@ export interface TagResourceRequest {
 /**
  * @public
  */
+export interface TagResourceResponse {}
+
+/**
+ * @public
+ */
 export interface UntagResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource.</p>
@@ -2009,3 +2119,8 @@ export interface UntagResourceRequest {
    */
   tagKeys: string[] | undefined;
 }
+
+/**
+ * @public
+ */
+export interface UntagResourceResponse {}

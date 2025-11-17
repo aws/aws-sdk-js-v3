@@ -49,6 +49,8 @@ const _GQRe = "GetQueueResponse";
 const _IC = "InstanceConfig";
 const _IL = "InstanceList";
 const _ISE = "InternalServerException";
+const _JA = "JwtAuth";
+const _JK = "JwtKey";
 const _LC = "ListClusters";
 const _LCNG = "ListComputeNodeGroups";
 const _LCNGR = "ListComputeNodeGroupsRequest";
@@ -82,10 +84,13 @@ const _SCSl = "SlurmCustomSettings";
 const _SO = "SpotOptions";
 const _SQEE = "ServiceQuotaExceededException";
 const _SR = "SchedulerRequest";
+const _SRR = "SlurmRestRequest";
+const _SRl = "SlurmRest";
 const _SS = "SharedSecret";
 const _TE = "ThrottlingException";
 const _TR = "TagResource";
 const _TRR = "TagResourceRequest";
+const _TRRa = "TagResourceResponse";
 const _UAR = "UpdateAccountingRequest";
 const _UC = "UpdateCluster";
 const _UCNG = "UpdateComputeNodeGroup";
@@ -101,6 +106,8 @@ const _UQRp = "UpdateQueueResponse";
 const _UQSCR = "UpdateQueueSlurmConfigurationRequest";
 const _UR = "UntagResource";
 const _URR = "UntagResourceRequest";
+const _URRn = "UntagResourceResponse";
+const _USRR = "UpdateSlurmRestRequest";
 const _VE = "ValidationException";
 const _VEF = "ValidationExceptionField";
 const _VEFL = "ValidationExceptionFieldList";
@@ -139,6 +146,8 @@ const _iA = "ipv6Address";
 const _iC = "instanceConfigs";
 const _iIPA = "iamInstanceProfileArn";
 const _iT = "instanceType";
+const _jA = "jwtAuth";
+const _jK = "jwtKey";
 const _m = "message";
 const _mA = "modifiedAt";
 const _mIC = "minInstanceCount";
@@ -176,6 +185,7 @@ const _sDITIS = "scaleDownIdleTimeInSeconds";
 const _sGI = "securityGroupIds";
 const _sI = "subnetIds";
 const _sO = "spotOptions";
+const _sR = "slurmRest";
 const _sS = "sharedSecret";
 const _sV = "secretVersion";
 const _sc = "scheduler";
@@ -254,16 +264,16 @@ export var ClusterSlurmConfiguration: StaticStructureSchema = [
   n0,
   _CSC,
   0,
-  [_sDITIS, _sCS, _aK, _ac],
-  [1, () => SlurmCustomSettings, () => SlurmAuthKey, () => Accounting],
+  [_sDITIS, _sCS, _aK, _jA, _ac, _sR],
+  [1, () => SlurmCustomSettings, () => SlurmAuthKey, () => JwtAuth, () => Accounting, () => SlurmRest],
 ];
 export var ClusterSlurmConfigurationRequest: StaticStructureSchema = [
   3,
   n0,
   _CSCR,
   0,
-  [_sDITIS, _sCS, _ac],
-  [1, () => SlurmCustomSettings, () => AccountingRequest],
+  [_sDITIS, _sCS, _ac, _sR],
+  [1, () => SlurmCustomSettings, () => AccountingRequest, () => SlurmRestRequest],
 ];
 export var ClusterSummary: StaticStructureSchema = [3, n0, _CS, 0, [_n, _i, _a, _cA, _mA, _s], [0, 0, 0, 5, 5, 0]];
 export var ComputeNodeGroup: StaticStructureSchema = [
@@ -414,6 +424,8 @@ export var InternalServerException: StaticErrorSchema = [
 ];
 TypeRegistry.for(n0).registerError(InternalServerException, __InternalServerException);
 
+export var JwtAuth: StaticStructureSchema = [3, n0, _JA, 0, [_jK], [() => JwtKey]];
+export var JwtKey: StaticStructureSchema = [3, n0, _JK, 0, [_sA, _sV], [0, 0]];
 export var ListClustersRequest: StaticStructureSchema = [
   3,
   n0,
@@ -517,8 +529,11 @@ TypeRegistry.for(n0).registerError(ServiceQuotaExceededException, __ServiceQuota
 
 export var SlurmAuthKey: StaticStructureSchema = [3, n0, _SAK, 0, [_sA, _sV], [0, 0]];
 export var SlurmCustomSetting: StaticStructureSchema = [3, n0, _SCS, 0, [_pN, _pV], [0, 0]];
+export var SlurmRest: StaticStructureSchema = [3, n0, _SRl, 0, [_mo], [0]];
+export var SlurmRestRequest: StaticStructureSchema = [3, n0, _SRR, 0, [_mo], [0]];
 export var SpotOptions: StaticStructureSchema = [3, n0, _SO, 0, [_aS], [0]];
 export var TagResourceRequest: StaticStructureSchema = [3, n0, _TRR, 0, [_rA, _t], [0, 128 | 0]];
+export var TagResourceResponse: StaticStructureSchema = [3, n0, _TRRa, 0, [], []];
 export var ThrottlingException: StaticErrorSchema = [
   -3,
   n0,
@@ -541,6 +556,7 @@ export var ThrottlingException: StaticErrorSchema = [
 TypeRegistry.for(n0).registerError(ThrottlingException, __ThrottlingException);
 
 export var UntagResourceRequest: StaticStructureSchema = [3, n0, _URR, 0, [_rA, _tK], [[0, 1], 64 | 0]];
+export var UntagResourceResponse: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
 export var UpdateAccountingRequest: StaticStructureSchema = [3, n0, _UAR, 0, [_dPTID, _mo], [1, 0]];
 export var UpdateClusterRequest: StaticStructureSchema = [
   3,
@@ -556,8 +572,8 @@ export var UpdateClusterSlurmConfigurationRequest: StaticStructureSchema = [
   n0,
   _UCSCR,
   0,
-  [_sDITIS, _sCS, _ac],
-  [1, () => SlurmCustomSettings, () => UpdateAccountingRequest],
+  [_sDITIS, _sCS, _ac, _sR],
+  [1, () => SlurmCustomSettings, () => UpdateAccountingRequest, () => UpdateSlurmRestRequest],
 ];
 export var UpdateComputeNodeGroupRequest: StaticStructureSchema = [
   3,
@@ -612,6 +628,7 @@ export var UpdateQueueSlurmConfigurationRequest: StaticStructureSchema = [
   [_sCS],
   [() => SlurmCustomSettings],
 ];
+export var UpdateSlurmRestRequest: StaticStructureSchema = [3, n0, _USRR, 0, [_mo], [0]];
 export var ValidationException: StaticErrorSchema = [
   -3,
   n0,
@@ -728,8 +745,15 @@ export var RegisterComputeNodeGroupInstance: StaticOperationSchema = [
   () => RegisterComputeNodeGroupInstanceRequest,
   () => RegisterComputeNodeGroupInstanceResponse,
 ];
-export var TagResource: StaticOperationSchema = [9, n0, _TR, 2, () => TagResourceRequest, () => __Unit];
-export var UntagResource: StaticOperationSchema = [9, n0, _UR, 2, () => UntagResourceRequest, () => __Unit];
+export var TagResource: StaticOperationSchema = [9, n0, _TR, 2, () => TagResourceRequest, () => TagResourceResponse];
+export var UntagResource: StaticOperationSchema = [
+  9,
+  n0,
+  _UR,
+  2,
+  () => UntagResourceRequest,
+  () => UntagResourceResponse,
+];
 export var UpdateCluster: StaticOperationSchema = [
   9,
   n0,
