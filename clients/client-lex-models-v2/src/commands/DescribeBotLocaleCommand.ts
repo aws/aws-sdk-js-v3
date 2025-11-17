@@ -88,6 +88,7 @@ export interface DescribeBotLocaleCommandOutput extends DescribeBotLocaleRespons
  * //       },
  * //       nluImprovement: { // NluImprovementSpecification
  * //         enabled: true || false, // required
+ * //         assistedNluMode: "Primary" || "Fallback",
  * //       },
  * //     },
  * //     buildtimeSettings: { // BuildtimeSettings

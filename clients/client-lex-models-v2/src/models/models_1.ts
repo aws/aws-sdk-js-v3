@@ -119,6 +119,96 @@ import {
 /**
  * @public
  */
+export interface DescribeBotResponse {
+  /**
+   * <p>The unique identifier of the bot.</p>
+   * @public
+   */
+  botId?: string | undefined;
+
+  /**
+   * <p>The name of the bot.</p>
+   * @public
+   */
+  botName?: string | undefined;
+
+  /**
+   * <p>The description of the bot. </p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of an IAM role that has permission to
+   *          access the bot.</p>
+   * @public
+   */
+  roleArn?: string | undefined;
+
+  /**
+   * <p>Settings for managing data privacy of the bot and its conversations
+   *          with users.</p>
+   * @public
+   */
+  dataPrivacy?: DataPrivacy | undefined;
+
+  /**
+   * <p>The maximum time in seconds that Amazon Lex retains the data gathered in
+   *          a conversation.</p>
+   * @public
+   */
+  idleSessionTTLInSeconds?: number | undefined;
+
+  /**
+   * <p>The current status of the bot. When the status is
+   *             <code>Available</code> the bot is ready to be used in conversations
+   *          with users.</p>
+   * @public
+   */
+  botStatus?: BotStatus | undefined;
+
+  /**
+   * <p>A timestamp of the date and time that the bot was created.</p>
+   * @public
+   */
+  creationDateTime?: Date | undefined;
+
+  /**
+   * <p>A timestamp of the date and time that the bot was last
+   *          updated.</p>
+   * @public
+   */
+  lastUpdatedDateTime?: Date | undefined;
+
+  /**
+   * <p>The type of the bot that was described.</p>
+   * @public
+   */
+  botType?: BotType | undefined;
+
+  /**
+   * <p>The list of bots in the network that was described.</p>
+   * @public
+   */
+  botMembers?: BotMember[] | undefined;
+
+  /**
+   * <p>If the <code>botStatus</code> is <code>Failed</code>, this contains
+   *          a list of reasons that the bot couldn't be built.</p>
+   * @public
+   */
+  failureReasons?: string[] | undefined;
+
+  /**
+   * <p>Contains the configuration for error logging that specifies where and how bot errors are recorded, including destinations like CloudWatch Logs.</p>
+   * @public
+   */
+  errorLogSettings?: ErrorLogSettings | undefined;
+}
+
+/**
+ * @public
+ */
 export interface DescribeBotAliasRequest {
   /**
    * <p>The identifier of the bot alias to describe.</p>

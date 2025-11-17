@@ -701,6 +701,7 @@ const _aLRDT = "aggregationLastRefreshedDateTime";
 const _aLS = "audioLogSettings";
 const _aM = "apiMode";
 const _aMV = "allowMultipleValues";
+const _aNM = "assistedNluMode";
 const _aO = "actualOutput";
 const _aP = "agentPrompt";
 const _aR = "attributeResults";
@@ -3301,7 +3302,7 @@ export var MessageGroup: StaticStructureSchema = [
 ];
 export var MultipleValuesSetting: StaticStructureSchema = [3, n0, _MVS, 0, [_aMV], [2]];
 export var NewCustomVocabularyItem: StaticStructureSchema = [3, n0, _NCVI, 0, [_ph, _w, _dA], [0, 1, 0]];
-export var NluImprovementSpecification: StaticStructureSchema = [3, n0, _NIS, 0, [_e], [2]];
+export var NluImprovementSpecification: StaticStructureSchema = [3, n0, _NIS, 0, [_e, _aNM], [2, 0]];
 export var ObfuscationSetting: StaticStructureSchema = [3, n0, _OS, 0, [_oST], [0]];
 export var OpensearchConfiguration: StaticStructureSchema = [
   3,

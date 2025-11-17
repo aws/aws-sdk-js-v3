@@ -2291,6 +2291,20 @@ export type AnalyticsUtteranceSortByName =
   (typeof AnalyticsUtteranceSortByName)[keyof typeof AnalyticsUtteranceSortByName];
 
 /**
+ * @public
+ * @enum
+ */
+export const AssistedNluMode = {
+  Fallback: "Fallback",
+  Primary: "Primary",
+} as const;
+
+/**
+ * @public
+ */
+export type AssistedNluMode = (typeof AssistedNluMode)[keyof typeof AssistedNluMode];
+
+/**
  * <p>The object containing information that associates the recommended
  *          intent/slot type with a conversation.</p>
  * @public
@@ -5500,15 +5514,21 @@ export interface CreateBotAliasResponse {
 }
 
 /**
- * <p>Specifies whether the assisted nlu feature is turned on or off.</p>
+ * <p>Configures the Assisted Natural Language Understanding (NLU) feature for your bot. This specification determines whether enhanced intent recognition and utterance understanding capabilities are active.</p>
  * @public
  */
 export interface NluImprovementSpecification {
   /**
-   * <p>Specifies whether the assisted nlu feature is enabled.</p>
+   * <p>Determines whether the Assisted NLU feature is enabled for the bot. When set to <code>true</code>, Amazon Lex uses advanced models to improve intent recognition and slot resolution, with the default being <code>false</code>.</p>
    * @public
    */
   enabled: boolean | undefined;
+
+  /**
+   * <p>Specifies the mode for Assisted NLU operation. Use <code>Primary</code> to make Assisted NLU the primary intent recognition method, or <code>Fallback</code> to use it only when standard NLU confidence is low.</p>
+   * @public
+   */
+  assistedNluMode?: AssistedNluMode | undefined;
 }
 
 /**
@@ -5541,7 +5561,7 @@ export interface RuntimeSettings {
   slotResolutionImprovement?: SlotResolutionImprovementSpecification | undefined;
 
   /**
-   * <p>An object containing specifications for the assisted nlu feature.</p>
+   * <p>An object containing specifications for the Assisted NLU feature within the bot's runtime settings. These settings determine how the bot processes and interprets user utterances during conversations.</p>
    * @public
    */
   nluImprovement?: NluImprovementSpecification | undefined;
@@ -8086,94 +8106,4 @@ export interface DescribeBotRequest {
    * @public
    */
   botId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeBotResponse {
-  /**
-   * <p>The unique identifier of the bot.</p>
-   * @public
-   */
-  botId?: string | undefined;
-
-  /**
-   * <p>The name of the bot.</p>
-   * @public
-   */
-  botName?: string | undefined;
-
-  /**
-   * <p>The description of the bot. </p>
-   * @public
-   */
-  description?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of an IAM role that has permission to
-   *          access the bot.</p>
-   * @public
-   */
-  roleArn?: string | undefined;
-
-  /**
-   * <p>Settings for managing data privacy of the bot and its conversations
-   *          with users.</p>
-   * @public
-   */
-  dataPrivacy?: DataPrivacy | undefined;
-
-  /**
-   * <p>The maximum time in seconds that Amazon Lex retains the data gathered in
-   *          a conversation.</p>
-   * @public
-   */
-  idleSessionTTLInSeconds?: number | undefined;
-
-  /**
-   * <p>The current status of the bot. When the status is
-   *             <code>Available</code> the bot is ready to be used in conversations
-   *          with users.</p>
-   * @public
-   */
-  botStatus?: BotStatus | undefined;
-
-  /**
-   * <p>A timestamp of the date and time that the bot was created.</p>
-   * @public
-   */
-  creationDateTime?: Date | undefined;
-
-  /**
-   * <p>A timestamp of the date and time that the bot was last
-   *          updated.</p>
-   * @public
-   */
-  lastUpdatedDateTime?: Date | undefined;
-
-  /**
-   * <p>The type of the bot that was described.</p>
-   * @public
-   */
-  botType?: BotType | undefined;
-
-  /**
-   * <p>The list of bots in the network that was described.</p>
-   * @public
-   */
-  botMembers?: BotMember[] | undefined;
-
-  /**
-   * <p>If the <code>botStatus</code> is <code>Failed</code>, this contains
-   *          a list of reasons that the bot couldn't be built.</p>
-   * @public
-   */
-  failureReasons?: string[] | undefined;
-
-  /**
-   * <p>Contains the configuration for error logging that specifies where and how bot errors are recorded, including destinations like CloudWatch Logs.</p>
-   * @public
-   */
-  errorLogSettings?: ErrorLogSettings | undefined;
 }

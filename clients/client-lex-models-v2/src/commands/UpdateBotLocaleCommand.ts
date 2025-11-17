@@ -62,6 +62,7 @@ export interface UpdateBotLocaleCommandOutput extends UpdateBotLocaleResponse, _
  *       },
  *       nluImprovement: { // NluImprovementSpecification
  *         enabled: true || false, // required
+ *         assistedNluMode: "Primary" || "Fallback",
  *       },
  *     },
  *     buildtimeSettings: { // BuildtimeSettings
@@ -130,6 +131,7 @@ export interface UpdateBotLocaleCommandOutput extends UpdateBotLocaleResponse, _
  * //       },
  * //       nluImprovement: { // NluImprovementSpecification
  * //         enabled: true || false, // required
+ * //         assistedNluMode: "Primary" || "Fallback",
  * //       },
  * //     },
  * //     buildtimeSettings: { // BuildtimeSettings
