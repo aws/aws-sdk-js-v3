@@ -27,7 +27,7 @@ export interface DisableUserCommandInput extends DisableUserRequest {}
 export interface DisableUserCommandOutput extends DisableUserResult, __MetadataBearer {}
 
 /**
- * <p>Disables the specified user in the user pool. Users can't sign in to AppStream 2.0 until they are re-enabled. This action does not delete the user. </p>
+ * <p>Disables the specified user in the user pool. Users can't sign in to WorkSpaces Applications until they are re-enabled. This action does not delete the user. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

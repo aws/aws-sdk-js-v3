@@ -27,7 +27,7 @@ export interface UpdateDirectoryConfigCommandInput extends UpdateDirectoryConfig
 export interface UpdateDirectoryConfigCommandOutput extends UpdateDirectoryConfigResult, __MetadataBearer {}
 
 /**
- * <p>Updates the specified Directory Config object in AppStream 2.0. This object includes the configuration information required to join fleets and image builders to Microsoft Active Directory domains.</p>
+ * <p>Updates the specified Directory Config object in WorkSpaces Applications. This object includes the configuration information required to join fleets and image builders to Microsoft Active Directory domains.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

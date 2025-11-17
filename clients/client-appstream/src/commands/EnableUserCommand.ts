@@ -27,7 +27,7 @@ export interface EnableUserCommandInput extends EnableUserRequest {}
 export interface EnableUserCommandOutput extends EnableUserResult, __MetadataBearer {}
 
 /**
- * <p>Enables a user in the user pool. After being enabled, users can sign in to AppStream 2.0 and open applications from the stacks to which they are assigned.</p>
+ * <p>Enables a user in the user pool. After being enabled, users can sign in to WorkSpaces Applications and open applications from the stacks to which they are assigned.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

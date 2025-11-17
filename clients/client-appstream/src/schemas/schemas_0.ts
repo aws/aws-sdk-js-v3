@@ -8,6 +8,7 @@ const _AAFR = "AssociateApplicationFleetRequest";
 const _AAFRs = "AssociateApplicationFleetResult";
 const _AALUL = "AdminAppLicenseUsageList";
 const _AALUR = "AdminAppLicenseUsageRecord";
+const _AAP = "AbsoluteAppPath";
 const _AATE = "AssociateApplicationToEntitlement";
 const _AATER = "AssociateApplicationToEntitlementRequest";
 const _AATERs = "AssociateApplicationToEntitlementResult";
@@ -25,6 +26,9 @@ const _ABBSCR = "AppBlockBuilderStateChangeReason";
 const _ABBp = "AppBlockBuilders";
 const _ABE = "AppBlockErrors";
 const _ABp = "AppBlocks";
+const _AC = "ApplicationConfig";
+const _ACC = "AppCatalogConfig";
+const _AD = "AmiDescription";
 const _AE = "AccessEndpoint";
 const _AEL = "AccessEndpointList";
 const _AEc = "AccessEndpoints";
@@ -35,9 +39,13 @@ const _AFAp = "ApplicationFleetAssociations";
 const _AFR = "AssociateFleetRequest";
 const _AFRs = "AssociateFleetResult";
 const _AI = "ApplicationIdentifier";
+const _AIP = "AbsoluteIconPath";
+const _AIm = "AmiId";
 const _AIp = "ApplicationId";
 const _ALU = "AppLicenseUsages";
+const _AMP = "AbsoluteManifestPath";
 const _AN = "AccountName";
+const _ANm = "AmiName";
 const _AP = "AccountPassword";
 const _AR = "AssociatedResource";
 const _AS = "ApplicationSettings";
@@ -45,6 +53,7 @@ const _ASR = "ApplicationSettingsResponse";
 const _ASTIB = "AssociateSoftwareToImageBuilder";
 const _ASTIBR = "AssociateSoftwareToImageBuilderRequest";
 const _ASTIBRs = "AssociateSoftwareToImageBuilderResult";
+const _ASV = "AgentSoftwareVersion";
 const _AT = "AuthenticationType";
 const _ATD = "AttributesToDelete";
 const _AUS = "AvailableUserSessions";
@@ -82,10 +91,14 @@ const _CARr = "CreateApplicationResult";
 const _CBAP = "CertificateBasedAuthProperties";
 const _CC = "ComputeCapacity";
 const _CCS = "ComputeCapacityStatus";
+const _CD = "CreatedDate";
 const _CDC = "CreateDirectoryConfig";
 const _CDCR = "CreateDirectoryConfigRequest";
 const _CDCRr = "CreateDirectoryConfigResult";
 const _CE = "CreateEntitlement";
+const _CEIT = "CreateExportImageTask";
+const _CEITR = "CreateExportImageTaskRequest";
+const _CEITRr = "CreateExportImageTaskResult";
 const _CER = "CreateEntitlementRequest";
 const _CERr = "CreateEntitlementResult";
 const _CF = "CreateFleet";
@@ -98,6 +111,9 @@ const _CIBRr = "CreateImageBuilderResult";
 const _CIBSURL = "CreateImageBuilderStreamingURL";
 const _CIBSURLR = "CreateImageBuilderStreamingURLRequest";
 const _CIBSURLRr = "CreateImageBuilderStreamingURLResult";
+const _CII = "CreateImportedImage";
+const _CIIR = "CreateImportedImageRequest";
+const _CIIRr = "CreateImportedImageResult";
 const _CIR = "CopyImageRequest";
 const _CIRo = "CopyImageResponse";
 const _CME = "ConcurrentModificationException";
@@ -212,6 +228,8 @@ const _DNi = "DirectoryName";
 const _DNir = "DirectoryNames";
 const _DR = "DestinationRegion";
 const _DRAC = "DomainsRequireAdminConsent";
+const _DROE = "DryRunOperationException";
+const _DRr = "DryRun";
 const _DS = "DesiredSessions";
 const _DSA = "DescribeSoftwareAssociations";
 const _DSAR = "DescribeSoftwareAssociationsRequest";
@@ -272,6 +290,8 @@ const _EDL = "ErrorDetailsList";
 const _EHD = "EmbedHostDomains";
 const _EI = "EniId";
 const _EIA = "EniIpv6Addresses";
+const _EIT = "ExportImageTask";
+const _EITx = "ExportImageTasks";
 const _EL = "EntitlementList";
 const _EM = "ErrorMessage";
 const _EN = "EntitlementName";
@@ -298,10 +318,16 @@ const _FLURL = "FooterLinkURL";
 const _FLl = "FleetList";
 const _FN = "FleetName";
 const _FNi = "FirstName";
+const _FP = "FilePath";
 const _FSL = "FaviconS3Location";
 const _FT = "FleetType";
 const _FURL = "FeedbackURL";
+const _Fi = "Filter";
+const _Fil = "Filters";
 const _Fl = "Fleets";
+const _GEIT = "GetExportImageTask";
+const _GEITR = "GetExportImageTaskRequest";
+const _GEITRe = "GetExportImageTaskResult";
 const _I = "Image";
 const _IA = "ImageArn";
 const _IASE = "InvalidAccountStatusException";
@@ -317,6 +343,7 @@ const _IE = "ImageErrors";
 const _IF = "InstanceFamilies";
 const _II = "InstanceId";
 const _IIE = "IncompatibleImageException";
+const _IIT = "IntendedInstanceType";
 const _IL = "ImageList";
 const _IN = "ImageName";
 const _IP = "ImagePermissions";
@@ -327,6 +354,7 @@ const _ISCR = "ImageStateChangeReason";
 const _ISL = "IconS3Location";
 const _ISWO = "ImageSharedWithOthers";
 const _IT = "InstanceType";
+const _ITm = "ImageType";
 const _IU = "InUse";
 const _IURL = "IconURL";
 const _Id = "Id";
@@ -343,11 +371,14 @@ const _LEA = "ListEntitledApplications";
 const _LEAR = "ListEntitledApplicationsRequest";
 const _LEARi = "ListEntitledApplicationsResult";
 const _LEE = "LimitExceededException";
+const _LEIT = "ListExportImageTasks";
+const _LEITR = "ListExportImageTasksRequest";
+const _LEITRi = "ListExportImageTasksResult";
 const _LGRD = "LastGeneratedReportDate";
 const _LMT = "LastModifiedTime";
 const _LN = "LastName";
-const _LP = "LaunchPath";
-const _LPa = "LaunchParameters";
+const _LP = "LaunchParameters";
+const _LPa = "LaunchPath";
 const _LRGEE = "LastReportGenerationExecutionError";
 const _LRGEEa = "LastReportGenerationExecutionErrors";
 const _LT = "LicenseType";
@@ -392,6 +423,8 @@ const _RLEE = "RequestLimitExceededException";
 const _RNAE = "ResourceNotAvailableException";
 const _RNFE = "ResourceNotFoundException";
 const _RURL = "RedirectURL";
+const _RVC = "RootVolumeConfig";
+const _RVCu = "RuntimeValidationConfig";
 const _S = "State";
 const _SA = "SoftwareAssociations";
 const _SAAI = "SharedAwsAccountIds";
@@ -402,7 +435,8 @@ const _SABBRto = "StopAppBlockBuilderRequest";
 const _SABBRtop = "StopAppBlockBuilderResult";
 const _SABBt = "StopAppBlockBuilder";
 const _SAC = "ServiceAccountCredentials";
-const _SAI = "SharedAccountId";
+const _SAI = "SourceAmiId";
+const _SAIh = "SharedAccountId";
 const _SAL = "SoftwareAssociationsList";
 const _SB = "S3Bucket";
 const _SBN = "S3BucketName";
@@ -468,13 +502,15 @@ const _T = "Tags";
 const _TFL = "ThemeFooterLinks";
 const _TFLh = "ThemeFooterLink";
 const _TFURL = "ThemeFaviconURL";
+const _TI = "TaskId";
 const _TIS = "TimeoutInSeconds";
 const _TK = "TagKeys";
 const _TOLURL = "ThemeOrganizationLogoURL";
 const _TR = "TagResource";
 const _TRR = "TagResourceRequest";
 const _TRRa = "TagResourceResponse";
-const _TS = "ThemeStyling";
+const _TS = "TagSpecifications";
+const _TSh = "ThemeStyling";
 const _TT = "TitleText";
 const _TTT = "ThemeTitleText";
 const _Th = "Theme";
@@ -528,8 +564,11 @@ const _Us = "Users";
 const _Use = "User";
 const _V = "Validity";
 const _VC = "VpcConfig";
+const _VCo = "VolumeConfig";
 const _VI = "VpceId";
+const _VSIG = "VolumeSizeInGb";
 const _Va = "Value";
+const _Val = "Values";
 const _Vi = "Visibility";
 const _WD = "WorkingDirectory";
 const _aF = "allowFleet";
@@ -565,6 +604,7 @@ import {
 import { AppStreamServiceException as __AppStreamServiceException } from "../models/AppStreamServiceException";
 import {
   ConcurrentModificationException as __ConcurrentModificationException,
+  DryRunOperationException as __DryRunOperationException,
   EntitlementAlreadyExistsException as __EntitlementAlreadyExistsException,
   EntitlementNotFoundException as __EntitlementNotFoundException,
   IncompatibleImageException as __IncompatibleImageException,
@@ -584,6 +624,8 @@ import {
 
 export var AccountName: StaticSimpleSchema = [0, n0, _AN, 8, 0];
 export var AccountPassword: StaticSimpleSchema = [0, n0, _AP, 8, 0];
+export var FilePath: StaticSimpleSchema = [0, n0, _FP, 8, 0];
+export var LaunchParameters: StaticSimpleSchema = [0, n0, _LP, 8, 0];
 export var UserAttributeValue: StaticSimpleSchema = [0, n0, _UAV, 8, 0];
 export var Username: StaticSimpleSchema = [0, n0, _U, 8, 0];
 export var AccessEndpoint: StaticStructureSchema = [3, n0, _AE, 0, [_ET, _VI], [0, 0]];
@@ -633,8 +675,24 @@ export var Application: StaticStructureSchema = [
   n0,
   _Ap,
   0,
-  [_N, _DN, _IURL, _LP, _LPa, _E, _Me, _WD, _D, _A, _ABA, _ISL, _Pl, _IF, _CT],
+  [_N, _DN, _IURL, _LPa, _LP, _E, _Me, _WD, _D, _A, _ABA, _ISL, _Pl, _IF, _CT],
   [0, 0, 0, 0, 0, 2, 128 | 0, 0, 0, 0, 0, () => S3Location, 64 | 0, 64 | 0, 4],
+];
+export var ApplicationConfig: StaticStructureSchema = [
+  3,
+  n0,
+  _AC,
+  8,
+  [_N, _DN, _AAP, _AIP, _AMP, _WD, _LP],
+  [
+    0,
+    0,
+    [() => FilePath, 0],
+    [() => FilePath, 0],
+    [() => FilePath, 0],
+    [() => FilePath, 0],
+    [() => LaunchParameters, 0],
+  ],
 ];
 export var ApplicationFleetAssociation: StaticStructureSchema = [3, n0, _AFA, 0, [_FN, _AA], [0, 0]];
 export var ApplicationSettings: StaticStructureSchema = [3, n0, _AS, 0, [_E, _SG], [2, 0]];
@@ -773,7 +831,7 @@ export var CreateApplicationRequest: StaticStructureSchema = [
   n0,
   _CAR,
   0,
-  [_N, _DN, _D, _ISL, _LP, _WD, _LPa, _Pl, _IF, _ABA, _T],
+  [_N, _DN, _D, _ISL, _LPa, _WD, _LP, _Pl, _IF, _ABA, _T],
   [0, 0, 0, () => S3Location, 0, 0, 0, 64 | 0, 64 | 0, 0, 128 | 0],
 ];
 export var CreateApplicationResult: StaticStructureSchema = [3, n0, _CARr, 0, [_Ap], [() => Application]];
@@ -795,6 +853,15 @@ export var CreateEntitlementRequest: StaticStructureSchema = [
   [0, 0, 0, 0, () => EntitlementAttributeList],
 ];
 export var CreateEntitlementResult: StaticStructureSchema = [3, n0, _CERr, 0, [_En], [() => Entitlement]];
+export var CreateExportImageTaskRequest: StaticStructureSchema = [
+  3,
+  n0,
+  _CEITR,
+  0,
+  [_IN, _ANm, _IRA, _TS, _AD],
+  [0, 0, 0, 128 | 0, 0],
+];
+export var CreateExportImageTaskResult: StaticStructureSchema = [3, n0, _CEITRr, 0, [_EIT], [() => ExportImageTask]];
 export var CreateFleetRequest: StaticStructureSchema = [
   3,
   n0,
@@ -823,6 +890,7 @@ export var CreateFleetRequest: StaticStructureSchema = [
     _UDFS,
     _SSSL,
     _MSPI,
+    _RVC,
   ],
   [
     0,
@@ -847,6 +915,7 @@ export var CreateFleetRequest: StaticStructureSchema = [
     64 | 0,
     () => S3Location,
     1,
+    () => VolumeConfig,
   ],
 ];
 export var CreateFleetResult: StaticStructureSchema = [3, n0, _CFRr, 0, [_F], [() => Fleet]];
@@ -855,12 +924,38 @@ export var CreateImageBuilderRequest: StaticStructureSchema = [
   n0,
   _CIBR,
   0,
-  [_N, _IN, _IA, _IT, _D, _DN, _VC, _IRA, _EDIA, _DJI, _AAV, _T, _AEc, _STI, _STU],
-  [0, 0, 0, 0, 0, 0, () => VpcConfig, 0, 2, () => DomainJoinInfo, 0, 128 | 0, () => AccessEndpointList, 64 | 0, 64 | 0],
+  [_N, _IN, _IA, _IT, _D, _DN, _VC, _IRA, _EDIA, _DJI, _AAV, _T, _AEc, _RVC, _STI, _STU],
+  [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    () => VpcConfig,
+    0,
+    2,
+    () => DomainJoinInfo,
+    0,
+    128 | 0,
+    () => AccessEndpointList,
+    () => VolumeConfig,
+    64 | 0,
+    64 | 0,
+  ],
 ];
 export var CreateImageBuilderResult: StaticStructureSchema = [3, n0, _CIBRr, 0, [_IB], [() => ImageBuilder]];
 export var CreateImageBuilderStreamingURLRequest: StaticStructureSchema = [3, n0, _CIBSURLR, 0, [_N, _V], [0, 1]];
 export var CreateImageBuilderStreamingURLResult: StaticStructureSchema = [3, n0, _CIBSURLRr, 0, [_SURL, _Ex], [0, 4]];
+export var CreateImportedImageRequest: StaticStructureSchema = [
+  3,
+  n0,
+  _CIIR,
+  0,
+  [_N, _SAI, _IRA, _D, _DN, _T, _RVCu, _ASV, _ACC, _DRr],
+  [0, 0, 0, 0, 0, 128 | 0, () => RuntimeValidationConfig, 0, [() => AppCatalogConfig, 0], 2],
+];
+export var CreateImportedImageResult: StaticStructureSchema = [3, n0, _CIIRr, 0, [_I], [() => Image]];
 export var CreateStackRequest: StaticStructureSchema = [
   3,
   n0,
@@ -897,7 +992,7 @@ export var CreateThemeForStackRequest: StaticStructureSchema = [
   n0,
   _CTFSR,
   0,
-  [_SN, _FL, _TT, _TS, _OLSL, _FSL],
+  [_SN, _FL, _TT, _TSh, _OLSL, _FSL],
   [0, () => ThemeFooterLinks, 0, 0, () => S3Location, () => S3Location],
 ];
 export var CreateThemeForStackResult: StaticStructureSchema = [3, n0, _CTFSRr, 0, [_Th], [() => Theme]];
@@ -935,7 +1030,7 @@ export var DeleteFleetRequest: StaticStructureSchema = [3, n0, _DFR, 0, [_N], [0
 export var DeleteFleetResult: StaticStructureSchema = [3, n0, _DFRe, 0, [], []];
 export var DeleteImageBuilderRequest: StaticStructureSchema = [3, n0, _DIBR, 0, [_N], [0]];
 export var DeleteImageBuilderResult: StaticStructureSchema = [3, n0, _DIBRe, 0, [_IB], [() => ImageBuilder]];
-export var DeleteImagePermissionsRequest: StaticStructureSchema = [3, n0, _DIPR, 0, [_N, _SAI], [0, 0]];
+export var DeleteImagePermissionsRequest: StaticStructureSchema = [3, n0, _DIPR, 0, [_N, _SAIh], [0, 0]];
 export var DeleteImagePermissionsResult: StaticStructureSchema = [3, n0, _DIPRe, 0, [], []];
 export var DeleteImageRequest: StaticStructureSchema = [3, n0, _DIR, 0, [_N], [0]];
 export var DeleteImageResult: StaticStructureSchema = [3, n0, _DIRe, 0, [_I], [() => Image]];
@@ -1167,6 +1262,19 @@ export var DisassociateSoftwareFromImageBuilderRequest: StaticStructureSchema = 
 ];
 export var DisassociateSoftwareFromImageBuilderResult: StaticStructureSchema = [3, n0, _DSFIBRi, 0, [], []];
 export var DomainJoinInfo: StaticStructureSchema = [3, n0, _DJI, 0, [_DNi, _OUDNr], [0, 0]];
+export var DryRunOperationException: StaticErrorSchema = [
+  -3,
+  n0,
+  _DROE,
+  {
+    [_er]: _c,
+    [_hE]: 412,
+  },
+  [_M],
+  [0],
+];
+TypeRegistry.for(n0).registerError(DryRunOperationException, __DryRunOperationException);
+
 export var EnableUserRequest: StaticStructureSchema = [3, n0, _EUR, 0, [_UN, _AT], [[() => Username, 0], 0]];
 export var EnableUserResult: StaticStructureSchema = [3, n0, _EURn, 0, [], []];
 export var EntitledApplication: StaticStructureSchema = [3, n0, _EA, 0, [_AI], [0]];
@@ -1208,6 +1316,15 @@ TypeRegistry.for(n0).registerError(EntitlementNotFoundException, __EntitlementNo
 export var ErrorDetails: StaticStructureSchema = [3, n0, _ED, 0, [_EC, _EM], [0, 0]];
 export var ExpireSessionRequest: StaticStructureSchema = [3, n0, _ESR, 0, [_SI], [0]];
 export var ExpireSessionResult: StaticStructureSchema = [3, n0, _ESRx, 0, [], []];
+export var ExportImageTask: StaticStructureSchema = [
+  3,
+  n0,
+  _EIT,
+  0,
+  [_TI, _IA, _ANm, _CD, _AD, _S, _AIm, _TS, _ED],
+  [0, 0, 0, 4, 0, 0, 0, 128 | 0, () => ErrorDetailsList],
+];
+export var Filter: StaticStructureSchema = [3, n0, _Fi, 0, [_N, _Val], [0, 64 | 0]];
 export var Fleet: StaticStructureSchema = [
   3,
   n0,
@@ -1239,6 +1356,7 @@ export var Fleet: StaticStructureSchema = [
     _UDFS,
     _SSSL,
     _MSPI,
+    _RVC,
   ],
   [
     0,
@@ -1266,9 +1384,12 @@ export var Fleet: StaticStructureSchema = [
     64 | 0,
     () => S3Location,
     1,
+    () => VolumeConfig,
   ],
 ];
 export var FleetError: StaticStructureSchema = [3, n0, _FEl, 0, [_EC, _EM], [0, 0]];
+export var GetExportImageTaskRequest: StaticStructureSchema = [3, n0, _GEITR, 0, [_TI], [0]];
+export var GetExportImageTaskResult: StaticStructureSchema = [3, n0, _GEITRe, 0, [_EIT], [() => ExportImageTask]];
 export var Image: StaticStructureSchema = [
   3,
   n0,
@@ -1297,6 +1418,7 @@ export var Image: StaticStructureSchema = [
     _DAPE,
     _ISWO,
     _MSI,
+    _ITm,
   ],
   [
     0,
@@ -1321,6 +1443,7 @@ export var Image: StaticStructureSchema = [
     0,
     0,
     2,
+    0,
   ],
 ];
 export var ImageBuilder: StaticStructureSchema = [
@@ -1328,7 +1451,7 @@ export var ImageBuilder: StaticStructureSchema = [
   n0,
   _IB,
   0,
-  [_N, _A, _IA, _D, _DN, _VC, _IT, _P, _IRA, _S, _SCR, _CT, _EDIA, _DJI, _NAC, _IBE, _AAV, _AEc, _LAAV],
+  [_N, _A, _IA, _D, _DN, _VC, _IT, _P, _IRA, _S, _SCR, _CT, _EDIA, _DJI, _NAC, _IBE, _AAV, _AEc, _RVC, _LAAV],
   [
     0,
     0,
@@ -1348,6 +1471,7 @@ export var ImageBuilder: StaticStructureSchema = [
     () => ResourceErrors,
     0,
     () => AccessEndpointList,
+    () => VolumeConfig,
     0,
   ],
 ];
@@ -1440,6 +1564,22 @@ export var ListEntitledApplicationsResult: StaticStructureSchema = [
   [_EAnt, _NT],
   [() => EntitledApplicationList, 0],
 ];
+export var ListExportImageTasksRequest: StaticStructureSchema = [
+  3,
+  n0,
+  _LEITR,
+  0,
+  [_Fil, _MR, _NT],
+  [() => Filters, 1, 0],
+];
+export var ListExportImageTasksResult: StaticStructureSchema = [
+  3,
+  n0,
+  _LEITRi,
+  0,
+  [_EITx, _NT],
+  [() => ExportImageTasks, 0],
+];
 export var ListTagsForResourceRequest: StaticStructureSchema = [3, n0, _LTFRR, 0, [_RA], [0]];
 export var ListTagsForResourceResponse: StaticStructureSchema = [3, n0, _LTFRRi, 0, [_T], [128 | 0]];
 export var NetworkAccessConfiguration: StaticStructureSchema = [3, n0, _NAC, 0, [_EPIA, _EIA, _EI], [0, 64 | 0, 0]];
@@ -1522,6 +1662,7 @@ export var ResourceNotFoundException: StaticErrorSchema = [
 ];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
 
+export var RuntimeValidationConfig: StaticStructureSchema = [3, n0, _RVCu, 0, [_IIT], [0]];
 export var S3Location: StaticStructureSchema = [3, n0, _SL, 0, [_SB, _SK], [0, 0]];
 export var ScriptDetails: StaticStructureSchema = [
   3,
@@ -1613,7 +1754,7 @@ export var Theme: StaticStructureSchema = [
   n0,
   _Th,
   0,
-  [_SN, _S, _TTT, _TS, _TFL, _TOLURL, _TFURL, _CT],
+  [_SN, _S, _TTT, _TSh, _TFL, _TOLURL, _TFURL, _CT],
   [0, 0, 0, 0, () => ThemeFooterLinks, 0, 0, 4],
 ];
 export var ThemeFooterLink: StaticStructureSchema = [3, n0, _TFLh, 0, [_DN, _FLURL], [0, 0]];
@@ -1633,7 +1774,7 @@ export var UpdateApplicationRequest: StaticStructureSchema = [
   n0,
   _UAR,
   0,
-  [_N, _DN, _D, _ISL, _LP, _WD, _LPa, _ABA, _ATD],
+  [_N, _DN, _D, _ISL, _LPa, _WD, _LP, _ABA, _ATD],
   [0, 0, 0, () => S3Location, 0, 0, 0, 0, 64 | 0],
 ];
 export var UpdateApplicationResult: StaticStructureSchema = [3, n0, _UARp, 0, [_Ap], [() => Application]];
@@ -1683,6 +1824,7 @@ export var UpdateFleetRequest: StaticStructureSchema = [
     _UDFS,
     _SSSL,
     _MSPI,
+    _RVC,
   ],
   [
     0,
@@ -1707,6 +1849,7 @@ export var UpdateFleetRequest: StaticStructureSchema = [
     64 | 0,
     () => S3Location,
     1,
+    () => VolumeConfig,
   ],
 ];
 export var UpdateFleetResult: StaticStructureSchema = [3, n0, _UFRp, 0, [_F], [() => Fleet]];
@@ -1715,7 +1858,7 @@ export var UpdateImagePermissionsRequest: StaticStructureSchema = [
   n0,
   _UIPR,
   0,
-  [_N, _SAI, _IP],
+  [_N, _SAIh, _IP],
   [0, 0, () => ImagePermissions],
 ];
 export var UpdateImagePermissionsResult: StaticStructureSchema = [3, n0, _UIPRp, 0, [], []];
@@ -1747,7 +1890,7 @@ export var UpdateThemeForStackRequest: StaticStructureSchema = [
   n0,
   _UTFSR,
   0,
-  [_SN, _FL, _TT, _TS, _OLSL, _FSL, _S, _ATD],
+  [_SN, _FL, _TT, _TSh, _OLSL, _FSL, _S, _ATD],
   [0, () => ThemeFooterLinks, 0, 0, () => S3Location, () => S3Location, 0, 64 | 0],
 ];
 export var UpdateThemeForStackResult: StaticStructureSchema = [3, n0, _UTFSRp, 0, [_Th], [() => Theme]];
@@ -1784,6 +1927,7 @@ export var UserStackAssociationError: StaticStructureSchema = [
   [_USAs, _EC, _EM],
   [[() => UserStackAssociation, 0], 0, 0],
 ];
+export var VolumeConfig: StaticStructureSchema = [3, n0, _VCo, 0, [_VSIG], [1]];
 export var VpcConfig: StaticStructureSchema = [3, n0, _VC, 0, [_SIu, _SGI], [64 | 0, 64 | 0]];
 export var __Unit = "unit" as const;
 
@@ -1803,6 +1947,7 @@ export var AppBlockBuilderAttributes = 64 | 0;
 
 export var AppBlockBuilderList: StaticListSchema = [1, n0, _ABBL, 0, () => AppBlockBuilder];
 export var AppBlocks: StaticListSchema = [1, n0, _ABp, 0, () => AppBlock];
+export var AppCatalogConfig: StaticListSchema = [1, n0, _ACC, 0, [() => ApplicationConfig, 0]];
 export var ApplicationAttributes = 64 | 0;
 
 export var ApplicationFleetAssociationList: StaticListSchema = [1, n0, _AFAL, 0, () => ApplicationFleetAssociation];
@@ -1822,6 +1967,10 @@ export var EntitledApplicationList: StaticListSchema = [1, n0, _EAL, 0, () => En
 export var EntitlementAttributeList: StaticListSchema = [1, n0, _EALn, 0, () => EntitlementAttribute];
 export var EntitlementList: StaticListSchema = [1, n0, _EL, 0, () => Entitlement];
 export var ErrorDetailsList: StaticListSchema = [1, n0, _EDL, 0, () => ErrorDetails];
+export var ExportImageTasks: StaticListSchema = [1, n0, _EITx, 0, () => ExportImageTask];
+export var Filters: StaticListSchema = [1, n0, _Fil, 0, () => Filter];
+export var FilterValues = 64 | 0;
+
 export var FleetAttributes = 64 | 0;
 
 export var FleetErrors: StaticListSchema = [1, n0, _FE, 0, () => FleetError];
@@ -1975,6 +2124,14 @@ export var CreateEntitlement: StaticOperationSchema = [
   () => CreateEntitlementRequest,
   () => CreateEntitlementResult,
 ];
+export var CreateExportImageTask: StaticOperationSchema = [
+  9,
+  n0,
+  _CEIT,
+  0,
+  () => CreateExportImageTaskRequest,
+  () => CreateExportImageTaskResult,
+];
 export var CreateFleet: StaticOperationSchema = [9, n0, _CF, 0, () => CreateFleetRequest, () => CreateFleetResult];
 export var CreateImageBuilder: StaticOperationSchema = [
   9,
@@ -1991,6 +2148,14 @@ export var CreateImageBuilderStreamingURL: StaticOperationSchema = [
   0,
   () => CreateImageBuilderStreamingURLRequest,
   () => CreateImageBuilderStreamingURLResult,
+];
+export var CreateImportedImage: StaticOperationSchema = [
+  9,
+  n0,
+  _CII,
+  0,
+  () => CreateImportedImageRequest,
+  () => CreateImportedImageResult,
 ];
 export var CreateStack: StaticOperationSchema = [9, n0, _CSr, 0, () => CreateStackRequest, () => CreateStackResult];
 export var CreateStreamingURL: StaticOperationSchema = [
@@ -2304,6 +2469,14 @@ export var ExpireSession: StaticOperationSchema = [
   () => ExpireSessionRequest,
   () => ExpireSessionResult,
 ];
+export var GetExportImageTask: StaticOperationSchema = [
+  9,
+  n0,
+  _GEIT,
+  0,
+  () => GetExportImageTaskRequest,
+  () => GetExportImageTaskResult,
+];
 export var ListAssociatedFleets: StaticOperationSchema = [
   9,
   n0,
@@ -2327,6 +2500,14 @@ export var ListEntitledApplications: StaticOperationSchema = [
   0,
   () => ListEntitledApplicationsRequest,
   () => ListEntitledApplicationsResult,
+];
+export var ListExportImageTasks: StaticOperationSchema = [
+  9,
+  n0,
+  _LEIT,
+  0,
+  () => ListExportImageTasksRequest,
+  () => ListExportImageTasksResult,
 ];
 export var ListTagsForResource: StaticOperationSchema = [
   9,

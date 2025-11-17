@@ -5,8 +5,8 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { AppStreamClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppStreamClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DeleteImageRequest, DeleteImageResult } from "../models/models_0";
-import { DeleteImage } from "../schemas/schemas_0";
+import { CreateImportedImageRequest, CreateImportedImageResult } from "../models/models_0";
+import { CreateImportedImage } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -16,33 +16,55 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link DeleteImageCommand}.
+ * The input for {@link CreateImportedImageCommand}.
  */
-export interface DeleteImageCommandInput extends DeleteImageRequest {}
+export interface CreateImportedImageCommandInput extends CreateImportedImageRequest {}
 /**
  * @public
  *
- * The output of {@link DeleteImageCommand}.
+ * The output of {@link CreateImportedImageCommand}.
  */
-export interface DeleteImageCommandOutput extends DeleteImageResult, __MetadataBearer {}
+export interface CreateImportedImageCommandOutput extends CreateImportedImageResult, __MetadataBearer {}
 
 /**
- * <p>Deletes the specified image. You cannot delete an image when it is in use.
- *             After you delete an image, you cannot provision new capacity using the image.</p>
+ * <p>Creates a custom WorkSpaces Applications image by importing an EC2 AMI. This allows you to use your own customized AMI to create WorkSpaces Applications images that support additional instance types beyond the standard stream.* instances.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AppStreamClient, DeleteImageCommand } from "@aws-sdk/client-appstream"; // ES Modules import
- * // const { AppStreamClient, DeleteImageCommand } = require("@aws-sdk/client-appstream"); // CommonJS import
+ * import { AppStreamClient, CreateImportedImageCommand } from "@aws-sdk/client-appstream"; // ES Modules import
+ * // const { AppStreamClient, CreateImportedImageCommand } = require("@aws-sdk/client-appstream"); // CommonJS import
  * // import type { AppStreamClientConfig } from "@aws-sdk/client-appstream";
  * const config = {}; // type is AppStreamClientConfig
  * const client = new AppStreamClient(config);
- * const input = { // DeleteImageRequest
+ * const input = { // CreateImportedImageRequest
  *   Name: "STRING_VALUE", // required
+ *   SourceAmiId: "STRING_VALUE", // required
+ *   IamRoleArn: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE",
+ *   DisplayName: "STRING_VALUE",
+ *   Tags: { // Tags
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   RuntimeValidationConfig: { // RuntimeValidationConfig
+ *     IntendedInstanceType: "STRING_VALUE",
+ *   },
+ *   AgentSoftwareVersion: "CURRENT_LATEST" || "ALWAYS_LATEST",
+ *   AppCatalogConfig: [ // AppCatalogConfig
+ *     { // ApplicationConfig
+ *       Name: "STRING_VALUE", // required
+ *       DisplayName: "STRING_VALUE",
+ *       AbsoluteAppPath: "STRING_VALUE", // required
+ *       AbsoluteIconPath: "STRING_VALUE",
+ *       AbsoluteManifestPath: "STRING_VALUE",
+ *       WorkingDirectory: "STRING_VALUE",
+ *       LaunchParameters: "STRING_VALUE",
+ *     },
+ *   ],
+ *   DryRun: true || false,
  * };
- * const command = new DeleteImageCommand(input);
+ * const command = new CreateImportedImageCommand(input);
  * const response = await client.send(command);
- * // { // DeleteImageResult
+ * // { // CreateImportedImageResult
  * //   Image: { // Image
  * //     Name: "STRING_VALUE", // required
  * //     Arn: "STRING_VALUE",
@@ -113,20 +135,32 @@ export interface DeleteImageCommandOutput extends DeleteImageResult, __MetadataB
  *
  * ```
  *
- * @param DeleteImageCommandInput - {@link DeleteImageCommandInput}
- * @returns {@link DeleteImageCommandOutput}
- * @see {@link DeleteImageCommandInput} for command's `input` shape.
- * @see {@link DeleteImageCommandOutput} for command's `response` shape.
+ * @param CreateImportedImageCommandInput - {@link CreateImportedImageCommandInput}
+ * @returns {@link CreateImportedImageCommandOutput}
+ * @see {@link CreateImportedImageCommandInput} for command's `input` shape.
+ * @see {@link CreateImportedImageCommandOutput} for command's `response` shape.
  * @see {@link AppStreamClientResolvedConfig | config} for AppStreamClient's `config` shape.
  *
- * @throws {@link ConcurrentModificationException} (client fault)
- *  <p>An API error occurred. Wait a few minutes and try again.</p>
+ * @throws {@link DryRunOperationException} (client fault)
+ *  <p>The exception that is thrown when a dry run operation is requested. This indicates that the validation checks have been performed successfully, but no actual resources were created or modified.</p>
+ *
+ * @throws {@link IncompatibleImageException} (client fault)
+ *  <p>The image can't be updated because it's not compatible for updates.</p>
+ *
+ * @throws {@link InvalidAccountStatusException} (client fault)
+ *  <p>The resource cannot be created because your AWS account is suspended. For assistance, contact AWS Support. </p>
+ *
+ * @throws {@link InvalidRoleException} (client fault)
+ *  <p>The specified role is invalid.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>The requested limit exceeds the permitted limit for an account.</p>
  *
  * @throws {@link OperationNotPermittedException} (client fault)
  *  <p>The attempted operation is not permitted.</p>
  *
- * @throws {@link ResourceInUseException} (client fault)
- *  <p>The specified resource is in use.</p>
+ * @throws {@link ResourceAlreadyExistsException} (client fault)
+ *  <p>The specified resource already exists.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource was not found.</p>
@@ -137,10 +171,10 @@ export interface DeleteImageCommandOutput extends DeleteImageResult, __MetadataB
  *
  * @public
  */
-export class DeleteImageCommand extends $Command
+export class CreateImportedImageCommand extends $Command
   .classBuilder<
-    DeleteImageCommandInput,
-    DeleteImageCommandOutput,
+    CreateImportedImageCommandInput,
+    CreateImportedImageCommandOutput,
     AppStreamClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -149,19 +183,19 @@ export class DeleteImageCommand extends $Command
   .m(function (this: any, Command: any, cs: any, config: AppStreamClientResolvedConfig, o: any) {
     return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
-  .s("PhotonAdminProxyService", "DeleteImage", {})
-  .n("AppStreamClient", "DeleteImageCommand")
-  .sc(DeleteImage)
+  .s("PhotonAdminProxyService", "CreateImportedImage", {})
+  .n("AppStreamClient", "CreateImportedImageCommand")
+  .sc(CreateImportedImage)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: DeleteImageRequest;
-      output: DeleteImageResult;
+      input: CreateImportedImageRequest;
+      output: CreateImportedImageResult;
     };
     sdk: {
-      input: DeleteImageCommandInput;
-      output: DeleteImageCommandOutput;
+      input: CreateImportedImageCommandInput;
+      output: CreateImportedImageCommandOutput;
     };
   };
 }

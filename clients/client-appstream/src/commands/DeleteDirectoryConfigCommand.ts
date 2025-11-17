@@ -27,7 +27,7 @@ export interface DeleteDirectoryConfigCommandInput extends DeleteDirectoryConfig
 export interface DeleteDirectoryConfigCommandOutput extends DeleteDirectoryConfigResult, __MetadataBearer {}
 
 /**
- * <p>Deletes the specified Directory Config object from AppStream 2.0. This object includes the information required to join streaming instances to an Active Directory domain.</p>
+ * <p>Deletes the specified Directory Config object from WorkSpaces Applications. This object includes the information required to join streaming instances to an Active Directory domain.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

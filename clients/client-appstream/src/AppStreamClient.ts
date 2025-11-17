@@ -98,12 +98,20 @@ import {
   CreateDirectoryConfigCommandOutput,
 } from "./commands/CreateDirectoryConfigCommand";
 import { CreateEntitlementCommandInput, CreateEntitlementCommandOutput } from "./commands/CreateEntitlementCommand";
+import {
+  CreateExportImageTaskCommandInput,
+  CreateExportImageTaskCommandOutput,
+} from "./commands/CreateExportImageTaskCommand";
 import { CreateFleetCommandInput, CreateFleetCommandOutput } from "./commands/CreateFleetCommand";
 import { CreateImageBuilderCommandInput, CreateImageBuilderCommandOutput } from "./commands/CreateImageBuilderCommand";
 import {
   CreateImageBuilderStreamingURLCommandInput,
   CreateImageBuilderStreamingURLCommandOutput,
 } from "./commands/CreateImageBuilderStreamingURLCommand";
+import {
+  CreateImportedImageCommandInput,
+  CreateImportedImageCommandOutput,
+} from "./commands/CreateImportedImageCommand";
 import { CreateStackCommandInput, CreateStackCommandOutput } from "./commands/CreateStackCommand";
 import { CreateStreamingURLCommandInput, CreateStreamingURLCommandOutput } from "./commands/CreateStreamingURLCommand";
 import {
@@ -222,6 +230,7 @@ import {
 } from "./commands/DisassociateSoftwareFromImageBuilderCommand";
 import { EnableUserCommandInput, EnableUserCommandOutput } from "./commands/EnableUserCommand";
 import { ExpireSessionCommandInput, ExpireSessionCommandOutput } from "./commands/ExpireSessionCommand";
+import { GetExportImageTaskCommandInput, GetExportImageTaskCommandOutput } from "./commands/GetExportImageTaskCommand";
 import {
   ListAssociatedFleetsCommandInput,
   ListAssociatedFleetsCommandOutput,
@@ -234,6 +243,10 @@ import {
   ListEntitledApplicationsCommandInput,
   ListEntitledApplicationsCommandOutput,
 } from "./commands/ListEntitledApplicationsCommand";
+import {
+  ListExportImageTasksCommandInput,
+  ListExportImageTasksCommandOutput,
+} from "./commands/ListExportImageTasksCommand";
 import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
@@ -305,9 +318,11 @@ export type ServiceInputTypes =
   | CreateApplicationCommandInput
   | CreateDirectoryConfigCommandInput
   | CreateEntitlementCommandInput
+  | CreateExportImageTaskCommandInput
   | CreateFleetCommandInput
   | CreateImageBuilderCommandInput
   | CreateImageBuilderStreamingURLCommandInput
+  | CreateImportedImageCommandInput
   | CreateStackCommandInput
   | CreateStreamingURLCommandInput
   | CreateThemeForStackCommandInput
@@ -354,9 +369,11 @@ export type ServiceInputTypes =
   | DisassociateSoftwareFromImageBuilderCommandInput
   | EnableUserCommandInput
   | ExpireSessionCommandInput
+  | GetExportImageTaskCommandInput
   | ListAssociatedFleetsCommandInput
   | ListAssociatedStacksCommandInput
   | ListEntitledApplicationsCommandInput
+  | ListExportImageTasksCommandInput
   | ListTagsForResourceCommandInput
   | StartAppBlockBuilderCommandInput
   | StartFleetCommandInput
@@ -394,9 +411,11 @@ export type ServiceOutputTypes =
   | CreateApplicationCommandOutput
   | CreateDirectoryConfigCommandOutput
   | CreateEntitlementCommandOutput
+  | CreateExportImageTaskCommandOutput
   | CreateFleetCommandOutput
   | CreateImageBuilderCommandOutput
   | CreateImageBuilderStreamingURLCommandOutput
+  | CreateImportedImageCommandOutput
   | CreateStackCommandOutput
   | CreateStreamingURLCommandOutput
   | CreateThemeForStackCommandOutput
@@ -443,9 +462,11 @@ export type ServiceOutputTypes =
   | DisassociateSoftwareFromImageBuilderCommandOutput
   | EnableUserCommandOutput
   | ExpireSessionCommandOutput
+  | GetExportImageTaskCommandOutput
   | ListAssociatedFleetsCommandOutput
   | ListAssociatedStacksCommandOutput
   | ListEntitledApplicationsCommandOutput
+  | ListExportImageTasksCommandOutput
   | ListTagsForResourceCommandOutput
   | StartAppBlockBuilderCommandOutput
   | StartFleetCommandOutput
@@ -666,21 +687,21 @@ export type AppStreamClientResolvedConfigType = __SmithyResolvedConfiguration<__
 export interface AppStreamClientResolvedConfig extends AppStreamClientResolvedConfigType {}
 
 /**
- * <fullname>Amazon AppStream 2.0</fullname>
- *          <p>This is the <i>Amazon AppStream 2.0 API Reference</i>. This documentation provides descriptions and syntax for each of the actions and data types in AppStream 2.0. AppStream 2.0 is a fully managed, secure application streaming service that lets you stream desktop applications to users without rewriting applications. AppStream 2.0 manages the AWS resources that are required to host and run your applications, scales automatically, and provides access to your users on demand. </p>
+ * <fullname>Amazon WorkSpaces Applications</fullname>
+ *          <p>This is the <i>Amazon WorkSpaces Applications API Reference</i>. This documentation provides descriptions and syntax for each of the actions and data types in WorkSpaces Applications. WorkSpaces Applications is a fully managed, secure application streaming service that lets you stream desktop applications to users without rewriting applications. WorkSpaces Applications manages the AWS resources that are required to host and run your applications, scales automatically, and provides access to your users on demand. </p>
  *          <note>
- *             <p>You can call the AppStream 2.0 API operations by using an interface VPC endpoint (interface endpoint). For more information, see <a href="https://docs.aws.amazon.com/appstream2/latest/developerguide/access-api-cli-through-interface-vpc-endpoint.html">Access AppStream 2.0 API Operations and CLI Commands Through an Interface VPC Endpoint</a> in the <i>Amazon AppStream 2.0 Administration Guide</i>.</p>
+ *             <p>You can call the WorkSpaces Applications API operations by using an interface VPC endpoint (interface endpoint). For more information, see <a href="https://docs.aws.amazon.com/appstream2/latest/developerguide/access-api-cli-through-interface-vpc-endpoint.html">Access WorkSpaces Applications API Operations and CLI Commands Through an Interface VPC Endpoint</a> in the <i>Amazon WorkSpaces Applications Administration Guide</i>.</p>
  *          </note>
- *          <p>To learn more about AppStream 2.0, see the following resources:</p>
+ *          <p>To learn more about WorkSpaces Applications, see the following resources:</p>
  *          <ul>
  *             <li>
  *                <p>
- *                   <a href="http://aws.amazon.com/appstream2">Amazon AppStream 2.0 product page</a>
+ *                   <a href="http://aws.amazon.com/appstream2">Amazon WorkSpaces Applications product page</a>
  *                </p>
  *             </li>
  *             <li>
  *                <p>
- *                   <a href="http://aws.amazon.com/documentation/appstream2">Amazon AppStream 2.0 documentation</a>
+ *                   <a href="http://aws.amazon.com/documentation/appstream2">Amazon WorkSpaces Applications documentation</a>
  *                </p>
  *             </li>
  *          </ul>

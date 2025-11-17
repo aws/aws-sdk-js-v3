@@ -6,22 +6,22 @@
 
 AWS SDK for JavaScript AppStream Client for Node.js, Browser and React Native.
 
-<fullname>Amazon AppStream 2.0</fullname>
+<fullname>Amazon WorkSpaces Applications</fullname>
 
-<p>This is the <i>Amazon AppStream 2.0 API Reference</i>. This documentation provides descriptions and syntax for each of the actions and data types in AppStream 2.0. AppStream 2.0 is a fully managed, secure application streaming service that lets you stream desktop applications to users without rewriting applications. AppStream 2.0 manages the AWS resources that are required to host and run your applications, scales automatically, and provides access to your users on demand. </p>
+<p>This is the <i>Amazon WorkSpaces Applications API Reference</i>. This documentation provides descriptions and syntax for each of the actions and data types in WorkSpaces Applications. WorkSpaces Applications is a fully managed, secure application streaming service that lets you stream desktop applications to users without rewriting applications. WorkSpaces Applications manages the AWS resources that are required to host and run your applications, scales automatically, and provides access to your users on demand. </p>
 <note>
-<p>You can call the AppStream 2.0 API operations by using an interface VPC endpoint (interface endpoint). For more information, see <a href="https://docs.aws.amazon.com/appstream2/latest/developerguide/access-api-cli-through-interface-vpc-endpoint.html">Access AppStream 2.0 API Operations and CLI Commands Through an Interface VPC Endpoint</a> in the <i>Amazon AppStream 2.0 Administration Guide</i>.</p>
+<p>You can call the WorkSpaces Applications API operations by using an interface VPC endpoint (interface endpoint). For more information, see <a href="https://docs.aws.amazon.com/appstream2/latest/developerguide/access-api-cli-through-interface-vpc-endpoint.html">Access WorkSpaces Applications API Operations and CLI Commands Through an Interface VPC Endpoint</a> in the <i>Amazon WorkSpaces Applications Administration Guide</i>.</p>
 </note>
-<p>To learn more about AppStream 2.0, see the following resources:</p>
+<p>To learn more about WorkSpaces Applications, see the following resources:</p>
 <ul>
 <li>
 <p>
-<a href="http://aws.amazon.com/appstream2">Amazon AppStream 2.0 product page</a>
+<a href="http://aws.amazon.com/appstream2">Amazon WorkSpaces Applications product page</a>
 </p>
 </li>
 <li>
 <p>
-<a href="http://aws.amazon.com/documentation/appstream2">Amazon AppStream 2.0 documentation</a>
+<a href="http://aws.amazon.com/documentation/appstream2">Amazon WorkSpaces Applications documentation</a>
 </p>
 </li>
 </ul>
@@ -41,16 +41,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `AppStreamClient` and
-the commands you need, for example `ListAssociatedFleetsCommand`:
+the commands you need, for example `ListExportImageTasksCommand`:
 
 ```js
 // ES5 example
-const { AppStreamClient, ListAssociatedFleetsCommand } = require("@aws-sdk/client-appstream");
+const { AppStreamClient, ListExportImageTasksCommand } = require("@aws-sdk/client-appstream");
 ```
 
 ```ts
 // ES6+ example
-import { AppStreamClient, ListAssociatedFleetsCommand } from "@aws-sdk/client-appstream";
+import { AppStreamClient, ListExportImageTasksCommand } from "@aws-sdk/client-appstream";
 ```
 
 ### Usage
@@ -69,7 +69,7 @@ const client = new AppStreamClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new ListAssociatedFleetsCommand(params);
+const command = new ListExportImageTasksCommand(params);
 ```
 
 #### Async/await
@@ -148,7 +148,7 @@ const client = new AWS.AppStream({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.listAssociatedFleets(params);
+  const data = await client.listExportImageTasks(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -156,7 +156,7 @@ try {
 
 // Promises.
 client
-  .listAssociatedFleets(params)
+  .listExportImageTasks(params)
   .then((data) => {
     // process data.
   })
@@ -165,7 +165,7 @@ client
   });
 
 // callbacks.
-client.listAssociatedFleets(params, (err, data) => {
+client.listExportImageTasks(params, (err, data) => {
   // process err and data.
 });
 ```
@@ -335,6 +335,14 @@ CreateEntitlement
 </details>
 <details>
 <summary>
+CreateExportImageTask
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/appstream/command/CreateExportImageTaskCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appstream/Interface/CreateExportImageTaskCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appstream/Interface/CreateExportImageTaskCommandOutput/)
+
+</details>
+<details>
+<summary>
 CreateFleet
 </summary>
 
@@ -355,6 +363,14 @@ CreateImageBuilderStreamingURL
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/appstream/command/CreateImageBuilderStreamingURLCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appstream/Interface/CreateImageBuilderStreamingURLCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appstream/Interface/CreateImageBuilderStreamingURLCommandOutput/)
+
+</details>
+<details>
+<summary>
+CreateImportedImage
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/appstream/command/CreateImportedImageCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appstream/Interface/CreateImportedImageCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appstream/Interface/CreateImportedImageCommandOutput/)
 
 </details>
 <details>
@@ -727,6 +743,14 @@ ExpireSession
 </details>
 <details>
 <summary>
+GetExportImageTask
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/appstream/command/GetExportImageTaskCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appstream/Interface/GetExportImageTaskCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appstream/Interface/GetExportImageTaskCommandOutput/)
+
+</details>
+<details>
+<summary>
 ListAssociatedFleets
 </summary>
 
@@ -747,6 +771,14 @@ ListEntitledApplications
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/appstream/command/ListEntitledApplicationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appstream/Interface/ListEntitledApplicationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appstream/Interface/ListEntitledApplicationsCommandOutput/)
+
+</details>
+<details>
+<summary>
+ListExportImageTasks
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/appstream/command/ListExportImageTasksCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appstream/Interface/ListExportImageTasksCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appstream/Interface/ListExportImageTasksCommandOutput/)
 
 </details>
 <details>

@@ -17,7 +17,7 @@ export const AccessEndpointType = {
 export type AccessEndpointType = (typeof AccessEndpointType)[keyof typeof AccessEndpointType];
 
 /**
- * <p>Describes an interface VPC endpoint (interface endpoint) that lets you create a private connection between the virtual private cloud (VPC) that you specify and AppStream 2.0. When you specify an interface endpoint for a stack, users of the stack can connect to AppStream 2.0 only through that endpoint. When you specify an interface endpoint for an image builder, administrators can connect to the image builder only through that endpoint.</p>
+ * <p>Describes an interface VPC endpoint (interface endpoint) that lets you create a private connection between the virtual private cloud (VPC) that you specify and WorkSpaces Applications. When you specify an interface endpoint for a stack, users of the stack can connect to WorkSpaces Applications only through that endpoint. When you specify an interface endpoint for an image builder, administrators can connect to the image builder only through that endpoint.</p>
  * @public
  */
 export interface AccessEndpoint {
@@ -101,6 +101,20 @@ export interface AdminAppLicenseUsageRecord {
    */
   UserId: string | undefined;
 }
+
+/**
+ * @public
+ * @enum
+ */
+export const AgentSoftwareVersion = {
+  ALWAYS_LATEST: "ALWAYS_LATEST",
+  CURRENT_LATEST: "CURRENT_LATEST",
+} as const;
+
+/**
+ * @public
+ */
+export type AgentSoftwareVersion = (typeof AgentSoftwareVersion)[keyof typeof AgentSoftwareVersion];
 
 /**
  * <p>The error details.</p>
@@ -221,7 +235,7 @@ export type AppBlockState = (typeof AppBlockState)[keyof typeof AppBlockState];
 
 /**
  * <p>Describes an app block.</p>
- *          <p>App blocks are an Amazon AppStream 2.0 resource that stores the details about the
+ *          <p>App blocks are a WorkSpaces Applications resource that stores the details about the
  *            virtual hard disk in an S3 bucket. It also stores the setup script with details about
  *            how to mount the virtual hard disk. The virtual hard disk includes the application
  *            binaries and other files necessary to launch your applications. Multiple applications
@@ -288,7 +302,7 @@ export interface AppBlock {
 
   /**
    * <p>The state of the app block.</p>
-   *          <p>An app block with AppStream 2.0 packaging will be in the <code>INACTIVE</code> state
+   *          <p>An app block with WorkSpaces Applications packaging will be in the <code>INACTIVE</code> state
    *             if no application package (VHD) is assigned to it. After an application package (VHD) is
    *             created by an app block builder for an app block, it becomes <code>ACTIVE</code>. </p>
    *          <p>Custom app blocks are always in the <code>ACTIVE</code> state and no action is required to use them.</p>
@@ -338,6 +352,7 @@ export const FleetErrorCode = {
   STS_DISABLED_IN_REGION: "STS_DISABLED_IN_REGION",
   SUBNET_HAS_INSUFFICIENT_IP_ADDRESSES: "SUBNET_HAS_INSUFFICIENT_IP_ADDRESSES",
   SUBNET_NOT_FOUND: "SUBNET_NOT_FOUND",
+  VALIDATION_ERROR: "VALIDATION_ERROR",
 } as const;
 
 /**
@@ -573,6 +588,54 @@ export const AppBlockBuilderAttribute = {
  * @public
  */
 export type AppBlockBuilderAttribute = (typeof AppBlockBuilderAttribute)[keyof typeof AppBlockBuilderAttribute];
+
+/**
+ * <p>Configuration for an application in the imported image's application catalog. This structure defines how applications appear and launch for users.</p>
+ * @public
+ */
+export interface ApplicationConfig {
+  /**
+   * <p>The name of the application. This is a required field that must be unique within the application catalog and between 1-100 characters, matching the pattern ^[a-zA-Z0-9][a-zA-Z0-9_.-]\{0,99\}$.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The display name shown to users for this application. This field is optional and can be 0-100 characters, matching the pattern ^[a-zA-Z0-9][a-zA-Z0-9_. -]\{0,99\}$.</p>
+   * @public
+   */
+  DisplayName?: string | undefined;
+
+  /**
+   * <p>The absolute path to the executable file that launches the application. This is a required field that can be 1-32767 characters to support Windows extended file paths. Use escaped file path strings like "C:\\\\Windows\\\\System32\\\\notepad.exe".</p>
+   * @public
+   */
+  AbsoluteAppPath: string | undefined;
+
+  /**
+   * <p>The absolute path to the icon file for the application. This field is optional and can be 1-32767 characters. If not provided, the icon is derived from the executable. Use PNG images with proper transparency for the best user experience.</p>
+   * @public
+   */
+  AbsoluteIconPath?: string | undefined;
+
+  /**
+   * <p>The absolute path to the prewarm manifest file for this application. This field is optional and only applicable when using application-specific manifests. The path can be 1-32767 characters and should point to a text file containing file paths to prewarm.</p>
+   * @public
+   */
+  AbsoluteManifestPath?: string | undefined;
+
+  /**
+   * <p>The working directory to use when launching the application. This field is optional and can be 0-32767 characters. Use escaped file path strings like "C:\\\\Path\\\\To\\\\Working\\\\Directory".</p>
+   * @public
+   */
+  WorkingDirectory?: string | undefined;
+
+  /**
+   * <p>The launch parameters to pass to the application executable. This field is optional and can be 0-1024 characters. Use escaped strings with the full list of required parameters, such as PowerShell script paths or command-line arguments.</p>
+   * @public
+   */
+  LaunchParameters?: string | undefined;
+}
 
 /**
  * @public
@@ -1631,7 +1694,7 @@ export interface CreateAppBlockBuilderRequest {
    *          <p>If you do not specify a value, the value is set to an empty string.</p>
    *          <p>Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following special characters: </p>
    *          <p>_ . : / = + \ - @</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/appstream2/latest/developerguide/tagging-basic.html">Tagging Your Resources</a> in the <i>Amazon AppStream 2.0 Administration Guide</i>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/appstream2/latest/developerguide/tagging-basic.html">Tagging Your Resources</a> in the <i>Amazon WorkSpaces Applications Administration Guide</i>.</p>
    * @public
    */
   Tags?: Record<string, string> | undefined;
@@ -1686,9 +1749,9 @@ export interface CreateAppBlockBuilderRequest {
    * <p>The Amazon Resource Name (ARN) of the IAM role to apply to the app block builder. To
    *             assume a role, the app block builder calls the AWS Security Token Service (STS)
    *                 <code>AssumeRole</code> API operation and passes the ARN of the role to use. The
-   *             operation creates a new session with temporary credentials. AppStream 2.0 retrieves the
+   *             operation creates a new session with temporary credentials. WorkSpaces Applications retrieves the
    *             temporary credentials and creates the <b>appstream_machine_role</b> credential profile on the instance.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/appstream2/latest/developerguide/using-iam-roles-to-grant-permissions-to-applications-scripts-streaming-instances.html">Using an IAM Role to Grant Permissions to Applications and Scripts Running on AppStream 2.0 Streaming Instances</a> in the <i>Amazon AppStream 2.0 Administration Guide</i>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/appstream2/latest/developerguide/using-iam-roles-to-grant-permissions-to-applications-scripts-streaming-instances.html">Using an IAM Role to Grant Permissions to Applications and Scripts Running on WorkSpaces Applications Streaming Instances</a> in the <i>Amazon WorkSpaces Applications Administration Guide</i>.</p>
    * @public
    */
   IamRoleArn?: string | undefined;
@@ -1738,7 +1801,7 @@ export class InvalidRoleException extends __BaseException {
 }
 
 /**
- * <p>AppStream 2.0 can’t process the request right now because the Describe calls from your AWS account are being throttled by Amazon EC2. Try again later.</p>
+ * <p>WorkSpaces Applications can’t process the request right now because the Describe calls from your AWS account are being throttled by Amazon EC2. Try again later.</p>
  * @public
  */
 export class RequestLimitExceededException extends __BaseException {
@@ -1990,14 +2053,13 @@ export interface CreateDirectoryConfigResult {
 
 /**
  * <p>An attribute associated with an entitlement. Application entitlements work by matching
- *             a supported SAML 2.0 attribute name to a value when a user identity federates to an
- *             Amazon AppStream 2.0 SAML application.</p>
+ *             a supported SAML 2.0 attribute name to a value when a user identity federates to a WorkSpaces Applications SAML application.</p>
  * @public
  */
 export interface EntitlementAttribute {
   /**
    * <p>A supported AWS IAM SAML <code>PrincipalTag</code> attribute that is matched to the
-   *             associated value when a user identity federates into an Amazon AppStream 2.0 SAML
+   *             associated value when a user identity federates into a WorkSpaces Applications SAML
    *             application.</p>
    *          <p>The following are valid values:</p>
    *          <ul>
@@ -2030,7 +2092,7 @@ export interface EntitlementAttribute {
 
   /**
    * <p>A value that is matched to a supported SAML attribute name when a user identity
-   *             federates into an Amazon AppStream 2.0 SAML application. </p>
+   *             federates into a WorkSpaces Applications SAML application. </p>
    * @public
    */
   Value: string | undefined;
@@ -2074,7 +2136,7 @@ export interface CreateEntitlementRequest {
 /**
  * <p>Specifies an entitlement. Entitlements control access to specific applications within
  *             a stack, based on user attributes. Entitlements apply to SAML 2.0 federated user
- *             identities. Amazon AppStream 2.0 user pool and streaming URL users are entitled to all
+ *             identities. WorkSpaces Applications user pool and streaming URL users are entitled to all
  *             applications in a stack. Entitlements don't apply to the desktop stream view
  *             application, or to applications managed by a dynamic app provider using the Dynamic
  *             Application Framework.</p>
@@ -2162,6 +2224,127 @@ export class EntitlementAlreadyExistsException extends __BaseException {
 }
 
 /**
+ * @public
+ */
+export interface CreateExportImageTaskRequest {
+  /**
+   * <p>The name of the WorkSpaces Applications image to export. The image must be in an available state and owned by your account.</p>
+   * @public
+   */
+  ImageName: string | undefined;
+
+  /**
+   * <p>The name for the exported EC2 AMI. This is a required field that must be unique within your account and region.</p>
+   * @public
+   */
+  AmiName: string | undefined;
+
+  /**
+   * <p>The ARN of the IAM role that allows WorkSpaces Applications to create the AMI. The role must have permissions to copy images, describe images, and create tags, with a trust relationship allowing appstream.amazonaws.com to assume the role.</p>
+   * @public
+   */
+  IamRoleArn: string | undefined;
+
+  /**
+   * <p>The tags to apply to the exported AMI. These tags help you organize and manage your EC2 AMIs.</p>
+   * @public
+   */
+  TagSpecifications?: Record<string, string> | undefined;
+
+  /**
+   * <p>An optional description for the exported AMI. This description will be applied to the resulting EC2 AMI.</p>
+   * @public
+   */
+  AmiDescription?: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ExportImageTaskState = {
+  COMPLETED: "COMPLETED",
+  EXPORTING: "EXPORTING",
+  FAILED: "FAILED",
+} as const;
+
+/**
+ * @public
+ */
+export type ExportImageTaskState = (typeof ExportImageTaskState)[keyof typeof ExportImageTaskState];
+
+/**
+ * <p>Information about an export image task, including its current state, timestamps, and any error details.</p>
+ * @public
+ */
+export interface ExportImageTask {
+  /**
+   * <p>The unique identifier for the export image task. Use this ID to track the task's progress and retrieve its details.</p>
+   * @public
+   */
+  TaskId: string | undefined;
+
+  /**
+   * <p>The ARN of the WorkSpaces Applications image being exported.</p>
+   * @public
+   */
+  ImageArn: string | undefined;
+
+  /**
+   * <p>The name of the EC2 AMI that will be created by this export task.</p>
+   * @public
+   */
+  AmiName: string | undefined;
+
+  /**
+   * <p>The date and time when the export image task was created.</p>
+   * @public
+   */
+  CreatedDate: Date | undefined;
+
+  /**
+   * <p>The description that will be applied to the exported EC2 AMI.</p>
+   * @public
+   */
+  AmiDescription?: string | undefined;
+
+  /**
+   * <p>The current state of the export image task, such as PENDING, RUNNING, COMPLETED, or FAILED.</p>
+   * @public
+   */
+  State?: ExportImageTaskState | undefined;
+
+  /**
+   * <p>The ID of the EC2 AMI that was created by this export task. This field is only populated when the task completes successfully.</p>
+   * @public
+   */
+  AmiId?: string | undefined;
+
+  /**
+   * <p>The tags that will be applied to the exported EC2 AMI.</p>
+   * @public
+   */
+  TagSpecifications?: Record<string, string> | undefined;
+
+  /**
+   * <p>Details about any errors that occurred during the export process. This field is only populated when the task fails.</p>
+   * @public
+   */
+  ErrorDetails?: ErrorDetails[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateExportImageTaskResult {
+  /**
+   * <p>Information about the export image task that was created, including the task ID and initial state.</p>
+   * @public
+   */
+  ExportImageTask?: ExportImageTask | undefined;
+}
+
+/**
  * <p>Describes the configuration information required to join fleets and image builders to Microsoft Active Directory domains.</p>
  * @public
  */
@@ -2193,6 +2376,18 @@ export const FleetType = {
  * @public
  */
 export type FleetType = (typeof FleetType)[keyof typeof FleetType];
+
+/**
+ * <p>Configuration for the root volume of fleet instances and image builders. This allows you to customize the storage capacity beyond the default 200 GB.</p>
+ * @public
+ */
+export interface VolumeConfig {
+  /**
+   * <p>The size of the root volume in GB. Valid range is 200-500 GB. The default is 200 GB, which is included in the hourly instance rate. Additional storage beyond 200 GB incurs extra charges and applies to instances regardless of their running state.</p>
+   * @public
+   */
+  VolumeSizeInGb?: number | undefined;
+}
 
 /**
  * @public
@@ -2309,9 +2504,6 @@ export interface CreateFleetRequest {
    *                <p>stream.graphics-design.4xlarge</p>
    *             </li>
    *             <li>
-   *                <p>stream.graphics-desktop.2xlarge</p>
-   *             </li>
-   *             <li>
    *                <p>stream.graphics.g4dn.xlarge</p>
    *             </li>
    *             <li>
@@ -2349,15 +2541,6 @@ export interface CreateFleetRequest {
    *             </li>
    *             <li>
    *                <p>stream.graphics.g5.24xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.graphics-pro.4xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.graphics-pro.8xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.graphics-pro.16xlarge</p>
    *             </li>
    *             <li>
    *                <p>stream.graphics.g6.xlarge</p>
@@ -2498,7 +2681,7 @@ export interface CreateFleetRequest {
    *          <p>If you do not specify a value, the value is set to an empty string.</p>
    *          <p>Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following special characters: </p>
    *          <p>_ . : / = + \ - @</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/appstream2/latest/developerguide/tagging-basic.html">Tagging Your Resources</a> in the <i>Amazon AppStream 2.0 Administration Guide</i>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/appstream2/latest/developerguide/tagging-basic.html">Tagging Your Resources</a> in the <i>Amazon WorkSpaces Applications Administration Guide</i>.</p>
    * @public
    */
   Tags?: Record<string, string> | undefined;
@@ -2523,14 +2706,14 @@ export interface CreateFleetRequest {
   IdleDisconnectTimeoutInSeconds?: number | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the IAM role to apply to the fleet. To assume a role, a fleet instance calls the AWS Security Token Service (STS) <code>AssumeRole</code> API operation and passes the ARN of the role to use. The operation creates a new session with temporary credentials. AppStream 2.0 retrieves the temporary credentials and creates the <b>appstream_machine_role</b> credential profile on the instance.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/appstream2/latest/developerguide/using-iam-roles-to-grant-permissions-to-applications-scripts-streaming-instances.html">Using an IAM Role to Grant Permissions to Applications and Scripts Running on AppStream 2.0 Streaming Instances</a> in the <i>Amazon AppStream 2.0 Administration Guide</i>.</p>
+   * <p>The Amazon Resource Name (ARN) of the IAM role to apply to the fleet. To assume a role, a fleet instance calls the AWS Security Token Service (STS) <code>AssumeRole</code> API operation and passes the ARN of the role to use. The operation creates a new session with temporary credentials. WorkSpaces Applications retrieves the temporary credentials and creates the <b>appstream_machine_role</b> credential profile on the instance.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/appstream2/latest/developerguide/using-iam-roles-to-grant-permissions-to-applications-scripts-streaming-instances.html">Using an IAM Role to Grant Permissions to Applications and Scripts Running on WorkSpaces Applications Streaming Instances</a> in the <i>Amazon WorkSpaces Applications Administration Guide</i>.</p>
    * @public
    */
   IamRoleArn?: string | undefined;
 
   /**
-   * <p>The AppStream 2.0 view that is displayed to your users when they stream from the fleet. When <code>APP</code> is specified, only the windows of applications opened by users display. When <code>DESKTOP</code> is specified, the standard desktop that is provided by the operating system displays.</p>
+   * <p>The WorkSpaces Applications view that is displayed to your users when they stream from the fleet. When <code>APP</code> is specified, only the windows of applications opened by users display. When <code>DESKTOP</code> is specified, the standard desktop that is provided by the operating system displays.</p>
    *          <p>The default value is <code>APP</code>.</p>
    * @public
    */
@@ -2567,6 +2750,12 @@ export interface CreateFleetRequest {
    * @public
    */
   MaxSessionsPerInstance?: number | undefined;
+
+  /**
+   * <p>The configuration for the root volume of fleet instances. Use this to customize storage capacity from 200 GB up to 500 GB based on your application requirements.</p>
+   * @public
+   */
+  RootVolumeConfig?: VolumeConfig | undefined;
 }
 
 /**
@@ -2717,9 +2906,6 @@ export interface Fleet {
    *                <p>stream.graphics-design.4xlarge</p>
    *             </li>
    *             <li>
-   *                <p>stream.graphics-desktop.2xlarge</p>
-   *             </li>
-   *             <li>
    *                <p>stream.graphics.g4dn.xlarge</p>
    *             </li>
    *             <li>
@@ -2736,15 +2922,6 @@ export interface Fleet {
    *             </li>
    *             <li>
    *                <p>stream.graphics.g4dn.16xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.graphics-pro.4xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.graphics-pro.8xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.graphics-pro.16xlarge</p>
    *             </li>
    *             <li>
    *                <p>stream.graphics.g5.xlarge</p>
@@ -2909,14 +3086,14 @@ export interface Fleet {
   IdleDisconnectTimeoutInSeconds?: number | undefined;
 
   /**
-   * <p>The ARN of the IAM role that is applied to the fleet. To assume a role, the fleet instance calls the AWS Security Token Service (STS) <code>AssumeRole</code> API operation and passes the ARN of the role to use. The operation creates a new session with temporary credentials. AppStream 2.0 retrieves the temporary credentials and creates the <b>appstream_machine_role</b> credential profile on the instance.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/appstream2/latest/developerguide/using-iam-roles-to-grant-permissions-to-applications-scripts-streaming-instances.html">Using an IAM Role to Grant Permissions to Applications and Scripts Running on AppStream 2.0 Streaming Instances</a> in the <i>Amazon AppStream 2.0 Administration Guide</i>.</p>
+   * <p>The ARN of the IAM role that is applied to the fleet. To assume a role, the fleet instance calls the AWS Security Token Service (STS) <code>AssumeRole</code> API operation and passes the ARN of the role to use. The operation creates a new session with temporary credentials. WorkSpaces Applications retrieves the temporary credentials and creates the <b>appstream_machine_role</b> credential profile on the instance.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/appstream2/latest/developerguide/using-iam-roles-to-grant-permissions-to-applications-scripts-streaming-instances.html">Using an IAM Role to Grant Permissions to Applications and Scripts Running on WorkSpaces Applications Streaming Instances</a> in the <i>Amazon WorkSpaces Applications Administration Guide</i>.</p>
    * @public
    */
   IamRoleArn?: string | undefined;
 
   /**
-   * <p>The AppStream 2.0 view that is displayed to your users when they stream from the fleet. When <code>APP</code> is specified, only the windows of applications opened by users display. When <code>DESKTOP</code> is specified, the standard desktop that is provided by the operating system displays.</p>
+   * <p>The WorkSpaces Applications view that is displayed to your users when they stream from the fleet. When <code>APP</code> is specified, only the windows of applications opened by users display. When <code>DESKTOP</code> is specified, the standard desktop that is provided by the operating system displays.</p>
    *          <p>The default value is <code>APP</code>.</p>
    * @public
    */
@@ -2951,6 +3128,12 @@ export interface Fleet {
    * @public
    */
   MaxSessionsPerInstance?: number | undefined;
+
+  /**
+   * <p>The current configuration of the root volume for fleet instances, including the storage size in GB.</p>
+   * @public
+   */
+  RootVolumeConfig?: VolumeConfig | undefined;
 }
 
 /**
@@ -3059,9 +3242,6 @@ export interface CreateImageBuilderRequest {
    *                <p>stream.graphics-design.4xlarge</p>
    *             </li>
    *             <li>
-   *                <p>stream.graphics-desktop.2xlarge</p>
-   *             </li>
-   *             <li>
    *                <p>stream.graphics.g4dn.xlarge</p>
    *             </li>
    *             <li>
@@ -3078,15 +3258,6 @@ export interface CreateImageBuilderRequest {
    *             </li>
    *             <li>
    *                <p>stream.graphics.g4dn.16xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.graphics-pro.4xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.graphics-pro.8xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.graphics-pro.16xlarge</p>
    *             </li>
    *             <li>
    *                <p>stream.graphics.g5.xlarge</p>
@@ -3175,8 +3346,8 @@ export interface CreateImageBuilderRequest {
   VpcConfig?: VpcConfig | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the IAM role to apply to the image builder. To assume a role, the image builder calls the AWS Security Token Service (STS) <code>AssumeRole</code> API operation and passes the ARN of the role to use. The operation creates a new session with temporary credentials. AppStream 2.0 retrieves the temporary credentials and creates the <b>appstream_machine_role</b> credential profile on the instance.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/appstream2/latest/developerguide/using-iam-roles-to-grant-permissions-to-applications-scripts-streaming-instances.html">Using an IAM Role to Grant Permissions to Applications and Scripts Running on AppStream 2.0 Streaming Instances</a> in the <i>Amazon AppStream 2.0 Administration Guide</i>.</p>
+   * <p>The Amazon Resource Name (ARN) of the IAM role to apply to the image builder. To assume a role, the image builder calls the AWS Security Token Service (STS) <code>AssumeRole</code> API operation and passes the ARN of the role to use. The operation creates a new session with temporary credentials. WorkSpaces Applications retrieves the temporary credentials and creates the <b>appstream_machine_role</b> credential profile on the instance.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/appstream2/latest/developerguide/using-iam-roles-to-grant-permissions-to-applications-scripts-streaming-instances.html">Using an IAM Role to Grant Permissions to Applications and Scripts Running on WorkSpaces Applications Streaming Instances</a> in the <i>Amazon WorkSpaces Applications Administration Guide</i>.</p>
    * @public
    */
   IamRoleArn?: string | undefined;
@@ -3194,7 +3365,7 @@ export interface CreateImageBuilderRequest {
   DomainJoinInfo?: DomainJoinInfo | undefined;
 
   /**
-   * <p>The version of the AppStream 2.0 agent to use for this image builder. To use the latest version of the AppStream 2.0 agent, specify [LATEST]. </p>
+   * <p>The version of the WorkSpaces Applications agent to use for this image builder. To use the latest version of the WorkSpaces Applications agent, specify [LATEST]. </p>
    * @public
    */
   AppstreamAgentVersion?: string | undefined;
@@ -3204,7 +3375,7 @@ export interface CreateImageBuilderRequest {
    *          <p>Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following special characters: </p>
    *          <p>_ . : / = + \ - @</p>
    *          <p>If you do not specify a value, the value is set to an empty string.</p>
-   *          <p>For more information about tags, see <a href="https://docs.aws.amazon.com/appstream2/latest/developerguide/tagging-basic.html">Tagging Your Resources</a> in the <i>Amazon AppStream 2.0 Administration Guide</i>.</p>
+   *          <p>For more information about tags, see <a href="https://docs.aws.amazon.com/appstream2/latest/developerguide/tagging-basic.html">Tagging Your Resources</a> in the <i>Amazon WorkSpaces Applications Administration Guide</i>.</p>
    * @public
    */
   Tags?: Record<string, string> | undefined;
@@ -3214,6 +3385,12 @@ export interface CreateImageBuilderRequest {
    * @public
    */
   AccessEndpoints?: AccessEndpoint[] | undefined;
+
+  /**
+   * <p>The configuration for the root volume of the image builder. Use this to customize storage capacity from 200 GB up to 500 GB based on your application installation requirements.</p>
+   * @public
+   */
+  RootVolumeConfig?: VolumeConfig | undefined;
 
   /**
    * <p>The list of license included applications to install on the image builder during creation.</p>
@@ -3405,7 +3582,7 @@ export interface NetworkAccessConfiguration {
   EniPrivateIpAddress?: string | undefined;
 
   /**
-   * <p>The IPv6 addresses of the elastic network interface that is attached to instances in your VPC.</p>
+   * <p>The IPv6 addresses assigned to the elastic network interface. This field supports IPv6 connectivity for WorkSpaces Applications instances.</p>
    * @public
    */
   EniIpv6Addresses?: string[] | undefined;
@@ -3425,6 +3602,7 @@ export const ImageBuilderState = {
   DELETING: "DELETING",
   FAILED: "FAILED",
   PENDING: "PENDING",
+  PENDING_IMAGE_IMPORT: "PENDING_IMAGE_IMPORT",
   PENDING_QUALIFICATION: "PENDING_QUALIFICATION",
   PENDING_SYNCING_APPS: "PENDING_SYNCING_APPS",
   REBOOTING: "REBOOTING",
@@ -3589,9 +3767,6 @@ export interface ImageBuilder {
    *                <p>stream.graphics-design.4xlarge</p>
    *             </li>
    *             <li>
-   *                <p>stream.graphics-desktop.2xlarge</p>
-   *             </li>
-   *             <li>
    *                <p>stream.graphics.g4dn.xlarge</p>
    *             </li>
    *             <li>
@@ -3608,15 +3783,6 @@ export interface ImageBuilder {
    *             </li>
    *             <li>
    *                <p>stream.graphics.g4dn.16xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.graphics-pro.4xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.graphics-pro.8xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.graphics-pro.16xlarge</p>
    *             </li>
    *             <li>
    *                <p>stream.graphics.g5.xlarge</p>
@@ -3693,8 +3859,8 @@ export interface ImageBuilder {
   Platform?: PlatformType | undefined;
 
   /**
-   * <p>The ARN of the IAM role that is applied to the image builder. To assume a role, the image builder calls the AWS Security Token Service (STS) <code>AssumeRole</code> API operation and passes the ARN of the role to use. The operation creates a new session with temporary credentials. AppStream 2.0 retrieves the temporary credentials and creates the <b>appstream_machine_role</b> credential profile on the instance.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/appstream2/latest/developerguide/using-iam-roles-to-grant-permissions-to-applications-scripts-streaming-instances.html">Using an IAM Role to Grant Permissions to Applications and Scripts Running on AppStream 2.0 Streaming Instances</a> in the <i>Amazon AppStream 2.0 Administration Guide</i>.</p>
+   * <p>The ARN of the IAM role that is applied to the image builder. To assume a role, the image builder calls the AWS Security Token Service (STS) <code>AssumeRole</code> API operation and passes the ARN of the role to use. The operation creates a new session with temporary credentials. WorkSpaces Applications retrieves the temporary credentials and creates the <b>appstream_machine_role</b> credential profile on the instance.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/appstream2/latest/developerguide/using-iam-roles-to-grant-permissions-to-applications-scripts-streaming-instances.html">Using an IAM Role to Grant Permissions to Applications and Scripts Running on WorkSpaces Applications Streaming Instances</a> in the <i>Amazon WorkSpaces Applications Administration Guide</i>.</p>
    * @public
    */
   IamRoleArn?: string | undefined;
@@ -3742,7 +3908,7 @@ export interface ImageBuilder {
   ImageBuilderErrors?: ResourceError[] | undefined;
 
   /**
-   * <p>The version of the AppStream 2.0 agent that is currently being used by the image builder. </p>
+   * <p>The version of the WorkSpaces Applications agent that is currently being used by the image builder. </p>
    * @public
    */
   AppstreamAgentVersion?: string | undefined;
@@ -3754,7 +3920,13 @@ export interface ImageBuilder {
   AccessEndpoints?: AccessEndpoint[] | undefined;
 
   /**
-   * <p>Indicates whether the image builder is using the latest AppStream 2.0 agent version or not.</p>
+   * <p>The current configuration of the root volume for the image builder, including the storage size in GB.</p>
+   * @public
+   */
+  RootVolumeConfig?: VolumeConfig | undefined;
+
+  /**
+   * <p>Indicates whether the image builder is using the latest WorkSpaces Applications agent version or not.</p>
    * @public
    */
   LatestAppstreamAgentVersion?: LatestAppstreamAgentVersion | undefined;
@@ -3794,7 +3966,7 @@ export interface CreateImageBuilderStreamingURLRequest {
  */
 export interface CreateImageBuilderStreamingURLResult {
   /**
-   * <p>The URL to start the AppStream 2.0 streaming session.</p>
+   * <p>The URL to start the WorkSpaces Applications streaming session.</p>
    * @public
    */
   StreamingURL?: string | undefined;
@@ -3804,6 +3976,422 @@ export interface CreateImageBuilderStreamingURLResult {
    * @public
    */
   Expires?: Date | undefined;
+}
+
+/**
+ * <p>Configuration for runtime validation of imported images. This structure specifies the instance type to use for testing the imported image's streaming capabilities.</p>
+ * @public
+ */
+export interface RuntimeValidationConfig {
+  /**
+   * <p>The instance type to use for runtime validation testing. It's recommended to use the same instance type you plan to use for your fleet to ensure accurate validation results.</p>
+   * @public
+   */
+  IntendedInstanceType?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateImportedImageRequest {
+  /**
+   * <p>A unique name for the imported image. The name must be between 1 and 100 characters and can contain letters, numbers, underscores, periods, and hyphens.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The ID of the EC2 AMI to import. The AMI must meet specific requirements including Windows Server 2022 Full Base, UEFI boot mode, TPM 2.0 support, and proper drivers.</p>
+   * @public
+   */
+  SourceAmiId: string | undefined;
+
+  /**
+   * <p>The ARN of the IAM role that allows WorkSpaces Applications to access your AMI. The role must have permissions to modify image attributes and describe images, with a trust relationship allowing appstream.amazonaws.com to assume the role.</p>
+   * @public
+   */
+  IamRoleArn: string | undefined;
+
+  /**
+   * <p>An optional description for the imported image. The description must match approved regex patterns and can be up to 256 characters.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>An optional display name for the imported image. The display name must match approved regex patterns and can be up to 100 characters.</p>
+   * @public
+   */
+  DisplayName?: string | undefined;
+
+  /**
+   * <p>The tags to apply to the imported image. Tags help you organize and manage your WorkSpaces Applications resources.</p>
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
+
+  /**
+   * <p>Configuration for runtime validation of the imported image. When specified, WorkSpaces Applications provisions an instance to test streaming functionality, which helps ensure the image is suitable for use.</p>
+   * @public
+   */
+  RuntimeValidationConfig?: RuntimeValidationConfig | undefined;
+
+  /**
+   * <p>The version of the WorkSpaces Applications agent to use for the imported image. Choose CURRENT_LATEST to use the agent version available at the time of import, or ALWAYS_LATEST to automatically update to the latest agent version when new versions are released.</p>
+   * @public
+   */
+  AgentSoftwareVersion?: AgentSoftwareVersion | undefined;
+
+  /**
+   * <p>Configuration for the application catalog of the imported image. This allows you to specify applications available for streaming, including their paths, icons, and launch parameters. This field contains sensitive data.</p>
+   * @public
+   */
+  AppCatalogConfig?: ApplicationConfig[] | undefined;
+
+  /**
+   * <p>When set to true, performs validation checks without actually creating the imported image. Use this to verify your configuration before executing the actual import operation.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const DynamicAppProvidersEnabled = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type DynamicAppProvidersEnabled = (typeof DynamicAppProvidersEnabled)[keyof typeof DynamicAppProvidersEnabled];
+
+/**
+ * <p>Describes the permissions for an image. </p>
+ * @public
+ */
+export interface ImagePermissions {
+  /**
+   * <p>Indicates whether the image can be used for a fleet.</p>
+   * @public
+   */
+  allowFleet?: boolean | undefined;
+
+  /**
+   * <p>Indicates whether the image can be used for an image builder.</p>
+   * @public
+   */
+  allowImageBuilder?: boolean | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ImageSharedWithOthers = {
+  FALSE: "FALSE",
+  TRUE: "TRUE",
+} as const;
+
+/**
+ * @public
+ */
+export type ImageSharedWithOthers = (typeof ImageSharedWithOthers)[keyof typeof ImageSharedWithOthers];
+
+/**
+ * @public
+ * @enum
+ */
+export const ImageType = {
+  CUSTOM: "CUSTOM",
+  NATIVE: "NATIVE",
+} as const;
+
+/**
+ * @public
+ */
+export type ImageType = (typeof ImageType)[keyof typeof ImageType];
+
+/**
+ * @public
+ * @enum
+ */
+export const ImageState = {
+  AVAILABLE: "AVAILABLE",
+  COPYING: "COPYING",
+  CREATING: "CREATING",
+  DELETING: "DELETING",
+  FAILED: "FAILED",
+  IMPORTING: "IMPORTING",
+  PENDING: "PENDING",
+  VALIDATING: "VALIDATING",
+} as const;
+
+/**
+ * @public
+ */
+export type ImageState = (typeof ImageState)[keyof typeof ImageState];
+
+/**
+ * @public
+ * @enum
+ */
+export const ImageStateChangeReasonCode = {
+  IMAGE_BUILDER_NOT_AVAILABLE: "IMAGE_BUILDER_NOT_AVAILABLE",
+  IMAGE_COPY_FAILURE: "IMAGE_COPY_FAILURE",
+  IMAGE_IMPORT_FAILURE: "IMAGE_IMPORT_FAILURE",
+  IMAGE_UPDATE_FAILURE: "IMAGE_UPDATE_FAILURE",
+  INTERNAL_ERROR: "INTERNAL_ERROR",
+} as const;
+
+/**
+ * @public
+ */
+export type ImageStateChangeReasonCode = (typeof ImageStateChangeReasonCode)[keyof typeof ImageStateChangeReasonCode];
+
+/**
+ * <p>Describes the reason why the last image state change occurred.</p>
+ * @public
+ */
+export interface ImageStateChangeReason {
+  /**
+   * <p>The state change reason code.</p>
+   * @public
+   */
+  Code?: ImageStateChangeReasonCode | undefined;
+
+  /**
+   * <p>The state change reason message.</p>
+   * @public
+   */
+  Message?: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const VisibilityType = {
+  PRIVATE: "PRIVATE",
+  PUBLIC: "PUBLIC",
+  SHARED: "SHARED",
+} as const;
+
+/**
+ * @public
+ */
+export type VisibilityType = (typeof VisibilityType)[keyof typeof VisibilityType];
+
+/**
+ * <p>Describes an image.</p>
+ * @public
+ */
+export interface Image {
+  /**
+   * <p>The name of the image.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The ARN of the image.</p>
+   * @public
+   */
+  Arn?: string | undefined;
+
+  /**
+   * <p>The ARN of the image from which this image was created.</p>
+   * @public
+   */
+  BaseImageArn?: string | undefined;
+
+  /**
+   * <p>The image name to display.</p>
+   * @public
+   */
+  DisplayName?: string | undefined;
+
+  /**
+   * <p>The image starts in the <code>PENDING</code> state. If image creation succeeds, the
+   *             state is <code>AVAILABLE</code>. If image creation fails, the state is <code>FAILED</code>.</p>
+   * @public
+   */
+  State?: ImageState | undefined;
+
+  /**
+   * <p>Indicates whether the image is public or private.</p>
+   * @public
+   */
+  Visibility?: VisibilityType | undefined;
+
+  /**
+   * <p>Indicates whether an image builder can be launched from this image.</p>
+   * @public
+   */
+  ImageBuilderSupported?: boolean | undefined;
+
+  /**
+   * <p>The name of the image builder that was used to create the private image. If the image is shared, copied, or updated by using Managed Image Updates, this value is null.</p>
+   * @public
+   */
+  ImageBuilderName?: string | undefined;
+
+  /**
+   * <p>The operating system platform of the image.</p>
+   * @public
+   */
+  Platform?: PlatformType | undefined;
+
+  /**
+   * <p>The description to display.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The reason why the last state change occurred.</p>
+   * @public
+   */
+  StateChangeReason?: ImageStateChangeReason | undefined;
+
+  /**
+   * <p>The applications associated with the image.</p>
+   * @public
+   */
+  Applications?: Application[] | undefined;
+
+  /**
+   * <p>The time the image was created.</p>
+   * @public
+   */
+  CreatedTime?: Date | undefined;
+
+  /**
+   * <p>The release date of the public base image.
+   *             For private images, this date is the release date of the base image from which the image was created.</p>
+   * @public
+   */
+  PublicBaseImageReleasedDate?: Date | undefined;
+
+  /**
+   * <p>The version of the WorkSpaces Applications agent to use for instances that are launched from this image. </p>
+   * @public
+   */
+  AppstreamAgentVersion?: string | undefined;
+
+  /**
+   * <p>The permissions to provide to the destination AWS account for the specified image.</p>
+   * @public
+   */
+  ImagePermissions?: ImagePermissions | undefined;
+
+  /**
+   * <p>Describes the errors that are returned when a new image can't be created.</p>
+   * @public
+   */
+  ImageErrors?: ResourceError[] | undefined;
+
+  /**
+   * <p>Indicates whether the image is using the latest WorkSpaces Applications agent version or not.</p>
+   * @public
+   */
+  LatestAppstreamAgentVersion?: LatestAppstreamAgentVersion | undefined;
+
+  /**
+   * <p>The supported instances families that determine which image a customer can use when the customer launches a fleet or image builder. The following instances families are supported:</p>
+   *          <ul>
+   *             <li>
+   *                <p>General Purpose</p>
+   *             </li>
+   *             <li>
+   *                <p>Compute Optimized</p>
+   *             </li>
+   *             <li>
+   *                <p>Memory Optimized</p>
+   *             </li>
+   *             <li>
+   *                <p>Graphics</p>
+   *             </li>
+   *             <li>
+   *                <p>Graphics Design</p>
+   *             </li>
+   *             <li>
+   *                <p>Graphics Pro</p>
+   *             </li>
+   *             <li>
+   *                <p>Graphics G4</p>
+   *             </li>
+   *             <li>
+   *                <p>Graphics G5</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  SupportedInstanceFamilies?: string[] | undefined;
+
+  /**
+   * <p>Indicates whether dynamic app providers are enabled within an WorkSpaces Applications image or not.</p>
+   * @public
+   */
+  DynamicAppProvidersEnabled?: DynamicAppProvidersEnabled | undefined;
+
+  /**
+   * <p>Indicates whether the image is shared with another account ID.</p>
+   * @public
+   */
+  ImageSharedWithOthers?: ImageSharedWithOthers | undefined;
+
+  /**
+   * <p>Indicates whether the image includes license-included applications.</p>
+   * @public
+   */
+  ManagedSoftwareIncluded?: boolean | undefined;
+
+  /**
+   * <p>The type of the image. Images created through AMI import have type "custom", while WorkSpaces Applications provided images have type "native". Custom images support additional instance types including GeneralPurpose, MemoryOptimized, ComputeOptimized, and Accelerated instance families.</p>
+   * @public
+   */
+  ImageType?: ImageType | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateImportedImageResult {
+  /**
+   * <p>Describes an image.</p>
+   * @public
+   */
+  Image?: Image | undefined;
+}
+
+/**
+ * <p>The exception that is thrown when a dry run operation is requested. This indicates that the validation checks have been performed successfully, but no actual resources were created or modified.</p>
+ * @public
+ */
+export class DryRunOperationException extends __BaseException {
+  readonly name: "DryRunOperationException" = "DryRunOperationException";
+  readonly $fault: "client" = "client";
+  /**
+   * <p>The error message in the exception.</p>
+   * @public
+   */
+  Message?: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<DryRunOperationException, __BaseException>) {
+    super({
+      name: "DryRunOperationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, DryRunOperationException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
@@ -3845,7 +4433,7 @@ export interface StorageConnector {
   Domains?: string[] | undefined;
 
   /**
-   * <p>The OneDrive for Business domains where you require admin consent when users try to link their OneDrive account to AppStream 2.0. The attribute can only be specified when ConnectorType=ONE_DRIVE.</p>
+   * <p>The OneDrive for Business domains where you require admin consent when users try to link their OneDrive account to WorkSpaces Applications. The attribute can only be specified when ConnectorType=ONE_DRIVE.</p>
    * @public
    */
   DomainsRequireAdminConsent?: string[] | undefined;
@@ -3975,19 +4563,19 @@ export interface CreateStackRequest {
    *          <p>If you do not specify a value, the value is set to an empty string.</p>
    *          <p>Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following special characters: </p>
    *          <p>_ . : / = + \ - @</p>
-   *          <p>For more information about tags, see <a href="https://docs.aws.amazon.com/appstream2/latest/developerguide/tagging-basic.html">Tagging Your Resources</a> in the <i>Amazon AppStream 2.0 Administration Guide</i>.</p>
+   *          <p>For more information about tags, see <a href="https://docs.aws.amazon.com/appstream2/latest/developerguide/tagging-basic.html">Tagging Your Resources</a> in the <i>Amazon WorkSpaces Applications Administration Guide</i>.</p>
    * @public
    */
   Tags?: Record<string, string> | undefined;
 
   /**
-   * <p>The list of interface VPC endpoint (interface endpoint) objects. Users of the stack can connect to AppStream 2.0 only through the specified endpoints.</p>
+   * <p>The list of interface VPC endpoint (interface endpoint) objects. Users of the stack can connect to WorkSpaces Applications only through the specified endpoints.</p>
    * @public
    */
   AccessEndpoints?: AccessEndpoint[] | undefined;
 
   /**
-   * <p>The domains where AppStream 2.0 streaming sessions can be embedded in an iframe. You must approve the domains that you want to host embedded AppStream 2.0 streaming sessions. </p>
+   * <p>The domains where WorkSpaces Applications streaming sessions can be embedded in an iframe. You must approve the domains that you want to host embedded WorkSpaces Applications streaming sessions. </p>
    * @public
    */
   EmbedHostDomains?: string[] | undefined;
@@ -4103,13 +4691,13 @@ export interface Stack {
   ApplicationSettings?: ApplicationSettingsResponse | undefined;
 
   /**
-   * <p>The list of virtual private cloud (VPC) interface endpoint objects. Users of the stack can connect to AppStream 2.0 only through the specified endpoints. </p>
+   * <p>The list of virtual private cloud (VPC) interface endpoint objects. Users of the stack can connect to WorkSpaces Applications only through the specified endpoints. </p>
    * @public
    */
   AccessEndpoints?: AccessEndpoint[] | undefined;
 
   /**
-   * <p>The domains where AppStream 2.0 streaming sessions can be embedded in an iframe. You must approve the domains that you want to host embedded AppStream 2.0 streaming sessions.</p>
+   * <p>The domains where WorkSpaces Applications streaming sessions can be embedded in an iframe. You must approve the domains that you want to host embedded WorkSpaces Applications streaming sessions.</p>
    * @public
    */
   EmbedHostDomains?: string[] | undefined;
@@ -4169,7 +4757,7 @@ export interface CreateStreamingURLRequest {
   Validity?: number | undefined;
 
   /**
-   * <p>The session context. For more information, see <a href="https://docs.aws.amazon.com/appstream2/latest/developerguide/managing-stacks-fleets.html#managing-stacks-fleets-parameters">Session Context</a> in the <i>Amazon AppStream 2.0 Administration Guide</i>.</p>
+   * <p>The session context. For more information, see <a href="https://docs.aws.amazon.com/appstream2/latest/developerguide/managing-stacks-fleets.html#managing-stacks-fleets-parameters">Session Context</a> in the <i>Amazon WorkSpaces Applications Administration Guide</i>.</p>
    * @public
    */
   SessionContext?: string | undefined;
@@ -4180,7 +4768,7 @@ export interface CreateStreamingURLRequest {
  */
 export interface CreateStreamingURLResult {
   /**
-   * <p>The URL to start the AppStream 2.0 streaming session.</p>
+   * <p>The URL to start the WorkSpaces Applications streaming session.</p>
    * @public
    */
   StreamingURL?: string | undefined;
@@ -4379,295 +4967,16 @@ export interface CreateUpdatedImageRequest {
    *          <p>Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following special characters: </p>
    *          <p>_ . : / = + \ - @</p>
    *          <p>If you do not specify a value, the value is set to an empty string.</p>
-   *          <p>For more information about tags, see <a href="https://docs.aws.amazon.com/appstream2/latest/developerguide/tagging-basic.html">Tagging Your Resources</a> in the <i>Amazon AppStream 2.0 Administration Guide</i>.</p>
+   *          <p>For more information about tags, see <a href="https://docs.aws.amazon.com/appstream2/latest/developerguide/tagging-basic.html">Tagging Your Resources</a> in the <i>Amazon WorkSpaces Applications Administration Guide</i>.</p>
    * @public
    */
   newImageTags?: Record<string, string> | undefined;
 
   /**
-   * <p>Indicates whether to display the status of image update availability before AppStream 2.0 initiates the process of creating a new updated image. If this value is set to <code>true</code>, AppStream 2.0 displays whether image updates are available. If this value is set to <code>false</code>, AppStream 2.0 initiates the process of creating a new updated image without displaying whether image updates are available.</p>
+   * <p>Indicates whether to display the status of image update availability before WorkSpaces Applications initiates the process of creating a new updated image. If this value is set to <code>true</code>, WorkSpaces Applications displays whether image updates are available. If this value is set to <code>false</code>, WorkSpaces Applications initiates the process of creating a new updated image without displaying whether image updates are available.</p>
    * @public
    */
   dryRun?: boolean | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const DynamicAppProvidersEnabled = {
-  DISABLED: "DISABLED",
-  ENABLED: "ENABLED",
-} as const;
-
-/**
- * @public
- */
-export type DynamicAppProvidersEnabled = (typeof DynamicAppProvidersEnabled)[keyof typeof DynamicAppProvidersEnabled];
-
-/**
- * <p>Describes the permissions for an image. </p>
- * @public
- */
-export interface ImagePermissions {
-  /**
-   * <p>Indicates whether the image can be used for a fleet.</p>
-   * @public
-   */
-  allowFleet?: boolean | undefined;
-
-  /**
-   * <p>Indicates whether the image can be used for an image builder.</p>
-   * @public
-   */
-  allowImageBuilder?: boolean | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const ImageSharedWithOthers = {
-  FALSE: "FALSE",
-  TRUE: "TRUE",
-} as const;
-
-/**
- * @public
- */
-export type ImageSharedWithOthers = (typeof ImageSharedWithOthers)[keyof typeof ImageSharedWithOthers];
-
-/**
- * @public
- * @enum
- */
-export const ImageState = {
-  AVAILABLE: "AVAILABLE",
-  COPYING: "COPYING",
-  CREATING: "CREATING",
-  DELETING: "DELETING",
-  FAILED: "FAILED",
-  IMPORTING: "IMPORTING",
-  PENDING: "PENDING",
-} as const;
-
-/**
- * @public
- */
-export type ImageState = (typeof ImageState)[keyof typeof ImageState];
-
-/**
- * @public
- * @enum
- */
-export const ImageStateChangeReasonCode = {
-  IMAGE_BUILDER_NOT_AVAILABLE: "IMAGE_BUILDER_NOT_AVAILABLE",
-  IMAGE_COPY_FAILURE: "IMAGE_COPY_FAILURE",
-  INTERNAL_ERROR: "INTERNAL_ERROR",
-} as const;
-
-/**
- * @public
- */
-export type ImageStateChangeReasonCode = (typeof ImageStateChangeReasonCode)[keyof typeof ImageStateChangeReasonCode];
-
-/**
- * <p>Describes the reason why the last image state change occurred.</p>
- * @public
- */
-export interface ImageStateChangeReason {
-  /**
-   * <p>The state change reason code.</p>
-   * @public
-   */
-  Code?: ImageStateChangeReasonCode | undefined;
-
-  /**
-   * <p>The state change reason message.</p>
-   * @public
-   */
-  Message?: string | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const VisibilityType = {
-  PRIVATE: "PRIVATE",
-  PUBLIC: "PUBLIC",
-  SHARED: "SHARED",
-} as const;
-
-/**
- * @public
- */
-export type VisibilityType = (typeof VisibilityType)[keyof typeof VisibilityType];
-
-/**
- * <p>Describes an image.</p>
- * @public
- */
-export interface Image {
-  /**
-   * <p>The name of the image.</p>
-   * @public
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>The ARN of the image.</p>
-   * @public
-   */
-  Arn?: string | undefined;
-
-  /**
-   * <p>The ARN of the image from which this image was created.</p>
-   * @public
-   */
-  BaseImageArn?: string | undefined;
-
-  /**
-   * <p>The image name to display.</p>
-   * @public
-   */
-  DisplayName?: string | undefined;
-
-  /**
-   * <p>The image starts in the <code>PENDING</code> state. If image creation succeeds, the
-   *             state is <code>AVAILABLE</code>. If image creation fails, the state is <code>FAILED</code>.</p>
-   * @public
-   */
-  State?: ImageState | undefined;
-
-  /**
-   * <p>Indicates whether the image is public or private.</p>
-   * @public
-   */
-  Visibility?: VisibilityType | undefined;
-
-  /**
-   * <p>Indicates whether an image builder can be launched from this image.</p>
-   * @public
-   */
-  ImageBuilderSupported?: boolean | undefined;
-
-  /**
-   * <p>The name of the image builder that was used to create the private image. If the image is shared, copied, or updated by using Managed Image Updates, this value is null.</p>
-   * @public
-   */
-  ImageBuilderName?: string | undefined;
-
-  /**
-   * <p>The operating system platform of the image.</p>
-   * @public
-   */
-  Platform?: PlatformType | undefined;
-
-  /**
-   * <p>The description to display.</p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p>The reason why the last state change occurred.</p>
-   * @public
-   */
-  StateChangeReason?: ImageStateChangeReason | undefined;
-
-  /**
-   * <p>The applications associated with the image.</p>
-   * @public
-   */
-  Applications?: Application[] | undefined;
-
-  /**
-   * <p>The time the image was created.</p>
-   * @public
-   */
-  CreatedTime?: Date | undefined;
-
-  /**
-   * <p>The release date of the public base image.
-   *             For private images, this date is the release date of the base image from which the image was created.</p>
-   * @public
-   */
-  PublicBaseImageReleasedDate?: Date | undefined;
-
-  /**
-   * <p>The version of the AppStream 2.0 agent to use for instances that are launched from this image. </p>
-   * @public
-   */
-  AppstreamAgentVersion?: string | undefined;
-
-  /**
-   * <p>The permissions to provide to the destination AWS account for the specified image.</p>
-   * @public
-   */
-  ImagePermissions?: ImagePermissions | undefined;
-
-  /**
-   * <p>Describes the errors that are returned when a new image can't be created.</p>
-   * @public
-   */
-  ImageErrors?: ResourceError[] | undefined;
-
-  /**
-   * <p>Indicates whether the image is using the latest AppStream 2.0 agent version or not.</p>
-   * @public
-   */
-  LatestAppstreamAgentVersion?: LatestAppstreamAgentVersion | undefined;
-
-  /**
-   * <p>The supported instances families that determine which image a customer can use when the customer launches a fleet or image builder. The following instances families are supported:</p>
-   *          <ul>
-   *             <li>
-   *                <p>General Purpose</p>
-   *             </li>
-   *             <li>
-   *                <p>Compute Optimized</p>
-   *             </li>
-   *             <li>
-   *                <p>Memory Optimized</p>
-   *             </li>
-   *             <li>
-   *                <p>Graphics</p>
-   *             </li>
-   *             <li>
-   *                <p>Graphics Design</p>
-   *             </li>
-   *             <li>
-   *                <p>Graphics Pro</p>
-   *             </li>
-   *             <li>
-   *                <p>Graphics G4</p>
-   *             </li>
-   *             <li>
-   *                <p>Graphics G5</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  SupportedInstanceFamilies?: string[] | undefined;
-
-  /**
-   * <p>Indicates whether dynamic app providers are enabled within an AppStream 2.0 image or not.</p>
-   * @public
-   */
-  DynamicAppProvidersEnabled?: DynamicAppProvidersEnabled | undefined;
-
-  /**
-   * <p>Indicates whether the image is shared with another account ID.</p>
-   * @public
-   */
-  ImageSharedWithOthers?: ImageSharedWithOthers | undefined;
-
-  /**
-   * <p>Indicates whether the image includes license-included applications.</p>
-   * @public
-   */
-  ManagedSoftwareIncluded?: boolean | undefined;
 }
 
 /**
@@ -4712,10 +5021,10 @@ export interface CreateUsageReportSubscriptionResult {
   /**
    * <p>The Amazon S3 bucket where generated reports are stored.</p>
    *          <p>If you enabled on-instance session scripts and Amazon S3 logging for your session script
-   *             configuration, AppStream 2.0 created an S3 bucket to store the script output. The bucket is
-   *             unique to your account and Region. When you enable usage reporting in this case, AppStream 2.0
+   *             configuration, WorkSpaces Applications created an S3 bucket to store the script output. The bucket is
+   *             unique to your account and Region. When you enable usage reporting in this case, WorkSpaces Applications
    *             uses the same bucket to store your usage reports. If you haven't already enabled on-instance session scripts,
-   *             when you enable usage reports, AppStream 2.0 creates a new S3 bucket.</p>
+   *             when you enable usage reports, WorkSpaces Applications creates a new S3 bucket.</p>
    * @public
    */
   S3BucketName?: string | undefined;
@@ -6056,10 +6365,10 @@ export interface UsageReportSubscription {
   /**
    * <p>The Amazon S3 bucket where generated reports are stored.</p>
    *          <p>If you enabled on-instance session scripts and Amazon S3 logging for your session script
-   *             configuration, AppStream 2.0 created an S3 bucket to store the script output. The bucket is
-   *             unique to your account and Region. When you enable usage reporting in this case, AppStream 2.0
+   *             configuration, WorkSpaces Applications created an S3 bucket to store the script output. The bucket is
+   *             unique to your account and Region. When you enable usage reporting in this case, WorkSpaces Applications
    *             uses the same bucket to store your usage reports. If you haven't already enabled on-instance session scripts,
-   *             when you enable usage reports, AppStream 2.0 creates a new S3 bucket.</p>
+   *             when you enable usage reports, WorkSpaces Applications creates a new S3 bucket.</p>
    * @public
    */
   S3BucketName?: string | undefined;
@@ -6539,6 +6848,24 @@ export interface ExpireSessionRequest {
 export interface ExpireSessionResult {}
 
 /**
+ * <p>A filter for narrowing down the results when listing export image tasks. Filters allow you to specify criteria such as task state or creation date.</p>
+ * @public
+ */
+export interface Filter {
+  /**
+   * <p>The name of the filter. Valid filter names depend on the operation being performed.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The values for the filter. Multiple values can be specified for a single filter name.</p>
+   * @public
+   */
+  Values: string[] | undefined;
+}
+
+/**
  * @public
  * @enum
  */
@@ -6548,6 +6875,7 @@ export const FleetAttribute = {
   MAX_SESSIONS_PER_INSTANCE: "MAX_SESSIONS_PER_INSTANCE",
   SESSION_SCRIPT_S3_LOCATION: "SESSION_SCRIPT_S3_LOCATION",
   USB_DEVICE_FILTER_STRINGS: "USB_DEVICE_FILTER_STRINGS",
+  VOLUME_CONFIGURATION: "VOLUME_CONFIGURATION",
   VPC_CONFIGURATION: "VPC_CONFIGURATION",
   VPC_CONFIGURATION_SECURITY_GROUP_IDS: "VPC_CONFIGURATION_SECURITY_GROUP_IDS",
 } as const;
@@ -6556,6 +6884,28 @@ export const FleetAttribute = {
  * @public
  */
 export type FleetAttribute = (typeof FleetAttribute)[keyof typeof FleetAttribute];
+
+/**
+ * @public
+ */
+export interface GetExportImageTaskRequest {
+  /**
+   * <p>The unique identifier of the export image task to retrieve information about.</p>
+   * @public
+   */
+  TaskId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetExportImageTaskResult {
+  /**
+   * <p>Information about the export image task, including its current state, created date, and any error details.</p>
+   * @public
+   */
+  ExportImageTask?: ExportImageTask | undefined;
+}
 
 /**
  * @public
@@ -6674,6 +7024,46 @@ export interface ListEntitledApplicationsResult {
 /**
  * @public
  */
+export interface ListExportImageTasksRequest {
+  /**
+   * <p>Optional filters to apply when listing export image tasks. Filters help you narrow down the results based on specific criteria.</p>
+   * @public
+   */
+  Filters?: Filter[] | undefined;
+
+  /**
+   * <p>The maximum number of export image tasks to return in a single request. The valid range is 1-500, with a default of 50.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The pagination token from a previous request. Use this to retrieve the next page of results when there are more tasks than the MaxResults limit.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListExportImageTasksResult {
+  /**
+   * <p>The list of export image tasks that match the specified criteria.</p>
+   * @public
+   */
+  ExportImageTasks?: ExportImageTask[] | undefined;
+
+  /**
+   * <p>The pagination token to use for retrieving the next page of results. This field is only present when there are more results available.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface ListTagsForResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource.</p>
@@ -6742,7 +7132,7 @@ export interface StartImageBuilderRequest {
   Name: string | undefined;
 
   /**
-   * <p>The version of the AppStream 2.0 agent to use for this image builder. To use the latest version of the AppStream 2.0 agent, specify [LATEST]. </p>
+   * <p>The version of the WorkSpaces Applications agent to use for this image builder. To use the latest version of the WorkSpaces Applications agent, specify [LATEST]. </p>
    * @public
    */
   AppstreamAgentVersion?: string | undefined;
@@ -6960,9 +7350,9 @@ export interface UpdateAppBlockBuilderRequest {
    * <p>The Amazon Resource Name (ARN) of the IAM role to apply to the app block builder. To
    *             assume a role, the app block builder calls the AWS Security Token Service (STS)
    *             <code>AssumeRole</code> API operation and passes the ARN of the role to use. The
-   *             operation creates a new session with temporary credentials. AppStream 2.0 retrieves the
+   *             operation creates a new session with temporary credentials. WorkSpaces Applications retrieves the
    *             temporary credentials and creates the <b>appstream_machine_role</b> credential profile on the instance.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/appstream2/latest/developerguide/using-iam-roles-to-grant-permissions-to-applications-scripts-streaming-instances.html">Using an IAM Role to Grant Permissions to Applications and Scripts Running on AppStream 2.0 Streaming Instances</a> in the <i>Amazon AppStream 2.0 Administration Guide</i>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/appstream2/latest/developerguide/using-iam-roles-to-grant-permissions-to-applications-scripts-streaming-instances.html">Using an IAM Role to Grant Permissions to Applications and Scripts Running on WorkSpaces Applications Streaming Instances</a> in the <i>Amazon WorkSpaces Applications Administration Guide</i>.</p>
    * @public
    */
   IamRoleArn?: string | undefined;
@@ -7254,9 +7644,6 @@ export interface UpdateFleetRequest {
    *                <p>stream.graphics-design.4xlarge</p>
    *             </li>
    *             <li>
-   *                <p>stream.graphics-desktop.2xlarge</p>
-   *             </li>
-   *             <li>
    *                <p>stream.graphics.g4dn.xlarge</p>
    *             </li>
    *             <li>
@@ -7273,15 +7660,6 @@ export interface UpdateFleetRequest {
    *             </li>
    *             <li>
    *                <p>stream.graphics.g4dn.16xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.graphics-pro.4xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.graphics-pro.8xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.graphics-pro.16xlarge</p>
    *             </li>
    *             <li>
    *                <p>stream.graphics.g5.xlarge</p>
@@ -7453,14 +7831,14 @@ export interface UpdateFleetRequest {
   AttributesToDelete?: FleetAttribute[] | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the IAM role to apply to the fleet. To assume a role, a fleet instance calls the AWS Security Token Service (STS) <code>AssumeRole</code> API operation and passes the ARN of the role to use. The operation creates a new session with temporary credentials. AppStream 2.0 retrieves the temporary credentials and creates the <b>appstream_machine_role</b> credential profile on the instance.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/appstream2/latest/developerguide/using-iam-roles-to-grant-permissions-to-applications-scripts-streaming-instances.html">Using an IAM Role to Grant Permissions to Applications and Scripts Running on AppStream 2.0 Streaming Instances</a> in the <i>Amazon AppStream 2.0 Administration Guide</i>.</p>
+   * <p>The Amazon Resource Name (ARN) of the IAM role to apply to the fleet. To assume a role, a fleet instance calls the AWS Security Token Service (STS) <code>AssumeRole</code> API operation and passes the ARN of the role to use. The operation creates a new session with temporary credentials. WorkSpaces Applications retrieves the temporary credentials and creates the <b>appstream_machine_role</b> credential profile on the instance.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/appstream2/latest/developerguide/using-iam-roles-to-grant-permissions-to-applications-scripts-streaming-instances.html">Using an IAM Role to Grant Permissions to Applications and Scripts Running on WorkSpaces Applications Streaming Instances</a> in the <i>Amazon WorkSpaces Applications Administration Guide</i>.</p>
    * @public
    */
   IamRoleArn?: string | undefined;
 
   /**
-   * <p>The AppStream 2.0 view that is displayed to your users when they stream from the fleet. When <code>APP</code> is specified, only the windows of applications opened by users display. When <code>DESKTOP</code> is specified, the standard desktop that is provided by the operating system displays.</p>
+   * <p>The WorkSpaces Applications view that is displayed to your users when they stream from the fleet. When <code>APP</code> is specified, only the windows of applications opened by users display. When <code>DESKTOP</code> is specified, the standard desktop that is provided by the operating system displays.</p>
    *          <p>The default value is <code>APP</code>.</p>
    * @public
    */
@@ -7495,6 +7873,12 @@ export interface UpdateFleetRequest {
    * @public
    */
   MaxSessionsPerInstance?: number | undefined;
+
+  /**
+   * <p>The updated configuration for the root volume of fleet instances. Note that volume size cannot be decreased below the image volume size.</p>
+   * @public
+   */
+  RootVolumeConfig?: VolumeConfig | undefined;
 }
 
 /**
@@ -7627,13 +8011,13 @@ export interface UpdateStackRequest {
   ApplicationSettings?: ApplicationSettings | undefined;
 
   /**
-   * <p>The list of interface VPC endpoint (interface endpoint) objects. Users of the stack can connect to AppStream 2.0 only through the specified endpoints.</p>
+   * <p>The list of interface VPC endpoint (interface endpoint) objects. Users of the stack can connect to WorkSpaces Applications only through the specified endpoints.</p>
    * @public
    */
   AccessEndpoints?: AccessEndpoint[] | undefined;
 
   /**
-   * <p>The domains where AppStream 2.0 streaming sessions can be embedded in an iframe. You must approve the domains that you want to host embedded AppStream 2.0 streaming sessions. </p>
+   * <p>The domains where WorkSpaces Applications streaming sessions can be embedded in an iframe. You must approve the domains that you want to host embedded WorkSpaces Applications streaming sessions. </p>
    * @public
    */
   EmbedHostDomains?: string[] | undefined;

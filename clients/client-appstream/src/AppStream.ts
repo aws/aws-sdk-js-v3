@@ -69,6 +69,11 @@ import {
   CreateEntitlementCommandInput,
   CreateEntitlementCommandOutput,
 } from "./commands/CreateEntitlementCommand";
+import {
+  CreateExportImageTaskCommand,
+  CreateExportImageTaskCommandInput,
+  CreateExportImageTaskCommandOutput,
+} from "./commands/CreateExportImageTaskCommand";
 import { CreateFleetCommand, CreateFleetCommandInput, CreateFleetCommandOutput } from "./commands/CreateFleetCommand";
 import {
   CreateImageBuilderCommand,
@@ -80,6 +85,11 @@ import {
   CreateImageBuilderStreamingURLCommandInput,
   CreateImageBuilderStreamingURLCommandOutput,
 } from "./commands/CreateImageBuilderStreamingURLCommand";
+import {
+  CreateImportedImageCommand,
+  CreateImportedImageCommandInput,
+  CreateImportedImageCommandOutput,
+} from "./commands/CreateImportedImageCommand";
 import { CreateStackCommand, CreateStackCommandInput, CreateStackCommandOutput } from "./commands/CreateStackCommand";
 import {
   CreateStreamingURLCommand,
@@ -279,6 +289,11 @@ import {
   ExpireSessionCommandOutput,
 } from "./commands/ExpireSessionCommand";
 import {
+  GetExportImageTaskCommand,
+  GetExportImageTaskCommandInput,
+  GetExportImageTaskCommandOutput,
+} from "./commands/GetExportImageTaskCommand";
+import {
   ListAssociatedFleetsCommand,
   ListAssociatedFleetsCommandInput,
   ListAssociatedFleetsCommandOutput,
@@ -293,6 +308,11 @@ import {
   ListEntitledApplicationsCommandInput,
   ListEntitledApplicationsCommandOutput,
 } from "./commands/ListEntitledApplicationsCommand";
+import {
+  ListExportImageTasksCommand,
+  ListExportImageTasksCommandInput,
+  ListExportImageTasksCommandOutput,
+} from "./commands/ListExportImageTasksCommand";
 import {
   ListTagsForResourceCommand,
   ListTagsForResourceCommandInput,
@@ -379,9 +399,11 @@ const commands = {
   CreateApplicationCommand,
   CreateDirectoryConfigCommand,
   CreateEntitlementCommand,
+  CreateExportImageTaskCommand,
   CreateFleetCommand,
   CreateImageBuilderCommand,
   CreateImageBuilderStreamingURLCommand,
+  CreateImportedImageCommand,
   CreateStackCommand,
   CreateStreamingURLCommand,
   CreateThemeForStackCommand,
@@ -428,9 +450,11 @@ const commands = {
   DisassociateSoftwareFromImageBuilderCommand,
   EnableUserCommand,
   ExpireSessionCommand,
+  GetExportImageTaskCommand,
   ListAssociatedFleetsCommand,
   ListAssociatedStacksCommand,
   ListEntitledApplicationsCommand,
+  ListExportImageTasksCommand,
   ListTagsForResourceCommand,
   StartAppBlockBuilderCommand,
   StartFleetCommand,
@@ -679,6 +703,23 @@ export interface AppStream {
   ): void;
 
   /**
+   * @see {@link CreateExportImageTaskCommand}
+   */
+  createExportImageTask(
+    args: CreateExportImageTaskCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateExportImageTaskCommandOutput>;
+  createExportImageTask(
+    args: CreateExportImageTaskCommandInput,
+    cb: (err: any, data?: CreateExportImageTaskCommandOutput) => void
+  ): void;
+  createExportImageTask(
+    args: CreateExportImageTaskCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateExportImageTaskCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link CreateFleetCommand}
    */
   createFleet(args: CreateFleetCommandInput, options?: __HttpHandlerOptions): Promise<CreateFleetCommandOutput>;
@@ -721,6 +762,23 @@ export interface AppStream {
     args: CreateImageBuilderStreamingURLCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateImageBuilderStreamingURLCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateImportedImageCommand}
+   */
+  createImportedImage(
+    args: CreateImportedImageCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateImportedImageCommandOutput>;
+  createImportedImage(
+    args: CreateImportedImageCommandInput,
+    cb: (err: any, data?: CreateImportedImageCommandOutput) => void
+  ): void;
+  createImportedImage(
+    args: CreateImportedImageCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateImportedImageCommandOutput) => void
   ): void;
 
   /**
@@ -1448,6 +1506,24 @@ export interface AppStream {
   ): void;
 
   /**
+   * @see {@link GetExportImageTaskCommand}
+   */
+  getExportImageTask(): Promise<GetExportImageTaskCommandOutput>;
+  getExportImageTask(
+    args: GetExportImageTaskCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetExportImageTaskCommandOutput>;
+  getExportImageTask(
+    args: GetExportImageTaskCommandInput,
+    cb: (err: any, data?: GetExportImageTaskCommandOutput) => void
+  ): void;
+  getExportImageTask(
+    args: GetExportImageTaskCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetExportImageTaskCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListAssociatedFleetsCommand}
    */
   listAssociatedFleets(
@@ -1496,6 +1572,24 @@ export interface AppStream {
     args: ListEntitledApplicationsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListEntitledApplicationsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListExportImageTasksCommand}
+   */
+  listExportImageTasks(): Promise<ListExportImageTasksCommandOutput>;
+  listExportImageTasks(
+    args: ListExportImageTasksCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListExportImageTasksCommandOutput>;
+  listExportImageTasks(
+    args: ListExportImageTasksCommandInput,
+    cb: (err: any, data?: ListExportImageTasksCommandOutput) => void
+  ): void;
+  listExportImageTasks(
+    args: ListExportImageTasksCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListExportImageTasksCommandOutput) => void
   ): void;
 
   /**
@@ -1771,21 +1865,21 @@ export interface AppStream {
 }
 
 /**
- * <fullname>Amazon AppStream 2.0</fullname>
- *          <p>This is the <i>Amazon AppStream 2.0 API Reference</i>. This documentation provides descriptions and syntax for each of the actions and data types in AppStream 2.0. AppStream 2.0 is a fully managed, secure application streaming service that lets you stream desktop applications to users without rewriting applications. AppStream 2.0 manages the AWS resources that are required to host and run your applications, scales automatically, and provides access to your users on demand. </p>
+ * <fullname>Amazon WorkSpaces Applications</fullname>
+ *          <p>This is the <i>Amazon WorkSpaces Applications API Reference</i>. This documentation provides descriptions and syntax for each of the actions and data types in WorkSpaces Applications. WorkSpaces Applications is a fully managed, secure application streaming service that lets you stream desktop applications to users without rewriting applications. WorkSpaces Applications manages the AWS resources that are required to host and run your applications, scales automatically, and provides access to your users on demand. </p>
  *          <note>
- *             <p>You can call the AppStream 2.0 API operations by using an interface VPC endpoint (interface endpoint). For more information, see <a href="https://docs.aws.amazon.com/appstream2/latest/developerguide/access-api-cli-through-interface-vpc-endpoint.html">Access AppStream 2.0 API Operations and CLI Commands Through an Interface VPC Endpoint</a> in the <i>Amazon AppStream 2.0 Administration Guide</i>.</p>
+ *             <p>You can call the WorkSpaces Applications API operations by using an interface VPC endpoint (interface endpoint). For more information, see <a href="https://docs.aws.amazon.com/appstream2/latest/developerguide/access-api-cli-through-interface-vpc-endpoint.html">Access WorkSpaces Applications API Operations and CLI Commands Through an Interface VPC Endpoint</a> in the <i>Amazon WorkSpaces Applications Administration Guide</i>.</p>
  *          </note>
- *          <p>To learn more about AppStream 2.0, see the following resources:</p>
+ *          <p>To learn more about WorkSpaces Applications, see the following resources:</p>
  *          <ul>
  *             <li>
  *                <p>
- *                   <a href="http://aws.amazon.com/appstream2">Amazon AppStream 2.0 product page</a>
+ *                   <a href="http://aws.amazon.com/appstream2">Amazon WorkSpaces Applications product page</a>
  *                </p>
  *             </li>
  *             <li>
  *                <p>
- *                   <a href="http://aws.amazon.com/documentation/appstream2">Amazon AppStream 2.0 documentation</a>
+ *                   <a href="http://aws.amazon.com/documentation/appstream2">Amazon WorkSpaces Applications documentation</a>
  *                </p>
  *             </li>
  *          </ul>

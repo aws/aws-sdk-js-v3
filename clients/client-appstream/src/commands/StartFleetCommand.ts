@@ -67,7 +67,7 @@ export interface StartFleetCommandOutput extends StartFleetResult, __MetadataBea
  *  <p>The attempted operation is not permitted.</p>
  *
  * @throws {@link RequestLimitExceededException} (client fault)
- *  <p>AppStream 2.0 can’t process the request right now because the Describe calls from your AWS account are being throttled by Amazon EC2. Try again later.</p>
+ *  <p>WorkSpaces Applications can’t process the request right now because the Describe calls from your AWS account are being throttled by Amazon EC2. Try again later.</p>
  *
  * @throws {@link ResourceNotAvailableException} (client fault)
  *  <p>The specified resource exists and is not in use, but isn't available.</p>
