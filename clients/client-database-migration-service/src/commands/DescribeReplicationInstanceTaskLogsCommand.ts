@@ -9,10 +9,8 @@ import {
   ServiceOutputTypes,
 } from "../DatabaseMigrationServiceClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  DescribeReplicationInstanceTaskLogsMessage,
-  DescribeReplicationInstanceTaskLogsResponse,
-} from "../models/models_0";
+import { DescribeReplicationInstanceTaskLogsMessage } from "../models/models_0";
+import { DescribeReplicationInstanceTaskLogsResponse } from "../models/models_1";
 import { DescribeReplicationInstanceTaskLogs } from "../schemas/schemas_0";
 
 /**

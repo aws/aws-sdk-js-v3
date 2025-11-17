@@ -473,6 +473,93 @@ export interface ExportSqlDetails {
 }
 
 /**
+ * <p>The database object that the schema conversion operation currently uses.</p>
+ * @public
+ */
+export interface ProcessedObject {
+  /**
+   * <p>The name of the database object.</p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>The type of the database object. For example, a table, view, procedure, and so on.</p>
+   * @public
+   */
+  Type?: string | undefined;
+
+  /**
+   * <p>The type of the data provider. This parameter can store one of the following values:
+   *          <code>"SOURCE"</code> or <code>"TARGET"</code>.</p>
+   * @public
+   */
+  EndpointType?: string | undefined;
+}
+
+/**
+ * <p>Provides information about the progress of the schema conversion operation.</p>
+ * @public
+ */
+export interface Progress {
+  /**
+   * <p>The percent complete for the current step of the schema conversion operation.</p>
+   * @public
+   */
+  ProgressPercent?: number | undefined;
+
+  /**
+   * <p>The number of objects in this schema conversion operation.</p>
+   * @public
+   */
+  TotalObjects?: number | undefined;
+
+  /**
+   * <p>The step of the schema conversion operation. This parameter can store one of the following values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>IN_PROGRESS</code> – The operation is running.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>LOADING_METADATA</code> – Loads metadata from the source database.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>COUNTING_OBJECTS</code> – Determines the number of objects involved
+   *             in the operation.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ANALYZING</code> – Analyzes the source database objects.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CONVERTING</code> – Converts the source database objects to a format compatible
+   *             with the target database.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>APPLYING</code> – Applies the converted code to the target database.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>FINISHED</code> – The operation completed successfully.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  ProgressStep?: string | undefined;
+
+  /**
+   * <p>The name of the database object that the schema conversion operation currently uses.</p>
+   * @public
+   */
+  ProcessedObject?: ProcessedObject | undefined;
+}
+
+/**
  * <p>Provides information about a schema conversion action.</p>
  * @public
  */
@@ -506,6 +593,12 @@ export interface SchemaConversionRequest {
    * @public
    */
   ExportSqlDetails?: ExportSqlDetails | undefined;
+
+  /**
+   * <p>Provides information about the progress of the schema conversion operation.</p>
+   * @public
+   */
+  Progress?: Progress | undefined;
 }
 
 /**
@@ -1791,6 +1884,49 @@ export interface RedshiftDataProviderSettings {
 }
 
 /**
+ * <p>Provides information that defines an SAP ASE data provider.</p>
+ * @public
+ */
+export interface SybaseAseDataProviderSettings {
+  /**
+   * <p>The name of the SAP ASE server.</p>
+   * @public
+   */
+  ServerName?: string | undefined;
+
+  /**
+   * <p>The port value for the SAP ASE data provider.</p>
+   * @public
+   */
+  Port?: number | undefined;
+
+  /**
+   * <p>The database name on the SAP ASE data provider.</p>
+   * @public
+   */
+  DatabaseName?: string | undefined;
+
+  /**
+   * <p>The SSL mode used to connect to the SAP ASE data provider.
+   *          The default value is <code>none</code>.</p>
+   * @public
+   */
+  SslMode?: DmsSslModeValue | undefined;
+
+  /**
+   * <p>Specifies whether to encrypt the password when connecting to the Sybase ASE database. When set to true, the connection password is encrypted during transmission. Default is true.</p>
+   * @public
+   */
+  EncryptPassword?: boolean | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the certificate used for SSL connection.</p>
+   * @public
+   */
+  CertificateArn?: string | undefined;
+}
+
+/**
  * <p>Provides information that defines a data provider.</p>
  * @public
  */
@@ -1805,6 +1941,7 @@ export type DataProviderSettings =
   | DataProviderSettings.OracleSettingsMember
   | DataProviderSettings.PostgreSqlSettingsMember
   | DataProviderSettings.RedshiftSettingsMember
+  | DataProviderSettings.SybaseAseSettingsMember
   | DataProviderSettings.$UnknownMember;
 
 /**
@@ -1820,6 +1957,7 @@ export namespace DataProviderSettings {
     PostgreSqlSettings?: never;
     MySqlSettings?: never;
     OracleSettings?: never;
+    SybaseAseSettings?: never;
     MicrosoftSqlServerSettings?: never;
     DocDbSettings?: never;
     MariaDbSettings?: never;
@@ -1838,6 +1976,7 @@ export namespace DataProviderSettings {
     PostgreSqlSettings: PostgreSqlDataProviderSettings;
     MySqlSettings?: never;
     OracleSettings?: never;
+    SybaseAseSettings?: never;
     MicrosoftSqlServerSettings?: never;
     DocDbSettings?: never;
     MariaDbSettings?: never;
@@ -1856,6 +1995,7 @@ export namespace DataProviderSettings {
     PostgreSqlSettings?: never;
     MySqlSettings: MySqlDataProviderSettings;
     OracleSettings?: never;
+    SybaseAseSettings?: never;
     MicrosoftSqlServerSettings?: never;
     DocDbSettings?: never;
     MariaDbSettings?: never;
@@ -1874,6 +2014,26 @@ export namespace DataProviderSettings {
     PostgreSqlSettings?: never;
     MySqlSettings?: never;
     OracleSettings: OracleDataProviderSettings;
+    SybaseAseSettings?: never;
+    MicrosoftSqlServerSettings?: never;
+    DocDbSettings?: never;
+    MariaDbSettings?: never;
+    IbmDb2LuwSettings?: never;
+    IbmDb2zOsSettings?: never;
+    MongoDbSettings?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Provides information that defines an SAP ASE data provider.</p>
+   * @public
+   */
+  export interface SybaseAseSettingsMember {
+    RedshiftSettings?: never;
+    PostgreSqlSettings?: never;
+    MySqlSettings?: never;
+    OracleSettings?: never;
+    SybaseAseSettings: SybaseAseDataProviderSettings;
     MicrosoftSqlServerSettings?: never;
     DocDbSettings?: never;
     MariaDbSettings?: never;
@@ -1892,6 +2052,7 @@ export namespace DataProviderSettings {
     PostgreSqlSettings?: never;
     MySqlSettings?: never;
     OracleSettings?: never;
+    SybaseAseSettings?: never;
     MicrosoftSqlServerSettings: MicrosoftSqlServerDataProviderSettings;
     DocDbSettings?: never;
     MariaDbSettings?: never;
@@ -1910,6 +2071,7 @@ export namespace DataProviderSettings {
     PostgreSqlSettings?: never;
     MySqlSettings?: never;
     OracleSettings?: never;
+    SybaseAseSettings?: never;
     MicrosoftSqlServerSettings?: never;
     DocDbSettings: DocDbDataProviderSettings;
     MariaDbSettings?: never;
@@ -1928,6 +2090,7 @@ export namespace DataProviderSettings {
     PostgreSqlSettings?: never;
     MySqlSettings?: never;
     OracleSettings?: never;
+    SybaseAseSettings?: never;
     MicrosoftSqlServerSettings?: never;
     DocDbSettings?: never;
     MariaDbSettings: MariaDbDataProviderSettings;
@@ -1946,6 +2109,7 @@ export namespace DataProviderSettings {
     PostgreSqlSettings?: never;
     MySqlSettings?: never;
     OracleSettings?: never;
+    SybaseAseSettings?: never;
     MicrosoftSqlServerSettings?: never;
     DocDbSettings?: never;
     MariaDbSettings?: never;
@@ -1964,6 +2128,7 @@ export namespace DataProviderSettings {
     PostgreSqlSettings?: never;
     MySqlSettings?: never;
     OracleSettings?: never;
+    SybaseAseSettings?: never;
     MicrosoftSqlServerSettings?: never;
     DocDbSettings?: never;
     MariaDbSettings?: never;
@@ -1982,6 +2147,7 @@ export namespace DataProviderSettings {
     PostgreSqlSettings?: never;
     MySqlSettings?: never;
     OracleSettings?: never;
+    SybaseAseSettings?: never;
     MicrosoftSqlServerSettings?: never;
     DocDbSettings?: never;
     MariaDbSettings?: never;
@@ -1999,6 +2165,7 @@ export namespace DataProviderSettings {
     PostgreSqlSettings?: never;
     MySqlSettings?: never;
     OracleSettings?: never;
+    SybaseAseSettings?: never;
     MicrosoftSqlServerSettings?: never;
     DocDbSettings?: never;
     MariaDbSettings?: never;
@@ -2017,6 +2184,7 @@ export namespace DataProviderSettings {
     PostgreSqlSettings: (value: PostgreSqlDataProviderSettings) => T;
     MySqlSettings: (value: MySqlDataProviderSettings) => T;
     OracleSettings: (value: OracleDataProviderSettings) => T;
+    SybaseAseSettings: (value: SybaseAseDataProviderSettings) => T;
     MicrosoftSqlServerSettings: (value: MicrosoftSqlServerDataProviderSettings) => T;
     DocDbSettings: (value: DocDbDataProviderSettings) => T;
     MariaDbSettings: (value: MariaDbDataProviderSettings) => T;
@@ -2046,7 +2214,7 @@ export interface CreateDataProviderMessage {
   /**
    * <p>The type of database engine for the data provider. Valid values include <code>"aurora"</code>,
    *          <code>"aurora-postgresql"</code>, <code>"mysql"</code>, <code>"oracle"</code>, <code>"postgres"</code>,
-   *          <code>"sqlserver"</code>, <code>redshift</code>, <code>mariadb</code>, <code>mongodb</code>, <code>db2</code>, <code>db2-zos</code> and <code>docdb</code>. A value of <code>"aurora"</code> represents Amazon Aurora MySQL-Compatible Edition.</p>
+   *          <code>"sqlserver"</code>, <code>redshift</code>, <code>mariadb</code>, <code>mongodb</code>, <code>db2</code>, <code>db2-zos</code>, <code>docdb</code>, and <code>sybase</code>. A value of <code>"aurora"</code> represents Amazon Aurora MySQL-Compatible Edition.</p>
    * @public
    */
   Engine: string | undefined;
@@ -2104,7 +2272,7 @@ export interface DataProvider {
   /**
    * <p>The type of database engine for the data provider. Valid values include <code>"aurora"</code>,
    *          <code>"aurora-postgresql"</code>, <code>"mysql"</code>, <code>"oracle"</code>, <code>"postgres"</code>,
-   *          <code>"sqlserver"</code>, <code>redshift</code>, <code>mariadb</code>, <code>mongodb</code>, <code>db2</code>, <code>db2-zos</code> and <code>docdb</code>. A value of <code>"aurora"</code> represents Amazon Aurora MySQL-Compatible Edition.</p>
+   *          <code>"sqlserver"</code>, <code>redshift</code>, <code>mariadb</code>, <code>mongodb</code>, <code>db2</code>, <code>db2-zos</code>, <code>docdb</code>, and <code>sybase</code>. A value of <code>"aurora"</code> represents Amazon Aurora MySQL-Compatible Edition.</p>
    * @public
    */
   Engine?: string | undefined;
@@ -12351,197 +12519,4 @@ export interface ReplicationInstanceTaskLog {
    * @public
    */
   ReplicationInstanceTaskLogSize?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeReplicationInstanceTaskLogsResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the replication instance.</p>
-   * @public
-   */
-  ReplicationInstanceArn?: string | undefined;
-
-  /**
-   * <p>An array of replication task log metadata. Each member of the array contains the
-   *          replication task name, ARN, and task log size (in bytes). </p>
-   * @public
-   */
-  ReplicationInstanceTaskLogs?: ReplicationInstanceTaskLog[] | undefined;
-
-  /**
-   * <p> An optional pagination token provided by a previous request. If this parameter is
-   *          specified, the response includes only records beyond the marker, up to the value specified
-   *          by <code>MaxRecords</code>.</p>
-   * @public
-   */
-  Marker?: string | undefined;
-}
-
-/**
- * <p></p>
- * @public
- */
-export interface DescribeReplicationsMessage {
-  /**
-   * <p>Filters applied to the replications.</p>
-   *          <p> Valid filter names: <code>replication-config-arn</code> | <code>replication-config-id</code>
-   *          </p>
-   * @public
-   */
-  Filters?: Filter[] | undefined;
-
-  /**
-   * <p>The maximum number of records to include in the response. If more records exist than the
-   *          specified <code>MaxRecords</code> value, a pagination token called a marker is included in
-   *          the response so that the remaining results can be retrieved. </p>
-   * @public
-   */
-  MaxRecords?: number | undefined;
-
-  /**
-   * <p>An optional pagination token provided by a previous request. If this parameter is
-   *          specified, the response includes only records beyond the marker, up to the value specified
-   *          by <code>MaxRecords</code>. </p>
-   * @public
-   */
-  Marker?: string | undefined;
-}
-
-/**
- * <p>The results returned in <code>describe-replications</code> to display the results of the
- *          premigration assessment from the replication configuration.</p>
- * @public
- */
-export interface PremigrationAssessmentStatus {
-  /**
-   * <p>The Amazon Resource Name (ARN) of this assessment run.</p>
-   * @public
-   */
-  PremigrationAssessmentRunArn?: string | undefined;
-
-  /**
-   * <p>A configurable setting you can set to <code>true</code> (the defualt setting) or
-   *             <code>false</code>. Use this setting to to stop the replication from starting
-   *          automatically if the assessment fails. This can help you evaluate the issue that is
-   *          preventing the replication from running successfully.</p>
-   * @public
-   */
-  FailOnAssessmentFailure?: boolean | undefined;
-
-  /**
-   * <p>This describes the assessment run status. The status can be one of the following
-   *          values:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>cancelling</code>: The assessment run was canceled.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>deleting</code>: The assessment run was deleted.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>failed</code>: At least one individual assessment completed with a failed
-   *                status. </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>error-provisioning</code>: An internal error occurred while resources were
-   *                provisioned (during the <code>provisioning</code> status).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>error-executing</code> An internal error occurred while individual
-   *                assessments ran (during the <code>running</code> status).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>invalid state</code>: The assessment run is in an unknown state. </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>passed</code>: All individual assessments have completed and none have a
-   *                failed status.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>provisioning</code>: The resources required to run individual assessments
-   *                are being provisioned. </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>running</code>: Individual assessments are being run. </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>starting</code>: The assessment run is starting, but resources are not yet
-   *                being provisioned for individual assessments. </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>warning</code>: At least one individual assessment completed with a warning
-   *                status. </p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  Status?: string | undefined;
-
-  /**
-   * <p>The date which the assessment run was created.</p>
-   * @public
-   */
-  PremigrationAssessmentRunCreationDate?: Date | undefined;
-
-  /**
-   * <p>The progress values reported by the <code>AssessmentProgress</code> response
-   *          element.</p>
-   * @public
-   */
-  AssessmentProgress?: ReplicationTaskAssessmentRunProgress | undefined;
-
-  /**
-   * <p>The last message generated by an individual assessment failure.</p>
-   * @public
-   */
-  LastFailureMessage?: string | undefined;
-
-  /**
-   * <p>The Amazon S3 bucket that Database Migration Service Serverless created to store the results of this
-   *          assessment run.</p>
-   * @public
-   */
-  ResultLocationBucket?: string | undefined;
-
-  /**
-   * <p>The folder within an Amazon S3 bucket where you want Database Migration Service to store the results of
-   *          this assessment run.</p>
-   * @public
-   */
-  ResultLocationFolder?: string | undefined;
-
-  /**
-   * <p>The supported values are <code>SSE_KMS</code> and <code>SSE_S3</code>. If these values
-   *          are not provided, then the files are not encrypted at rest. For more information, see
-   *             <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html#CHAP_Target.S3.KMSKeys">Creating Amazon Web Services KMS
-   *             keys to encrypt Amazon S3 target objects</a>.</p>
-   * @public
-   */
-  ResultEncryptionMode?: string | undefined;
-
-  /**
-   * <p>The ARN of a custom KMS encryption key that you specify when you set
-   *             <code>ResultEncryptionMode</code> to <code>SSE_KMS</code>.</p>
-   * @public
-   */
-  ResultKmsKeyArn?: string | undefined;
-
-  /**
-   * <p>The object containing the result statistics for a completed assessment run.</p>
-   * @public
-   */
-  ResultStatistic?: ReplicationTaskAssessmentRunResultStatistic | undefined;
 }

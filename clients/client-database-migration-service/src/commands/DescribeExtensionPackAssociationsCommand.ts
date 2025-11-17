@@ -78,6 +78,16 @@ export interface DescribeExtensionPackAssociationsCommandOutput
  * //         S3ObjectKey: "STRING_VALUE",
  * //         ObjectURL: "STRING_VALUE",
  * //       },
+ * //       Progress: { // Progress
+ * //         ProgressPercent: Number("double"),
+ * //         TotalObjects: Number("long"),
+ * //         ProgressStep: "STRING_VALUE",
+ * //         ProcessedObject: { // ProcessedObject
+ * //           Name: "STRING_VALUE",
+ * //           Type: "STRING_VALUE",
+ * //           EndpointType: "STRING_VALUE",
+ * //         },
+ * //       },
  * //     },
  * //   ],
  * // };

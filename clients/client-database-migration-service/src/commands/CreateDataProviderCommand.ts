@@ -85,6 +85,14 @@ export interface CreateDataProviderCommandOutput extends CreateDataProviderRespo
  *       S3Path: "STRING_VALUE",
  *       S3AccessRoleArn: "STRING_VALUE",
  *     },
+ *     SybaseAseSettings: { // SybaseAseDataProviderSettings
+ *       ServerName: "STRING_VALUE",
+ *       Port: Number("int"),
+ *       DatabaseName: "STRING_VALUE",
+ *       SslMode: "none" || "require" || "verify-ca" || "verify-full",
+ *       EncryptPassword: true || false,
+ *       CertificateArn: "STRING_VALUE",
+ *     },
  *     MicrosoftSqlServerSettings: { // MicrosoftSqlServerDataProviderSettings
  *       ServerName: "STRING_VALUE",
  *       Port: Number("int"),
@@ -194,6 +202,14 @@ export interface CreateDataProviderCommandOutput extends CreateDataProviderRespo
  * //         SecretsManagerSecurityDbEncryptionAccessRoleArn: "STRING_VALUE",
  * //         S3Path: "STRING_VALUE",
  * //         S3AccessRoleArn: "STRING_VALUE",
+ * //       },
+ * //       SybaseAseSettings: { // SybaseAseDataProviderSettings
+ * //         ServerName: "STRING_VALUE",
+ * //         Port: Number("int"),
+ * //         DatabaseName: "STRING_VALUE",
+ * //         SslMode: "none" || "require" || "verify-ca" || "verify-full",
+ * //         EncryptPassword: true || false,
+ * //         CertificateArn: "STRING_VALUE",
  * //       },
  * //       MicrosoftSqlServerSettings: { // MicrosoftSqlServerDataProviderSettings
  * //         ServerName: "STRING_VALUE",

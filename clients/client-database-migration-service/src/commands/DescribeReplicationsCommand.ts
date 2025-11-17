@@ -9,8 +9,7 @@ import {
   ServiceOutputTypes,
 } from "../DatabaseMigrationServiceClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DescribeReplicationsMessage } from "../models/models_0";
-import { DescribeReplicationsResponse } from "../models/models_1";
+import { DescribeReplicationsMessage, DescribeReplicationsResponse } from "../models/models_1";
 import { DescribeReplications } from "../schemas/schemas_0";
 
 /**

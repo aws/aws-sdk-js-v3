@@ -450,6 +450,7 @@ const _EMMAR = "ExportMetadataModelAssessmentResponse";
 const _EMMARE = "ExportMetadataModelAssessmentResultEntry";
 const _EMSW = "EnableMagneticStoreWrites";
 const _EN = "EngineName";
+const _EP = "EncryptPassword";
 const _EPI = "EventsPollInterval";
 const _ERD = "ErrorRetryDuration";
 const _ES = "ElasticsearchSettings";
@@ -731,17 +732,21 @@ const _PMAe = "PendingMaintenanceAction";
 const _PMV = "PendingModifiedValues";
 const _PMW = "PreferredMaintenanceWindow";
 const _PN = "PluginName";
+const _PO = "ProcessedObject";
+const _PP = "ProgressPercent";
 const _PR = "PdfReport";
-const _PS = "ProvisionState";
+const _PS = "ProgressStep";
 const _PSDPS = "PostgreSqlDataProviderSettings";
 const _PSQLS = "PostgreSQLSettings";
 const _PSS = "PostgreSqlSettings";
+const _PSr = "ProvisionState";
 const _PT = "PreserveTransactions";
 const _PTIM = "ParquetTimestampInMillisecond";
 const _PV = "ParquetVersion";
 const _Pa = "Passed";
 const _Po = "Port";
-const _Pr = "Preferred";
+const _Pr = "Progress";
+const _Pre = "Preferred";
 const _Pro = "Properties";
 const _QSAON = "QuerySingleAlwaysOnNode";
 const _R = "Request";
@@ -885,9 +890,11 @@ const _Rf = "Rfc4180";
 const _S = "Status";
 const _SA = "SigningAlgorithm";
 const _SADF = "S3AccessDeniedFault";
+const _SADPS = "SybaseAseDataProviderSettings";
 const _SAIU = "SubnetAlreadyInUse";
 const _SARA = "ServiceAccessRoleArn";
 const _SARAc = "S3AccessRoleArn";
+const _SAS = "SybaseAseSettings";
 const _SAZ = "SecondaryAvailabilityZone";
 const _SAZu = "SubnetAvailabilityZone";
 const _SAt = "StreamArn";
@@ -1067,6 +1074,7 @@ const _TLag = "TagList";
 const _TM = "TableMappings";
 const _TMM = "TargetMetadataModels";
 const _TN = "TableName";
+const _TO = "TotalObjects";
 const _TPM = "TablePreparationMode";
 const _TQ = "TablesQueued";
 const _TR = "TransformationRules";
@@ -3210,12 +3218,14 @@ export var PremigrationAssessmentStatus: StaticStructureSchema = [
     () => ReplicationTaskAssessmentRunResultStatistic,
   ],
 ];
+export var ProcessedObject: StaticStructureSchema = [3, n0, _PO, 0, [_N, _Ty, _ET], [0, 0, 0]];
+export var Progress: StaticStructureSchema = [3, n0, _Pr, 0, [_PP, _TO, _PS, _PO], [1, 1, 0, () => ProcessedObject]];
 export var ProvisionData: StaticStructureSchema = [
   3,
   n0,
   _PD,
   0,
-  [_PS, _PCU, _DPat, _INPA, _DNPDA, _RFNPD],
+  [_PSr, _PCU, _DPat, _INPA, _DNPDA, _RFNPD],
   [0, 1, 4, 2, 4, 0],
 ];
 export var RdsConfiguration: StaticStructureSchema = [
@@ -3256,7 +3266,7 @@ export var Recommendation: StaticStructureSchema = [
   n0,
   _Reco,
   0,
-  [_DI, _EN, _CD, _S, _Pr, _Se, _D],
+  [_DI, _EN, _CD, _S, _Pre, _Se, _D],
   [0, 0, 0, 0, 2, () => RecommendationSettings, () => RecommendationData],
 ];
 export var RecommendationData: StaticStructureSchema = [3, n0, _RDe, 0, [_RE], [() => RdsRecommendation]];
@@ -3692,8 +3702,8 @@ export var SchemaConversionRequest: StaticStructureSchema = [
   n0,
   _SCR,
   0,
-  [_S, _RI, _MPA, _Er, _ESD],
-  [0, 0, 0, () => ErrorDetails, () => ExportSqlDetails],
+  [_S, _RI, _MPA, _Er, _ESD, _Pr],
+  [0, 0, 0, () => ErrorDetails, () => ExportSqlDetails, () => Progress],
 ];
 export var SchemaResponse: StaticStructureSchema = [
   3,
@@ -3879,6 +3889,14 @@ export var SupportedEndpointType: StaticStructureSchema = [
   0,
   [_EN, _SCDC, _ET, _RIEMV, _EDN],
   [0, 2, 0, 0, 0],
+];
+export var SybaseAseDataProviderSettings: StaticStructureSchema = [
+  3,
+  n0,
+  _SADPS,
+  0,
+  [_SN, _Po, _DN, _SM, _EP, _CA],
+  [0, 1, 0, 0, 2, 0],
 ];
 export var SybaseSettings: StaticStructureSchema = [
   3,
@@ -4421,12 +4439,13 @@ export var DataProviderSettings: StaticStructureSchema = [
   n0,
   _DPSat,
   0,
-  [_RS, _PSS, _MSS, _OS, _MSSS, _DDSo, _MDSa, _IDLS, _IDOS, _MDS],
+  [_RS, _PSS, _MSS, _OS, _SAS, _MSSS, _DDSo, _MDSa, _IDLS, _IDOS, _MDS],
   [
     () => RedshiftDataProviderSettings,
     () => PostgreSqlDataProviderSettings,
     () => MySqlDataProviderSettings,
     () => OracleDataProviderSettings,
+    () => SybaseAseDataProviderSettings,
     () => MicrosoftSqlServerDataProviderSettings,
     () => DocDbDataProviderSettings,
     () => MariaDbDataProviderSettings,
