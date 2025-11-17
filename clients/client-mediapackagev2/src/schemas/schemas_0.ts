@@ -226,6 +226,7 @@ const _SDS = "SegmentDurationSeconds";
 const _SDe = "S3Destination";
 const _SF = "ScteFilter";
 const _SH = "ScteHls";
+const _SIS = "ScteInSegments";
 const _SKP = "SpekeKeyProvider";
 const _SL = "ServiceLocation";
 const _SN = "SegmentName";
@@ -1181,7 +1182,7 @@ export var ResourceNotFoundException: StaticErrorSchema = [
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
 
 export var S3DestinationConfig: StaticStructureSchema = [3, n0, _SDC, 0, [_BN, _DPe], [0, 0]];
-export var Scte: StaticStructureSchema = [3, n0, _Sc, 0, [_SF], [64 | 0]];
+export var Scte: StaticStructureSchema = [3, n0, _Sc, 0, [_SF, _SIS], [64 | 0, 0]];
 export var ScteDash: StaticStructureSchema = [3, n0, _SD, 0, [_AMD], [0]];
 export var ScteHls: StaticStructureSchema = [3, n0, _SH, 0, [_AMH], [0]];
 export var Segment: StaticStructureSchema = [

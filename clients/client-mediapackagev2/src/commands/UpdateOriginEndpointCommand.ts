@@ -51,6 +51,7 @@ export interface UpdateOriginEndpointCommandOutput extends UpdateOriginEndpointR
  *       ScteFilter: [ // ScteFilterList
  *         "SPLICE_INSERT" || "BREAK" || "PROVIDER_ADVERTISEMENT" || "DISTRIBUTOR_ADVERTISEMENT" || "PROVIDER_PLACEMENT_OPPORTUNITY" || "DISTRIBUTOR_PLACEMENT_OPPORTUNITY" || "PROVIDER_OVERLAY_PLACEMENT_OPPORTUNITY" || "DISTRIBUTOR_OVERLAY_PLACEMENT_OPPORTUNITY" || "PROGRAM",
  *       ],
+ *       ScteInSegments: "NONE" || "ALL",
  *     },
  *     Encryption: { // Encryption
  *       ConstantInitializationVector: "STRING_VALUE",
@@ -227,6 +228,7 @@ export interface UpdateOriginEndpointCommandOutput extends UpdateOriginEndpointR
  * //       ScteFilter: [ // ScteFilterList
  * //         "SPLICE_INSERT" || "BREAK" || "PROVIDER_ADVERTISEMENT" || "DISTRIBUTOR_ADVERTISEMENT" || "PROVIDER_PLACEMENT_OPPORTUNITY" || "DISTRIBUTOR_PLACEMENT_OPPORTUNITY" || "PROVIDER_OVERLAY_PLACEMENT_OPPORTUNITY" || "DISTRIBUTOR_OVERLAY_PLACEMENT_OPPORTUNITY" || "PROGRAM",
  * //       ],
+ * //       ScteInSegments: "NONE" || "ALL",
  * //     },
  * //     Encryption: { // Encryption
  * //       ConstantInitializationVector: "STRING_VALUE",

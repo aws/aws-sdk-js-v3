@@ -505,7 +505,7 @@ export interface PutChannelPolicyResponse {}
  */
 export interface InputSwitchConfiguration {
   /**
-   * <p>When true, AWS Elemental MediaPackage performs input switching based on the MQCS. Default is true. This setting is valid only when <code>InputType</code> is <code>CMAF</code>.</p>
+   * <p>When true, AWS Elemental MediaPackage performs input switching based on the MQCS. Default is false. This setting is valid only when <code>InputType</code> is <code>CMAF</code>.</p>
    * @public
    */
   MQCSInputSwitching?: boolean | undefined;
@@ -1397,7 +1397,7 @@ export interface ForceEndpointErrorConfiguration {
  */
 export interface ScteHls {
   /**
-   * <p>Ad markers indicate when ads should be inserted during playback. If you include ad markers in the content stream in your upstream encoders, then you need to inform MediaPackage what to do with the ad markers in the output. Choose what you want MediaPackage to do with the ad markers.</p> <p>Value description: </p> <ul> <li> <p>DATERANGE - Insert EXT-X-DATERANGE tags to signal ad and program transition events in TS and CMAF manifests. If you use DATERANGE, you must set a programDateTimeIntervalSeconds value of 1 or higher. To learn more about DATERANGE, see <a href="http://docs.aws.amazon.com/mediapackage/latest/ug/scte-35-ad-marker-ext-x-daterange.html">SCTE-35 Ad Marker EXT-X-DATERANGE</a>.</p> </li> </ul>
+   * <p>Ad markers indicate when ads should be inserted during playback. If you include ad markers in the content stream in your upstream encoders, then you need to inform MediaPackage what to do with the ad markers in the output. Choose what you want MediaPackage to do with the ad markers.</p> <p>Value description: </p> <ul> <li> <p>SCTE35_ENHANCED - Generate industry-standard CUE tag ad markers in HLS manifests based on SCTE-35 input messages from the input stream.</p> </li> <li> <p>DATERANGE - Insert EXT-X-DATERANGE tags to signal ad and program transition events in TS and CMAF manifests. If you use DATERANGE, you must set a programDateTimeIntervalSeconds value of 1 or higher. To learn more about DATERANGE, see <a href="http://docs.aws.amazon.com/mediapackage/latest/ug/scte-35-ad-marker-ext-x-daterange.html">SCTE-35 Ad Marker EXT-X-DATERANGE</a>.</p> </li> </ul>
    * @public
    */
   AdMarkerHls?: AdMarkerHls | undefined;
@@ -1806,6 +1806,20 @@ export const ScteFilter = {
 export type ScteFilter = (typeof ScteFilter)[keyof typeof ScteFilter];
 
 /**
+ * @public
+ * @enum
+ */
+export const ScteInSegments = {
+  ALL: "ALL",
+  NONE: "NONE",
+} as const;
+
+/**
+ * @public
+ */
+export type ScteInSegments = (typeof ScteInSegments)[keyof typeof ScteInSegments];
+
+/**
  * <p>The SCTE configuration.</p>
  * @public
  */
@@ -1815,6 +1829,12 @@ export interface Scte {
    * @public
    */
   ScteFilter?: ScteFilter[] | undefined;
+
+  /**
+   * <p>Controls whether SCTE-35 messages are included in segment files.</p> <ul> <li> <p>None – SCTE-35 messages are not included in segments (default)</p> </li> <li> <p>All – SCTE-35 messages are embedded in segment data</p> </li> </ul> <p> For DASH manifests, when set to <code>All</code>, an <code>InbandEventStream</code> tag signals that SCTE messages are present in segments. This setting works independently of manifest ad markers.</p>
+   * @public
+   */
+  ScteInSegments?: ScteInSegments | undefined;
 }
 
 /**
