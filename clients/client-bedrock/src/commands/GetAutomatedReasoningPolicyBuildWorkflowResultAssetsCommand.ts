@@ -45,7 +45,7 @@ export interface GetAutomatedReasoningPolicyBuildWorkflowResultAssetsCommandOutp
  * const input = { // GetAutomatedReasoningPolicyBuildWorkflowResultAssetsRequest
  *   policyArn: "STRING_VALUE", // required
  *   buildWorkflowId: "STRING_VALUE", // required
- *   assetType: "BUILD_LOG" || "QUALITY_REPORT" || "POLICY_DEFINITION", // required
+ *   assetType: "BUILD_LOG" || "QUALITY_REPORT" || "POLICY_DEFINITION" || "GENERATED_TEST_CASES", // required
  * };
  * const command = new GetAutomatedReasoningPolicyBuildWorkflowResultAssetsCommand(input);
  * const response = await client.send(command);
@@ -265,6 +265,15 @@ export interface GetAutomatedReasoningPolicyBuildWorkflowResultAssetsCommandOutp
  * //               ],
  * //             },
  * //           ],
+ * //         },
+ * //       ],
+ * //     },
+ * //     generatedTestCases: { // AutomatedReasoningPolicyGeneratedTestCases
+ * //       generatedTestCases: [ // AutomatedReasoningPolicyGeneratedTestCaseList // required
+ * //         { // AutomatedReasoningPolicyGeneratedTestCase
+ * //           queryContent: "STRING_VALUE", // required
+ * //           guardContent: "STRING_VALUE", // required
+ * //           expectedAggregatedFindingsResult: "VALID" || "INVALID" || "SATISFIABLE" || "IMPOSSIBLE" || "TRANSLATION_AMBIGUOUS" || "TOO_COMPLEX" || "NO_TRANSLATION", // required
  * //         },
  * //       ],
  * //     },

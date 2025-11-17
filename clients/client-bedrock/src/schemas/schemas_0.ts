@@ -91,6 +91,9 @@ const _ARPDVM = "AutomatedReasoningPolicyDeleteVariableMutation";
 const _ARPDVN = "AutomatedReasoningPolicyDefinitionVariableName";
 const _ARPDVNL = "AutomatedReasoningPolicyDefinitionVariableNameList";
 const _ARPDu = "AutomatedReasoningPolicyDefinition";
+const _ARPGTC = "AutomatedReasoningPolicyGeneratedTestCase";
+const _ARPGTCL = "AutomatedReasoningPolicyGeneratedTestCaseList";
+const _ARPGTCu = "AutomatedReasoningPolicyGeneratedTestCases";
 const _ARPICA = "AutomatedReasoningPolicyIngestContentAnnotation";
 const _ARPM = "AutomatedReasoningPolicyMutation";
 const _ARPN = "AutomatedReasoningPolicyName";
@@ -816,6 +819,7 @@ const _gPA = "guardrailProfileArn";
 const _gPI = "guardrailProfileIdentifier";
 const _gPIu = "guardrailProfileId";
 const _gT = "greaterThan";
+const _gTC = "generatedTestCases";
 const _gTOE = "greaterThanOrEquals";
 const _gV = "guardrailVersion";
 const _h = "human";
@@ -1663,6 +1667,22 @@ export var AutomatedReasoningPolicyDisjointRuleSet: StaticStructureSchema = [
   0,
   [_vari, _ru],
   [[() => AutomatedReasoningPolicyDefinitionVariableNameList, 0], 64 | 0],
+];
+export var AutomatedReasoningPolicyGeneratedTestCase: StaticStructureSchema = [
+  3,
+  n0,
+  _ARPGTC,
+  0,
+  [_qC, _gC, _eAFR],
+  [[() => AutomatedReasoningPolicyTestQueryContent, 0], [() => AutomatedReasoningPolicyTestGuardContent, 0], 0],
+];
+export var AutomatedReasoningPolicyGeneratedTestCases: StaticStructureSchema = [
+  3,
+  n0,
+  _ARPGTCu,
+  0,
+  [_gTC],
+  [[() => AutomatedReasoningPolicyGeneratedTestCaseList, 0]],
 ];
 export var AutomatedReasoningPolicyIngestContentAnnotation: StaticStructureSchema = [
   3,
@@ -4838,6 +4858,13 @@ export var AutomatedReasoningPolicyDisjointRuleSetList: StaticListSchema = [
   0,
   [() => AutomatedReasoningPolicyDisjointRuleSet, 0],
 ];
+export var AutomatedReasoningPolicyGeneratedTestCaseList: StaticListSchema = [
+  1,
+  n0,
+  _ARPGTCL,
+  0,
+  [() => AutomatedReasoningPolicyGeneratedTestCase, 0],
+];
 export var AutomatedReasoningPolicySummaries: StaticListSchema = [
   1,
   n0,
@@ -5067,11 +5094,12 @@ export var AutomatedReasoningPolicyBuildResultAssets: StaticStructureSchema = [
   n0,
   _ARPBRA,
   0,
-  [_pD, _qR, _bL],
+  [_pD, _qR, _bL, _gTC],
   [
     [() => AutomatedReasoningPolicyDefinition, 0],
     [() => AutomatedReasoningPolicyDefinitionQualityReport, 0],
     [() => AutomatedReasoningPolicyBuildLog, 0],
+    [() => AutomatedReasoningPolicyGeneratedTestCases, 0],
   ],
 ];
 export var AutomatedReasoningPolicyBuildStepContext: StaticStructureSchema = [
