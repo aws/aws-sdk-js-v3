@@ -3115,7 +3115,7 @@ export interface IntegrationConfig {
   /**
    * <p>Specifies the frequency at which CDC (Change Data Capture) pulls or incremental loads should occur. This parameter provides flexibility to align
    *       the refresh rate with your specific data update patterns, system load considerations, and performance optimization goals. Time increment can be set from
-   *     15 minutes to 8640 minutes (six days). Currently supports creation of <code>RefreshInterval</code> only.</p>
+   *     15 minutes to 8640 minutes (six days).</p>
    * @public
    */
   RefreshInterval?: string | undefined;
@@ -3554,6 +3554,12 @@ export interface CreateIntegrationResourcePropertyRequest {
    * @public
    */
   TargetProcessingProperties?: TargetProcessingProperties | undefined;
+
+  /**
+   * <p>Metadata assigned to the resource consisting of a list of key-value pairs.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
 }
 
 /**
@@ -3565,6 +3571,12 @@ export interface CreateIntegrationResourcePropertyResponse {
    * @public
    */
   ResourceArn: string | undefined;
+
+  /**
+   * <p>The resource ARN created through this create API. The format is something like arn:aws:glue:<region>:<account_id>:integrationresourceproperty/*</p>
+   * @public
+   */
+  ResourcePropertyArn?: string | undefined;
 
   /**
    * <p>The resource properties associated with the integration source.</p>
@@ -6551,6 +6563,22 @@ export class InvalidIntegrationStateFault extends __BaseException {
 /**
  * @public
  */
+export interface DeleteIntegrationResourcePropertyRequest {
+  /**
+   * <p>The connection ARN of the source, or the database ARN of the target.</p>
+   * @public
+   */
+  ResourceArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteIntegrationResourcePropertyResponse {}
+
+/**
+ * @public
+ */
 export interface DeleteIntegrationTablePropertiesRequest {
   /**
    * <p>The connection ARN of the source, or the database ARN of the target.</p>
@@ -8231,26 +8259,4 @@ export interface Catalog {
    * @public
    */
   AllowFullTableExternalDataAccess?: AllowFullTableExternalDataAccessEnum | undefined;
-}
-
-/**
- * @public
- */
-export interface GetCatalogResponse {
-  /**
-   * <p>A <code>Catalog</code> object. The definition of the specified catalog in the Glue Data Catalog.</p>
-   * @public
-   */
-  Catalog?: Catalog | undefined;
-}
-
-/**
- * @public
- */
-export interface GetCatalogImportStatusRequest {
-  /**
-   * <p>The ID of the catalog to migrate. Currently, this should be the Amazon Web Services account ID.</p>
-   * @public
-   */
-  CatalogId?: string | undefined;
 }

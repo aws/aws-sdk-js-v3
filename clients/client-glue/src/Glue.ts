@@ -325,6 +325,11 @@ import {
   DeleteIntegrationCommandOutput,
 } from "./commands/DeleteIntegrationCommand";
 import {
+  DeleteIntegrationResourcePropertyCommand,
+  DeleteIntegrationResourcePropertyCommandInput,
+  DeleteIntegrationResourcePropertyCommandOutput,
+} from "./commands/DeleteIntegrationResourcePropertyCommand";
+import {
   DeleteIntegrationTablePropertiesCommand,
   DeleteIntegrationTablePropertiesCommandInput,
   DeleteIntegrationTablePropertiesCommandOutput,
@@ -807,6 +812,11 @@ import {
   ListEntitiesCommandInput,
   ListEntitiesCommandOutput,
 } from "./commands/ListEntitiesCommand";
+import {
+  ListIntegrationResourcePropertiesCommand,
+  ListIntegrationResourcePropertiesCommandInput,
+  ListIntegrationResourcePropertiesCommandOutput,
+} from "./commands/ListIntegrationResourcePropertiesCommand";
 import { ListJobsCommand, ListJobsCommandInput, ListJobsCommandOutput } from "./commands/ListJobsCommand";
 import {
   ListMLTransformsCommand,
@@ -1220,6 +1230,7 @@ const commands = {
   DeleteDevEndpointCommand,
   DeleteGlueIdentityCenterConfigurationCommand,
   DeleteIntegrationCommand,
+  DeleteIntegrationResourcePropertyCommand,
   DeleteIntegrationTablePropertiesCommand,
   DeleteJobCommand,
   DeleteMLTransformCommand,
@@ -1335,6 +1346,7 @@ const commands = {
   ListDataQualityStatisticsCommand,
   ListDevEndpointsCommand,
   ListEntitiesCommand,
+  ListIntegrationResourcePropertiesCommand,
   ListJobsCommand,
   ListMLTransformsCommand,
   ListRegistriesCommand,
@@ -2441,6 +2453,23 @@ export interface Glue {
     args: DeleteIntegrationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteIntegrationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteIntegrationResourcePropertyCommand}
+   */
+  deleteIntegrationResourceProperty(
+    args: DeleteIntegrationResourcePropertyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteIntegrationResourcePropertyCommandOutput>;
+  deleteIntegrationResourceProperty(
+    args: DeleteIntegrationResourcePropertyCommandInput,
+    cb: (err: any, data?: DeleteIntegrationResourcePropertyCommandOutput) => void
+  ): void;
+  deleteIntegrationResourceProperty(
+    args: DeleteIntegrationResourcePropertyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteIntegrationResourcePropertyCommandOutput) => void
   ): void;
 
   /**
@@ -4158,6 +4187,24 @@ export interface Glue {
     args: ListEntitiesCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListEntitiesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListIntegrationResourcePropertiesCommand}
+   */
+  listIntegrationResourceProperties(): Promise<ListIntegrationResourcePropertiesCommandOutput>;
+  listIntegrationResourceProperties(
+    args: ListIntegrationResourcePropertiesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListIntegrationResourcePropertiesCommandOutput>;
+  listIntegrationResourceProperties(
+    args: ListIntegrationResourcePropertiesCommandInput,
+    cb: (err: any, data?: ListIntegrationResourcePropertiesCommandOutput) => void
+  ): void;
+  listIntegrationResourceProperties(
+    args: ListIntegrationResourcePropertiesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListIntegrationResourcePropertiesCommandOutput) => void
   ): void;
 
   /**

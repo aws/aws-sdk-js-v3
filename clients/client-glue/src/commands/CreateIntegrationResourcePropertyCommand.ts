@@ -52,11 +52,18 @@ export interface CreateIntegrationResourcePropertyCommandOutput
  *     ConnectionName: "STRING_VALUE",
  *     EventBusArn: "STRING_VALUE",
  *   },
+ *   Tags: [ // IntegrationTagsList
+ *     { // Tag
+ *       key: "STRING_VALUE",
+ *       value: "STRING_VALUE",
+ *     },
+ *   ],
  * };
  * const command = new CreateIntegrationResourcePropertyCommand(input);
  * const response = await client.send(command);
  * // { // CreateIntegrationResourcePropertyResponse
  * //   ResourceArn: "STRING_VALUE", // required
+ * //   ResourcePropertyArn: "STRING_VALUE",
  * //   SourceProcessingProperties: { // SourceProcessingProperties
  * //     RoleArn: "STRING_VALUE",
  * //   },

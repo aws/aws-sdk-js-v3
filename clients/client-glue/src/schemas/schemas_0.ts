@@ -558,6 +558,9 @@ const _DII = "DescribeInboundIntegrations";
 const _DIIR = "DescribeInboundIntegrationsRequest";
 const _DIIRe = "DescribeInboundIntegrationsResponse";
 const _DIR = "DeleteIntegrationRequest";
+const _DIRP = "DeleteIntegrationResourceProperty";
+const _DIRPR = "DeleteIntegrationResourcePropertyRequest";
+const _DIRPRe = "DeleteIntegrationResourcePropertyResponse";
 const _DIRe = "DeleteIntegrationResponse";
 const _DIRes = "DescribeIntegrationsRequest";
 const _DIResc = "DescribeIntegrationsResponse";
@@ -1146,6 +1149,10 @@ const _IQEF = "IntegrationQuotaExceededFault";
 const _IR = "IamRole";
 const _IRC = "IcebergRetentionConfiguration";
 const _IRM = "IcebergRetentionMetrics";
+const _IRP = "IntegrationResourceProperty";
+const _IRPF = "IntegrationResourcePropertyFilter";
+const _IRPFL = "IntegrationResourcePropertyFilterList";
+const _IRPL = "IntegrationResourcePropertyList";
 const _IRT = "InputRecordTables";
 const _IRWLF = "IsRegisteredWithLakeFormation";
 const _IRn = "IncludeRoot";
@@ -1294,6 +1301,9 @@ const _LERi = "ListEntitiesResponse";
 const _LFC = "LakeFormationConfiguration";
 const _LG = "LogGroup";
 const _LGN = "LogGroupName";
+const _LIRP = "ListIntegrationResourceProperties";
+const _LIRPR = "ListIntegrationResourcePropertiesRequest";
+const _LIRPRi = "ListIntegrationResourcePropertiesResponse";
 const _LJ = "ListJobs";
 const _LJR = "ListJobsRequest";
 const _LJRi = "ListJobsResponse";
@@ -1664,6 +1674,7 @@ const _RO = "RequestOrigin";
 const _ROe = "RecordedOn";
 const _ROep = "RepositoryOwner";
 const _RP = "RecrawlPolicy";
+const _RPA = "ResourcePropertyArn";
 const _RPE = "ResultsPublishingEnabled";
 const _RPL = "RecordPollingLimit";
 const _RPu = "RunProperties";
@@ -3602,16 +3613,16 @@ export var CreateIntegrationResourcePropertyRequest: StaticStructureSchema = [
   n0,
   _CIRPR,
   0,
-  [_RAe, _SPP, _TPP],
-  [0, () => SourceProcessingProperties, () => TargetProcessingProperties],
+  [_RAe, _SPP, _TPP, _Tag],
+  [0, () => SourceProcessingProperties, () => TargetProcessingProperties, () => IntegrationTagsList],
 ];
 export var CreateIntegrationResourcePropertyResponse: StaticStructureSchema = [
   3,
   n0,
   _CIRPRr,
   0,
-  [_RAe, _SPP, _TPP],
-  [0, () => SourceProcessingProperties, () => TargetProcessingProperties],
+  [_RAe, _RPA, _SPP, _TPP],
+  [0, 0, () => SourceProcessingProperties, () => TargetProcessingProperties],
 ];
 export var CreateIntegrationResponse: StaticStructureSchema = [
   3,
@@ -4101,6 +4112,8 @@ export var DeleteDevEndpointResponse: StaticStructureSchema = [3, n0, _DDERe, 0,
 export var DeleteGlueIdentityCenterConfigurationRequest: StaticStructureSchema = [3, n0, _DGICCR, 0, [], []];
 export var DeleteGlueIdentityCenterConfigurationResponse: StaticStructureSchema = [3, n0, _DGICCRe, 0, [], []];
 export var DeleteIntegrationRequest: StaticStructureSchema = [3, n0, _DIR, 0, [_II], [0]];
+export var DeleteIntegrationResourcePropertyRequest: StaticStructureSchema = [3, n0, _DIRPR, 0, [_RAe], [0]];
+export var DeleteIntegrationResourcePropertyResponse: StaticStructureSchema = [3, n0, _DIRPRe, 0, [], []];
 export var DeleteIntegrationResponse: StaticStructureSchema = [
   3,
   n0,
@@ -4749,8 +4762,8 @@ export var GetIntegrationResourcePropertyResponse: StaticStructureSchema = [
   n0,
   _GIRPRe,
   0,
-  [_RAe, _SPP, _TPP],
-  [0, () => SourceProcessingProperties, () => TargetProcessingProperties],
+  [_RAe, _RPA, _SPP, _TPP],
+  [0, 0, () => SourceProcessingProperties, () => TargetProcessingProperties],
 ];
 export var GetIntegrationTablePropertiesRequest: StaticStructureSchema = [3, n0, _GITPR, 0, [_RAe, _TN], [0, 0]];
 export var GetIntegrationTablePropertiesResponse: StaticStructureSchema = [
@@ -5365,6 +5378,15 @@ export var IntegrationQuotaExceededFault: StaticErrorSchema = [
 ];
 TypeRegistry.for(n0).registerError(IntegrationQuotaExceededFault, __IntegrationQuotaExceededFault);
 
+export var IntegrationResourceProperty: StaticStructureSchema = [
+  3,
+  n0,
+  _IRP,
+  0,
+  [_RAe, _RPA, _SPP, _TPP],
+  [0, 0, () => SourceProcessingProperties, () => TargetProcessingProperties],
+];
+export var IntegrationResourcePropertyFilter: StaticStructureSchema = [3, n0, _IRPF, 0, [_N, _Val], [0, 64 | 0]];
 export var InternalServerException: StaticErrorSchema = [
   -3,
   n0,
@@ -5882,6 +5904,22 @@ export var ListEntitiesRequest: StaticStructureSchema = [
   [0, 0, 0, 0, 0],
 ];
 export var ListEntitiesResponse: StaticStructureSchema = [3, n0, _LERi, 0, [_Enti, _NTe], [() => EntityList, 0]];
+export var ListIntegrationResourcePropertiesRequest: StaticStructureSchema = [
+  3,
+  n0,
+  _LIRPR,
+  0,
+  [_Mar, _Fil, _MRa],
+  [0, () => IntegrationResourcePropertyFilterList, 1],
+];
+export var ListIntegrationResourcePropertiesResponse: StaticStructureSchema = [
+  3,
+  n0,
+  _LIRPRi,
+  0,
+  [_IRPL, _Mar],
+  [() => IntegrationResourcePropertyList, 0],
+];
 export var ListJobsRequest: StaticStructureSchema = [3, n0, _LJR, 0, [_NTe, _MRax, _Tag], [0, 1, 128 | 0]];
 export var ListJobsResponse: StaticStructureSchema = [3, n0, _LJRi, 0, [_JNo, _NTe], [64 | 0, 0]];
 export var ListMLTransformsRequest: StaticStructureSchema = [
@@ -7489,8 +7527,8 @@ export var UpdateIntegrationResourcePropertyResponse: StaticStructureSchema = [
   n0,
   _UIRPRp,
   0,
-  [_RAe, _SPP, _TPP],
-  [0, () => SourceProcessingProperties, () => TargetProcessingProperties],
+  [_RAe, _RPA, _SPP, _TPP],
+  [0, 0, () => SourceProcessingProperties, () => TargetProcessingProperties],
 ];
 export var UpdateIntegrationTablePropertiesRequest: StaticStructureSchema = [
   3,
@@ -7896,6 +7934,16 @@ export var IntegrationFilterList: StaticListSchema = [1, n0, _IFL, 0, () => Inte
 export var IntegrationFilterValues = 64 | 0;
 
 export var IntegrationPartitionSpecList: StaticListSchema = [1, n0, _IPSL, 0, () => IntegrationPartition];
+export var IntegrationResourcePropertyFilterList: StaticListSchema = [
+  1,
+  n0,
+  _IRPFL,
+  0,
+  () => IntegrationResourcePropertyFilter,
+];
+export var IntegrationResourcePropertyFilterValues = 64 | 0;
+
+export var IntegrationResourcePropertyList: StaticListSchema = [1, n0, _IRPL, 0, () => IntegrationResourceProperty];
 export var IntegrationsList: StaticListSchema = [1, n0, _IL, 0, () => Integration];
 export var IntegrationTagsList: StaticListSchema = [1, n0, _ITLn, 0, () => Tag];
 export var JdbcTargetList: StaticListSchema = [1, n0, _JTL, 0, () => JdbcTarget];
@@ -8605,6 +8653,14 @@ export var DeleteIntegration: StaticOperationSchema = [
   0,
   () => DeleteIntegrationRequest,
   () => DeleteIntegrationResponse,
+];
+export var DeleteIntegrationResourceProperty: StaticOperationSchema = [
+  9,
+  n0,
+  _DIRP,
+  0,
+  () => DeleteIntegrationResourcePropertyRequest,
+  () => DeleteIntegrationResourcePropertyResponse,
 ];
 export var DeleteIntegrationTableProperties: StaticOperationSchema = [
   9,
@@ -9358,6 +9414,14 @@ export var ListDevEndpoints: StaticOperationSchema = [
   () => ListDevEndpointsResponse,
 ];
 export var ListEntities: StaticOperationSchema = [9, n0, _LE, 0, () => ListEntitiesRequest, () => ListEntitiesResponse];
+export var ListIntegrationResourceProperties: StaticOperationSchema = [
+  9,
+  n0,
+  _LIRP,
+  0,
+  () => ListIntegrationResourcePropertiesRequest,
+  () => ListIntegrationResourcePropertiesResponse,
+];
 export var ListJobs: StaticOperationSchema = [9, n0, _LJ, 0, () => ListJobsRequest, () => ListJobsResponse];
 export var ListMLTransforms: StaticOperationSchema = [
   9,

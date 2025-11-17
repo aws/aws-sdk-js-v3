@@ -133,6 +133,7 @@ import {
   ProfileConfiguration,
   RegistryId,
   SchemaVersionStatus,
+  Session,
   SourceProcessingProperties,
   SourceTableConfig,
   TableIdentifier,
@@ -155,9 +156,155 @@ import {
   ResourceShareType,
   ResourceState,
   SchemaVersionNumber,
+  Statement,
   ViewDefinition,
   ViewValidation,
 } from "./models_2";
+
+/**
+ * <p>An object containing the details about a schema version.</p>
+ * @public
+ */
+export interface SchemaVersionListItem {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the schema.</p>
+   * @public
+   */
+  SchemaArn?: string | undefined;
+
+  /**
+   * <p>The unique identifier of the schema version.</p>
+   * @public
+   */
+  SchemaVersionId?: string | undefined;
+
+  /**
+   * <p>The version number of the schema.</p>
+   * @public
+   */
+  VersionNumber?: number | undefined;
+
+  /**
+   * <p>The status of the schema version.</p>
+   * @public
+   */
+  Status?: SchemaVersionStatus | undefined;
+
+  /**
+   * <p>The date and time the schema version was created.</p>
+   * @public
+   */
+  CreatedTime?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListSchemaVersionsResponse {
+  /**
+   * <p>An array of <code>SchemaVersionList</code> objects containing details of each schema version.</p>
+   * @public
+   */
+  Schemas?: SchemaVersionListItem[] | undefined;
+
+  /**
+   * <p>A continuation token for paginating the returned list of tokens, returned if the current segment of the list is not the last.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListSessionsRequest {
+  /**
+   * <p>The token for the next set of results, or null if there are no more result. </p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results. </p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>Tags belonging to the session. </p>
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
+
+  /**
+   * <p>The origin of the request. </p>
+   * @public
+   */
+  RequestOrigin?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListSessionsResponse {
+  /**
+   * <p>Returns the ID of the session. </p>
+   * @public
+   */
+  Ids?: string[] | undefined;
+
+  /**
+   * <p>Returns the session object. </p>
+   * @public
+   */
+  Sessions?: Session[] | undefined;
+
+  /**
+   * <p>The token for the next set of results, or null if there are no more result. </p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListStatementsRequest {
+  /**
+   * <p>The Session ID of the statements.</p>
+   * @public
+   */
+  SessionId: string | undefined;
+
+  /**
+   * <p>The origin of the request to list statements.</p>
+   * @public
+   */
+  RequestOrigin?: string | undefined;
+
+  /**
+   * <p>A continuation token, if this is a continuation call.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListStatementsResponse {
+  /**
+   * <p>Returns the list of statements.</p>
+   * @public
+   */
+  Statements?: Statement[] | undefined;
+
+  /**
+   * <p>A continuation token, if not all statements have yet been returned.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
 
 /**
  * @public
@@ -404,7 +551,7 @@ export interface ModifyIntegrationRequest {
   DataFilter?: string | undefined;
 
   /**
-   * <p>Properties associated with the integration.</p>
+   * <p>The configuration settings for the integration. Currently, only the RefreshInterval can be modified. </p>
    * @public
    */
   IntegrationConfig?: IntegrationConfig | undefined;
@@ -517,7 +664,7 @@ export interface ModifyIntegrationResponse {
   DataFilter?: string | undefined;
 
   /**
-   * <p>Properties associated with the integration.</p>
+   * <p>The updated configuration settings for the integration.</p>
    * @public
    */
   IntegrationConfig?: IntegrationConfig | undefined;
@@ -3227,6 +3374,12 @@ export interface UpdateIntegrationResourcePropertyResponse {
    * @public
    */
   ResourceArn?: string | undefined;
+
+  /**
+   * <p>The resource ARN created through this create API. The format is something like arn:aws:glue:<region>:<account_id>:integrationresourceproperty/*</p>
+   * @public
+   */
+  ResourcePropertyArn?: string | undefined;
 
   /**
    * <p>The resource properties associated with the integration source.</p>

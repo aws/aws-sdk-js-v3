@@ -76,6 +76,28 @@ import {
 } from "./models_1";
 
 /**
+ * @public
+ */
+export interface GetCatalogResponse {
+  /**
+   * <p>A <code>Catalog</code> object. The definition of the specified catalog in the Glue Data Catalog.</p>
+   * @public
+   */
+  Catalog?: Catalog | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetCatalogImportStatusRequest {
+  /**
+   * <p>The ID of the catalog to migrate. Currently, this should be the Amazon Web Services account ID.</p>
+   * @public
+   */
+  CatalogId?: string | undefined;
+}
+
+/**
  * <p>A structure containing migration status information.</p>
  * @public
  */
@@ -3020,6 +3042,12 @@ export interface GetIntegrationResourcePropertyResponse {
    * @public
    */
   ResourceArn?: string | undefined;
+
+  /**
+   * <p>The resource ARN created through this create API. The format is something like arn:aws:glue:<region>:<account_id>:integrationresourceproperty/*</p>
+   * @public
+   */
+  ResourcePropertyArn?: string | undefined;
 
   /**
    * <p>The resource properties associated with the integration source.</p>
@@ -8356,6 +8384,94 @@ export interface ListEntitiesResponse {
 }
 
 /**
+ * <p>A filter for integration resource properties.</p>
+ * @public
+ */
+export interface IntegrationResourcePropertyFilter {
+  /**
+   * <p>The name of the filter. Supported filter keys are <code>SourceArn</code> and <code>TargetArn</code>.</p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>A list of filter values.</p>
+   * @public
+   */
+  Values?: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListIntegrationResourcePropertiesRequest {
+  /**
+   * <p>This is the pagination token for next page, initial value is <code>null</code>.</p>
+   * @public
+   */
+  Marker?: string | undefined;
+
+  /**
+   * <p>A list of filters, supported filter Key is <code>SourceArn</code> and <code>TargetArn</code>.</p>
+   * @public
+   */
+  Filters?: IntegrationResourcePropertyFilter[] | undefined;
+
+  /**
+   * <p>This is total number of items to be evaluated.</p>
+   * @public
+   */
+  MaxRecords?: number | undefined;
+}
+
+/**
+ * <p>A structure representing an integration resource property.</p>
+ * @public
+ */
+export interface IntegrationResourceProperty {
+  /**
+   * <p>The connection ARN of the source, or the database ARN of the target.</p>
+   * @public
+   */
+  ResourceArn: string | undefined;
+
+  /**
+   * <p>The resource ARN created through this create API. The format is something like arn:aws:glue:<region>:<account_id>:integrationresourceproperty/*</p>
+   * @public
+   */
+  ResourcePropertyArn?: string | undefined;
+
+  /**
+   * <p>The resource properties associated with the integration source.</p>
+   * @public
+   */
+  SourceProcessingProperties?: SourceProcessingProperties | undefined;
+
+  /**
+   * <p>The resource properties associated with the integration target.</p>
+   * @public
+   */
+  TargetProcessingProperties?: TargetProcessingProperties | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListIntegrationResourcePropertiesResponse {
+  /**
+   * <p>A list of integration resource property meeting the filter criteria.</p>
+   * @public
+   */
+  IntegrationResourcePropertyList?: IntegrationResourceProperty[] | undefined;
+
+  /**
+   * <p>This is the pagination token for the next page.</p>
+   * @public
+   */
+  Marker?: string | undefined;
+}
+
+/**
  * @public
  */
 export interface ListJobsRequest {
@@ -8640,151 +8756,6 @@ export interface ListSchemaVersionsInput {
 
   /**
    * <p>A continuation token, if this is a continuation call.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * <p>An object containing the details about a schema version.</p>
- * @public
- */
-export interface SchemaVersionListItem {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the schema.</p>
-   * @public
-   */
-  SchemaArn?: string | undefined;
-
-  /**
-   * <p>The unique identifier of the schema version.</p>
-   * @public
-   */
-  SchemaVersionId?: string | undefined;
-
-  /**
-   * <p>The version number of the schema.</p>
-   * @public
-   */
-  VersionNumber?: number | undefined;
-
-  /**
-   * <p>The status of the schema version.</p>
-   * @public
-   */
-  Status?: SchemaVersionStatus | undefined;
-
-  /**
-   * <p>The date and time the schema version was created.</p>
-   * @public
-   */
-  CreatedTime?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListSchemaVersionsResponse {
-  /**
-   * <p>An array of <code>SchemaVersionList</code> objects containing details of each schema version.</p>
-   * @public
-   */
-  Schemas?: SchemaVersionListItem[] | undefined;
-
-  /**
-   * <p>A continuation token for paginating the returned list of tokens, returned if the current segment of the list is not the last.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListSessionsRequest {
-  /**
-   * <p>The token for the next set of results, or null if there are no more result. </p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of results. </p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>Tags belonging to the session. </p>
-   * @public
-   */
-  Tags?: Record<string, string> | undefined;
-
-  /**
-   * <p>The origin of the request. </p>
-   * @public
-   */
-  RequestOrigin?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListSessionsResponse {
-  /**
-   * <p>Returns the ID of the session. </p>
-   * @public
-   */
-  Ids?: string[] | undefined;
-
-  /**
-   * <p>Returns the session object. </p>
-   * @public
-   */
-  Sessions?: Session[] | undefined;
-
-  /**
-   * <p>The token for the next set of results, or null if there are no more result. </p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListStatementsRequest {
-  /**
-   * <p>The Session ID of the statements.</p>
-   * @public
-   */
-  SessionId: string | undefined;
-
-  /**
-   * <p>The origin of the request to list statements.</p>
-   * @public
-   */
-  RequestOrigin?: string | undefined;
-
-  /**
-   * <p>A continuation token, if this is a continuation call.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListStatementsResponse {
-  /**
-   * <p>Returns the list of statements.</p>
-   * @public
-   */
-  Statements?: Statement[] | undefined;
-
-  /**
-   * <p>A continuation token, if not all statements have yet been returned.</p>
    * @public
    */
   NextToken?: string | undefined;

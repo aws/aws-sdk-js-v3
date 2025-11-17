@@ -45,6 +45,7 @@ export interface GetIntegrationResourcePropertyCommandOutput
  * const response = await client.send(command);
  * // { // GetIntegrationResourcePropertyResponse
  * //   ResourceArn: "STRING_VALUE",
+ * //   ResourcePropertyArn: "STRING_VALUE",
  * //   SourceProcessingProperties: { // SourceProcessingProperties
  * //     RoleArn: "STRING_VALUE",
  * //   },

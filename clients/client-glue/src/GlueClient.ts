@@ -211,6 +211,10 @@ import {
 } from "./commands/DeleteGlueIdentityCenterConfigurationCommand";
 import { DeleteIntegrationCommandInput, DeleteIntegrationCommandOutput } from "./commands/DeleteIntegrationCommand";
 import {
+  DeleteIntegrationResourcePropertyCommandInput,
+  DeleteIntegrationResourcePropertyCommandOutput,
+} from "./commands/DeleteIntegrationResourcePropertyCommand";
+import {
   DeleteIntegrationTablePropertiesCommandInput,
   DeleteIntegrationTablePropertiesCommandOutput,
 } from "./commands/DeleteIntegrationTablePropertiesCommand";
@@ -472,6 +476,10 @@ import {
 } from "./commands/ListDataQualityStatisticsCommand";
 import { ListDevEndpointsCommandInput, ListDevEndpointsCommandOutput } from "./commands/ListDevEndpointsCommand";
 import { ListEntitiesCommandInput, ListEntitiesCommandOutput } from "./commands/ListEntitiesCommand";
+import {
+  ListIntegrationResourcePropertiesCommandInput,
+  ListIntegrationResourcePropertiesCommandOutput,
+} from "./commands/ListIntegrationResourcePropertiesCommand";
 import { ListJobsCommandInput, ListJobsCommandOutput } from "./commands/ListJobsCommand";
 import { ListMLTransformsCommandInput, ListMLTransformsCommandOutput } from "./commands/ListMLTransformsCommand";
 import { ListRegistriesCommandInput, ListRegistriesCommandOutput } from "./commands/ListRegistriesCommand";
@@ -725,6 +733,7 @@ export type ServiceInputTypes =
   | DeleteDevEndpointCommandInput
   | DeleteGlueIdentityCenterConfigurationCommandInput
   | DeleteIntegrationCommandInput
+  | DeleteIntegrationResourcePropertyCommandInput
   | DeleteIntegrationTablePropertiesCommandInput
   | DeleteJobCommandInput
   | DeleteMLTransformCommandInput
@@ -840,6 +849,7 @@ export type ServiceInputTypes =
   | ListDataQualityStatisticsCommandInput
   | ListDevEndpointsCommandInput
   | ListEntitiesCommandInput
+  | ListIntegrationResourcePropertiesCommandInput
   | ListJobsCommandInput
   | ListMLTransformsCommandInput
   | ListRegistriesCommandInput
@@ -987,6 +997,7 @@ export type ServiceOutputTypes =
   | DeleteDevEndpointCommandOutput
   | DeleteGlueIdentityCenterConfigurationCommandOutput
   | DeleteIntegrationCommandOutput
+  | DeleteIntegrationResourcePropertyCommandOutput
   | DeleteIntegrationTablePropertiesCommandOutput
   | DeleteJobCommandOutput
   | DeleteMLTransformCommandOutput
@@ -1102,6 +1113,7 @@ export type ServiceOutputTypes =
   | ListDataQualityStatisticsCommandOutput
   | ListDevEndpointsCommandOutput
   | ListEntitiesCommandOutput
+  | ListIntegrationResourcePropertiesCommandOutput
   | ListJobsCommandOutput
   | ListMLTransformsCommandOutput
   | ListRegistriesCommandOutput
