@@ -27,7 +27,10 @@ export interface DeleteRemoteAccessSessionCommandInput extends DeleteRemoteAcces
 export interface DeleteRemoteAccessSessionCommandOutput extends DeleteRemoteAccessSessionResult, __MetadataBearer {}
 
 /**
- * <p>Deletes a completed remote access session and its results.</p>
+ * <p>Deletes a completed remote access session and its results. You cannot delete a remote access session if it is still active.</p>
+ *          <important>
+ *             <p>You cannot undo this operation.</p>
+ *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

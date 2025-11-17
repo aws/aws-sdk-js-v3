@@ -27,8 +27,10 @@ export interface DeleteRunCommandInput extends DeleteRunRequest {}
 export interface DeleteRunCommandOutput extends DeleteRunResult, __MetadataBearer {}
 
 /**
- * <p>Deletes the run, given the run ARN.</p>
- *         <p> Deleting this resource does not stop an in-progress run.</p>
+ * <p>Deletes the run, given the run ARN. You cannot delete a run if it is still active.</p>
+ *          <important>
+ *             <p>You cannot undo this operation.</p>
+ *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

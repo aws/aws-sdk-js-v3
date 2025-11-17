@@ -27,8 +27,10 @@ export interface DeleteProjectCommandInput extends DeleteProjectRequest {}
 export interface DeleteProjectCommandOutput extends DeleteProjectResult, __MetadataBearer {}
 
 /**
- * <p>Deletes an AWS Device Farm project, given the project ARN.</p>
- *         <p> Deleting this resource does not stop an in-progress run.</p>
+ * <p>Deletes an AWS Device Farm project, given the project ARN. You cannot delete a project if it has an active run or session.</p>
+ *          <important>
+ *             <p>You cannot undo this operation.</p>
+ *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

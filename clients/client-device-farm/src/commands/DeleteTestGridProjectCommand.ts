@@ -27,13 +27,10 @@ export interface DeleteTestGridProjectCommandInput extends DeleteTestGridProject
 export interface DeleteTestGridProjectCommandOutput extends DeleteTestGridProjectResult, __MetadataBearer {}
 
 /**
- * <p> Deletes a Selenium testing project and all content generated under it. </p>
+ * <p> Deletes a Selenium testing project and all content generated under it. You cannot delete a project if it has active sessions.</p>
  *          <important>
  *             <p>You cannot undo this operation.</p>
  *          </important>
- *          <note>
- *             <p>You cannot delete a project if it has active sessions.</p>
- *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

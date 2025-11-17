@@ -102,11 +102,6 @@ export interface StopRemoteAccessSessionCommandOutput extends StopRemoteAccessSe
  * //       availability: "TEMPORARY_NOT_AVAILABLE" || "BUSY" || "AVAILABLE" || "HIGHLY_AVAILABLE",
  * //     },
  * //     instanceArn: "STRING_VALUE",
- * //     remoteDebugEnabled: true || false,
- * //     remoteRecordEnabled: true || false,
- * //     remoteRecordAppArn: "STRING_VALUE",
- * //     hostAddress: "STRING_VALUE",
- * //     clientId: "STRING_VALUE",
  * //     billingMethod: "METERED" || "UNMETERED",
  * //     deviceMinutes: { // DeviceMinutes
  * //       total: Number("double"),
@@ -131,6 +126,10 @@ export interface StopRemoteAccessSessionCommandOutput extends StopRemoteAccessSe
  * //       port: Number("int"), // required
  * //     },
  * //     appUpload: "STRING_VALUE",
+ * //     endpoints: { // RemoteAccessEndpoints
+ * //       remoteDriverEndpoint: "STRING_VALUE",
+ * //       interactiveEndpoint: "STRING_VALUE",
+ * //     },
  * //   },
  * // };
  *

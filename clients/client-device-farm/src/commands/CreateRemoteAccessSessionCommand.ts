@@ -41,12 +41,7 @@ export interface CreateRemoteAccessSessionCommandOutput extends CreateRemoteAcce
  *   deviceArn: "STRING_VALUE", // required
  *   appArn: "STRING_VALUE",
  *   instanceArn: "STRING_VALUE",
- *   sshPublicKey: "STRING_VALUE",
- *   remoteDebugEnabled: true || false,
- *   remoteRecordEnabled: true || false,
- *   remoteRecordAppArn: "STRING_VALUE",
  *   name: "STRING_VALUE",
- *   clientId: "STRING_VALUE",
  *   configuration: { // CreateRemoteAccessSessionConfiguration
  *     auxiliaryApps: [ // AuxiliaryAppArnList
  *       "STRING_VALUE",
@@ -126,11 +121,6 @@ export interface CreateRemoteAccessSessionCommandOutput extends CreateRemoteAcce
  * //       availability: "TEMPORARY_NOT_AVAILABLE" || "BUSY" || "AVAILABLE" || "HIGHLY_AVAILABLE",
  * //     },
  * //     instanceArn: "STRING_VALUE",
- * //     remoteDebugEnabled: true || false,
- * //     remoteRecordEnabled: true || false,
- * //     remoteRecordAppArn: "STRING_VALUE",
- * //     hostAddress: "STRING_VALUE",
- * //     clientId: "STRING_VALUE",
  * //     billingMethod: "METERED" || "UNMETERED",
  * //     deviceMinutes: { // DeviceMinutes
  * //       total: Number("double"),
@@ -155,6 +145,10 @@ export interface CreateRemoteAccessSessionCommandOutput extends CreateRemoteAcce
  * //       port: Number("int"), // required
  * //     },
  * //     appUpload: "STRING_VALUE",
+ * //     endpoints: { // RemoteAccessEndpoints
+ * //       remoteDriverEndpoint: "STRING_VALUE",
+ * //       interactiveEndpoint: "STRING_VALUE",
+ * //     },
  * //   },
  * // };
  *

@@ -239,6 +239,7 @@ const _Pr = "Project";
 const _Pro = "Problems";
 const _Proj = "Projects";
 const _R = "Radios";
+const _RAE = "RemoteAccessEndpoints";
 const _RARN = "ResourceARN";
 const _RAS = "RemoteAccessSession";
 const _RASe = "RemoteAccessSessions";
@@ -354,7 +355,6 @@ const _c = "client";
 const _cAP = "customerArtifactPaths";
 const _cC = "currencyCode";
 const _cD = "compatibleDevices";
-const _cI = "clientId";
 const _cJ = "completedJobs";
 const _cMD = "clearMaxDevices";
 const _cO = "createdOn";
@@ -403,7 +403,8 @@ const _eO = "effectiveOn";
 const _eTA = "endTimeAfter";
 const _eTB = "endTimeBefore";
 const _en = "endpoint";
-const _end = "ended";
+const _end = "endpoints";
+const _ende = "ended";
 const _er = "errored";
 const _ex = "extension";
 const _exp = "expires";
@@ -417,13 +418,13 @@ const _file = "filename";
 const _fr = "frequency";
 const _g = "gps";
 const _h = "host";
-const _hA = "hostAddress";
 const _hE = "httpError";
 const _hS = "heapSize";
 const _he = "height";
 const _i = "image";
 const _iA = "instanceArn";
 const _iD = "incompatibleDevices";
+const _iE = "interactiveEndpoint";
 const _iM = "interactionMode";
 const _iMn = "incompatibilityMessages";
 const _iP = "instanceProfile";
@@ -490,10 +491,9 @@ const _rAU = "rebootAfterUse";
 const _rC = "recurringCharges";
 const _rCe = "resultCode";
 const _rDE = "remoteDebugEnabled";
+const _rDEe = "remoteDriverEndpoint";
 const _rM = "requestMethod";
 const _rN = "resourceName";
-const _rRAA = "remoteRecordAppArn";
-const _rRE = "remoteRecordEnabled";
 const _ra = "radio";
 const _rad = "radios";
 const _re = "resolution";
@@ -510,7 +510,6 @@ const _sGI = "securityGroupIds";
 const _sI = "sessionId";
 const _sIu = "subnetIds";
 const _sP = "seleniumProperties";
-const _sPK = "sshPublicKey";
 const _sa = "samples";
 const _se = "server";
 const _see = "seed";
@@ -673,8 +672,8 @@ export var CreateRemoteAccessSessionRequest: StaticStructureSchema = [
   n0,
   _CRASR,
   0,
-  [_pA, _dA, _aAp, _iA, _sPK, _rDE, _rRE, _rRAA, _n, _cI, _co, _iM, _sAR],
-  [0, 0, 0, 0, 0, 2, 2, 0, 0, 0, () => CreateRemoteAccessSessionConfiguration, 0, 2],
+  [_pA, _dA, _aAp, _iA, _n, _co, _iM, _sAR],
+  [0, 0, 0, 0, 0, () => CreateRemoteAccessSessionConfiguration, 0, 2],
 ];
 export var CreateRemoteAccessSessionResult: StaticStructureSchema = [
   3,
@@ -682,7 +681,7 @@ export var CreateRemoteAccessSessionResult: StaticStructureSchema = [
   _CRASRr,
   0,
   [_rAS],
-  [() => RemoteAccessSession],
+  [[() => RemoteAccessSession, 0]],
 ];
 export var CreateTestGridProjectRequest: StaticStructureSchema = [
   3,
@@ -832,7 +831,7 @@ export var GetRemoteAccessSessionResult: StaticStructureSchema = [
   _GRASRe,
   0,
   [_rAS],
-  [() => RemoteAccessSession],
+  [[() => RemoteAccessSession, 0]],
 ];
 export var GetRunRequest: StaticStructureSchema = [3, n0, _GRR, 0, [_a], [0]];
 export var GetRunResult: StaticStructureSchema = [3, n0, _GRRe, 0, [_ru], [() => Run]];
@@ -980,7 +979,7 @@ export var ListRemoteAccessSessionsResult: StaticStructureSchema = [
   _LRASRi,
   0,
   [_rASe, _nT],
-  [() => RemoteAccessSessions, 0],
+  [[() => RemoteAccessSessions, 0], 0],
 ];
 export var ListRunsRequest: StaticStructureSchema = [3, n0, _LRR, 0, [_a, _nT], [0, 0]];
 export var ListRunsResult: StaticStructureSchema = [3, n0, _LRRi, 0, [_run, _nT], [() => Runs, 0]];
@@ -1128,37 +1127,23 @@ export var PurchaseOfferingRequest: StaticStructureSchema = [3, n0, _POR, 0, [_o
 export var PurchaseOfferingResult: StaticStructureSchema = [3, n0, _PORu, 0, [_oTf], [() => OfferingTransaction]];
 export var Radios: StaticStructureSchema = [3, n0, _R, 0, [_wi, _b, _nf, _g], [2, 2, 2, 2]];
 export var RecurringCharge: StaticStructureSchema = [3, n0, _RC, 0, [_cos, _fr], [() => MonetaryAmount, 0]];
+export var RemoteAccessEndpoints: StaticStructureSchema = [
+  3,
+  n0,
+  _RAE,
+  0,
+  [_rDEe, _iE],
+  [
+    [() => SensitiveURL, 0],
+    [() => SensitiveURL, 0],
+  ],
+];
 export var RemoteAccessSession: StaticStructureSchema = [
   3,
   n0,
   _RAS,
   0,
-  [
-    _a,
-    _n,
-    _cr,
-    _st,
-    _res,
-    _m,
-    _sta,
-    _s,
-    _de,
-    _iA,
-    _rDE,
-    _rRE,
-    _rRAA,
-    _hA,
-    _cI,
-    _bM,
-    _dM,
-    _en,
-    _dU,
-    _iM,
-    _sAR,
-    _vC,
-    _dPe,
-    _aU,
-  ],
+  [_a, _n, _cr, _st, _res, _m, _sta, _s, _de, _iA, _bM, _dM, _en, _dU, _iM, _sAR, _vC, _dPe, _aU, _end],
   [
     0,
     0,
@@ -1170,11 +1155,6 @@ export var RemoteAccessSession: StaticStructureSchema = [
     4,
     () => Device,
     0,
-    2,
-    2,
-    0,
-    0,
-    0,
     0,
     () => DeviceMinutes,
     0,
@@ -1184,6 +1164,7 @@ export var RemoteAccessSession: StaticStructureSchema = [
     () => VpcConfig,
     () => DeviceProxy,
     0,
+    [() => RemoteAccessEndpoints, 0],
   ],
 ];
 export var RenewOfferingRequest: StaticStructureSchema = [3, n0, _ROR, 0, [_oI, _q], [0, 1]];
@@ -1322,7 +1303,7 @@ export var StopRemoteAccessSessionResult: StaticStructureSchema = [
   _SRASRt,
   0,
   [_rAS],
-  [() => RemoteAccessSession],
+  [[() => RemoteAccessSession, 0]],
 ];
 export var StopRunRequest: StaticStructureSchema = [3, n0, _SRRt, 0, [_a], [0]];
 export var StopRunResult: StaticStructureSchema = [3, n0, _SRRto, 0, [_ru], [() => Run]];
@@ -1384,7 +1365,7 @@ export var TestGridSession: StaticStructureSchema = [
   n0,
   _TGS,
   0,
-  [_a, _st, _cr, _end, _bMi, _sP],
+  [_a, _st, _cr, _ende, _bMi, _sP],
   [0, 0, 4, 4, 1, 0],
 ];
 export var TestGridSessionAction: StaticStructureSchema = [
@@ -1533,7 +1514,7 @@ export var PackageIds = 64 | 0;
 export var Problems: StaticListSchema = [1, n0, _Pro, 0, () => Problem];
 export var Projects: StaticListSchema = [1, n0, _Proj, 0, () => Project];
 export var RecurringCharges: StaticListSchema = [1, n0, _RCe, 0, () => RecurringCharge];
-export var RemoteAccessSessions: StaticListSchema = [1, n0, _RASe, 0, () => RemoteAccessSession];
+export var RemoteAccessSessions: StaticListSchema = [1, n0, _RASe, 0, [() => RemoteAccessSession, 0]];
 export var Rules: StaticListSchema = [1, n0, _Rul, 0, () => Rule];
 export var Runs: StaticListSchema = [1, n0, _Runs, 0, () => Run];
 export var Samples: StaticListSchema = [1, n0, _Sa, 0, () => Sample];
