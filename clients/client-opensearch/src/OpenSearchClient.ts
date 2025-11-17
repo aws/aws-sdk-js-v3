@@ -83,6 +83,7 @@ import {
 } from "./commands/CancelServiceSoftwareUpdateCommand";
 import { CreateApplicationCommandInput, CreateApplicationCommandOutput } from "./commands/CreateApplicationCommand";
 import { CreateDomainCommandInput, CreateDomainCommandOutput } from "./commands/CreateDomainCommand";
+import { CreateIndexCommandInput, CreateIndexCommandOutput } from "./commands/CreateIndexCommand";
 import {
   CreateOutboundConnectionCommandInput,
   CreateOutboundConnectionCommandOutput,
@@ -100,6 +101,7 @@ import {
   DeleteInboundConnectionCommandInput,
   DeleteInboundConnectionCommandOutput,
 } from "./commands/DeleteInboundConnectionCommand";
+import { DeleteIndexCommandInput, DeleteIndexCommandOutput } from "./commands/DeleteIndexCommand";
 import {
   DeleteOutboundConnectionCommandInput,
   DeleteOutboundConnectionCommandOutput,
@@ -177,6 +179,7 @@ import {
   GetDomainMaintenanceStatusCommandInput,
   GetDomainMaintenanceStatusCommandOutput,
 } from "./commands/GetDomainMaintenanceStatusCommand";
+import { GetIndexCommandInput, GetIndexCommandOutput } from "./commands/GetIndexCommand";
 import {
   GetPackageVersionHistoryCommandInput,
   GetPackageVersionHistoryCommandOutput,
@@ -253,6 +256,7 @@ import {
   UpdateDirectQueryDataSourceCommandOutput,
 } from "./commands/UpdateDirectQueryDataSourceCommand";
 import { UpdateDomainConfigCommandInput, UpdateDomainConfigCommandOutput } from "./commands/UpdateDomainConfigCommand";
+import { UpdateIndexCommandInput, UpdateIndexCommandOutput } from "./commands/UpdateIndexCommand";
 import { UpdatePackageCommandInput, UpdatePackageCommandOutput } from "./commands/UpdatePackageCommand";
 import { UpdatePackageScopeCommandInput, UpdatePackageScopeCommandOutput } from "./commands/UpdatePackageScopeCommand";
 import {
@@ -287,6 +291,7 @@ export type ServiceInputTypes =
   | CancelServiceSoftwareUpdateCommandInput
   | CreateApplicationCommandInput
   | CreateDomainCommandInput
+  | CreateIndexCommandInput
   | CreateOutboundConnectionCommandInput
   | CreatePackageCommandInput
   | CreateVpcEndpointCommandInput
@@ -295,6 +300,7 @@ export type ServiceInputTypes =
   | DeleteDirectQueryDataSourceCommandInput
   | DeleteDomainCommandInput
   | DeleteInboundConnectionCommandInput
+  | DeleteIndexCommandInput
   | DeleteOutboundConnectionCommandInput
   | DeletePackageCommandInput
   | DeleteVpcEndpointCommandInput
@@ -321,6 +327,7 @@ export type ServiceInputTypes =
   | GetDefaultApplicationSettingCommandInput
   | GetDirectQueryDataSourceCommandInput
   | GetDomainMaintenanceStatusCommandInput
+  | GetIndexCommandInput
   | GetPackageVersionHistoryCommandInput
   | GetUpgradeHistoryCommandInput
   | GetUpgradeStatusCommandInput
@@ -349,6 +356,7 @@ export type ServiceInputTypes =
   | UpdateDataSourceCommandInput
   | UpdateDirectQueryDataSourceCommandInput
   | UpdateDomainConfigCommandInput
+  | UpdateIndexCommandInput
   | UpdatePackageCommandInput
   | UpdatePackageScopeCommandInput
   | UpdateScheduledActionCommandInput
@@ -370,6 +378,7 @@ export type ServiceOutputTypes =
   | CancelServiceSoftwareUpdateCommandOutput
   | CreateApplicationCommandOutput
   | CreateDomainCommandOutput
+  | CreateIndexCommandOutput
   | CreateOutboundConnectionCommandOutput
   | CreatePackageCommandOutput
   | CreateVpcEndpointCommandOutput
@@ -378,6 +387,7 @@ export type ServiceOutputTypes =
   | DeleteDirectQueryDataSourceCommandOutput
   | DeleteDomainCommandOutput
   | DeleteInboundConnectionCommandOutput
+  | DeleteIndexCommandOutput
   | DeleteOutboundConnectionCommandOutput
   | DeletePackageCommandOutput
   | DeleteVpcEndpointCommandOutput
@@ -404,6 +414,7 @@ export type ServiceOutputTypes =
   | GetDefaultApplicationSettingCommandOutput
   | GetDirectQueryDataSourceCommandOutput
   | GetDomainMaintenanceStatusCommandOutput
+  | GetIndexCommandOutput
   | GetPackageVersionHistoryCommandOutput
   | GetUpgradeHistoryCommandOutput
   | GetUpgradeStatusCommandOutput
@@ -432,6 +443,7 @@ export type ServiceOutputTypes =
   | UpdateDataSourceCommandOutput
   | UpdateDirectQueryDataSourceCommandOutput
   | UpdateDomainConfigCommandOutput
+  | UpdateIndexCommandOutput
   | UpdatePackageCommandOutput
   | UpdatePackageScopeCommandOutput
   | UpdateScheduledActionCommandOutput

@@ -4,10 +4,9 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListDataSourcesRequest } from "../models/models_0";
-import { ListDataSourcesResponse } from "../models/models_1";
+import { UpdateIndexRequest, UpdateIndexResponse } from "../models/models_1";
 import { OpenSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpenSearchClient";
-import { ListDataSources } from "../schemas/schemas_0";
+import { UpdateIndex } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -17,58 +16,47 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link ListDataSourcesCommand}.
+ * The input for {@link UpdateIndexCommand}.
  */
-export interface ListDataSourcesCommandInput extends ListDataSourcesRequest {}
+export interface UpdateIndexCommandInput extends UpdateIndexRequest {}
 /**
  * @public
  *
- * The output of {@link ListDataSourcesCommand}.
+ * The output of {@link UpdateIndexCommand}.
  */
-export interface ListDataSourcesCommandOutput extends ListDataSourcesResponse, __MetadataBearer {}
+export interface UpdateIndexCommandOutput extends UpdateIndexResponse, __MetadataBearer {}
 
 /**
- * <p>Lists direct-query data sources for a specific domain. For more information, see For
- *             more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/direct-query-s3.html">Working with
- *                 Amazon OpenSearch Service direct queries with Amazon S3</a>.</p>
+ * <p>Updates an existing OpenSearch index schema and semantic enrichment configuration. This operation allows modification of field mappings and semantic search settings for text fields. Changes to semantic enrichment configuration will apply to newly ingested documents.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { OpenSearchClient, ListDataSourcesCommand } from "@aws-sdk/client-opensearch"; // ES Modules import
- * // const { OpenSearchClient, ListDataSourcesCommand } = require("@aws-sdk/client-opensearch"); // CommonJS import
+ * import { OpenSearchClient, UpdateIndexCommand } from "@aws-sdk/client-opensearch"; // ES Modules import
+ * // const { OpenSearchClient, UpdateIndexCommand } = require("@aws-sdk/client-opensearch"); // CommonJS import
  * // import type { OpenSearchClientConfig } from "@aws-sdk/client-opensearch";
  * const config = {}; // type is OpenSearchClientConfig
  * const client = new OpenSearchClient(config);
- * const input = { // ListDataSourcesRequest
+ * const input = { // UpdateIndexRequest
  *   DomainName: "STRING_VALUE", // required
+ *   IndexName: "STRING_VALUE", // required
+ *   IndexSchema: "DOCUMENT_VALUE", // required
  * };
- * const command = new ListDataSourcesCommand(input);
+ * const command = new UpdateIndexCommand(input);
  * const response = await client.send(command);
- * // { // ListDataSourcesResponse
- * //   DataSources: [ // DataSourceList
- * //     { // DataSourceDetails
- * //       DataSourceType: { // DataSourceType Union: only one key present
- * //         S3GlueDataCatalog: { // S3GlueDataCatalog
- * //           RoleArn: "STRING_VALUE",
- * //         },
- * //       },
- * //       Name: "STRING_VALUE",
- * //       Description: "STRING_VALUE",
- * //       Status: "ACTIVE" || "DISABLED",
- * //     },
- * //   ],
+ * // { // UpdateIndexResponse
+ * //   Status: "CREATED" || "UPDATED" || "DELETED", // required
  * // };
  *
  * ```
  *
- * @param ListDataSourcesCommandInput - {@link ListDataSourcesCommandInput}
- * @returns {@link ListDataSourcesCommandOutput}
- * @see {@link ListDataSourcesCommandInput} for command's `input` shape.
- * @see {@link ListDataSourcesCommandOutput} for command's `response` shape.
+ * @param UpdateIndexCommandInput - {@link UpdateIndexCommandInput}
+ * @returns {@link UpdateIndexCommandOutput}
+ * @see {@link UpdateIndexCommandInput} for command's `input` shape.
+ * @see {@link UpdateIndexCommandOutput} for command's `response` shape.
  * @see {@link OpenSearchClientResolvedConfig | config} for OpenSearchClient's `config` shape.
  *
- * @throws {@link BaseException} (client fault)
- *  <p>An error occurred while processing the request.</p>
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>An error occurred because you don't have permissions to access the resource.</p>
  *
  * @throws {@link DependencyFailureException} (client fault)
  *  <p>An exception for when a failure in one of the dependencies results in the service being unable to fetch details about the resource.</p>
@@ -82,6 +70,9 @@ export interface ListDataSourcesCommandOutput extends ListDataSourcesResponse, _
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>An exception for accessing or deleting a resource that doesn't exist.</p>
  *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied due to request throttling. Reduce the frequency of your requests and try again.</p>
+ *
  * @throws {@link ValidationException} (client fault)
  *  <p>An exception for accessing or deleting a resource that doesn't exist.</p>
  *
@@ -91,10 +82,10 @@ export interface ListDataSourcesCommandOutput extends ListDataSourcesResponse, _
  *
  * @public
  */
-export class ListDataSourcesCommand extends $Command
+export class UpdateIndexCommand extends $Command
   .classBuilder<
-    ListDataSourcesCommandInput,
-    ListDataSourcesCommandOutput,
+    UpdateIndexCommandInput,
+    UpdateIndexCommandOutput,
     OpenSearchClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -103,19 +94,19 @@ export class ListDataSourcesCommand extends $Command
   .m(function (this: any, Command: any, cs: any, config: OpenSearchClientResolvedConfig, o: any) {
     return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
-  .s("AmazonOpenSearchService", "ListDataSources", {})
-  .n("OpenSearchClient", "ListDataSourcesCommand")
-  .sc(ListDataSources)
+  .s("AmazonOpenSearchService", "UpdateIndex", {})
+  .n("OpenSearchClient", "UpdateIndexCommand")
+  .sc(UpdateIndex)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: ListDataSourcesRequest;
-      output: ListDataSourcesResponse;
+      input: UpdateIndexRequest;
+      output: UpdateIndexResponse;
     };
     sdk: {
-      input: ListDataSourcesCommandInput;
-      output: ListDataSourcesCommandOutput;
+      input: UpdateIndexCommandInput;
+      output: UpdateIndexCommandOutput;
     };
   };
 }

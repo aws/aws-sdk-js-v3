@@ -27,7 +27,7 @@ export interface DissociatePackagesCommandInput extends DissociatePackagesReques
 export interface DissociatePackagesCommandOutput extends DissociatePackagesResponse, __MetadataBearer {}
 
 /**
- * <p>Dissociates multiple packages from a domain simulatneously.</p>
+ * <p>Dissociates multiple packages from a domain simultaneously.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

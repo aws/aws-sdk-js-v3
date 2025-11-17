@@ -4,9 +4,9 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { GetUpgradeStatusRequest, GetUpgradeStatusResponse } from "../models/models_0";
+import { DeleteIndexRequest, DeleteIndexResponse } from "../models/models_0";
 import { OpenSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpenSearchClient";
-import { GetUpgradeStatus } from "../schemas/schemas_0";
+import { DeleteIndex } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -16,48 +16,49 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link GetUpgradeStatusCommand}.
+ * The input for {@link DeleteIndexCommand}.
  */
-export interface GetUpgradeStatusCommandInput extends GetUpgradeStatusRequest {}
+export interface DeleteIndexCommandInput extends DeleteIndexRequest {}
 /**
  * @public
  *
- * The output of {@link GetUpgradeStatusCommand}.
+ * The output of {@link DeleteIndexCommand}.
  */
-export interface GetUpgradeStatusCommandOutput extends GetUpgradeStatusResponse, __MetadataBearer {}
+export interface DeleteIndexCommandOutput extends DeleteIndexResponse, __MetadataBearer {}
 
 /**
- * <p>Returns the most recent status of the last upgrade or upgrade eligibility check performed on
- *    an Amazon OpenSearch Service domain.</p>
+ * <p>Deletes an OpenSearch index. This operation permanently removes the index and cannot be undone.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { OpenSearchClient, GetUpgradeStatusCommand } from "@aws-sdk/client-opensearch"; // ES Modules import
- * // const { OpenSearchClient, GetUpgradeStatusCommand } = require("@aws-sdk/client-opensearch"); // CommonJS import
+ * import { OpenSearchClient, DeleteIndexCommand } from "@aws-sdk/client-opensearch"; // ES Modules import
+ * // const { OpenSearchClient, DeleteIndexCommand } = require("@aws-sdk/client-opensearch"); // CommonJS import
  * // import type { OpenSearchClientConfig } from "@aws-sdk/client-opensearch";
  * const config = {}; // type is OpenSearchClientConfig
  * const client = new OpenSearchClient(config);
- * const input = { // GetUpgradeStatusRequest
+ * const input = { // DeleteIndexRequest
  *   DomainName: "STRING_VALUE", // required
+ *   IndexName: "STRING_VALUE", // required
  * };
- * const command = new GetUpgradeStatusCommand(input);
+ * const command = new DeleteIndexCommand(input);
  * const response = await client.send(command);
- * // { // GetUpgradeStatusResponse
- * //   UpgradeStep: "PRE_UPGRADE_CHECK" || "SNAPSHOT" || "UPGRADE",
- * //   StepStatus: "IN_PROGRESS" || "SUCCEEDED" || "SUCCEEDED_WITH_ISSUES" || "FAILED",
- * //   UpgradeName: "STRING_VALUE",
+ * // { // DeleteIndexResponse
+ * //   Status: "CREATED" || "UPDATED" || "DELETED", // required
  * // };
  *
  * ```
  *
- * @param GetUpgradeStatusCommandInput - {@link GetUpgradeStatusCommandInput}
- * @returns {@link GetUpgradeStatusCommandOutput}
- * @see {@link GetUpgradeStatusCommandInput} for command's `input` shape.
- * @see {@link GetUpgradeStatusCommandOutput} for command's `response` shape.
+ * @param DeleteIndexCommandInput - {@link DeleteIndexCommandInput}
+ * @returns {@link DeleteIndexCommandOutput}
+ * @see {@link DeleteIndexCommandInput} for command's `input` shape.
+ * @see {@link DeleteIndexCommandOutput} for command's `response` shape.
  * @see {@link OpenSearchClientResolvedConfig | config} for OpenSearchClient's `config` shape.
  *
- * @throws {@link BaseException} (client fault)
- *  <p>An error occurred while processing the request.</p>
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>An error occurred because you don't have permissions to access the resource.</p>
+ *
+ * @throws {@link DependencyFailureException} (client fault)
+ *  <p>An exception for when a failure in one of the dependencies results in the service being unable to fetch details about the resource.</p>
  *
  * @throws {@link DisabledOperationException} (client fault)
  *  <p>An error occured because the client wanted to access an unsupported operation.</p>
@@ -68,6 +69,9 @@ export interface GetUpgradeStatusCommandOutput extends GetUpgradeStatusResponse,
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>An exception for accessing or deleting a resource that doesn't exist.</p>
  *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied due to request throttling. Reduce the frequency of your requests and try again.</p>
+ *
  * @throws {@link ValidationException} (client fault)
  *  <p>An exception for accessing or deleting a resource that doesn't exist.</p>
  *
@@ -77,10 +81,10 @@ export interface GetUpgradeStatusCommandOutput extends GetUpgradeStatusResponse,
  *
  * @public
  */
-export class GetUpgradeStatusCommand extends $Command
+export class DeleteIndexCommand extends $Command
   .classBuilder<
-    GetUpgradeStatusCommandInput,
-    GetUpgradeStatusCommandOutput,
+    DeleteIndexCommandInput,
+    DeleteIndexCommandOutput,
     OpenSearchClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -89,19 +93,19 @@ export class GetUpgradeStatusCommand extends $Command
   .m(function (this: any, Command: any, cs: any, config: OpenSearchClientResolvedConfig, o: any) {
     return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
-  .s("AmazonOpenSearchService", "GetUpgradeStatus", {})
-  .n("OpenSearchClient", "GetUpgradeStatusCommand")
-  .sc(GetUpgradeStatus)
+  .s("AmazonOpenSearchService", "DeleteIndex", {})
+  .n("OpenSearchClient", "DeleteIndexCommand")
+  .sc(DeleteIndex)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: GetUpgradeStatusRequest;
-      output: GetUpgradeStatusResponse;
+      input: DeleteIndexRequest;
+      output: DeleteIndexResponse;
     };
     sdk: {
-      input: GetUpgradeStatusCommandInput;
-      output: GetUpgradeStatusCommandOutput;
+      input: DeleteIndexCommandInput;
+      output: DeleteIndexCommandOutput;
     };
   };
 }

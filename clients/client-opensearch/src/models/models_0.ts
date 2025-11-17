@@ -1,6 +1,8 @@
 // smithy-typescript generated code
 import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
+import { DocumentType as __DocumentType } from "@smithy/types";
+
 import { OpenSearchServiceException as __BaseException } from "./OpenSearchServiceException";
 
 /**
@@ -61,43 +63,42 @@ export interface InboundConnectionStatus {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <b>PENDING_ACCEPTANCE</b> - Inbound connection is
-   *                     not yet accepted by the remote domain owner.</p>
+   *                   <b>PENDING_ACCEPTANCE</b> - Inbound connection is not yet
+   *      accepted by the remote domain owner.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <b>APPROVED</b>: Inbound connection is pending
-   *                     acceptance by the remote domain owner.</p>
+   *                   <b>APPROVED</b>: Inbound connection is pending acceptance by the
+   *      remote domain owner.</p>
    *             </li>
    *             <li>
    *                <p>
    *                   <b>PROVISIONING</b>: Inbound connection is being
-   *                     provisioned.</p>
+   *      provisioned.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <b>ACTIVE</b>: Inbound connection is active and
-   *                     ready to use.</p>
+   *                   <b>ACTIVE</b>: Inbound connection is active and ready to
+   *      use.</p>
    *             </li>
    *             <li>
    *                <p>
    *                   <b>REJECTING</b>: Inbound connection rejection is in
-   *                     process.</p>
+   *      process.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <b>REJECTED</b>: Inbound connection is
-   *                     rejected.</p>
+   *                   <b>REJECTED</b>: Inbound connection is rejected.</p>
    *             </li>
    *             <li>
    *                <p>
    *                   <b>DELETING</b>: Inbound connection deletion is in
-   *                     progress.</p>
+   *      progress.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <b>DELETED</b>: Inbound connection is deleted and
-   *                     can no longer be used.</p>
+   *                   <b>DELETED</b>: Inbound connection is deleted and can no longer
+   *      be used.</p>
    *             </li>
    *          </ul>
    * @public
@@ -149,7 +150,8 @@ export interface DomainInformationContainer {
 
 /**
  * <p>Describes an inbound cross-cluster connection for Amazon OpenSearch Service. For more
- *             information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/cross-cluster-search.html">Cross-cluster search for Amazon OpenSearch Service</a>.</p>
+ *    information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/cross-cluster-search.html">Cross-cluster search
+ *     for Amazon OpenSearch Service</a>.</p>
  * @public
  */
 export interface InboundConnection {
@@ -1502,7 +1504,7 @@ export interface DomainPackageDetails {
 
   /**
    * <p>The relative path of the package on the OpenSearch Service cluster nodes. This is
-   *                 <code>synonym_path</code> when the package is for synonym files.</p>
+   *     <code>synonym_path</code> when the package is for synonym files.</p>
    * @public
    */
   ReferencePath?: string | undefined;
@@ -1876,9 +1878,8 @@ export const AppConfigType = {
 export type AppConfigType = (typeof AppConfigType)[keyof typeof AppConfigType];
 
 /**
- * <p>Configuration settings for an OpenSearch application. For more information, see see
- *                 <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/application.html">Using the OpenSearch
- *                 user interface in Amazon OpenSearch Service</a>.</p>
+ * <p>Configuration settings for an OpenSearch application. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/application.html">Using the
+ *     OpenSearch user interface in Amazon OpenSearch Service</a>.</p>
  * @public
  */
 export interface AppConfig {
@@ -1991,8 +1992,7 @@ export interface CreateApplicationRequest {
  */
 export interface IamIdentityCenterOptions {
   /**
-   * <p>Indicates whether IAM Identity Center is enabled for the OpenSearch
-   *             application.</p>
+   * <p>Indicates whether IAM Identity Center is enabled for the OpenSearch application.</p>
    * @public
    */
   enabled?: boolean | undefined;
@@ -2007,7 +2007,7 @@ export interface IamIdentityCenterOptions {
 
   /**
    * <p>The Amazon Resource Name (ARN) of the IAM role assigned to the IAM Identity Center
-   *             application for the OpenSearch application.</p>
+   *    application for the OpenSearch application.</p>
    * @public
    */
   iamRoleForIdentityCenterApplicationArn?: string | undefined;
@@ -2713,28 +2713,28 @@ export type SubjectKeyIdCOption = (typeof SubjectKeyIdCOption)[keyof typeof Subj
 export interface IdentityCenterOptionsInput {
   /**
    * <p>Indicates whether IAM Identity Center is enabled for API access in Amazon OpenSearch
-   *             Service.</p>
+   *    Service.</p>
    * @public
    */
   EnabledAPIAccess?: boolean | undefined;
 
   /**
-   * <p>The ARN of the IAM Identity Center instance used to create an OpenSearch UI
-   *             application that uses IAM Identity Center for authentication.</p>
+   * <p>The ARN of the IAM Identity Center instance used to create an OpenSearch UI application that
+   *    uses IAM Identity Center for authentication.</p>
    * @public
    */
   IdentityCenterInstanceARN?: string | undefined;
 
   /**
-   * <p>Specifies the attribute that contains the subject identifier (such as username, user
-   *             ID, or email) in IAM Identity Center.</p>
+   * <p>Specifies the attribute that contains the subject identifier (such as username, user ID, or
+   *    email) in IAM Identity Center.</p>
    * @public
    */
   SubjectKey?: SubjectKeyIdCOption | undefined;
 
   /**
-   * <p>Specifies the attribute that contains the backend role identifier (such as group name
-   *             or group ID) in IAM Identity Center.</p>
+   * <p>Specifies the attribute that contains the backend role identifier (such as group name or
+   *    group ID) in IAM Identity Center.</p>
    * @public
    */
   RolesKey?: RolesKeyIdCOption | undefined;
@@ -2969,17 +2969,17 @@ export interface CreateDomainRequest {
   IPAddressType?: IPAddressType | undefined;
 
   /**
-   * <p>DEPRECATED. Container for the parameters required to configure automated snapshots of
-   *             domain indexes.</p>
+   * <p>DEPRECATED. Container for the parameters required to configure automated snapshots of domain
+   *    indexes.</p>
    * @public
    */
   SnapshotOptions?: SnapshotOptions | undefined;
 
   /**
-   * <p>Container for the values required to configure VPC access domains. If you don't
-   *             specify these values, OpenSearch Service creates the domain with a public endpoint. For
-   *             more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/vpc.html">Launching your Amazon
-   *                 OpenSearch Service domains using a VPC</a>.</p>
+   * <p>Container for the values required to configure VPC access domains. If you don't specify
+   *    these values, OpenSearch Service creates the domain with a public endpoint. For more information,
+   *    see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/vpc.html">Launching
+   *     your Amazon OpenSearch Service domains using a VPC</a>.</p>
    * @public
    */
   VPCOptions?: VPCOptions | undefined;
@@ -3248,10 +3248,10 @@ export const DomainProcessingStatusType = {
 export type DomainProcessingStatusType = (typeof DomainProcessingStatusType)[keyof typeof DomainProcessingStatusType];
 
 /**
- * <p>Settings container for integrating IAM Identity Center with OpenSearch UI
- *             applications, which enables enabling secure user authentication and access control
- *             across multiple data sources. This setup supports single sign-on (SSO) through IAM
- *             Identity Center, allowing centralized user management.</p>
+ * <p>Settings container for integrating IAM Identity Center with OpenSearch UI applications,
+ *    which enables enabling secure user authentication and access control across multiple data
+ *    sources. This setup supports single sign-on (SSO) through IAM Identity Center, allowing
+ *    centralized user management.</p>
  * @public
  */
 export interface IdentityCenterOptions {
@@ -3268,22 +3268,22 @@ export interface IdentityCenterOptions {
   IdentityCenterInstanceARN?: string | undefined;
 
   /**
-   * <p>Specifies the attribute that contains the subject identifier (such as username, user
-   *             ID, or email) in IAM Identity Center.</p>
+   * <p>Specifies the attribute that contains the subject identifier (such as username, user ID, or
+   *    email) in IAM Identity Center.</p>
    * @public
    */
   SubjectKey?: SubjectKeyIdCOption | undefined;
 
   /**
-   * <p>Specifies the attribute that contains the backend role identifier (such as group name
-   *             or group ID) in IAM Identity Center.</p>
+   * <p>Specifies the attribute that contains the backend role identifier (such as group name or
+   *    group ID) in IAM Identity Center.</p>
    * @public
    */
   RolesKey?: RolesKeyIdCOption | undefined;
 
   /**
    * <p>The ARN of the IAM Identity Center application that integrates with Amazon OpenSearch
-   *             Service.</p>
+   *    Service.</p>
    * @public
    */
   IdentityCenterApplicationARN?: string | undefined;
@@ -3399,65 +3399,63 @@ export interface DomainStatus {
   DomainId: string | undefined;
 
   /**
-   * <p>Name of the domain. Domain names are unique across all domains owned by the same
-   *             account within an Amazon Web Services Region.</p>
+   * <p>Name of the domain. Domain names are unique across all domains owned by the same account
+   *    within an Amazon Web Services Region.</p>
    * @public
    */
   DomainName: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the domain. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html">IAM
-   *                 identifiers </a> in the <i>AWS Identity and Access Management User
-   *                 Guide</i>.</p>
+   * <p>The Amazon Resource Name (ARN) of the domain. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html">IAM identifiers
+   *    </a> in the <i>Amazon Web Services Identity and Access Management User Guide</i>.</p>
    * @public
    */
   ARN: string | undefined;
 
   /**
-   * <p>Creation status of an OpenSearch Service domain. True if domain creation is complete.
-   *             False if domain creation is still in progress.</p>
+   * <p>Creation status of an OpenSearch Service domain. True if domain creation is complete. False
+   *    if domain creation is still in progress.</p>
    * @public
    */
   Created?: boolean | undefined;
 
   /**
-   * <p>Deletion status of an OpenSearch Service domain. True if domain deletion is complete.
-   *             False if domain deletion is still in progress. Once deletion is complete, the status of
-   *             the domain is no longer returned.</p>
+   * <p>Deletion status of an OpenSearch Service domain. True if domain deletion is complete. False
+   *    if domain deletion is still in progress. Once deletion is complete, the status of the domain is
+   *    no longer returned.</p>
    * @public
    */
   Deleted?: boolean | undefined;
 
   /**
    * <p>Domain-specific endpoint used to submit index, search, and data upload requests to the
-   *             domain.</p>
+   *    domain.</p>
    * @public
    */
   Endpoint?: string | undefined;
 
   /**
-   * <p>If <code>IPAddressType</code> to set to <code>dualstack</code>, a version 2 domain
-   *             endpoint is provisioned. This endpoint functions like a normal endpoint, except that it
-   *             works with both IPv4 and IPv6 IP addresses. Normal endpoints work only with IPv4 IP
-   *             addresses. </p>
+   * <p>If <code>IPAddressType</code> to set to <code>dualstack</code>, a version 2 domain endpoint
+   *    is provisioned. This endpoint functions like a normal endpoint, except that it works with both
+   *    IPv4 and IPv6 IP addresses. Normal endpoints work only with IPv4 IP addresses. </p>
    * @public
    */
   EndpointV2?: string | undefined;
 
   /**
-   * <p>The key-value pair that exists if the OpenSearch Service domain uses VPC endpoints.
-   *             For example:</p>
+   * <p>The key-value pair that exists if the OpenSearch Service domain uses VPC endpoints. For
+   *    example:</p>
    *          <ul>
    *             <li>
    *                <p>
    *                   <b>IPv4 IP addresses</b> -
-   *                         <code>'vpc','vpc-endpoint-h2dsd34efgyghrtguk5gt6j2foh4.us-east-1.es.amazonaws.com'</code>
+   *       <code>'vpc','vpc-endpoint-h2dsd34efgyghrtguk5gt6j2foh4.us-east-1.es.amazonaws.com'</code>
    *                </p>
    *             </li>
    *             <li>
    *                <p>
    *                   <b>Dual stack IP addresses</b> -
-   *                         <code>'vpcv2':'vpc-endpoint-h2dsd34efgyghrtguk5gt6j2foh4.aos.us-east-1.on.aws'</code>
+   *       <code>'vpcv2':'vpc-endpoint-h2dsd34efgyghrtguk5gt6j2foh4.aos.us-east-1.on.aws'</code>
    *                </p>
    *             </li>
    *          </ul>
@@ -3473,7 +3471,7 @@ export interface DomainStatus {
 
   /**
    * <p>The status of the domain configuration. True if OpenSearch Service is processing
-   *             configuration changes. False if the configuration is active.</p>
+   *    configuration changes. False if the configuration is active.</p>
    * @public
    */
   Processing?: boolean | undefined;
@@ -3488,7 +3486,7 @@ export interface DomainStatus {
 
   /**
    * <p>Version of OpenSearch or Elasticsearch that the domain is running, in the format
-   *                 <code>Elasticsearch_X.Y</code> or <code>OpenSearch_X.Y</code>.</p>
+   *     <code>Elasticsearch_X.Y</code> or <code>OpenSearch_X.Y</code>.</p>
    * @public
    */
   EngineVersion?: string | undefined;
@@ -3506,8 +3504,8 @@ export interface DomainStatus {
   EBSOptions?: EBSOptions | undefined;
 
   /**
-   * <p>Identity and Access Management (IAM) policy document specifying the access policies
-   *             for the domain.</p>
+   * <p>Identity and Access Management (IAM) policy document specifying the access policies for the
+   *    domain.</p>
    * @public
    */
   AccessPolicies?: string | undefined;
@@ -3532,8 +3530,7 @@ export interface DomainStatus {
   VPCOptions?: VPCDerivedInfo | undefined;
 
   /**
-   * <p>Key-value pairs to configure Amazon Cognito authentication for OpenSearch
-   *             Dashboards.</p>
+   * <p>Key-value pairs to configure Amazon Cognito authentication for OpenSearch Dashboards.</p>
    * @public
    */
   CognitoOptions?: CognitoOptions | undefined;
@@ -3570,7 +3567,7 @@ export interface DomainStatus {
 
   /**
    * <p>Additional options for the domain endpoint, such as whether to require HTTPS for all
-   *             traffic.</p>
+   *    traffic.</p>
    * @public
    */
   DomainEndpointOptions?: DomainEndpointOptions | undefined;
@@ -3583,7 +3580,7 @@ export interface DomainStatus {
 
   /**
    * <p>Configuration options for controlling IAM Identity Center integration within a
-   *             domain.</p>
+   *    domain.</p>
    * @public
    */
   IdentityCenterOptions?: IdentityCenterOptions | undefined;
@@ -3601,8 +3598,8 @@ export interface DomainStatus {
   ChangeProgressDetails?: ChangeProgressDetails | undefined;
 
   /**
-   * <p>Options that specify a custom 10-hour window during which OpenSearch Service can
-   *             perform configuration changes on the domain.</p>
+   * <p>Options that specify a custom 10-hour window during which OpenSearch Service can perform
+   *    configuration changes on the domain.</p>
    * @public
    */
   OffPeakWindowOptions?: OffPeakWindowOptions | undefined;
@@ -3634,7 +3631,7 @@ export interface DomainStatus {
 
 /**
  * <p>The result of a <code>CreateDomain</code> operation. Contains the status of the newly
- *             created domain.</p>
+ *    created domain.</p>
  * @public
  */
 export interface CreateDomainResponse {
@@ -3682,6 +3679,76 @@ export class ResourceAlreadyExistsException extends __BaseException {
       ...opts,
     });
     Object.setPrototypeOf(this, ResourceAlreadyExistsException.prototype);
+  }
+}
+
+/**
+ * @public
+ */
+export interface CreateIndexRequest {
+  /**
+   * <p>The name of an OpenSearch Service domain. Domain names are unique across the domains
+   *             owned by an account within an Amazon Web Services Region.</p>
+   * @public
+   */
+  DomainName: string | undefined;
+
+  /**
+   * <p>The name of the index to create. Must be between 1 and 255 characters and follow OpenSearch naming conventions.</p>
+   * @public
+   */
+  IndexName: string | undefined;
+
+  /**
+   * <p>The JSON schema defining index mappings, settings, and semantic enrichment configuration. The schema specifies which text fields should be automatically enriched for semantic search capabilities and includes OpenSearch index configuration parameters.</p>
+   * @public
+   */
+  IndexSchema: __DocumentType | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const IndexStatus = {
+  CREATED: "CREATED",
+  DELETED: "DELETED",
+  UPDATED: "UPDATED",
+} as const;
+
+/**
+ * @public
+ */
+export type IndexStatus = (typeof IndexStatus)[keyof typeof IndexStatus];
+
+/**
+ * @public
+ */
+export interface CreateIndexResponse {
+  /**
+   * <p>The status of the index creation operation.</p>
+   * @public
+   */
+  Status: IndexStatus | undefined;
+}
+
+/**
+ * <p>The request was denied due to request throttling. Reduce the frequency of your requests and try again.</p>
+ * @public
+ */
+export class ThrottlingException extends __BaseException {
+  readonly name: "ThrottlingException" = "ThrottlingException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
+    super({
+      name: "ThrottlingException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ThrottlingException.prototype);
   }
 }
 
@@ -3736,8 +3803,7 @@ export interface ConnectionProperties {
 }
 
 /**
- * <p>Container for the parameters to the <code>CreateOutboundConnection</code>
- *             operation.</p>
+ * <p>Container for the parameters to the <code>CreateOutboundConnection</code> operation.</p>
  * @public
  */
 export interface CreateOutboundConnectionRequest {
@@ -3866,8 +3932,8 @@ export interface OutboundConnectionStatus {
 }
 
 /**
- * <p>The result of a <code>CreateOutboundConnection</code> request. Contains details about
- *             the newly created cross-cluster connection.</p>
+ * <p>The result of a <code>CreateOutboundConnection</code> request. Contains details about the
+ *    newly created cross-cluster connection.</p>
  * @public
  */
 export interface CreateOutboundConnectionResponse {
@@ -3896,8 +3962,8 @@ export interface CreateOutboundConnectionResponse {
   ConnectionStatus?: OutboundConnectionStatus | undefined;
 
   /**
-   * <p>The unique identifier for the created outbound connection, which is used for
-   *             subsequent operations on the connection.</p>
+   * <p>The unique identifier for the created outbound connection, which is used for subsequent
+   *    operations on the connection.</p>
    * @public
    */
   ConnectionId?: string | undefined;
@@ -4451,6 +4517,35 @@ export interface DeleteInboundConnectionResponse {
    * @public
    */
   Connection?: InboundConnection | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteIndexRequest {
+  /**
+   * <p>The name of an OpenSearch Service domain. Domain names are unique across the domains
+   *             owned by an account within an Amazon Web Services Region.</p>
+   * @public
+   */
+  DomainName: string | undefined;
+
+  /**
+   * <p>The name of the index to delete.</p>
+   * @public
+   */
+  IndexName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteIndexResponse {
+  /**
+   * <p>The status of the index deletion operation.</p>
+   * @public
+   */
+  Status: IndexStatus | undefined;
 }
 
 /**
@@ -6150,8 +6245,8 @@ export interface DescribeInstanceTypeLimitsRequest {
 }
 
 /**
- * <p>Limits on the number of instances that can be created in OpenSearch Service for a
- *             given instance type.</p>
+ * <p>Limits on the number of instances that can be created in OpenSearch Service for a given
+ *    instance type.</p>
  * @public
  */
 export interface InstanceCountLimits {
@@ -6174,8 +6269,7 @@ export interface InstanceCountLimits {
  */
 export interface InstanceLimits {
   /**
-   * <p>Limits on the number of instances that can be created for a given instance
-   *             type.</p>
+   * <p>Limits on the number of instances that can be created for a given instance type.</p>
    * @public
    */
   InstanceCountLimits?: InstanceCountLimits | undefined;
@@ -6913,9 +7007,9 @@ export interface GetApplicationResponse {
   endpoint?: string | undefined;
 
   /**
-   * <p>The current status of the OpenSearch application. Possible values:
-   *                 <code>CREATING</code>, <code>UPDATING</code>, <code>DELETING</code>,
-   *                 <code>FAILED</code>, <code>ACTIVE</code>, and <code>DELETED</code>.</p>
+   * <p>The current status of the OpenSearch application. Possible values: <code>CREATING</code>,
+   *     <code>UPDATING</code>, <code>DELETING</code>, <code>FAILED</code>, <code>ACTIVE</code>, and
+   *     <code>DELETED</code>.</p>
    * @public
    */
   status?: ApplicationStatus | undefined;
@@ -6952,14 +7046,13 @@ export interface GetApplicationResponse {
 }
 
 /**
- * <p>Container for the request parameters to <code>GetCompatibleVersions</code>
- *             operation.</p>
+ * <p>Container for the request parameters to <code>GetCompatibleVersions</code> operation.</p>
  * @public
  */
 export interface GetCompatibleVersionsRequest {
   /**
-   * <p>The name of an existing domain. Provide this parameter to limit the results to a
-   *             single domain.</p>
+   * <p>The name of an existing domain. Provide this parameter to limit the results to a single
+   *    domain.</p>
    * @public
    */
   DomainName?: string | undefined;
@@ -6986,13 +7079,13 @@ export interface CompatibleVersionsMap {
 
 /**
  * <p>Container for the response returned by the <code>GetCompatibleVersions</code>
- *             operation.</p>
+ *    operation.</p>
  * @public
  */
 export interface GetCompatibleVersionsResponse {
   /**
    * <p>A map of OpenSearch or Elasticsearch versions and the versions you can upgrade them
-   *             to.</p>
+   *    to.</p>
    * @public
    */
   CompatibleVersions?: CompatibleVersionsMap[] | undefined;
@@ -7083,8 +7176,8 @@ export interface GetDefaultApplicationSettingResponse {
  */
 export interface GetDirectQueryDataSourceRequest {
   /**
-   * <p> A unique, user-defined label that identifies the data source within your OpenSearch
-   *             Service environment. </p>
+   * <p> A unique, user-defined label that identifies the data source within your OpenSearch Service
+   *    environment. </p>
    * @public
    */
   DataSourceName: string | undefined;
@@ -7095,29 +7188,28 @@ export interface GetDirectQueryDataSourceRequest {
  */
 export interface GetDirectQueryDataSourceResponse {
   /**
-   * <p> A unique, user-defined label to identify the data source within your OpenSearch
-   *             Service environment. </p>
+   * <p> A unique, user-defined label to identify the data source within your OpenSearch Service
+   *    environment. </p>
    * @public
    */
   DataSourceName?: string | undefined;
 
   /**
-   * <p> The supported Amazon Web Services service that is used as the source for direct
-   *             queries in OpenSearch Service. </p>
+   * <p> The supported Amazon Web Services service that is used as the source for direct queries in
+   *    OpenSearch Service. </p>
    * @public
    */
   DataSourceType?: DirectQueryDataSourceType | undefined;
 
   /**
-   * <p> A description that provides additional context and details about the data source.
-   *         </p>
+   * <p> A description that provides additional context and details about the data source. </p>
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p> A list of Amazon Resource Names (ARNs) for the OpenSearch collections that are
-   *             associated with the direct query data source. </p>
+   * <p> A list of Amazon Resource Names (ARNs) for the OpenSearch collections that are associated
+   *    with the direct query data source. </p>
    * @public
    */
   OpenSearchArns?: string[] | undefined;
@@ -7131,7 +7223,7 @@ export interface GetDirectQueryDataSourceResponse {
 
 /**
  * <p>Container for the parameters to the <code>GetDomainMaintenanceStatus</code>
- *             operation.</p>
+ *    operation.</p>
  * @public
  */
 export interface GetDomainMaintenanceStatusRequest {
@@ -7181,8 +7273,8 @@ export const MaintenanceStatus = {
 export type MaintenanceStatus = (typeof MaintenanceStatus)[keyof typeof MaintenanceStatus];
 
 /**
- * <p>The result of a <code>GetDomainMaintenanceStatus</code> request that information about
- *             the requested action.</p>
+ * <p>The result of a <code>GetDomainMaintenanceStatus</code> request that information about the
+ *    requested action.</p>
  * @public
  */
 export interface GetDomainMaintenanceStatusResponse {
@@ -7224,8 +7316,37 @@ export interface GetDomainMaintenanceStatusResponse {
 }
 
 /**
+ * @public
+ */
+export interface GetIndexRequest {
+  /**
+   * <p>The name of an OpenSearch Service domain. Domain names are unique across the domains
+   *             owned by an account within an Amazon Web Services Region.</p>
+   * @public
+   */
+  DomainName: string | undefined;
+
+  /**
+   * <p>The name of the index to retrieve information about.</p>
+   * @public
+   */
+  IndexName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetIndexResponse {
+  /**
+   * <p>The JSON schema of the index including mappings, settings, and semantic enrichment configuration.</p>
+   * @public
+   */
+  IndexSchema: __DocumentType | undefined;
+}
+
+/**
  * <p>Container for the request parameters to the <code>GetPackageVersionHistory</code>
- *             operation.</p>
+ *    operation.</p>
  * @public
  */
 export interface GetPackageVersionHistoryRequest {
@@ -7236,17 +7357,17 @@ export interface GetPackageVersionHistoryRequest {
   PackageID: string | undefined;
 
   /**
-   * <p>An optional parameter that specifies the maximum number of results to return. You can
-   *             use <code>nextToken</code> to get the next page of results.</p>
+   * <p>An optional parameter that specifies the maximum number of results to return. You can use
+   *     <code>nextToken</code> to get the next page of results.</p>
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
    * <p>If your initial <code>GetPackageVersionHistory</code> operation returns a
-   *                 <code>nextToken</code>, you can include the returned <code>nextToken</code> in
-   *             subsequent <code>GetPackageVersionHistory</code> operations, which returns results in
-   *             the next page. </p>
+   *     <code>nextToken</code>, you can include the returned <code>nextToken</code> in subsequent
+   *     <code>GetPackageVersionHistory</code> operations, which returns results in the next page.
+   *   </p>
    * @public
    */
   NextToken?: string | undefined;
@@ -7290,8 +7411,7 @@ export interface PackageVersionHistory {
 }
 
 /**
- * <p>Container for response returned by <code>GetPackageVersionHistory</code>
- *             operation.</p>
+ * <p>Container for response returned by <code>GetPackageVersionHistory</code> operation.</p>
  * @public
  */
 export interface GetPackageVersionHistoryResponse {
@@ -7308,17 +7428,16 @@ export interface GetPackageVersionHistoryResponse {
   PackageVersionHistoryList?: PackageVersionHistory[] | undefined;
 
   /**
-   * <p>When <code>nextToken</code> is returned, there are more results available. The value
-   *             of <code>nextToken</code> is a unique pagination token for each page. Send the request
-   *             again using the returned token to retrieve the next page.</p>
+   * <p>When <code>nextToken</code> is returned, there are more results available. The value of
+   *     <code>nextToken</code> is a unique pagination token for each page. Send the request again using
+   *    the returned token to retrieve the next page.</p>
    * @public
    */
   NextToken?: string | undefined;
 }
 
 /**
- * <p>Container for the request parameters to the <code>GetUpgradeHistory</code>
- *             operation.</p>
+ * <p>Container for the request parameters to the <code>GetUpgradeHistory</code> operation.</p>
  * @public
  */
 export interface GetUpgradeHistoryRequest {
@@ -7329,17 +7448,16 @@ export interface GetUpgradeHistoryRequest {
   DomainName: string | undefined;
 
   /**
-   * <p>An optional parameter that specifies the maximum number of results to return. You can
-   *             use <code>nextToken</code> to get the next page of results.</p>
+   * <p>An optional parameter that specifies the maximum number of results to return. You can use
+   *     <code>nextToken</code> to get the next page of results.</p>
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>If your initial <code>GetUpgradeHistory</code> operation returns a
-   *                 <code>nextToken</code>, you can include the returned <code>nextToken</code> in
-   *             subsequent <code>GetUpgradeHistory</code> operations, which returns results in the next
-   *             page.</p>
+   * <p>If your initial <code>GetUpgradeHistory</code> operation returns a <code>nextToken</code>,
+   *    you can include the returned <code>nextToken</code> in subsequent <code>GetUpgradeHistory</code>
+   *    operations, which returns results in the next page.</p>
    * @public
    */
   NextToken?: string | undefined;
@@ -7481,30 +7599,28 @@ export interface UpgradeHistory {
 }
 
 /**
- * <p>Container for the response returned by the <code>GetUpgradeHistory</code>
- *             operation.</p>
+ * <p>Container for the response returned by the <code>GetUpgradeHistory</code> operation.</p>
  * @public
  */
 export interface GetUpgradeHistoryResponse {
   /**
-   * <p>A list of objects corresponding to each upgrade or upgrade eligibility check performed
-   *             on a domain.</p>
+   * <p>A list of objects corresponding to each upgrade or upgrade eligibility check performed on a
+   *    domain.</p>
    * @public
    */
   UpgradeHistories?: UpgradeHistory[] | undefined;
 
   /**
-   * <p>When <code>nextToken</code> is returned, there are more results available. The value
-   *             of <code>nextToken</code> is a unique pagination token for each page. Send the request
-   *             again using the returned token to retrieve the next page.</p>
+   * <p>When <code>nextToken</code> is returned, there are more results available. The value of
+   *     <code>nextToken</code> is a unique pagination token for each page. Send the request again using
+   *    the returned token to retrieve the next page.</p>
    * @public
    */
   NextToken?: string | undefined;
 }
 
 /**
- * <p>Container for the request parameters to the <code>GetUpgradeStatus</code>
- *             operation.</p>
+ * <p>Container for the request parameters to the <code>GetUpgradeStatus</code> operation.</p>
  * @public
  */
 export interface GetUpgradeStatusRequest {
@@ -7516,8 +7632,7 @@ export interface GetUpgradeStatusRequest {
 }
 
 /**
- * <p>Container for the response returned by the <code>GetUpgradeStatus</code>
- *             operation.</p>
+ * <p>Container for the response returned by the <code>GetUpgradeStatus</code> operation.</p>
  * @public
  */
 export interface GetUpgradeStatusResponse {
@@ -7681,224 +7796,3 @@ export interface DataSourceDetails {
    */
   Status?: DataSourceStatus | undefined;
 }
-
-/**
- * <p>The result of a <code>ListDataSources</code> operation.</p>
- * @public
- */
-export interface ListDataSourcesResponse {
-  /**
-   * <p>A list of data sources associated with specified domain.</p>
-   * @public
-   */
-  DataSources?: DataSourceDetails[] | undefined;
-}
-
-/**
- * @public
- */
-export interface ListDirectQueryDataSourcesRequest {
-  /**
-   * <p>When <code>nextToken</code> is returned, there are more results available. The value
-   *             of <code>nextToken</code> is a unique pagination token for each page. Send the request
-   *             again using the returned token to retrieve the next page.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * <p> The configuration details for a data source that can be directly queried. </p>
- * @public
- */
-export interface DirectQueryDataSource {
-  /**
-   * <p> A unique, user-defined label to identify the data source within your OpenSearch
-   *             Service environment. </p>
-   * @public
-   */
-  DataSourceName?: string | undefined;
-
-  /**
-   * <p> The supported Amazon Web Services service that is used as the source for direct
-   *             queries in OpenSearch Service. </p>
-   * @public
-   */
-  DataSourceType?: DirectQueryDataSourceType | undefined;
-
-  /**
-   * <p> A description that provides additional context and details about the data
-   *             source.</p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p> A list of Amazon Resource Names (ARNs) for the OpenSearch collections that are
-   *             associated with the direct query data source. </p>
-   * @public
-   */
-  OpenSearchArns?: string[] | undefined;
-
-  /**
-   * <p> The unique, system-generated identifier that represents the data source.</p>
-   * @public
-   */
-  DataSourceArn?: string | undefined;
-
-  /**
-   * <p> A list of tags attached to a direct query data source.</p>
-   * @public
-   */
-  TagList?: Tag[] | undefined;
-}
-
-/**
- * @public
- */
-export interface ListDirectQueryDataSourcesResponse {
-  /**
-   * <p>When <code>nextToken</code> is returned, there are more results available. The value
-   *             of <code>nextToken</code> is a unique pagination token for each page. Send the request
-   *             again using the returned token to retrieve the next page.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p> A list of the direct query data sources that are returned by the
-   *                 <code>ListDirectQueryDataSources</code> API operation. </p>
-   * @public
-   */
-  DirectQueryDataSources?: DirectQueryDataSource[] | undefined;
-}
-
-/**
- * <p>Container for the parameters to the <code>ListDomainMaintenances</code>
- *             operation.</p>
- * @public
- */
-export interface ListDomainMaintenancesRequest {
-  /**
-   * <p>The name of the domain.</p>
-   * @public
-   */
-  DomainName: string | undefined;
-
-  /**
-   * <p>The name of the action.</p>
-   * @public
-   */
-  Action?: MaintenanceType | undefined;
-
-  /**
-   * <p>The status of the action.</p>
-   * @public
-   */
-  Status?: MaintenanceStatus | undefined;
-
-  /**
-   * <p>An optional parameter that specifies the maximum number of results to return. You can
-   *             use <code>nextToken</code> to get the next page of results.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>If your initial <code>ListDomainMaintenances</code> operation returns a
-   *                 <code>nextToken</code>, include the returned <code>nextToken</code> in subsequent
-   *                 <code>ListDomainMaintenances</code> operations, which returns results in the next
-   *             page.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * <p>Container for the domain maintenance details.</p>
- * @public
- */
-export interface DomainMaintenanceDetails {
-  /**
-   * <p>The ID of the requested action.</p>
-   * @public
-   */
-  MaintenanceId?: string | undefined;
-
-  /**
-   * <p>The name of the domain.</p>
-   * @public
-   */
-  DomainName?: string | undefined;
-
-  /**
-   * <p>The name of the action.</p>
-   * @public
-   */
-  Action?: MaintenanceType | undefined;
-
-  /**
-   * <p>The ID of the data node.</p>
-   * @public
-   */
-  NodeId?: string | undefined;
-
-  /**
-   * <p>The status of the action.</p>
-   * @public
-   */
-  Status?: MaintenanceStatus | undefined;
-
-  /**
-   * <p>The status message for the action.</p>
-   * @public
-   */
-  StatusMessage?: string | undefined;
-
-  /**
-   * <p>The time at which the action was created.</p>
-   * @public
-   */
-  CreatedAt?: Date | undefined;
-
-  /**
-   * <p>The time at which the action was updated.</p>
-   * @public
-   */
-  UpdatedAt?: Date | undefined;
-}
-
-/**
- * <p>The result of a <code>ListDomainMaintenances</code> request that contains information
- *             about the requested actions. </p>
- * @public
- */
-export interface ListDomainMaintenancesResponse {
-  /**
-   * <p>A list of the submitted maintenance actions.</p>
-   * @public
-   */
-  DomainMaintenances?: DomainMaintenanceDetails[] | undefined;
-
-  /**
-   * <p>When <code>nextToken</code> is returned, there are more results available. The value
-   *             of <code>nextToken</code> is a unique pagination token for each page. Send the request
-   *             again using the returned token to retrieve the next page.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const EngineType = {
-  Elasticsearch: "Elasticsearch",
-  OpenSearch: "OpenSearch",
-} as const;
-
-/**
- * @public
- */
-export type EngineType = (typeof EngineType)[keyof typeof EngineType];

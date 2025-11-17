@@ -1,6 +1,8 @@
 // smithy-typescript generated code
 import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
+import { DocumentType as __DocumentType } from "@smithy/types";
+
 import {
   ActionSeverity,
   ActionStatus,
@@ -15,6 +17,7 @@ import {
   ClusterConfig,
   CognitoOptions,
   DataSource,
+  DataSourceDetails,
   DataSourceStatus,
   DataSourceType,
   DirectQueryDataSourceType,
@@ -25,13 +28,14 @@ import {
   DryRunResults,
   EBSOptions,
   EncryptionAtRestOptions,
-  EngineType,
   IamIdentityCenterOptions,
   IdentityCenterOptionsInput,
   InboundConnection,
+  IndexStatus,
   IPAddressType,
   LogPublishingOption,
   LogType,
+  MaintenanceStatus,
   MaintenanceType,
   NodeToNodeEncryptionOptions,
   OffPeakWindowOptions,
@@ -50,6 +54,227 @@ import {
 } from "./models_0";
 
 import { OpenSearchServiceException as __BaseException } from "./OpenSearchServiceException";
+
+/**
+ * <p>The result of a <code>ListDataSources</code> operation.</p>
+ * @public
+ */
+export interface ListDataSourcesResponse {
+  /**
+   * <p>A list of data sources associated with specified domain.</p>
+   * @public
+   */
+  DataSources?: DataSourceDetails[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListDirectQueryDataSourcesRequest {
+  /**
+   * <p>When <code>nextToken</code> is returned, there are more results available. The value
+   *             of <code>nextToken</code> is a unique pagination token for each page. Send the request
+   *             again using the returned token to retrieve the next page.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * <p> The configuration details for a data source that can be directly queried. </p>
+ * @public
+ */
+export interface DirectQueryDataSource {
+  /**
+   * <p> A unique, user-defined label to identify the data source within your OpenSearch
+   *             Service environment. </p>
+   * @public
+   */
+  DataSourceName?: string | undefined;
+
+  /**
+   * <p> The supported Amazon Web Services service that is used as the source for direct
+   *             queries in OpenSearch Service. </p>
+   * @public
+   */
+  DataSourceType?: DirectQueryDataSourceType | undefined;
+
+  /**
+   * <p> A description that provides additional context and details about the data
+   *             source.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p> A list of Amazon Resource Names (ARNs) for the OpenSearch collections that are
+   *             associated with the direct query data source. </p>
+   * @public
+   */
+  OpenSearchArns?: string[] | undefined;
+
+  /**
+   * <p> The unique, system-generated identifier that represents the data source.</p>
+   * @public
+   */
+  DataSourceArn?: string | undefined;
+
+  /**
+   * <p> A list of tags attached to a direct query data source.</p>
+   * @public
+   */
+  TagList?: Tag[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListDirectQueryDataSourcesResponse {
+  /**
+   * <p>When <code>nextToken</code> is returned, there are more results available. The value
+   *             of <code>nextToken</code> is a unique pagination token for each page. Send the request
+   *             again using the returned token to retrieve the next page.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p> A list of the direct query data sources that are returned by the
+   *                 <code>ListDirectQueryDataSources</code> API operation. </p>
+   * @public
+   */
+  DirectQueryDataSources?: DirectQueryDataSource[] | undefined;
+}
+
+/**
+ * <p>Container for the parameters to the <code>ListDomainMaintenances</code>
+ *             operation.</p>
+ * @public
+ */
+export interface ListDomainMaintenancesRequest {
+  /**
+   * <p>The name of the domain.</p>
+   * @public
+   */
+  DomainName: string | undefined;
+
+  /**
+   * <p>The name of the action.</p>
+   * @public
+   */
+  Action?: MaintenanceType | undefined;
+
+  /**
+   * <p>The status of the action.</p>
+   * @public
+   */
+  Status?: MaintenanceStatus | undefined;
+
+  /**
+   * <p>An optional parameter that specifies the maximum number of results to return. You can
+   *             use <code>nextToken</code> to get the next page of results.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>If your initial <code>ListDomainMaintenances</code> operation returns a
+   *                 <code>nextToken</code>, include the returned <code>nextToken</code> in subsequent
+   *                 <code>ListDomainMaintenances</code> operations, which returns results in the next
+   *             page.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * <p>Container for the domain maintenance details.</p>
+ * @public
+ */
+export interface DomainMaintenanceDetails {
+  /**
+   * <p>The ID of the requested action.</p>
+   * @public
+   */
+  MaintenanceId?: string | undefined;
+
+  /**
+   * <p>The name of the domain.</p>
+   * @public
+   */
+  DomainName?: string | undefined;
+
+  /**
+   * <p>The name of the action.</p>
+   * @public
+   */
+  Action?: MaintenanceType | undefined;
+
+  /**
+   * <p>The ID of the data node.</p>
+   * @public
+   */
+  NodeId?: string | undefined;
+
+  /**
+   * <p>The status of the action.</p>
+   * @public
+   */
+  Status?: MaintenanceStatus | undefined;
+
+  /**
+   * <p>The status message for the action.</p>
+   * @public
+   */
+  StatusMessage?: string | undefined;
+
+  /**
+   * <p>The time at which the action was created.</p>
+   * @public
+   */
+  CreatedAt?: Date | undefined;
+
+  /**
+   * <p>The time at which the action was updated.</p>
+   * @public
+   */
+  UpdatedAt?: Date | undefined;
+}
+
+/**
+ * <p>The result of a <code>ListDomainMaintenances</code> request that contains information
+ *             about the requested actions. </p>
+ * @public
+ */
+export interface ListDomainMaintenancesResponse {
+  /**
+   * <p>A list of the submitted maintenance actions.</p>
+   * @public
+   */
+  DomainMaintenances?: DomainMaintenanceDetails[] | undefined;
+
+  /**
+   * <p>When <code>nextToken</code> is returned, there are more results available. The value
+   *             of <code>nextToken</code> is a unique pagination token for each page. Send the request
+   *             again using the returned token to retrieve the next page.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const EngineType = {
+  Elasticsearch: "Elasticsearch",
+  OpenSearch: "OpenSearch",
+} as const;
+
+/**
+ * @public
+ */
+export type EngineType = (typeof EngineType)[keyof typeof EngineType];
 
 /**
  * <p>Container for the parameters to the <code>ListDomainNames</code> operation.</p>
@@ -194,8 +419,8 @@ export interface ListInstanceTypeDetailsRequest {
 }
 
 /**
- * <p>Lists all instance types and available features for a given OpenSearch or
- *             Elasticsearch version.</p>
+ * <p>Lists all instance types and available features for a given OpenSearch or Elasticsearch
+ *    version.</p>
  * @public
  */
 export interface InstanceTypeDetails {
@@ -207,7 +432,7 @@ export interface InstanceTypeDetails {
 
   /**
    * <p>Whether encryption at rest and node-to-node encryption are supported for the instance
-   *             type.</p>
+   *    type.</p>
    * @public
    */
   EncryptionEnabled?: boolean | undefined;
@@ -238,7 +463,7 @@ export interface InstanceTypeDetails {
 
   /**
    * <p>Whether the instance acts as a data node, a dedicated master node, or an UltraWarm
-   *             node.</p>
+   *    node.</p>
    * @public
    */
   InstanceRole?: string[] | undefined;
@@ -1277,6 +1502,41 @@ export interface UpdateDomainConfigResponse {
    * @public
    */
   DryRunProgressStatus?: DryRunProgressStatus | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateIndexRequest {
+  /**
+   * <p>The name of an OpenSearch Service domain. Domain names are unique across the domains
+   *             owned by an account within an Amazon Web Services Region.</p>
+   * @public
+   */
+  DomainName: string | undefined;
+
+  /**
+   * <p>The name of the index to update.</p>
+   * @public
+   */
+  IndexName: string | undefined;
+
+  /**
+   * <p>The updated JSON schema for the index including any changes to mappings, settings, and semantic enrichment configuration.</p>
+   * @public
+   */
+  IndexSchema: __DocumentType | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateIndexResponse {
+  /**
+   * <p>The status of the index update operation.</p>
+   * @public
+   */
+  Status: IndexStatus | undefined;
 }
 
 /**

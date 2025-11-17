@@ -53,6 +53,7 @@ import {
   CreateDomainCommandInput,
   CreateDomainCommandOutput,
 } from "./commands/CreateDomainCommand";
+import { CreateIndexCommand, CreateIndexCommandInput, CreateIndexCommandOutput } from "./commands/CreateIndexCommand";
 import {
   CreateOutboundConnectionCommand,
   CreateOutboundConnectionCommandInput,
@@ -93,6 +94,7 @@ import {
   DeleteInboundConnectionCommandInput,
   DeleteInboundConnectionCommandOutput,
 } from "./commands/DeleteInboundConnectionCommand";
+import { DeleteIndexCommand, DeleteIndexCommandInput, DeleteIndexCommandOutput } from "./commands/DeleteIndexCommand";
 import {
   DeleteOutboundConnectionCommand,
   DeleteOutboundConnectionCommandInput,
@@ -223,6 +225,7 @@ import {
   GetDomainMaintenanceStatusCommandInput,
   GetDomainMaintenanceStatusCommandOutput,
 } from "./commands/GetDomainMaintenanceStatusCommand";
+import { GetIndexCommand, GetIndexCommandInput, GetIndexCommandOutput } from "./commands/GetIndexCommand";
 import {
   GetPackageVersionHistoryCommand,
   GetPackageVersionHistoryCommandInput,
@@ -355,6 +358,7 @@ import {
   UpdateDomainConfigCommandInput,
   UpdateDomainConfigCommandOutput,
 } from "./commands/UpdateDomainConfigCommand";
+import { UpdateIndexCommand, UpdateIndexCommandInput, UpdateIndexCommandOutput } from "./commands/UpdateIndexCommand";
 import {
   UpdatePackageCommand,
   UpdatePackageCommandInput,
@@ -394,6 +398,7 @@ const commands = {
   CancelServiceSoftwareUpdateCommand,
   CreateApplicationCommand,
   CreateDomainCommand,
+  CreateIndexCommand,
   CreateOutboundConnectionCommand,
   CreatePackageCommand,
   CreateVpcEndpointCommand,
@@ -402,6 +407,7 @@ const commands = {
   DeleteDirectQueryDataSourceCommand,
   DeleteDomainCommand,
   DeleteInboundConnectionCommand,
+  DeleteIndexCommand,
   DeleteOutboundConnectionCommand,
   DeletePackageCommand,
   DeleteVpcEndpointCommand,
@@ -428,6 +434,7 @@ const commands = {
   GetDefaultApplicationSettingCommand,
   GetDirectQueryDataSourceCommand,
   GetDomainMaintenanceStatusCommand,
+  GetIndexCommand,
   GetPackageVersionHistoryCommand,
   GetUpgradeHistoryCommand,
   GetUpgradeStatusCommand,
@@ -456,6 +463,7 @@ const commands = {
   UpdateDataSourceCommand,
   UpdateDirectQueryDataSourceCommand,
   UpdateDomainConfigCommand,
+  UpdateIndexCommand,
   UpdatePackageCommand,
   UpdatePackageScopeCommand,
   UpdateScheduledActionCommand,
@@ -634,6 +642,17 @@ export interface OpenSearch {
   ): void;
 
   /**
+   * @see {@link CreateIndexCommand}
+   */
+  createIndex(args: CreateIndexCommandInput, options?: __HttpHandlerOptions): Promise<CreateIndexCommandOutput>;
+  createIndex(args: CreateIndexCommandInput, cb: (err: any, data?: CreateIndexCommandOutput) => void): void;
+  createIndex(
+    args: CreateIndexCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateIndexCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link CreateOutboundConnectionCommand}
    */
   createOutboundConnection(
@@ -755,6 +774,17 @@ export interface OpenSearch {
     args: DeleteInboundConnectionCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteInboundConnectionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteIndexCommand}
+   */
+  deleteIndex(args: DeleteIndexCommandInput, options?: __HttpHandlerOptions): Promise<DeleteIndexCommandOutput>;
+  deleteIndex(args: DeleteIndexCommandInput, cb: (err: any, data?: DeleteIndexCommandOutput) => void): void;
+  deleteIndex(
+    args: DeleteIndexCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteIndexCommandOutput) => void
   ): void;
 
   /**
@@ -1183,6 +1213,17 @@ export interface OpenSearch {
     args: GetDomainMaintenanceStatusCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetDomainMaintenanceStatusCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetIndexCommand}
+   */
+  getIndex(args: GetIndexCommandInput, options?: __HttpHandlerOptions): Promise<GetIndexCommandOutput>;
+  getIndex(args: GetIndexCommandInput, cb: (err: any, data?: GetIndexCommandOutput) => void): void;
+  getIndex(
+    args: GetIndexCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetIndexCommandOutput) => void
   ): void;
 
   /**
@@ -1640,6 +1681,17 @@ export interface OpenSearch {
     args: UpdateDomainConfigCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateDomainConfigCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateIndexCommand}
+   */
+  updateIndex(args: UpdateIndexCommandInput, options?: __HttpHandlerOptions): Promise<UpdateIndexCommandOutput>;
+  updateIndex(args: UpdateIndexCommandInput, cb: (err: any, data?: UpdateIndexCommandOutput) => void): void;
+  updateIndex(
+    args: UpdateIndexCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateIndexCommandOutput) => void
   ): void;
 
   /**

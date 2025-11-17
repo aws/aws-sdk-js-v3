@@ -113,7 +113,10 @@ const _CEo = "CognitoEnabled";
 const _CEu = "CustomEndpoint";
 const _CH = "ClusterHealth";
 const _CI = "ConnectionId";
+const _CIR = "CreateIndexRequest";
+const _CIRr = "CreateIndexResponse";
 const _CIh = "ChangeId";
+const _CIr = "CreateIndex";
 const _CM = "ConnectionMode";
 const _CMo = "CommitMessage";
 const _CN = "ClassName";
@@ -208,9 +211,12 @@ const _DICResc = "DescribeInboundConnectionsResponse";
 const _DICe = "DeleteInboundConnection";
 const _DICes = "DescribeInboundConnections";
 const _DIL = "DomainInfoList";
+const _DIR = "DeleteIndexRequest";
+const _DIRe = "DeleteIndexResponse";
 const _DITL = "DescribeInstanceTypeLimits";
 const _DITLR = "DescribeInstanceTypeLimitsRequest";
 const _DITLRe = "DescribeInstanceTypeLimitsResponse";
+const _DIe = "DeleteIndex";
 const _DIo = "DomainId";
 const _DM = "DedicatedMaster";
 const _DMC = "DedicatedMasterCount";
@@ -332,6 +338,9 @@ const _GDQDSRe = "GetDirectQueryDataSourceResponse";
 const _GDS = "GetDataSource";
 const _GDSR = "GetDataSourceRequest";
 const _GDSRe = "GetDataSourceResponse";
+const _GI = "GetIndex";
+const _GIR = "GetIndexRequest";
+const _GIRe = "GetIndexResponse";
 const _GPVH = "GetPackageVersionHistory";
 const _GPVHR = "GetPackageVersionHistoryRequest";
 const _GPVHRe = "GetPackageVersionHistoryResponse";
@@ -361,11 +370,13 @@ const _IE = "InternalException";
 const _IICO = "IamIdentityCenterOptions";
 const _IICOI = "IamIdentityCenterOptionsInput";
 const _IL = "InstanceLimits";
+const _IN = "IndexName";
 const _IPAT = "IPAddressType";
 const _IPATS = "IPAddressTypeStatus";
 const _IPI = "IdentityPoolId";
 const _IPTE = "InvalidPaginationTokenException";
 const _IR = "InstanceRole";
+const _IS = "IndexSchema";
 const _ISI = "IdentityStoreId";
 const _IT = "InstanceType";
 const _ITD = "InstanceTypeDetails";
@@ -618,6 +629,7 @@ const _Se = "Service";
 const _Sev = "Severity";
 const _St = "State";
 const _T = "Throughput";
+const _TE = "ThrottlingException";
 const _TK = "TagKeys";
 const _TL = "TagList";
 const _TLSSP = "TLSSecurityPolicy";
@@ -651,6 +663,9 @@ const _UH = "UpgradeHistories";
 const _UHL = "UpgradeHistoryList";
 const _UHp = "UpgradeHistory";
 const _UI = "UpgradeId";
+const _UIR = "UpdateIndexRequest";
+const _UIRp = "UpdateIndexResponse";
+const _UIp = "UpdateIndex";
 const _UN = "UpgradeName";
 const _UOPW = "UseOffPeakWindow";
 const _UP = "UpgradeProcessing";
@@ -784,6 +799,7 @@ import {
   ResourceAlreadyExistsException as __ResourceAlreadyExistsException,
   ResourceNotFoundException as __ResourceNotFoundException,
   SlotNotAvailableException as __SlotNotAvailableException,
+  ThrottlingException as __ThrottlingException,
   ValidationException as __ValidationException,
 } from "../models/index";
 import { OpenSearchServiceException as __OpenSearchServiceException } from "../models/OpenSearchServiceException";
@@ -1147,6 +1163,8 @@ export var CreateDomainRequest: StaticStructureSchema = [
   ],
 ];
 export var CreateDomainResponse: StaticStructureSchema = [3, n0, _CDRr, 0, [_DSo], [() => DomainStatus]];
+export var CreateIndexRequest: StaticStructureSchema = [3, n0, _CIR, 0, [_DN, _IN, _IS], [[0, 1], 0, 15]];
+export var CreateIndexResponse: StaticStructureSchema = [3, n0, _CIRr, 0, [_S], [0]];
 export var CreateOutboundConnectionRequest: StaticStructureSchema = [
   3,
   n0,
@@ -1227,6 +1245,18 @@ export var DeleteDomainRequest: StaticStructureSchema = [3, n0, _DDR, 0, [_DN], 
 export var DeleteDomainResponse: StaticStructureSchema = [3, n0, _DDRe, 0, [_DSo], [() => DomainStatus]];
 export var DeleteInboundConnectionRequest: StaticStructureSchema = [3, n0, _DICR, 0, [_CI], [[0, 1]]];
 export var DeleteInboundConnectionResponse: StaticStructureSchema = [3, n0, _DICRe, 0, [_C], [() => InboundConnection]];
+export var DeleteIndexRequest: StaticStructureSchema = [
+  3,
+  n0,
+  _DIR,
+  0,
+  [_DN, _IN],
+  [
+    [0, 1],
+    [0, 1],
+  ],
+];
+export var DeleteIndexResponse: StaticStructureSchema = [3, n0, _DIRe, 0, [_S], [0]];
 export var DeleteOutboundConnectionRequest: StaticStructureSchema = [3, n0, _DOCR, 0, [_CI], [[0, 1]]];
 export var DeleteOutboundConnectionResponse: StaticStructureSchema = [
   3,
@@ -1824,6 +1854,18 @@ export var GetDomainMaintenanceStatusResponse: StaticStructureSchema = [
   [_S, _SM, _NI, _Ac, _CAr, _UA],
   [0, 0, 0, 0, 4, 4],
 ];
+export var GetIndexRequest: StaticStructureSchema = [
+  3,
+  n0,
+  _GIR,
+  0,
+  [_DN, _IN],
+  [
+    [0, 1],
+    [0, 1],
+  ],
+];
+export var GetIndexResponse: StaticStructureSchema = [3, n0, _GIRe, 0, [_IS], [15]];
 export var GetPackageVersionHistoryRequest: StaticStructureSchema = [
   3,
   n0,
@@ -2651,6 +2693,19 @@ export var StorageType: StaticStructureSchema = [
 ];
 export var StorageTypeLimit: StaticStructureSchema = [3, n0, _STLt, 0, [_LN, _LV], [0, 64 | 0]];
 export var Tag: StaticStructureSchema = [3, n0, _Ta, 0, [_K, _V], [0, 0]];
+export var ThrottlingException: StaticErrorSchema = [
+  -3,
+  n0,
+  _TE,
+  {
+    [_e]: _c,
+    [_hE]: 429,
+  },
+  [_m],
+  [0],
+];
+TypeRegistry.for(n0).registerError(ThrottlingException, __ThrottlingException);
+
 export var UpdateApplicationRequest: StaticStructureSchema = [
   3,
   n0,
@@ -2745,6 +2800,8 @@ export var UpdateDomainConfigResponse: StaticStructureSchema = [
   [_DC, _DRR, _DRPS],
   [() => DomainConfig, () => DryRunResults, () => DryRunProgressStatus],
 ];
+export var UpdateIndexRequest: StaticStructureSchema = [3, n0, _UIR, 0, [_DN, _IN, _IS], [[0, 1], [0, 1], 15]];
+export var UpdateIndexResponse: StaticStructureSchema = [3, n0, _UIRp, 0, [_S], [0]];
 export var UpdatePackageRequest: StaticStructureSchema = [
   3,
   n0,
@@ -3055,6 +3112,16 @@ export var CreateDomain: StaticOperationSchema = [
   () => CreateDomainRequest,
   () => CreateDomainResponse,
 ];
+export var CreateIndex: StaticOperationSchema = [
+  9,
+  n0,
+  _CIr,
+  {
+    [_h]: ["POST", "/2021-01-01/opensearch/domain/{DomainName}/index", 200],
+  },
+  () => CreateIndexRequest,
+  () => CreateIndexResponse,
+];
 export var CreateOutboundConnection: StaticOperationSchema = [
   9,
   n0,
@@ -3134,6 +3201,16 @@ export var DeleteInboundConnection: StaticOperationSchema = [
   },
   () => DeleteInboundConnectionRequest,
   () => DeleteInboundConnectionResponse,
+];
+export var DeleteIndex: StaticOperationSchema = [
+  9,
+  n0,
+  _DIe,
+  {
+    [_h]: ["DELETE", "/2021-01-01/opensearch/domain/{DomainName}/index/{IndexName}", 200],
+  },
+  () => DeleteIndexRequest,
+  () => DeleteIndexResponse,
 ];
 export var DeleteOutboundConnection: StaticOperationSchema = [
   9,
@@ -3394,6 +3471,16 @@ export var GetDomainMaintenanceStatus: StaticOperationSchema = [
   },
   () => GetDomainMaintenanceStatusRequest,
   () => GetDomainMaintenanceStatusResponse,
+];
+export var GetIndex: StaticOperationSchema = [
+  9,
+  n0,
+  _GI,
+  {
+    [_h]: ["GET", "/2021-01-01/opensearch/domain/{DomainName}/index/{IndexName}", 200],
+  },
+  () => GetIndexRequest,
+  () => GetIndexResponse,
 ];
 export var GetPackageVersionHistory: StaticOperationSchema = [
   9,
@@ -3674,6 +3761,16 @@ export var UpdateDomainConfig: StaticOperationSchema = [
   },
   () => UpdateDomainConfigRequest,
   () => UpdateDomainConfigResponse,
+];
+export var UpdateIndex: StaticOperationSchema = [
+  9,
+  n0,
+  _UIp,
+  {
+    [_h]: ["PUT", "/2021-01-01/opensearch/domain/{DomainName}/index/{IndexName}", 200],
+  },
+  () => UpdateIndexRequest,
+  () => UpdateIndexResponse,
 ];
 export var UpdatePackage: StaticOperationSchema = [
   9,
