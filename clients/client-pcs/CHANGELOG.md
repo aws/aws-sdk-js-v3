@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.933.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.932.0...v3.933.0) (2025-11-17)
+
+
+### Features
+
+* **client-pcs:** Added support for the managed Slurm REST API endpoint ([2557db0](https://github.com/aws/aws-sdk-js-v3/commit/2557db0f2e5a797788bf805bf23103cd9301d702))
+
+
+
+
+
 # [3.932.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.931.0...v3.932.0) (2025-11-14)
 
 **Note:** Version bump only for package @aws-sdk/client-pcs

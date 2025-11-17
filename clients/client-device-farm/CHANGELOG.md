@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.933.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.932.0...v3.933.0) (2025-11-17)
+
+
+### Features
+
+* **client-device-farm:** This release adds support for interacting with devices during a remote access session using the remoteDriverEndpoint interface ([574b189](https://github.com/aws/aws-sdk-js-v3/commit/574b18970931dd340e22d184e8292d2ef1d40244))
+
+
+
+
+
 # [3.932.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.931.0...v3.932.0) (2025-11-14)
 
 **Note:** Version bump only for package @aws-sdk/client-device-farm

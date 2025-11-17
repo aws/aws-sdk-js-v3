@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.933.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.932.0...v3.933.0) (2025-11-17)
+
+
+### Features
+
+* **client-medialive:** Adds configurations for spatial/temporal adaptive quantization in AV1 codec, and conversion to HLG output color space in H265 codec. ([d994f74](https://github.com/aws/aws-sdk-js-v3/commit/d994f74e2a042dac2b828d8acf2c229e14f6b5c6))
+
+
+
+
+
 # [3.932.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.931.0...v3.932.0) (2025-11-14)
 
 **Note:** Version bump only for package @aws-sdk/client-medialive
