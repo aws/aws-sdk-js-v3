@@ -4,6 +4,7 @@ export * from "./GetComplianceSummaryCommand";
 export * from "./GetResourcesCommand";
 export * from "./GetTagKeysCommand";
 export * from "./GetTagValuesCommand";
+export * from "./ListRequiredTagsCommand";
 export * from "./StartReportCreationCommand";
 export * from "./TagResourcesCommand";
 export * from "./UntagResourcesCommand";

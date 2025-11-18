@@ -23,16 +23,19 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `ResourceGroupsTaggingAPIClient` and
-the commands you need, for example `GetTagKeysCommand`:
+the commands you need, for example `ListRequiredTagsCommand`:
 
 ```js
 // ES5 example
-const { ResourceGroupsTaggingAPIClient, GetTagKeysCommand } = require("@aws-sdk/client-resource-groups-tagging-api");
+const {
+  ResourceGroupsTaggingAPIClient,
+  ListRequiredTagsCommand,
+} = require("@aws-sdk/client-resource-groups-tagging-api");
 ```
 
 ```ts
 // ES6+ example
-import { ResourceGroupsTaggingAPIClient, GetTagKeysCommand } from "@aws-sdk/client-resource-groups-tagging-api";
+import { ResourceGroupsTaggingAPIClient, ListRequiredTagsCommand } from "@aws-sdk/client-resource-groups-tagging-api";
 ```
 
 ### Usage
@@ -51,7 +54,7 @@ const client = new ResourceGroupsTaggingAPIClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new GetTagKeysCommand(params);
+const command = new ListRequiredTagsCommand(params);
 ```
 
 #### Async/await
@@ -130,7 +133,7 @@ const client = new AWS.ResourceGroupsTaggingAPI({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.getTagKeys(params);
+  const data = await client.listRequiredTags(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -138,7 +141,7 @@ try {
 
 // Promises.
 client
-  .getTagKeys(params)
+  .listRequiredTags(params)
   .then((data) => {
     // process data.
   })
@@ -147,7 +150,7 @@ client
   });
 
 // callbacks.
-client.getTagKeys(params, (err, data) => {
+client.listRequiredTags(params, (err, data) => {
   // process err and data.
 });
 ```
@@ -241,6 +244,14 @@ GetTagValues
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/resource-groups-tagging-api/command/GetTagValuesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resource-groups-tagging-api/Interface/GetTagValuesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resource-groups-tagging-api/Interface/GetTagValuesCommandOutput/)
+
+</details>
+<details>
+<summary>
+ListRequiredTags
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/resource-groups-tagging-api/command/ListRequiredTagsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resource-groups-tagging-api/Interface/ListRequiredTagsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resource-groups-tagging-api/Interface/ListRequiredTagsCommandOutput/)
 
 </details>
 <details>

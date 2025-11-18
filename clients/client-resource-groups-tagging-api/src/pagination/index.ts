@@ -7,3 +7,4 @@ export * from "./GetTagKeysPaginator";
 export * from "./GetTagValuesPaginator";
 // smithy-typescript generated code
 export * from "./Interfaces";
+export * from "./ListRequiredTagsPaginator";

@@ -24,6 +24,11 @@ import {
   GetTagValuesCommandOutput,
 } from "./commands/GetTagValuesCommand";
 import {
+  ListRequiredTagsCommand,
+  ListRequiredTagsCommandInput,
+  ListRequiredTagsCommandOutput,
+} from "./commands/ListRequiredTagsCommand";
+import {
   StartReportCreationCommand,
   StartReportCreationCommandInput,
   StartReportCreationCommandOutput,
@@ -46,6 +51,7 @@ const commands = {
   GetResourcesCommand,
   GetTagKeysCommand,
   GetTagValuesCommand,
+  ListRequiredTagsCommand,
   StartReportCreationCommand,
   TagResourcesCommand,
   UntagResourcesCommand,
@@ -121,6 +127,24 @@ export interface ResourceGroupsTaggingAPI {
     args: GetTagValuesCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetTagValuesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListRequiredTagsCommand}
+   */
+  listRequiredTags(): Promise<ListRequiredTagsCommandOutput>;
+  listRequiredTags(
+    args: ListRequiredTagsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListRequiredTagsCommandOutput>;
+  listRequiredTags(
+    args: ListRequiredTagsCommandInput,
+    cb: (err: any, data?: ListRequiredTagsCommandOutput) => void
+  ): void;
+  listRequiredTags(
+    args: ListRequiredTagsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListRequiredTagsCommandOutput) => void
   ): void;
 
   /**

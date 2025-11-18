@@ -4,13 +4,13 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { GetTagValuesInput, GetTagValuesOutput } from "../models/models_0";
+import { ListRequiredTagsInput, ListRequiredTagsOutput } from "../models/models_0";
 import {
   ResourceGroupsTaggingAPIClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ResourceGroupsTaggingAPIClient";
-import { GetTagValues } from "../schemas/schemas_0";
+import { ListRequiredTags } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -20,52 +20,53 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link GetTagValuesCommand}.
+ * The input for {@link ListRequiredTagsCommand}.
  */
-export interface GetTagValuesCommandInput extends GetTagValuesInput {}
+export interface ListRequiredTagsCommandInput extends ListRequiredTagsInput {}
 /**
  * @public
  *
- * The output of {@link GetTagValuesCommand}.
+ * The output of {@link ListRequiredTagsCommand}.
  */
-export interface GetTagValuesCommandOutput extends GetTagValuesOutput, __MetadataBearer {}
+export interface ListRequiredTagsCommandOutput extends ListRequiredTagsOutput, __MetadataBearer {}
 
 /**
- * <p>Returns all tag values for the specified key that are used in the specified Amazon Web Services
- *             Region for the calling account.</p>
- *          <p>This operation supports pagination, where the response can be sent in
- *     multiple pages. You should check the <code>PaginationToken</code> response parameter to determine
- *     if there are additional results available to return. Repeat the query, passing the
- *     <code>PaginationToken</code> response parameter value as an input to the next request until you
- *     recieve a <code>null</code> value. A null value for <code>PaginationToken</code> indicates that
- *     there are no more results waiting to be returned.</p>
+ * <p>Lists the required tags for supported resource types in an Amazon Web Services account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ResourceGroupsTaggingAPIClient, GetTagValuesCommand } from "@aws-sdk/client-resource-groups-tagging-api"; // ES Modules import
- * // const { ResourceGroupsTaggingAPIClient, GetTagValuesCommand } = require("@aws-sdk/client-resource-groups-tagging-api"); // CommonJS import
+ * import { ResourceGroupsTaggingAPIClient, ListRequiredTagsCommand } from "@aws-sdk/client-resource-groups-tagging-api"; // ES Modules import
+ * // const { ResourceGroupsTaggingAPIClient, ListRequiredTagsCommand } = require("@aws-sdk/client-resource-groups-tagging-api"); // CommonJS import
  * // import type { ResourceGroupsTaggingAPIClientConfig } from "@aws-sdk/client-resource-groups-tagging-api";
  * const config = {}; // type is ResourceGroupsTaggingAPIClientConfig
  * const client = new ResourceGroupsTaggingAPIClient(config);
- * const input = { // GetTagValuesInput
- *   PaginationToken: "STRING_VALUE",
- *   Key: "STRING_VALUE", // required
+ * const input = { // ListRequiredTagsInput
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
  * };
- * const command = new GetTagValuesCommand(input);
+ * const command = new ListRequiredTagsCommand(input);
  * const response = await client.send(command);
- * // { // GetTagValuesOutput
- * //   PaginationToken: "STRING_VALUE",
- * //   TagValues: [ // TagValuesOutputList
- * //     "STRING_VALUE",
+ * // { // ListRequiredTagsOutput
+ * //   RequiredTags: [ // RequiredTagsForListRequiredTags
+ * //     { // RequiredTag
+ * //       ResourceType: "STRING_VALUE",
+ * //       CloudFormationResourceTypes: [ // CloudFormationResourceTypes
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       ReportingTagKeys: [ // ReportingTagKeys
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
  * //   ],
+ * //   NextToken: "STRING_VALUE",
  * // };
  *
  * ```
  *
- * @param GetTagValuesCommandInput - {@link GetTagValuesCommandInput}
- * @returns {@link GetTagValuesCommandOutput}
- * @see {@link GetTagValuesCommandInput} for command's `input` shape.
- * @see {@link GetTagValuesCommandOutput} for command's `response` shape.
+ * @param ListRequiredTagsCommandInput - {@link ListRequiredTagsCommandInput}
+ * @returns {@link ListRequiredTagsCommandOutput}
+ * @see {@link ListRequiredTagsCommandInput} for command's `input` shape.
+ * @see {@link ListRequiredTagsCommandOutput} for command's `response` shape.
  * @see {@link ResourceGroupsTaggingAPIClientResolvedConfig | config} for ResourceGroupsTaggingAPIClient's `config` shape.
  *
  * @throws {@link InternalServiceException} (server fault)
@@ -112,10 +113,10 @@ export interface GetTagValuesCommandOutput extends GetTagValuesOutput, __Metadat
  *
  * @public
  */
-export class GetTagValuesCommand extends $Command
+export class ListRequiredTagsCommand extends $Command
   .classBuilder<
-    GetTagValuesCommandInput,
-    GetTagValuesCommandOutput,
+    ListRequiredTagsCommandInput,
+    ListRequiredTagsCommandOutput,
     ResourceGroupsTaggingAPIClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -124,19 +125,19 @@ export class GetTagValuesCommand extends $Command
   .m(function (this: any, Command: any, cs: any, config: ResourceGroupsTaggingAPIClientResolvedConfig, o: any) {
     return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
-  .s("ResourceGroupsTaggingAPI_20170126", "GetTagValues", {})
-  .n("ResourceGroupsTaggingAPIClient", "GetTagValuesCommand")
-  .sc(GetTagValues)
+  .s("ResourceGroupsTaggingAPI_20170126", "ListRequiredTags", {})
+  .n("ResourceGroupsTaggingAPIClient", "ListRequiredTagsCommand")
+  .sc(ListRequiredTags)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: GetTagValuesInput;
-      output: GetTagValuesOutput;
+      input: ListRequiredTagsInput;
+      output: ListRequiredTagsOutput;
     };
     sdk: {
-      input: GetTagValuesCommandInput;
-      output: GetTagValuesCommandOutput;
+      input: ListRequiredTagsCommandInput;
+      output: ListRequiredTagsCommandOutput;
     };
   };
 }

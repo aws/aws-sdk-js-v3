@@ -30,8 +30,8 @@ export interface ComplianceDetails {
 }
 
 /**
- * <p>The target of the operation is currently being modified by a different request. Try
- *             again later.</p>
+ * <p>The request failed because the target of the operation is currently being modified by
+ *             a different request. Try again later.</p>
  * @public
  */
 export class ConcurrentModificationException extends __BaseException {
@@ -53,15 +53,13 @@ export class ConcurrentModificationException extends __BaseException {
 }
 
 /**
- * <p>The request was denied because performing this operation violates a constraint. </p>
+ * <p>The request failed because performing the operation would violate a constraint.</p>
  *          <p>Some of the reasons in the following list might not apply to this specific
  *             operation.</p>
  *          <ul>
  *             <li>
  *                <p>You must meet the prerequisites for using tag policies. For information, see
- *                         <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_tag-policies-prereqs.html">Prerequisites and Permissions for Using Tag Policies</a> in the
- *                         <i>Organizations User Guide.</i>
- *                </p>
+ *                         <a href="https://docs.aws.amazon.com/tag-editor/latest/userguide/tag-policies-orgs.html#tag-policies-prereqs">Prerequisites and permissions</a> in the <i>Tagging Amazon Web Services resources and Tag Editor</i> user guide. </p>
  *             </li>
  *             <li>
  *                <p>You must enable the tag policies service principal
@@ -173,25 +171,28 @@ export class InternalServiceException extends __BaseException {
 }
 
 /**
- * <p>This error indicates one of the following:</p>
+ * <p>The request failed because of one of the following reasons:</p>
  *          <ul>
  *             <li>
- *                <p>A parameter is missing.</p>
+ *                <p>A required parameter is missing.</p>
  *             </li>
  *             <li>
- *                <p>A malformed string was supplied for the request parameter.</p>
+ *                <p>A provided string parameter is malformed.</p>
  *             </li>
  *             <li>
- *                <p>An out-of-range value was supplied for the request parameter.</p>
+ *                <p>An provided parameter value is out of range.</p>
  *             </li>
  *             <li>
  *                <p>The target ID is invalid, unsupported, or doesn't exist.</p>
  *             </li>
  *             <li>
  *                <p>You can't access the Amazon S3 bucket for report storage. For more information, see
- *                         <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_tag-policies-prereqs.html#bucket-policies-org-report">Additional Requirements for Organization-wide Tag Compliance
- *                         Reports</a> in the <i>Organizations User Guide.</i>
- *                </p>
+ *                         <a href="https://docs.aws.amazon.com/tag-editor/latest/userguide/tag-policies-orgs.html#bucket-policy">Amazon S3 bucket policy for report storage</a> in the <i>Tagging Amazon Web Services resources and Tag Editor</i> user guide. </p>
+ *             </li>
+ *             <li>
+ *                <p>The partition specified in an ARN parameter in the request doesn't match the
+ *                     partition where you invoked the operation. The partition is specified by the
+ *                     second field of the ARN.</p>
  *             </li>
  *          </ul>
  * @public
@@ -215,7 +216,8 @@ export class InvalidParameterException extends __BaseException {
 }
 
 /**
- * <p>The request was denied to limit the frequency of submitted requests.</p>
+ * <p>The request failed because it exceeded the allowed frequency of submitted
+ *             requests.</p>
  * @public
  */
 export class ThrottledException extends __BaseException {
@@ -367,6 +369,14 @@ export interface GetComplianceSummaryInput {
    *                         (ARNs) and Amazon Web Services Service Namespaces</a>.</p>
    *             </li>
    *          </ul>
+   *          <note>
+   *             <p>For the list of services whose resources you can tag using the Resource Groups Tagging API, see
+   *                     <a href="https://docs.aws.amazon.com/resourcegroupstagging/latest/APIReference/supported-services.html">Services that support the Resource Groups Tagging API</a>. If an Amazon Web Services
+   *                 service isn't listed on that page, you might still be able to tag that service's
+   *                 resources by using that service's native tagging operations instead of using
+   *                 Resource Groups Tagging API operations. All tagged resources, whether the tagging used the Resource Groups Tagging API
+   *                 or not, are returned by the <code>Get*</code> operation.</p>
+   *          </note>
    *          <p>You can specify multiple resource types by using a comma separated array. The array
    *             can include up to 100 items. Note that the length constraint requirement applies to each
    *             resource type filter. </p>
@@ -522,13 +532,17 @@ export interface GetResourcesInput {
    *             resources that have tags with the specified keys and, if included, the specified values.
    *             Each <code>TagFilter</code> must contain a key with values optional. A request can
    *             include up to 50 keys, and each key can include up to 20 values. </p>
+   *          <p>You can't specify both this parameter and the <code>ResourceArnList</code> parameter
+   *             in the same request. If you do, you get an <code>Invalid Parameter</code>
+   *             exception.</p>
    *          <p>Note the following when deciding how to use TagFilters:</p>
    *          <ul>
    *             <li>
    *                <p>If you <i>don't</i> specify a <code>TagFilter</code>, the
    *                     response includes all resources that are currently tagged or ever had a tag.
-   *                     Resources that currently don't have tags are shown with an empty tag set, like
-   *                     this: <code>"Tags": []</code>.</p>
+   *                     Resources that were previously tagged, <i>but do not currently</i>
+   *                     have tags, are shown with an empty tag set, like this: <code>"Tags":
+   *                     []</code>.</p>
    *             </li>
    *             <li>
    *                <p>If you specify more than one filter in a single request, the response returns
@@ -542,9 +556,9 @@ export interface GetResourcesInput {
    *             <li>
    *                <p>If you don't specify a value for a key, the response returns all resources
    *                     that are tagged with that key, with any or no value.</p>
-   *                <p>For example, for the following filters: <code>filter1= \{keyA,\{value1\}\}</code>,
-   *                         <code>filter2=\{keyB,\{value2,value3,value4\}\}</code>, <code>filter3=
-   *                         \{keyC\}</code>:</p>
+   *                <p>For example, for the following filters: <code>filter1= \{key1,\{value1\}\}</code>,
+   *                         <code>filter2=\{key2,\{value2,value3,value4\}\}</code>, <code>filter3=
+   *                         \{key3\}</code>:</p>
    *                <ul>
    *                   <li>
    *                      <p>
@@ -611,12 +625,21 @@ export interface GetResourcesInput {
   /**
    * <p>Specifies the resource types that you want included in the response. The format of
    *             each resource type is <code>service[:resourceType]</code>. For example, specifying a
-   *             resource type of <code>ec2</code> returns all Amazon EC2 resources (which includes EC2
-   *             instances). Specifying a resource type of <code>ec2:instance</code> returns only EC2
-   *             instances. </p>
+   *             service of <code>ec2</code> returns all Amazon EC2 resources (which includes EC2 instances).
+   *             Specifying a resource type of <code>ec2:instance</code> returns only EC2 instances. </p>
+   *          <p>You can't specify both this parameter and the <code>ResourceArnList</code> parameter
+   *             in the same request. If you do, you get an <code>Invalid Parameter</code>
+   *             exception.</p>
    *          <p>The string for each service name and resource type is the same as that embedded in a
-   *             resource's Amazon Resource Name (ARN). For the list of services whose resources you can
-   *             use in this parameter, see <a href="https://docs.aws.amazon.com/resourcegroupstagging/latest/APIReference/supported-services.html">Services that support the Resource Groups Tagging API</a>.</p>
+   *             resource's Amazon Resource Name (ARN).</p>
+   *          <note>
+   *             <p>For the list of services whose resources you can tag using the Resource Groups Tagging API, see
+   *                     <a href="https://docs.aws.amazon.com/resourcegroupstagging/latest/APIReference/supported-services.html">Services that support the Resource Groups Tagging API</a>. If an Amazon Web Services
+   *                 service isn't listed on that page, you might still be able to tag that service's
+   *                 resources by using that service's native tagging operations instead of using
+   *                 Resource Groups Tagging API operations. All tagged resources, whether the tagging used the Resource Groups Tagging API
+   *                 or not, are returned by the <code>Get*</code> operation.</p>
+   *          </note>
    *          <p>You can specify multiple resource types by using an array. The array can include up to
    *             100 items. Note that the length constraint requirement applies to each resource type
    *             filter. For example, the following string would limit the response to only Amazon EC2
@@ -647,10 +670,15 @@ export interface GetResourcesInput {
   ExcludeCompliantResources?: boolean | undefined;
 
   /**
-   * <p>Specifies a list of ARNs of resources for which you want to retrieve tag data. You
-   *             can't specify both this parameter and any of the pagination parameters
+   * <p>Specifies a list of ARNs of resources for which you want to retrieve tag data.</p>
+   *          <p>You can't specify both this parameter and the <code>ResourceTypeFilters</code>
+   *             parameter in the same request. If you do, you get an <code>Invalid Parameter</code>
+   *             exception.</p>
+   *          <p>You can't specify both this parameter and the <code>TagFilters</code> parameter in the
+   *             same request. If you do, you get an <code>Invalid Parameter</code> exception.</p>
+   *          <p>You can't specify both this parameter and any of the pagination parameters
    *                 (<code>ResourcesPerPage</code>, <code>TagsPerPage</code>,
-   *                 <code>PaginationToken</code>) in the same request. If you specify both, you get an
+   *                 <code>PaginationToken</code>) in the same request. If you do, you get an
    *                 <code>Invalid Parameter</code> exception.</p>
    *          <p>If a resource specified by this parameter doesn't exist, it doesn't generate an error;
    *             it simply isn't included in the response.</p>
@@ -732,8 +760,8 @@ export interface GetResourcesOutput {
 }
 
 /**
- * <p>A <code>PaginationToken</code> is valid for a maximum of 15 minutes. Your request was
- *             denied because the specified <code>PaginationToken</code> has expired.</p>
+ * <p>The request failed because the specified <code>PaginationToken</code> has expired. A
+ *                 <code>PaginationToken</code> is valid for a maximum of 15 minutes.</p>
  * @public
  */
 export class PaginationTokenExpiredException extends __BaseException {
@@ -829,14 +857,78 @@ export interface GetTagValuesOutput {
 /**
  * @public
  */
+export interface ListRequiredTagsInput {
+  /**
+   * <p>A token for requesting another page of required tags if the <code>NextToken</code> response element
+   *             indicates that more required tags are available. Use the value of the returned <code>NextToken</code>
+   *             element in your request until the token comes back as null. Pass null if this is the
+   *             first call.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of required tags.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+}
+
+/**
+ * <p>Information that describes the required tags for a given resource type.</p>
+ * @public
+ */
+export interface RequiredTag {
+  /**
+   * <p>Describes the resource type for the required tag keys.</p>
+   * @public
+   */
+  ResourceType?: string | undefined;
+
+  /**
+   * <p>Describes the CloudFormation resource type assigned the required tag keys.</p>
+   * @public
+   */
+  CloudFormationResourceTypes?: string[] | undefined;
+
+  /**
+   * <p>These tag keys are marked as <code>required</code> in the <code>report_required_tag_for</code> block of the effective tag policy.</p>
+   * @public
+   */
+  ReportingTagKeys?: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListRequiredTagsOutput {
+  /**
+   * <p>The required tags.</p>
+   * @public
+   */
+  RequiredTags?: RequiredTag[] | undefined;
+
+  /**
+   * <p>A token for requesting another page of required tags if the <code>NextToken</code> response element
+   *             indicates that more required tags are available. Use the value of the returned <code>NextToken</code>
+   *             element in your request until the token comes back as null. Pass null if this is the
+   *             first call.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface StartReportCreationInput {
   /**
    * <p>The name of the Amazon S3 bucket where the report will be stored; for example:</p>
    *          <p>
-   *             <code>awsexamplebucket</code>
+   *             <code>amzn-s3-demo-bucket</code>
    *          </p>
    *          <p>For more information on S3 bucket requirements, including an example bucket policy,
-   *             see the example S3 bucket policy on this page.</p>
+   *             see the example Amazon S3 bucket policy on this page.</p>
    * @public
    */
   S3Bucket: string | undefined;

@@ -1,4 +1,5 @@
 const _CD = "ComplianceDetails";
+const _CFRT = "CloudFormationResourceTypes";
 const _CME = "ConcurrentModificationException";
 const _CS = "ComplianceStatus";
 const _CVE = "ConstraintViolationException";
@@ -28,11 +29,15 @@ const _IPE = "InvalidParameterException";
 const _ISE = "InternalServiceException";
 const _K = "Key";
 const _KWNV = "KeysWithNoncompliantValues";
+const _LRT = "ListRequiredTags";
+const _LRTI = "ListRequiredTagsInput";
+const _LRTO = "ListRequiredTagsOutput";
 const _LU = "LastUpdated";
 const _M = "Message";
 const _MR = "MaxResults";
 const _NCR = "NonCompliantResources";
 const _NK = "NoncompliantKeys";
+const _NT = "NextToken";
 const _PT = "PaginationToken";
 const _PTEE = "PaginationTokenExpiredException";
 const _R = "Region";
@@ -40,10 +45,14 @@ const _RARN = "ResourceARN";
 const _RARNL = "ResourceARNList";
 const _RF = "RegionFilters";
 const _RPP = "ResourcesPerPage";
-const _RT = "ResourceType";
+const _RT = "RequiredTags";
 const _RTF = "ResourceTypeFilters";
+const _RTFLRT = "RequiredTagsForListRequiredTags";
+const _RTK = "ReportingTagKeys";
 const _RTM = "ResourceTagMapping";
 const _RTML = "ResourceTagMappingList";
+const _RTe = "RequiredTag";
+const _RTes = "ResourceType";
 const _S = "Status";
 const _SB = "S3Bucket";
 const _SC = "StatusCode";
@@ -78,6 +87,7 @@ const _V = "Value";
 const _Va = "Values";
 const _c = "client";
 const _e = "error";
+const _h = "http";
 const _s = "server";
 const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.resourcegroupstaggingapi";
 const n0 = "com.amazonaws.resourcegroupstaggingapi";
@@ -185,6 +195,15 @@ export var InvalidParameterException: StaticErrorSchema = [
 ];
 TypeRegistry.for(n0).registerError(InvalidParameterException, __InvalidParameterException);
 
+export var ListRequiredTagsInput: StaticStructureSchema = [3, n0, _LRTI, 0, [_NT, _MR], [0, 1]];
+export var ListRequiredTagsOutput: StaticStructureSchema = [
+  3,
+  n0,
+  _LRTO,
+  0,
+  [_RT, _NT],
+  [() => RequiredTagsForListRequiredTags, 0],
+];
 export var PaginationTokenExpiredException: StaticErrorSchema = [
   -3,
   n0,
@@ -197,6 +216,7 @@ export var PaginationTokenExpiredException: StaticErrorSchema = [
 ];
 TypeRegistry.for(n0).registerError(PaginationTokenExpiredException, __PaginationTokenExpiredException);
 
+export var RequiredTag: StaticStructureSchema = [3, n0, _RTe, 0, [_RTes, _CFRT, _RTK], [0, 64 | 0, 64 | 0]];
 export var ResourceTagMapping: StaticStructureSchema = [
   3,
   n0,
@@ -207,7 +227,7 @@ export var ResourceTagMapping: StaticStructureSchema = [
 ];
 export var StartReportCreationInput: StaticStructureSchema = [3, n0, _SRCI, 0, [_SB], [0]];
 export var StartReportCreationOutput: StaticStructureSchema = [3, n0, _SRCO, 0, [], []];
-export var Summary: StaticStructureSchema = [3, n0, _Su, 0, [_LU, _TI, _TIT, _R, _RT, _NCR], [0, 0, 0, 0, 0, 1]];
+export var Summary: StaticStructureSchema = [3, n0, _Su, 0, [_LU, _TI, _TIT, _R, _RTes, _NCR], [0, 0, 0, 0, 0, 1]];
 export var Tag: StaticStructureSchema = [3, n0, _Ta, 0, [_K, _V], [0, 0]];
 export var TagFilter: StaticStructureSchema = [3, n0, _TFa, 0, [_K, _Va], [0, 64 | 0]];
 export var TagResourcesInput: StaticStructureSchema = [3, n0, _TRI, 0, [_RARNL, _T], [64 | 0, 128 | 0]];
@@ -241,10 +261,15 @@ TypeRegistry.for(_sm).registerError(
   __ResourceGroupsTaggingAPIServiceException
 );
 
+export var CloudFormationResourceTypes = 64 | 0;
+
 export var GroupBy = 64 | 0;
 
 export var RegionFilterList = 64 | 0;
 
+export var ReportingTagKeys = 64 | 0;
+
+export var RequiredTagsForListRequiredTags: StaticListSchema = [1, n0, _RTFLRT, 0, () => RequiredTag];
 export var ResourceARNListForGet = 64 | 0;
 
 export var ResourceARNListForTagUntag = 64 | 0;
@@ -274,7 +299,9 @@ export var DescribeReportCreation: StaticOperationSchema = [
   9,
   n0,
   _DRC,
-  0,
+  {
+    [_h]: ["POST", "/DescribeReportCreation", 200],
+  },
   () => DescribeReportCreationInput,
   () => DescribeReportCreationOutput,
 ];
@@ -282,27 +309,79 @@ export var GetComplianceSummary: StaticOperationSchema = [
   9,
   n0,
   _GCS,
-  0,
+  {
+    [_h]: ["POST", "/GetComplianceSummary", 200],
+  },
   () => GetComplianceSummaryInput,
   () => GetComplianceSummaryOutput,
 ];
-export var GetResources: StaticOperationSchema = [9, n0, _GR, 0, () => GetResourcesInput, () => GetResourcesOutput];
-export var GetTagKeys: StaticOperationSchema = [9, n0, _GTK, 0, () => GetTagKeysInput, () => GetTagKeysOutput];
-export var GetTagValues: StaticOperationSchema = [9, n0, _GTV, 0, () => GetTagValuesInput, () => GetTagValuesOutput];
+export var GetResources: StaticOperationSchema = [
+  9,
+  n0,
+  _GR,
+  {
+    [_h]: ["POST", "/GetResources", 200],
+  },
+  () => GetResourcesInput,
+  () => GetResourcesOutput,
+];
+export var GetTagKeys: StaticOperationSchema = [
+  9,
+  n0,
+  _GTK,
+  {
+    [_h]: ["POST", "/GetTagKeys", 200],
+  },
+  () => GetTagKeysInput,
+  () => GetTagKeysOutput,
+];
+export var GetTagValues: StaticOperationSchema = [
+  9,
+  n0,
+  _GTV,
+  {
+    [_h]: ["POST", "/GetTagValues", 200],
+  },
+  () => GetTagValuesInput,
+  () => GetTagValuesOutput,
+];
+export var ListRequiredTags: StaticOperationSchema = [
+  9,
+  n0,
+  _LRT,
+  {
+    [_h]: ["POST", "/ListRequiredTags", 200],
+  },
+  () => ListRequiredTagsInput,
+  () => ListRequiredTagsOutput,
+];
 export var StartReportCreation: StaticOperationSchema = [
   9,
   n0,
   _SRC,
-  0,
+  {
+    [_h]: ["POST", "/StartReportCreation", 200],
+  },
   () => StartReportCreationInput,
   () => StartReportCreationOutput,
 ];
-export var TagResources: StaticOperationSchema = [9, n0, _TR, 0, () => TagResourcesInput, () => TagResourcesOutput];
+export var TagResources: StaticOperationSchema = [
+  9,
+  n0,
+  _TR,
+  {
+    [_h]: ["POST", "/TagResources", 200],
+  },
+  () => TagResourcesInput,
+  () => TagResourcesOutput,
+];
 export var UntagResources: StaticOperationSchema = [
   9,
   n0,
   _UR,
-  0,
+  {
+    [_h]: ["POST", "/UntagResources", 200],
+  },
   () => UntagResourcesInput,
   () => UntagResourcesOutput,
 ];

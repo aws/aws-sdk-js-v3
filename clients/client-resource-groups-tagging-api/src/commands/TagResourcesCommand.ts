@@ -55,6 +55,17 @@ export interface TagResourcesCommandOutput extends TagResourcesOutput, __Metadat
  *                     that the resource belongs to as well as permissions for adding tags. For more
  *                     information, see the documentation for each service.</p>
  *             </li>
+ *             <li>
+ *                <p>When you use the <a href="https://docs.aws.amazon.com/resourcegroupstagging/latest/APIReference/overview.html">Amazon Web Services Resource
+ *                         Groups Tagging API</a> to update tags for Amazon Web Services CloudFormation stack
+ *                     sets, Amazon Web Services calls the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_UpdateStack.html">Amazon Web Services
+ *                         CloudFormation <code>UpdateStack</code>
+ *                   </a> operation. This operation
+ *                     may initiate additional resource property updates in addition to the desired tag
+ *                     updates. To avoid unexpected resource updates, Amazon Web Services recommends that you only
+ *                     apply or update tags to your CloudFormation stack sets using Amazon Web Services
+ *                     CloudFormation. </p>
+ *             </li>
  *          </ul>
  *          <important>
  *             <p>Do not store personally identifiable information (PII) or other confidential or
@@ -72,7 +83,7 @@ export interface TagResourcesCommandOutput extends TagResourcesOutput, __Metadat
  *          <ul>
  *             <li>
  *                <p>
- *                   <code>tag:TagResource</code>
+ *                   <code>tag:TagResources</code>
  *                </p>
  *             </li>
  *             <li>
@@ -81,6 +92,13 @@ export interface TagResourcesCommandOutput extends TagResourcesOutput, __Metadat
  *                </p>
  *             </li>
  *          </ul>
+ *          <note>
+ *             <p>In addition, some services might have specific requirements for tagging some types
+ *                 of resources. For example, to tag an Amazon S3 bucket, you must also have the
+ *                     <code>s3:GetBucketTagging</code> permission. If the expected minimum permissions
+ *                 don't work, check the documentation for that service's tagging APIs for more
+ *                 information.</p>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -122,30 +140,34 @@ export interface TagResourcesCommandOutput extends TagResourcesOutput, __Metadat
  *             can retry the request.</p>
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>This error indicates one of the following:</p>
+ *  <p>The request failed because of one of the following reasons:</p>
  *          <ul>
  *             <li>
- *                <p>A parameter is missing.</p>
+ *                <p>A required parameter is missing.</p>
  *             </li>
  *             <li>
- *                <p>A malformed string was supplied for the request parameter.</p>
+ *                <p>A provided string parameter is malformed.</p>
  *             </li>
  *             <li>
- *                <p>An out-of-range value was supplied for the request parameter.</p>
+ *                <p>An provided parameter value is out of range.</p>
  *             </li>
  *             <li>
  *                <p>The target ID is invalid, unsupported, or doesn't exist.</p>
  *             </li>
  *             <li>
  *                <p>You can't access the Amazon S3 bucket for report storage. For more information, see
- *                         <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_tag-policies-prereqs.html#bucket-policies-org-report">Additional Requirements for Organization-wide Tag Compliance
- *                         Reports</a> in the <i>Organizations User Guide.</i>
- *                </p>
+ *                         <a href="https://docs.aws.amazon.com/tag-editor/latest/userguide/tag-policies-orgs.html#bucket-policy">Amazon S3 bucket policy for report storage</a> in the <i>Tagging Amazon Web Services resources and Tag Editor</i> user guide. </p>
+ *             </li>
+ *             <li>
+ *                <p>The partition specified in an ARN parameter in the request doesn't match the
+ *                     partition where you invoked the operation. The partition is specified by the
+ *                     second field of the ARN.</p>
  *             </li>
  *          </ul>
  *
  * @throws {@link ThrottledException} (client fault)
- *  <p>The request was denied to limit the frequency of submitted requests.</p>
+ *  <p>The request failed because it exceeded the allowed frequency of submitted
+ *             requests.</p>
  *
  * @throws {@link ResourceGroupsTaggingAPIServiceException}
  * <p>Base exception class for all service exceptions from ResourceGroupsTaggingAPI service.</p>

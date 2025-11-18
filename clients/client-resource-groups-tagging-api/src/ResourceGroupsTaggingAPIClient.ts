@@ -68,6 +68,7 @@ import {
 import { GetResourcesCommandInput, GetResourcesCommandOutput } from "./commands/GetResourcesCommand";
 import { GetTagKeysCommandInput, GetTagKeysCommandOutput } from "./commands/GetTagKeysCommand";
 import { GetTagValuesCommandInput, GetTagValuesCommandOutput } from "./commands/GetTagValuesCommand";
+import { ListRequiredTagsCommandInput, ListRequiredTagsCommandOutput } from "./commands/ListRequiredTagsCommand";
 import {
   StartReportCreationCommandInput,
   StartReportCreationCommandOutput,
@@ -94,6 +95,7 @@ export type ServiceInputTypes =
   | GetResourcesCommandInput
   | GetTagKeysCommandInput
   | GetTagValuesCommandInput
+  | ListRequiredTagsCommandInput
   | StartReportCreationCommandInput
   | TagResourcesCommandInput
   | UntagResourcesCommandInput;
@@ -107,6 +109,7 @@ export type ServiceOutputTypes =
   | GetResourcesCommandOutput
   | GetTagKeysCommandOutput
   | GetTagValuesCommandOutput
+  | ListRequiredTagsCommandOutput
   | StartReportCreationCommandOutput
   | TagResourcesCommandOutput
   | UntagResourcesCommandOutput;
