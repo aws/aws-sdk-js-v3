@@ -20,6 +20,8 @@ export * from "./FilterLogEventsPaginator";
 // smithy-typescript generated code
 export * from "./Interfaces";
 export * from "./GetLogEventsPaginator";
+export * from "./GetScheduledQueryHistoryPaginator";
 export * from "./ListAnomaliesPaginator";
 export * from "./ListLogAnomalyDetectorsPaginator";
 export * from "./ListLogGroupsForQueryPaginator";
+export * from "./ListScheduledQueriesPaginator";

@@ -27,6 +27,9 @@ const _CLG = "CreateLogGroup";
 const _CLGR = "CreateLogGroupRequest";
 const _CLS = "CreateLogStream";
 const _CLSR = "CreateLogStreamRequest";
+const _CSQ = "CreateScheduledQuery";
+const _CSQR = "CreateScheduledQueryRequest";
+const _CSQRr = "CreateScheduledQueryResponse";
 const _CSV = "CSV";
 const _CT = "ConfigurationTemplate";
 const _CTDCV = "ConfigurationTemplateDeliveryConfigValues";
@@ -41,6 +44,7 @@ const _DAPR = "DeleteAccountPolicyRequest";
 const _DAPRe = "DescribeAccountPoliciesRequest";
 const _DAPRes = "DescribeAccountPoliciesResponse";
 const _DAPe = "DescribeAccountPolicies";
+const _DC = "DestinationConfiguration";
 const _DCT = "DescribeConfigurationTemplates";
 const _DCTR = "DescribeConfigurationTemplatesRequest";
 const _DCTRe = "DescribeConfigurationTemplatesResponse";
@@ -129,6 +133,9 @@ const _DSFR = "DeleteSubscriptionFilterRequest";
 const _DSFRe = "DescribeSubscriptionFiltersRequest";
 const _DSFRes = "DescribeSubscriptionFiltersResponse";
 const _DSFe = "DescribeSubscriptionFilters";
+const _DSQ = "DeleteScheduledQuery";
+const _DSQR = "DeleteScheduledQueryRequest";
+const _DSQRe = "DeleteScheduledQueryResponse";
 const _DSe = "DeliverySources";
 const _DT = "DeleteTransformer";
 const _DTC = "DateTimeConverter";
@@ -187,6 +194,12 @@ const _GLRRe = "GetLogRecordResponse";
 const _GQR = "GetQueryResults";
 const _GQRR = "GetQueryResultsRequest";
 const _GQRRe = "GetQueryResultsResponse";
+const _GSQ = "GetScheduledQuery";
+const _GSQH = "GetScheduledQueryHistory";
+const _GSQHR = "GetScheduledQueryHistoryRequest";
+const _GSQHRe = "GetScheduledQueryHistoryResponse";
+const _GSQR = "GetScheduledQueryRequest";
+const _GSQRe = "GetScheduledQueryResponse";
 const _GT = "GetTransformer";
 const _GTR = "GetTransformerRequest";
 const _GTRe = "GetTransformerResponse";
@@ -198,7 +211,8 @@ const _IP = "IndexPolicy";
 const _IPE = "InvalidParameterException";
 const _IPn = "IndexPolicies";
 const _IS = "IntegrationSummary";
-const _ISE = "InternalStreamingException";
+const _ISE = "InternalServerException";
+const _ISEn = "InternalStreamingException";
 const _ISTE = "InvalidSequenceTokenException";
 const _ISn = "IntegrationSummaries";
 const _LA = "ListAnomalies";
@@ -226,6 +240,9 @@ const _LLGFQRi = "ListLogGroupsForQueryResponse";
 const _LLGR = "ListLogGroupsRequest";
 const _LLGRi = "ListLogGroupsResponse";
 const _LS = "LogStream";
+const _LSQ = "ListScheduledQueries";
+const _LSQR = "ListScheduledQueriesRequest";
+const _LSQRi = "ListScheduledQueriesResponse";
 const _LSo = "LogSamples";
 const _LSog = "LogStreams";
 const _LTFR = "ListTagsForResource";
@@ -341,6 +358,7 @@ const _RNFE = "ResourceNotFoundException";
 const _RP = "ResourcePolicy";
 const _RPe = "ResourcePolicies";
 const _RR = "ResultRows";
+const _SC = "S3Configuration";
 const _SDC = "S3DeliveryConfiguration";
 const _SF = "SubscriptionFilter";
 const _SFu = "SubscriptionFilters";
@@ -352,11 +370,15 @@ const _SLTRS = "StartLiveTailResponseStream";
 const _SLTRt = "StartLiveTailResponse";
 const _SP = "SuppressionPeriod";
 const _SQ = "StartQuery";
+const _SQD = "ScheduledQueryDestination";
+const _SQDL = "ScheduledQueryDestinationList";
 const _SQEE = "ServiceQuotaExceededException";
 const _SQR = "StartQueryRequest";
 const _SQRt = "StartQueryResponse";
 const _SQRto = "StopQueryRequest";
 const _SQRtop = "StopQueryResponse";
+const _SQS = "ScheduledQuerySummary";
+const _SQSL = "ScheduledQuerySummaryList";
 const _SQt = "StopQuery";
 const _SS = "SplitString";
 const _SSE = "SessionStreamingException";
@@ -371,6 +393,8 @@ const _TC = "TypeConverter";
 const _TCE = "TypeConverterEntry";
 const _TCEy = "TypeConverterEntries";
 const _TE = "ThrottlingException";
+const _THR = "TriggerHistoryRecord";
+const _THRL = "TriggerHistoryRecordList";
 const _TL = "TransformedLogs";
 const _TLG = "TagLogGroup";
 const _TLGR = "TagLogGroupRequest";
@@ -398,6 +422,9 @@ const _ULG = "UntagLogGroup";
 const _ULGR = "UntagLogGroupRequest";
 const _UR = "UntagResource";
 const _URR = "UntagResourceRequest";
+const _USQ = "UpdateScheduledQuery";
+const _USQR = "UpdateScheduledQueryRequest";
+const _USQRp = "UpdateScheduledQueryResponse";
 const _VE = "ValidationException";
 const _a = "active";
 const _aA = "applicationArn";
@@ -442,6 +469,7 @@ const _col = "collection";
 const _cs = "csv";
 const _d = "description";
 const _dA = "destinationArn";
+const _dC = "destinationConfiguration";
 const _dD = "deliveryDestinations";
 const _dDA = "deliveryDestinationArn";
 const _dDC = "deliveryDestinationConfiguration";
@@ -451,6 +479,7 @@ const _dDP = "deliveryDestinationPolicy";
 const _dDT = "deliveryDestinationType";
 const _dDTe = "deliveryDestinationTypes";
 const _dDe = "deliveryDestination";
+const _dI = "destinationIdentifier";
 const _dK = "deleteKeys";
 const _dN = "detectorName";
 const _dNe = "destinationName";
@@ -463,6 +492,7 @@ const _dSNa = "dataSourceName";
 const _dSRA = "dataSourceRoleArn";
 const _dSa = "dataSource";
 const _dSe = "deliverySource";
+const _dT = "destinationType";
 const _dTC = "dateTimeConverter";
 const _dTP = "dynamicTokenPosition";
 const _dV = "defaultValue";
@@ -486,14 +516,18 @@ const _eIv = "eventId";
 const _eK = "encryptionKey";
 const _eLEEI = "expiredLogEventEndIndex";
 const _eM = "eventMessage";
+const _eMr = "errorMessage";
 const _eN = "eventNumber";
 const _eP = "encryptionPolicy";
+const _eRA = "executionRoleArn";
 const _eRI = "expectedRevisionId";
 const _eRS = "estimatedRecordsSkipped";
-const _eS = "eventSource";
+const _eS = "executionStatuses";
 const _eSF = "emitSystemFields";
 const _eSFD = "emitSystemFieldDimensions";
 const _eST = "expectedSequenceToken";
+const _eSv = "eventSource";
+const _eSx = "executionStatus";
 const _eT = "exportTasks";
 const _eTn = "endTime";
 const _eTr = "errorType";
@@ -541,6 +575,7 @@ const _iSn = "integrationSummaries";
 const _iT = "ingestionTime";
 const _iTN = "inferredTokenName";
 const _iTn = "integrationType";
+const _id = "identifier";
 const _in = "interleaved";
 const _k = "key";
 const _kA = "keyAttributes";
@@ -553,6 +588,7 @@ const _lCS = "lowerCaseString";
 const _lE = "logEvents";
 const _lEFP = "logEventFilterPattern";
 const _lEM = "logEventMessages";
+const _lES = "lastExecutionStatus";
 const _lET = "lastEventTime";
 const _lETa = "lastEventTimestamp";
 const _lG = "logGroups";
@@ -560,8 +596,8 @@ const _lGA = "logGroupArn";
 const _lGAL = "logGroupArnList";
 const _lGC = "logGroupClass";
 const _lGF = "logGroupFields";
-const _lGI = "logGroupIdentifier";
-const _lGIo = "logGroupIdentifiers";
+const _lGI = "logGroupIdentifiers";
+const _lGIo = "logGroupIdentifier";
 const _lGN = "logGroupName";
 const _lGNP = "logGroupNamePrefix";
 const _lGNPo = "logGroupNamePattern";
@@ -585,6 +621,7 @@ const _lSo = "logSamples";
 const _lSog = "logStreams";
 const _lT = "logType";
 const _lTM = "listToMap";
+const _lTT = "lastTriggeredTime";
 const _lTo = "logTypes";
 const _lUT = "lastUpdatedTime";
 const _lUTa = "lastUpdateTime";
@@ -620,6 +657,7 @@ const _p = "priority";
 const _pC = "parseCloudfront";
 const _pD = "policyDocument";
 const _pI = "patternId";
+const _pIr = "processedIdentifier";
 const _pJSON = "parseJSON";
 const _pKV = "parseKeyValue";
 const _pN = "policyName";
@@ -672,9 +710,12 @@ const _sB = "storedBytes";
 const _sC = "selectionCriteria";
 const _sCO = "startCharOffset";
 const _sCe = "searchedCompletely";
+const _sCo = "s3Configuration";
 const _sCt = "statusCode";
 const _sD = "suppressedDate";
 const _sDC = "s3DeliveryConfiguration";
+const _sE = "scheduleExpression";
+const _sET = "scheduleEndTime";
 const _sF = "subscriptionFilters";
 const _sFH = "startFromHead";
 const _sI = "sessionId";
@@ -683,12 +724,16 @@ const _sM = "sessionMetadata";
 const _sMt = "statusMessage";
 const _sP = "suffixPath";
 const _sPu = "suppressionPeriod";
+const _sQ = "scheduledQueries";
+const _sQA = "scheduledQueryArn";
 const _sR = "sessionResults";
 const _sS = "suppressionState";
+const _sST = "scheduleStartTime";
 const _sSe = "sessionStart";
 const _sSp = "splitString";
 const _sSu = "substituteString";
 const _sT = "sourceTimezone";
+const _sTO = "startTimeOffset";
 const _sTe = "sequenceToken";
 const _sTt = "startTime";
 const _sTu = "suppressionType";
@@ -712,6 +757,7 @@ const _tC = "transformerConfig";
 const _tCy = "typeConverter";
 const _tEM = "transformedEventMessage";
 const _tF = "targetFormat";
+const _tH = "triggerHistory";
 const _tI = "taskId";
 const _tK = "tagKeys";
 const _tL = "transformedLogs";
@@ -721,9 +767,11 @@ const _tOLEEI = "tooOldLogEventEndIndex";
 const _tS = "tokenString";
 const _tSr = "trimString";
 const _tT = "targetTimezone";
+const _tTr = "triggeredTimestamp";
 const _ta = "tags";
-const _ti = "timestamp";
-const _tim = "time";
+const _ti = "timezone";
+const _tim = "timestamp";
+const _time = "time";
 const _to = "to";
 const _ty = "type";
 const _u = "unmask";
@@ -752,6 +800,7 @@ import {
   AccessDeniedException as __AccessDeniedException,
   ConflictException as __ConflictException,
   DataAlreadyAcceptedException as __DataAlreadyAcceptedException,
+  InternalServerException as __InternalServerException,
   InternalStreamingException as __InternalStreamingException,
   InvalidOperationException as __InvalidOperationException,
   InvalidParameterException as __InvalidParameterException,
@@ -879,6 +928,15 @@ export var CreateLogGroupRequest: StaticStructureSchema = [
   [0, 0, 128 | 0, 0],
 ];
 export var CreateLogStreamRequest: StaticStructureSchema = [3, n0, _CLSR, 0, [_lGN, _lSN], [0, 0]];
+export var CreateScheduledQueryRequest: StaticStructureSchema = [
+  3,
+  n0,
+  _CSQR,
+  0,
+  [_n, _d, _qL, _qS, _lGI, _sE, _ti, _sTO, _dC, _sST, _sET, _eRA, _st, _ta],
+  [0, 0, 0, 0, 64 | 0, 0, 0, 1, () => DestinationConfiguration, 1, 1, 0, 0, 128 | 0],
+];
+export var CreateScheduledQueryResponse: StaticStructureSchema = [3, n0, _CSQRr, 0, [_sQA, _st], [0, 0]];
 export var CSV: StaticStructureSchema = [3, n0, _CSV, 0, [_qC, _del, _co, _so], [0, 0, 64 | 0, 0]];
 export var DataAlreadyAcceptedException: StaticErrorSchema = [
   -3,
@@ -901,13 +959,13 @@ export var DateTimeConverter: StaticStructureSchema = [
   [0, 0, 0, 64 | 0, 0, 0, 0],
 ];
 export var DeleteAccountPolicyRequest: StaticStructureSchema = [3, n0, _DAPR, 0, [_pN, _pT], [0, 0]];
-export var DeleteDataProtectionPolicyRequest: StaticStructureSchema = [3, n0, _DDPPR, 0, [_lGI], [0]];
+export var DeleteDataProtectionPolicyRequest: StaticStructureSchema = [3, n0, _DDPPR, 0, [_lGIo], [0]];
 export var DeleteDeliveryDestinationPolicyRequest: StaticStructureSchema = [3, n0, _DDDPR, 0, [_dDN], [0]];
 export var DeleteDeliveryDestinationRequest: StaticStructureSchema = [3, n0, _DDDR, 0, [_n], [0]];
 export var DeleteDeliveryRequest: StaticStructureSchema = [3, n0, _DDR, 0, [_i], [0]];
 export var DeleteDeliverySourceRequest: StaticStructureSchema = [3, n0, _DDSR, 0, [_n], [0]];
 export var DeleteDestinationRequest: StaticStructureSchema = [3, n0, _DDRe, 0, [_dNe], [0]];
-export var DeleteIndexPolicyRequest: StaticStructureSchema = [3, n0, _DIPR, 0, [_lGI], [0]];
+export var DeleteIndexPolicyRequest: StaticStructureSchema = [3, n0, _DIPR, 0, [_lGIo], [0]];
 export var DeleteIndexPolicyResponse: StaticStructureSchema = [3, n0, _DIPRe, 0, [], []];
 export var DeleteIntegrationRequest: StaticStructureSchema = [3, n0, _DIR, 0, [_iN, _fo], [0, 2]];
 export var DeleteIntegrationResponse: StaticStructureSchema = [3, n0, _DIRe, 0, [], []];
@@ -920,8 +978,10 @@ export var DeleteQueryDefinitionRequest: StaticStructureSchema = [3, n0, _DQDR, 
 export var DeleteQueryDefinitionResponse: StaticStructureSchema = [3, n0, _DQDRe, 0, [_suc], [2]];
 export var DeleteResourcePolicyRequest: StaticStructureSchema = [3, n0, _DRPR, 0, [_pN, _rA, _eRI], [0, 0, 0]];
 export var DeleteRetentionPolicyRequest: StaticStructureSchema = [3, n0, _DRPRe, 0, [_lGN], [0]];
+export var DeleteScheduledQueryRequest: StaticStructureSchema = [3, n0, _DSQR, 0, [_id], [0]];
+export var DeleteScheduledQueryResponse: StaticStructureSchema = [3, n0, _DSQRe, 0, [], []];
 export var DeleteSubscriptionFilterRequest: StaticStructureSchema = [3, n0, _DSFR, 0, [_lGN, _fN], [0, 0]];
-export var DeleteTransformerRequest: StaticStructureSchema = [3, n0, _DTR, 0, [_lGI], [0]];
+export var DeleteTransformerRequest: StaticStructureSchema = [3, n0, _DTR, 0, [_lGIo], [0]];
 export var Delivery: StaticStructureSchema = [
   3,
   n0,
@@ -1010,7 +1070,7 @@ export var DescribeDestinationsResponse: StaticStructureSchema = [
 ];
 export var DescribeExportTasksRequest: StaticStructureSchema = [3, n0, _DETR, 0, [_tI, _sCt, _nT, _li], [0, 0, 0, 1]];
 export var DescribeExportTasksResponse: StaticStructureSchema = [3, n0, _DETRe, 0, [_eT, _nT], [() => ExportTasks, 0]];
-export var DescribeFieldIndexesRequest: StaticStructureSchema = [3, n0, _DFIR, 0, [_lGIo, _nT], [64 | 0, 0]];
+export var DescribeFieldIndexesRequest: StaticStructureSchema = [3, n0, _DFIR, 0, [_lGI, _nT], [64 | 0, 0]];
 export var DescribeFieldIndexesResponse: StaticStructureSchema = [
   3,
   n0,
@@ -1019,7 +1079,7 @@ export var DescribeFieldIndexesResponse: StaticStructureSchema = [
   [_fI, _nT],
   [() => FieldIndexes, 0],
 ];
-export var DescribeIndexPoliciesRequest: StaticStructureSchema = [3, n0, _DIPRes, 0, [_lGIo, _nT], [64 | 0, 0]];
+export var DescribeIndexPoliciesRequest: StaticStructureSchema = [3, n0, _DIPRes, 0, [_lGI, _nT], [64 | 0, 0]];
 export var DescribeIndexPoliciesResponse: StaticStructureSchema = [
   3,
   n0,
@@ -1033,7 +1093,7 @@ export var DescribeLogGroupsRequest: StaticStructureSchema = [
   n0,
   _DLGRe,
   0,
-  [_aIc, _lGNP, _lGNPo, _nT, _li, _iLA, _lGC, _lGIo],
+  [_aIc, _lGNP, _lGNPo, _nT, _li, _iLA, _lGC, _lGI],
   [64 | 0, 0, 0, 0, 1, 2, 0, 64 | 0],
 ];
 export var DescribeLogGroupsResponse: StaticStructureSchema = [3, n0, _DLGRes, 0, [_lG, _nT], [() => LogGroups, 0]];
@@ -1042,7 +1102,7 @@ export var DescribeLogStreamsRequest: StaticStructureSchema = [
   n0,
   _DLSRe,
   0,
-  [_lGN, _lGI, _lSNP, _oB, _desc, _nT, _li],
+  [_lGN, _lGIo, _lSNP, _oB, _desc, _nT, _li],
   [0, 0, 0, 0, 2, 0, 1],
 ];
 export var DescribeLogStreamsResponse: StaticStructureSchema = [3, n0, _DLSRes, 0, [_lSog, _nT], [() => LogStreams, 0]];
@@ -1120,6 +1180,7 @@ export var DescribeSubscriptionFiltersResponse: StaticStructureSchema = [
   [() => SubscriptionFilters, 0],
 ];
 export var Destination: StaticStructureSchema = [3, n0, _De, 0, [_dNe, _tA, _rAo, _aPc, _ar, _cTr], [0, 0, 0, 0, 0, 1]];
+export var DestinationConfiguration: StaticStructureSchema = [3, n0, _DC, 0, [_sCo], [() => S3Configuration]];
 export var DisassociateKmsKeyRequest: StaticStructureSchema = [3, n0, _DKKR, 0, [_lGN, _rI], [0, 0]];
 export var Entity: StaticStructureSchema = [3, n0, _E, 0, [_kA, _at], [128 | 0, 128 | 0]];
 export var ExportTask: StaticStructureSchema = [
@@ -1132,15 +1193,15 @@ export var ExportTask: StaticStructureSchema = [
 ];
 export var ExportTaskExecutionInfo: StaticStructureSchema = [3, n0, _ETEI, 0, [_cTr, _cTo], [1, 1]];
 export var ExportTaskStatus: StaticStructureSchema = [3, n0, _ETS, 0, [_cod, _m], [0, 0]];
-export var FieldIndex: StaticStructureSchema = [3, n0, _FI, 0, [_lGI, _fIN, _lST, _fET, _lET], [0, 0, 1, 1, 1]];
+export var FieldIndex: StaticStructureSchema = [3, n0, _FI, 0, [_lGIo, _fIN, _lST, _fET, _lET], [0, 0, 1, 1, 1]];
 export var FieldsData: StaticStructureSchema = [3, n0, _FD, 0, [_da], [21]];
-export var FilteredLogEvent: StaticStructureSchema = [3, n0, _FLE, 0, [_lSN, _ti, _m, _iT, _eIv], [0, 1, 0, 1, 0]];
+export var FilteredLogEvent: StaticStructureSchema = [3, n0, _FLE, 0, [_lSN, _tim, _m, _iT, _eIv], [0, 1, 0, 1, 0]];
 export var FilterLogEventsRequest: StaticStructureSchema = [
   3,
   n0,
   _FLER,
   0,
-  [_lGN, _lGI, _lSNo, _lSNP, _sTt, _eTn, _fP, _nT, _li, _in, _u],
+  [_lGN, _lGIo, _lSNo, _lSNP, _sTt, _eTn, _fP, _nT, _li, _in, _u],
   [0, 0, 64 | 0, 0, 1, 1, 0, 0, 1, 2, 2],
 ];
 export var FilterLogEventsResponse: StaticStructureSchema = [
@@ -1151,8 +1212,8 @@ export var FilterLogEventsResponse: StaticStructureSchema = [
   [_ev, _sLS, _nT],
   [() => FilteredLogEvents, () => SearchedLogStreams, 0],
 ];
-export var GetDataProtectionPolicyRequest: StaticStructureSchema = [3, n0, _GDPPR, 0, [_lGI], [0]];
-export var GetDataProtectionPolicyResponse: StaticStructureSchema = [3, n0, _GDPPRe, 0, [_lGI, _pD, _lUT], [0, 0, 1]];
+export var GetDataProtectionPolicyRequest: StaticStructureSchema = [3, n0, _GDPPR, 0, [_lGIo], [0]];
+export var GetDataProtectionPolicyResponse: StaticStructureSchema = [3, n0, _GDPPRe, 0, [_lGIo, _pD, _lUT], [0, 0, 1]];
 export var GetDeliveryDestinationPolicyRequest: StaticStructureSchema = [3, n0, _GDDPR, 0, [_dDN], [0]];
 export var GetDeliveryDestinationPolicyResponse: StaticStructureSchema = [3, n0, _GDDPRe, 0, [_po], [() => Policy]];
 export var GetDeliveryDestinationRequest: StaticStructureSchema = [3, n0, _GDDR, 0, [_n], [0]];
@@ -1191,7 +1252,7 @@ export var GetLogEventsRequest: StaticStructureSchema = [
   n0,
   _GLER,
   0,
-  [_lGN, _lGI, _lSN, _sTt, _eTn, _nT, _li, _sFH, _u],
+  [_lGN, _lGIo, _lSN, _sTt, _eTn, _nT, _li, _sFH, _u],
   [0, 0, 0, 1, 1, 0, 1, 2, 2],
 ];
 export var GetLogEventsResponse: StaticStructureSchema = [
@@ -1202,7 +1263,7 @@ export var GetLogEventsResponse: StaticStructureSchema = [
   [_ev, _nFT, _nBT],
   [() => OutputLogEvents, 0, 0],
 ];
-export var GetLogGroupFieldsRequest: StaticStructureSchema = [3, n0, _GLGFR, 0, [_lGN, _tim, _lGI], [0, 1, 0]];
+export var GetLogGroupFieldsRequest: StaticStructureSchema = [3, n0, _GLGFR, 0, [_lGN, _time, _lGIo], [0, 1, 0]];
 export var GetLogGroupFieldsResponse: StaticStructureSchema = [3, n0, _GLGFRe, 0, [_lGF], [() => LogGroupFieldList]];
 export var GetLogObjectRequest: StaticStructureSchema = [3, n0, _GLOR, 0, [_u, _lOP], [2, 0]];
 export var GetLogObjectResponse: StaticStructureSchema = [
@@ -1224,23 +1285,61 @@ export var GetQueryResultsResponse: StaticStructureSchema = [
   [_qL, _r, _stat, _sta, _eK],
   [0, () => QueryResults, () => QueryStatistics, 0, 0],
 ];
-export var GetTransformerRequest: StaticStructureSchema = [3, n0, _GTR, 0, [_lGI], [0]];
+export var GetScheduledQueryHistoryRequest: StaticStructureSchema = [
+  3,
+  n0,
+  _GSQHR,
+  0,
+  [_id, _sTt, _eTn, _eS, _mR, _nT],
+  [0, 1, 1, 64 | 0, 1, 0],
+];
+export var GetScheduledQueryHistoryResponse: StaticStructureSchema = [
+  3,
+  n0,
+  _GSQHRe,
+  0,
+  [_n, _sQA, _tH, _nT],
+  [0, 0, () => TriggerHistoryRecordList, 0],
+];
+export var GetScheduledQueryRequest: StaticStructureSchema = [3, n0, _GSQR, 0, [_id], [0]];
+export var GetScheduledQueryResponse: StaticStructureSchema = [
+  3,
+  n0,
+  _GSQRe,
+  0,
+  [_sQA, _n, _d, _qL, _qS, _lGI, _sE, _ti, _sTO, _dC, _st, _lTT, _lES, _sST, _sET, _eRA, _cTr, _lUT],
+  [0, 0, 0, 0, 0, 64 | 0, 0, 0, 1, () => DestinationConfiguration, 0, 1, 0, 1, 1, 0, 1, 1],
+];
+export var GetTransformerRequest: StaticStructureSchema = [3, n0, _GTR, 0, [_lGIo], [0]];
 export var GetTransformerResponse: StaticStructureSchema = [
   3,
   n0,
   _GTRe,
   0,
-  [_lGI, _cTr, _lMT, _tC],
+  [_lGIo, _cTr, _lMT, _tC],
   [0, 1, 1, () => Processors],
 ];
 export var Grok: StaticStructureSchema = [3, n0, _G, 0, [_so, _ma], [0, 0]];
-export var IndexPolicy: StaticStructureSchema = [3, n0, _IP, 0, [_lGI, _lUTa, _pD, _pN, _so], [0, 1, 0, 0, 0]];
-export var InputLogEvent: StaticStructureSchema = [3, n0, _ILE, 0, [_ti, _m], [1, 0]];
+export var IndexPolicy: StaticStructureSchema = [3, n0, _IP, 0, [_lGIo, _lUTa, _pD, _pN, _so], [0, 1, 0, 0, 0]];
+export var InputLogEvent: StaticStructureSchema = [3, n0, _ILE, 0, [_tim, _m], [1, 0]];
 export var IntegrationSummary: StaticStructureSchema = [3, n0, _IS, 0, [_iN, _iTn, _iS], [0, 0, 0]];
-export var InternalStreamingException: StaticErrorSchema = [
+export var InternalServerException: StaticErrorSchema = [
   -3,
   n0,
   _ISE,
+  {
+    [_e]: _ser,
+    [_hE]: 500,
+  },
+  [_m],
+  [0],
+];
+TypeRegistry.for(n0).registerError(InternalServerException, __InternalServerException);
+
+export var InternalStreamingException: StaticErrorSchema = [
+  -3,
+  n0,
+  _ISEn,
   {
     [_e]: _c,
   },
@@ -1311,7 +1410,7 @@ export var ListLogAnomalyDetectorsResponse: StaticStructureSchema = [
   [() => AnomalyDetectors, 0],
 ];
 export var ListLogGroupsForQueryRequest: StaticStructureSchema = [3, n0, _LLGFQR, 0, [_qI, _nT, _mR], [0, 0, 1]];
-export var ListLogGroupsForQueryResponse: StaticStructureSchema = [3, n0, _LLGFQRi, 0, [_lGIo, _nT], [64 | 0, 0]];
+export var ListLogGroupsForQueryResponse: StaticStructureSchema = [3, n0, _LLGFQRi, 0, [_lGI, _nT], [64 | 0, 0]];
 export var ListLogGroupsRequest: StaticStructureSchema = [
   3,
   n0,
@@ -1321,6 +1420,15 @@ export var ListLogGroupsRequest: StaticStructureSchema = [
   [0, 0, 2, 64 | 0, 0, 1],
 ];
 export var ListLogGroupsResponse: StaticStructureSchema = [3, n0, _LLGRi, 0, [_lG, _nT], [() => LogGroupSummaries, 0]];
+export var ListScheduledQueriesRequest: StaticStructureSchema = [3, n0, _LSQR, 0, [_mR, _nT, _st], [1, 0, 0]];
+export var ListScheduledQueriesResponse: StaticStructureSchema = [
+  3,
+  n0,
+  _LSQRi,
+  0,
+  [_nT, _sQ],
+  [0, () => ScheduledQuerySummaryList],
+];
 export var ListTagsForResourceRequest: StaticStructureSchema = [3, n0, _LTFRR, 0, [_rA], [0]];
 export var ListTagsForResourceResponse: StaticStructureSchema = [3, n0, _LTFRRi, 0, [_ta], [128 | 0]];
 export var ListTagsLogGroupRequest: StaticStructureSchema = [3, n0, _LTLGR, 0, [_lGN], [0]];
@@ -1331,7 +1439,7 @@ export var LiveTailSessionLogEvent: StaticStructureSchema = [
   n0,
   _LTSLE,
   0,
-  [_lSN, _lGI, _m, _ti, _iT],
+  [_lSN, _lGIo, _m, _tim, _iT],
   [0, 0, 0, 1, 1],
 ];
 export var LiveTailSessionMetadata: StaticStructureSchema = [3, n0, _LTSM, 0, [_sa], [2]];
@@ -1340,7 +1448,7 @@ export var LiveTailSessionStart: StaticStructureSchema = [
   n0,
   _LTSS,
   0,
-  [_rIe, _sI, _lGIo, _lSNo, _lSNPo, _lEFP],
+  [_rIe, _sI, _lGI, _lSNo, _lSNPo, _lEFP],
   [0, 0, 64 | 0, 64 | 0, 64 | 0, 0],
 ];
 export var LiveTailSessionUpdate: StaticStructureSchema = [
@@ -1351,7 +1459,7 @@ export var LiveTailSessionUpdate: StaticStructureSchema = [
   [_sM, _sR],
   [() => LiveTailSessionMetadata, () => LiveTailSessionResults],
 ];
-export var LogEvent: StaticStructureSchema = [3, n0, _LE, 0, [_ti, _m], [1, 0]];
+export var LogEvent: StaticStructureSchema = [3, n0, _LE, 0, [_tim, _m], [1, 0]];
 export var LogGroup: StaticStructureSchema = [
   3,
   n0,
@@ -1504,7 +1612,7 @@ export var OperationAbortedException: StaticErrorSchema = [
 ];
 TypeRegistry.for(n0).registerError(OperationAbortedException, __OperationAbortedException);
 
-export var OutputLogEvent: StaticStructureSchema = [3, n0, _OLE, 0, [_ti, _m, _iT], [1, 0, 1]];
+export var OutputLogEvent: StaticStructureSchema = [3, n0, _OLE, 0, [_tim, _m, _iT], [1, 0, 1]];
 export var ParseCloudfront: StaticStructureSchema = [3, n0, _PC, 0, [_so], [0]];
 export var ParseJSON: StaticStructureSchema = [3, n0, _PJSON, 0, [_so, _des], [0, 0]];
 export var ParseKeyValue: StaticStructureSchema = [
@@ -1517,7 +1625,7 @@ export var ParseKeyValue: StaticStructureSchema = [
 ];
 export var ParsePostgres: StaticStructureSchema = [3, n0, _PP, 0, [_so], [0]];
 export var ParseRoute53: StaticStructureSchema = [3, n0, _PR, 0, [_so], [0]];
-export var ParseToOCSF: StaticStructureSchema = [3, n0, _PTOCSF, 0, [_so, _eS, _oV], [0, 0, 0]];
+export var ParseToOCSF: StaticStructureSchema = [3, n0, _PTOCSF, 0, [_so, _eSv, _oV], [0, 0, 0]];
 export var ParseVPC: StaticStructureSchema = [3, n0, _PVPC, 0, [_so], [0]];
 export var ParseWAF: StaticStructureSchema = [3, n0, _PWAF, 0, [_so], [0]];
 export var PatternToken: StaticStructureSchema = [3, n0, _PT, 0, [_dTP, _iDs, _tS, _enu, _iTN], [1, 2, 0, 128 | 1, 0]];
@@ -1587,8 +1695,8 @@ export var PutAccountPolicyRequest: StaticStructureSchema = [
   [0, 0, 0, 0, 0],
 ];
 export var PutAccountPolicyResponse: StaticStructureSchema = [3, n0, _PAPRu, 0, [_aPcc], [() => AccountPolicy]];
-export var PutDataProtectionPolicyRequest: StaticStructureSchema = [3, n0, _PDPPR, 0, [_lGI, _pD], [0, 0]];
-export var PutDataProtectionPolicyResponse: StaticStructureSchema = [3, n0, _PDPPRu, 0, [_lGI, _pD, _lUT], [0, 0, 1]];
+export var PutDataProtectionPolicyRequest: StaticStructureSchema = [3, n0, _PDPPR, 0, [_lGIo, _pD], [0, 0]];
+export var PutDataProtectionPolicyResponse: StaticStructureSchema = [3, n0, _PDPPRu, 0, [_lGIo, _pD, _lUT], [0, 0, 1]];
 export var PutDeliveryDestinationPolicyRequest: StaticStructureSchema = [3, n0, _PDDPR, 0, [_dDN, _dDP], [0, 0]];
 export var PutDeliveryDestinationPolicyResponse: StaticStructureSchema = [3, n0, _PDDPRu, 0, [_po], [() => Policy]];
 export var PutDeliveryDestinationRequest: StaticStructureSchema = [
@@ -1612,7 +1720,7 @@ export var PutDeliverySourceResponse: StaticStructureSchema = [3, n0, _PDSRu, 0,
 export var PutDestinationPolicyRequest: StaticStructureSchema = [3, n0, _PDPR, 0, [_dNe, _aPc, _fU], [0, 0, 2]];
 export var PutDestinationRequest: StaticStructureSchema = [3, n0, _PDR, 0, [_dNe, _tA, _rAo, _ta], [0, 0, 0, 128 | 0]];
 export var PutDestinationResponse: StaticStructureSchema = [3, n0, _PDRu, 0, [_des], [() => Destination]];
-export var PutIndexPolicyRequest: StaticStructureSchema = [3, n0, _PIPR, 0, [_lGI, _pD], [0, 0]];
+export var PutIndexPolicyRequest: StaticStructureSchema = [3, n0, _PIPR, 0, [_lGIo, _pD], [0, 0]];
 export var PutIndexPolicyResponse: StaticStructureSchema = [3, n0, _PIPRu, 0, [_iPnd], [() => IndexPolicy]];
 export var PutIntegrationRequest: StaticStructureSchema = [
   3,
@@ -1674,7 +1782,7 @@ export var PutSubscriptionFilterRequest: StaticStructureSchema = [
   [_lGN, _fN, _fP, _dA, _rAo, _dis, _aOTL, _fSC, _eSF],
   [0, 0, 0, 0, 0, 0, 2, 0, 64 | 0],
 ];
-export var PutTransformerRequest: StaticStructureSchema = [3, n0, _PTR, 0, [_lGI, _tC], [0, () => Processors]];
+export var PutTransformerRequest: StaticStructureSchema = [3, n0, _PTR, 0, [_lGIo, _tC], [0, () => Processors]];
 export var QueryCompileError: StaticStructureSchema = [3, n0, _QCE, 0, [_lo, _m], [() => QueryCompileErrorLocation, 0]];
 export var QueryCompileErrorLocation: StaticStructureSchema = [3, n0, _QCEL, 0, [_sCO, _eCO], [1, 1]];
 export var QueryDefinition: StaticStructureSchema = [
@@ -1732,7 +1840,24 @@ export var ResourcePolicy: StaticStructureSchema = [
   [0, 0, 1, 0, 0, 0],
 ];
 export var ResultField: StaticStructureSchema = [3, n0, _RFe, 0, [_fi, _v], [0, 0]];
+export var S3Configuration: StaticStructureSchema = [3, n0, _SC, 0, [_dI, _rAo], [0, 0]];
 export var S3DeliveryConfiguration: StaticStructureSchema = [3, n0, _SDC, 0, [_sP, _eHCP], [0, 2]];
+export var ScheduledQueryDestination: StaticStructureSchema = [
+  3,
+  n0,
+  _SQD,
+  0,
+  [_dT, _dI, _sta, _pIr, _eMr],
+  [0, 0, 0, 0, 0],
+];
+export var ScheduledQuerySummary: StaticStructureSchema = [
+  3,
+  n0,
+  _SQS,
+  0,
+  [_sQA, _n, _st, _lTT, _lES, _sE, _ti, _dC, _cTr, _lUT],
+  [0, 0, 0, 1, 0, 0, 0, () => DestinationConfiguration, 1, 1],
+];
 export var SearchedLogStream: StaticStructureSchema = [3, n0, _SLS, 0, [_lSN, _sCe], [0, 2]];
 export var ServiceQuotaExceededException: StaticErrorSchema = [
   -3,
@@ -1789,7 +1914,7 @@ export var StartLiveTailRequest: StaticStructureSchema = [
   n0,
   _SLTR,
   0,
-  [_lGIo, _lSNo, _lSNPo, _lEFP],
+  [_lGI, _lSNo, _lSNPo, _lEFP],
   [64 | 0, 64 | 0, 64 | 0, 0],
 ];
 export var StartLiveTailResponse: StaticStructureSchema = [
@@ -1805,7 +1930,7 @@ export var StartQueryRequest: StaticStructureSchema = [
   n0,
   _SQR,
   0,
-  [_qL, _lGN, _lGNo, _lGIo, _sTt, _eTn, _qS, _li],
+  [_qL, _lGN, _lGNo, _lGI, _sTt, _eTn, _qS, _li],
   [0, 0, 64 | 0, 64 | 0, 1, 1, 0, 1],
 ];
 export var StartQueryResponse: StaticStructureSchema = [3, n0, _SQRt, 0, [_qI], [0]];
@@ -1854,6 +1979,14 @@ export var TooManyTagsException: StaticErrorSchema = [
 TypeRegistry.for(n0).registerError(TooManyTagsException, __TooManyTagsException);
 
 export var TransformedLogRecord: StaticStructureSchema = [3, n0, _TLR, 0, [_eN, _eM, _tEM], [1, 0, 0]];
+export var TriggerHistoryRecord: StaticStructureSchema = [
+  3,
+  n0,
+  _THR,
+  0,
+  [_qI, _eSx, _tTr, _eMr, _dest],
+  [0, 0, 1, 0, () => ScheduledQueryDestinationList],
+];
 export var TrimString: StaticStructureSchema = [3, n0, _TS, 0, [_wK], [64 | 0]];
 export var TypeConverter: StaticStructureSchema = [3, n0, _TC, 0, [_en], [() => TypeConverterEntries]];
 export var TypeConverterEntry: StaticStructureSchema = [3, n0, _TCE, 0, [_k, _ty], [0, 0]];
@@ -1895,6 +2028,22 @@ export var UpdateLogAnomalyDetectorRequest: StaticStructureSchema = [
   0,
   [_aDA, _eF, _fP, _aVT, _ena],
   [0, 0, 0, 1, 2],
+];
+export var UpdateScheduledQueryRequest: StaticStructureSchema = [
+  3,
+  n0,
+  _USQR,
+  0,
+  [_id, _d, _qL, _qS, _lGI, _sE, _ti, _sTO, _dC, _sST, _sET, _eRA, _st],
+  [0, 0, 0, 0, 64 | 0, 0, 0, 1, () => DestinationConfiguration, 1, 1, 0, 0],
+];
+export var UpdateScheduledQueryResponse: StaticStructureSchema = [
+  3,
+  n0,
+  _USQRp,
+  0,
+  [_sQA, _n, _d, _qL, _qS, _lGI, _sE, _ti, _sTO, _dC, _st, _lTT, _lES, _sST, _sET, _eRA, _cTr, _lUT],
+  [0, 0, 0, 0, 0, 64 | 0, 0, 0, 1, () => DestinationConfiguration, 0, 1, 0, 1, 1, 0, 1, 1],
 ];
 export var UpperCaseString: StaticStructureSchema = [3, n0, _UCS, 0, [_wK], [64 | 0]];
 export var ValidationException: StaticErrorSchema = [
@@ -1945,6 +2094,8 @@ export var DescribeLogGroupsLogGroupIdentifiers = 64 | 0;
 export var Destinations: StaticListSchema = [1, n0, _Des, 0, () => Destination];
 export var EmitSystemFields = 64 | 0;
 
+export var ExecutionStatusList = 64 | 0;
+
 export var ExportTasks: StaticListSchema = [1, n0, _ETx, 0, () => ExportTask];
 export var FieldIndexes: StaticListSchema = [1, n0, _FIi, 0, () => FieldIndex];
 export var FilteredLogEvents: StaticListSchema = [1, n0, _FLEi, 0, () => FilteredLogEvent];
@@ -1994,6 +2145,10 @@ export var ResourcePolicies: StaticListSchema = [1, n0, _RPe, 0, () => ResourceP
 export var ResourceTypes = 64 | 0;
 
 export var ResultRows: StaticListSchema = [1, n0, _RR, 0, () => ResultField];
+export var ScheduledQueryDestinationList: StaticListSchema = [1, n0, _SQDL, 0, () => ScheduledQueryDestination];
+export var ScheduledQueryLogGroupIdentifiers = 64 | 0;
+
+export var ScheduledQuerySummaryList: StaticListSchema = [1, n0, _SQSL, 0, () => ScheduledQuerySummary];
 export var SearchedLogStreams: StaticListSchema = [1, n0, _SLSe, 0, () => SearchedLogStream];
 export var SplitStringEntries: StaticListSchema = [1, n0, _SSEpl, 0, () => SplitStringEntry];
 export var StartLiveTailLogGroupIdentifiers = 64 | 0;
@@ -2007,6 +2162,7 @@ export var TagList = 64 | 0;
 export var TestEventMessages = 64 | 0;
 
 export var TransformedLogs: StaticListSchema = [1, n0, _TL, 0, () => TransformedLogRecord];
+export var TriggerHistoryRecordList: StaticListSchema = [1, n0, _THRL, 0, () => TriggerHistoryRecord];
 export var TrimStringWithKeys = 64 | 0;
 
 export var TypeConverterEntries: StaticListSchema = [1, n0, _TCEy, 0, () => TypeConverterEntry];
@@ -2035,7 +2191,7 @@ export var GetLogObjectResponseStream: StaticStructureSchema = [
   {
     [_str]: 1,
   },
-  [_fie, _ISE],
+  [_fie, _ISEn],
   [() => FieldsData, [() => InternalStreamingException, 0]],
 ];
 export var IntegrationDetails: StaticStructureSchema = [3, n0, _ID, 0, [_oSID], [() => OpenSearchIntegrationDetails]];
@@ -2083,6 +2239,14 @@ export var CreateLogAnomalyDetector: StaticOperationSchema = [
 ];
 export var CreateLogGroup: StaticOperationSchema = [9, n0, _CLG, 0, () => CreateLogGroupRequest, () => __Unit];
 export var CreateLogStream: StaticOperationSchema = [9, n0, _CLS, 0, () => CreateLogStreamRequest, () => __Unit];
+export var CreateScheduledQuery: StaticOperationSchema = [
+  9,
+  n0,
+  _CSQ,
+  0,
+  () => CreateScheduledQueryRequest,
+  () => CreateScheduledQueryResponse,
+];
 export var DeleteAccountPolicy: StaticOperationSchema = [
   9,
   n0,
@@ -2175,6 +2339,14 @@ export var DeleteRetentionPolicy: StaticOperationSchema = [
   0,
   () => DeleteRetentionPolicyRequest,
   () => __Unit,
+];
+export var DeleteScheduledQuery: StaticOperationSchema = [
+  9,
+  n0,
+  _DSQ,
+  0,
+  () => DeleteScheduledQueryRequest,
+  () => DeleteScheduledQueryResponse,
 ];
 export var DeleteSubscriptionFilter: StaticOperationSchema = [
   9,
@@ -2413,6 +2585,22 @@ export var GetQueryResults: StaticOperationSchema = [
   () => GetQueryResultsRequest,
   () => GetQueryResultsResponse,
 ];
+export var GetScheduledQuery: StaticOperationSchema = [
+  9,
+  n0,
+  _GSQ,
+  0,
+  () => GetScheduledQueryRequest,
+  () => GetScheduledQueryResponse,
+];
+export var GetScheduledQueryHistory: StaticOperationSchema = [
+  9,
+  n0,
+  _GSQH,
+  0,
+  () => GetScheduledQueryHistoryRequest,
+  () => GetScheduledQueryHistoryResponse,
+];
 export var GetTransformer: StaticOperationSchema = [
   9,
   n0,
@@ -2460,6 +2648,14 @@ export var ListLogGroupsForQuery: StaticOperationSchema = [
   0,
   () => ListLogGroupsForQueryRequest,
   () => ListLogGroupsForQueryResponse,
+];
+export var ListScheduledQueries: StaticOperationSchema = [
+  9,
+  n0,
+  _LSQ,
+  0,
+  () => ListScheduledQueriesRequest,
+  () => ListScheduledQueriesResponse,
 ];
 export var ListTagsForResource: StaticOperationSchema = [
   9,
@@ -2632,4 +2828,12 @@ export var UpdateLogAnomalyDetector: StaticOperationSchema = [
   0,
   () => UpdateLogAnomalyDetectorRequest,
   () => __Unit,
+];
+export var UpdateScheduledQuery: StaticOperationSchema = [
+  9,
+  n0,
+  _USQ,
+  0,
+  () => UpdateScheduledQueryRequest,
+  () => UpdateScheduledQueryResponse,
 ];

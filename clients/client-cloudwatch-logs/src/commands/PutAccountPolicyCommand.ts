@@ -154,6 +154,11 @@ export interface PutAccountPolicyCommandOutput extends PutAccountPolicyResponse,
  *          <ul>
  *             <li>
  *                <p>
+ *                   <code>@logStream</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
  *                   <code>@aws.region</code>
  *                </p>
  *             </li>

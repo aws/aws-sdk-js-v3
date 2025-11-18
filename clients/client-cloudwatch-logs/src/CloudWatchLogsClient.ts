@@ -74,6 +74,10 @@ import {
 import { CreateLogGroupCommandInput, CreateLogGroupCommandOutput } from "./commands/CreateLogGroupCommand";
 import { CreateLogStreamCommandInput, CreateLogStreamCommandOutput } from "./commands/CreateLogStreamCommand";
 import {
+  CreateScheduledQueryCommandInput,
+  CreateScheduledQueryCommandOutput,
+} from "./commands/CreateScheduledQueryCommand";
+import {
   DeleteAccountPolicyCommandInput,
   DeleteAccountPolicyCommandOutput,
 } from "./commands/DeleteAccountPolicyCommand";
@@ -116,6 +120,10 @@ import {
   DeleteRetentionPolicyCommandInput,
   DeleteRetentionPolicyCommandOutput,
 } from "./commands/DeleteRetentionPolicyCommand";
+import {
+  DeleteScheduledQueryCommandInput,
+  DeleteScheduledQueryCommandOutput,
+} from "./commands/DeleteScheduledQueryCommand";
 import {
   DeleteSubscriptionFilterCommandInput,
   DeleteSubscriptionFilterCommandOutput,
@@ -199,6 +207,11 @@ import { GetLogGroupFieldsCommandInput, GetLogGroupFieldsCommandOutput } from ".
 import { GetLogObjectCommandInput, GetLogObjectCommandOutput } from "./commands/GetLogObjectCommand";
 import { GetLogRecordCommandInput, GetLogRecordCommandOutput } from "./commands/GetLogRecordCommand";
 import { GetQueryResultsCommandInput, GetQueryResultsCommandOutput } from "./commands/GetQueryResultsCommand";
+import { GetScheduledQueryCommandInput, GetScheduledQueryCommandOutput } from "./commands/GetScheduledQueryCommand";
+import {
+  GetScheduledQueryHistoryCommandInput,
+  GetScheduledQueryHistoryCommandOutput,
+} from "./commands/GetScheduledQueryHistoryCommand";
 import { GetTransformerCommandInput, GetTransformerCommandOutput } from "./commands/GetTransformerCommand";
 import { ListAnomaliesCommandInput, ListAnomaliesCommandOutput } from "./commands/ListAnomaliesCommand";
 import { ListIntegrationsCommandInput, ListIntegrationsCommandOutput } from "./commands/ListIntegrationsCommand";
@@ -211,6 +224,10 @@ import {
   ListLogGroupsForQueryCommandInput,
   ListLogGroupsForQueryCommandOutput,
 } from "./commands/ListLogGroupsForQueryCommand";
+import {
+  ListScheduledQueriesCommandInput,
+  ListScheduledQueriesCommandOutput,
+} from "./commands/ListScheduledQueriesCommand";
 import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
@@ -266,6 +283,10 @@ import {
   UpdateLogAnomalyDetectorCommandOutput,
 } from "./commands/UpdateLogAnomalyDetectorCommand";
 import {
+  UpdateScheduledQueryCommandInput,
+  UpdateScheduledQueryCommandOutput,
+} from "./commands/UpdateScheduledQueryCommand";
+import {
   ClientInputEndpointParameters,
   ClientResolvedEndpointParameters,
   EndpointParameters,
@@ -287,6 +308,7 @@ export type ServiceInputTypes =
   | CreateLogAnomalyDetectorCommandInput
   | CreateLogGroupCommandInput
   | CreateLogStreamCommandInput
+  | CreateScheduledQueryCommandInput
   | DeleteAccountPolicyCommandInput
   | DeleteDataProtectionPolicyCommandInput
   | DeleteDeliveryCommandInput
@@ -303,6 +325,7 @@ export type ServiceInputTypes =
   | DeleteQueryDefinitionCommandInput
   | DeleteResourcePolicyCommandInput
   | DeleteRetentionPolicyCommandInput
+  | DeleteScheduledQueryCommandInput
   | DeleteSubscriptionFilterCommandInput
   | DeleteTransformerCommandInput
   | DescribeAccountPoliciesCommandInput
@@ -335,12 +358,15 @@ export type ServiceInputTypes =
   | GetLogObjectCommandInput
   | GetLogRecordCommandInput
   | GetQueryResultsCommandInput
+  | GetScheduledQueryCommandInput
+  | GetScheduledQueryHistoryCommandInput
   | GetTransformerCommandInput
   | ListAnomaliesCommandInput
   | ListIntegrationsCommandInput
   | ListLogAnomalyDetectorsCommandInput
   | ListLogGroupsCommandInput
   | ListLogGroupsForQueryCommandInput
+  | ListScheduledQueriesCommandInput
   | ListTagsForResourceCommandInput
   | ListTagsLogGroupCommandInput
   | PutAccountPolicyCommandInput
@@ -370,7 +396,8 @@ export type ServiceInputTypes =
   | UntagResourceCommandInput
   | UpdateAnomalyCommandInput
   | UpdateDeliveryConfigurationCommandInput
-  | UpdateLogAnomalyDetectorCommandInput;
+  | UpdateLogAnomalyDetectorCommandInput
+  | UpdateScheduledQueryCommandInput;
 
 /**
  * @public
@@ -383,6 +410,7 @@ export type ServiceOutputTypes =
   | CreateLogAnomalyDetectorCommandOutput
   | CreateLogGroupCommandOutput
   | CreateLogStreamCommandOutput
+  | CreateScheduledQueryCommandOutput
   | DeleteAccountPolicyCommandOutput
   | DeleteDataProtectionPolicyCommandOutput
   | DeleteDeliveryCommandOutput
@@ -399,6 +427,7 @@ export type ServiceOutputTypes =
   | DeleteQueryDefinitionCommandOutput
   | DeleteResourcePolicyCommandOutput
   | DeleteRetentionPolicyCommandOutput
+  | DeleteScheduledQueryCommandOutput
   | DeleteSubscriptionFilterCommandOutput
   | DeleteTransformerCommandOutput
   | DescribeAccountPoliciesCommandOutput
@@ -431,12 +460,15 @@ export type ServiceOutputTypes =
   | GetLogObjectCommandOutput
   | GetLogRecordCommandOutput
   | GetQueryResultsCommandOutput
+  | GetScheduledQueryCommandOutput
+  | GetScheduledQueryHistoryCommandOutput
   | GetTransformerCommandOutput
   | ListAnomaliesCommandOutput
   | ListIntegrationsCommandOutput
   | ListLogAnomalyDetectorsCommandOutput
   | ListLogGroupsCommandOutput
   | ListLogGroupsForQueryCommandOutput
+  | ListScheduledQueriesCommandOutput
   | ListTagsForResourceCommandOutput
   | ListTagsLogGroupCommandOutput
   | PutAccountPolicyCommandOutput
@@ -466,7 +498,8 @@ export type ServiceOutputTypes =
   | UntagResourceCommandOutput
   | UpdateAnomalyCommandOutput
   | UpdateDeliveryConfigurationCommandOutput
-  | UpdateLogAnomalyDetectorCommandOutput;
+  | UpdateLogAnomalyDetectorCommandOutput
+  | UpdateScheduledQueryCommandOutput;
 
 /**
  * @public

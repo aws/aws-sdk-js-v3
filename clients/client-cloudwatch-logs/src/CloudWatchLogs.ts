@@ -39,6 +39,11 @@ import {
   CreateLogStreamCommandOutput,
 } from "./commands/CreateLogStreamCommand";
 import {
+  CreateScheduledQueryCommand,
+  CreateScheduledQueryCommandInput,
+  CreateScheduledQueryCommandOutput,
+} from "./commands/CreateScheduledQueryCommand";
+import {
   DeleteAccountPolicyCommand,
   DeleteAccountPolicyCommandInput,
   DeleteAccountPolicyCommandOutput,
@@ -118,6 +123,11 @@ import {
   DeleteRetentionPolicyCommandInput,
   DeleteRetentionPolicyCommandOutput,
 } from "./commands/DeleteRetentionPolicyCommand";
+import {
+  DeleteScheduledQueryCommand,
+  DeleteScheduledQueryCommandInput,
+  DeleteScheduledQueryCommandOutput,
+} from "./commands/DeleteScheduledQueryCommand";
 import {
   DeleteSubscriptionFilterCommand,
   DeleteSubscriptionFilterCommandInput,
@@ -275,6 +285,16 @@ import {
   GetQueryResultsCommandOutput,
 } from "./commands/GetQueryResultsCommand";
 import {
+  GetScheduledQueryCommand,
+  GetScheduledQueryCommandInput,
+  GetScheduledQueryCommandOutput,
+} from "./commands/GetScheduledQueryCommand";
+import {
+  GetScheduledQueryHistoryCommand,
+  GetScheduledQueryHistoryCommandInput,
+  GetScheduledQueryHistoryCommandOutput,
+} from "./commands/GetScheduledQueryHistoryCommand";
+import {
   GetTransformerCommand,
   GetTransformerCommandInput,
   GetTransformerCommandOutput,
@@ -304,6 +324,11 @@ import {
   ListLogGroupsForQueryCommandInput,
   ListLogGroupsForQueryCommandOutput,
 } from "./commands/ListLogGroupsForQueryCommand";
+import {
+  ListScheduledQueriesCommand,
+  ListScheduledQueriesCommandInput,
+  ListScheduledQueriesCommandOutput,
+} from "./commands/ListScheduledQueriesCommand";
 import {
   ListTagsForResourceCommand,
   ListTagsForResourceCommandInput,
@@ -438,6 +463,11 @@ import {
   UpdateLogAnomalyDetectorCommandInput,
   UpdateLogAnomalyDetectorCommandOutput,
 } from "./commands/UpdateLogAnomalyDetectorCommand";
+import {
+  UpdateScheduledQueryCommand,
+  UpdateScheduledQueryCommandInput,
+  UpdateScheduledQueryCommandOutput,
+} from "./commands/UpdateScheduledQueryCommand";
 
 const commands = {
   AssociateKmsKeyCommand,
@@ -447,6 +477,7 @@ const commands = {
   CreateLogAnomalyDetectorCommand,
   CreateLogGroupCommand,
   CreateLogStreamCommand,
+  CreateScheduledQueryCommand,
   DeleteAccountPolicyCommand,
   DeleteDataProtectionPolicyCommand,
   DeleteDeliveryCommand,
@@ -463,6 +494,7 @@ const commands = {
   DeleteQueryDefinitionCommand,
   DeleteResourcePolicyCommand,
   DeleteRetentionPolicyCommand,
+  DeleteScheduledQueryCommand,
   DeleteSubscriptionFilterCommand,
   DeleteTransformerCommand,
   DescribeAccountPoliciesCommand,
@@ -495,12 +527,15 @@ const commands = {
   GetLogObjectCommand,
   GetLogRecordCommand,
   GetQueryResultsCommand,
+  GetScheduledQueryCommand,
+  GetScheduledQueryHistoryCommand,
   GetTransformerCommand,
   ListAnomaliesCommand,
   ListIntegrationsCommand,
   ListLogAnomalyDetectorsCommand,
   ListLogGroupsCommand,
   ListLogGroupsForQueryCommand,
+  ListScheduledQueriesCommand,
   ListTagsForResourceCommand,
   ListTagsLogGroupCommand,
   PutAccountPolicyCommand,
@@ -531,6 +566,7 @@ const commands = {
   UpdateAnomalyCommand,
   UpdateDeliveryConfigurationCommand,
   UpdateLogAnomalyDetectorCommand,
+  UpdateScheduledQueryCommand,
 };
 
 export interface CloudWatchLogs {
@@ -639,6 +675,23 @@ export interface CloudWatchLogs {
     args: CreateLogStreamCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateLogStreamCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateScheduledQueryCommand}
+   */
+  createScheduledQuery(
+    args: CreateScheduledQueryCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateScheduledQueryCommandOutput>;
+  createScheduledQuery(
+    args: CreateScheduledQueryCommandInput,
+    cb: (err: any, data?: CreateScheduledQueryCommandOutput) => void
+  ): void;
+  createScheduledQuery(
+    args: CreateScheduledQueryCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateScheduledQueryCommandOutput) => void
   ): void;
 
   /**
@@ -903,6 +956,23 @@ export interface CloudWatchLogs {
     args: DeleteRetentionPolicyCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteRetentionPolicyCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteScheduledQueryCommand}
+   */
+  deleteScheduledQuery(
+    args: DeleteScheduledQueryCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteScheduledQueryCommandOutput>;
+  deleteScheduledQuery(
+    args: DeleteScheduledQueryCommandInput,
+    cb: (err: any, data?: DeleteScheduledQueryCommandOutput) => void
+  ): void;
+  deleteScheduledQuery(
+    args: DeleteScheduledQueryCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteScheduledQueryCommandOutput) => void
   ): void;
 
   /**
@@ -1429,6 +1499,40 @@ export interface CloudWatchLogs {
   ): void;
 
   /**
+   * @see {@link GetScheduledQueryCommand}
+   */
+  getScheduledQuery(
+    args: GetScheduledQueryCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetScheduledQueryCommandOutput>;
+  getScheduledQuery(
+    args: GetScheduledQueryCommandInput,
+    cb: (err: any, data?: GetScheduledQueryCommandOutput) => void
+  ): void;
+  getScheduledQuery(
+    args: GetScheduledQueryCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetScheduledQueryCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetScheduledQueryHistoryCommand}
+   */
+  getScheduledQueryHistory(
+    args: GetScheduledQueryHistoryCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetScheduledQueryHistoryCommandOutput>;
+  getScheduledQueryHistory(
+    args: GetScheduledQueryHistoryCommandInput,
+    cb: (err: any, data?: GetScheduledQueryHistoryCommandOutput) => void
+  ): void;
+  getScheduledQueryHistory(
+    args: GetScheduledQueryHistoryCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetScheduledQueryHistoryCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetTransformerCommand}
    */
   getTransformer(
@@ -1517,6 +1621,24 @@ export interface CloudWatchLogs {
     args: ListLogGroupsForQueryCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListLogGroupsForQueryCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListScheduledQueriesCommand}
+   */
+  listScheduledQueries(): Promise<ListScheduledQueriesCommandOutput>;
+  listScheduledQueries(
+    args: ListScheduledQueriesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListScheduledQueriesCommandOutput>;
+  listScheduledQueries(
+    args: ListScheduledQueriesCommandInput,
+    cb: (err: any, data?: ListScheduledQueriesCommandOutput) => void
+  ): void;
+  listScheduledQueries(
+    args: ListScheduledQueriesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListScheduledQueriesCommandOutput) => void
   ): void;
 
   /**
@@ -1956,6 +2078,23 @@ export interface CloudWatchLogs {
     args: UpdateLogAnomalyDetectorCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateLogAnomalyDetectorCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateScheduledQueryCommand}
+   */
+  updateScheduledQuery(
+    args: UpdateScheduledQueryCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateScheduledQueryCommandOutput>;
+  updateScheduledQuery(
+    args: UpdateScheduledQueryCommandInput,
+    cb: (err: any, data?: UpdateScheduledQueryCommandOutput) => void
+  ): void;
+  updateScheduledQuery(
+    args: UpdateScheduledQueryCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateScheduledQueryCommandOutput) => void
   ): void;
 }
 

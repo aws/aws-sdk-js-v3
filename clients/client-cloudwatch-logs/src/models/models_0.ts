@@ -103,6 +103,22 @@ export interface AccountPolicy {
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const ActionStatus = {
+  CLIENT_ERROR: "CLIENT_ERROR",
+  COMPLETE: "COMPLETE",
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+} as const;
+
+/**
+ * @public
+ */
+export type ActionStatus = (typeof ActionStatus)[keyof typeof ActionStatus];
+
+/**
  * <p>This object defines one key that will be added with the <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation.html#CloudWatch-Logs-Transformation-addKey"> addKeys</a> processor.</p>
  * @public
  */
@@ -1343,6 +1359,193 @@ export interface CreateLogStreamRequest {
 }
 
 /**
+ * <p>Configuration details for delivering scheduled query results to an Amazon S3 bucket.</p>
+ * @public
+ */
+export interface S3Configuration {
+  /**
+   * <p>The S3 URI where query results will be stored (e.g., s3://bucket-name/prefix/).</p>
+   * @public
+   */
+  destinationIdentifier: string | undefined;
+
+  /**
+   * <p>The ARN of the IAM role that CloudWatch Logs will assume to write results to the S3 bucket.</p>
+   * @public
+   */
+  roleArn: string | undefined;
+}
+
+/**
+ * <p>Configuration for destinations where scheduled query results are delivered, such as S3 buckets or EventBridge event buses.</p>
+ * @public
+ */
+export interface DestinationConfiguration {
+  /**
+   * <p>Configuration for delivering query results to an Amazon S3 bucket.</p>
+   * @public
+   */
+  s3Configuration: S3Configuration | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const QueryLanguage = {
+  CWLI: "CWLI",
+  PPL: "PPL",
+  SQL: "SQL",
+} as const;
+
+/**
+ * @public
+ */
+export type QueryLanguage = (typeof QueryLanguage)[keyof typeof QueryLanguage];
+
+/**
+ * @public
+ * @enum
+ */
+export const ScheduledQueryState = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type ScheduledQueryState = (typeof ScheduledQueryState)[keyof typeof ScheduledQueryState];
+
+/**
+ * @public
+ */
+export interface CreateScheduledQueryRequest {
+  /**
+   * <p>A unique name for the scheduled query within the region for an AWS account. The name can contain letters, numbers, underscores, hyphens, forward slashes, periods, and hash symbols.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>An optional description for the scheduled query to help identify its purpose.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The query language to use for the scheduled query. Valid values are LogsQL (CloudWatch Logs Insights query language), PPL (OpenSearch Service Piped Processing Language), and SQL (OpenSearch Service Structured Query Language).</p>
+   * @public
+   */
+  queryLanguage: QueryLanguage | undefined;
+
+  /**
+   * <p>The CloudWatch Logs Insights query string to execute. This is the actual query that will be run against your log data on the specified schedule.</p>
+   * @public
+   */
+  queryString: string | undefined;
+
+  /**
+   * <p>The log group identifiers to query. You can specify log group names or log group ARNs. If querying log groups in a source account from a monitoring account, you must specify the ARN of the log group.</p>
+   * @public
+   */
+  logGroupIdentifiers?: string[] | undefined;
+
+  /**
+   * <p>A cron expression that defines when the scheduled query runs. The format is cron(fields) where fields consist of six space-separated values: minutes, hours, day_of_month, month, day_of_week, year.</p>
+   * @public
+   */
+  scheduleExpression: string | undefined;
+
+  /**
+   * <p>The timezone in which the schedule expression is evaluated. If not provided, defaults to UTC.</p>
+   * @public
+   */
+  timezone?: string | undefined;
+
+  /**
+   * <p>Time offset in seconds from the execution time for the start of the query time range. This defines the lookback period for the query (for example, 3600 for the last hour).</p>
+   * @public
+   */
+  startTimeOffset?: number | undefined;
+
+  /**
+   * <p>Configuration for destinations where the query results will be delivered after successful execution. You can configure delivery to S3 buckets or EventBridge event buses.</p>
+   * @public
+   */
+  destinationConfiguration?: DestinationConfiguration | undefined;
+
+  /**
+   * <p>The start time for the query schedule in Unix epoch time (seconds since January 1, 1970, 00:00:00 UTC). If not specified, the schedule starts immediately.</p>
+   * @public
+   */
+  scheduleStartTime?: number | undefined;
+
+  /**
+   * <p>The end time for the query schedule in Unix epoch time (seconds since January 1, 1970, 00:00:00 UTC). If not specified, the schedule runs indefinitely.</p>
+   * @public
+   */
+  scheduleEndTime?: number | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM role that CloudWatch Logs will assume to execute the scheduled query and deliver results to the specified destinations.</p>
+   * @public
+   */
+  executionRoleArn: string | undefined;
+
+  /**
+   * <p>The initial state of the scheduled query. Valid values are ENABLED (the query will run according to its schedule) and DISABLED (the query is paused and will not run). If not provided, defaults to ENABLED.</p>
+   * @public
+   */
+  state?: ScheduledQueryState | undefined;
+
+  /**
+   * <p>An optional list of key-value pairs to associate with the resource.</p>
+   *          <p>For more information about tagging, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services resources</a>
+   *          </p>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateScheduledQueryResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the created scheduled query.</p>
+   * @public
+   */
+  scheduledQueryArn?: string | undefined;
+
+  /**
+   * <p>The current state of the scheduled query (ENABLED or DISABLED).</p>
+   * @public
+   */
+  state?: ScheduledQueryState | undefined;
+}
+
+/**
+ * <p>An internal server error occurred while processing the request. This is typically a temporary issue and the request can be retried.</p>
+ * @public
+ */
+export class InternalServerException extends __BaseException {
+  readonly name: "InternalServerException" = "InternalServerException";
+  readonly $fault: "server" = "server";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InternalServerException, __BaseException>) {
+    super({
+      name: "InternalServerException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InternalServerException.prototype);
+  }
+}
+
+/**
  * <p>The <code>CSV</code> processor parses comma-separated values (CSV) from the log events
  *       into columns.</p>
  *          <p>For more information about this processor including examples, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation.html#CloudWatch-Logs-Transformation-csv"> csv</a> in the <i>CloudWatch Logs User Guide</i>.</p>
@@ -1733,6 +1936,22 @@ export interface DeleteRetentionPolicyRequest {
    */
   logGroupName: string | undefined;
 }
+
+/**
+ * @public
+ */
+export interface DeleteScheduledQueryRequest {
+  /**
+   * <p>The name or ARN of the scheduled query to delete.</p>
+   * @public
+   */
+  identifier: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteScheduledQueryResponse {}
 
 /**
  * @public
@@ -3246,21 +3465,6 @@ export interface DescribeMetricFiltersResponse {
  * @public
  * @enum
  */
-export const QueryLanguage = {
-  CWLI: "CWLI",
-  PPL: "PPL",
-  SQL: "SQL",
-} as const;
-
-/**
- * @public
- */
-export type QueryLanguage = (typeof QueryLanguage)[keyof typeof QueryLanguage];
-
-/**
- * @public
- * @enum
- */
 export const QueryStatus = {
   Cancelled: "Cancelled",
   Complete: "Complete",
@@ -3835,6 +4039,23 @@ export const EventSource = {
  * @public
  */
 export type EventSource = (typeof EventSource)[keyof typeof EventSource];
+
+/**
+ * @public
+ * @enum
+ */
+export const ExecutionStatus = {
+  Complete: "Complete",
+  Failed: "Failed",
+  InvalidQuery: "InvalidQuery",
+  Running: "Running",
+  Timeout: "Timeout",
+} as const;
+
+/**
+ * @public
+ */
+export type ExecutionStatus = (typeof ExecutionStatus)[keyof typeof ExecutionStatus];
 
 /**
  * <p>A structure containing the extracted fields from a log event. These fields are extracted
@@ -5193,6 +5414,288 @@ export interface GetQueryResultsResponse {
 /**
  * @public
  */
+export interface GetScheduledQueryRequest {
+  /**
+   * <p>The name or ARN of the scheduled query to retrieve.</p>
+   * @public
+   */
+  identifier: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetScheduledQueryResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the scheduled query.</p>
+   * @public
+   */
+  scheduledQueryArn?: string | undefined;
+
+  /**
+   * <p>The name of the scheduled query.</p>
+   * @public
+   */
+  name?: string | undefined;
+
+  /**
+   * <p>The description of the scheduled query.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The query language used by the scheduled query (LogsQL, PPL, or SQL).</p>
+   * @public
+   */
+  queryLanguage?: QueryLanguage | undefined;
+
+  /**
+   * <p>The CloudWatch Logs Insights query string being executed.</p>
+   * @public
+   */
+  queryString?: string | undefined;
+
+  /**
+   * <p>The log group identifiers being queried by the scheduled query.</p>
+   * @public
+   */
+  logGroupIdentifiers?: string[] | undefined;
+
+  /**
+   * <p>The cron expression that defines when the scheduled query runs.</p>
+   * @public
+   */
+  scheduleExpression?: string | undefined;
+
+  /**
+   * <p>The timezone in which the schedule expression is evaluated.</p>
+   * @public
+   */
+  timezone?: string | undefined;
+
+  /**
+   * <p>Time offset in seconds from the execution time for the start of the query time range.</p>
+   * @public
+   */
+  startTimeOffset?: number | undefined;
+
+  /**
+   * <p>Configuration for destinations where the query results are delivered.</p>
+   * @public
+   */
+  destinationConfiguration?: DestinationConfiguration | undefined;
+
+  /**
+   * <p>The current state of the scheduled query (ENABLED or DISABLED).</p>
+   * @public
+   */
+  state?: ScheduledQueryState | undefined;
+
+  /**
+   * <p>The time when the scheduled query was last executed, in Unix epoch time.</p>
+   * @public
+   */
+  lastTriggeredTime?: number | undefined;
+
+  /**
+   * <p>The status of the last executed query (Running, Complete, Failed, Timeout, or InvalidQuery).</p>
+   * @public
+   */
+  lastExecutionStatus?: ExecutionStatus | undefined;
+
+  /**
+   * <p>The start time for the query schedule in Unix epoch time.</p>
+   * @public
+   */
+  scheduleStartTime?: number | undefined;
+
+  /**
+   * <p>The end time for the query schedule in Unix epoch time.</p>
+   * @public
+   */
+  scheduleEndTime?: number | undefined;
+
+  /**
+   * <p>The ARN of the IAM role used to execute the scheduled query.</p>
+   * @public
+   */
+  executionRoleArn?: string | undefined;
+
+  /**
+   * <p>The time when the scheduled query was created, in Unix epoch time.</p>
+   * @public
+   */
+  creationTime?: number | undefined;
+
+  /**
+   * <p>The time when the scheduled query was last updated, in Unix epoch time.</p>
+   * @public
+   */
+  lastUpdatedTime?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetScheduledQueryHistoryRequest {
+  /**
+   * <p>The name or ARN of the scheduled query to retrieve history for.</p>
+   * @public
+   */
+  identifier: string | undefined;
+
+  /**
+   * <p>The start time for the history retrieval window in Unix epoch time.</p>
+   * @public
+   */
+  startTime: number | undefined;
+
+  /**
+   * <p>The end time for the history retrieval window in Unix epoch time.</p>
+   * @public
+   */
+  endTime: number | undefined;
+
+  /**
+   * <p>Filter results by execution status (Running, Complete, Failed, Timeout, or InvalidQuery).</p>
+   * @public
+   */
+  executionStatuses?: ExecutionStatus[] | undefined;
+
+  /**
+   * <p>The maximum number of history records to return in a single call.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>The token for the next set of items to return. The token expires after 24
+   *       hours.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ScheduledQueryDestinationType = {
+  S3: "S3",
+} as const;
+
+/**
+ * @public
+ */
+export type ScheduledQueryDestinationType =
+  (typeof ScheduledQueryDestinationType)[keyof typeof ScheduledQueryDestinationType];
+
+/**
+ * <p>Information about a destination where scheduled query results are processed and delivered.</p>
+ * @public
+ */
+export interface ScheduledQueryDestination {
+  /**
+   * <p>The type of destination (S3 or EVENTBRIDGE).</p>
+   * @public
+   */
+  destinationType?: ScheduledQueryDestinationType | undefined;
+
+  /**
+   * <p>The destination identifier (S3 URI or EventBridge ARN).</p>
+   * @public
+   */
+  destinationIdentifier?: string | undefined;
+
+  /**
+   * <p>The processing status for this destination (IN_PROGRESS, ERROR, FAILED, or COMPLETE).</p>
+   * @public
+   */
+  status?: ActionStatus | undefined;
+
+  /**
+   * <p>The processed identifier returned for the destination (S3 key or event ID).</p>
+   * @public
+   */
+  processedIdentifier?: string | undefined;
+
+  /**
+   * <p>Error message if the destination processing failed.</p>
+   * @public
+   */
+  errorMessage?: string | undefined;
+}
+
+/**
+ * <p>A record of a scheduled query execution, including its status and destination processing information.</p>
+ * @public
+ */
+export interface TriggerHistoryRecord {
+  /**
+   * <p>The unique identifier for the query execution.</p>
+   * @public
+   */
+  queryId?: string | undefined;
+
+  /**
+   * <p>The status of the query execution (SUCCEEDED, FAILED, TIMEOUT, or INVALID_QUERY).</p>
+   * @public
+   */
+  executionStatus?: ExecutionStatus | undefined;
+
+  /**
+   * <p>The time when the scheduled query was triggered, in Unix epoch time.</p>
+   * @public
+   */
+  triggeredTimestamp?: number | undefined;
+
+  /**
+   * <p>The error message if the scheduled query execution failed. This field is only populated when the execution status indicates a failure.</p>
+   * @public
+   */
+  errorMessage?: string | undefined;
+
+  /**
+   * <p>The list of destinations where the scheduled query results were delivered for this execution. This includes S3 buckets and EventBridge targets configured for the scheduled query.</p>
+   * @public
+   */
+  destinations?: ScheduledQueryDestination[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetScheduledQueryHistoryResponse {
+  /**
+   * <p>The name of the scheduled query.</p>
+   * @public
+   */
+  name?: string | undefined;
+
+  /**
+   * <p>The ARN of the scheduled query.</p>
+   * @public
+   */
+  scheduledQueryArn?: string | undefined;
+
+  /**
+   * <p>The list of execution history records for the scheduled query.</p>
+   * @public
+   */
+  triggerHistory?: TriggerHistoryRecord[] | undefined;
+
+  /**
+   * <p>The token for the next set of items to return. The token expires after 24
+   *       hours.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface GetTransformerRequest {
   /**
    * <p>Specify either the name or ARN of the log group to return transformer information for. If
@@ -6308,6 +6811,114 @@ export interface ListLogGroupsForQueryResponse {
 /**
  * @public
  */
+export interface ListScheduledQueriesRequest {
+  /**
+   * <p>The maximum number of scheduled queries to return in a single call.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>The token for the next set of items to return. The token expires after 24
+   *       hours.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>Filter results by the state of scheduled queries (ENABLED or DISABLED).</p>
+   * @public
+   */
+  state?: ScheduledQueryState | undefined;
+}
+
+/**
+ * <p>Summary information about a scheduled query, used in list operations.</p>
+ * @public
+ */
+export interface ScheduledQuerySummary {
+  /**
+   * <p>The ARN of the scheduled query.</p>
+   * @public
+   */
+  scheduledQueryArn?: string | undefined;
+
+  /**
+   * <p>The name of the scheduled query.</p>
+   * @public
+   */
+  name?: string | undefined;
+
+  /**
+   * <p>The current state of the scheduled query (ENABLED or DISABLED).</p>
+   * @public
+   */
+  state?: ScheduledQueryState | undefined;
+
+  /**
+   * <p>The time when the scheduled query was last executed.</p>
+   * @public
+   */
+  lastTriggeredTime?: number | undefined;
+
+  /**
+   * <p>The status of the last execution (Running, Complete, Failed, Timeout, or InvalidQuery).</p>
+   * @public
+   */
+  lastExecutionStatus?: ExecutionStatus | undefined;
+
+  /**
+   * <p>The cron expression that defines when the scheduled query runs.</p>
+   * @public
+   */
+  scheduleExpression?: string | undefined;
+
+  /**
+   * <p>The timezone in which the schedule expression is evaluated.</p>
+   * @public
+   */
+  timezone?: string | undefined;
+
+  /**
+   * <p>Configuration for destinations where the query results are delivered.</p>
+   * @public
+   */
+  destinationConfiguration?: DestinationConfiguration | undefined;
+
+  /**
+   * <p>The time when the scheduled query was created.</p>
+   * @public
+   */
+  creationTime?: number | undefined;
+
+  /**
+   * <p>The time when the scheduled query was last updated.</p>
+   * @public
+   */
+  lastUpdatedTime?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListScheduledQueriesResponse {
+  /**
+   * <p>The token for the next set of items to return. The token expires after 24
+   *       hours.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The list of scheduled queries with summary information.</p>
+   * @public
+   */
+  scheduledQueries?: ScheduledQuerySummary[] | undefined;
+}
+
+/**
+ * @public
+ */
 export interface ListTagsForResourceRequest {
   /**
    * <p>The ARN of the resource that you want to view tags for.</p>
@@ -6871,8 +7482,22 @@ export interface PutDeliverySourceRequest {
    * <p>Defines the type of log that the source is sending.</p>
    *          <ul>
    *             <li>
-   *                <p>For Amazon Bedrock, the valid value is <code>APPLICATION_LOGS</code> and
-   *             <code>TRACES</code>.</p>
+   *                <p>For Amazon Bedrock Agents, the valid values are <code>APPLICATION_LOGS</code> and <code>EVENT_LOGS</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>For Amazon Bedrock Knowledge Bases, the valid value is <code>APPLICATION_LOGS</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>For Amazon Bedrock AgentCore Runtime, the valid values are <code>APPLICATION_LOGS</code>, <code>USAGE_LOGS</code> and <code>TRACES</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>For Amazon Bedrock AgentCore Tools, the valid values are <code>APPLICATION_LOGS</code>, <code>USAGE_LOGS</code> and <code>TRACES</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>For Amazon Bedrock AgentCore Identity, the valid values are <code>APPLICATION_LOGS</code> and <code>TRACES</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>For Amazon Bedrock AgentCore Gateway, the valid values are <code>APPLICATION_LOGS</code> and <code>TRACES</code>.</p>
    *             </li>
    *             <li>
    *                <p>For CloudFront, the valid value is <code>ACCESS_LOGS</code>.</p>
@@ -6900,11 +7525,11 @@ export interface PutDeliverySourceRequest {
    *             <code>PCS_JOBCOMP_LOGS</code>.</p>
    *             </li>
    *             <li>
-   *                <p>For Amazon Q, the valid value is <code>EVENT_LOGS</code>.</p>
+   *                <p>For Amazon Q, the valid values are <code>EVENT_LOGS</code> and <code>SYNC_JOB_LOGS</code>.</p>
    *             </li>
    *             <li>
-   *                <p>For Amazon SES mail manager, the valid values are <code>APPLICATION_LOG</code>
-   *           and <code>TRAFFIC_POLICY_DEBUG_LOGS</code>.</p>
+   *                <p>For Amazon SES mail manager, the valid values are
+   *             <code>APPLICATION_LOGS</code> and <code>TRAFFIC_POLICY_DEBUG_LOGS</code>.</p>
    *             </li>
    *             <li>
    *                <p>For Amazon WorkMail, the valid values are <code>ACCESS_CONTROL_LOGS</code>,
@@ -7468,7 +8093,7 @@ export interface PutResourcePolicyRequest {
    *       that call.</p>
    *          <p></p>
    *          <p>
-   *             <code>\{ "Version": "2012-10-17", "Statement": [ \{ "Sid": "Route53LogsToCloudWatchLogs",
+   *             <code>\{ "Version": "2012-10-17",		 	 	  "Statement": [ \{ "Sid": "Route53LogsToCloudWatchLogs",
    *         "Effect": "Allow", "Principal": \{ "Service": [ "route53.amazonaws.com" ] \}, "Action":
    *         "logs:PutLogEvents", "Resource": "logArn", "Condition": \{ "ArnLike": \{ "aws:SourceArn":
    *         "myRoute53ResourceArn" \}, "StringEquals": \{ "aws:SourceAccount": "myAwsAccountId" \} \} \} ]
@@ -8071,367 +8696,4 @@ export interface TagResourceRequest {
    * @public
    */
   tags: Record<string, string> | undefined;
-}
-
-/**
- * <p>A resource can have no more than 50 tags.</p>
- * @public
- */
-export class TooManyTagsException extends __BaseException {
-  readonly name: "TooManyTagsException" = "TooManyTagsException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The name of the resource.</p>
-   * @public
-   */
-  resourceName?: string | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<TooManyTagsException, __BaseException>) {
-    super({
-      name: "TooManyTagsException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, TooManyTagsException.prototype);
-    this.resourceName = opts.resourceName;
-  }
-}
-
-/**
- * @public
- */
-export interface TestMetricFilterRequest {
-  /**
-   * <p>A symbolic description of how CloudWatch Logs should interpret the data in each log
-   *       event. For example, a log event can contain timestamps, IP addresses, strings, and so on. You
-   *       use the filter pattern to specify what to look for in the log event message.</p>
-   * @public
-   */
-  filterPattern: string | undefined;
-
-  /**
-   * <p>The log event messages to test.</p>
-   * @public
-   */
-  logEventMessages: string[] | undefined;
-}
-
-/**
- * <p>Represents a matched event.</p>
- * @public
- */
-export interface MetricFilterMatchRecord {
-  /**
-   * <p>The event number.</p>
-   * @public
-   */
-  eventNumber?: number | undefined;
-
-  /**
-   * <p>The raw event data.</p>
-   * @public
-   */
-  eventMessage?: string | undefined;
-
-  /**
-   * <p>The values extracted from the event data by the filter.</p>
-   * @public
-   */
-  extractedValues?: Record<string, string> | undefined;
-}
-
-/**
- * @public
- */
-export interface TestMetricFilterResponse {
-  /**
-   * <p>The matched events.</p>
-   * @public
-   */
-  matches?: MetricFilterMatchRecord[] | undefined;
-}
-
-/**
- * @public
- */
-export interface TestTransformerRequest {
-  /**
-   * <p>This structure contains the configuration of this log transformer that you want to test. A
-   *       log transformer is an array of processors, where each processor applies one type of
-   *       transformation to the log events that are ingested.</p>
-   * @public
-   */
-  transformerConfig: Processor[] | undefined;
-
-  /**
-   * <p>An array of the raw log events that you want to use to test this transformer.</p>
-   * @public
-   */
-  logEventMessages: string[] | undefined;
-}
-
-/**
- * <p>This structure contains information for one log event that has been processed by a log
- *       transformer.</p>
- * @public
- */
-export interface TransformedLogRecord {
-  /**
-   * <p>The event number.</p>
-   * @public
-   */
-  eventNumber?: number | undefined;
-
-  /**
-   * <p>The original log event message before it was transformed.</p>
-   * @public
-   */
-  eventMessage?: string | undefined;
-
-  /**
-   * <p>The log event message after being transformed.</p>
-   * @public
-   */
-  transformedEventMessage?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface TestTransformerResponse {
-  /**
-   * <p>An array where each member of the array includes both the original version and the
-   *       transformed version of one of the log events that you input.</p>
-   * @public
-   */
-  transformedLogs?: TransformedLogRecord[] | undefined;
-}
-
-/**
- * @public
- */
-export interface UntagLogGroupRequest {
-  /**
-   * <p>The name of the log group.</p>
-   * @public
-   */
-  logGroupName: string | undefined;
-
-  /**
-   * <p>The tag keys. The corresponding tags are removed from the log group.</p>
-   * @public
-   */
-  tags: string[] | undefined;
-}
-
-/**
- * @public
- */
-export interface UntagResourceRequest {
-  /**
-   * <p>The ARN of the CloudWatch Logs resource that you're removing tags from.</p>
-   *          <p>The ARN format of a log group is
-   *           <code>arn:aws:logs:<i>Region</i>:<i>account-id</i>:log-group:<i>log-group-name</i>
-   *             </code>
-   *          </p>
-   *          <p>The ARN format of a destination is
-   *           <code>arn:aws:logs:<i>Region</i>:<i>account-id</i>:destination:<i>destination-name</i>
-   *             </code>
-   *          </p>
-   *          <p>For more information about ARN format, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/iam-access-control-overview-cwl.html">CloudWatch Logs
-   *         resources and operations</a>.</p>
-   * @public
-   */
-  resourceArn: string | undefined;
-
-  /**
-   * <p>The list of tag keys to remove from the resource.</p>
-   * @public
-   */
-  tagKeys: string[] | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const SuppressionUnit = {
-  HOURS: "HOURS",
-  MINUTES: "MINUTES",
-  SECONDS: "SECONDS",
-} as const;
-
-/**
- * @public
- */
-export type SuppressionUnit = (typeof SuppressionUnit)[keyof typeof SuppressionUnit];
-
-/**
- * <p>If you are suppressing an anomaly temporariliy, this structure defines how long the
- *       suppression period is to be.</p>
- * @public
- */
-export interface SuppressionPeriod {
-  /**
-   * <p>Specifies the number of seconds, minutes or hours to suppress this anomaly. There is no
-   *       maximum.</p>
-   * @public
-   */
-  value?: number | undefined;
-
-  /**
-   * <p>Specifies whether the value of <code>value</code> is in seconds, minutes, or hours.</p>
-   * @public
-   */
-  suppressionUnit?: SuppressionUnit | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const SuppressionType = {
-  INFINITE: "INFINITE",
-  LIMITED: "LIMITED",
-} as const;
-
-/**
- * @public
- */
-export type SuppressionType = (typeof SuppressionType)[keyof typeof SuppressionType];
-
-/**
- * @public
- */
-export interface UpdateAnomalyRequest {
-  /**
-   * <p>If you are suppressing or unsuppressing an anomaly, specify its unique ID here. You can
-   *       find anomaly IDs by using the <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_ListAnomalies.html">ListAnomalies</a>
-   *       operation.</p>
-   * @public
-   */
-  anomalyId?: string | undefined;
-
-  /**
-   * <p>If you are suppressing or unsuppressing an pattern, specify its unique ID here. You can
-   *       find pattern IDs by using the <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_ListAnomalies.html">ListAnomalies</a>
-   *       operation.</p>
-   * @public
-   */
-  patternId?: string | undefined;
-
-  /**
-   * <p>The ARN of the anomaly detector that this operation is to act on.</p>
-   * @public
-   */
-  anomalyDetectorArn: string | undefined;
-
-  /**
-   * <p>Use this to specify whether the suppression to be temporary or infinite. If you specify
-   *         <code>LIMITED</code>, you must also specify a <code>suppressionPeriod</code>. If you specify
-   *         <code>INFINITE</code>, any value for <code>suppressionPeriod</code> is ignored. </p>
-   * @public
-   */
-  suppressionType?: SuppressionType | undefined;
-
-  /**
-   * <p>If you are temporarily suppressing an anomaly or pattern, use this structure to specify
-   *       how long the suppression is to last.</p>
-   * @public
-   */
-  suppressionPeriod?: SuppressionPeriod | undefined;
-
-  /**
-   * <p>Set this to <code>true</code> to prevent CloudWatch Logs from displaying this behavior
-   *       as an anomaly in the future. The behavior is then treated as baseline behavior. However, if
-   *       similar but more severe occurrences of this behavior occur in the future, those will still be
-   *       reported as anomalies. </p>
-   *          <p>The default is <code>false</code>
-   *          </p>
-   * @public
-   */
-  baseline?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateDeliveryConfigurationRequest {
-  /**
-   * <p>The ID of the delivery to be updated by this request.</p>
-   * @public
-   */
-  id: string | undefined;
-
-  /**
-   * <p>The list of record fields to be delivered to the destination, in order. If the delivery's
-   *       log source has mandatory fields, they must be included in this list.</p>
-   * @public
-   */
-  recordFields?: string[] | undefined;
-
-  /**
-   * <p>The field delimiter to use between record fields when the final output format of a
-   *       delivery is in <code>Plain</code>, <code>W3C</code>, or <code>Raw</code> format.</p>
-   * @public
-   */
-  fieldDelimiter?: string | undefined;
-
-  /**
-   * <p>This structure contains parameters that are valid only when the delivery's delivery
-   *       destination is an S3 bucket.</p>
-   * @public
-   */
-  s3DeliveryConfiguration?: S3DeliveryConfiguration | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateDeliveryConfigurationResponse {}
-
-/**
- * @public
- */
-export interface UpdateLogAnomalyDetectorRequest {
-  /**
-   * <p>The ARN of the anomaly detector that you want to update.</p>
-   * @public
-   */
-  anomalyDetectorArn: string | undefined;
-
-  /**
-   * <p>Specifies how often the anomaly detector runs and look for anomalies. Set this value
-   *       according to the frequency that the log group receives new logs. For example, if the log group
-   *       receives new log events every 10 minutes, then setting <code>evaluationFrequency</code> to
-   *         <code>FIFTEEN_MIN</code> might be appropriate.</p>
-   * @public
-   */
-  evaluationFrequency?: EvaluationFrequency | undefined;
-
-  /**
-   * <p>A symbolic description of how CloudWatch Logs should interpret the data in each log
-   *       event. For example, a log event can contain timestamps, IP addresses, strings, and so on. You
-   *       use the filter pattern to specify what to look for in the log event message.</p>
-   * @public
-   */
-  filterPattern?: string | undefined;
-
-  /**
-   * <p>The number of days to use as the life cycle of anomalies. After this time, anomalies are
-   *       automatically baselined and the anomaly detector model will treat new occurrences of similar
-   *       event as normal. Therefore, if you do not correct the cause of an anomaly during this time, it
-   *       will be considered normal going forward and will not be detected.</p>
-   * @public
-   */
-  anomalyVisibilityTime?: number | undefined;
-
-  /**
-   * <p>Use this parameter to pause or restart the anomaly detector. </p>
-   * @public
-   */
-  enabled: boolean | undefined;
 }
