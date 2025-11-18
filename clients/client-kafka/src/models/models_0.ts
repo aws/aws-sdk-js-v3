@@ -2145,6 +2145,72 @@ export interface ReplicatorSummary {
 }
 
 /**
+ * <p>Includes identification info about the topic.</p>
+ * @public
+ */
+export interface TopicInfo {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the topic.</p>
+   * @public
+   */
+  TopicArn?: string | undefined;
+
+  /**
+   * <p>Name for a topic.</p>
+   * @public
+   */
+  TopicName?: string | undefined;
+
+  /**
+   * <p>Replication factor for a topic.</p>
+   * @public
+   */
+  ReplicationFactor?: number | undefined;
+
+  /**
+   * <p>Partition count for a topic.</p>
+   * @public
+   */
+  PartitionCount?: number | undefined;
+
+  /**
+   * <p>Number of out-of-sync replicas for a topic.</p>
+   * @public
+   */
+  OutOfSyncReplicaCount?: number | undefined;
+}
+
+/**
+ * <p>Contains information about a topic partition.</p>
+ * @public
+ */
+export interface TopicPartitionInfo {
+  /**
+   * <p>The partition ID.</p>
+   * @public
+   */
+  Partition?: number | undefined;
+
+  /**
+   * <p>The leader broker ID for the partition.</p>
+   * @public
+   */
+  Leader?: number | undefined;
+
+  /**
+   * <p>The list of replica broker IDs for the partition.</p>
+   * @public
+   */
+  Replicas?: number[] | undefined;
+
+  /**
+   * <p>The list of in-sync replica broker IDs for the partition.</p>
+   * @public
+   */
+  Isr?: number[] | undefined;
+}
+
+/**
  * <p>Error info for scram secret associate/disassociate failure.</p>
  * @public
  */
@@ -3639,6 +3705,128 @@ export interface DescribeReplicatorResponse {
 /**
  * @public
  */
+export interface DescribeTopicRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) that uniquely identifies the cluster.</p>
+   * @public
+   */
+  ClusterArn: string | undefined;
+
+  /**
+   * <p>The Kafka topic name that uniquely identifies the topic.</p>
+   * @public
+   */
+  TopicName: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const TopicState = {
+  ACTIVE: "ACTIVE",
+  CREATING: "CREATING",
+  DELETING: "DELETING",
+  UPDATING: "UPDATING",
+} as const;
+
+/**
+ * @public
+ */
+export type TopicState = (typeof TopicState)[keyof typeof TopicState];
+
+/**
+ * @public
+ */
+export interface DescribeTopicResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the topic.</p>
+   * @public
+   */
+  TopicArn?: string | undefined;
+
+  /**
+   * <p>The Kafka topic name of the topic.</p>
+   * @public
+   */
+  TopicName?: string | undefined;
+
+  /**
+   * <p>The replication factor of the topic.</p>
+   * @public
+   */
+  ReplicationFactor?: number | undefined;
+
+  /**
+   * <p>The partition count of the topic.</p>
+   * @public
+   */
+  PartitionCount?: number | undefined;
+
+  /**
+   * <p>Topic configurations encoded as a Base64 string.</p>
+   * @public
+   */
+  Configs?: string | undefined;
+
+  /**
+   * <p>The status of the topic.</p>
+   * @public
+   */
+  Status?: TopicState | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeTopicPartitionsRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) that uniquely identifies the cluster.</p>
+   * @public
+   */
+  ClusterArn: string | undefined;
+
+  /**
+   * <p>The Kafka topic name that uniquely identifies the topic.</p>
+   * @public
+   */
+  TopicName: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return in the response. If there are more results, the response includes a NextToken parameter.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The paginated results marker. When the result of the operation is truncated, the call returns NextToken in the response.
+   *             To get the next batch, provide this token in your next request.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeTopicPartitionsResponse {
+  /**
+   * <p>The list of partition information for the topic.</p>
+   * @public
+   */
+  Partitions?: TopicPartitionInfo[] | undefined;
+
+  /**
+   * <p>The paginated results marker. When the result of a DescribeTopicPartitions operation is truncated, the call returns NextToken in the response.
+   *                To get another batch of configurations, provide this token in your next request.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface DescribeVpcConnectionRequest {
   /**
    * <p>The Amazon Resource Name (ARN) that uniquely identifies a MSK VPC connection.</p>
@@ -4289,6 +4477,54 @@ export interface ListTagsForResourceResponse {
    * @public
    */
   Tags?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListTopicsRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) that uniquely identifies the cluster.</p>
+   * @public
+   */
+  ClusterArn: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return in the response. If there are more results, the response includes a NextToken parameter.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The paginated results marker. When the result of the operation is truncated, the call returns NextToken in the response.
+   *             To get the next batch, provide this token in your next request.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>Returns topics starting with given name.</p>
+   * @public
+   */
+  TopicNameFilter?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListTopicsResponse {
+  /**
+   * <p>List containing topics info.</p>
+   * @public
+   */
+  Topics?: TopicInfo[] | undefined;
+
+  /**
+   * <p>The paginated results marker. When the result of a ListTopics operation is truncated, the call returns NextToken in the response.
+   *                To get another batch of configurations, provide this token in your next request.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
 }
 
 /**

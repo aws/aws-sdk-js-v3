@@ -94,7 +94,8 @@ const _CVIA = "ClientVpcIpAddress";
 const _CWL = "CloudWatchLogs";
 const _Co = "Configuration";
 const _Cod = "Code";
-const _Con = "Configurations";
+const _Con = "Configs";
+const _Conf = "Configurations";
 const _D = "Description";
 const _DACNCG = "DetectAndCopyNewConsumerGroups";
 const _DACNT = "DetectAndCopyNewTopics";
@@ -133,6 +134,12 @@ const _DRRes = "DescribeReplicatorRequest";
 const _DRResc = "DescribeReplicatorResponse";
 const _DRe = "DescribeReplicator";
 const _DS = "DeliveryStream";
+const _DT = "DescribeTopic";
+const _DTP = "DescribeTopicPartitions";
+const _DTPR = "DescribeTopicPartitionsRequest";
+const _DTPRe = "DescribeTopicPartitionsResponse";
+const _DTR = "DescribeTopicRequest";
+const _DTRe = "DescribeTopicResponse";
 const _DVC = "DeleteVpcConnection";
 const _DVCR = "DeleteVpcConnectionRequest";
 const _DVCRe = "DeleteVpcConnectionResponse";
@@ -171,6 +178,7 @@ const _IP = "InvalidParameter";
 const _IRR = "IsReplicatorReference";
 const _ISEE = "InternalServerErrorException";
 const _IT = "InstanceType";
+const _Is = "Isr";
 const _JE = "JmxExporter";
 const _JEI = "JmxExporterInfo";
 const _KBNI = "KafkaBrokerNodeId";
@@ -183,6 +191,7 @@ const _KCSa = "KafkaClustersSummary";
 const _KCa = "KafkaCluster";
 const _KV = "KafkaVersion";
 const _KVa = "KafkaVersions";
+const _L = "Leader";
 const _LC = "ListClusters";
 const _LCO = "ListClusterOperations";
 const _LCOR = "ListClusterOperationsRequest";
@@ -219,9 +228,12 @@ const _LRi = "ListReplicators";
 const _LSS = "ListScramSecrets";
 const _LSSR = "ListScramSecretsRequest";
 const _LSSRi = "ListScramSecretsResponse";
+const _LT = "ListTopics";
 const _LTFR = "ListTagsForResource";
 const _LTFRR = "ListTagsForResourceRequest";
 const _LTFRRi = "ListTagsForResourceResponse";
+const _LTR = "ListTopicsRequest";
+const _LTRi = "ListTopicsResponse";
 const _LVC = "ListVpcConnections";
 const _LVCR = "ListVpcConnectionsRequest";
 const _LVCRi = "ListVpcConnectionsResponse";
@@ -243,11 +255,13 @@ const _O = "Owner";
 const _OA = "OperationArn";
 const _OM = "OpenMonitoring";
 const _OMI = "OpenMonitoringInfo";
+const _OOSRC = "OutOfSyncReplicaCount";
 const _OS = "OperationState";
 const _OSp = "OperationSteps";
 const _OT = "OperationType";
 const _P = "Provisioned";
 const _PA = "PublicAccess";
+const _PC = "PartitionCount";
 const _PCP = "PutClusterPolicy";
 const _PCPR = "PutClusterPolicyRequest";
 const _PCPRu = "PutClusterPolicyResponse";
@@ -255,6 +269,8 @@ const _PI = "PrometheusInfo";
 const _PIr = "PrincipalId";
 const _PR = "ProvisionedRequest";
 const _PT = "ProvisionedThroughput";
+const _Pa = "Partitions";
+const _Par = "Partition";
 const _Po = "Policy";
 const _Pr = "Prometheus";
 const _Pre = "Prefix";
@@ -268,6 +284,7 @@ const _RCVC = "RejectClientVpcConnection";
 const _RCVCR = "RejectClientVpcConnectionRequest";
 const _RCVCRe = "RejectClientVpcConnectionResponse";
 const _RD = "ReplicatorDescription";
+const _RF = "ReplicationFactor";
 const _RI = "ReplicationInfo";
 const _RID = "ReplicationInfoDescription";
 const _RIL = "ReplicationInfoList";
@@ -283,6 +300,7 @@ const _RSe = "ReplicatorSummary";
 const _RTNC = "ReplicationTopicNameConfiguration";
 const _Re = "Revision";
 const _Rep = "Replicators";
+const _Repl = "Replicas";
 const _Rev = "Revisions";
 const _S = "S3";
 const _SA = "SecretArn";
@@ -316,18 +334,23 @@ const _St = "State";
 const _Sta = "Status";
 const _Su = "Subnets";
 const _T = "Tls";
+const _TA = "TopicArn";
 const _TBEBSVI = "TargetBrokerEBSVolumeInfo";
 const _TCA = "TargetClusterArn";
 const _TCI = "TargetClusterInfo";
 const _TCT = "TargetCompressionType";
+const _TI = "TopicInfo";
 const _TIT = "TargetInstanceType";
 const _TK = "TagKeys";
 const _TKCA = "TargetKafkaClusterArn";
 const _TKCAa = "TargetKafkaClusterAlias";
 const _TKV = "TargetKafkaVersion";
 const _TMRE = "TooManyRequestsException";
+const _TN = "TopicName";
 const _TNC = "TopicNameConfiguration";
+const _TNF = "TopicNameFilter";
 const _TNOBN = "TargetNumberOfBrokerNodes";
+const _TPI = "TopicPartitionInfo";
 const _TR = "TopicReplication";
 const _TRR = "TagResourceRequest";
 const _TRU = "TopicReplicationUpdate";
@@ -336,6 +359,7 @@ const _TTE = "TopicsToExclude";
 const _TTR = "TopicsToReplicate";
 const _TV = "TargetVersions";
 const _Ta = "Tags";
+const _To = "Topics";
 const _Ty = "Type";
 const _U = "Unauthenticated";
 const _UBC = "UpdateBrokerCount";
@@ -465,8 +489,9 @@ const _cV = "currentVersion";
 const _cVC = "clientVpcConnections";
 const _cVIA = "clientVpcIpAddress";
 const _cWL = "cloudWatchLogs";
-const _co = "configurations";
+const _co = "configs";
 const _cod = "code";
+const _con = "configurations";
 const _d = "description";
 const _dACNCG = "detectAndCopyNewConsumerGroups";
 const _dACNT = "detectAndCopyNewTopics";
@@ -496,6 +521,7 @@ const _iC = "inCluster";
 const _iP = "invalidParameter";
 const _iRR = "isReplicatorReference";
 const _iT = "instanceType";
+const _is = "isr";
 const _jE = "jmxExporter";
 const _jN = "jsonName";
 const _kBNI = "kafkaBrokerNodeId";
@@ -504,6 +530,7 @@ const _kCA = "kafkaClusterAlias";
 const _kCS = "kafkaClustersSummary";
 const _kV = "kafkaVersion";
 const _kVa = "kafkaVersions";
+const _l = "leader";
 const _lG = "logGroup";
 const _lI = "loggingInfo";
 const _lOBEBSVI = "__listOfBrokerEBSVolumeInfo";
@@ -525,6 +552,8 @@ const _lORI = "__listOfReplicationInfo";
 const _lORID = "__listOfReplicationInfoDescription";
 const _lORIS = "__listOfReplicationInfoSummary";
 const _lORS = "__listOfReplicatorSummary";
+const _lOTI = "__listOfTopicInfo";
+const _lOTPI = "__listOfTopicPartitionInfo";
 const _lOUSS = "__listOfUnprocessedScramSecret";
 const _lOVC = "__listOfVpcConfig";
 const _lOVCi = "__listOfVpcConnection";
@@ -542,19 +571,24 @@ const _nTo = "nodeType";
 const _o = "owner";
 const _oA = "operationArn";
 const _oM = "openMonitoring";
+const _oOSRC = "outOfSyncReplicaCount";
 const _oS = "operationState";
 const _oSp = "operationSteps";
 const _oT = "operationType";
 const _p = "provisioned";
 const _pA = "publicAccess";
+const _pC = "partitionCount";
 const _pI = "principalId";
 const _pT = "provisionedThroughput";
+const _pa = "partitions";
+const _par = "partition";
 const _po = "policy";
 const _pr = "prometheus";
 const _pre = "prefix";
 const _r = "rebalancing";
 const _rA = "replicatorArn";
 const _rD = "replicatorDescription";
+const _rF = "replicationFactor";
 const _rIL = "replicationInfoList";
 const _rISL = "replicationInfoSummaryList";
 const _rN = "replicatorName";
@@ -563,6 +597,7 @@ const _rRA = "replicatorResourceArn";
 const _rS = "replicatorState";
 const _re = "revision";
 const _rep = "replicators";
+const _repl = "replicas";
 const _rev = "revisions";
 const _s = "s3";
 const _sA = "secretArn";
@@ -594,6 +629,7 @@ const _st = "state";
 const _sta = "status";
 const _su = "subnets";
 const _t = "tls";
+const _tA = "topicArn";
 const _tBEBSVI = "targetBrokerEBSVolumeInfo";
 const _tCA = "targetClusterArn";
 const _tCI = "targetClusterInfo";
@@ -603,13 +639,16 @@ const _tK = "tagKeys";
 const _tKCA = "targetKafkaClusterArn";
 const _tKCAa = "targetKafkaClusterAlias";
 const _tKV = "targetKafkaVersion";
+const _tN = "topicName";
 const _tNC = "topicNameConfiguration";
+const _tNF = "topicNameFilter";
 const _tNOBN = "targetNumberOfBrokerNodes";
 const _tR = "topicReplication";
 const _tTE = "topicsToExclude";
 const _tTR = "topicsToReplicate";
 const _tV = "targetVersions";
 const _ta = "tags";
+const _to = "topics";
 const _ty = "type";
 const _u = "unauthenticated";
 const _uI = "userIdentity";
@@ -2600,6 +2639,106 @@ export var DescribeReplicatorResponse: StaticStructureSchema = [
     ],
   ],
 ];
+export var DescribeTopicPartitionsRequest: StaticStructureSchema = [
+  3,
+  n0,
+  _DTPR,
+  0,
+  [_CA, _TN, _MR, _NT],
+  [
+    [0, 1],
+    [0, 1],
+    [
+      1,
+      {
+        [_hQ]: _mR,
+      },
+    ],
+    [
+      0,
+      {
+        [_hQ]: _nT,
+      },
+    ],
+  ],
+];
+export var DescribeTopicPartitionsResponse: StaticStructureSchema = [
+  3,
+  n0,
+  _DTPRe,
+  0,
+  [_Pa, _NT],
+  [
+    [
+      () => __listOfTopicPartitionInfo,
+      {
+        [_jN]: _pa,
+      },
+    ],
+    [
+      0,
+      {
+        [_jN]: _nT,
+      },
+    ],
+  ],
+];
+export var DescribeTopicRequest: StaticStructureSchema = [
+  3,
+  n0,
+  _DTR,
+  0,
+  [_CA, _TN],
+  [
+    [0, 1],
+    [0, 1],
+  ],
+];
+export var DescribeTopicResponse: StaticStructureSchema = [
+  3,
+  n0,
+  _DTRe,
+  0,
+  [_TA, _TN, _RF, _PC, _Con, _Sta],
+  [
+    [
+      0,
+      {
+        [_jN]: _tA,
+      },
+    ],
+    [
+      0,
+      {
+        [_jN]: _tN,
+      },
+    ],
+    [
+      1,
+      {
+        [_jN]: _rF,
+      },
+    ],
+    [
+      1,
+      {
+        [_jN]: _pC,
+      },
+    ],
+    [
+      0,
+      {
+        [_jN]: _co,
+      },
+    ],
+    [
+      0,
+      {
+        [_jN]: _sta,
+      },
+    ],
+  ],
+];
 export var DescribeVpcConnectionRequest: StaticStructureSchema = [3, n0, _DVCRes, 0, [_Ar], [[0, 1]]];
 export var DescribeVpcConnectionResponse: StaticStructureSchema = [
   3,
@@ -3414,12 +3553,12 @@ export var ListConfigurationsResponse: StaticStructureSchema = [
   n0,
   _LCRist,
   0,
-  [_Con, _NT],
+  [_Conf, _NT],
   [
     [
       () => __listOfConfiguration,
       {
-        [_jN]: _co,
+        [_jN]: _con,
       },
     ],
     [
@@ -3618,6 +3757,55 @@ export var ListTagsForResourceResponse: StaticStructureSchema = [
       128 | 0,
       {
         [_jN]: _ta,
+      },
+    ],
+  ],
+];
+export var ListTopicsRequest: StaticStructureSchema = [
+  3,
+  n0,
+  _LTR,
+  0,
+  [_CA, _MR, _NT, _TNF],
+  [
+    [0, 1],
+    [
+      1,
+      {
+        [_hQ]: _mR,
+      },
+    ],
+    [
+      0,
+      {
+        [_hQ]: _nT,
+      },
+    ],
+    [
+      0,
+      {
+        [_hQ]: _tNF,
+      },
+    ],
+  ],
+];
+export var ListTopicsResponse: StaticStructureSchema = [
+  3,
+  n0,
+  _LTRi,
+  0,
+  [_To, _NT],
+  [
+    [
+      () => __listOfTopicInfo,
+      {
+        [_jN]: _to,
+      },
+    ],
+    [
+      0,
+      {
+        [_jN]: _nT,
       },
     ],
   ],
@@ -4728,6 +4916,78 @@ export var TooManyRequestsException: StaticErrorSchema = [
 ];
 TypeRegistry.for(n0).registerError(TooManyRequestsException, __TooManyRequestsException);
 
+export var TopicInfo: StaticStructureSchema = [
+  3,
+  n0,
+  _TI,
+  0,
+  [_TA, _TN, _RF, _PC, _OOSRC],
+  [
+    [
+      0,
+      {
+        [_jN]: _tA,
+      },
+    ],
+    [
+      0,
+      {
+        [_jN]: _tN,
+      },
+    ],
+    [
+      1,
+      {
+        [_jN]: _rF,
+      },
+    ],
+    [
+      1,
+      {
+        [_jN]: _pC,
+      },
+    ],
+    [
+      1,
+      {
+        [_jN]: _oOSRC,
+      },
+    ],
+  ],
+];
+export var TopicPartitionInfo: StaticStructureSchema = [
+  3,
+  n0,
+  _TPI,
+  0,
+  [_Par, _L, _Repl, _Is],
+  [
+    [
+      1,
+      {
+        [_jN]: _par,
+      },
+    ],
+    [
+      1,
+      {
+        [_jN]: _l,
+      },
+    ],
+    [
+      64 | 1,
+      {
+        [_jN]: _repl,
+      },
+    ],
+    [
+      64 | 1,
+      {
+        [_jN]: _is,
+      },
+    ],
+  ],
+];
 export var TopicReplication: StaticStructureSchema = [
   3,
   n0,
@@ -5773,6 +6033,8 @@ TypeRegistry.for(_sm).registerError(KafkaServiceException, __KafkaServiceExcepti
 
 export var __listOf__double = 64 | 1;
 
+export var __listOf__integer = 64 | 1;
+
 export var __listOf__string = 64 | 0;
 
 export var __listOf__stringMax249 = 64 | 0;
@@ -5810,6 +6072,8 @@ export var __listOfReplicationInfoDescription: StaticListSchema = [
 ];
 export var __listOfReplicationInfoSummary: StaticListSchema = [1, n0, _lORIS, 0, [() => ReplicationInfoSummary, 0]];
 export var __listOfReplicatorSummary: StaticListSchema = [1, n0, _lORS, 0, [() => ReplicatorSummary, 0]];
+export var __listOfTopicInfo: StaticListSchema = [1, n0, _lOTI, 0, [() => TopicInfo, 0]];
+export var __listOfTopicPartitionInfo: StaticListSchema = [1, n0, _lOTPI, 0, [() => TopicPartitionInfo, 0]];
 export var __listOfUnprocessedScramSecret: StaticListSchema = [1, n0, _lOUSS, 0, [() => UnprocessedScramSecret, 0]];
 export var __listOfVpcConfig: StaticListSchema = [1, n0, _lOVC, 0, [() => VpcConfig, 0]];
 export var __listOfVpcConnection: StaticListSchema = [1, n0, _lOVCi, 0, [() => VpcConnection, 0]];
@@ -6005,6 +6269,26 @@ export var DescribeReplicator: StaticOperationSchema = [
   () => DescribeReplicatorRequest,
   () => DescribeReplicatorResponse,
 ];
+export var DescribeTopic: StaticOperationSchema = [
+  9,
+  n0,
+  _DT,
+  {
+    [_h]: ["GET", "/v1/clusters/{ClusterArn}/topics/{TopicName}", 200],
+  },
+  () => DescribeTopicRequest,
+  () => DescribeTopicResponse,
+];
+export var DescribeTopicPartitions: StaticOperationSchema = [
+  9,
+  n0,
+  _DTP,
+  {
+    [_h]: ["GET", "/v1/clusters/{ClusterArn}/topics/{TopicName}/partitions", 200],
+  },
+  () => DescribeTopicPartitionsRequest,
+  () => DescribeTopicPartitionsResponse,
+];
 export var DescribeVpcConnection: StaticOperationSchema = [
   9,
   n0,
@@ -6164,6 +6448,16 @@ export var ListTagsForResource: StaticOperationSchema = [
   },
   () => ListTagsForResourceRequest,
   () => ListTagsForResourceResponse,
+];
+export var ListTopics: StaticOperationSchema = [
+  9,
+  n0,
+  _LT,
+  {
+    [_h]: ["GET", "/v1/clusters/{ClusterArn}/topics", 200],
+  },
+  () => ListTopicsRequest,
+  () => ListTopicsResponse,
 ];
 export var ListVpcConnections: StaticOperationSchema = [
   9,

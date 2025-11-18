@@ -98,6 +98,16 @@ import {
   DescribeReplicatorCommandOutput,
 } from "./commands/DescribeReplicatorCommand";
 import {
+  DescribeTopicCommand,
+  DescribeTopicCommandInput,
+  DescribeTopicCommandOutput,
+} from "./commands/DescribeTopicCommand";
+import {
+  DescribeTopicPartitionsCommand,
+  DescribeTopicPartitionsCommandInput,
+  DescribeTopicPartitionsCommandOutput,
+} from "./commands/DescribeTopicPartitionsCommand";
+import {
   DescribeVpcConnectionCommand,
   DescribeVpcConnectionCommandInput,
   DescribeVpcConnectionCommandOutput,
@@ -173,6 +183,7 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
+import { ListTopicsCommand, ListTopicsCommandInput, ListTopicsCommandOutput } from "./commands/ListTopicsCommand";
 import {
   ListVpcConnectionsCommand,
   ListVpcConnectionsCommandInput,
@@ -281,6 +292,8 @@ const commands = {
   DescribeConfigurationCommand,
   DescribeConfigurationRevisionCommand,
   DescribeReplicatorCommand,
+  DescribeTopicCommand,
+  DescribeTopicPartitionsCommand,
   DescribeVpcConnectionCommand,
   GetBootstrapBrokersCommand,
   GetClusterPolicyCommand,
@@ -297,6 +310,7 @@ const commands = {
   ListReplicatorsCommand,
   ListScramSecretsCommand,
   ListTagsForResourceCommand,
+  ListTopicsCommand,
   ListVpcConnectionsCommand,
   PutClusterPolicyCommand,
   RebootBrokerCommand,
@@ -624,6 +638,34 @@ export interface Kafka {
   ): void;
 
   /**
+   * @see {@link DescribeTopicCommand}
+   */
+  describeTopic(args: DescribeTopicCommandInput, options?: __HttpHandlerOptions): Promise<DescribeTopicCommandOutput>;
+  describeTopic(args: DescribeTopicCommandInput, cb: (err: any, data?: DescribeTopicCommandOutput) => void): void;
+  describeTopic(
+    args: DescribeTopicCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeTopicCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeTopicPartitionsCommand}
+   */
+  describeTopicPartitions(
+    args: DescribeTopicPartitionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeTopicPartitionsCommandOutput>;
+  describeTopicPartitions(
+    args: DescribeTopicPartitionsCommandInput,
+    cb: (err: any, data?: DescribeTopicPartitionsCommandOutput) => void
+  ): void;
+  describeTopicPartitions(
+    args: DescribeTopicPartitionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeTopicPartitionsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DescribeVpcConnectionCommand}
    */
   describeVpcConnection(
@@ -881,6 +923,17 @@ export interface Kafka {
     args: ListTagsForResourceCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListTopicsCommand}
+   */
+  listTopics(args: ListTopicsCommandInput, options?: __HttpHandlerOptions): Promise<ListTopicsCommandOutput>;
+  listTopics(args: ListTopicsCommandInput, cb: (err: any, data?: ListTopicsCommandOutput) => void): void;
+  listTopics(
+    args: ListTopicsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListTopicsCommandOutput) => void
   ): void;
 
   /**

@@ -109,6 +109,11 @@ import {
   DescribeConfigurationRevisionCommandOutput,
 } from "./commands/DescribeConfigurationRevisionCommand";
 import { DescribeReplicatorCommandInput, DescribeReplicatorCommandOutput } from "./commands/DescribeReplicatorCommand";
+import { DescribeTopicCommandInput, DescribeTopicCommandOutput } from "./commands/DescribeTopicCommand";
+import {
+  DescribeTopicPartitionsCommandInput,
+  DescribeTopicPartitionsCommandOutput,
+} from "./commands/DescribeTopicPartitionsCommand";
 import {
   DescribeVpcConnectionCommandInput,
   DescribeVpcConnectionCommandOutput,
@@ -149,6 +154,7 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
+import { ListTopicsCommandInput, ListTopicsCommandOutput } from "./commands/ListTopicsCommand";
 import { ListVpcConnectionsCommandInput, ListVpcConnectionsCommandOutput } from "./commands/ListVpcConnectionsCommand";
 import { PutClusterPolicyCommandInput, PutClusterPolicyCommandOutput } from "./commands/PutClusterPolicyCommand";
 import { RebootBrokerCommandInput, RebootBrokerCommandOutput } from "./commands/RebootBrokerCommand";
@@ -219,6 +225,8 @@ export type ServiceInputTypes =
   | DescribeConfigurationCommandInput
   | DescribeConfigurationRevisionCommandInput
   | DescribeReplicatorCommandInput
+  | DescribeTopicCommandInput
+  | DescribeTopicPartitionsCommandInput
   | DescribeVpcConnectionCommandInput
   | GetBootstrapBrokersCommandInput
   | GetClusterPolicyCommandInput
@@ -235,6 +243,7 @@ export type ServiceInputTypes =
   | ListReplicatorsCommandInput
   | ListScramSecretsCommandInput
   | ListTagsForResourceCommandInput
+  | ListTopicsCommandInput
   | ListVpcConnectionsCommandInput
   | PutClusterPolicyCommandInput
   | RebootBrokerCommandInput
@@ -277,6 +286,8 @@ export type ServiceOutputTypes =
   | DescribeConfigurationCommandOutput
   | DescribeConfigurationRevisionCommandOutput
   | DescribeReplicatorCommandOutput
+  | DescribeTopicCommandOutput
+  | DescribeTopicPartitionsCommandOutput
   | DescribeVpcConnectionCommandOutput
   | GetBootstrapBrokersCommandOutput
   | GetClusterPolicyCommandOutput
@@ -293,6 +304,7 @@ export type ServiceOutputTypes =
   | ListReplicatorsCommandOutput
   | ListScramSecretsCommandOutput
   | ListTagsForResourceCommandOutput
+  | ListTopicsCommandOutput
   | ListVpcConnectionsCommandOutput
   | PutClusterPolicyCommandOutput
   | RebootBrokerCommandOutput
