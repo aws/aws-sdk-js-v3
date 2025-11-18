@@ -611,6 +611,14 @@ GetPredictiveScalingForecast
 </details>
 <details>
 <summary>
+LaunchInstances
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/auto-scaling/command/LaunchInstancesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-auto-scaling/Interface/LaunchInstancesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-auto-scaling/Interface/LaunchInstancesCommandOutput/)
+
+</details>
+<details>
+<summary>
 PutLifecycleHook
 </summary>
 

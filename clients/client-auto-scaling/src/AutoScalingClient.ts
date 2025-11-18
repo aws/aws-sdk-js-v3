@@ -221,6 +221,7 @@ import {
   GetPredictiveScalingForecastCommandInput,
   GetPredictiveScalingForecastCommandOutput,
 } from "./commands/GetPredictiveScalingForecastCommand";
+import { LaunchInstancesCommandInput, LaunchInstancesCommandOutput } from "./commands/LaunchInstancesCommand";
 import { PutLifecycleHookCommandInput, PutLifecycleHookCommandOutput } from "./commands/PutLifecycleHookCommand";
 import {
   PutNotificationConfigurationCommandInput,
@@ -325,6 +326,7 @@ export type ServiceInputTypes =
   | ExecutePolicyCommandInput
   | ExitStandbyCommandInput
   | GetPredictiveScalingForecastCommandInput
+  | LaunchInstancesCommandInput
   | PutLifecycleHookCommandInput
   | PutNotificationConfigurationCommandInput
   | PutScalingPolicyCommandInput
@@ -395,6 +397,7 @@ export type ServiceOutputTypes =
   | ExecutePolicyCommandOutput
   | ExitStandbyCommandOutput
   | GetPredictiveScalingForecastCommandOutput
+  | LaunchInstancesCommandOutput
   | PutLifecycleHookCommandOutput
   | PutNotificationConfigurationCommandOutput
   | PutScalingPolicyCommandOutput

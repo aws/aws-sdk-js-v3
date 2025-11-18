@@ -49,6 +49,7 @@ export * from "./EnterStandbyCommand";
 export * from "./ExecutePolicyCommand";
 export * from "./ExitStandbyCommand";
 export * from "./GetPredictiveScalingForecastCommand";
+export * from "./LaunchInstancesCommand";
 export * from "./PutLifecycleHookCommand";
 export * from "./PutNotificationConfigurationCommand";
 export * from "./PutScalingPolicyCommand";

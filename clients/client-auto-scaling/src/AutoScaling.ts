@@ -246,6 +246,11 @@ import {
   GetPredictiveScalingForecastCommandOutput,
 } from "./commands/GetPredictiveScalingForecastCommand";
 import {
+  LaunchInstancesCommand,
+  LaunchInstancesCommandInput,
+  LaunchInstancesCommandOutput,
+} from "./commands/LaunchInstancesCommand";
+import {
   PutLifecycleHookCommand,
   PutLifecycleHookCommandInput,
   PutLifecycleHookCommandOutput,
@@ -368,6 +373,7 @@ const commands = {
   ExecutePolicyCommand,
   ExitStandbyCommand,
   GetPredictiveScalingForecastCommand,
+  LaunchInstancesCommand,
   PutLifecycleHookCommand,
   PutNotificationConfigurationCommand,
   PutScalingPolicyCommand,
@@ -1204,6 +1210,20 @@ export interface AutoScaling {
     args: GetPredictiveScalingForecastCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetPredictiveScalingForecastCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link LaunchInstancesCommand}
+   */
+  launchInstances(
+    args: LaunchInstancesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<LaunchInstancesCommandOutput>;
+  launchInstances(args: LaunchInstancesCommandInput, cb: (err: any, data?: LaunchInstancesCommandOutput) => void): void;
+  launchInstances(
+    args: LaunchInstancesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: LaunchInstancesCommandOutput) => void
   ): void;
 
   /**

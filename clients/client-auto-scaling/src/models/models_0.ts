@@ -2152,8 +2152,7 @@ export interface CreateAutoScalingGroupType {
   MixedInstancesPolicy?: MixedInstancesPolicy | undefined;
 
   /**
-   * <p>The ID of the instance used to base the launch configuration on. If specified, Amazon
-   *             EC2 Auto Scaling uses the configuration values from the specified instance to create a
+   * <p>The ID of the instance used to base the launch configuration on. If specified, Amazon EC2 Auto Scaling uses the configuration values from the specified instance to create a
    *             new launch configuration. To get the instance ID, use the Amazon EC2 <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeInstances.html">DescribeInstances</a> API operation. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/create-asg-from-instance.html">Create an Auto Scaling group using parameters from an existing instance</a> in the
    *                 <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
    * @public
@@ -7577,6 +7576,262 @@ export interface GetPredictiveScalingForecastType {
    * @public
    */
   EndTime: Date | undefined;
+}
+
+/**
+ * <p>
+ *             Indicates that the parameters in the current request do not match the parameters from a previous request with the same client token within the idempotency window.
+ *         </p>
+ * @public
+ */
+export class IdempotentParameterMismatchError extends __BaseException {
+  readonly name: "IdempotentParameterMismatchError" = "IdempotentParameterMismatchError";
+  readonly $fault: "client" = "client";
+  Message?: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<IdempotentParameterMismatchError, __BaseException>) {
+    super({
+      name: "IdempotentParameterMismatchError",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, IdempotentParameterMismatchError.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const RetryStrategy = {
+  NONE: "none",
+  RETRY_WITH_GROUP_CONFIGURATION: "retry-with-group-configuration",
+} as const;
+
+/**
+ * @public
+ */
+export type RetryStrategy = (typeof RetryStrategy)[keyof typeof RetryStrategy];
+
+/**
+ * @public
+ */
+export interface LaunchInstancesRequest {
+  /**
+   * <p>
+   *             The name of the Auto Scaling group to launch instances into.
+   *         </p>
+   * @public
+   */
+  AutoScalingGroupName: string | undefined;
+
+  /**
+   * <p>
+   *             The number of instances to launch. Although this value can exceed 100 for instance weights, the actual instance count is limited to 100 instances per launch.
+   *         </p>
+   * @public
+   */
+  RequestedCapacity: number | undefined;
+
+  /**
+   * <p>
+   *             A unique, case-sensitive identifier to ensure idempotency of the request.
+   *         </p>
+   * @public
+   */
+  ClientToken?: string | undefined;
+
+  /**
+   * <p>
+   *             The Availability Zones for the instance launch. Must match or be included in the Auto Scaling group's Availability Zone configuration. Either <code>AvailabilityZones</code> or <code>SubnetIds</code> must be specified for groups with multiple Availability Zone configurations.
+   *         </p>
+   * @public
+   */
+  AvailabilityZones?: string[] | undefined;
+
+  /**
+   * <p>
+   *             A list of Availability Zone IDs where instances should be launched. Must match or be included in the group's AZ configuration. You cannot specify both AvailabilityZones and AvailabilityZoneIds. Required for multi-AZ groups, optional for single-AZ groups.
+   *         </p>
+   * @public
+   */
+  AvailabilityZoneIds?: string[] | undefined;
+
+  /**
+   * <p>
+   *             The subnet IDs for the instance launch. Either <code>AvailabilityZones</code> or <code>SubnetIds</code> must be specified. If both are specified, the subnets must reside in the specified Availability Zones.
+   *         </p>
+   * @public
+   */
+  SubnetIds?: string[] | undefined;
+
+  /**
+   * <p>
+   *             Specifies whether to retry asynchronously if the synchronous launch fails. Valid values are NONE (default, no async retry) and RETRY_WITH_GROUP_CONFIGURATION (increase desired capacity and retry with group configuration).
+   *         </p>
+   * @public
+   */
+  RetryStrategy?: RetryStrategy | undefined;
+}
+
+/**
+ * <p>
+ *             Contains details about errors encountered during instance launch attempts.
+ *         </p>
+ * @public
+ */
+export interface LaunchInstancesError {
+  /**
+   * <p>
+   *             The instance type that failed to launch.
+   *         </p>
+   * @public
+   */
+  InstanceType?: string | undefined;
+
+  /**
+   * <p>
+   *             The market type (On-Demand or Spot) that encountered the launch error.
+   *         </p>
+   * @public
+   */
+  MarketType?: string | undefined;
+
+  /**
+   * <p>
+   *             The subnet ID where the instance launch was attempted.
+   *         </p>
+   * @public
+   */
+  SubnetId?: string | undefined;
+
+  /**
+   * <p>
+   *             The Availability Zone where the instance launch was attempted.
+   *         </p>
+   * @public
+   */
+  AvailabilityZone?: string | undefined;
+
+  /**
+   * <p>
+   *             The Availability Zone ID where the launch error occurred.
+   *         </p>
+   * @public
+   */
+  AvailabilityZoneId?: string | undefined;
+
+  /**
+   * <p>
+   *             The error code representing the type of error encountered (e.g., InsufficientInstanceCapacity).
+   *         </p>
+   * @public
+   */
+  ErrorCode?: string | undefined;
+
+  /**
+   * <p>
+   *             A descriptive message providing details about the error encountered during the launch attempt.
+   *         </p>
+   * @public
+   */
+  ErrorMessage?: string | undefined;
+}
+
+/**
+ * <p>
+ *             Contains details about a collection of instances launched in the Auto Scaling group.
+ *         </p>
+ * @public
+ */
+export interface InstanceCollection {
+  /**
+   * <p>
+   *             The instance type of the launched instances.
+   *         </p>
+   * @public
+   */
+  InstanceType?: string | undefined;
+
+  /**
+   * <p>
+   *             The market type for the instances (On-Demand or Spot).
+   *         </p>
+   * @public
+   */
+  MarketType?: string | undefined;
+
+  /**
+   * <p>
+   *             The ID of the subnet where the instances were launched.
+   *         </p>
+   * @public
+   */
+  SubnetId?: string | undefined;
+
+  /**
+   * <p>
+   *             The Availability Zone where the instances were launched.
+   *         </p>
+   * @public
+   */
+  AvailabilityZone?: string | undefined;
+
+  /**
+   * <p>
+   *             The Availability Zone ID where the instances in this collection were launched.
+   *         </p>
+   * @public
+   */
+  AvailabilityZoneId?: string | undefined;
+
+  /**
+   * <p>
+   *             A list of instance IDs for the successfully launched instances.
+   *         </p>
+   * @public
+   */
+  InstanceIds?: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface LaunchInstancesResult {
+  /**
+   * <p>
+   *             The name of the Auto Scaling group where the instances were launched.
+   *         </p>
+   * @public
+   */
+  AutoScalingGroupName?: string | undefined;
+
+  /**
+   * <p>
+   *             The idempotency token used for the request, either customer-specified or auto-generated.
+   *         </p>
+   * @public
+   */
+  ClientToken?: string | undefined;
+
+  /**
+   * <p>
+   *             A list of successfully launched instances including details such as instance type, Availability Zone, subnet, lifecycle state, and instance IDs.
+   *         </p>
+   * @public
+   */
+  Instances?: InstanceCollection[] | undefined;
+
+  /**
+   * <p>
+   *             A list of errors encountered during the launch attempt including details about failed instance launches with their corresponding error codes and messages.
+   *         </p>
+   * @public
+   */
+  Errors?: LaunchInstancesError[] | undefined;
 }
 
 /**

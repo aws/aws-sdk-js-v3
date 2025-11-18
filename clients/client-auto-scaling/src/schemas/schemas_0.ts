@@ -45,7 +45,9 @@ const _ATd = "AdjustmentType";
 const _ATdj = "AdjustmentTypes";
 const _AZ = "AvailabilityZones";
 const _AZD = "AvailabilityZoneDistribution";
+const _AZI = "AvailabilityZoneId";
 const _AZIP = "AvailabilityZoneImpairmentPolicy";
+const _AZIv = "AvailabilityZoneIds";
 const _AZv = "AvailabilityZone";
 const _Ac = "Activity";
 const _Al = "Alarm";
@@ -98,6 +100,7 @@ const _CRS = "CapacityReservationSpecification";
 const _CRT = "CapacityReservationTarget";
 const _CSMS = "CustomizedScalingMetricSpecification";
 const _CT = "CreatedTime";
+const _CTl = "ClientToken";
 const _Co = "Context";
 const _Coo = "Cooldown";
 const _Cp = "Cpu";
@@ -211,6 +214,7 @@ const _ESx = "ExitStandby";
 const _ET = "EndTime";
 const _En = "Encrypted";
 const _Ena = "Enabled";
+const _Er = "Errors";
 const _Ex = "Expression";
 const _F = "Filters";
 const _FD = "ForceDelete";
@@ -234,6 +238,8 @@ const _HS = "HealthStatus";
 const _HT = "HttpTokens";
 const _HTe = "HeartbeatTimeout";
 const _I = "Instances";
+const _IC = "InstanceCollection";
+const _ICn = "InstanceCollections";
 const _ID = "InstancesDistribution";
 const _IDG = "IncludeDeletedGroups";
 const _IF = "InstanceFamily";
@@ -248,6 +254,7 @@ const _IM = "InstanceMonitoring";
 const _IMO = "InstanceMetadataOptions";
 const _IMP = "InstanceMaintenancePolicy";
 const _INT = "InvalidNextToken";
+const _IPME = "IdempotentParameterMismatchError";
 const _IR = "InstanceRefreshes";
 const _IRI = "InstanceRefreshId";
 const _IRIPF = "InstanceRefreshInProgressFault";
@@ -301,6 +308,11 @@ const _LHSL = "LifecycleHookSpecificationList";
 const _LHSi = "LifecycleHookSpecifications";
 const _LHT = "LifecycleHookTypes";
 const _LHi = "LifecycleHook";
+const _LI = "LaunchInstances";
+const _LIE = "LaunchInstancesError";
+const _LIEa = "LaunchInstancesErrors";
+const _LIR = "LaunchInstancesRequest";
+const _LIRa = "LaunchInstancesResult";
 const _LPP = "LivePoolProgress";
 const _LS = "LifecycleState";
 const _LST = "LocalStorageTypes";
@@ -347,9 +359,11 @@ const _MSa = "MaxSize";
 const _MSe = "MetricSpecification";
 const _MSet = "MetricStat";
 const _MSetr = "MetricSpecifications";
+const _MT = "MarketType";
 const _MV = "MetricValue";
 const _Ma = "Max";
 const _Me = "Metrics";
+const _Mes = "Message";
 const _Met = "Metric";
 const _Mo = "Mode";
 const _N = "Namespace";
@@ -428,6 +442,7 @@ const _Pr = "Preferences";
 const _Pro = "Processes";
 const _R = "References";
 const _RARN = "RoleARN";
+const _RC = "RequestedCapacity";
 const _RCF = "ResourceContentionFault";
 const _RD = "RollbackDetails";
 const _RDe = "ReturnData";
@@ -446,6 +461,7 @@ const _ROSI = "ReuseOnScaleIn";
 const _RP = "RefreshPreferences";
 const _RPe = "ResumeProcesses";
 const _RR = "RollbackReason";
+const _RS = "RetryStrategy";
 const _RST = "RollbackStartTime";
 const _RT = "ResourceType";
 const _Re = "Reference";
@@ -478,6 +494,8 @@ const _SIR = "StartInstanceRefresh";
 const _SIRA = "StartInstanceRefreshAnswer";
 const _SIRT = "StartInstanceRefreshType";
 const _SIt = "StandbyInstances";
+const _SIu = "SubnetId";
+const _SIub = "SubnetIds";
 const _SLRARN = "ServiceLinkedRoleARN";
 const _SLRF = "ServiceLinkedRoleFailure";
 const _SM = "StatusMessage";
@@ -573,6 +591,7 @@ import { AutoScalingServiceException as __AutoScalingServiceException } from "..
 import {
   ActiveInstanceRefreshNotFoundFault as __ActiveInstanceRefreshNotFoundFault,
   AlreadyExistsFault as __AlreadyExistsFault,
+  IdempotentParameterMismatchError as __IdempotentParameterMismatchError,
   InstanceRefreshInProgressFault as __InstanceRefreshInProgressFault,
   InvalidNextToken as __InvalidNextToken,
   IrreversibleInstanceRefreshFault as __IrreversibleInstanceRefreshFault,
@@ -1154,6 +1173,20 @@ export var GetPredictiveScalingForecastType: StaticStructureSchema = [
   [_ASGN, _PN, _ST, _ET],
   [0, 0, 4, 4],
 ];
+export var IdempotentParameterMismatchError: StaticErrorSchema = [
+  -3,
+  n0,
+  _IPME,
+  {
+    [_e]: _c,
+    [_hE]: 400,
+    [_aQE]: [`IdempotentParameterMismatch`, 400],
+  },
+  [_Mes],
+  [0],
+];
+TypeRegistry.for(n0).registerError(IdempotentParameterMismatchError, __IdempotentParameterMismatchError);
+
 export var Instance: StaticStructureSchema = [
   3,
   n0,
@@ -1161,6 +1194,14 @@ export var Instance: StaticStructureSchema = [
   0,
   [_IIns, _IT, _AZv, _LS, _HS, _LCN, _LT, _PFSI, _WC],
   [0, 0, 0, 0, 0, 0, () => LaunchTemplateSpecification, 2, 0],
+];
+export var InstanceCollection: StaticStructureSchema = [
+  3,
+  n0,
+  _IC,
+  0,
+  [_IT, _MT, _SIu, _AZv, _AZI, _II],
+  [0, 0, 0, 0, 0, 64 | 0],
 ];
 export var InstanceMaintenancePolicy: StaticStructureSchema = [3, n0, _IMP, 0, [_MHP, _MHPa], [1, 1]];
 export var InstanceMetadataOptions: StaticStructureSchema = [3, n0, _IMO, 0, [_HT, _HPRHL, _HE], [0, 1, 0]];
@@ -1366,6 +1407,30 @@ export var LaunchConfigurationsType: StaticStructureSchema = [
   0,
   [_LCa, _NT],
   [() => LaunchConfigurations, 0],
+];
+export var LaunchInstancesError: StaticStructureSchema = [
+  3,
+  n0,
+  _LIE,
+  0,
+  [_IT, _MT, _SIu, _AZv, _AZI, _EC, _EMr],
+  [0, 0, 0, 0, 0, 0, 0],
+];
+export var LaunchInstancesRequest: StaticStructureSchema = [
+  3,
+  n0,
+  _LIR,
+  0,
+  [_ASGN, _RC, _CTl, _AZ, _AZIv, _SIub, _RS],
+  [0, 1, [0, 4], 64 | 0, 64 | 0, 64 | 0, 0],
+];
+export var LaunchInstancesResult: StaticStructureSchema = [
+  3,
+  n0,
+  _LIRa,
+  0,
+  [_ASGN, _CTl, _I, _Er],
+  [0, 0, () => InstanceCollections, () => LaunchInstancesErrors],
 ];
 export var LaunchTemplate: StaticStructureSchema = [
   3,
@@ -1847,7 +1912,11 @@ export var AutoScalingGroups: StaticListSchema = [1, n0, _ASGu, 0, [() => AutoSc
 export var AutoScalingInstances: StaticListSchema = [1, n0, _ASI, 0, () => AutoScalingInstanceDetails];
 export var AutoScalingNotificationTypes = 64 | 0;
 
+export var AvailabilityZoneIdsLimit1 = 64 | 0;
+
 export var AvailabilityZones = 64 | 0;
+
+export var AvailabilityZonesLimit1 = 64 | 0;
 
 export var BlockDeviceMappings: StaticListSchema = [1, n0, _BDMl, 0, () => BlockDeviceMapping];
 export var CapacityReservationIds = 64 | 0;
@@ -1871,6 +1940,7 @@ export var FailedScheduledUpdateGroupActionRequests: StaticListSchema = [
   () => FailedScheduledUpdateGroupActionRequest,
 ];
 export var Filters: StaticListSchema = [1, n0, _F, 0, () => Filter];
+export var InstanceCollections: StaticListSchema = [1, n0, _ICn, 0, () => InstanceCollection];
 export var InstanceGenerations = 64 | 0;
 
 export var InstanceIds = 64 | 0;
@@ -1882,6 +1952,7 @@ export var Instances: StaticListSchema = [1, n0, _I, 0, () => Instance];
 export var LaunchConfigurationNames = 64 | 0;
 
 export var LaunchConfigurations: StaticListSchema = [1, n0, _LCa, 0, () => LaunchConfiguration];
+export var LaunchInstancesErrors: StaticListSchema = [1, n0, _LIEa, 0, () => LaunchInstancesError];
 export var LifecycleHookNames = 64 | 0;
 
 export var LifecycleHooks: StaticListSchema = [1, n0, _LH, 0, () => LifecycleHook];
@@ -1945,6 +2016,8 @@ export var ScheduledUpdateGroupActions: StaticListSchema = [1, n0, _SUGA, 0, () 
 export var SecurityGroups = 64 | 0;
 
 export var StepAdjustments: StaticListSchema = [1, n0, _SAt, 0, () => StepAdjustment];
+export var SubnetIdsLimit1 = 64 | 0;
+
 export var SuspendedProcesses: StaticListSchema = [1, n0, _SP, 0, () => SuspendedProcess];
 export var TagDescriptionList: StaticListSchema = [1, n0, _TDL, 0, () => TagDescription];
 export var Tags: StaticListSchema = [1, n0, _T, 0, () => Tag];
@@ -2286,6 +2359,14 @@ export var GetPredictiveScalingForecast: StaticOperationSchema = [
   0,
   () => GetPredictiveScalingForecastType,
   () => GetPredictiveScalingForecastAnswer,
+];
+export var LaunchInstances: StaticOperationSchema = [
+  9,
+  n0,
+  _LI,
+  0,
+  () => LaunchInstancesRequest,
+  () => LaunchInstancesResult,
 ];
 export var PutLifecycleHook: StaticOperationSchema = [
   9,
