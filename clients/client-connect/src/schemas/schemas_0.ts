@@ -1532,6 +1532,7 @@ const _RSR = "ReplicationStatusReason";
 const _RSS = "ResourceShareStatus";
 const _RSSL = "ReplicationStatusSummaryList";
 const _RSSe = "ReplicationStatusSummary";
+const _RST = "RingStartTimestamp";
 const _RSe = "ReferenceSummary";
 const _RSu = "RuleSummary";
 const _RT = "ResourceType";
@@ -1559,6 +1560,7 @@ const _RTCATIWCOe = "RealTimeContactAnalysisTranscriptItemsWithCharacterOffsets"
 const _RTCATIWCe = "RealTimeContactAnalysisTranscriptItemsWithContent";
 const _RTE = "RefreshTokenExpiration";
 const _RTES = "RuleTriggerEventSource";
+const _RTIS = "RingTimeoutInSeconds";
 const _RTSC = "ResourceTagsSearchCriteria";
 const _RTTF = "RequiredTaskTemplateFields";
 const _RTe = "RehydrationType";
@@ -2797,6 +2799,7 @@ export var Contact: StaticStructureSchema = [
     _LUT,
     _LPT,
     _LRT,
+    _RST,
     _TPC,
     _TPDIS,
     _STc,
@@ -2839,6 +2842,7 @@ export var Contact: StaticStructureSchema = [
     0,
     () => QueueInfo,
     () => AgentInfo,
+    4,
     4,
     4,
     4,
@@ -8108,7 +8112,7 @@ export var StartOutboundVoiceContactRequest: StaticStructureSchema = [
   n0,
   _SOVCR,
   0,
-  [_N, _D, _Ref, _RCI, _DPN, _CFI, _II, _CT, _SPNo, _QI, _Attr, _AMDC, _CIa, _TTr, _OSu],
+  [_N, _D, _Ref, _RCI, _DPN, _CFI, _II, _CT, _SPNo, _QI, _Attr, _AMDC, _CIa, _TTr, _OSu, _RTIS],
   [
     [() => Name, 0],
     [() => Description, 0],
@@ -8125,6 +8129,7 @@ export var StartOutboundVoiceContactRequest: StaticStructureSchema = [
     0,
     0,
     () => OutboundStrategy,
+    1,
   ],
 ];
 export var StartOutboundVoiceContactResponse: StaticStructureSchema = [3, n0, _SOVCRt, 0, [_CI], [0]];

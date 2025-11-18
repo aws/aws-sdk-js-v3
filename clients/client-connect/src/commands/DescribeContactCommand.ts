@@ -145,6 +145,7 @@ export interface DescribeContactCommandOutput extends DescribeContactResponse, _
  * //     LastUpdateTimestamp: new Date("TIMESTAMP"),
  * //     LastPausedTimestamp: new Date("TIMESTAMP"),
  * //     LastResumedTimestamp: new Date("TIMESTAMP"),
+ * //     RingStartTimestamp: new Date("TIMESTAMP"),
  * //     TotalPauseCount: Number("int"),
  * //     TotalPauseDurationInSeconds: Number("int"),
  * //     ScheduledTimestamp: new Date("TIMESTAMP"),

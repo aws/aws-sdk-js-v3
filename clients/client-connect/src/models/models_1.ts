@@ -7730,7 +7730,7 @@ export interface GetMetricDataV2Request {
    *       <code>CASE_TEMPLATE_ARN</code> | <code>CASE_STATUS</code> | <code>CHANNEL</code> |
    *       <code>contact/segmentAttributes/connect:Subtype</code> | <code>DISCONNECT_REASON</code> |
    *       <code>EVALUATION_FORM</code> | <code>EVALUATION_SECTION</code> |
-   *       <code>EVALUATION_QUESTION</code> | <code>EVALUATION_SOURCE</code> | <code>FEATURE</code> |
+   *       <code>EVALUATION_QUESTION</code> | <code>EVALUATION_SOURCE</code> | <code>EVALUATOR_ID</code> | <code>FEATURE</code> |
    *       <code>FLOW_ACTION_ID</code> | <code>FLOW_TYPE</code> | <code>FLOWS_MODULE_RESOURCE_ID</code> |
    *       <code>FLOWS_NEXT_RESOURCE_ID</code> | <code>FLOWS_NEXT_RESOURCE_QUEUE_ID</code> |
    *       <code>FLOWS_OUTCOME_TYPE</code> | <code>FLOWS_RESOURCE_ID</code> | <code>FORM_VERSION</code> |
@@ -7795,7 +7795,7 @@ export interface GetMetricDataV2Request {
    *     <code>CASE_TEMPLATE_ARN</code> | <code>CASE_STATUS</code> | <code>CHANNEL</code> |
    *     <code>contact/segmentAttributes/connect:Subtype</code> | <code>DISCONNECT_REASON</code> |
    *     <code>EVALUATION_FORM</code> | <code>EVALUATION_SECTION</code> |
-   *     <code>EVALUATION_QUESTION</code> | <code>EVALUATION_SOURCE</code> |
+   *     <code>EVALUATION_QUESTION</code> | <code>EVALUATION_SOURCE</code> | <code>EVALUATOR_ID</code> |
    *     <code>FLOWS_RESOURCE_ID</code> | <code>FLOWS_MODULE_RESOURCE_ID</code> |
    *     <code>FLOW_ACTION_ID</code> | <code>FLOW_TYPE</code> | <code>FLOWS_OUTCOME_TYPE</code> |
    *     <code>FORM_VERSION</code> | <code>INITIATION_METHOD</code> |
@@ -7921,6 +7921,14 @@ export interface GetMetricDataV2Request {
    *                <note>
    *                   <p>Feature is a valid filter but not a valid grouping.</p>
    *                </note>
+   *             </dd>
+   *             <dt>AVG_AGENT_CONCURRENCY</dt>
+   *             <dd>
+   *                <p>Unit: Count</p>
+   *                <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, Q in Connect</p>
+   *                <p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#average-agent-concurrency">Average
+   *        agent concurrency</a>
+   *                </p>
    *             </dd>
    *             <dt>AVG_AGENT_CONNECTING_TIME</dt>
    *             <dd>

@@ -315,6 +315,12 @@ export interface StartOutboundVoiceContactRequest {
    * @public
    */
   OutboundStrategy?: OutboundStrategy | undefined;
+
+  /**
+   * <p>The maximum time the outbound call will wait for the destination to answer the call, in seconds </p>
+   * @public
+   */
+  RingTimeoutInSeconds?: number | undefined;
 }
 
 /**
@@ -5886,6 +5892,12 @@ export interface Contact {
    * @public
    */
   LastResumedTimestamp?: Date | undefined;
+
+  /**
+   * <p>The timestamp when ringing started for a campaign call.</p>
+   * @public
+   */
+  RingStartTimestamp?: Date | undefined;
 
   /**
    * <p>Total pause count for a contact.</p>

@@ -45,6 +45,10 @@ export interface StartOutboundVoiceContactCommandOutput extends StartOutboundVoi
  *      <code>TrafficType</code> = <code>CAMPAIGN</code>, you must submit a service quota increase
  *     request to the quota <a href="https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html#outbound-communications-quotas">Amazon Connect campaigns</a>. </p>
  *          </note>
+ *          <note>
+ *             <p>For Preview dialing mode, only the Amazon Connect outbound campaigns service principal is
+ *          allowed to assume a role in your account and call this API with OutboundStrategy. </p>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -96,6 +100,7 @@ export interface StartOutboundVoiceContactCommandOutput extends StartOutboundVoi
  *       },
  *     },
  *   },
+ *   RingTimeoutInSeconds: Number("int"),
  * };
  * const command = new StartOutboundVoiceContactCommand(input);
  * const response = await client.send(command);
