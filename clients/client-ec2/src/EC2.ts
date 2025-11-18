@@ -741,6 +741,11 @@ import {
   CreateVpcPeeringConnectionCommandOutput,
 } from "./commands/CreateVpcPeeringConnectionCommand";
 import {
+  CreateVpnConcentratorCommand,
+  CreateVpnConcentratorCommandInput,
+  CreateVpnConcentratorCommandOutput,
+} from "./commands/CreateVpnConcentratorCommand";
+import {
   CreateVpnConnectionCommand,
   CreateVpnConnectionCommandInput,
   CreateVpnConnectionCommandOutput,
@@ -1149,6 +1154,11 @@ import {
   DeleteVpcPeeringConnectionCommandInput,
   DeleteVpcPeeringConnectionCommandOutput,
 } from "./commands/DeleteVpcPeeringConnectionCommand";
+import {
+  DeleteVpnConcentratorCommand,
+  DeleteVpnConcentratorCommandInput,
+  DeleteVpnConcentratorCommandOutput,
+} from "./commands/DeleteVpnConcentratorCommand";
 import {
   DeleteVpnConnectionCommand,
   DeleteVpnConnectionCommandInput,
@@ -2084,6 +2094,11 @@ import {
   DescribeVpcsCommandInput,
   DescribeVpcsCommandOutput,
 } from "./commands/DescribeVpcsCommand";
+import {
+  DescribeVpnConcentratorsCommand,
+  DescribeVpnConcentratorsCommandInput,
+  DescribeVpnConcentratorsCommandOutput,
+} from "./commands/DescribeVpnConcentratorsCommand";
 import {
   DescribeVpnConnectionsCommand,
   DescribeVpnConnectionsCommandInput,
@@ -3692,6 +3707,7 @@ const commands = {
   CreateVpcEndpointConnectionNotificationCommand,
   CreateVpcEndpointServiceConfigurationCommand,
   CreateVpcPeeringConnectionCommand,
+  CreateVpnConcentratorCommand,
   CreateVpnConnectionCommand,
   CreateVpnConnectionRouteCommand,
   CreateVpnGatewayCommand,
@@ -3777,6 +3793,7 @@ const commands = {
   DeleteVpcEndpointsCommand,
   DeleteVpcEndpointServiceConfigurationsCommand,
   DeleteVpcPeeringConnectionCommand,
+  DeleteVpnConcentratorCommand,
   DeleteVpnConnectionCommand,
   DeleteVpnConnectionRouteCommand,
   DeleteVpnGatewayCommand,
@@ -3964,6 +3981,7 @@ const commands = {
   DescribeVpcEndpointServicesCommand,
   DescribeVpcPeeringConnectionsCommand,
   DescribeVpcsCommand,
+  DescribeVpnConcentratorsCommand,
   DescribeVpnConnectionsCommand,
   DescribeVpnGatewaysCommand,
   DetachClassicLinkVpcCommand,
@@ -6782,6 +6800,23 @@ export interface EC2 {
   ): void;
 
   /**
+   * @see {@link CreateVpnConcentratorCommand}
+   */
+  createVpnConcentrator(
+    args: CreateVpnConcentratorCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateVpnConcentratorCommandOutput>;
+  createVpnConcentrator(
+    args: CreateVpnConcentratorCommandInput,
+    cb: (err: any, data?: CreateVpnConcentratorCommandOutput) => void
+  ): void;
+  createVpnConcentrator(
+    args: CreateVpnConcentratorCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateVpnConcentratorCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link CreateVpnConnectionCommand}
    */
   createVpnConnection(
@@ -8159,6 +8194,23 @@ export interface EC2 {
     args: DeleteVpcPeeringConnectionCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteVpcPeeringConnectionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteVpnConcentratorCommand}
+   */
+  deleteVpnConcentrator(
+    args: DeleteVpnConcentratorCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteVpnConcentratorCommandOutput>;
+  deleteVpnConcentrator(
+    args: DeleteVpnConcentratorCommandInput,
+    cb: (err: any, data?: DeleteVpnConcentratorCommandOutput) => void
+  ): void;
+  deleteVpnConcentrator(
+    args: DeleteVpnConcentratorCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteVpnConcentratorCommandOutput) => void
   ): void;
 
   /**
@@ -11449,6 +11501,24 @@ export interface EC2 {
     args: DescribeVpcsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeVpcsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeVpnConcentratorsCommand}
+   */
+  describeVpnConcentrators(): Promise<DescribeVpnConcentratorsCommandOutput>;
+  describeVpnConcentrators(
+    args: DescribeVpnConcentratorsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeVpnConcentratorsCommandOutput>;
+  describeVpnConcentrators(
+    args: DescribeVpnConcentratorsCommandInput,
+    cb: (err: any, data?: DescribeVpnConcentratorsCommandOutput) => void
+  ): void;
+  describeVpnConcentrators(
+    args: DescribeVpnConcentratorsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeVpnConcentratorsCommandOutput) => void
   ): void;
 
   /**

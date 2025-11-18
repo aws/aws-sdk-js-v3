@@ -2114,6 +2114,103 @@ export interface CreateVpcPeeringConnectionResult {
  * @public
  * @enum
  */
+export const VpnConcentratorType = {
+  ipsec_1: "ipsec.1",
+} as const;
+
+/**
+ * @public
+ */
+export type VpnConcentratorType = (typeof VpnConcentratorType)[keyof typeof VpnConcentratorType];
+
+/**
+ * @public
+ */
+export interface CreateVpnConcentratorRequest {
+  /**
+   * <p>The type of VPN concentrator to create.</p>
+   * @public
+   */
+  Type: VpnConcentratorType | undefined;
+
+  /**
+   * <p>The ID of the transit gateway to attach the VPN concentrator to.</p>
+   * @public
+   */
+  TransitGatewayId?: string | undefined;
+
+  /**
+   * <p>The tags to apply to the VPN concentrator during creation.</p>
+   * @public
+   */
+  TagSpecifications?: TagSpecification[] | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * <p>Describes a VPN concentrator.</p>
+ * @public
+ */
+export interface VpnConcentrator {
+  /**
+   * <p>The ID of the VPN concentrator.</p>
+   * @public
+   */
+  VpnConcentratorId?: string | undefined;
+
+  /**
+   * <p>The current state of the VPN concentrator.</p>
+   * @public
+   */
+  State?: string | undefined;
+
+  /**
+   * <p>The ID of the transit gateway associated with the VPN concentrator.</p>
+   * @public
+   */
+  TransitGatewayId?: string | undefined;
+
+  /**
+   * <p>The ID of the transit gateway attachment for the VPN concentrator.</p>
+   * @public
+   */
+  TransitGatewayAttachmentId?: string | undefined;
+
+  /**
+   * <p>The type of VPN concentrator.</p>
+   * @public
+   */
+  Type?: string | undefined;
+
+  /**
+   * <p>Any tags assigned to the VPN concentrator.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateVpnConcentratorResult {
+  /**
+   * <p>Information about the VPN concentrator.</p>
+   * @public
+   */
+  VpnConcentrator?: VpnConcentrator | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
 export const VpnTunnelBandwidth = {
   large: "large",
   standard: "standard",
@@ -2633,6 +2730,12 @@ export interface CreateVpnConnectionRequest {
   TransitGatewayId?: string | undefined;
 
   /**
+   * <p>The ID of the VPN concentrator to associate with the VPN connection.</p>
+   * @public
+   */
+  VpnConcentratorId?: string | undefined;
+
+  /**
    * <p>The tags to apply to the VPN connection.</p>
    * @public
    */
@@ -3147,6 +3250,12 @@ export interface VpnConnection {
    * @public
    */
   TransitGatewayId?: string | undefined;
+
+  /**
+   * <p>The ID of the VPN concentrator associated with the VPN connection.</p>
+   * @public
+   */
+  VpnConcentratorId?: string | undefined;
 
   /**
    * <p>The ARN of the core network.</p>
@@ -6216,6 +6325,36 @@ export interface DeleteVpcPeeringConnectionResult {
 }
 
 /**
+ * @public
+ */
+export interface DeleteVpnConcentratorRequest {
+  /**
+   * <p>The ID of the VPN concentrator to delete.</p>
+   * @public
+   */
+  VpnConcentratorId: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteVpnConcentratorResult {
+  /**
+   * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
+   * @public
+   */
+  Return?: boolean | undefined;
+}
+
+/**
  * <p>Contains the parameters for DeleteVpnConnection.</p>
  * @public
  */
@@ -7272,194 +7411,4 @@ export interface DescribeAvailabilityZonesRequest {
    * @public
    */
   Filters?: Filter[] | undefined;
-}
-
-/**
- * <p>Describes a message about an Availability Zone, Local Zone, or Wavelength Zone.</p>
- * @public
- */
-export interface AvailabilityZoneMessage {
-  /**
-   * <p>The message about the Availability Zone, Local Zone, or Wavelength Zone.</p>
-   * @public
-   */
-  Message?: string | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const AvailabilityZoneOptInStatus = {
-  not_opted_in: "not-opted-in",
-  opt_in_not_required: "opt-in-not-required",
-  opted_in: "opted-in",
-} as const;
-
-/**
- * @public
- */
-export type AvailabilityZoneOptInStatus =
-  (typeof AvailabilityZoneOptInStatus)[keyof typeof AvailabilityZoneOptInStatus];
-
-/**
- * @public
- * @enum
- */
-export const AvailabilityZoneState = {
-  available: "available",
-  constrained: "constrained",
-  impaired: "impaired",
-  information: "information",
-  unavailable: "unavailable",
-} as const;
-
-/**
- * @public
- */
-export type AvailabilityZoneState = (typeof AvailabilityZoneState)[keyof typeof AvailabilityZoneState];
-
-/**
- * <p>Describes Availability Zones, Local Zones, and Wavelength Zones.</p>
- * @public
- */
-export interface AvailabilityZone {
-  /**
-   * <p>For Availability Zones, this parameter always has the value of
-   *         <code>opt-in-not-required</code>.</p>
-   *          <p>For Local Zones and Wavelength Zones, this parameter is the opt-in status. The possible
-   *       values are <code>opted-in</code> and <code>not-opted-in</code>.</p>
-   * @public
-   */
-  OptInStatus?: AvailabilityZoneOptInStatus | undefined;
-
-  /**
-   * <p>Any messages about the Availability Zone, Local Zone, or Wavelength Zone.</p>
-   * @public
-   */
-  Messages?: AvailabilityZoneMessage[] | undefined;
-
-  /**
-   * <p>The name of the Region.</p>
-   * @public
-   */
-  RegionName?: string | undefined;
-
-  /**
-   * <p>The name of the Availability Zone, Local Zone, or Wavelength Zone.</p>
-   * @public
-   */
-  ZoneName?: string | undefined;
-
-  /**
-   * <p>The ID of the Availability Zone, Local Zone, or Wavelength Zone.</p>
-   * @public
-   */
-  ZoneId?: string | undefined;
-
-  /**
-   * <p>The name of the zone group. For example:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Availability Zones - <code>us-east-1-zg-1</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>Local Zones - <code>us-west-2-lax-1</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>Wavelength Zones - <code>us-east-1-wl1-bos-wlz-1</code>
-   *                </p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  GroupName?: string | undefined;
-
-  /**
-   * <p>The name of the network border group.</p>
-   * @public
-   */
-  NetworkBorderGroup?: string | undefined;
-
-  /**
-   * <p>The type of zone.</p>
-   *          <p>Valid values: <code>availability-zone</code> | <code>local-zone</code> |
-   *         <code>wavelength-zone</code>
-   *          </p>
-   * @public
-   */
-  ZoneType?: string | undefined;
-
-  /**
-   * <p>The name of the zone that handles some of the Local Zone or Wavelength Zone control plane
-   *       operations, such as API calls.</p>
-   * @public
-   */
-  ParentZoneName?: string | undefined;
-
-  /**
-   * <p>The ID of the zone that handles some of the Local Zone or Wavelength Zone control plane
-   *       operations, such as API calls.</p>
-   * @public
-   */
-  ParentZoneId?: string | undefined;
-
-  /**
-   * <p>The long name of the Availability Zone group, Local Zone group, or Wavelength Zone
-   *       group.</p>
-   * @public
-   */
-  GroupLongName?: string | undefined;
-
-  /**
-   * <p>The state of the Availability Zone, Local Zone, or Wavelength Zone. The possible values are
-   *         <code>available</code>, <code>unavailable</code>, and <code>constrained</code>.</p>
-   * @public
-   */
-  State?: AvailabilityZoneState | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeAvailabilityZonesResult {
-  /**
-   * <p>Information about the Availability Zones, Local Zones, and Wavelength Zones.</p>
-   * @public
-   */
-  AvailabilityZones?: AvailabilityZone[] | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeAwsNetworkPerformanceMetricSubscriptionsRequest {
-  /**
-   * <p>The maximum number of results to return with a single call.
-   *    To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>The token for the next page of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>One or more filters.</p>
-   * @public
-   */
-  Filters?: Filter[] | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
 }

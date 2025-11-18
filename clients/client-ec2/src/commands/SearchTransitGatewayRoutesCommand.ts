@@ -61,7 +61,7 @@ export interface SearchTransitGatewayRoutesCommandOutput extends SearchTransitGa
  * //         { // TransitGatewayRouteAttachment
  * //           ResourceId: "STRING_VALUE",
  * //           TransitGatewayAttachmentId: "STRING_VALUE",
- * //           ResourceType: "vpc" || "vpn" || "direct-connect-gateway" || "connect" || "peering" || "tgw-peering" || "network-function",
+ * //           ResourceType: "vpc" || "vpn" || "vpn-concentrator" || "direct-connect-gateway" || "connect" || "peering" || "tgw-peering" || "network-function",
  * //         },
  * //       ],
  * //       Type: "static" || "propagated",

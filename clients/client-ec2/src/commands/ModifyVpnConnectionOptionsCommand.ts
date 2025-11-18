@@ -54,6 +54,7 @@ export interface ModifyVpnConnectionOptionsCommandOutput extends ModifyVpnConnec
  * //   VpnConnection: { // VpnConnection
  * //     Category: "STRING_VALUE",
  * //     TransitGatewayId: "STRING_VALUE",
+ * //     VpnConcentratorId: "STRING_VALUE",
  * //     CoreNetworkArn: "STRING_VALUE",
  * //     CoreNetworkAttachmentArn: "STRING_VALUE",
  * //     GatewayAssociationState: "associated" || "not-associated" || "associating" || "disassociating",

@@ -250,6 +250,7 @@ export const ResourceType = {
   vpc_endpoint_service_permission: "vpc-endpoint-service-permission",
   vpc_flow_log: "vpc-flow-log",
   vpc_peering_connection: "vpc-peering-connection",
+  vpn_concentrator: "vpn-concentrator",
   vpn_connection: "vpn-connection",
   vpn_connection_device_type: "vpn-connection-device-type",
   vpn_gateway: "vpn-gateway",
@@ -534,6 +535,7 @@ export const TransitGatewayAttachmentResourceType = {
   tgw_peering: "tgw-peering",
   vpc: "vpc",
   vpn: "vpn",
+  vpn_concentrator: "vpn-concentrator",
 } as const;
 
 /**

@@ -1033,13 +1033,16 @@ const _CVBPAE = "CreateVpcBlockPublicAccessExclusion";
 const _CVBPAER = "CreateVpcBlockPublicAccessExclusionRequest";
 const _CVBPAERr = "CreateVpcBlockPublicAccessExclusionResult";
 const _CVC = "ClientVpnConnection";
-const _CVCR = "CreateVpnConnectionRequest";
+const _CVCR = "CreateVpnConcentratorRequest";
 const _CVCRR = "CreateVpnConnectionRouteRequest";
-const _CVCRr = "CreateVpnConnectionResult";
-const _CVCRre = "CreateVpnConnectionRoute";
+const _CVCRr = "CreateVpnConcentratorResult";
+const _CVCRre = "CreateVpnConnectionRequest";
+const _CVCRrea = "CreateVpnConnectionResult";
+const _CVCRreat = "CreateVpnConnectionRoute";
 const _CVCS = "ClientVpnConnectionStatus";
 const _CVCSl = "ClientVpnConnectionSet";
-const _CVCr = "CreateVpnConnection";
+const _CVCr = "CreateVpnConcentrator";
+const _CVCre = "CreateVpnConnection";
 const _CVE = "ClientVpnEndpoint";
 const _CVEAS = "ClientVpnEndpointAttributeStatus";
 const _CVECN = "CreateVpcEndpointConnectionNotification";
@@ -2120,13 +2123,19 @@ const _DVCLRe = "DescribeVpcClassicLinkResult";
 const _DVCLRi = "DisableVpcClassicLinkRequest";
 const _DVCLRis = "DisableVpcClassicLinkResult";
 const _DVCLi = "DisableVpcClassicLink";
-const _DVCR = "DeleteVpnConnectionRequest";
+const _DVCR = "DeleteVpnConcentratorRequest";
 const _DVCRR = "DeleteVpnConnectionRouteRequest";
-const _DVCRe = "DescribeVpnConnectionsRequest";
-const _DVCRel = "DeleteVpnConnectionRoute";
-const _DVCRes = "DescribeVpnConnectionsResult";
-const _DVCe = "DeleteVpnConnection";
-const _DVCes = "DescribeVpnConnections";
+const _DVCRe = "DeleteVpnConcentratorResult";
+const _DVCRel = "DeleteVpnConnectionRequest";
+const _DVCRele = "DeleteVpnConnectionRoute";
+const _DVCRes = "DescribeVpnConcentratorsRequest";
+const _DVCResc = "DescribeVpnConcentratorsResult";
+const _DVCRescr = "DescribeVpnConnectionsRequest";
+const _DVCRescri = "DescribeVpnConnectionsResult";
+const _DVCe = "DeleteVpnConcentrator";
+const _DVCel = "DeleteVpnConnection";
+const _DVCes = "DescribeVpnConcentrators";
+const _DVCesc = "DescribeVpnConnections";
 const _DVD = "DeviceValidationDomain";
 const _DVE = "DeleteVpcEndpoints";
 const _DVEA = "DescribeVpcEndpointAssociations";
@@ -5594,7 +5603,7 @@ const _VBPAEIL = "VpcBlockPublicAccessExclusionIdList";
 const _VBPAEL = "VpcBlockPublicAccessExclusionList";
 const _VBPAEp = "VpcBlockPublicAccessExclusions";
 const _VBPAO = "VpcBlockPublicAccessOptions";
-const _VC = "VpnConnection";
+const _VC = "VpnConcentrator";
 const _VCBA = "VpcCidrBlockAssociation";
 const _VCBAS = "VpcCidrBlockAssociationSet";
 const _VCBS = "VpcCidrBlockState";
@@ -5606,18 +5615,24 @@ const _VCDT = "VpnConnectionDeviceTypes";
 const _VCDTI = "VpnConnectionDeviceTypeId";
 const _VCDTL = "VpnConnectionDeviceTypeList";
 const _VCDTp = "VpnConnectionDeviceType";
-const _VCI = "VpnConnectionId";
-const _VCISL = "VpnConnectionIdStringList";
-const _VCIp = "VpnConnectionIds";
+const _VCI = "VpnConcentratorId";
+const _VCISL = "VpnConcentratorIdStringList";
+const _VCISLp = "VpnConnectionIdStringList";
+const _VCIp = "VpnConnectionId";
+const _VCIpn = "VpnConcentratorIds";
+const _VCIpno = "VpnConnectionIds";
 const _VCIpu = "VCpuInfo";
 const _VCL = "VpcClassicLink";
 const _VCLIL = "VpcClassicLinkIdList";
 const _VCLL = "VpcClassicLinkList";
-const _VCLp = "VpnConnectionList";
+const _VCLp = "VpnConcentratorList";
+const _VCLpn = "VpnConnectionList";
 const _VCO = "VpnConnectionOptions";
 const _VCOS = "VpnConnectionOptionsSpecification";
 const _VCa = "ValidCores";
-const _VCp = "VpnConnections";
+const _VCp = "VpnConnection";
+const _VCpn = "VpnConcentrators";
+const _VCpno = "VpnConnections";
 const _VD = "VersionDescription";
 const _VDo = "VolumeDetail";
 const _VE = "VpcEndpoint";
@@ -7656,15 +7671,18 @@ const _vATPS = "verifiedAccessTrustProviderSet";
 const _vBPAE = "vpcBlockPublicAccessExclusion";
 const _vBPAES = "vpcBlockPublicAccessExclusionSet";
 const _vBPAO = "vpcBlockPublicAccessOptions";
-const _vC = "vpnConnection";
+const _vC = "vpnConcentrator";
 const _vCC = "vCpuCount";
 const _vCDSC = "vpnConnectionDeviceSampleConfiguration";
 const _vCDTI = "vpnConnectionDeviceTypeId";
 const _vCDTS = "vpnConnectionDeviceTypeSet";
 const _vCI = "vpnConnectionId";
 const _vCIp = "vCpuInfo";
-const _vCS = "vpnConnectionSet";
+const _vCIpn = "vpnConcentratorId";
+const _vCS = "vpnConcentratorSet";
+const _vCSp = "vpnConnectionSet";
 const _vCa = "validCores";
+const _vCp = "vpnConnection";
 const _vD = "versionDescription";
 const _vE = "vpcEndpoint";
 const _vEAS = "vpcEndpointAssociationSet";
@@ -18839,13 +18857,48 @@ export var CreateVpcResult: StaticStructureSchema = [
     ],
   ],
 ];
-export var CreateVpnConnectionRequest: StaticStructureSchema = [
+export var CreateVpnConcentratorRequest: StaticStructureSchema = [
   3,
   n0,
   _CVCR,
   0,
-  [_CGIu, _Ty, _VGI, _TGI, _TS, _PSKS, _DR, _Opt],
+  [_Ty, _TGI, _TS, _DR],
   [
+    0,
+    0,
+    [
+      () => TagSpecificationList,
+      {
+        [_xN]: _TSa,
+      },
+    ],
+    2,
+  ],
+];
+export var CreateVpnConcentratorResult: StaticStructureSchema = [
+  3,
+  n0,
+  _CVCRr,
+  0,
+  [_VC],
+  [
+    [
+      () => VpnConcentrator,
+      {
+        [_eQN]: `VpnConcentrator`,
+        [_xN]: _vC,
+      },
+    ],
+  ],
+];
+export var CreateVpnConnectionRequest: StaticStructureSchema = [
+  3,
+  n0,
+  _CVCRre,
+  0,
+  [_CGIu, _Ty, _VGI, _TGI, _VCI, _TS, _PSKS, _DR, _Opt],
+  [
+    0,
     0,
     0,
     0,
@@ -18876,20 +18929,20 @@ export var CreateVpnConnectionRequest: StaticStructureSchema = [
 export var CreateVpnConnectionResult: StaticStructureSchema = [
   3,
   n0,
-  _CVCRr,
+  _CVCRrea,
   0,
-  [_VC],
+  [_VCp],
   [
     [
       () => VpnConnection,
       {
         [_eQN]: `VpnConnection`,
-        [_xN]: _vC,
+        [_xN]: _vCp,
       },
     ],
   ],
 ];
-export var CreateVpnConnectionRouteRequest: StaticStructureSchema = [3, n0, _CVCRR, 0, [_DCB, _VCI], [0, 0]];
+export var CreateVpnConnectionRouteRequest: StaticStructureSchema = [3, n0, _CVCRR, 0, [_DCB, _VCIp], [0, 0]];
 export var CreateVpnGatewayRequest: StaticStructureSchema = [
   3,
   n0,
@@ -21190,12 +21243,29 @@ export var DeleteVpcRequest: StaticStructureSchema = [
     ],
   ],
 ];
+export var DeleteVpnConcentratorRequest: StaticStructureSchema = [3, n0, _DVCR, 0, [_VCI, _DR], [0, 2]];
+export var DeleteVpnConcentratorResult: StaticStructureSchema = [
+  3,
+  n0,
+  _DVCRe,
+  0,
+  [_R],
+  [
+    [
+      2,
+      {
+        [_eQN]: `Return`,
+        [_xN]: _r,
+      },
+    ],
+  ],
+];
 export var DeleteVpnConnectionRequest: StaticStructureSchema = [
   3,
   n0,
-  _DVCR,
+  _DVCRel,
   0,
-  [_VCI, _DR],
+  [_VCIp, _DR],
   [
     0,
     [
@@ -21207,7 +21277,7 @@ export var DeleteVpnConnectionRequest: StaticStructureSchema = [
     ],
   ],
 ];
-export var DeleteVpnConnectionRouteRequest: StaticStructureSchema = [3, n0, _DVCRR, 0, [_DCB, _VCI], [0, 0]];
+export var DeleteVpnConnectionRouteRequest: StaticStructureSchema = [3, n0, _DVCRR, 0, [_DCB, _VCIp], [0, 0]];
 export var DeleteVpnGatewayRequest: StaticStructureSchema = [
   3,
   n0,
@@ -29969,12 +30039,59 @@ export var DescribeVpcsResult: StaticStructureSchema = [
     ],
   ],
 ];
+export var DescribeVpnConcentratorsRequest: StaticStructureSchema = [
+  3,
+  n0,
+  _DVCRes,
+  0,
+  [_VCIpn, _Fi, _MR, _NTe, _DR],
+  [
+    [
+      () => VpnConcentratorIdStringList,
+      {
+        [_xN]: _VCI,
+      },
+    ],
+    [
+      () => FilterList,
+      {
+        [_xN]: _Fil,
+      },
+    ],
+    1,
+    0,
+    2,
+  ],
+];
+export var DescribeVpnConcentratorsResult: StaticStructureSchema = [
+  3,
+  n0,
+  _DVCResc,
+  0,
+  [_VCpn, _NTe],
+  [
+    [
+      () => VpnConcentratorList,
+      {
+        [_eQN]: `VpnConcentratorSet`,
+        [_xN]: _vCS,
+      },
+    ],
+    [
+      0,
+      {
+        [_eQN]: `NextToken`,
+        [_xN]: _nTe,
+      },
+    ],
+  ],
+];
 export var DescribeVpnConnectionsRequest: StaticStructureSchema = [
   3,
   n0,
-  _DVCRe,
+  _DVCRescr,
   0,
-  [_Fi, _VCIp, _DR],
+  [_Fi, _VCIpno, _DR],
   [
     [
       () => FilterList,
@@ -29985,7 +30102,7 @@ export var DescribeVpnConnectionsRequest: StaticStructureSchema = [
     [
       () => VpnConnectionIdStringList,
       {
-        [_xN]: _VCI,
+        [_xN]: _VCIp,
       },
     ],
     [
@@ -30000,15 +30117,15 @@ export var DescribeVpnConnectionsRequest: StaticStructureSchema = [
 export var DescribeVpnConnectionsResult: StaticStructureSchema = [
   3,
   n0,
-  _DVCRes,
+  _DVCRescri,
   0,
-  [_VCp],
+  [_VCpno],
   [
     [
       () => VpnConnectionList,
       {
         [_eQN]: `VpnConnectionSet`,
-        [_xN]: _vCS,
+        [_xN]: _vCSp,
       },
     ],
   ],
@@ -33296,7 +33413,7 @@ export var Explanation: StaticStructureSchema = [
     _SRT,
     _Vp,
     _VE,
-    _VC,
+    _VCp,
     _VG,
     _TG,
     _TGRT,
@@ -33620,7 +33737,7 @@ export var Explanation: StaticStructureSchema = [
       () => AnalysisComponent,
       {
         [_eQN]: `VpnConnection`,
-        [_xN]: _vC,
+        [_xN]: _vCp,
       },
     ],
     [
@@ -35331,7 +35448,14 @@ export var FpgaInfo: StaticStructureSchema = [
     ],
   ],
 ];
-export var GetActiveVpnTunnelStatusRequest: StaticStructureSchema = [3, n0, _GAVTSR, 0, [_VCI, _VTOIA, _DR], [0, 0, 2]];
+export var GetActiveVpnTunnelStatusRequest: StaticStructureSchema = [
+  3,
+  n0,
+  _GAVTSR,
+  0,
+  [_VCIp, _VTOIA, _DR],
+  [0, 0, 2],
+];
 export var GetActiveVpnTunnelStatusResult: StaticStructureSchema = [
   3,
   n0,
@@ -37636,7 +37760,7 @@ export var GetVpnConnectionDeviceSampleConfigurationRequest: StaticStructureSche
   n0,
   _GVCDSCR,
   0,
-  [_VCI, _VCDTI, _IKEV, _STa, _DR],
+  [_VCIp, _VCDTI, _IKEV, _STa, _DR],
   [0, 0, 0, 0, 2],
 ];
 export var GetVpnConnectionDeviceSampleConfigurationResult: StaticStructureSchema = [
@@ -37684,7 +37808,7 @@ export var GetVpnTunnelReplacementStatusRequest: StaticStructureSchema = [
   n0,
   _GVTRSR,
   0,
-  [_VCI, _VTOIA, _DR],
+  [_VCIp, _VTOIA, _DR],
   [0, 0, 2],
 ];
 export var GetVpnTunnelReplacementStatusResult: StaticStructureSchema = [
@@ -37692,7 +37816,7 @@ export var GetVpnTunnelReplacementStatusResult: StaticStructureSchema = [
   n0,
   _GVTRSRe,
   0,
-  [_VCI, _TGI, _CGIu, _VGI, _VTOIA, _MDa],
+  [_VCIp, _TGI, _CGIu, _VGI, _VTOIA, _MDa],
   [
     [
       0,
@@ -50710,7 +50834,7 @@ export var ModifyVpnConnectionOptionsRequest: StaticStructureSchema = [
   n0,
   _MVCOR,
   0,
-  [_VCI, _LINC, _RINC, _LINCo, _RINCe, _DR],
+  [_VCIp, _LINC, _RINC, _LINCo, _RINCe, _DR],
   [0, 0, 0, 0, 0, 2],
 ];
 export var ModifyVpnConnectionOptionsResult: StaticStructureSchema = [
@@ -50718,13 +50842,13 @@ export var ModifyVpnConnectionOptionsResult: StaticStructureSchema = [
   n0,
   _MVCORo,
   0,
-  [_VC],
+  [_VCp],
   [
     [
       () => VpnConnection,
       {
         [_eQN]: `VpnConnection`,
-        [_xN]: _vC,
+        [_xN]: _vCp,
       },
     ],
   ],
@@ -50734,7 +50858,7 @@ export var ModifyVpnConnectionRequest: StaticStructureSchema = [
   n0,
   _MVCR,
   0,
-  [_VCI, _TGI, _CGIu, _VGI, _DR],
+  [_VCIp, _TGI, _CGIu, _VGI, _DR],
   [0, 0, 0, 0, 2],
 ];
 export var ModifyVpnConnectionResult: StaticStructureSchema = [
@@ -50742,13 +50866,13 @@ export var ModifyVpnConnectionResult: StaticStructureSchema = [
   n0,
   _MVCRo,
   0,
-  [_VC],
+  [_VCp],
   [
     [
       () => VpnConnection,
       {
         [_eQN]: `VpnConnection`,
-        [_xN]: _vC,
+        [_xN]: _vCp,
       },
     ],
   ],
@@ -50758,7 +50882,7 @@ export var ModifyVpnTunnelCertificateRequest: StaticStructureSchema = [
   n0,
   _MVTCR,
   0,
-  [_VCI, _VTOIA, _DR],
+  [_VCIp, _VTOIA, _DR],
   [0, 0, 2],
 ];
 export var ModifyVpnTunnelCertificateResult: StaticStructureSchema = [
@@ -50766,13 +50890,13 @@ export var ModifyVpnTunnelCertificateResult: StaticStructureSchema = [
   n0,
   _MVTCRo,
   0,
-  [_VC],
+  [_VCp],
   [
     [
       () => VpnConnection,
       {
         [_eQN]: `VpnConnection`,
-        [_xN]: _vC,
+        [_xN]: _vCp,
       },
     ],
   ],
@@ -50782,7 +50906,7 @@ export var ModifyVpnTunnelOptionsRequest: StaticStructureSchema = [
   n0,
   _MVTOR,
   0,
-  [_VCI, _VTOIA, _TO, _DR, _STRk, _PSKS],
+  [_VCIp, _VTOIA, _TO, _DR, _STRk, _PSKS],
   [0, 0, [() => ModifyVpnTunnelOptionsSpecification, 0], 2, 2, 0],
 ];
 export var ModifyVpnTunnelOptionsResult: StaticStructureSchema = [
@@ -50790,13 +50914,13 @@ export var ModifyVpnTunnelOptionsResult: StaticStructureSchema = [
   n0,
   _MVTORo,
   0,
-  [_VC],
+  [_VCp],
   [
     [
       () => VpnConnection,
       {
         [_eQN]: `VpnConnection`,
-        [_xN]: _vC,
+        [_xN]: _vCp,
       },
     ],
   ],
@@ -55858,7 +55982,7 @@ export var ReplaceTransitGatewayRouteResult: StaticStructureSchema = [
     ],
   ],
 ];
-export var ReplaceVpnTunnelRequest: StaticStructureSchema = [3, n0, _RVTR, 0, [_VCI, _VTOIA, _APM, _DR], [0, 0, 2, 2]];
+export var ReplaceVpnTunnelRequest: StaticStructureSchema = [3, n0, _RVTR, 0, [_VCIp, _VTOIA, _APM, _DR], [0, 0, 2, 2]];
 export var ReplaceVpnTunnelResult: StaticStructureSchema = [
   3,
   n0,
@@ -68938,12 +69062,63 @@ export var VpcPeeringConnectionVpcInfo: StaticStructureSchema = [
     ],
   ],
 ];
-export var VpnConnection: StaticStructureSchema = [
+export var VpnConcentrator: StaticStructureSchema = [
   3,
   n0,
   _VC,
   0,
-  [_Cat, _TGI, _CNA, _CNAA, _GAS, _Opt, _Rou, _T, _VTg, _PSKA, _VCI, _St, _CGC, _Ty, _CGIu, _VGI],
+  [_VCI, _St, _TGI, _TGAI, _Ty, _T],
+  [
+    [
+      0,
+      {
+        [_eQN]: `VpnConcentratorId`,
+        [_xN]: _vCIpn,
+      },
+    ],
+    [
+      0,
+      {
+        [_eQN]: `State`,
+        [_xN]: _st,
+      },
+    ],
+    [
+      0,
+      {
+        [_eQN]: `TransitGatewayId`,
+        [_xN]: _tGI,
+      },
+    ],
+    [
+      0,
+      {
+        [_eQN]: `TransitGatewayAttachmentId`,
+        [_xN]: _tGAI,
+      },
+    ],
+    [
+      0,
+      {
+        [_eQN]: `Type`,
+        [_xN]: _ty,
+      },
+    ],
+    [
+      () => TagList,
+      {
+        [_eQN]: `TagSet`,
+        [_xN]: _tS,
+      },
+    ],
+  ],
+];
+export var VpnConnection: StaticStructureSchema = [
+  3,
+  n0,
+  _VCp,
+  0,
+  [_Cat, _TGI, _VCI, _CNA, _CNAA, _GAS, _Opt, _Rou, _T, _VTg, _PSKA, _VCIp, _St, _CGC, _Ty, _CGIu, _VGI],
   [
     [
       0,
@@ -68957,6 +69132,13 @@ export var VpnConnection: StaticStructureSchema = [
       {
         [_eQN]: `TransitGatewayId`,
         [_xN]: _tGI,
+      },
+    ],
+    [
+      0,
+      {
+        [_eQN]: `VpnConcentratorId`,
+        [_xN]: _vCIpn,
       },
     ],
     [
@@ -77251,6 +77433,30 @@ export var VpcPeeringConnectionList: StaticListSchema = [
     },
   ],
 ];
+export var VpnConcentratorIdStringList: StaticListSchema = [
+  1,
+  n0,
+  _VCISL,
+  0,
+  [
+    0,
+    {
+      [_xN]: _VCI,
+    },
+  ],
+];
+export var VpnConcentratorList: StaticListSchema = [
+  1,
+  n0,
+  _VCLp,
+  0,
+  [
+    () => VpnConcentrator,
+    {
+      [_xN]: _it,
+    },
+  ],
+];
 export var VpnConnectionDeviceTypeList: StaticListSchema = [
   1,
   n0,
@@ -77266,19 +77472,19 @@ export var VpnConnectionDeviceTypeList: StaticListSchema = [
 export var VpnConnectionIdStringList: StaticListSchema = [
   1,
   n0,
-  _VCISL,
+  _VCISLp,
   0,
   [
     0,
     {
-      [_xN]: _VCI,
+      [_xN]: _VCIp,
     },
   ],
 ];
 export var VpnConnectionList: StaticListSchema = [
   1,
   n0,
-  _VCLp,
+  _VCLpn,
   0,
   [
     () => VpnConnection,
@@ -78481,10 +78687,18 @@ export var CreateVpcPeeringConnection: StaticOperationSchema = [
   () => CreateVpcPeeringConnectionRequest,
   () => CreateVpcPeeringConnectionResult,
 ];
-export var CreateVpnConnection: StaticOperationSchema = [
+export var CreateVpnConcentrator: StaticOperationSchema = [
   9,
   n0,
   _CVCr,
+  0,
+  () => CreateVpnConcentratorRequest,
+  () => CreateVpnConcentratorResult,
+];
+export var CreateVpnConnection: StaticOperationSchema = [
+  9,
+  n0,
+  _CVCre,
   0,
   () => CreateVpnConnectionRequest,
   () => CreateVpnConnectionResult,
@@ -78492,7 +78706,7 @@ export var CreateVpnConnection: StaticOperationSchema = [
 export var CreateVpnConnectionRoute: StaticOperationSchema = [
   9,
   n0,
-  _CVCRre,
+  _CVCRreat,
   0,
   () => CreateVpnConnectionRouteRequest,
   () => __Unit,
@@ -79084,10 +79298,18 @@ export var DeleteVpcPeeringConnection: StaticOperationSchema = [
   () => DeleteVpcPeeringConnectionRequest,
   () => DeleteVpcPeeringConnectionResult,
 ];
-export var DeleteVpnConnection: StaticOperationSchema = [
+export var DeleteVpnConcentrator: StaticOperationSchema = [
   9,
   n0,
   _DVCe,
+  0,
+  () => DeleteVpnConcentratorRequest,
+  () => DeleteVpnConcentratorResult,
+];
+export var DeleteVpnConnection: StaticOperationSchema = [
+  9,
+  n0,
+  _DVCel,
   0,
   () => DeleteVpnConnectionRequest,
   () => __Unit,
@@ -79095,7 +79317,7 @@ export var DeleteVpnConnection: StaticOperationSchema = [
 export var DeleteVpnConnectionRoute: StaticOperationSchema = [
   9,
   n0,
-  _DVCRel,
+  _DVCRele,
   0,
   () => DeleteVpnConnectionRouteRequest,
   () => __Unit,
@@ -80566,10 +80788,18 @@ export var DescribeVpcs: StaticOperationSchema = [
   () => DescribeVpcsRequest,
   () => DescribeVpcsResult,
 ];
-export var DescribeVpnConnections: StaticOperationSchema = [
+export var DescribeVpnConcentrators: StaticOperationSchema = [
   9,
   n0,
   _DVCes,
+  0,
+  () => DescribeVpnConcentratorsRequest,
+  () => DescribeVpnConcentratorsResult,
+];
+export var DescribeVpnConnections: StaticOperationSchema = [
+  9,
+  n0,
+  _DVCesc,
   0,
   () => DescribeVpnConnectionsRequest,
   () => DescribeVpnConnectionsResult,

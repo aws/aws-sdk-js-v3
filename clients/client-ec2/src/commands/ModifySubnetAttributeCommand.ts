@@ -5,7 +5,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ModifySubnetAttributeRequest } from "../models/models_7";
+import { ModifySubnetAttributeRequest } from "../models/models_8";
 import { ModifySubnetAttribute } from "../schemas/schemas_0";
 
 /**

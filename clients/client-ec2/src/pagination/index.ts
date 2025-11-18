@@ -140,6 +140,7 @@ export * from "./DescribeVpcEndpointServicePermissionsPaginator";
 export * from "./DescribeVpcEndpointsPaginator";
 export * from "./DescribeVpcPeeringConnectionsPaginator";
 export * from "./DescribeVpcsPaginator";
+export * from "./DescribeVpnConcentratorsPaginator";
 export * from "./GetAssociatedIpv6PoolCidrsPaginator";
 export * from "./GetAwsNetworkPerformanceDataPaginator";
 export * from "./GetCapacityManagerMetricDataPaginator";

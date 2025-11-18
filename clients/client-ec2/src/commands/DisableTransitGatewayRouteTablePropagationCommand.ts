@@ -55,7 +55,7 @@ export interface DisableTransitGatewayRouteTablePropagationCommandOutput
  * //   Propagation: { // TransitGatewayPropagation
  * //     TransitGatewayAttachmentId: "STRING_VALUE",
  * //     ResourceId: "STRING_VALUE",
- * //     ResourceType: "vpc" || "vpn" || "direct-connect-gateway" || "connect" || "peering" || "tgw-peering" || "network-function",
+ * //     ResourceType: "vpc" || "vpn" || "vpn-concentrator" || "direct-connect-gateway" || "connect" || "peering" || "tgw-peering" || "network-function",
  * //     TransitGatewayRouteTableId: "STRING_VALUE",
  * //     State: "enabling" || "enabled" || "disabling" || "disabled",
  * //     TransitGatewayRouteTableAnnouncementId: "STRING_VALUE",

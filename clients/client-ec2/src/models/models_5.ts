@@ -20,7 +20,6 @@ import {
   TransitGatewayAssociationState,
   TransitGatewayAttachmentResourceType,
   TransitGatewayAttachmentState,
-  TransitGatewayPeeringAttachment,
   UserIdGroupPair,
 } from "./models_0";
 
@@ -46,6 +45,7 @@ import {
   Ipv6PrefixSpecificationRequest,
   KeyType,
   MacModificationTask,
+  OperatorResponse,
   SpotInstanceType,
   Subnet,
   TargetCapacityUnitType,
@@ -88,13 +88,215 @@ import {
   TrafficMirrorTarget,
   TransitGatewayConnect,
   TransitGatewayConnectPeer,
-  TransitGatewayMulticastDomain,
-  TransitGatewayPolicyTable,
 } from "./models_2";
 
 import { Byoasn, Filter, IdFormat } from "./models_3";
 
-import { AttributeBooleanValue, EventInformation, PermissionGroup, ProductCode, VirtualizationType } from "./models_4";
+import {
+  AttributeBooleanValue,
+  EbsStatusSummary,
+  EventInformation,
+  InstanceState,
+  PermissionGroup,
+  ProductCode,
+  StatusName,
+  StatusType,
+  SummaryStatus,
+  VirtualizationType,
+} from "./models_4";
+
+/**
+ * @public
+ * @enum
+ */
+export const EventCode = {
+  instance_reboot: "instance-reboot",
+  instance_retirement: "instance-retirement",
+  instance_stop: "instance-stop",
+  system_maintenance: "system-maintenance",
+  system_reboot: "system-reboot",
+} as const;
+
+/**
+ * @public
+ */
+export type EventCode = (typeof EventCode)[keyof typeof EventCode];
+
+/**
+ * <p>Describes a scheduled event for an instance.</p>
+ * @public
+ */
+export interface InstanceStatusEvent {
+  /**
+   * <p>The ID of the event.</p>
+   * @public
+   */
+  InstanceEventId?: string | undefined;
+
+  /**
+   * <p>The event code.</p>
+   * @public
+   */
+  Code?: EventCode | undefined;
+
+  /**
+   * <p>A description of the event.</p>
+   *          <p>After a scheduled event is completed, it can still be described for up to a week. If
+   *             the event has been completed, this description starts with the following text:
+   *             [Completed].</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The latest scheduled end time for the event.</p>
+   * @public
+   */
+  NotAfter?: Date | undefined;
+
+  /**
+   * <p>The earliest scheduled start time for the event.</p>
+   * @public
+   */
+  NotBefore?: Date | undefined;
+
+  /**
+   * <p>The deadline for starting the event.</p>
+   * @public
+   */
+  NotBeforeDeadline?: Date | undefined;
+}
+
+/**
+ * <p>Describes the instance status.</p>
+ * @public
+ */
+export interface InstanceStatusDetails {
+  /**
+   * <p>The time when a status check failed. For an instance that was launched and impaired,
+   *             this is the time when the instance was launched.</p>
+   * @public
+   */
+  ImpairedSince?: Date | undefined;
+
+  /**
+   * <p>The type of instance status.</p>
+   * @public
+   */
+  Name?: StatusName | undefined;
+
+  /**
+   * <p>The status.</p>
+   * @public
+   */
+  Status?: StatusType | undefined;
+}
+
+/**
+ * <p>Describes the status of an instance.</p>
+ * @public
+ */
+export interface InstanceStatusSummary {
+  /**
+   * <p>The system instance health or application instance health.</p>
+   * @public
+   */
+  Details?: InstanceStatusDetails[] | undefined;
+
+  /**
+   * <p>The status.</p>
+   * @public
+   */
+  Status?: SummaryStatus | undefined;
+}
+
+/**
+ * <p>Describes the status of an instance.</p>
+ * @public
+ */
+export interface InstanceStatus {
+  /**
+   * <p>The Availability Zone of the instance.</p>
+   * @public
+   */
+  AvailabilityZone?: string | undefined;
+
+  /**
+   * <p>The ID of the Availability Zone of the instance.</p>
+   * @public
+   */
+  AvailabilityZoneId?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Outpost.</p>
+   * @public
+   */
+  OutpostArn?: string | undefined;
+
+  /**
+   * <p>The service provider that manages the instance.</p>
+   * @public
+   */
+  Operator?: OperatorResponse | undefined;
+
+  /**
+   * <p>Any scheduled events associated with the instance.</p>
+   * @public
+   */
+  Events?: InstanceStatusEvent[] | undefined;
+
+  /**
+   * <p>The ID of the instance.</p>
+   * @public
+   */
+  InstanceId?: string | undefined;
+
+  /**
+   * <p>The intended state of the instance. <a>DescribeInstanceStatus</a> requires
+   *             that an instance be in the <code>running</code> state.</p>
+   * @public
+   */
+  InstanceState?: InstanceState | undefined;
+
+  /**
+   * <p>Reports impaired functionality that stems from issues internal to the instance, such
+   *             as impaired reachability.</p>
+   * @public
+   */
+  InstanceStatus?: InstanceStatusSummary | undefined;
+
+  /**
+   * <p>Reports impaired functionality that stems from issues related to the systems that
+   *             support an instance, such as hardware failures and network connectivity problems.</p>
+   * @public
+   */
+  SystemStatus?: InstanceStatusSummary | undefined;
+
+  /**
+   * <p>Reports impaired functionality that stems from an attached Amazon EBS volume that is
+   *             unreachable and unable to complete I/O operations.</p>
+   * @public
+   */
+  AttachedEbsStatus?: EbsStatusSummary | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeInstanceStatusResult {
+  /**
+   * <p>Information about the status of the instances.</p>
+   * @public
+   */
+  InstanceStatuses?: InstanceStatus[] | undefined;
+
+  /**
+   * <p>The token to include in another request to get the next page of items. This value is <code>null</code> when there
+   *          are no more items to return.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
 
 /**
  * @public
@@ -12197,202 +12399,6 @@ export interface DescribeTransitGatewayMulticastDomainsRequest {
    *                   <code>transit-gateway-multicast-domain-id</code> - The ID of the transit gateway multicast domain.</p>
    *             </li>
    *          </ul>
-   * @public
-   */
-  Filters?: Filter[] | undefined;
-
-  /**
-   * <p>The maximum number of results to return with a single call.
-   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>The token for the next page of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeTransitGatewayMulticastDomainsResult {
-  /**
-   * <p>Information about the transit gateway multicast domains.</p>
-   * @public
-   */
-  TransitGatewayMulticastDomains?: TransitGatewayMulticastDomain[] | undefined;
-
-  /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeTransitGatewayPeeringAttachmentsRequest {
-  /**
-   * <p>One or more IDs of the transit gateway peering attachments.</p>
-   * @public
-   */
-  TransitGatewayAttachmentIds?: string[] | undefined;
-
-  /**
-   * <p>One or more filters. The possible values are:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>transit-gateway-attachment-id</code> - The ID of the transit gateway attachment.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>local-owner-id</code> - The ID of your Amazon Web Services account.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>remote-owner-id</code> - The ID of the Amazon Web Services account in the remote Region that owns the transit gateway.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>state</code> - The state of the peering attachment. Valid values are <code>available</code> | <code>deleted</code> | <code>deleting</code> | <code>failed</code> |  <code>failing</code> | <code>initiatingRequest</code> | <code>modifying</code> | <code>pendingAcceptance</code> | <code>pending</code> | <code>rollingBack</code> | <code>rejected</code> | <code>rejecting</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>tag</code>:<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value.
-   *     For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources that have a tag with a specific key, regardless of the tag value.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>transit-gateway-id</code> - The ID of the transit gateway.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  Filters?: Filter[] | undefined;
-
-  /**
-   * <p>The maximum number of results to return with a single call.
-   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>The token for the next page of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeTransitGatewayPeeringAttachmentsResult {
-  /**
-   * <p>The transit gateway peering attachments.</p>
-   * @public
-   */
-  TransitGatewayPeeringAttachments?: TransitGatewayPeeringAttachment[] | undefined;
-
-  /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeTransitGatewayPolicyTablesRequest {
-  /**
-   * <p>The IDs of the transit gateway policy tables.</p>
-   * @public
-   */
-  TransitGatewayPolicyTableIds?: string[] | undefined;
-
-  /**
-   * <p>The filters associated with the transit gateway policy table.</p>
-   * @public
-   */
-  Filters?: Filter[] | undefined;
-
-  /**
-   * <p>The maximum number of results to return with a single call.
-   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>The token for the next page of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeTransitGatewayPolicyTablesResult {
-  /**
-   * <p>Describes the transit gateway policy tables.</p>
-   * @public
-   */
-  TransitGatewayPolicyTables?: TransitGatewayPolicyTable[] | undefined;
-
-  /**
-   * <p>The token for the next page of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeTransitGatewayRouteTableAnnouncementsRequest {
-  /**
-   * <p>The IDs of the transit gateway route tables that are being advertised.</p>
-   * @public
-   */
-  TransitGatewayRouteTableAnnouncementIds?: string[] | undefined;
-
-  /**
-   * <p>The filters associated with the transit gateway policy table.</p>
    * @public
    */
   Filters?: Filter[] | undefined;

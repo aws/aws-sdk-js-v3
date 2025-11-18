@@ -80,6 +80,196 @@ import {
 import { Filter, FleetStateCode, IdFormat, InstanceTagNotificationAttribute } from "./models_3";
 
 /**
+ * <p>Describes a message about an Availability Zone, Local Zone, or Wavelength Zone.</p>
+ * @public
+ */
+export interface AvailabilityZoneMessage {
+  /**
+   * <p>The message about the Availability Zone, Local Zone, or Wavelength Zone.</p>
+   * @public
+   */
+  Message?: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const AvailabilityZoneOptInStatus = {
+  not_opted_in: "not-opted-in",
+  opt_in_not_required: "opt-in-not-required",
+  opted_in: "opted-in",
+} as const;
+
+/**
+ * @public
+ */
+export type AvailabilityZoneOptInStatus =
+  (typeof AvailabilityZoneOptInStatus)[keyof typeof AvailabilityZoneOptInStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const AvailabilityZoneState = {
+  available: "available",
+  constrained: "constrained",
+  impaired: "impaired",
+  information: "information",
+  unavailable: "unavailable",
+} as const;
+
+/**
+ * @public
+ */
+export type AvailabilityZoneState = (typeof AvailabilityZoneState)[keyof typeof AvailabilityZoneState];
+
+/**
+ * <p>Describes Availability Zones, Local Zones, and Wavelength Zones.</p>
+ * @public
+ */
+export interface AvailabilityZone {
+  /**
+   * <p>For Availability Zones, this parameter always has the value of
+   *         <code>opt-in-not-required</code>.</p>
+   *          <p>For Local Zones and Wavelength Zones, this parameter is the opt-in status. The possible
+   *       values are <code>opted-in</code> and <code>not-opted-in</code>.</p>
+   * @public
+   */
+  OptInStatus?: AvailabilityZoneOptInStatus | undefined;
+
+  /**
+   * <p>Any messages about the Availability Zone, Local Zone, or Wavelength Zone.</p>
+   * @public
+   */
+  Messages?: AvailabilityZoneMessage[] | undefined;
+
+  /**
+   * <p>The name of the Region.</p>
+   * @public
+   */
+  RegionName?: string | undefined;
+
+  /**
+   * <p>The name of the Availability Zone, Local Zone, or Wavelength Zone.</p>
+   * @public
+   */
+  ZoneName?: string | undefined;
+
+  /**
+   * <p>The ID of the Availability Zone, Local Zone, or Wavelength Zone.</p>
+   * @public
+   */
+  ZoneId?: string | undefined;
+
+  /**
+   * <p>The name of the zone group. For example:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Availability Zones - <code>us-east-1-zg-1</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>Local Zones - <code>us-west-2-lax-1</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>Wavelength Zones - <code>us-east-1-wl1-bos-wlz-1</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  GroupName?: string | undefined;
+
+  /**
+   * <p>The name of the network border group.</p>
+   * @public
+   */
+  NetworkBorderGroup?: string | undefined;
+
+  /**
+   * <p>The type of zone.</p>
+   *          <p>Valid values: <code>availability-zone</code> | <code>local-zone</code> |
+   *         <code>wavelength-zone</code>
+   *          </p>
+   * @public
+   */
+  ZoneType?: string | undefined;
+
+  /**
+   * <p>The name of the zone that handles some of the Local Zone or Wavelength Zone control plane
+   *       operations, such as API calls.</p>
+   * @public
+   */
+  ParentZoneName?: string | undefined;
+
+  /**
+   * <p>The ID of the zone that handles some of the Local Zone or Wavelength Zone control plane
+   *       operations, such as API calls.</p>
+   * @public
+   */
+  ParentZoneId?: string | undefined;
+
+  /**
+   * <p>The long name of the Availability Zone group, Local Zone group, or Wavelength Zone
+   *       group.</p>
+   * @public
+   */
+  GroupLongName?: string | undefined;
+
+  /**
+   * <p>The state of the Availability Zone, Local Zone, or Wavelength Zone. The possible values are
+   *         <code>available</code>, <code>unavailable</code>, and <code>constrained</code>.</p>
+   * @public
+   */
+  State?: AvailabilityZoneState | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeAvailabilityZonesResult {
+  /**
+   * <p>Information about the Availability Zones, Local Zones, and Wavelength Zones.</p>
+   * @public
+   */
+  AvailabilityZones?: AvailabilityZone[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeAwsNetworkPerformanceMetricSubscriptionsRequest {
+  /**
+   * <p>The maximum number of results to return with a single call.
+   *    To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The token for the next page of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>One or more filters.</p>
+   * @public
+   */
+  Filters?: Filter[] | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
  * @public
  * @enum
  */
@@ -12664,197 +12854,4 @@ export interface EbsStatusSummary {
    * @public
    */
   Status?: SummaryStatus | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const EventCode = {
-  instance_reboot: "instance-reboot",
-  instance_retirement: "instance-retirement",
-  instance_stop: "instance-stop",
-  system_maintenance: "system-maintenance",
-  system_reboot: "system-reboot",
-} as const;
-
-/**
- * @public
- */
-export type EventCode = (typeof EventCode)[keyof typeof EventCode];
-
-/**
- * <p>Describes a scheduled event for an instance.</p>
- * @public
- */
-export interface InstanceStatusEvent {
-  /**
-   * <p>The ID of the event.</p>
-   * @public
-   */
-  InstanceEventId?: string | undefined;
-
-  /**
-   * <p>The event code.</p>
-   * @public
-   */
-  Code?: EventCode | undefined;
-
-  /**
-   * <p>A description of the event.</p>
-   *          <p>After a scheduled event is completed, it can still be described for up to a week. If
-   *             the event has been completed, this description starts with the following text:
-   *             [Completed].</p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p>The latest scheduled end time for the event.</p>
-   * @public
-   */
-  NotAfter?: Date | undefined;
-
-  /**
-   * <p>The earliest scheduled start time for the event.</p>
-   * @public
-   */
-  NotBefore?: Date | undefined;
-
-  /**
-   * <p>The deadline for starting the event.</p>
-   * @public
-   */
-  NotBeforeDeadline?: Date | undefined;
-}
-
-/**
- * <p>Describes the instance status.</p>
- * @public
- */
-export interface InstanceStatusDetails {
-  /**
-   * <p>The time when a status check failed. For an instance that was launched and impaired,
-   *             this is the time when the instance was launched.</p>
-   * @public
-   */
-  ImpairedSince?: Date | undefined;
-
-  /**
-   * <p>The type of instance status.</p>
-   * @public
-   */
-  Name?: StatusName | undefined;
-
-  /**
-   * <p>The status.</p>
-   * @public
-   */
-  Status?: StatusType | undefined;
-}
-
-/**
- * <p>Describes the status of an instance.</p>
- * @public
- */
-export interface InstanceStatusSummary {
-  /**
-   * <p>The system instance health or application instance health.</p>
-   * @public
-   */
-  Details?: InstanceStatusDetails[] | undefined;
-
-  /**
-   * <p>The status.</p>
-   * @public
-   */
-  Status?: SummaryStatus | undefined;
-}
-
-/**
- * <p>Describes the status of an instance.</p>
- * @public
- */
-export interface InstanceStatus {
-  /**
-   * <p>The Availability Zone of the instance.</p>
-   * @public
-   */
-  AvailabilityZone?: string | undefined;
-
-  /**
-   * <p>The ID of the Availability Zone of the instance.</p>
-   * @public
-   */
-  AvailabilityZoneId?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the Outpost.</p>
-   * @public
-   */
-  OutpostArn?: string | undefined;
-
-  /**
-   * <p>The service provider that manages the instance.</p>
-   * @public
-   */
-  Operator?: OperatorResponse | undefined;
-
-  /**
-   * <p>Any scheduled events associated with the instance.</p>
-   * @public
-   */
-  Events?: InstanceStatusEvent[] | undefined;
-
-  /**
-   * <p>The ID of the instance.</p>
-   * @public
-   */
-  InstanceId?: string | undefined;
-
-  /**
-   * <p>The intended state of the instance. <a>DescribeInstanceStatus</a> requires
-   *             that an instance be in the <code>running</code> state.</p>
-   * @public
-   */
-  InstanceState?: InstanceState | undefined;
-
-  /**
-   * <p>Reports impaired functionality that stems from issues internal to the instance, such
-   *             as impaired reachability.</p>
-   * @public
-   */
-  InstanceStatus?: InstanceStatusSummary | undefined;
-
-  /**
-   * <p>Reports impaired functionality that stems from issues related to the systems that
-   *             support an instance, such as hardware failures and network connectivity problems.</p>
-   * @public
-   */
-  SystemStatus?: InstanceStatusSummary | undefined;
-
-  /**
-   * <p>Reports impaired functionality that stems from an attached Amazon EBS volume that is
-   *             unreachable and unable to complete I/O operations.</p>
-   * @public
-   */
-  AttachedEbsStatus?: EbsStatusSummary | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeInstanceStatusResult {
-  /**
-   * <p>Information about the status of the instances.</p>
-   * @public
-   */
-  InstanceStatuses?: InstanceStatus[] | undefined;
-
-  /**
-   * <p>The token to include in another request to get the next page of items. This value is <code>null</code> when there
-   *          are no more items to return.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
 }

@@ -64,7 +64,7 @@ export interface SearchTransitGatewayMulticastGroupsCommandOutput
  * //       TransitGatewayAttachmentId: "STRING_VALUE",
  * //       SubnetId: "STRING_VALUE",
  * //       ResourceId: "STRING_VALUE",
- * //       ResourceType: "vpc" || "vpn" || "direct-connect-gateway" || "connect" || "peering" || "tgw-peering" || "network-function",
+ * //       ResourceType: "vpc" || "vpn" || "vpn-concentrator" || "direct-connect-gateway" || "connect" || "peering" || "tgw-peering" || "network-function",
  * //       ResourceOwnerId: "STRING_VALUE",
  * //       NetworkInterfaceId: "STRING_VALUE",
  * //       GroupMember: true || false,

@@ -560,6 +560,10 @@ import {
   CreateVpcPeeringConnectionCommandOutput,
 } from "./commands/CreateVpcPeeringConnectionCommand";
 import {
+  CreateVpnConcentratorCommandInput,
+  CreateVpnConcentratorCommandOutput,
+} from "./commands/CreateVpnConcentratorCommand";
+import {
   CreateVpnConnectionCommandInput,
   CreateVpnConnectionCommandOutput,
 } from "./commands/CreateVpnConnectionCommand";
@@ -833,6 +837,10 @@ import {
   DeleteVpcPeeringConnectionCommandInput,
   DeleteVpcPeeringConnectionCommandOutput,
 } from "./commands/DeleteVpcPeeringConnectionCommand";
+import {
+  DeleteVpnConcentratorCommandInput,
+  DeleteVpnConcentratorCommandOutput,
+} from "./commands/DeleteVpnConcentratorCommand";
 import {
   DeleteVpnConnectionCommandInput,
   DeleteVpnConnectionCommandOutput,
@@ -1506,6 +1514,10 @@ import {
   DescribeVpcPeeringConnectionsCommandOutput,
 } from "./commands/DescribeVpcPeeringConnectionsCommand";
 import { DescribeVpcsCommandInput, DescribeVpcsCommandOutput } from "./commands/DescribeVpcsCommand";
+import {
+  DescribeVpnConcentratorsCommandInput,
+  DescribeVpnConcentratorsCommandOutput,
+} from "./commands/DescribeVpnConcentratorsCommand";
 import {
   DescribeVpnConnectionsCommandInput,
   DescribeVpnConnectionsCommandOutput,
@@ -2711,6 +2723,7 @@ export type ServiceInputTypes =
   | CreateVpcEndpointConnectionNotificationCommandInput
   | CreateVpcEndpointServiceConfigurationCommandInput
   | CreateVpcPeeringConnectionCommandInput
+  | CreateVpnConcentratorCommandInput
   | CreateVpnConnectionCommandInput
   | CreateVpnConnectionRouteCommandInput
   | CreateVpnGatewayCommandInput
@@ -2796,6 +2809,7 @@ export type ServiceInputTypes =
   | DeleteVpcEndpointServiceConfigurationsCommandInput
   | DeleteVpcEndpointsCommandInput
   | DeleteVpcPeeringConnectionCommandInput
+  | DeleteVpnConcentratorCommandInput
   | DeleteVpnConnectionCommandInput
   | DeleteVpnConnectionRouteCommandInput
   | DeleteVpnGatewayCommandInput
@@ -2983,6 +2997,7 @@ export type ServiceInputTypes =
   | DescribeVpcEndpointsCommandInput
   | DescribeVpcPeeringConnectionsCommandInput
   | DescribeVpcsCommandInput
+  | DescribeVpnConcentratorsCommandInput
   | DescribeVpnConnectionsCommandInput
   | DescribeVpnGatewaysCommandInput
   | DetachClassicLinkVpcCommandInput
@@ -3437,6 +3452,7 @@ export type ServiceOutputTypes =
   | CreateVpcEndpointConnectionNotificationCommandOutput
   | CreateVpcEndpointServiceConfigurationCommandOutput
   | CreateVpcPeeringConnectionCommandOutput
+  | CreateVpnConcentratorCommandOutput
   | CreateVpnConnectionCommandOutput
   | CreateVpnConnectionRouteCommandOutput
   | CreateVpnGatewayCommandOutput
@@ -3522,6 +3538,7 @@ export type ServiceOutputTypes =
   | DeleteVpcEndpointServiceConfigurationsCommandOutput
   | DeleteVpcEndpointsCommandOutput
   | DeleteVpcPeeringConnectionCommandOutput
+  | DeleteVpnConcentratorCommandOutput
   | DeleteVpnConnectionCommandOutput
   | DeleteVpnConnectionRouteCommandOutput
   | DeleteVpnGatewayCommandOutput
@@ -3709,6 +3726,7 @@ export type ServiceOutputTypes =
   | DescribeVpcEndpointsCommandOutput
   | DescribeVpcPeeringConnectionsCommandOutput
   | DescribeVpcsCommandOutput
+  | DescribeVpnConcentratorsCommandOutput
   | DescribeVpnConnectionsCommandOutput
   | DescribeVpnGatewaysCommandOutput
   | DetachClassicLinkVpcCommandOutput
