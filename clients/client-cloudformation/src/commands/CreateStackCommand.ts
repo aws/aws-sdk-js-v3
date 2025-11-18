@@ -90,6 +90,7 @@ export interface CreateStackCommandOutput extends CreateStackOutput, __MetadataB
  * const response = await client.send(command);
  * // { // CreateStackOutput
  * //   StackId: "STRING_VALUE",
+ * //   OperationId: "STRING_VALUE",
  * // };
  *
  * ```

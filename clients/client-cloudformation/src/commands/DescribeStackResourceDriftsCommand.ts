@@ -49,7 +49,7 @@ export interface DescribeStackResourceDriftsCommandOutput extends DescribeStackR
  * const input = { // DescribeStackResourceDriftsInput
  *   StackName: "STRING_VALUE", // required
  *   StackResourceDriftStatusFilters: [ // StackResourceDriftStatusFilters
- *     "IN_SYNC" || "MODIFIED" || "DELETED" || "NOT_CHECKED" || "UNKNOWN",
+ *     "IN_SYNC" || "MODIFIED" || "DELETED" || "NOT_CHECKED" || "UNKNOWN" || "UNSUPPORTED",
  *   ],
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),
@@ -79,7 +79,7 @@ export interface DescribeStackResourceDriftsCommandOutput extends DescribeStackR
  * //           DifferenceType: "ADD" || "REMOVE" || "NOT_EQUAL", // required
  * //         },
  * //       ],
- * //       StackResourceDriftStatus: "IN_SYNC" || "MODIFIED" || "DELETED" || "NOT_CHECKED" || "UNKNOWN", // required
+ * //       StackResourceDriftStatus: "IN_SYNC" || "MODIFIED" || "DELETED" || "NOT_CHECKED" || "UNKNOWN" || "UNSUPPORTED", // required
  * //       Timestamp: new Date("TIMESTAMP"), // required
  * //       ModuleInfo: { // ModuleInfo
  * //         TypeHierarchy: "STRING_VALUE",

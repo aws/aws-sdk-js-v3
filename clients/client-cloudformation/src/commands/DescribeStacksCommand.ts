@@ -110,6 +110,12 @@ export interface DescribeStacksCommandOutput extends DescribeStacksOutput, __Met
  * //       RetainExceptOnCreate: true || false,
  * //       DeletionMode: "STANDARD" || "FORCE_DELETE_STACK",
  * //       DetailedStatus: "CONFIGURATION_COMPLETE" || "VALIDATION_FAILED",
+ * //       LastOperations: [ // LastOperations
+ * //         { // OperationEntry
+ * //           OperationType: "CREATE_STACK" || "UPDATE_STACK" || "DELETE_STACK" || "CONTINUE_ROLLBACK" || "ROLLBACK" || "CREATE_CHANGESET",
+ * //           OperationId: "STRING_VALUE",
+ * //         },
+ * //       ],
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

@@ -80,6 +80,7 @@ export interface RollbackStackCommandOutput extends RollbackStackOutput, __Metad
  * const response = await client.send(command);
  * // { // RollbackStackOutput
  * //   StackId: "STRING_VALUE",
+ * //   OperationId: "STRING_VALUE",
  * // };
  *
  * ```

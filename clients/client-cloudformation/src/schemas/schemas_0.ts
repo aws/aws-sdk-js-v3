@@ -22,9 +22,10 @@ const _ATI = "ActivateTypeInput";
 const _ATO = "ActivateTypeOutput";
 const _AU = "AutoUpdate";
 const _AUc = "AccountsUrl";
-const _AV = "AllowedValues";
-const _AVc = "ActualValue";
+const _AV = "ActualValue";
+const _AVF = "AfterValueFrom";
 const _AVf = "AfterValue";
+const _AVl = "AllowedValues";
 const _Ac = "Accounts";
 const _Acc = "Account";
 const _Act = "Action";
@@ -41,6 +42,7 @@ const _BDTCI = "BatchDescribeTypeConfigurationsInput";
 const _BDTCO = "BatchDescribeTypeConfigurationsOutput";
 const _BT = "BearerToken";
 const _BV = "BeforeValue";
+const _BVF = "BeforeValueFrom";
 const _C = "Change";
 const _CA = "CallAs";
 const _CAo = "ConnectionArn";
@@ -110,13 +112,18 @@ const _DCSO = "DeleteChangeSetOutput";
 const _DCSOe = "DescribeChangeSetOutput";
 const _DCSe = "DescribeChangeSet";
 const _DDS = "DriftDetectionStatus";
+const _DDT = "DriftDetectionTimestamp";
+const _DE = "DescribeEvents";
+const _DEI = "DescribeEventsInput";
+const _DEO = "DescribeEventsOutput";
 const _DGT = "DeleteGeneratedTemplate";
 const _DGTI = "DeleteGeneratedTemplateInput";
 const _DGTIe = "DescribeGeneratedTemplateInput";
 const _DGTO = "DescribeGeneratedTemplateOutput";
 const _DGTe = "DescribeGeneratedTemplate";
 const _DI = "DriftInformation";
-const _DM = "DeletionMode";
+const _DM = "DeploymentMode";
+const _DMe = "DeletionMode";
 const _DOA = "DeactivateOrganizationsAccess";
 const _DOAI = "DeactivateOrganizationsAccessInput";
 const _DOAIe = "DescribeOrganizationsAccessInput";
@@ -209,11 +216,13 @@ const _DVI = "DefaultVersionId";
 const _De = "Details";
 const _Des = "Destination";
 const _Det = "Detection";
+const _Dr = "Drift";
 const _E = "Enabled";
 const _EC = "ErrorCode";
 const _ECS = "ExecuteChangeSet";
 const _ECSI = "ExecuteChangeSetInput";
 const _ECSO = "ExecuteChangeSetOutput";
+const _EF = "EventFilter";
 const _EI = "EventId";
 const _EM = "ErrorMessage";
 const _EN = "ExportName";
@@ -233,18 +242,20 @@ const _ETCI = "EstimateTemplateCostInput";
 const _ETCO = "EstimateTemplateCostOutput";
 const _ETP = "EnableTerminationProtection";
 const _ETn = "EndTimestamp";
+const _ETv = "EventType";
 const _EV = "ExpectedValue";
 const _En = "Entity";
 const _Er = "Errors";
 const _Ev = "Evaluation";
 const _Ex = "Export";
 const _Exp = "Exports";
-const _F = "Format";
+const _F = "Filters";
+const _FE = "FailedEvents";
 const _FM = "FailureMode";
 const _FSIC = "FailedStackInstancesCount";
 const _FTC = "FailureToleranceCount";
 const _FTP = "FailureTolerancePercentage";
-const _Fi = "Filters";
+const _Fo = "Format";
 const _GGT = "GetGeneratedTemplate";
 const _GGTI = "GetGeneratedTemplateInput";
 const _GGTO = "GetGeneratedTemplateOutput";
@@ -321,9 +332,11 @@ const _LI = "ListImports";
 const _LIH = "LogicalIdHierarchy";
 const _LII = "ListImportsInput";
 const _LIO = "ListImportsOutput";
+const _LO = "LastOperations";
 const _LOI = "LastOperationId";
 const _LPV = "LatestPublicVersion";
 const _LRA = "LogRoleArn";
+const _LRD = "LiveResourceDrift";
 const _LRI = "LogicalResourceId";
 const _LRIo = "LogicalResourceIds";
 const _LRS = "ListResourceScans";
@@ -395,6 +408,9 @@ const _NGTN = "NewGeneratedTemplateName";
 const _NOR = "NumberOfResources";
 const _NT = "NextToken";
 const _O = "Output";
+const _OE = "OperationEvents";
+const _OEp = "OperationEntry";
+const _OEpe = "OperationEvent";
 const _OF = "OnFailure";
 const _OI = "OperationId";
 const _OIAEE = "OperationIdAlreadyExistsException";
@@ -407,6 +423,7 @@ const _ORFp = "OperationResultFilters";
 const _OS = "OperationStatus";
 const _OSCFE = "OperationStatusCheckFailedException";
 const _OSF = "OnStackFailure";
+const _OT = "OperationType";
 const _OTA = "OriginalTypeArn";
 const _OTN = "OriginalTypeName";
 const _OUI = "OrganizationalUnitIds";
@@ -419,6 +436,7 @@ const _PC = "PercentageCompleted";
 const _PCSI = "ParentChangeSetId";
 const _PCa = "ParameterConstraints";
 const _PD = "ParameterDeclaration";
+const _PDC = "PreviousDeploymentContext";
 const _PDa = "ParameterDeclarations";
 const _PDr = "PropertyDifference";
 const _PDro = "PropertyDifferences";
@@ -442,8 +460,9 @@ const _PTI = "PublishTypeInput";
 const _PTO = "PublishTypeOutput";
 const _PTa = "ParameterType";
 const _PTu = "PublishType";
-const _PV = "ParameterValue";
+const _PV = "PreviousValue";
 const _PVN = "PublicVersionNumber";
+const _PVa = "ParameterValue";
 const _Pa = "Parameter";
 const _Pat = "Path";
 const _Pr = "Progress";
@@ -461,6 +480,9 @@ const _RCSI = "RootChangeSetId";
 const _RCT = "RegionConcurrencyType";
 const _RCo = "RollbackConfiguration";
 const _RD = "ResourceDefinition";
+const _RDIA = "ResourceDriftIgnoredAttributes";
+const _RDIAe = "ResourceDriftIgnoredAttribute";
+const _RDS = "ResourceDriftStatus";
 const _RDe = "ResourceDetail";
 const _RDes = "ResourceDefinitions";
 const _RDeso = "ResourceDetails";
@@ -525,6 +547,7 @@ const _RTo = "RollbackTriggers";
 const _RTol = "RollbackTrigger";
 const _RV = "ResolvedValue";
 const _Re = "Regions";
+const _Rea = "Reason";
 const _Reg = "Region";
 const _Rep = "Replacement";
 const _Req = "Required";
@@ -722,7 +745,12 @@ const _UTPI = "UpdateTerminationProtectionInput";
 const _UTPO = "UpdateTerminationProtectionOutput";
 const _V = "Value";
 const _VB = "VersionBump";
+const _VFM = "ValidationFailureMode";
 const _VI = "VersionId";
+const _VN = "ValidationName";
+const _VP = "ValidationPath";
+const _VS = "ValidationStatus";
+const _VSR = "ValidationStatusReason";
 const _VT = "ValidateTemplate";
 const _VTI = "ValidateTemplateInput";
 const _VTO = "ValidateTemplateOutput";
@@ -929,7 +957,7 @@ export var CreateChangeSetInput: StaticStructureSchema = [
   n0,
   _CCSI,
   0,
-  [_SN, _TB, _TURL, _UPT, _P, _Ca, _RTe, _RARN, _RCo, _NARN, _Ta, _CSN, _CTl, _D, _CST, _RTI, _INS, _OSF, _IER],
+  [_SN, _TB, _TURL, _UPT, _P, _Ca, _RTe, _RARN, _RCo, _NARN, _Ta, _CSN, _CTl, _D, _CST, _RTI, _INS, _OSF, _IER, _DM],
   [
     0,
     0,
@@ -950,6 +978,7 @@ export var CreateChangeSetInput: StaticStructureSchema = [
     2,
     0,
     2,
+    0,
   ],
 ];
 export var CreateChangeSetOutput: StaticStructureSchema = [3, n0, _CCSO, 0, [_I, _SI], [0, 0]];
@@ -1012,7 +1041,7 @@ export var CreateStackInstancesInput: StaticStructureSchema = [
   [0, 64 | 0, () => DeploymentTargets, 64 | 0, () => _Parameters, () => StackSetOperationPreferences, [0, 4], 0],
 ];
 export var CreateStackInstancesOutput: StaticStructureSchema = [3, n0, _CSIO, 0, [_OI], [0]];
-export var CreateStackOutput: StaticStructureSchema = [3, n0, _CSO, 0, [_SI], [0]];
+export var CreateStackOutput: StaticStructureSchema = [3, n0, _CSO, 0, [_SI, _OI], [0, 0]];
 export var CreateStackRefactorInput: StaticStructureSchema = [
   3,
   n0,
@@ -1059,7 +1088,7 @@ export var DeleteStackInput: StaticStructureSchema = [
   n0,
   _DSI,
   0,
-  [_SN, _RR, _RARN, _CRT, _DM],
+  [_SN, _RR, _RARN, _CRT, _DMe],
   [0, 64 | 0, 0, 0, 0],
 ];
 export var DeleteStackInstancesInput: StaticStructureSchema = [
@@ -1107,7 +1136,31 @@ export var DescribeChangeSetOutput: StaticStructureSchema = [
   n0,
   _DCSOe,
   0,
-  [_CSN, _CSI, _SI, _SN, _D, _P, _CT, _ES, _S, _SR, _NARN, _RCo, _Ca, _Ta, _Ch, _NT, _INS, _PCSI, _RCSI, _OSF, _IER],
+  [
+    _CSN,
+    _CSI,
+    _SI,
+    _SN,
+    _D,
+    _P,
+    _CT,
+    _ES,
+    _S,
+    _SR,
+    _SDS,
+    _NARN,
+    _RCo,
+    _Ca,
+    _Ta,
+    _Ch,
+    _NT,
+    _INS,
+    _PCSI,
+    _RCSI,
+    _OSF,
+    _IER,
+    _DM,
+  ],
   [
     0,
     0,
@@ -1116,6 +1169,7 @@ export var DescribeChangeSetOutput: StaticStructureSchema = [
     0,
     () => _Parameters,
     4,
+    0,
     0,
     0,
     0,
@@ -1130,8 +1184,18 @@ export var DescribeChangeSetOutput: StaticStructureSchema = [
     0,
     0,
     2,
+    0,
   ],
 ];
+export var DescribeEventsInput: StaticStructureSchema = [
+  3,
+  n0,
+  _DEI,
+  0,
+  [_SN, _CSN, _OI, _F, _NT],
+  [0, 0, 0, () => EventFilter, 0],
+];
+export var DescribeEventsOutput: StaticStructureSchema = [3, n0, _DEO, 0, [_OE, _NT], [() => OperationEvents, 0]];
 export var DescribeGeneratedTemplateInput: StaticStructureSchema = [3, n0, _DGTIe, 0, [_GTN], [0]];
 export var DescribeGeneratedTemplateOutput: StaticStructureSchema = [
   3,
@@ -1333,6 +1397,7 @@ export var EstimateTemplateCostInput: StaticStructureSchema = [
   [0, 0, () => _Parameters],
 ];
 export var EstimateTemplateCostOutput: StaticStructureSchema = [3, n0, _ETCO, 0, [_U], [0]];
+export var EventFilter: StaticStructureSchema = [3, n0, _EF, 0, [_FE], [2]];
 export var ExecuteChangeSetInput: StaticStructureSchema = [
   3,
   n0,
@@ -1358,7 +1423,7 @@ export var GeneratedTemplateNotFoundException: StaticErrorSchema = [
 ];
 TypeRegistry.for(n0).registerError(GeneratedTemplateNotFoundException, __GeneratedTemplateNotFoundException);
 
-export var GetGeneratedTemplateInput: StaticStructureSchema = [3, n0, _GGTI, 0, [_F, _GTN], [0, 0]];
+export var GetGeneratedTemplateInput: StaticStructureSchema = [3, n0, _GGTI, 0, [_Fo, _GTN], [0, 0]];
 export var GetGeneratedTemplateOutput: StaticStructureSchema = [3, n0, _GGTO, 0, [_S, _TB], [0, 0]];
 export var GetHookResultInput: StaticStructureSchema = [3, n0, _GHRI, 0, [_HRI], [0]];
 export var GetHookResultOutput: StaticStructureSchema = [
@@ -1577,7 +1642,7 @@ export var ListStackInstancesInput: StaticStructureSchema = [
   n0,
   _LSII,
   0,
-  [_SSN, _NT, _MR, _Fi, _SIA, _SIR, _CA],
+  [_SSN, _NT, _MR, _F, _SIA, _SIR, _CA],
   [0, 0, 1, () => StackInstanceFilters, 0, 0, 0],
 ];
 export var ListStackInstancesOutput: StaticStructureSchema = [
@@ -1636,7 +1701,7 @@ export var ListStackSetOperationResultsInput: StaticStructureSchema = [
   n0,
   _LSSORI,
   0,
-  [_SSN, _OI, _NT, _MR, _CA, _Fi],
+  [_SSN, _OI, _NT, _MR, _CA, _F],
   [0, 0, 0, 1, 0, () => OperationResultFilters],
 ];
 export var ListStackSetOperationResultsOutput: StaticStructureSchema = [
@@ -1674,7 +1739,7 @@ export var ListTypesInput: StaticStructureSchema = [
   n0,
   _LTI,
   0,
-  [_Vi, _PT, _DSe, _T, _Fi, _MR, _NT],
+  [_Vi, _PT, _DSe, _T, _F, _MR, _NT],
   [0, 0, 0, 0, () => TypeFilters, 1, 0],
 ];
 export var ListTypesOutput: StaticStructureSchema = [3, n0, _LTO, 0, [_TSy, _NT], [() => TypeSummaries, 0]];
@@ -1694,6 +1759,7 @@ export var ListTypeVersionsOutput: StaticStructureSchema = [
   [_TVS, _NT],
   [() => TypeVersionSummaries, 0],
 ];
+export var LiveResourceDrift: StaticStructureSchema = [3, n0, _LRD, 0, [_PV, _AV, _DDT], [0, 0, 4]];
 export var LoggingConfig: StaticStructureSchema = [3, n0, _LC, 0, [_LRA, _LGN], [0, 0]];
 export var ManagedExecution: StaticStructureSchema = [3, n0, _ME, 0, [_Acti], [2]];
 export var ModuleInfo: StaticStructureSchema = [3, n0, _MI, 0, [_TH, _LIH], [0, 0]];
@@ -1711,6 +1777,43 @@ export var NameAlreadyExistsException: StaticErrorSchema = [
 ];
 TypeRegistry.for(n0).registerError(NameAlreadyExistsException, __NameAlreadyExistsException);
 
+export var OperationEntry: StaticStructureSchema = [3, n0, _OEp, 0, [_OT, _OI], [0, 0]];
+export var OperationEvent: StaticStructureSchema = [
+  3,
+  n0,
+  _OEpe,
+  0,
+  [
+    _EI,
+    _SI,
+    _OI,
+    _OT,
+    _OS,
+    _ETv,
+    _LRI,
+    _PRI,
+    _RT,
+    _Ti,
+    _ST,
+    _ET,
+    _RSes,
+    _RSR,
+    _RP,
+    _CRT,
+    _HTo,
+    _HS,
+    _HSR,
+    _HIP,
+    _HFM,
+    _DSet,
+    _VFM,
+    _VN,
+    _VS,
+    _VSR,
+    _VP,
+  ],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 4, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+];
 export var OperationIdAlreadyExistsException: StaticErrorSchema = [
   -3,
   n0,
@@ -1769,8 +1872,8 @@ export var OperationStatusCheckFailedException: StaticErrorSchema = [
 TypeRegistry.for(n0).registerError(OperationStatusCheckFailedException, __OperationStatusCheckFailedException);
 
 export var Output: StaticStructureSchema = [3, n0, _O, 0, [_OK, _OV, _D, _EN], [0, 0, 0, 0]];
-export var Parameter: StaticStructureSchema = [3, n0, _Pa, 0, [_PK, _PV, _UPV, _RV], [0, 0, 2, 0]];
-export var ParameterConstraints: StaticStructureSchema = [3, n0, _PCa, 0, [_AV], [64 | 0]];
+export var Parameter: StaticStructureSchema = [3, n0, _Pa, 0, [_PK, _PVa, _UPV, _RV], [0, 0, 2, 0]];
+export var ParameterConstraints: StaticStructureSchema = [3, n0, _PCa, 0, [_AVl], [64 | 0]];
 export var ParameterDeclaration: StaticStructureSchema = [
   3,
   n0,
@@ -1780,7 +1883,7 @@ export var ParameterDeclaration: StaticStructureSchema = [
   [0, 0, 0, 2, 0, () => ParameterConstraints],
 ];
 export var PhysicalResourceIdContextKeyValuePair: StaticStructureSchema = [3, n0, _PRICKVP, 0, [_K, _V], [0, 0]];
-export var PropertyDifference: StaticStructureSchema = [3, n0, _PDr, 0, [_PPr, _EV, _AVc, _DTi], [0, 0, 0, 0]];
+export var PropertyDifference: StaticStructureSchema = [3, n0, _PDr, 0, [_PPr, _EV, _AV, _DTi], [0, 0, 0, 0]];
 export var PublishTypeInput: StaticStructureSchema = [3, n0, _PTI, 0, [_T, _A, _TN, _PVN], [0, 0, 0, 0]];
 export var PublishTypeOutput: StaticStructureSchema = [3, n0, _PTO, 0, [_PTA], [0]];
 export var RecordHandlerProgressInput: StaticStructureSchema = [
@@ -1809,8 +1912,24 @@ export var ResourceChange: StaticStructureSchema = [
   n0,
   _RC,
   0,
-  [_PA, _Act, _LRI, _PRI, _RT, _Rep, _Sco, _De, _CSI, _MI, _BC, _AC],
-  [0, 0, 0, 0, 0, 0, 64 | 0, () => ResourceChangeDetails, 0, () => ModuleInfo, 0, 0],
+  [_PA, _Act, _LRI, _PRI, _RT, _Rep, _Sco, _RDS, _RDIA, _De, _CSI, _MI, _BC, _AC, _PDC],
+  [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    64 | 0,
+    0,
+    () => ResourceDriftIgnoredAttributes,
+    () => ResourceChangeDetails,
+    0,
+    () => ModuleInfo,
+    0,
+    0,
+    0,
+  ],
 ];
 export var ResourceChangeDetail: StaticStructureSchema = [
   3,
@@ -1829,6 +1948,7 @@ export var ResourceDetail: StaticStructureSchema = [
   [_RT, _LRI, _RI, _RSes, _RSR, _W],
   [0, 0, 128 | 0, 0, 0, () => WarningDetails],
 ];
+export var ResourceDriftIgnoredAttribute: StaticStructureSchema = [3, n0, _RDIAe, 0, [_Pat, _Rea], [0, 0]];
 export var ResourceIdentifierSummary: StaticStructureSchema = [
   3,
   n0,
@@ -1901,13 +2021,13 @@ export var ResourceTargetDefinition: StaticStructureSchema = [
   n0,
   _RTDe,
   0,
-  [_At, _N, _RReq, _Pat, _BV, _AVf, _ACT],
-  [0, 0, 0, 0, 0, 0, 0],
+  [_At, _N, _RReq, _Pat, _BV, _AVf, _BVF, _AVF, _Dr, _ACT],
+  [0, 0, 0, 0, 0, 0, 0, 0, () => LiveResourceDrift, 0],
 ];
 export var ResourceToImport: StaticStructureSchema = [3, n0, _RTIes, 0, [_RT, _LRI, _RI], [0, 0, 128 | 0]];
 export var RollbackConfiguration: StaticStructureSchema = [3, n0, _RCo, 0, [_RTo, _MTIM], [() => RollbackTriggers, 1]];
 export var RollbackStackInput: StaticStructureSchema = [3, n0, _RSIo, 0, [_SN, _RARN, _CRT, _REOC], [0, 0, 0, 2]];
-export var RollbackStackOutput: StaticStructureSchema = [3, n0, _RSO, 0, [_SI], [0]];
+export var RollbackStackOutput: StaticStructureSchema = [3, n0, _RSO, 0, [_SI, _OI], [0, 0]];
 export var RollbackTrigger: StaticStructureSchema = [3, n0, _RTol, 0, [_A, _T], [0, 0]];
 export var ScanFilter: StaticStructureSchema = [3, n0, _SFc, 0, [_Ty], [64 | 0]];
 export var ScannedResource: StaticStructureSchema = [3, n0, _SRc, 0, [_RT, _RI, _MBS], [0, 128 | 0, 2]];
@@ -1954,8 +2074,9 @@ export var Stack: StaticStructureSchema = [
     _RIo,
     _DI,
     _REOC,
-    _DM,
+    _DMe,
     _DSet,
+    _LO,
   ],
   [
     0,
@@ -1983,6 +2104,7 @@ export var Stack: StaticStructureSchema = [
     2,
     0,
     0,
+    () => LastOperations,
   ],
 ];
 export var StackDefinition: StaticStructureSchema = [3, n0, _SDt, 0, [_SN, _TB, _TURL], [0, 0, 0]];
@@ -1993,8 +2115,8 @@ export var StackEvent: StaticStructureSchema = [
   n0,
   _SEt,
   0,
-  [_SI, _EI, _SN, _LRI, _PRI, _RT, _Ti, _RSes, _RSR, _RP, _CRT, _HTo, _HS, _HSR, _HIP, _HII, _HFM, _DSet],
-  [0, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [_SI, _EI, _SN, _OI, _LRI, _PRI, _RT, _Ti, _RSes, _RSR, _RP, _CRT, _HTo, _HS, _HSR, _HIP, _HII, _HFM, _DSet],
+  [0, 0, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
 ];
 export var StackInstance: StaticStructureSchema = [
   3,
@@ -2238,8 +2360,8 @@ export var StackSummary: StaticStructureSchema = [
   n0,
   _SStac,
   0,
-  [_SI, _SN, _TDe, _CT, _LUT, _DTel, _SSta, _SSR, _PIa, _RIo, _DI],
-  [0, 0, 0, 4, 4, 4, 0, 0, 0, 0, () => StackDriftInformationSummary],
+  [_SI, _SN, _TDe, _CT, _LUT, _DTel, _SSta, _SSR, _PIa, _RIo, _DI, _LO],
+  [0, 0, 0, 4, 4, 4, 0, 0, 0, 0, () => StackDriftInformationSummary, () => LastOperations],
 ];
 export var StaleRequestException: StaticErrorSchema = [
   -3,
@@ -2394,7 +2516,7 @@ export var UpdateStackInstancesInput: StaticStructureSchema = [
   [0, 64 | 0, () => DeploymentTargets, 64 | 0, () => _Parameters, () => StackSetOperationPreferences, [0, 4], 0],
 ];
 export var UpdateStackInstancesOutput: StaticStructureSchema = [3, n0, _USIO, 0, [_OI], [0]];
-export var UpdateStackOutput: StaticStructureSchema = [3, n0, _USO, 0, [_SI], [0]];
+export var UpdateStackOutput: StaticStructureSchema = [3, n0, _USO, 0, [_SI, _OI], [0, 0]];
 export var UpdateStackSetInput: StaticStructureSchema = [
   3,
   n0,
@@ -2467,10 +2589,12 @@ export var Imports = 64 | 0;
 
 export var JazzLogicalResourceIds = 64 | 0;
 
+export var LastOperations: StaticListSchema = [1, n0, _LO, 0, () => OperationEntry];
 export var LogicalResourceIds = 64 | 0;
 
 export var NotificationARNs = 64 | 0;
 
+export var OperationEvents: StaticListSchema = [1, n0, _OE, 0, () => OperationEvent];
 export var OperationResultFilters: StaticListSchema = [1, n0, _ORFp, 0, () => OperationResultFilter];
 export var OrganizationalUnitIdList = 64 | 0;
 
@@ -2488,6 +2612,7 @@ export var RequiredActivatedTypes: StaticListSchema = [1, n0, _RAT, 0, () => Req
 export var ResourceChangeDetails: StaticListSchema = [1, n0, _RCDe, 0, () => ResourceChangeDetail];
 export var ResourceDefinitions: StaticListSchema = [1, n0, _RDes, 0, () => ResourceDefinition];
 export var ResourceDetails: StaticListSchema = [1, n0, _RDeso, 0, () => ResourceDetail];
+export var ResourceDriftIgnoredAttributes: StaticListSchema = [1, n0, _RDIA, 0, () => ResourceDriftIgnoredAttribute];
 export var ResourceIdentifiers = 64 | 0;
 
 export var ResourceIdentifierSummaries: StaticListSchema = [1, n0, _RIS, 0, () => ResourceIdentifierSummary];
@@ -2722,6 +2847,14 @@ export var DescribeChangeSetHooks: StaticOperationSchema = [
   0,
   () => DescribeChangeSetHooksInput,
   () => DescribeChangeSetHooksOutput,
+];
+export var DescribeEvents: StaticOperationSchema = [
+  9,
+  n0,
+  _DE,
+  0,
+  () => DescribeEventsInput,
+  () => DescribeEventsOutput,
 ];
 export var DescribeGeneratedTemplate: StaticOperationSchema = [
   9,

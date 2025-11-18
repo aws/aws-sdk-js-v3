@@ -5,7 +5,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CloudFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFormationClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListStacksInput, ListStacksOutput } from "../models/models_0";
+import { ListStacksInput, ListStacksOutput } from "../models/models_1";
 import { ListStacks } from "../schemas/schemas_0";
 
 /**
@@ -65,6 +65,12 @@ export interface ListStacksCommandOutput extends ListStacksOutput, __MetadataBea
  * //         StackDriftStatus: "DRIFTED" || "IN_SYNC" || "UNKNOWN" || "NOT_CHECKED", // required
  * //         LastCheckTimestamp: new Date("TIMESTAMP"),
  * //       },
+ * //       LastOperations: [ // LastOperations
+ * //         { // OperationEntry
+ * //           OperationType: "CREATE_STACK" || "UPDATE_STACK" || "DELETE_STACK" || "CONTINUE_ROLLBACK" || "ROLLBACK" || "CREATE_CHANGESET",
+ * //           OperationId: "STRING_VALUE",
+ * //         },
+ * //       ],
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

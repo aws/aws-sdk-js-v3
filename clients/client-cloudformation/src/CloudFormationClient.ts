@@ -112,6 +112,7 @@ import {
   DescribeChangeSetHooksCommandInput,
   DescribeChangeSetHooksCommandOutput,
 } from "./commands/DescribeChangeSetHooksCommand";
+import { DescribeEventsCommandInput, DescribeEventsCommandOutput } from "./commands/DescribeEventsCommand";
 import {
   DescribeGeneratedTemplateCommandInput,
   DescribeGeneratedTemplateCommandOutput,
@@ -318,6 +319,7 @@ export type ServiceInputTypes =
   | DescribeAccountLimitsCommandInput
   | DescribeChangeSetCommandInput
   | DescribeChangeSetHooksCommandInput
+  | DescribeEventsCommandInput
   | DescribeGeneratedTemplateCommandInput
   | DescribeOrganizationsAccessCommandInput
   | DescribePublisherCommandInput
@@ -412,6 +414,7 @@ export type ServiceOutputTypes =
   | DescribeAccountLimitsCommandOutput
   | DescribeChangeSetCommandOutput
   | DescribeChangeSetHooksCommandOutput
+  | DescribeEventsCommandOutput
   | DescribeGeneratedTemplateCommandOutput
   | DescribeOrganizationsAccessCommandOutput
   | DescribePublisherCommandOutput

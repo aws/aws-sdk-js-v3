@@ -1,5 +1,9 @@
 export * from "./DescribeAccountLimitsPaginator";
 
+export * from "./DescribeChangeSetPaginator";
+
+export * from "./DescribeEventsPaginator";
+
 export * from "./DescribeStackEventsPaginator";
 
 export * from "./DescribeStackResourceDriftsPaginator";

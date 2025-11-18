@@ -14,26 +14,570 @@ import {
   IdentityProvider,
   LoggingConfig,
   ManagedExecution,
-  OperationResultFilter,
+  ModuleInfo,
+  OperationEntry,
   Parameter,
   PermissionModels,
   ProvisioningType,
   RegistrationStatus,
   RegistryType,
   ResourceDefinition,
+  ResourceStatus,
   RollbackConfiguration,
   ScanFilter,
   StackDriftStatus,
+  StackRefactorExecutionStatus,
+  StackRefactorStatus,
+  StackResourceDriftStatus,
   StackSetOperationAction,
   StackSetOperationPreferences,
   StackSetOperationStatus,
   StackSetOperationStatusDetails,
   StackSetStatus,
+  StackStatus,
   Tag,
   TemplateConfiguration,
   ThirdPartyType,
   Visibility,
 } from "./models_0";
+
+/**
+ * <p>The summary of a stack refactor operation.</p>
+ * @public
+ */
+export interface StackRefactorSummary {
+  /**
+   * <p>The ID associated with the stack refactor created from the <a>CreateStackRefactor</a> action.</p>
+   * @public
+   */
+  StackRefactorId?: string | undefined;
+
+  /**
+   * <p>A description to help you identify the refactor.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The operation status that's provided after calling the <a>ExecuteStackRefactor</a> action.</p>
+   * @public
+   */
+  ExecutionStatus?: StackRefactorExecutionStatus | undefined;
+
+  /**
+   * <p>A detailed explanation for the stack refactor <code>ExecutionStatus</code>.</p>
+   * @public
+   */
+  ExecutionStatusReason?: string | undefined;
+
+  /**
+   * <p>The stack refactor operation status that's provided after calling the <a>CreateStackRefactor</a> action.</p>
+   * @public
+   */
+  Status?: StackRefactorStatus | undefined;
+
+  /**
+   * <p>A detailed explanation for the stack refactor <code>Status</code>.</p>
+   * @public
+   */
+  StatusReason?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListStackRefactorsOutput {
+  /**
+   * <p>Provides a summary of a stack refactor, including the following:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>StackRefactorId</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Status</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>StatusReason</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ExecutionStatus</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ExecutionStatusReason</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Description</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  StackRefactorSummaries: StackRefactorSummary[] | undefined;
+
+  /**
+   * <p>If the request doesn't return all the remaining results, <code>NextToken</code> is set to
+   *       a token. To retrieve the next set of results, call this action again and assign that token to
+   *       the request object's <code>NextToken</code> parameter. If the request returns all results,
+   *         <code>NextToken</code> is set to <code>null</code>.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * <p>The input for the <a>ListStackResource</a> action.</p>
+ * @public
+ */
+export interface ListStackResourcesInput {
+  /**
+   * <p>The name or the unique stack ID that is associated with the stack, which aren't always
+   *       interchangeable:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Running stacks: You can specify either the stack's name or its unique stack ID.</p>
+   *             </li>
+   *             <li>
+   *                <p>Deleted stacks: You must specify the unique stack ID.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  StackName: string | undefined;
+
+  /**
+   * <p>The token for the next set of items to return. (You received this token from a previous
+   *       call.)</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * <p>Summarizes information about whether the resource's actual configuration differs, or has
+ *     <i>drifted</i>, from its expected configuration.</p>
+ * @public
+ */
+export interface StackResourceDriftInformationSummary {
+  /**
+   * <p>Status of the resource's actual configuration compared to its expected configuration.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>DELETED</code>: The resource differs from its expected configuration in that it has
+   *      been deleted.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>MODIFIED</code>: The resource differs from its expected configuration.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>NOT_CHECKED</code>: CloudFormation hasn't checked if the resource differs from its
+   *      expected configuration.</p>
+   *                <p>Any resources that don't currently support drift detection have a status of
+   *       <code>NOT_CHECKED</code>. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/resource-import-supported-resources.html">Resource
+   *       type support for imports and drift detection</a>. If you performed an <a>ContinueUpdateRollback</a> operation on a stack, any resources included in
+   *       <code>ResourcesToSkip</code> will also have a status of <code>NOT_CHECKED</code>. For more
+   *      information about skipping resources during rollback operations, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-continueupdaterollback.html">Continue rolling back an update</a> in the <i>CloudFormation User Guide</i>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>IN_SYNC</code>: The resource's actual configuration matches its expected
+   *      configuration.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  StackResourceDriftStatus: StackResourceDriftStatus | undefined;
+
+  /**
+   * <p>When CloudFormation last checked if the resource had drifted from its expected
+   *    configuration.</p>
+   * @public
+   */
+  LastCheckTimestamp?: Date | undefined;
+}
+
+/**
+ * <p>Contains high-level information about the specified stack resource.</p>
+ * @public
+ */
+export interface StackResourceSummary {
+  /**
+   * <p>The logical name of the resource specified in the template.</p>
+   * @public
+   */
+  LogicalResourceId: string | undefined;
+
+  /**
+   * <p>The name or unique identifier that corresponds to a physical instance ID of the
+   *    resource.</p>
+   * @public
+   */
+  PhysicalResourceId?: string | undefined;
+
+  /**
+   * <p>Type of resource. (For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html">Amazon Web Services resource and
+   *     property types reference</a> in the <i>CloudFormation User Guide</i>.)</p>
+   * @public
+   */
+  ResourceType: string | undefined;
+
+  /**
+   * <p>Time the status was updated.</p>
+   * @public
+   */
+  LastUpdatedTimestamp: Date | undefined;
+
+  /**
+   * <p>Current status of the resource.</p>
+   * @public
+   */
+  ResourceStatus: ResourceStatus | undefined;
+
+  /**
+   * <p>Success/failure message associated with the resource.</p>
+   * @public
+   */
+  ResourceStatusReason?: string | undefined;
+
+  /**
+   * <p>Information about whether the resource's actual configuration differs, or has
+   *     <i>drifted</i>, from its expected configuration, as defined in the stack template
+   *    and any values specified as template parameters. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift.html">Detect
+   *     unmanaged configuration changes to stacks and resources with drift detection</a>.</p>
+   * @public
+   */
+  DriftInformation?: StackResourceDriftInformationSummary | undefined;
+
+  /**
+   * <p>Contains information about the module from which the resource was created, if the resource
+   *    was created from a module included in the stack template.</p>
+   * @public
+   */
+  ModuleInfo?: ModuleInfo | undefined;
+}
+
+/**
+ * <p>The output for a <a>ListStackResources</a> action.</p>
+ * @public
+ */
+export interface ListStackResourcesOutput {
+  /**
+   * <p>A list of <code>StackResourceSummary</code> structures.</p>
+   * @public
+   */
+  StackResourceSummaries?: StackResourceSummary[] | undefined;
+
+  /**
+   * <p>If the output exceeds 1 MB, a string that identifies the next page of stack resources. If
+   *       no additional page exists, this value is null.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * <p>The input for <a>ListStacks</a> action.</p>
+ * @public
+ */
+export interface ListStacksInput {
+  /**
+   * <p>The token for the next set of items to return. (You received this token from a previous
+   *       call.)</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>Stack status to use as a filter. Specify one or more stack status codes to list only
+   *       stacks with the specified status codes. For a complete list of stack status codes, see the
+   *         <code>StackStatus</code> parameter of the <a>Stack</a> data type.</p>
+   * @public
+   */
+  StackStatusFilter?: StackStatus[] | undefined;
+}
+
+/**
+ * <p>Contains information about whether the stack's actual configuration differs, or has
+ *     <i>drifted</i>, from its expected configuration, as defined in the stack template
+ *    and any values specified as template parameters. A stack is considered to have drifted if one or
+ *    more of its resources have drifted.</p>
+ * @public
+ */
+export interface StackDriftInformationSummary {
+  /**
+   * <p>Status of the stack's actual configuration compared to its expected template
+   *    configuration.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>DRIFTED</code>: The stack differs from its expected template configuration. A stack
+   *      is considered to have drifted if one or more of its resources have drifted.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>NOT_CHECKED</code>: CloudFormation hasn't checked if the stack differs from its expected
+   *      template configuration.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>IN_SYNC</code>: The stack's actual configuration matches its expected template
+   *      configuration.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>UNKNOWN</code>: CloudFormation could not run drift detection for a resource in the
+   *      stack.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  StackDriftStatus: StackDriftStatus | undefined;
+
+  /**
+   * <p>Most recent time when a drift detection operation was initiated on the stack, or any of its
+   *    individual resources that support drift detection.</p>
+   * @public
+   */
+  LastCheckTimestamp?: Date | undefined;
+}
+
+/**
+ * <p>The <code>StackSummary</code> Data Type</p>
+ * @public
+ */
+export interface StackSummary {
+  /**
+   * <p>Unique stack identifier.</p>
+   * @public
+   */
+  StackId?: string | undefined;
+
+  /**
+   * <p>The name associated with the stack.</p>
+   * @public
+   */
+  StackName: string | undefined;
+
+  /**
+   * <p>The template description of the template used to create the stack.</p>
+   * @public
+   */
+  TemplateDescription?: string | undefined;
+
+  /**
+   * <p>The time the stack was created.</p>
+   * @public
+   */
+  CreationTime: Date | undefined;
+
+  /**
+   * <p>The time the stack was last updated. This field will only be returned if the stack has been
+   *    updated at least once.</p>
+   * @public
+   */
+  LastUpdatedTime?: Date | undefined;
+
+  /**
+   * <p>The time the stack was deleted.</p>
+   * @public
+   */
+  DeletionTime?: Date | undefined;
+
+  /**
+   * <p>The current status of the stack.</p>
+   * @public
+   */
+  StackStatus: StackStatus | undefined;
+
+  /**
+   * <p>Success/Failure message associated with the stack status.</p>
+   * @public
+   */
+  StackStatusReason?: string | undefined;
+
+  /**
+   * <p>For nested stacks, the stack ID of the direct parent of this stack. For the first level of
+   *    nested stacks, the root stack is also the parent stack.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-nested-stacks.html">Nested stacks</a> in
+   *    the <i>CloudFormation User Guide</i>.</p>
+   * @public
+   */
+  ParentId?: string | undefined;
+
+  /**
+   * <p>For nested stacks, the stack ID of the top-level stack to which the nested stack ultimately
+   *    belongs.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-nested-stacks.html">Nested stacks</a> in
+   *    the <i>CloudFormation User Guide</i>.</p>
+   * @public
+   */
+  RootId?: string | undefined;
+
+  /**
+   * <p>Summarizes information about whether a stack's actual configuration differs, or has
+   *     <i>drifted</i>, from its expected configuration, as defined in the stack template
+   *    and any values specified as template parameters. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift.html">Detect
+   *     unmanaged configuration changes to stacks and resources with drift detection</a>.</p>
+   * @public
+   */
+  DriftInformation?: StackDriftInformationSummary | undefined;
+
+  /**
+   * <p>Information about the most recent operations performed on this stack.</p>
+   * @public
+   */
+  LastOperations?: OperationEntry[] | undefined;
+}
+
+/**
+ * <p>The output for <a>ListStacks</a> action.</p>
+ * @public
+ */
+export interface ListStacksOutput {
+  /**
+   * <p>A list of <code>StackSummary</code> structures that contains information about the
+   *       specified stacks.</p>
+   * @public
+   */
+  StackSummaries?: StackSummary[] | undefined;
+
+  /**
+   * <p>If the output exceeds 1 MB in size, a string that identifies the next page of stacks. If
+   *       no additional page exists, this value is null.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListStackSetAutoDeploymentTargetsInput {
+  /**
+   * <p>The name or unique ID of the StackSet that you want to get automatic deployment targets
+   *       for.</p>
+   * @public
+   */
+  StackSetName: string | undefined;
+
+  /**
+   * <p>The token for the next set of items to return. (You received this token from a previous call.)</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to be returned with a single call. If the number of
+   *       available results exceeds this maximum, the response includes a <code>NextToken</code> value
+   *       that you can assign to the <code>NextToken</code> request parameter to get the next set of
+   *       results.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>Specifies whether you are acting as an account administrator in the organization's management account or as a delegated administrator in a member account.</p>
+   *          <p>By default, <code>SELF</code> is specified. Use <code>SELF</code> for StackSets with
+   *       self-managed permissions.</p>
+   *          <ul>
+   *             <li>
+   *                <p>If you are signed in to the management account, specify
+   *           <code>SELF</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>If you are signed in to a delegated administrator account, specify
+   *             <code>DELEGATED_ADMIN</code>.</p>
+   *                <p>Your Amazon Web Services account must be registered as a delegated administrator in the management account. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-orgs-delegated-admin.html">Register a
+   *             delegated administrator</a> in the <i>CloudFormation User Guide</i>.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  CallAs?: CallAs | undefined;
+}
+
+/**
+ * <p>One of the targets for the StackSet. Returned by the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_ListStackSetAutoDeploymentTargets.html">ListStackSetAutoDeploymentTargets</a> API operation.</p>
+ * @public
+ */
+export interface StackSetAutoDeploymentTargetSummary {
+  /**
+   * <p>The organization root ID or organizational unit (OU) IDs where the StackSet is
+   *    targeted.</p>
+   * @public
+   */
+  OrganizationalUnitId?: string | undefined;
+
+  /**
+   * <p>The list of Regions targeted for this organization or OU.</p>
+   * @public
+   */
+  Regions?: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListStackSetAutoDeploymentTargetsOutput {
+  /**
+   * <p>An array of summaries of the deployment targets for the StackSet.</p>
+   * @public
+   */
+  Summaries?: StackSetAutoDeploymentTargetSummary[] | undefined;
+
+  /**
+   * <p>If the request doesn't return all the remaining results, <code>NextToken</code> is set to
+   *       a token. To retrieve the next set of results, call <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_ListStackSetAutoDeploymentTargets.html">ListStackSetAutoDeploymentTargets</a> again and use that value for the
+   *         <code>NextToken</code> parameter. If the request returns all results, <code>NextToken</code>
+   *       is set to an empty string.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const OperationResultFilterName = {
+  OPERATION_RESULT_STATUS: "OPERATION_RESULT_STATUS",
+} as const;
+
+/**
+ * @public
+ */
+export type OperationResultFilterName = (typeof OperationResultFilterName)[keyof typeof OperationResultFilterName];
+
+/**
+ * <p>The status that operation results are filtered by.</p>
+ * @public
+ */
+export interface OperationResultFilter {
+  /**
+   * <p>The type of filter to apply.</p>
+   * @public
+   */
+  Name?: OperationResultFilterName | undefined;
+
+  /**
+   * <p>The value to filter by.</p>
+   * @public
+   */
+  Values?: string | undefined;
+}
 
 /**
  * @public
@@ -1508,6 +2052,13 @@ export interface RollbackStackOutput {
    * @public
    */
   StackId?: string | undefined;
+
+  /**
+   * <p>A unique identifier for this rollback operation that can be used to track the operation's
+   *       progress and events.</p>
+   * @public
+   */
+  OperationId?: string | undefined;
 }
 
 /**
@@ -2255,6 +2806,13 @@ export interface UpdateStackOutput {
    * @public
    */
   StackId?: string | undefined;
+
+  /**
+   * <p>A unique identifier for this update operation that can be used to track the operation's
+   *       progress and events.</p>
+   * @public
+   */
+  OperationId?: string | undefined;
 }
 
 /**

@@ -54,6 +54,7 @@ export interface DescribeStackEventsCommandOutput extends DescribeStackEventsOut
  * //       StackId: "STRING_VALUE", // required
  * //       EventId: "STRING_VALUE", // required
  * //       StackName: "STRING_VALUE", // required
+ * //       OperationId: "STRING_VALUE",
  * //       LogicalResourceId: "STRING_VALUE",
  * //       PhysicalResourceId: "STRING_VALUE",
  * //       ResourceType: "STRING_VALUE",

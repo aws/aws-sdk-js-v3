@@ -60,7 +60,7 @@ export interface DescribeChangeSetHooksCommandOutput extends DescribeChangeSetHo
  * //         ResourceTargetDetails: { // ChangeSetHookResourceTargetDetails
  * //           LogicalResourceId: "STRING_VALUE",
  * //           ResourceType: "STRING_VALUE",
- * //           ResourceAction: "Add" || "Modify" || "Remove" || "Import" || "Dynamic",
+ * //           ResourceAction: "Add" || "Modify" || "Remove" || "Import" || "Dynamic" || "SyncWithActual",
  * //         },
  * //       },
  * //     },

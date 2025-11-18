@@ -92,6 +92,7 @@ export interface UpdateStackCommandOutput extends UpdateStackOutput, __MetadataB
  * const response = await client.send(command);
  * // { // UpdateStackOutput
  * //   StackId: "STRING_VALUE",
+ * //   OperationId: "STRING_VALUE",
  * // };
  *
  * ```

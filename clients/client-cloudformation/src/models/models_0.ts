@@ -401,6 +401,19 @@ export class TypeNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const AfterValueFrom = {
+  TEMPLATE: "TEMPLATE",
+} as const;
+
+/**
+ * @public
+ */
+export type AfterValueFrom = (typeof AfterValueFrom)[keyof typeof AfterValueFrom];
+
+/**
  * <p>The resource with the name requested already exists.</p>
  * @public
  */
@@ -456,15 +469,15 @@ export type AnnotationStatus = (typeof AnnotationStatus)[keyof typeof Annotation
 
 /**
  * <p>The <code>Annotation</code> data type.</p>
- *          <p>A <code>GetHookResult</code> call returns detailed information and remediation guidance from Control Tower,
- *    Guard, Lambda, or custom Hooks for a Hook invocation result.</p>
+ *          <p>A <code>GetHookResult</code> call returns detailed information and remediation guidance from
+ *    Control Tower, Guard, Lambda, or custom Hooks for a Hook invocation result.</p>
  * @public
  */
 export interface Annotation {
   /**
-   * <p>An identifier for the evaluation logic that was used when invoking the Hook. For
-   *    Control Tower, this is the control ID. For Guard, this is the rule ID. For Lambda and custom
-   *    Hooks, this is a user-defined identifier.</p>
+   * <p>An identifier for the evaluation logic that was used when invoking the Hook. For Control Tower,
+   *    this is the control ID. For Guard, this is the rule ID. For Lambda and custom Hooks,
+   *    this is a user-defined identifier.</p>
    * @public
    */
   AnnotationName?: string | undefined;
@@ -476,15 +489,15 @@ export interface Annotation {
   Status?: AnnotationStatus | undefined;
 
   /**
-   * <p>The explanation for the specific status assigned to this Hook invocation. For
-   *    example, "Bucket does not block public access".</p>
+   * <p>The explanation for the specific status assigned to this Hook invocation. For example,
+   *    "Bucket does not block public access".</p>
    * @public
    */
   StatusMessage?: string | undefined;
 
   /**
-   * <p>Suggests what to change if your Hook returns a <code>FAILED</code> status. For
-   *    example, "Block public access to the bucket".</p>
+   * <p>Suggests what to change if your Hook returns a <code>FAILED</code> status. For example,
+   *    "Block public access to the bucket".</p>
    * @public
    */
   RemediationMessage?: string | undefined;
@@ -510,6 +523,7 @@ export const AttributeChangeType = {
   Add: "Add",
   Modify: "Modify",
   Remove: "Remove",
+  SyncWithActual: "SyncWithActual",
 } as const;
 
 /**
@@ -735,6 +749,35 @@ export class TypeConfigurationNotFoundException extends __BaseException {
  * @public
  * @enum
  */
+export const BeaconStackOperationStatus = {
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  SUCCEEDED: "SUCCEEDED",
+} as const;
+
+/**
+ * @public
+ */
+export type BeaconStackOperationStatus = (typeof BeaconStackOperationStatus)[keyof typeof BeaconStackOperationStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const BeforeValueFrom = {
+  ACTUAL_STATE: "ACTUAL_STATE",
+  PREVIOUS_DEPLOYMENT_STATE: "PREVIOUS_DEPLOYMENT_STATE",
+} as const;
+
+/**
+ * @public
+ */
+export type BeforeValueFrom = (typeof BeforeValueFrom)[keyof typeof BeforeValueFrom];
+
+/**
+ * @public
+ * @enum
+ */
 export const CallAs = {
   DELEGATED_ADMIN: "DELEGATED_ADMIN",
   SELF: "SELF",
@@ -841,6 +884,7 @@ export const ChangeAction = {
   Import: "Import",
   Modify: "Modify",
   Remove: "Remove",
+  SyncWithActual: "SyncWithActual",
 } as const;
 
 /**
@@ -855,6 +899,7 @@ export type ChangeAction = (typeof ChangeAction)[keyof typeof ChangeAction];
 export const ChangeSource = {
   Automatic: "Automatic",
   DirectModification: "DirectModification",
+  NoModification: "NoModification",
   ParameterReference: "ParameterReference",
   ResourceAttribute: "ResourceAttribute",
   ResourceReference: "ResourceReference",
@@ -897,6 +942,31 @@ export const ResourceAttribute = {
  * @public
  */
 export type ResourceAttribute = (typeof ResourceAttribute)[keyof typeof ResourceAttribute];
+
+/**
+ * <p>Contains drift information for a resource property, including actual value, previous
+ *    deployment value, and drift detection timestamp.</p>
+ * @public
+ */
+export interface LiveResourceDrift {
+  /**
+   * <p>The configuration value from the previous CloudFormation deployment.</p>
+   * @public
+   */
+  PreviousValue?: string | undefined;
+
+  /**
+   * <p>The current live configuration value of the resource property.</p>
+   * @public
+   */
+  ActualValue?: string | undefined;
+
+  /**
+   * <p>The timestamp when drift was detected for this resource property.</p>
+   * @public
+   */
+  DriftDetectionTimestamp?: Date | undefined;
+}
 
 /**
  * @public
@@ -964,6 +1034,44 @@ export interface ResourceTargetDefinition {
   AfterValue?: string | undefined;
 
   /**
+   * <p>Indicates the source of the before value. Valid values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ACTUAL_STATE</code> – The before value represents current actual state.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>PREVIOUS_DEPLOYMENT_STATE</code> – The before value represents the previous
+   *      CloudFormation deployment state.</p>
+   *             </li>
+   *          </ul>
+   *          <p>Only present for drift-aware change sets.</p>
+   * @public
+   */
+  BeforeValueFrom?: BeforeValueFrom | undefined;
+
+  /**
+   * <p>Indicates the source of the after value. Valid value:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>TEMPLATE</code> – The after value comes from the new template.</p>
+   *             </li>
+   *          </ul>
+   *          <p>Only present for drift-aware change sets.</p>
+   * @public
+   */
+  AfterValueFrom?: AfterValueFrom | undefined;
+
+  /**
+   * <p>Detailed drift information for the resource property, including actual values, previous
+   *    deployment values, and drift detection timestamps.</p>
+   * @public
+   */
+  Drift?: LiveResourceDrift | undefined;
+
+  /**
    * <p>The type of change to be made to the property if the change is executed.</p>
    *          <ul>
    *             <li>
@@ -977,6 +1085,11 @@ export interface ResourceTargetDefinition {
    *             <li>
    *                <p>
    *                   <code>Modify</code> The item will be modified.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SyncWithActual</code> The drift status of this item will be reset but the item will
+   *      not be modified.</p>
    *             </li>
    *          </ul>
    * @public
@@ -1047,6 +1160,11 @@ export interface ResourceChangeDetail {
    *       <code>ChangeSource</code> to <code>Automatic</code> because the nested stack's template might
    *      have changed. Changes to a nested stack's template aren't visible to CloudFormation until you run
    *      an update on the parent stack.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>NoModification</code> entities are changes made to the template that matches the actual
+   *      state of the resource.</p>
    *             </li>
    *          </ul>
    * @public
@@ -1137,6 +1255,68 @@ export const Replacement = {
 export type Replacement = (typeof Replacement)[keyof typeof Replacement];
 
 /**
+ * @public
+ * @enum
+ */
+export const DriftIgnoredReason = {
+  MANAGED_BY_AWS: "MANAGED_BY_AWS",
+  WRITE_ONLY_PROPERTY: "WRITE_ONLY_PROPERTY",
+} as const;
+
+/**
+ * @public
+ */
+export type DriftIgnoredReason = (typeof DriftIgnoredReason)[keyof typeof DriftIgnoredReason];
+
+/**
+ * <p>The <code>ResourceDriftIgnoredAttribute</code> data type.</p>
+ * @public
+ */
+export interface ResourceDriftIgnoredAttribute {
+  /**
+   * <p>Path of the resource attribute for which drift was ignored.</p>
+   * @public
+   */
+  Path?: string | undefined;
+
+  /**
+   * <p>Reason why drift was ignored for the attribute, can have 2 possible values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>WRITE_ONLY_PROPERTY</code> - Property is not included in read response for the
+   *      resource’s live state.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>MANAGED_BY_AWS</code> - Property is managed by an Amazon Web Services service and is expected to be
+   *      dynamically modified.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Reason?: DriftIgnoredReason | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const StackResourceDriftStatus = {
+  DELETED: "DELETED",
+  IN_SYNC: "IN_SYNC",
+  MODIFIED: "MODIFIED",
+  NOT_CHECKED: "NOT_CHECKED",
+  UNKNOWN: "UNKNOWN",
+  UNSUPPORTED: "UNSUPPORTED",
+} as const;
+
+/**
+ * @public
+ */
+export type StackResourceDriftStatus = (typeof StackResourceDriftStatus)[keyof typeof StackResourceDriftStatus];
+
+/**
  * <p>The <code>ResourceChange</code> structure describes the resource and the action that
  *    CloudFormation will perform on it if you execute this change set.</p>
  * @public
@@ -1179,8 +1359,9 @@ export interface ResourceChange {
   /**
    * <p>The action that CloudFormation takes on the resource, such as <code>Add</code> (adds a new
    *    resource), <code>Modify</code> (changes a resource), <code>Remove</code> (deletes a resource),
-   *     <code>Import</code> (imports a resource), or <code>Dynamic</code> (exact action for the resource
-   *    can't be determined).</p>
+   *     <code>Import</code> (imports a resource), <code>Dynamic</code> (exact action for the resource
+   *    can't be determined), or <code>SyncWithActual</code> (resource will not be changed, only
+   *    CloudFormation metadata will change).</p>
    * @public
    */
   Action?: ChangeAction | undefined;
@@ -1230,6 +1411,45 @@ export interface ResourceChange {
   Scope?: ResourceAttribute[] | undefined;
 
   /**
+   * <p>The drift status of the resource. Valid values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>IN_SYNC</code> – The resource matches its template definition.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>MODIFIED</code> – Resource properties were modified outside CloudFormation.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DELETED</code> – The resource was deleted outside CloudFormation.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>NOT_CHECKED</code> – CloudFormation doesn’t currently return this value.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>UNKNOWN</code> – Drift status could not be determined.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>UNSUPPORTED</code> – Resource type does not support actual state comparison.</p>
+   *             </li>
+   *          </ul>
+   *          <p>Only present for drift-aware change sets.</p>
+   * @public
+   */
+  ResourceDriftStatus?: StackResourceDriftStatus | undefined;
+
+  /**
+   * <p>List of resource attributes for which drift was ignored.</p>
+   * @public
+   */
+  ResourceDriftIgnoredAttributes?: ResourceDriftIgnoredAttribute[] | undefined;
+
+  /**
    * <p>For the <code>Modify</code> action, a list of <code>ResourceChangeDetail</code> structures
    *    that describes the changes that CloudFormation will make to the resource.</p>
    * @public
@@ -1262,6 +1482,12 @@ export interface ResourceChange {
    * @public
    */
   AfterContext?: string | undefined;
+
+  /**
+   * <p>Information about the resource's state from the previous CloudFormation deployment.</p>
+   * @public
+   */
+  PreviousDeploymentContext?: string | undefined;
 }
 
 /**
@@ -1393,8 +1619,7 @@ export interface ChangeSetHookTargetDetails {
 }
 
 /**
- * <p>Specifies the resource, the Hook, and the Hook version to be
- *    invoked.</p>
+ * <p>Specifies the resource, the Hook, and the Hook version to be invoked.</p>
  * @public
  */
 export interface ChangeSetHook {
@@ -1405,8 +1630,7 @@ export interface ChangeSetHook {
   InvocationPoint?: HookInvocationPoint | undefined;
 
   /**
-   * <p>Specify the Hook failure mode for non-compliant resources in the followings
-   *    ways.</p>
+   * <p>Specify the Hook failure mode for non-compliant resources in the followings ways.</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -1422,11 +1646,11 @@ export interface ChangeSetHook {
   FailureMode?: HookFailureMode | undefined;
 
   /**
-   * <p>The unique name for your Hook. Specifies a three-part namespace for your
-   *    Hook, with a recommended pattern of <code>Organization::Service::Hook</code>.</p>
+   * <p>The unique name for your Hook. Specifies a three-part namespace for your Hook, with a
+   *    recommended pattern of <code>Organization::Service::Hook</code>.</p>
    *          <note>
-   *             <p>The following organization namespaces are reserved and can't be used in your Hook
-   *     type names:</p>
+   *             <p>The following organization namespaces are reserved and can't be used in your Hook type
+   *     names:</p>
    *             <ul>
    *                <li>
    *                   <p>
@@ -1748,6 +1972,19 @@ export interface ContinueUpdateRollbackInput {
  * @public
  */
 export interface ContinueUpdateRollbackOutput {}
+
+/**
+ * @public
+ * @enum
+ */
+export const DeploymentMode = {
+  REVERT_DRIFT: "REVERT_DRIFT",
+} as const;
+
+/**
+ * @public
+ */
+export type DeploymentMode = (typeof DeploymentMode)[keyof typeof DeploymentMode];
 
 /**
  * @public
@@ -2239,6 +2476,22 @@ export interface CreateChangeSetInput {
    * @public
    */
   ImportExistingResources?: boolean | undefined;
+
+  /**
+   * <p>Determines how CloudFormation handles configuration drift during deployment.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>REVERT_DRIFT</code> – Creates a drift-aware change set that brings actual
+   *           resource states in line with template definitions. Provides a three-way comparison between
+   *           actual state, previous deployment state, and desired state.</p>
+   *             </li>
+   *          </ul>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/drift-aware-change-sets.html">Using drift-aware
+   *         change sets</a> in the <i>CloudFormation User Guide</i>.</p>
+   * @public
+   */
+  DeploymentMode?: DeploymentMode | undefined;
 }
 
 /**
@@ -2807,6 +3060,13 @@ export interface CreateStackOutput {
    * @public
    */
   StackId?: string | undefined;
+
+  /**
+   * <p>A unique identifier for this stack operation that can be used to track the operation's
+   *       progress and events.</p>
+   * @public
+   */
+  OperationId?: string | undefined;
 }
 
 /**
@@ -4166,6 +4426,22 @@ export interface DescribeChangeSetInput {
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const StackDriftStatus = {
+  DRIFTED: "DRIFTED",
+  IN_SYNC: "IN_SYNC",
+  NOT_CHECKED: "NOT_CHECKED",
+  UNKNOWN: "UNKNOWN",
+} as const;
+
+/**
+ * @public
+ */
+export type StackDriftStatus = (typeof StackDriftStatus)[keyof typeof StackDriftStatus];
+
+/**
  * <p>The output for the <a>DescribeChangeSet</a> action.</p>
  * @public
  */
@@ -4235,6 +4511,31 @@ export interface DescribeChangeSetOutput {
    * @public
    */
   StatusReason?: string | undefined;
+
+  /**
+   * <p>The drift status of the stack when the change set was created. Valid values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>DRIFTED</code> – The stack has drifted from its last deployment.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>IN_SYNC</code> – The stack is in sync with its last deployment.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>NOT_CHECKED</code> – CloudFormation doesn’t currently return this value.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>UNKNOWN</code> – The drift status could not be determined.</p>
+   *             </li>
+   *          </ul>
+   *          <p>Only present for drift-aware change sets.</p>
+   * @public
+   */
+  StackDriftStatus?: StackDriftStatus | undefined;
 
   /**
    * <p>The ARNs of the Amazon SNS topics that will be associated with the stack if you execute the
@@ -4336,6 +4637,13 @@ export interface DescribeChangeSetOutput {
    * @public
    */
   ImportExistingResources?: boolean | undefined;
+
+  /**
+   * <p>The deployment mode specified when the change set was created. Valid value is
+   *         <code>REVERT_DRIFT</code>. Only present for drift-aware change sets.</p>
+   * @public
+   */
+  DeploymentMode?: DeploymentMode | undefined;
 }
 
 /**
@@ -4415,6 +4723,365 @@ export interface DescribeChangeSetHooksOutput {
    * @public
    */
   StackName?: string | undefined;
+}
+
+/**
+ * <p>Event filter allows you to focus on specific events in an operation.</p>
+ * @public
+ */
+export interface EventFilter {
+  /**
+   * <p>When set to true, only returns failed events within the operation. This helps quickly
+   *    identify root causes for a failed operation.</p>
+   * @public
+   */
+  FailedEvents?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeEventsInput {
+  /**
+   * <p>The name or unique stack ID for which you want to retrieve events.</p>
+   * @public
+   */
+  StackName?: string | undefined;
+
+  /**
+   * <p>The name or Amazon Resource Name (ARN) of the change set for which you want to retrieve
+   *       events.</p>
+   * @public
+   */
+  ChangeSetName?: string | undefined;
+
+  /**
+   * <p>The unique identifier of the operation for which you want to retrieve events.</p>
+   * @public
+   */
+  OperationId?: string | undefined;
+
+  /**
+   * <p>Filters to apply when retrieving events.</p>
+   * @public
+   */
+  Filters?: EventFilter | undefined;
+
+  /**
+   * <p>The token for the next set of items to return. (You received this token from a previous
+   *       call.)</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const DetailedStatus = {
+  CONFIGURATION_COMPLETE: "CONFIGURATION_COMPLETE",
+  VALIDATION_FAILED: "VALIDATION_FAILED",
+} as const;
+
+/**
+ * @public
+ */
+export type DetailedStatus = (typeof DetailedStatus)[keyof typeof DetailedStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const EventType = {
+  HOOK_INVOCATION_ERROR: "HOOK_INVOCATION_ERROR",
+  PROGRESS_EVENT: "PROGRESS_EVENT",
+  PROVISIONING_ERROR: "PROVISIONING_ERROR",
+  STACK_EVENT: "STACK_EVENT",
+  VALIDATION_ERROR: "VALIDATION_ERROR",
+} as const;
+
+/**
+ * @public
+ */
+export type EventType = (typeof EventType)[keyof typeof EventType];
+
+/**
+ * @public
+ * @enum
+ */
+export const HookStatus = {
+  HOOK_COMPLETE_FAILED: "HOOK_COMPLETE_FAILED",
+  HOOK_COMPLETE_SUCCEEDED: "HOOK_COMPLETE_SUCCEEDED",
+  HOOK_FAILED: "HOOK_FAILED",
+  HOOK_IN_PROGRESS: "HOOK_IN_PROGRESS",
+} as const;
+
+/**
+ * @public
+ */
+export type HookStatus = (typeof HookStatus)[keyof typeof HookStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const OperationType = {
+  CONTINUE_ROLLBACK: "CONTINUE_ROLLBACK",
+  CREATE_CHANGESET: "CREATE_CHANGESET",
+  CREATE_STACK: "CREATE_STACK",
+  DELETE_STACK: "DELETE_STACK",
+  ROLLBACK: "ROLLBACK",
+  UPDATE_STACK: "UPDATE_STACK",
+} as const;
+
+/**
+ * @public
+ */
+export type OperationType = (typeof OperationType)[keyof typeof OperationType];
+
+/**
+ * @public
+ * @enum
+ */
+export const ResourceStatus = {
+  CREATE_COMPLETE: "CREATE_COMPLETE",
+  CREATE_FAILED: "CREATE_FAILED",
+  CREATE_IN_PROGRESS: "CREATE_IN_PROGRESS",
+  DELETE_COMPLETE: "DELETE_COMPLETE",
+  DELETE_FAILED: "DELETE_FAILED",
+  DELETE_IN_PROGRESS: "DELETE_IN_PROGRESS",
+  DELETE_SKIPPED: "DELETE_SKIPPED",
+  EXPORT_COMPLETE: "EXPORT_COMPLETE",
+  EXPORT_FAILED: "EXPORT_FAILED",
+  EXPORT_IN_PROGRESS: "EXPORT_IN_PROGRESS",
+  EXPORT_ROLLBACK_COMPLETE: "EXPORT_ROLLBACK_COMPLETE",
+  EXPORT_ROLLBACK_FAILED: "EXPORT_ROLLBACK_FAILED",
+  EXPORT_ROLLBACK_IN_PROGRESS: "EXPORT_ROLLBACK_IN_PROGRESS",
+  IMPORT_COMPLETE: "IMPORT_COMPLETE",
+  IMPORT_FAILED: "IMPORT_FAILED",
+  IMPORT_IN_PROGRESS: "IMPORT_IN_PROGRESS",
+  IMPORT_ROLLBACK_COMPLETE: "IMPORT_ROLLBACK_COMPLETE",
+  IMPORT_ROLLBACK_FAILED: "IMPORT_ROLLBACK_FAILED",
+  IMPORT_ROLLBACK_IN_PROGRESS: "IMPORT_ROLLBACK_IN_PROGRESS",
+  ROLLBACK_COMPLETE: "ROLLBACK_COMPLETE",
+  ROLLBACK_FAILED: "ROLLBACK_FAILED",
+  ROLLBACK_IN_PROGRESS: "ROLLBACK_IN_PROGRESS",
+  UPDATE_COMPLETE: "UPDATE_COMPLETE",
+  UPDATE_FAILED: "UPDATE_FAILED",
+  UPDATE_IN_PROGRESS: "UPDATE_IN_PROGRESS",
+  UPDATE_ROLLBACK_COMPLETE: "UPDATE_ROLLBACK_COMPLETE",
+  UPDATE_ROLLBACK_FAILED: "UPDATE_ROLLBACK_FAILED",
+  UPDATE_ROLLBACK_IN_PROGRESS: "UPDATE_ROLLBACK_IN_PROGRESS",
+} as const;
+
+/**
+ * @public
+ */
+export type ResourceStatus = (typeof ResourceStatus)[keyof typeof ResourceStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const ValidationStatus = {
+  FAILED: "FAILED",
+  SKIPPED: "SKIPPED",
+} as const;
+
+/**
+ * @public
+ */
+export type ValidationStatus = (typeof ValidationStatus)[keyof typeof ValidationStatus];
+
+/**
+ * <p>Contains detailed information about an event that occurred during a CloudFormation
+ *    operation.</p>
+ * @public
+ */
+export interface OperationEvent {
+  /**
+   * <p>A unique identifier for this event.</p>
+   * @public
+   */
+  EventId?: string | undefined;
+
+  /**
+   * <p>The unique ID name of the instance of the stack.</p>
+   * @public
+   */
+  StackId?: string | undefined;
+
+  /**
+   * <p>The unique identifier of the operation this event belongs to.</p>
+   * @public
+   */
+  OperationId?: string | undefined;
+
+  /**
+   * <p>The type of operation.</p>
+   * @public
+   */
+  OperationType?: OperationType | undefined;
+
+  /**
+   * <p>The current status of the operation.</p>
+   * @public
+   */
+  OperationStatus?: BeaconStackOperationStatus | undefined;
+
+  /**
+   * <p>The type of event.</p>
+   * @public
+   */
+  EventType?: EventType | undefined;
+
+  /**
+   * <p>The logical name of the resource as specified in the template.</p>
+   * @public
+   */
+  LogicalResourceId?: string | undefined;
+
+  /**
+   * <p>The name or unique identifier that corresponds to a physical instance ID of a
+   *    resource.</p>
+   * @public
+   */
+  PhysicalResourceId?: string | undefined;
+
+  /**
+   * <p>Type of resource.</p>
+   * @public
+   */
+  ResourceType?: string | undefined;
+
+  /**
+   * <p>Time the status was updated.</p>
+   * @public
+   */
+  Timestamp?: Date | undefined;
+
+  /**
+   * <p>The time when the event started.</p>
+   * @public
+   */
+  StartTime?: Date | undefined;
+
+  /**
+   * <p>The time when the event ended.</p>
+   * @public
+   */
+  EndTime?: Date | undefined;
+
+  /**
+   * <p>Current status of the resource.</p>
+   * @public
+   */
+  ResourceStatus?: ResourceStatus | undefined;
+
+  /**
+   * <p>Success or failure message associated with the resource.</p>
+   * @public
+   */
+  ResourceStatusReason?: string | undefined;
+
+  /**
+   * <p>The properties used to create the resource.</p>
+   * @public
+   */
+  ResourceProperties?: string | undefined;
+
+  /**
+   * <p>A unique identifier for the request that initiated this operation.</p>
+   * @public
+   */
+  ClientRequestToken?: string | undefined;
+
+  /**
+   * <p>The type name of the Hook that was invoked.</p>
+   * @public
+   */
+  HookType?: string | undefined;
+
+  /**
+   * <p>The status of the Hook invocation. </p>
+   * @public
+   */
+  HookStatus?: HookStatus | undefined;
+
+  /**
+   * <p>Additional information about the Hook status.</p>
+   * @public
+   */
+  HookStatusReason?: string | undefined;
+
+  /**
+   * <p>The point in the operation lifecycle when the Hook was invoked.</p>
+   * @public
+   */
+  HookInvocationPoint?: HookInvocationPoint | undefined;
+
+  /**
+   * <p>Specifies how Hook failures are handled.</p>
+   * @public
+   */
+  HookFailureMode?: HookFailureMode | undefined;
+
+  /**
+   * <p>Additional status information about the operation.</p>
+   * @public
+   */
+  DetailedStatus?: DetailedStatus | undefined;
+
+  /**
+   * <p>Specifies how validation failures are handled.</p>
+   * @public
+   */
+  ValidationFailureMode?: HookFailureMode | undefined;
+
+  /**
+   * <p>The name of the validation that was performed.</p>
+   * @public
+   */
+  ValidationName?: string | undefined;
+
+  /**
+   * <p>The status of the validation.</p>
+   * @public
+   */
+  ValidationStatus?: ValidationStatus | undefined;
+
+  /**
+   * <p>Additional information about the validation status.</p>
+   * @public
+   */
+  ValidationStatusReason?: string | undefined;
+
+  /**
+   * <p>The path within the resource where the validation was applied.</p>
+   * @public
+   */
+  ValidationPath?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeEventsOutput {
+  /**
+   * <p>A list of operation events that match the specified criteria.</p>
+   * @public
+   */
+  OperationEvents?: OperationEvent[] | undefined;
+
+  /**
+   * <p>If the request doesn't return all the remaining results, <code>NextToken</code> is set to
+   *       a token. To retrieve the next set of results, call <code>DescribeEvents</code> again and
+   *       assign that token to the request object's <code>NextToken</code> parameter. If the request
+   *       returns all results, <code>NextToken</code> is set to <code>null</code>.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
 }
 
 /**
@@ -5120,22 +5787,6 @@ export type StackDriftDetectionStatus = (typeof StackDriftDetectionStatus)[keyof
 
 /**
  * @public
- * @enum
- */
-export const StackDriftStatus = {
-  DRIFTED: "DRIFTED",
-  IN_SYNC: "IN_SYNC",
-  NOT_CHECKED: "NOT_CHECKED",
-  UNKNOWN: "UNKNOWN",
-} as const;
-
-/**
- * @public
- */
-export type StackDriftStatus = (typeof StackDriftStatus)[keyof typeof StackDriftStatus];
-
-/**
- * @public
  */
 export interface DescribeStackDriftDetectionStatusOutput {
   /**
@@ -5259,76 +5910,6 @@ export interface DescribeStackEventsInput {
 }
 
 /**
- * @public
- * @enum
- */
-export const DetailedStatus = {
-  CONFIGURATION_COMPLETE: "CONFIGURATION_COMPLETE",
-  VALIDATION_FAILED: "VALIDATION_FAILED",
-} as const;
-
-/**
- * @public
- */
-export type DetailedStatus = (typeof DetailedStatus)[keyof typeof DetailedStatus];
-
-/**
- * @public
- * @enum
- */
-export const HookStatus = {
-  HOOK_COMPLETE_FAILED: "HOOK_COMPLETE_FAILED",
-  HOOK_COMPLETE_SUCCEEDED: "HOOK_COMPLETE_SUCCEEDED",
-  HOOK_FAILED: "HOOK_FAILED",
-  HOOK_IN_PROGRESS: "HOOK_IN_PROGRESS",
-} as const;
-
-/**
- * @public
- */
-export type HookStatus = (typeof HookStatus)[keyof typeof HookStatus];
-
-/**
- * @public
- * @enum
- */
-export const ResourceStatus = {
-  CREATE_COMPLETE: "CREATE_COMPLETE",
-  CREATE_FAILED: "CREATE_FAILED",
-  CREATE_IN_PROGRESS: "CREATE_IN_PROGRESS",
-  DELETE_COMPLETE: "DELETE_COMPLETE",
-  DELETE_FAILED: "DELETE_FAILED",
-  DELETE_IN_PROGRESS: "DELETE_IN_PROGRESS",
-  DELETE_SKIPPED: "DELETE_SKIPPED",
-  EXPORT_COMPLETE: "EXPORT_COMPLETE",
-  EXPORT_FAILED: "EXPORT_FAILED",
-  EXPORT_IN_PROGRESS: "EXPORT_IN_PROGRESS",
-  EXPORT_ROLLBACK_COMPLETE: "EXPORT_ROLLBACK_COMPLETE",
-  EXPORT_ROLLBACK_FAILED: "EXPORT_ROLLBACK_FAILED",
-  EXPORT_ROLLBACK_IN_PROGRESS: "EXPORT_ROLLBACK_IN_PROGRESS",
-  IMPORT_COMPLETE: "IMPORT_COMPLETE",
-  IMPORT_FAILED: "IMPORT_FAILED",
-  IMPORT_IN_PROGRESS: "IMPORT_IN_PROGRESS",
-  IMPORT_ROLLBACK_COMPLETE: "IMPORT_ROLLBACK_COMPLETE",
-  IMPORT_ROLLBACK_FAILED: "IMPORT_ROLLBACK_FAILED",
-  IMPORT_ROLLBACK_IN_PROGRESS: "IMPORT_ROLLBACK_IN_PROGRESS",
-  ROLLBACK_COMPLETE: "ROLLBACK_COMPLETE",
-  ROLLBACK_FAILED: "ROLLBACK_FAILED",
-  ROLLBACK_IN_PROGRESS: "ROLLBACK_IN_PROGRESS",
-  UPDATE_COMPLETE: "UPDATE_COMPLETE",
-  UPDATE_FAILED: "UPDATE_FAILED",
-  UPDATE_IN_PROGRESS: "UPDATE_IN_PROGRESS",
-  UPDATE_ROLLBACK_COMPLETE: "UPDATE_ROLLBACK_COMPLETE",
-  UPDATE_ROLLBACK_FAILED: "UPDATE_ROLLBACK_FAILED",
-  UPDATE_ROLLBACK_IN_PROGRESS: "UPDATE_ROLLBACK_IN_PROGRESS",
-} as const;
-
-/**
- * @public
- */
-export type ResourceStatus = (typeof ResourceStatus)[keyof typeof ResourceStatus];
-
-/**
  * <p>The <code>StackEvent</code> data type.</p>
  * @public
  */
@@ -5350,6 +5931,12 @@ export interface StackEvent {
    * @public
    */
   StackName: string | undefined;
+
+  /**
+   * <p>The unique identifier of the operation that generated this stack event.</p>
+   * @public
+   */
+  OperationId?: string | undefined;
 
   /**
    * <p>The logical name of the resource specified in the template.</p>
@@ -5441,8 +6028,7 @@ export interface StackEvent {
   HookInvocationId?: string | undefined;
 
   /**
-   * <p>Specify the Hook failure mode for non-compliant resources in the followings
-   *    ways.</p>
+   * <p>Specify the Hook failure mode for non-compliant resources in the followings ways.</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -5968,23 +6554,6 @@ export interface DescribeStackResourceInput {
    */
   LogicalResourceId: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const StackResourceDriftStatus = {
-  DELETED: "DELETED",
-  IN_SYNC: "IN_SYNC",
-  MODIFIED: "MODIFIED",
-  NOT_CHECKED: "NOT_CHECKED",
-  UNKNOWN: "UNKNOWN",
-} as const;
-
-/**
- * @public
- */
-export type StackResourceDriftStatus = (typeof StackResourceDriftStatus)[keyof typeof StackResourceDriftStatus];
 
 /**
  * <p>Contains information about whether the resource's actual configuration differs, or has
@@ -6649,6 +7218,24 @@ export interface StackDriftInformation {
 }
 
 /**
+ * <p>Contains information about a CloudFormation operation.</p>
+ * @public
+ */
+export interface OperationEntry {
+  /**
+   * <p>The type of operation.</p>
+   * @public
+   */
+  OperationType?: OperationType | undefined;
+
+  /**
+   * <p>The unique identifier for the operation.</p>
+   * @public
+   */
+  OperationId?: string | undefined;
+}
+
+/**
  * <p>The <code>Output</code> data type.</p>
  * @public
  */
@@ -6913,6 +7500,12 @@ export interface Stack {
    * @public
    */
   DetailedStatus?: DetailedStatus | undefined;
+
+  /**
+   * <p>Information about the most recent operations performed on this stack.</p>
+   * @public
+   */
+  LastOperations?: OperationEntry[] | undefined;
 }
 
 /**
@@ -8494,9 +9087,9 @@ export interface GetHookResultOutput {
   /**
    * <p>The original public type name of the Hook when an alias is used.</p>
    *          <p>For example, if you activate <code>AWS::Hooks::GuardHook</code> with alias
-   *       <code>MyCompany::Custom::GuardHook</code>, then <code>TypeName</code> will be
-   *       <code>MyCompany::Custom::GuardHook</code> and <code>OriginalTypeName</code> will be
-   *       <code>AWS::Hooks::GuardHook</code>. </p>
+   *         <code>MyCompany::Custom::GuardHook</code>, then <code>TypeName</code> will be
+   *         <code>MyCompany::Custom::GuardHook</code> and <code>OriginalTypeName</code> will be
+   *         <code>AWS::Hooks::GuardHook</code>. </p>
    * @public
    */
   OriginalTypeName?: string | undefined;
@@ -9421,8 +10014,7 @@ export interface HookResultSummary {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>HOOK_COMPLETE_FAILED</code>: The Hook completed but failed
-   *      validation.</p>
+   *                   <code>HOOK_COMPLETE_FAILED</code>: The Hook completed but failed validation.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -9434,8 +10026,8 @@ export interface HookResultSummary {
   Status?: HookStatus | undefined;
 
   /**
-   * <p>A description of the Hook results status. For example, if the Hook
-   *    result is in a failed state, this may contain additional information for the failed state.</p>
+   * <p>A description of the Hook results status. For example, if the Hook result is in a failed
+   *    state, this may contain additional information for the failed state.</p>
    * @public
    */
   HookStatusReason?: string | undefined;
@@ -9467,7 +10059,8 @@ export interface HookResultSummary {
   TypeArn?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the target stack or request token of the Cloud Control API operation.</p>
+   * <p>The Amazon Resource Name (ARN) of the target stack or request token of the Cloud Control API
+   *    operation.</p>
    *          <p>Only shown in responses when the request does not specify <code>TargetType</code> and
    *     <code>TargetId</code> filters.</p>
    * @public
@@ -10559,536 +11152,4 @@ export interface ListStackRefactorsInput {
    * @public
    */
   MaxResults?: number | undefined;
-}
-
-/**
- * <p>The summary of a stack refactor operation.</p>
- * @public
- */
-export interface StackRefactorSummary {
-  /**
-   * <p>The ID associated with the stack refactor created from the <a>CreateStackRefactor</a> action.</p>
-   * @public
-   */
-  StackRefactorId?: string | undefined;
-
-  /**
-   * <p>A description to help you identify the refactor.</p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p>The operation status that's provided after calling the <a>ExecuteStackRefactor</a> action.</p>
-   * @public
-   */
-  ExecutionStatus?: StackRefactorExecutionStatus | undefined;
-
-  /**
-   * <p>A detailed explanation for the stack refactor <code>ExecutionStatus</code>.</p>
-   * @public
-   */
-  ExecutionStatusReason?: string | undefined;
-
-  /**
-   * <p>The stack refactor operation status that's provided after calling the <a>CreateStackRefactor</a> action.</p>
-   * @public
-   */
-  Status?: StackRefactorStatus | undefined;
-
-  /**
-   * <p>A detailed explanation for the stack refactor <code>Status</code>.</p>
-   * @public
-   */
-  StatusReason?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListStackRefactorsOutput {
-  /**
-   * <p>Provides a summary of a stack refactor, including the following:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>StackRefactorId</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Status</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>StatusReason</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ExecutionStatus</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ExecutionStatusReason</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Description</code>
-   *                </p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  StackRefactorSummaries: StackRefactorSummary[] | undefined;
-
-  /**
-   * <p>If the request doesn't return all the remaining results, <code>NextToken</code> is set to
-   *       a token. To retrieve the next set of results, call this action again and assign that token to
-   *       the request object's <code>NextToken</code> parameter. If the request returns all results,
-   *         <code>NextToken</code> is set to <code>null</code>.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * <p>The input for the <a>ListStackResource</a> action.</p>
- * @public
- */
-export interface ListStackResourcesInput {
-  /**
-   * <p>The name or the unique stack ID that is associated with the stack, which aren't always
-   *       interchangeable:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Running stacks: You can specify either the stack's name or its unique stack ID.</p>
-   *             </li>
-   *             <li>
-   *                <p>Deleted stacks: You must specify the unique stack ID.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  StackName: string | undefined;
-
-  /**
-   * <p>The token for the next set of items to return. (You received this token from a previous
-   *       call.)</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * <p>Summarizes information about whether the resource's actual configuration differs, or has
- *     <i>drifted</i>, from its expected configuration.</p>
- * @public
- */
-export interface StackResourceDriftInformationSummary {
-  /**
-   * <p>Status of the resource's actual configuration compared to its expected configuration.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>DELETED</code>: The resource differs from its expected configuration in that it has
-   *      been deleted.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>MODIFIED</code>: The resource differs from its expected configuration.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>NOT_CHECKED</code>: CloudFormation hasn't checked if the resource differs from its
-   *      expected configuration.</p>
-   *                <p>Any resources that don't currently support drift detection have a status of
-   *       <code>NOT_CHECKED</code>. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/resource-import-supported-resources.html">Resource
-   *       type support for imports and drift detection</a>. If you performed an <a>ContinueUpdateRollback</a> operation on a stack, any resources included in
-   *       <code>ResourcesToSkip</code> will also have a status of <code>NOT_CHECKED</code>. For more
-   *      information about skipping resources during rollback operations, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-continueupdaterollback.html">Continue rolling back an update</a> in the <i>CloudFormation User Guide</i>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>IN_SYNC</code>: The resource's actual configuration matches its expected
-   *      configuration.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  StackResourceDriftStatus: StackResourceDriftStatus | undefined;
-
-  /**
-   * <p>When CloudFormation last checked if the resource had drifted from its expected
-   *    configuration.</p>
-   * @public
-   */
-  LastCheckTimestamp?: Date | undefined;
-}
-
-/**
- * <p>Contains high-level information about the specified stack resource.</p>
- * @public
- */
-export interface StackResourceSummary {
-  /**
-   * <p>The logical name of the resource specified in the template.</p>
-   * @public
-   */
-  LogicalResourceId: string | undefined;
-
-  /**
-   * <p>The name or unique identifier that corresponds to a physical instance ID of the
-   *    resource.</p>
-   * @public
-   */
-  PhysicalResourceId?: string | undefined;
-
-  /**
-   * <p>Type of resource. (For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html">Amazon Web Services resource and
-   *     property types reference</a> in the <i>CloudFormation User Guide</i>.)</p>
-   * @public
-   */
-  ResourceType: string | undefined;
-
-  /**
-   * <p>Time the status was updated.</p>
-   * @public
-   */
-  LastUpdatedTimestamp: Date | undefined;
-
-  /**
-   * <p>Current status of the resource.</p>
-   * @public
-   */
-  ResourceStatus: ResourceStatus | undefined;
-
-  /**
-   * <p>Success/failure message associated with the resource.</p>
-   * @public
-   */
-  ResourceStatusReason?: string | undefined;
-
-  /**
-   * <p>Information about whether the resource's actual configuration differs, or has
-   *     <i>drifted</i>, from its expected configuration, as defined in the stack template
-   *    and any values specified as template parameters. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift.html">Detect
-   *     unmanaged configuration changes to stacks and resources with drift detection</a>.</p>
-   * @public
-   */
-  DriftInformation?: StackResourceDriftInformationSummary | undefined;
-
-  /**
-   * <p>Contains information about the module from which the resource was created, if the resource
-   *    was created from a module included in the stack template.</p>
-   * @public
-   */
-  ModuleInfo?: ModuleInfo | undefined;
-}
-
-/**
- * <p>The output for a <a>ListStackResources</a> action.</p>
- * @public
- */
-export interface ListStackResourcesOutput {
-  /**
-   * <p>A list of <code>StackResourceSummary</code> structures.</p>
-   * @public
-   */
-  StackResourceSummaries?: StackResourceSummary[] | undefined;
-
-  /**
-   * <p>If the output exceeds 1 MB, a string that identifies the next page of stack resources. If
-   *       no additional page exists, this value is null.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * <p>The input for <a>ListStacks</a> action.</p>
- * @public
- */
-export interface ListStacksInput {
-  /**
-   * <p>The token for the next set of items to return. (You received this token from a previous
-   *       call.)</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>Stack status to use as a filter. Specify one or more stack status codes to list only
-   *       stacks with the specified status codes. For a complete list of stack status codes, see the
-   *         <code>StackStatus</code> parameter of the <a>Stack</a> data type.</p>
-   * @public
-   */
-  StackStatusFilter?: StackStatus[] | undefined;
-}
-
-/**
- * <p>Contains information about whether the stack's actual configuration differs, or has
- *     <i>drifted</i>, from its expected configuration, as defined in the stack template
- *    and any values specified as template parameters. A stack is considered to have drifted if one or
- *    more of its resources have drifted.</p>
- * @public
- */
-export interface StackDriftInformationSummary {
-  /**
-   * <p>Status of the stack's actual configuration compared to its expected template
-   *    configuration.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>DRIFTED</code>: The stack differs from its expected template configuration. A stack
-   *      is considered to have drifted if one or more of its resources have drifted.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>NOT_CHECKED</code>: CloudFormation hasn't checked if the stack differs from its expected
-   *      template configuration.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>IN_SYNC</code>: The stack's actual configuration matches its expected template
-   *      configuration.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>UNKNOWN</code>: CloudFormation could not run drift detection for a resource in the
-   *      stack.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  StackDriftStatus: StackDriftStatus | undefined;
-
-  /**
-   * <p>Most recent time when a drift detection operation was initiated on the stack, or any of its
-   *    individual resources that support drift detection.</p>
-   * @public
-   */
-  LastCheckTimestamp?: Date | undefined;
-}
-
-/**
- * <p>The <code>StackSummary</code> Data Type</p>
- * @public
- */
-export interface StackSummary {
-  /**
-   * <p>Unique stack identifier.</p>
-   * @public
-   */
-  StackId?: string | undefined;
-
-  /**
-   * <p>The name associated with the stack.</p>
-   * @public
-   */
-  StackName: string | undefined;
-
-  /**
-   * <p>The template description of the template used to create the stack.</p>
-   * @public
-   */
-  TemplateDescription?: string | undefined;
-
-  /**
-   * <p>The time the stack was created.</p>
-   * @public
-   */
-  CreationTime: Date | undefined;
-
-  /**
-   * <p>The time the stack was last updated. This field will only be returned if the stack has been
-   *    updated at least once.</p>
-   * @public
-   */
-  LastUpdatedTime?: Date | undefined;
-
-  /**
-   * <p>The time the stack was deleted.</p>
-   * @public
-   */
-  DeletionTime?: Date | undefined;
-
-  /**
-   * <p>The current status of the stack.</p>
-   * @public
-   */
-  StackStatus: StackStatus | undefined;
-
-  /**
-   * <p>Success/Failure message associated with the stack status.</p>
-   * @public
-   */
-  StackStatusReason?: string | undefined;
-
-  /**
-   * <p>For nested stacks, the stack ID of the direct parent of this stack. For the first level of
-   *    nested stacks, the root stack is also the parent stack.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-nested-stacks.html">Nested stacks</a> in
-   *    the <i>CloudFormation User Guide</i>.</p>
-   * @public
-   */
-  ParentId?: string | undefined;
-
-  /**
-   * <p>For nested stacks, the stack ID of the top-level stack to which the nested stack ultimately
-   *    belongs.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-nested-stacks.html">Nested stacks</a> in
-   *    the <i>CloudFormation User Guide</i>.</p>
-   * @public
-   */
-  RootId?: string | undefined;
-
-  /**
-   * <p>Summarizes information about whether a stack's actual configuration differs, or has
-   *     <i>drifted</i>, from its expected configuration, as defined in the stack template
-   *    and any values specified as template parameters. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift.html">Detect
-   *     unmanaged configuration changes to stacks and resources with drift detection</a>.</p>
-   * @public
-   */
-  DriftInformation?: StackDriftInformationSummary | undefined;
-}
-
-/**
- * <p>The output for <a>ListStacks</a> action.</p>
- * @public
- */
-export interface ListStacksOutput {
-  /**
-   * <p>A list of <code>StackSummary</code> structures that contains information about the
-   *       specified stacks.</p>
-   * @public
-   */
-  StackSummaries?: StackSummary[] | undefined;
-
-  /**
-   * <p>If the output exceeds 1 MB in size, a string that identifies the next page of stacks. If
-   *       no additional page exists, this value is null.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListStackSetAutoDeploymentTargetsInput {
-  /**
-   * <p>The name or unique ID of the StackSet that you want to get automatic deployment targets
-   *       for.</p>
-   * @public
-   */
-  StackSetName: string | undefined;
-
-  /**
-   * <p>The token for the next set of items to return. (You received this token from a previous call.)</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of results to be returned with a single call. If the number of
-   *       available results exceeds this maximum, the response includes a <code>NextToken</code> value
-   *       that you can assign to the <code>NextToken</code> request parameter to get the next set of
-   *       results.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>Specifies whether you are acting as an account administrator in the organization's management account or as a delegated administrator in a member account.</p>
-   *          <p>By default, <code>SELF</code> is specified. Use <code>SELF</code> for StackSets with
-   *       self-managed permissions.</p>
-   *          <ul>
-   *             <li>
-   *                <p>If you are signed in to the management account, specify
-   *           <code>SELF</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>If you are signed in to a delegated administrator account, specify
-   *             <code>DELEGATED_ADMIN</code>.</p>
-   *                <p>Your Amazon Web Services account must be registered as a delegated administrator in the management account. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-orgs-delegated-admin.html">Register a
-   *             delegated administrator</a> in the <i>CloudFormation User Guide</i>.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  CallAs?: CallAs | undefined;
-}
-
-/**
- * <p>One of the targets for the StackSet. Returned by the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_ListStackSetAutoDeploymentTargets.html">ListStackSetAutoDeploymentTargets</a> API operation.</p>
- * @public
- */
-export interface StackSetAutoDeploymentTargetSummary {
-  /**
-   * <p>The organization root ID or organizational unit (OU) IDs where the StackSet is
-   *    targeted.</p>
-   * @public
-   */
-  OrganizationalUnitId?: string | undefined;
-
-  /**
-   * <p>The list of Regions targeted for this organization or OU.</p>
-   * @public
-   */
-  Regions?: string[] | undefined;
-}
-
-/**
- * @public
- */
-export interface ListStackSetAutoDeploymentTargetsOutput {
-  /**
-   * <p>An array of summaries of the deployment targets for the StackSet.</p>
-   * @public
-   */
-  Summaries?: StackSetAutoDeploymentTargetSummary[] | undefined;
-
-  /**
-   * <p>If the request doesn't return all the remaining results, <code>NextToken</code> is set to
-   *       a token. To retrieve the next set of results, call <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_ListStackSetAutoDeploymentTargets.html">ListStackSetAutoDeploymentTargets</a> again and use that value for the
-   *         <code>NextToken</code> parameter. If the request returns all results, <code>NextToken</code>
-   *       is set to an empty string.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const OperationResultFilterName = {
-  OPERATION_RESULT_STATUS: "OPERATION_RESULT_STATUS",
-} as const;
-
-/**
- * @public
- */
-export type OperationResultFilterName = (typeof OperationResultFilterName)[keyof typeof OperationResultFilterName];
-
-/**
- * <p>The status that operation results are filtered by.</p>
- * @public
- */
-export interface OperationResultFilter {
-  /**
-   * <p>The type of filter to apply.</p>
-   * @public
-   */
-  Name?: OperationResultFilterName | undefined;
-
-  /**
-   * <p>The value to filter by.</p>
-   * @public
-   */
-  Values?: string | undefined;
 }

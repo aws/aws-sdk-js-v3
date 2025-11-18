@@ -21,6 +21,7 @@ export * from "./DeregisterTypeCommand";
 export * from "./DescribeAccountLimitsCommand";
 export * from "./DescribeChangeSetCommand";
 export * from "./DescribeChangeSetHooksCommand";
+export * from "./DescribeEventsCommand";
 export * from "./DescribeGeneratedTemplateCommand";
 export * from "./DescribeOrganizationsAccessCommand";
 export * from "./DescribePublisherCommand";

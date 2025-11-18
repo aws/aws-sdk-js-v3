@@ -73,7 +73,7 @@ export interface DescribeStackResourcesCommandOutput extends DescribeStackResour
  * //       ResourceStatusReason: "STRING_VALUE",
  * //       Description: "STRING_VALUE",
  * //       DriftInformation: { // StackResourceDriftInformation
- * //         StackResourceDriftStatus: "IN_SYNC" || "MODIFIED" || "DELETED" || "NOT_CHECKED" || "UNKNOWN", // required
+ * //         StackResourceDriftStatus: "IN_SYNC" || "MODIFIED" || "DELETED" || "NOT_CHECKED" || "UNKNOWN" || "UNSUPPORTED", // required
  * //         LastCheckTimestamp: new Date("TIMESTAMP"),
  * //       },
  * //       ModuleInfo: { // ModuleInfo

@@ -106,6 +106,11 @@ import {
   DescribeChangeSetHooksCommandOutput,
 } from "./commands/DescribeChangeSetHooksCommand";
 import {
+  DescribeEventsCommand,
+  DescribeEventsCommandInput,
+  DescribeEventsCommandOutput,
+} from "./commands/DescribeEventsCommand";
+import {
   DescribeGeneratedTemplateCommand,
   DescribeGeneratedTemplateCommandInput,
   DescribeGeneratedTemplateCommandOutput,
@@ -432,6 +437,7 @@ const commands = {
   DescribeAccountLimitsCommand,
   DescribeChangeSetCommand,
   DescribeChangeSetHooksCommand,
+  DescribeEventsCommand,
   DescribeGeneratedTemplateCommand,
   DescribeOrganizationsAccessCommand,
   DescribePublisherCommand,
@@ -844,6 +850,21 @@ export interface CloudFormation {
     args: DescribeChangeSetHooksCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeChangeSetHooksCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeEventsCommand}
+   */
+  describeEvents(): Promise<DescribeEventsCommandOutput>;
+  describeEvents(
+    args: DescribeEventsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeEventsCommandOutput>;
+  describeEvents(args: DescribeEventsCommandInput, cb: (err: any, data?: DescribeEventsCommandOutput) => void): void;
+  describeEvents(
+    args: DescribeEventsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeEventsCommandOutput) => void
   ): void;
 
   /**
