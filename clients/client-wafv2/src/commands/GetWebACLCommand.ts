@@ -4,7 +4,8 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { GetWebACLRequest, GetWebACLResponse } from "../models/models_0";
+import { GetWebACLRequest } from "../models/models_0";
+import { GetWebACLResponse } from "../models/models_1";
 import { GetWebACL } from "../schemas/schemas_0";
 import { ServiceInputTypes, ServiceOutputTypes, WAFV2ClientResolvedConfig } from "../WAFV2Client";
 

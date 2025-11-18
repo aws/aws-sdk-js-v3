@@ -103,9 +103,11 @@ const _DAPIK = "DeleteAPIKey";
 const _DAPIKR = "DeleteAPIKeyRequest";
 const _DAPIKRe = "DeleteAPIKeyResponse";
 const _DB = "DefaultBehavior";
+const _DF = "DisallowedFeature";
 const _DFMRG = "DeleteFirewallManagerRuleGroups";
 const _DFMRGR = "DeleteFirewallManagerRuleGroupsRequest";
 const _DFMRGRe = "DeleteFirewallManagerRuleGroupsResponse";
+const _DFi = "DisallowedFeatures";
 const _DIPS = "DeleteIPSet";
 const _DIPSR = "DeleteIPSetRequest";
 const _DIPSRe = "DeleteIPSetResponse";
@@ -167,6 +169,7 @@ const _FT = "FieldType";
 const _FTM = "FieldToMatch";
 const _FTP = "FieldToProtect";
 const _FV = "FailureValues";
+const _Fe = "Feature";
 const _Fi = "Filter";
 const _Fil = "Filters";
 const _GDAPIK = "GetDecryptedAPIKey";
@@ -421,6 +424,7 @@ const _RN = "RuleName";
 const _RNWRG = "RuleNameWithinRuleGroup";
 const _RNe = "ReleaseNotes";
 const _RPP = "RegistrationPagePath";
+const _RPPe = "RequiredPricingPlan";
 const _RPS = "RegexPatternSet";
 const _RPSRS = "RegexPatternSetReferenceStatement";
 const _RPSS = "RegexPatternSetSummary";
@@ -528,6 +532,7 @@ const _WAFAIE = "WAFAssociatedItemException";
 const _WAFCWE = "WAFConfigurationWarningException";
 const _WAFDIE = "WAFDuplicateItemException";
 const _WAFEMRGVE = "WAFExpiredManagedRuleGroupVersionException";
+const _WAFFNIIPPE = "WAFFeatureNotIncludedInPricingPlanException";
 const _WAFIEE = "WAFInternalErrorException";
 const _WAFIOE = "WAFInvalidOperationException";
 const _WAFIPE = "WAFInvalidParameterException";
@@ -566,6 +571,7 @@ import {
   WAFConfigurationWarningException as __WAFConfigurationWarningException,
   WAFDuplicateItemException as __WAFDuplicateItemException,
   WAFExpiredManagedRuleGroupVersionException as __WAFExpiredManagedRuleGroupVersionException,
+  WAFFeatureNotIncludedInPricingPlanException as __WAFFeatureNotIncludedInPricingPlanException,
   WAFInternalErrorException as __WAFInternalErrorException,
   WAFInvalidOperationException as __WAFInvalidOperationException,
   WAFInvalidParameterException as __WAFInvalidParameterException,
@@ -794,6 +800,7 @@ export var DescribeManagedRuleGroupResponse: StaticStructureSchema = [
   [_VNe, _STA, _C, _R, _LN, _ALv, _CL],
   [0, 0, 1, () => RuleSummaries, 0, () => LabelSummaries, () => LabelSummaries],
 ];
+export var DisallowedFeature: StaticStructureSchema = [3, n0, _DF, 0, [_Fe, _RPPe], [0, 0]];
 export var DisassociateWebACLRequest: StaticStructureSchema = [3, n0, _DWACLRi, 0, [_RA], [0]];
 export var DisassociateWebACLResponse: StaticStructureSchema = [3, n0, _DWACLRis, 0, [], []];
 export var EmailField: StaticStructureSchema = [3, n0, _EF, 0, [_I], [0]];
@@ -1524,6 +1531,21 @@ TypeRegistry.for(n0).registerError(
   __WAFExpiredManagedRuleGroupVersionException
 );
 
+export var WAFFeatureNotIncludedInPricingPlanException: StaticErrorSchema = [
+  -3,
+  n0,
+  _WAFFNIIPPE,
+  {
+    [_e]: _c,
+  },
+  [_Me, _DFi],
+  [0, () => DisallowedFeatures],
+];
+TypeRegistry.for(n0).registerError(
+  WAFFeatureNotIncludedInPricingPlanException,
+  __WAFFeatureNotIncludedInPricingPlanException
+);
+
 export var WAFInternalErrorException: StaticErrorSchema = [
   -3,
   n0,
@@ -1789,6 +1811,7 @@ export var CountryCodes = 64 | 0;
 
 export var CustomHTTPHeaders: StaticListSchema = [1, n0, _CHTTPHu, 0, () => CustomHTTPHeader];
 export var DataProtections: StaticListSchema = [1, n0, _DPa, 0, () => DataProtection];
+export var DisallowedFeatures: StaticListSchema = [1, n0, _DFi, 0, () => DisallowedFeature];
 export var ExcludedRules: StaticListSchema = [1, n0, _ERx, 0, () => ExcludedRule];
 export var FieldToProtectKeys = 64 | 0;
 

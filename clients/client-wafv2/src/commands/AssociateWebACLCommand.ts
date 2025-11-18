@@ -77,6 +77,9 @@ export interface AssociateWebACLCommandOutput extends AssociateWebACLResponse, _
  * @see {@link AssociateWebACLCommandOutput} for command's `response` shape.
  * @see {@link WAFV2ClientResolvedConfig | config} for WAFV2Client's `config` shape.
  *
+ * @throws {@link WAFFeatureNotIncludedInPricingPlanException} (client fault)
+ *  <p>The operation failed because the specified WAF feature isn't supported by the CloudFront pricing plan associated with the web ACL.</p>
+ *
  * @throws {@link WAFInternalErrorException} (server fault)
  *  <p>Your request is valid, but WAF couldn’t perform the operation because of a system
  *          problem. Retry your request. </p>

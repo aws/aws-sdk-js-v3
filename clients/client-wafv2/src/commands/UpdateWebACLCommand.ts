@@ -1201,6 +1201,9 @@ export interface UpdateWebACLCommandOutput extends UpdateWebACLResponse, __Metad
  *          expired. You can retrieve the available versions for the managed rule group by calling
  *             <a>ListAvailableManagedRuleGroupVersions</a>.</p>
  *
+ * @throws {@link WAFFeatureNotIncludedInPricingPlanException} (client fault)
+ *  <p>The operation failed because the specified WAF feature isn't supported by the CloudFront pricing plan associated with the web ACL.</p>
+ *
  * @throws {@link WAFInternalErrorException} (server fault)
  *  <p>Your request is valid, but WAF couldn’t perform the operation because of a system
  *          problem. Retry your request. </p>
