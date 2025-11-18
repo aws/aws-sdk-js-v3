@@ -3518,6 +3518,123 @@ export interface CreateRestoreTestingSelectionOutput {
 }
 
 /**
+ * <p>This contains metadata about resource selection for tiering configurations.</p>
+ *          <p>You can specify up to 5 different resource selections per tiering configuration.
+ *          Data moved to lower-cost tier remains there until deletion (one-way transition).</p>
+ * @public
+ */
+export interface ResourceSelection {
+  /**
+   * <p>An array of strings that either contains ARNs of the associated resources
+   *          or contains a wildcard <code>*</code> to specify all resources.
+   *          You can specify up to 100 specific resources per tiering configuration.</p>
+   * @public
+   */
+  Resources: string[] | undefined;
+
+  /**
+   * <p>The number of days after creation within a backup vault that an object can transition to the low cost warm storage tier.
+   *          Must be a positive integer between 60 and 36500 days.</p>
+   * @public
+   */
+  TieringDownSettingsInDays: number | undefined;
+
+  /**
+   * <p>The type of Amazon Web Services resource; for example, <code>S3</code> for Amazon S3.
+   *          For tiering configurations, this is currently limited to <code>S3</code>.</p>
+   * @public
+   */
+  ResourceType: string | undefined;
+}
+
+/**
+ * <p>This contains metadata about a tiering configuration for create operations.</p>
+ * @public
+ */
+export interface TieringConfigurationInputForCreate {
+  /**
+   * <p>The unique name of the tiering configuration. This cannot be changed
+   *          after creation, and it must consist of only alphanumeric characters and underscores.</p>
+   * @public
+   */
+  TieringConfigurationName: string | undefined;
+
+  /**
+   * <p>The name of the backup vault where the tiering configuration applies.
+   *          Use <code>*</code> to apply to all backup vaults.</p>
+   * @public
+   */
+  BackupVaultName: string | undefined;
+
+  /**
+   * <p>An array of resource selection objects that specify which resources
+   *          are included in the tiering configuration and their tiering settings.</p>
+   * @public
+   */
+  ResourceSelection: ResourceSelection[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateTieringConfigurationInput {
+  /**
+   * <p>A tiering configuration must contain a unique <code>TieringConfigurationName</code> string
+   *          you create and must contain a <code>BackupVaultName</code> and <code>ResourceSelection</code>.
+   *          You may optionally include a <code>CreatorRequestId</code> string.</p>
+   *          <p>The <code>TieringConfigurationName</code> is a unique string that is the name of the
+   *          tiering configuration. This cannot be changed after creation, and it must consist of only
+   *          alphanumeric characters and underscores.</p>
+   * @public
+   */
+  TieringConfiguration: TieringConfigurationInputForCreate | undefined;
+
+  /**
+   * <p>The tags to assign to the tiering configuration.</p>
+   * @public
+   */
+  TieringConfigurationTags?: Record<string, string> | undefined;
+
+  /**
+   * <p>This is a unique string that identifies the request and
+   *          allows failed requests to be retried without the risk of running
+   *          the operation twice. This parameter is optional. If used, this
+   *          parameter must contain 1 to 50 alphanumeric or '-_.' characters.</p>
+   * @public
+   */
+  CreatorRequestId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateTieringConfigurationOutput {
+  /**
+   * <p>An Amazon Resource Name (ARN) that uniquely identifies the created
+   *          tiering configuration.</p>
+   * @public
+   */
+  TieringConfigurationArn?: string | undefined;
+
+  /**
+   * <p>This unique string is the name of the tiering configuration.</p>
+   *          <p>The name cannot be changed after creation. The name consists of only
+   *          alphanumeric characters and underscores. Maximum length is 200.</p>
+   * @public
+   */
+  TieringConfigurationName?: string | undefined;
+
+  /**
+   * <p>The date and time a tiering configuration was created, in Unix format
+   *          and Coordinated Universal Time (UTC). The value of <code>CreationTime</code>
+   *          is accurate to milliseconds. For example, the value 1516925490.087 represents
+   *          Friday, January 26, 2018 12:11:30.087AM.</p>
+   * @public
+   */
+  CreationTime?: Date | undefined;
+}
+
+/**
  * @public
  */
 export interface DeleteBackupPlanInput {
@@ -3703,6 +3820,22 @@ export interface DeleteRestoreTestingSelectionInput {
    */
   RestoreTestingSelectionName: string | undefined;
 }
+
+/**
+ * @public
+ */
+export interface DeleteTieringConfigurationInput {
+  /**
+   * <p>The unique name of a tiering configuration.</p>
+   * @public
+   */
+  TieringConfigurationName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteTieringConfigurationOutput {}
 
 /**
  * <p>A dependent Amazon Web Services service or resource returned an error to the Backup service, and the action cannot be completed.</p>
@@ -6340,6 +6473,88 @@ export interface GetSupportedResourceTypesOutput {
    * @public
    */
   ResourceTypes?: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetTieringConfigurationInput {
+  /**
+   * <p>The unique name of a tiering configuration.</p>
+   * @public
+   */
+  TieringConfigurationName: string | undefined;
+}
+
+/**
+ * <p>This contains metadata about a tiering configuration.</p>
+ * @public
+ */
+export interface TieringConfiguration {
+  /**
+   * <p>The unique name of the tiering configuration. This cannot be changed
+   *          after creation, and it must consist of only alphanumeric characters and underscores.</p>
+   * @public
+   */
+  TieringConfigurationName: string | undefined;
+
+  /**
+   * <p>An Amazon Resource Name (ARN) that uniquely identifies the
+   *          tiering configuration.</p>
+   * @public
+   */
+  TieringConfigurationArn?: string | undefined;
+
+  /**
+   * <p>The name of the backup vault where the tiering configuration applies.
+   *          Use <code>*</code> to apply to all backup vaults.</p>
+   * @public
+   */
+  BackupVaultName: string | undefined;
+
+  /**
+   * <p>An array of resource selection objects that specify which resources
+   *          are included in the tiering configuration and their tiering settings.</p>
+   * @public
+   */
+  ResourceSelection: ResourceSelection[] | undefined;
+
+  /**
+   * <p>This is a unique string that identifies the request and
+   *          allows failed requests to be retried without the risk of running
+   *          the operation twice.</p>
+   * @public
+   */
+  CreatorRequestId?: string | undefined;
+
+  /**
+   * <p>The date and time a tiering configuration was created, in Unix format
+   *          and Coordinated Universal Time (UTC). The value of <code>CreationTime</code>
+   *          is accurate to milliseconds. For example, the value 1516925490.087 represents
+   *          Friday, January 26, 2018 12:11:30.087AM.</p>
+   * @public
+   */
+  CreationTime?: Date | undefined;
+
+  /**
+   * <p>The date and time a tiering configuration was updated, in Unix format
+   *          and Coordinated Universal Time (UTC). The value of <code>LastUpdatedTime</code>
+   *          is accurate to milliseconds. For example, the value 1516925490.087 represents
+   *          Friday, January 26, 2018 12:11:30.087AM.</p>
+   * @public
+   */
+  LastUpdatedTime?: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetTieringConfigurationOutput {
+  /**
+   * <p>Specifies the body of a tiering configuration. Includes <code>TieringConfigurationName</code>.</p>
+   * @public
+   */
+  TieringConfiguration?: TieringConfiguration | undefined;
 }
 
 /**
@@ -9522,6 +9737,90 @@ export interface ListTagsOutput {
 /**
  * @public
  */
+export interface ListTieringConfigurationsInput {
+  /**
+   * <p>The maximum number of items to be returned.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The next item following a partial list of returned items. For example, if a request
+   *          is made to return <code>MaxResults</code> number of items, <code>NextToken</code>
+   *          allows you to return more items in your list starting at the location pointed to by the
+   *          next token.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * <p>This contains metadata about a tiering configuration returned in a list.</p>
+ * @public
+ */
+export interface TieringConfigurationsListMember {
+  /**
+   * <p>An Amazon Resource Name (ARN) that uniquely identifies the
+   *          tiering configuration.</p>
+   * @public
+   */
+  TieringConfigurationArn?: string | undefined;
+
+  /**
+   * <p>The unique name of the tiering configuration.</p>
+   * @public
+   */
+  TieringConfigurationName?: string | undefined;
+
+  /**
+   * <p>The name of the backup vault where the tiering configuration applies.
+   *          Use <code>*</code> to apply to all backup vaults.</p>
+   * @public
+   */
+  BackupVaultName?: string | undefined;
+
+  /**
+   * <p>The date and time a tiering configuration was created, in Unix format
+   *          and Coordinated Universal Time (UTC). The value of <code>CreationTime</code>
+   *          is accurate to milliseconds. For example, the value 1516925490.087 represents
+   *          Friday, January 26, 2018 12:11:30.087AM.</p>
+   * @public
+   */
+  CreationTime?: Date | undefined;
+
+  /**
+   * <p>The date and time a tiering configuration was updated, in Unix format
+   *          and Coordinated Universal Time (UTC). The value of <code>LastUpdatedTime</code>
+   *          is accurate to milliseconds. For example, the value 1516925490.087 represents
+   *          Friday, January 26, 2018 12:11:30.087AM.</p>
+   * @public
+   */
+  LastUpdatedTime?: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListTieringConfigurationsOutput {
+  /**
+   * <p>An array of tiering configurations returned by the <code>ListTieringConfigurations</code> call.</p>
+   * @public
+   */
+  TieringConfigurations?: TieringConfigurationsListMember[] | undefined;
+
+  /**
+   * <p>The next item following a partial list of returned items. For example, if a request
+   *          is made to return <code>MaxResults</code> number of items, <code>NextToken</code>
+   *          allows you to return more items in your list starting at the location pointed to by the
+   *          next token.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface PutBackupVaultAccessPolicyInput {
   /**
    * <p>The name of a logical container where backups are stored. Backup vaults are identified
@@ -10835,4 +11134,77 @@ export interface UpdateRestoreTestingSelectionOutput {
    * @public
    */
   UpdateTime: Date | undefined;
+}
+
+/**
+ * <p>This contains metadata about a tiering configuration for update operations.</p>
+ * @public
+ */
+export interface TieringConfigurationInputForUpdate {
+  /**
+   * <p>An array of resource selection objects that specify which resources
+   *          are included in the tiering configuration and their tiering settings.</p>
+   * @public
+   */
+  ResourceSelection: ResourceSelection[] | undefined;
+
+  /**
+   * <p>The name of the backup vault where the tiering configuration applies.
+   *          Use <code>*</code> to apply to all backup vaults.</p>
+   * @public
+   */
+  BackupVaultName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateTieringConfigurationInput {
+  /**
+   * <p>The name of a tiering configuration to update.</p>
+   * @public
+   */
+  TieringConfigurationName: string | undefined;
+
+  /**
+   * <p>Specifies the body of a tiering configuration.</p>
+   * @public
+   */
+  TieringConfiguration: TieringConfigurationInputForUpdate | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateTieringConfigurationOutput {
+  /**
+   * <p>An Amazon Resource Name (ARN) that uniquely identifies the updated
+   *          tiering configuration.</p>
+   * @public
+   */
+  TieringConfigurationArn?: string | undefined;
+
+  /**
+   * <p>This unique string is the name of the tiering configuration.</p>
+   * @public
+   */
+  TieringConfigurationName?: string | undefined;
+
+  /**
+   * <p>The date and time a tiering configuration was created, in Unix format
+   *          and Coordinated Universal Time (UTC). The value of <code>CreationTime</code>
+   *          is accurate to milliseconds. For example, the value 1516925490.087 represents
+   *          Friday, January 26, 2018 12:11:30.087AM.</p>
+   * @public
+   */
+  CreationTime?: Date | undefined;
+
+  /**
+   * <p>The date and time a tiering configuration was updated, in Unix format
+   *          and Coordinated Universal Time (UTC). The value of <code>LastUpdatedTime</code>
+   *          is accurate to milliseconds. For example, the value 1516925490.087 represents
+   *          Friday, January 26, 2018 12:11:30.087AM.</p>
+   * @public
+   */
+  LastUpdatedTime?: Date | undefined;
 }

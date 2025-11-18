@@ -64,6 +64,11 @@ import {
   CreateRestoreTestingSelectionCommandOutput,
 } from "./commands/CreateRestoreTestingSelectionCommand";
 import {
+  CreateTieringConfigurationCommand,
+  CreateTieringConfigurationCommandInput,
+  CreateTieringConfigurationCommandOutput,
+} from "./commands/CreateTieringConfigurationCommand";
+import {
   DeleteBackupPlanCommand,
   DeleteBackupPlanCommandInput,
   DeleteBackupPlanCommandOutput,
@@ -118,6 +123,11 @@ import {
   DeleteRestoreTestingSelectionCommandInput,
   DeleteRestoreTestingSelectionCommandOutput,
 } from "./commands/DeleteRestoreTestingSelectionCommand";
+import {
+  DeleteTieringConfigurationCommand,
+  DeleteTieringConfigurationCommandInput,
+  DeleteTieringConfigurationCommandOutput,
+} from "./commands/DeleteTieringConfigurationCommand";
 import {
   DescribeBackupJobCommand,
   DescribeBackupJobCommandInput,
@@ -264,6 +274,11 @@ import {
   GetSupportedResourceTypesCommandOutput,
 } from "./commands/GetSupportedResourceTypesCommand";
 import {
+  GetTieringConfigurationCommand,
+  GetTieringConfigurationCommandInput,
+  GetTieringConfigurationCommandOutput,
+} from "./commands/GetTieringConfigurationCommand";
+import {
   ListBackupJobsCommand,
   ListBackupJobsCommandInput,
   ListBackupJobsCommandOutput,
@@ -390,6 +405,11 @@ import {
 } from "./commands/ListRestoreTestingSelectionsCommand";
 import { ListTagsCommand, ListTagsCommandInput, ListTagsCommandOutput } from "./commands/ListTagsCommand";
 import {
+  ListTieringConfigurationsCommand,
+  ListTieringConfigurationsCommandInput,
+  ListTieringConfigurationsCommandOutput,
+} from "./commands/ListTieringConfigurationsCommand";
+import {
   PutBackupVaultAccessPolicyCommand,
   PutBackupVaultAccessPolicyCommandInput,
   PutBackupVaultAccessPolicyCommandOutput,
@@ -490,6 +510,11 @@ import {
   UpdateRestoreTestingSelectionCommandInput,
   UpdateRestoreTestingSelectionCommandOutput,
 } from "./commands/UpdateRestoreTestingSelectionCommand";
+import {
+  UpdateTieringConfigurationCommand,
+  UpdateTieringConfigurationCommandInput,
+  UpdateTieringConfigurationCommandOutput,
+} from "./commands/UpdateTieringConfigurationCommand";
 
 const commands = {
   AssociateBackupVaultMpaApprovalTeamCommand,
@@ -504,6 +529,7 @@ const commands = {
   CreateRestoreAccessBackupVaultCommand,
   CreateRestoreTestingPlanCommand,
   CreateRestoreTestingSelectionCommand,
+  CreateTieringConfigurationCommand,
   DeleteBackupPlanCommand,
   DeleteBackupSelectionCommand,
   DeleteBackupVaultCommand,
@@ -515,6 +541,7 @@ const commands = {
   DeleteReportPlanCommand,
   DeleteRestoreTestingPlanCommand,
   DeleteRestoreTestingSelectionCommand,
+  DeleteTieringConfigurationCommand,
   DescribeBackupJobCommand,
   DescribeBackupVaultCommand,
   DescribeCopyJobCommand,
@@ -544,6 +571,7 @@ const commands = {
   GetRestoreTestingPlanCommand,
   GetRestoreTestingSelectionCommand,
   GetSupportedResourceTypesCommand,
+  GetTieringConfigurationCommand,
   ListBackupJobsCommand,
   ListBackupJobSummariesCommand,
   ListBackupPlansCommand,
@@ -570,6 +598,7 @@ const commands = {
   ListRestoreTestingPlansCommand,
   ListRestoreTestingSelectionsCommand,
   ListTagsCommand,
+  ListTieringConfigurationsCommand,
   PutBackupVaultAccessPolicyCommand,
   PutBackupVaultLockConfigurationCommand,
   PutBackupVaultNotificationsCommand,
@@ -591,6 +620,7 @@ const commands = {
   UpdateReportPlanCommand,
   UpdateRestoreTestingPlanCommand,
   UpdateRestoreTestingSelectionCommand,
+  UpdateTieringConfigurationCommand,
 };
 
 export interface Backup {
@@ -790,6 +820,23 @@ export interface Backup {
   ): void;
 
   /**
+   * @see {@link CreateTieringConfigurationCommand}
+   */
+  createTieringConfiguration(
+    args: CreateTieringConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateTieringConfigurationCommandOutput>;
+  createTieringConfiguration(
+    args: CreateTieringConfigurationCommandInput,
+    cb: (err: any, data?: CreateTieringConfigurationCommandOutput) => void
+  ): void;
+  createTieringConfiguration(
+    args: CreateTieringConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateTieringConfigurationCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DeleteBackupPlanCommand}
    */
   deleteBackupPlan(
@@ -971,6 +1018,23 @@ export interface Backup {
     args: DeleteRestoreTestingSelectionCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteRestoreTestingSelectionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteTieringConfigurationCommand}
+   */
+  deleteTieringConfiguration(
+    args: DeleteTieringConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteTieringConfigurationCommandOutput>;
+  deleteTieringConfiguration(
+    args: DeleteTieringConfigurationCommandInput,
+    cb: (err: any, data?: DeleteTieringConfigurationCommandOutput) => void
+  ): void;
+  deleteTieringConfiguration(
+    args: DeleteTieringConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteTieringConfigurationCommandOutput) => void
   ): void;
 
   /**
@@ -1455,6 +1519,23 @@ export interface Backup {
   ): void;
 
   /**
+   * @see {@link GetTieringConfigurationCommand}
+   */
+  getTieringConfiguration(
+    args: GetTieringConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetTieringConfigurationCommandOutput>;
+  getTieringConfiguration(
+    args: GetTieringConfigurationCommandInput,
+    cb: (err: any, data?: GetTieringConfigurationCommandOutput) => void
+  ): void;
+  getTieringConfiguration(
+    args: GetTieringConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetTieringConfigurationCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListBackupJobsCommand}
    */
   listBackupJobs(): Promise<ListBackupJobsCommandOutput>;
@@ -1880,6 +1961,24 @@ export interface Backup {
   ): void;
 
   /**
+   * @see {@link ListTieringConfigurationsCommand}
+   */
+  listTieringConfigurations(): Promise<ListTieringConfigurationsCommandOutput>;
+  listTieringConfigurations(
+    args: ListTieringConfigurationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListTieringConfigurationsCommandOutput>;
+  listTieringConfigurations(
+    args: ListTieringConfigurationsCommandInput,
+    cb: (err: any, data?: ListTieringConfigurationsCommandOutput) => void
+  ): void;
+  listTieringConfigurations(
+    args: ListTieringConfigurationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListTieringConfigurationsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link PutBackupVaultAccessPolicyCommand}
    */
   putBackupVaultAccessPolicy(
@@ -2200,6 +2299,23 @@ export interface Backup {
     args: UpdateRestoreTestingSelectionCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateRestoreTestingSelectionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateTieringConfigurationCommand}
+   */
+  updateTieringConfiguration(
+    args: UpdateTieringConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateTieringConfigurationCommandOutput>;
+  updateTieringConfiguration(
+    args: UpdateTieringConfigurationCommandInput,
+    cb: (err: any, data?: UpdateTieringConfigurationCommandOutput) => void
+  ): void;
+  updateTieringConfiguration(
+    args: UpdateTieringConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateTieringConfigurationCommandOutput) => void
   ): void;
 }
 

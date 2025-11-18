@@ -87,6 +87,10 @@ import {
   CreateRestoreTestingSelectionCommandInput,
   CreateRestoreTestingSelectionCommandOutput,
 } from "./commands/CreateRestoreTestingSelectionCommand";
+import {
+  CreateTieringConfigurationCommandInput,
+  CreateTieringConfigurationCommandOutput,
+} from "./commands/CreateTieringConfigurationCommand";
 import { DeleteBackupPlanCommandInput, DeleteBackupPlanCommandOutput } from "./commands/DeleteBackupPlanCommand";
 import {
   DeleteBackupSelectionCommandInput,
@@ -119,6 +123,10 @@ import {
   DeleteRestoreTestingSelectionCommandInput,
   DeleteRestoreTestingSelectionCommandOutput,
 } from "./commands/DeleteRestoreTestingSelectionCommand";
+import {
+  DeleteTieringConfigurationCommandInput,
+  DeleteTieringConfigurationCommandOutput,
+} from "./commands/DeleteTieringConfigurationCommand";
 import { DescribeBackupJobCommandInput, DescribeBackupJobCommandOutput } from "./commands/DescribeBackupJobCommand";
 import {
   DescribeBackupVaultCommandInput,
@@ -208,6 +216,10 @@ import {
   GetSupportedResourceTypesCommandInput,
   GetSupportedResourceTypesCommandOutput,
 } from "./commands/GetSupportedResourceTypesCommand";
+import {
+  GetTieringConfigurationCommandInput,
+  GetTieringConfigurationCommandOutput,
+} from "./commands/GetTieringConfigurationCommand";
 import { ListBackupJobsCommandInput, ListBackupJobsCommandOutput } from "./commands/ListBackupJobsCommand";
 import {
   ListBackupJobSummariesCommandInput,
@@ -283,6 +295,10 @@ import {
 } from "./commands/ListRestoreTestingSelectionsCommand";
 import { ListTagsCommandInput, ListTagsCommandOutput } from "./commands/ListTagsCommand";
 import {
+  ListTieringConfigurationsCommandInput,
+  ListTieringConfigurationsCommandOutput,
+} from "./commands/ListTieringConfigurationsCommand";
+import {
   PutBackupVaultAccessPolicyCommandInput,
   PutBackupVaultAccessPolicyCommandOutput,
 } from "./commands/PutBackupVaultAccessPolicyCommand";
@@ -337,6 +353,10 @@ import {
   UpdateRestoreTestingSelectionCommandOutput,
 } from "./commands/UpdateRestoreTestingSelectionCommand";
 import {
+  UpdateTieringConfigurationCommandInput,
+  UpdateTieringConfigurationCommandOutput,
+} from "./commands/UpdateTieringConfigurationCommand";
+import {
   ClientInputEndpointParameters,
   ClientResolvedEndpointParameters,
   EndpointParameters,
@@ -363,6 +383,7 @@ export type ServiceInputTypes =
   | CreateRestoreAccessBackupVaultCommandInput
   | CreateRestoreTestingPlanCommandInput
   | CreateRestoreTestingSelectionCommandInput
+  | CreateTieringConfigurationCommandInput
   | DeleteBackupPlanCommandInput
   | DeleteBackupSelectionCommandInput
   | DeleteBackupVaultAccessPolicyCommandInput
@@ -374,6 +395,7 @@ export type ServiceInputTypes =
   | DeleteReportPlanCommandInput
   | DeleteRestoreTestingPlanCommandInput
   | DeleteRestoreTestingSelectionCommandInput
+  | DeleteTieringConfigurationCommandInput
   | DescribeBackupJobCommandInput
   | DescribeBackupVaultCommandInput
   | DescribeCopyJobCommandInput
@@ -403,6 +425,7 @@ export type ServiceInputTypes =
   | GetRestoreTestingPlanCommandInput
   | GetRestoreTestingSelectionCommandInput
   | GetSupportedResourceTypesCommandInput
+  | GetTieringConfigurationCommandInput
   | ListBackupJobSummariesCommandInput
   | ListBackupJobsCommandInput
   | ListBackupPlanTemplatesCommandInput
@@ -429,6 +452,7 @@ export type ServiceInputTypes =
   | ListRestoreTestingPlansCommandInput
   | ListRestoreTestingSelectionsCommandInput
   | ListTagsCommandInput
+  | ListTieringConfigurationsCommandInput
   | PutBackupVaultAccessPolicyCommandInput
   | PutBackupVaultLockConfigurationCommandInput
   | PutBackupVaultNotificationsCommandInput
@@ -449,7 +473,8 @@ export type ServiceInputTypes =
   | UpdateRegionSettingsCommandInput
   | UpdateReportPlanCommandInput
   | UpdateRestoreTestingPlanCommandInput
-  | UpdateRestoreTestingSelectionCommandInput;
+  | UpdateRestoreTestingSelectionCommandInput
+  | UpdateTieringConfigurationCommandInput;
 
 /**
  * @public
@@ -467,6 +492,7 @@ export type ServiceOutputTypes =
   | CreateRestoreAccessBackupVaultCommandOutput
   | CreateRestoreTestingPlanCommandOutput
   | CreateRestoreTestingSelectionCommandOutput
+  | CreateTieringConfigurationCommandOutput
   | DeleteBackupPlanCommandOutput
   | DeleteBackupSelectionCommandOutput
   | DeleteBackupVaultAccessPolicyCommandOutput
@@ -478,6 +504,7 @@ export type ServiceOutputTypes =
   | DeleteReportPlanCommandOutput
   | DeleteRestoreTestingPlanCommandOutput
   | DeleteRestoreTestingSelectionCommandOutput
+  | DeleteTieringConfigurationCommandOutput
   | DescribeBackupJobCommandOutput
   | DescribeBackupVaultCommandOutput
   | DescribeCopyJobCommandOutput
@@ -507,6 +534,7 @@ export type ServiceOutputTypes =
   | GetRestoreTestingPlanCommandOutput
   | GetRestoreTestingSelectionCommandOutput
   | GetSupportedResourceTypesCommandOutput
+  | GetTieringConfigurationCommandOutput
   | ListBackupJobSummariesCommandOutput
   | ListBackupJobsCommandOutput
   | ListBackupPlanTemplatesCommandOutput
@@ -533,6 +561,7 @@ export type ServiceOutputTypes =
   | ListRestoreTestingPlansCommandOutput
   | ListRestoreTestingSelectionsCommandOutput
   | ListTagsCommandOutput
+  | ListTieringConfigurationsCommandOutput
   | PutBackupVaultAccessPolicyCommandOutput
   | PutBackupVaultLockConfigurationCommandOutput
   | PutBackupVaultNotificationsCommandOutput
@@ -553,7 +582,8 @@ export type ServiceOutputTypes =
   | UpdateRegionSettingsCommandOutput
   | UpdateReportPlanCommandOutput
   | UpdateRestoreTestingPlanCommandOutput
-  | UpdateRestoreTestingSelectionCommandOutput;
+  | UpdateRestoreTestingSelectionCommandOutput
+  | UpdateTieringConfigurationCommandOutput;
 
 /**
  * @public

@@ -306,6 +306,14 @@ CreateRestoreTestingSelection
 </details>
 <details>
 <summary>
+CreateTieringConfiguration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/backup/command/CreateTieringConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-backup/Interface/CreateTieringConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-backup/Interface/CreateTieringConfigurationCommandOutput/)
+
+</details>
+<details>
+<summary>
 DeleteBackupPlan
 </summary>
 
@@ -390,6 +398,14 @@ DeleteRestoreTestingSelection
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/backup/command/DeleteRestoreTestingSelectionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-backup/Interface/DeleteRestoreTestingSelectionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-backup/Interface/DeleteRestoreTestingSelectionCommandOutput/)
+
+</details>
+<details>
+<summary>
+DeleteTieringConfiguration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/backup/command/DeleteTieringConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-backup/Interface/DeleteTieringConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-backup/Interface/DeleteTieringConfigurationCommandOutput/)
 
 </details>
 <details>
@@ -626,6 +642,14 @@ GetSupportedResourceTypes
 </details>
 <details>
 <summary>
+GetTieringConfiguration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/backup/command/GetTieringConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-backup/Interface/GetTieringConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-backup/Interface/GetTieringConfigurationCommandOutput/)
+
+</details>
+<details>
+<summary>
 ListBackupJobs
 </summary>
 
@@ -834,6 +858,14 @@ ListTags
 </details>
 <details>
 <summary>
+ListTieringConfigurations
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/backup/command/ListTieringConfigurationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-backup/Interface/ListTieringConfigurationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-backup/Interface/ListTieringConfigurationsCommandOutput/)
+
+</details>
+<details>
+<summary>
 PutBackupVaultAccessPolicy
 </summary>
 
@@ -998,5 +1030,13 @@ UpdateRestoreTestingSelection
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/backup/command/UpdateRestoreTestingSelectionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-backup/Interface/UpdateRestoreTestingSelectionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-backup/Interface/UpdateRestoreTestingSelectionCommandOutput/)
+
+</details>
+<details>
+<summary>
+UpdateTieringConfiguration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/backup/command/UpdateTieringConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-backup/Interface/UpdateTieringConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-backup/Interface/UpdateTieringConfigurationCommandOutput/)
 
 </details>

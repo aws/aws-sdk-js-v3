@@ -26,3 +26,4 @@ export * from "./ListRestoreJobsPaginator";
 export * from "./ListRestoreTestingPlansPaginator";
 export * from "./ListRestoreTestingSelectionsPaginator";
 export * from "./ListTagsPaginator";
+export * from "./ListTieringConfigurationsPaginator";

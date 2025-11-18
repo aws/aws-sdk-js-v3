@@ -151,6 +151,9 @@ const _CRTSO = "CreateRestoreTestingSelectionOutput";
 const _CS = "ControlScope";
 const _CSTTRR = "CopySourceTagsToRestoredResource";
 const _CT = "ConditionType";
+const _CTC = "CreateTieringConfiguration";
+const _CTCI = "CreateTieringConfigurationInput";
+const _CTCO = "CreateTieringConfigurationOutput";
 const _CTo = "CompletionTime";
 const _CTr = "CreationTime";
 const _CV = "ConditionValue";
@@ -236,6 +239,9 @@ const _DRTSI = "DeleteRestoreTestingSelectionInput";
 const _DS = "DeploymentStatus";
 const _DSM = "DeletionStatusMessage";
 const _DSe = "DeletionStatus";
+const _DTC = "DeleteTieringConfiguration";
+const _DTCI = "DeleteTieringConfigurationInput";
+const _DTCO = "DeleteTieringConfigurationOutput";
 const _DVLS = "DestinationVaultLockState";
 const _DVT = "DestinationVaultType";
 const _EBPT = "ExportBackupPlanTemplate";
@@ -305,6 +311,9 @@ const _GRTSO = "GetRestoreTestingSelectionOutput";
 const _GS = "GlobalSettings";
 const _GSRT = "GetSupportedResourceTypes";
 const _GSRTO = "GetSupportedResourceTypesOutput";
+const _GTC = "GetTieringConfiguration";
+const _GTCI = "GetTieringConfigurationInput";
+const _GTCO = "GetTieringConfigurationOutput";
 const _I = "Index";
 const _IA = "IndexActions";
 const _IAn = "IndexAction";
@@ -429,9 +438,13 @@ const _LRTSI = "ListRestoreTestingSelectionsInput";
 const _LRTSO = "ListRestoreTestingSelectionsOutput";
 const _LSET = "LastSuccessfulExecutionTime";
 const _LT = "ListTags";
+const _LTC = "ListTieringConfigurations";
+const _LTCI = "ListTieringConfigurationsInput";
+const _LTCO = "ListTieringConfigurationsOutput";
 const _LTI = "ListTagsInput";
 const _LTO = "ListTagsOutput";
 const _LUT = "LastUpdateTime";
+const _LUTa = "LastUpdatedTime";
 const _Lo = "Locked";
 const _M = "Message";
 const _MATA = "MpaApprovalTeamArn";
@@ -529,6 +542,8 @@ const _RRABVI = "RevokeRestoreAccessBackupVaultInput";
 const _RRID = "RetainRecordInDays";
 const _RRU = "RetainRecordUntil";
 const _RS = "ReportSetting";
+const _RSe = "ResourceSelection";
+const _RSes = "ResourceSelections";
 const _RT = "ResourceType";
 const _RTMP = "ResourceTypeManagementPreference";
 const _RTOIP = "ResourceTypeOptInPreference";
@@ -599,7 +614,17 @@ const _SWM = "StartWindowMinutes";
 const _St = "Status";
 const _T = "Type";
 const _TBVN = "TargetBackupVaultName";
+const _TC = "TieringConfiguration";
+const _TCA = "TieringConfigurationArn";
+const _TCIFC = "TieringConfigurationInputForCreate";
+const _TCIFU = "TieringConfigurationInputForUpdate";
+const _TCL = "TieringConfigurationsList";
+const _TCLM = "TieringConfigurationsListMember";
+const _TCN = "TieringConfigurationName";
+const _TCT = "TieringConfigurationTags";
+const _TCi = "TieringConfigurations";
 const _TD = "ToDate";
+const _TDSID = "TieringDownSettingsInDays";
 const _TII = "TotalItemsIndexed";
 const _TKL = "TagKeyList";
 const _TLAGBVA = "TargetLogicallyAirGappedBackupVaultArn";
@@ -635,6 +660,9 @@ const _URTS = "UpdateRestoreTestingSelection";
 const _URTSI = "UpdateRestoreTestingSelectionInput";
 const _URTSO = "UpdateRestoreTestingSelectionOutput";
 const _UT = "UpdateTime";
+const _UTC = "UpdateTieringConfiguration";
+const _UTCI = "UpdateTieringConfigurationInput";
+const _UTCO = "UpdateTieringConfigurationOutput";
 const _V = "Value";
 const _VI = "VersionId";
 const _VLS = "VaultLockState";
@@ -1130,6 +1158,15 @@ export var CreateRestoreTestingSelectionOutput: StaticStructureSchema = [
   [_CTr, _RTPA, _RTPN, _RTSN],
   [4, 0, 0, 0],
 ];
+export var CreateTieringConfigurationInput: StaticStructureSchema = [
+  3,
+  n0,
+  _CTCI,
+  0,
+  [_TC, _TCT, _CRI],
+  [() => TieringConfigurationInputForCreate, [() => Tags, 0], [0, 4]],
+];
+export var CreateTieringConfigurationOutput: StaticStructureSchema = [3, n0, _CTCO, 0, [_TCA, _TCN, _CTr], [0, 0, 4]];
 export var DateRange: StaticStructureSchema = [3, n0, _DR, 0, [_FDr, _TD], [4, 4]];
 export var DeleteBackupPlanInput: StaticStructureSchema = [3, n0, _DBPI, 0, [_BPIa], [[0, 1]]];
 export var DeleteBackupPlanOutput: StaticStructureSchema = [3, n0, _DBPO, 0, [_BPIa, _BPA, _DD, _VI], [0, 0, 4, 0]];
@@ -1173,6 +1210,8 @@ export var DeleteRestoreTestingSelectionInput: StaticStructureSchema = [
     [0, 1],
   ],
 ];
+export var DeleteTieringConfigurationInput: StaticStructureSchema = [3, n0, _DTCI, 0, [_TCN], [[0, 1]]];
+export var DeleteTieringConfigurationOutput: StaticStructureSchema = [3, n0, _DTCO, 0, [], []];
 export var DependencyFailureException: StaticErrorSchema = [
   -3,
   n0,
@@ -1662,6 +1701,15 @@ export var GetRestoreTestingSelectionOutput: StaticStructureSchema = [
   [[() => RestoreTestingSelectionForGet, 0]],
 ];
 export var GetSupportedResourceTypesOutput: StaticStructureSchema = [3, n0, _GSRTO, 0, [_RTe], [64 | 0]];
+export var GetTieringConfigurationInput: StaticStructureSchema = [3, n0, _GTCI, 0, [_TCN], [[0, 1]]];
+export var GetTieringConfigurationOutput: StaticStructureSchema = [
+  3,
+  n0,
+  _GTCO,
+  0,
+  [_TC],
+  [() => TieringConfiguration],
+];
 export var IndexAction: StaticStructureSchema = [3, n0, _IAn, 0, [_RTe], [64 | 0]];
 export var IndexedRecoveryPoint: StaticStructureSchema = [
   3,
@@ -2852,6 +2900,35 @@ export var ListTagsInput: StaticStructureSchema = [
   ],
 ];
 export var ListTagsOutput: StaticStructureSchema = [3, n0, _LTO, 0, [_NT, _Ta], [0, [() => Tags, 0]]];
+export var ListTieringConfigurationsInput: StaticStructureSchema = [
+  3,
+  n0,
+  _LTCI,
+  0,
+  [_MR, _NT],
+  [
+    [
+      1,
+      {
+        [_hQ]: _mR,
+      },
+    ],
+    [
+      0,
+      {
+        [_hQ]: _nT,
+      },
+    ],
+  ],
+];
+export var ListTieringConfigurationsOutput: StaticStructureSchema = [
+  3,
+  n0,
+  _LTCO,
+  0,
+  [_TCi, _NT],
+  [() => TieringConfigurationsList, 0],
+];
 export var MissingParameterValueException: StaticErrorSchema = [
   -3,
   n0,
@@ -3032,6 +3109,7 @@ export var ResourceNotFoundException: StaticErrorSchema = [
 ];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
 
+export var ResourceSelection: StaticStructureSchema = [3, n0, _RSe, 0, [_Re, _TDSID, _RT], [64 | 0, 1, 0]];
 export var RestoreAccessBackupVaultListMember: StaticStructureSchema = [
   3,
   n0,
@@ -3234,6 +3312,38 @@ export var TagResourceInput: StaticStructureSchema = [
     [() => Tags, 0],
   ],
 ];
+export var TieringConfiguration: StaticStructureSchema = [
+  3,
+  n0,
+  _TC,
+  0,
+  [_TCN, _TCA, _BVN, _RSe, _CRI, _CTr, _LUTa],
+  [0, 0, 0, () => ResourceSelections, 0, 4, 4],
+];
+export var TieringConfigurationInputForCreate: StaticStructureSchema = [
+  3,
+  n0,
+  _TCIFC,
+  0,
+  [_TCN, _BVN, _RSe],
+  [0, 0, () => ResourceSelections],
+];
+export var TieringConfigurationInputForUpdate: StaticStructureSchema = [
+  3,
+  n0,
+  _TCIFU,
+  0,
+  [_RSe, _BVN],
+  [() => ResourceSelections, 0],
+];
+export var TieringConfigurationsListMember: StaticStructureSchema = [
+  3,
+  n0,
+  _TCLM,
+  0,
+  [_TCA, _TCN, _BVN, _CTr, _LUTa],
+  [0, 0, 0, 4, 4],
+];
 export var UntagResourceInput: StaticStructureSchema = [
   3,
   n0,
@@ -3352,6 +3462,22 @@ export var UpdateRestoreTestingSelectionOutput: StaticStructureSchema = [
   [_CTr, _RTPA, _RTPN, _RTSN, _UT],
   [4, 0, 0, 0, 4],
 ];
+export var UpdateTieringConfigurationInput: StaticStructureSchema = [
+  3,
+  n0,
+  _UTCI,
+  0,
+  [_TCN, _TC],
+  [[0, 1], () => TieringConfigurationInputForUpdate],
+];
+export var UpdateTieringConfigurationOutput: StaticStructureSchema = [
+  3,
+  n0,
+  _UTCO,
+  0,
+  [_TCA, _TCN, _CTr, _LUTa],
+  [0, 0, 4, 4],
+];
 export var __Unit = "unit" as const;
 
 export var BackupServiceException: StaticErrorSchema = [-3, _sm, "BackupServiceException", 0, [], []];
@@ -3395,6 +3521,7 @@ export var ResourceArns = 64 | 0;
 
 export var ResourceIdentifiers = 64 | 0;
 
+export var ResourceSelections: StaticListSchema = [1, n0, _RSes, 0, () => ResourceSelection];
 export var ResourceTypeList = 64 | 0;
 
 export var ResourceTypes = 64 | 0;
@@ -3416,6 +3543,7 @@ export var ScheduledRunsPreview: StaticListSchema = [1, n0, _SRP, 0, () => Sched
 export var stringList = 64 | 0;
 
 export var TagKeyList: StaticListSchema = [1, n0, _TKL, 8, 0];
+export var TieringConfigurationsList: StaticListSchema = [1, n0, _TCL, 0, () => TieringConfigurationsListMember];
 export var VaultNames = 64 | 0;
 
 export var BackupJobChildJobsInState = 128 | 1;
@@ -3555,6 +3683,16 @@ export var CreateRestoreTestingSelection: StaticOperationSchema = [
   () => CreateRestoreTestingSelectionInput,
   () => CreateRestoreTestingSelectionOutput,
 ];
+export var CreateTieringConfiguration: StaticOperationSchema = [
+  9,
+  n0,
+  _CTC,
+  {
+    [_h]: ["PUT", "/tiering-configurations", 200],
+  },
+  () => CreateTieringConfigurationInput,
+  () => CreateTieringConfigurationOutput,
+];
 export var DeleteBackupPlan: StaticOperationSchema = [
   9,
   n0,
@@ -3664,6 +3802,16 @@ export var DeleteRestoreTestingSelection: StaticOperationSchema = [
   },
   () => DeleteRestoreTestingSelectionInput,
   () => __Unit,
+];
+export var DeleteTieringConfiguration: StaticOperationSchema = [
+  9,
+  n0,
+  _DTC,
+  {
+    [_h]: ["DELETE", "/tiering-configurations/{TieringConfigurationName}", 200],
+  },
+  () => DeleteTieringConfigurationInput,
+  () => DeleteTieringConfigurationOutput,
 ];
 export var DescribeBackupJob: StaticOperationSchema = [
   9,
@@ -3955,6 +4103,16 @@ export var GetSupportedResourceTypes: StaticOperationSchema = [
   () => __Unit,
   () => GetSupportedResourceTypesOutput,
 ];
+export var GetTieringConfiguration: StaticOperationSchema = [
+  9,
+  n0,
+  _GTC,
+  {
+    [_h]: ["GET", "/tiering-configurations/{TieringConfigurationName}", 200],
+  },
+  () => GetTieringConfigurationInput,
+  () => GetTieringConfigurationOutput,
+];
 export var ListBackupJobs: StaticOperationSchema = [
   9,
   n0,
@@ -4215,6 +4373,16 @@ export var ListTags: StaticOperationSchema = [
   () => ListTagsInput,
   () => ListTagsOutput,
 ];
+export var ListTieringConfigurations: StaticOperationSchema = [
+  9,
+  n0,
+  _LTC,
+  {
+    [_h]: ["GET", "/tiering-configurations", 200],
+  },
+  () => ListTieringConfigurationsInput,
+  () => ListTieringConfigurationsOutput,
+];
 export var PutBackupVaultAccessPolicy: StaticOperationSchema = [
   9,
   n0,
@@ -4428,4 +4596,14 @@ export var UpdateRestoreTestingSelection: StaticOperationSchema = [
   },
   () => UpdateRestoreTestingSelectionInput,
   () => UpdateRestoreTestingSelectionOutput,
+];
+export var UpdateTieringConfiguration: StaticOperationSchema = [
+  9,
+  n0,
+  _UTC,
+  {
+    [_h]: ["PUT", "/tiering-configurations/{TieringConfigurationName}", 200],
+  },
+  () => UpdateTieringConfigurationInput,
+  () => UpdateTieringConfigurationOutput,
 ];
