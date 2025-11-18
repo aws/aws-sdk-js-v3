@@ -280,6 +280,9 @@ export interface ConverseCommandOutput extends ConverseResponse, __MetadataBeare
  *   performanceConfig: { // PerformanceConfiguration
  *     latency: "standard" || "optimized",
  *   },
+ *   serviceTier: { // ServiceTier
+ *     type: "priority" || "default" || "flex", // required
+ *   },
  * };
  * const command = new ConverseCommand(input);
  * const response = await client.send(command);
@@ -885,6 +888,9 @@ export interface ConverseCommandOutput extends ConverseResponse, __MetadataBeare
  * //   },
  * //   performanceConfig: { // PerformanceConfiguration
  * //     latency: "standard" || "optimized",
+ * //   },
+ * //   serviceTier: { // ServiceTier
+ * //     type: "priority" || "default" || "flex", // required
  * //   },
  * // };
  *

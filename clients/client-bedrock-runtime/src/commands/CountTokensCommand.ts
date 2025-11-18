@@ -233,6 +233,31 @@ export interface CountTokensCommandOutput extends CountTokensResponse, __Metadat
  *           },
  *         },
  *       ],
+ *       toolConfig: { // ToolConfiguration
+ *         tools: [ // Tools // required
+ *           { // Tool Union: only one key present
+ *             toolSpec: { // ToolSpecification
+ *               name: "STRING_VALUE", // required
+ *               description: "STRING_VALUE",
+ *               inputSchema: { // ToolInputSchema Union: only one key present
+ *                 json: "DOCUMENT_VALUE",
+ *               },
+ *             },
+ *             systemTool: { // SystemTool
+ *               name: "STRING_VALUE", // required
+ *             },
+ *             cachePoint: "<CachePointBlock>",
+ *           },
+ *         ],
+ *         toolChoice: { // ToolChoice Union: only one key present
+ *           auto: {},
+ *           any: {},
+ *           tool: { // SpecificToolChoice
+ *             name: "STRING_VALUE", // required
+ *           },
+ *         },
+ *       },
+ *       additionalModelRequestFields: "DOCUMENT_VALUE",
  *     },
  *   },
  * };

@@ -3481,6 +3481,33 @@ export namespace PromptVariableValues {
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const ServiceTierType = {
+  DEFAULT: "default",
+  FLEX: "flex",
+  PRIORITY: "priority",
+} as const;
+
+/**
+ * @public
+ */
+export type ServiceTierType = (typeof ServiceTierType)[keyof typeof ServiceTierType];
+
+/**
+ * <p>Specifies the processing tier configuration used for serving the request.</p>
+ * @public
+ */
+export interface ServiceTier {
+  /**
+   * <p>Specifies the processing tier type used for serving the request.</p>
+   * @public
+   */
+  type: ServiceTierType | undefined;
+}
+
+/**
  * <p>Contains configurations for instructions to provide the model for how to handle input. To learn more, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/conversation-inference-call.html">Using the Converse API</a>.</p>
  * @public
  */
@@ -3867,6 +3894,12 @@ export interface ConverseRequest {
    * @public
    */
   performanceConfig?: PerformanceConfiguration | undefined;
+
+  /**
+   * <p>Specifies the processing tier configuration used for serving the request.</p>
+   * @public
+   */
+  serviceTier?: ServiceTier | undefined;
 }
 
 /**
@@ -4078,6 +4111,12 @@ export interface ConverseResponse {
    * @public
    */
   performanceConfig?: PerformanceConfiguration | undefined;
+
+  /**
+   * <p>Specifies the processing tier configuration used for serving the request.</p>
+   * @public
+   */
+  serviceTier?: ServiceTier | undefined;
 }
 
 /**
@@ -4269,6 +4308,12 @@ export interface ConverseStreamRequest {
    * @public
    */
   performanceConfig?: PerformanceConfiguration | undefined;
+
+  /**
+   * <p>Specifies the processing tier configuration used for serving the request.</p>
+   * @public
+   */
+  serviceTier?: ServiceTier | undefined;
 }
 
 /**
@@ -4769,6 +4814,12 @@ export interface ConverseStreamMetadataEvent {
    * @public
    */
   performanceConfig?: PerformanceConfiguration | undefined;
+
+  /**
+   * <p>Specifies the processing tier configuration used for serving the request.</p>
+   * @public
+   */
+  serviceTier?: ServiceTier | undefined;
 }
 
 /**
@@ -5151,6 +5202,12 @@ export interface InvokeModelRequest {
    * @public
    */
   performanceConfigLatency?: PerformanceConfigLatency | undefined;
+
+  /**
+   * <p>Specifies the processing tier type used for serving the request.</p>
+   * @public
+   */
+  serviceTier?: ServiceTierType | undefined;
 }
 
 /**
@@ -5174,6 +5231,12 @@ export interface InvokeModelResponse {
    * @public
    */
   performanceConfigLatency?: PerformanceConfigLatency | undefined;
+
+  /**
+   * <p>Specifies the processing tier type used for serving the request.</p>
+   * @public
+   */
+  serviceTier?: ServiceTierType | undefined;
 }
 
 /**
@@ -5471,6 +5534,12 @@ export interface InvokeModelWithResponseStreamRequest {
    * @public
    */
   performanceConfigLatency?: PerformanceConfigLatency | undefined;
+
+  /**
+   * <p>Specifies the processing tier type used for serving the request.</p>
+   * @public
+   */
+  serviceTier?: ServiceTierType | undefined;
 }
 
 /**
@@ -5659,6 +5728,12 @@ export interface InvokeModelWithResponseStreamResponse {
    * @public
    */
   performanceConfigLatency?: PerformanceConfigLatency | undefined;
+
+  /**
+   * <p>Specifies the processing tier type used for serving the request.</p>
+   * @public
+   */
+  serviceTier?: ServiceTierType | undefined;
 }
 
 /**
@@ -5677,6 +5752,18 @@ export interface ConverseTokensRequest {
    * @public
    */
   system?: SystemContentBlock[] | undefined;
+
+  /**
+   * <p>The toolConfig of Converse input request to count tokens for. Configuration information for the tools that the model can use when generating a response.</p>
+   * @public
+   */
+  toolConfig?: ToolConfiguration | undefined;
+
+  /**
+   * <p>The additionalModelRequestFields of Converse input request to count tokens for. Use this field when you want to pass additional parameters that the model supports.</p>
+   * @public
+   */
+  additionalModelRequestFields?: __DocumentType | undefined;
 }
 
 /**

@@ -54,6 +54,7 @@ export interface InvokeModelWithResponseStreamCommandOutput
  *   guardrailIdentifier: "STRING_VALUE",
  *   guardrailVersion: "STRING_VALUE",
  *   performanceConfigLatency: "standard" || "optimized",
+ *   serviceTier: "priority" || "default" || "flex",
  * };
  * const command = new InvokeModelWithResponseStreamCommand(input);
  * const response = await client.send(command);
@@ -85,6 +86,7 @@ export interface InvokeModelWithResponseStreamCommandOutput
  * //   },
  * //   contentType: "STRING_VALUE", // required
  * //   performanceConfigLatency: "standard" || "optimized",
+ * //   serviceTier: "priority" || "default" || "flex",
  * // };
  *
  * ```

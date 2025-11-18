@@ -177,8 +177,9 @@ const _SCB = "SystemContentBlocks";
 const _SCBy = "SystemContentBlock";
 const _SL = "S3Location";
 const _SQEE = "ServiceQuotaExceededException";
-const _ST = "SystemTool";
+const _ST = "ServiceTier";
 const _STC = "SpecificToolChoice";
+const _STy = "SystemTool";
 const _SUE = "ServiceUnavailableException";
 const _T = "Tag";
 const _TC = "ToolConfiguration";
@@ -208,6 +209,7 @@ const _XABCT = "X-Amzn-Bedrock-Content-Type";
 const _XABG = "X-Amzn-Bedrock-GuardrailIdentifier";
 const _XABG_ = "X-Amzn-Bedrock-GuardrailVersion";
 const _XABPL = "X-Amzn-Bedrock-PerformanceConfig-Latency";
+const _XABST = "X-Amzn-Bedrock-Service-Tier";
 const _XABT = "X-Amzn-Bedrock-Trace";
 const _a = "action";
 const _aIS = "asyncInvokeSummaries";
@@ -370,6 +372,7 @@ const _sS = "stopSequences";
 const _sT = "submitTime";
 const _sTA = "submitTimeAfter";
 const _sTB = "submitTimeBefore";
+const _sTe = "serviceTier";
 const _sTy = "systemTool";
 const _sU = "s3Uri";
 const _sUE = "serviceUnavailableException";
@@ -572,7 +575,7 @@ export var ConverseRequest: StaticStructureSchema = [
   n0,
   _CR,
   0,
-  [_mI, _me, _sy, _iC, _tC, _gCu, _aMRF, _pV, _aMRFP, _rM, _pC],
+  [_mI, _me, _sy, _iC, _tC, _gCu, _aMRF, _pV, _aMRFP, _rM, _pC, _sTe],
   [
     [0, 1],
     [() => Messages, 0],
@@ -585,6 +588,7 @@ export var ConverseRequest: StaticStructureSchema = [
     64 | 0,
     [() => RequestMetadata, 0],
     () => PerformanceConfiguration,
+    () => ServiceTier,
   ],
 ];
 export var ConverseResponse: StaticStructureSchema = [
@@ -592,7 +596,7 @@ export var ConverseResponse: StaticStructureSchema = [
   n0,
   _CRo,
   0,
-  [_ou, _sR, _u, _met, _aMRFd, _tr, _pC],
+  [_ou, _sR, _u, _met, _aMRFd, _tr, _pC, _sTe],
   [
     [() => ConverseOutput, 0],
     0,
@@ -601,6 +605,7 @@ export var ConverseResponse: StaticStructureSchema = [
     15,
     [() => ConverseTrace, 0],
     () => PerformanceConfiguration,
+    () => ServiceTier,
   ],
 ];
 export var ConverseStreamMetadataEvent: StaticStructureSchema = [
@@ -608,8 +613,14 @@ export var ConverseStreamMetadataEvent: StaticStructureSchema = [
   n0,
   _CSME,
   0,
-  [_u, _met, _tr, _pC],
-  [() => TokenUsage, () => ConverseStreamMetrics, [() => ConverseStreamTrace, 0], () => PerformanceConfiguration],
+  [_u, _met, _tr, _pC, _sTe],
+  [
+    () => TokenUsage,
+    () => ConverseStreamMetrics,
+    [() => ConverseStreamTrace, 0],
+    () => PerformanceConfiguration,
+    () => ServiceTier,
+  ],
 ];
 export var ConverseStreamMetrics: StaticStructureSchema = [3, n0, _CSM, 0, [_lM], [1]];
 export var ConverseStreamRequest: StaticStructureSchema = [
@@ -617,7 +628,7 @@ export var ConverseStreamRequest: StaticStructureSchema = [
   n0,
   _CSR,
   0,
-  [_mI, _me, _sy, _iC, _tC, _gCu, _aMRF, _pV, _aMRFP, _rM, _pC],
+  [_mI, _me, _sy, _iC, _tC, _gCu, _aMRF, _pV, _aMRFP, _rM, _pC, _sTe],
   [
     [0, 1],
     [() => Messages, 0],
@@ -630,6 +641,7 @@ export var ConverseStreamRequest: StaticStructureSchema = [
     64 | 0,
     [() => RequestMetadata, 0],
     () => PerformanceConfiguration,
+    () => ServiceTier,
   ],
 ];
 export var ConverseStreamResponse: StaticStructureSchema = [
@@ -653,11 +665,8 @@ export var ConverseTokensRequest: StaticStructureSchema = [
   n0,
   _CTR,
   0,
-  [_me, _sy],
-  [
-    [() => Messages, 0],
-    [() => SystemContentBlocks, 0],
-  ],
+  [_me, _sy, _tC, _aMRF],
+  [[() => Messages, 0], [() => SystemContentBlocks, 0], () => ToolConfiguration, 15],
 ];
 export var ConverseTrace: StaticStructureSchema = [
   3,
@@ -973,7 +982,7 @@ export var InvokeModelRequest: StaticStructureSchema = [
   n0,
   _IMR,
   0,
-  [_bo, _cT, _ac, _mI, _tr, _gI, _gV, _pCL],
+  [_bo, _cT, _ac, _mI, _tr, _gI, _gV, _pCL, _sTe],
   [
     [() => Body, 16],
     [
@@ -1013,6 +1022,12 @@ export var InvokeModelRequest: StaticStructureSchema = [
         [_hH]: _XABPL,
       },
     ],
+    [
+      0,
+      {
+        [_hH]: _XABST,
+      },
+    ],
   ],
 ];
 export var InvokeModelResponse: StaticStructureSchema = [
@@ -1020,7 +1035,7 @@ export var InvokeModelResponse: StaticStructureSchema = [
   n0,
   _IMRn,
   0,
-  [_bo, _cT, _pCL],
+  [_bo, _cT, _pCL, _sTe],
   [
     [() => Body, 16],
     [
@@ -1033,6 +1048,12 @@ export var InvokeModelResponse: StaticStructureSchema = [
       0,
       {
         [_hH]: _XABPL,
+      },
+    ],
+    [
+      0,
+      {
+        [_hH]: _XABST,
       },
     ],
   ],
@@ -1062,7 +1083,7 @@ export var InvokeModelWithResponseStreamRequest: StaticStructureSchema = [
   n0,
   _IMWRSR,
   0,
-  [_bo, _cT, _ac, _mI, _tr, _gI, _gV, _pCL],
+  [_bo, _cT, _ac, _mI, _tr, _gI, _gV, _pCL, _sTe],
   [
     [() => Body, 16],
     [
@@ -1102,6 +1123,12 @@ export var InvokeModelWithResponseStreamRequest: StaticStructureSchema = [
         [_hH]: _XABPL,
       },
     ],
+    [
+      0,
+      {
+        [_hH]: _XABST,
+      },
+    ],
   ],
 ];
 export var InvokeModelWithResponseStreamResponse: StaticStructureSchema = [
@@ -1109,7 +1136,7 @@ export var InvokeModelWithResponseStreamResponse: StaticStructureSchema = [
   n0,
   _IMWRSRn,
   0,
-  [_bo, _cT, _pCL],
+  [_bo, _cT, _pCL, _sTe],
   [
     [() => ResponseStream, 16],
     [
@@ -1122,6 +1149,12 @@ export var InvokeModelWithResponseStreamResponse: StaticStructureSchema = [
       0,
       {
         [_hH]: _XABPL,
+      },
+    ],
+    [
+      0,
+      {
+        [_hH]: _XABST,
       },
     ],
   ],
@@ -1271,6 +1304,7 @@ export var ServiceQuotaExceededException: StaticErrorSchema = [
 ];
 TypeRegistry.for(n0).registerError(ServiceQuotaExceededException, __ServiceQuotaExceededException);
 
+export var ServiceTier: StaticStructureSchema = [3, n0, _ST, 0, [_t], [0]];
 export var ServiceUnavailableException: StaticErrorSchema = [
   -3,
   n0,
@@ -1294,7 +1328,7 @@ export var StartAsyncInvokeRequest: StaticStructureSchema = [
   [[0, 4], 0, [() => ModelInputPayload, 0], () => AsyncInvokeOutputDataConfig, () => TagList],
 ];
 export var StartAsyncInvokeResponse: StaticStructureSchema = [3, n0, _SAIRt, 0, [_iA], [0]];
-export var SystemTool: StaticStructureSchema = [3, n0, _ST, 0, [_n], [0]];
+export var SystemTool: StaticStructureSchema = [3, n0, _STy, 0, [_n], [0]];
 export var Tag: StaticStructureSchema = [3, n0, _T, 0, [_k, _v], [0, 0]];
 export var ThrottlingException: StaticErrorSchema = [
   -3,

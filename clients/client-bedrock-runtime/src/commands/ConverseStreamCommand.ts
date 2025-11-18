@@ -281,6 +281,9 @@ export interface ConverseStreamCommandOutput extends ConverseStreamResponse, __M
  *   performanceConfig: { // PerformanceConfiguration
  *     latency: "standard" || "optimized",
  *   },
+ *   serviceTier: { // ServiceTier
+ *     type: "priority" || "default" || "flex", // required
+ *   },
  * };
  * const command = new ConverseStreamCommand(input);
  * const response = await client.send(command);
@@ -791,6 +794,9 @@ export interface ConverseStreamCommandOutput extends ConverseStreamResponse, __M
  * //       },
  * //       performanceConfig: { // PerformanceConfiguration
  * //         latency: "standard" || "optimized",
+ * //       },
+ * //       serviceTier: { // ServiceTier
+ * //         type: "priority" || "default" || "flex", // required
  * //       },
  * //     },
  * //     internalServerException: { // InternalServerException
