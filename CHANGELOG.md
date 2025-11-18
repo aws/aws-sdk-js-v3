@@ -3,6 +3,29 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.934.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.933.0...v3.934.0) (2025-11-18)
+
+
+### Features
+
+* **client-auto-scaling:** This release adds the new LaunchInstances API, which can launch instances synchronously in an AutoScaling group. The API also returns instances info and launch error back immediately. ([5d96b68](https://github.com/aws/aws-sdk-js-v3/commit/5d96b6881d2b6ace315029f471dca7cd058aa643))
+* **client-backup:** AWS Backup now supports a low-cost warm storage tier for Amazon S3 backup data. ([0b0c9b8](https://github.com/aws/aws-sdk-js-v3/commit/0b0c9b8f6a3e9719499db5a0cdaf0b9b31b70ed1))
+* **client-bedrock-runtime:** Amazon Bedrock Runtime Service Tier Support Launch ([ea418df](https://github.com/aws/aws-sdk-js-v3/commit/ea418df5de064d09ca66470f7452fc6d41c0caf4))
+* **client-cloudformation:** New CloudFormation DescribeEvents API with operation ID tracking and failure filtering capabilities to quickly identify root causes of deployment failures. Also, a DeploymentMode parameter for the CreateChangeSet API that enables creation of drift-aware change sets for safe drift management. ([04624df](https://github.com/aws/aws-sdk-js-v3/commit/04624df229903dcdcb0058cab7f2600c430f3adb))
+* **client-cloudwatch-logs:** CloudWatch Logs updates: Added capability to setup a recurring schedule for log insights queries. Logs introduced Scheduled Queries (managed through Create/Update/Get/Delete/List/History Scheduled Query APIs). For more information, see CloudWatch Logs API documentation. ([467947d](https://github.com/aws/aws-sdk-js-v3/commit/467947d43202b1e0ee40288e3482aa6a1b7db760))
+* **client-connect:** This release added support for ring timer configuration for campaign calls. ([ae3d760](https://github.com/aws/aws-sdk-js-v3/commit/ae3d76000b552fa56dad59d65f3241b0404c32df))
+* **client-ec2:** AWS Site-to-Site VPN now supports VPN Concentrator, a new feature that enables customers to connect multiple low-bandwidth sites connections through a single attachment, simplifying multi-site connectivity for distributed enterprises. ([b94cadf](https://github.com/aws/aws-sdk-js-v3/commit/b94cadfd704fa2cc3df6d60075aae1ce99212b2d))
+* **client-iam:** Added the AssociateDelegationRequest, GetDelegationRequest, AcceptDelegationRequest, RejectDelegatonRequest, ListDelegationRequests, UpdateDelegationRequest, SendDelegationToken and GetHumanReadableSummary APIs for the IAM temporary delegation feature. ([b200679](https://github.com/aws/aws-sdk-js-v3/commit/b200679b040a3e3158a2cb4773360fab5cf4bbd8))
+* **client-kafka:** Amazon MSK adds three new APIs, ListTopics, DescribeTopic, and DescribeTopicPartitions for viewing Kafka topics in your MSK clusters. ([12ad701](https://github.com/aws/aws-sdk-js-v3/commit/12ad701d38579bc63130dd7b0cbb054ed69f6f3d))
+* **client-resource-groups-tagging-api:** Add support for new ListRequiredTags API used to retrieve the required tags specified in a customer's effective tag policy. ([fa50551](https://github.com/aws/aws-sdk-js-v3/commit/fa50551511be7be35117b486ddfc84126623be3b))
+* **client-storage-gateway:** Adds support for European Sovereign Cloud ARNs in Storage Gateway API parameters. ([c7dd6fd](https://github.com/aws/aws-sdk-js-v3/commit/c7dd6fd72f0c688fbd0030167104dd9bdc8a8bf5))
+* **client-wafv2:** AssociateWebACL, UpdateWebACL and PutLoggingConfiguration will now throw WAFFeatureNotIncludedInPricingPlanException when the request contains a feature that is not included in the CloudFront pricing plan of the WebACL. ([6da7a3d](https://github.com/aws/aws-sdk-js-v3/commit/6da7a3dbfa7d5d5f824e1ee6e8a3e414ee6ed10b))
+* **clients:** update client endpoints as of 2025-11-18 ([0f98925](https://github.com/aws/aws-sdk-js-v3/commit/0f98925410ab7b21c1c92bd6a507e3b571f1b337))
+
+
+
+
+
 # [3.933.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.932.0...v3.933.0) (2025-11-17)
 
 

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.934.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.933.0...v3.934.0) (2025-11-18)
+
+
+### Features
+
+* **client-wafv2:** AssociateWebACL, UpdateWebACL and PutLoggingConfiguration will now throw WAFFeatureNotIncludedInPricingPlanException when the request contains a feature that is not included in the CloudFront pricing plan of the WebACL. ([6da7a3d](https://github.com/aws/aws-sdk-js-v3/commit/6da7a3dbfa7d5d5f824e1ee6e8a3e414ee6ed10b))
+
+
+
+
+
 # [3.933.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.932.0...v3.933.0) (2025-11-17)
 
 **Note:** Version bump only for package @aws-sdk/client-wafv2

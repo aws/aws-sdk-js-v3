@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.934.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.933.0...v3.934.0) (2025-11-18)
+
+
+### Features
+
+* **client-cloudwatch-logs:** CloudWatch Logs updates: Added capability to setup a recurring schedule for log insights queries. Logs introduced Scheduled Queries (managed through Create/Update/Get/Delete/List/History Scheduled Query APIs). For more information, see CloudWatch Logs API documentation. ([467947d](https://github.com/aws/aws-sdk-js-v3/commit/467947d43202b1e0ee40288e3482aa6a1b7db760))
+
+
+
+
+
 # [3.933.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.932.0...v3.933.0) (2025-11-17)
 
 **Note:** Version bump only for package @aws-sdk/client-cloudwatch-logs
