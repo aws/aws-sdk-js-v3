@@ -5,7 +5,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import { PutRolePermissionsBoundaryRequest } from "../models/models_0";
+import { PutRolePermissionsBoundaryRequest } from "../models/models_1";
 import { PutRolePermissionsBoundary } from "../schemas/schemas_0";
 
 /**

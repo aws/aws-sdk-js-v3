@@ -9,10 +9,15 @@ const _ACIDTOIDCPR = "AddClientIDToOpenIDConnectProviderRequest";
 const _ACt = "AttachmentCount";
 const _ACu = "AuthenticationCode2";
 const _AD = "AccessDetail";
+const _ADR = "AcceptDelegationRequest";
+const _ADRR = "AcceptDelegationRequestRequest";
+const _ADRRs = "AssociateDelegationRequestRequest";
+const _ADRs = "AssociateDelegationRequest";
 const _ADc = "AccessDetails";
 const _AEM = "AssertionEncryptionMode";
 const _AGP = "AttachGroupPolicy";
 const _AGPR = "AttachGroupPolicyRequest";
+const _AI = "ApproverId";
 const _AK = "AccessKey";
 const _AKI = "AccessKeyId";
 const _AKLU = "AccessKeyLastUsed";
@@ -143,11 +148,12 @@ const _DORS = "DisableOrganizationsRootSessions";
 const _DORSR = "DisableOrganizationsRootSessionsRequest";
 const _DORSRi = "DisableOrganizationsRootSessionsResponse";
 const _DP = "DelegationPermission";
+const _DPC = "DelegationPermissionCheck";
 const _DPR = "DeletePolicyRequest";
 const _DPV = "DeletePolicyVersion";
 const _DPVR = "DeletePolicyVersionRequest";
 const _DPe = "DeletePolicy";
-const _DR = "DeleteRole";
+const _DR = "DelegationRequest";
 const _DRI = "DelegationRequestId";
 const _DRP = "DeleteRolePolicy";
 const _DRPB = "DeleteRolePermissionsBoundary";
@@ -156,6 +162,8 @@ const _DRPR = "DeleteRolePolicyRequest";
 const _DRPRe = "DetachRolePolicyRequest";
 const _DRPe = "DetachRolePolicy";
 const _DRR = "DeleteRoleRequest";
+const _DRe = "DelegationRequests";
+const _DRel = "DeleteRole";
 const _DSAMLP = "DeleteSAMLProvider";
 const _DSAMLPR = "DeleteSAMLProviderRequest";
 const _DSC = "DeleteServerCertificate";
@@ -185,6 +193,7 @@ const _DVMFAD = "DeleteVirtualMFADevice";
 const _DVMFADR = "DeleteVirtualMFADeviceRequest";
 const _Do = "Document";
 const _E = "Error";
+const _EA = "EntityArn";
 const _EAEE = "EntityAlreadyExistsException";
 const _EAN = "EvalActionName";
 const _ED = "EntityDetails";
@@ -242,6 +251,9 @@ const _GCRRe = "GetCredentialReportResponse";
 const _GCRe = "GetCredentialReport";
 const _GD = "GroupDetail";
 const _GDL = "GroupDetailList";
+const _GDR = "GetDelegationRequest";
+const _GDRR = "GetDelegationRequestRequest";
+const _GDRRe = "GetDelegationRequestResponse";
 const _GETV = "GlobalEndpointTokenVersion";
 const _GG = "GetGroup";
 const _GGP = "GetGroupPolicy";
@@ -249,6 +261,9 @@ const _GGPR = "GetGroupPolicyRequest";
 const _GGPRe = "GetGroupPolicyResponse";
 const _GGR = "GetGroupRequest";
 const _GGRe = "GetGroupResponse";
+const _GHRS = "GetHumanReadableSummary";
+const _GHRSR = "GetHumanReadableSummaryRequest";
+const _GHRSRe = "GetHumanReadableSummaryResponse";
 const _GI = "GroupId";
 const _GIP = "GetInstanceProfile";
 const _GIPR = "GetInstanceProfileRequest";
@@ -336,7 +351,7 @@ const _JT = "JobType";
 const _K = "Key";
 const _KI = "KeyId";
 const _KPME = "KeyPairMismatchException";
-const _L = "Line";
+const _L = "Locale";
 const _LA = "LastAuthenticated";
 const _LAA = "ListAccountAliases";
 const _LAAR = "ListAccountAliasesRequest";
@@ -359,6 +374,9 @@ const _LATa = "LastAccessedTime";
 const _LAUP = "ListAttachedUserPolicies";
 const _LAUPR = "ListAttachedUserPoliciesRequest";
 const _LAUPRi = "ListAttachedUserPoliciesResponse";
+const _LDR = "ListDelegationRequests";
+const _LDRR = "ListDelegationRequestsRequest";
+const _LDRRi = "ListDelegationRequestsResponse";
 const _LEE = "LimitExceededException";
 const _LEFP = "ListEntitiesForPolicy";
 const _LEFPR = "ListEntitiesForPolicyRequest";
@@ -453,6 +471,7 @@ const _LUTRi = "ListUserTagsResponse";
 const _LVMFAD = "ListVirtualMFADevices";
 const _LVMFADR = "ListVirtualMFADevicesRequest";
 const _LVMFADRi = "ListVirtualMFADevicesResponse";
+const _Li = "Line";
 const _M = "Message";
 const _MCE = "MalformedCertificateException";
 const _MCV = "MissingContextValues";
@@ -477,15 +496,17 @@ const _NPe = "NewPath";
 const _NSCN = "NewServerCertificateName";
 const _NSEE = "NoSuchEntityException";
 const _NUN = "NewUserName";
+const _No = "Notes";
 const _OA = "OnlyAttached";
 const _OAI = "OwnerAccountId";
 const _ODD = "OrganizationsDecisionDetail";
-const _OI = "OrganizationId";
+const _OI = "OwnerId";
 const _OIDCPA = "OpenIDConnectProviderArn";
 const _OIDCPL = "OpenIDConnectProviderList";
 const _OIDCPLE = "OpenIDConnectProviderListEntry";
 const _OIDCPLT = "OpenIDConnectProviderListType";
 const _OIICEE = "OpenIdIdpCommunicationErrorException";
+const _OIr = "OrganizationId";
 const _ONFE = "OrganizationNotFoundException";
 const _ONIAFME = "OrganizationNotInAllFeaturesModeException";
 const _OP = "OldPassword";
@@ -499,6 +520,8 @@ const _PBDD = "PermissionsBoundaryDecisionDetail";
 const _PBPIL = "PermissionsBoundaryPolicyInputList";
 const _PBT = "PermissionsBoundaryType";
 const _PBUC = "PermissionsBoundaryUsageCount";
+const _PCR = "PermissionCheckResult";
+const _PCS = "PermissionCheckStatus";
 const _PD = "PolicyDocument";
 const _PDo = "PolicyDetail";
 const _PEE = "PolicyEvaluationException";
@@ -517,9 +540,10 @@ const _PLU = "PasswordLastUsed";
 const _PN = "PolicyName";
 const _PNAE = "PolicyNotAttachableException";
 const _PNo = "PolicyNames";
-const _PP = "PasswordPolicy";
+const _PP = "PermissionPolicy";
 const _PPVE = "PasswordPolicyViolationException";
-const _PPa = "PathPrefix";
+const _PPa = "PasswordPolicy";
+const _PPat = "PathPrefix";
 const _PPo = "PolicyParameter";
 const _PR = "PolicyRoles";
 const _PRLT = "PolicyRoleListType";
@@ -556,21 +580,27 @@ const _RCIDFOIDCP = "RemoveClientIDFromOpenIDConnectProvider";
 const _RCIDFOIDCPR = "RemoveClientIDFromOpenIDConnectProviderRequest";
 const _RD = "RoleDetail";
 const _RDL = "RoleDetailList";
+const _RDR = "RejectDelegationRequest";
+const _RDRR = "RejectDelegationRequestRequest";
 const _RF = "ReportFormat";
 const _RGLEE = "ReportGenerationLimitExceededException";
 const _RHO = "ResourceHandlingOption";
-const _RI = "RoleId";
+const _RI = "RequestorId";
+const _RIo = "RoleId";
 const _RLC = "RequireLowercaseCharacters";
 const _RLU = "RoleLastUsed";
 const _RM = "RequestMessage";
 const _RMFAD = "ResyncMFADevice";
 const _RMFADR = "ResyncMFADeviceRequest";
 const _RN = "RoleName";
-const _RNe = "RequireNumbers";
+const _RNe = "RequestorName";
+const _RNeq = "RequireNumbers";
 const _RO = "ResourceOwner";
 const _RP = "ResourcePolicy";
 const _RPK = "RemovePrivateKey";
 const _RPL = "RolePolicyList";
+const _RPRA = "RolePermissionRestrictionArns";
+const _RR = "RejectionReason";
 const _RRFIP = "RemoveRoleFromInstanceProfile";
 const _RRFIPR = "RemoveRoleFromInstanceProfileRequest";
 const _RS = "RequireSymbols";
@@ -603,7 +633,7 @@ const _SAMLPLE = "SAMLProviderListEntry";
 const _SAMLPLT = "SAMLProviderListType";
 const _SAMLPUUID = "SAMLProviderUUID";
 const _SANEE = "ServiceAccessNotEnabledException";
-const _SC = "ServerCertificate";
+const _SC = "SummaryContent";
 const _SCA = "ServiceCredentialAlias";
 const _SCI = "ServerCertificateId";
 const _SCM = "ServerCertificateMetadata";
@@ -612,10 +642,13 @@ const _SCN = "ServerCertificateName";
 const _SCP = "SimulateCustomPolicy";
 const _SCPR = "SimulateCustomPolicyRequest";
 const _SCS = "ServiceCredentialSecret";
+const _SCe = "ServerCertificate";
 const _SCi = "SigningCertificate";
 const _SD = "SessionDuration";
 const _SDPV = "SetDefaultPolicyVersion";
 const _SDPVR = "SetDefaultPolicyVersionRequest";
+const _SDT = "SendDelegationToken";
+const _SDTR = "SendDelegationTokenRequest";
 const _SFE = "ServiceFailureException";
 const _SK = "SortKey";
 const _SLA = "ServicesLastAccessed";
@@ -634,6 +667,7 @@ const _SPPR = "SimulatePrincipalPolicyRequest";
 const _SPR = "SimulatePolicyResponse";
 const _SPT = "SourcePolicyType";
 const _SPt = "StartPosition";
+const _SS = "SummaryState";
 const _SSC = "ServiceSpecificCredential";
 const _SSCI = "ServiceSpecificCredentialId";
 const _SSCLT = "ServiceSpecificCredentialsListType";
@@ -685,6 +719,8 @@ const _UARP = "UpdateAssumeRolePolicy";
 const _UARPR = "UpdateAssumeRolePolicyRequest";
 const _UD = "UpdateDate";
 const _UDL = "UserDetailList";
+const _UDR = "UpdateDelegationRequest";
+const _UDRR = "UpdateDelegationRequestRequest";
 const _UDp = "UploadDate";
 const _UDs = "UserDetail";
 const _UEE = "UnmodifiableEntityException";
@@ -738,6 +774,7 @@ const _USSHPKR = "UpdateSSHPublicKeyRequest";
 const _USSHPKRp = "UploadSSHPublicKeyRequest";
 const _USSHPKRpl = "UploadSSHPublicKeyResponse";
 const _USSHPKp = "UploadSSHPublicKey";
+const _UT = "UpdatedTime";
 const _UU = "UntagUser";
 const _UUR = "UntagUserRequest";
 const _UURp = "UpdateUserRequest";
@@ -758,12 +795,14 @@ const _aPLT = "attachedPoliciesListType";
 const _aQE = "awsQueryError";
 const _c = "client";
 const _cLT = "certificateListType";
+const _dRLT = "delegationRequestsListType";
 const _e = "error";
 const _eDLT = "entityDetailsListType";
 const _gDLT = "groupDetailListType";
 const _gLT = "groupListType";
 const _hE = "httpError";
 const _iPLT = "instanceProfileListType";
+const _iT = "isTruncated";
 const _lPGSARLT = "listPolicyGrantingServiceAccessResponseListType";
 const _m = "message";
 const _mDLT = "mfaDeviceListType";
@@ -844,6 +883,7 @@ export var passwordType: StaticSimpleSchema = [0, n0, _pT, 8, 0];
 export var privateKeyType: StaticSimpleSchema = [0, n0, _pKT, 8, 0];
 export var serviceCredentialSecret: StaticSimpleSchema = [0, n0, _sCS, 8, 0];
 export var servicePassword: StaticSimpleSchema = [0, n0, _sP, 8, 0];
+export var AcceptDelegationRequestRequest: StaticStructureSchema = [3, n0, _ADRR, 0, [_DRI], [0]];
 export var AccessDetail: StaticStructureSchema = [3, n0, _AD, 0, [_SN, _SNe, _R, _EP, _LAT, _TAE], [0, 0, 0, 0, 4, 1]];
 export var AccessKey: StaticStructureSchema = [
   3,
@@ -881,6 +921,7 @@ export var AddClientIDToOpenIDConnectProviderRequest: StaticStructureSchema = [
 ];
 export var AddRoleToInstanceProfileRequest: StaticStructureSchema = [3, n0, _ARTIPR, 0, [_IPN, _RN], [0, 0]];
 export var AddUserToGroupRequest: StaticStructureSchema = [3, n0, _AUTGR, 0, [_GN, _UN], [0, 0]];
+export var AssociateDelegationRequestRequest: StaticStructureSchema = [3, n0, _ADRRs, 0, [_DRI], [0]];
 export var AttachedPermissionsBoundary: StaticStructureSchema = [3, n0, _APB, 0, [_PBT, _PBA], [0, 0]];
 export var AttachedPolicy: StaticStructureSchema = [3, n0, _AP, 0, [_PN, _PA], [0, 0]];
 export var AttachGroupPolicyRequest: StaticStructureSchema = [3, n0, _AGPR, 0, [_GN, _PA], [0, 0]];
@@ -1103,6 +1144,14 @@ export var DelegationPermission: StaticStructureSchema = [
   [_PTA, _Par],
   [0, () => policyParameterListType],
 ];
+export var DelegationRequest: StaticStructureSchema = [
+  3,
+  n0,
+  _DR,
+  0,
+  [_DRI, _OAI, _D, _RM, _P, _PP, _RPRA, _OI, _AI, _St, _RI, _RNe, _CD, _SD, _RU, _No, _RR, _OSBO, _UT],
+  [0, 0, 0, 0, () => DelegationPermission, 0, 64 | 0, 0, 0, 0, 0, 0, 4, 1, 0, 0, 0, 2, 4],
+];
 export var DeleteAccessKeyRequest: StaticStructureSchema = [3, n0, _DAKR, 0, [_UN, _AKI], [0, 0]];
 export var DeleteAccountAliasRequest: StaticStructureSchema = [3, n0, _DAAR, 0, [_AA], [0]];
 export var DeleteConflictException: StaticErrorSchema = [
@@ -1157,7 +1206,7 @@ export var DisableOrganizationsRootCredentialsManagementResponse: StaticStructur
   n0,
   _DORCMRi,
   0,
-  [_OI, _EF],
+  [_OIr, _EF],
   [0, 64 | 0],
 ];
 export var DisableOrganizationsRootSessionsRequest: StaticStructureSchema = [3, n0, _DORSR, 0, [], []];
@@ -1166,7 +1215,7 @@ export var DisableOrganizationsRootSessionsResponse: StaticStructureSchema = [
   n0,
   _DORSRi,
   0,
-  [_OI, _EF],
+  [_OIr, _EF],
   [0, 64 | 0],
 ];
 export var DuplicateCertificateException: StaticErrorSchema = [
@@ -1204,7 +1253,7 @@ export var EnableOrganizationsRootCredentialsManagementResponse: StaticStructure
   n0,
   _EORCMRn,
   0,
-  [_OI, _EF],
+  [_OIr, _EF],
   [0, 64 | 0],
 ];
 export var EnableOrganizationsRootSessionsRequest: StaticStructureSchema = [3, n0, _EORSR, 0, [], []];
@@ -1213,7 +1262,7 @@ export var EnableOrganizationsRootSessionsResponse: StaticStructureSchema = [
   n0,
   _EORSRn,
   0,
-  [_OI, _EF],
+  [_OIr, _EF],
   [0, 64 | 0],
 ];
 export var EntityAlreadyExistsException: StaticErrorSchema = [
@@ -1302,7 +1351,7 @@ export var GetAccountAuthorizationDetailsResponse: StaticStructureSchema = [
     0,
   ],
 ];
-export var GetAccountPasswordPolicyResponse: StaticStructureSchema = [3, n0, _GAPPR, 0, [_PP], [() => PasswordPolicy]];
+export var GetAccountPasswordPolicyResponse: StaticStructureSchema = [3, n0, _GAPPR, 0, [_PPa], [() => PasswordPolicy]];
 export var GetAccountSummaryResponse: StaticStructureSchema = [3, n0, _GASR, 0, [_SM], [128 | 1]];
 export var GetContextKeysForCustomPolicyRequest: StaticStructureSchema = [3, n0, _GCKFCPR, 0, [_PIL], [64 | 0]];
 export var GetContextKeysForPolicyResponse: StaticStructureSchema = [3, n0, _GCKFPR, 0, [_CKNo], [64 | 0]];
@@ -1315,6 +1364,15 @@ export var GetContextKeysForPrincipalPolicyRequest: StaticStructureSchema = [
   [0, 64 | 0],
 ];
 export var GetCredentialReportResponse: StaticStructureSchema = [3, n0, _GCRRe, 0, [_Co, _RF, _GT], [21, 0, 4]];
+export var GetDelegationRequestRequest: StaticStructureSchema = [3, n0, _GDRR, 0, [_DRI, _DPC], [0, 2]];
+export var GetDelegationRequestResponse: StaticStructureSchema = [
+  3,
+  n0,
+  _GDRRe,
+  0,
+  [_DR, _PCS, _PCR],
+  [() => DelegationRequest, 0, 0],
+];
 export var GetGroupPolicyRequest: StaticStructureSchema = [3, n0, _GGPR, 0, [_GN, _PN], [0, 0]];
 export var GetGroupPolicyResponse: StaticStructureSchema = [3, n0, _GGPRe, 0, [_GN, _PN, _PD], [0, 0, 0]];
 export var GetGroupRequest: StaticStructureSchema = [3, n0, _GGR, 0, [_GN, _Ma, _MI], [0, 0, 1]];
@@ -1326,6 +1384,8 @@ export var GetGroupResponse: StaticStructureSchema = [
   [_G, _Use, _IT, _Ma],
   [() => Group, () => userListType, 2, 0],
 ];
+export var GetHumanReadableSummaryRequest: StaticStructureSchema = [3, n0, _GHRSR, 0, [_EA, _L], [0, 0]];
+export var GetHumanReadableSummaryResponse: StaticStructureSchema = [3, n0, _GHRSRe, 0, [_SC, _L, _SS], [0, 0, 0]];
 export var GetInstanceProfileRequest: StaticStructureSchema = [3, n0, _GIPR, 0, [_IPN], [0]];
 export var GetInstanceProfileResponse: StaticStructureSchema = [3, n0, _GIPRe, 0, [_IP], [() => InstanceProfile]];
 export var GetLoginProfileRequest: StaticStructureSchema = [3, n0, _GLPR, 0, [_UN], [0]];
@@ -1382,7 +1442,7 @@ export var GetSAMLProviderResponse: StaticStructureSchema = [
   [0, 0, 4, 4, () => tagListType, 0, () => privateKeyList],
 ];
 export var GetServerCertificateRequest: StaticStructureSchema = [3, n0, _GSCR, 0, [_SCN], [0]];
-export var GetServerCertificateResponse: StaticStructureSchema = [3, n0, _GSCRe, 0, [_SC], [() => ServerCertificate]];
+export var GetServerCertificateResponse: StaticStructureSchema = [3, n0, _GSCRe, 0, [_SCe], [() => ServerCertificate]];
 export var GetServiceLastAccessedDetailsRequest: StaticStructureSchema = [
   3,
   n0,
@@ -1561,7 +1621,7 @@ export var ListAttachedGroupPoliciesRequest: StaticStructureSchema = [
   n0,
   _LAGPR,
   0,
-  [_GN, _PPa, _Ma, _MI],
+  [_GN, _PPat, _Ma, _MI],
   [0, 0, 0, 1],
 ];
 export var ListAttachedGroupPoliciesResponse: StaticStructureSchema = [
@@ -1577,7 +1637,7 @@ export var ListAttachedRolePoliciesRequest: StaticStructureSchema = [
   n0,
   _LARPR,
   0,
-  [_RN, _PPa, _Ma, _MI],
+  [_RN, _PPat, _Ma, _MI],
   [0, 0, 0, 1],
 ];
 export var ListAttachedRolePoliciesResponse: StaticStructureSchema = [
@@ -1593,7 +1653,7 @@ export var ListAttachedUserPoliciesRequest: StaticStructureSchema = [
   n0,
   _LAUPR,
   0,
-  [_UN, _PPa, _Ma, _MI],
+  [_UN, _PPat, _Ma, _MI],
   [0, 0, 0, 1],
 ];
 export var ListAttachedUserPoliciesResponse: StaticStructureSchema = [
@@ -1604,12 +1664,21 @@ export var ListAttachedUserPoliciesResponse: StaticStructureSchema = [
   [_APt, _IT, _Ma],
   [() => attachedPoliciesListType, 2, 0],
 ];
+export var ListDelegationRequestsRequest: StaticStructureSchema = [3, n0, _LDRR, 0, [_OI, _Ma, _MI], [0, 0, 1]];
+export var ListDelegationRequestsResponse: StaticStructureSchema = [
+  3,
+  n0,
+  _LDRRi,
+  0,
+  [_DRe, _Ma, _iT],
+  [() => delegationRequestsListType, 0, 2],
+];
 export var ListEntitiesForPolicyRequest: StaticStructureSchema = [
   3,
   n0,
   _LEFPR,
   0,
-  [_PA, _EFn, _PPa, _PUF, _Ma, _MI],
+  [_PA, _EFn, _PPat, _PUF, _Ma, _MI],
   [0, 0, 0, 0, 0, 1],
 ];
 export var ListEntitiesForPolicyResponse: StaticStructureSchema = [
@@ -1631,7 +1700,7 @@ export var ListGroupsForUserResponse: StaticStructureSchema = [
   [_Gro, _IT, _Ma],
   [() => groupListType, 2, 0],
 ];
-export var ListGroupsRequest: StaticStructureSchema = [3, n0, _LGR, 0, [_PPa, _Ma, _MI], [0, 0, 1]];
+export var ListGroupsRequest: StaticStructureSchema = [3, n0, _LGR, 0, [_PPat, _Ma, _MI], [0, 0, 1]];
 export var ListGroupsResponse: StaticStructureSchema = [3, n0, _LGRi, 0, [_Gro, _IT, _Ma], [() => groupListType, 2, 0]];
 export var ListInstanceProfilesForRoleRequest: StaticStructureSchema = [3, n0, _LIPFRR, 0, [_RN, _Ma, _MI], [0, 0, 1]];
 export var ListInstanceProfilesForRoleResponse: StaticStructureSchema = [
@@ -1642,7 +1711,7 @@ export var ListInstanceProfilesForRoleResponse: StaticStructureSchema = [
   [_IPn, _IT, _Ma],
   [() => instanceProfileListType, 2, 0],
 ];
-export var ListInstanceProfilesRequest: StaticStructureSchema = [3, n0, _LIPR, 0, [_PPa, _Ma, _MI], [0, 0, 1]];
+export var ListInstanceProfilesRequest: StaticStructureSchema = [3, n0, _LIPR, 0, [_PPat, _Ma, _MI], [0, 0, 1]];
 export var ListInstanceProfilesResponse: StaticStructureSchema = [
   3,
   n0,
@@ -1704,7 +1773,7 @@ export var ListOpenIDConnectProviderTagsResponse: StaticStructureSchema = [
   [() => tagListType, 2, 0],
 ];
 export var ListOrganizationsFeaturesRequest: StaticStructureSchema = [3, n0, _LOFR, 0, [], []];
-export var ListOrganizationsFeaturesResponse: StaticStructureSchema = [3, n0, _LOFRi, 0, [_OI, _EF], [0, 64 | 0]];
+export var ListOrganizationsFeaturesResponse: StaticStructureSchema = [3, n0, _LOFRi, 0, [_OIr, _EF], [0, 64 | 0]];
 export var ListPoliciesGrantingServiceAccessEntry: StaticStructureSchema = [
   3,
   n0,
@@ -1734,7 +1803,7 @@ export var ListPoliciesRequest: StaticStructureSchema = [
   n0,
   _LPR,
   0,
-  [_Sc, _OA, _PPa, _PUF, _Ma, _MI],
+  [_Sc, _OA, _PPat, _PUF, _Ma, _MI],
   [0, 2, 0, 0, 0, 1],
 ];
 export var ListPoliciesResponse: StaticStructureSchema = [
@@ -1765,7 +1834,7 @@ export var ListPolicyVersionsResponse: StaticStructureSchema = [
 ];
 export var ListRolePoliciesRequest: StaticStructureSchema = [3, n0, _LRPR, 0, [_RN, _Ma, _MI], [0, 0, 1]];
 export var ListRolePoliciesResponse: StaticStructureSchema = [3, n0, _LRPRi, 0, [_PNo, _IT, _Ma], [64 | 0, 2, 0]];
-export var ListRolesRequest: StaticStructureSchema = [3, n0, _LRR, 0, [_PPa, _Ma, _MI], [0, 0, 1]];
+export var ListRolesRequest: StaticStructureSchema = [3, n0, _LRR, 0, [_PPat, _Ma, _MI], [0, 0, 1]];
 export var ListRolesResponse: StaticStructureSchema = [3, n0, _LRRi, 0, [_Rol, _IT, _Ma], [() => roleListType, 2, 0]];
 export var ListRoleTagsRequest: StaticStructureSchema = [3, n0, _LRTR, 0, [_RN, _Ma, _MI], [0, 0, 1]];
 export var ListRoleTagsResponse: StaticStructureSchema = [3, n0, _LRTRi, 0, [_T, _IT, _Ma], [() => tagListType, 2, 0]];
@@ -1787,7 +1856,7 @@ export var ListSAMLProviderTagsResponse: StaticStructureSchema = [
   [_T, _IT, _Ma],
   [() => tagListType, 2, 0],
 ];
-export var ListServerCertificatesRequest: StaticStructureSchema = [3, n0, _LSCR, 0, [_PPa, _Ma, _MI], [0, 0, 1]];
+export var ListServerCertificatesRequest: StaticStructureSchema = [3, n0, _LSCR, 0, [_PPat, _Ma, _MI], [0, 0, 1]];
 export var ListServerCertificatesResponse: StaticStructureSchema = [
   3,
   n0,
@@ -1841,7 +1910,7 @@ export var ListSSHPublicKeysResponse: StaticStructureSchema = [
 ];
 export var ListUserPoliciesRequest: StaticStructureSchema = [3, n0, _LUPR, 0, [_UN, _Ma, _MI], [0, 0, 1]];
 export var ListUserPoliciesResponse: StaticStructureSchema = [3, n0, _LUPRi, 0, [_PNo, _IT, _Ma], [64 | 0, 2, 0]];
-export var ListUsersRequest: StaticStructureSchema = [3, n0, _LUR, 0, [_PPa, _Ma, _MI], [0, 0, 1]];
+export var ListUsersRequest: StaticStructureSchema = [3, n0, _LUR, 0, [_PPat, _Ma, _MI], [0, 0, 1]];
 export var ListUsersResponse: StaticStructureSchema = [3, n0, _LURi, 0, [_Use, _IT, _Ma], [() => userListType, 2, 0]];
 export var ListUserTagsRequest: StaticStructureSchema = [3, n0, _LUTR, 0, [_UN, _Ma, _MI], [0, 0, 1]];
 export var ListUserTagsResponse: StaticStructureSchema = [3, n0, _LUTRi, 0, [_T, _IT, _Ma], [() => tagListType, 2, 0]];
@@ -1954,9 +2023,9 @@ export var OrganizationsDecisionDetail: StaticStructureSchema = [3, n0, _ODD, 0,
 export var PasswordPolicy: StaticStructureSchema = [
   3,
   n0,
-  _PP,
+  _PPa,
   0,
-  [_MPL, _RS, _RNe, _RUC, _RLC, _AUTCP, _EPx, _MPA, _PRP, _HE],
+  [_MPL, _RS, _RNeq, _RUC, _RLC, _AUTCP, _EPx, _MPA, _PRP, _HE],
   [1, 2, 2, 2, 2, 2, 2, 1, 1, 2],
 ];
 export var PasswordPolicyViolationException: StaticErrorSchema = [
@@ -2021,15 +2090,16 @@ export var PolicyNotAttachableException: StaticErrorSchema = [
 TypeRegistry.for(n0).registerError(PolicyNotAttachableException, __PolicyNotAttachableException);
 
 export var PolicyParameter: StaticStructureSchema = [3, n0, _PPo, 0, [_N, _Va, _Ty], [0, 64 | 0, 0]];
-export var PolicyRole: StaticStructureSchema = [3, n0, _PRo, 0, [_RN, _RI], [0, 0]];
+export var PolicyRole: StaticStructureSchema = [3, n0, _PRo, 0, [_RN, _RIo], [0, 0]];
 export var PolicyUser: StaticStructureSchema = [3, n0, _PUo, 0, [_UN, _UI], [0, 0]];
 export var PolicyVersion: StaticStructureSchema = [3, n0, _PV, 0, [_Do, _VI, _IDV, _CD], [0, 0, 2, 4]];
-export var Position: StaticStructureSchema = [3, n0, _Pos, 0, [_L, _Col], [1, 1]];
+export var Position: StaticStructureSchema = [3, n0, _Pos, 0, [_Li, _Col], [1, 1]];
 export var PutGroupPolicyRequest: StaticStructureSchema = [3, n0, _PGPR, 0, [_GN, _PN, _PD], [0, 0, 0]];
 export var PutRolePermissionsBoundaryRequest: StaticStructureSchema = [3, n0, _PRPBR, 0, [_RN, _PB], [0, 0]];
 export var PutRolePolicyRequest: StaticStructureSchema = [3, n0, _PRPR, 0, [_RN, _PN, _PD], [0, 0, 0]];
 export var PutUserPermissionsBoundaryRequest: StaticStructureSchema = [3, n0, _PUPBR, 0, [_UN, _PB], [0, 0]];
 export var PutUserPolicyRequest: StaticStructureSchema = [3, n0, _PUPR, 0, [_UN, _PN, _PD], [0, 0, 0]];
+export var RejectDelegationRequestRequest: StaticStructureSchema = [3, n0, _RDRR, 0, [_DRI, _No], [0, 0]];
 export var RemoveClientIDFromOpenIDConnectProviderRequest: StaticStructureSchema = [
   3,
   n0,
@@ -2077,7 +2147,7 @@ export var Role: StaticStructureSchema = [
   n0,
   _Ro,
   0,
-  [_Pa, _RN, _RI, _A, _CD, _ARPD, _D, _MSD, _PB, _T, _RLU],
+  [_Pa, _RN, _RIo, _A, _CD, _ARPD, _D, _MSD, _PB, _T, _RLU],
   [0, 0, 0, 0, 4, 0, 0, 1, () => AttachedPermissionsBoundary, () => tagListType, () => RoleLastUsed],
 ];
 export var RoleDetail: StaticStructureSchema = [
@@ -2085,7 +2155,7 @@ export var RoleDetail: StaticStructureSchema = [
   n0,
   _RD,
   0,
-  [_Pa, _RN, _RI, _A, _CD, _ARPD, _IPL, _RPL, _AMP, _PB, _T, _RLU],
+  [_Pa, _RN, _RIo, _A, _CD, _ARPD, _IPL, _RPL, _AMP, _PB, _T, _RLU],
   [
     0,
     0,
@@ -2105,10 +2175,11 @@ export var RoleLastUsed: StaticStructureSchema = [3, n0, _RLU, 0, [_LUD, _R], [4
 export var RoleUsageType: StaticStructureSchema = [3, n0, _RUT, 0, [_R, _Res], [0, 64 | 0]];
 export var SAMLPrivateKey: StaticStructureSchema = [3, n0, _SAMLPK, 0, [_KI, _Ti], [0, 4]];
 export var SAMLProviderListEntry: StaticStructureSchema = [3, n0, _SAMLPLE, 0, [_A, _VU, _CD], [0, 4, 4]];
+export var SendDelegationTokenRequest: StaticStructureSchema = [3, n0, _SDTR, 0, [_DRI], [0]];
 export var ServerCertificate: StaticStructureSchema = [
   3,
   n0,
-  _SC,
+  _SCe,
   0,
   [_SCM, _CB, _CC, _T],
   [() => ServerCertificateMetadata, 0, 0, () => tagListType],
@@ -2296,10 +2367,11 @@ export var UpdateAccountPasswordPolicyRequest: StaticStructureSchema = [
   n0,
   _UAPPR,
   0,
-  [_MPL, _RS, _RNe, _RUC, _RLC, _AUTCP, _MPA, _PRP, _HE],
+  [_MPL, _RS, _RNeq, _RUC, _RLC, _AUTCP, _MPA, _PRP, _HE],
   [1, 2, 2, 2, 2, 2, 1, 1, 2],
 ];
 export var UpdateAssumeRolePolicyRequest: StaticStructureSchema = [3, n0, _UARPR, 0, [_RN, _PD], [0, 0]];
+export var UpdateDelegationRequestRequest: StaticStructureSchema = [3, n0, _UDRR, 0, [_DRI, _No], [0, 0]];
 export var UpdateGroupRequest: StaticStructureSchema = [3, n0, _UGR, 0, [_GN, _NPe, _NGN], [0, 0, 0]];
 export var UpdateLoginProfileRequest: StaticStructureSchema = [
   3,
@@ -2426,6 +2498,7 @@ export var ContextKeyNamesResultListType = 64 | 0;
 
 export var ContextKeyValueListType = 64 | 0;
 
+export var delegationRequestsListType: StaticListSchema = [1, n0, _dRLT, 0, () => DelegationRequest];
 export var entityDetailsListType: StaticListSchema = [1, n0, _eDLT, 0, () => EntityDetails];
 export var entityListType = 64 | 0;
 
@@ -2471,6 +2544,8 @@ export var ResourceNameListType = 64 | 0;
 export var ResourceSpecificResultListType: StaticListSchema = [1, n0, _RSRLT, 0, () => ResourceSpecificResult];
 export var roleDetailListType: StaticListSchema = [1, n0, _rDLT, 0, () => RoleDetail];
 export var roleListType: StaticListSchema = [1, n0, _rLT, 0, () => Role];
+export var rolePermissionRestrictionArnListType = 64 | 0;
+
 export var RoleUsageListType: StaticListSchema = [1, n0, _RULT, 0, () => RoleUsageType];
 export var SAMLProviderListType: StaticListSchema = [1, n0, _SAMLPLT, 0, () => SAMLProviderListEntry];
 export var serverCertificateMetadataListType: StaticListSchema = [1, n0, _sCMLT, 0, () => ServerCertificateMetadata];
@@ -2503,6 +2578,14 @@ export var EvalDecisionDetailsType = 128 | 0;
 
 export var summaryMapType = 128 | 1;
 
+export var AcceptDelegationRequest: StaticOperationSchema = [
+  9,
+  n0,
+  _ADR,
+  0,
+  () => AcceptDelegationRequestRequest,
+  () => __Unit,
+];
 export var AddClientIDToOpenIDConnectProvider: StaticOperationSchema = [
   9,
   n0,
@@ -2520,6 +2603,14 @@ export var AddRoleToInstanceProfile: StaticOperationSchema = [
   () => __Unit,
 ];
 export var AddUserToGroup: StaticOperationSchema = [9, n0, _AUTG, 0, () => AddUserToGroupRequest, () => __Unit];
+export var AssociateDelegationRequest: StaticOperationSchema = [
+  9,
+  n0,
+  _ADRs,
+  0,
+  () => AssociateDelegationRequestRequest,
+  () => __Unit,
+];
 export var AttachGroupPolicy: StaticOperationSchema = [9, n0, _AGP, 0, () => AttachGroupPolicyRequest, () => __Unit];
 export var AttachRolePolicy: StaticOperationSchema = [9, n0, _ARP, 0, () => AttachRolePolicyRequest, () => __Unit];
 export var AttachUserPolicy: StaticOperationSchema = [9, n0, _AUP, 0, () => AttachUserPolicyRequest, () => __Unit];
@@ -2655,7 +2746,7 @@ export var DeletePolicyVersion: StaticOperationSchema = [
   () => DeletePolicyVersionRequest,
   () => __Unit,
 ];
-export var DeleteRole: StaticOperationSchema = [9, n0, _DR, 0, () => DeleteRoleRequest, () => __Unit];
+export var DeleteRole: StaticOperationSchema = [9, n0, _DRel, 0, () => DeleteRoleRequest, () => __Unit];
 export var DeleteRolePermissionsBoundary: StaticOperationSchema = [
   9,
   n0,
@@ -2840,6 +2931,14 @@ export var GetCredentialReport: StaticOperationSchema = [
   () => __Unit,
   () => GetCredentialReportResponse,
 ];
+export var GetDelegationRequest: StaticOperationSchema = [
+  9,
+  n0,
+  _GDR,
+  0,
+  () => GetDelegationRequestRequest,
+  () => GetDelegationRequestResponse,
+];
 export var GetGroup: StaticOperationSchema = [9, n0, _GG, 0, () => GetGroupRequest, () => GetGroupResponse];
 export var GetGroupPolicy: StaticOperationSchema = [
   9,
@@ -2848,6 +2947,14 @@ export var GetGroupPolicy: StaticOperationSchema = [
   0,
   () => GetGroupPolicyRequest,
   () => GetGroupPolicyResponse,
+];
+export var GetHumanReadableSummary: StaticOperationSchema = [
+  9,
+  n0,
+  _GHRS,
+  0,
+  () => GetHumanReadableSummaryRequest,
+  () => GetHumanReadableSummaryResponse,
 ];
 export var GetInstanceProfile: StaticOperationSchema = [
   9,
@@ -3003,6 +3110,14 @@ export var ListAttachedUserPolicies: StaticOperationSchema = [
   0,
   () => ListAttachedUserPoliciesRequest,
   () => ListAttachedUserPoliciesResponse,
+];
+export var ListDelegationRequests: StaticOperationSchema = [
+  9,
+  n0,
+  _LDR,
+  0,
+  () => ListDelegationRequestsRequest,
+  () => ListDelegationRequestsResponse,
 ];
 export var ListEntitiesForPolicy: StaticOperationSchema = [
   9,
@@ -3242,6 +3357,14 @@ export var PutUserPermissionsBoundary: StaticOperationSchema = [
   () => __Unit,
 ];
 export var PutUserPolicy: StaticOperationSchema = [9, n0, _PUP, 0, () => PutUserPolicyRequest, () => __Unit];
+export var RejectDelegationRequest: StaticOperationSchema = [
+  9,
+  n0,
+  _RDR,
+  0,
+  () => RejectDelegationRequestRequest,
+  () => __Unit,
+];
 export var RemoveClientIDFromOpenIDConnectProvider: StaticOperationSchema = [
   9,
   n0,
@@ -3275,6 +3398,14 @@ export var ResetServiceSpecificCredential: StaticOperationSchema = [
   () => ResetServiceSpecificCredentialResponse,
 ];
 export var ResyncMFADevice: StaticOperationSchema = [9, n0, _RMFAD, 0, () => ResyncMFADeviceRequest, () => __Unit];
+export var SendDelegationToken: StaticOperationSchema = [
+  9,
+  n0,
+  _SDT,
+  0,
+  () => SendDelegationTokenRequest,
+  () => __Unit,
+];
 export var SetDefaultPolicyVersion: StaticOperationSchema = [
   9,
   n0,
@@ -3373,6 +3504,14 @@ export var UpdateAssumeRolePolicy: StaticOperationSchema = [
   _UARP,
   0,
   () => UpdateAssumeRolePolicyRequest,
+  () => __Unit,
+];
+export var UpdateDelegationRequest: StaticOperationSchema = [
+  9,
+  n0,
+  _UDR,
+  0,
+  () => UpdateDelegationRequestRequest,
   () => __Unit,
 ];
 export var UpdateGroup: StaticOperationSchema = [9, n0, _UG, 0, () => UpdateGroupRequest, () => __Unit];

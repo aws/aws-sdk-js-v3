@@ -5,14 +5,403 @@ import { IAMServiceException as __BaseException } from "./IAMServiceException";
 
 import {
   AssertionEncryptionModeType,
-  GlobalEndpointTokenVersion,
   Role,
   ServerCertificateMetadata,
+  ServiceSpecificCredential,
   SigningCertificate,
   SSHPublicKey,
   StatusType,
   Tag,
 } from "./models_0";
+
+/**
+ * @public
+ */
+export interface PutGroupPolicyRequest {
+  /**
+   * <p>The name of the group to associate the policy with.</p>
+   *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
+   *     characters with no spaces. You can also include any of the following characters: _+=,.@-.</p>
+   * @public
+   */
+  GroupName: string | undefined;
+
+  /**
+   * <p>The name of the policy document.</p>
+   *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
+   *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
+   * @public
+   */
+  PolicyName: string | undefined;
+
+  /**
+   * <p>The policy document.</p>
+   *          <p>You must provide policies in JSON format in IAM. However, for CloudFormation templates
+   *             formatted in YAML, you can provide the policy in JSON or YAML format. CloudFormation always
+   *             converts a YAML policy to JSON format before submitting it to IAM.</p>
+   *          <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a>
+   *     used to validate this parameter is a string of characters consisting of the following:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Any printable ASCII
+   *     character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p>
+   *             </li>
+   *             <li>
+   *                <p>The printable characters in the Basic Latin and  Latin-1 Supplement character set
+   *     (through <code>\u00FF</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and
+   *     carriage return (<code>\u000D</code>)</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  PolicyDocument: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PutRolePermissionsBoundaryRequest {
+  /**
+   * <p>The name (friendly name, not ARN) of the IAM role for which you want to set the
+   *             permissions boundary.</p>
+   * @public
+   */
+  RoleName: string | undefined;
+
+  /**
+   * <p>The ARN of the managed policy that is used to set the permissions boundary for the
+   *             role.</p>
+   *          <p>A permissions boundary policy defines the maximum permissions that identity-based
+   *             policies can grant to an entity, but does not grant permissions. Permissions boundaries
+   *             do not define the maximum permissions that a resource-based policy can grant to an
+   *             entity. To learn more, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html">Permissions boundaries
+   *                 for IAM entities</a> in the <i>IAM User Guide</i>.</p>
+   *          <p>For more information about policy types, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#access_policy-types">Policy types
+   *             </a> in the <i>IAM User Guide</i>.</p>
+   * @public
+   */
+  PermissionsBoundary: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PutRolePolicyRequest {
+  /**
+   * <p>The name of the role to associate the policy with.</p>
+   *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
+   *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
+   * @public
+   */
+  RoleName: string | undefined;
+
+  /**
+   * <p>The name of the policy document.</p>
+   *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
+   *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
+   * @public
+   */
+  PolicyName: string | undefined;
+
+  /**
+   * <p>The policy document.</p>
+   *          <p>You must provide policies in JSON format in IAM. However, for CloudFormation
+   *             templates formatted in YAML, you can provide the policy in JSON or YAML format. CloudFormation always converts a YAML policy to JSON format before submitting it to
+   *             IAM.</p>
+   *          <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a>
+   *     used to validate this parameter is a string of characters consisting of the following:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Any printable ASCII
+   *     character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p>
+   *             </li>
+   *             <li>
+   *                <p>The printable characters in the Basic Latin and  Latin-1 Supplement character set
+   *     (through <code>\u00FF</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and
+   *     carriage return (<code>\u000D</code>)</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  PolicyDocument: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PutUserPermissionsBoundaryRequest {
+  /**
+   * <p>The name (friendly name, not ARN) of the IAM user for which you want to set the
+   *             permissions boundary.</p>
+   * @public
+   */
+  UserName: string | undefined;
+
+  /**
+   * <p>The ARN of the managed policy that is used to set the permissions boundary for the
+   *             user.</p>
+   *          <p>A permissions boundary policy defines the maximum permissions that identity-based
+   *             policies can grant to an entity, but does not grant permissions. Permissions boundaries
+   *             do not define the maximum permissions that a resource-based policy can grant to an
+   *             entity. To learn more, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html">Permissions boundaries
+   *                 for IAM entities</a> in the <i>IAM User Guide</i>.</p>
+   *          <p>For more information about policy types, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#access_policy-types">Policy types
+   *             </a> in the <i>IAM User Guide</i>.</p>
+   * @public
+   */
+  PermissionsBoundary: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PutUserPolicyRequest {
+  /**
+   * <p>The name of the user to associate the policy with.</p>
+   *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
+   *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
+   * @public
+   */
+  UserName: string | undefined;
+
+  /**
+   * <p>The name of the policy document.</p>
+   *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
+   *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
+   * @public
+   */
+  PolicyName: string | undefined;
+
+  /**
+   * <p>The policy document.</p>
+   *          <p>You must provide policies in JSON format in IAM. However, for CloudFormation
+   *             templates formatted in YAML, you can provide the policy in JSON or YAML format. CloudFormation always converts a YAML policy to JSON format before submitting it to
+   *             IAM.</p>
+   *          <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a>
+   *     used to validate this parameter is a string of characters consisting of the following:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Any printable ASCII
+   *     character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p>
+   *             </li>
+   *             <li>
+   *                <p>The printable characters in the Basic Latin and  Latin-1 Supplement character set
+   *     (through <code>\u00FF</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and
+   *     carriage return (<code>\u000D</code>)</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  PolicyDocument: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface RejectDelegationRequestRequest {
+  /**
+   * <p>The unique identifier of the delegation request to reject.</p>
+   * @public
+   */
+  DelegationRequestId: string | undefined;
+
+  /**
+   * <p>Optional notes explaining the reason for rejecting the delegation request.</p>
+   * @public
+   */
+  Notes?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface RemoveClientIDFromOpenIDConnectProviderRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM OIDC provider resource to remove the
+   *             client ID from. You can get a list of OIDC provider ARNs by using the <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_ListOpenIDConnectProviders.html">ListOpenIDConnectProviders</a> operation.</p>
+   *          <p>For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>
+   * @public
+   */
+  OpenIDConnectProviderArn: string | undefined;
+
+  /**
+   * <p>The client ID (also known as audience) to remove from the IAM OIDC provider
+   *             resource. For more information about client IDs, see <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateOpenIDConnectProvider.html">CreateOpenIDConnectProvider</a>.</p>
+   * @public
+   */
+  ClientID: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface RemoveRoleFromInstanceProfileRequest {
+  /**
+   * <p>The name of the instance profile to update.</p>
+   *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
+   *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
+   * @public
+   */
+  InstanceProfileName: string | undefined;
+
+  /**
+   * <p>The name of the role to remove.</p>
+   *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
+   *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
+   * @public
+   */
+  RoleName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface RemoveUserFromGroupRequest {
+  /**
+   * <p>The name of the group to update.</p>
+   *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
+   *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
+   * @public
+   */
+  GroupName: string | undefined;
+
+  /**
+   * <p>The name of the user to remove.</p>
+   *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
+   *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
+   * @public
+   */
+  UserName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ResetServiceSpecificCredentialRequest {
+  /**
+   * <p>The name of the IAM user associated with the service-specific credential. If this
+   *             value is not specified, then the operation assumes the user whose credentials are used
+   *             to call the operation.</p>
+   *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
+   *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
+   * @public
+   */
+  UserName?: string | undefined;
+
+  /**
+   * <p>The unique identifier of the service-specific credential.</p>
+   *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters that can
+   *     consist of any upper or lowercased letter or digit.</p>
+   * @public
+   */
+  ServiceSpecificCredentialId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ResetServiceSpecificCredentialResponse {
+  /**
+   * <p>A structure with details about the updated service-specific credential, including the
+   *             new password.</p>
+   *          <important>
+   *             <p>This is the <b>only</b> time that you can access the
+   *                 password. You cannot recover the password later, but you can reset it again.</p>
+   *          </important>
+   * @public
+   */
+  ServiceSpecificCredential?: ServiceSpecificCredential | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ResyncMFADeviceRequest {
+  /**
+   * <p>The name of the user whose MFA device you want to resynchronize.</p>
+   *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
+   *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
+   * @public
+   */
+  UserName: string | undefined;
+
+  /**
+   * <p>Serial number that uniquely identifies the MFA device.</p>
+   *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
+   *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
+   * @public
+   */
+  SerialNumber: string | undefined;
+
+  /**
+   * <p>An authentication code emitted by the device.</p>
+   *          <p>The format for this parameter is a sequence of six digits.</p>
+   * @public
+   */
+  AuthenticationCode1: string | undefined;
+
+  /**
+   * <p>A subsequent authentication code emitted by the device.</p>
+   *          <p>The format for this parameter is a sequence of six digits.</p>
+   * @public
+   */
+  AuthenticationCode2: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface SendDelegationTokenRequest {
+  /**
+   * <p>The unique identifier of the delegation request for which to send the token.</p>
+   * @public
+   */
+  DelegationRequestId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface SetDefaultPolicyVersionRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM policy whose default version you want to
+   *             set.</p>
+   *          <p>For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>
+   * @public
+   */
+  PolicyArn: string | undefined;
+
+  /**
+   * <p>The version of the policy to set as the default (operative) version.</p>
+   *          <p>For more information about managed policy versions, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html">Versioning for managed
+   *                 policies</a> in the <i>IAM User Guide</i>.</p>
+   * @public
+   */
+  VersionId: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const GlobalEndpointTokenVersion = {
+  v1Token: "v1Token",
+  v2Token: "v2Token",
+} as const;
+
+/**
+ * @public
+ */
+export type GlobalEndpointTokenVersion = (typeof GlobalEndpointTokenVersion)[keyof typeof GlobalEndpointTokenVersion];
 
 /**
  * @public
@@ -1368,6 +1757,23 @@ export interface UpdateAssumeRolePolicyRequest {
    * @public
    */
   PolicyDocument: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateDelegationRequestRequest {
+  /**
+   * <p>The unique identifier of the delegation request to update.</p>
+   * @public
+   */
+  DelegationRequestId: string | undefined;
+
+  /**
+   * <p>Additional notes or comments to add to the delegation request.</p>
+   * @public
+   */
+  Notes?: string | undefined;
 }
 
 /**

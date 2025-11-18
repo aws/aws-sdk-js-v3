@@ -3,6 +3,11 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
+  AcceptDelegationRequestCommand,
+  AcceptDelegationRequestCommandInput,
+  AcceptDelegationRequestCommandOutput,
+} from "./commands/AcceptDelegationRequestCommand";
+import {
   AddClientIDToOpenIDConnectProviderCommand,
   AddClientIDToOpenIDConnectProviderCommandInput,
   AddClientIDToOpenIDConnectProviderCommandOutput,
@@ -17,6 +22,11 @@ import {
   AddUserToGroupCommandInput,
   AddUserToGroupCommandOutput,
 } from "./commands/AddUserToGroupCommand";
+import {
+  AssociateDelegationRequestCommand,
+  AssociateDelegationRequestCommandInput,
+  AssociateDelegationRequestCommandOutput,
+} from "./commands/AssociateDelegationRequestCommand";
 import {
   AttachGroupPolicyCommand,
   AttachGroupPolicyCommandInput,
@@ -298,12 +308,22 @@ import {
   GetCredentialReportCommandInput,
   GetCredentialReportCommandOutput,
 } from "./commands/GetCredentialReportCommand";
+import {
+  GetDelegationRequestCommand,
+  GetDelegationRequestCommandInput,
+  GetDelegationRequestCommandOutput,
+} from "./commands/GetDelegationRequestCommand";
 import { GetGroupCommand, GetGroupCommandInput, GetGroupCommandOutput } from "./commands/GetGroupCommand";
 import {
   GetGroupPolicyCommand,
   GetGroupPolicyCommandInput,
   GetGroupPolicyCommandOutput,
 } from "./commands/GetGroupPolicyCommand";
+import {
+  GetHumanReadableSummaryCommand,
+  GetHumanReadableSummaryCommandInput,
+  GetHumanReadableSummaryCommandOutput,
+} from "./commands/GetHumanReadableSummaryCommand";
 import {
   GetInstanceProfileCommand,
   GetInstanceProfileCommandInput,
@@ -402,6 +422,11 @@ import {
   ListAttachedUserPoliciesCommandInput,
   ListAttachedUserPoliciesCommandOutput,
 } from "./commands/ListAttachedUserPoliciesCommand";
+import {
+  ListDelegationRequestsCommand,
+  ListDelegationRequestsCommandInput,
+  ListDelegationRequestsCommandOutput,
+} from "./commands/ListDelegationRequestsCommand";
 import {
   ListEntitiesForPolicyCommand,
   ListEntitiesForPolicyCommandInput,
@@ -566,6 +591,11 @@ import {
   PutUserPolicyCommandOutput,
 } from "./commands/PutUserPolicyCommand";
 import {
+  RejectDelegationRequestCommand,
+  RejectDelegationRequestCommandInput,
+  RejectDelegationRequestCommandOutput,
+} from "./commands/RejectDelegationRequestCommand";
+import {
   RemoveClientIDFromOpenIDConnectProviderCommand,
   RemoveClientIDFromOpenIDConnectProviderCommandInput,
   RemoveClientIDFromOpenIDConnectProviderCommandOutput,
@@ -590,6 +620,11 @@ import {
   ResyncMFADeviceCommandInput,
   ResyncMFADeviceCommandOutput,
 } from "./commands/ResyncMFADeviceCommand";
+import {
+  SendDelegationTokenCommand,
+  SendDelegationTokenCommandInput,
+  SendDelegationTokenCommandOutput,
+} from "./commands/SendDelegationTokenCommand";
 import {
   SetDefaultPolicyVersionCommand,
   SetDefaultPolicyVersionCommandInput,
@@ -681,6 +716,11 @@ import {
   UpdateAssumeRolePolicyCommandInput,
   UpdateAssumeRolePolicyCommandOutput,
 } from "./commands/UpdateAssumeRolePolicyCommand";
+import {
+  UpdateDelegationRequestCommand,
+  UpdateDelegationRequestCommandInput,
+  UpdateDelegationRequestCommandOutput,
+} from "./commands/UpdateDelegationRequestCommand";
 import { UpdateGroupCommand, UpdateGroupCommandInput, UpdateGroupCommandOutput } from "./commands/UpdateGroupCommand";
 import {
   UpdateLoginProfileCommand,
@@ -742,9 +782,11 @@ import {
 import { IAMClient, IAMClientConfig } from "./IAMClient";
 
 const commands = {
+  AcceptDelegationRequestCommand,
   AddClientIDToOpenIDConnectProviderCommand,
   AddRoleToInstanceProfileCommand,
   AddUserToGroupCommand,
+  AssociateDelegationRequestCommand,
   AttachGroupPolicyCommand,
   AttachRolePolicyCommand,
   AttachUserPolicyCommand,
@@ -806,8 +848,10 @@ const commands = {
   GetContextKeysForCustomPolicyCommand,
   GetContextKeysForPrincipalPolicyCommand,
   GetCredentialReportCommand,
+  GetDelegationRequestCommand,
   GetGroupCommand,
   GetGroupPolicyCommand,
+  GetHumanReadableSummaryCommand,
   GetInstanceProfileCommand,
   GetLoginProfileCommand,
   GetMFADeviceCommand,
@@ -830,6 +874,7 @@ const commands = {
   ListAttachedGroupPoliciesCommand,
   ListAttachedRolePoliciesCommand,
   ListAttachedUserPoliciesCommand,
+  ListDelegationRequestsCommand,
   ListEntitiesForPolicyCommand,
   ListGroupPoliciesCommand,
   ListGroupsCommand,
@@ -865,11 +910,13 @@ const commands = {
   PutRolePolicyCommand,
   PutUserPermissionsBoundaryCommand,
   PutUserPolicyCommand,
+  RejectDelegationRequestCommand,
   RemoveClientIDFromOpenIDConnectProviderCommand,
   RemoveRoleFromInstanceProfileCommand,
   RemoveUserFromGroupCommand,
   ResetServiceSpecificCredentialCommand,
   ResyncMFADeviceCommand,
+  SendDelegationTokenCommand,
   SetDefaultPolicyVersionCommand,
   SetSecurityTokenServicePreferencesCommand,
   SimulateCustomPolicyCommand,
@@ -893,6 +940,7 @@ const commands = {
   UpdateAccessKeyCommand,
   UpdateAccountPasswordPolicyCommand,
   UpdateAssumeRolePolicyCommand,
+  UpdateDelegationRequestCommand,
   UpdateGroupCommand,
   UpdateLoginProfileCommand,
   UpdateOpenIDConnectProviderThumbprintCommand,
@@ -910,6 +958,23 @@ const commands = {
 };
 
 export interface IAM {
+  /**
+   * @see {@link AcceptDelegationRequestCommand}
+   */
+  acceptDelegationRequest(
+    args: AcceptDelegationRequestCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AcceptDelegationRequestCommandOutput>;
+  acceptDelegationRequest(
+    args: AcceptDelegationRequestCommandInput,
+    cb: (err: any, data?: AcceptDelegationRequestCommandOutput) => void
+  ): void;
+  acceptDelegationRequest(
+    args: AcceptDelegationRequestCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: AcceptDelegationRequestCommandOutput) => void
+  ): void;
+
   /**
    * @see {@link AddClientIDToOpenIDConnectProviderCommand}
    */
@@ -956,6 +1021,23 @@ export interface IAM {
     args: AddUserToGroupCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: AddUserToGroupCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link AssociateDelegationRequestCommand}
+   */
+  associateDelegationRequest(
+    args: AssociateDelegationRequestCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AssociateDelegationRequestCommandOutput>;
+  associateDelegationRequest(
+    args: AssociateDelegationRequestCommandInput,
+    cb: (err: any, data?: AssociateDelegationRequestCommandOutput) => void
+  ): void;
+  associateDelegationRequest(
+    args: AssociateDelegationRequestCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: AssociateDelegationRequestCommandOutput) => void
   ): void;
 
   /**
@@ -1949,6 +2031,23 @@ export interface IAM {
   ): void;
 
   /**
+   * @see {@link GetDelegationRequestCommand}
+   */
+  getDelegationRequest(
+    args: GetDelegationRequestCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetDelegationRequestCommandOutput>;
+  getDelegationRequest(
+    args: GetDelegationRequestCommandInput,
+    cb: (err: any, data?: GetDelegationRequestCommandOutput) => void
+  ): void;
+  getDelegationRequest(
+    args: GetDelegationRequestCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetDelegationRequestCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetGroupCommand}
    */
   getGroup(args: GetGroupCommandInput, options?: __HttpHandlerOptions): Promise<GetGroupCommandOutput>;
@@ -1971,6 +2070,23 @@ export interface IAM {
     args: GetGroupPolicyCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetGroupPolicyCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetHumanReadableSummaryCommand}
+   */
+  getHumanReadableSummary(
+    args: GetHumanReadableSummaryCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetHumanReadableSummaryCommandOutput>;
+  getHumanReadableSummary(
+    args: GetHumanReadableSummaryCommandInput,
+    cb: (err: any, data?: GetHumanReadableSummaryCommandOutput) => void
+  ): void;
+  getHumanReadableSummary(
+    args: GetHumanReadableSummaryCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetHumanReadableSummaryCommandOutput) => void
   ): void;
 
   /**
@@ -2301,6 +2417,24 @@ export interface IAM {
     args: ListAttachedUserPoliciesCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListAttachedUserPoliciesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListDelegationRequestsCommand}
+   */
+  listDelegationRequests(): Promise<ListDelegationRequestsCommandOutput>;
+  listDelegationRequests(
+    args: ListDelegationRequestsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListDelegationRequestsCommandOutput>;
+  listDelegationRequests(
+    args: ListDelegationRequestsCommandInput,
+    cb: (err: any, data?: ListDelegationRequestsCommandOutput) => void
+  ): void;
+  listDelegationRequests(
+    args: ListDelegationRequestsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListDelegationRequestsCommandOutput) => void
   ): void;
 
   /**
@@ -2856,6 +2990,23 @@ export interface IAM {
   ): void;
 
   /**
+   * @see {@link RejectDelegationRequestCommand}
+   */
+  rejectDelegationRequest(
+    args: RejectDelegationRequestCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<RejectDelegationRequestCommandOutput>;
+  rejectDelegationRequest(
+    args: RejectDelegationRequestCommandInput,
+    cb: (err: any, data?: RejectDelegationRequestCommandOutput) => void
+  ): void;
+  rejectDelegationRequest(
+    args: RejectDelegationRequestCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: RejectDelegationRequestCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link RemoveClientIDFromOpenIDConnectProviderCommand}
    */
   removeClientIDFromOpenIDConnectProvider(
@@ -2935,6 +3086,23 @@ export interface IAM {
     args: ResyncMFADeviceCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ResyncMFADeviceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link SendDelegationTokenCommand}
+   */
+  sendDelegationToken(
+    args: SendDelegationTokenCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<SendDelegationTokenCommandOutput>;
+  sendDelegationToken(
+    args: SendDelegationTokenCommandInput,
+    cb: (err: any, data?: SendDelegationTokenCommandOutput) => void
+  ): void;
+  sendDelegationToken(
+    args: SendDelegationTokenCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: SendDelegationTokenCommandOutput) => void
   ): void;
 
   /**
@@ -3276,6 +3444,23 @@ export interface IAM {
     args: UpdateAssumeRolePolicyCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateAssumeRolePolicyCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateDelegationRequestCommand}
+   */
+  updateDelegationRequest(
+    args: UpdateDelegationRequestCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateDelegationRequestCommandOutput>;
+  updateDelegationRequest(
+    args: UpdateDelegationRequestCommandInput,
+    cb: (err: any, data?: UpdateDelegationRequestCommandOutput) => void
+  ): void;
+  updateDelegationRequest(
+    args: UpdateDelegationRequestCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateDelegationRequestCommandOutput) => void
   ): void;
 
   /**

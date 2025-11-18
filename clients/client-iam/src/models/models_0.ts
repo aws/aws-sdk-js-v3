@@ -5,6 +5,80 @@ import { IAMServiceException as __BaseException } from "./IAMServiceException";
 
 /**
  * @public
+ */
+export interface AcceptDelegationRequestRequest {
+  /**
+   * <p>The unique identifier of the delegation request to accept.</p>
+   * @public
+   */
+  DelegationRequestId: string | undefined;
+}
+
+/**
+ * <p>The request was rejected because multiple requests to change this object were submitted
+ *       simultaneously. Wait a few minutes and submit your request again.</p>
+ * @public
+ */
+export class ConcurrentModificationException extends __BaseException {
+  readonly name: "ConcurrentModificationException" = "ConcurrentModificationException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ConcurrentModificationException, __BaseException>) {
+    super({
+      name: "ConcurrentModificationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ConcurrentModificationException.prototype);
+  }
+}
+
+/**
+ * <p>The request was rejected because it referenced a resource entity that does not exist. The
+ *       error message describes the resource.</p>
+ * @public
+ */
+export class NoSuchEntityException extends __BaseException {
+  readonly name: "NoSuchEntityException" = "NoSuchEntityException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<NoSuchEntityException, __BaseException>) {
+    super({
+      name: "NoSuchEntityException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, NoSuchEntityException.prototype);
+  }
+}
+
+/**
+ * <p>The request processing has failed because of an unknown error, exception or
+ *       failure.</p>
+ * @public
+ */
+export class ServiceFailureException extends __BaseException {
+  readonly name: "ServiceFailureException" = "ServiceFailureException";
+  readonly $fault: "server" = "server";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ServiceFailureException, __BaseException>) {
+    super({
+      name: "ServiceFailureException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ServiceFailureException.prototype);
+  }
+}
+
+/**
+ * @public
  * @enum
  */
 export const AccessAdvisorUsageGranularityType = {
@@ -286,27 +360,6 @@ export interface AddClientIDToOpenIDConnectProviderRequest {
 }
 
 /**
- * <p>The request was rejected because multiple requests to change this object were submitted
- *       simultaneously. Wait a few minutes and submit your request again.</p>
- * @public
- */
-export class ConcurrentModificationException extends __BaseException {
-  readonly name: "ConcurrentModificationException" = "ConcurrentModificationException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ConcurrentModificationException, __BaseException>) {
-    super({
-      name: "ConcurrentModificationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ConcurrentModificationException.prototype);
-  }
-}
-
-/**
  * <p>The request was rejected because an invalid or out-of-range value was supplied for an
  *       input parameter.</p>
  * @public
@@ -345,48 +398,6 @@ export class LimitExceededException extends __BaseException {
       ...opts,
     });
     Object.setPrototypeOf(this, LimitExceededException.prototype);
-  }
-}
-
-/**
- * <p>The request was rejected because it referenced a resource entity that does not exist. The
- *       error message describes the resource.</p>
- * @public
- */
-export class NoSuchEntityException extends __BaseException {
-  readonly name: "NoSuchEntityException" = "NoSuchEntityException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<NoSuchEntityException, __BaseException>) {
-    super({
-      name: "NoSuchEntityException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, NoSuchEntityException.prototype);
-  }
-}
-
-/**
- * <p>The request processing has failed because of an unknown error, exception or
- *       failure.</p>
- * @public
- */
-export class ServiceFailureException extends __BaseException {
-  readonly name: "ServiceFailureException" = "ServiceFailureException";
-  readonly $fault: "server" = "server";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ServiceFailureException, __BaseException>) {
-    super({
-      name: "ServiceFailureException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ServiceFailureException.prototype);
   }
 }
 
@@ -505,6 +516,17 @@ export const AssignmentStatusType = {
  * @public
  */
 export type AssignmentStatusType = (typeof AssignmentStatusType)[keyof typeof AssignmentStatusType];
+
+/**
+ * @public
+ */
+export interface AssociateDelegationRequestRequest {
+  /**
+   * <p>The unique identifier of the delegation request to associate.</p>
+   * @public
+   */
+  DelegationRequestId: string | undefined;
+}
 
 /**
  * @public
@@ -794,44 +816,43 @@ export const PolicyParameterTypeEnum = {
 export type PolicyParameterTypeEnum = (typeof PolicyParameterTypeEnum)[keyof typeof PolicyParameterTypeEnum];
 
 /**
- * <p></p>
+ * <p>Contains information about a policy parameter used to customize delegated permissions.</p>
  * @public
  */
 export interface PolicyParameter {
   /**
-   * <p></p>
+   * <p>The name of the policy parameter.</p>
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p></p>
+   * <p>The allowed values for the policy parameter.</p>
    * @public
    */
   Values?: string[] | undefined;
 
   /**
-   * <p></p>
+   * <p>The data type of the policy parameter value.</p>
    * @public
    */
   Type?: PolicyParameterTypeEnum | undefined;
 }
 
 /**
- * <p></p>
+ * <p>Contains information about the permissions being delegated in a delegation request.</p>
  * @public
  */
 export interface DelegationPermission {
   /**
-   * <p>The Amazon Resource Name (ARN). ARNs are unique identifiers for Amazon Web Services resources.</p>
-   *          <p>For more information about ARNs, go to <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in
-   *          the <i>Amazon Web Services General Reference</i>. </p>
+   * <p>This ARN maps to a pre-registered policy content for this partner.
+   *          See the <a href="">partner onboarding documentation</a> to understand how to create a delegation template.</p>
    * @public
    */
   PolicyTemplateArn?: string | undefined;
 
   /**
-   * <p></p>
+   * <p>A list of policy parameters that define the scope and constraints of the delegated permissions.</p>
    * @public
    */
   Parameters?: PolicyParameter[] | undefined;
@@ -842,55 +863,76 @@ export interface DelegationPermission {
  */
 export interface CreateDelegationRequestRequest {
   /**
-   * <p></p>
+   * <p>The Amazon Web Services account ID this delegation request is targeted to.</p>
+   *          <p>If the account ID is not known, this parameter can be omitted, resulting in a request that can be associated by
+   *       any account. If the account ID passed, then the created delegation request can only be associated with an
+   *       identity of that target account.</p>
    * @public
    */
   OwnerAccountId?: string | undefined;
 
   /**
-   * <p></p>
+   * <p>A description of the delegation request.</p>
    * @public
    */
   Description: string | undefined;
 
   /**
-   * <p></p>
+   * <p>The permissions to be delegated in this delegation request.</p>
    * @public
    */
   Permissions: DelegationPermission | undefined;
 
   /**
-   * <p></p>
+   * <p>A message explaining the reason for the delegation request.</p>
+   *          <p>Requesters can utilize this field to add a custom note to the delegation request. This field is different from the
+   *       description such that this is to be utilized for a custom messaging on a case-by-case basis.</p>
+   *          <p>For example, if the current delegation request is in response to a previous request being rejected, this explanation
+   *          can be added to the request via this field.</p>
    * @public
    */
   RequestMessage?: string | undefined;
 
   /**
-   * <p></p>
+   * <p>The workflow ID associated with the requestor.</p>
+   *          <p>This is the unique identifier on the partner side that  can be used to track the progress of the request.</p>
+   *          <p>IAM maintains a uniqueness check on this workflow id for each request - if a workflow id for an existing request
+   *          is passed, this API call will fail.</p>
    * @public
    */
   RequestorWorkflowId: string | undefined;
 
   /**
-   * <p></p>
+   * <p>The URL to redirect to after the delegation request is processed.</p>
+   *          <p>This URL is used by the IAM console to show a link to the customer to re-load the partner workflow.</p>
    * @public
    */
   RedirectUrl?: string | undefined;
 
   /**
-   * <p></p>
+   * <p>The notification channel for updates about the delegation request.</p>
+   *          <p>At this time,only SNS topic ARNs are accepted for notification. This topic ARN must have a resource policy granting
+   *          <code>SNS:Publish</code> permission to the IAM service principal (<code>iam.amazonaws.com</code>). See
+   *          <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies-temporary-delegation-partner-guide.html">partner onboarding documentation</a> for more details.
+   *       </p>
    * @public
    */
   NotificationChannel: string | undefined;
 
   /**
-   * <p></p>
+   * <p>The duration for which the delegated session should remain active, in seconds.</p>
+   *          <p>The active time window for the session starts when the customer calls the
+   *          <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_SendDelegationToken.html">SendDelegationToken</a> API.</p>
    * @public
    */
   SessionDuration: number | undefined;
 
   /**
-   * <p></p>
+   * <p>Specifies whether the delegation token should only be sent by the owner.</p>
+   *          <p>This flag prevents any party other than the owner from calling <code>SendDelegationToken</code> API for this delegation request.
+   *          This behavior becomes useful when the delegation request owner needs to be present for subsequent partner interactions, but the delegation request was sent
+   *          to a more privileged user for approval due to the owner lacking sufficient delegation permissions.
+   *       </p>
    * @public
    */
   OnlySendByOwner?: boolean | undefined;
@@ -901,13 +943,16 @@ export interface CreateDelegationRequestRequest {
  */
 export interface CreateDelegationRequestResponse {
   /**
-   * <p></p>
+   * <p>A deep link URL to the Amazon Web Services Management Console for managing the delegation request.</p>
+   *          <p>For a console based workflow, partners should redirect the customer to this URL.
+   *          If the customer is not logged in to any Amazon Web Services account, the Amazon Web Services workflow will
+   *       automatically direct the customer to log in and then display the delegation request approval page.</p>
    * @public
    */
   ConsoleDeepLink?: string | undefined;
 
   /**
-   * <p></p>
+   * <p>The unique identifier for the created delegation request.</p>
    * @public
    */
   DelegationRequestId?: string | undefined;
@@ -4141,6 +4186,271 @@ export interface GetCredentialReportResponse {
 /**
  * @public
  */
+export interface GetDelegationRequestRequest {
+  /**
+   * <p>The unique identifier of the delegation request to retrieve.</p>
+   * @public
+   */
+  DelegationRequestId: string | undefined;
+
+  /**
+   * <p>Specifies whether to perform a permission check for the delegation request.</p>
+   *          <p>If set to true, the <code>GetDelegationRequest</code> API call will start a permission check process. This process
+   *       calculates whether the caller has sufficient permissions to cover the asks from this delegation request.</p>
+   *          <p>Setting this parameter to true does not guarantee an answer in the response. See the <code>PermissionCheckStatus</code>
+   *       and the <code>PermissionCheckResult</code> response attributes for further details.</p>
+   * @public
+   */
+  DelegationPermissionCheck?: boolean | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const StateType = {
+  ACCEPTED: "ACCEPTED",
+  ASSIGNED: "ASSIGNED",
+  EXPIRED: "EXPIRED",
+  FINALIZED: "FINALIZED",
+  PENDING_APPROVAL: "PENDING_APPROVAL",
+  REJECTED: "REJECTED",
+  UNASSIGNED: "UNASSIGNED",
+} as const;
+
+/**
+ * @public
+ */
+export type StateType = (typeof StateType)[keyof typeof StateType];
+
+/**
+ * <p>Contains information about a delegation request, including its status, permissions, and associated metadata.</p>
+ * @public
+ */
+export interface DelegationRequest {
+  /**
+   * <p>The unique identifier for the delegation request.</p>
+   * @public
+   */
+  DelegationRequestId?: string | undefined;
+
+  /**
+   * <p>Amazon Web Services account ID of the owner of the delegation request.</p>
+   * @public
+   */
+  OwnerAccountId?: string | undefined;
+
+  /**
+   * <p>Description of the delegation request. This is a message that is provided by the Amazon Web Services
+   *          partner that filed the delegation request.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>A custom message that is added to the delegation request by the partner.</p>
+   *          <p>This element is different from the <code>Description</code> element such that this is a
+   *       request specific message injected by the partner. The <code>Description</code> is typically
+   *          a generic explanation of what the delegation request is targeted to do.</p>
+   * @public
+   */
+  RequestMessage?: string | undefined;
+
+  /**
+   * <p>Contains information about the permissions being delegated in a delegation request.</p>
+   * @public
+   */
+  Permissions?: DelegationPermission | undefined;
+
+  /**
+   * <p>JSON content of the associated permission policy of this delegation request.</p>
+   * @public
+   */
+  PermissionPolicy?: string | undefined;
+
+  /**
+   * <p>If the <code>PermissionPolicy</code> includes role creation permissions, this element will
+   *       include the list of permissions boundary policies associated with the role creation.
+   *       See <a href="IAM/latest/UserGuide/access_policies_boundaries.html">Permissions boundaries for IAM entities</a>
+   *          for more details about IAM permission boundaries.
+   *       </p>
+   * @public
+   */
+  RolePermissionRestrictionArns?: string[] | undefined;
+
+  /**
+   * <p>ARN of the owner of this delegation request.</p>
+   * @public
+   */
+  OwnerId?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN). ARNs are unique identifiers for Amazon Web Services resources.</p>
+   *          <p>For more information about ARNs, go to <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in
+   *          the <i>Amazon Web Services General Reference</i>. </p>
+   * @public
+   */
+  ApproverId?: string | undefined;
+
+  /**
+   * <p>The state of this delegation request.</p>
+   *          <p>See the <a href="IAM/latest/UserGuide/temporary-delegation-building-integration.html">Understanding the Request Lifecycle</a> for an explanation of how these
+   *       states are transitioned.</p>
+   * @public
+   */
+  State?: StateType | undefined;
+
+  /**
+   * <p>Identity of the requestor of this delegation request. This will be an Amazon Web Services account ID.</p>
+   * @public
+   */
+  RequestorId?: string | undefined;
+
+  /**
+   * <p>A friendly name of the requestor.</p>
+   * @public
+   */
+  RequestorName?: string | undefined;
+
+  /**
+   * <p>Creation date (timestamp) of this delegation request.</p>
+   * @public
+   */
+  CreateDate?: Date | undefined;
+
+  /**
+   * <p>The life-time of the requested session credential.</p>
+   * @public
+   */
+  SessionDuration?: number | undefined;
+
+  /**
+   * <p>A URL to be redirected to once the delegation request is approved. Partners provide this URL when
+   *       creating the delegation request.</p>
+   * @public
+   */
+  RedirectUrl?: string | undefined;
+
+  /**
+   * <p>Notes added to this delegation request, if this request was updated via the
+   *          <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_UpdateDelegationRequest.html">UpdateDelegationRequest</a>
+   *       API.</p>
+   * @public
+   */
+  Notes?: string | undefined;
+
+  /**
+   * <p>Reasons for rejecting this delegation request, if this request was rejected. See also
+   *          <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_RejectDelegationRequest.html">RejectDelegationRequest</a>
+   *          API documentation.
+   *       </p>
+   * @public
+   */
+  RejectionReason?: string | undefined;
+
+  /**
+   * <p>A flag indicating whether the
+   *          <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_SendDelegationToken.html">SendDelegationToken</a>
+   *       must be called by the owner of this delegation request. This is set by the requesting partner.</p>
+   * @public
+   */
+  OnlySendByOwner?: boolean | undefined;
+
+  /**
+   * <p>Last updated timestamp of the request.</p>
+   * @public
+   */
+  UpdatedTime?: Date | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const PermissionCheckResultType = {
+  ALLOWED: "ALLOWED",
+  DENIED: "DENIED",
+  UNSURE: "UNSURE",
+} as const;
+
+/**
+ * @public
+ */
+export type PermissionCheckResultType = (typeof PermissionCheckResultType)[keyof typeof PermissionCheckResultType];
+
+/**
+ * @public
+ * @enum
+ */
+export const PermissionCheckStatusType = {
+  COMPLETE: "COMPLETE",
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+} as const;
+
+/**
+ * @public
+ */
+export type PermissionCheckStatusType = (typeof PermissionCheckStatusType)[keyof typeof PermissionCheckStatusType];
+
+/**
+ * @public
+ */
+export interface GetDelegationRequestResponse {
+  /**
+   * <p>The delegation request object containing all details about the request.</p>
+   * @public
+   */
+  DelegationRequest?: DelegationRequest | undefined;
+
+  /**
+   * <p>The status of the permission check for the delegation request.</p>
+   *          <p>This value indicates the status of the process to check whether the caller has sufficient permissions to cover the requested actions in the delegation request.
+   *       Since this is an asynchronous process, there are three potential values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>IN_PROGRESS</code> : The permission check process has started.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>COMPLETED</code> : The permission check process has completed. The <code>PermissionCheckResult</code> will include the result.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>FAILED</code> : The permission check process has failed.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  PermissionCheckStatus?: PermissionCheckStatusType | undefined;
+
+  /**
+   * <p>The result of the permission check, indicating whether the caller has sufficient permissions to cover the requested permissions.
+   *       This is an approximate result.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ALLOWED</code> : The caller has sufficient permissions cover all the requested permissions.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DENIED</code> : The caller does not have sufficient permissions to cover all the requested permissions.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>UNSURE</code> : It is not possible to determine whether the caller has all the permissions needed.
+   *                This output is most likely for cases when the caller has permissions with conditions.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  PermissionCheckResult?: PermissionCheckResultType | undefined;
+}
+
+/**
+ * @public
+ */
 export interface GetGroupRequest {
   /**
    * <p>The name of the group.</p>
@@ -4257,6 +4567,69 @@ export interface GetGroupPolicyResponse {
    * @public
    */
   PolicyDocument: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetHumanReadableSummaryRequest {
+  /**
+   * <p>Arn of the entity to be summarized. At this time, the only supported
+   *          entity type is <code>delegation-request</code>
+   *          </p>
+   * @public
+   */
+  EntityArn: string | undefined;
+
+  /**
+   * <p>A string representing the locale to use for the summary generation. The
+   *       supported locale strings are based on the <a href="/awsconsolehelpdocs/latest/gsg/change-language.html#supported-languages">
+   *             Supported languages of the Amazon Web Services Management Console
+   *          </a>.</p>
+   * @public
+   */
+  Locale?: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const SummaryStateType = {
+  AVAILABLE: "AVAILABLE",
+  FAILED: "FAILED",
+  NOT_AVAILABLE: "NOT_AVAILABLE",
+  NOT_SUPPORTED: "NOT_SUPPORTED",
+} as const;
+
+/**
+ * @public
+ */
+export type SummaryStateType = (typeof SummaryStateType)[keyof typeof SummaryStateType];
+
+/**
+ * @public
+ */
+export interface GetHumanReadableSummaryResponse {
+  /**
+   * <p>Summary content in the specified locale. Summary content is non-empty only if the
+   *       <code>SummaryState</code> is <code>AVAILABLE</code>.</p>
+   * @public
+   */
+  SummaryContent?: string | undefined;
+
+  /**
+   * <p>The locale that this response was generated for. This maps to the input locale.</p>
+   * @public
+   */
+  Locale?: string | undefined;
+
+  /**
+   * <p>State of summary generation. This generation process is asynchronous and this attribute indicates the
+   *       state of the generation process.</p>
+   * @public
+   */
+  SummaryState?: SummaryStateType | undefined;
 }
 
 /**
@@ -4522,14 +4895,14 @@ export interface GetOrganizationsAccessReportResponse {
   JobStatus: JobStatusType | undefined;
 
   /**
-   * <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time
+   * <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time
    *                 format</a>, when the report job was created.</p>
    * @public
    */
   JobCreationDate: Date | undefined;
 
   /**
-   * <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time
+   * <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time
    *                 format</a>, when the generated report job was completed or failed.</p>
    *          <p>This field is null if the job is still in progress, as indicated by a job status value
    *             of <code>IN_PROGRESS</code>.</p>
@@ -4552,7 +4925,7 @@ export interface GetOrganizationsAccessReportResponse {
   NumberOfServicesNotAccessed?: number | undefined;
 
   /**
-   * <p>An object that contains details about the most recent attempt to access the
+   * <p>An object that contains details about the most recent attempt to access the
    *             service.</p>
    * @public
    */
@@ -5080,21 +5453,21 @@ export interface GetServiceLastAccessedDetailsResponse {
   JobType?: AccessAdvisorUsageGranularityType | undefined;
 
   /**
-   * <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time
+   * <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time
    *                 format</a>, when the report job was created.</p>
    * @public
    */
   JobCreationDate: Date | undefined;
 
   /**
-   * <p> A <code>ServiceLastAccessed</code> object that contains details about the most recent
+   * <p> A <code>ServiceLastAccessed</code> object that contains details about the most recent
    *             attempt to access the service.</p>
    * @public
    */
   ServicesLastAccessed: ServiceLastAccessed[] | undefined;
 
   /**
-   * <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time
+   * <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time
    *                 format</a>, when the generated report job was completed or failed.</p>
    *          <p>This field is null if the job is still in progress, as indicated by a job status value
    *             of <code>IN_PROGRESS</code>.</p>
@@ -5147,7 +5520,7 @@ export interface GetServiceLastAccessedDetailsWithEntitiesRequest {
    *             details for that service. In the first paragraph, find the service prefix. For example,
    *                 <code>(service prefix: a4b)</code>. For more information about service namespaces,
    *             see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces">Amazon Web Services
-   *                 service namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
+   *                 service namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
    * @public
    */
   ServiceNamespace: string | undefined;
@@ -5267,14 +5640,14 @@ export interface GetServiceLastAccessedDetailsWithEntitiesResponse {
   JobStatus: JobStatusType | undefined;
 
   /**
-   * <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time
+   * <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time
    *                 format</a>, when the report job was created.</p>
    * @public
    */
   JobCreationDate: Date | undefined;
 
   /**
-   * <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time
+   * <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time
    *                 format</a>, when the generated report job was completed or failed.</p>
    *          <p>This field is null if the job is still in progress, as indicated by a job status value
    *             of <code>IN_PROGRESS</code>.</p>
@@ -5283,7 +5656,7 @@ export interface GetServiceLastAccessedDetailsWithEntitiesResponse {
   JobCompletionDate: Date | undefined;
 
   /**
-   * <p>An <code>EntityDetailsList</code> object that contains details about when an IAM
+   * <p>An <code>EntityDetailsList</code> object that contains details about when an IAM
    *             entity (user or role) used group or policy permissions in an attempt to access the
    *             specified Amazon Web Services service.</p>
    * @public
@@ -5978,6 +6351,69 @@ export interface ListAttachedUserPoliciesResponse {
 
 /**
  * @public
+ */
+export interface ListDelegationRequestsRequest {
+  /**
+   * <p>The owner ID to filter delegation requests by.</p>
+   * @public
+   */
+  OwnerId?: string | undefined;
+
+  /**
+   * <p>Use this parameter only when paginating results and only after you receive a response
+   *          indicating that the results are truncated. Set it to the value of the
+   *          <code>Marker</code>
+   *          element in the response that you received to indicate where the next
+   *          call should start.
+   *       </p>
+   * @public
+   */
+  Marker?: string | undefined;
+
+  /**
+   * <p>Use this only when paginating results to indicate the maximum number of items you
+   *          want in the response. If additional items exist beyond the maximum you specify, the
+   *          <code>IsTruncated</code>
+   *          response element is <code>true</code>.
+   *       </p>
+   *          <p>If you do not include this parameter, the number of items defaults to 100. Note that
+   *          IAM may return fewer results, even when there are more results available. In that case,
+   *          the <code>IsTruncated</code> response element returns <code>true</code>, and
+   *          <code>Marker</code>
+   *          contains a value to include in the subsequent call that tells the
+   *          service where to continue from.
+   *       </p>
+   * @public
+   */
+  MaxItems?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListDelegationRequestsResponse {
+  /**
+   * <p>A list of delegation requests that match the specified criteria.</p>
+   * @public
+   */
+  DelegationRequests?: DelegationRequest[] | undefined;
+
+  /**
+   * <p>When <code>isTruncated</code> is <code>true</code>, this element is present and contains the value to use for the <code>Marker</code> parameter in a subsequent pagination request.</p>
+   * @public
+   */
+  Marker?: string | undefined;
+
+  /**
+   * <p>A flag that indicates whether there are more items to return.
+   *          If your results were truncated, you can make a subsequent pagination request using the <code>Marker</code> request parameter to retrieve more items.</p>
+   * @public
+   */
+  isTruncated?: boolean | undefined;
+}
+
+/**
+ * @public
  * @enum
  */
 export const PolicyUsageType = {
@@ -6026,9 +6462,9 @@ export interface ListEntitiesForPolicyRequest {
   /**
    * <p>The policy usage method to use for filtering the results.</p>
    *          <p>To list only permissions policies,
-   *                 set <code>PolicyUsageFilter</code> to <code>PermissionsPolicy</code>. To list only
-   *             the policies used to set permissions boundaries, set the value
-   *                 to <code>PermissionsBoundary</code>.</p>
+   *                 set <code>PolicyUsageFilter</code> to <code>PermissionsPolicy</code>. To list only
+   *             the policies used to set permissions boundaries, set the value
+   *                 to <code>PermissionsBoundary</code>.</p>
    *          <p>This parameter is optional. If it is not included, all policies are returned. </p>
    * @public
    */
@@ -6913,9 +7349,9 @@ export interface ListPoliciesRequest {
   /**
    * <p>The policy usage method to use for filtering the results.</p>
    *          <p>To list only permissions policies,
-   *                 set <code>PolicyUsageFilter</code> to <code>PermissionsPolicy</code>. To list only
-   *             the policies used to set permissions boundaries, set the value
-   *                 to <code>PermissionsBoundary</code>.</p>
+   *                 set <code>PolicyUsageFilter</code> to <code>PermissionsPolicy</code>. To list only
+   *             the policies used to set permissions boundaries, set the value
+   *                 to <code>PermissionsBoundary</code>.</p>
    *          <p>This parameter is optional. If it is not included, all policies are returned. </p>
    * @public
    */
@@ -7002,7 +7438,7 @@ export interface ListPoliciesGrantingServiceAccessRequest {
    *             details for that service. In the first paragraph, find the service prefix. For example,
    *                 <code>(service prefix: a4b)</code>. For more information about service namespaces,
    *             see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces">Amazon Web Services
-   *                 service namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
+   *                 service namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
    * @public
    */
   ServiceNamespaces: string[] | undefined;
@@ -7103,7 +7539,7 @@ export interface ListPoliciesGrantingServiceAccessEntry {
  */
 export interface ListPoliciesGrantingServiceAccessResponse {
   /**
-   * <p>A <code>ListPoliciesGrantingServiceAccess</code> object that contains details about
+   * <p>A <code>ListPoliciesGrantingServiceAccess</code> object that contains details about
    *             the permissions policies attached to the specified identity (user, group, or
    *             role).</p>
    * @public
@@ -8326,364 +8762,3 @@ export interface ListVirtualMFADevicesResponse {
    */
   Marker?: string | undefined;
 }
-
-/**
- * @public
- */
-export interface PutGroupPolicyRequest {
-  /**
-   * <p>The name of the group to associate the policy with.</p>
-   *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
-   *     characters with no spaces. You can also include any of the following characters: _+=,.@-.</p>
-   * @public
-   */
-  GroupName: string | undefined;
-
-  /**
-   * <p>The name of the policy document.</p>
-   *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
-   *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
-   * @public
-   */
-  PolicyName: string | undefined;
-
-  /**
-   * <p>The policy document.</p>
-   *          <p>You must provide policies in JSON format in IAM. However, for CloudFormation templates
-   *             formatted in YAML, you can provide the policy in JSON or YAML format. CloudFormation always
-   *             converts a YAML policy to JSON format before submitting it to IAM.</p>
-   *          <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a>
-   *     used to validate this parameter is a string of characters consisting of the following:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Any printable ASCII
-   *     character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p>
-   *             </li>
-   *             <li>
-   *                <p>The printable characters in the Basic Latin and  Latin-1 Supplement character set
-   *     (through <code>\u00FF</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and
-   *     carriage return (<code>\u000D</code>)</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  PolicyDocument: string | undefined;
-}
-
-/**
- * @public
- */
-export interface PutRolePermissionsBoundaryRequest {
-  /**
-   * <p>The name (friendly name, not ARN) of the IAM role for which you want to set the
-   *             permissions boundary.</p>
-   * @public
-   */
-  RoleName: string | undefined;
-
-  /**
-   * <p>The ARN of the managed policy that is used to set the permissions boundary for the
-   *             role.</p>
-   *          <p>A permissions boundary policy defines the maximum permissions that identity-based
-   *             policies can grant to an entity, but does not grant permissions. Permissions boundaries
-   *             do not define the maximum permissions that a resource-based policy can grant to an
-   *             entity. To learn more, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html">Permissions boundaries
-   *                 for IAM entities</a> in the <i>IAM User Guide</i>.</p>
-   *          <p>For more information about policy types, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#access_policy-types">Policy types
-   *             </a> in the <i>IAM User Guide</i>.</p>
-   * @public
-   */
-  PermissionsBoundary: string | undefined;
-}
-
-/**
- * @public
- */
-export interface PutRolePolicyRequest {
-  /**
-   * <p>The name of the role to associate the policy with.</p>
-   *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
-   *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
-   * @public
-   */
-  RoleName: string | undefined;
-
-  /**
-   * <p>The name of the policy document.</p>
-   *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
-   *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
-   * @public
-   */
-  PolicyName: string | undefined;
-
-  /**
-   * <p>The policy document.</p>
-   *          <p>You must provide policies in JSON format in IAM. However, for CloudFormation
-   *             templates formatted in YAML, you can provide the policy in JSON or YAML format. CloudFormation always converts a YAML policy to JSON format before submitting it to
-   *             IAM.</p>
-   *          <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a>
-   *     used to validate this parameter is a string of characters consisting of the following:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Any printable ASCII
-   *     character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p>
-   *             </li>
-   *             <li>
-   *                <p>The printable characters in the Basic Latin and  Latin-1 Supplement character set
-   *     (through <code>\u00FF</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and
-   *     carriage return (<code>\u000D</code>)</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  PolicyDocument: string | undefined;
-}
-
-/**
- * @public
- */
-export interface PutUserPermissionsBoundaryRequest {
-  /**
-   * <p>The name (friendly name, not ARN) of the IAM user for which you want to set the
-   *             permissions boundary.</p>
-   * @public
-   */
-  UserName: string | undefined;
-
-  /**
-   * <p>The ARN of the managed policy that is used to set the permissions boundary for the
-   *             user.</p>
-   *          <p>A permissions boundary policy defines the maximum permissions that identity-based
-   *             policies can grant to an entity, but does not grant permissions. Permissions boundaries
-   *             do not define the maximum permissions that a resource-based policy can grant to an
-   *             entity. To learn more, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html">Permissions boundaries
-   *                 for IAM entities</a> in the <i>IAM User Guide</i>.</p>
-   *          <p>For more information about policy types, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#access_policy-types">Policy types
-   *             </a> in the <i>IAM User Guide</i>.</p>
-   * @public
-   */
-  PermissionsBoundary: string | undefined;
-}
-
-/**
- * @public
- */
-export interface PutUserPolicyRequest {
-  /**
-   * <p>The name of the user to associate the policy with.</p>
-   *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
-   *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
-   * @public
-   */
-  UserName: string | undefined;
-
-  /**
-   * <p>The name of the policy document.</p>
-   *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
-   *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
-   * @public
-   */
-  PolicyName: string | undefined;
-
-  /**
-   * <p>The policy document.</p>
-   *          <p>You must provide policies in JSON format in IAM. However, for CloudFormation
-   *             templates formatted in YAML, you can provide the policy in JSON or YAML format. CloudFormation always converts a YAML policy to JSON format before submitting it to
-   *             IAM.</p>
-   *          <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a>
-   *     used to validate this parameter is a string of characters consisting of the following:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Any printable ASCII
-   *     character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p>
-   *             </li>
-   *             <li>
-   *                <p>The printable characters in the Basic Latin and  Latin-1 Supplement character set
-   *     (through <code>\u00FF</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and
-   *     carriage return (<code>\u000D</code>)</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  PolicyDocument: string | undefined;
-}
-
-/**
- * @public
- */
-export interface RemoveClientIDFromOpenIDConnectProviderRequest {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the IAM OIDC provider resource to remove the
-   *             client ID from. You can get a list of OIDC provider ARNs by using the <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_ListOpenIDConnectProviders.html">ListOpenIDConnectProviders</a> operation.</p>
-   *          <p>For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>
-   * @public
-   */
-  OpenIDConnectProviderArn: string | undefined;
-
-  /**
-   * <p>The client ID (also known as audience) to remove from the IAM OIDC provider
-   *             resource. For more information about client IDs, see <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateOpenIDConnectProvider.html">CreateOpenIDConnectProvider</a>.</p>
-   * @public
-   */
-  ClientID: string | undefined;
-}
-
-/**
- * @public
- */
-export interface RemoveRoleFromInstanceProfileRequest {
-  /**
-   * <p>The name of the instance profile to update.</p>
-   *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
-   *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
-   * @public
-   */
-  InstanceProfileName: string | undefined;
-
-  /**
-   * <p>The name of the role to remove.</p>
-   *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
-   *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
-   * @public
-   */
-  RoleName: string | undefined;
-}
-
-/**
- * @public
- */
-export interface RemoveUserFromGroupRequest {
-  /**
-   * <p>The name of the group to update.</p>
-   *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
-   *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
-   * @public
-   */
-  GroupName: string | undefined;
-
-  /**
-   * <p>The name of the user to remove.</p>
-   *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
-   *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
-   * @public
-   */
-  UserName: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ResetServiceSpecificCredentialRequest {
-  /**
-   * <p>The name of the IAM user associated with the service-specific credential. If this
-   *             value is not specified, then the operation assumes the user whose credentials are used
-   *             to call the operation.</p>
-   *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
-   *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
-   * @public
-   */
-  UserName?: string | undefined;
-
-  /**
-   * <p>The unique identifier of the service-specific credential.</p>
-   *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters that can
-   *     consist of any upper or lowercased letter or digit.</p>
-   * @public
-   */
-  ServiceSpecificCredentialId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ResetServiceSpecificCredentialResponse {
-  /**
-   * <p>A structure with details about the updated service-specific credential, including the
-   *             new password.</p>
-   *          <important>
-   *             <p>This is the <b>only</b> time that you can access the
-   *                 password. You cannot recover the password later, but you can reset it again.</p>
-   *          </important>
-   * @public
-   */
-  ServiceSpecificCredential?: ServiceSpecificCredential | undefined;
-}
-
-/**
- * @public
- */
-export interface ResyncMFADeviceRequest {
-  /**
-   * <p>The name of the user whose MFA device you want to resynchronize.</p>
-   *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
-   *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
-   * @public
-   */
-  UserName: string | undefined;
-
-  /**
-   * <p>Serial number that uniquely identifies the MFA device.</p>
-   *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
-   *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
-   * @public
-   */
-  SerialNumber: string | undefined;
-
-  /**
-   * <p>An authentication code emitted by the device.</p>
-   *          <p>The format for this parameter is a sequence of six digits.</p>
-   * @public
-   */
-  AuthenticationCode1: string | undefined;
-
-  /**
-   * <p>A subsequent authentication code emitted by the device.</p>
-   *          <p>The format for this parameter is a sequence of six digits.</p>
-   * @public
-   */
-  AuthenticationCode2: string | undefined;
-}
-
-/**
- * @public
- */
-export interface SetDefaultPolicyVersionRequest {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the IAM policy whose default version you want to
-   *             set.</p>
-   *          <p>For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>
-   * @public
-   */
-  PolicyArn: string | undefined;
-
-  /**
-   * <p>The version of the policy to set as the default (operative) version.</p>
-   *          <p>For more information about managed policy versions, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html">Versioning for managed
-   *                 policies</a> in the <i>IAM User Guide</i>.</p>
-   * @public
-   */
-  VersionId: string | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const GlobalEndpointTokenVersion = {
-  v1Token: "v1Token",
-  v2Token: "v2Token",
-} as const;
-
-/**
- * @public
- */
-export type GlobalEndpointTokenVersion = (typeof GlobalEndpointTokenVersion)[keyof typeof GlobalEndpointTokenVersion];

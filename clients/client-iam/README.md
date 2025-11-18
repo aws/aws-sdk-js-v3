@@ -210,6 +210,14 @@ see LICENSE for more information.
 
 <details>
 <summary>
+AcceptDelegationRequest
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iam/command/AcceptDelegationRequestCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iam/Interface/AcceptDelegationRequestCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iam/Interface/AcceptDelegationRequestCommandOutput/)
+
+</details>
+<details>
+<summary>
 AddClientIDToOpenIDConnectProvider
 </summary>
 
@@ -230,6 +238,14 @@ AddUserToGroup
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iam/command/AddUserToGroupCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iam/Interface/AddUserToGroupCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iam/Interface/AddUserToGroupCommandOutput/)
+
+</details>
+<details>
+<summary>
+AssociateDelegationRequest
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iam/command/AssociateDelegationRequestCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iam/Interface/AssociateDelegationRequestCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iam/Interface/AssociateDelegationRequestCommandOutput/)
 
 </details>
 <details>
@@ -722,6 +738,14 @@ GetCredentialReport
 </details>
 <details>
 <summary>
+GetDelegationRequest
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iam/command/GetDelegationRequestCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iam/Interface/GetDelegationRequestCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iam/Interface/GetDelegationRequestCommandOutput/)
+
+</details>
+<details>
+<summary>
 GetGroup
 </summary>
 
@@ -734,6 +758,14 @@ GetGroupPolicy
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iam/command/GetGroupPolicyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iam/Interface/GetGroupPolicyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iam/Interface/GetGroupPolicyCommandOutput/)
+
+</details>
+<details>
+<summary>
+GetHumanReadableSummary
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iam/command/GetHumanReadableSummaryCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iam/Interface/GetHumanReadableSummaryCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iam/Interface/GetHumanReadableSummaryCommandOutput/)
 
 </details>
 <details>
@@ -910,6 +942,14 @@ ListAttachedUserPolicies
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iam/command/ListAttachedUserPoliciesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iam/Interface/ListAttachedUserPoliciesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iam/Interface/ListAttachedUserPoliciesCommandOutput/)
+
+</details>
+<details>
+<summary>
+ListDelegationRequests
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iam/command/ListDelegationRequestsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iam/Interface/ListDelegationRequestsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iam/Interface/ListDelegationRequestsCommandOutput/)
 
 </details>
 <details>
@@ -1194,6 +1234,14 @@ PutUserPolicy
 </details>
 <details>
 <summary>
+RejectDelegationRequest
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iam/command/RejectDelegationRequestCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iam/Interface/RejectDelegationRequestCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iam/Interface/RejectDelegationRequestCommandOutput/)
+
+</details>
+<details>
+<summary>
 RemoveClientIDFromOpenIDConnectProvider
 </summary>
 
@@ -1230,6 +1278,14 @@ ResyncMFADevice
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iam/command/ResyncMFADeviceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iam/Interface/ResyncMFADeviceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iam/Interface/ResyncMFADeviceCommandOutput/)
+
+</details>
+<details>
+<summary>
+SendDelegationToken
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iam/command/SendDelegationTokenCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iam/Interface/SendDelegationTokenCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iam/Interface/SendDelegationTokenCommandOutput/)
 
 </details>
 <details>
@@ -1414,6 +1470,14 @@ UpdateAssumeRolePolicy
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iam/command/UpdateAssumeRolePolicyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iam/Interface/UpdateAssumeRolePolicyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iam/Interface/UpdateAssumeRolePolicyCommandOutput/)
+
+</details>
+<details>
+<summary>
+UpdateDelegationRequest
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iam/command/UpdateDelegationRequestCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iam/Interface/UpdateDelegationRequestCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iam/Interface/UpdateDelegationRequestCommandOutput/)
 
 </details>
 <details>

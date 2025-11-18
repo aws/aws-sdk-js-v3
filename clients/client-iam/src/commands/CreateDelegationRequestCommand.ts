@@ -27,7 +27,11 @@ export interface CreateDelegationRequestCommandInput extends CreateDelegationReq
 export interface CreateDelegationRequestCommandOutput extends CreateDelegationRequestResponse, __MetadataBearer {}
 
 /**
- * <p>This API is currently unavailable for general use.</p>
+ * <p>Creates an IAM delegation request for temporary access delegation.</p>
+ *          <p>This API is not available for general use. In order to use this API, a caller first need to
+ *             go through an onboarding process described in the
+ *             <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies-temporary-delegation-partner-guide.html">partner onboarding documentation</a>.
+ *         </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

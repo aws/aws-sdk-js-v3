@@ -58,6 +58,10 @@ import {
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
 import {
+  AcceptDelegationRequestCommandInput,
+  AcceptDelegationRequestCommandOutput,
+} from "./commands/AcceptDelegationRequestCommand";
+import {
   AddClientIDToOpenIDConnectProviderCommandInput,
   AddClientIDToOpenIDConnectProviderCommandOutput,
 } from "./commands/AddClientIDToOpenIDConnectProviderCommand";
@@ -66,6 +70,10 @@ import {
   AddRoleToInstanceProfileCommandOutput,
 } from "./commands/AddRoleToInstanceProfileCommand";
 import { AddUserToGroupCommandInput, AddUserToGroupCommandOutput } from "./commands/AddUserToGroupCommand";
+import {
+  AssociateDelegationRequestCommandInput,
+  AssociateDelegationRequestCommandOutput,
+} from "./commands/AssociateDelegationRequestCommand";
 import { AttachGroupPolicyCommandInput, AttachGroupPolicyCommandOutput } from "./commands/AttachGroupPolicyCommand";
 import { AttachRolePolicyCommandInput, AttachRolePolicyCommandOutput } from "./commands/AttachRolePolicyCommand";
 import { AttachUserPolicyCommandInput, AttachUserPolicyCommandOutput } from "./commands/AttachUserPolicyCommand";
@@ -223,8 +231,16 @@ import {
   GetCredentialReportCommandInput,
   GetCredentialReportCommandOutput,
 } from "./commands/GetCredentialReportCommand";
+import {
+  GetDelegationRequestCommandInput,
+  GetDelegationRequestCommandOutput,
+} from "./commands/GetDelegationRequestCommand";
 import { GetGroupCommandInput, GetGroupCommandOutput } from "./commands/GetGroupCommand";
 import { GetGroupPolicyCommandInput, GetGroupPolicyCommandOutput } from "./commands/GetGroupPolicyCommand";
+import {
+  GetHumanReadableSummaryCommandInput,
+  GetHumanReadableSummaryCommandOutput,
+} from "./commands/GetHumanReadableSummaryCommand";
 import { GetInstanceProfileCommandInput, GetInstanceProfileCommandOutput } from "./commands/GetInstanceProfileCommand";
 import { GetLoginProfileCommandInput, GetLoginProfileCommandOutput } from "./commands/GetLoginProfileCommand";
 import { GetMFADeviceCommandInput, GetMFADeviceCommandOutput } from "./commands/GetMFADeviceCommand";
@@ -274,6 +290,10 @@ import {
   ListAttachedUserPoliciesCommandInput,
   ListAttachedUserPoliciesCommandOutput,
 } from "./commands/ListAttachedUserPoliciesCommand";
+import {
+  ListDelegationRequestsCommandInput,
+  ListDelegationRequestsCommandOutput,
+} from "./commands/ListDelegationRequestsCommand";
 import {
   ListEntitiesForPolicyCommandInput,
   ListEntitiesForPolicyCommandOutput,
@@ -358,6 +378,10 @@ import {
 } from "./commands/PutUserPermissionsBoundaryCommand";
 import { PutUserPolicyCommandInput, PutUserPolicyCommandOutput } from "./commands/PutUserPolicyCommand";
 import {
+  RejectDelegationRequestCommandInput,
+  RejectDelegationRequestCommandOutput,
+} from "./commands/RejectDelegationRequestCommand";
+import {
   RemoveClientIDFromOpenIDConnectProviderCommandInput,
   RemoveClientIDFromOpenIDConnectProviderCommandOutput,
 } from "./commands/RemoveClientIDFromOpenIDConnectProviderCommand";
@@ -374,6 +398,10 @@ import {
   ResetServiceSpecificCredentialCommandOutput,
 } from "./commands/ResetServiceSpecificCredentialCommand";
 import { ResyncMFADeviceCommandInput, ResyncMFADeviceCommandOutput } from "./commands/ResyncMFADeviceCommand";
+import {
+  SendDelegationTokenCommandInput,
+  SendDelegationTokenCommandOutput,
+} from "./commands/SendDelegationTokenCommand";
 import {
   SetDefaultPolicyVersionCommandInput,
   SetDefaultPolicyVersionCommandOutput,
@@ -430,6 +458,10 @@ import {
   UpdateAssumeRolePolicyCommandInput,
   UpdateAssumeRolePolicyCommandOutput,
 } from "./commands/UpdateAssumeRolePolicyCommand";
+import {
+  UpdateDelegationRequestCommandInput,
+  UpdateDelegationRequestCommandOutput,
+} from "./commands/UpdateDelegationRequestCommand";
 import { UpdateGroupCommandInput, UpdateGroupCommandOutput } from "./commands/UpdateGroupCommand";
 import { UpdateLoginProfileCommandInput, UpdateLoginProfileCommandOutput } from "./commands/UpdateLoginProfileCommand";
 import {
@@ -480,9 +512,11 @@ export { __Client };
  * @public
  */
 export type ServiceInputTypes =
+  | AcceptDelegationRequestCommandInput
   | AddClientIDToOpenIDConnectProviderCommandInput
   | AddRoleToInstanceProfileCommandInput
   | AddUserToGroupCommandInput
+  | AssociateDelegationRequestCommandInput
   | AttachGroupPolicyCommandInput
   | AttachRolePolicyCommandInput
   | AttachUserPolicyCommandInput
@@ -544,8 +578,10 @@ export type ServiceInputTypes =
   | GetContextKeysForCustomPolicyCommandInput
   | GetContextKeysForPrincipalPolicyCommandInput
   | GetCredentialReportCommandInput
+  | GetDelegationRequestCommandInput
   | GetGroupCommandInput
   | GetGroupPolicyCommandInput
+  | GetHumanReadableSummaryCommandInput
   | GetInstanceProfileCommandInput
   | GetLoginProfileCommandInput
   | GetMFADeviceCommandInput
@@ -568,6 +604,7 @@ export type ServiceInputTypes =
   | ListAttachedGroupPoliciesCommandInput
   | ListAttachedRolePoliciesCommandInput
   | ListAttachedUserPoliciesCommandInput
+  | ListDelegationRequestsCommandInput
   | ListEntitiesForPolicyCommandInput
   | ListGroupPoliciesCommandInput
   | ListGroupsCommandInput
@@ -603,11 +640,13 @@ export type ServiceInputTypes =
   | PutRolePolicyCommandInput
   | PutUserPermissionsBoundaryCommandInput
   | PutUserPolicyCommandInput
+  | RejectDelegationRequestCommandInput
   | RemoveClientIDFromOpenIDConnectProviderCommandInput
   | RemoveRoleFromInstanceProfileCommandInput
   | RemoveUserFromGroupCommandInput
   | ResetServiceSpecificCredentialCommandInput
   | ResyncMFADeviceCommandInput
+  | SendDelegationTokenCommandInput
   | SetDefaultPolicyVersionCommandInput
   | SetSecurityTokenServicePreferencesCommandInput
   | SimulateCustomPolicyCommandInput
@@ -631,6 +670,7 @@ export type ServiceInputTypes =
   | UpdateAccessKeyCommandInput
   | UpdateAccountPasswordPolicyCommandInput
   | UpdateAssumeRolePolicyCommandInput
+  | UpdateDelegationRequestCommandInput
   | UpdateGroupCommandInput
   | UpdateLoginProfileCommandInput
   | UpdateOpenIDConnectProviderThumbprintCommandInput
@@ -650,9 +690,11 @@ export type ServiceInputTypes =
  * @public
  */
 export type ServiceOutputTypes =
+  | AcceptDelegationRequestCommandOutput
   | AddClientIDToOpenIDConnectProviderCommandOutput
   | AddRoleToInstanceProfileCommandOutput
   | AddUserToGroupCommandOutput
+  | AssociateDelegationRequestCommandOutput
   | AttachGroupPolicyCommandOutput
   | AttachRolePolicyCommandOutput
   | AttachUserPolicyCommandOutput
@@ -714,8 +756,10 @@ export type ServiceOutputTypes =
   | GetContextKeysForCustomPolicyCommandOutput
   | GetContextKeysForPrincipalPolicyCommandOutput
   | GetCredentialReportCommandOutput
+  | GetDelegationRequestCommandOutput
   | GetGroupCommandOutput
   | GetGroupPolicyCommandOutput
+  | GetHumanReadableSummaryCommandOutput
   | GetInstanceProfileCommandOutput
   | GetLoginProfileCommandOutput
   | GetMFADeviceCommandOutput
@@ -738,6 +782,7 @@ export type ServiceOutputTypes =
   | ListAttachedGroupPoliciesCommandOutput
   | ListAttachedRolePoliciesCommandOutput
   | ListAttachedUserPoliciesCommandOutput
+  | ListDelegationRequestsCommandOutput
   | ListEntitiesForPolicyCommandOutput
   | ListGroupPoliciesCommandOutput
   | ListGroupsCommandOutput
@@ -773,11 +818,13 @@ export type ServiceOutputTypes =
   | PutRolePolicyCommandOutput
   | PutUserPermissionsBoundaryCommandOutput
   | PutUserPolicyCommandOutput
+  | RejectDelegationRequestCommandOutput
   | RemoveClientIDFromOpenIDConnectProviderCommandOutput
   | RemoveRoleFromInstanceProfileCommandOutput
   | RemoveUserFromGroupCommandOutput
   | ResetServiceSpecificCredentialCommandOutput
   | ResyncMFADeviceCommandOutput
+  | SendDelegationTokenCommandOutput
   | SetDefaultPolicyVersionCommandOutput
   | SetSecurityTokenServicePreferencesCommandOutput
   | SimulateCustomPolicyCommandOutput
@@ -801,6 +848,7 @@ export type ServiceOutputTypes =
   | UpdateAccessKeyCommandOutput
   | UpdateAccountPasswordPolicyCommandOutput
   | UpdateAssumeRolePolicyCommandOutput
+  | UpdateDelegationRequestCommandOutput
   | UpdateGroupCommandOutput
   | UpdateLoginProfileCommandOutput
   | UpdateOpenIDConnectProviderThumbprintCommandOutput
