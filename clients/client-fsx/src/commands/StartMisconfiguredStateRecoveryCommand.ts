@@ -113,6 +113,10 @@ export interface StartMisconfiguredStateRecoveryCommandOutput
  * //         Iops: Number("long"),
  * //       },
  * //       PreferredFileServerIpv6: "STRING_VALUE",
+ * //       FsrmConfiguration: { // WindowsFsrmConfiguration
+ * //         FsrmServiceEnabled: true || false, // required
+ * //         EventLogDestination: "STRING_VALUE",
+ * //       },
  * //     },
  * //     LustreConfiguration: { // LustreFileSystemConfiguration
  * //       WeeklyMaintenanceStartTime: "STRING_VALUE",
@@ -228,6 +232,10 @@ export interface StartMisconfiguredStateRecoveryCommandOutput
  * //               Iops: Number("long"),
  * //             },
  * //             PreferredFileServerIpv6: "STRING_VALUE",
+ * //             FsrmConfiguration: {
+ * //               FsrmServiceEnabled: true || false, // required
+ * //               EventLogDestination: "STRING_VALUE",
+ * //             },
  * //           },
  * //           LustreConfiguration: {
  * //             WeeklyMaintenanceStartTime: "STRING_VALUE",

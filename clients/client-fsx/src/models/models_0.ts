@@ -1189,6 +1189,34 @@ export interface WindowsAuditLogConfiguration {
 }
 
 /**
+ * <p>The File Server Resource Manager (FSRM) configuration that Amazon FSx for Windows File Server uses for the file system. When FSRM is enabled, you can
+ *             manage and monitor storage quotas, file screening, storage reports, and file classification.</p>
+ * @public
+ */
+export interface WindowsFsrmConfiguration {
+  /**
+   * <p>Specifies whether FSRM is enabled or disabled on the file system.  When <code>TRUE</code>, the FSRM service is enabled and monitor file operations according to
+   *             configured policies. When <code>FALSE</code> or omitted, FSRM is disabled. The default value is <code>FALSE</code>. </p>
+   * @public
+   */
+  FsrmServiceEnabled: boolean | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) for the destination of the FSRM event logs.
+   *             The destination can be any Amazon CloudWatch Logs log group ARN or
+   *             Amazon Kinesis Data Firehose delivery stream ARN.</p>
+   *          <p>The name of the Amazon CloudWatch Logs log group must begin with
+   *             the <code>/aws/fsx</code> prefix. The name of the Amazon Kinesis Data
+   *             Firehose delivery stream must begin with the <code>aws-fsx</code> prefix.</p>
+   *          <p>The destination ARN (either CloudWatch Logs log group or Kinesis
+   *             Data Firehose delivery stream) must be in the same Amazon Web Services partition,
+   *             Amazon Web Services Region, and Amazon Web Services account as your Amazon FSx file system.</p>
+   * @public
+   */
+  EventLogDestination?: string | undefined;
+}
+
+/**
  * <p>The configuration of the self-managed Microsoft Active Directory (AD) directory to
  *             which the Windows File Server or ONTAP storage virtual machine (SVM) instance is joined.</p>
  * @public
@@ -1395,6 +1423,12 @@ export interface WindowsFileSystemConfiguration {
    * @public
    */
   PreferredFileServerIpv6?: string | undefined;
+
+  /**
+   * <p>The File Server Resource Manager (FSRM) configuration that Amazon FSx for Windows File Server uses for the file system. FSRM is disabled by default.</p>
+   * @public
+   */
+  FsrmConfiguration?: WindowsFsrmConfiguration | undefined;
 }
 
 /**
@@ -5402,6 +5436,12 @@ export interface CreateFileSystemWindowsConfiguration {
    * @public
    */
   DiskIopsConfiguration?: DiskIopsConfiguration | undefined;
+
+  /**
+   * <p>The File Server Resource Manager (FSRM) configuration that Amazon FSx for Windows File Server uses for the file system. FSRM is disabled by default.</p>
+   * @public
+   */
+  FsrmConfiguration?: WindowsFsrmConfiguration | undefined;
 }
 
 /**
@@ -8912,6 +8952,12 @@ export interface UpdateFileSystemWindowsConfiguration {
    * @public
    */
   DiskIopsConfiguration?: DiskIopsConfiguration | undefined;
+
+  /**
+   * <p>The File Server Resource Manager (FSRM) configuration that Amazon FSx for Windows File Server uses for the file system. FSRM is disabled by default.</p>
+   * @public
+   */
+  FsrmConfiguration?: WindowsFsrmConfiguration | undefined;
 }
 
 /**

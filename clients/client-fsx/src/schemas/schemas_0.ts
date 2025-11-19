@@ -224,6 +224,7 @@ const _EIA = "EndpointIpAddress";
 const _EIAR = "EndpointIpAddressRange";
 const _EIARn = "EndpointIpv6AddressRange";
 const _EIAn = "EndpointIpv6Address";
+const _ELD = "EventLogDestination";
 const _EP = "ExportPath";
 const _ET = "EndTime";
 const _En = "Enabled";
@@ -250,12 +251,14 @@ const _FCT = "FileCacheType";
 const _FCTV = "FileCacheTypeVersion";
 const _FCa = "FailedCount";
 const _FCi = "FileCaches";
+const _FCs = "FsrmConfiguration";
 const _FD = "FailureDetails";
 const _FS = "FileSystem";
 const _FSAALL = "FileShareAccessAuditLogLevel";
 const _FSAG = "FileSystemAdministratorsGroup";
 const _FSE = "FileSystemEndpoint";
 const _FSEi = "FileSystemEndpoints";
+const _FSEs = "FsrmServiceEnabled";
 const _FSFD = "FileSystemFailureDetails";
 const _FSI = "FileSystemId";
 const _FSIi = "FileSystemIdentity";
@@ -547,6 +550,7 @@ const _Vol = "Volumes";
 const _WALC = "WindowsAuditLogConfiguration";
 const _WALCC = "WindowsAuditLogCreateConfiguration";
 const _WC = "WindowsConfiguration";
+const _WFC = "WindowsFsrmConfiguration";
 const _WFSC = "WindowsFileSystemConfiguration";
 const _WMST = "WeeklyMaintenanceStartTime";
 const _WR = "WindowsResponse";
@@ -1008,7 +1012,7 @@ export var CreateFileSystemWindowsConfiguration: StaticStructureSchema = [
   n0,
   _CFSWC,
   0,
-  [_ADI, _SMADC, _DT, _PSI, _TCh, _WMST, _DABST, _ABRD, _CTTB, _Ali, _ALC, _DIC],
+  [_ADI, _SMADC, _DT, _PSI, _TCh, _WMST, _DABST, _ABRD, _CTTB, _Ali, _ALC, _DIC, _FCs],
   [
     0,
     [() => SelfManagedActiveDirectoryConfiguration, 0],
@@ -1022,6 +1026,7 @@ export var CreateFileSystemWindowsConfiguration: StaticStructureSchema = [
     64 | 0,
     () => WindowsAuditLogCreateConfiguration,
     () => DiskIopsConfiguration,
+    () => WindowsFsrmConfiguration,
   ],
 ];
 export var CreateOntapVolumeConfiguration: StaticStructureSchema = [
@@ -2385,7 +2390,7 @@ export var UpdateFileSystemWindowsConfiguration: StaticStructureSchema = [
   n0,
   _UFSWC,
   0,
-  [_WMST, _DABST, _ABRD, _TCh, _SMADC, _ALC, _DIC],
+  [_WMST, _DABST, _ABRD, _TCh, _SMADC, _ALC, _DIC, _FCs],
   [
     0,
     0,
@@ -2394,6 +2399,7 @@ export var UpdateFileSystemWindowsConfiguration: StaticStructureSchema = [
     [() => SelfManagedActiveDirectoryConfigurationUpdates, 0],
     () => WindowsAuditLogCreateConfiguration,
     () => DiskIopsConfiguration,
+    () => WindowsFsrmConfiguration,
   ],
 ];
 export var UpdateOntapVolumeConfiguration: StaticStructureSchema = [
@@ -2512,7 +2518,7 @@ export var WindowsFileSystemConfiguration: StaticStructureSchema = [
   n0,
   _WFSC,
   0,
-  [_ADI, _SMADC, _DT, _RAE, _PSI, _PFSI, _TCh, _MOIP, _WMST, _DABST, _ABRD, _CTTB, _Ali, _ALC, _DIC, _PFSIr],
+  [_ADI, _SMADC, _DT, _RAE, _PSI, _PFSI, _TCh, _MOIP, _WMST, _DABST, _ABRD, _CTTB, _Ali, _ALC, _DIC, _PFSIr, _FCs],
   [
     0,
     () => SelfManagedActiveDirectoryAttributes,
@@ -2530,8 +2536,10 @@ export var WindowsFileSystemConfiguration: StaticStructureSchema = [
     () => WindowsAuditLogConfiguration,
     () => DiskIopsConfiguration,
     0,
+    () => WindowsFsrmConfiguration,
   ],
 ];
+export var WindowsFsrmConfiguration: StaticStructureSchema = [3, n0, _WFC, 0, [_FSEs, _ELD], [2, 0]];
 export var __Unit = "unit" as const;
 
 export var FSxServiceException: StaticErrorSchema = [-3, _sm, "FSxServiceException", 0, [], []];
